@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: sngun
-ms.openlocfilehash: 1ac4d12f58977497642cdb0706ab7e85e9a4db64
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: d06afb3670b1c3af3f1acf0bd690c1e3e266a11c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913083"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771798"
 ---
 # <a name="security-controls-for-azure-cosmos-db"></a>Controlli di sicurezza per Azure Cosmos DB
 
@@ -52,7 +52,7 @@ Questo articolo descrive i controlli di sicurezza incorporati in Azure Cosmos DB
 | Crittografia lato server inattiva: chiavi gestite dal cliente (BYOK) | Sì | Vedere [configurare le chiavi gestite dal cliente per l'account Azure Cosmos DB](how-to-setup-cmk.md)  |
 | Crittografia a livello di colonna (servizi dati di Azure)| Sì | Solo nell'API Tables Premium. Non tutte le API supportano questa funzionalità. Vedere [Introduzione a Azure Cosmos DB: API tabella](table-introduction.md). |
 | Crittografia in transito (ad esempio crittografia ExpressRoute, crittografia VNet e crittografia VNet-VNet)| Sì | Tutti i dati Azure Cosmos DB vengono crittografati in transito. |
-| Chiamate API crittografate| Sì | Tutte le connessioni a Azure Cosmos DB supportano HTTPS. Azure Cosmos DB supporta anche TLS 1,2.<br>È possibile imporre una versione minima di TLS sul lato server. A tale scopo, contattare [cosmosdbpm@microsoft.com](maito:cosmosdbpm@microsoft.com]). |
+| Chiamate API crittografate| Sì | Tutte le connessioni a Azure Cosmos DB supportano HTTPS. Azure Cosmos DB supporta anche TLS 1,2.<br>È possibile imporre una versione minima di TLS sul lato server. A tale scopo, contattare [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com). |
 
 ## <a name="configuration-management"></a>Gestione della configurazione
 

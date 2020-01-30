@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 00d5ba6fd86ea722270dfbe73324323bd831a529
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 8a562345caf47540321528560a5ee0b4854c42a9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263371"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840282"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico RESTful nei criteri personalizzati di Azure Active Directory B2C
 
@@ -260,7 +260,7 @@ public class ResponseContent
 
 Per esempi relativi all'uso di un profilo tecnico RESTful, vedere gli articoli seguenti:
 
-- [Integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell'input utente](active-directory-b2c-custom-rest-api-netfw.md)
-- [Proteggere i servizi RESTful usando l'autenticazione di base HTTP](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
-- [Proteggere il servizio RESTful usando certificati client](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
-- [Procedura dettagliata: Integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell'input utente](active-directory-b2c-rest-api-validation-custom.md)
+- [Integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell'input utente](rest-api-claims-exchange-dotnet.md)
+- [Proteggere i servizi RESTful usando l'autenticazione di base HTTP](secure-rest-api-dotnet-basic-auth.md)
+- [Proteggere il servizio RESTful usando certificati client](secure-rest-api-dotnet-certificate-auth.md)
+- [Procedura dettagliata: Integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell'input utente](custom-policy-rest-api-claims-validation.md)

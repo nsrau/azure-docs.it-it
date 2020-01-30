@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d754964ac6c16c87e6f0825b4f1a955d38fa3530
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: f11258457e60ea3458b0ede1fe00f042041bcb1a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756229"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841251"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Esercitazione: Configurare G Suite per il provisioning utenti automatico
 
@@ -209,6 +209,7 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="common-issues"></a>Problemi comuni
 * Gli errori di autorizzazione possono verificarsi quando l'account utilizzato per stabilire una connessione non è per un amministratore in GSuite. Assicurarsi che l'account usato per autorizzare l'accesso disponga delle autorizzazioni di amministratore per **tutti i domini** di cui gli utenti devono eseguire il provisioning. 
+* Azure AD supporta la disabilitazione degli utenti in GSuite in modo che non possano accedere all'applicazione, ma non elimina gli utenti in GSuite.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

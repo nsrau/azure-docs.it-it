@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 9c654c65577c44b1773ff98cb1206beeb5206ba4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4cf2bc919ecb8b39a23b23df95a6f37396f50603
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761778"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774873"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Configurare la telemetria di Servizi multimediali di Azure con REST
 
 Questo argomento descrive in generale i possibili passaggi da eseguire per configurare la telemetria di Servizi multimediali di Azure usando l'API REST. 
 
 >[!NOTE]
->Per una spiegazione dettagliata della telemetria AMS e di come usarla, vedere l'argomento di [panoramica](media-services-telemetry-overview.md).
+>Per una spiegazione dettagliata della telemetria di Servizi multimediali di Azure e di come usarla, vedere l'argomento relativo alla [panoramica](media-services-telemetry-overview.md).
 
 Questo argomento descrive come:
 
@@ -34,7 +34,7 @@ Questo argomento descrive come:
 - Acquisire gli endpoint di notifica
 - Creare un endpoint di notifica per il monitoraggio. 
 
-    Per creare un Endpoint di notifica, impostare la proprietà EndPointType su AzureTable (2) ed EndpointAddress sulla tabella di archiviazione (ad esempio, https:\//telemetryvalidationstore.table.core.windows.net/).
+    Per creare un endpoint di notifica, impostare EndPointType su AzureTable (2) e EndpointAddress sulla impostato sulla tabella di archiviazione (ad esempio, https:\//telemetryvalidationstore.table.core.windows.net/).
   
 - Ottenere le configurazioni di monitoraggio
 
@@ -49,7 +49,7 @@ Questo argomento descrive come:
 ### <a name="request"></a>Richiesta
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts HTTP/1.1
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
@@ -77,7 +77,7 @@ Questo argomento descrive come:
 ### <a name="request"></a>Richiesta
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
@@ -110,7 +110,7 @@ Questo argomento descrive come:
 ### <a name="request"></a>Richiesta
 
     POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
@@ -126,7 +126,7 @@ Questo argomento descrive come:
     }
 
 > [!NOTE]
-> Non dimenticare di modificare il "https:\//telemetryvalidationstore.table.core.windows.net" valore all'account di archiviazione.
+> Non dimenticare di modificare il valore "https:\//telemetryvalidationstore.table.core.windows.net" per l'account di archiviazione.
 
 ### <a name="response"></a>Risposta
 
@@ -152,7 +152,7 @@ Questo argomento descrive come:
 ### <a name="request"></a>Richiesta
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations HTTP/1.1
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
@@ -182,7 +182,7 @@ Questo argomento descrive come:
 ### <a name="request"></a>Richiesta
 
     POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations HTTP/1.1
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
@@ -225,7 +225,7 @@ Questo argomento descrive come:
 ### <a name="request"></a>Richiesta
 
     DELETE https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
@@ -241,6 +241,6 @@ Per informazioni sull'uso dei dati di telemetria, vedere [questo](media-services
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

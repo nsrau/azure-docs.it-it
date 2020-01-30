@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/17/2020
+ms.date: 01/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 55872d48dcf2a85812e1627e4e85bcd98b25d576
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 3c609c659d99ce6eca0326a5a14cbbb67099e686
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271329"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840469"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usare Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -121,6 +121,7 @@ Per informazioni sull'integrazione dei servizi di Azure nei componenti SAP, vede
 
 ## <a name="change-log"></a>Registro modifiche
 
+- 01/28/2020: modificare la [disponibilità elevata delle SAP Hana nelle macchine virtuali di Azure in RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel) per allineare i timeout delle risorse del cluster SAP Hana alle raccomandazioni per il timeout di Red Hat
 - 01/17/2020: modificare i [gruppi di posizionamento di prossimità di Azure per una latenza di rete ottimale con le applicazioni SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) per modificare la sezione dello stato di trasferimento di macchine virtuali esistenti in un gruppo di posizionamento vicino
 - 01/17/2020: modificare [le configurazioni del carico di lavoro SAP con zone di disponibilità di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) per puntare alla procedura che consente di automatizzare le misurazioni della latenza tra zone di disponibilità
 - 01/16/2020: modificare [le modalità di installazione e configurazione di SAP Hana (istanze large) in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation) per adattare le versioni del sistema operativo alla directory hardware Hana IaaS

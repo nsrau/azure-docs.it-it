@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c4f0a72cb598a8e38fc69f23f62f0f456cccb04
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 165bd93f2d35425965df9358c8d85f79ce557d66
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543920"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76833365"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect
 Questo articolo contiene le informazioni necessarie per sincronizzare le password utente da un'istanza di Active Directory locale a un'istanza di Azure Active Directory (Azure AD) basata sul cloud.
@@ -130,9 +130,9 @@ Avvertenza: se sono presenti account sincronizzati che devono avere password non
   
 La funzionalità relativa alle password temporanee consente di garantire che il trasferimento della proprietà delle credenziali venga completato al primo utilizzo, per ridurre al minimo la durata del tempo in cui più persone hanno la conoscenza di tale credenziale.
 
-Per supportare password temporanee in Azure AD per gli utenti sincronizzati, è possibile abilitare la funzionalità *ForcePasswordResetOnLogonFeature* eseguendo il comando seguente nel server Azure ad Connect:
+Per supportare password temporanee in Azure AD per gli utenti sincronizzati, è possibile abilitare la funzionalità *ForcePasswordChangeOnLogOn* eseguendo il comando seguente nel server Azure ad Connect:
 
-`Set-ADSyncAADCompanyFeature  -ForcePasswordResetOnLogonFeature $true`
+`Set-ADSyncAADCompanyFeature  -ForcePasswordChangeOnLogOn $true`
 
 > [!NOTE]
 > Per forzare l'utente a modificare la password all'accesso successivo è necessario modificare la password nello stesso momento.  AD Connect non preleverà il flag di modifica Force password da solo; è supplementare per la modifica della password rilevata che si verifica durante la sincronizzazione dell'hash delle password.

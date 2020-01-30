@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/10/2020
-ms.openlocfilehash: 3d0220f23c8098222b93473dc6c7aa7a4f2dd791
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 42b697babe2bc004663c80e6e2f71f90ba1e5e5b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933449"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765406"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Come configurare Postman per Gemelli digitali di Azure
 
@@ -79,7 +79,6 @@ Configurare l'app di Azure Active Directory per usare il flusso di concessione i
 
 Configurare e configurare il post per ottenere un token di Azure Active Directory. In seguito, eseguire una richiesta HTTP autenticata a Gemelli digitali usando il token acquisito:
 
-1. Passare a [www.getpostman.com](https://www.getpostman.com/) per scaricare l'app.
 1. Verificare che l'**URL di autorizzazione** sia corretto. Deve essere nel formato seguente:
 
     ```plaintext
@@ -88,9 +87,13 @@ Configurare e configurare il post per ottenere un token di Azure Active Director
 
     | Nome  | Sostituire con | Esempio |
     |---------|---------|---------|
-    | YOUR_AZURE_TENANT | Il nome del tenant o dell'organizzazione | `microsoft` |
+    | YOUR_AZURE_TENANT | Nome del tenant o dell'organizzazione. Usare il nome descrittivo anziché l'ID del **tenant** alfanumerico della registrazione dell'app Azure Active Directory. | `microsoft` |
 
-1. Selezionare la scheda **Authorization** (Autorizzazione), **OAuth 2.0** e quindi **Get New Access Token** (Ottieni nuovo token di accesso).
+1. Passare a [www.getpostman.com](https://www.getpostman.com/) per scaricare l'app.
+
+1. Aprire l'app Postman e fare clic su New | Create new (Nuovo | Crea nuovo) e selezionare Request (Richiesta). Immettere un nome di richiesta. Selezionare una raccolta o una cartella in cui salvarla e fare clic su Salva. 
+
+1. Si vuole creare una richiesta GET. Selezionare la scheda **autorizzazione** , selezionare OAuth 2,0, quindi selezionare **Ottieni nuovo token di accesso**.
 
     | Campo  | Valore |
     |---------|---------|

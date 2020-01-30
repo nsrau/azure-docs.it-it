@@ -5,14 +5,14 @@ services: container-service
 author: jnoller
 ms.service: container-service
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: c018e511bbeed41bc9caf721562349a37ad0e748
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 9a68a0d0a288a27d67a9615385391c06be2b662d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707213"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767374"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Criteri di supporto per il servizio Azure Kubernetes
 
@@ -42,6 +42,8 @@ I servizi vengono *gestiti* nel senso che Microsoft e il team AKS distribuiscono
 
 > [!NOTE]
 > I nodi del ruolo di lavoro AKS vengono visualizzati nel portale di Azure come normali risorse IaaS di Azure. Tuttavia, queste macchine virtuali vengono distribuite in un gruppo di risorse di Azure personalizzato (con il prefisso MC\\*). È possibile modificare i nodi del ruolo di lavoro AKS. Ad esempio, è possibile usare Secure Shell (SSH) per modificare i nodi del ruolo di lavoro AKS nel modo in cui si modificano le normali macchine virtuali (non è possibile, tuttavia, modificare l'immagine del sistema operativo di base e le modifiche potrebbero non essere mantenute tramite un aggiornamento o un riavvio) ed è possibile aggiungere altre risorse di Azure a AKS nodi di lavoro. Tuttavia, quando si apportano modifiche *fuori banda gestione e personalizzazione,* il cluster AKS può diventare non supportato. Evitare di modificare i nodi del ruolo di lavoro a meno che supporto tecnico Microsoft non convenga a apportare modifiche.
+
+Il rilascio di operazioni non supportate come definito in precedenza, ad esempio la deallocazione fuori banda di tutti i nodi agente, rende il cluster non supportato. AKS si riserva il diritto di archiviare i piani di controllo che sono stati configurati in modo da ottenere le linee guida per periodi prolungati pari o superiore a 30 giorni. AKS gestisce i backup dei metadati ETCD del cluster e può riallocare immediatamente il cluster. Questa riallocazione può essere avviata da qualsiasi operazione PUT riportando il cluster al supporto, ad esempio un aggiornamento o una scalabilità ai nodi agente attivi.
 
 ## <a name="shared-responsibility"></a>Responsabilità condivisa
 

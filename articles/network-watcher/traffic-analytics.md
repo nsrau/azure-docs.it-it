@@ -3,23 +3,21 @@ title: Analisi del traffico di Azure | Microsoft Docs
 description: Informazioni su come analizzare i log dei flussi dei gruppi di sicurezza di rete di Azure con Analisi del traffico.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
-ms.author: kumud
+ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 91fb4551f4651f44a1f7358951c5d4cc0ff70644
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: 6cec7c813b0723ac770da6ebd04f4d2cf26a1409
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907147"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840588"
 ---
 # <a name="traffic-analytics"></a>Analisi del traffico
 
@@ -59,11 +57,11 @@ Analisi del traffico esamina i log dei flussi dei gruppi di sicurezza di rete e 
 
 ## <a name="supported-regions-nsg"></a>Aree supportate: NSG 
 
-È possibile usare l'analisi del traffico per NSG in una qualsiasi delle aree supportate seguenti:
+È possibile usare l'analisi del traffico per i gruppi di sicurezza di rete in una qualsiasi delle aree supportate seguenti:
 
 * Canada centrale
 * Stati Uniti centro-occidentali
-* Stati Uniti Orientali
+* Stati Uniti orientali
 * Stati Uniti orientali 2
 * Stati Uniti centro-settentrionali
 * Stati Uniti centro-meridionali
@@ -79,7 +77,7 @@ Analisi del traffico esamina i log dei flussi dei gruppi di sicurezza di rete e 
 * Australia orientale
 * Australia sudorientale
 * Asia orientale
-* Asia sudorientale
+* Asia sud-orientale
 * Corea centrale
 * India centrale
 * India meridionale
@@ -93,7 +91,7 @@ Analisi del traffico esamina i log dei flussi dei gruppi di sicurezza di rete e 
 L'area di lavoro Log Analytics deve esistere nelle aree indicate di seguito:
 * Canada centrale
 * Stati Uniti centro-occidentali
-* Stati Uniti Orientali
+* Stati Uniti orientali
 * Stati Uniti orientali 2
 * Stati Uniti centro-settentrionali
 * Stati Uniti centro-meridionali
@@ -110,14 +108,14 @@ L'area di lavoro Log Analytics deve esistere nelle aree indicate di seguito:
 * Australia orientale
 * Australia sudorientale
 * Asia orientale
-* Asia sudorientale
+* Asia sud-orientale
 * Corea centrale
 * India centrale
 * Giappone orientale
 * Governo degli Stati Uniti - Virginia
 * Cina orientale 2
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="user-access-requirements"></a>Requisiti di accesso utente
 
@@ -125,9 +123,9 @@ L'account deve essere un membro di uno de seguenti [ruoli predefiniti](../role-b
 
 |Modello di distribuzione   | Ruolo                   |
 |---------          |---------               |
-|Gestione risorse   | Proprietario                  |
+|Azure Resource Manager   | Proprietario                  |
 |                   | Collaboratore            |
-|                   | reader                 |
+|                   | Reader                 |
 |                   | Collaboratore di rete    |
 
 Se l'account non è assegnato a uno dei ruoli predefiniti, deve essere assegnato a un [ruolo personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) al quale vengono assegnate le seguenti azioni, a livello di sottoscrizione:
@@ -202,7 +200,7 @@ Selezionare le opzioni seguenti, come illustrato nell'immagine:
 
 Ripetere i passaggi precedenti per qualsiasi altro gruppo di sicurezza di rete per il quale si vuole abilitare Analisi del traffico. I dati dai log dei flussi vengono inviati all'area di lavoro, quindi assicurarsi che le leggi locali e le normative in vigore nel proprio paese consentano l'archiviazione dei dati nell'area in cui è presente l'area di lavoro. Se sono stati impostati intervalli di elaborazione diversi per gruppi diversi, i dati verranno raccolti a intervalli diversi. Ad esempio, è possibile scegliere di abilitare l'intervallo di elaborazione di 10 minuti per reti virtuali critico e 1 ora per reti virtuali non critici.
 
-È anche possibile configurare analisi del traffico usando il cmdlet di PowerShell [set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) in Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installare il modulo di Azure PowerShell).
+È anche possibile configurare analisi del traffico usando il cmdlet di PowerShell [set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) in Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="view-traffic-analytics"></a>Visualizzare Analisi del traffico
 
@@ -294,7 +292,7 @@ Di seguito sono elencate alcune informazioni utili da visualizzare dopo la confi
 
     ![Dashboard che presenta la distribuzione del traffico](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
-- La mappa geografica Mostra la barra multifunzione superiore per la selezione di parametri, ad esempio Data Center (distribuiti/no-Deployment/Active/inactive/Analisi del traffico Enabled/Analisi del traffico non abilitata) e paesi/aree che contribuiscono al traffico dannoso/dannoso al attivo distribuzione
+- La mappa geografica Mostra la barra multifunzione superiore per la selezione di parametri, ad esempio Data Center (distribuiti/no-Deployment/Active/inactive/Analisi del traffico Enabled/Analisi del traffico non abilitata) e paesi/aree geografiche che contribuiscono al traffico dannoso/dannoso per la distribuzione attiva:
 
     ![Visualizzazione della mappa geografica che presenta la distribuzione attiva](./media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
 

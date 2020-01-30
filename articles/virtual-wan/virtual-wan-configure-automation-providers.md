@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: cherylmc
-ms.openlocfilehash: 2f847d8db983303d46b465f4f80bff65eeff632f
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 6f95107960cf11ab15cb5a8294a5432498956a7a
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168500"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775309"
 ---
 # <a name="virtual-wan-partners"></a>Partner di rete WAN virtuale
 
@@ -79,7 +79,7 @@ Questo passaggio prevede il download della configurazione di Azure e la configur
 Il file di configurazione del dispositivo contiene le impostazioni da usare quando si configura il dispositivo VPN locale. Quando si visualizza questo file, notare le informazioni seguenti:
 
 * **vpnSiteConfiguration -** Questa sezione indica i dettagli del dispositivo configurato come un sito che si connette alla rete WAN virtuale. Include il nome e l'indirizzo IP pubblico del dispositivo della succursale.
-* **vpnSiteConnections:** in questa sezione vengono fornite informazioni su quanto segue:
+* **vpnSiteConnections -** Questa sezione include informazioni su quanto segue:
 
     * **Spazio degli indirizzi** della rete virtuale degli hub.<br>Esempio:
  
@@ -89,7 +89,7 @@ Il file di configurazione del dispositivo contiene le impostazioni da usare quan
     * **Spazio degli indirizzi** delle reti virtuali che sono collegate all'hub.<br>Esempio:
 
          ```
-        "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
+        "ConnectedSubnets":["10.2.0.0/16","10.3.0.0/16"]
          ```
     * **Indirizzi IP** del gateway VPN dell'hub virtuale. Dato che ogni connessione del gateway VPN comprende 2 tunnel nella configurazione attiva-attiva, nel file saranno elencati entrambi gli indirizzi IP. In questo esempio, sono indicati "Instance0" e "Instance1" per ogni sito.<br>Esempio:
 
@@ -97,7 +97,7 @@ Il file di configurazione del dispositivo contiene le impostazioni da usare quan
         "Instance0":"104.45.18.186"
         "Instance1":"104.45.13.195"
         ```
-    * **Dettagli di configurazione della connessione al gateway VPN**, ad esempio BGP, chiave precondivisa e così via. PSK è la chiave precondivisa generata automaticamente. È sempre possibile modificare la connessione nella pagina Panoramica per una chiave precondivisa personalizzata.
+    * **Dettagli di configurazione della connessione vpngateway** , ad esempio BGP, chiave precondivisa e così via. PSK è la chiave precondivisa generata automaticamente. È sempre possibile modificare la connessione nella pagina Panoramica per una chiave precondivisa personalizzata.
   
 **File di configurazione del dispositivo di esempio**
 
@@ -118,7 +118,7 @@ Il file di configurazione del dispositivo contiene le impostazioni da usare quan
                "Region":"West Europe",
                "ConnectedSubnets":[ 
                   "10.2.0.0/16",
-                  "10.30.0.0/16"
+                  "10.3.0.0/16"
                ]
             },
             "gatewayConfiguration":{ 

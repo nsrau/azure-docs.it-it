@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 01/27/2020
 ms.author: diberry
-ms.openlocfilehash: ed0b9450217b06ff145641d9e268ccee28ee49b2
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 95b7c7446a47fafd26d00b0da4d880786340fcd0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76710593"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775150"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Come migliorare l'app LUIS esaminando gli enunciati degli endpoint
 
@@ -27,6 +27,22 @@ Il processo di revisione degli enunciati degli endpoint per le stime corrette è
 ## <a name="enable-active-learning"></a>Abilita apprendimento attivo
 
 Per abilitare l'apprendimento attivo, è necessario registrare le query utente. Questa operazione viene eseguita chiamando la [query dell'endpoint](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) con il `log=true` parametro e il valore QueryString.
+
+Usare il portale LUIS per costruire la query dell'endpoint corretta.
+
+1. Nel [portale di anteprima Luis](https://preview.luis.ai/)selezionare l'app dall'elenco di app.
+1. Passare alla sezione **Gestisci** e quindi selezionare **risorse di Azure**.
+1. Per la risorsa di stima assegnata, selezionare **modifica parametri query**.
+
+    > [!div class="mx-imgBorder"]
+    > ![usare LUIS Portal per salvare i log, operazione necessaria per l'apprendimento attivo.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
+
+1. Impostare **Salva log** , quindi Salva, quindi **fare**clic su fine.
+
+    > [!div class="mx-imgBorder"]
+    > ![usare LUIS Portal per salvare i log, operazione necessaria per l'apprendimento attivo.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)
+
+     Questa azione modifica l'URL di esempio aggiungendo il `log=true` parametro QueryString. Copiare e utilizzare l'URL della query di esempio modificato durante l'esecuzione di query di stima nell'endpoint di Runtime.
 
 ## <a name="correct-intent-predictions-to-align-utterances"></a>Correggere le stime di finalità per allineare le espressioni
 

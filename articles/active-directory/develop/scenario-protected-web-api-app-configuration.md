@@ -16,29 +16,33 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c4b8fc629c94f5046861437367fe6050dad4c65f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: fc74e72c6c2fe3e2b8817e6ffb418928ede08193
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702012"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773349"
 ---
 # <a name="protected-web-api-code-configuration"></a>API Web protetta: configurazione del codice
 
-Per configurare il codice per l'API Web protetta, è necessario comprendere cosa definisce le API come protette, come configurare un bearer token e come convalidare il token.
+Per configurare il codice per l'API Web protetta, è necessario comprendere quanto segue:
 
-## <a name="what-defines-aspnetaspnet-core-apis-as-protected"></a>Che cosa definisce le API ASP.NET/ASP.NET Core come protette?
+- Che cosa definisce le API come protette.
+- Come configurare un bearer token.
+- Come convalidare il token.
 
-Analogamente alle app Web, le API Web di ASP.NET/ASP.NET Core sono "protette" perché le azioni del controller sono precedute dall'attributo `[Authorize]`. Quindi, le azioni del controller possono essere chiamate solo se l'API viene chiamata con un'identità autorizzata.
+## <a name="what-defines-aspnet-and-aspnet-core-apis-as-protected"></a>Che cosa definisce le API ASP.NET e ASP.NET Core come protette?
+
+Analogamente alle app Web, le API Web ASP.NET e ASP.NET Core sono protette perché le azioni del controller sono precedute dall'attributo **[autoautorizzate]** . Le azioni del controller possono essere chiamate solo se l'API viene chiamata con un'identità autorizzata.
 
 Prendere in considerazione le domande seguenti:
 
-- In che modo l'API Web conosce l'identità dell'app che la chiama? (Solo un'app può chiamare un'API Web).
-- Se l'app ha chiamato l'API Web per conto di un utente, qual è l'identità dell'utente?
+- Solo un'app può chiamare un'API Web. In che modo l'API conosce l'identità dell'app che la chiama?
+- Se l'app chiama l'API per conto di un utente, qual è l'identità dell'utente?
 
 ## <a name="bearer-token"></a>Bearer token
 
-Le informazioni sull'identità dell'app e sull'utente (a meno che l'app Web non accetti le chiamate da servizio a servizio da un'app daemon) viene mantenuta nel bearer token impostato nell'intestazione quando viene chiamata l'app.
+Il bearer token impostato nell'intestazione quando l'app viene chiamata include informazioni sull'identità dell'app. Include anche informazioni sull'utente, a meno che l'app Web non accetti le chiamate da servizio a servizio da un'app daemon.
 
 Di seguito è C# riportato un esempio di codice che mostra un client che chiama l'API dopo l'acquisizione di un token con Microsoft Authentication Library per .net (MSAL.NET):
 
@@ -55,7 +59,9 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 ```
 
 > [!IMPORTANT]
-> Il bearer token è stato richiesto da un'applicazione client all'endpoint della piattaforma di identità Microsoft *per l'API Web*. L'API Web è l'unica applicazione che deve verificare il token e visualizzare le attestazioni in esso contenute. Le app client non devono mai provare a esaminare le attestazioni nei token. L'API Web potrebbe richiedere, in futuro, che il token venga crittografato. Questo requisito impedisce l'accesso per le app client in grado di visualizzare i token di accesso.
+> Un'applicazione client richiede l'bearer token all'endpoint della piattaforma di identità Microsoft *per l'API Web*. L'API Web è l'unica applicazione che deve verificare il token e visualizzare le attestazioni in esso contenute. Le app client non devono mai provare a esaminare le attestazioni nei token.
+>
+> In futuro, l'API Web potrebbe richiedere la crittografia del token. Questo requisito impedisce l'accesso per le app client in grado di visualizzare i token di accesso.
 
 ## <a name="jwtbearer-configuration"></a>Configurazione di JwtBearer
 
@@ -91,9 +97,9 @@ In questa sezione viene descritto come configurare un bearer token.
 
 ### <a name="code-initialization"></a>Inizializzazione codice
 
-Quando un'app viene chiamata su un'azione del controller che include un attributo `[Authorize]`, ASP.NET/ASP.NET Core esamina l'bearer token nell'intestazione dell'autorizzazione della richiesta chiamante ed estrae il token di accesso. Il token viene quindi inviato al middleware JwtBearer, che chiama Microsoft IdentityModel Extensions for .NET.
+Quando un'app viene chiamata su un'azione del controller che include un attributo **[autorizzate]** , ASP.NET e ASP.NET Core estrarre il token di accesso dall'Bearer token dell'intestazione di autorizzazione. Il token di accesso viene quindi inviato al middleware JwtBearer, che chiama Microsoft IdentityModel Extensions for .NET.
 
-In ASP.NET Core, questo middleware viene inizializzato nel file Startup.cs:
+In ASP.NET Core, questo middleware viene inizializzato nel file Startup.cs.
 
 ```csharp
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -105,7 +111,7 @@ Il middleware viene aggiunto all'API Web da questa istruzione:
  services.AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
 ```
 
- Attualmente, i modelli di ASP.NET Core creano API Web di Azure Active Directory (Azure AD) che confirmano gli utenti all'interno dell'organizzazione o di qualsiasi organizzazione, non con gli account personali. Tuttavia è possibile modificarli facilmente per usare l'endpoint della piattaforma di identità Microsoft aggiungendo questo codice al file Startup.cs:
+ Attualmente, i modelli di ASP.NET Core creano API Web di Azure Active Directory (Azure AD) che confirmano gli utenti all'interno dell'organizzazione o di qualsiasi organizzazione. Non eseguono l'accesso agli utenti con account personali. Tuttavia, è possibile modificare i modelli per usare l'endpoint della piattaforma di identità Microsoft aggiungendo questo codice a Startup.cs:
 
 ```csharp
 services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
@@ -127,40 +133,42 @@ services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationSche
 });
 ```
 
-Questo frammento di codice viene estratto dall'esercitazione incrementale ASP.NET Core API Web in [Microsoft. Identity. Web/WebApiServiceCollectionExtensions. cs # L50-L63](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/154282843da2fc2958fad151e2a11e521e358d42/Microsoft.Identity.Web/WebApiServiceCollectionExtensions.cs#L50-L63). Il metodo `AddProtectedWebApi`, che fa molto altro, viene chiamato da Startup.cs
+Il frammento di codice precedente viene estratto dall'esercitazione incrementale ASP.NET Core API Web in [Microsoft. Identity. Web/WebApiServiceCollectionExtensions. cs # L50-L63](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/154282843da2fc2958fad151e2a11e521e358d42/Microsoft.Identity.Web/WebApiServiceCollectionExtensions.cs#L50-L63). Il metodo **AddProtectedWebApi** , che viene visualizzato in modo più che il frammento di codice, viene chiamato da startup.cs.
 
 ## <a name="token-validation"></a>Convalida dei token
 
-Il middleware JwtBearer, come il middleware OpenID Connect nelle app Web, viene indirizzato da `TokenValidationParameters` per convalidare il token. Il token viene decrittografato (se necessario), le attestazioni vengono estratte e la firma viene verificata. Il middleware convalida quindi il token controllando la presenza di questi dati:
+Nel frammento di codice precedente, il middleware JwtBearer, come il middleware OpenID Connect nelle app Web, convalida il token in base al valore di `TokenValidationParameters`. Il token viene decrittografato in base alle esigenze, le attestazioni vengono estratte e la firma viene verificata. Il middleware convalida quindi il token controllando la presenza di questi dati:
 
-- È destinata all'API Web (audience).
-- È stato emesso per un'app che può chiamare l'API Web (Sub).
-- È stato emesso da un servizio token di sicurezza attendibile (STS) (emittente).
-- La sua durata è compresa nell'intervallo (scadenza).
-- Non è stata manomessa (firma).
+- Destinatari: il token è destinato all'API Web.
+- Sub: è stato emesso per un'app che può chiamare l'API Web.
+- Emittente: è stato emesso da un servizio token di sicurezza (STS) attendibile.
+- Scadenza: la sua durata è compresa nell'intervallo.
+- Firma: non è stata manomessa.
 
-Possono inoltre essere presenti convalide speciali. È ad esempio possibile convalidare che le chiavi di firma (quando sono incorporate in un token) sono attendibili e che il token non viene riprodotto. Infine, alcuni protocolli richiedono convalide specifiche.
+Possono inoltre essere presenti convalide speciali. È ad esempio possibile convalidare che le chiavi di firma, quando sono incorporate in un token, siano considerate attendibili e che il token non venga riprodotto. Infine, alcuni protocolli richiedono convalide specifiche.
 
 ### <a name="validators"></a>Validator
 
-I passaggi di convalida vengono acquisiti nei validator, che si trovano tutti nella libreria open source [di Microsoft IdentityModel per .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) , in un file di origine: [Microsoft. IdentityModel. Tokens/validators. cs](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/Microsoft.IdentityModel.Tokens/Validators.cs).
+I passaggi di convalida vengono acquisiti nei validator, forniti dalla libreria open source [Microsoft IdentityModel Extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) . I validator vengono definiti nel file di origine della libreria [Microsoft. IdentityModel. Tokens/validators. cs](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/Microsoft.IdentityModel.Tokens/Validators.cs).
 
-I validator sono descritti in questa tabella:
+Questa tabella descrive i validator:
 
-| Componente di convalida | Description |
+| Convalida | Description |
 |---------|---------|
-| `ValidateAudience` | Garantisce che il token sia per l'applicazione che convalida il token (per me). |
-| `ValidateIssuer` | Assicura che il token sia stato emesso da un servizio token di sicurezza attendibile (da un utente attendibile). |
-| `ValidateIssuerSigningKey` | Garantisce che l'applicazione che convalida il token consideri attendibile la chiave usata per firmare il token. (Caso speciale in cui la chiave è incorporata nel token. In genere non è obbligatorio.) |
-| `ValidateLifetime` | Garantisce che il token sia ancora (o già) valido. Il validator controlla se la durata del token (`notbefore` e `expires` attestazioni) è compresa nell'intervallo. |
-| `ValidateSignature` | Assicura che il token non sia stato alterato. |
-| `ValidateTokenReplay` | Assicura che il token non venga riprodotto. (Caso speciale per alcuni protocolli monouso). |
+| **ValidateAudience** | Garantisce che il token sia per l'applicazione che convalida il token per l'utente. |
+| **ValidateIssuer** | Garantisce che il token sia stato emesso da un servizio token di sicurezza attendibile, vale a dire che è un utente attendibile. |
+| **ValidateIssuerSigningKey** | Garantisce che l'applicazione che convalida il token consideri attendibile la chiave usata per firmare il token. C'è un caso speciale in cui la chiave è incorporata nel token. Questo caso, tuttavia, non si verifica in genere. |
+| **ValidateLifetime** | Garantisce che il token sia ancora o già valido. Il validator controlla se la durata del token è compresa nell'intervallo specificato da **NotBefore** e **scade** le attestazioni. |
+| **ValidateSignature** | Assicura che il token non sia stato alterato. |
+| **ValidateTokenReplay** | Assicura che il token non venga riprodotto. C'è un caso speciale per alcuni protocolli monouso. |
 
-Tutti i validator sono associati alle proprietà della classe `TokenValidationParameters`, che vengono inizializzate dalla configurazione ASP.NET/ASP.NET Core. Nella maggior parte dei casi, non è necessario modificare i parametri. Esiste un'eccezione per le app che non sono singoli tenant. Ovvero app Web che accettano utenti da qualsiasi organizzazione o da account Microsoft personali. In questo caso, l'emittente deve essere convalidato.
+I validator sono associati alle proprietà della classe **TokenValidationParameters** . Le proprietà vengono inizializzate dalla configurazione ASP.NET e ASP.NET Core.
+
+Nella maggior parte dei casi non è necessario modificare i parametri. Le app che non sono tenant singoli sono eccezioni. Queste app Web accettano utenti da qualsiasi organizzazione o da account Microsoft personali. In questo caso, è necessario convalidare le autorità emittenti.
 
 ## <a name="token-validation-in-azure-functions"></a>Convalida di token in funzioni di Azure
 
-È anche possibile convalidare i token di accesso in ingresso in funzioni di Azure. È possibile trovare esempi di convalida dei token in funzioni di Azure in [DotNet](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions), [NodeJS](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)e [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions).
+È anche possibile convalidare i token di accesso in ingresso in funzioni di Azure. È possibile trovare esempi di tale convalida in [Microsoft .NET](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions), [NodeJS](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)e [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

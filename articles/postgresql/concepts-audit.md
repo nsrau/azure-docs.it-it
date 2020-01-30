@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/14/2019
-ms.openlocfilehash: c0ce1648d7b5f7c25044ed8f66eafcca7b0009f4
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 01/28/2020
+ms.openlocfilehash: 45490e398abd8b5bd3c10adb95b56e1019d2bb94
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747347"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842470"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Registrazione di controllo nel database di Azure per PostgreSQL-server singolo
 
@@ -65,10 +65,8 @@ pgAudit consente di configurare la registrazione di controllo di una sessione o 
 Dopo aver [installato pgAudit](#installing-pgaudit), è possibile configurarne i parametri per avviare la registrazione. La [documentazione di pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) fornisce la definizione di ogni parametro. Testare prima i parametri e confermare che si sta ottenendo il comportamento previsto.
 
 > [!NOTE]
-> Se si imposta `pgaudit.log_client` su ON, i log vengono reindirizzati a un processo client, ad esempio PSQL, anziché essere scritti nel file. Questa impostazione viene in genere disabilitata.
-
-> [!NOTE]
-> `pgaudit.log_level` viene abilitato solo quando `pgaudit.log_client` è on. Inoltre, nel portale di Azure, esiste attualmente un bug con `pgaudit.log_level`: viene visualizzata una casella combinata, che implica la possibilità di selezionare più livelli. Tuttavia, deve essere selezionato un solo livello. 
+> Se si imposta `pgaudit.log_client` su ON, i log vengono reindirizzati a un processo client, ad esempio PSQL, anziché essere scritti nel file. Questa impostazione viene in genere disabilitata. <br> <br>
+> `pgaudit.log_level` viene abilitato solo quando `pgaudit.log_client` è on.
 
 > [!NOTE]
 > In database di Azure per PostgreSQL non è possibile impostare `pgaudit.log` usando un collegamento di segno di `-` (meno), come descritto nella documentazione di pgAudit. Tutte le classi di istruzioni obbligatorie (READ, WRITE e così via) devono essere specificate singolarmente.
@@ -87,6 +85,22 @@ Per altre informazioni su `log_line_prefix`, vedere la [documentazione di Postgr
 ### <a name="getting-started"></a>Inizia ora
 Per iniziare rapidamente, impostare `pgaudit.log` su `WRITE`e aprire i log per esaminare l'output. 
 
+## <a name="viewing-audit-logs"></a>Visualizzazione dei log di controllo
+Se si usano file con estensione log, i log di controllo verranno inclusi nello stesso file dei log degli errori di PostgreSQL. È possibile scaricare i file di log dal [portale](howto-configure-server-logs-in-portal.md) di Azure o dall' [interfaccia](howto-configure-server-logs-using-cli.md)della riga di comando. 
+
+Se si usa la registrazione diagnostica di Azure, il modo in cui si accede ai log dipende dall'endpoint scelto. Per archiviazione di Azure, vedere l'articolo relativo all' [account di archiviazione dei log](../azure-monitor/platform/resource-logs-collect-storage.md) . Per gli hub eventi, vedere l'articolo [flusso di log di Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
+
+Per i log di monitoraggio di Azure, i log vengono inviati all'area di lavoro selezionata. I log Postgres usano la modalità di raccolta **AzureDiagnostics** , in modo che possano essere sottoposti a query dalla tabella AzureDiagnostics. I campi della tabella sono descritti di seguito. Per altre informazioni sull'esecuzione di query e avvisi, vedere Panoramica delle [query dei log di monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md) .
+
+È possibile utilizzare questa query per iniziare. È possibile configurare gli avvisi in base alle query.
+
+Cerca tutti i log Postgres per un determinato server nell'ultimo giorno
+```
+AzureDiagnostics
+| where LogicalServerName_s == "myservername"
+| where TimeGenerated > ago(1d) 
+| where Message contains "AUDIT:"
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Informazioni sulla registrazione in database di Azure per PostgreSQL](concepts-server-logs.md)

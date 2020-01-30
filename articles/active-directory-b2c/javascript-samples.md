@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 996893f95b11d716feb4253688d3ab1d62d140ee
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 42dc09ef4518bfda8c63ee183499b1b2e8c22991
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659526"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841932"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Esempi JavaScript da usare in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-È possibile aggiungere il proprio codice JavaScript lato client alle applicazioni di Azure Active Directory B2C (Azure AD B2C). Per abilitare JavaScript per le applicazioni, è necessario aggiungere un elemento ai [criteri personalizzati](active-directory-b2c-overview-custom.md), selezionare un [layout di pagina](page-layout.md)e usare [b2clogin.com](b2clogin.md) nelle richieste. Questo articolo descrive come è possibile modificare i criteri personalizzati per abilitare l'esecuzione di script.
+È possibile aggiungere il proprio codice JavaScript lato client alle applicazioni di Azure Active Directory B2C (Azure AD B2C). Per abilitare JavaScript per le applicazioni, è necessario aggiungere un elemento ai [criteri personalizzati](custom-policy-overview.md), selezionare un [layout di pagina](page-layout.md)e usare [b2clogin.com](b2clogin.md) nelle richieste. Questo articolo descrive come è possibile modificare i criteri personalizzati per abilitare l'esecuzione di script.
 
 > [!NOTE]
 > Se si vuole abilitare JavaScript per i flussi utente, vedere la pagina relativa alle [versioni del layout di pagina e JavaScript in Azure Active Directory B2C](user-flow-javascript-overview.md).
@@ -151,4 +151,4 @@ Nel codice sostituire `termsOfUseUrl` con il collegamento alle condizioni per l'
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni su come personalizzare l'interfaccia utente delle applicazioni sono disponibili nell'argomento [Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+Altre informazioni su come personalizzare l'interfaccia utente delle applicazioni sono disponibili nell'argomento [Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C](custom-policy-ui-customization.md).

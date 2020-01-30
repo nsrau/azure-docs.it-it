@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 96bf088e6db29817d1ae4276c254a84723e5d03d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8cb0340d9e04db2bfbf088bce9505351d7588cd9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480190"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840333"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Configurare l'iscrizione e l'accesso tramite telefono con criteri personalizzati in Azure AD B2C
 
@@ -30,7 +30,7 @@ Attenersi alla procedura descritta in questo articolo per usare i criteri person
 
 * [Tenant di Azure AD B2C](tutorial-create-tenant.md)
 * [Applicazione Web registrata](tutorial-register-applications.md) nel tenant
-* [Criteri personalizzati](active-directory-b2c-get-started-custom.md) caricati nel tenant
+* [Criteri personalizzati](custom-policy-get-started.md) caricati nel tenant
 
 ## <a name="get-the-phone-sign-up--sign-in-starter-pack"></a>Ottenere il pacchetto Starter & per l'iscrizione al telefono
 
@@ -44,7 +44,7 @@ Nei passaggi seguenti si presuppone che siano stati completati i [prerequisiti](
 
 1. In ogni file sostituire la stringa `yourtenant` con il nome del tenant del Azure AD B2C. Ad esempio, se il nome del tenant B2C è *contosob2c*, tutte le istanze di `yourtenant.onmicrosoft.com` diventano `contosob2c.onmicrosoft.com`.
 
-1. Completare i passaggi della sezione [aggiungere ID applicazione ai criteri personalizzati](active-directory-b2c-get-started-custom.md#add-application-ids-to-the-custom-policy) di [Introduzione ai criteri personalizzati in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md). In questo caso, aggiornare `/phone-number-passwordless/` **`Phone_Email_Base.xml`** con gli **ID dell'applicazione (client)** delle due applicazioni registrate durante il completamento dei prerequisiti, *IdentityExperienceFramework* e *ProxyIdentityExperienceFramework*.
+1. Completare i passaggi della sezione [aggiungere ID applicazione ai criteri personalizzati](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) di [Introduzione ai criteri personalizzati in Azure Active Directory B2C](custom-policy-get-started.md). In questo caso, aggiornare `/phone-number-passwordless/` **`Phone_Email_Base.xml`** con gli **ID dell'applicazione (client)** delle due applicazioni registrate durante il completamento dei prerequisiti, *IdentityExperienceFramework* e *ProxyIdentityExperienceFramework*.
 
 ## <a name="upload-the-policy-files"></a>Caricare i file dei criteri
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 753977ed0516e934f661d81904b60ff9935aa423
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 4f8c20534cdd5abdf5ae97bb097238cf508480c7
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981183"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843549"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in app per la logica di Azure
 
@@ -620,7 +620,7 @@ Gli endpoint HTTP e HTTPS supportano vari tipi di autenticazione. In base al tri
 
 ### <a name="basic-authentication"></a>Autenticazione di base
 
-Se è disponibile l'opzione di [base](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) , specificare i valori delle proprietà seguenti:
+Se è disponibile l'opzione di [base](../active-directory-b2c/secure-rest-api-dotnet-basic-auth.md) , specificare i valori delle proprietà seguenti:
 
 | Proprietà (finestra di progettazione) | Property (JSON) | Obbligatorio | Valore | Description |
 |---------------------|-----------------|----------|-------|-------------|
@@ -682,7 +682,7 @@ Per ulteriori informazioni sulla protezione dei servizi tramite l'autenticazione
 
 * [Proteggere le API usando l'autenticazione con certificati client in gestione API di Azure](../api-management/api-management-howto-mutual-certificates-for-clients.md)
 * [Proteggere i servizi back-end usando l'autenticazione con certificati client in gestione API di Azure](../api-management/api-management-howto-mutual-certificates.md)
-* [Proteggere il servizio RESTful usando certificati client](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
+* [Proteggere il servizio RESTful usando certificati client](../active-directory-b2c/secure-rest-api-dotnet-certificate-auth.md)
 * [Credenziali del certificato per l'autenticazione dell'applicazione](../active-directory/develop/active-directory-certificate-credentials.md)
 * [Usare un certificato SSL nel codice dell'applicazione in Servizio app di Azure](../app-service/configure-ssl-certificate-in-code.md)
 
@@ -695,7 +695,7 @@ Se è disponibile l'opzione [Active Directory OAuth](../active-directory/develop
 | Proprietà (finestra di progettazione) | Property (JSON) | Obbligatorio | Valore | Description |
 |---------------------|-----------------|----------|-------|-------------|
 | **autenticazione** | `type` | Sì | **Active Directory OAuth** <br>Oppure <br>`ActiveDirectoryOAuth` | Tipo di autenticazione da usare. App per la logica segue attualmente il [protocollo OAuth 2,0](../active-directory/develop/v2-overview.md). |
-| **Tenant** | `tenant` | Sì | <*tenant-ID*> | L'ID tenant per il tenant di Azure AD |
+| **Inquilino** | `tenant` | Sì | <*tenant-ID*> | L'ID tenant per il tenant di Azure AD |
 | **Destinatari** | `audience` | Sì | <*resource-to-authorize*> | La risorsa che si vuole usare per l'autorizzazione, ad esempio `https://management.core.windows.net/` |
 | **ID client** | `clientId` | Sì | <*client-ID*> | L'ID client per l'app richiedente l'autorizzazione |
 | **Tipo di credenziale** | `credentialType` | Sì | Certificato <br>Oppure <br>Segreto | Tipo di credenziale utilizzato dal client per richiedere l'autorizzazione. Questa proprietà e il valore non vengono visualizzati nella definizione sottostante dell'app per la logica, ma determinano le proprietà visualizzate per il tipo di credenziali selezionato. |

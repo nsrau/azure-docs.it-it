@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/29/2019
 ms.author: absha
-ms.openlocfilehash: 12759deb3e1775b5170d40cc609fe8c6226bf0d6
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: a8882a810d18d06b33d6382bd8bd86ffe75b39d8
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704579"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766788"
 ---
 # <a name="metrics-for-application-gateway"></a>Metriche per il gateway applicazione
 
@@ -22,7 +22,9 @@ Il gateway applicazione pubblica i punti dati, detti metrica, in [monitoraggio d
 
 ### <a name="timing-metrics"></a>Metriche temporali
 
-Sono disponibili le metriche seguenti relative alla tempistica della richiesta e della risposta. Analizzando queste metriche per un listener specifico, è possibile determinare se il rallentamento dell'applicazione a causa della WAN, del gateway applicazione, della rete tra il gateway applicazione e l'applicazione back-end o le prestazioni dell'applicazione back-end.
+Il gateway applicazione offre diverse metriche temporali predefinite relative alla richiesta e alla risposta che sono tutte misurate in millisecondi. 
+
+![](./media/application-gateway-metrics/application-gateway-metrics.png)
 
 > [!NOTE]
 >
@@ -30,28 +32,41 @@ Sono disponibili le metriche seguenti relative alla tempistica della richiesta e
 
 - **Tempo di connessione back-end**
 
-  Tempo impiegato per stabilire una connessione a un'applicazione back-end. Ciò include la latenza di rete e il tempo impiegato dallo stack TCP del server back-end per stabilire nuove connessioni. Nel caso di SSL, include anche il tempo impiegato per l'handshake. 
+  Tempo impiegato per stabilire una connessione con l'applicazione back-end. 
+
+  Ciò include la latenza di rete e il tempo impiegato dallo stack TCP del server back-end per stabilire nuove connessioni. Nel caso di SSL, include anche il tempo impiegato per l'handshake. 
 
 - **Tempo di risposta primo byte back-end**
 
-  Intervallo di tempo tra l'inizio del tentativo di stabilire una connessione al server back-end e la ricezione del primo byte dell'intestazione della risposta. In questo modo si approssimano la somma del tempo di *connessione back-end* e del tempo di risposta dell'applicazione back-end (il tempo impiegato dal server per generare il contenuto, potenzialmente recuperare le query di database e iniziare il trasferimento della risposta al gateway applicazione)
+  Intervallo di tempo tra l'inizio del tentativo di stabilire una connessione al server back-end e la ricezione del primo byte dell'intestazione della risposta. 
+
+  In questo modo si approssimano la somma del *tempo di connessione back-end*, il tempo impiegato dalla richiesta per raggiungere il back-end dal gateway applicazione, il tempo impiegato dall'applicazione back-end per rispondere (il tempo impiegato dal server per generare il contenuto, potenzialmente recuperare le query di database) e il tempo impiegato dal primo byte della risposta per raggiungere il gateway applicazione dal back-end.
 
 - **Tempo di risposta ultimo byte back-end**
 
-  Intervallo di tempo tra l'inizio del tentativo di stabilire una connessione al server back-end e la ricezione dell'ultimo byte del corpo della risposta. Si tratta di una somma approssimativa del *tempo di risposta del primo byte di back-end* e del tempo di trasferimento dei dati (questo numero può variare significativamente a seconda delle dimensioni degli oggetti richiesti e della latenza della rete del server)
+  Intervallo di tempo tra l'inizio del tentativo di stabilire una connessione al server back-end e la ricezione dell'ultimo byte del corpo della risposta. 
+
+  Si tratta di una somma approssimativa del *tempo di risposta del primo byte di back-end* e del tempo di trasferimento dei dati (questo numero può variare significativamente a seconda delle dimensioni degli oggetti richiesti e della latenza della rete del server).
 
 - **Tempo totale del gateway applicazione**
 
-  Tempo medio necessario per l'elaborazione di una richiesta e la relativa risposta da inviare. Viene calcolata come media dell'intervallo dal momento in cui il gateway applicazione riceve il primo byte di una richiesta HTTP al momento in cui termina l'operazione di invio della risposta. in questo modo viene approssimata la somma del tempo di elaborazione del gateway applicazione e del *tempo di risposta ultimo byte back-end*
+  Tempo medio necessario per la ricezione, l'elaborazione e la risposta della richiesta da inviare. 
+
+  Si tratta dell'intervallo dal momento in cui il gateway applicazione riceve il primo byte della richiesta HTTP al momento in cui l'ultimo byte di risposta è stato inviato al client. Questo include il tempo di elaborazione impiegato dal gateway applicazione, il *tempo di risposta ultimo byte back-end*, il tempo impiegato dal gateway applicazione per inviare tutte le risposte e il RTT del *client*.
 
 - **RTT client**
 
-  Tempo medio round trip tra i client e il gateway applicazione. Questa metrica indica il tempo necessario per stabilire le connessioni e restituire i riconoscimenti. 
-
-Queste metriche possono essere usate per determinare se il rallentamento osservato è dovuto al gateway applicazione, alla saturazione dello stack TCP, alla rete e al server back-end, alle prestazioni dell'applicazione back-end o alle dimensioni del file di grandi dimensioni.
-Se, ad esempio, si verifica un picco nel tempo di risposta del primo byte back-end, ma il tempo di connessione back-end è costante, è possibile dedurre che il gateway applicazione alla latenza back-end e il tempo impiegato per stabilire la connessione siano stabili e che il picco sia causato da un n aumento nel tempo di risposta dell'applicazione back-end. Analogamente, se il picco nel tempo di risposta del primo byte del back-end è associato a un picco corrispondente nel tempo di connessione back-end, è possibile dedurre che la rete o lo stack TCP del server sia saturo. Se si nota un picco nel tempo di risposta dell'ultimo byte del back-end, ma il tempo di risposta del primo byte back-end è costante, probabilmente il picco è dovuto a un file più grande richiesto. Analogamente, se il tempo totale del gateway applicazione è molto più del tempo di risposta ultimo byte back-end, può trattarsi di un segno di collo di bottiglia delle prestazioni nel gateway applicazione.
+  Tempo medio round trip tra i client e il gateway applicazione.
 
 
+
+Queste metriche possono essere usate per determinare se il rallentamento osservato è dovuto alla rete client, alle prestazioni del gateway applicazione, alla rete di back-end e al server back-end, alla saturazione dello stack TCP, alle prestazioni dell'applicazione back-end o alle dimensioni del file di grandi dimensioni.
+
+Se, ad esempio, si verifica un picco nella tendenza del *tempo di risposta del primo byte di back* -end, ma la tendenza del tempo di *connessione back* -end è stabile, è possibile dedurre che il gateway applicazione alla latenza del back-end e il tempo necessario per stabilire la connessione siano stabili e il picco è causato da un aumento del tempo di risposta dell'applicazione back-end. D'altra parte, se il picco nel *tempo di risposta del primo byte di back-end* è associato a un picco corrispondente nel tempo di *connessione back-end*, è possibile dedurre che la rete tra il gateway applicazione e il server back-end o lo stack TCP del server back-end è satura. 
+
+Se si nota un picco nel *tempo di risposta dell'ultimo byte del back-end* , ma il *tempo di risposta del primo byte back-end* è stabile, è possibile dedurre che il picco è dovuto a un file più grande richiesto.
+
+Analogamente, se il *tempo totale del gateway applicazione* ha un picco ma il *tempo di risposta ultimo byte del back-end* è stabile, può essere un segno di collo di bottiglia delle prestazioni nel gateway applicazione o un collo di bottiglia nella rete tra il client e il gateway applicazione. Inoltre, se il valore *RTT del client* dispone anche di un picco corrispondente, significa che il calo è dovuto alla rete tra il gateway applicazione e il client.
 
 ### <a name="application-gateway-metrics"></a>Metriche del gateway applicazione
 
@@ -112,11 +127,11 @@ Per il gateway applicazione sono disponibili le metriche seguenti:
 
 - **Numero host integro**
 
-  Il numero di backend che sono determinati integri dal probe di integrità. È possibile filtrare in base al pool back-end per visualizzare gli host integri o non integri in un pool back-end specifico.
+  Il numero di backend che sono determinati integri dal probe di integrità. È possibile filtrare in base al pool back-end per visualizzare il numero di host integri in un pool back-end specifico.
 
 - **Numero host non integro**
 
-  Il numero di backend determinati da un probe di integrità non integro. È possibile filtrare in base al pool back-end per visualizzare gli host non integri in un pool back-end specifico.
+  Il numero di backend determinati da un probe di integrità non integro. È possibile filtrare in base al pool back-end per visualizzare il numero di host non integri in un pool back-end specifico.
 
 ## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Metriche supportate dallo SKU del gateway applicazione V1
 
@@ -158,11 +173,11 @@ Per il gateway applicazione sono disponibili le metriche seguenti:
 
 - **Numero host integro**
 
-  Il numero di backend che sono determinati integri dal probe di integrità. È possibile filtrare in base al pool back-end per visualizzare gli host integri o non integri in un pool back-end specifico.
+  Il numero di backend che sono determinati integri dal probe di integrità. È possibile filtrare in base al pool back-end per visualizzare il numero di host integri in un pool back-end specifico.
 
 - **Numero host non integro**
 
-  Il numero di backend determinati da un probe di integrità non integro. È possibile filtrare in base al pool back-end per visualizzare gli host non integri in un pool back-end specifico.
+  Il numero di backend determinati da un probe di integrità non integro. È possibile filtrare in base al pool back-end per visualizzare il numero di host non integri in un pool back-end specifico.
 
 ## <a name="metrics-visualization"></a>Visualizzazione metrica
 

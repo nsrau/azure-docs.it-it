@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3090c0bb809b302f0326d2586d2ce1426e4ace85
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: b606566fa2b8154eb9ac8fda97d3c3ae81cd3447
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760607"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767429"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -1720,7 +1720,7 @@ Amministratore del provider di identità esterno | Amministratore del provider d
 Lettore globale | Lettore globale | f2ef992c-3afb-46b9-b7cf-a126ee74c451
 Amministratore del gruppo | Amministratore del gruppo | fdd7a751-b60b-444a-984c-02652fe8fa1c 
 Mittente dell'invito guest | Mittente dell'invito guest | 95e79109-95c0-4d8e-aee3-d01accf2d47b
-Amministratore del supporto tecnico | Amministratore password | 729827e3-9c14-49f7-bb1b-9608f156bbb8
+Amministratore del supporto tecnico | Amministratore dell'help desk | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Amministratore del servizio Intune | Amministratore di Intune | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Amministratore di Kaizala | Amministratore di Kaizala | 74ef975b-6605-40af-a5d2-b9539d836353
 Amministratore licenze | Amministratore licenze | 4d6ac14f-3453-41d0-bef9-a3e0c569773a

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: af4b00a630c2fc7d1b806a98f537e8635807609e
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: ffbad5981f29ade9f27a434a9273969af4ed82de
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702250"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773416"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Scenario: applicazione daemon che chiama API Web
 
@@ -39,27 +39,27 @@ L'applicazione può acquisire un token per chiamare un'API Web per conto di se s
 Di seguito sono riportati alcuni esempi di casi d'uso per le app daemon:
 
 - Applicazioni Web utilizzate per il provisioning o l'amministrazione di utenti o per l'esecuzione di processi batch in una directory
-- Applicazioni desktop (ad esempio, servizi Windows in Windows o processi daemon in Linux) che eseguono processi batch o un servizio del sistema operativo in esecuzione in background
+- Applicazioni desktop (ad esempio, i servizi Windows nei processi Windows o daemon in Linux) che eseguono processi batch o un servizio del sistema operativo in esecuzione in background
 - API Web che devono modificare le directory, non utenti specifici
 
-Un altro caso comune in cui le applicazioni non daemon usano le credenziali client: anche quando agiscono per conto degli utenti, devono accedere a un'API Web o a una risorsa con la loro identità per motivi tecnici. Un esempio è l'accesso ai segreti nell'insieme di credenziali delle chiavi o un database SQL di Azure per una cache.
+Un altro caso comune in cui le applicazioni non daemon usano le credenziali client: anche quando agiscono per conto degli utenti, devono accedere a un'API Web o a una risorsa in possesso della propria identità per motivi tecnici. Un esempio è l'accesso ai segreti in Azure Key Vault o un database SQL di Azure per una cache.
 
 Applicazioni che acquisiscono un token per le proprie identità:
 
-- sono applicazioni client riservate. Queste app, dato che accedono alle risorse indipendentemente da un utente, devono dimostrare la propria identità. Si tratta anche di app piuttosto sensibili, che devono essere approvate dagli amministratori del tenant di Azure Active Directory (Azure AD).
+- sono applicazioni client riservate. Queste app, dato che accedono alle risorse indipendentemente dagli utenti, devono dimostrare la propria identità. Sono anche app piuttosto riservate. Devono essere approvati dagli amministratori del tenant di Azure Active Directory (Azure AD).
 - Hanno registrato un segreto (password dell'applicazione o certificato) con Azure AD. Questo segreto viene passato durante la chiamata a Azure AD per ottenere un token.
 
 ## <a name="specifics"></a>Specifiche
 
 > [!IMPORTANT]
 >
-> - L'interazione con l'utente non è possibile con un'applicazione daemon. Un'applicazione daemon richiede una propria identità. Questo tipo di applicazione richiede un token di accesso usando la relativa identità dell'applicazione e presentando l'ID applicazione, le credenziali (password o certificato) e l'URI dell'ID applicazione per Azure AD. Al termine dell'autenticazione, il daemon riceve un token di accesso (e un token di aggiornamento) dall'endpoint della piattaforma di identità Microsoft, che viene quindi usato per chiamare l'API Web (e viene aggiornato in base alle esigenze).
-> - Poiché l'interazione con l'utente non è possibile, il consenso incrementale non sarà possibile. Tutte le autorizzazioni API necessarie devono essere configurate alla registrazione dell'applicazione e il codice dell'applicazione richiede solo le autorizzazioni definite in modo statico. Ciò significa anche che le applicazioni daemon non supporteranno il consenso incrementale.
+> - Gli utenti non possono interagire con un'applicazione daemon. Un'applicazione daemon richiede una propria identità. Questo tipo di applicazione richiede un token di accesso usando la relativa identità dell'applicazione e presentando l'ID applicazione, le credenziali (password o certificato) e l'URI dell'ID applicazione per Azure AD. Una volta completata l'autenticazione, il daemon riceve un token di accesso (e un token di aggiornamento) dall'endpoint della piattaforma di identità Microsoft. Questo token viene quindi usato per chiamare l'API Web (e viene aggiornato in base alle esigenze).
+> - Poiché gli utenti non possono interagire con le applicazioni daemon, il consenso incrementale non è possibile. È necessario configurare tutte le autorizzazioni API necessarie durante la registrazione dell'applicazione. Il codice dell'applicazione richiede solo le autorizzazioni definite in modo statico. Ciò significa anche che le applicazioni daemon non supporteranno il consenso incrementale.
 
 Per gli sviluppatori, l'esperienza end-to-end per questo scenario presenta gli aspetti seguenti:
 
-- Le applicazioni daemon possono funzionare solo in Azure AD tenant. Non avrebbe senso creare un'applicazione daemon che tenti di modificare gli account personali Microsoft. Gli sviluppatori di app line-of-business (LOB) creeranno l'app daemon nel tenant. Se si è un ISV, potrebbe essere necessario creare un'applicazione daemon multi-tenant. Dovrà essere acconsentito da ogni amministratore tenant.
-- Durante la [registrazione dell'applicazione](./scenario-daemon-app-registration.md), l' **URI di risposta** non è necessario. È necessario condividere i segreti o i certificati o le asserzioni firmate con Azure AD ed è necessario richiedere le autorizzazioni per le applicazioni e concedere il consenso dell'amministratore per l'uso di tali autorizzazioni dell'app.
+- Le applicazioni daemon possono funzionare solo in Azure AD tenant. Non avrebbe senso creare un'applicazione daemon che tenti di modificare gli account personali Microsoft. Gli sviluppatori di app line-of-business (LOB) creeranno l'app daemon nel tenant. Se si è un ISV, potrebbe essere necessario creare un'applicazione daemon multi-tenant. Ogni amministratore tenant dovrà fornire il consenso.
+- Durante la [registrazione dell'applicazione](./scenario-daemon-app-registration.md), l'URI di risposta non è necessario. È necessario condividere i segreti o i certificati o le asserzioni firmate con Azure AD. È anche necessario richiedere le autorizzazioni dell'applicazione e concedere il consenso dell'amministratore per usare tali autorizzazioni dell'app.
 - La [configurazione dell'applicazione](./scenario-daemon-app-configuration.md) deve fornire le credenziali client come condivise con Azure ad durante la registrazione dell'applicazione.
 - L' [ambito](scenario-daemon-acquire-token.md#scopes-to-request) usato per acquisire un token con il flusso di credenziali client deve essere un ambito statico.
 

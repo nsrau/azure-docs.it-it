@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/09/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 259ce2b1881c31c2558539fed34513575d193a48
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 9d96db5cf062da1b2e8badd80a9a00620b724fd4
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961988"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840418"
 ---
 # <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Usare il portale di Azure per creare ed eliminare utenti consumer in Azure AD B2C
 
@@ -48,7 +48,7 @@ Questo articolo è incentrato sull'uso degli **account utente** nel portale di A
 1. Opzionale È possibile **bloccare l'accesso** se si vuole ritardare la possibilità per l'utente di accedere. È possibile abilitare l'accesso in un secondo momento modificando il **profilo** dell'utente nel portale di Azure.
 1. Scegliere **genera automaticamente password** o **Consenti la creazione della password**.
 1. Specificare il **nome** e il **Cognome**dell'utente.
-1. Selezionare **Create**.
+1. Selezionare **Create** (Crea).
 
 A meno che non sia stata selezionata l'opzione **Blocca accesso**, l'utente può ora accedere usando il metodo di accesso (posta elettronica o nome utente) specificato.
 
@@ -61,4 +61,4 @@ Per informazioni dettagliate sul ripristino di un utente entro i primi 30 giorni
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per gli scenari di gestione automatizzata degli utenti, ad esempio la migrazione degli utenti da un altro provider di identità alla directory Azure AD B2C, vedere [Azure ad B2C: migrazione degli](active-directory-b2c-user-migration.md)utenti.
+Per gli scenari di gestione automatizzata degli utenti, ad esempio la migrazione degli utenti da un altro provider di identità alla directory Azure AD B2C, vedere [Azure ad B2C: migrazione degli](user-migration.md)utenti.

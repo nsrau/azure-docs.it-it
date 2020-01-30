@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1c5b4904419af1fe86e43dc2f781ef43ce8dd762
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a5e4f9853a68b7b4d8b97cc76032cfa88708c097
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078781"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842683"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>Disponibilità di SAP HANA in un'area di Azure
 Questo articolo descrive diversi scenari di disponibilità in un'area di Azure. Azure ha molte aree, distribuite in tutto il mondo. Per l'elenco delle aree di Azure, vedere [Aree di Azure](https://azure.microsoft.com/regions/). Per la distribuzione di SAP HANA in macchine virtuali in un'area di Azure, Microsoft offre la possibilità di distribuire una singola macchina virtuale con un'istanza di HANA. Per una maggiore disponibilità, è possibile distribuire due macchine virtuali con due istanze di HANA in un [set di disponibilità di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) che usa la replica di sistema HANA per la disponibilità. 
@@ -108,7 +108,7 @@ In questo scenario i dati replicati nell'istanza di HANA nella seconda macchina 
 
 ### <a name="sap-hana-system-replication-with-automatic-failover"></a>Replica di sistema SAP HANA con failover automatico
 
-In un'area di Azure la configurazione di disponibilità standard e più comune è quella in cui due macchine virtuali di Azure che eseguono SLES Linux hanno un cluster di failover definito. Il cluster SLES Linux è basato sul framework [Pacemaker](http://www.linux-ha.org/wiki/Pacemaker), in combinazione con un dispositivo [STONITH](http://linux-ha.org/wiki/STONITH). 
+In un'area di Azure la configurazione di disponibilità standard e più comune è quella in cui due macchine virtuali di Azure che eseguono SLES Linux hanno un cluster di failover definito. Il cluster SLES Linux è basato sul framework [Pacemaker](http://www.linux-ha.org/wiki/Pacemaker), in combinazione con un dispositivo [STONITH](http://www.linux-ha.org/wiki/STONITH). 
 
 Da una prospettiva SAP HANA, la modalità di replica usata è sincronizzata ed è configurato un failover automatico. Nella seconda macchina virtuale l'istanza di SAP HANA agisce come un nodo di hot standby. Il nodo in standby riceve un flusso sincrono di record di modifiche dall'istanza di SAP HANA primaria. Mentre l'applicazione esegue il commit delle transazioni in corrispondenza del nodo HANA primario, il nodo HANA primario attende per confermare il commit all'applicazione fino a quando il nodo SAP HANA secondario non conferma di avere ricevuto il record di commit. SAP HANA offre due modalità di replica sincrona. Per informazioni dettagliate e una descrizione delle differenze tra queste due modalità di replica sincrona, vedere l'articolo di SAP [Replication modes for SAP HANA System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c039a1a5b8824ecfa754b55e0caffc01.html) (Modalità di replica per la replica di sistema SAP HANA).
 

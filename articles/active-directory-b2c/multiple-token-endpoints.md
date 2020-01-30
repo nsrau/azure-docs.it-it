@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f07eb65243b4f797a2955e33aca50ed8c46d256e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: e6a92d12e7f2f24289aafa7e4a9acc9edccbd34c
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950987"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840401"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Eseguire la migrazione di un'API Web basata su OWIN in b2clogin.com
 
@@ -33,7 +33,7 @@ Le sezioni seguenti presentano un esempio di come abilitare più autorità di ce
 
 Prima di continuare con i passaggi descritti in questo articolo, è necessario disporre delle risorse Azure AD B2C seguenti:
 
-* [Flussi utente](tutorial-create-user-flows.md) o [criteri personalizzati](active-directory-b2c-get-started-custom.md) creati nel tenant
+* [Flussi utente](tutorial-create-user-flows.md) o [criteri personalizzati](custom-policy-get-started.md) creati nel tenant
 
 ## <a name="get-token-issuer-endpoints"></a>Ottenere gli endpoint dell'emittente del token
 
@@ -127,7 +127,7 @@ Ad esempio, è possibile configurare l'applicazione Web di esempio in modo che u
 
 Modificare il valore `ida:AadInstance` nel *file Web. config* di TaskWebApp in modo che faccia riferimento `{your-b2c-tenant-name}.b2clogin.com` invece che `login.microsoftonline.com`.
 
-Prima:
+Prima di:
 
 ```xml
 <!-- Old value -->
@@ -147,7 +147,7 @@ Quando le stringhe dell'endpoint vengono costruite durante l'esecuzione dell'app
 
 Questo articolo ha presentato un metodo di configurazione di un'API Web che implementa il middleware Microsoft OWIN (Katana) per accettare i token da più endpoint dell'autorità emittente. Come si può notare, esistono diverse altre stringhe nei file *Web. config* dei progetti TaskService e TaskWebApp che devono essere modificate se si vuole compilare ed eseguire questi progetti nel proprio tenant. È possibile modificare i progetti in modo appropriato se si desidera visualizzarli in azione. Tuttavia, una procedura dettagliata completa di questa operazione esula dall'ambito di questo articolo.
 
-Per ulteriori informazioni sui diversi tipi di token di sicurezza emessi da Azure AD B2C, vedere [Cenni preliminari sui token in Azure Active Directory B2C](active-directory-b2c-reference-tokens.md).
+Per ulteriori informazioni sui diversi tipi di token di sicurezza emessi da Azure AD B2C, vedere [Cenni preliminari sui token in Azure Active Directory B2C](tokens-overview.md).
 
 <!-- LINKS - External -->
 [sample-archive]: https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip

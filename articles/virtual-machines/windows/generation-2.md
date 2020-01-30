@@ -3,7 +3,7 @@ title: Supporto di Azure per le macchine virtuali di seconda generazione
 description: Panoramica del supporto di Azure per le macchine virtuali di seconda generazione
 services: virtual-machines-windows
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 12/03/2019
-ms.author: lahugh
-ms.openlocfilehash: 6f03826bf0b82150fa89ad6e17cbcb76f98bb835
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/28/2020
+ms.author: jushiman
+ms.openlocfilehash: ace08d95e1f2eb5a6e7252ecdf505e282b04ddf8
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790047"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76837350"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Supporto per le macchine virtuali di seconda generazione in Azure
 
@@ -30,7 +30,7 @@ Le macchine virtuali di seconda generazione utilizzano la nuova architettura di 
 
 ## <a name="generation-2-vm-sizes"></a>Dimensioni delle macchine virtuali di seconda generazione
 
-Le macchine virtuali di prima generazione sono supportate da tutte le dimensioni delle macchine virtuali in Azure. Azure offre ora il supporto di seconda generazione per le seguenti serie di macchine virtuali selezionate:
+Le macchine virtuali di prima generazione sono supportate da tutte le dimensioni delle macchine virtuali in Azure (eccetto le VM serie Mv2). Azure offre ora il supporto di seconda generazione per le seguenti serie di macchine virtuali selezionate:
 
 * [Serie B](https://docs.microsoft.com/azure/virtual-machines/windows/b-series-burstable)
 * [Serie DC](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dc-series)
@@ -123,6 +123,12 @@ Ad esempio, usare il cmdlet di PowerShell seguente per ottenere un elenco degli 
 
 ```powershell
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
+```
+
+In alternativa, è possibile usare l'interfaccia della riga di comando di Azure per visualizzare le immagini di generazione 2 disponibili, elencate in **Publisher**.
+
+```azurecli
+az vm image list --publisher Canonical --sku gen2 --output table --all
 ```
 
 Se si crea una macchina virtuale con Windows Server 2012 come sistema operativo, verrà selezionato lo SKU della VM di generazione 1 (BIOS) o di generazione 2 (UEFI), che è simile al seguente:

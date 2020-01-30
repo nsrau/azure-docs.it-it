@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 8860f2bea2877e7775db20be79181352d8cd55c8
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 6737b75a955bb12072722f274ac589cb6d525ffb
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705271"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772547"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Configurare la delega vincolata Kerberos (delega vincolata Kerberos) in Azure Active Directory Domain Services
 
-Quando si eseguono le applicazioni, potrebbe essere necessario che tali applicazioni accedano alle risorse nel contesto di un altro utente. Active Directory Domain Services (AD DS) supporta un meccanismo denominato *delega Kerberos* che consente il caso d'uso. La delega *vincolata* Kerberos (delega vincolata Kerberos) si basa quindi su questo meccanismo per definire risorse specifiche a cui è possibile accedere nel contesto dell'utente. I domini gestiti Azure Active Directory Domain Services (Azure AD DS) sono bloccati in modo più sicuro negli ambienti di servizi di dominio Active Directory locali tradizionali, quindi è consigliabile usare un delega vincolata Kerberos più sicuro *basato sulle risorse* .
+Quando si eseguono le applicazioni, potrebbe essere necessario che tali applicazioni accedano alle risorse nel contesto di un altro utente. Active Directory Domain Services (AD DS) supporta un meccanismo denominato *delega Kerberos* che consente il caso d'uso. La delega *vincolata* Kerberos (delega vincolata Kerberos) si basa quindi su questo meccanismo per definire risorse specifiche a cui è possibile accedere nel contesto dell'utente. Azure Active Directory Domain Services (Azure AD DS) i domini gestiti sono bloccati in modo più sicuro rispetto agli ambienti locali di servizi di dominio Active Directory tradizionali, quindi usare un delega vincolata Kerberos più sicuro *basato sulle risorse* .
 
 Questo articolo illustra come configurare la delega vincolata Kerberos basata sulle risorse in un dominio gestito di Azure AD DS.
 

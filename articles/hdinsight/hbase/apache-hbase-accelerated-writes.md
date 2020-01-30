@@ -1,19 +1,18 @@
 ---
 title: Scritture accelerate di Azure HDInsight per Apache HBase
 description: Offre una panoramica della funzionalità di scrittura accelerata di Azure HDInsight, che usa dischi gestiti Premium per migliorare le prestazioni del log write-ahead di Apache HBase.
-services: hdinsight
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: ebcc91bb374183a3f2fe000f37c66230459befa3
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.date: 01/24/2020
+ms.openlocfilehash: 7165bab96d037f6782bc9aa6767cadd9b35f058c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156931"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76764601"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Scritture accelerate di Azure HDInsight per Apache HBase
 
@@ -33,13 +32,13 @@ Se un **RegionServer** si arresta in modo anomalo o non è più disponibile prim
 
 ## <a name="accelerated-writes-feature-in-azure-hdinsight-for-apache-hbase"></a>Funzionalità Scritture accelerate in Azure HDInsight per Apache HBase
 
-La funzionalità Scritture accelerate risolve il problema delle latenze di scrittura più elevate causate dall'uso di log write-ahead presenti nell'archiviazione cloud.  La funzionalità di scrittura accelerata per i cluster Apache HBase di HDInsight, collega i dischi Premium gestiti da unità SSD a ogni RegionServer (nodo del ruolo di lavoro). I log write-ahead vengono quindi scritti nel file System Hadoop (HDFS) montato su questi dischi gestiti Premium anziché sull'archiviazione cloud.  Managed disks Premium usa dischi a stato solido (SSD) e offre ottime prestazioni di I/O con tolleranza di errore.  A differenza dei dischi non gestiti, se un'unità di archiviazione si interrompe, non influirà sulle altre unità di archiviazione nello stesso set di disponibilità.  Di conseguenza, i dischi gestiti garantiscono una bassa latenza di scrittura e una migliore resilienza per le applicazioni. Per altre informazioni sui dischi gestiti di Azure, vedere [Introduzione a Managed Disks di Azure](../../virtual-machines/windows/managed-disks-overview.md). 
+La funzionalità Scritture accelerate risolve il problema delle latenze di scrittura più elevate causate dall'uso di log write-ahead presenti nell'archiviazione cloud.  La funzionalità di scrittura accelerata per i cluster Apache HBase di HDInsight, collega i dischi Premium gestiti da unità SSD a ogni RegionServer (nodo del ruolo di lavoro). I log write-ahead vengono quindi scritti nel file System Hadoop (HDFS) montato su questi dischi gestiti Premium anziché sull'archiviazione cloud.  Managed disks Premium usa dischi a stato solido (SSD) e offre ottime prestazioni di I/O con tolleranza di errore.  A differenza dei dischi non gestiti, se un'unità di archiviazione diventa inattiva, non influirà sulle altre unità di archiviazione nello stesso set di disponibilità.  Di conseguenza, i dischi gestiti garantiscono una bassa latenza di scrittura e una migliore resilienza per le applicazioni. Per altre informazioni sui dischi gestiti di Azure, vedere [Introduzione a Managed Disks di Azure](../../virtual-machines/windows/managed-disks-overview.md).
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Come abilitare le Scritture accelerate per HBase in HDInsight
 
-Per creare un nuovo cluster HBase con la funzionalità di scrittura accelerata, seguire la procedura descritta in [configurare i cluster in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) fino a raggiungere il **passaggio 3, archiviazione**. In **Impostazioni Metastore**fare clic sulla casella di controllo accanto a **Abilita scritture accelerate**. Quindi, continuare con i passaggi rimanenti per la creazione del cluster.
+Per creare un nuovo cluster HBase con la funzionalità di scrittura accelerata, seguire la procedura descritta in [configurare i cluster in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) fino a raggiungere il **passaggio 3, archiviazione**. In **Impostazioni Metastore**selezionare la casella di controllo accanto a **Abilita scritture HBase accelerate**. Quindi, continuare con i passaggi rimanenti per la creazione del cluster.
 
-![Abilitare l'opzione di scrittura accelerata per HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/accelerated-writes-cluster-creation.png)
+![Abilitare l'opzione di scrittura accelerata per HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/azure-portal-cluster-storage-hbase.png)
 
 ## <a name="other-considerations"></a>Altre considerazioni
 

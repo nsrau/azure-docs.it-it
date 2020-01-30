@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bc00f348e9443384c7799bf227efd7309d6aeac2
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 50ac62ded92b69f44324f4f9c5eacee939159449
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702199"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834128"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>App desktop che chiama le API Web: acquisire un token
 
@@ -413,7 +413,7 @@ Per accedere a un utente di dominio in un dominio o in un computer Azure AD aggi
 
 - L'autorità passata `PublicClientApplicationBuilder` deve essere:
   - Tenant del modulo `https://login.microsoftonline.com/{tenant}/`, dove `tenant` è il GUID che rappresenta l'ID tenant o un dominio associato al tenant.
-  - Per tutti gli [account aziendali e dell'Istituto di istruzione](`https://login.microsoftonline.com/organizations/`).
+  - Per gli account aziendali e dell'Istituto di istruzione: `https://login.microsoftonline.com/organizations/`.
   - Gli account personali Microsoft non sono supportati. Non è possibile usare i tenant/Common o/consumers.
 
 - Poiché l'autenticazione integrata di Windows è un flusso invisibile all'utente:
@@ -581,7 +581,7 @@ Si applicano anche i vincoli seguenti:
 
 Per altre informazioni, vedere [Resource owner password credentials (ROPC) with B2C](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics#resource-owner-password-credentials-ropc-with-b2c).
 
-### <a name="use-it"></a>utilizzo
+### <a name="use-it"></a>USA
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
@@ -887,7 +887,7 @@ L'autenticazione interattiva con Azure AD richiede un Web browser. Per ulteriori
 
 2. Una volta completata l'autenticazione, l'app della riga di comando riceve i token necessari tramite un canale di back-through e li usa per eseguire le chiamate API Web necessarie.
 
-### <a name="use-it"></a>utilizzo
+### <a name="use-it"></a>USA
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 

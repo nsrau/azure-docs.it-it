@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 599becae0225bea623c383ead49cd9abcea6fff2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 35df4c6c20345053bcc39a267a90a7bb1b227241
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231101"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766240"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrare le estensioni di binding di funzioni di Azure
 
@@ -26,7 +26,7 @@ La tabella seguente indica quando e come registrare le associazioni.
 
 | Ambiente di sviluppo |Registrazione<br/> in Funzioni 1.x  |Registrazione<br/> in Funzioni 2.x  |
 |-------------------------|------------------------------------|------------------------------------|
-|portale di Azure|Automatico|Automatico|
+|Portale di Azure|Automatico|Automatico|
 |Lingue Non-.NET o sviluppo locale di strumenti di Azure Core|Automatico|[Usare i bundle di Azure Functions Core Tools ed estensione](#extension-bundles)|
 |C#libreria di classi con Visual Studio|[Usare gli strumenti di NuGet](#vs)|[Usare gli strumenti di NuGet](#vs)|
 |Libreria di classi C# usando Visual Studio Code|N/D|[Usare l'interfaccia della riga di comando di .NET Core](#vs-code)|
@@ -62,9 +62,6 @@ Sostituire `<TARGET_VERSION>` nell'esempio con una specifica versione del pacche
 Se si usa `Install-Package` per fare riferimento a un'associazione, non è necessario usare i [bundle di estensione](#extension-bundles). Questo approccio è specifico per le librerie di classi compilate in Visual Studio.
 
 ## <a name="vs-code"></a>C# libreria di classi con Visual Studio Code
-
-> [!NOTE]
-> Si consiglia di usare [bundle di estensione](#extension-bundles) per installare automaticamente un set compatibile di pacchetti di estensioni di binding. 
 
 In **Visual Studio Code**, installare i pacchetti per C# un progetto di libreria di classi dal prompt dei comandi usando il comando [DotNet Add Package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) nel interfaccia della riga di comando di .NET Core. Nell'esempio seguente viene illustrato come aggiungere un'associazione:
 

@@ -1,6 +1,6 @@
 ---
 title: Filtri per gli argomenti del bus di servizio di Azure | Microsoft Docs
-description: Filtrare gli argomenti del bus di servizio di Azure
+description: Questo articolo illustra in che modo i sottoscrittori possono definire i messaggi che vogliono ricevere da un argomento specificando filtri.
 services: service-bus-messaging
 documentationcenter: ''
 author: clemensv
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 01/27/2020
 ms.author: spelluru
-ms.openlocfilehash: 41af53dbfbb5c863007a332445a2f184fcbcbf81
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b8ffbb16763bfe6485ebf2ab770f4537ddbc8569
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332228"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774489"
 ---
 # <a name="topic-filters-and-actions"></a>Filtri e azioni per gli argomenti
 

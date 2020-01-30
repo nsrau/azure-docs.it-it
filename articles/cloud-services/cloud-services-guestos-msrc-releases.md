@@ -10,44 +10,41 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/15/2020
+ms.date: 01/24/2020
 ms.author: raiye
-ms.openlocfilehash: 85029b5f819a59ffc4934d245778044a94a18d5e
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 89fd16b6afadee75678b76381739c12a31dc1a07
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122135"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765370"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti sono sempre disponibili per la [famiglia][family-explain] specifica in cui sono stati introdotti.
 
 ## <a name="january-2020-guest-os"></a>Sistema operativo guest di gennaio 2020
 
->[!NOTE]
->Il sistema operativo guest di gennaio è in corso di implementazione nelle macchine virtuali del servizio cloud configurate per gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Le seguenti patch sono incluse nel sistema operativo guest di gennaio. L'elenco è soggetto a variazioni.
-
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 20-01  |  [4532960]  |  Windows Security  | 2,94 | 14 gennaio 2020 |
-|  Rel 20-01  |  [4534251]  |  Internet Explorer  | 2,94 | 14 gennaio 2020 |
-|  Rel 20-01  |  [4534314]  |  Windows Security  | 2,94 | 14 gennaio 2020 |
-|  Rel 20-01  |  [4532958]  |  Windows Security  | 3,81 | 14 gennaio 2020 |
-|  Rel 20-01  |  [4532963]  |  Windows Security  | 3,81 | 14 gennaio 2020 |
-|  Rel 20-01  |  [4534251]  |  Internet Explorer  | 3,81 | 14 gennaio 2020 |
-|  Rel 20-01  |  [4534288]  |  Windows Security  | 3,81 | 14 gennaio 2020 |
-|  Rel 20-01  |  [4532961]  |  Windows Security  | 4.74 | 14 gennaio 2020 |
-|  Rel 20-01  |  [4532962]  |  Windows Security  | 4.74 | 14 gennaio 2020 |
-|  Rel 20-01  |  [4534251]  |  Internet Explorer  | 4.74 | 14 gennaio 2020 |
-|  Rel 20-01  |  [4534309]  |  Windows Security  | 4.74 | 14 gennaio 2020 |
-|  Rel 20-01  |  [4494175]  |  Microcodice V3  | 5,39 | 29 ago 2019 |
-|  Rel 20-01  |  [4534271]  |  LCU  | 5,39 | 14 gennaio 2020 |
-|  Rel 20-01  |  [4494174]  |  Microcodice V4  | 6,15 | 29 ago 2019 |
-|  Rel 20-01  |  [4532947]  |  Windows Security  | 6,15 | 14 gennaio 2020 |
-|  Rel 20-01  |  [4534273]  |  LCU  | 6,15 | 14 gennaio 2020 |
-|  Rel 20-01  |  [4530734]  |  Non-sicurezza  | 2,94 | 10 dicembre 2019 |
-|  Rel 20-01  |  [4530691]  |  Non-sicurezza   | 3,81 | 10 dicembre 2019 |
-|  Rel 20-01  |  [4530702]  |  Non-sicurezza  | 4.74 | 10 dicembre 2019 |
+|  Rel 20-01  |  [4532960]  |  Windows Security  | [2,94] | 14 gennaio 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [2,94] | 14 gennaio 2020 |
+|  Rel 20-01  |  [4534314]  |  Windows Security  | [2,94] | 14 gennaio 2020 |
+|  Rel 20-01  |  [4532958]  |  Windows Security  | [3,81] | 14 gennaio 2020 |
+|  Rel 20-01  |  [4532963]  |  Windows Security  | [3,81] | 14 gennaio 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [3,81] | 14 gennaio 2020 |
+|  Rel 20-01  |  [4534288]  |  Windows Security  | [3,81] | 14 gennaio 2020 |
+|  Rel 20-01  |  [4532961]  |  Windows Security  | [4,74] | 14 gennaio 2020 |
+|  Rel 20-01  |  [4532962]  |  Windows Security  | [4,74] | 14 gennaio 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | [4,74] | 14 gennaio 2020 |
+|  Rel 20-01  |  [4534309]  |  Windows Security  | [4,74] | 14 gennaio 2020 |
+|  Rel 20-01  |  [4494175]  |  Microcodice V3  | [5,39] | 29 agosto 2019 |
+|  Rel 20-01  |  [4534271]  |  LCU  | [5,39] | 14 gennaio 2020 |
+|  Rel 20-01  |  [4494174]  |  Microcodice V4  | [6,15] | 29 agosto 2019 |
+|  Rel 20-01  |  [4532947]  |  Windows Security  | [6,15] | 14 gennaio 2020 |
+|  Rel 20-01  |  [4534273]  |  LCU  | [6,15] | 14 gennaio 2020 |
+|  Rel 20-01  |  [4530734]  |  Non-sicurezza  | [2,94] | 10 dicembre 2019 |
+|  Rel 20-01  |  [4530691]  |  Non-sicurezza   | [3,81] | 10 dicembre 2019 |
+|  Rel 20-01  |  [4530702]  |  Non-sicurezza  | [4,74] | 10 dicembre 2019 |
 
 [4532960]: https://support.microsoft.com/kb/4532960
 [4534251]: https://support.microsoft.com/kb/4534251
@@ -68,6 +65,11 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4530734]: https://support.microsoft.com/kb/4530734
 [4530691]: https://support.microsoft.com/kb/4530691
 [4530702]: https://support.microsoft.com/kb/4530702
+[6,15]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5,39]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4,74]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3,81]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2,94]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="december-2019-guest-os"></a>Sistema operativo guest 2019 dicembre
@@ -260,15 +262,15 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 |  Rel 19-08   |  [4512486]  |  Windows Security   |  [2,89]  |  13 agosto, 2019  |
 |  Rel 19-08   |  [4512489]  |  Windows Security   |  [4,69]  |  13 agosto, 2019  |
 |  Rel 19-08   |  [4511872]  |  Internet Explorer    |  [2,89], [3,76], [4,69]  |  15 agosto 2019  |
-|  Rel 19-08   |  [4507449]  |  Non-sicurezza   |  [2,89]  |  09 luglio 2019  |
+|  Rel 19-08   |  [4507449]  |  Non-sicurezza   |  [2,89]  |  9 luglio 2019  |
 |  Rel 19-08   |  [4507000]  |  Non sicurezza di 4.5.2 .NET   |  [3,76]  |  12 agosto 2019  |
 |  Rel 19-08   |  [4507002]  |  .NET 3,5 non-sicurezza   |  [3,76]  |  12 agosto 2019  |
-|  Rel 19-08   |  [4507462]  |  Non-sicurezza   |  [3,76]  |  09 luglio 2019  |
+|  Rel 19-08   |  [4507462]  |  Non-sicurezza   |  [3,76]  |  9 luglio 2019  |
 |  Rel 19-08   |  [4506999]  |  Non sicurezza di 4.5.2 .NET    |  [4,69]  |  12 agosto 2019  |
 |  Rel 19-08   |  [4507005]  |  .NET 3,5 non-sicurezza    |  [4,69]  |  12 agosto 2019  |
-|  Rel 19-08   |  [4507448]  |  Non-sicurezza   |  [4,69]  |  09 luglio 2019  |
-|  Rel 19-08   |  [4509091]  |  Aggiornamento dello stack di manutenzione   |  [5,34]  |  09 luglio 2019  |
-|  Rel 19-08   |  [4509095]  |  Aggiornamento dello stack di manutenzione   |  [6,1]  |  09 luglio 2019  |
+|  Rel 19-08   |  [4507448]  |  Non-sicurezza   |  [4,69]  |  9 luglio 2019  |
+|  Rel 19-08   |  [4509091]  |  Aggiornamento dello stack di manutenzione   |  [5,34]  |  9 luglio 2019  |
+|  Rel 19-08   |  [4509095]  |  Aggiornamento dello stack di manutenzione   |  [6,1]  |  9 luglio 2019  |
 |  Rel 19-08   |  [4512937]  |  Aggiornamento dello stack di manutenzione   |  [6,1]  |  29 luglio 2019  |
 |  Rel 19-08   |  [4507004]  |  Non sicurezza di .NET 3.5.1    |  [2,89]  |  12 agosto 2019  |
 |  Rel 19-08   |  [4504418]  |  Aggiornamento dello stack di manutenzione   |  [3,76], [4,69]  |  11 luglio 2019  |
@@ -309,19 +311,19 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 19-07   |  [4507434]  |  Internet Explorer   |  2,88, 3,75, 4,68  |  09 luglio 2019  |
-|  Rel 19-07   |  [4506966]  |  Sicurezza 4.5.2 .NET   |  2,88  |  09 luglio 2019  |
-|  Rel 19-07   |  [4506976]  |  Sicurezza di .NET 3.5.1   |  2,88  |  09 luglio 2019  |
-|  Rel 19-07   |  [4507456]  |  Windows Security   |  2,88  |  09 luglio 2019  |
-|  Rel 19-07   |  [4506965]  |  Sicurezza 4.5.2 .NET   |  3,75  |  09 luglio 2019  |
-|  Rel 19-07   |  [4506974]  |  Sicurezza di .NET 3,5   |  3,75  |  09 luglio 2019  |
-|  Rel 19-07   |  [4507464]  |  Windows Security   |  3,75  |  09 luglio 2019  |
-|  Rel 19-07   |  [4506964]  |  Sicurezza 4.5.2 .NET   |  4,68  |  09 luglio 2019  |
-|  Rel 19-07   |  [4506977]  |  Sicurezza di .NET 3,5   |  4,68  |  09 luglio 2019  |
-|  Rel 19-07   |  [4507457]  |  Windows Security   |  4,68  |  09 luglio 2019  |
-|  Rel 19-07   |  [4507460]  |  Windows Security   |  5,33  |  09 luglio 2019  |
-|  Rel 19-07   |  [4506998]  |  .NET 3,5 & sicurezza 4.7.2   |  6.9  |  09 luglio 2019  |
-|  Rel 19-07   |  [4507469]  |  Windows Security   |  6.9  |  09 luglio 2019  |
+|  Rel 19-07   |  [4507434]  |  Internet Explorer   |  2,88, 3,75, 4,68  |  9 luglio 2019  |
+|  Rel 19-07   |  [4506966]  |  Sicurezza 4.5.2 .NET   |  2,88  |  9 luglio 2019  |
+|  Rel 19-07   |  [4506976]  |  Sicurezza di .NET 3.5.1   |  2,88  |  9 luglio 2019  |
+|  Rel 19-07   |  [4507456]  |  Windows Security   |  2,88  |  9 luglio 2019  |
+|  Rel 19-07   |  [4506965]  |  Sicurezza 4.5.2 .NET   |  3,75  |  9 luglio 2019  |
+|  Rel 19-07   |  [4506974]  |  Sicurezza di .NET 3,5   |  3,75  |  9 luglio 2019  |
+|  Rel 19-07   |  [4507464]  |  Windows Security   |  3,75  |  9 luglio 2019  |
+|  Rel 19-07   |  [4506964]  |  Sicurezza 4.5.2 .NET   |  4,68  |  9 luglio 2019  |
+|  Rel 19-07   |  [4506977]  |  Sicurezza di .NET 3,5   |  4,68  |  9 luglio 2019  |
+|  Rel 19-07   |  [4507457]  |  Windows Security   |  4,68  |  9 luglio 2019  |
+|  Rel 19-07   |  [4507460]  |  Windows Security   |  5,33  |  9 luglio 2019  |
+|  Rel 19-07   |  [4506998]  |  .NET 3,5 & sicurezza 4.7.2   |  6.9  |  9 luglio 2019  |
+|  Rel 19-07   |  [4507469]  |  Windows Security   |  6.9  |  9 luglio 2019  |
 |  N/D  |  [4503537]  |  Giugno '19 aggiornamento dello stack di manutenzione per (server 2016)   |  5,33  |  14 maggio 2019  |
 |  N/D  |  [4504369]  |  Giugno '19 aggiornamento dello stack di manutenzione per (server 2019)   |  6.9  |  14 maggio 2019  |
 |  N/D  |  [4503292]  |  Giugno '19 non-sicurezza (Server 2008 R2)   |  2,88  |  20 maggio 2019  |

@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 345924c10feabe9a7d5f50905689a4a0edb065ce
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 25a8181d404091064c26407c98fe31465cd4f4b3
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948812"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76838956"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Passare un token di accesso tramite un flusso utente all'applicazione in Azure Active Directory B2C
 
-Un [flusso utente](active-directory-b2c-reference-policies.md) in Azure Active Directory B2C (Azure ad B2C) consente agli utenti dell'applicazione di iscriversi o accedere con un provider di identità. Quando viene avviato il percorso, Azure AD B2C riceve un [token di accesso](active-directory-b2c-reference-tokens.md) dal provider di identità. Azure AD B2C usa tale token per recuperare informazioni sull'utente. Si attiva un'attestazione nel flusso utente da passare il token attraverso le applicazioni registrate in Azure AD B2C.
+Un [flusso utente](user-flow-overview.md) in Azure Active Directory B2C (Azure ad B2C) consente agli utenti dell'applicazione di iscriversi o accedere con un provider di identità. Quando viene avviato il percorso, Azure AD B2C riceve un [token di accesso](tokens-overview.md) dal provider di identità. Azure AD B2C usa tale token per recuperare informazioni sull'utente. Si attiva un'attestazione nel flusso utente da passare il token attraverso le applicazioni registrate in Azure AD B2C.
 
-Azure AD B2C attualmente supporta solo il passaggio di token di accesso del provider di identità [OAuth 2.0](active-directory-b2c-reference-oauth-code.md), tra cui [Facebook](active-directory-b2c-setup-fb-app.md) e [Google](active-directory-b2c-setup-goog-app.md). Per tutti gli altri provider di identità, l'attestazione viene restituita vuota.
+Azure AD B2C attualmente supporta solo il passaggio di token di accesso del provider di identità [OAuth 2.0](authorization-code-flow.md), tra cui [Facebook](identity-provider-facebook.md) e [Google](identity-provider-google.md). Per tutti gli altri provider di identità, l'attestazione viene restituita vuota.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -56,4 +56,4 @@ Durante il test delle applicazioni in Azure AD B2C, può essere utile avere rest
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere la [Panoramica dei token Azure ad B2C](active-directory-b2c-reference-tokens.md).
+Per altre informazioni, vedere la [Panoramica dei token Azure ad B2C](tokens-overview.md).

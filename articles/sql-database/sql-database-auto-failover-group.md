@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 1/05/2020
-ms.openlocfilehash: 7b45ddce0435a903c63855dea8a01353a7ab36ec
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9b838edea4b5f47fe57305c593944ef5fa93a63c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722544"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768671"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 
@@ -326,8 +326,8 @@ Se si usano [endpoint servizio e regole di rete virtuale](sql-database-vnet-serv
 Se il piano di continuità aziendale richiede il failover tramite gruppi con failover automatico, è possibile limitare l'accesso al database SQL usando le regole del firewall tradizionali. Per supportare il failover automatico, seguire questa procedura:
 
 1. [Creare un indirizzo IP pubblico](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address).
-2. [Creare un servizio di bilanciamento del carico pubblico](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-a-basic-load-balancer) e assegnare l'indirizzo IP pubblico a tale servizio.
-3. [Creare una rete virtuale e le macchine virtuali](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-back-end-servers) per i componenti front-end.
+2. [Creare un servizio di bilanciamento del carico pubblico](../load-balancer/quickstart-load-balancer-standard-public-portal.md) e assegnare l'indirizzo IP pubblico a tale servizio.
+3. [Creare una rete virtuale e le macchine virtuali](../load-balancer/quickstart-load-balancer-standard-public-portal.md) per i componenti front-end.
 4. [Creare un gruppo di sicurezza di rete](../virtual-network/security-overview.md) e configurare le connessioni in ingresso.
 5. Assicurarsi che le connessioni in uscita siano aperte al database SQL di Azure usando il [tag di servizio](../virtual-network/security-overview.md#service-tags) 'Sql'.
 6. Creare un [regola del firewall del database SQL](sql-database-firewall-configure.md) per consentire il traffico in ingresso dall'indirizzo IP pubblico creato nel passaggio 1.

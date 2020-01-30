@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: c093cea9f8719722cc44c9d6424c06039360e90f
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: ffb9480508366b223e49f173df3dc76cb711116d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690401"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769179"
 ---
 # <a name="load-balancer-health-probes"></a>Probe di integrità di Load Balancer
 
@@ -200,7 +200,7 @@ Load Balancer è un servizio pass-through del servizio che, quindi, non termina 
 
 I datagrammi UDP verranno recapitati a endpoint back-end integri.
 
-UDP è senza connessione e non esiste uno stato di flusso monitorato per l'UDP. Se il probe di integrità di un endpoint back-end ha esito negativo, i flussi UDP esistenti possono passare a un'altra istanza integra nel pool back-end
+UDP è senza connessione e non esiste uno stato di flusso monitorato per l'UDP. Se il probe di integrità di un endpoint back-end ha esito negativo, i flussi UDP esistenti vengono spostati in un'altra istanza integra nel pool back-end
 
 Se tutti i probe per un pool di back-end hanno esito negativo, i flussi UDP esistenti verranno interrotti per Load Balancer Standard e Basic.
 

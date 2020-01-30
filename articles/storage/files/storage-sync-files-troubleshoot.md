@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 009d9e864773fb3a2578504b043fb30302cedb22
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 527d0a602b9da1f2d4f21890e896eba9a951494b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704545"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842717"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -1084,7 +1084,35 @@ Se non è possibile archiviare a livelli i file in File di Azure:
        - Al prompt dei comandi con privilegi elevati. eseguire `fltmc`. Verificare che i driver di filtro del file system StorageSync.sys e StorageSyncGuard.sys siano presenti nell'elenco.
 
 > [!NOTE]
-> L'ID evento 9003 viene registrato dopo un'ora nel registro eventi di telemetria, se un file non riesce a eseguire la suddivisione in livelli (per ogni codice di errore viene registrato un evento). I log eventi operativi e diagnostici devono essere usati se sono necessarie altre informazioni per diagnosticare un problema.
+> L'ID evento 9003 viene registrato dopo un'ora nel registro eventi di telemetria, se un file non riesce a eseguire la suddivisione in livelli (per ogni codice di errore viene registrato un evento). Controllare la sezione errori di suddivisione in [livelli e correzione](#tiering-errors-and-remediation) per verificare se sono elencati i passaggi correttivi per il codice di errore.
+
+### <a name="tiering-errors-and-remediation"></a>Errori di suddivisione in livelli e correzione
+
+| HRESULT | HRESULT (decimale) | Stringa di errore | Problema | Correzione |
+|---------|-------------------|--------------|-------|-------------|
+| 0x80c86043 | -2134351805 | ECS_E_GHOSTING_FILE_IN_USE | Il file non è stato in grado di eseguire il livello perché è in uso. | Non è necessaria alcuna azione. Il file verrà suddiviso a livelli quando non è più in uso. |
+| 0x80c80241 | -2134375871 | ECS_E_GHOSTING_EXCLUDED_BY_SYNC | Il file non è stato in grado di eseguire il livello perché è escluso dalla sincronizzazione. | Non è necessaria alcuna azione. I file nell'elenco di esclusione della sincronizzazione non possono essere a livelli. |
+| 0x80c86042 | -2134351806 | ECS_E_GHOSTING_FILE_NOT_FOUND | Il file non è stato in grado di eseguire il livello perché non è stato trovato nel server. | Non è necessaria alcuna azione. Se l'errore persiste, controllare se il file esiste nel server. |
+| 0x80c83053 | -2134364077 | ECS_E_CREATE_SV_FILE_DELETED | Non è stato possibile eseguire il livello del file perché è stato eliminato nella condivisione file di Azure. | Non è necessaria alcuna azione. Il file deve essere eliminato nel server quando viene eseguita la prossima sessione di sincronizzazione del download. |
+| 0x80c8600e | -2134351858 | ECS_E_AZURE_SERVER_BUSY | Il file non è riuscito a eseguire il livello a causa di un problema di rete. | Non è necessaria alcuna azione. Se l'errore è permanente, controllare la connettività di rete alla condivisione file di Azure. |
+| 0x80072ee7 | -2147012889 | WININET_E_NAME_NOT_RESOLVED | Il file non è riuscito a eseguire il livello a causa di un problema di rete. | Non è necessaria alcuna azione. Se l'errore è permanente, controllare la connettività di rete alla condivisione file di Azure. |
+| 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | Impossibile eseguire il livello del file a causa di un errore di accesso negato. Questo errore può verificarsi se il file si trova in una cartella di replica di sola lettura di DFS-R. | Sincronizzazione file di Azure non supporta gli endpoint server nelle cartelle di replica di sola lettura di DFS-R. Per ulteriori informazioni, vedere la [Guida alla pianificazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) . |
+| 0x80072efe | -2147012866 | WININET_E_CONNECTION_ABORTED | Il file non è riuscito a eseguire il livello a causa di un problema di rete. | Non è necessaria alcuna azione. Se l'errore è permanente, controllare la connettività di rete alla condivisione file di Azure. |
+| 0x80c80261 | -2134375839 | ECS_E_GHOSTING_MIN_FILE_SIZE | Il file non è stato in grado di eseguire il livello perché le dimensioni del file sono inferiori alle dimensioni supportate. | Se la versione dell'agente è inferiore a 9,0, la dimensione minima supportata per il file è 64KB. Se la versione dell'agente è 9,0 e più recente, le dimensioni minime del file supportate sono basate sulle dimensioni del cluster file system (file system dimensioni del cluster doppie). Se, ad esempio, le dimensioni del cluster file system sono 4KB, le dimensioni minime del file sono 8KB. |
+| 0x80c83007 | -2134364153 | ECS_E_STORAGE_ERROR | Il file non è riuscito a eseguire il livello a causa di un problema di archiviazione di Azure. | Se l'errore è permanente, aprire una richiesta di supporto. |
+| 0x800703e3 | -2147023901 | ERROR_OPERATION_ABORTED | Non è stato possibile eseguire il livello del file perché è stato richiamato nello stesso momento. | Non è necessaria alcuna azione. Il file verrà suddiviso a livelli al termine del richiamo e il file non verrà più usato. |
+| 0x80c80264 | -2134375836 | ECS_E_GHOSTING_FILE_NOT_SYNCED | Non è stato possibile eseguire il livello del file perché non è stato sincronizzato con la condivisione file di Azure. | Non è necessaria alcuna azione. Il file verrà suddiviso in livelli una volta sincronizzato con la condivisione file di Azure. |
+| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | Non è stato possibile eseguire il livello del file perché il driver del filtro di suddivisione in livelli cloud (StorageSync. sys) non è in esecuzione. | Per risolvere questo problema, aprire un prompt dei comandi con privilegi elevati ed eseguire il comando seguente: fltmc Load StorageSync <br>Se non è possibile caricare il driver del filtro StorageSync quando si esegue il comando Fltmc, disinstallare l'agente di Sincronizzazione file di Azure, riavviare il server e reinstallare l'agente di Sincronizzazione file di Azure. |
+| 0x80070070 | -2147024784 | ERROR_DISK_FULL | Impossibile eseguire il livello del file a causa di spazio su disco insufficiente nel volume in cui si trova l'endpoint server. | Per risolvere questo problema, liberare almeno 100 MB di spazio su disco nel volume in cui si trova l'endpoint server. |
+| 0x80070490 | -2147023728 | ERROR_NOT_FOUND | Non è stato possibile eseguire il livello del file perché non è stato sincronizzato con la condivisione file di Azure. | Non è necessaria alcuna azione. Il file verrà suddiviso in livelli una volta sincronizzato con la condivisione file di Azure. |
+| 0x80c80262 | -2134375838 | ECS_E_GHOSTING_UNSUPPORTED_RP | Impossibile eseguire il livello del file perché si tratta di un reparse point non supportato. | Se il file è un reparse point di deduplicazione dati, seguire i passaggi della [Guida alla pianificazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication) per abilitare il supporto della deduplicazione dati. I file con reparse point diversi dalla deduplicazione dei dati non sono supportati e non verranno suddivisi in livelli.  |
+| 0x80c83052 | -2134364078 | ECS_E_CREATE_SV_STREAM_ID_MISMATCH | Il file non è stato in grado di eseguire il livello perché è stato modificato. | Non è necessaria alcuna azione. Il file viene suddiviso in livelli una volta che il file modificato è stato sincronizzato con la condivisione file di Azure. |
+| 0x80c80269 | -2134375831 | ECS_E_GHOSTING_REPLICA_NOT_FOUND | Non è stato possibile eseguire il livello del file perché non è stato sincronizzato con la condivisione file di Azure. | Non è necessaria alcuna azione. Il file verrà suddiviso in livelli una volta sincronizzato con la condivisione file di Azure. |
+| 0x80072ee2 | -2147012894 | WININET_E_TIMEOUT | Il file non è riuscito a eseguire il livello a causa di un problema di rete. | Non è necessaria alcuna azione. Se l'errore è permanente, controllare la connettività di rete alla condivisione file di Azure. |
+| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Il file non è stato in grado di eseguire il livello perché è stato modificato. | Non è necessaria alcuna azione. Il file viene suddiviso in livelli una volta che il file modificato è stato sincronizzato con la condivisione file di Azure. |
+| 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | Il file non è riuscito a eseguire il livello a causa di risorse di sistema insufficienti. | Se l'errore si verifica in modo permanente, individuare l'applicazione o il driver in modalità kernel che esaurisce le risorse di sistema. |
+
+
 
 ### <a name="how-to-troubleshoot-files-that-fail-to-be-recalled"></a>Come risolvere i problemi dei file che non è possibile richiamare  
 Se il richiamo di file ha esito negativo:
@@ -1109,7 +1137,7 @@ Se il richiamo di file ha esito negativo:
 | 0x80c86002 | -2134351870 | ECS_E_AZURE_RESOURCE_NOT_FOUND | Il file non è stato in grado di richiamare perché non è accessibile nella condivisione file di Azure. | Per risolvere questo problema, verificare che il file esista nella condivisione file di Azure. Se il file è presente nella condivisione file di Azure, eseguire l'aggiornamento alla [versione](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions)più recente dell'agente di sincronizzazione file di Azure. |
 | 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | Non è stato possibile richiamare il file a causa di un errore di autorizzazione per l'account di archiviazione. | Per risolvere questo problema, verificare [sincronizzazione file di Azure abbia accesso all'account di archiviazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac). |
 | 0x80c86030 | -2134351824 | ECS_E_AZURE_FILE_SHARE_NOT_FOUND | Il file non è stato in grado di richiamare perché la condivisione file di Azure non è accessibile. | Verificare che la condivisione file esista ed è accessibile. Se la condivisione file è stata eliminata e ricreata, eseguire i passaggi descritti nella sezione [sincronizzazione non riuscita perché la condivisione file di Azure è stata eliminata e ricreata](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134375810) per eliminare e ricreare il gruppo di sincronizzazione. |
-| 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | Impossibile richiamare il file a causa di risorse di sistema insuffcient. | Se l'errore si verifica in modo permanente, individuare l'applicazione o il driver in modalità kernel che esaurisce le risorse di sistema. |
+| 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | Impossibile richiamare il file a causa di risorse di sistema insufficienti. | Se l'errore si verifica in modo permanente, individuare l'applicazione o il driver in modalità kernel che esaurisce le risorse di sistema. |
 | 0x8007000E | -2147024882 | ERROR_OUTOFMEMORY | Impossibile richiamare il file a causa della memoria insuffcient. | Se l'errore si verifica in modo permanente, verificare quale driver in modalità kernel o applicazione sta causando la condizione di memoria insufficiente. |
 | 0x80070070 | -2147024784 | ERROR_DISK_FULL | Impossibile richiamare il file a causa di spazio su disco insufficiente. | Per risolvere questo problema, liberare spazio nel volume spostando i file in un volume diverso, aumentare le dimensioni del volume o forzare i file nel livello usando il cmdlet Invoke-StorageSyncCloudTiering. |
 

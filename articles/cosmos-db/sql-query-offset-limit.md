@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: a8df220be211c3c8d8cdeab8a8aebfd35e77ebf8
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 3d23676885323e370cee1e9cc9e98c7128faf2e0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732587"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771578"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>Clausola limite OFFSET in Azure Cosmos DB
 
@@ -37,7 +37,11 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 
 ## <a name="remarks"></a>Osservazioni
   
-  Nella clausola limite OFFSET sono necessari sia il numero di OFFSET che il numero di limiti. Se viene utilizzata una clausola di `ORDER BY` facoltativa, il set di risultati viene prodotto facendo ignorare i valori ordinati. In caso contrario, la query restituirà un ordine fisso di valori. Questa clausola è ora supportata per le query all'interno di una singola partizione e per le query tra partizioni.
+  Nella clausola `OFFSET LIMIT` sono necessari sia il numero di `OFFSET` che il conteggio `LIMIT`. Se viene utilizzata una clausola di `ORDER BY` facoltativa, il set di risultati viene prodotto facendo ignorare i valori ordinati. In caso contrario, la query restituirà un ordine fisso di valori.
+
+  L'addebito delle UR di una query con `OFFSET LIMIT` aumenterà man mano che aumenta il numero di termini di offset. Per le query con più pagine di risultati, in genere è consigliabile usare i token di continuazione. I token di continuazione sono un "segnalibro" per la posizione in cui la query può essere ripresa in un secondo momento. Se si usa `OFFSET LIMIT`, non è presente alcun "segnalibro". Se si vuole restituire la pagina successiva della query, è necessario iniziare dall'inizio.
+  
+  Usare `OFFSET LIMIT` per i casi in cui si vuole ignorare completamente i documenti e salvare le risorse del client. Ad esempio, è consigliabile utilizzare `OFFSET LIMIT` se si desidera passare al risultato della query 1000 e non è necessario visualizzare i risultati da 1 a 999. Nel back-end `OFFSET LIMIT` carica comunque ogni documento, inclusi quelli ignorati. Il vantaggio in termini di prestazioni è un risparmio nelle risorse client evitando l'elaborazione di documenti non necessari.
 
 ## <a name="examples"></a>Esempi
 

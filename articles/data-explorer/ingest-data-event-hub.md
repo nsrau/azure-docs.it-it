@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: a65f0918d04f77bc3076449347bb20046f73e92a
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: e622abd16f900ca811385ddada187f3c96e7d758
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779953"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773927"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Inserire dati dall'hub eventi in Esplora dati di Azure
 
@@ -118,6 +118,7 @@ A questo punto è possibile connettersi all'hub eventi da Esplora dati di Azure.
     | Hub eventi | *test-hub* | Hub eventi creato. |
     | Gruppo di consumer | *test-group* | Gruppo di consumer definito nell'hub eventi creato. |
     | Proprietà del sistema eventi | Selezionare le proprietà rilevanti | [Proprietà di sistema dell'hub eventi](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). Se sono presenti più record per ogni messaggio di evento, le proprietà di sistema verranno aggiunte alla prima. Quando si aggiungono le proprietà di sistema, [creare](/azure/kusto/management/tables#create-table) o [aggiornare](/azure/kusto/management/tables#alter-table-and-alter-merge-table) lo schema e il [mapping](/azure/kusto/management/mappings) della tabella per includere le proprietà selezionate. |
+    | Compressione | *Nessuno* | Tipo di compressione del payload dei messaggi dell'hub eventi. Tipi di compressione supportati: *None, gzip*.|
     | | |
 
     **Tabella di destinazione:**
@@ -128,15 +129,15 @@ A questo punto è possibile connettersi all'hub eventi da Esplora dati di Azure.
      **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
     | Tabella | *TestTable* | Tabella creata in **TestDatabase**. |
-    | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, multiriga JSON, PSV, SOHSV, SCSV, TSV, TSVE e TXT. Opzioni di compressione supportate: GZip |
-    | Mapping di colonne | *TestMapping* | Il [mapping](/azure/kusto/management/mappings) creato in **TestDatabase**, che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestTable**. Obbligatorio per JSON, MULTILINE JSON o AVRO e facoltativo per gli altri formati.|
+    | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, multiriga JSON, PSV, SOHSV, SCSV, TSV, TSVE, TXT, ORC e PARQUET. |
+    | Mapping di colonne | *TestMapping* | Il [mapping](/azure/kusto/management/mappings) creato in **TestDatabase**, che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestTable**. Obbligatorio per JSON o JSON su più righe e facoltativo per altri formati.|
     | | |
 
     > [!NOTE]
     > * Selezionare **My data includes routing info** (I miei dati includono le informazioni di routing) per usare il routing dinamico, in cui i dati includono le informazioni di routing necessarie come illustrato nei commenti dell'[app di esempio](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). Se vengono impostate proprietà sia statiche che dinamiche, le proprietà dinamiche eseguono l'override di quelle statiche. 
     > * Vengono inseriti solo gli eventi accodati dopo la creazione della connessione dati.
-    > * Abilitare la compressione GZip per il routing statico aprendo una [richiesta di supporto nel portale di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Abilitare la compressione GZip per il routing dinamico come illustrato nell' [app di esempio](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). 
-    > * Il formato Avro e le proprietà del sistema eventi non sono supportate nel payload di compressione.
+    > * È anche possibile impostare il tipo di compressione tramite le proprietà dinamiche come illustrato nell' [app di esempio](https://github.com/Azure-Samples/event-hubs-dotnet-ingest).
+    > * I formati Avro, ORC e PARQUET, nonché le proprietà del sistema di eventi non sono supportati nel payload della compressione GZip.
 
 [!INCLUDE [data-explorer-container-system-properties](../../includes/data-explorer-container-system-properties.md)]
 

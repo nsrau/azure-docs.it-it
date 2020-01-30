@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f81bcd84dfb07958f3205f779937b8beac74166f
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 98054060210f55803d6e2811e1f494fd3ff00e48
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113847"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76838259"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Come elaborare ed estrarre informazioni dalle immagini negli scenari di arricchimento di intelligenza artificiale
 
@@ -29,7 +29,7 @@ Nell'ambito del processo di individuazione dei documenti, è disponibile un nuov
 
 Non è possibile disattivare la normalizzazione delle immagini. Le competenze che prevedono l'iterazione sulle immagini richiedono immagini normalizzate. Per abilitare la normalizzazione delle immagini in un indicizzatore, è necessario associare un skillt a tale indicizzatore.
 
-| Parametro di configurazione | DESCRIZIONE |
+| Parametro di configurazione | Description |
 |--------------------|-------------|
 | imageAction   | Impostare su "none" se non deve essere eseguita alcuna operazione quando vengono rilevate immagini incorporate o file di immagine. <br/>Impostare su "generateNormalizedImages" per generare una matrice di immagini durante l'individuazione dei documenti.<br/>Impostare su "generateNormalizedImagePerPage" per generare una matrice di immagini normalizzate dove, per i file PDF nell'origine dati, viene eseguito il rendering di ogni pagina in un'unica immagine di output.  Per i tipi di file diversi da PDF, la funzionalità è la stessa di "generateNormalizedImages".<br/>Per qualsiasi opzione diversa da "none", le immagini verranno esposte nel campo *normalized_images*. <br/>Il valore predefinito è "none". Questa configurazione è pertinente solo alle origini dati BLOB, quando "dataToExtract" è impostato su "contentAndMetadata". <br/>Verrà estratto un massimo di 1000 immagini da un documento specifico. Se sono presenti più di 1000 immagini in un documento, il primo 1000 verrà estratto e verrà generato un avviso. |
 |  normalizedImageMaxWidth | La larghezza massima (in pixel) per le immagini normalizzate generate. Il valore predefinito è 2000. Il valore massimo consentito è 10000. | 
@@ -60,7 +60,7 @@ Specificare imageAction nella [definizione dell'indicizzatore](https://docs.micr
 
 Se *imageAction* è impostato su un valore diverso da "none", il nuovo campo *normalized_images* conterrà una matrice di immagini. Ogni immagine è un tipo complesso che contiene i membri seguenti:
 
-| Membro immagine       | DESCRIZIONE                             |
+| Membro immagine       | Description                             |
 |--------------------|-----------------------------------------|
 | data               | Stringa con codifica Base64 dell'immagine normalizzata in formato JPEG.   |
 | width              | Larghezza dell'immagine normalizzata in pixel. |
@@ -213,10 +213,10 @@ Se si preferisce trasformare le coordinate normalizzate nello spazio delle coord
         }
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 + [Create indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) (Creare un'indicizzatore - REST)
-+ [Competenza di Analisi delle immagini](cognitive-search-skill-image-analysis.md)
++ [Skill analisi immagini](cognitive-search-skill-image-analysis.md)
 + [OCR skill](cognitive-search-skill-ocr.md) (Competenza OCR)
 + [Text merge skill](cognitive-search-skill-textmerger.md) (Competenza di unione del testo)
-+ [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
++ [Come definire un set di competenze](cognitive-search-defining-skillset.md)
 + [Come eseguire il mapping dei campi arricchiti](cognitive-search-output-field-mapping.md)

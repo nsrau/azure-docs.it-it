@@ -13,12 +13,12 @@ ms.date: 10/29/2019
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 0f3aaa2489b94d254d64d5844e1a2e41d5ecc132
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: f28b7abc2b3a9ba753a2f7923c9cfed1897c8522
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695705"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834196"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Usare MSAL.NET per l'accesso degli utenti con identità di social networking
 
@@ -176,7 +176,7 @@ La soluzione alternativa consigliata consiste nell'usare la [memorizzazione nell
 In alternativa, è possibile usare l'attestazione `tid`, se si usano i [criteri personalizzati B2C](https://aka.ms/ief), perché fornisce la possibilità di restituire attestazioni aggiuntive all'applicazione. Per ulteriori informazioni sulla [trasformazione delle attestazioni](/azure/active-directory-b2c/claims-transformation-technical-profile)
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Mitigazione per "missing from the token Response"
-Un'opzione consiste nell'usare l'attestazione "Name" come nome utente preferito. Il processo è indicato in questa > [doc B2C](../../active-directory-b2c/active-directory-b2c-reference-policies.md) "nella colonna Restituisci attestazione scegliere le attestazioni che si desidera vengano restituite nei token di autorizzazione inviati all'applicazione dopo un'esperienza di modifica del profilo riuscita. Ad esempio, selezionare nome visualizzato, Cap. "
+Un'opzione consiste nell'usare l'attestazione "Name" come nome utente preferito. Il processo è indicato in questa > [doc B2C](../../active-directory-b2c/user-flow-overview.md) "nella colonna Restituisci attestazione scegliere le attestazioni che si desidera vengano restituite nei token di autorizzazione inviati all'applicazione dopo un'esperienza di modifica del profilo riuscita. Ad esempio, selezionare nome visualizzato, Cap. "
 
 ## <a name="next-steps"></a>Passaggi successivi 
 

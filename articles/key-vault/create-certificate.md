@@ -9,18 +9,18 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 908f02807d5a3f7c2c1391c3c59a54fc88bbd831
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 26309bb9a7b9785dbac7f42b0c20de99bca10a17
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884155"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769237"
 ---
 # <a name="certificate-creation-methods"></a>Metodi di creazione dei certificati
 
  Un certificato di Key Vault può essere creato o importato in un insieme di credenziali delle chiavi. Quando viene creato un certificato KV la chiave privata è creata all'interno dell'insieme di credenziali delle chiavi e mai esposta al proprietario del certificato. È possibile creare un certificato in Key Vault nei modi seguenti.  
 
--   **Creare un certificato autofirmato:** viene creata una coppia di chiavi pubblica e privata che viene associata a un certificato. Il certificato viene firmato dalla propria chiave.  
+-   **Creare un certificato autofirmato:** viene creata una coppia di chiavi pubblica e privata che viene associata con un certificato. Il certificato viene firmato dalla propria chiave.  
 
 -    **Creare un nuovo certificato manualmente:** viene creata una coppia di chiavi pubblica e privata e viene generata un richiesta di firma del certificato X.509. La richiesta di firma può essere firmata dall'autorità di registrazione o di certificazione. Per completare il certificato KV in Key Vault, il certificato X.509 firmato può essere unito con la coppia di chiavi in sospeso. Anche se questo metodo richiede più passaggi, offre maggiore sicurezza perché la chiave privata viene creata e limitata a Key Vault. Il concetto è illustrato nel diagramma seguente.  
 
@@ -41,10 +41,10 @@ Le descrizioni seguenti corrispondono ai passaggi contrassegnati con un numero i
 Le descrizioni seguenti corrispondono ai passaggi contrassegnati con un numero in verde nel diagramma precedente.
 
 1. Nel diagramma precedente l'applicazione crea un certificato, operazione che internamente inizia con la creazione di una chiave nell'insieme di credenziali delle chiavi.
-2. Key Vault invia una richiesta di certificato SSL alla CA.
+2. Key Vault invia alla CA una richiesta di certificato TLS/SSL.
 3. L'applicazione esegue il polling, in un processo di ciclo e attesa, per Key Vault per il completamento del certificato. La creazione del certificato è completa quando Key Vault riceve la risposta della CA con il certificato X.509.
-4. La CA risponde alla richiesta di certificato SSL di Key Vault con un certificato SSL X.509.
-5. La creazione del nuovo certificato viene completata con l'unione del certificato X.509 per la CA.
+4. La CA risponde alla richiesta di certificato TLS/SSL di Key Vault con un certificato X. 509 TLS/SSL.
+5. La creazione del nuovo certificato viene completata con la fusione del certificato X. 509 TLS/SSL per l'autorità di certificazione.
 
 ## <a name="asynchronous-process"></a>Processo asincrono
 La creazione dei certificati di Key Vault è un processo asincrono. Questa operazione crea una richiesta di certificato KV e restituisce il codice di stato http 202 (accettato). Lo stato della richiesta può essere monitorato eseguendo il polling dell'oggetto in sospeso creato dall'operazione. Nell'intestazione LOCATION viene restituito l'URI completo dell'oggetto in sospeso.  
@@ -88,7 +88,7 @@ La creazione del certificato può essere completata manualmente oppure usando un
 
 Si noti che quando viene passato un ordine al provider di autorità di certificazione, può rispettare o ignorare le estensioni e il periodo di validità del certificato X.509 in base al tipo di certificato.  
 
- Authorization: è necessaria l'autorizzazione a creare certificati.
+ Autorizzazione: richiede l'autorizzazione di creazione certificati.
 
 ## <a name="see-also"></a>Vedere anche
  - [Informazioni su chiavi, segreti e certificati](about-keys-secrets-and-certificates.md)

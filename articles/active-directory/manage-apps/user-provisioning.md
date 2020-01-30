@@ -15,16 +15,16 @@ ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eefdb42cebad2b7f532392254b652742527ed862
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9848e686188288b507a0a74d0f9fa16f8f0e4253
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76711482"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841200"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-active-directory"></a>Automatizzare il provisioning e il deprovisioning utenti in applicazioni con Azure Active Directory
 
-In Azure Active Directory (Azure AD), il termine **provisioning app** si riferisce alla creazione automatica di identità e ruoli utente nelle applicazioni cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) a cui gli utenti devono accedere. Oltre a creare le identità utente, il provisioning automatico include la manutenzione e la rimozione delle identità utente durante la modifica dello stato o dei ruoli. Gli scenari comuni includono il provisioning di un utente Azure AD in applicazioni come [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md)e altro ancora.
+In Azure Active Directory (Azure AD), il termine **provisioning app** si riferisce alla creazione automatica di identità e ruoli utente nelle applicazioni cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) a cui gli utenti devono accedere. Oltre a creare le identità utente, il provisioning automatico include la manutenzione e la rimozione delle identità utente quando lo stato o i ruoli cambiano. Gli scenari comuni includono il provisioning di un utente di Azure AD in applicazioni come [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md) e altre ancora.
 
 ![Diagramma della panoramica del provisioning](media/user-provisioning/provisioning-overview.png)
 
@@ -67,7 +67,7 @@ Azure AD offre un supporto pre-integrato per molte app SaaS e sistemi di risorse
 
 * **Applicazioni che supportano SCIM 2,0**. Per informazioni su come connettere in modo generico le applicazioni che implementano le API di gestione utenti basate su SCIM 2,0, vedere [creare un endpoint scim e configurare il provisioning utenti](use-scim-to-provision-users-and-groups.md).
 
-## <a name="what-is-scim"></a>Che cos'è SCIM?
+## <a name="what-is-system-for-cross-domain-identity-management-scim"></a>Che cos'è il sistema per la gestione delle identità tra domini (SCIM)?
 
 Per automatizzare il provisioning e il deprovisioning, le app espongono API di utenti e gruppi proprietarie. Tuttavia, chiunque abbia provato a gestire gli utenti in più app indica che ogni app tenta di eseguire le stesse azioni semplici, ad esempio la creazione o l'aggiornamento degli utenti, l'aggiunta di utenti a gruppi o il deprovisioning degli utenti. Tuttavia, tutte queste semplici azioni vengono implementate in modo leggermente diverso, usando percorsi di endpoint diversi, metodi diversi per specificare le informazioni utente e uno schema diverso per rappresentare ogni elemento di informazioni.
 

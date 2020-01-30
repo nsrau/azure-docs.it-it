@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/15/2020
+ms.date: 1/24/2020
 ms.author: raiye
-ms.openlocfilehash: 1139e2b26cdc1dee524b1d3b6a942c735c43aec7
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: c4bdb6fec5c20940e0afe4ab2e94702a2b21a60c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122246"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765325"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
 Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato. Se si configurano i ruoli per l'uso degli aggiornamenti *automatici* del sistema operativo guest come descritto in [Impostazioni di aggiornamento del sistema operativo guest Azure][Azure Guest OS Update Settings], non è indispensabile leggere questa pagina.
@@ -41,6 +41,9 @@ Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure p
 In caso di dubbi su come aggiornare il sistema operativo guest, Vedere [queste informazioni][cloud updates].
 
 ## <a name="news-updates"></a>Novità e aggiornamenti
+
+###### <a name="january-24-2020"></a>**24 gennaio 2020**
+È stato rilasciato il sistema operativo guest di gennaio. 
 
 ###### <a name="january-8-2020"></a>**8 gennaio 2020**
 È stato rilasciato il sistema operativo guest di dicembre.
@@ -115,8 +118,9 @@ In caso di dubbi su come aggiornare il sistema operativo guest, Vedere [queste i
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+|  WA-GUEST-OS-6.15 _202001-01  |  24 gennaio 2020  |  Post 6,17  |  
 | WA-GUEST-OS-6.14 _201912-01 | 8 gennaio 2020 | Post 6,16 |  
-| WA-GUEST-OS-6.13 _201911-01 | 5 dicembre 2019 | Post 6,15 |  
+|~~WA-GUEST-OS-6.13 _201911-01~~| 5 dicembre 2019 | 24 gennaio 2020 |  
 |~~WA-GUEST-OS-6.12 _201910-01~~| 1 novembre 2019 | 8 gennaio 2020 |  
 |~~WA-GUEST-OS-6.11 _201909-01~~| 7 ottobre 2019 | 5 dicembre 2019 |  
 |~~WA-GUEST-OS-6.10 _201908-01~~| 4 agosto 2019 | 1 novembre 2019  |  
@@ -142,8 +146,9 @@ In caso di dubbi su come aggiornare il sistema operativo guest, Vedere [queste i
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+|  WA-GUEST-OS-5.39 _202001-01  |  24 gennaio 2020  |  Post 5,41  |  
 | WA-GUEST-OS-5.38 _201912-01 | 8 gennaio 2020 | Post 5,40 |  
-| WA-GUEST-OS-5.37 _201911-01 | 5 dicembre 2019 | Post 5,39 |  
+|~~WA-GUEST-OS-5.37 _201911-01~~| 5 dicembre 2019 | 24 gennaio 2020 |  
 |~~WA-GUEST-OS-5.36 _201910-01~~| 1 novembre 2019 | 8 gennaio 2020 |  
 |~~WA-GUEST-OS-5.35 _201909-01~~| 7 ottobre 2019 | 5 dicembre 2019 |  
 |~~WA-GUEST-OS-5.34 _201908-01~~|  4 agosto 2019  | 1 novembre 2019 |  
@@ -166,8 +171,9 @@ In caso di dubbi su come aggiornare il sistema operativo guest, Vedere [queste i
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+|  WA-GUEST-OS-4.74 _202001-01  |  24 gennaio 2020  |  Post 4,76  |  
 | WA-GUEST-OS-4.73 _201912-01 | 8 gennaio 2020 | Post 4,75 |  
-| WA-GUEST-OS-4.72 _201911-01 | 5 dicembre 2019 | Post 4,74 |  
+|~~WA-GUEST-OS-4.72 _201911-01~~| 5 dicembre 2019 | 24 gennaio 2020 |  
 |~~WA-GUEST-OS-4.71 _201910-01~~| 1 novembre 2019 | 8 gennaio 2020 |  
 |~~WA-GUEST-OS-4.70 _201909-01~~| 7 ottobre 2019 | 5 dicembre 2019 |  
 |~~WA-GUEST-OS-4.69 _201908-01~~| 4 agosto 2019 | 1 novembre 2019 |  
@@ -190,8 +196,9 @@ Versione .NET Framework installata: 3.5, 4.5
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+|  WA-GUEST-OS-3.81 _202001-01  |  24 gennaio 2020  |  Post 3,83  |  
 | WA-GUEST-OS-3.80 _201912-01 | 8 gennaio 2020 | Post 3,82 |  
-| WA-GUEST-OS-3.79 _201911-01 | 5 dicembre 2019 | Post 3,81 |  
+|~~WA-GUEST-OS-3.79 _201911-01~~| 5 dicembre 2019 | 24 gennaio 2020 |  
 |~~WA-GUEST-OS-3.78 _201910-01~~| 1 novembre 2019 | 8 gennaio 2020 |  
 |~~WA-GUEST-OS-3.77 _201909-01~~| 7 ottobre 2019 | 5 dicembre 2019 |  
 |~~WA-GUEST-OS-3.76 _201908-01~~|  4 agosto 2019  |  1 novembre 2019  |  
@@ -214,8 +221,9 @@ Versione .NET Framework installata: 3.5, 4.5
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione |
 | --- | --- | --- |
+|  WA-GUEST-OS-2.94 _202001-01  |  24 gennaio 2020  |  Post 2,96  |  
 | WA-GUEST-OS-2.93 _201912-01 | 8 gennaio 2020 | Post 2,95 |  
-| WA-GUEST-OS-2.92 _201911-01 | 5 dicembre 2019 | Post 2,94 |  
+|~~WA-GUEST-OS-2.92 _201911-01~~| 5 dicembre 2019 | 24 gennaio 2020 |  
 |~~WA-GUEST-OS-2.91 _201910-01~~| 1 novembre 2019 | 8 gennaio 2020 |  
 |~~WA-GUEST-OS-2.90 _201909-01~~| 7 ottobre 2019 | 5 dicembre 2019 |  
 |~~WA-GUEST-OS-2.89 _201908-01~~| 4 agosto 2019 | 1 novembre 2019 |  

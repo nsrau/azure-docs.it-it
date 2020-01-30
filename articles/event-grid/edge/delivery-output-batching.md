@@ -9,14 +9,14 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 7d6b83354baf3db5ddb65f94fee1c3dce2dcca94
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: a6f033af34088081090251f2e5e7cd4a07ce43cc
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992457"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841748"
 ---
-# <a name="output-batching"></a>Batch di output
+# <a name="output-batching"></a>Suddivisione in batch per l'output
 
 Griglia di eventi supporta la distribuzione di più di un evento in una singola richiesta di recapito. Questa funzionalità consente di aumentare la velocità effettiva di recapito complessiva senza pagare l'overhead per richiesta HTTP. L'invio in batch è disattivato per impostazione predefinita e può essere attivato per sottoscrizione.
 
@@ -77,16 +77,16 @@ Il comportamento di invio in batch di griglia di eventi può essere personalizza
 
 Le seguenti impostazioni dell'ora di distribuzione controllano il valore massimo consentito durante la creazione di una sottoscrizione di eventi.
 
-| Nome proprietà | Descrizione |
+| Nome proprietà | Description |
 | ------------- | ----------- | 
-| `api:deliveryPolicyLimits:maxpreferredBatchSizeInKilobytes` | Valore massimo consentito per la manopola `PreferredBatchSizeInKilobytes`. `1033`predefinita.
-| `api:deliveryPolicyLimits:maxEventsPerBatch` | Valore massimo consentito per la manopola `MaxEventsPerBatch`. `50`predefinita.
+| `api__deliveryPolicyLimits__maxpreferredBatchSizeInKilobytes` | Valore massimo consentito per la manopola `PreferredBatchSizeInKilobytes`. `1033`predefinita.
+| `api__deliveryPolicyLimits__maxEventsPerBatch` | Valore massimo consentito per la manopola `MaxEventsPerBatch`. `50`predefinita.
 
 ## <a name="configuring-runtime-default-values"></a>Configurazione dei valori predefiniti di runtime
 
 Le impostazioni dell'ora di distribuzione seguenti controllano il valore predefinito di runtime di ogni manopola quando non è specificato nella sottoscrizione dell'evento. Per ripetere l'iterazione, è necessario impostare almeno una manopola sulla sottoscrizione dell'evento per attivare il comportamento di invio in batch.
 
-| Nome proprietà | Descrizione |
+| Nome proprietà | Description |
 | ------------- | ----------- |
-| `broker:defaultMaxBatchSizeInBytes` | Dimensioni massime della richiesta di recapito quando si specifica solo `MaxEventsPerBatch`. `1_058_576`predefinita.
-| `broker:defaultMaxEventsPerBatch` | Numero massimo di eventi da aggiungere a un batch quando viene specificato solo `MaxBatchSizeInBytes`. `10`predefinita.
+| `broker__defaultMaxBatchSizeInBytes` | Dimensioni massime della richiesta di recapito quando si specifica solo `MaxEventsPerBatch`. `1_058_576`predefinita.
+| `broker__defaultMaxEventsPerBatch` | Numero massimo di eventi da aggiungere a un batch quando viene specificato solo `MaxBatchSizeInBytes`. `10`predefinita.

@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
-ms.openlocfilehash: 03d2ca0b7d6b53215c5293f84c8b22a2dc0d8297
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b224de96f6b6baedc3b57e0245a4c4e8748576b4
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450068"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767727"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguaggio di query dell'hub IoT per dispositivi e moduli gemelli, processi e routing di messaggi
 
-L'IoT Hub fornisce un linguaggio simile a SQL avanzato per recuperare le informazioni relative a [sui dispositivi gemelli](iot-hub-devguide-device-twins.md), [moduli gemelli](iot-hub-devguide-module-twins.md), [processi](iot-hub-devguide-jobs.md), e [routingdeimessaggi](iot-hub-devguide-messages-d2c.md). Questo articolo contiene:
+L'hub Internet delle cose fornisce un potente linguaggio simile a SQL per recuperare informazioni sui [dispositivi gemelli](iot-hub-devguide-device-twins.md), i [moduli gemelli](iot-hub-devguide-module-twins.md), i [processi](iot-hub-devguide-jobs.md)e il [routing dei messaggi](iot-hub-devguide-messages-d2c.md). Questo articolo contiene:
 
 * Un'introduzione alle principali funzionalità del linguaggio di query dell'hub IoT
 * La descrizione dettagliata del linguaggio Per informazioni sul linguaggio di query per il routing dei messaggi, vedere [Query nel routing dei messaggi](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
@@ -25,7 +25,7 @@ L'IoT Hub fornisce un linguaggio simile a SQL avanzato per recuperare le informa
 
 ## <a name="device-and-module-twin-queries"></a>Query su dispositivi e moduli gemelli
 
-[Dispositivi gemelli](iot-hub-devguide-device-twins.md) e [moduli gemelli](iot-hub-devguide-module-twins.md) possono contenere oggetti JSON arbitrari come tag e proprietà. L'hub IoT consente di effettuare una query sui dispositivi e i moduli gemelli come singolo documento JSON contenente tutte le informazioni sui dispositivi e i moduli gemelli.
+I [dispositivi gemelli](iot-hub-devguide-device-twins.md) e i [moduli gemelli](iot-hub-devguide-module-twins.md) possono contenere oggetti JSON arbitrari come tag e proprietà. L'hub IoT consente di effettuare una query sui dispositivi e i moduli gemelli come singolo documento JSON contenente tutte le informazioni sui dispositivi e i moduli gemelli.
 
 Si supponga, ad esempio, che i dispositivi gemelli dell'hub IoT abbiano la struttura seguente (i moduli gemelli sarebbero simili, avrebbero solo un moduleId aggiuntivo):
 
@@ -159,7 +159,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>Query sui moduli gemelli
 
-Una query su moduli gemelli è simile all'esecuzione di query sui dispositivi gemelli, ma con una raccolta/spazio dei nomi diverso; anziché da **periferiche**, si esegue una query da **devices.modules**:
+L'esecuzione di query sui moduli gemelli è simile all'esecuzione di query sui dispositivi gemelli, ma usando una raccolta o uno spazio dei nomi diverso; anziché dai **dispositivi**, viene eseguita una query da **Devices. Modules**:
 
 ```sql
 SELECT * FROM devices.modules
@@ -233,7 +233,7 @@ L'oggetto query espone più valori **Next**, a seconda dell'opzione di deseriali
 ### <a name="limitations"></a>Limitazioni
 
 > [!IMPORTANT]
-> I risultati della query possono avere qualche minuto di ritardo rispetto ai valori più recenti nei dispositivi gemelli. Se la query di dispositivi gemelli si basa sull'ID, usare l'API di recupero di dispositivi gemelli. Questa API contiene sempre i valori più recenti e ha limitazioni superiori.
+> I risultati della query possono avere qualche minuto di ritardo rispetto ai valori più recenti nei dispositivi gemelli. Se si eseguono query sui singoli dispositivi gemelli in base all'ID, usare l' [API REST di Get gemelle](https://docs.microsoft.com/rest/api/iothub/service/gettwin). Questa API restituisce sempre i valori più recenti e ha limiti di limitazione più elevati. È possibile rilasciare direttamente l'API REST o usare la funzionalità equivalente in uno degli [SDK del servizio Hub Azure](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 I confronti sono attualmente supportati solo tra tipi primitivi (non oggetti), ad esempio `... WHERE properties.desired.config = properties.reported.config` è supportato solo se tali proprietà hanno valori primitivi.
 
@@ -315,7 +315,7 @@ Attualmente le query su **devices.jobs** non supportano:
 
 ## <a name="basics-of-an-iot-hub-query"></a>Nozioni di base di una query dell'hub IoT
 
-Ogni query dell'hub IoT è costituita da una clausola SELECT e da una clausola FROM e dalle clausole facoltative WHERE e GROUP BY. Ogni query viene eseguita su una raccolta di documenti JSON, ad esempio dispositivi gemelli. La clausola FROM indica la raccolta di documenti per eseguire l'iterazione (**periferiche**, **devices.modules**, o **devices.jobs**). Viene quindi applicato il filtro nella clausola WHERE. Con le aggregazioni, i risultati di questo passaggio vengono raggruppati come specificato nella clausola GROUP BY. Per ogni gruppo, viene generata una riga come specificato nella clausola SELECT.
+Ogni query dell'hub IoT è costituita da una clausola SELECT e da una clausola FROM e dalle clausole facoltative WHERE e GROUP BY. Ogni query viene eseguita su una raccolta di documenti JSON, ad esempio dispositivi gemelli. La clausola FROM indica la raccolta di documenti su cui eseguire l'iterazione (**Devices**, **Devices. modules**o **Devices.Jobs**). Viene quindi applicato il filtro nella clausola WHERE. Con le aggregazioni, i risultati di questo passaggio vengono raggruppati come specificato nella clausola GROUP BY. Per ogni gruppo, viene generata una riga come specificato nella clausola SELECT.
 
 ```sql
 SELECT <select_list>
@@ -326,9 +326,9 @@ SELECT <select_list>
 
 ## <a name="from-clause"></a>Clausola FROM
 
-Il **FROM < from_specification >** clausola può avere solo tre valori: **DAI dispositivi** alla query dei dispositivi gemelli, **da devices.modules** a moduli gemelli di query, o **da devices.jobs** a dettagli di ogni dispositivo di processo di query.
+La clausola **FROM < from_specification >** può assumere solo tre valori: **da dispositivi** per eseguire query sui dispositivi gemelli, **da Devices. Modules** a moduli di query gemelli o **da Devices.Jobs** per eseguire query sui dettagli del processo per ogni dispositivo.
 
-## <a name="where-clause"></a>Clausola WHERE
+## <a name="where-clause"></a>WHERE - clausola
 
 La clausola **WHERE <filter_condition>** è facoltativa e specifica una o più condizioni che i documenti JSON della raccolta FROM devono soddisfare per essere inclusi come parte del risultato. Per essere incluso nel risultato, qualsiasi documento JSON deve restituire "true" per le condizioni specificate.
 
@@ -457,26 +457,26 @@ Sono supportati gli operatori seguenti:
 
 Quando si eseguono query gemelle e di processi l'unica funzione supportata è:
 
-| Funzione | Descrizione |
+| Funzione | Description |
 | -------- | ----------- |
 | IS_DEFINED(proprietà) | Restituisce un valore booleano che indica se alla proprietà è stata assegnato un valore (incluso `null`). |
 
 Nelle condizioni di route, sono supportate le funzioni matematiche seguenti:
 
-| Funzione | Descrizione |
+| Funzione | Description |
 | -------- | ----------- |
 | ABS(x) | Restituisce il valore assoluto (positivo) dell'espressione numerica specificata. |
 | EXP(x) | Restituisce il valore esponente dell'espressione numerica specificata (e^x). |
 | POWER(x,y) | Restituisce il valore dell'espressione specificata alla potenza specificata (x^y).|
 | SQUARE(x) | Restituisce il quadrato del valore numerico specificato. |
 | CEILING(x) | Restituisce il più piccolo valore integer maggiore di o uguale all'espressione numerica specificata. |
-| FLOOR(x) | Restituisce il valore integer più alto, minore di o uguale all'espressione numerica specificata. |
+| FLOOR(x) | Restituisce l'intero maggiore che risulta minore o uguale all'espressione numerica specificata. |
 | SIGN(x) | Restituisce il segno positivo (+1), zero (0) o negativo (-1) dell'espressione numerica specificata.|
 | SQRT(x) | Restituisce la radice quadrata del valore numerico specificato. |
 
 Nelle condizioni di route, sono supportate le funzioni di trasmissione e controllo seguenti:
 
-| Funzione | Descrizione |
+| Funzione | Description |
 | -------- | ----------- |
 | AS_NUMBER | Converte la stringa di input in un numero. `noop` se l'input è un numero, `Undefined` se la stringa non rappresenta un numero.|
 | IS_ARRAY | Restituisce un valore booleano che indica se il tipo di espressione specificata è una matrice. |
@@ -490,7 +490,7 @@ Nelle condizioni di route, sono supportate le funzioni di trasmissione e control
 
 Nelle condizioni di route, sono supportate le funzioni di stringa seguenti:
 
-| Funzione | Descrizione |
+| Funzione | Description |
 | -------- | ----------- |
 | CONCAT(x, y, …) | Restituisce una stringa che rappresenta il risultato della concatenazione di due o più valori di stringa. |
 | LENGTH(x) | Restituisce il numero di caratteri dell'espressione stringa specificata.|

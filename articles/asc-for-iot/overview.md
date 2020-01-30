@@ -1,6 +1,6 @@
 ---
 title: Informazioni sul centro sicurezza di Azure Microsoft Docs
-description: Scopri di più sul centro sicurezza di Azure per le funzionalità e il servizio Internet e Scopri in che modo il Centro sicurezza di Azure per le cose offre una sicurezza completa per tutti gli asset.
+description: Scopri di più sul centro sicurezza di Azure per le funzionalità e i servizi dell'IT e Scopri in che modo il Centro sicurezza di Azure per le cose offre una sicurezza completa.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 1b428af1f1c01a3b1b1429f51d76ebfdeb4c1cc6
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 6a4fc842113218294b3e2ab449e27cfa94c5cfd3
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664965"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766530"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Introduzione al Centro sicurezza di Azure per IoT
 
@@ -52,7 +52,7 @@ Usa l'analisi avanzata e il Microsoft Intelligent Security Graph per ottenere un
 
 In questa panoramica sono state illustrate le funzionalità e i servizi del Centro sicurezza di Azure. Per altre informazioni sul centro sicurezza di Azure per l'architettura dell'it, i prerequisiti e informazioni su come iniziare, vedere gli articoli seguenti:
 
-- [Architecture](architecture.md)
+- [Architettura](architecture.md)
 - [Prerequisiti del servizio](service-prerequisites.md)
 - [Introduzione](getting-started.md)
 - [Definire la soluzione](quickstart-configure-your-solution.md)

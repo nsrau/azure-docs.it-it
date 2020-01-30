@@ -10,23 +10,23 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c75eae72b94c807897d74e365ec9f4ef74c83dd9
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 6147dc64833f44f24afe14cd1da34432a3735519
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063677"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840231"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurare il comportamento della sessione in Azure Active Directory B2C
 
-Questa funzionalità offre un controllo dettagliato, in base ai [singoli flussi utente](active-directory-b2c-reference-policies.md), per gli elementi seguenti:
+Questa funzionalità offre un controllo dettagliato, in base ai [singoli flussi utente](user-flow-overview.md), per gli elementi seguenti:
 
 - Durate delle sessioni delle applicazioni Web gestite da Azure AD B2C.
 - Comportamento dell'accesso Single Sign-On (SSO) in più app e flussi utente nel tenant di Azure AD B2C.
 
 Queste impostazioni non sono disponibili per i flussi utente di reimpostazione della password.
 
-Azure AD B2C supporta il [protocollo di autenticazione OpenID Connect](active-directory-b2c-reference-oidc.md) per abilitare l'accesso sicuro alle applicazioni Web. È possibile usare le proprietà seguenti per gestire le sessioni delle applicazioni Web:
+Azure AD B2C supporta il [protocollo di autenticazione OpenID Connect](openid-connect.md) per abilitare l'accesso sicuro alle applicazioni Web. È possibile usare le proprietà seguenti per gestire le sessioni delle applicazioni Web:
 
 ## <a name="session-behavior-properties"></a>Proprietà del comportamento della sessione
 
@@ -54,8 +54,8 @@ I seguenti casi d'uso sono abilitati usando queste proprietà:
 4. Selezionare **flussi utente (criteri)** .
 5. Aprire il flusso utente creato in precedenza.
 6. Selezionare **Proprietà**.
-7. Configurare la **durata della sessione dell'app Web (minuti)** , il **timeout della sessione dell'app Web**, la **configurazione dell'accesso Single Sign-on**e **richiedere il token ID nelle richieste** di disconnessione, se necessario.
+7. Configurare la **durata della sessione dell'app Web (minuti)** , il **timeout della sessione dell'app Web**, la **configurazione dell'accesso Single Sign-on**e **richiedere il token ID nelle richieste di disconnessione** , se necessario.
 
     ![Impostazioni delle proprietà di comportamento della sessione nell'portale di Azure](./media/session-behavior/session-behavior.png)
 
-8. Fare clic su **Save**.
+8. Fare clic su **Salva**.

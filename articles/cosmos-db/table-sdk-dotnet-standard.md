@@ -1,19 +1,19 @@
 ---
 title: SDK .NET Standard e risorse relative all'API Tabella di Azure Cosmos DB
 description: Informazioni sull'SDK .NET Standard e sull'API Tabella di Azure Cosmos DB, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le diverse versioni.
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: c1422b6411fc60383cffa6c3082108bb940c4343
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 48fd85e27feb3d0c7f7f722dbbd502be55684385
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996208"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771582"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>API .NET Standard Tabella di Azure Cosmos DB: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -45,14 +45,14 @@ la serie 1.0.0 prende la dipendenza da [Microsoft. Azure. DocumentDB. Core](http
 ### <a name="a-name105105"></a><a name="1.0.5"/>1.0.5
 * Introdurre la nuova configurazione in TableClientConfiguration per usare l'executor REST per comunicare con Cosmos DB API Tabella
 
-### <a name="a-name105-preview105-preview"></a><a name="1.0.5-preview"/>1.0.5-Anteprima
+### <a name="a-name105-preview105-preview"></a><a name="1.0.5-preview"/>1.0.5-Preview
 * Correzioni di bug
 
 ### <a name="a-name104104"></a><a name="1.0.4"/>1.0.4
 * Correzioni di bug
 * Specificare l'opzione HttpClientTimeout per RestExecutorConfiguration.
 
-### <a name="a-name104-preview104-preview"></a><a name="1.0.4-preview"/>1.0.4-Anteprima
+### <a name="a-name104-preview104-preview"></a><a name="1.0.4-preview"/>1.0.4-Preview
 * Correzioni di bug
 * Specificare l'opzione HttpClientTimeout per RestExecutorConfiguration.
 
@@ -95,7 +95,7 @@ Questa libreria di .NET Standard multipiattaforma [Microsoft. Azure. Cosmos. Tab
 ### <a name="100-series"></a>serie 1.0.0
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
-| [1.0.5](#1.0.5) |13 settembre, 2019 |--- |
+| [1.0.5](#1.0.5) |13 settembre 2019 |--- |
 | [1.0.5-Anteprima](#1.0.5-preview) |Auguest 20, 2019 |--- |
 | [1.0.4](#1.0.4) |Auguest 12, 2019 |--- |
 | [1.0.4-Anteprima](#1.0.4-preview) |26 luglio 2019 |--- |
@@ -108,9 +108,9 @@ Questa libreria di .NET Standard multipiattaforma [Microsoft. Azure. Cosmos. Tab
 | [0.9.1-anteprima](#0.9.1-preview) |18 ottobre 2018 |--- |
 
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>FAQ
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 Per altre informazioni sull'API Table di Azure Cosmos DB, vedere [Introduzione ad Azure Cosmos DB: API Table](table-introduction.md).

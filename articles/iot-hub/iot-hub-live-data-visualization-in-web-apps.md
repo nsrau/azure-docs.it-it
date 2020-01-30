@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
-ms.openlocfilehash: 073a766662b2ead4b816276fa7fda6dc5e6caca7
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 6c7981d15acf2b2b71dfb4234f85b738efe62ce0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954640"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767957"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualizzare i dati del sensore in tempo reale dall'hub Azure Internet in un'applicazione Web
 
@@ -49,7 +49,7 @@ In questa esercitazione si apprenderà come visualizzare i dati del sensore in t
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Eseguire il comando seguente per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
+Eseguire questo comando per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -165,10 +165,10 @@ In questa sezione si esegue il provisioning di un'app Web nel servizio app e si 
    az appservice plan create --name <app service plan name> --resource-group <your resource group name> --sku FREE
    ```
 
-2. Eseguire ora il provisioning di un'app Web nel piano di servizio app. Il `--deployment-local-git` parametro consente di caricare e distribuire il codice dell'app Web da un repository git nel computer locale. Il nome dell'app Web deve essere globalmente univoco e può contenere lettere maiuscole e minuscole, numeri e trattini.
+2. Eseguire ora il provisioning di un'app Web nel piano di servizio app. Il `--deployment-local-git` parametro consente di caricare e distribuire il codice dell'app Web da un repository git nel computer locale. Il nome dell'app Web deve essere globalmente univoco e può contenere lettere maiuscole e minuscole, numeri e trattini. Assicurarsi di specificare il nodo versione 10,6 o successiva per il parametro `--runtime`, a seconda della versione del runtime node. js in uso. È possibile usare il comando `az webapp list-runtimes` per ottenere un elenco di runtime supportati.
 
    ```azurecli-interactive
-   az webapp create -n <your web app name> -g <your resource group name> -p <your app service plan name> --deployment-local-git
+   az webapp create -n <your web app name> -g <your resource group name> -p <your app service plan name> --runtime "node|10.6" --deployment-local-git
    ```
 
 3. Aggiungere ora le impostazioni dell'applicazione per le variabili di ambiente che specificano la stringa di connessione dell'hub e il gruppo di consumer dell'hub eventi. Le singole impostazioni sono delimitate da spazi nel parametro `-settings`. Usare la stringa di connessione del servizio per l'hub e il gruppo di consumer creato in precedenza in questa esercitazione. Non racchiudere i valori.

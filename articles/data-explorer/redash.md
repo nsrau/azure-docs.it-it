@@ -7,16 +7,16 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8bb8711bc4a6134ec740a55d9f5d5794b2de77ca
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 0380689ae6ca81e3f31a07f1e205c7773fdea8c6
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73588590"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773947"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-redash"></a>Visualizza i dati da Esplora dati di Azure in Dash
 
-Il [Ritrattino](https://www.redash.io/) connette ed esegue query sulle origini dati, compila i dashboard per visualizzare i dati e condividerli con i peer. Questo articolo illustra come configurare Esplora dati di Azure come origine dati per il Ritrattino e quindi visualizzare i dati.
+Il [Ritrattino](https://redash.io/) connette ed esegue query sulle origini dati, compila i dashboard per visualizzare i dati e condividerli con i peer. Questo articolo illustra come configurare Esplora dati di Azure come origine dati per il Ritrattino e quindi visualizzare i dati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -64,7 +64,7 @@ Il [Ritrattino](https://www.redash.io/) connette ed esegue query sulle origini d
 
 ### <a name="create-a-query-using-a-parameter"></a>Creare una query usando un parametro
 
-1. **Creare** > **query** per creare una nuova query. Aggiungere un parametro usando le parentesi graffe {{}}. Selezionare **{{}}** per aprire la finestra **Aggiungi parametro** . È anche possibile selezionare l' *icona Impostazioni* per modificare gli attributi di un parametro esistente e aprire la finestra **< parameter_name >** . 
+1. **Creare** > **query** per creare una nuova query. Aggiungere un parametro usando le parentesi graffe {{}}. Selezionare **{{}}** per aprire la finestra **Aggiungi parametro** . È anche possibile selezionare l' *icona Impostazioni* per modificare gli attributi di un parametro esistente e aprire la finestra di **< parameter_name >** . 
 
     ![Inserisci parametro](media/redash/insert-parameter.png)
 
@@ -81,7 +81,7 @@ Il [Ritrattino](https://www.redash.io/) connette ed esegue query sulle origini d
 
     ![Creare un dashboard](media/redash/create-dashboard.png)
 
-1. Nella finestra **nuovo dashboard** assegnare un nome al dashboard e selezionare **Salva**. In **< finestra di > Dashboard_name** selezionare **Aggiungi widget** per creare un nuovo widget. 
+1. Nella finestra **nuovo dashboard** assegnare un nome al dashboard e selezionare **Salva**. In **< Dashboard_name finestra >** selezionare **Aggiungi widget** per creare un nuovo widget. 
 
 1. Nella finestra **Aggiungi widget** selezionare nome query, **scegliere visualizzazione**e **parametri**. Selezionare **Aggiungi al dashboard**
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: d7304c1267c4a4f5548bb57ffb3e6016fac21d99
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: e3ea11f4faad204756f9e1296b5190e1f81a5cc0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122509"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772789"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>Distribuire uno strumento di gestione con PowerShell
 
@@ -163,4 +163,4 @@ Se si verificano problemi con lo strumento di gestione o altri strumenti di Desk
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver appreso come distribuire lo strumento di gestione e come connettersi, è possibile scoprire come usare il servizio di Azure per monitorare i problemi dei servizi e gli avvisi di integrità. Per altre informazioni, vedere l'esercitazione [Configurare gli avvisi dei servizi](./set-up-service-alerts.md).
+Dopo aver appreso come distribuire lo strumento di gestione e come connettersi, è possibile scoprire come usare Integrità dei servizi di Azure per monitorare i problemi dei servizi e gli avvisi di integrità. Per altre informazioni, vedere l'esercitazione [Configurare gli avvisi dei servizi](./set-up-service-alerts.md).

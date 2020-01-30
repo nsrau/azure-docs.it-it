@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: d66e792b901742f903dccf7a0e7999db4d02e26a
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 3f3604205d4aedffdda128ec4a6b895786245e56
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289527"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772023"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Risolvere i problemi relativi a Azure Migrate Appliance e all'individuazione
 
@@ -131,7 +131,7 @@ Se questa operazione non funziona e si stanno scoprendo i server VMware:
 
 ## <a name="vm-data-not-in-portal"></a>Dati della macchina virtuale non nel portale
 
-Se le macchine virtuali individuate non vengono visualizzate nel portale, attendere alcuni minuti. Per visualizzare i dati individuati nel portale sono necessari fino a 30 minuti. Se non sono presenti dati dopo 30 minuti, provare ad aggiornare, come indicato di seguito.
+Se le macchine virtuali individuate non vengono visualizzate nel portale o se i dati della macchina virtuale sono obsoleti, attendere alcuni minuti. Sono necessari fino a 30 minuti per la visualizzazione delle modifiche nei dati di configurazione della macchina virtuale individuati nel portale. Potrebbero essere necessarie alcune ore per visualizzare le modifiche apportate ai dati dell'applicazione. Se non sono presenti dati dopo questa volta, provare ad aggiornare, come indicato di seguito.
 
 1. In **server** > **Azure migrate server Assessment**Selezionare **Panoramica**.
 2. In **Gestisci**selezionare **integrità agente**.
@@ -166,7 +166,8 @@ I tipici errori di individuazione delle app sono riepilogati nella tabella.
 9009: "Impossibile recuperare le applicazioni installate nel server". | Può verificarsi se le impostazioni di controllo dell'account utente di Windows nel server sono restrittive e impedire l'individuazione delle applicazioni installate. | Cercare le impostazioni di controllo dell'account utente nel server e configurare l'impostazione UAC sul server su uno dei due livelli inferiori.
 9010: "Impossibile recuperare le applicazioni installate nel server". | Potrebbe trattarsi di un errore interno.  | TF il problema non si risolve automaticamente entro 24 ore, contattare il supporto tecnico.
 8084: "Impossibile individuare le applicazioni a causa di un errore VMware: <Exception from VMware>" | Il Azure Migrate Appliance usa le API VMware per individuare le applicazioni. Questo problema può verificarsi se un'eccezione viene generata da server vCenter durante il tentativo di individuazione delle applicazioni. Il messaggio di errore di VMware viene visualizzato nel messaggio di errore visualizzato nel portale. | Cercare il messaggio nella documentazione di [VMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html)e seguire i passaggi da eseguire per risolvere il problema. Se non è possibile risolvere il problema, contattare il supporto tecnico Microsoft.
-
+9012: "Impossibile individuare le applicazioni installate nel server" | Il problema può verificarsi a causa di un errore interno.  | Se il problema non si risolve automaticamente entro 24 ore, contattare il supporto tecnico.
+9013: "Impossibile individuare le applicazioni installate nel server" | Un nuovo profilo temporaneo viene creato ogni volta che si accede alla macchina virtuale.  | Verificare che non sia stato creato un profilo temporaneo per l'utente Guest specificato.
 
 
 

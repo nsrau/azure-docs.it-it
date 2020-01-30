@@ -11,25 +11,25 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a49eae95628645f6586a637c103433b122b5d287
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 2bc02433be9ee7955b0e10ac659ee40e315e5a5e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950953"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840163"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Esercitazione: aggiungere provider di identità alle applicazioni in Azure Active Directory B2C
 
-È possibile consentire agli utenti di accedere alle applicazioni con provider di identità diversi. Un *provider di identità* crea, mantiene e gestisce le informazioni sulle identità fornendo al contempo servizi di autenticazione alle applicazioni. È possibile aggiungere i provider di identità supportati da Azure Active Directory B2C (Azure AD B2C) ai [flussi utente](active-directory-b2c-reference-policies.md) tramite il portale di Azure.
+È possibile consentire agli utenti di accedere alle applicazioni con provider di identità diversi. Un *provider di identità* crea, mantiene e gestisce le informazioni sulle identità fornendo al contempo servizi di autenticazione alle applicazioni. È possibile aggiungere i provider di identità supportati da Azure Active Directory B2C (Azure AD B2C) ai [flussi utente](user-flow-overview.md) tramite il portale di Azure.
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Creare le applicazioni dei provider di identità
 > * Aggiungere i provider di identità al tenant
 > * Aggiungere i provider di identità al flusso utente
 
-In genere si usa un solo provider di identità nelle applicazioni, ma è possibile aggiungerne altri. Questa esercitazione illustra come aggiungere un provider di identità di Azure AD e un provider di identità di Facebook all'applicazione. L'aggiunta di entrambi i provider di identità all'applicazione è facoltativa. È anche possibile aggiungere altri provider di identità, ad esempio [Amazon](active-directory-b2c-setup-amzn-app.md), [GitHub](active-directory-b2c-setup-github-app.md), [Google](active-directory-b2c-setup-goog-app.md), [LinkedIn](active-directory-b2c-setup-li-app.md), [Microsoft](active-directory-b2c-setup-msa-app.md)o [Twitter](active-directory-b2c-setup-twitter-app.md).
+In genere si usa un solo provider di identità nelle applicazioni, ma è possibile aggiungerne altri. Questa esercitazione illustra come aggiungere un provider di identità di Azure AD e un provider di identità di Facebook all'applicazione. L'aggiunta di entrambi i provider di identità all'applicazione è facoltativa. È anche possibile aggiungere altri provider di identità, ad esempio [Amazon](identity-provider-amazon.md), [GitHub](identity-provider-github.md), [Google](identity-provider-google.md), [LinkedIn](identity-provider-linkedin.md), [Microsoft](identity-provider-microsoft-account.md)o [Twitter](identity-provider-twitter.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -49,7 +49,7 @@ Per consentire agli utenti di accedere da Azure AD, è necessario registrare un'
 1. Assicurarsi di usare la directory che contiene il tenant di Azure AD selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant del Azure ad.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
 1. Selezionare **Nuova registrazione**.
-1. Immettere un nome per l'applicazione. Ad esempio `Azure AD B2C App`.
+1. Immettere un nome per l'applicazione. Ad esempio: `Azure AD B2C App`.
 1. Accetta la selezione degli **account in questa directory organizzativa solo** per questa applicazione.
 1. Per l' **URI di reindirizzamento**accettare il valore di **Web** e immettere l'URL seguente in lettere minuscole, sostituendo `your-B2C-tenant-name` con il nome del tenant di Azure ad B2C.
 
@@ -57,13 +57,13 @@ Per consentire agli utenti di accedere da Azure AD, è necessario registrare un'
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-    Ad esempio `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+    Ad esempio: `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 
     Tutti gli URL dovrebbero ora usare [b2clogin.com](b2clogin.md).
 
 1. Selezionare **Register (registra**), quindi registrare l' **ID applicazione (client)** che verrà usato in un passaggio successivo.
 1. In **Gestisci** nel menu dell'applicazione selezionare **certificati & segreti**, quindi selezionare **nuovo segreto client**.
-1. Immettere una **Descrizione** per il segreto client. Ad esempio `Azure AD B2C App Secret`.
+1. Immettere una **Descrizione** per il segreto client. Ad esempio: `Azure AD B2C App Secret`.
 1. Selezionare il periodo di scadenza. Per questa applicazione, accettare la selezione di **tra 1 anno**.
 1. Selezionare **Aggiungi**, quindi registrare il valore del nuovo segreto client che verrà usato in un passaggio successivo.
 
@@ -105,7 +105,7 @@ Dopo aver creato l'applicazione per il provider di identità che si vuole aggiun
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
     ```
 
-    Ad esempio `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
+    Ad esempio: `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
 
 1. Per **ID client**immettere l'ID applicazione registrato in precedenza.
 1. Per il **segreto client**, immettere il segreto client registrato in precedenza.

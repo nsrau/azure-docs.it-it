@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/10/2020
+ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: bfa3f592ca799b71bef7c7f9409864026f6c8d6a
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: d4409fe61bfe1f0a9fe74171f5b1ec471b9a6a26
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863894"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774433"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure
 
@@ -33,7 +33,7 @@ Hyper-V senza Virtual Machine Manager | È possibile eseguire il ripristino di e
 **Server** | **Requisiti** | **Dettagli**
 --- | --- | ---
 Hyper-V (in esecuzione senza Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (inclusa l'installazione dei componenti di base del server), Windows Server 2012 R2 con gli aggiornamenti più recenti | Se si è già configurato Windows Server 2012 R2 con/o SCVMM 2012 R2 con Azure Site Recovery e si prevede di aggiornare il sistema operativo, seguire le indicazioni nella [documentazione](upgrade-2012R2-to-2016.md) correlata. 
-Hyper-V (in esecuzione con Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Se si usa Virtual Machine Manager, gli host Windows Server 2019 devono essere gestiti in Virtual Machine Manager 2019. Analogamente, gli host Windows Server 2016 devono essere gestiti in Virtual Machine Manager 2016.<br/><br/>
+Hyper-V (in esecuzione con Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Se si usa Virtual Machine Manager, gli host Windows Server 2019 devono essere gestiti in Virtual Machine Manager 2019. Analogamente, gli host Windows Server 2016 devono essere gestiti in Virtual Machine Manager 2016.<br/><br/> Nota: il failback in un percorso alternativo non è supportato per gli host Windows Server 2019.
 
 
 ## <a name="replicated-vms"></a>VM replicate
@@ -51,8 +51,8 @@ Sistema operativo guest | Qualsiasi sistema operativo guest [supportato per Azur
 
 **Azione** | **Dettagli**
 --- | ---
-Ridimensionare li disco nella macchina virtuale Hyper-V replicata | Non supportato. Disabilitare la replica e apportare la modifica, quindi riabilitare la replica per la macchina virtuale.
-Aggiungere il disco nella macchina virtuale Hyper-V replicata | Non supportato. Disabilitare la replica e apportare la modifica, quindi riabilitare la replica per la macchina virtuale.
+Ridimensionare li disco nella macchina virtuale Hyper-V replicata | Non supportato. Disabilitare la replica, apportare la modifica e quindi riabilitare la replica per la macchina virtuale.
+Aggiungere il disco nella macchina virtuale Hyper-V replicata | Non supportato. Disabilitare la replica, apportare la modifica e quindi riabilitare la replica per la macchina virtuale.
 
 ## <a name="hyper-v-network-configuration"></a>Configurazione di rete Hyper-V
 
@@ -111,7 +111,7 @@ SMB 3.0 | No | No
 RDM | ND | ND
 Disco superiore a 1 TB | Sì, fino a 4.095 GB | Sì, fino a 4.095 GB
 Disco: dimensioni logiche di settore e dimensioni fisiche a 4 KB | Non supportato: Gen 1/Gen 2 | Non supportato: Gen 1/Gen 2
-Disco: dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 512 byte | Sì |  Sì
+Disco: settore fisico 4K logico e 512 byte | Sì |  Sì
 Gestione volumi logici (LVM). LVM è supportata solo nei dischi dati. Azure ha un solo disco di sistema operativo. | Sì | Sì
 Volume con disco con striping superiore a 1 TB | Sì | Sì
 Spazi di archiviazione | No | No
@@ -134,7 +134,7 @@ Crittografia inattiva (CMK) <br></br> (Solo per failover a Managed Disks)| Sì (
 Archiviazione Premium | Sì | Sì
 Servizio di importazione/esportazione | No | No
 Account di archiviazione di Azure con firewall abilitato | Sì. Per l'archiviazione e la cache di destinazione. | Sì. Per l'archiviazione e la cache di destinazione.
-Modifica dell'account di archiviazione | No. L'account di archiviazione di Azure di destinazione non può essere modificato dopo l'abilitazione della replica. Per modificare, disabilitare e quindi riabilitare il ripristino di emergenza. | No
+Modifica account di archiviazione | No. L'account di archiviazione di Azure di destinazione non può essere modificato dopo l'abilitazione della replica. Per modificare, disabilitare e quindi riabilitare il ripristino di emergenza. | No
 
 
 ## <a name="azure-compute-features"></a>Funzionalità di calcolo di Azure

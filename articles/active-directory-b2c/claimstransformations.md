@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c904ac9d4c59a467dd8402ec44682c3cbd03fd8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66c94f08638895c85836fda37c3ae61f3857ee51
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511540"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836695"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-L'elemento **ClaimsTransformations** contiene un elenco di funzioni di trasformazione delle attestazioni che può essere usato nei percorsi utente come parte di [criteri personalizzati](active-directory-b2c-overview-custom.md). Una trasformazione di attestazioni converte una determinata attestazione in un'altra. Nella trasformazione delle attestazioni viene specificare il metodo di trasformazione, ad esempio l'aggiunta di un elemento a una raccolta di stringhe o la modifica delle maiuscole/minuscole di una stringa.
+L'elemento **ClaimsTransformations** contiene un elenco di funzioni di trasformazione delle attestazioni che può essere usato nei percorsi utente come parte di [criteri personalizzati](custom-policy-overview.md). Una trasformazione di attestazioni converte una determinata attestazione in un'altra. Nella trasformazione delle attestazioni viene specificare il metodo di trasformazione, ad esempio l'aggiunta di un elemento a una raccolta di stringhe o la modifica delle maiuscole/minuscole di una stringa.
 
 Per includere l'elenco di funzioni di trasformazione delle attestazioni che possono essere usate nei percorsi di utente, un elemento XML ClaimsTransformations deve essere dichiarato nella sezione BuildingBlocks dei criteri.
 
@@ -33,12 +33,12 @@ Per includere l'elenco di funzioni di trasformazione delle attestazioni che poss
 </ClaimsTransformations>
 ```
 
-Il **ClaimsTransformation** elemento contiene gli attributi seguenti:
+L'elemento **ClaimsTransformation** contiene gli attributi seguenti:
 
-| Attributo |Obbligatorio | Descrizione |
+| Attributo |Obbligatorio | Description |
 | --------- |-------- | ----------- |
-| ID |Yes | Identificatore usato per identificare in modo univoco la trasformazione delle attestazioni. Viene fatto riferimento all'identificatore da altri elementi XML nei criteri. |
-| TransformationMethod | Yes | Il metodo di trasformazione da usare nella trasformazione delle attestazioni. Ogni trasformazione delle attestazioni ha i propri valori. Vedere i [riferimenti delle trasformazioni di attestazioni](#claims-transformations-reference) per un elenco completo dei valori disponibili. |
+| ID |Sì | Identificatore usato per identificare in modo univoco la trasformazione delle attestazioni. Viene fatto riferimento all'identificatore da altri elementi XML nei criteri. |
+| TransformationMethod | Sì | Il metodo di trasformazione da usare nella trasformazione delle attestazioni. Ogni trasformazione delle attestazioni ha i propri valori. Vedere i [riferimenti delle trasformazioni di attestazioni](#claims-transformations-reference) per un elenco completo dei valori disponibili. |
 
 ## <a name="claimstransformation"></a>ClaimsTransformation
 
@@ -59,7 +59,7 @@ L'elemento **ClaimsTransformation** contiene gli elementi seguenti:
 ```
 
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | Description |
 | ------- | -------- | ----------- |
 | InputClaims | 0:1 | Un elenco degli elementi **InputClaim** che specificano i tipi di attestazione che vengono accettati come input per la trasformazione delle attestazioni. Ognuno di questi elementi contiene un riferimento a un ClaimType già definito nella sezione ClaimsSchema nei criteri. |
 | InputParameters | 0:1 | Un elenco di elementi **InputParameter** forniti come input per la trasformazione delle attestazioni.  
@@ -69,7 +69,7 @@ L'elemento **ClaimsTransformation** contiene gli elementi seguenti:
 
 L'elemento **InputClaims** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
 | InputClaim | 1:n | Un tipo di attestazione di input previsto. |
 
@@ -77,32 +77,32 @@ L'elemento **InputClaims** contiene l'elemento seguente:
 
 L'elemento **InputClaim** contiene gli attributi seguenti:
 
-| Attributo |Obbligatorio | Descrizione |
+| Attributo |Obbligatorio | Description |
 | --------- | ----------- | ----------- |
-| ClaimTypeReferenceId |Yes | Un riferimento a un ClaimType già definito nella sezione ClaimsSchema nei criteri. |
-| TransformationClaimType |Yes | Un identificatore per fare riferimento a un tipo di attestazione di trasformazione. Ogni trasformazione delle attestazioni ha i propri valori. Vedere i [riferimenti delle trasformazioni di attestazioni](#claims-transformations-reference) per un elenco completo dei valori disponibili. |
+| ClaimTypeReferenceId |Sì | Un riferimento a un ClaimType già definito nella sezione ClaimsSchema nei criteri. |
+| TransformationClaimType |Sì | Un identificatore per fare riferimento a un tipo di attestazione di trasformazione. Ogni trasformazione delle attestazioni ha i propri valori. Vedere i [riferimenti delle trasformazioni di attestazioni](#claims-transformations-reference) per un elenco completo dei valori disponibili. |
 
 ### <a name="inputparameters"></a>InputParameters
 
 L'elemento **InputParameters** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
 | InputParameter | 1:n | Un tipo di parametro di input previsto. |
 
 #### <a name="inputparameter"></a>InputParameter
 
-| Attributo | Obbligatorio |Descrizione |
+| Attributo | Obbligatorio |Description |
 | --------- | ----------- |----------- |
-| ID | Yes | Un identificatore che rappresenta un riferimento a un parametro del metodo di trasformazione delle attestazioni. Ogni metodo di trasformazione delle attestazioni ha i propri valori. Vedere la tabella delle trasformazioni delle attestazioni per un elenco completo dei valori disponibili. |
-| DataType | Yes | Il tipo di dati del parametro, ad esempio String, Boolean, Int o DateTime in base all'enumerazione DataType nello schema XML dei criteri personalizzati. Questo tipo viene usato per eseguire operazioni aritmetiche in modo corretto. Ogni trasformazione delle attestazioni ha i propri valori. Vedere i [riferimenti delle trasformazioni di attestazioni](#claims-transformations-reference) per un elenco completo dei valori disponibili. |
-| Value | Yes | Un valore che viene passato letteralmente alla trasformazione. Alcuni valori sono arbitrari, altri vengono selezionati dal metodo di trasformazione delle attestazioni. |
+| ID | Sì | Un identificatore che rappresenta un riferimento a un parametro del metodo di trasformazione delle attestazioni. Ogni metodo di trasformazione delle attestazioni ha i propri valori. Vedere la tabella delle trasformazioni delle attestazioni per un elenco completo dei valori disponibili. |
+| DataType | Sì | Il tipo di dati del parametro, ad esempio String, Boolean, Int o DateTime in base all'enumerazione DataType nello schema XML dei criteri personalizzati. Questo tipo viene usato per eseguire operazioni aritmetiche in modo corretto. Ogni trasformazione delle attestazioni ha i propri valori. Vedere i [riferimenti delle trasformazioni di attestazioni](#claims-transformations-reference) per un elenco completo dei valori disponibili. |
+| Valore | Sì | Un valore che viene passato letteralmente alla trasformazione. Alcuni valori sono arbitrari, altri vengono selezionati dal metodo di trasformazione delle attestazioni. |
 
 ### <a name="outputclaims"></a>OutputClaims
 
 L'elemento **OutputClaims** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
 | OutputClaim | 0:n | Un tipo di attestazione di output previsto. |
 
@@ -110,10 +110,10 @@ L'elemento **OutputClaims** contiene l'elemento seguente:
 
 L'elemento **OutputClaim** contiene gli attributi seguenti:
 
-| Attributo |Obbligatorio | Descrizione |
+| Attributo |Obbligatorio | Description |
 | --------- | ----------- |----------- |
-| ClaimTypeReferenceId | Yes | Un riferimento a un ClaimType già definito nella sezione ClaimsSchema nei criteri.
-| TransformationClaimType | Yes | Un identificatore per fare riferimento a un tipo di attestazione di trasformazione. Ogni trasformazione delle attestazioni ha i propri valori. Vedere i [riferimenti delle trasformazioni di attestazioni](#claims-transformations-reference) per un elenco completo dei valori disponibili. |
+| ClaimTypeReferenceId | Sì | Un riferimento a un ClaimType già definito nella sezione ClaimsSchema nei criteri.
+| TransformationClaimType | Sì | Un identificatore per fare riferimento a un tipo di attestazione di trasformazione. Ogni trasformazione delle attestazioni ha i propri valori. Vedere i [riferimenti delle trasformazioni di attestazioni](#claims-transformations-reference) per un elenco completo dei valori disponibili. |
  
 Se l'attestazione di input e l'attestazione di output sono dello stesso tipo (stringa o booleano), è possibile usare la stessa attestazione di input come attestazione di output. In questo caso, la trasformazione delle attestazioni modifica l'attestazione di input con il valore di output.
 
@@ -165,6 +165,6 @@ Per esempi di trasformazioni delle attestazioni, vedere le pagine seguenti:
 - [JSON](json-transformations.md)
 - [Generale](general-transformations.md)
 - [Account di social networking](social-transformations.md)
-- [String](string-transformations.md)
+- [Stringa](string-transformations.md)
 - [StringCollection](stringcollection-transformations.md)
 

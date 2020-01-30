@@ -1,29 +1,29 @@
 ---
-title: Punteggio di attendibilità - QnA Maker
+title: Punteggio di confidenza-QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Il punteggio di attendibilità indica la probabilità che la risposta corrisponda perfettamente alla query dell'utente specificata.
+description: È necessario pubblicare una Knowledge base. Una volta pubblicato, la Knowledge base viene sottoposta a query nell'endpoint di stima di runtime tramite l'API generateAnswer.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 01/27/2020
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: e2f7136ea7b973386eeb746a74ad09fadb490e83
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d901a803311805825c22503af6098e805a67e8f6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229111"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843453"
 ---
-# <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Punteggio di attendibilità di una knowledge base di QnA Maker
-Quando una query dell'utente viene confrontata con una knowledge base, QnA Maker restituisce le risposte pertinenti insieme a un punteggio di attendibilità. Questo punteggio indica la probabilità che la risposta corrisponda perfettamente alla query dell'utente specificata. 
+# <a name="the-confidence-score-of-an-answer"></a>Punteggio di attendibilità di una risposta
+Quando una query dell'utente viene confrontata con una knowledge base, QnA Maker restituisce le risposte pertinenti insieme a un punteggio di attendibilità. Questo punteggio indica la probabilità che la risposta corrisponda perfettamente alla query dell'utente specificata.
 
 Il punteggio di attendibilità è un numero compreso tra 0 e 100. Un punteggio pari a 100 indica probabilmente una corrispondenza esatta, mentre un punteggio pari a 0 indica che non è stata trovata alcuna risposta corrispondente. Maggiore sarà il punteggio, maggiore sarà l'attendibilità della risposta. Per una determinata query potrebbero essere restituite più risposte. In questo caso le risposte sono restituite in ordine decrescente in base al punteggio di attendibilità.
 
-Nell'esempio seguente è possibile vedere una sola entità domanda/risposta con 2 domande. 
+Nell'esempio seguente è possibile vedere una sola entità domanda/risposta con 2 domande.
 
 
 ![Esempio di coppia domanda/risposta](../media/qnamaker-concepts-confidencescore/ranker-example-qna.png)
@@ -57,9 +57,9 @@ Quando si sceglie la soglia, tenere presente il bilanciamento tra Accuracy (Prec
 > [!NOTE]
 > Le versioni più recenti di QnA Maker includono miglioramenti della logica di assegnazione dei punteggi e potrebbero influire sulla soglia. Ogni volta che si aggiorna il servizio, assicurarsi di testare e modificare la soglia, se necessario. È possibile controllare la versione del servizio QnA [qui](https://www.qnamaker.ai/UserSettings) e scoprire come ottenere gli aggiornamenti più recenti [qui](../How-To/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
 
-## <a name="set-threshold"></a>Imposta soglia 
+## <a name="set-threshold"></a>Imposta soglia
 
-Impostare il punteggio soglia come proprietà del [corpo JSON dell'API GenerateAnswer](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Ciò significa che è possibile impostarlo per ogni chiamata a GenerateAnswer. 
+Impostare il punteggio soglia come proprietà del [corpo JSON dell'API GenerateAnswer](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Ciò significa che è possibile impostarlo per ogni chiamata a GenerateAnswer.
 
 Dal Framework bot, impostare il punteggio come parte dell'oggetto Options con [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) o [node. js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
@@ -72,40 +72,23 @@ Quando più risposte hanno un punteggio di attendibilità simile, è probabile c
 
 
 ## <a name="confidence-score-differences-between-test-and-production"></a>Differenze di Punteggio di confidenza tra test e produzione
-Il punteggio di attendibilità di una risposta può variare in modo trascurabile tra la versione di test e la versione pubblicata della Knowledge Base, anche se il contenuto è lo stesso. Ciò è dovuto al fatto che il contenuto del test e della Knowledge base pubblicata si trova in diversi indici di Azure ricerca cognitiva. 
+Il punteggio di attendibilità di una risposta può variare in modo trascurabile tra la versione di test e la versione pubblicata della Knowledge Base, anche se il contenuto è lo stesso. Ciò è dovuto al fatto che il contenuto del test e della Knowledge base pubblicata si trova in diversi indici di Azure ricerca cognitiva.
 
 L'indice di test include tutte le coppie di QnA delle Knowledge base. Quando si esegue una query sull'indice di test, la query viene applicata all'intero indice, quindi i risultati sono limitati alla partizione per la Knowledge base specifica. Se i risultati della query di test influiscono negativamente sulla capacità di convalidare la Knowledge base, è possibile:
 * organizzare la Knowledge base utilizzando una delle seguenti opzioni:
-    * 1 risorsa limitata a 1 KB: limitare la singola risorsa QnA (e l'indice di test di Azure ricerca cognitiva risultante) a una singola Knowledge base. 
+    * 1 risorsa limitata a 1 KB: limitare la singola risorsa QnA (e l'indice di test di Azure ricerca cognitiva risultante) a una singola Knowledge base.
     * 2 risorse-1 per test, 1 per la produzione: hanno due QnA Maker risorse, usando una per il testing (con gli indici di test e produzione) e una per il prodotto (anche con gli indici di test e produzione)
 * e utilizzano sempre gli stessi parametri, ad esempio **[Top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)** , quando si eseguono query sulla Knowledge base di test e di produzione
 
 Quando si pubblica una knowledge base, il contenuto di domande e risposte della knowledge base passa dall'indice di test a un indice di produzione in Ricerca di Azure. Vedere come funziona l'operazione di [pubblicazione](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
-Se si dispone di una Knowledge base in aree diverse, ogni area usa il proprio indice ricerca cognitiva di Azure. Poiché vengono usati indici diversi, i punteggi non saranno esattamente gli stessi. 
+Se si dispone di una Knowledge base in aree diverse, ogni area usa il proprio indice ricerca cognitiva di Azure. Poiché vengono usati indici diversi, i punteggi non saranno esattamente gli stessi.
 
 
 ## <a name="no-match-found"></a>Nessuna corrispondenza trovata
-Se lo strumento di classificazione non trova corrispondenze soddisfacenti, viene restituito il punteggio di attendibilità di 0.0 oppure "None" (Nessuno) e la risposta predefinita è "No good match found in the KB" (Nessuna buona corrispondenza trovata nella Knowledge Base). È possibile eseguire l'override di questa [risposta predefinita](#change-default-answer) nel bot o nel codice dell'applicazione che chiama l'endpoint. In alternativa è anche possibile impostare la risposta sostitutiva in Azure, modificando così la risposta predefinita per tutte le Knowledge Base distribuite in un particolare servizio QnA Maker.
-
-## <a name="change-default-answer"></a>Modificare la risposta predefinita
-
-1. Accedere al [portale di Azure](https://portal.azure.com) e passare al gruppo di risorse che rappresenta il servizio QnA Maker creato.
-
-2. Fare clic per aprire il **servizio app**.
-
-    ![Nel portale di Azure, accedere al servizio app per QnA Maker](../media/qnamaker-concepts-confidencescore/set-default-response.png)
-
-3. Fare clic su **Impostazioni applicazione** e modificare il campo **DefaultAnswer** con la risposta predefinita desiderata. Fare clic su **Save**.
-
-    ![Selezionare Impostazioni applicazione e quindi modificare il valore di DefaultAnswer per QnA Maker](../media/qnamaker-concepts-confidencescore/change-response.png)
-
-4. Riavviare il servizio app
-
-    ![Dopo aver modificato il valore di DefaultAnswer, riavviare il servizio app di QnA Maker](../media/qnamaker-faq/qnamaker-appservice-restart.png)
-
+Se lo strumento di classificazione non trova corrispondenze soddisfacenti, viene restituito il punteggio di attendibilità di 0.0 oppure "None" (Nessuno) e la risposta predefinita è "No good match found in the KB" (Nessuna buona corrispondenza trovata nella Knowledge Base). È possibile eseguire l'override di questa [risposta predefinita](../How-To/metadata-generateanswer-usage.md) nel bot o nel codice dell'applicazione che chiama l'endpoint. In alternativa è anche possibile impostare la risposta sostitutiva in Azure, modificando così la risposta predefinita per tutte le Knowledge Base distribuite in un particolare servizio QnA Maker.
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Origini dati supportate](./data-sources-supported.md)
+> [Procedure consigliate](./best-practices.md)
 

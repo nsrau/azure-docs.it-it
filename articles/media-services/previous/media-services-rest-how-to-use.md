@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 7df1651be01b4bed533c1173cc37bddda58f0aa3
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 597839f633ed2b925b86c5f859a0fb2d3b64dd59
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895822"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773670"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Informazioni generali sull'API REST di Servizi multimediali 
 
@@ -45,7 +45,7 @@ Quando si usa REST, si applicano le considerazioni seguenti:
         Accept: application/json;odata=verbose
         DataServiceVersion: 3.0
         MaxDataServiceVersion: 3.0
-        x-ms-version: 2.17
+        x-ms-version: 2.19
         Authorization: Bearer <ENCODED JWT TOKEN> 
         Host: media.windows.net
   
@@ -58,12 +58,12 @@ Quando si usa REST, si applicano le considerazioni seguenti:
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Intestazioni delle richieste HTTP standard supportate da Servizi multimediali
 Per ogni chiamata effettuata in Servizi multimediali, è necessario includere nella richiesta un set di intestazioni obbligatorie ed eventualmente un set di intestazioni facoltative. Nella seguente tabella sono elencate le intestazioni obbligatorie:
 
-| Intestazione | Type | Value |
+| Intestazione | Tipo | Valore |
 | --- | --- | --- |
-| Authorization |Bearer |Bearer è l'unico meccanismo di autorizzazione accettato. Il valore deve includere anche il token di accesso fornito da Azure Active Directory. |
-| x-ms-version |DECIMAL |2.17 (o versione più recente)|
-| DataServiceVersion |DECIMAL |3.0 |
-| MaxDataServiceVersion |DECIMAL |3.0 |
+| Autorizzazione |Bearer |Bearer è l'unico meccanismo di autorizzazione accettato. Il valore deve includere anche il token di accesso fornito da Azure Active Directory. |
+| x-ms-version |Decimal |2.17 (o versione più recente)|
+| DataServiceVersion |Decimal |3.0 |
+| MaxDataServiceVersion |Decimal |3.0 |
 
 > [!NOTE]
 > Poiché Servizi multimediali usa OData per esporre le API REST, le intestazioni DataServiceVersion e MaxDataServiceVersion devono essere incluse in tutte le richieste. Se non vengono incluse, Servizi multimediali suppone che il valore di DataServiceVersion in uso sia 3.0.
@@ -72,7 +72,7 @@ Per ogni chiamata effettuata in Servizi multimediali, è necessario includere ne
 
 Nella seguente tabella è riportato un set di intestazioni facoltative:
 
-| Intestazione | Type | Value |
+| Intestazione | Tipo | Valore |
 | --- | --- | --- |
 | Data |Data RFC 1123 |Timestamp della richiesta. |
 | Accept |Tipo di contenuto |Tipo di contenuto richiesto per la risposta, ad esempio:<p> -application/json;odata=verbose<p> - application/atom+xml<p> Nelle risposte può essere presente un tipo di contenuto diverso, ad esempio di recupero BLOB. In questo caso, una risposta corretta deve contenere il flusso BLOB come payload. |
@@ -81,15 +81,15 @@ Nella seguente tabella è riportato un set di intestazioni facoltative:
 | Accept-Charset |Tipo di set di caratteri, ad esempio "UTF-8" |L'impostazione predefinita è UTF-8. |
 | X-HTTP-Method |Metodo HTTP |Consente ai client o ai firewall che non supportano metodi HTTP come PUT o DELETE di usarli, con tunneling tramite una chiamata GET. |
 | Content-Type |Tipo di contenuto |Tipo di contenuto del corpo delle richieste PUT o POST. |
-| client-request-id |Stringa |Valore definito dal chiamante che identifica la richiesta fornita. Se specificato, questo valore viene incluso nel messaggio di risposta per consentire il mapping della richiesta. <p><p>**Importante**<p>Le dimensioni di questi valori dovrebbero essere limitate a 2096 b (2 k). |
+| client-request-id |string |Valore definito dal chiamante che identifica la richiesta fornita. Se specificato, questo valore viene incluso nel messaggio di risposta per consentire il mapping della richiesta. <p><p>**Importante**<p>Le dimensioni di questi valori dovrebbero essere limitate a 2096 b (2 k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Intestazioni delle risposte HTTP standard supportate da Servizi multimediali
 Nella seguente tabella è riportato un set di intestazioni che possono essere restituite a seconda della risorsa richiesta e dell'azione che si intende eseguire.
 
-| Intestazione | Type | Value |
+| Intestazione | Tipo | Valore |
 | --- | --- | --- |
-| request-id |Stringa |Identificatore univoco per l'operazione corrente, generato dal servizio. |
-| client-request-id |Stringa |Identificatore specificato dal chiamante nella richiesta originale, se presente. |
+| request-id |string |Identificatore univoco per l'operazione corrente, generato dal servizio. |
+| client-request-id |string |Identificatore specificato dal chiamante nella richiesta originale, se presente. |
 | Data |Data RFC 1123 |Data/ora di elaborazione della richiesta. |
 | Content-Type |Variabile |Tipo di contenuto del corpo della risposta. |
 | Content-Encoding |Variabile |Gzip o deflate, a seconda delle esigenze. |
@@ -102,7 +102,7 @@ Nella seguente tabella è riportato l'elenco completo dei verbi HTTP che è poss
 | GET |Restituisce il valore corrente di un oggetto. |
 | POST |Crea un oggetto in base ai dati forniti o invia un comando. |
 | PUT |Sostituisce un oggetto o ne crea uno nuovo con nome, se applicabile. |
-| DELETE |Elimina un oggetto. |
+| Elimina |Elimina un oggetto. |
 | MERGE |Aggiorna un oggetto esistente con le modifiche alle proprietà denominate. |
 | HEAD |Restituisce i metadati di un oggetto per una risposta GET. |
 

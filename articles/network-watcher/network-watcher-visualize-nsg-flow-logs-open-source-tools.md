@@ -4,23 +4,20 @@ titleSuffix: Azure Network Watcher
 description: Gestire e analizzare i log di flusso dei gruppi di sicurezza di rete in Azure con Network Watcher ed Elastic Stack.
 services: network-watcher
 documentationcenter: na
-author: mattreatMSFT
-manager: vitinnan
-editor: ''
-ms.assetid: e9b2dcad-4da4-4d6b-aee2-6d0afade0cb8
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: mareat
-ms.openlocfilehash: 53cbfe08d310f7244134e1ae31b18644a83c63d3
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: e567994038fb4f71ef86dc577760ecf4699a0b1d
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277737"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840639"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizzare i log dei flussi dei gruppi di sicurezza di rete di Azure Network Watcher con strumenti open source
 
@@ -37,7 +34,7 @@ In questo articolo si configurerà una soluzione che consentirà di visualizzare
 
 ![scenario][scenario]
 
-## <a name="steps"></a>Passi
+## <a name="steps"></a>Procedure
 
 ### <a name="enable-network-security-group-flow-logging"></a>Abilitare la registrazione dei flussi dei gruppi di sicurezza di rete
 Per questo scenario, è necessario abilitare la registrazione dei flussi dei gruppi di sicurezza di rete in almeno un gruppo di sicurezza di rete nel proprio account. Per istruzioni in proposito, vedere [Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md).
@@ -170,7 +167,7 @@ Questo plug-in Logstash consentirà di accedere direttamente ai log dei flussi d
 logstash-plugin install logstash-input-azureblob
 ```
 
-Per avviare Logstash, eseguire il comando:
+Per avviare Logstash, eseguire questo comando:
 
 ```bash
 sudo /etc/init.d/logstash start
@@ -240,7 +237,7 @@ Il dashboard di esempio offre diverse visualizzazioni dei log dei flussi.
 
 Usando la barra per le query nella parte superiore è possibile filtrare il dashboard in base a qualsiasi parametro dei flussi, come ID sottoscrizione, gruppi di risorse, regola o qualsiasi altra variabile a cui si è interessati. Per altre informazioni su query e filtri di Kibana, vedere la [documentazione ufficiale](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 
 Combinando i log dei flussi dei gruppi di sicurezza di rete con Elastic Stack, si è ottenuto uno strumento personalizzabile ed efficace per visualizzare il traffico di rete. Questi dashboard consentono di ottenere e condividere rapidamente informazioni significative sul traffico di rete, nonché di applicare filtri e ricercare potenziali anomalie. Usando Kibana, è possibile personalizzare i dashboard e creare visualizzazioni specifiche per soddisfare qualsiasi esigenza in termini di sicurezza, controllo e conformità.
 

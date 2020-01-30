@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 8d4713cba94971971558a72c680e3c8f80331662
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
-ms.translationtype: HT
+ms.openlocfilehash: e520c9a1e9d40c318b8e2b69801bf5cc600e16bb
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760335"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772053"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Architettura di connettività nel database di Azure per MySQL
 Questo articolo illustra l'architettura di connettività del database di Azure per MySQL e il modo in cui il traffico viene indirizzato all'istanza di database di Azure per MySQL da client sia all'interno che all'esterno di Azure.
@@ -50,15 +50,15 @@ La tabella seguente elenca gli indirizzi IP primari e secondari del database di 
 | India meridionale | 104.211.224.146  |
 | India occidentale | 104.211.160.80    |
 | Giappone orientale | 13.78.61.196, 191.237.240.43  |
-| Giappone occidentale | 104.214.148.156, 191.238.68.11    |
+| Giappone occidentale | 104.214.148.156, 191.238.68.11, 40.74.96.7, 40.74.96.6 |
 | Corea centrale | 52.231.32.42   |
 | Corea meridionale | 52.231.200.86    |
 | Stati Uniti centro-settentrionali | 23.96.178.199, 23.98.55.75, 52.162.104.35, 52.162.104.36    |
 | Europa settentrionale | 40.113.93.91, 191.235.193.75    |
 | Sudafrica settentrionale  | 102.133.152.0    |
 | Sudafrica occidentale | 102.133.24.0   |
-| Stati Uniti centro-meridionali |13.66.62.124, 23.98.162.75   |
-| Asia sud-orientale | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
+| Stati Uniti centro-meridionali |13.66.62.124, 23.98.162.75, 104.214.16.39, 20.45.120.0   |
+| Asia sudorientale | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
 | Emirati Arabi Uniti centrali | 20.37.72.64  |
 | Emirati Arabi Uniti settentrionali | 65.52.248.0    |
 | Regno Unito meridionale | 51.140.184.11   |

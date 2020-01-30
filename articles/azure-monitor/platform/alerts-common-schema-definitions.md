@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: anantr
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: d1d822a5e7dadffd6be841e51ac407995adba2ea
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: fb8c2c7e25f94c66c8cc8f7768071d508da8d3b5
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552562"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765667"
 ---
 # <a name="common-alert-schema-definitions"></a>Definizioni dello schema di avviso comune
 
@@ -77,7 +77,7 @@ Tutte le istanze di avviso descrivono la risorsa interessata e la relativa origi
 |:---|:---|
 | alertId | GUID che identifica in modo univoco l'istanza di avviso. |
 | alertRule | Nome della regola di avviso che ha generato l'istanza di avviso. |
-| Severity | Gravità dell'avviso. Valori possibili: Sev0, Sev1, Sev2, Sev3 o Sev4. |
+| Gravità | Gravità dell'avviso. Valori possibili: Sev0, Sev1, Sev2, Sev3 o Sev4. |
 | signalType | Identifica il segnale su cui è stata definita la regola di avviso. Valori possibili: metrica, log o log attività. |
 | monitorCondition | Quando viene generato un avviso, la condizione di monitoraggio dell'avviso è impostata su **attivato**. Quando la condizione sottostante che ha causato l'attivazione dell'avviso viene cancellata, la condizione di monitoraggio è impostata su **risolto**.   |
 | monitoringService | Il servizio di monitoraggio o la soluzione che ha generato l'avviso. I campi per il contesto dell'avviso sono determinati dal servizio di monitoraggio. |
@@ -151,7 +151,7 @@ Tutte le istanze di avviso descrivono la risorsa interessata e la relativa origi
 ### <a name="log-alerts"></a>Avvisi relativi ai log
 
 > [!NOTE]
-> Per gli avvisi del log in cui è definito un payload JSON personalizzato, l'abilitazione dello schema comune ripristina lo schema del payload a quello descritto di seguito. Gli avvisi con lo schema comune abilitato hanno un limite di dimensione superiore di 256 KB per avviso. I risultati della ricerca non sono incorporati nel payload degli avvisi del log se causano il superamento di questa soglia da parte della dimensione dell'avviso. È possibile determinare questo problema selezionando il flag `IncludedSearchResults`. Quando non sono inclusi i risultati della ricerca, è consigliabile usare la query di ricerca insieme all' [API log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
+> Per gli avvisi di log con un oggetto di posta elettronica personalizzato e/o un payload JSON definito, l'abilitazione dello schema comune ripristina l'oggetto di posta elettronica e/o lo schema del payload a quello descritto di seguito. Gli avvisi con lo schema comune abilitato hanno un limite di dimensione superiore di 256 KB per avviso. I risultati della ricerca non sono incorporati nel payload degli avvisi del log se causano il superamento di questa soglia da parte della dimensione dell'avviso. È possibile determinare questo problema selezionando il flag `IncludedSearchResults`. Quando non sono inclusi i risultati della ricerca, è consigliabile usare la query di ricerca insieme all' [API log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 

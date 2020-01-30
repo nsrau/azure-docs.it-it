@@ -5,19 +5,19 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 15b556781f8ba620ab61c502b6f55e55e98df83c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a9d875e2c3899fa91b9cc41c0ee3b5a93ec5b8c8
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430537"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843787"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurazione delle credenziali per la distribuzione del Servizio app di Azure
 Il [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) supporta due tipi di credenziali per la [distribuzione di GIT locale](deploy-local-git.md) e la [distribuzione FTP/S](deploy-ftp.md). Queste credenziali non corrispondono alle credenziali della sottoscrizione di Azure.
 
 * **Credenziali a livello di utente**: un insieme di credenziali per tutto l'account Azure. Può essere usato per distribuire il Servizio app per qualsiasi app, in tutte le sottoscrizioni a cui l'account di Azure è autorizzato ad accedere. Corrisponde al set predefinito indicato nell'interfaccia utente grafica del portale, ad esempio nelle aree **Panoramica** e **Proprietà** della [pagina delle risorse](../azure-resource-manager/management/manage-resources-portal.md#manage-resources) dell'app. Quando a un utente viene concesso l'accesso alle app tramite il controllo degli accessi in base al ruolo o le autorizzazioni di coamministratore, l'utente può usare le proprie credenziali a livello di utente fino a quando l'accesso non viene revocato. Non condividere queste credenziali con altri utenti di Azure.
 
-* **Credenziali a livello di applicazione**: un insieme di credenziali per ogni applicazione. Può essere usato per distribuire solo in quella app. Le credenziali per ogni app vengono generate automaticamente al momento della creazione dell'app. Non possono essere configurate manualmente, ma possono essere reimpostate in qualsiasi momento. Per ottenere l'accesso alle credenziali a livello di app tramite il controllo degli accessi in base al ruolo, l'utente deve avere il ruolo di Collaboratore o un ruolo superiore per l'app. I lettori non sono autorizzati alla pubblicazione e quindi non possono accedere a queste credenziali.
+* **Credenziali a livello di applicazione**: un insieme di credenziali per ogni applicazione. Può essere usato per distribuire solo in quella app. Le credenziali per ogni app vengono generate automaticamente al momento della creazione dell'app. Non possono essere configurate manualmente, ma possono essere reimpostate in qualsiasi momento. Per consentire a un utente di accedere alle credenziali a livello di app tramite (RBAC), tale utente deve essere un collaboratore o un livello superiore nell'app (incluso il ruolo predefinito collaboratore sito Web). I lettori non sono autorizzati alla pubblicazione e quindi non possono accedere a queste credenziali.
 
 ## <a name="userscope"></a>Configurare le credenziali a livello di utente
 

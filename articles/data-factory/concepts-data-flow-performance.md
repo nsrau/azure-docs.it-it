@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 12/19/2019
-ms.openlocfilehash: 3036fb44cdd636c4a7b9e690ee19aa3d5ab2f5ac
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/25/2020
+ms.openlocfilehash: ff128d148abb87959894aee94d257ae71a3ca65e
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444515"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773857"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida alle prestazioni e all'ottimizzazione del flusso di dati
 
@@ -129,6 +129,12 @@ L'impostazione della velocità effettiva e delle proprietà batch nei sink Cosmo
 * Dimensioni batch: calcolare la dimensione approssimativa delle righe dei dati e verificare che le dimensioni del batch rowSize * siano minori di 2 milioni. In caso contrario, aumentare la dimensione del batch per ottenere una velocità effettiva migliore
 * Velocità effettiva: impostare qui un'impostazione della velocità effettiva superiore per consentire ai documenti di scrivere più velocemente in CosmosDB. Tenere presente i costi delle unità richiesta maggiori in base a un'impostazione di velocità effettiva elevata.
 *   Budget della velocità effettiva di scrittura: usare un valore inferiore al numero totale di ur al minuto. Se si dispone di un flusso di dati con un numero elevato di partizioni Spark, l'impostazione di una velocità effettiva del budget consentirà un maggiore equilibrio tra le partizioni.
+
+## <a name="join-performance"></a>Prestazioni di join
+
+La gestione delle prestazioni dei join nel flusso di dati è un'operazione molto comune che verrà eseguita per tutto il ciclo di vita delle trasformazioni dei dati. In ADF i flussi di dati non richiedono l'ordinamento dei dati prima dei join, perché queste operazioni vengono eseguite come hash join in Spark. Tuttavia, è possibile trarre vantaggio dalle migliori prestazioni con l'ottimizzazione del join "broadcast". In questo modo si eviterà la riproduzione shuffle spostando il contenuto di uno dei due lati della relazione di join nel nodo Spark. Questa operazione funziona correttamente per le tabelle più piccole utilizzate per le ricerche di riferimento. Le tabelle di dimensioni maggiori che potrebbero non rientrare nella memoria del nodo non sono ideali per l'ottimizzazione della trasmissione.
+
+Un'altra ottimizzazione del join consiste nel creare i join in modo da evitare la tendenza di Spark a implementare cross join. Ad esempio, quando si includono valori letterali nelle condizioni di join, Spark potrebbe vedere che come requisito per eseguire prima un prodotto cartesiano completo, quindi filtrare i valori Uniti in join. Tuttavia, se si ha la certezza di avere valori di colonna su entrambi i lati della condizione di join, è possibile evitare questo prodotto cartesiano indotto da Spark e migliorare le prestazioni dei join e dei flussi di dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

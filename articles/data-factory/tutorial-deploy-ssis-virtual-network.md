@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: 593ceb884e751ca3115b08baf0c9c7e802057f54
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 065610a9de4898d012cef8a16849c09a81f0774c
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75864986"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841098"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>Configurare un runtime di integrazione di Azure-SQL Server Integration Services (SSIS) per l'aggiunta a una rete virtuale
 
@@ -44,7 +44,7 @@ I passaggi includono:
     
         Il runtime di integrazione Azure-SSIS deve creare alcune risorse di rete nello stesso gruppo di risorse della rete virtuale. Queste risorse includono:
         - Un servizio di bilanciamento del carico di Azure, con il nome *\<Guid >-azurebatch-cloudserviceloadbalancer*
-        - Un gruppo di sicurezza del lavoro di rete, denominato * GUID\<>-azurebatch-cloudservicenetworksecuritygroup
+        - Un gruppo di sicurezza di rete con il nome *\<GUID >-azurebatch-cloudservicenetworksecuritygroup
         - Un indirizzo IP pubblico di Azure, con nome-azurebatch-cloudservicepublicip
     
         Queste risorse verranno create all'avvio del Azure-SSIS IR. Verranno eliminati quando si arresta il Azure-SSIS IR. Per evitare di bloccare il Azure-SSIS IR l'arresto, non riutilizzare queste risorse di rete nelle altre risorse.
@@ -66,7 +66,7 @@ I passaggi includono:
 
 ## <a name="configure-a-virtual-network"></a>Configurare una rete virtuale
 
-Usare la portale di Azure a una rete virtuale prima di provare a unirla a una Azure-SSIS IR.
+Usare il portale di Azure per configurare una rete virtuale prima di provare a unirla a un Azure-SSIS IR.
 
 1. Avviare Microsoft Edge o Google Chrome. Attualmente, solo questi Web browser supportano l'interfaccia utente di Data Factory.
 

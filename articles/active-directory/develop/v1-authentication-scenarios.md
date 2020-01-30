@@ -16,13 +16,13 @@ ms.workload: identity
 ms.date: 10/14/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b6271805b9d14db9f2fdcd85d089962e9874f6ba
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.custom: aaddev
+ms.openlocfilehash: 216c4a730828bf0959c2b932077dd110f5843739
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701145"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76833278"
 ---
 # <a name="what-is-authentication"></a>Informazioni sull'autenticazione
 
@@ -63,7 +63,7 @@ Nello scenario di esempio precedente è possibile classificare le app in base ai
 
 A seconda del modo in cui viene compilato il client, può usare uno o più dei flussi di autenticazione supportati da Azure AD. Questi flussi possono produrre un'ampia gamma di token (id_tokens, token di aggiornamento, token di accesso) e codici di autorizzazione e richiedono token diversi per consentirne il funzionamento. Questo grafico fornisce una panoramica:
 
-|Flusso | Obbligatorio | id_token | token di accesso | token di aggiornamento | codice di autorizzazione | 
+|Flusso | Richiede | id_token | token di accesso | token di aggiornamento | codice di autorizzazione | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Flusso del codice di autorizzazione](v1-protocols-oauth-code.md) | | x | x | x | x|  
 |[Flusso implicito](v1-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |

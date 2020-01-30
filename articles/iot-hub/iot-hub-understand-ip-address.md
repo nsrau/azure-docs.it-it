@@ -7,22 +7,22 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: f05be2725ef766bb1e5fd7f2624e754a2e21698a
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: c5040721705b90a981f1f8a45a3a2eb70eefde05
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563174"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772154"
 ---
 # <a name="iot-hub-ip-addresses"></a>Indirizzi IP dell'hub Internet
 
 I prefissi degli indirizzi IP degli endpoint pubblici dell'hub Internet vengono pubblicati periodicamente sotto il [tag del servizio](../virtual-network/service-tags-overview.md) _AzureIoTHub_ . È possibile usare questi prefissi degli indirizzi IP per controllare la connettività tra l'hub Internet e i dispositivi o gli asset di rete per implementare un'ampia gamma di obiettivi di isolamento rete:
 
-| Obiettivo | Scenari possibili | Approccio |
+| Obiettivo | Scenari applicabili | Approccio |
 |------|-----------|----------|
 | Assicurarsi che i dispositivi e i servizi comunicano con gli endpoint dell'hub Internet. | Messaggistica [da dispositivo a cloud](./iot-hub-devguide-messaging.md)e [da cloud a dispositivo](./iot-hub-devguide-messages-c2d.md) , [metodi diretti](./iot-hub-devguide-direct-methods.md), [dispositivi e moduli gemelli](./iot-hub-devguide-device-twins.md) e flussi di [dispositivi](./iot-hub-device-streams-overview.md) | Usare i tag di servizio _AzureIoTHub_ e _EventHub_ per individuare l'hub e i prefissi degli indirizzi IP dell'hub eventi e configurare le regole Consenti nell'impostazione del firewall per i dispositivi e i servizi per i prefissi degli indirizzi IP di conseguenza; eliminare il traffico verso altri indirizzi IP di destinazione per i quali non si vuole che i dispositivi o i servizi comunicano. |
 | Assicurarsi che l'endpoint del dispositivo dell'hub Internet riceva le connessioni solo dai dispositivi e dalle risorse di rete | Messaggistica [da dispositivo a cloud](./iot-hub-devguide-messaging.md)e [da cloud a dispositivo](./iot-hub-devguide-messages-c2d.md) , [metodi diretti](./iot-hub-devguide-direct-methods.md), [dispositivi e moduli gemelli](./iot-hub-devguide-device-twins.md) e flussi di [dispositivi](./iot-hub-device-streams-overview.md) | Usare la [funzionalità filtro IP](iot-hub-ip-filtering.md) dell'hub Internet per consentire le connessioni dai dispositivi e dagli indirizzi IP degli asset di rete. vedere la sezione [limitazioni](#limitations-and-workarounds) . | 
-| Assicurarsi che le risorse dell'endpoint personalizzato delle route (account di archiviazione, bus di servizio e hub eventi) siano raggiungibili solo dalle risorse di rete | [Routing dei messaggi](./iot-hub-devguide-messages-d2c.md) | Seguire le indicazioni della risorsa sulla limitazione della connettività, ad esempio tramite [regole del firewall](../storage/common/storage-network-security.md), [collegamenti privati](../private-link/private-endpoint-overview.md)o [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md). usare i tag del servizio _AzureIoTHub_ per individuare i prefissi degli indirizzi IP dell'hub Internet e aggiungere le regole di autorizzazione per tali prefissi IP nella configurazione del firewall della risorsa. vedere la sezione [limitazioni](#limitations-and-workarounds) . |
+| Assicurarsi che le risorse dell'endpoint personalizzato delle route (account di archiviazione, bus di servizio e hub eventi) siano raggiungibili solo dalle risorse di rete | [Routing del messaggio](./iot-hub-devguide-messages-d2c.md) | Seguire le indicazioni della risorsa sulla limitazione della connettività, ad esempio tramite [regole del firewall](../storage/common/storage-network-security.md), [collegamenti privati](../private-link/private-endpoint-overview.md)o [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md). usare i tag del servizio _AzureIoTHub_ per individuare i prefissi degli indirizzi IP dell'hub Internet e aggiungere le regole di autorizzazione per tali prefissi IP nella configurazione del firewall della risorsa. vedere la sezione [limitazioni](#limitations-and-workarounds) . |
 
 
 
@@ -30,9 +30,11 @@ I prefissi degli indirizzi IP degli endpoint pubblici dell'hub Internet vengono 
 
 * Quando si aggiungono le regole Consenti nella configurazione del firewall dei dispositivi, è preferibile fornire [porte specifiche utilizzate dai protocolli applicabili](./iot-hub-devguide-protocols.md#port-numbers).
 
-* I prefissi degli indirizzi IP dell'hub Internet è soggetto a modifiche. Queste modifiche vengono pubblicate periodicamente tramite i tag di servizio prima di avere effetto. È pertanto importante sviluppare processi per recuperare e usare regolarmente i tag del servizio più recenti. Questo processo può essere automatizzato tramite l' [API di individuazione dei tag di servizio](../virtual-network/service-tags-overview.md#service-tags-on-premises).
+* I prefissi degli indirizzi IP dell'hub Internet è soggetto a modifiche. Queste modifiche vengono pubblicate periodicamente tramite i tag di servizio prima di avere effetto. È pertanto importante sviluppare processi per recuperare e usare regolarmente i tag del servizio più recenti. Questo processo può essere automatizzato tramite l' [API di individuazione dei tag di servizio](../virtual-network/service-tags-overview.md#service-tags-on-premises). Si noti che l'API di individuazione dei tag di servizio è ancora in anteprima e in alcuni casi potrebbe non produrre l'elenco completo di tag e indirizzi IP. Fino a quando l'API di individuazione non è disponibile a livello generale, è consigliabile usare i [tag del servizio in formato JSON scaricabile](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). 
 
 * Usare *AzureIoTHub. [ nome dell'area]* tag per identificare i prefissi IP usati dagli endpoint dell'hub Internet in un'area specifica. Per tenere conto del ripristino di emergenza del Data Center o del [failover a livello](iot-hub-ha-dr.md) di area, è abilitata anche la connettività ai prefissi IP dell'area geografica dell'hub Internet.
+
+* La configurazione delle regole del firewall nell'hub di Internet delle cose può impedire la connettività necessaria per eseguire l'interfaccia della riga di comando di Azure e i comandi PowerShell nell'hub Internet. Per evitare questo problema, è possibile aggiungere le regole Consenti per i prefissi degli indirizzi IP dei client per riabilitare l'interfaccia della riga di comando o i client PowerShell per comunicare con l'hub Internet.  
 
 
 ## <a name="limitations-and-workarounds"></a>Limitazioni e soluzioni alternative

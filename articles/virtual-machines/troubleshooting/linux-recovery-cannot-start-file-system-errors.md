@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: a47dc1032115f8bcae0c7bdc37c84ab3b68ec4a8
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 455cb1e0067217be6edcf665e8c07e8fcd684ab5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72432298"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842402"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Risolvere i problemi di avvio della macchina virtuale Linux a causa di errori file system
 
 Non è possibile connettersi a una macchina virtuale (VM) Linux di Azure usando Secure Shell (SSH). Quando si esegue la funzionalità di diagnostica di avvio in [portale di Azure](https://portal.azure.com/), vengono visualizzate le voci di log simili ai seguenti esempi.
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 Di seguito sono riportati alcuni esempi di possibili errori.
 
@@ -88,7 +88,7 @@ Per risolvere il problema, avviare la macchina virtuale in modalità di emergenz
 
 2. Selezionare il pulsante icona di alimentazione, quindi selezionare Riavvia macchina virtuale. Se la console seriale non è abilitata o non è connessa correttamente, il pulsante non verrà visualizzato.
 
-   ![IMMAGINE](./media/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck/restart-vm.png)
+   ![IMAGE](./media/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck/restart-vm.png)
 
 3. Avviare la macchina virtuale in modalità di emergenza.
 
@@ -110,20 +110,20 @@ Per risolvere il problema, avviare la macchina virtuale in modalità di emergenz
 
    ```
    mkdir /temp
-   mount /dev/sda2 /temp
+   mount /dev/sda1 /temp
    ```
 
-8. Se il montaggio del disco non riesce, eseguire il comando xfs_repair con l'opzione-L (Force log zero):
+8. Se il montaggio del disco non riesce, eseguire il comando xfs_repair con l'opzione-L (forza azzeramento log):
 
    ```
-   xfs_repair /dev/sda2 -L
+   xfs_repair /dev/sda1 -L
    ```
 
 9. Provare quindi a montare il file system. Se il disco è stato montato correttamente, verrà visualizzato l'output seguente:
  
    ```
-   XFS (sda2): Mounting V1 Filesystem
-   XFS (sda2): Ending clean mount
+   XFS (sda1): Mounting V1 Filesystem
+   XFS (sda1): Ending clean mount
    ```
 
 10. Riavviare la macchina virtuale, quindi controllare se il problema è stato risolto.
@@ -158,7 +158,7 @@ Per risolvere il problema, avviare la macchina virtuale in modalità di emergenz
    mount /dev/sdc1 /temp
    ```
 
-   Se il montaggio del disco non riesce, eseguire il comando xfs_repair con l'opzione-L (Force log zero):
+   Se il montaggio del disco non riesce, eseguire il comando xfs_repair con l'opzione-L (forza azzeramento log):
 
    ```
    xfs_repair /dev/sdc1 -L

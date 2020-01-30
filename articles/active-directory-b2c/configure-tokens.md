@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 83f8051fa31b6431d4a8515e2c0912cc1872a402
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: d6b18596082df6f1cfbe2a47627712b8b69cb355
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064379"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836610"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configurare i token in Azure Active Directory B2C
 
-Questo articolo illustra come configurare la [durata e la compatibilità di un token](active-directory-b2c-reference-tokens.md) in Azure Active Directory B2C (Azure ad B2C).
+Questo articolo illustra come configurare la [durata e la compatibilità di un token](tokens-overview.md) in Azure Active Directory B2C (Azure ad B2C).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -39,7 +39,7 @@ Questo articolo illustra come configurare la [durata e la compatibilità di un t
 
     ![Impostazioni delle proprietà di durata del token nel portale di Azure](./media/configure-tokens/token-lifetime.png)
 
-8. Fare clic su **Save**.
+8. Fare clic su **Salva**.
 
 ## <a name="configure-token-compatibility"></a>Configurare la compatibilità del token
 
@@ -50,11 +50,11 @@ Questo articolo illustra come configurare la [durata e la compatibilità di un t
 
     ![Impostazioni delle proprietà di compatibilità dei token nel portale di Azure](./media/configure-tokens/token-compatibility.png)
 
-5. Fare clic su **Save**.
+5. Fare clic su **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni su come [usare i token di accesso](active-directory-b2c-access-tokens.md).
+Altre informazioni su come [usare i token di accesso](access-tokens.md).
 
 
 

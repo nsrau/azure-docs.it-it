@@ -8,12 +8,12 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 255ccb5c8e9529ab9b36186ec0eeb5b3f55ed64f
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 98d75f75a985fca3448becab216ad6570d948468
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759228"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772238"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemi comuni e soluzioni per Azure IoT Edge
 
@@ -302,7 +302,7 @@ L'hub IoT Edge, che fa parte del runtime di IoT Edge, è ottimizzato per le pres
 
 **Risoluzione**
 
-Per l'hub IoT Edge, impostare una variabile di ambiente **OptimizeForPerformance** su **false**. Per impostare le variabili di ambiente, è possibile procedere in due modi:
+Per l'hub IoT Edge, impostare una variabile di ambiente **OptimizeForPerformance** su **false**. Esistono due modi per impostare le variabili di ambiente:
 
 Nel portale di Azure:
 

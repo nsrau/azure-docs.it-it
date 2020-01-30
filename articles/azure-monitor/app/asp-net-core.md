@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/22/2019
-ms.openlocfilehash: 52314f0802acd6a296177d53ee9babb133172761
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5f54605dd5b43236a75fe73aa3b47a4e619530a1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407516"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765802"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights per le applicazioni ASP.NET Core
 
@@ -416,7 +416,7 @@ Il metapacchetto `Microsoft.AspNetCore.All` 2,0 include l'SDK di Application Ins
 
 Sì. Il supporto delle funzionalità per l'SDK è lo stesso in tutte le piattaforme, con le eccezioni seguenti:
 
-* I contatori delle prestazioni sono supportati solo in Windows.
+* L'SDK raccoglie i [contatori degli eventi](https://docs.microsoft.com/azure/azure-monitor/app/eventcounters) in Linux perché i [contatori delle prestazioni](https://docs.microsoft.com/azure/azure-monitor/app/performance-counters) sono supportati solo in Windows. La maggior parte delle metriche è la stessa.
 * Anche se `ServerTelemetryChannel` è abilitato per impostazione predefinita, se l'applicazione è in esecuzione in Linux o MacOS, il canale non crea automaticamente una cartella di archiviazione locale per conservare temporaneamente la telemetria in caso di problemi di rete. A causa di questa limitazione, i dati di telemetria vengono persi in caso di problemi di rete o del server temporanei. Per risolvere questo problema, configurare una cartella locale per il canale:
 
 ```csharp

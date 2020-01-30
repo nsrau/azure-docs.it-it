@@ -4,9 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Questo articolo descrive come creare un'acquisizione di pacchetti attivata da un avviso con Azure Network Watcher
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
 ms.service: network-watcher
 ms.devlang: na
@@ -14,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 26599776abdf7ecbb6c86c332a40e0c2b7d6e67e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: ea506e137d71fc3124a4f93f1e97750a08dd4284
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276126"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842938"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Usare l'acquisizione di pacchetti per il monitoraggio proattivo della rete con avvisi e Funzioni di Azure
 
@@ -37,7 +35,7 @@ Usando Network Watcher, gli avvisi e le funzioni dall'ecosistema di Azure, è po
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * La versione più recente di [Azure PowerShell](/powershell/azure/install-Az-ps).
 * Un'istanza esistente di Network Watcher. Se non è già presente, creare un'[istanza di Network Watcher](network-watcher-create.md).
@@ -79,10 +77,10 @@ Il primo passaggio è la creazione di una funzione di Azure per elaborare l'avvi
     |**Impostazione** | **Valore** | **Dettagli** |
     |---|---|---|
     |**Nome app**|PacketCaptureExample|Nome dell'app per le funzioni.|
-    |**Sottoscrizione**|[Sottoscrizione]: sottoscrizione in cui creare l'app per le funzioni.||
+    |**Sottoscrizione**|[Sottoscrizione]sottoscrizione in cui creare l'app per le funzioni.||
     |**Gruppo di risorse**|PacketCaptureRG|Nome del gruppo di risorse che conterrà l'app per le funzioni.|
     |**Piano di hosting**|Piano a consumo| Tipo di piano usato dall'app per le funzioni. Le opzioni sono Consumo e Piano di servizio app di Azure. |
-    |**Località**|Stati Uniti centrali| Area in cui creare l'app per le funzioni.|
+    |**Posizione**|Stati Uniti centrali| Area in cui creare l'app per le funzioni.|
     |**Storage Account**|{generato automaticamente}| Account di archiviazione richiesto da Funzioni di Azure per l'archiviazione di uso generico.|
 
 3. Nel pannello delle app per le funzioni **PacketCaptureExample** selezionare **Funzioni** > **Funzione personalizzata** > **+** .
@@ -349,7 +347,7 @@ Passare a una macchina virtuale esistente, quindi aggiungere una regola di avvis
   |**Nome**|TCP_Segments_Sent_Exceeded|Nome della regola di avviso.|
   |**Descrizione**|Soglia superata segmenti TCP inviati|Descrizione della regola di avviso.|
   |**Metrica**|Segmenti TCP inviati| La metrica da utilizzare per attivare l'avviso. |
-  |**Condition**|Maggiore di| La condizione da utilizzare per valutare la metrica.|
+  |**Condition**|Più di| La condizione da utilizzare per valutare la metrica.|
   |**Soglia**|100| Valore della metrica che attiva l'avviso. Deve trattarsi di un valore valido per l'ambiente in uso.|
   |**Periodo**|Negli ultimi cinque minuti| Determina il periodo in cui cercare la soglia per la metrica.|
   |**Webhook**|[URL webhook dell'app per le funzioni]| URL webhook dall'app per le funzioni creata nei passaggi precedenti.|

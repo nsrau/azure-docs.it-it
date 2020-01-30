@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 05/01/2019
+ms.date: 01/27/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 15ca4b9fe3c40b7bf49d86464858747642e3cb5a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ab7c8ba64057b4f27e00a2928a65de8eadc78c4b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685377"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768838"
 ---
 # <a name="azure-sql-data-warehouse-workload-classification"></a>Classificazione del carico di lavoro Azure SQL Data Warehouse
 
@@ -36,16 +36,26 @@ Non tutte le istruzioni sono classificate poiché non richiedono risorse o hanno
 
 ## <a name="classification-process"></a>Processo di classificazione
 
-La classificazione in SQL Data Warehouse viene eseguita oggi assegnando gli utenti a un ruolo a cui è assegnata una classe di risorse corrispondente usando [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). La possibilità di caratterizzare le richieste oltre un accesso a una classe di risorse è limitata a questa funzionalità. Un metodo più completo per la classificazione è ora disponibile con la sintassi di [creazione del classificatore del carico di lavoro](/sql/t-sql/statements/create-workload-classifier-transact-sql) .  Con questa sintassi, SQL Data Warehouse gli utenti possono assegnare importanza e una classe di risorse alle richieste.  
+La classificazione in SQL Data Warehouse viene eseguita oggi assegnando gli utenti a un ruolo a cui è assegnata una classe di risorse corrispondente usando [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). La possibilità di caratterizzare le richieste oltre un accesso a una classe di risorse è limitata a questa funzionalità. Un metodo più completo per la classificazione è ora disponibile con la sintassi di [creazione del classificatore del carico di lavoro](/sql/t-sql/statements/create-workload-classifier-transact-sql) .  Con questa sintassi, SQL Data Warehouse gli utenti possono assegnare importanza e la quantità di risorse di sistema assegnate a una richiesta tramite il parametro `workload_group`. 
 
 > [!NOTE]
 > La classificazione viene valutata in base alle singole richieste. Più richieste in una singola sessione possono essere classificate in modo diverso.
 
-## <a name="classification-precedence"></a>Precedenza classificazione
+## <a name="classification-weighting"></a>Ponderazione della classificazione
 
-Come parte del processo di classificazione, per determinare quale classe di risorse è stata assegnata è disponibile la precedenza. La classificazione basata su un utente del database ha la precedenza sull'appartenenza ai ruoli. Se si crea un classificatore che esegue il mapping dell'utente del database utente a alla classe di risorse mediumrc. Eseguire quindi il mapping del ruolo del database rolea, di cui l'UtenteA è membro, alla classe di risorse largerc. Il classificatore che esegue il mapping dell'utente del database alla classe di risorse mediumrc avrà la precedenza sul classificatore che esegue il mapping del ruolo del database rolea alla classe di risorse largerc.
+Come parte del processo di classificazione, è necessario ponderare per determinare quale gruppo di carico di lavoro è assegnato.  Il peso viene eseguito come segue:
 
-Se un utente è membro di più ruoli con classi di risorse diverse assegnate o corrispondenti in più classificatori, all'utente viene assegnata l'assegnazione della classe di risorse più elevata.  Questo comportamento è coerente con il comportamento di assegnazione della classe di risorse esistente.
+|Parametro di classificazione |Peso   |
+|---------------------|---------|
+|MEMBERNAME: UTENTE      |64       |
+|MEMBERNAME: RUOLO      |32       |
+|WLM_LABEL            |16       |
+|WLM_CONTEXT          |8        |
+|START_TIME/END_TIME  |4        |
+
+Il parametro `membername` è obbligatorio.  Tuttavia, se il membroname specificato è un utente del database anziché un ruolo del database, la ponderazione per l'utente è maggiore e pertanto viene scelto il classificatore.
+
+Se un utente è membro di più ruoli con diverse classi di risorse assegnate o corrispondenti in più classificatori, all'utente verrà attribuita l'assegnazione della classe di risorse più elevata.  Questo comportamento è coerente con il comportamento di assegnazione della classe di risorse esistente.
 
 ## <a name="system-classifiers"></a>Classificatori di sistema
 

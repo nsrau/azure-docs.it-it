@@ -11,20 +11,20 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3370ec8de0fb49b92c0fb4dd429439e293ad1d8b
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: bc8dbfd315702f666d6b811e855d6bcd99df938e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949875"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836049"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C
 
-I resolver di attestazioni nei [criteri personalizzati](active-directory-b2c-overview-custom.md) Azure Active Directory B2C (Azure ad B2C) forniscono informazioni sul contesto di una richiesta di autorizzazione, ad esempio il nome del criterio, l'ID di correlazione della richiesta, la lingua dell'interfaccia utente e altro ancora.
+I resolver di attestazioni nei [criteri personalizzati](custom-policy-overview.md) Azure Active Directory B2C (Azure ad B2C) forniscono informazioni sul contesto di una richiesta di autorizzazione, ad esempio il nome del criterio, l'ID di correlazione della richiesta, la lingua dell'interfaccia utente e altro ancora.
 
 Per usare un resolver di attestazioni in un'attestazione di input o output, si definisce un **ClaimType** di tipo stringa, nell'elemento [ClaimsSchema](claimsschema.md), quindi si imposta **DefaultValue** sul resolver di attestazioni nell'elemento attestazione di input o output. Azure AD B2C legge il valore del resolver di attestazioni e usa il valore nel profilo tecnico.
 
-Nell'esempio seguente viene definito un tipo di attestazione denominato `correlationId` con **DataType** `string`.
+Nell'esempio seguente viene definito un tipo di attestazione denominato `correlationId` con **DataType**`string`.
 
 ```XML
 <ClaimType Id="correlationId">
@@ -49,11 +49,11 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 | Attestazione | Description | Esempio |
 | ----- | ----------- | --------|
 | {Culture:LanguageName} | Codice ISO di due lettere per la lingua. | en |
-| {Culture:LCID}   | Identificatore LCID del codice della lingua. | 1040 |
+| {Culture:LCID}   | Identificatore LCID del codice della lingua. | 1033 |
 | {Culture:RegionName} | Codice ISO di due lettere per la regione. | Stati Uniti |
-| {Culture:RFC5646} | Codice RFC5646 della lingua. | en-US |
+| {Culture:RFC5646} | Codice RFC5646 della lingua. | it-IT |
 
-### <a name="policy"></a>Policy
+### <a name="policy"></a>Criterio
 
 | Attestazione | Description | Esempio |
 | ----- | ----------- | --------|
@@ -72,7 +72,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 | {OIDC:LoginHint} |  Parametro di stringa di query `login_hint`. | someone@contoso.com |
 | {OIDC:MaxAge} | `max_age`. | N/D |
 | {OIDC:Nonce} |Parametro di stringa di query `Nonce`. | defaultNonce |
-| {OIDC:Prompt} | Parametro di stringa di query `prompt`. | Accesso |
+| {OIDC:Prompt} | Parametro di stringa di query `prompt`. | login |
 | {OIDC:Resource} |Parametro di stringa di query `resource`. | N/D |
 | {OIDC:scope} |Parametro di stringa di query `scope`. | openid |
 
@@ -137,9 +137,9 @@ Con i resolver di attestazioni è possibile precompilare il nome di accesso o l'
 
 ### <a name="dynamic-ui-customization"></a>Personalizzazione dell'interfaccia utente dinamica
 
-Azure AD B2C consente di passare parametri della stringa di query agli endpoint della definizione del contenuto HTML, in modo da poter eseguire il rendering dinamico del contenuto della pagina. È ad esempio possibile modificare l'immagine di sfondo nella pagina di accesso o di iscrizione ad Azure AD B2C in base a un parametro personalizzato passato dall'applicazione Web o per dispositivi mobili. Per altre informazioni, vedere [Azure Active Directory B2C: Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati](active-directory-b2c-ui-customization-custom-dynamic.md). È anche possibile localizzare la pagina HTML in base a un parametro di lingua oppure è possibile modificare il contenuto in base all'ID client.
+Azure AD B2C consente di passare parametri della stringa di query agli endpoint della definizione del contenuto HTML, in modo da poter eseguire il rendering dinamico del contenuto della pagina. È ad esempio possibile modificare l'immagine di sfondo nella pagina di accesso o di iscrizione ad Azure AD B2C in base a un parametro personalizzato passato dall'applicazione Web o per dispositivi mobili. Per altre informazioni, vedere [Azure Active Directory B2C: Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati](custom-policy-ui-customization-dynamic.md). È anche possibile localizzare la pagina HTML in base a un parametro di lingua oppure è possibile modificare il contenuto in base all'ID client.
 
-L'esempio seguente passa nella stringa di query un parametro denominato **campaignId** con il valore `hawaii`, un codice **language** `en-US` e **app** che rappresenta l'ID client:
+L'esempio seguente passa nella stringa di query un parametro denominato **campaignId** con il valore `hawaii`, un codice **language**`en-US` e **app** che rappresenta l'ID client:
 
 ```XML
 <UserJourneyBehaviors>
@@ -159,7 +159,7 @@ Azure AD B2C invia quindi i parametri di cui sopra alla pagina di contenuto HTML
 
 ### <a name="application-insights-technical-profile"></a>Profilo tecnico di Application Insights
 
-Con Azure Application Insights e i resolver di attestazioni è possibile ottenere informazioni dettagliate sul comportamento degli utenti. Nel profilo tecnico di Application Insights, si inviano le attestazioni di input che vengono salvate in Azure Application Insights. Per altre informazioni, vedere [Tenere traccia del comportamento degli utenti nei percorsi di Azure AD B2C usando Application Insights](active-directory-b2c-custom-guide-eventlogger-appins.md). L'esempio seguente invia l'ID dei criteri, l'ID di correlazione, la lingua e l'ID client ad Azure Application Insights.
+Con Azure Application Insights e i resolver di attestazioni è possibile ottenere informazioni dettagliate sul comportamento degli utenti. Nel profilo tecnico di Application Insights, si inviano le attestazioni di input che vengono salvate in Azure Application Insights. Per altre informazioni, vedere [Tenere traccia del comportamento degli utenti nei percorsi di Azure AD B2C usando Application Insights](analytics-with-application-insights.md). L'esempio seguente invia l'ID dei criteri, l'ID di correlazione, la lingua e l'ID client ad Azure Application Insights.
 
 ```XML
 <TechnicalProfile Id="AzureInsights-Common">

@@ -3,12 +3,12 @@ title: Distribuire più istanze di risorse
 description: Usare l'operazione di copia e le matrici in un modello di Gestione risorse di Azure per eseguire più iterazioni durante la distribuzione delle risorse.
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 54d406771f64d97a3ba564556be6dc49677a732d
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 0250f5ee64c91d8d75ad246271ab31324a2553f8
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121982"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836930"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Iterazione di risorse, proprietà o variabili nei modelli di Azure Resource Manager
 
@@ -205,6 +205,10 @@ Nell'esempio seguente viene illustrato come applicare `copy` alla proprietà dat
 
 Si noti che quando si usa `copyIndex` all'interno di un'iterazione di proprietà, è necessario specificare il nome dell'iterazione. Non è necessario fornire il nome se usato con You don't have to provide the name when used with resource iteration.
 
+> [!NOTE]
+> L'iterazione della proprietà supporta anche un argomento offset. L'offset deve essere successivo al nome dell'iterazione, ad esempio copyIndex (' datadisks ', 1).
+>
+
 Resource Manager espande la matrice `copy` durante la distribuzione. Il nome della matrice diventa il nome della proprietà. I valori di input diventano le proprietà dell'oggetto. Il modello distribuito diventa:
 
 ```json
@@ -299,6 +303,10 @@ L'elemento di copia è una matrice, pertanto è possibile specificare più di un
 ## <a name="variable-iteration"></a>Iterazione delle variabili
 
 Per creare più istanze di una variabile, usare la proprietà `copy` nella sezione variables. Si crea una matrice di elementi costruita dal valore della proprietà `input`. È possibile usare la proprietà `copy` all'interno di una variabile o al livello superiore della sezione variables. Quando si usa `copyIndex` all'interno di un'iterazione delle variabili, è necessario specificare il nome dell'iterazione.
+
+> [!NOTE]
+> L'iterazione variabile supporta anche un argomento offset. L'offset deve essere successivo al nome dell'iterazione, ad esempio copyIndex (' diskNames ', 1).
+>
 
 Per un semplice esempio di creazione di una matrice di valori stringa, vedere [Copy array template](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
 

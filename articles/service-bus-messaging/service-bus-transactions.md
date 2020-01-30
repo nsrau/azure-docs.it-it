@@ -1,10 +1,9 @@
 ---
-title: Panoramica dell'elaborazione delle transazioni nel bus di servizio di Azure | Documentazione Microsoft
-description: Panoramica delle transazioni atomiche del bus di servizio di Azure e invia tramite
+title: Panoramica dell'elaborazione delle transazioni nel bus di servizio di Azure
+description: Questo articolo offre una panoramica dell'elaborazione delle transazioni e della funzionalità di invio tramite il bus di servizio di Azure.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: 64449247-1026-44ba-b15a-9610f9385ed8
 ms.service: service-bus-messaging
@@ -12,18 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2018
+ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: a839a4cad824a74bde388317cf3aaddf9c5bd47f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 22744ecbced40b3195f4d047227b1e2a37228102
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332347"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774514"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Panoramica dell'elaborazione delle transazioni del bus di servizio
 
-Questo articolo descrive le funzionalità delle transazioni del bus di servizio di Microsoft Azure. Molte delle discussioni è illustrato il [transazioni di AMQP con l'esempio del Bus di servizio](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia). Questo articolo si limita a una panoramica dell'elaborazione delle transazioni e della funzionalità *invia tramite* nel bus di servizio, invece l'esempio delle transazioni atomiche ha un ambito di riferimento più ampio e complesso.
+Questo articolo descrive le funzionalità delle transazioni del bus di servizio di Microsoft Azure. Gran parte della discussione è illustrata nell' [esempio relativo alle transazioni AMQP con il bus di servizio](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia). Questo articolo si limita a una panoramica dell'elaborazione delle transazioni e della funzionalità *invia tramite* nel bus di servizio, invece l'esempio delle transazioni atomiche ha un ambito di riferimento più ampio e complesso.
 
 ## <a name="transactions-in-service-bus"></a>Transazioni nel bus di servizio
 
@@ -61,7 +60,7 @@ var sender = new MessageSender(connection, QueueName);
 var receiver = new MessageReceiver(connection, QueueName);
 ```
 
-Una transazione semplice Usa questi elementi, come nell'esempio seguente. Per fare riferimento all'esempio completo, vedere la [codice su GitHub sorgente](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia):
+Una transazione semplice usa quindi questi elementi, come nell'esempio seguente. Per fare riferimento all'esempio completo, vedere il [codice sorgente in GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia):
 
 ```csharp
 var receivedMessage = await receiver.ReceiveAsync();

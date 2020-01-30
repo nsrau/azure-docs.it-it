@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: d367d9eedc06dbfe0e5096372a4f09c66ea35013
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c4366b2718271b1e27325e6946c5016e9230cea4
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462606"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76835913"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Ridimensionare in modo dinamico le risorse di database con tempo di inattività minimo
 
@@ -55,7 +55,8 @@ Tutte le tre versioni di Database SQL di Azure offrono la capacità di ridimensi
 - Un'[Istanza gestita](sql-database-managed-instance.md) usa la modalità [vCore](sql-database-managed-instance.md#vcore-based-purchasing-model) e consente di definire il massimo di core CPU e il massimo della memoria allocata per l'istanza. Tutti i database all'interno dell'istanza condivideranno le risorse allocate per l'istanza.
 - I [pool elastici](sql-database-elastic-pool-scale.md) consentono di definire il limite massimo di risorse per ogni gruppo di database nel pool.
 
-Quando si avvia l'azione di aumento o riduzione delle prestazioni in una qualsiasi delle varianti, il processo del motore di database viene riavviato e spostato in una macchina virtuale diversa, se necessario. Lo sviluppo del processo del motore di database in una nuova macchina virtuale è un **processo online** in cui è possibile continuare a usare il servizio database SQL di Azure esistente mentre il processo è in corso. Una volta che il motore di database di destinazione è stato completamente inizializzato ed è pronto per l'elaborazione delle query, le connessioni verranno [passate dal motore di database di origine a quello di destinazione](sql-database-single-database-scale.md#impact-of-changing-service-tier-or-rescaling-compute-size).
+Quando si avvia l'azione di aumento o riduzione delle prestazioni in una qualsiasi delle varianti, il processo del motore di database viene riavviato e spostato in una macchina virtuale diversa, se necessario. Lo sviluppo del processo del motore di database in una nuova macchina virtuale è un **processo online** in cui è possibile continuare a usare il servizio database SQL di Azure esistente mentre il processo è in corso. Una volta che il motore di database di destinazione è stato completamente inizializzato ed è pronto per l'elaborazione delle query, le connessioni verranno [passate dal motore di database di origine a quello di destinazione](sql-database-single-database-scale.md#impact). 
+
 
 > [!NOTE]
 > È possibile che si verifichi un breve intervallo di connessione al termine del processo di scalabilità verticale/orizzontale. Se è stata implementata la [logica di ripetizione dei tentativi per gli errori temporanei standard](sql-database-connectivity-issues.md#retry-logic-for-transient-errors), il failover non sarà noto.

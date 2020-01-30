@@ -6,14 +6,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 02/28/2020
 ms.author: ellacroi
-ms.openlocfilehash: 0b12e122cef3a05af7a09918ba434d103e33a1a2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 54ad3049789a737ffb29519b6546973acda9b4ae
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822945"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843838"
 ---
 # <a name="geographic-availability-and-currency-support"></a>Disponibilità geografica e supporto della valuta
 
@@ -49,21 +49,22 @@ Le offerte di Azure Marketplace e AppSource possono essere acquistate in aree ge
 | Cabo Verde                          | CV        | USD          |
 | Isole Cayman                      | KY        | USD          |
 | Cile                               | CL        | USD          |
+| Cina\**                            | CN        | N/D          |
 | Colombia                            | CO        | USD          |
 | Costa Rica                          | CR        | USD          |
-| Côte d’Ivoire (Costa d’Avorio)                       | CI        | USD          |
-| Croazia                             | HR        | EUR          |
+| Côte d'Ivoire (Costa d'Avorio)                       | CI        | USD          |
+| Croazia                             | Risorse umane        | EUR          |
 | Curaçao                             | CW        | USD          |
 | Cipro                              | CY        | EUR          |
-| Repubblica ceca                      | CZ        | EUR          |
+| Repubblica Ceca                      | CZ        | EUR          |
 | Danimarca                             | DK        | DKK          |
-| Repubblica dominicana                  | DO        | USD          |
+| Repubblica Domenicana                  | DO        | USD          |
 | Ecuador                             | EC        | USD          |
 | Egitto                               | EG        | USD          |
 | El Salvador                         | SV        | USD          |
 | Estonia                             | EE        | EUR          |
 | Etiopia                            | ET        | USD          |
-| Isole Fær Øer                       | FO        | DKK          |
+| Fær Øer                       | FO        | DKK          |
 | Figi                                | FJ        | AUD          |
 | Finlandia                             | FI        | EUR          |
 | Francia                              | VF        | EUR          |
@@ -103,7 +104,7 @@ Le offerte di Azure Marketplace e AppSource possono essere acquistate in aree ge
 | Mauritius                           | MU        | USD          |
 | Messico                              | MX        | USD          |
 | Moldova                             | MD        | USD          |
-| Principato di Monaco                              | MC        | EUR          |
+| Monaco                              | MC        | EUR          |
 | Mongolia                            | MN        | USD          |
 | Montenegro                          | ME        | USD          |
 | Marocco                             | MA        | USD          |
@@ -127,15 +128,15 @@ Le offerte di Azure Marketplace e AppSource possono essere acquistate in aree ge
 | Qatar                               | QA        | USD          |
 | Romania                             | RO        | EUR          |
 | Russia                              | RU        | RUB          |
-| Ruanda                              | RW        | USD          |
-| Saint Kitts e Nevis               | KN        | USD          |
+| Ruanda                              | LS        | USD          |
+| Saint Christopher e Nevis               | KN        | USD          |
 | Arabia Saudita                        | SA        | USD          |
 | Senegal                             | SN        | USD          |
 | Serbia                              | RS        | USD          |
 | Singapore                           | SG        | USD          |
 | Slovacchia                            | SK        | EUR          |
 | Slovenia                            | SI        | EUR          |
-| Sud Africa                        | ZA        | USD          |
+| Sudafrica                        | ZA        | USD          |
 | Spagna                               | ES        | EUR          |
 | Sri Lanka                           | LK        | USD          |
 | Svezia                              | SE        | SEK          |
@@ -143,7 +144,7 @@ Le offerte di Azure Marketplace e AppSource possono essere acquistate in aree ge
 | Taiwan                              | TW        | TWD          |
 | Tagikistan                          | TJ        | USD          |
 | Tanzania                            | TZ        | USD          |
-| Thailandia                            | TH        | USD          |
+| Tailandia                            | TH        | USD          |
 | Trinidad e Tobago                 | TT        | USD          |
 | Tunisia                             | TN        | USD          |
 | Turchia                              | TR        | USD          |
@@ -165,3 +166,5 @@ Le offerte di Azure Marketplace e AppSource possono essere acquistate in aree ge
 |   |   |   |
 
 \* per i clienti in Brasile, il Marketplace tramite Cloud Solution Provider (CSP) USA USD.
+
+\*solo le immagini di VM BYOL e gratuite.

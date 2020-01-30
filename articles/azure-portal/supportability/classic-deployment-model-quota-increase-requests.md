@@ -1,108 +1,108 @@
 ---
-title: Modello di distribuzione classica di Azure | Microsoft Docs
-description: Modello di distribuzione classica di Azure
+title: Modello di distribuzione classica di Azure
+description: Il modello di distribuzione classica, ora sostituito dal modello di Gestione risorse, impone un limite di quota vCPU globale per le macchine virtuali e i set di scalabilità di macchine virtuali.
 author: sowmyavenkat86
 ms.author: svenkat
-ms.date: 06/20/2019
+ms.date: 01/27/2020
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: d8f4bf04251347c44ea1692cfdda2602e23117f4
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: a3d5106cafc1d3bfe77f3e42e85cedb668fc4fa0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75897052"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76835638"
 ---
 # <a name="classic-deployment-model"></a>Modello di distribuzione classica
 
-Il modello di distribuzione classica è il modello di distribuzione di Azure di generazione precedente. Impone un limite di quota vCPU globale per le macchine virtuali e i set di scalabilità di macchine virtuali. Il modello di distribuzione classica non è più consigliato ed è ora sostituito dal modello di Gestione risorse. 
+Il modello di distribuzione classica è il modello di distribuzione di Azure di generazione precedente. Impone un limite di quota vCPU globale per le macchine virtuali e i set di scalabilità di macchine virtuali. Il modello di distribuzione classica non è più consigliato ed è ora sostituito dal modello di Gestione risorse.
 
-Per ulteriori informazioni su questi due modelli di distribuzione e sui vantaggi derivanti dall'utilizzo di Gestione risorse, vedere la pagina relativa alla [distribuzione di gestione risorse e classica](../../azure-resource-manager/management/deployment-models.md) .
- 
-Quando viene creata una nuova sottoscrizione, viene assegnata una quota predefinita di vCPU. Ogni volta che una nuova macchina virtuale deve essere distribuita usando il modello di distribuzione classica, la somma dell'utilizzo di vCPU nuovo ed esistente in tutte le aree non deve superare la quota vCPU approvata per il modello di distribuzione classica.
- 
-Altre informazioni sulle quote sono disponibili nella pagina [sottoscrizione di Azure e limiti dei servizi](https://aka.ms/quotalimits) .
+Per ulteriori informazioni su questi due modelli di distribuzione e sui vantaggi derivanti dall'utilizzo di Gestione risorse, vedere [Gestione risorse e distribuzione classica](../../azure-resource-manager/management/deployment-models.md).
 
-È possibile richiedere un aumento del limite di quota vCPU per il modello di distribuzione classica tramite il pannello "Guida e supporto" o il pannello "utilizzi + quota" nel portale.
+Quando viene creata una nuova sottoscrizione, viene assegnata una quota predefinita di vCPU. Ogni volta che una nuova macchina virtuale deve essere distribuita con il modello di distribuzione classica, la somma dell'utilizzo di vCPU nuovo ed esistente in tutte le aree non deve superare la quota vCPU approvata per il modello di distribuzione classica.
 
-## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-the-help--support-blade"></a>Richiesta per serie di macchine virtuali vCPU aumento della quota a livello di sottoscrizione usando il pannello **Guida e supporto**
+Per altre informazioni sulle quote, vedere [sottoscrizione di Azure e limiti, quote e vincoli del servizio](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-Seguire le istruzioni riportate di seguito per creare una richiesta di supporto tramite il pannello "Guida e supporto" di Azure disponibile nel portale di Azure. 
+È possibile richiedere un aumento del limite di quota vCPU per il modello di distribuzione classica. Usare la **Guida** e il supporto o l' **utilizzo + quote** nel portale di Azure.
 
-1. In https://portal.azure.com selezionare **Guida e supporto**.
+## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-help--support"></a>Richiesta per serie di macchine virtuali vCPU aumento della quota a livello di sottoscrizione usando guida e supporto
 
-   ![Guida e supporto](./media/resource-manager-core-quotas-request/helpsupport.png)
- 
-2.  Selezionare **Nuova richiesta di supporto**. 
+Seguire le istruzioni riportate di seguito per creare una richiesta di supporto usando **Guida e supporto tecnico** nella portale di Azure.
 
-      ![Nuova richiesta di supporto](./media/resource-manager-core-quotas-request/newsupportrequest.png)
+1. Scegliere **Guida e supporto**dal menu [portale di Azure](https://portal.azure.com) .
 
-3. Nell'elenco a discesa tipo di problema scegliere **limiti per servizio e sottoscrizione (quote)** .
+   ![Selezionare Guida e supporto nel portale di Azure](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
-   ![Elenco a discesa tipo di problema](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
+1. Selezionare **Nuova richiesta di supporto**.
 
-4. Selezionare la sottoscrizione per cui è necessario ottenere un aumento della quota.
+   ![Creare una nuova richiesta di supporto nel portale di Azure](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-   ![Seleziona newS Subscription](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
-   
-5. Selezionare **calcolo-VM (Core-vCPU) il limite di sottoscrizione aumenta** nell'elenco a discesa **tipo di quota** . 
+1. In **tipo di problema**scegliere **limiti per servizio e sottoscrizione (quote)** .
+
+   ![Selezionare le quote come tipo di problema](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
+
+1. Selezionare la sottoscrizione di cui si vuole aumentare la quota.
+
+   ![Selezionare la sottoscrizione per cui aumentare una quota](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
+
+1. Per **tipo di quota**selezionare **aumenta il limite di sottoscrizione Compute-VM (Cores-vCPU)** .
+
+   ![Selezionare il tipo di quota da aumentare](./media/resource-manager-core-quotas-request/select-quota-type.png)
+
+1. Selezionare **Avanti: soluzioni** per aprire **i dettagli del problema**. Selezionare **specificare i dettagli** per fornire informazioni aggiuntive.
+
+   ![Specificare i dettagli per aiutare la richiesta insieme](./media/resource-manager-core-quotas-request/provide-details-link.png)
+
+1. In **Dettagli quota**selezionare **classica** e selezionare una **località**.
+
+   ![Aggiungere dettagli, tra cui il modello di distribuzione e il percorso](./media/resource-manager-core-quotas-request/quota-details-classic.png)
+
+1. Per la **famiglia di SKU**selezionare una o più famiglie di SKU da aumentare.
+
+   ![Specificare la famiglia di SKU da aumentare](./media/resource-manager-core-quotas-request/sku-family-classic.png)
+
+1. Immettere i nuovi limiti da applicare alla sottoscrizione. Per rimuovere una riga, deselezionare lo SKU dalla **famiglia di SKU** o selezionare l'icona di eliminazione "X". Dopo aver immesso una quota per ogni famiglia di SKU, selezionare **Salva e continua** in **Dettagli quota** per continuare con la richiesta di supporto.
+
+   ![Richiedi nuovi limiti](./media/resource-manager-core-quotas-request/new-limits-classic.png)
+
+## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-usage--quotas"></a>Richiesta per serie di macchine virtuali vCPU aumento della quota a livello di sottoscrizione usando utilizzo e quote
+
+Seguire le istruzioni riportate di seguito per creare una richiesta di supporto usando l'utilizzo e le **quote** nella portale di Azure.
+
+1. Nella [portale di Azure](https://portal.azure.com)cercare e selezionare **sottoscrizioni**.
+
+   ![Passare a sottoscrizioni nella portale di Azure](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
+
+1. Selezionare la sottoscrizione di cui si vuole aumentare la quota.
+
+   ![Selezionare la sottoscrizione da modificare](./media/resource-manager-core-quotas-request/select-subscription-change-quota.png)
+
+1. Selezionare **Utilizzo e quote**.
+
+   ![Selezionare utilizzo e quote per una sottoscrizione](./media/resource-manager-core-quotas-request/select-usage-plus-quotas.png)
+
+1. Nell'angolo superiore destro selezionare **Richiedi aumento**.
+
+   ![Selezionare per aumentare la quota](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
+
+1. Selezionare **calcolo-VM (Core-vCPU). il limite di sottoscrizione aumenta** come **tipo di quota**.
 
    ![Seleziona tipo di quota](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
-6. In **Dettagli problema**specificare informazioni aggiuntive per l'elaborazione della richiesta facendo clic su **Fornisci dettagli**.
+1. Selezionare **Avanti: soluzioni** per aprire **i dettagli del problema**. Selezionare **specificare i dettagli** per fornire informazioni aggiuntive.
 
-   ![Specificare i dettagli](./media/resource-manager-core-quotas-request/provide-details.png)
+   ![Specificare i dettagli per la richiesta](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-7. Nel pannello dei **Dettagli della quota** selezionare classico e selezionare una località.
+1. In **Dettagli quota**selezionare **classica** e una **località**.
 
-   ![Dettagli quota DM](./media/resource-manager-core-quotas-request/quota-details-classic.png)
+   ![Selezionare i dettagli della quota, inclusi il modello di distribuzione e il percorso](./media/resource-manager-core-quotas-request/quota-details-classic.png)
 
-8. Selezionare le **famiglie di SKU** che richiedono un aumento. 
+1. Selezionare una o più famiglie di SKU per un aumento.
 
-   ![Famiglia SKU](./media/resource-manager-core-quotas-request/sku-family-classic.png)
+   ![Selezionare la famiglia di SKU per l'aumento](./media/resource-manager-core-quotas-request/sku-family-classic.png)
 
-9. Immettere i nuovi limiti da applicare alla sottoscrizione. Per rimuovere una riga, deselezionare lo SKU dall'elenco a discesa delle famiglie di SKU oppure fare clic sull'icona di eliminazione "x". Dopo aver immesso la quota desiderata per ogni famiglia di SKU, fare clic su **Salva e continua** nel pannello Dettagli quota per continuare con la creazione della richiesta di supporto.
+1. Immettere i nuovi limiti da applicare alla sottoscrizione. Per rimuovere una riga, deselezionare lo SKU dalla **famiglia di SKU** o selezionare l'icona di eliminazione "X". Dopo aver immesso una quota per ogni famiglia di SKU, selezionare **Salva e continua** in **Dettagli quota** per continuare con la richiesta di supporto.
 
-   ![Nuovi limiti](./media/resource-manager-core-quotas-request/new-limits-classic.png)
-
-## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-usages--quota-blade"></a>Richiesta per serie di macchine virtuali vCPU aumento della quota a livello di sottoscrizione usando il pannello **utilizzo + quote**
-
-Seguire le istruzioni riportate di seguito per creare una richiesta di supporto tramite il pannello "utilizzo e quota" di Azure disponibile nel portale di Azure. 
-
-1. In https://portal.azure.com , selezionare **Sottoscrizioni**.
-
-   ![Sottoscrizioni](./media/resource-manager-core-quotas-request/subscriptions.png)
-
-2. Selezionare la sottoscrizione per cui è necessario ottenere un aumento della quota.
-
-   ![Seleziona sottoscrizione](./media/resource-manager-core-quotas-request/select-subscription.png)
-
-3. Selezionare **Utilizzo e quote**.
-
-   ![Selezionare Utilizzo e quote](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
-
-4. Nell'angolo superiore destro selezionare **Richiedi aumento**.
-
-   ![Richiedi aumento](./media/resource-manager-core-quotas-request/request-increase.png)
-
-5. Il **limite di sottoscrizione Compute-VM (Cores-vCPU) aumenta** come tipo di virgolette. 
-
-   ![Compilare i moduli](./media/resource-manager-core-quotas-request/select-quota-type.png)
-   
-6. In **Dettagli problema**specificare informazioni aggiuntive per l'elaborazione della richiesta facendo clic su **Fornisci dettagli**.
-
-   ![Specificare i dettagli](./media/resource-manager-core-quotas-request/provide-details.png)
-
-7. Nel pannello dei **Dettagli della quota** selezionare classico e selezionare una località.
-
-   ![Dettagli quota DM](./media/resource-manager-core-quotas-request/quota-details-classic.png)
-
-8. Selezionare le **famiglie di SKU** che richiedono un aumento. 
-
-   ![Famiglia SKU](./media/resource-manager-core-quotas-request/sku-family-classic.png)
-
-9. Immettere i nuovi limiti da applicare alla sottoscrizione. Per rimuovere una riga, deselezionare lo SKU dall'elenco a discesa delle famiglie di SKU oppure fare clic sull'icona di eliminazione "x". Dopo aver immesso la quota desiderata per ogni famiglia di SKU, fare clic su **Salva e continua** nel pannello Dettagli quota per continuare con la creazione della richiesta di supporto.
-
-   ![Nuovi limiti](./media/resource-manager-core-quotas-request/new-limits-classic.png)
+   ![Immettere una nuova quota](./media/resource-manager-core-quotas-request/new-limits-classic.png)
 

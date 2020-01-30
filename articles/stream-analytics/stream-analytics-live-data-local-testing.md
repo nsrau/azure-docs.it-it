@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: cda02408f9e90cb9f19a4f7d806a34e5cff9c33c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f2876ea32bdcd900a454ae6b7ac58c11b8ec67c3
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426045"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840486"
 ---
 # <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Testare i dati live in locale usando gli strumenti di Analisi di flusso di Azure per Visual Studio (anteprima)
 
@@ -38,7 +38,6 @@ Sono supportate le opzioni di test locale seguenti:
 2. Per testare i dati live, scegliere **Use Cloud Input** (Usa input cloud) dalla casella discesa.
 
    ![Test di Analisi di flusso di Azure in Visual Studio con input cloud live](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input.png)
-
 
 3. Impostare l'**ora di inizio** per definire quando il processo inizierà a elaborare i dati di input. Per garantire l'accuratezza dei risultati, è possibile che il processo debba leggere i dati di input in anticipo. L'ora predefinita è impostata su 30 minuti prima dell'ora corrente.
 
@@ -65,6 +64,5 @@ Sono supportate le opzioni di test locale seguenti:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Creare un processo di Analisi di flusso con gli strumenti di Analisi di flusso di Azure per Visual Studio](stream-analytics-quick-create-vs.md)
-* [Installare gli strumenti di Analisi di flusso di Azure per Visual Studio](stream-analytics-tools-for-visual-studio-install.md)
 * [Eseguire test locali delle query di Analisi di flusso con Visual Studio](stream-analytics-vs-tools-local-run.md)
 * [Usare Visual Studio per visualizzare i processi di Analisi di flusso di Azure](stream-analytics-vs-tools.md)

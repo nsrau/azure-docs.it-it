@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/05/2019
-ms.openlocfilehash: 4833b8a1835bd5da3327c73058f170fb0a5738a8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/24/2020
+ms.openlocfilehash: 3877632565c1ca2c9a16681e03f8931a94af0599
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450694"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765755"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Monitoraggio di Azure per le macchine virtuali domande frequenti disponibili a livello generale (GA)
 
@@ -20,19 +20,28 @@ Queste domande frequenti sulla disponibilità generale riguardano le modifiche c
 
 ## <a name="updates-for-azure-monitor-for-vms"></a>Aggiornamenti per Monitoraggio di Azure per le macchine virtuali
 
-Si prevede di rilasciare una nuova versione di Monitoraggio di Azure per le macchine virtuali nel 2020 gennaio. I clienti che abilitano i monitoraggi di Azure per le macchine virtuali dopo questa versione ricevono automaticamente la nuova versione, ma per i clienti esistenti che usano già Monitoraggio di Azure per le macchine virtuali verrà richiesto di eseguire l'aggiornamento. Queste domande frequenti e la nostra documentazione offrono indicazioni per eseguire un aggiornamento su larga scala se si dispone di distribuzioni di grandi dimensioni in più aree di lavoro.
+È stata rilasciata una nuova versione di Monitoraggio di Azure per le macchine virtuali. I clienti che abilitano i monitoraggi di Azure per le macchine virtuali riceveranno ora la nuova versione, ma verrà richiesto di aggiornare i clienti esistenti che usano già Monitoraggio di Azure per le macchine virtuali. Queste domande frequenti e la nostra documentazione offrono indicazioni per eseguire un aggiornamento su larga scala se si dispone di distribuzioni di grandi dimensioni in più aree di lavoro.
 
-Con questo aggiornamento, Monitoraggio di Azure per le macchine virtuali dati sulle prestazioni vengono archiviati nella stessa tabella `InsightsMetrics` di [monitoraggio di Azure per i contenitori](container-insights-overview.md)e semplifica la query dei due set di dati. Inoltre, è possibile archiviare set di dati più diversi che non è stato possibile archiviare nella tabella usata in precedenza. Anche le visualizzazioni delle prestazioni verranno aggiornate per usare la nuova tabella.
+Con questo aggiornamento, Monitoraggio di Azure per le macchine virtuali i dati sulle prestazioni vengono archiviati nella stessa tabella *InsightsMetrics* di [monitoraggio di Azure per i contenitori](container-insights-overview.md), semplificando l'esecuzione di query sui due set di dati. Inoltre, è possibile archiviare set di dati più diversi che non è stato possibile archiviare nella tabella usata in precedenza. 
 
-Viene spostato in nuovi tipi di dati per i set di dati di connessione. Questa modifica verrà eseguita nel 2019 dicembre e verrà annunciata in un Blog di aggiornamento di Azure. I dati attualmente archiviati in `ServiceMapComputer_CL` e `ServiceMapProcess_CL`, ovvero tabelle di log personalizzate, verranno spostati in tipi di dati dedicati denominati `VMComputer` e `VMProcess`. Passando ai tipi di dati dedicati, ricevono la priorità per l'inserimento dei dati e lo schema della tabella viene standardizzato in tutti i clienti.
+Nella prossima settimana o due verranno aggiornate anche le visualizzazioni delle prestazioni per l'uso della nuova tabella.
 
 Ci rendiamo conto che la richiesta di aggiornamento da parte dei clienti esistenti causa un'alterazione del flusso di lavoro, motivo per cui abbiamo scelto di eseguire questa operazione ora in anteprima pubblica anziché in un secondo momento dopo GA.
 
+
 ## <a name="what-is-changing"></a>Cosa cambierà
 
-Attualmente, quando si completa il processo di caricamento per Monitoraggio di Azure per le macchine virtuali, si Abilita la soluzione Mapping dei servizi nell'area di lavoro selezionata per archiviare i dati di monitoraggio e quindi si configurano i contatori delle prestazioni per i dati raccolti dalle macchine virtuali. Verrà rilasciata una nuova soluzione, denominata **VMInsights**, che include funzionalità aggiuntive per la raccolta di dati insieme a una nuova posizione per archiviare questi dati nell'area di lavoro log Analytics.
+È stata rilasciata una nuova soluzione, denominata VMInsights, che include funzionalità aggiuntive per la raccolta di dati insieme a una nuova posizione per archiviare questi dati nell'area di lavoro Log Analytics. 
 
-Il processo corrente di utilizzo dei contatori delle prestazioni nell'area di lavoro Log Analytics invia i dati alla tabella `Perf`. Questa nuova soluzione invia i dati a una tabella denominata `InsightsMetrics` usata anche da monitoraggio di Azure per i contenitori. Questo schema di tabella consente di archiviare metriche e set di dati del servizio aggiuntivi che non sono compatibili con il formato di tabella delle prestazioni.
+In passato, la soluzione ServiceMap è stata abilitata nell'area di lavoro e i contatori delle prestazioni sono stati impostati nell'area di lavoro Log Analytics per inviare i dati alla tabella *Perf* . Questa nuova soluzione invia i dati a una tabella denominata *InsightsMetrics* usata anche da monitoraggio di Azure per i contenitori. Questo schema di tabella consente di archiviare metriche e set di dati del servizio aggiuntivi che non sono compatibili con il formato di tabella delle *prestazioni* .
+
+
+## <a name="how-do-i-upgrade"></a>Ricerca per categorie l'aggiornamento?
+Ogni macchina virtuale che richiede l'aggiornamento verrà identificata nella scheda attività **iniziali** Monitoraggio di Azure per le macchine virtuali nel portale di Azure. È possibile aggiornare una singola macchina virtuale o selezionare multiplo per eseguire l'aggiornamento insieme. Usare il comando seguente per eseguire l'aggiornamento usando PowerShell:
+
+```PowerShell
+Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-group-name> -WorkspaceName <workspace-name> -IntelligencePackName "VMInsights" -Enabled $True
+```
 
 ## <a name="what-should-i-do-about-the-performance-counters-in-my-workspace-if-i-install-the-vminsights-solution"></a>Cosa devo fare per i contatori delle prestazioni nell'area di lavoro se si installa la soluzione VMInsights?
 

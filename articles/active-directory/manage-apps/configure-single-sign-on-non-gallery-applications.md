@@ -12,12 +12,12 @@ ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c99c38c9a1972bc434c7fa61d6745dac0d79d7b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 709f8083e50391718d34587bd0ea1d847cc41923
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76711926"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841966"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Configurare Single Sign-On basate su SAML per applicazioni non della raccolta
 
@@ -26,7 +26,7 @@ Quando si [aggiunge un'app della raccolta](add-gallery-app.md) o un' [app Web no
 > [!NOTE]
 > Si vuole aggiungere un'app della raccolta? Seguire le istruzioni dettagliate nell'[elenco di esercitazioni sulle app SaaS](../saas-apps/tutorial-list.md)
 
-Per configurare SAML Single Sign-On per un'applicazione non raccolta senza scrivere codice, è necessario disporre di una sottoscrizione o Azure AD Premium e l'applicazione deve supportare SAML 2,0. Per altre informazioni sulle versioni di Azure AD, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Per configurare SAML Single Sign-On per un'applicazione non raccolta senza scrivere codice, è necessario disporre di una sottoscrizione insieme a una licenza di Azure AD Premium e l'applicazione deve supportare SAML 2,0. Per altre informazioni sulle versioni di Azure AD, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

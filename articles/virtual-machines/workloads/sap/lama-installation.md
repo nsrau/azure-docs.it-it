@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: ffe68352fed0b9c0df0cdfb971c085d1bb7f18c4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2df0bfe8041216e207193832c8f7ca48967c4e5b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978067"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842436"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Connettore SAP LaMa per Azure
 
@@ -87,7 +87,7 @@ Il connettore di Azure può usare un'entità servizio per autorizzare la Microso
 1. Fare clic su nuova registrazione
 1. Immettere un nome e fare clic su Register (registra)
 1. Selezionare la nuova app e fare clic su certificati & segreti nella scheda Impostazioni.
-1. Creare un nuovo segreto client, immettere una descrizione per una nuova chiave, selezionare quando il segreto deve essere exire e fare clic su Salva.
+1. Creare un nuovo segreto client, immettere una descrizione per una nuova chiave, selezionare quando il segreto deve scadere e fare clic su Salva
 1. Annotare il valore. che viene usato come password per l'entità servizio
 1. Annotare l'ID applicazione. che viene usato come nome utente per l'entità servizio
 

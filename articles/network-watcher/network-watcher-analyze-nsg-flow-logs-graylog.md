@@ -3,8 +3,7 @@ title: Analizzare i log di flusso dei gruppi di sicurezza di rete in Azure - Gra
 description: Informazioni su come gestire e analizzare i log di flusso dei gruppi di sicurezza di rete in Azure con Network Watcher e Graylog.
 services: network-watcher
 documentationcenter: na
-author: mattreatMSFT
-manager: vitinnan
+author: damendo
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
-ms.author: mareat
-ms.openlocfilehash: a5fadcfce154740a79a8764f44f08b21ad18f4d8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: damendo
+ms.openlocfilehash: 1e597a81967a8fb6be2959d53e65ad01135e5e25
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60625203"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842904"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gestire e analizzare i log di flusso dei gruppi di sicurezza di rete in Azure con Network Watcher e Graylog
 
@@ -181,7 +180,7 @@ Dopo aver stabilito una connessione con i log di flusso tramite Logstash e confi
 2. Per spostarsi sulla pagina di configurazione, selezionare il menu a discesa **System** (Sistema) nella barra di spostamento superiore a destra e quindi fare clic su **Inputs** (Input).
    In alternativa, accedere all'URL `http://<graylog-server-ip>:9000/system/inputs`
 
-   ![Introduzione](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
+   ![Inizia ora](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
 
 3. Per avviare il nuovo input, selezionare *GELF UDP* nel menu a discesa **Select input** (Seleziona input) e quindi compilare il modulo. GELF è l'acronimo di Graylog Extended Log Format. Il formato GELF viene sviluppato da Graylog. Per altre informazioni sui vantaggi relativi, vedere la [documentazione](https://docs.graylog.org/en/2.2/pages/gelf.html) di Graylog.
 

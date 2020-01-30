@@ -3,12 +3,12 @@ title: Pianificare una distribuzione di Azure Service Fabric cluster
 description: Informazioni sulla pianificazione e la preparazione per la distribuzione di un cluster Service Fabric di produzione in Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 69fb97e4e679b3ce5817a51d619799a3384fd753
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 32d48f9ffa056d252bdf762304340f245d80fd26
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463328"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834451"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Pianificare e preparare la distribuzione di un cluster
 
@@ -37,9 +37,59 @@ La dimensione minima delle VM per ogni tipo di nodo è determinata dal [livello 
 
 Il numero minimo di macchine virtuali per il tipo di nodo primario è determinato dal [livello di affidabilità][reliability] scelto.
 
-Vedere le indicazioni minime per i [tipi di nodo primari](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance), i [carichi di lavoro con stato su tipi di nodo non primari](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads)e i [carichi di lavoro senza stato in tipi di nodo non primari](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads). 
+Vedere le indicazioni minime per i [tipi di nodo primari](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance), i [carichi di lavoro con stato su tipi di nodo non primari](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads)e i [carichi di lavoro senza stato in tipi di nodo non primari](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads).
 
 Il numero massimo di nodi deve essere basato sul numero di repliche dell'applicazione o dei servizi che si desidera eseguire in questo tipo di nodo.  La [pianificazione della capacità per le applicazioni di Service Fabric](service-fabric-capacity-planning.md) consente di stimare le risorse necessarie per eseguire le applicazioni. È sempre possibile ridimensionare il cluster in un secondo momento per modificare il carico di lavoro dell'applicazione. 
+
+#### <a name="use-ephemeral-os-disks-for-virtual-machine-scale-sets"></a>Usare dischi del sistema operativo temporanei per i set di scalabilità di macchine virtuali
+
+I *dischi del sistema operativo temporaneo* sono archiviazione creati nella macchina virtuale locale (VM) e non vengono salvati nell'archiviazione di Azure remota. Sono consigliate per tutti i tipi di nodo di Service Fabric (primario e secondario), perché rispetto ai dischi del sistema operativo persistenti tradizionali, i dischi del sistema operativo temporaneo:
+
+* Ridurre la latenza di lettura/scrittura al disco del sistema operativo
+* Abilitare operazioni di gestione dei nodi di ripristino/ricreazione dell'immagine più veloci
+* Riduci i costi complessivi (i dischi sono gratuiti e non comportano costi di archiviazione aggiuntivi)
+
+Il disco del sistema operativo temporaneo non è una funzionalità di Service Fabric specifica, bensì una funzionalità dei *set di scalabilità di macchine virtuali* di Azure di cui è stato eseguito il mapping ai tipi di nodo Service Fabric. L'uso di questi elementi con Service Fabric richiede quanto segue nel modello di Azure Resource Manager cluster:
+
+1. Assicurarsi che i tipi di nodo specifichino le [dimensioni delle VM di Azure supportate](../virtual-machines/windows/ephemeral-os-disks.md) per i dischi del sistema operativo temporaneo e che le dimensioni della macchina virtuale siano sufficienti per supportare le dimensioni del disco del sistema operativo. vedere la *Nota* seguente. Per esempio:
+
+    ```xml
+    "vmNodeType1Size": {
+        "type": "string",
+        "defaultValue": "Standard_DS3_v2"
+    ```
+
+    > [!NOTE]
+    > Assicurarsi di selezionare una dimensione della macchina virtuale con una dimensione della cache uguale o superiore alle dimensioni del disco del sistema operativo della macchina virtuale stessa. in caso contrario, la distribuzione di Azure potrebbe generare un errore (anche se inizialmente è stata accettata).
+
+2. Specificare una versione del set di scalabilità di macchine virtuali (`vmssApiVersion`) di `2018-06-01` o versione successiva:
+
+    ```xml
+    "variables": {
+        "vmssApiVersion": "2018-06-01",
+    ```
+
+3. Nella sezione set di scalabilità di macchine virtuali del modello di distribuzione specificare `Local` opzione per `diffDiskSettings`:
+
+    ```xml
+    "apiVersion": "[variables('vmssApiVersion')]",
+    "type": "Microsoft.Compute/virtualMachineScaleSets",
+        "virtualMachineProfile": {
+            "storageProfile": {
+                "osDisk": {
+                        "vhdContainers": ["[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('vmStorageAccountName')), variables('storageApiVersion')).primaryEndpoints.blob, parameters('vmStorageAccountContainerName'))]"],
+                        "caching": "ReadOnly",
+                        "createOption": "FromImage",
+                        "diffDiskSettings": {
+                            "option": "Local"
+                        },
+                }
+            }
+        }
+    ```
+
+Per altre informazioni e altre opzioni di configurazione, vedere [dischi del sistema operativo temporanei per macchine virtuali di Azure](../virtual-machines/windows/ephemeral-os-disks.md) 
+
 
 ### <a name="select-the-durability-and-reliability-levels-for-the-cluster"></a>Selezionare i livelli di durabilità e affidabilità per il cluster
 Il livello di durabilità viene usato per indicare al sistema i privilegi delle VM rispetto all'infrastruttura di Azure sottostante. Nel tipo di nodo primario questo privilegio consente a Service Fabric di sospendere le richieste di infrastruttura a livello di VM (ad esempio il riavvio di una VM, il re-imaging di una VM o la migrazione di una VM) che hanno effetto sui requisiti relativi al quorum per i servizi di sistema e i servizi con stato. Nei tipi di nodo non primari questo privilegio consente a Service Fabric di sospendere le richieste di infrastruttura a livello di macchina virtuale (ad esempio, il riavvio di una VM, il re-imaging di una VM e la migrazione di una VM) che hanno effetto sui requisiti relativi al quorum per i servizi con stato.  Per i vantaggi dei diversi livelli e consigli sul livello da usare e quando, vedere [le caratteristiche di durabilità del cluster][durability].

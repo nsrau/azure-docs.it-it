@@ -3,12 +3,12 @@ title: Monitorare l'integrità del cluster Kubernetes con monitoraggio di Azure 
 description: Questo articolo descrive come visualizzare e analizzare l'integrità dei cluster AKS e non AKS con monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 12/01/2019
-ms.openlocfilehash: 9ee710eb916923756633e65f3287751ba9a9dde3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f50ef13efca78bbb5285b99759b8111dc1915ad0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75405089"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843991"
 ---
 # <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Informazioni sull'integrità del cluster Kubernetes con Monitoraggio di Azure per i contenitori
 
@@ -23,7 +23,7 @@ Per informazioni su come abilitare monitoraggio di Azure per i contenitori, vede
 >[!NOTE]
 >Per supportare i cluster del motore AKS, verificare che soddisfi i requisiti seguenti:
 >- Usa la versione più recente del [client Helm](https://helm.sh/docs/using_helm/).
->- La versione dell'agente in contenitori è *Microsoft/OMS: ciprod11012019*. Per aggiornare l'agente, vedere [aggiornamento dell'agente nel cluster Kubernetes](container-insights-manage-agent.md#upgrading-agent-on-monitored-kubernetes-cluster).
+>- La versione dell'agente in contenitori è *Microsoft/OMS: ciprod11012019*. Per aggiornare l'agente, vedere [aggiornamento dell'agente nel cluster Kubernetes](container-insights-manage-agent.md#upgrade-agent-on-monitored-kubernetes-cluster).
 >
 
 ## <a name="overview"></a>Overview
@@ -52,9 +52,9 @@ Le icone utilizzate per indicare lo stato sono le seguenti:
 
 |Icona|Significato|  
 |--------|-----------|  
-|![L'icona con il segno di spunta verde indica lo stato integro](./media/container-insights-health/healthyicon.png)|Operazione riuscita, integrità corretta (verde)|  
-|![Il triangolo giallo con un punto esclamativo indica un avviso](./media/container-insights-health/warningicon.png)|Avviso (giallo)|  
-|![Il pulsante rosso con una X bianca indica lo stato critico](./media/container-insights-health/criticalicon.png)|Stato critico (rosso)|  
+|![Icona di segno di spunta verde indica integro](./media/container-insights-health/healthyicon.png)|Operazione riuscita, integrità OK (verde)|  
+|![Il triangolo giallo e il punto esclamativo è un avviso](./media/container-insights-health/warningicon.png)|Avviso (giallo)|  
+|![Il pulsante rosso con una X bianca indica lo stato critico](./media/container-insights-health/criticalicon.png)|Critico (rosso)|  
 |![Icona in grigio](./media/container-insights-health/grayicon.png)|Sconosciuto (grigio)|  
 
 ## <a name="monitor-configuration"></a>Configurazione del monitoraggio

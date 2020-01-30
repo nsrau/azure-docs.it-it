@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a82efda4cf53931dbf81b993b12a2927f02dfa0b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 3401ed08a9332d4bb2735e536df33c201b28ca0e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76711691"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841949"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisioning dell'applicazione basato su attributi con filtri per la definizione dell'ambito
 Questo articolo spiega come usare i filtri di ambito per definire regole basate su attributi per determinare gli utenti per i quali viene eseguito il provisioning per un'applicazione.
@@ -94,7 +94,12 @@ I filtri di ambito sono configurati come parte dei mapping degli attributi per o
    g. **REGEX MATCH** (CORRISPONDENZA REGEX). La clausola restituisce "true" se l'attributo valutato corrisponde a un modello di espressione regolare. Ad esempio: ([1-9][0-9]) corrisponde a qualsiasi numero compreso tra 10 e 99.
 
    h. **NOT REGEX MATCH** (NESSUNA CORRISPONDENZA REGEX). La clausola restituisce "true" se l'attributo valutato non corrisponde a un modello di espressione regolare.
- 
+   
+   i. **Greater_Than.** La clausola restituisce "true" se l'attributo valutato è maggiore del valore. Il valore specificato nel filtro di ambito deve essere un numero intero e l'attributo dell'utente deve essere un numero intero [0, 1, 2,...]. 
+   
+   j. **Greater_Than_OR_EQUALS.** La clausola restituisce "true" se l'attributo valutato è maggiore o uguale al valore. Il valore specificato nel filtro di ambito deve essere un numero intero e l'attributo dell'utente deve essere un numero intero [0, 1, 2,...]. 
+
+
 >[!IMPORTANT] 
 > I filtri di inclusione e IsMemberOf non sono supportati. Verranno rimossi presto dall'interfaccia utente.
 

@@ -12,14 +12,14 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 08/15/2019
+ms.date: 01/28/2020
 ms.author: jushiman
-ms.openlocfilehash: 56fcd5a8a02e292fdf43f9d22f3987813bce0743
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: ce3582539d6130e13ef205806d780164ba70c4fe
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029818"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842538"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticare le soluzioni del servizio Batch con Active Directory
 
@@ -143,6 +143,67 @@ Per eseguire l'autenticazione con un'entità servizio, è necessario assegnare i
 L'applicazione dovrebbe ora essere visualizzata nelle impostazioni di controllo di accesso con un ruolo con controllo degli accessi in base al ruolo assegnato.
 
 ![Assegnare un ruolo con controllo degli accessi in base al ruolo all'applicazione](./media/batch-aad-auth/app-rbac-role.png)
+
+### <a name="assign-a-custom-role"></a>Assegnare un ruolo personalizzato
+
+Un ruolo personalizzato concede l'autorizzazione granulare a un utente per l'invio di processi, attività e altro ancora. Questo consente di impedire agli utenti di eseguire operazioni che influiscono sui costi, ad esempio la creazione di pool o la modifica di nodi.
+
+È possibile utilizzare un ruolo personalizzato per concedere autorizzazioni a un utente Azure AD, un gruppo o un'entità servizio per le seguenti operazioni RBAC:
+
+- Microsoft.Batch/batchAccounts/pools/write
+- Microsoft.Batch/batchAccounts/pools/delete
+- Microsoft.Batch/batchAccounts/pools/read
+- Microsoft. batch/batchAccounts/jobSchedules/Write
+- Microsoft. batch/batchAccounts/jobSchedules/Delete
+- Microsoft. batch/batchAccounts/jobSchedules/Read
+- Microsoft. batch/batchAccounts/Jobs/scrittura
+- Microsoft. batch/batchAccounts/Jobs/Delete
+- Microsoft. batch/batchAccounts/Jobs/Read
+- Microsoft.Batch/batchAccounts/certificates/write
+- Microsoft.Batch/batchAccounts/certificates/delete
+- Microsoft.Batch/batchAccounts/certificates/read
+- Microsoft. batch/batchAccounts/Read (per qualsiasi operazione di lettura)
+- Microsoft. batch/batchAccounts/listKeys/Action (per qualsiasi operazione)
+
+I ruoli personalizzati sono destinati agli utenti autenticati da Azure AD e non alle credenziali dell'account batch (chiave condivisa). Si noti che le credenziali dell'account batch forniscono le autorizzazioni complete per l'account batch. Si noti anche che i processi che usano il pool di connessioni richiedono autorizzazioni a livello di pool.
+
+Di seguito è riportato un esempio di una definizione di ruolo personalizzata:
+
+```json
+{
+ "properties":{
+    "roleName":"Azure Batch Custom Job Submitter",
+    "type":"CustomRole",
+    "description":"Allows a user to submit jobs to Azure Batch but not manage pools",
+    "assignableScopes":[
+      "/subscriptions/88888888-8888-8888-8888-888888888888"
+    ],
+    "permissions":[
+      {
+        "actions":[
+          "Microsoft.Batch/*/read",
+          "Microsoft.Authorization/*/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Support/*",
+          "Microsoft.Insights/alertRules/*"
+        ],
+        "notActions":[
+
+        ],
+        "dataActions":[
+          "Microsoft.Batch/batchAccounts/jobs/*",
+          "Microsoft.Batch/batchAccounts/jobSchedules/*"
+        ],
+        "notDataActions":[
+
+        ]
+      }
+    ]
+  }
+}
+```
+
+Per informazioni generali sulla creazione di un ruolo personalizzato, vedere [ruoli personalizzati per le risorse di Azure](../role-based-access-control/custom-roles.md).
 
 ### <a name="get-the-tenant-id-for-your-azure-active-directory"></a>Ottenere l'ID tenant per Azure Active Directory
 

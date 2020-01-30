@@ -1,21 +1,20 @@
 ---
 title: Metriche del bus di servizio di Azure in monitoraggio di Azure | Microsoft Docs
-description: Usare monitoraggio di Azure per monitorare le entità del bus di servizio
+description: Questo articolo illustra come usare monitoraggio di Azure per monitorare le entità del bus di servizio (code, argomenti e sottoscrizioni).
 services: service-bus-messaging
 documentationcenter: .NET
 author: axisc
-manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 6d25bdf6ff8e790466f3a28e3b6043e347d74198
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 569eb31c6cbe8b95773d52f6e1325801fbabf86f
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261853"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773539"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Metriche del bus di servizio di Azure in monitoraggio di Azure
 
@@ -61,13 +60,13 @@ Tutti i valori delle metriche vengono inviati a Monitoraggio di Azure ogni minut
 
 Conta il numero di richieste di operazioni di dati e gestione.
 
-| Nome metrica | Descrizione |
+| Nome misurazione | Description |
 | ------------------- | ----------------- |
-| Richieste in ingresso| Numero di richieste inviate al servizio del bus di servizio in un periodo specificato. <br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
-|Richieste completate correttamente|Numero di richieste completate inviate al servizio del bus di servizio in un periodo specificato.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
-|Errori del server|Numero di richieste non elaborate a causa di un errore nel servizio del bus di servizio in un periodo specificato.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
-|Errori utente (vedere la sottosezione seguente)|Numero di richieste non elaborate a causa di errori utente in un periodo specificato.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
-|Richieste limitate|Numero di richieste che sono state limitate perché è stata superata la soglia di utilizzo.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
+| Richieste in ingresso| Numero di richieste inviate al servizio del bus di servizio in un periodo specificato. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+|Richieste riuscite|Numero di richieste completate inviate al servizio del bus di servizio in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+|Errori server|Numero di richieste non elaborate a causa di un errore nel servizio del bus di servizio in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+|Errori utente (vedere la sottosezione seguente)|Numero di richieste non elaborate a causa di errori utente in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+|Richieste limitate|Numero di richieste che sono state limitate perché è stata superata la soglia di utilizzo.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
 
 ### <a name="user-errors"></a>Errori utente
 
@@ -79,36 +78,36 @@ I due tipi di errori seguenti sono classificati come errori utente:
 
 ## <a name="message-metrics"></a>Metriche per i messaggi
 
-| Nome metrica | Descrizione |
+| Nome misurazione | Description |
 | ------------------- | ----------------- |
-|Messaggi in ingresso|Numero di eventi o messaggi inviati al bus di servizio in un periodo specificato.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
-|Messaggi in uscita|Numero di eventi o messaggi inviati dal bus di servizio in un periodo specificato.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
-| Messaggi| Numero di messaggi contenuti in una coda o in un argomento. <br/><br/> Unità: Count <br/> Tipo di aggregazione: Average <br/> Dimensione: EntityName |
-| ActiveMessages| Numero di messaggi attivi in una coda o in un argomento. <br/><br/> Unità: Count <br/> Tipo di aggregazione: Average <br/> Dimensione: EntityName |
-| Messaggi non recapitabili| Numero di messaggi non recapitabili in una coda o in un argomento. <br/><br/> Unità: Count <br/> Tipo di aggregazione: Average <br/>Dimensione: EntityName |
-| Messaggi pianificati| Numero di messaggi pianificati in una coda o un argomento. <br/><br/> Unità: Count <br/> Tipo di aggregazione: Average  <br/> Dimensione: EntityName |
+|Messaggi in ingresso|Numero di eventi o messaggi inviati al bus di servizio in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+|Messaggi in uscita|Numero di eventi o messaggi inviati dal bus di servizio in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
+| Messaggi| Numero di messaggi contenuti in una coda o in un argomento. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Dimensione: EntityName |
+| ActiveMessages| Numero di messaggi attivi in una coda o in un argomento. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Dimensione: EntityName |
+| Messaggi non recapitabili| Numero di messaggi non recapitabili in una coda o in un argomento. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/>Dimensione: EntityName |
+| Messaggi pianificati| Numero di messaggi pianificati in una coda o un argomento. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media  <br/> Dimensione: EntityName |
 
 ## <a name="connection-metrics"></a>Metriche di connessione
 
-| Nome metrica | Descrizione |
+| Nome misurazione | Description |
 | ------------------- | ----------------- |
-|ActiveConnections|Numero di connessioni attive in uno spazio dei nomi e in un'entità.<br/><br/> Unità: Count <br/> Tipo di aggregazione: Totale <br/> Dimensioni: EntityName|
+|ActiveConnections|Numero di connessioni attive in uno spazio dei nomi e in un'entità.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
 
 ## <a name="resource-usage-metrics"></a>Metriche di utilizzo delle risorse
 
 > [!NOTE] 
 > Le metriche seguenti sono disponibili solo con il livello **Premium**. 
 
-| Nome metrica | Descrizione |
+| Nome misurazione | Description |
 | ------------------- | ----------------- |
-|Uso della CPU per spazio dei nomi|Utilizzo percentuale della CPU dello spazio dei nomi.<br/><br/> Unità: Percent <br/> Tipo di aggregazione: Massima <br/> Dimensione: EntityName|
-|Uso delle dimensioni della memoria per spazio dei nomi|Utilizzo percentuale della memoria dello spazio dei nomi.<br/><br/> Unità: Percent <br/> Tipo di aggregazione: Massima <br/> Dimensione: EntityName|
+|Uso della CPU per spazio dei nomi|Utilizzo percentuale della CPU dello spazio dei nomi.<br/><br/> Unità: percentuale <br/> Tipo di aggregazione: massimo <br/> Dimensione: EntityName|
+|Uso delle dimensioni della memoria per spazio dei nomi|Utilizzo percentuale della memoria dello spazio dei nomi.<br/><br/> Unità: percentuale <br/> Tipo di aggregazione: massimo <br/> Dimensione: EntityName|
 
 ## <a name="metrics-dimensions"></a>Dimensioni delle metriche
 
 Il bus di servizio di Azure supporta le dimensioni seguenti per le metriche in Monitoraggio di Azure. L'aggiunta di dimensioni alle metriche è facoltativa. Se non si aggiungono le dimensioni, le metriche vengono specificate a livello di spazio dei nomi. 
 
-|Nome della dimensione|Descrizione|
+|Nome della dimensione|Description|
 | ------------------- | ----------------- |
 |EntityName| Il bus di servizio supporta le entità di messaggistica nello spazio dei nomi.|
 
@@ -123,10 +122,10 @@ Il bus di servizio di Azure supporta le dimensioni seguenti per le metriche in M
     3. Selezionare lo **spazio dei nomi del bus di servizio** nell'elenco. 
     4. Selezionare **Operazione completata**. 
     
-        ![Seleziona spazio dei nomi](./media/service-bus-metrics-azure-monitor/select-namespace.png)
+        ![Selezionare lo spazio dei nomi](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Selezionare **Aggiungi criteri** ed eseguire le azioni seguenti nella pagina **Configura logica dei segnali**:
     1. Selezionare **Metriche** per **Tipo segnale**. 
-    2. Selezionare un segnale, Esempio: **Errori del servizio**. 
+    2. Selezionare un segnale, Ad esempio: **errori del servizio**. 
 
         ![Selezionare gli errori del server](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
     1. Selezionare **Greater than** (Maggiore di) per **Condizione**.
@@ -140,7 +139,7 @@ Il bus di servizio di Azure supporta le dimensioni seguenti per le metriche in M
     2. Immettere una **descrizione** per l'avviso.
     3. Selezionare una **gravità** per l'avviso. 
 
-        ![Dettagli avviso](./media/service-bus-metrics-azure-monitor/alert-details.png)
+        ![Dettagli dell'avviso](./media/service-bus-metrics-azure-monitor/alert-details.png)
 1. Nella pagina **Crea regola** espandere **Definire il gruppo di azioni**, selezionare **Nuovo gruppo di azioni** e nella pagina **Aggiungi gruppo di azioni** eseguire le azioni seguenti. 
     1. Immettere un nome per il gruppo di azioni.
     2. Immettere un nome breve per il gruppo di azioni. 
@@ -152,9 +151,9 @@ Il bus di servizio di Azure supporta le dimensioni seguenti per le metriche in M
     8. Nella pagina **Email/SMS/Push/Voice** (E-mail/SMS/Push/Voce) eseguire le azioni seguenti:
         1. Selezionare **E-mail**. 
         2. Digitare l'**indirizzo e-mail**. 
-        3. Scegliere **OK**.
+        3. Selezionare **OK**.
 
-            ![Dettagli avviso](./media/service-bus-metrics-azure-monitor/add-action-group.png)
+            ![Dettagli dell'avviso](./media/service-bus-metrics-azure-monitor/add-action-group.png)
         4. Nella pagina **Aggiungi gruppo di azioni** selezionare **OK**. 
 1. Nella pagina **Crea regola** selezionare **Crea regola di avviso**. 
 

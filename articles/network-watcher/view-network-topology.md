@@ -3,23 +3,20 @@ title: Visualizzare la topologia di una rete virtuale di Azure | Microsoft Docs
 description: Informazioni su come visualizzare le risorse in una rete virtuale e le relazioni tra di esse.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
-ms.author: kumud
-ms.openlocfilehash: a67f1cca54c89ead9ae7fc46ef0c9fc8c5217c74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: damendo
+ms.openlocfilehash: 675919db55932d3ccc04fd5397f6f673832b4900
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64682045"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840571"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Visualizzare la topologia di una rete virtuale di Azure
 
@@ -87,17 +84,17 @@ L'account usato deve avere le [autorizzazioni](required-rbac-permissions.md) nec
 
 I comandi descritti nei passaggi seguenti possono essere eseguiti in due modi:
 - In Azure Cloud Shell, selezionando **Prova** nell'angolo in alto a destra di ogni comando. Azure Cloud Shell è una shell interattiva gratuita in cui sono disponibili gli strumenti comuni di Azure preinstallati e configurati per l'uso con un account.
-- Tramite PowerShell dal computer. Se si esegue PowerShell dal computer, questo articolo è necessario Azure PowerShell `Az` modulo. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
+- Tramite PowerShell dal computer. Se si esegue PowerShell dal computer, questo articolo richiede il modulo Azure PowerShell `Az`. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
 L'account usato deve avere le [autorizzazioni](required-rbac-permissions.md) necessarie.
 
-1. Se è già presente un'istanza di Network Watcher nella stessa area della rete virtuale per cui si vuole creare una topologia, andare al passaggio 3. Creare un gruppo di risorse per contenere un network watcher con [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). L'esempio seguente crea il gruppo di risorse nell'area *eastus*:
+1. Se è già presente un'istanza di Network Watcher nella stessa area della rete virtuale per cui si vuole creare una topologia, andare al passaggio 3. Creare un gruppo di risorse che contenga un Network Watcher con [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). L'esempio seguente crea il gruppo di risorse nell'area *eastus*:
 
     ```azurepowershell-interactive
     New-AzResourceGroup -Name NetworkWatcherRG -Location EastUS
     ```
 
-2. Creare un'istanza di network watcher con [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher). L'esempio seguente crea un'istanza di Network Watcher nell'area eastus:
+2. Creare un Network Watcher con [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher). L'esempio seguente crea un'istanza di Network Watcher nell'area eastus:
 
     ```azurepowershell-interactive
     New-AzNetworkWatcher `
@@ -105,7 +102,7 @@ L'account usato deve avere le [autorizzazioni](required-rbac-permissions.md) nec
       -ResourceGroupName NetworkWatcherRG
     ```
 
-3. Recuperare un'istanza di Network Watcher con [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher). L'esempio seguente recupera un'istanza di Network Watcher nell'area eastus:
+3. Recuperare un'istanza di Network Watcher con [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher). L'esempio seguente recupera un'istanza di Network Watcher nell Stati Uniti orientali:
 
     ```azurepowershell-interactive
     $nw = Get-AzResource `
@@ -133,19 +130,19 @@ Tutte le risorse restituite in una topologia sono correlate in base a uno dei ti
 
 | Tipo di relazione | Esempio                                                                                                |
 | ---               | ---                                                                                                    |
-| Contenimento       | Una rete virtuale contiene una subnet. Una subnet contiene un'interfaccia di rete.                            |
+| Containment       | Una rete virtuale contiene una subnet. Una subnet contiene un'interfaccia di rete.                            |
 | Associazione        | Un'interfaccia di rete è associata a una VM. Un indirizzo IP pubblico è associato a un'interfaccia di rete. |
 
-## <a name="properties"></a>Properties
+## <a name="properties"></a>Proprietà
 
 Tutte le risorse restituite in una topologia hanno le proprietà seguenti:
 
-- **Nome**: nome della risorsa.
+- **Name**: nome della risorsa.
 - **Id**: URI della risorsa.
-- **Località**: area di Azure in cui si trova la risorsa.
-- **Associazioni**: elenco delle associazioni all'oggetto di riferimento. Ogni associazione ha le proprietà seguenti:
-    - **AssociationType**: fa riferimento alla relazione tra l'oggetto figlio e l'oggetto padre. I valori validi sono *Contains* o *Associated*.
-    - **Nome**: nome della risorsa a cui si fa riferimento.
+- **Location**: area di Azure in cui si trova la risorsa.
+- **Associations**: elenco delle associazioni all'oggetto di riferimento. Ogni associazione ha le proprietà seguenti:
+    - **AssociationType**: il valore fa riferimento alla relazione tra oggetto figlio e oggetto padre. I valori validi sono *Contains* o *Associated*.
+    - **Name**: nome della risorsa di riferimento.
     - **ResourceId**: URI della risorsa di riferimento nell'associazione.
 
 ## <a name="next-steps"></a>Passaggi successivi

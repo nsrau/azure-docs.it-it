@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: 8c65b7d010e521ec78322de9807f741c856a2381
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: dcec310db43baa513b2d574d03f3f35dee3f773b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264849"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768014"
 ---
-# <a name="enable-notebooks-for-azure-cosmos-db-accounts"></a>Abilitare i notebook per gli account Azure Cosmos DB
+# <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Abilitare i notebook per gli account Azure Cosmos DB (anteprima)
 
 > [!IMPORTANT]
 > I notebook predefiniti per Azure Cosmos DB sono attualmente disponibili nelle aree di Azure seguenti: Australia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Europa occidentale e Stati Uniti occidentali 2. Per usare i notebook, [creare un nuovo account con notebook](#enable-notebooks-in-a-new-cosmos-account) o [abilitare notebook in un account esistente](#enable-notebooks-in-an-existing-cosmos-account) in una di queste aree.

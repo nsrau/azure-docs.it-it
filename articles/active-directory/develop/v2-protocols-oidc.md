@@ -17,12 +17,12 @@ ms.date: 04/12/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 97f05afadf38063a58e15e16cbf2e2c3d3e781ca
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 0ed1cb6a080a35fa81c6a859f88d987020c8504c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700261"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773317"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Piattaforma di identità Microsoft e protocollo OpenID Connect
 
@@ -75,7 +75,7 @@ I metadati sono un semplice documento JavaScript Object Notation (JSON). Per un 
 }
 ```
 
-Se l'app ha chiavi di firma personalizzate come risultato dell'uso della funzionalità di [mapping delle attestazioni](active-directory-claims-mapping.md) , è necessario aggiungere un `appid` parametro di query contenente l'ID app per ottenere un `jwks_uri` che punta alle informazioni sulla chiave di firma dell'app. Ad esempio: `https://login.microsoftonline.com/{tenant}/.well-known/v2.0/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contiene una `jwks_uri` di `https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
+Se l'app ha chiavi di firma personalizzate come risultato dell'uso della funzionalità di [mapping delle attestazioni](active-directory-claims-mapping.md) , è necessario aggiungere un `appid` parametro di query contenente l'ID app per ottenere un `jwks_uri` che punta alle informazioni sulla chiave di firma dell'app. Ad esempio: `https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contiene una `jwks_uri` di `https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
 In genere, si usa questo documento di metadati per configurare una libreria di OpenID Connect o un SDK. La libreria usa i metadati per le proprie operazioni. Tuttavia, se non si usa una libreria OpenID Connect precompilata, è possibile seguire la procedura descritta nella parte restante di questo articolo per eseguire l'accesso in un'app Web usando l'endpoint della piattaforma di identità Microsoft.
 

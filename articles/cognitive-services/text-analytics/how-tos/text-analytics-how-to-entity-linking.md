@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/06/2019
+ms.date: 01/27/2019
 ms.author: aahi
-ms.openlocfilehash: a9bfa2a51341bf60f92378f5d96a390bd1d92db1
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 9aa00898c6a567d495ed0c66bcf7bd475067fa0d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732779"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774146"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo
 
@@ -23,7 +23,7 @@ Il API Analisi del testo consente di usare un testo non strutturato e restituisc
 
 ### <a name="entity-linking"></a>Collegamento di entità
 
-Il collegamento di entità è la possibilità di identificare e risolvere le ambiguità dell'identità di un'entità trovata nel testo, ad esempio per determinare se un'occorrenza della parola `Mars` si riferisce al pianeta o al Dio romano della guerra. Questo processo richiede la presenza di una Knowledge base in una lingua appropriata per collegare entità riconosciute nel testo. 
+Il collegamento di entità è la possibilità di identificare e risolvere le ambiguità dell'identità di un'entità trovata nel testo, ad esempio per determinare se un'occorrenza della parola `Mars` si riferisce al pianeta o al Dio romano della guerra. Questo processo richiede la presenza di una Knowledge base in una lingua appropriata per collegare entità riconosciute nel testo. Il collegamento di entità USA [Wikipedia](https://www.wikipedia.org/) come questa Knowledge base.
 
 
 ### <a name="named-entity-recognition-ner"></a>Riconoscimento delle entità denominate (NER)
@@ -69,7 +69,7 @@ Per informazioni, vedere Supporto per le [lingue](../language-support.md#sentime
 | Data e ora      | Intervallo di date     | "dal 2 maggio al 5 maggio"    |
 | Data e ora      | Intervallo orario     | "dalle 18 alle 19"     |
 | Data e ora      | Durata      | "1 minuto e 45 secondi"   |
-| Data e ora      | Configurazione           | "ogni martedì"     |
+| Data e ora      | Set           | "ogni martedì"     |
 | URL           | N/D\*         | "https:\//www.bing.com"    |
 | Indirizzo di posta elettronica         | N/D\*         | "support@contoso.com" |
 | Numero di telefono degli Stati Uniti  | N/D\*         | (Solo numeri telefonici US) "(312) 555-0176" |
@@ -112,7 +112,7 @@ Collegamento di entità
 
 ---
 
-## <a name="sending-a-rest-api-request"></a>Invio di una richiesta API REST
+## <a name="sending-a-rest-api-request"></a>Invio di una richiesta all'API REST
 
 ### <a name="preparation"></a>Preparazione
 
@@ -150,7 +150,7 @@ Collegamento di entità
 
 ---
 
-Impostare un'intestazione della richiesta per includere la chiave di API Analisi del testo. Nel corpo della richiesta fornire i documenti JSON preparati.
+Impostare un'intestazione della richiesta per includere la chiave dell'API Analisi del testo. Nel corpo della richiesta fornire i documenti JSON preparati.
 
 ### <a name="example-ner-request"></a>Richiesta NER di esempio 
 
@@ -172,7 +172,7 @@ Di seguito è riportato un esempio di contenuto che è possibile inviare all'API
 
 Al momento della ricezione della richiesta viene eseguita l'analisi. Vedere la sezione relativa ai [limiti dei data](../overview.md#data-limits) nella panoramica per informazioni sulle dimensioni e il numero di richieste che è possibile inviare al minuto e al secondo.
 
-Il API Analisi del testo è senza stato. Nessun dato è archiviato nell'account e i risultati vengono restituiti immediatamente nella risposta.
+L'API Analisi del testo è senza stato. Non vengono archiviati dati nell'account e i risultati vengono restituiti immediatamente nella risposta.
 
 ## <a name="view-results"></a>Visualizzazione dei risultati
 

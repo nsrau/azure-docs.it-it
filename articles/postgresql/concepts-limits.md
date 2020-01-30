@@ -5,21 +5,21 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 01/28/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d74206ebdf35a8f5b353553cb89e954cb2313611
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 047e722a0e0ade60d1eb93a48e37333fffafd674
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74768538"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836457"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limiti nel database di Azure per PostgreSQL-server singolo
 Nelle sezioni seguenti vengono descritti i limiti delle capacità e funzionali nel servizio del database. Per informazioni sui livelli di risorse (calcolo, memoria, archiviazione), vedere l'articolo [piani tariffari](concepts-pricing-tiers.md) .
 
 
 ## <a name="maximum-connections"></a>Numero massimo di connessioni
-Di seguito è indicato il numero massimo di connessioni per ogni piano tariffario e vCore: 
+Il numero massimo di connessioni per piano tariffario e Vcore è riportato di seguito. Il sistema Azure richiede cinque connessioni per il monitoraggio del server di Database di Azure per PostgreSQL. 
 
 |**Piano tariffario**| **vCore**| **Numero massimo di connessioni** | **Numero massimo di connessioni utente** |
 |---|---|---|---|
@@ -40,7 +40,10 @@ Di seguito è indicato il numero massimo di connessioni per ogni piano tariffari
 Quando le connessioni superano il limite, è possibile che venga visualizzato l'errore seguente:
 > FATAL: sorry, too many clients already (ERRORE IRREVERSIBILE: ci sono già troppi client)
 
-Il sistema Azure richiede cinque connessioni per il monitoraggio del server di Database di Azure per PostgreSQL. 
+> [!IMPORTANT]
+> Per un'esperienza ottimale, è consigliabile usare una connessione pool come pgBouncer per gestire in modo efficiente le connessioni.
+
+Una connessione PostgreSQL, anche inattiva, può occupare circa 10 MB di memoria. Inoltre, la creazione di nuove connessioni richiede tempo. La maggior parte delle applicazioni richiede molte connessioni di breve durata, che comunicano questa situazione. Il risultato è un minor numero di risorse disponibili per il carico di lavoro effettivo, causando una riduzione delle prestazioni. Un pool di connessione che riduce le connessioni inattive e riutilizza le connessioni esistenti consente di evitare questo problema. Per altre informazioni, visitare il [post di Blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
 
 ## <a name="functional-limitations"></a>Limitazioni funzionali
 ### <a name="scale-operations"></a>Operazioni di scalabilità

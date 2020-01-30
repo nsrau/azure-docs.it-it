@@ -3,18 +3,18 @@ title: Eseguire il rendering di dati personalizzati in una mappa raster | Mappe 
 description: In questo articolo si apprenderà come eseguire il rendering di dati personalizzati in una mappa raster usando Microsoft Azure mapping del servizio immagini statiche.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 07/29/2019
+ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c052ae1f7bab902dcd22b3cc081907468874b35c
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: f036847a9d46231d65d150cd4e0a76471d1ad612
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911466"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766015"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Eseguire il rendering di dati personalizzati in una mappa raster
 
@@ -29,7 +29,7 @@ Per eseguire il rendering di puntine da disegno, etichette e sovrapposizioni di 
 
 ### <a name="create-an-azure-maps-account"></a>Creare un account di Mappe di Azure
 
-Per completare le procedure descritte in questo articolo, è necessario creare prima di tutto un account Azure Maps e ottenere la chiave dell'account Maps. Per ottenere la chiave primaria per l'account, seguire le istruzioni riportate in [creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) per creare una sottoscrizione dell'account Azure Maps e seguire i passaggi in [ottenere](quick-demo-map-app.md#get-the-primary-key-for-your-account) la chiave primaria. Per altri dettagli sull'autenticazione in mappe di Azure, vedere [gestire l'autenticazione in mappe di Azure](./how-to-manage-authentication.md).
+Per completare le procedure descritte in questo articolo, è necessario creare prima di tutto un account Azure Maps e ottenere la chiave dell'account Maps. Per ottenere la chiave primaria per l'account, seguire le istruzioni riportate in [creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) per creare una sottoscrizione dell'account Azure Maps e seguire i passaggi in [ottenere](quick-demo-map-app.md#get-the-primary-key-for-your-account) la chiave primaria. Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](./how-to-manage-authentication.md).
 
 
 ## <a name="render-pushpins-with-labels-and-a-custom-image"></a>Eseguire il rendering di puntine da disegno con etichette e un'immagine personalizzata
@@ -43,7 +43,7 @@ Per eseguire il rendering di puntine da disegno con etichette e un'immagine pers
 
 1. Creare una raccolta in cui archiviare le richieste. Nell'app post, selezionare **nuovo**. Nella finestra **Crea nuova** selezionare **raccolta**. Assegnare un nome alla raccolta e selezionare il pulsante **Crea** . 
 
-2. Per creare la richiesta, selezionare nuovamente **nuovo** . Nella finestra **Crea nuova** selezionare **Request**. Immettere un **nome di richiesta** per il puntine da disegno, selezionare la raccolta creata nel passaggio precedente come percorso in cui salvare la richiesta e quindi selezionare **Salva**.
+2. Per creare la richiesta, selezionare nuovamente **nuovo** . Nella finestra **Crea nuova** selezionare **Request**. Immettere un **nome di richiesta** per il puntine da disegno. Selezionare la raccolta creata nel passaggio precedente come percorso in cui salvare la richiesta e quindi selezionare **Salva**.
     
     ![Creare una richiesta in post](./media/how-to-render-custom-data/postman-new.png)
 
@@ -142,7 +142,7 @@ Per eseguire il rendering di puntine da disegno con etichette e un'immagine pers
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-5. Copiare l'URI dello stato e aggiungere il parametro Subscription-Key con il relativo valore corrispondente alla chiave di sottoscrizione dell'account Azure Maps usata per caricare i dati. Il formato dell'URI di stato avrà un aspetto simile al seguente:
+5. Copiare l'URI dello stato e aggiungere il parametro Subscription-Key con il valore della chiave di sottoscrizione dell'account Azure maps. Usare la stessa chiave di sottoscrizione dell'account usata per caricare i dati. Il formato dell'URI di stato avrà un aspetto simile al seguente:
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
@@ -156,7 +156,7 @@ Per eseguire il rendering di puntine da disegno con etichette e un'immagine pers
    }
    ```
 
-7. Usare il valore `udId` ricevuto dall'API di caricamento dei dati per eseguire il rendering delle funzionalità sulla mappa. A tale scopo, aprire una nuova scheda nell'insieme creato nella sezione precedente. Selezionare il metodo GET HTTP nella scheda generatore e immettere l'URL seguente per effettuare una richiesta GET:
+7. Usare il valore `udId` ricevuto dall'API di caricamento dei dati per eseguire il rendering delle funzionalità sulla mappa. A tale scopo, aprire una nuova scheda nell'insieme creato nella sezione precedente. Selezionare il metodo GET HTTP nella scheda Generatore, sostituire {Subscription-Key} e {udId} con i valori e immettere l'URL seguente per effettuare una richiesta GET:
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
@@ -192,7 +192,7 @@ Per eseguire il rendering di puntine da disegno con etichette e un'immagine pers
 > Per la procedura descritta in questa sezione è necessario un account Azure Maps nel piano tariffario S1.
 
 
-È possibile fare in modo che puntine da disegno e le rispettive etichette siano maggiori o minori usando il modificatore di stile `sc` scala. Questo modificatore accetta un valore maggiore di zero. Un valore pari a 1 è la scala standard. I valori maggiori di 1 renderanno le puntine da disegno più grandi e i valori inferiori a 1 le renderanno più piccole. Per altre informazioni sui modificatori di stile, vedere [parametri del percorso del servizio immagini statiche](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+È possibile modificare l'aspetto dei pin aggiungendo i modificatori di stile. Ad esempio, per fare in modo che puntine da disegno e le relative etichette siano maggiori o minori, usare il modificatore `sc` "Ridimensiona stile". Questo modificatore accetta un valore maggiore di zero. Un valore pari a 1 è la scala standard. I valori maggiori di 1 renderanno le puntine da disegno più grandi e i valori inferiori a 1 le renderanno più piccole. Per altre informazioni sui modificatori di stile, vedere [parametri del percorso del servizio immagini statiche](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
 
 
 Seguire questa procedura per eseguire il rendering di un cerchio e puntine da disegno con etichette personalizzate:
@@ -206,6 +206,18 @@ Seguire questa procedura per eseguire il rendering di un cerchio e puntine da di
     Di seguito è illustrata l'immagine della risposta:
 
     ![Eseguire il rendering di un cerchio con puntine da disegno personalizzato](./media/how-to-render-custom-data/circle-custom-pins.png)
+
+2. Per modificare il colore di puntine da disegno dall'ultimo passaggio, modificare il modificatore di stile "co". Esaminare `pins=default|la15+50|al0.66|lc003C62|co002D62|`, il colore corrente verrebbe specificato come #002D62 in CSS. Si desidera modificare il #41d42a. Scrivere il nuovo valore di colore dopo l'identificatore "co", come indicato di seguito: `pins=default|la15+50|al0.66|lc003C62|co41D42A|`. Crea una nuova richiesta GET:
+
+    ```HTTP
+    https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co41D42A||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}
+    ```
+
+    Di seguito è illustrata l'immagine della risposta dopo aver modificato i colori dei pin:
+
+    ![Eseguire il rendering di un cerchio con puntine da disegno aggiornato](./media/how-to-render-custom-data/circle-updated-pins.png)
+
+Analogamente, è possibile modificare, aggiungere e rimuovere altri modificatori di stile.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

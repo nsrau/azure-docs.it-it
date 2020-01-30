@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15ccbc568a2986fbb2a547eb958b5e853c8c9f77
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 083433d31f088eae1e138dd9cbd5ac05bbe8a304
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154823"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773313"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Funzionamento dell'accesso SSO alle risorse locali nei dispositivi aggiunti ad Azure AD
 
@@ -30,22 +30,21 @@ Questo articolo illustra il funzionamento di questa caratteristica.
 
 ## <a name="how-it-works"></a>Come funziona 
 
-Poiché è necessario ricordare un unico nome utente e una password, il servizio SSO semplifica l'accesso alle risorse e migliora la sicurezza dell'ambiente. Con un dispositivo aggiunto ad Azure AD, gli utenti possono già usufruire dell'esperienza SSO alle app cloud nell'ambiente. Se l'ambiente include Azure AD e un'istanza locale di AD, è possibile espandere l'ambito dell'esperienza SSO alle app line-of-business (LOB) locali, alle condivisioni file e alle stampanti.  
+Poiché è necessario ricordare un unico nome utente e una password, il servizio SSO semplifica l'accesso alle risorse e migliora la sicurezza dell'ambiente. Con un dispositivo aggiunto ad Azure AD, gli utenti possono già usufruire dell'esperienza SSO alle app cloud nell'ambiente. Se l'ambiente include Azure AD e un'istanza locale di AD, è possibile espandere l'ambito dell'esperienza SSO alle app line-of-business (LOB) locali, alle condivisioni file e alle stampanti.
 
 I dispositivi aggiunti ad Azure AD non conoscono l'ambiente AD locale perché non sono aggiunti a esso. Tuttavia, è possibile fornire a questi dispositivi informazioni aggiuntive sull'ambiente AD locale usando Azure AD Connect.
 
 Un ambiente in cui sono presenti sia Azure AD che un'istanza locale di AD è detto anche ambiente ibrido. Se si ha un ambiente ibrido, è probabile che Azure AD Connect sia già stato distribuito per sincronizzare le informazioni sulle identità locali con il cloud. Nell'ambito del processo di sincronizzazione, Azure AD Connect sincronizza le informazioni utente locali per Azure AD. Quando un utente accede a un dispositivo aggiunto ad Azure AD in un ambiente ibrido:
 
-1. Azure AD invia al dispositivo il nome del dominio locale di cui l'utente è membro. 
+1. Azure AD invia al dispositivo il nome del dominio locale di cui l'utente è membro.
 1. Il servizio di autorità di protezione locale (LSA, Local Security Authority) abilita l'autenticazione Kerberos nel dispositivo.
 
-Durante un tentativo di accesso a una risorsa nel dominio locale dell'utente, il dispositivo:
+Durante un tentativo di accesso a una risorsa che richiede Kerberos nell'ambiente locale dell'utente, il dispositivo:
 
-1. Usa le informazioni sul dominio per individuare un controller di dominio (DC). 
 1. Invia le informazioni sul dominio locale e le credenziali utente al controller di dominio individuato per ottenere l'autenticazione dell'utente.
-1. Riceve un [ticket di concessione ticket (TGT)](https://docs.microsoft.com/windows/desktop/secauthn/ticket-granting-tickets) Kerberos che viene usato per accedere alle risorse aggiunte ad AD.
+1. Riceve un [ticket di concessione ticket (TGT)](https://docs.microsoft.com/windows/desktop/secauthn/ticket-granting-tickets) Kerberos che viene usato per accedere alle risorse aggiunte ad AD. Se il tentativo di ottenere il TGT per il dominio di AAD Connect ha esito negativo (il timeout DCLocator correlato può causare un ritardo), vengono tentate le voci di gestione delle credenziali oppure l'utente può ricevere un popup di autenticazione che richiede le credenziali per la risorsa di destinazione.
 
-Tutte le app configurate per l'**autenticazione integrata di Windows** ottengono facilmente l'accesso SSO quando un utente prova ad accedervi.  
+Tutte le app configurate per l'**autenticazione integrata di Windows** ottengono facilmente l'accesso SSO quando un utente prova ad accedervi.
 
 Windows Hello for Business richiede una configurazione aggiuntiva per abilitare l'accesso SSO locale da un dispositivo aggiunto ad Azure AD. Per altre informazioni, vedere [Configure Azure AD joined devices for On-premises Single-Sign On using Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base) (Configurare dispositivi aggiunti ad Azure AD per l'accesso Single-Sign On locale usando Windows Hello for Business). 
 

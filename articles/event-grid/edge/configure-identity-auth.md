@@ -9,16 +9,16 @@ ms.date: 10/05/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 336b6157128468169264d6ffa9564da4d9338aae
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 0aedeea2a6ad08e1627c2d1a6ebde6c91a4d02d9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992444"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841766"
 ---
 # <a name="configure-identity-for-the-event-grid-module"></a>Configurare l'identità per il modulo di griglia di eventi
 
-Questo articolo fornisce esempi delle possibili configurazioni di identità per un modulo di griglia di eventi. Per impostazione predefinita, il modulo di griglia di eventi presenta il certificato di identità configurato dal daemon di sicurezza Internet. Un certificato di identità viene presentato dal modulo di griglia di eventi sulle chiamate in uscita, ovvero quando recapita gli eventi. Un Sottoscrittore di un evento di griglia di eventi può quindi scegliere di verificare che sia effettivamente il modulo di griglia di eventi che ha inviato l'evento prima di accettare l'evento.
+Questo articolo illustra come configurare l'identità per la griglia in Edge. Per impostazione predefinita, il modulo di griglia di eventi presenta il proprio certificato di identità configurato dal daemon di sicurezza Internet. Griglia di eventi sul bordo presenta il certificato di identità con le chiamate in uscita quando recapita gli eventi. Un Sottoscrittore può quindi convalidare il modulo di griglia di eventi che ha inviato l'evento prima dell'accettazione.
 
 Vedere la guida per la [sicurezza e l'autenticazione](security-authentication.md) per tutte le configurazioni possibili.
 
@@ -28,8 +28,8 @@ Ecco una configurazione di esempio per presentare sempre un certificato di ident
 ```json
  {
   "Env": [
-    "outbound:clientAuth:clientCert:enabled=true",
-    "outbound:clientAuth:clientCert:source=IoTEdge"
+    "outbound__clientAuth__clientCert__enabled=true",
+    "outbound__clientAuth__clientCert__source=IoTEdge"
   ]
 }
  ```
@@ -40,7 +40,7 @@ Ecco una configurazione di esempio per non presentare un certificato di identit�
 ```json
  {
   "Env": [
-    "outbound:clientAuth:clientCert:enabled=false"
+    "outbound__clientAuth__clientCert__enabled=false"
   ]
 }
  ```

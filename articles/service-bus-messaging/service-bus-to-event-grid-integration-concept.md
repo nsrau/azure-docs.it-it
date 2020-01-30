@@ -1,10 +1,9 @@
 ---
 title: Panoramica dell'integrazione del bus di servizio di Azure in Griglia di eventi | Microsoft Docs
-description: Descrizione della messaggistica del bus di servizio e dell'integrazione in Griglia di eventi
+description: Questo articolo fornisce una descrizione del modo in cui la messaggistica del bus di servizio di Azure si integra con griglia di eventi di Azure.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
 ms.service: service-bus-messaging
@@ -12,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 5d4ece6b631882200c6f98f6de5daa543fdf7ce4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e514e2856afae4ff6f877bb193935da1bc5d623
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072126"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773468"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Panoramica dell'integrazione del bus di servizio di Azure in Griglia di eventi
 
@@ -39,7 +38,7 @@ Per abilitare questa funzionalità, sono necessari gli elementi seguenti:
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ### <a name="verify-that-you-have-contributor-access"></a>Verificare di avere l'accesso di tipo Collaboratore
-Passare allo spazio dei nomi del bus di servizio, selezionare **Controllo di accesso (IAM)** e quindi la scheda **Assegnazioni di ruolo**. Verificare di avere accesso allo spazio dei nomi come collaboratore. 
+Passare allo spazio dei nomi del bus di servizio e quindi selezionare **controllo di accesso (IAM)** e selezionare scheda **assegnazioni di ruolo** . Verificare di disporre dell'accesso collaboratore allo spazio dei nomi. 
 
 ### <a name="events-and-event-schemas"></a>Eventi e schemi di eventi
 

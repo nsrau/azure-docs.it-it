@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 92925dc32d7f26b224811aa852112a275f112b35
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 3f6d4849b02f320c7479469b4ee56be50e4f8dee
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950834"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840095"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>Versioni del layout di pagina e JavaScript in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure AD B2C fornisce un set di contenuto in pacchetto contenente HTML, CSS e JavaScript per gli elementi dell'interfaccia utente nei flussi utente e nei criteri personalizzati. Per abilitare JavaScript per le applicazioni, è necessario aggiungere un elemento al [criterio personalizzato](active-directory-b2c-overview-custom.md) o abilitarlo nel portale per i flussi utente, selezionare un layout di pagina e usare [b2clogin.com](b2clogin.md) nelle richieste.
+Azure AD B2C fornisce un set di contenuto in pacchetto contenente HTML, CSS e JavaScript per gli elementi dell'interfaccia utente nei flussi utente e nei criteri personalizzati. Per abilitare JavaScript per le applicazioni, è necessario aggiungere un elemento al [criterio personalizzato](custom-policy-overview.md) o abilitarlo nel portale per i flussi utente, selezionare un layout di pagina e usare [b2clogin.com](b2clogin.md) nelle richieste.
 
 Se si intende abilitare il codice [JavaScript](javascript-samples.md) lato client, è necessario assicurarsi che gli elementi su cui si basa il codice JavaScript non siano modificabili. In caso contrario, le modifiche potrebbero provocare comportamenti imprevisti nelle pagine utente. Per evitare questi problemi, è possibile imporre l'utilizzo di un layout di pagina e specificare una versione del layout di pagina. In questo modo si garantisce che tutte le definizioni di contenuto su cui è stato basato JavaScript non siano modificabili. Anche se non si intende abilitare JavaScript, è possibile specificare una versione del layout di pagina per le pagine.
 

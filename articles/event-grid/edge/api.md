@@ -9,12 +9,12 @@ ms.date: 10/03/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: ee2b3a35b6f1817b89541a31d0bde4adf00ade2a
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 19f86b1d8233e05844201e1095c1f79324955cd7
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992535"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841830"
 ---
 # <a name="rest-api"></a>API REST
 Questo articolo descrive le API REST di griglia di eventi di Azure in IoT Edge
@@ -41,7 +41,7 @@ Nel caso di **EventGridSchema** o **CustomSchema**, il valore di Content-Type pu
 
 ```Content-Type: application/json; charset=utf-8```
 
-Nel caso di **CloudEventSchemaV1_0** in modalità strutturata, il valore di Content-Type può essere uno dei valori seguenti:
+In caso di **CloudEventSchemaV1_0** in modalità strutturata, il valore di Content-Type può essere uno dei valori seguenti:
 
 ```Content-Type: application/cloudevents+json```
     
@@ -51,7 +51,7 @@ Nel caso di **CloudEventSchemaV1_0** in modalità strutturata, il valore di Cont
     
 ```Content-Type: application/cloudevents-batch+json; charset=utf-8```
 
-Nel caso di **CloudEventSchemaV1_0** in modalità binaria, fare riferimento alla [documentazione](https://github.com/cloudevents/spec/blob/master/http-protocol-binding.md) per informazioni dettagliate.
+In caso di **CloudEventSchemaV1_0** in modalità binaria, consultare la [documentazione](https://github.com/cloudevents/spec/blob/master/http-protocol-binding.md) per informazioni dettagliate.
 
 ### <a name="error-response"></a>Risposta di errore
 Tutte le API restituiscono un errore con il payload seguente:
@@ -183,6 +183,7 @@ Gli esempi in questa sezione usano `EndpointType=Webhook;`. Gli esempi JSON per 
             "eventExpiryInMinutes": 120,
             "maxDeliveryAttempts": 50
         },
+        "persistencePolicy": "true",
         "destination":
         {
             "endpointType": "WebHook",
@@ -527,7 +528,7 @@ Gli esempi in questa sezione usano `EndpointType=Webhook;`. Gli esempi JSON per 
 
 **Descrizioni dei campi di payload**
 - ```Id``` è obbligatorio. Può essere qualsiasi valore stringa popolato dal chiamante. Griglia di eventi non esegue alcun rilevamento dei duplicati né applica alcuna semantica in questo campo.
-- ```Topic``` è facoltativo, ma se specificato deve corrispondere a topic_name dall'URL della richiesta
+- ```Topic``` è facoltativo, ma se specificato deve corrispondere al topic_name dall'URL della richiesta
 - ```Subject``` è obbligatorio, può essere qualsiasi valore stringa
 - ```EventType``` è obbligatorio, può essere qualsiasi valore stringa
 - ```EventTime``` è obbligatorio, non viene convalidato, ma deve essere un valore DateTime appropriato.
@@ -620,7 +621,7 @@ Vincoli sull'attributo `endpointUrl`:
 - Deve essere non null.
 - Deve essere un URL assoluto.
 - Se outbound__webhook__httpsOnly è impostato su true nelle impostazioni di EventGridModule, deve essere solo HTTPS.
-- Se outbound__webhook__httpsOnly è impostato su false, può essere HTTP o HTTPS.
+- Se outbound__webhook__httpsOnly impostato su false, può essere HTTP o HTTPS.
 
 Vincoli sulla proprietà `eventDeliverySchema`:
 - Deve corrispondere allo schema di input dell'argomento di sottoscrizione.
@@ -673,9 +674,9 @@ EndpointUrl
 - Deve essere un URL assoluto.
 - Il percorso `/api/events` deve essere definito nel percorso dell'URL della richiesta.
 - Deve avere `api-version=2018-01-01` nella stringa di query.
-- Se outbound__eventgrid__httpsOnly è impostato su true nelle impostazioni di EventGridModule (true per impostazione predefinita), deve essere solo HTTPS.
+- Se outbound__eventgrid__httpsOnly è impostato su true nelle impostazioni EventGridModule (true per impostazione predefinita), deve essere solo HTTPS.
 - Se outbound__eventgrid__httpsOnly è impostato su false, può essere HTTP o HTTPS.
-- Se outbound__eventgrid__allowInvalidHostnames è impostato su false (false per impostazione predefinita), deve avere come destinazione uno degli endpoint seguenti:
+- Se outbound__eventgrid__allowInvalidHostnames è impostato su false (false per impostazione predefinita), deve avere come destinazione uno dei seguenti endpoint:
    - `eventgrid.azure.net`
    - `eventgrid.azure.us`
    - `eventgrid.azure.cn`
@@ -686,3 +687,93 @@ SasKey:
 TopicName
 - Se la sottoscrizione. EventDeliverySchema è impostata su EventGridSchema, il valore di questo campo viene inserito nel campo dell'argomento di ogni evento prima di essere inviato a griglia di eventi nel cloud.
 - Se Subscription. EventDeliverySchema è impostato su CustomEventSchema, questa proprietà viene ignorata e il payload dell'evento personalizzato viene trasmesso esattamente come è stato ricevuto.
+
+## <a name="set-up-event-hubs-as-a-destination"></a>Configurare gli hub eventi come destinazione
+
+Per pubblicare in un hub eventi, impostare il `endpointType` su `eventHub` e specificare:
+
+* connectionString: stringa di connessione per l'hub eventi specifico di destinazione generato tramite criteri di accesso condiviso.
+
+    >[!NOTE]
+    > La stringa di connessione deve essere specifica dell'entità. L'uso di una stringa di connessione dello spazio dei nomi non funzionerà. È possibile generare una stringa di connessione specifica dell'entità passando all'hub eventi specifico in cui si vuole eseguire la pubblicazione nel portale di Azure e facendo clic su **criteri di accesso condivisi** per generare una nuova stringa connecection specifica dell'entità.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "eventHub",
+              "properties": {
+                "connectionString": "<your-event-hub-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## <a name="set-up-service-bus-queues-as-a-destination"></a>Configurare le code del bus di servizio come destinazione
+
+Per pubblicare in una coda del bus di servizio, impostare il `endpointType` su `serviceBusQueue` e specificare:
+
+* connectionString: stringa di connessione per la coda del bus di servizio specifica di destinazione generata tramite criteri di accesso condiviso.
+
+    >[!NOTE]
+    > La stringa di connessione deve essere specifica dell'entità. L'uso di una stringa di connessione dello spazio dei nomi non funzionerà. Per generare una stringa di connessione specifica dell'entità, passare alla coda del bus di servizio specifica in cui si vuole eseguire la pubblicazione nel portale di Azure e fare clic su **criteri di accesso condiviso** per generare una nuova stringa connecection specifica dell'entità.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "serviceBusQueue",
+              "properties": {
+                "connectionString": "<your-service-bus-queue-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## <a name="set-up-service-bus-topics-as-a-destination"></a>Configurare gli argomenti del bus di servizio come destinazione
+
+Per pubblicare in un argomento del bus di servizio, impostare il `endpointType` su `serviceBusTopic` e specificare:
+
+* connectionString: stringa di connessione per l'argomento del bus di servizio specifico di destinazione generato tramite criteri di accesso condiviso.
+
+    >[!NOTE]
+    > La stringa di connessione deve essere specifica dell'entità. L'uso di una stringa di connessione dello spazio dei nomi non funzionerà. Per generare una stringa di connessione specifica dell'entità, passare all'argomento del bus di servizio specifico in cui si vuole eseguire la pubblicazione nel portale di Azure e fare clic su **criteri di accesso condiviso** per generare una nuova stringa connecection specifica dell'entità.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "serviceBusTopic",
+              "properties": {
+                "connectionString": "<your-service-bus-topic-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## <a name="set-up-storage-queues-as-a-destination"></a>Configurare le code di archiviazione come destinazione
+
+Per pubblicare in una coda di archiviazione, impostare il `endpointType` su `storageQueue` e specificare:
+
+* QueueName: nome della coda di archiviazione in cui si sta eseguendo la pubblicazione.
+* connectionString: stringa di connessione per l'account di archiviazione in cui si trova la coda di archiviazione.
+
+    >[!NOTE]
+    > Gli hub eventi unline, le code del bus di servizio e gli argomenti del bus di servizio, la stringa di connessione usata per le code di archiviazione non è specifica dell'entità. Ma deve essere invece la stringa di connessione per l'account di archiviazione.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "storageQueue",
+              "properties": {
+                "queueName": "<your-storage-queue-name>",
+                "connectionString": "<your-storage-account-connection-string>"
+              }
+            }
+          }
+        }
+    ```

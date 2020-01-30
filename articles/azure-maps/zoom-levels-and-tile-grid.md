@@ -3,24 +3,24 @@ title: Livelli di zoom e griglia affiancata | Mappe Microsoft Azure
 description: In questo articolo vengono illustrati i livelli di zoom e la griglia dei riquadri nelle mappe Microsoft Azure.
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 09d6e357b87b59e8010e38693806da5f26f5b679
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 6ee697ac9b7849a0231d9916c6fa8bc73ef7f9b7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910764"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765847"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Livelli di zoom e griglia riquadri
 
-Mappe di Azure usa il sistema di coordinate sferiche per le proiezioni di Mercatore (EPSG: 3857). Una proiezione è il modello matematico usato per trasformare il globo sferico in una mappa piatta. La proiezione sferica Mercator allunga la mappa sui pali per creare una mappa quadrata. In questo modo, la scala e l'area della mappa vengono distorte, ma sono presenti due proprietà importanti che superano questa distorsione:
+Mappe di Azure usa il sistema di coordinate sferiche per le proiezioni di Mercatore (EPSG: 3857). Una proiezione è il modello matematico usato per trasformare il globo sferico in una mappa piatta. La proiezione sferica Mercator allunga la mappa sui poli per creare una mappa quadrata. Questa proiezione deforma significativamente la scala e l'area della mappa, ma ha due proprietà importanti che superano questa distorsione:
 
-- Si tratta di una proiezione conforme, il che significa che conserva la forma degli oggetti relativamente piccoli. Questa operazione è particolarmente importante quando si visualizzano le immagini aeree, perché si vuole evitare la distorsione della forma degli edifici. Le costruzioni quadrate dovrebbero apparire quadrate, non rettangolari.
-- Si tratta di una proiezione cilindrica, il che significa che Nord e sud sono sempre dritti verso l'alto e verso il basso, mentre ovest e est sono sempre direttamente a sinistra e a destra. 
+- Si tratta di una proiezione conforme, il che significa che conserva la forma degli oggetti relativamente piccoli. La conservazione della forma di oggetti di piccole dimensioni è particolarmente importante quando si visualizzano le immagini aeree. Si consiglia, ad esempio, di evitare la distorsione della forma degli edifici. Le costruzioni quadrate dovrebbero apparire quadrate, non rettangolari.
+- Si tratta di una proiezione cilindrica. Nord e sud sono sempre attivi e inattivi, mentre ovest e est sono sempre a sinistra e a destra. 
 
 Per ottimizzare le prestazioni del recupero e della visualizzazione della mappa, la mappa è divisa in riquadri quadrati. Azure Maps SDK USA riquadri con una dimensione di 512 x 512 pixel per le mappe stradali e 256 x 256 pixel più piccoli per le immagini satellite. Azure Maps fornisce riquadri raster e vettoriali per 23 livelli di zoom, numerati da 0 a 22. Al livello di zoom 0 il mondo è incluso in un unico riquadro:
 
@@ -36,7 +36,7 @@ Per il rendering del mondo il livello di zoom 1 usa quattro riquadri, ovvero un 
 
 Ogni livello di zoom aggiuntivo divide in quad i riquadri del precedente, creando una griglia<sup>di 2</sup>zoom<sup>x 2 zoom.</sup> Il livello di zoom 22 è una griglia di 2<sup>22</sup> x 2<sup>22</sup> ovvero 4.194.304 x 4.194.304 riquadri (per un totale di 17.592.186.044.416 riquadri).
 
-I controlli mappa interattiva di Azure Maps per il supporto per Web e Android livelli di zoom 25, numerati da 0 a 24. Sebbene i dati stradali saranno disponibili solo ai livelli di zoom in quando sono disponibili i riquadri.
+I controlli mappa interattiva di Azure Maps per il supporto per Web e Android 25, numerati da 0 a 24. Sebbene i dati stradali saranno disponibili solo ai livelli di zoom in quando sono disponibili i riquadri.
 
 La tabella seguente fornisce l'elenco completo dei valori per i livelli di zoom in cui la dimensione del riquadro è 512 pixel quadrati:
 
@@ -70,7 +70,7 @@ La tabella seguente fornisce l'elenco completo dei valori per i livelli di zoom 
 
 ## <a name="pixel-coordinates"></a>Coordinate pixel
 
-Avendo scelto la proiezione e la scala da utilizzare a ogni livello di zoom, è possibile convertire le coordinate geografiche in coordinate pixel. La larghezza e l'altezza completa dei pixel di un'immagine mappa del mondo per un particolare livello di zoom possono essere calcolate come segue:
+Avendo scelto la proiezione e la scala da utilizzare a ogni livello di zoom, è possibile convertire le coordinate geografiche in coordinate pixel. La larghezza e l'altezza completa dei pixel di un'immagine mappa del mondo per un particolare livello di zoom sono calcolate come:
 
 ```javascript
 var mapWidth = tileSize * Math.pow(2, zoom);
@@ -82,9 +82,11 @@ Poiché la larghezza e l'altezza della mappa sono diverse a ogni livello di zoom
 
 <center>
 
-Mappa ![che mostra le dimensioni del pixel](media/zoom-levels-and-tile-grid/map-width-height.png)</center>
+![Mappa che mostra le dimensioni del pixel](media/zoom-levels-and-tile-grid/map-width-height.png)
 
-Data la latitudine e la longitudine in gradi e il livello di dettaglio, le coordinate XY del pixel possono essere calcolate come segue:
+</center>
+
+Data la latitudine e la longitudine in gradi e il livello di dettaglio, le coordinate XY del pixel vengono calcolate come segue:
 
 ```javascript
 var sinLatitude = Math.sin(latitude * Math.PI/180);
@@ -94,11 +96,11 @@ var pixelX = ((longitude + 180) / 360) * tileSize * Math.pow(2, zoom);
 var pixelY = (0.5 – Math.log((1 + sinLatitude) / (1 – sinLatitude)) / (4 * Math.PI)) * tileSize * Math.pow(2, zoom);
 ```
 
-Si presuppone che i valori di latitudine e longitudine si trovino nel riferimento WGS 84. Anche se Azure Maps usa una proiezione sferica, è importante convertire tutte le coordinate geografiche in un datum comune e WGS 84 è stato scelto come riferimento. Si presuppone che il valore di longitudine sia compreso tra-180 e + 180 gradi e il valore di latitudine deve essere ritagliato per un intervallo compreso tra-85,05112878 e 85,05112878. In questo modo si evita una singolarità ai pali e si fa in modo che la mappa proiettata sia quadrata.
+Si presuppone che i valori di latitudine e longitudine si trovino nel riferimento WGS 84. Anche se Azure Maps usa una proiezione sferica, è importante convertire tutte le coordinate geografiche in un dato comune. WGS 84 è il datum selezionato. Si presuppone che il valore di longitudine sia compreso tra-180 e + 180 gradi e il valore di latitudine deve essere ritagliato per un intervallo compreso tra-85,05112878 e 85,05112878. L'adesione a questi valori evita una singolarità ai poli e garantisce che la mappa proiettata sia una forma quadrata.
 
 ## <a name="tile-coordinates"></a>Coordinate del riquadro
 
-Per ottimizzare le prestazioni del recupero e della visualizzazione della mappa, la mappa di cui è stato eseguito il rendering viene tagliata in riquadri. Poiché il numero di pixel è diverso a seconda del livello di zoom, il numero di riquadri è il seguente:
+Per ottimizzare le prestazioni del recupero e della visualizzazione della mappa, la mappa di cui è stato eseguito il rendering viene tagliata in riquadri. Il numero di pixel e il numero di riquadri variano a seconda del livello di zoom:
 
 ```javascript
 var numberOfTilesWide = Math.pow(2, zoom);
@@ -120,9 +122,9 @@ var tileX = Math.floor(pixelX / tileSize);
 var tileY = Math.floor(pixelY / tileSize);
 ```
 
-I riquadri vengono chiamati dal livello di zoom e dalle coordinate x e y corrispondenti alla posizione del riquadro sulla griglia per il livello di zoom specifico.
+I riquadri vengono chiamati dal livello di zoom. Le coordinate x e y corrispondono alla posizione del riquadro nella griglia per il livello di zoom.
 
-Quando si determina il livello di zoom da usare, tenere presente che ogni posizione si trova in una posizione fissa nel relativo riquadro. Ciò significa che il numero di riquadri necessari per visualizzare un'area specifica di un territorio dipende dalla posizione specifica della griglia di zoom nel mondo. Ad esempio, se sono presenti due punti distanti 900 metri l'uno dall'altro, *potrebbe* essere necessario usare solo tre riquadri per visualizzare il percorso tra i due punti con un livello di zoom 17. Se tuttavia il punto occidentale si trova sulla destra del relativo riquadro e il punto orientale si trova sulla sinistra del relativo riquadro, potrebbero essere necessari quattro riquadri:
+Quando si determina il livello di zoom da usare, tenere presente che ogni posizione si trova in una posizione fissa nel relativo riquadro. Di conseguenza, il numero di riquadri necessari per visualizzare una determinata estensione del territorio dipende dalla posizione specifica della griglia di zoom sulla mappa mondiale. Ad esempio, se sono presenti due punti distanti 900 metri l'uno dall'altro, *potrebbe* essere necessario usare solo tre riquadri per visualizzare il percorso tra i due punti con un livello di zoom 17. Se tuttavia il punto occidentale si trova sulla destra del relativo riquadro e il punto orientale si trova sulla sinistra del relativo riquadro, potrebbero essere necessari quattro riquadri:
 
 <center>
 

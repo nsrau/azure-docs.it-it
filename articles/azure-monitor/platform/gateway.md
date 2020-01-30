@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: b68f19faa1542b873e90a4ce6d0426db7f3ff871
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 30854382b5a6dfd0faabfc2f59340dc21518d6f2
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547303"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773281"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connettere i computer senza accesso a Internet usando il gateway Log Analytics in monitoraggio di Azure
 
@@ -204,13 +204,13 @@ Per informazioni su come progettare e distribuire un cluster di bilanciamento de
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 
-Per informazioni su come progettare e distribuire un Azure Load Balancer, vedere [che cos'è Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). Per distribuire un servizio di bilanciamento del carico di base, seguire i passaggi illustrati in questa [Guida introduttiva](../../load-balancer/quickstart-create-basic-load-balancer-portal.md) , esclusi i passaggi descritti nella sezione **creare server back-end**.   
+Per informazioni su come progettare e distribuire un Azure Load Balancer, vedere [che cos'è Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). Per distribuire un servizio di bilanciamento del carico di base, seguire i passaggi illustrati in questa [Guida introduttiva](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) , esclusi i passaggi descritti nella sezione **creare server back-end**.   
 
 > [!NOTE]
 > Per configurare la Azure Load Balancer usando lo **SKU Basic**, è necessario che le macchine virtuali di Azure appartengano a un set di disponibilità. Per altre informazioni sui set di disponibilità, vedere [gestire la disponibilità delle macchine virtuali Windows in Azure](../../virtual-machines/windows/manage-availability.md). Per aggiungere macchine virtuali esistenti a un set di disponibilità, fare riferimento a [imposta Azure Resource Manager set di disponibilità della macchina](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)virtuale.
 > 
 
-Dopo aver creato il servizio di bilanciamento del carico, è necessario creare un pool back-end che distribuisce il traffico a uno o più server gateway. Seguire i passaggi descritti nella sezione dell'articolo introduttivo [creare risorse per il servizio di bilanciamento del carico](../../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-resources-for-the-load-balancer).  
+Dopo aver creato il servizio di bilanciamento del carico, è necessario creare un pool back-end che distribuisce il traffico a uno o più server gateway. Seguire i passaggi descritti nella sezione dell'articolo introduttivo [creare risorse per il servizio di bilanciamento del carico](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  
 
 >[!NOTE]
 >Quando si configura il probe di integrità, è necessario configurarlo per l'utilizzo della porta TCP del server gateway. Il probe di integrità aggiunge o rimuove in modo dinamico i server gateway dalla rotazione del servizio di bilanciamento del carico in base alla risposta ai controlli di integrità. 
@@ -255,7 +255,7 @@ Per configurare l'integrazione, aggiornare la configurazione del proxy di sistem
 
    a. Selezionare **Start** e immettere **cmd**.  
 
-   b. Fai clic con il pulsante destro del mouse su **Prompt dei comandi**, quindi seleziona **Esegui come amministratore**.  
+   b. Fare clic con il pulsante destro del mouse su **prompt dei comandi** e scegliere **Esegui come amministratore**.  
 
 1. Immettere il comando seguente:
 

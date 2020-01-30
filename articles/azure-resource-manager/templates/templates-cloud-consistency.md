@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 0e4dd67e1686d3b63376138d1be2d1f7df4bb41a
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
-ms.translationtype: HT
+ms.openlocfilehash: fa0df19053c3c238e3c00c46733cb4626dd64072
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290649"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773138"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>I modelli di Azure Resource Manager possono essere sviluppati per la coerenza cloud
 
@@ -449,7 +449,7 @@ In generale, evitare di codificare in modo rigido gli endpoint in un modello. La
 La seguente funzione del modello di riferimento recupera lo spazio dei nomi degli endpoint dal provider di risorse di memorizzazione:
 
 ```json
-"diskUri":"[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, 'container/myosdisk.vhd')]"
+"diskUri":"[concat(reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))).primaryEndpoints.blob, 'container/myosdisk.vhd')]"
 ```
 
 Sostituendo il valore codificato in modo rigido dell'endpoint dell'account di archiviazione con la funzione di modello `reference`, è possibile utilizzare lo stesso modello per distribuirlo correttamente in ambienti diversi senza apportare modifiche al riferimento dell'endpoint.

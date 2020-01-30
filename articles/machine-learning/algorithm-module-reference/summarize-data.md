@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2019
-ms.openlocfilehash: c8051126fc4a895c6e72e90942fac65d777afd8e
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.date: 01/27/2020
+ms.openlocfilehash: be6fd633f026c98e8f75467dc8661e695e121721
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546487"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841268"
 ---
 # <a name="summarize-data"></a>Riepilogare i dati
 
@@ -22,7 +22,7 @@ Questo articolo descrive un modulo di Azure Machine Learning Designer (anteprima
 
 Usare il modulo riepiloga dati per creare un set di misure statistiche standard che descrivono ogni colonna della tabella di input.
 
-Le statistiche di riepilogo sono utili quando si desidera comprendere le caratteristiche del set di dati completo. Ad esempio, potrebbe essere necessario sapere:
+Le statistiche di riepilogo sono utili quando si desidera comprendere le caratteristiche del set di dati completo. Ad esempio, potrebbe essere necessario tenere presente quanto segue:
 
 - Quanti valori mancanti sono presenti in ogni colonna?
 - Quanti valori univoci sono presenti in una colonna della funzionalità?
@@ -49,7 +49,7 @@ Il report del modulo può includere le statistiche seguenti.
 |Nome colonna|Description|
 |------|------|  
 |**Funzionalità**|Nome della colonna|
-|**Numero**|Count of all rows|
+|**Numero**|Conteggio di tutte le righe|
 |**Conteggio valori univoci**|Numero di valori univoci nella colonna|
 |**Conteggio valori mancanti**|Numero di valori univoci nella colonna|
 |**Min**|Valore minimo nella colonna|  
@@ -70,6 +70,20 @@ Il report del modulo può includere le statistiche seguenti.
 |**P5**|5% percentile|
 |**P95**|95% percentile|
 |**P 99,5**|99,5% percentile |
+
+## <a name="technical-notes"></a>Note tecniche
+
+- Per le colonne non numeriche, vengono calcolati solo i valori relativi al conteggio, al numero di valori univoci e al numero di valori mancanti. Per altre statistiche, viene restituito un valore null.
+
+- Le colonne contenenti valori booleani vengono elaborate utilizzando le regole seguenti:
+
+    - Quando si calcola min, viene applicato un AND logico.
+    
+    - Quando si calcola il valore Max, viene applicato un OR logico
+    
+    - Quando si calcola l'intervallo, il modulo verifica innanzitutto se il numero di valori univoci nella colonna è uguale a 2.
+    
+    - Quando si calcola una statistica che richiede calcoli a virgola mobile, i valori true vengono considerati come 1,0 e i valori di false vengono considerati come 0,0.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

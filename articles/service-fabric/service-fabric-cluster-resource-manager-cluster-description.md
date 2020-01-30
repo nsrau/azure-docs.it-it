@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 56765fa16bc1ea96f1429b72fded38c4385e65ec
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7142e3f9aaa25e7ba327194c04ad6a9b5f4e3ad1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452113"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774485"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descrivere un cluster di Service Fabric usando cluster Gestione risorse
 La funzionalità cluster Gestione risorse di Azure Service Fabric fornisce diversi meccanismi per la descrizione di un cluster:
@@ -472,7 +472,7 @@ Innanzitutto, è necessario verificare che i computer non siano sovraccarichi, o
 
 In secondo luogo, si verificano bilanciamento e ottimizzazione, essenziali per l'esecuzione efficiente dei servizi. Le offerte di servizi convenienti o sensibili alle prestazioni non possono consentire l'accesso ad alcuni nodi mentre altri sono a freddo. I nodi sensibili causano conflitti di risorse e prestazioni insoddisfacenti. I nodi a freddo rappresentano risorse sprecate e costi più elevati. 
 
-Service Fabric rappresenta le risorse come *metriche*. Per metrica si intende qualsiasi risorsa logica o fisica che deve essere descritta per Service Fabric, Esempi di metriche sono "WorkQueueDepth" o "MemoryInMb". Per informazioni sulle risorse fisiche che Service Fabric possono governare sui nodi, vedere [governance delle risorse](service-fabric-resource-governance.md). Per informazioni sulla configurazione di metriche personalizzate e sui relativi usi, vedere [questo articolo](service-fabric-cluster-resource-manager-metrics.md).
+Service Fabric rappresenta le risorse come *metriche*. Per metrica si intende qualsiasi risorsa logica o fisica che deve essere descritta per Service Fabric, Esempi di metriche sono "WorkQueueDepth" o "MemoryInMb". Per informazioni sulle risorse fisiche che Service Fabric possono governare sui nodi, vedere [governance delle risorse](service-fabric-resource-governance.md). Per informazioni sulle metriche predefinite usate dal Gestione risorse del cluster e su come configurare le metriche personalizzate, vedere [questo articolo](service-fabric-cluster-resource-manager-metrics.md).
 
 Le metriche sono diverse dai vincoli di posizionamento e dalle proprietà dei nodi. Le proprietà dei nodi sono descrittori statici dei nodi stessi. Le metriche descrivono le risorse che i nodi hanno e i servizi utilizzano quando vengono eseguiti in un nodo. Una proprietà del nodo potrebbe essere **HasSSD** e potrebbe essere impostata su true o false. La quantità di spazio disponibile su tale unità SSD e la quantità di spazio utilizzata dai servizi sarebbero una metrica come "DriveSpaceInMb". 
 

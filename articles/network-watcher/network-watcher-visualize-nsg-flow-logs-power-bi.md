@@ -4,23 +4,20 @@ titleSuffix: Azure Network Watcher
 description: Questo articolo illustra come visualizzare i log dei flussi dei gruppi di sicurezza di rete con Power BI.
 services: network-watcher
 documentationcenter: na
-author: mattreatMSFT
-manager: vitinnan
-editor: ''
-ms.assetid: 1e4f95fa-f5f0-4e03-bc25-008fbfc4934c
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: mareat
-ms.openlocfilehash: 05378799dd77a17b69adbcf492af2e1cb1030375
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 955e13b88037aa42b59707698549b1c980720990
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277719"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840605"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualizzare i log dei flussi dei gruppi di sicurezza di rete con Power BI
 
@@ -45,7 +42,7 @@ Usando gli oggetti visivi inclusi nel modello è possibile esaminare quanto segu
 
 Il modello incluso è modificabile. È quindi possibile aggiungervi nuovi dati e oggetti visivi o modificare le query in base alle esigenze.
 
-## <a name="setup"></a>Setup
+## <a name="setup"></a>Configurazione
 
 Prima di iniziare, è necessario abilitare la registrazione dei flussi dei gruppi di sicurezza di rete in uno o più gruppi di sicurezza di rete nell'account usato. Per istruzioni in proposito, vedere [Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md).
 
@@ -53,7 +50,7 @@ Prima di iniziare, è necessario abilitare la registrazione dei flussi dei grupp
 
 ![Diagramma di Visio][1]
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Procedure
 
 1. Scaricare e aprire il [modello di log dei flussi Power BI di Network Watcher](https://aka.ms/networkwatcherpowerbiflowlogstemplate) nell'applicazione Power BI Desktop.
 1. Immettere i parametri di query obbligatori.
@@ -74,7 +71,7 @@ Prima di iniziare, è necessario abilitare la registrazione dei flussi dei grupp
 
 Il modello include un set di oggetti visivi che aiutano a comprendere i dati dei registri dei flussi dei gruppi di sicurezza di rete. Le immagini seguenti mostrano un esempio dell'aspetto del dashboard popolato con i dati. Di seguito vengono esaminati in dettaglio i singoli oggetti visivi 
 
-![powerbi][5]
+![Power BI][5]
  
 L'oggetto visivo Top Talkers (Talker principali) mostra gli indirizzi IP che hanno avviato il maggior numero di connessioni nel periodo specificato. La dimensione delle caselle corrisponde al relativo numero di connessioni. 
 
@@ -106,13 +103,13 @@ Questo modello include i filtri dei dati indicati di seguito, che permettono di 
 
 ![filtri dei dati][13]
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 
 Questo scenario ha permesso di dimostrare come l'uso dei log dei flussi dei gruppi di sicurezza di rete inclusi in Network Watcher e Power BI permetta di visualizzare e comprendere il traffico. Usando il modello incluso, Power BI scarica i log direttamente dall'archivio e li elabora in locale. Il tempo necessario a caricare il modello varia a seconda del numero di file richiesti e della dimensione totale dei file scaricati.
 
 È possibile personalizzare il modello in base alle esigenze. Power BI e i log dei flussi dei gruppi di sicurezza di rete possono essere usati in molti modi diversi. 
 
-## <a name="notes"></a>note
+## <a name="notes"></a>Note
 
 * Per impostazione predefinita, i log vengono archiviati in `https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`
 
@@ -122,7 +119,7 @@ Questo scenario ha permesso di dimostrare come l'uso dei log dei flussi dei grup
 
 * In presenza di una grande quantità di log, è consigliabile prendere in considerazione una soluzione con un altro archivio dati, come Data Lake o SQL Server.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Per informazioni su come visualizzare i log dei flussi dei gruppi di sicurezza di rete con Elastic Stack, vedere [Visualize Azure Network Watcher NSG flow logs using open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) (Visualizzare i log dei flussi dei gruppi di sicurezza di rete di Azure Network Watcher tramite gli strumenti open source).
 

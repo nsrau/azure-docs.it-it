@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 88ad32a289d499cd385f8f3095113a4b329b80f4
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 6c486e59f32afd09a9934ae2298172ccb4ee2414
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701536"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768098"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>App Web che esegue l'accesso agli utenti: passa alla produzione
 
@@ -29,6 +29,13 @@ Ora che si è appreso come ottenere un token per chiamare le API Web, si apprend
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+### <a name="same-site"></a>Stesso sito
+
+Assicurarsi di comprendere i possibili problemi con le nuove versioni del browser Chrome
+
+> [!div class="nextstepaction"]
+> [Come gestire le modifiche ai cookie navigava sullostesso sito nel browser Chrome](howto-handle-samesite-cookie-changes-chrome-browser.md)
+
 ### <a name="scenario-for-calling-web-apis"></a>Scenario per la chiamata di API Web
 
 Dopo che l'app Web ha effettuato l'accesso agli utenti, può chiamare le API Web per conto degli utenti connessi. La chiamata di API Web dall'app Web è l'oggetto dello scenario seguente:
@@ -36,7 +43,7 @@ Dopo che l'app Web ha effettuato l'accesso agli utenti, può chiamare le API Web
 > [!div class="nextstepaction"]
 > [App Web che chiama le API Web](scenario-web-app-call-api-overview.md)
 
-### <a name="deep-dive-aspnet-core-web-app-tutorial"></a>Approfondimento: esercitazione sull'app Web ASP.NET Core
+## <a name="deep-dive-aspnet-core-web-app-tutorial"></a>Approfondimento: esercitazione sull'app Web ASP.NET Core
 
 Altre informazioni su altri modi per accedere agli utenti con questa ASP.NET Core esercitazione: 
 
@@ -51,7 +58,7 @@ Questa esercitazione progressiva include codice pronto per la produzione per un'
 - [Azure AD B2C](https://aka.ms/aadb2c)
 - Cloud nazionali
 
-### <a name="sample-code-java-web-app"></a>Codice di esempio: app Web Java
+## <a name="sample-code-java-web-app"></a>Codice di esempio: app Web Java
 
 Per altre informazioni sull'app Web Java, vedere questo esempio in GitHub: 
 

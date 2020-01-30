@@ -1,5 +1,5 @@
 ---
-title: Spostare l'app daemon chiamando le API Web nell'ambiente di produzione-piattaforma di identità Microsoft | Azure
+title: Spostare un'app daemon che chiama API Web in produzione-piattaforma di identità Microsoft | Azure
 description: Informazioni su come spostare un'app daemon che chiama API Web nell'ambiente di produzione
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,23 +15,23 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 990273e84bfceb9f4a19eae8bf5890e8303a5857
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: db5f52c95daf4e93c140b4c93f39dad19971319d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702267"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775215"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>App daemon che chiama le API Web-passa all'ambiente di produzione
 
 Ora che si è appreso come acquisire e usare un token per una chiamata da servizio a servizio, vedere come spostare l'app nell'ambiente di produzione.
 
-## <a name="deployment---case-of-multi-tenant-daemon-apps"></a>Distribuzione-caso di app daemon multi-tenant
+## <a name="deployment---multitenant-daemon-apps"></a>Distribuzione-app daemon multi-tenant
 
-Se si è un ISV che crea un'applicazione daemon che può essere eseguita in più tenant, è necessario assicurarsi che gli amministratori del tenant:
+Se si è un ISV che crea un'applicazione daemon che può essere eseguita in più tenant, è necessario assicurarsi che l'amministratore del tenant:
 
-- Effettua il provisioning di un'entità servizio per l'applicazione
-- Concede il consenso all'applicazione
+- Effettua il provisioning di un'entità servizio per l'applicazione.
+- Concede il consenso all'applicazione.
 
 È necessario spiegare ai clienti come eseguire queste operazioni. Per altre informazioni, vedere [richiesta di consenso per un intero tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
@@ -39,24 +39,24 @@ Se si è un ISV che crea un'applicazione daemon che può essere eseguita in più
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Di seguito sono riportati alcuni collegamenti per ulteriori informazioni:
+Di seguito sono riportati alcuni collegamenti che consentono di ottenere ulteriori informazioni:
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-- Se non è già stato fatto, provare la Guida introduttiva [acquisire un token e chiamare Microsoft Graph API da un'app console usando l'identità dell'app](./quickstart-v2-netcore-daemon.md).
+- Guida introduttiva: [acquisire un token e chiamare Microsoft Graph API da un'app console usando l'identità dell'app](./quickstart-v2-netcore-daemon.md).
 - Documentazione di riferimento per:
-  - Creazione di un'istanza di [ConfidentialClientApplication](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder)
-  - Chiamata di [AcquireTokenForClient](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder)
+  - Creazione di un'istanza di [ConfidentialClientApplication](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder).
+  - Chiamata a [AcquireTokenForClient](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder).
 - Altri esempi/esercitazioni:
-  - [Microsoft-Identity-Platform-console-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) include una semplice applicazione console daemon .NET Core che visualizza gli utenti di un tenant che eseguono query sul Microsoft Graph.
+  - [Microsoft-Identity-Platform-console-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) include una semplice applicazione console daemon .NET Core che visualizza gli utenti di un tenant che esegue una query Microsoft Graph.
 
-    ![Topologia](media/scenario-daemon-app/daemon-app-sample.svg)
+    ![Topologia dell'app daemon di esempio](media/scenario-daemon-app/daemon-app-sample.svg)
 
-    Lo stesso esempio illustra anche la variazione con i certificati.
+    Nello stesso esempio viene inoltre illustrata una variante con i certificati:
 
-    ![Topologia](media/scenario-daemon-app/daemon-app-sample-with-certificate.svg)
+    ![Esempio di topologia di app daemon-certificati](media/scenario-daemon-app/daemon-app-sample-with-certificate.svg)
 
-  - [Microsoft-Identity-Platform-ASPNET-webapp-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-aspnet-webapp-daemon) è dotato di un'applicazione web MVC ASP.NET che sincronizza i dati da Microsoft Graph usando l'identità dell'applicazione anziché per conto di un utente. Nell'esempio viene inoltre illustrato il processo di consenso dell'amministratore.
+  - [Microsoft-Identity-Platform-ASPNET-webapp-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-aspnet-webapp-daemon) è dotato di un'applicazione web MVC ASP.NET che sincronizza i dati da Microsoft Graph usando l'identità dell'applicazione anziché per conto di un utente. Questo esempio illustra anche il processo di consenso dell'amministratore.
 
     ![Topologia](media/scenario-daemon-app/damon-app-sample-web.svg)
 

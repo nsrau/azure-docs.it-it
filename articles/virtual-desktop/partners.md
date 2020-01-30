@@ -5,18 +5,18 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 01/28/2020
 ms.author: helohr
-ms.openlocfilehash: 3f725d7e902b1e020c26e82007d4d257b2fd21c4
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: e525976edee08097d75605ea1921d0552ed02785
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293182"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841064"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrazioni di partner desktop virtuali Windows
 
-Questo articolo elenca i partner del desktop virtuale di Windows.
+Questo articolo elenca i provider di partner approvati e i fornitori di software indipendenti per desktop virtuale di Windows.
 
 ## <a name="citrix"></a>Citrix
 

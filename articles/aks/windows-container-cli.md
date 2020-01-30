@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 06/17/2019
+ms.date: 01/27/2020
 ms.author: mlearned
-ms.openlocfilehash: 497dab37f178a9ae7d0ab6cd647a10bac44539f8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d1d04ab3ebb96d2739b991620b05aa307d9eaf91
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472507"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767446"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Anteprima: creare un contenitore di Windows Server in un cluster Azure Kubernetes Service (AKS) usando l'interfaccia della riga di comando di Azure
 
@@ -117,7 +117,7 @@ L'output di esempio seguente mostra il gruppo di risorse creato correttamente:
 }
 ```
 
-## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
+## <a name="create-an-aks-cluster"></a>Creare un cluster AKS
 
 Per eseguire un cluster AKS che supporta i pool di nodi per i contenitori di Windows Server, il cluster deve usare un criterio di rete che usa il plug-in di rete [Azure CNI][azure-cni-about] (Advanced). Per informazioni più dettagliate che consentono di pianificare gli intervalli di subnet e le considerazioni sulla rete richiesti, vedere Configurare la rete [CNI di Azure][use-advanced-networking]. Usare il comando [AZ AKS create][az-aks-create] per creare un cluster AKS denominato *myAKSCluster*. Questo comando creerà le risorse di rete necessarie se non esistono.
   * Il cluster è configurato con due nodi
@@ -126,7 +126,7 @@ Per eseguire un cluster AKS che supporta i pool di nodi per i contenitori di Win
 > [!NOTE]
 > Per garantire il funzionamento affidabile del cluster, è consigliabile eseguire almeno 2 (due) nodi nel pool di nodi predefinito.
 
-Fornire il proprio *PASSWORD_WIN* sicuro (tenere presente che i comandi in questo articolo sono stati immessi in una shell bash):
+Fornire un *PASSWORD_WIN* sicuro (tenere presente che i comandi in questo articolo sono stati immessi in una shell bash):
 
 ```azurecli-interactive
 PASSWORD_WIN="P@ssw0rd1234"
@@ -136,7 +136,7 @@ az aks create \
     --name myAKSCluster \
     --node-count 2 \
     --enable-addons monitoring \
-    --kubernetes-version 1.14.6 \
+    --kubernetes-version 1.15.7 \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
@@ -153,7 +153,7 @@ Il comando viene completato dopo pochi minuti e vengono restituite informazioni 
 
 ## <a name="add-a-windows-server-node-pool"></a>Aggiungere un pool di nodi di Windows Server
 
-Per impostazione predefinita, un cluster AKS viene creato con un pool di nodi che può eseguire contenitori Linux. Usare il comando `az aks nodepool add` per aggiungere un pool di nodi aggiuntivo che può eseguire i contenitori di Windows Server.
+Per impostazione predefinita, un cluster AKS viene creato con un pool di nodi che può eseguire contenitori Linux. Usare `az aks nodepool add` comando per aggiungere un pool di nodi aggiuntivo che può eseguire i contenitori di Windows Server.
 
 ```azurecli
 az aks nodepool add \
@@ -162,12 +162,12 @@ az aks nodepool add \
     --os-type Windows \
     --name npwin \
     --node-count 1 \
-    --kubernetes-version 1.14.6
+    --kubernetes-version 1.15.7
 ```
 
-Il comando precedente crea un nuovo pool di nodi denominato *npwin* e lo aggiunge al *myAKSCluster*. Quando si crea un pool di nodi per l'esecuzione di contenitori di Windows Server, il valore predefinito per *node-VM-size* è *Standard_D2s_v3*. Se si sceglie di impostare il parametro *node-VM-size* , controllare l'elenco delle [dimensioni delle macchine virtuali limitate][restricted-vm-sizes]. La dimensione minima consigliata è *Standard_D2s_v3*. Il comando precedente usa anche la subnet predefinita nel VNET predefinito creato durante l'esecuzione di `az aks create`.
+Il comando precedente crea un nuovo pool di nodi denominato *npwin* e lo aggiunge al *myAKSCluster*. Quando si crea un pool di nodi per l'esecuzione di contenitori di Windows Server, il valore predefinito per *node-VM-size* è *Standard_D2s_v3*. Se si sceglie di impostare il parametro *node-VM-size* , controllare l'elenco delle [dimensioni delle macchine virtuali limitate][restricted-vm-sizes]. Le dimensioni minime consigliate sono *Standard_D2s_v3*. Il comando precedente usa anche la subnet predefinita nel VNET predefinito creato durante l'esecuzione `az aks create`.
 
-## <a name="connect-to-the-cluster"></a>Connettersi al cluster
+## <a name="connect-to-the-cluster"></a>Stabilire la connessione al cluster
 
 Per gestire un cluster Kubernetes, usare [kubectl][kubectl], il client da riga di comando di Kubernetes. Se si usa Azure Cloud Shell, `kubectl` è già installato. Per installare `kubectl` in locale, usare il comando [az aks install-cli][az-aks-install-cli]:
 
@@ -181,7 +181,7 @@ Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il com
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Per verificare la connessione al cluster, usare il comando [kubectl get][kubectl-get] per restituire un elenco dei nodi del cluster.
+Per verificare la connessione al cluster, usare il comando [kubectl get][kubectl-get] per restituire un elenco di nodi del cluster.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -191,8 +191,8 @@ L'output di esempio seguente mostra tutti i nodi del cluster. Verificare che lo 
 
 ```
 NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.6
-aksnpwin987654                      Ready    agent   108s   v1.14.6
+aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.15.7
+aksnpwin987654                      Ready    agent   108s   v1.15.7
 ```
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione

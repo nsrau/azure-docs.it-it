@@ -5,21 +5,21 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: conceptual
 ms.date: 05/21/2019
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.custom: seodec18
-ms.openlocfilehash: 74bd22de81e385a4fbd9129a70616e24b594b0b4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 166076d366cbbf7bef24648772beaba9b3a88253
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441328"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771524"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guida alla progettazione di tabelle di archiviazione tabelle di Azure: tabelle scalabili ed efficienti
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
-Per progettare tabelle scalabili ed efficienti, è necessario prendere in considerazione diversi fattori, inclusi i costi. Se in precedenza sono stati progettati schemi per i database relazionali, queste considerazioni risulteranno familiari. Sebbene esistano alcune analogie tra l'archiviazione tabelle di Azure e i modelli relazionali, esistono anche molte importanti differenze. Queste differenze in genere portano a progettazioni diverse che potrebbero sembrare poco intuitive o errate per gli utenti che hanno familiarità con i database relazionali, ma hanno senso se si sta progettando un archivio chiave/valore NoSQL, ad esempio l'archiviazione tabelle.
+Per progettare tabelle scalabili ed efficienti, è necessario prendere in considerazione diversi fattori, inclusi i costi. Se in precedenza sono stati progettati schemi per i database relazionali, queste considerazioni risulteranno familiari. Sebbene esistano alcune analogie tra Archiviazione tabelle di Azure e i modelli relazionali, esistono tuttavia anche molte differenze importanti. Queste differenze danno in genere origine a progettazioni diverse che potrebbero sembrare poco plausibili o errate a chi ha familiarità con i database relazionali, ma che invece hanno senso se la progettazione è finalizzata a un archivio di chiavi/valori NoSQL, come l'Archiviazione tabelle.
 
 L'archiviazione tabelle è progettata per supportare applicazioni con scalabilità cloud che possono contenere miliardi di entità ("righe" nella terminologia dei database relazionali) o per set di dati che devono supportare volumi di transazioni elevati. È quindi necessario valutare in modo diverso le modalità di archiviazione dei dati e comprendere il funzionamento dell'archiviazione tabelle. Un archivio dati NoSQL ben progettato può permettere la scalabilità di una soluzione molto più (e a un costo inferiore) rispetto a una soluzione che usa un database relazionale. Questa guida illustra proprio questi argomenti.  
 

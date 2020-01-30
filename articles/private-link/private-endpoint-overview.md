@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 38f424287788537cc5711bab8da60b5798a84b3a
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: cd06d4cbf62078c2c7a5def4a0032ddce97d67f0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867679"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842453"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Che cos'è l'endpoint privato di Azure?
 
@@ -50,13 +50,13 @@ Ecco alcuni dettagli chiave sugli endpoint privati:
 ## <a name="private-link-resource"></a>Risorsa collegamento privato 
 Una risorsa di collegamento privato è la destinazione di un endpoint privato specificato. Di seguito è riportato un elenco dei tipi di risorse di collegamento privato disponibili: 
  
-|Nome della risorsa di collegamento privato  |Tipo di risorsa   |Sottorisorse  |
+|Nome della risorsa di collegamento privato  |Tipo di risorsa   |Le sottorisorse  |
 |---------|---------|---------|
 |**Servizio di collegamento privato** (servizio personalizzato)   |  Microsoft. Network/privateLinkServices       | empty |
 |**Database SQL di Azure** | Microsoft.Sql/servers    |  SQL Server (sqlServer)        |
 |**Azure SQL Data Warehouse** | Microsoft.Sql/servers    |  SQL Server (sqlServer)        |
 |**Archiviazione di Azure**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)<BR> Tabella (tabella, table_secondary)<BR> Coda (coda, queue_secondary)<BR> File (file, file_secondary)<BR> Web (Web, web_secondary)        |
-|**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)       |
+|**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)<BR> Data Lake file System Gen2 (DFS, dfs_secondary)       |
 |**Azure Cosmos DB** | Microsoft. AzureCosmosDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, tabella|
 |**Database di Azure per PostgreSQL-server singolo** | Microsoft.DBforPostgreSQL/servers   | postgresqlServer |
 |**Database di Azure per MySQL** | Microsoft.DBforMySQL/servers    | mysqlServer |

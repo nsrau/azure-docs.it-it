@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/20/2019
-ms.openlocfilehash: e7be8fbf5f6c2c59e93d48729785dd34bae5955e
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 934c99c25ca37526ac31fd9bbaf58623fdbdf166
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327378"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76764391"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Identità gestite in Azure HDInsight
 
 Un'identità gestita è un'identità registrata in Azure Active Directory (Azure AD) le cui credenziali sono gestite da Azure. Con le identità gestite, non è necessario registrare le entità servizio in Azure AD o gestire le credenziali, ad esempio i certificati.
 
-È possibile usare le identità gestite in Azure HDInsight per consentire ai cluster di accedere ai file di Azure AD Domain Services, di accedere Azure Key Vault o di accedere ai file in Azure Data Lake Storage Gen2.
+Le identità gestite vengono usate in Azure HDInsight per accedere ai servizi di Azure AD dominio o ai file di accesso in Azure Data Lake Storage Gen2 quando necessario.
 
 Esistono due tipi di identità gestite: assegnato dall'utente e assegnato dal sistema. Azure HDInsight Usa identità gestite assegnate dall'utente. Un'identità gestita assegnata dall'utente viene creata come risorsa di Azure autonoma, che può quindi essere assegnata a una o più istanze del servizio di Azure. Al contrario, viene creata un'identità gestita assegnata dal sistema in Azure AD e quindi abilitata direttamente in una specifica istanza del servizio di Azure. Il ciclo di vita dell'identità gestita assegnata dal sistema viene quindi associato alla durata dell'istanza del servizio su cui è abilitata.
 
@@ -31,9 +31,9 @@ In Azure HDInsight, viene eseguito il provisioning delle identità gestite in og
 
 È possibile creare identità gestite con uno dei metodi seguenti:
 
-* [Portale di Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
+* [Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
 * [Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
-* [Gestione risorse di Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md)
+* [Azure Resource Manager](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md)
 * [Interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)
 
 I passaggi rimanenti per la configurazione dell'identità gestita dipendono dallo scenario in cui verrà usato.

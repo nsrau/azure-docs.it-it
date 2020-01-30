@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 52a9c0a13723361bbc93362cdd9e2c73ef0372f2
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 8ab192957ead806b4bb3ae8e7395589f3b1ecbbe
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74942240"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76833295"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Gestire la scalabilità orizzontale del cluster (scale out) in Azure Esplora dati per soddisfare la richiesta di modifica
 
@@ -58,9 +58,10 @@ La scalabilità automatica ottimizzata inizia a funzionare. Le azioni sono ora v
 Quando il cluster si avvicina a uno stato di sovrautilizzo, applicare la scalabilità orizzontale per garantire prestazioni ottimali. La scalabilità orizzontale viene eseguita nei casi seguenti:
 * Il numero di istanze del cluster è inferiore al numero massimo di istanze definite dall'utente.
 * L'utilizzo della cache è elevato per più di un'ora.
+* La CPU è elevata per più di un'ora.
 
 > [!NOTE]
-> La logica di scalabilità orizzontale non considera attualmente le metriche di utilizzo dell'inserimento e della CPU. Se queste metriche sono importanti per il caso d'uso, usare la [scalabilità automatica personalizzata](#custom-autoscale).
+> La logica di scalabilità orizzontale non considera attualmente la metrica di utilizzo dell'inserimento. Se questa metrica è importante per il caso d'uso, usare la [scalabilità automatica personalizzata](#custom-autoscale).
 
 **Ridimensiona in**
 
@@ -108,7 +109,7 @@ Con la scalabilità automatica personalizzata è possibile ridimensionare il clu
 
     | Impostazione | Descrizione e valore |
     | --- | --- |
-    | **Operazione** | Scegliere l'opzione appropriata per ridurre o aumentare il numero di istanze. |
+    | **operazione** | Scegliere l'opzione appropriata per ridurre o aumentare il numero di istanze. |
     | **Numero di istanze** | Scegliere il numero di nodi o istanze da aggiungere o rimuovere quando viene soddisfatta una condizione di metrica. |
     | **Disattiva regole dopo (minuti)** | Scegliere un intervallo di tempo appropriato per l'attesa tra le operazioni di ridimensionamento. Iniziare con il valore predefinito di cinque minuti. |
     |  |  |

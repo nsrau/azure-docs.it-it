@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: 3b98975df194af4625087e1beb556efb2a347f43
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 58e8767de786ed2ae92d19c01287aa05c8b63fbb
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872061"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767983"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gestire i criteri di indicizzazione in Azure Cosmos DB
 
@@ -607,9 +607,9 @@ const containerResponse = await client.database('database').container('container
 const indexTransformationProgress = replaceResponse.headers['x-ms-documentdb-collection-index-transformation-progress'];
 ```
 
-## <a name="use-the-python-sdk"></a>Usare Python SDK
+## <a name="use-the-python-sdk-v3"></a>Usare Python SDK V3
 
-Quando si usa [Python SDK](https://pypi.org/project/azure-cosmos/) (vedere [questo Avvio rapido](create-sql-api-python.md) per quanto riguarda l'utilizzo), la configurazione del contenitore viene gestita come un dizionario. Da questo dizionario, è possibile accedere ai criteri di indicizzazione e a tutti i relativi attributi.
+Quando si usa [Python SDK V3](https://pypi.org/project/azure-cosmos/) (vedere [questa Guida introduttiva](create-sql-api-python.md) per quanto riguarda l'utilizzo), la configurazione del contenitore viene gestita come dizionario. Da questo dizionario, è possibile accedere ai criteri di indicizzazione e a tutti i relativi attributi.
 
 Recuperare i dettagli del contenitore
 
@@ -671,9 +671,75 @@ Aggiornare il contenitore con le modifiche
 response = client.ReplaceContainer(containerPath, container)
 ```
 
+## <a name="use-the-python-sdk-v4"></a>Usare Python SDK v4
+
+Quando si usa [Python SDK v4](https://pypi.org/project/azure-cosmos/), la configurazione del contenitore viene gestita come dizionario. Da questo dizionario, è possibile accedere ai criteri di indicizzazione e a tutti i relativi attributi.
+
+Recuperare i dettagli del contenitore
+
+```python
+database_client = cosmos_client.get_database_client('database')
+container_client = database_client.get_container_client('container')
+container = container_client.read()
+```
+
+Impostare la modalità di indicizzazione su coerente
+
+```python
+indexingPolicy = {
+    'indexingMode': 'consistent'
+}
+```
+
+Definire un criterio di indicizzazione con un percorso incluso e un indice spaziale
+
+```python
+indexingPolicy = {
+    "indexingMode":"consistent",
+    "spatialIndexes":[
+        {"path":"/location/*","types":["Point"]}
+    ],
+    "includedPaths":[{"path":"/age/*","indexes":[]}],
+    "excludedPaths":[{"path":"/*"}]
+}
+```
+
+Definire un criterio di indicizzazione con un percorso escluso
+
+```python
+indexingPolicy = {
+    "indexingMode":"consistent",
+    "includedPaths":[{"path":"/*","indexes":[]}],
+    "excludedPaths":[{"path":"/name/*"}]
+}
+```
+
+Aggiungere un indice composito
+
+```python
+indexingPolicy['compositeIndexes'] = [
+    [
+        {
+            "path": "/name",
+            "order": "ascending"
+        },
+        {
+            "path": "/age",
+            "order": "descending"
+        }
+    ]
+]
+```
+
+Aggiornare il contenitore con le modifiche
+
+```python
+response = database_client.replace_container(container_client, container['partitionKey'], indexingPolicy)
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni sull'indicizzazione sono disponibili negli articoli seguenti:
 
 - [Panoramica dell'indicizzazione](index-overview.md)
-- [Criteri di indicizzazione](index-policy.md)
+- [Criterio di indicizzazione](index-policy.md)

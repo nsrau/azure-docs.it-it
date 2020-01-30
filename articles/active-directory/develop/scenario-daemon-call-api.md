@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5a234e0b5d3a88b722257aa80249f4d80182d12f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 338b638d6b33bcbbb5cf377643a96c71b0d314bd
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702233"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775188"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>App daemon che chiama le API Web: chiama un'API Web dall'app
 
-Un'app daemon può chiamare un'API Web da un'applicazione daemon .NET o chiamare diverse API Web pre-approvate.
+Le app daemon .NET possono chiamare un'API Web. Le app daemon .NET possono anche chiamare diverse API Web già approvate.
 
-## <a name="calling-a-web-api-daemon-application"></a>Chiamata di un'applicazione daemon API Web
+## <a name="calling-a-web-api-from-a-daemon-application"></a>Chiamata di un'API Web da un'applicazione daemon
 
 Ecco come usare il token per chiamare un'API:
 
@@ -67,7 +67,7 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 ## <a name="calling-several-apis"></a>Chiamata di diverse API
 
-Per le app daemon, le API Web chiamate devono essere pre-approvate. Non ci sarà alcun consenso incrementale con le app daemon (non c'è alcuna interazione con l'utente). L'amministratore del tenant deve pre-concedere il consenso dell'applicazione e di tutte le autorizzazioni dell'API. Se si vogliono chiamare diverse API, è necessario acquisire un token per ogni risorsa, ogni volta che si chiama `AcquireTokenForClient`. MSAL utilizzerà la cache del token dell'applicazione per evitare chiamate al servizio non necessarie.
+Per le app daemon, le API Web chiamate devono essere pre-approvate. Non è disponibile alcun consenso incrementale con le app daemon. (Nessuna interazione con l'utente). L'amministratore del tenant deve fornire il consenso in anticipo per l'applicazione e tutte le autorizzazioni dell'API. Se si desidera chiamare diverse API, è necessario acquisire un token per ogni risorsa, ogni volta che si chiama `AcquireTokenForClient`. MSAL utilizzerà la cache del token dell'applicazione per evitare chiamate al servizio non necessarie.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

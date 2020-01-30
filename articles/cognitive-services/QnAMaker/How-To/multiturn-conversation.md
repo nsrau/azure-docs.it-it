@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: de078399a29af1c7eb2ae3fb237e1550ccaeacfa
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 681f00adde1d440fbb41f2e66652db34d53fbf99
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872299"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843261"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Usare i prompt di completamento per creare più turni di una conversazione
 
@@ -65,7 +65,7 @@ Se si sta creando un documento a più turni, tenere presenti le linee guida segu
 
 * Usare le intestazioni e le sottointestazioni per indicare la gerarchia. Ad esempio, è possibile denotare il QnA padre e H2 per indicare la QnA che deve essere eseguita come richiesta. Utilizzare dimensioni di intestazione ridotte per indicare la gerarchia successiva. Non usare lo stile, il colore o un altro meccanismo per implicare la struttura nel documento, QnA Maker non estrae i prompt a più turni.
 
-* Il primo carattere dell'intestazione deve essere in maiuscolo. 
+* Il primo carattere dell'intestazione deve essere in maiuscolo.
 
 * Non terminare un'intestazione con un punto interrogativo, `?`.
 
@@ -113,7 +113,7 @@ Aggiungere una richiesta di completamento a una coppia di domande e risposte esi
 1. Nella riga per la **disconnessione**selezionare **Aggiungi richiesta di completamento**nella colonna **risposta** .
 1. Nei campi della finestra popup della **richiesta di completamento** immettere i valori seguenti:
 
-    |Campo|Value|
+    |Campo|Valore|
     |--|--|
     |Testo visualizzato|Immettere **Disattiva il dispositivo**. Si tratta di un testo personalizzato da visualizzare nel prompt di completamento.|
     |Solo contesto| Selezionare questa casella di controllo. Viene restituita una risposta solo se la domanda specifica il contesto.|
@@ -150,7 +150,7 @@ Quando si aggiunge una nuova coppia di domande e risposte alla Knowledge base, o
 1. Nella colonna **risposta** per questa domanda selezionare **Aggiungi richiesta di completamento**.
 1. In **prompt di completamento (anteprima)** creare una nuova richiesta di completamento immettendo i valori seguenti:
 
-    |Campo|Value|
+    |Campo|Valore|
     |--|--|
     |Testo visualizzato|*Creare un account di Windows*. Testo personalizzato da visualizzare nel prompt di completamento.|
     |Solo contesto|Selezionare questa casella di controllo. Questa risposta viene restituita solo se la domanda specifica il contesto.|
@@ -368,7 +368,7 @@ Il [testo visualizzato e l'ordine di visualizzazione](https://docs.microsoft.com
 
 ## <a name="export-knowledge-base-for-version-control"></a>Esporta Knowledge base per il controllo della versione
 
-QnA Maker [supporta il controllo della versione](../concepts/development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) nel portale di QnA Maker includendo passaggi di conversazione a più turni nel file esportato.
+QnA Maker supporta il controllo della versione includendo passaggi di conversazione a più turni nel file esportato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

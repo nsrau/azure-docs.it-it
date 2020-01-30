@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 01/25/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 17a325e96e9709b60da2f23d1dc68e3300fde80c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 4003e11120c13624379cf7dad9334e896cd3a7a8
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707861"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774644"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Aggiungere o rimuovere assegnazioni di ruolo usando RBAC di Azure e il portale di Azure
 
@@ -33,9 +33,9 @@ Per aggiungere o rimuovere assegnazioni di ruolo, è necessario disporre di:
 
 - autorizzazioni `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, ad esempio [Amministratore accesso utenti](built-in-roles.md#user-access-administrator) o [Proprietario](built-in-roles.md#owner)
 
-## <a name="overview-of-access-control-iam"></a>Panoramica di controllo di accesso (IAM)
+## <a name="access-control-iam"></a>Controllo di accesso (IAM)
 
-Il **controllo di accesso (IAM)** è il pannello usato per assegnare i ruoli. È noto anche come gestione delle identità e degli accessi e viene visualizzato in diverse posizioni nel portale di Azure. Di seguito viene riportato un esempio del pannello Controllo di accesso (IAM) per una sottoscrizione.
+Il **controllo di accesso (IAM)** è il pannello usato per assegnare i ruoli per concedere l'accesso alle risorse di Azure. È noto anche come gestione delle identità e degli accessi e viene visualizzato in diverse posizioni nel portale di Azure. Di seguito viene riportato un esempio del pannello Controllo di accesso (IAM) per una sottoscrizione.
 
 ![Pannello Controllo di accesso (IAM) per una sottoscrizione](./media/role-assignments-portal/access-control-subscription.png)
 
@@ -47,7 +47,7 @@ Per essere il più efficace con il pannello controllo di accesso (IAM), consente
 
 1. **Quale ruolo è necessario?**
 
-    Le autorizzazioni vengono raggruppate in ruoli. È possibile scegliere da un elenco di diversi [ruoli predefiniti](built-in-roles.md) oppure usare ruoli personalizzati.
+    Le autorizzazioni vengono raggruppate in ruoli. È possibile scegliere da un elenco di diversi [ruoli predefiniti](built-in-roles.md) oppure è possibile usare ruoli personalizzati.
 
 1. **Dove è necessario accedere?**
 
@@ -55,21 +55,25 @@ Per essere il più efficace con il pannello controllo di accesso (IAM), consente
 
 ## <a name="add-a-role-assignment"></a>Aggiungi un'assegnazione di ruolo
 
-Attenersi alla procedura seguente per assegnare un ruolo a ambiti diversi.
+In controllo degli accessi in base al ruolo di Azure per concedere l'accesso a una risorsa di Azure è necessario aggiungere un'assegnazione di ruolo Per assegnare un ruolo, seguire questa procedura.
 
-1. Nella portale di Azure fare clic su **tutti i servizi** e quindi selezionare l'ambito. È possibile ad esempio selezionare **Gruppi di gestione**, **Sottoscrizioni**, **Gruppi di risorse** o una risorsa.
+1. Nella portale di Azure fare clic su **tutti i servizi** e quindi selezionare l'ambito a cui si vuole concedere l'accesso. È possibile ad esempio selezionare **Gruppi di gestione**, **Sottoscrizioni**, **Gruppi di risorse** o una risorsa.
 
-1. Fare clic sulla risorsa specifica.
+1. Fare clic sulla risorsa specifica per tale ambito.
 
 1. Fare clic su **Controllo di accesso (IAM)** .
 
-1. Fare clic sulla scheda **Assegnazioni di ruolo** per visualizzare tutte le assegnazioni di ruolo in questo ambito.
+1. Fare clic sulla scheda **assegnazioni di ruolo** per visualizzare le assegnazioni di ruolo in questo ambito.
 
-1. Fare clic su **Aggiungi** > **Aggiungi assegnazione di ruolo** per aprire il riquadro Aggiungi assegnazione di ruolo.
+    ![Scheda controllo di accesso (IAM) e assegnazioni di ruolo](./media/role-assignments-portal/role-assignments.png)
+
+1. Fare clic su **aggiungi** > **Aggiungi assegnazione ruolo**.
 
    Se non si dispone delle autorizzazioni per assegnare ruoli, l'opzione Aggiungi assegnazione di ruolo verrà disabilitata.
 
    ![Menu Aggiungi](./media/role-assignments-portal/add-menu.png)
+
+    Verrà visualizzato il riquadro Aggiungi assegnazione ruolo.
 
    ![Riquadro Aggiungi assegnazione di ruolo](./media/role-assignments-portal/add-role-assignment.png)
 
@@ -81,23 +85,29 @@ Attenersi alla procedura seguente per assegnare un ruolo a ambiti diversi.
 
    Dopo qualche istante, all'entità di sicurezza verrà assegnato il ruolo per l'ambito selezionato.
 
+    ![Aggiunta dell'assegnazione di ruolo salvata](./media/role-assignments-portal/add-role-assignment-save.png)
+
 ## <a name="assign-a-user-as-an-administrator-of-a-subscription"></a>Assegnare un utente come amministratore di una sottoscrizione
 
 Per rendere un utente amministratore per una sottoscrizione di Azure, assegnargli il ruolo di [Proprietario](built-in-roles.md#owner) nell'ambito della sottoscrizione. Il ruolo proprietario concede all'utente l'accesso completo a tutte le risorse nella sottoscrizione, inclusa l'autorizzazione per concedere l'accesso ad altri utenti. Questi passaggi sono gli stessi di qualsiasi altra assegnazione di ruoli.
 
 1. Nel portale di Azure fare clic su **Tutti i servizi** e quindi **Sottoscrizioni**.
 
-1. Fare clic sulla sottoscrizione in cui si desidera aggiungere un'assegnazione di ruolo.
+1. Fare clic sulla sottoscrizione in cui si intende concedere l'accesso.
 
 1. Fare clic su **Controllo di accesso (IAM)** .
 
-1. Fare clic sulla scheda **Assegnazioni di ruolo** per visualizzare tutte le assegnazioni di ruolo in questa sottoscrizione.
+1. Fare clic sulla scheda **assegnazioni di ruolo** per visualizzare le assegnazioni di ruolo per la sottoscrizione.
 
-1. Fare clic su **Aggiungi** > **Aggiungi assegnazione di ruolo** per aprire il riquadro Aggiungi assegnazione di ruolo.
+    ![Scheda controllo di accesso (IAM) e assegnazioni di ruolo](./media/role-assignments-portal/role-assignments.png)
+
+1. Fare clic su **aggiungi** > **Aggiungi assegnazione ruolo**.
 
    Se non si dispone delle autorizzazioni per assegnare ruoli, l'opzione Aggiungi assegnazione di ruolo verrà disabilitata.
 
    ![Menu Aggiungi](./media/role-assignments-portal/add-menu.png)
+
+    Verrà visualizzato il riquadro Aggiungi assegnazione ruolo.
 
    ![Riquadro Aggiungi assegnazione di ruolo](./media/role-assignments-portal/add-role-assignment.png)
 
@@ -111,7 +121,7 @@ Per rendere un utente amministratore per una sottoscrizione di Azure, assegnargl
 
 ## <a name="remove-a-role-assignment"></a>Rimuovere un'assegnazione di ruolo
 
-Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo, si rimuove un'assegnazione di ruolo. Per rimuovere un'assegnazione di ruolo, attenersi alla seguente procedura.
+In controllo degli accessi in base al ruolo di Azure è possibile rimuovere un'assegnazione di ruolo. Per rimuovere un'assegnazione di ruolo, attenersi alla seguente procedura.
 
 1. Aprire **Controllo di accesso (IAM)** sull'ambito, come gruppo di gestione, sottoscrizione, gruppo di risorse o risorsa, in cui si intende rimuovere l'accesso.
 
@@ -121,13 +131,13 @@ Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo, s
 
    ![Messaggio di rimozione assegnazione di ruolo](./media/role-assignments-portal/remove-role-assignment-select.png)
 
-1. Fare clic su **Rimuovi**.
+1. Scegliere **Rimuovi**.
 
    ![Messaggio di rimozione assegnazione di ruolo](./media/role-assignments-portal/remove-role-assignment.png)
 
 1. Nella finestra con il messaggio di rimozione dell'assegnazione di ruolo fare clic su **Sì**.
 
-    Le assegnazioni di ruolo ereditate non possono essere rimosse. Per rimuovere un'assegnazione di ruolo ereditata, è necessario eseguire questa operazione nell'ambito di creazione dell'assegnazione di ruolo. Nella colonna **Ambito**, accanto a **(ereditato)** è presente un collegamento che consente di passare all'ambito in cui è stato assegnato questo ruolo. Passare all'ambito indicato nell'elenco per rimuovere l'assegnazione di ruolo.
+    Se viene visualizzato un messaggio in cui non è possibile rimuovere le assegnazioni di ruolo ereditate, si sta tentando di rimuovere un'assegnazione di ruolo in un ambito figlio. È necessario aprire il controllo di accesso (IAM) nell'ambito in cui è stato assegnato il ruolo e riprovare. Un modo rapido per aprire il controllo di accesso (IAM) nell'ambito corretto consiste nell'esaminare la colonna **ambito** e fare clic sul collegamento accanto a **(ereditato)** .
 
    ![Messaggio di rimozione assegnazione di ruolo](./media/role-assignments-portal/remove-role-assignment-inherited.png)
 

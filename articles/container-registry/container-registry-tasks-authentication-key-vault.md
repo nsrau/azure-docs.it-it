@@ -1,14 +1,14 @@
 ---
 title: Autenticazione esterna dall'attività ACR
-description: Abilitare un'identità gestita per le risorse di Azure in un'attività di Container Registry di Azure (ACR) per consentire all'attività di leggere le credenziali dell'hub Docker archiviate in Azure Key Vault.
+description: Configurare un'attività Container Registry di Azure (attività ACR) per leggere le credenziali dell'hub Docker archiviate in un insieme di credenziali delle chiavi di Azure usando un'identità gestita per le risorse di Azure.
 ms.topic: article
-ms.date: 07/12/2019
-ms.openlocfilehash: a7086050a4aef380f11298c819817692396216b2
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 01/14/2020
+ms.openlocfilehash: 47d3d643ee1287ef4f444095a2c6cfe6dcab294b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456226"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842521"
 ---
 # <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticazione esterna in un'attività ACR usando un'identità gestita da Azure 
 
@@ -20,13 +20,13 @@ Per creare le risorse di Azure, per questo articolo è necessario eseguire l'int
 
 ## <a name="scenario-overview"></a>Panoramica dello scenario
 
-L'attività di esempio legge le credenziali dell'hub Docker archiviate in Azure Key Vault. Le credenziali si rimandano a un account Docker Hub con autorizzazioni di scrittura (push) per un repository privato nell'hub docker. Per leggere le credenziali, configurare l'attività con un'identità gestita e assegnarvi le autorizzazioni appropriate. L'attività associata all'identità compila un'immagine e accede all'hub Docker per eseguire il push dell'immagine nel repository privato. 
+L'attività di esempio legge le credenziali dell'hub Docker archiviate in Azure Key Vault. Le credenziali si rimandano a un account Docker Hub con autorizzazioni di scrittura (push) per un repository Docker Hub privato. Per leggere le credenziali, configurare l'attività con un'identità gestita e assegnarvi le autorizzazioni appropriate. L'attività associata all'identità compila un'immagine e accede all'hub Docker per eseguire il push dell'immagine nel repository privato. 
 
 Questo esempio illustra i passaggi che usano un'identità gestita assegnata dall'utente o assegnata dal sistema. La scelta dell'identità dipende dalle esigenze della propria organizzazione.
 
 In uno scenario reale, un'azienda potrebbe pubblicare immagini in un repository privato nell'hub Docker come parte di un processo di compilazione. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 È necessario un registro contenitori di Azure in cui eseguire l'attività. In questo articolo il registro di sistema è denominato *Registro*di sistema. Sostituire con il nome del registro di sistema nei passaggi successivi.
 
@@ -71,7 +71,7 @@ In uno scenario reale, è probabile che i segreti vengano impostati e mantenuti 
 I passaggi per questa attività di esempio sono definiti in un [file YAML](container-registry-tasks-reference-yaml.md). Creare un file denominato `dockerhubtask.yaml` in una directory di lavoro locale e incollare il contenuto seguente. Assicurarsi di sostituire il nome dell'insieme di credenziali delle chiavi nel file con il nome dell'insieme di credenziali delle chiavi.
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 # Replace mykeyvault with the name of your key vault
 secrets:
   - id: username
@@ -80,12 +80,12 @@ secrets:
     keyvault: https://mykeyvault.vault.azure.net/secrets/Password
 steps:
 # Log in to Docker Hub
-  - cmd: docker login --username '{{.Secrets.username}}' --password '{{.Secrets.password}}'
+  - cmd: bash echo '{{.Secrets.password}}' | docker login --username '{{.Secrets.username}}' --password-stdin 
 # Build image
-  - build: -t {{.Values.PrivateRepo}}:{{.Run.ID}} https://github.com/Azure-Samples/acr-tasks.git -f hello-world.dockerfile
+  - build: -t {{.Values.PrivateRepo}}:$ID https://github.com/Azure-Samples/acr-tasks.git -f hello-world.dockerfile
 # Push image to private repo in Docker Hub
   - push:
-    - {{.Values.PrivateRepo}}:{{.Run.ID}}
+    - {{.Values.PrivateRepo}}:$ID
 ```
 
 I passaggi dell'attività eseguono le operazioni seguenti:
@@ -94,6 +94,7 @@ I passaggi dell'attività eseguono le operazioni seguenti:
 * Eseguire l'autenticazione con l'hub Docker passando i segreti al comando `docker login`.
 * Compilare un'immagine usando un Dockerfile di esempio nel repository [Azure-Samples/ACR-Tasks](https://github.com/Azure-Samples/acr-tasks.git) .
 * Eseguire il push dell'immagine nel repository dell'hub Docker privato.
+
 
 ## <a name="option-1-create-task-with-user-assigned-identity"></a>Opzione 1: creare un'attività con identità assegnata dall'utente
 
@@ -140,7 +141,10 @@ az acr task create \
 Eseguire il comando [AZ Key Vault set-Policy][az-keyvault-set-policy] seguente per impostare un criterio di accesso nell'insieme di credenziali delle chiavi. L'esempio seguente consente all'identità di leggere i segreti dall'insieme di credenziali delle chiavi. 
 
 ```azurecli
-az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $principalID --secret-permissions get
+az keyvault set-policy --name mykeyvault \
+  --resource-group myResourceGroup \
+  --object-id $principalID \
+  --secret-permissions get
 ```
 
 ## <a name="manually-run-the-task"></a>Eseguire manualmente l'attività
@@ -148,7 +152,7 @@ az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --obje
 Per verificare che l'attività in cui è stata abilitata un'identità gestita venga eseguita correttamente, attivare manualmente l'attività con il comando [AZ ACR task run][az-acr-task-run] . Il parametro `--set` viene usato per passare il nome del repository privato all'attività. In questo esempio il nome del repository segnaposto è *hubuser/hubrepo*.
 
 ```azurecli
-az acr task run --name dockerhubtask --registry myregistry --set PrivateRepo=hubuser/hubrepo 
+az acr task run --name dockerhubtask --registry myregistry --set PrivateRepo=hubuser/hubrepo
 ```
 
 Quando l'attività viene eseguita correttamente, l'output Mostra l'autenticazione corretta nell'hub Docker e l'immagine viene compilata e inserita correttamente nel repository privato:

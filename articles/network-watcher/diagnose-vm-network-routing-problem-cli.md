@@ -4,8 +4,7 @@ titleSuffix: Azure Network Watcher
 description: In questo articolo si apprenderà come diagnosticare un problema di routing di rete di una macchina virtuale usando la funzionalità Hop successivo di Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
@@ -16,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 23ffc16948c250a6999c33b8812769ba889f4900
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bf4c5e364b7f18b363f9915f54e43c7ea54c33c4
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276100"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834675"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticare un problema di routing di rete di una macchina virtuale - Interfaccia della riga di comando di Azure
 
@@ -35,7 +34,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione installata, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Dopo avere verificato la versione dell'interfaccia della riga di comando, eseguire `az login` per creare una connessione con Azure. I comandi dell'interfaccia della riga di comando in questo articolo sono formattati per essere eseguiti in una shell Bash.
 
-## <a name="create-a-vm"></a>Creare una macchina virtuale
+## <a name="create-a-vm"></a>Creare una VM
 
 Prima di poter creare una macchina virtuale, è necessario creare un gruppo di risorse per contenerla. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group#az-group-create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
@@ -43,7 +42,7 @@ Prima di poter creare una macchina virtuale, è necessario creare un gruppo di r
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare una macchina virtuale con il comando [az vm create](/cli/azure/vm#az-vm-create). Il comando crea le chiavi SSH, se non esistono già in una posizione predefinita. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`. L'esempio seguente crea una macchina virtuale denominata *myVM*:
+Creare una VM con il comando [az vm create](/cli/azure/vm#az-vm-create). Il comando crea le chiavi SSH, se non esistono già in una posizione predefinita. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`. L'esempio seguente crea una macchina virtuale denominata *myVM*:
 
 ```azurecli-interactive
 az vm create \

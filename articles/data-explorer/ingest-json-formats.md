@@ -6,17 +6,17 @@ ms.author: orspodek
 ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.openlocfilehash: ef5c7de782d833aad96516d3e5357a0ed575a781
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 01/27/2020
+ms.openlocfilehash: d293b76e004d693813a074cb8551a86cb3c0bec2
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722876"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772339"
 ---
 # <a name="ingest-json-formatted-sample-data-into-azure-data-explorer"></a>Inserire dati di esempio in formato JSON in Azure Esplora dati
 
-Questo articolo illustra come inserire dati in formato JSON in un database di Esplora dati di Azure. Si inizierà con semplici esempi di JSON non elaborati e mappati, si continuerà a usare JSON con più righe e quindi si affronteranno schemi JSON più complessi contenenti matrici e dizionari. 
+Questo articolo illustra come inserire dati in formato JSON in un database di Esplora dati di Azure. Si inizierà con semplici esempi di JSON non elaborati e mappati, si continuerà a usare JSON con più righe e quindi si affronteranno schemi JSON più complessi contenenti matrici e dizionari.  Gli esempi illustrano in dettaglio il processo di inserimento dei dati in formato JSON usando kusto Query Language C#(KQL), o Python. Il linguaggio di query kusto `ingest` i comandi di controllo vengono eseguiti direttamente nell'endpoint del motore. Negli scenari di produzione, l'inserimento viene eseguito al servizio Gestione dati usando le librerie client o le connessioni dati. Leggi i dati di inserimento [usando la libreria Python di azure Esplora dati](/azure/data-explorer/python-ingest-data) e Inserisci [dati usando Azure Esplora dati .NET standard SDK](/azure/data-explorer/net-standard-ingest-data) per una procedura dettagliata sull'inserimento di dati con queste librerie client.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -81,9 +81,6 @@ Usare il linguaggio di query kusto per inserire i dati in un formato JSON non el
     ```Kusto
     .ingest into table RawEvents h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=RawEventMapping)
     ```
-
-    > [!NOTE]
-    > Mostra i comandi di controllo `ingest` eseguiti direttamente sull'endpoint del motore. Negli scenari di produzione, l'inserimento viene eseguito al servizio Gestione dati usando le librerie client o le connessioni dati. Leggi i dati di inserimento [usando la libreria Python di azure Esplora dati](/azure/data-explorer/python-ingest-data) e Inserisci [dati usando Azure Esplora dati .NET standard SDK](/azure/data-explorer/net-standard-ingest-data) per una procedura dettagliata sull'inserimento di dati con queste librerie client.
 
 # <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
 

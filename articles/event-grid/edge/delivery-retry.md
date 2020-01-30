@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 324c0e9b8dcaafacaac52b622ce9c533d82c7ff1
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 7df283b12a0d04d2b785c13a2f12b03115581e79
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100706"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841713"
 ---
 # <a name="delivery-and-retry"></a>Recapito e nuovo tentativo
 
@@ -27,7 +27,7 @@ Griglia di eventi fornisce il recapito durevole. Tenta di recapitare ogni messag
 
 Griglia di eventi attende fino a 60 secondi per una risposta dopo il recapito di un messaggio. Se l'endpoint del Sottoscrittore non ACK la risposta, il messaggio verrà accodato in una delle code di back-off per i tentativi successivi.
 
-Sono presenti due code di backup preconfigurate che determinano la pianificazione in base alla quale verrà effettuato un nuovo tentativo. Sono:
+Sono presenti due code di backup preconfigurate che determinano la pianificazione in base alla quale verrà effettuato un nuovo tentativo. ovvero:
 
 | Pianificazione | Description |
 | ---------| ------------ |
@@ -43,7 +43,7 @@ Sono presenti due code di backup preconfigurate che determinano la pianificazion
 
 ## <a name="retry-policy-limits"></a>Limiti dei criteri di ripetizione
 
-Sono disponibili due configurazioni che determinano i criteri di ripetizione dei tentativi. Sono:
+Sono disponibili due configurazioni che determinano i criteri di ripetizione dei tentativi. ovvero:
 
 * Numero massimo di tentativi
 * Time-to-Live (TTL) evento
@@ -52,27 +52,27 @@ Un evento verrà eliminato se viene raggiunto uno dei limiti del criterio di rip
 
 ## <a name="configuring-defaults-for-all-subscribers"></a>Configurazione delle impostazioni predefinite per tutti i sottoscrittori
 
-Sono disponibili due proprietà: `brokers:defaultMaxDeliveryAttempts` e `broker:defaultEventTimeToLiveInSeconds` che possono essere configurate come parte della distribuzione di griglia di eventi, che controlla le impostazioni predefinite dei criteri di ripetizione dei tentativi per tutti i sottoscrittori.
+Sono disponibili due proprietà: `brokers__defaultMaxDeliveryAttempts` e `broker__defaultEventTimeToLiveInSeconds` che possono essere configurate come parte della distribuzione di griglia di eventi, che controlla le impostazioni predefinite dei criteri di ripetizione dei tentativi per tutti i sottoscrittori.
 
 | Nome proprietà | Description |
 | ---------------- | ------------ |
-| `broker:defaultMaxDeliveryAttempts` | Numero massimo di tentativi di recapitare un evento. Valore predefinito: 30.
-| `broker:defaultEventTimeToLiveInSeconds` | Durata (TTL) dell'evento in secondi dopo il quale viene eliminato un evento se non viene recapitato. Valore predefinito: **7200** secondi
+| `broker__defaultMaxDeliveryAttempts` | Numero massimo di tentativi di recapitare un evento. Valore predefinito: 30.
+| `broker__defaultEventTimeToLiveInSeconds` | Durata (TTL) dell'evento in secondi dopo il quale viene eliminato un evento se non viene recapitato. Valore predefinito: **7200** secondi
 
 ## <a name="configuring-defaults-per-subscriber"></a>Configurazione delle impostazioni predefinite per ogni Sottoscrittore
 
 È anche possibile specificare i limiti dei criteri di ripetizione dei tentativi in base alla sottoscrizione.
 Per informazioni su come configurare le impostazioni predefinite per ogni Sottoscrittore, vedere la [documentazione dell'API](api.md) . Le impostazioni predefinite a livello di sottoscrizione sostituiscono le configurazioni a livello di modulo.
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 Nell'esempio seguente vengono impostati i criteri di ripetizione dei tentativi nel modulo di griglia di eventi con maxNumberOfAttempts = 3 e l'evento TTL di 30 minuti
 
 ```json
 {
   "Env": [
-    "broker:defaultMaxDeliveryAttempts=3",
-    "broker:defaultEventTimeToLiveInSeconds=1800"
+    "broker__defaultMaxDeliveryAttempts=3",
+    "broker__defaultEventTimeToLiveInSeconds=1800"
   ],
   "HostConfig": {
     "PortBindings": {

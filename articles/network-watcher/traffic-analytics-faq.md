@@ -3,22 +3,20 @@ title: Domande frequenti su Analisi del traffico di Azure | Microsoft Docs
 description: Ottenere le risposte ad alcune delle domande più frequenti su Analisi del traffico.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
-ms.author: kumud
-ms.openlocfilehash: 991bb91c5bc1f6d695d5b363cdb08268f1ee83df
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
-ms.translationtype: HT
+ms.author: damendo
+ms.openlocfilehash: 5e31ed905f05070c8715a63ef3386b0006df0a75
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907091"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840622"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Domande frequenti su Analisi del traffico
 
@@ -65,10 +63,10 @@ Se non viene visualizzato alcun risultato, contattare l'amministratore dell'abbo
 
 ## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>In quali aree di Azure è disponibile Analisi del traffico?
 
-È possibile usare l'analisi del traffico per NSG in una qualsiasi delle aree supportate seguenti:
+È possibile usare l'analisi del traffico per i gruppi di sicurezza di rete in una qualsiasi delle aree supportate seguenti:
 - Canada centrale
 - Stati Uniti centro-occidentali
-- Stati Uniti Orientali
+- Stati Uniti orientali
 - Stati Uniti orientali 2
 - Stati Uniti centro-settentrionali
 - Stati Uniti centro-meridionali
@@ -84,7 +82,7 @@ Se non viene visualizzato alcun risultato, contattare l'amministratore dell'abbo
 - Australia orientale
 - Australia sudorientale 
 - Asia orientale
-- Asia sudorientale
+- Asia sud-orientale
 - Corea centrale
 - India centrale
 - India meridionale
@@ -96,7 +94,7 @@ Se non viene visualizzato alcun risultato, contattare l'amministratore dell'abbo
 L'area di lavoro Log Analytics deve esistere nelle aree indicate di seguito:
 - Canada centrale
 - Stati Uniti centro-occidentali
-- Stati Uniti Orientali
+- Stati Uniti orientali
 - Stati Uniti orientali 2
 - Stati Uniti centro-settentrionali
 - Stati Uniti centro-meridionali
@@ -111,7 +109,7 @@ L'area di lavoro Log Analytics deve esistere nelle aree indicate di seguito:
 - Australia orientale
 - Australia sudorientale
 - Asia orientale
-- Asia sudorientale 
+- Asia sud-orientale 
 - Corea centrale
 - India centrale
 - Giappone orientale
@@ -248,7 +246,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 Viene eseguita la misurazione di Analisi del traffico. La misurazione si basa sull'elaborazione dei dati del registro di flusso da parte del servizio e sulla memorizzazione dei registri avanzati risultanti in un'area di lavoro Log Analytics. 
 
-Ad esempio, in base il [piano tariffario](https://azure.microsoft.com/pricing/details/network-watcher/), prendere in considerazione l'area degli Stati Uniti centrali. Se i dati archiviati per i log dei flussi in un account di archiviazione elaborato da Analisi del traffico è 10 GB e i log avanzati inseriti nell'area di lavoro Log Analytics sono pari a 1 GB, gli addebiti applicabili saranno: 10 x 2.3$ + 1 x 2.76$ = 25.76$
+Ad esempio, in base il [piano tariffario](https://azure.microsoft.com/pricing/details/network-watcher/), prendere in considerazione l'area degli Stati Uniti centro-occidentali. Se i dati archiviati per i log dei flussi in un account di archiviazione elaborato da Analisi del traffico è 10 GB e i log avanzati inseriti nell'area di lavoro Log Analytics sono pari a 1 GB, gli addebiti applicabili saranno: 10 x 2.3$ + 1 x 2.76$ = 25.76$
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>Con quale frequenza Analisi del traffico elaborare i dati?
 
@@ -266,12 +264,68 @@ Analisi del traffico non dispone del supporto incorporato per gli avvisi. Tuttav
 - Fare clic su "nuova regola di avviso" per creare l'avviso
 - Vedere la [documentazione relativa agli avvisi di log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) per creare l'avviso
 
+## <a name="how-do-i-check-which-vms-are-receiving-most-on-premise-traffic"></a>Ricerca per categorie verificare quali macchine virtuali ricevono il traffico locale
+
+            AzureNetworkAnalytics_CL
+            | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+            | where <Scoping condition>
+            | mvexpand vm = pack_array(VM1_s, VM2_s) to typeof(string)
+            | where isnotempty(vm) 
+             | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d 
+            | make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1m by vm
+            | render timechart
+
+  Per gli IP:
+
+            AzureNetworkAnalytics_CL
+            | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+            //| where <Scoping condition>
+            | mvexpand IP = pack_array(SrcIP_s, DestIP_s) to typeof(string)
+            | where isnotempty(IP) 
+            | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d 
+            | make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1m by IP
+            | render timechart
+
+Per il tempo, usare il formato: aaaa-mm-gg 00:00:00
+
+## <a name="how-do-i-check-standard-deviation-in-traffic-recieved-by-my-vms-from-on-premise-machines"></a>Ricerca per categorie controllare la deviazione standard nel traffico ricevuto dalle VM da computer locali
+
+            AzureNetworkAnalytics_CL
+            | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+            //| where <Scoping condition>
+            | mvexpand vm = pack_array(VM1_s, VM2_s) to typeof(string)
+            | where isnotempty(vm) 
+            | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d
+            | summarize deviation = stdev(traffic)  by vm
+
+
+Per gli IP:
+
+            AzureNetworkAnalytics_CL
+            | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+            //| where <Scoping condition>
+            | mvexpand IP = pack_array(SrcIP_s, DestIP_s) to typeof(string)
+            | where isnotempty(IP) 
+            | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d
+            | summarize deviation = stdev(traffic)  by IP
+            
+## <a name="how-do-i-check-which-ports-are-reachable-or-bocked-between-ip-pairs-with-nsg-rules"></a>Ricerca per categorie verificare quali porte sono raggiungibili (o Bock) tra coppie IP con regole NSG
+
+            AzureNetworkAnalytics_CL
+            | where SubType_s == "FlowLog" and TimeGenerated between (startTime .. endTime)
+            | extend sourceIPs = iif(isempty(SrcIP_s), split(SrcPublicIPs_s, " ") , pack_array(SrcIP_s)),
+            destIPs = iif(isempty(DestIP_s), split(DestPublicIPs_s," ") , pack_array(DestIP_s))
+            | mvexpand SourceIp = sourceIPs to typeof(string)
+            | mvexpand DestIp = destIPs to typeof(string)
+            | project SourceIp = tostring(split(SourceIp, "|")[0]), DestIp = tostring(split(DestIp, "|")[0]), NSGList_s, NSGRule_s, DestPort_d, L4Protocol_s, FlowStatus_s 
+            | summarize DestPorts= makeset(DestPort_d) by SourceIp, DestIp, NSGList_s, NSGRule_s, L4Protocol_s, FlowStatus_s
+
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Come è possibile spostarsi con la tastiera nella visualizzazione mappa geografica?
 
 La pagina della mappa geografica contiene due sezioni principali:
     
-- **Banner**: il banner nella parte superiore della mappa geografica include i pulsanti per selezionare i filtri per la distribuzione del traffico, ad esempio la distribuzione, il traffico da paesi/aree geografiche e dannosi. Quando si seleziona un pulsante, il filtro corrispondente viene applicato sulla mappa. Ad esempio, se si seleziona il pulsante Attivo, la mappa evidenzia i centri dati attivi nella distribuzione remota.
-- **Map**: sotto l'intestazione la sezione Map mostra la distribuzione del traffico tra Data Center di Azure e paesi/aree geografiche.
+- **Banner**: The banner at the top of the geo map provides buttons to select traffic distribution filters (for example, Deployment, Traffic from countries/regions, and Malicious). Quando si seleziona un pulsante, il filtro corrispondente viene applicato sulla mappa. Ad esempio, se si seleziona il pulsante Attivo, la mappa evidenzia i centri dati attivi nella distribuzione remota.
+- **Map**: Below the banner, the map section shows traffic distribution among Azure datacenters and countries/regions.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navigazione da tastiera sul banner
     

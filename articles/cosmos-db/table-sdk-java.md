@@ -6,16 +6,16 @@ ms.subservice: cosmosdb-table
 ms.devlang: java
 ms.topic: reference
 ms.date: 11/20/2018
-author: wmengmsft
-ms.author: wmeng
-ms.openlocfilehash: c98cd6054b2e48f4c0c886528653e6d3fda96a34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+author: sakash279
+ms.author: akshanka
+ms.openlocfilehash: b9b5d51d0d35284d9854bd048396df84881266d2
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480202"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771414"
 ---
-# <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>API Tabella di Azure Cosmos DB per Java: note sulla versione e risorse
+# <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>API Tabelle di Azure Cosmos DB per Java: risorse e note sulla versione
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
@@ -44,13 +44,13 @@ Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK pe
 
 Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente. È quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima. 
 
-| Version | Data di rilascio | Data di ritiro |
+| Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 novembre 2017 |--- |
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 Per altre informazioni su Cosmos DB, vedere la pagina del servizio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 

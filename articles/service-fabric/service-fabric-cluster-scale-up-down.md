@@ -3,12 +3,12 @@ title: Ridimensionare un cluster Service Fabric
 description: Ridimensionare un cluster Service Fabric in modo che corrisponda alla domanda impostando regole di scalabilità automatica per ogni tipo di nodo o set di scalabilità di macchine virtuali. Aggiungere o rimuovere nodi in un cluster di Service Fabric
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: ef7d4c3d3d48bed790851834d848f05060243636
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 42193ee06eda3f1d8c56b4db3251763b9dc52076
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451949"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774454"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Aumentare o ridurre un cluster
 
@@ -101,7 +101,7 @@ I passaggi per la rimozione manuale dello stato del nodo si applicano solo ai ti
 Per garantire la distribuzione uniforme dei nodi del cluster tra i domini di aggiornamento e di errore e consentirne quindi un utilizzo uniforme, è opportuno rimuovere per primo l'ultimo nodo creato. In altre parole, i nodi devono essere rimossi in ordine inverso rispetto a quello in cui sono stati creati. L'ultimo nodo creato è quello che presenta il valore più elevato per la proprietà `virtual machine scale set InstanceId`. Negli esempi di codice seguenti viene restituito l'ultimo nodo creato.
 
 ```powershell
-Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
+Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
 ```
 
 ```azurecli

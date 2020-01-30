@@ -4,22 +4,21 @@ titleSuffix: Azure Network Watcher
 description: Informazioni su come usare la funzionalità di risoluzione dei problemi di connessione di Azure Network Watcher con PowerShell.
 services: network-watcher
 documentationcenter: na
-author: KumudD
+author: damendo
 manager: twooley
-editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: kumud
-ms.openlocfilehash: 824799254b2706c64a17921034dbde3e4f60e132
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: abc9389c2c5fd5576795c26a89e3941b6eb5a939
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275991"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842836"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Risolvere i problemi relativi alle connessioni con Azure Network Watcher usando PowerShell
 
@@ -63,7 +62,7 @@ $networkWatcher = Get-AzNetworkWatcher | Where-Object -Property Location -EQ -Va
 Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationId $VM2.Id -DestinationPort 80
 ```
 
-### <a name="response"></a>response
+### <a name="response"></a>Risposta
 
 La risposta seguente è relativa all'esempio precedente.  In questa risposta `ConnectionStatus` è **Unreachable**. Si noti che tutti i probe inviati presentano un errore. Si è verificato un problema di connettività nell'appliance virtuale a causa di un valore `NetworkSecurityRule` configurato dall'utente per bloccare il traffico in ingresso sulla porta 80, denominato **UserRule_Port80**. Queste informazioni possono essere usate per analizzare i problemi di connessione.
 
@@ -154,7 +153,7 @@ $networkWatcher = Get-AzNetworkWatcher | Where-Object -Property Location -EQ -Va
 Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress 13.107.21.200 -DestinationPort 80
 ```
 
-### <a name="response"></a>response
+### <a name="response"></a>Risposta
 
 Nell'esempio seguente `ConnectionStatus` è **Unreachable**. I dettagli relativi a `Hops` sotto `Issues` indicano che il traffico è stato bloccato a causa di un valore `UserDefinedRoute`. 
 
@@ -218,7 +217,7 @@ $networkWatcher = Get-AzNetworkWatcher | Where-Object -Property Location -EQ -Va
 Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress https://bing.com/
 ```
 
-### <a name="response"></a>response
+### <a name="response"></a>Risposta
 
 Nella risposta seguente il valore indicato per `ConnectionStatus` è **Reachable**. In caso di esito positivo della connessione vengono forniti i valori della latenza.
 
@@ -270,7 +269,7 @@ $networkWatcher = Get-AzNetworkWatcher | Where-Object -Property Location -EQ -Va
 Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress https://contosostorageexample.blob.core.windows.net/ 
 ```
 
-### <a name="response"></a>response
+### <a name="response"></a>Risposta
 
 Il codice JSON seguente è la risposta di esempio generata dall'esecuzione del cmdlet precedente. Poiché la destinazione è raggiungibile, la proprietà `ConnectionStatus` risulta **Reachable**.  Vengono forniti i dettagli sul numero di hop necessari per raggiungere il BLOB di archiviazione e la latenza.
 

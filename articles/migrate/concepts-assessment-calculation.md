@@ -3,19 +3,19 @@ title: Valutazioni in Azure Migrate
 description: Informazioni sulle valutazioni in Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: a8912263432bc0e9cd7172c4b6c9b118132863d3
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 5fc61d9987c9e728a5d83cb3ab3f91b8e8f5f740
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029110"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76833329"
 ---
 # <a name="about-assessments-in-azure-migrate"></a>Informazioni sulle valutazioni in Azure Migrate
 
 Questo articolo descrive il modo in cui vengono calcolate le valutazioni in [Azure migrate: server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool). Le valutazioni vengono eseguite su gruppi di computer locali, per stabilire se sono pronte per la migrazione a Azure Migrate.
 
 ## <a name="how-do-i-run-an-assessment"></a>Ricerca per categorie eseguire una valutazione?
-È possibile eseguire una valutazione usando Azure Migrate: server Assessment o un altro strumento di Azure o di terze parti. Dopo aver creato un progetto di Azure Migrate, è necessario aggiungere lo strumento desiderato. [Altre informazioni] (how-to-add-tool-first-time.md
+È possibile eseguire una valutazione usando Azure Migrate: server Assessment o un altro strumento di Azure o di terze parti. Dopo aver creato un progetto di Azure Migrate, è necessario aggiungere lo strumento desiderato. [Altre informazioni](how-to-add-tool-first-time.md)
 
 ### <a name="collect-compute-data"></a>Raccogli dati di calcolo
 

@@ -3,17 +3,15 @@ title: Tenere traccia dei messaggi B2B con i log di Monitoraggio di Azure
 description: Tenere traccia delle comunicazioni B2B per gli account di integrazione e App per la logica di Azure con Azure Log Analytics
 services: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
+ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 3726b0c8c22614d2acc797295543e69f9358d69c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6e66bdfcfe9e84c1095f03a41439b904c7cb96df
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792926"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773709"
 ---
 # <a name="track-b2b-messages-with-azure-monitor-logs"></a>Tenere traccia dei messaggi B2B con i log di Monitoraggio di Azure
 
@@ -106,7 +104,7 @@ Dopo che i messaggi B2B sono stati elaborati, è possibile visualizzarne lo stat
 3. Per visualizzare o esportare gli input e gli output di messaggi specifici, selezionare i messaggi e scegliere **Scarica**. Quando richiesto, salvare il file ZIP nel computer locale e quindi estrarre il file. 
 
    La cartella estratta include una cartella per ogni messaggio selezionato. 
-   Se si configurano gli acknowledgement, la cartella del messaggio include anche i file con i dettagli degli acknowledgement. 
+   Se si configurano i riconoscimenti, nella cartella del messaggio sono inclusi anche i file con i dettagli del riconoscimento. 
    Ogni cartella di messaggio include almeno questi file: 
    
    * File leggibili con i dettagli dei payload di input e dei payload di output
@@ -150,9 +148,9 @@ Ecco le descrizioni delle proprietà per ogni messaggio AS2.
 | Mittente | Partner guest specificato in **Impostazioni di ricezione** o partner host specificato in **Impostazioni di invio** di un accordo AS2 |
 | Ricevitore | Partner host specificato in **Impostazioni di ricezione** o partner guest specificato in **Impostazioni di invio** di un accordo AS2 |
 | App per la logica | App per la logica in cui sono configurate le azioni AS2 |
-| Status | Stato dei messaggi AS2 <br>Operazione completata = ricevuto o inviato un messaggio AS2 valido. Non sono configurate notifiche sulla ricezione del messaggio. <br>Operazione completata = ricevuto o inviato un messaggio AS2 valido. La notifica sulla ricezione del messaggio è stata configurata e ricevuta o è stata inviata. <br>Operazione non riuscita = ricevuto un messaggio AS2 non valido. Non sono configurate notifiche sulla ricezione del messaggio. <br>In sospeso = ricevuto o inviato un messaggio AS2 valido. La notifica sulla ricezione del messaggio è stata configurata ed è prevista. |
+| Stato | Stato dei messaggi AS2 <br>Operazione completata = ricevuto o inviato un messaggio AS2 valido. Non sono configurate notifiche sulla ricezione del messaggio. <br>Operazione completata = ricevuto o inviato un messaggio AS2 valido. La notifica sulla ricezione del messaggio è stata configurata e ricevuta o è stata inviata. <br>Operazione non riuscita = ricevuto un messaggio AS2 non valido. Non sono configurate notifiche sulla ricezione del messaggio. <br>In sospeso = ricevuto o inviato un messaggio AS2 valido. La notifica sulla ricezione del messaggio è stata configurata ed è prevista. |
 | Ack | Stato dei messaggi di notifica sulla ricezione del messaggio <br>Accettato = ricevuto o inviato un messaggio di notifica sulla ricezione del messaggio positivo. <br>In sospeso = in attesa di ricevere o inviare un messaggio di notifica sulla ricezione del messaggio. <br>Rifiutato = ricevuto o inviato un messaggio di notifica sulla ricezione del messaggio negativo. <br>Non richiesto = notifica sulla ricezione del messaggio non configurata nell'accordo. |
-| Direzione | Direzione dei messaggi AS2 |
+| Direction | Direzione dei messaggi AS2 |
 | ID correlazione | ID che correla tutti i trigger e le azioni in un'app per la logica |
 | ID del messaggio | ID del messaggio AS2 dalle intestazioni del messaggio AS2 |
 | Timestamp | Ora in cui l'azione AS2 ha elaborato il messaggio |
@@ -167,7 +165,7 @@ Ecco i formati dei nomi per ogni cartella e file di messaggi AS2 scaricati.
 | File o cartella | Formato del nome |
 | :------------- | :---------- |
 | Cartella del messaggio | [mittente]\_[destinatario]\_AS2\_[ID-correlazione]\_[ID-messaggio]\_[timestamp] |
-| File di input, output e, se configurati, acknowledgement | **Payload di input**: [mittente]\_[destinatario]\_AS2\_[ID-correlazione]\_input_payload.txt </p>**Payload di output**: [mittente]\_[destinatario]\_AS2\_[ID-correlazione]\_output\_payload.txt </p></p>**Input**: [mittente]\_[destinatario]\_AS2\_[ID-correlazione]\_inputs.txt </p></p>**Output**: [mittente]\_[destinatario]\_AS2\_[ID-correlazione]\_outputs.txt |
+| Input, output e se configurati, file di riconoscimento | **Payload di input**: [mittente]\_[destinatario]\_AS2\_[ID-correlazione]\_input_payload.txt </p>**Payload di output**: [mittente]\_[destinatario]\_AS2\_[ID-correlazione]\_output\_payload.txt </p></p>**Input**: [mittente]\_[destinatario]\_AS2\_[ID-correlazione]\_inputs.txt </p></p>**Output**: [mittente]\_[destinatario]\_AS2\_[ID-correlazione]\_outputs.txt |
 |          |             |
 
 <a name="x12-message-properties"></a>
@@ -181,9 +179,9 @@ Ecco le descrizioni delle proprietà per ogni messaggio X12.
 | Mittente | Partner guest specificato in **Impostazioni di ricezione** o partner host specificato in **Impostazioni di invio** di un accordo X12 |
 | Ricevitore | Partner host specificato in **Impostazioni di ricezione** o partner host specificato in **Impostazioni di invio** di un accordo X12 |
 | App per la logica | App per la logica in cui sono configurate le azioni X12 |
-| Status | Stato dei messaggi X12 <br>Operazione completata = ricevuto o inviato un messaggio X12 valido. Non sono configurati ack funzionali. <br>Operazione completata = ricevuto o inviato un messaggio X12 valido. L'ack funzionale è stato configurato e ricevuto o inviato. <br>Operazione non riuscita = ricevuto o inviato un messaggio X12 non valido. <br>In sospeso = ricevuto o inviato un messaggio X12 valido. L'ack funzionale è stato configurato ed è previsto. |
+| Stato | Stato dei messaggi X12 <br>Operazione completata = ricevuto o inviato un messaggio X12 valido. Non sono configurati ack funzionali. <br>Operazione completata = ricevuto o inviato un messaggio X12 valido. L'ack funzionale è stato configurato e ricevuto o inviato. <br>Operazione non riuscita = ricevuto o inviato un messaggio X12 non valido. <br>In sospeso = ricevuto o inviato un messaggio X12 valido. L'ack funzionale è stato configurato ed è previsto. |
 | Ack | Stato ACK funzionale (997) <br>Accettato = ricevuto o inviato un ack funzionale positivo. <br>Rifiutato = ricevuto o inviato un ack funzionale negativo. <br>In sospeso = in attesa di un ack funzionale non ricevuto. <br>In sospeso = ack funzionale generato, ma impossibile inviarlo al partner. <br>Non richiesto = ack funzionale non configurato. |
-| Direzione | Direzione dei messaggi X12 |
+| Direction | Direzione dei messaggi X12 |
 | ID correlazione | ID che correla tutti i trigger e le azioni in un'app per la logica |
 | Tipo di messaggio | Tipo di messaggio EDI X12 |
 | ICN | Numero di controllo interscambio del messaggio X12 |
@@ -200,7 +198,7 @@ Ecco i formati dei nomi per ogni cartella e file di messaggi X12 scaricati.
 | File o cartella | Formato del nome |
 | :------------- | :---------- |
 | Cartella del messaggio | [mittente]\_[destinatario]\_X12\_[numero-controllo-interscambio]\_[numero-controllo-globale]\_[numero-controllo-set-transazioni]\_[timestamp] |
-| File di input, output e, se configurati, acknowledgement | **Payload di input**: [mittente]\_[destinatario]\_X12\_[numero-controllo-interscambio]\_input_payload.txt </p>**Payload di output**: [mittente]\_[destinatario]\_X12\_[numero-controllo-interscambio]\_output\_payload.txt </p></p>**Input**: [mittente]\_[destinatario]\_X12\_[numero-controllo-interscambio]\_inputs.txt </p></p>**Output**: [mittente]\_[destinatario]\_X12\_[numero-controllo-interscambio]\_outputs.txt |
+| Input, output e se configurati, file di riconoscimento | **Payload di input**: [mittente]\_[destinatario]\_X12\_[numero-controllo-interscambio]\_input_payload.txt </p>**Payload di output**: [mittente]\_[destinatario]\_X12\_[numero-controllo-interscambio]\_output\_payload.txt </p></p>**Input**: [mittente]\_[destinatario]\_X12\_[numero-controllo-interscambio]\_inputs.txt </p></p>**Output**: [mittente]\_[destinatario]\_X12\_[numero-controllo-interscambio]\_outputs.txt |
 |          |             |
 
 <a name="EDIFACT-message-properties"></a>
@@ -214,9 +212,9 @@ Ecco le descrizioni delle proprietà per ogni messaggio EDIFACT.
 | Mittente | Partner guest specificato in **Impostazioni di ricezione** o partner host specificato in **Impostazioni di invio** di un accordo EDIFACT |
 | Ricevitore | Partner host specificato in **Impostazioni di ricezione** o partner guest specificato in **Impostazioni di invio** di un accordo EDIFACT |
 | App per la logica | App per la logica in cui sono configurate le azioni EDIFACT |
-| Status | Stato dei messaggi EDIFACT <br>Operazione completata = ricevuto o inviato un messaggio EDIFACT valido. Non sono configurati ack funzionali. <br>Operazione completata = ricevuto o inviato un messaggio EDIFACT valido. L'ack funzionale è stato configurato e ricevuto o inviato. <br>Operazione non riuscita = ricevuto o inviato un messaggio EDIFACT non valido <br>In sospeso = ricevuto o inviato un messaggio EDIFACT valido. L'ack funzionale è stato configurato ed è previsto. |
+| Stato | Stato dei messaggi EDIFACT <br>Operazione completata = ricevuto o inviato un messaggio EDIFACT valido. Non sono configurati ack funzionali. <br>Operazione completata = ricevuto o inviato un messaggio EDIFACT valido. L'ack funzionale è stato configurato e ricevuto o inviato. <br>Operazione non riuscita = ricevuto o inviato un messaggio EDIFACT non valido <br>In sospeso = ricevuto o inviato un messaggio EDIFACT valido. L'ack funzionale è stato configurato ed è previsto. |
 | Ack | Stato ACK funzionali (CONTRL) <br>Accettato = ricevuto o inviato un ack funzionale positivo. <br>Rifiutato = ricevuto o inviato un ack funzionale negativo. <br>In sospeso = in attesa di un ack funzionale non ricevuto. <br>In sospeso = ack funzionale generato, ma impossibile inviarlo al partner. <br>Non richiesto = ack funzionale non configurato. |
-| Direzione | Direzione dei messaggi EDIFACT |
+| Direction | Direzione dei messaggi EDIFACT |
 | ID correlazione | ID che correla tutti i trigger e le azioni in un'app per la logica |
 | Tipo di messaggio | Tipo di messaggio EDIFACT |
 | ICN | Numero di controllo interscambio del messaggio EDIFACT |
@@ -233,7 +231,7 @@ Ecco i formati dei nomi per ogni cartella e file di messaggi EDIFACT scaricati.
 | File o cartella | Formato del nome |
 | :------------- | :---------- |
 | Cartella del messaggio | [mittente]\_[destinatario]\_EDIFACT\_[numero-controllo-interscambio]\_[numero-controllo-globale]\_[numero-controllo-set-transazioni]\_[timestamp] |
-| File di input, output e, se configurati, acknowledgement | **Payload di input**: [mittente]\_[destinatario]\_EDIFACT\_[numero-controllo-interscambio]\_input_payload.txt </p>**Payload di output**: [mittente]\_[destinatario]\_EDIFACT\_[numero-controllo-interscambio]\_output\_payload.txt </p></p>**Input**: [mittente]\_[destinatario]\_EDIFACT\_[numero-controllo-interscambio]\_inputs.txt </p></p>**Output**: [mittente]\_[destinatario]\_EDIFACT\_[numero-controllo-interscambio]\_outputs.txt |
+| Input, output e se configurati, file di riconoscimento | **Payload di input**: [mittente]\_[destinatario]\_EDIFACT\_[numero-controllo-interscambio]\_input_payload.txt </p>**Payload di output**: [mittente]\_[destinatario]\_EDIFACT\_[numero-controllo-interscambio]\_output\_payload.txt </p></p>**Input**: [mittente]\_[destinatario]\_EDIFACT\_[numero-controllo-interscambio]\_inputs.txt </p></p>**Output**: [mittente]\_[destinatario]\_EDIFACT\_[numero-controllo-interscambio]\_outputs.txt |
 |          |             |
 
 ## <a name="next-steps"></a>Passaggi successivi

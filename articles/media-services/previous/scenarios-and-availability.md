@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 1bdca9de0bb6fea608f2a30aa9928f2518fc9dce
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ef8596d8dcc9502f590c55223f207e71f5b91cf6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978169"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843940"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenari e disponibilità delle funzionalità di Servizi multimediali nei data center
 
@@ -31,7 +31,7 @@ Servizi multimediali di Azure è compatibile con svariati data center in tutto i
 
 Questo argomento illustra scenari comuni per la distribuzione di contenuti [live](#live_scenarios) o su richiesta. e include anche informazioni dettagliate sulla disponibilità delle funzionalità e dei servizi multimediali nei data center.
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 ### <a name="prerequisites"></a>Prerequisiti
 
@@ -177,7 +177,7 @@ I clienti di Servizi multimediali possono scegliere un endpoint di streaming **S
 
 #### <a name="availability"></a>Disponibilità
 
-|name|Status|Data center
+|Nome|Stato|Data center
 |---|---|---|
 |Standard|Disponibilità a livello generale|Tutto|
 |Premium|Disponibilità a livello generale|Tutto|
@@ -194,7 +194,7 @@ AMS offre due codificatori su richiesta: **Media Encoder Standard** e **Flusso d
 
 #### <a name="availability"></a>Disponibilità
 
-|Nome processore di contenuti multimediali|Status|Data center
+|Nome processore di contenuti multimediali|Stato|Data center
 |---|---|---|
 |Codificatore multimediale standard|Disponibilità a livello generale|Tutto|
 |Flusso di lavoro Premium del codificatore multimediale|Disponibilità a livello generale|Tutti tranne Cina|
@@ -205,15 +205,14 @@ Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e 
 
 #### <a name="availability"></a>Disponibilità
 
-|Nome processore di contenuti multimediali|Status|Data center
+|Nome processore di contenuti multimediali|Stato|Data center
 |---|---|---|
-|Rilevamento multimediale volti di Azure|Preview|Tutto|
+|Rilevamento multimediale volti di Azure|Anteprima|Tutto|
 |Azure Media Indexer|Disponibilità a livello generale|Tutto|
-|Rilevatore multimediale di movimento Azure|Preview|Tutto|
-|Riconoscimento ottico dei caratteri multimediale di Azure|Preview|Tutto|
-|Azure Media Redactor|Preview|Tutto|
-|Anteprime video multimediali di Azure|Preview|Tutto|
-|Azure Media Indexer 2|Preview|Tutti tranne Cina e area Governo federale|
+|Rilevatore multimediale di movimento Azure|Anteprima|Tutto|
+|Riconoscimento ottico dei caratteri multimediale di Azure|Anteprima|Tutto|
+|Azure Media Redactor|Disponibilità a livello generale|Tutto|
+|Anteprime video multimediali di Azure|Anteprima|Tutto|
 
 ### <a name="protection"></a>Protezione
 
@@ -221,7 +220,7 @@ Servizi multimediali di Microsoft Azure consente di proteggere i file multimedia
 
 #### <a name="availability"></a>Disponibilità
 
-|Crittografia|Status|Data center|
+|Crittografia|Stato|Data center|
 |---|---|---| 
 |Archiviazione|Disponibilità a livello generale|Tutto|
 |Chiavi AES-128|Disponibilità a livello generale|Tutto|
@@ -247,7 +246,7 @@ Per altre informazioni, vedere la sezione relativa al [ridimensionamento](#scali
 
 #### <a name="availability"></a>Disponibilità
 
-|Nome tipo di unità riservata|Status|Data center
+|Nome tipo di unità riservata|Stato|Data center
 |---|---|---|
 |S1|Disponibilità a livello generale|Tutto|
 |S2|Disponibilità a livello generale|Tutti tranne Brasile meridionale e India occidentale|
@@ -255,7 +254,7 @@ Per altre informazioni, vedere la sezione relativa al [ridimensionamento](#scali
 
 ## <a name="additional-notes"></a>Note aggiuntive
 
-* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

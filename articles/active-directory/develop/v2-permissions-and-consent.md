@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 29e099e1c53f83d038caa697d11158fd5939ca7b
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 567df85fa634570b0ac04fe6da906776a74c0550
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700312"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76833347"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform
 
@@ -168,13 +168,16 @@ Per un esempio di codice che implementa la procedura, vedere l'[esempio sugli am
 
 ### <a name="request-the-permissions-in-the-app-registration-portal"></a>Richiedere le autorizzazioni nel portale di registrazione dell'app
 
-Il consenso amministratore non accetta un parametro di ambito, pertanto tutte le autorizzazioni richieste devono essere definite in modo statico nella registrazione dell'applicazione. In generale, è consigliabile assicurarsi che le autorizzazioni definite in modo statico per una determinata applicazione siano un superset delle autorizzazioni che verranno richieste in modo dinamico/incrementale.
+Le applicazioni sono in grado di rilevare le autorizzazioni necessarie (sia delegate che applicazione) nel portale di registrazione delle app.  Questo consente l'uso dell'ambito di `/.default` e dell'opzione "Concedi l'autorizzazione dell'amministratore" del portale di Azure.  In generale, è consigliabile assicurarsi che le autorizzazioni definite in modo statico per una determinata applicazione siano un superset delle autorizzazioni che verranno richieste in modo dinamico/incrementale.
+
+> [!NOTE]
+Le autorizzazioni dell'applicazione possono essere richieste solo tramite l'uso di [`/.default`](#the-default-scope) , quindi se l'app richiede le autorizzazioni dell'applicazione, assicurarsi che siano elencate nel portale di registrazione delle app.  
 
 #### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>Per configurare l'elenco delle autorizzazioni richieste in modo statico per un'applicazione
 
 1. Passare all'applicazione nell'esperienza [portale di Azure-registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) oppure [creare un'app](quickstart-register-app.md) , se non è già stata eseguita.
 2. Individuare la sezione **autorizzazioni API** e, all'interno delle autorizzazioni API, fare clic su Aggiungi un'autorizzazione.
-3. Selezionare **Microsoft Graph** dall'elenco delle API disponibili e quindi aggiungere le autorizzazioni richieste dall'app.
+3. Selezionare la risorsa preferita (ad esempio **Microsoft Graph**) nell'elenco delle API disponibili e quindi aggiungere le autorizzazioni richieste dall'app.
 3. **Salvare** la registrazione dell'app.
 
 ### <a name="recommended-sign-the-user-into-your-app"></a>Consigliato: accedere all'utente nell'app
@@ -205,7 +208,7 @@ Quando si è pronti per richiedere le autorizzazioni all'amministratore dell'org
 | `client_id` | Obbligatorio | **ID dell'applicazione (client)** che la [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) l'esperienza assegnata all'app. |
 | `redirect_uri` | Obbligatorio |URI di reindirizzamento in cui si desidera che venga inviata la risposta per la gestione da parte dell'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale di registrazione delle applicazioni. |
 | `state` | Consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Usare questo stato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
-|`scope`        | Obbligatorio      | Definisce il set di autorizzazioni richieste dall'applicazione. Può trattarsi di un ambito statico (con/.default) o di ambiti dinamici.  Possono essere inclusi gli ambiti OIDC (`openid`, `profile``email`). | 
+|`scope`        | Obbligatorio      | Definisce il set di autorizzazioni richieste dall'applicazione. Può essere statico (usando [`/.default`](#the-default-scope)) o ambiti dinamici.  Possono essere inclusi gli ambiti OIDC (`openid`, `profile``email`). Se sono necessarie autorizzazioni per l'applicazione, è necessario usare `/.default` per richiedere l'elenco di autorizzazioni configurate in modo statico.  | 
 
 
 A questo punto, Azure AD richiede che solo un amministratore tenant possa accedere per completare la richiesta. All'amministratore viene chiesto di approvare tutte le autorizzazioni richieste nel parametro `scope`.  Se è stato usato un valore statico (`/.default`), funzionerà come l'endpoint di consenso dell'amministratore della versione 1.0 e richiederà il consenso per tutti gli ambiti presenti nelle autorizzazioni necessarie per l'app.
@@ -264,9 +267,9 @@ Per ulteriori informazioni sul protocollo OAuth 2,0 e su come ottenere i token d
 
 ## <a name="the-default-scope"></a>Ambito /.default
 
-È possibile usare l'ambito `/.default` per eseguire la migrazione delle app dall'endpoint v 1.0 all'endpoint della piattaforma Microsoft Identity. Si tratta di un ambito predefinito per ogni applicazione che fa riferimento all'elenco statico di autorizzazioni configurate nella registrazione dell'applicazione. Un valore `scope` di `https://graph.microsoft.com/.default` è funzionalmente identico a `resource=https://graph.microsoft.com` degli endpoint v1.0, vale a dire che richiede un token con gli ambiti in Microsoft Graph per cui l'applicazione è registrata nel portale di Azure.
+È possibile usare l'ambito `/.default` per eseguire la migrazione delle app dall'endpoint v 1.0 all'endpoint della piattaforma Microsoft Identity. Si tratta di un ambito predefinito per ogni applicazione che fa riferimento all'elenco statico di autorizzazioni configurate nella registrazione dell'applicazione. Un valore `scope` di `https://graph.microsoft.com/.default` è funzionalmente identico a `resource=https://graph.microsoft.com` degli endpoint v1.0, vale a dire che richiede un token con gli ambiti in Microsoft Graph per cui l'applicazione è registrata nel portale di Azure.  Viene costruito usando l'URI di risorsa + `/.default` (ad esempio, se l'URI della risorsa è `https://contosoApp.com`, l'ambito richiesto verrà `https://contosoApp.com/.default`).  Vedere la [sezione sulle barre finali](#trailing-slash-and-default) per i casi in cui è necessario includere una seconda barra per richiedere correttamente il token.  
 
-L'ambito/.default può essere usato in qualsiasi flusso OAuth 2,0, ma è necessario per il flusso di [credenziali client](v2-oauth2-client-creds-grant-flow.md)e [di flusso per conto di](v2-oauth2-on-behalf-of-flow.md) .  
+L'ambito/.default può essere usato in qualsiasi flusso OAuth 2,0, ma è necessario per il flusso di [credenziali client](v2-oauth2-client-creds-grant-flow.md)e [di flusso per conto di](v2-oauth2-on-behalf-of-flow.md) , nonché quando si usa l'endpoint di consenso dell'amministratore V2 per richiedere le autorizzazioni dell'applicazione.  
 
 > [!NOTE]
 > I client non possono combinare il consenso statico (`/.default`) e dinamico in un'unica richiesta. Di conseguenza, `scope=https://graph.microsoft.com/.default+mail.read` comporterà un errore dovuto alla combinazione dei tipi di ambito.
@@ -281,15 +284,15 @@ Dal momento che `/.default` è funzionalmente identico al comportamento dell'end
 
 #### <a name="example-1-the-user-or-tenant-admin-has-granted-permissions"></a>Esempio 1: l'utente o l'amministratore del tenant ha concesso le autorizzazioni
 
-L'utente (o un amministratore del tenant) ha concesso al client le autorizzazioni di Microsoft Graph `mail.read` e `user.read`. Se il client effettua una richiesta per `scope=https://graph.microsoft.com/.default`, non verrà visualizzata alcuna richiesta di consenso indipendentemente dal contenuto delle autorizzazioni registrate delle applicazioni client per Microsoft Graph. Verrà restituito un token contenente gli ambiti `mail.read` e `user.read`.
+In questo esempio, l'utente (o un amministratore tenant) ha concesso al client le autorizzazioni Microsoft Graph `mail.read` e `user.read`. Se il client effettua una richiesta per `scope=https://graph.microsoft.com/.default`, non verrà visualizzata alcuna richiesta di consenso indipendentemente dal contenuto delle autorizzazioni registrate delle applicazioni client per Microsoft Graph. Verrà restituito un token contenente gli ambiti `mail.read` e `user.read`.
 
 #### <a name="example-2-the-user-hasnt-granted-permissions-between-the-client-and-the-resource"></a>Esempio 2: l'utente non ha concesso le autorizzazioni tra il client e la risorsa
 
-Non esiste alcuna autorizzazione per l'utente tra il client e Microsoft Graph. Il client è stato registrato per le autorizzazioni `user.read` e `contacts.read`, oltre che per l'ambito di Azure Key Vault `https://vault.azure.net/user_impersonation`. Quando il client richiede un token per `scope=https://graph.microsoft.com/.default`, l'utente visualizzerà una schermata di consenso per gli ambiti `user.read`, `contacts.read` e `user_impersonation` di Key Vault. Il token restituito avrà solo gli ambiti `user.read` e `contacts.read`.
+In questo esempio non esiste alcun consenso per l'utente tra il client e Microsoft Graph. Il client è stato registrato per le autorizzazioni `user.read` e `contacts.read`, oltre che per l'ambito di Azure Key Vault `https://vault.azure.net/user_impersonation`. Quando il client richiede un token per `scope=https://graph.microsoft.com/.default`, l'utente visualizzerà una schermata di consenso per gli ambiti `user.read`, `contacts.read` e `user_impersonation` di Key Vault. Il token restituito avrà solo gli ambiti di `user.read` e di `contacts.read` e potrà essere utilizzato solo con Microsoft Graph. 
 
 #### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>Esempio 3: l'utente ha acconsentito e il client richiede ambiti aggiuntivi
 
-L'utente ha già dato il consenso per `mail.read` per il client. Il client è stato registrato per l'ambito `contacts.read` nella relativa registrazione. Quando il client effettua una richiesta per un token usando `scope=https://graph.microsoft.com/.default` e richiede il consenso tramite `prompt=consent`, l'utente visualizzerà una schermata di consenso solo per le autorizzazioni registrate dall'applicazione. `contacts.read` sarà presente nella schermata di consenso, a differenza di `mail.read`. Il token restituito sarà per Microsoft Graph e conterrà `mail.read` e `contacts.read`.
+In questo esempio l'utente ha già acconsentito a `mail.read` per il client. Il client è stato registrato per l'ambito `contacts.read` nella relativa registrazione. Quando il client effettua una richiesta di un token usando `scope=https://graph.microsoft.com/.default` e richiede il consenso tramite `prompt=consent`, l'utente visualizzerà una schermata di consenso per tutte (e solo) le autorizzazioni registrate dall'applicazione. `contacts.read` sarà presente nella schermata di consenso, a differenza di `mail.read`. Il token restituito sarà per Microsoft Graph e conterrà `mail.read` e `contacts.read`.
 
 ### <a name="using-the-default-scope-with-the-client"></a>Uso dell'ambito /.default con il client
 
@@ -306,7 +309,13 @@ response_type=token            //code or a hybrid flow is also possible here
 &state=1234
 ```
 
-Questa operazione produce una schermata di consenso per tutte le autorizzazioni registrate (se applicabili in base alle suddette descrizioni del consenso e `/.default`), quindi restituisce un id_token, anziché un token di accesso.  Questo comportamento esiste per determinati client legacy che passano da ADAL a MSAL e non devono essere usati da nuovi client destinati all'endpoint della piattaforma di identità Microsoft.  
+Questa operazione produce una schermata di consenso per tutte le autorizzazioni registrate (se applicabili in base alle suddette descrizioni del consenso e `/.default`), quindi restituisce un id_token, anziché un token di accesso.  Questo comportamento esiste per determinati client legacy che passano da ADAL a MSAL e **non devono** essere usati da nuovi client destinati all'endpoint della piattaforma di identità Microsoft.  
+
+### <a name="trailing-slash-and-default"></a>Barra finale e/.default
+
+Alcuni URI delle risorse hanno una barra finale (`https://contoso.com/` anziché `https://contoso.com`), che può causare problemi con la convalida dei token.  Questa situazione può verificarsi principalmente quando si richiede un token per gestione risorse di Azure (`https://management.azure.com/`), che ha una barra finale sull'URI della risorsa e ne richiede la presenza quando viene richiesto il token.  Pertanto, quando si richiede un token per `https://management.azure.com/` e si utilizza `/.default`, è necessario richiedere `https://management.azure.com//.default`. si noti la barra doppia. 
+
+In generale, se è stata convalidata l'emissione del token e il token viene rifiutato dall'API che la accetta, provare a aggiungere una seconda barra e a riprovare. Questo problema si verifica perché il server di accesso emette un token con i destinatari corrispondenti agli URI nel parametro `scope`, con `/.default` rimossi dalla fine.  Se viene rimossa la barra finale, il server di accesso elabora la richiesta e la convalida in base all'URI della risorsa, anche se non corrisponde più, perché non è standard e non deve essere basata sull'applicazione. 
 
 ## <a name="troubleshooting-permissions-and-consent"></a>Risoluzione dei problemi di autorizzazioni e consenso
 

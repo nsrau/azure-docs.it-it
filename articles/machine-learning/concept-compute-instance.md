@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 6bba4414390efa6e07be6c253fe55f1638d414dc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7f7e0c3eef96970c1820783225a4ff59be8113b3
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974099"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769105"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Che cos'è un'istanza di calcolo Azure Machine Learning?
 
@@ -32,7 +32,7 @@ Le istanze di calcolo vengono in genere usate come ambienti di sviluppo.  Posson
 
 ## <a name="why-use-a-compute-instance"></a>Perché usare un'istanza di calcolo?
 
-Un'istanza di calcolo è una workstation basata su cloud completamente gestita, ottimizzata per l'ambiente di sviluppo di machine learning. Offre i vantaggi seguenti:
+Un'istanza di calcolo è una workstation basata su cloud completamente gestita, ottimizzata per l'ambiente di sviluppo di machine learning. Offre i seguenti vantaggi:
 
 |Vantaggi principali||
 |----|----|
@@ -115,9 +115,9 @@ Nell'area di lavoro in Azure Machine Learning Studio selezionare **calcolo**, qu
 
 ![Gestire un'istanza di calcolo](./media/concept-compute-instance/manage-compute-instance.png)
 
-È possibile effettuare le azioni seguenti:
+È possibile eseguire le azioni seguenti:
 
-* Creare un'istanza di calcolo. Specificare il nome, il tipo di VM di Azure, tra cui GPU, abilitare/disabilitare l'accesso SSH e configurare le impostazioni della rete virtuale facoltativamente. È anche possibile creare un'istanza direttamente da notebook integrati, portale di Azure, Gestione risorse modello o Azure Machine Learning SDK. La quota di core dedicati per area che si applica alla creazione dell'istanza di calcolo è unificata e condivisa con Azure Machine Learning quota del cluster di calcolo.
+* Creare un'istanza di calcolo. Specificare il nome, il tipo di macchina virtuale di Azure, incluse le GPU (si noti che il tipo di macchina virtuale non può essere modificato dopo la creazione), abilitare/disabilitare l'accesso SSH e configurare le impostazioni della rete virtuale facoltativamente. È anche possibile creare un'istanza direttamente da notebook integrati, portale di Azure, Gestione risorse modello o Azure Machine Learning SDK. La quota di core dedicati per area che si applica alla creazione dell'istanza di calcolo è unificata e condivisa con Azure Machine Learning quota del cluster di calcolo.
 * Aggiornare la scheda istanze di calcolo
 * Avviare, arrestare e riavviare un'istanza di calcolo
 * Eliminare un'istanza di calcolo

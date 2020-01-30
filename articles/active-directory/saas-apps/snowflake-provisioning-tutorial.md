@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Configurare fiocco di neve per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+title: 'Esercitazione: configurare fiocco di neve per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in fiocco di neve.
 services: active-directory
 documentationcenter: ''
@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 04d9ec8cad2404466d2df649df4d5c461768b76f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2aaf1d2b377abc0b10b0b14de03d01c7f6fae5b7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693658"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767757"
 ---
-# <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Esercitazione: Configurare fiocco di neve per il provisioning utenti automatico
+# <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Esercitazione: configurare fiocco di neve per il provisioning utenti automatico
 
 L'obiettivo di questa esercitazione è illustrare i passaggi da eseguire in fiocco di neve e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in fiocco di neve.
 
 > [!NOTE]
 > L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
 >
-> Questo connettore è attualmente disponibile in anteprima pubblica. Per ulteriori informazioni sulle condizioni per l'utilizzo di Microsoft Azure generali per le funzionalità di anteprima, vedere le [condizioni per l'utilizzo supplementari per](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)le anteprime di Microsoft Azure.
+> Questo connettore è attualmente disponibile in anteprima pubblica. Per altre informazioni sulle condizioni per l'utilizzo di Microsoft Azure relative alle funzionalità di anteprima, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -56,10 +56,7 @@ Prima di configurare e abilitare il provisioning utenti automatico, è necessari
 
 Prima di configurare il provisioning utenti automatico con Azure AD, sarà necessario abilitare il provisioning di SCIM in fiocco di neve.
 
-> [!NOTE]
-> Questa integrazione è attualmente in anteprima privata a fiocco di neve. Se si vuole abilitare questa funzionalità nell'account fiocco di neve, contattare il rappresentante di fiocco di neve.
-
-1. Accedere alla console di amministrazione di fiocco di neve. Immettere la query riportata di seguito nell'area di lavoro evidenziata e fare clic su **Esegui**.
+1. Accedere alla console di amministrazione di fiocco di neve. Immettere la query riportata di seguito nel foglio di foglio evidenziato e fare clic su **Esegui**.
 
     ![Console di amministrazione di fiocco di neve](media/Snowflake-provisioning-tutorial/image00.png)
 
@@ -89,7 +86,7 @@ Per configurare il provisioning utenti automatico con Azure AD, è necessario ad
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere fiocco di **neve**, selezionare fiocco di **neve** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca immettere **fiocco di neve**, selezionare **fiocco di neve** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Snowflake nell'elenco risultati](common/search-new-app.png)
 
@@ -98,7 +95,7 @@ Per configurare il provisioning utenti automatico con Azure AD, è necessario ad
 Questa sezione illustra i passaggi necessari per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in fiocco di neve in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare l'accesso Single Sign-on basato su SAML per fiocco di neve, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on](Snowflake-tutorial.md)a fiocco di neve. L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per fiocco di neve, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on a fiocco di neve](Snowflake-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
 ### <a name="to-configure-automatic-user-provisioning-for-snowflake-in-azure-ad"></a>Per configurare il provisioning utenti automatico per fiocco di neve in Azure AD:
 
@@ -118,17 +115,17 @@ Questa sezione illustra i passaggi necessari per configurare il servizio di prov
 
     ![Scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione credenziali amministratore immettere `https://<Snowflake Account URL>/scim/v2` in URL tenant. Esempio di URL del tenant:`https://acme.snowflakecomputing.com/scim/v2`
+5. Nella sezione credenziali amministratore immettere `https://<Snowflake Account URL>/scim/v2` in URL tenant. Esempio di URL del tenant: `https://acme.snowflakecomputing.com/scim/v2`
 
 6. Immettere il valore del **token di autenticazione scim** recuperato in precedenza in **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a fiocco di neve. Se la connessione non riesce, verificare che l'account fiocco di neve disponga di autorizzazioni di amministratore e riprovare.
 
-    ![URL tenant + token](common/provisioning-testconnection-tenanturltoken.png)
+    ![URL del tenant e token](common/provisioning-testconnection-tenanturltoken.png)
 
 7. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-8. Fare clic su **Save**.
+8. Fare clic su **Salva**.
 
 9. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a fiocco di neve**.
 
@@ -148,13 +145,13 @@ Questa sezione illustra i passaggi necessari per configurare il servizio di prov
 
 13. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-14. Per abilitare il servizio di provisioning Azure AD per fiocco di neve, impostare **stato** del provisioning **su** attivato nella sezione **Impostazioni** .
+14. Per abilitare il servizio di provisioning Azure AD per fiocco di neve, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-15. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in fiocco di neve scegliendo i valori desiderati in **ambito** nella sezione **Impostazioni** .
+15. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in fiocco di neve scegliendo i valori desiderati in **ambito** nella sezione **Impostazioni** . Se questa opzione non è disponibile, configurare i campi obbligatori in credenziali di amministratore, fare clic su **Salva** e aggiornare la pagina. 
 
-    ![Ambito del provisioning](common/provisioning-scope.png)
+    ![Ambito di provisioning](common/provisioning-scope.png)
 
 16. Quando si è pronti per eseguire il provisioning, fare clic su **Salva**.
 

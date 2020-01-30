@@ -1,25 +1,27 @@
 ---
-title: Serie di SKU non disponibile | Microsoft Docs
-description: Alcune serie di SKU non sono disponibili per la sottoscrizione selezionata nell'area.
+title: Area o serie SKU non disponibili-Azure
+description: Alcune serie di SKU non sono disponibili per la sottoscrizione selezionata per questa area, che potrebbe richiedere la richiesta di supporto per la gestione delle sottoscrizioni.
 services: Azure Supportability
 author: stevendotwang
 ms.service: azure-supportability
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/27/2020
 ms.author: xingwan
-ms.openlocfilehash: e317ae1ad88cf162f1d55a06d19e7b3b0b88ce60
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: b0f0762ded6804c0b0d90a19223c082f0fb8fd49
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896727"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843635"
 ---
 # <a name="region-or-sku-unavailable"></a>Area o SKU non disponibili
+
 Questo articolo illustra come risolvere il problema di una sottoscrizione di Azure che non ha accesso a un'area o a uno SKU di VM.
 
 ## <a name="symptoms"></a>Sintomi
 
-### <a name="when-deploying-a-virtual-machine-you-receive-one-of-the-following-error-messages"></a>Quando si distribuisce una macchina virtuale, viene visualizzato uno dei messaggi di errore seguenti:
+Quando si distribuisce una macchina virtuale, viene visualizzato uno dei messaggi di errore seguenti:
+
 ```
 Code: SkuNotAvailable
 Message: The requested size for resource '<resource>' is currently not available in location 
@@ -37,7 +39,7 @@ Code: NotAvailableForSubscription
 Message: This size is currently unavailable in this location for this subscription
 ```
 
-### <a name="when-purchasing-reserved-virtual-machine-instances-you-receive-one-of-the-following-error-messages"></a>Quando si acquistano delle istanze di macchine virtuali riservate, viene visualizzato uno dei messaggi di errore seguenti:
+Quando si acquistano delle istanze di macchine virtuali riservate, viene visualizzato uno dei messaggi di errore seguenti:
 
 ```
 Message: Your subscription doesn’t support virtual machine reservation in <location>. Choose a 
@@ -48,32 +50,38 @@ different location. Supported locations are: <list of locations>
 Message: This size is currently unavailable in this location for this subscription
 ```
 
-### <a name="when-creating-a-support-request-to-increase-compute-core-quota-a-region-or-a-sku-family-is-not-available-for-selection"></a>Durante la creazione di una richiesta di supporto per aumentare la quota di core di calcolo, un'area o una famiglia di SKU non sono disponibili per la selezione.
+Quando si crea una richiesta di supporto per aumentare la quota di core di calcolo, un'area o una famiglia di SKU non è disponibile per la selezione.
 
 ## <a name="solution"></a>Soluzione
-Si consiglia innanzitutto di prendere in considerazione un'area o uno SKU alternativi che soddisfino le esigenze aziendali. Se non si trovano aree o SKU adatti, creare una [richiesta di supporto](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) "Gestione della sottoscrizione" seguendo questa procedura:
 
+Si consiglia innanzitutto di prendere in considerazione un'area o uno SKU alternativi che soddisfino le esigenze aziendali.
 
-- Nella pagina Informazioni di base selezionare "Gestione della sottoscrizione" come tipo di problema, selezionare la sottoscrizione e fare clic su "Avanti".
+Se non si riesce a trovare un'area o uno SKU appropriato, creare una [richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) per la **gestione delle sottoscrizioni** attenendosi alla procedura seguente:
 
-![Pannello Nozioni di base](./media/SKU-series-unavailable/BasicsSubMgmt.png)
+1. Scegliere **Guida e supporto**dal menu [portale di Azure](https://portal.azure.com) . Selezionare quindi **Nuova richiesta di supporto**.
 
+1. In **nozioni di base**, per **tipo di problema**, selezionare **Gestione sottoscrizioni**.
 
--   Nella pagina Problema selezionare "Other General questions" (Altre domande generiche).
-- Nella sezione dei dettagli:
-  - Indicare se si stanno distribuendo le macchine virtuali o si stanno acquistando le istanze di macchina virtuale riservate
-  - Specificare l'area, lo SKU e il numero di istanze di macchina virtuale che si prevede di distribuire o acquistare
+1. Selezionare una **sottoscrizione** e immettere una breve descrizione in **Riepilogo**.
 
+   ![Scheda nozioni di base della nuova richiesta di supporto](./media/SKU-series-unavailable/support-request-basics.png)
 
-![Problema](./media/SKU-series-unavailable/ProblemSubMgmt.png)
+1. Per **tipo di problema**, scegliere **Seleziona tipo di problema**.
 
--   Immettere i dati richiesti e fare clic su "Crea".
+1. Per **selezionare il tipo di problema**, scegliere un'opzione, ad esempio, non è **possibile accedere alla sottoscrizione o alla risorsa** > **il problema non è elencato sopra**. Selezionare **Salva**.
 
-![Informazioni di contatto](./media/SKU-series-unavailable/ContactInformation.png)
+   ![Specificare un problema per la richiesta](./media/SKU-series-unavailable/support-request-select-problem-type.png)
 
-## <a name="feedback"></a>Commenti
-Commenti e suggerimenti sono sempre graditi. È possibile inviare [suggerimenti](https://feedback.azure.com/forums/266794-support-feedback). È possibile inoltre comunicare tramite [Twitter](https://twitter.com/azuresupport) o i [forum MSDN](https://social.msdn.microsoft.com/Forums/azure).
+1. Selezionare **Avanti: soluzioni** per esplorare le possibili soluzioni. Se necessario, fare clic su **Avanti: dettagli** per continuare.
+
+1. Immettere le informazioni aggiuntive che è possibile fornire, insieme alle informazioni di contatto.
+
+1. Selezionare **Rivedi e crea**. Dopo aver verificato le informazioni, selezionare **Crea** per creare la richiesta.
+
+## <a name="send-us-your-suggestions"></a>Inviaci i tuoi suggerimenti
+
+Ci siamo sempre aperti a commenti e suggerimenti. È possibile inviare [suggerimenti](https://feedback.azure.com/forums/266794-support-feedback). Inoltre, è possibile interagire con Microsoft su [Twitter](https://twitter.com/azuresupport) o sui [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure).
 
 ## <a name="learn-more"></a>Altre informazioni.
-[Domande frequenti relative al supporto tecnico Azure](https://azure.microsoft.com/support/faq)
 
+[Domande frequenti relative al supporto tecnico Azure](https://azure.microsoft.com/support/faq)

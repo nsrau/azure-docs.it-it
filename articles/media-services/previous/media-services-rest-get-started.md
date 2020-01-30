@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f0f9b2c974c0a095719973b1c6173d682718dbbf
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 8989acc6d21a3c53be9d97c74ed7fbf03ba54819
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69014863"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773674"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introduzione alla distribuzione di contenuti su richiesta usando REST  
 
@@ -85,7 +85,7 @@ Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Se
 
 ## <a id="upload"></a>Creare un nuovo asset e caricare un file video con l'API REST
 
-In Servizi multimediali è possibile caricare i file digitali in un asset. L'entità **Asset** può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati, oltre ai metadati relativi a questi file.  Dopo il caricamento dei file nell'asset, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming.
+In Servizi multimediali è possibile caricare i file digitali in un asset. L'entità **Asset** può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati, oltre ai metadati relativi a questi file.  Una volta caricati i file nell'asset, il contenuto viene archiviato in modo sicuro nel cloud per un'ulteriore elaborazione e streaming.
 
 Quando si crea un asset è necessario specificare le opzioni correlate. La proprietà **Options** è un valore di enumerazione che descrive le opzioni di crittografia da usare per la creazione di un asset. Nel seguente elenco sono riportati i valori validi, che è possibile specificare singolarmente, non in combinazione:
 
@@ -109,7 +109,7 @@ Il seguente esempio mostra come creare un asset.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: c59de965-bc89-4295-9a57-75d897e5221e
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 45
@@ -163,7 +163,7 @@ Dopo avere caricato il file multimediale digitale in un contenitore BLOB, è nec
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 164
 
@@ -225,7 +225,7 @@ Il seguente esempio mostra come creare un'entità AccessPolicy:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 74
 
@@ -270,7 +270,7 @@ Un URL di firma di accesso condiviso ha il seguente formato:
 Considerazioni applicabili:
 
 * Non è possibile avere più di cinque localizzatori univoci associati contemporaneamente a un determinato asset. 
-* Se è necessario caricare i file immediatamente, impostare il valore StartTime su cinque minuti prima dell'ora corrente. Potrebbe infatti essere presente una leggera differenza di orario tra il computer client e Servizi multimediali. Inoltre, il valore StartTime deve essere nel formato data/ora seguente: AAAA-MM-GGTHH:mm:ss (ad esempio, "2014-05-23T17:53:50Z").    
+* Se è necessario caricare i file immediatamente, impostare il valore StartTime su cinque minuti prima dell'ora corrente. Potrebbe infatti essere presente una leggera differenza di orario tra il computer client e Servizi multimediali. Inoltre, il formato DateTime del valore StartTime deve essere il seguente: AAAA-MM-GGTHH:mm:ssZ (ad esempio, "2014-05-23T17:53:50Z").    
 * Può verificarsi un ritardo di 30-40 secondi tra la creazione di un localizzatore e la relativa disponibilità per l'uso. Questo problema si verifica sia per i localizzatori [URL di firma di accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) sia per i localizzatori di origine.
 
 Il seguente esempio mostra come creare un localizzatore URL di firma di accesso condiviso, come definito dalla proprietà Type nel corpo della richiesta ("1" per un localizzatore di firma di accesso condiviso e "2" per un localizzatore di origine su richiesta). La proprietà **Path** restituita contiene l'URL da usare per caricare il file.
@@ -284,7 +284,7 @@ Il seguente esempio mostra come creare un localizzatore URL di firma di accesso 
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 178
 
@@ -332,7 +332,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 Una volta impostati AccessPolicy e Locator, il file effettivo viene caricato nel contenitore di archiviazione BLOB di Azure usando le API REST di Archiviazione di Azure. È necessario caricare i file come BLOB in blocchi. I BLOB di pagine non sono supportati da Servizi multimediali di Azure.  
 
 > [!NOTE]
-> È necessario aggiungere il nome del file da caricare nel valore **Path** di Locator ricevuto nella sezione precedente. Ad esempio `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?`.
+> È necessario aggiungere il nome del file da caricare nel valore **Path** di Locator ricevuto nella sezione precedente. Ad esempio: `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?`.
 >
 >
 
@@ -348,7 +348,7 @@ Una volta caricato il file, è possibile aggiornare la dimensione dell'entità F
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
     {  
@@ -376,7 +376,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 
@@ -395,7 +395,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 **Risposta HTTP**
@@ -409,7 +409,7 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 
 Dopo aver inserito gli asset in Servizi multimediali, i file multimediali possono essere codificati, sottoposti a transmux e all'applicazione di filigrana e così via prima di essere distribuiti ai client. Queste attività vengono pianificate ed eseguite in più istanze del ruolo in background per assicurare prestazioni e disponibilità elevate. Queste attività vengono chiamate processi. Ogni processo è formato da attività atomiche che svolgono le procedure effettive nel file di asset (per altre informazioni, vedere le descrizioni di [processi](https://docs.microsoft.com/rest/api/media/operations/job) e [attività](https://docs.microsoft.com/rest/api/media/operations/task)).
 
-Come indicato prima, quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Servizi multimediali può creare dinamicamente un pacchetto di un set di file MP4 a bitrate adattivo in uno dei formati seguenti: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
+Come indicato prima, quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Servizi multimediali può creare dinamicamente un pacchetto di un set di file MP4 a bitrate adattivo in uno dei formati seguenti: HTTP Live Streaming (HLS), Smooth Streaming e MPEG DASH.
 
 La seguente sezione mostra come creare un processo contenente una singola attività di codifica, che indica di transcodificare il file in formato intermedio in un set di file MP4 a velocità in bit adattiva con **Media Encoder Standard**. Mostra inoltre come monitorare lo stato di avanzamento dell'elaborazione del processo. Una volta completato il processo, sarà possibile creare i localizzatori necessari per ottenere l'accesso agli asset.
 
@@ -426,7 +426,7 @@ Il seguente codice include la richiesta dell'ID del codificatore.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 
@@ -459,8 +459,8 @@ Il seguente codice include la richiesta dell'ID del codificatore.
        ]
     }
 
-### <a name="create-a-job"></a>Crea un processo
-Ogni processo può includere una o più attività in base al tipo di elaborazione che si desidera eseguire. Usando l'API REST è possibile creare i processi e le attività correlate procedendo in due modi diversi. Le attività possono essere definite inline mediante la proprietà di navigazione Tasks in entità Job o mediante l'elaborazione batch OData. Media Services SDK usa l'elaborazione batch. Tuttavia, per semplificare la leggibilità degli esempi di codice inclusi in questo articolo le attività sono state definite inline. Per informazioni sull'elaborazione batch, vedere l'articolo relativo all' [elaborazione batch OData (Open Data Protocol)](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+### <a name="create-a-job"></a>Creare un processo
+Ogni processo può includere una o più attività in base al tipo di elaborazione che si desidera eseguire. Tramite l'API REST è possibile creare processi e le attività correlate in due modi: le attività possono essere definite inline mediante la proprietà di navigazione Tasks in entità Job o mediante l'elaborazione batch OData. Media Services SDK usa l'elaborazione batch. Tuttavia, per semplificare la leggibilità degli esempi di codice inclusi in questo articolo le attività sono state definite inline. Per informazioni sull'elaborazione batch, vedere l'articolo relativo all' [elaborazione batch OData (Open Data Protocol)](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
 Il seguente esempio mostra come creare e pubblicare un processo con un'attività impostata per codificare un video con determinati valori di risoluzione e qualità. La sezione di documentazione seguente contiene l'elenco di tutti i [set di impostazioni di attività](https://msdn.microsoft.com/library/mt269960) supportati dal processore di Media Encoder Standard.  
 
@@ -473,7 +473,7 @@ Il seguente esempio mostra come creare e pubblicare un processo con un'attività
     Accept: application/json;odata=verbose
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 482
 
@@ -595,7 +595,7 @@ Per altre informazioni, vedere [Creazione di un processo di codifica con l'API R
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
     Content-Length: 0
@@ -632,7 +632,7 @@ Il seguente esempio mostra come chiamare la funzione CancelJob.
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.2
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
 
@@ -656,7 +656,7 @@ Il seguente codice mostra come richiedere l'ID dell'asset di output.
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 
@@ -733,7 +733,7 @@ Il seguente esempio mostra come specificare l'entità AccessPolicy per le autori
     Accept: application/json
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
     Content-Length: 74
@@ -744,7 +744,7 @@ Il seguente esempio mostra come specificare l'entità AccessPolicy per le autori
 Se l'esito è positivo, viene restituito un codice di riuscita 201 in cui viene descritta l'entità AccessPolicy creata. Si userà quindi l'ID AccessPolicy insieme all'ID asset in cui è contenuto il file che si vuole distribuire (ad esempio un asset di output) per creare l'entità Locator.
 
 > [!NOTE]
-> Questo flusso di lavoro di base è lo stesso previsto per il caricamento di un file durante l'inserimento di un asset, come illustrato in precedenza in questo argomento. Come per il caricamento dei file, se l'utente o i relativi client desiderano accedere immediatamente ai file, impostare il valore StartTime su cinque minuti prima dell'ora corrente. Questa operazione è necessaria perché potrebbe essere presente una leggera differenza di orario tra il computer client e Servizi multimediali. Il valore StartTime deve essere nel formato data/ora seguente: AAAA-MM-GGTHH:mm:ss (ad esempio, "2014-05-23T17:53:50Z").
+> Questo flusso di lavoro di base è lo stesso previsto per il caricamento di un file durante l'inserimento di un asset, come illustrato in precedenza in questo argomento. Come per il caricamento dei file, se l'utente o i relativi client desiderano accedere immediatamente ai file, impostare il valore StartTime su cinque minuti prima dell'ora corrente. Questa operazione è necessaria perché potrebbe essere presente una leggera differenza di orario tra il computer client e Servizi multimediali. Il formato DateTime del valore StartTime deve essere il seguente: AAAA-MM-GGTHH:mm:ssZ (ad esempio, "2014-05-23T17:53:50Z").
 >
 >
 
@@ -756,7 +756,7 @@ Il seguente codice mostra come ottenere un URL da usare per il download di un fi
     Accept: application/json
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
     Content-Length: 182
@@ -813,11 +813,11 @@ La proprietà **Path** restituita contiene l'URL di firma di accesso condiviso.
 >
 >
 
-### <a name="download-files"></a>Download dei file
+### <a name="download-files"></a>Scaricare i file
 Una volta impostate le entità AccessPolicy e Locator, è possibile scaricare i file mediante le API REST di Archiviazione di Azure.  
 
 > [!NOTE]
-> È necessario aggiungere il nome del file da scaricare nel valore **Path** di Locator ricevuto nella sezione precedente. Ad esempio: https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+> È necessario aggiungere il nome del file da scaricare nel valore **Path** di Locator ricevuto nella sezione precedente. Ad esempio, usare https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
 
 Per altre informazioni sull'uso dei BLOB di Archiviazione di Azure, vedere [API REST del servizio BLOB](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
@@ -847,7 +847,7 @@ Il seguente codice mostra come creare un localizzatore URL di streaming:
     Accept: application/json
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs
     Content-Length: 182
@@ -918,5 +918,5 @@ Per testare il download progressivo, incollare un URL in un browser (ad esempio,
 ## <a name="next-steps-media-services-learning-paths"></a>Passaggi successivi: Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

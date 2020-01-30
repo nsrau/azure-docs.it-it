@@ -11,16 +11,16 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2019
-ms.openlocfilehash: 33697fd8d3b0c6faea423026e1462834c6b1ef4c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e32250102d095f341b2de918037b9ad834adfd33
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822650"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842657"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Creazione e uso della replica geografica attiva
 
-La replica geografica attiva è una funzionalità del database SQL di Azure che consente di creare database secondari leggibili di singoli database in un server di database SQL nello stesso data center o in uno diverso (area).
+La replica geografica attiva è una funzionalità del database SQL di Azure che consente di creare database secondari leggibili di singoli database in un server di database SQL nello stesso data center o in un'altra area.
 
 > [!NOTE]
 > La replica geografica attiva non è supportata dall'istanza gestita. Per il failover geografico di istanze gestite, usare [gruppi di failover automatico](sql-database-auto-failover-group.md).
@@ -124,6 +124,79 @@ Se si decide di creare il database secondario con dimensioni di calcolo inferior
 
 Per altre informazioni sulle dimensioni di calcolo del database SQL, vedere [Quali sono i livelli di servizio del database SQL di Azure?](sql-database-purchase-models.md).
 
+## <a name="cross-subscription-geo-replication"></a>Replica geografica tra sottoscrizioni
+
+Per configurare la replica geografica attiva tra due database appartenenti a sottoscrizioni diverse (indipendentemente dal fatto che si trovino nello stesso tenant), è necessario seguire la procedura speciale descritta in questa sezione.  La procedura è basata sui comandi SQL e richiede: 
+
+- Creazione di un account di accesso con privilegi in entrambi i server
+- Aggiunta dell'indirizzo IP all'elenco Consenti del client che esegue la modifica in entrambi i server, ad esempio l'indirizzo IP dell'host che esegue SQL Server Management Studio. 
+
+Il client che esegue le modifiche richiede l'accesso alla rete al server primario. Anche se lo stesso indirizzo IP del client deve essere aggiunto all'elenco Consenti sul server secondario, la connettività di rete al server secondario non è strettamente necessaria. 
+
+### <a name="on-the-master-of-the-primary-server"></a>Nel database master del server primario
+
+1. Aggiungere l'indirizzo IP all'elenco Consenti del client che esegue le modifiche. per ulteriori informazioni, vedere [configurare il firewall](sql-database-firewall-configure.md). 
+1. Creare un account di accesso dedicato per configurare la replica geografica attiva (e modificare le credenziali in base alle esigenze):
+
+   ```sql
+   create login geodrsetup with password = 'ComplexPassword01'
+   ```
+
+1. Creare un utente corrispondente e assegnarlo al ruolo dbmanager: 
+
+   ```sql
+   create user geodrsetup for login gedrsetup
+   alter role geodrsetup dbmanager add member geodrsetup
+   ```
+
+1. Prendere nota del SID del nuovo account di accesso usando questa query: 
+
+   ```sql
+   select sid from sys.sql_logins where name = 'geodrsetup'
+   ```
+
+### <a name="on-the-source-database-on-the-primary-server"></a>Nel database di origine nel server primario
+
+1. Creare un utente per lo stesso account di accesso:
+
+   ```sql
+   create user geodrsetup for login geodrsetup
+   ```
+
+1. Aggiungere l'utente al ruolo db_owner:
+
+   ```sql
+   alter role db_owner add member geodrsetup
+   ```
+
+### <a name="on-the-master-of-the-secondary-server"></a>Nel database master del server secondario 
+
+1. Aggiungere l'indirizzo IP all'elenco Consenti del client che esegue le modifiche. Deve corrispondere esattamente all'indirizzo IP del server primario. 
+1. Creare lo stesso account di accesso del server primario, usando la stessa password del nome utente e SID: 
+
+   ```sql
+   create login geodrsetup with password = 'ComplexPassword01', sid=0x010600000000006400000000000000001C98F52B95D9C84BBBA8578FACE37C3E
+   ```
+
+1. Creare un utente corrispondente e assegnarlo al ruolo dbmanager:
+
+   ```sql
+   create user geodrsetup for login geodrsetup;
+   alter role dbmanager add member geodrsetup
+   ```
+
+### <a name="on-the-master-of-the-primary-server"></a>Nel database master del server primario
+
+1. Accedere al database master del server primario utilizzando il nuovo account di accesso. 
+1. Creare una replica secondaria del database di origine nel server secondario (modificare il nome del database e il nomeserver secondo le esigenze):
+
+   ```sql
+   alter database dbrep add secondary on server <servername>
+   ```
+
+Dopo l'installazione iniziale, è possibile rimuovere gli utenti, gli account di accesso e le regole del firewall create. 
+
+
 ## <a name="keeping-credentials-and-firewall-rules-in-sync"></a>Mantenere sincronizzate le regole del firewall e le credenziali
 
 È consigliabile usare le [regole del firewall IP a livello di database](sql-database-firewall-configure.md) per i database con replica geografica, in modo che queste regole possano essere replicate con il database per garantire che tutti i database secondari abbiano le stesse regole del firewall IP del database primario. In questo modo non è più necessario configurare e gestire le regole del firewall manualmente nei server che ospitano sia il database primario che i secondari. Analogamente, l'accesso ai dati come [utenti di database indipendente](sql-database-manage-logins.md) fa sì che i database primari e secondari abbiano sempre le stesse credenziali utente. Durante un failover, quindi, non si verificano interruzioni dovute a una mancata corrispondenza tra account di accesso e password. Con l'aggiunta di [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) i clienti possono gestire l'accesso utente ai database primari e secondari, eliminando completamente la necessità di gestire le credenziali nei database.
@@ -150,12 +223,12 @@ A causa della latenza elevata delle reti WAN, per la copia continua viene usato 
 
 ## <a name="monitoring-geo-replication-lag"></a>Monitoraggio del ritardo della replica geografica
 
-Per monitorare il ritardo rispetto a RPO, utilizzare *replication_lag_sec* colonna di [sys. dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) nel database primario. Mostra un ritardo in secondi tra le transazioni di cui è stato eseguito il commit nel database primario e rese permanente sul database secondario. Ad esempio, Se il valore del ritardo è di 1 secondo, significa che se il database primario è influenzato da un'interruzione in questo momento e viene avviato il failover, 1 secondo delle transizioni più recenti non verrà salvato. 
+Per monitorare il ritardo rispetto a RPO, utilizzare *replication_lag_sec* colonna di [sys. dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) nel database primario. Mostra un ritardo in secondi tra le transazioni di cui è stato eseguito il commit nel database primario e rese permanente sul database secondario. Ad esempio Se il valore del ritardo è di 1 secondo, significa che se il database primario è influenzato da un'interruzione in questo momento e viene avviato il failover, 1 secondo delle transizioni più recenti non verrà salvato. 
 
 Per misurare il ritardo rispetto alle modifiche apportate al database primario che sono state applicate al database secondario, ovvero disponibili per la lettura dalla replica secondaria, confrontare *last_commit* tempo nel database secondario con lo stesso valore nel database primario.
 
 > [!NOTE]
-> A volte *replication_lag_sec* nel database primario ha un valore null, il che significa che il database primario non conosce attualmente la distanza del database secondario.   Questo problema si verifica in genere dopo il riavvio del processo e deve essere una condizione temporanea. Si consiglia di avvisare l'applicazione se il *replication_lag_sec* restituisce null per un periodo di tempo prolungato. Indica che il database secondario non è in grado di comunicare con il database primario a causa di un errore di connettività permanente. Esistono anche condizioni che possono causare la differenza tra *last_commit* tempo nel database secondario e nel database primario per diventare di grandi dimensioni. Ad esempio, Se un commit viene eseguito sul database primario dopo un lungo periodo di assenza di modifiche, la differenza passerà a un valore elevato prima di tornare rapidamente a 0. Si consideri una condizione di errore quando la differenza tra questi due valori rimane grande per molto tempo.
+> A volte *replication_lag_sec* nel database primario ha un valore null, il che significa che il database primario non conosce attualmente la distanza del database secondario.   Questo problema si verifica in genere dopo il riavvio del processo e deve essere una condizione temporanea. Si consiglia di avvisare l'applicazione se il *replication_lag_sec* restituisce null per un periodo di tempo prolungato. Indica che il database secondario non è in grado di comunicare con il database primario a causa di un errore di connettività permanente. Esistono anche condizioni che possono causare la differenza tra *last_commit* tempo nel database secondario e nel database primario per diventare di grandi dimensioni. Ad esempio Se un commit viene eseguito sul database primario dopo un lungo periodo di assenza di modifiche, la differenza passerà a un valore elevato prima di tornare rapidamente a 0. Si consideri una condizione di errore quando la differenza tra questi due valori rimane grande per molto tempo.
 
 
 ## <a name="programmatically-managing-active-geo-replication"></a>Gestione a livello di codice della replica geografica attiva
@@ -167,7 +240,7 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 > [!IMPORTANT]
 > Questi comandi Transact-SQL si applicano solo alla replica geografica attiva e non ai gruppi di failover. Di conseguenza potrebbero anche non applicarsi a istanze gestite, perché supportano solo i gruppi di failover.
 
-| Comando | Descrizione |
+| Comando | Description |
 | --- | --- |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Usare l'argomento ADD SECONDARY ON SERVER per creare un database secondario per un database esistente e avviare la replica dei dati |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Usare FAILOVER o FORCE_FAILOVER_ALLOW_DATA_LOSS per passare un database secondario al ruolo di database primario per avviare il failover |
@@ -184,7 +257,7 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 > [!IMPORTANT]
 > Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
-| Cmdlet | Descrizione |
+| Cmdlet | Description |
 | --- | --- |
 | [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) |Ottiene uno o più database. |
 | [New-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasesecondary) |Crea un database secondario per un database esistente e avvia la replica dei dati. |
@@ -198,7 +271,7 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 
 ### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>API REST: gestire il failover di database singoli e in pool
 
-| API | Descrizione |
+| API SmartBear Ready! | Description |
 | --- | --- |
 | [Creare o aggiornare database (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Crea, aggiorna o ripristina un database primario o secondario. |
 | [Get Create or Update Database Status](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Restituisce lo stato durante un'operazione di creazione. |

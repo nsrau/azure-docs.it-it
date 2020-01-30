@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 990493b6b2c3757849168d8fb82a4b38f55364e2
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 95601735064451a91530907e5e6b59f579ff0e28
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951065"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840265"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurare il flusso delle credenziali password del proprietario della risorsa in Azure Active Directory B2C usando criteri personalizzati
 
@@ -38,7 +38,7 @@ I flussi seguenti non sono supportati:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
+Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](custom-policy-get-started.md).
 
 ## <a name="register-an-application"></a>Registrare un'applicazione
 
@@ -261,9 +261,9 @@ Usare l'applicazione di sviluppo API preferita per generare una chiamata API ed 
 - Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C.
 - Sostituire `B2C_1A_ROPC_Auth` con il nome completo dei criteri delle credenziali password del proprietario della risorsa.
 
-| Chiave | Value |
+| Chiave | Valore |
 | --- | ----- |
-| Nome utente | `user-account` |
+| username | `user-account` |
 | password | `password1` |
 | grant_type | password |
 | scope | openid `application-id` offline_access |
@@ -306,7 +306,7 @@ Costruire una chiamata POST come l'esempio seguente. Usare le informazioni ripor
 - Sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C.
 - Sostituire `B2C_1A_ROPC_Auth` con il nome completo dei criteri delle credenziali password del proprietario della risorsa.
 
-| Chiave | Value |
+| Chiave | Valore |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
@@ -342,4 +342,4 @@ Azure AD B2C soddisfa gli standard OAuth 2.0 per le credenziali password del pro
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Un esempio completo di questo scenario è illustrato nello [starter pack per i criteri personalizzati di Azure Active Directory B2C](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/source/aadb2c-ief-ropc).
-- Altre informazioni sui token usati da Azure Active Directory B2C nel [riferimento ai token](active-directory-b2c-reference-tokens.md).
+- Altre informazioni sui token usati da Azure Active Directory B2C nel [riferimento ai token](tokens-overview.md).
