@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4f662df6692e03cf3eb948b0d8e2ae51002e815d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 793258b572fdcf2487d4b20fa07fb4ef5524b149
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113015"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846259"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Come indicizzare i documenti nell'archivio BLOB di Azure con Azure ricerca cognitiva
 
@@ -30,7 +30,7 @@ L'indicizzatore BLOB può estrarre il testo dai formati di documento seguenti:
 ## <a name="setting-up-blob-indexing"></a>Configurazione dell'indicizzazione BLOB
 È possibile impostare un indicizzatore dell'Archiviazione BLOB di Azure usando:
 
-* [Portale di Azure](https://ms.portal.azure.com)
+* [Azure portal](https://ms.portal.azure.com)
 * [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) di Azure ricerca cognitiva
 * Azure ricerca cognitiva [.NET SDK](https://aka.ms/search-sdk)
 
@@ -134,14 +134,14 @@ A seconda della relativa [configurazione](#PartsOfBlobToIndex), l'indicizzatore 
 * Il contenuto di testo del documento viene estratto in un campo di tipo stringa denominato `content`.
 
 > [!NOTE]
-> Azure ricerca cognitiva limita la quantità di testo da estrarre a seconda del piano tariffario: 32.000 caratteri per il livello gratuito, 64.000 per Basic e 4 milioni per i livelli standard, standard S2 e S3 standard. Un avviso è incluso nella risposta dello stato dell'indicizzatore per i documenti troncati.  
+> Azure ricerca cognitiva limita la quantità di testo da estrarre a seconda del piano tariffario: 32.000 caratteri per il livello gratuito, 64.000 per Basic, 4 milioni per standard, 8 milioni per standard S2 e 16 milioni per S3 standard. Un avviso è incluso nella risposta dello stato dell'indicizzatore per i documenti troncati.  
 
 * Le proprietà dei metadati specificate dall'utente eventualmente presenti nel BLOB vengono estratte letteralmente.
 * Le proprietà dei metadati BLOB standard vengono estratte nei campi seguenti:
 
   * **metadata\_storage\_name** (Edm.String): nome file del BLOB. Se, ad esempio, è presente un BLOB /my-container/my-folder/subfolder/resume.pdf, il valore di questo campo è `resume.pdf`.
-  * **metadata\_storage\_path** (Edm.String): URI completo del BLOB, incluso l'account di archiviazione. Ad esempio, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
-  * **metadata\_storage\_content\_type** (Edm.String): tipo di contenuto specificato dal codice usato per caricare il BLOB. Ad esempio `application/octet-stream`.
+  * **metadata\_storage\_path** (Edm.String): URI completo del BLOB, incluso l'account di archiviazione. Ad esempio, usare `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
+  * **metadata\_storage\_content\_type** (Edm.String): tipo di contenuto specificato dal codice usato per caricare il BLOB. Ad esempio: `application/octet-stream`.
   * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset): ultimo timestamp modificato per il BLOB. Azure ricerca cognitiva usa questo timestamp per identificare i BLOB modificati, in modo da evitare di reindicizzare tutto dopo l'indicizzazione iniziale.
   * **metadata\_storage\_size** (Edm.Int64): dimensioni del BLOB in byte.
   * **metadata\_storage\_content\_md5** (Edm.String): hash MD5 dei contenuti del BLOB, se disponibile.
@@ -162,8 +162,8 @@ In Azure ricerca cognitiva la chiave del documento identifica un documento in mo
 
 È necessario valutare attentamente di quale campo estratto eseguire il mapping al campo chiave per l'indice. I candidati sono:
 
-* **metadata\_storage\_name**: può essere un candidato valido, tuttavia è bene notare che 1) è possibile che i nomi non siano univoci, perché potrebbero esserci BLOB con lo stesso nome in cartelle diverse e 2) è possibile che il nome contenga caratteri non validi nelle chiavi dei documenti, ad esempio trattini. È possibile gestire i caratteri non validi usando la `base64Encode`funzione di mapping dei campi[ ](search-indexer-field-mappings.md#base64EncodeFunction). In questo caso, è necessario ricordarsi di codificare le chiavi dei documenti quando si passano nelle chiamate API, ad esempio in una ricerca. In .NET, ad esempio, è possibile usare il metodo [UrlTokenEncode method](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) a tale scopo.
-* **metadata\_storage\_path**: l'uso del percorso completo garantisce l'univocità, ma il percorso contiene sicuramente caratteri `/` che [non sono validi nella chiave di un documento](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Come prima, è possibile codificare le chiavi usando la `base64Encode`funzione[ ](search-indexer-field-mappings.md#base64EncodeFunction).
+* **metadata\_storage\_name**: può essere un candidato valido, tuttavia è bene notare che 1) è possibile che i nomi non siano univoci, perché potrebbero esserci BLOB con lo stesso nome in cartelle diverse e 2) è possibile che il nome contenga caratteri non validi nelle chiavi dei documenti, ad esempio trattini. È possibile gestire i caratteri non validi usando la [funzione di mapping dei campi](search-indexer-field-mappings.md#base64EncodeFunction) `base64Encode`. in questo caso, ricordarsi di codificare le chiavi dei documenti quando vengono passate nelle chiamate API, ad esempio Lookup. In .NET, ad esempio, è possibile usare il metodo [UrlTokenEncode method](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) a tale scopo.
+* **metadata\_storage\_path**: l'uso del percorso completo garantisce l'univocità, ma il percorso contiene sicuramente caratteri `/` che [non sono validi nella chiave di un documento](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Come sopra, si ha la possibilità di codificare le chiavi usando la [funzione](search-indexer-field-mappings.md#base64EncodeFunction)`base64Encode`.
 * Se nessuna delle opzioni elencate è appropriata, è possibile aggiungere una proprietà di metadati personalizzati ai BLOB. Questa opzione, tuttavia, richiede che il processo di caricamento del BLOB aggiunga la proprietà dei metadati a tutti i BLOB. Poiché la chiave è una proprietà obbligatoria, tutti i BLOB privi di tale proprietà non potranno essere indicizzati.
 
 > [!IMPORTANT]

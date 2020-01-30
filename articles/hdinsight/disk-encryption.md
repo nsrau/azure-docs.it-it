@@ -7,14 +7,14 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/06/2019
-ms.openlocfilehash: 2c015db828bcbfa8b26f519b3a4707b5ec69b8f3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b452cb986e6f662aeb33c2a475f18695ebc75745
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982502"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846099"
 ---
-# <a name="customer-managed-key-disk-encryption"></a>Crittografia del disco della chiave gestita dal cliente
+# <a name="customer-managed-key-disk-encryption"></a>Crittografia del disco con chiavi gestite dal cliente
 
 Azure HDInsight supporta le chiavi gestite dal cliente, nota anche come crittografia Bring Your Own Key (BYOK) per i dati nei dischi gestiti e nei dischi delle risorse collegati alle VM del cluster HDInsight. Questa funzionalità consente di usare Azure Key Vault per gestire le chiavi di crittografia che proteggono i dati inattivi nei cluster HDInsight. I cluster possono avere uno o più account di archiviazione di Azure collegati in cui le chiavi di crittografia possono anche essere gestite da Microsoft o gestite dal cliente, ma il servizio di crittografia è diverso.
 
@@ -79,7 +79,7 @@ In HDInsight è supportato solo Azure Key Vault. Se si ha un proprio insieme di 
 
     b. In **Selezionare un'entità** scegliere l'identità gestita assegnata dall'utente creata.
 
-    ![Impostare Selezionare un'entità per il criterio di accesso di Azure Key Vault](./media/disk-encryption/add-key-vault-access-policy-select-principal.png)
+    ![Impostare Selezionare un'entità per il criterio di accesso di Azure Key Vault](./media/disk-encryption/azure-portal-add-access-policy.png)
 
     c. Impostare **Autorizzazioni chiave** su **Recupera**, **Annulla il wrapping della chiave** ed **Esegui il wrapping della chiave**.
 
@@ -100,6 +100,8 @@ In HDInsight è supportato solo Azure Key Vault. Se si ha un proprio insieme di 
 ### <a name="using-the-azure-portal"></a>Uso del portale di Azure
 
 Durante la creazione del cluster, specificare l'URL della chiave completo, inclusa la versione della chiave. Ad esempio: `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. È anche necessario assegnare l'identità gestita al cluster e fornire l'URI della chiave.
+
+![Crea un nuovo cluster](./media/disk-encryption/create-cluster-portal.png)
 
 ### <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 01/29/2020
 ms.author: victorh
-ms.openlocfilehash: ac8ec9a86c388f41493d60d79a21db28fbf2aa95
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 8b55f31f12ab1057ac2e0f625a0285b6518cc44a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646212"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845765"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -54,7 +54,7 @@ Sono disponibili tre tipi di raccolte di regole:
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Firewall di Azure supporta il filtraggio del traffico in ingresso?
 
-Firewall di Azure supporta i filtri in ingresso e in uscita. La protezione in ingresso è per i protocolli non HTTP/S. Ad esempio i protocolli RDP, SSH e FTP.
+Firewall di Azure supporta i filtri in ingresso e in uscita. La protezione in ingresso viene in genere usata per i protocolli non HTTP/S. Ad esempio i protocolli RDP, SSH e FTP. Per la migliore protezione HTTP/S in ingresso, usare un web application firewall come il [firewall applicazione Web di Azure in applicazione Azure gateway](../web-application-firewall/ag/ag-overview.md).
 
 ## <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Quali servizi di registrazione e analisi sono supportati da Firewall di Azure?
 

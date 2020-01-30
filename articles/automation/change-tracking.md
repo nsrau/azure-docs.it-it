@@ -3,19 +3,29 @@ title: Rilevare le modifiche con Automazione di Azure
 description: La soluzione Rilevamento modifiche consente di identificare le modifiche al software e al servizio Windows che si verificano nell'ambiente in uso.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 04/29/2019
+ms.date: 01/28/2019
 ms.topic: conceptual
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7dce249a3e1e13fc9d7d2a962e7f056c803eb23e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 83babd65fdf22ab40b0137d93a1cbe7f1fd7ff04
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75418743"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844803"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche
 
-Questo articolo spiega come usare la soluzione Rilevamento modifiche per identificare facilmente le modifiche nell'ambiente. La soluzione rileva le modifiche apportate al software Windows e Linux, ai file di Windows e Linux, alle chiavi del Registro di sistema di Windows, ai servizi di Windows e ai daemon Linux. Rilevando le modifiche alla configurazione è possibile localizzare eventuali problemi operativi.
+Questo articolo spiega come usare la soluzione Rilevamento modifiche per identificare facilmente le modifiche nell'ambiente. La soluzione tiene traccia delle modifiche di configurazione seguenti che consentono di individuare i problemi operativi:
+
+- Software Windows
+- Software Linux (pacchetti)
+
+    >[!NOTE]
+    >Rilevamento modifiche tiene traccia solo del software gestito con la gestione pacchetti della distribuzione.
+
+- File Windows e Linux
+- Chiavi del registro di sistema di Windows
+- Servizi Windows
+- Daemon Linux
 
 Le modifiche apportate al software installato, ai servizi Windows, al registro di sistema e ai file di Windows e ai Daemon Linux nei server monitorati vengono inviate al servizio monitoraggio di Azure nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud. Usando le informazioni nel dashboard Change Tracking, è possibile visualizzare facilmente le modifiche apportate all'infrastruttura del server.
 
@@ -159,6 +169,8 @@ La soluzione Rilevamento modifiche non supporta attualmente gli elementi seguent
 
 * Ricorsione per Rilevamento del Registro di sistema di Windows
 * File system di rete
+* I diversi metodi di installazione non vengono rilevati
+* i file con estensione exe non vengono rilevati per Windows
 
 Altre limitazioni:
 

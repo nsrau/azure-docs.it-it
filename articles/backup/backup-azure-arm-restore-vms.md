@@ -4,12 +4,12 @@ description: Ripristinare una macchina virtuale di Azure da un punto di ripristi
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 98101639d82ede2a6c625ea9da413bcf93f6a185
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: d0b2e85fa3dfb0168c40c6b8838c7b9890c92ab6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75753926"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844008"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Come ripristinare i dati delle macchine virtuali di Azure in portale di Azure
 
@@ -161,7 +161,7 @@ L'esperienza utente per il ripristino dell'area secondaria sarà simile all'espe
 
 ![Seleziona punto di ripristino](./media/backup-azure-arm-restore-vms/sec-rp.png)
 
-![Configurazione di ripristino](./media/backup-azure-arm-restore-vms/rest-config.png)
+![Configurazione ripristino](./media/backup-azure-arm-restore-vms/rest-config.png)
 
 ![Attivare la notifica di ripristino in corso](./media/backup-azure-arm-restore-vms/restorenotifications.png)
 
@@ -214,7 +214,7 @@ Dopo l'attivazione dell'operazione di ripristino, il servizio di backup crea un 
 Esistono diversi aspetti di cui tenere conto dopo il ripristino di una macchina virtuale:
 
 - Le estensioni presenti durante la configurazione del backup vengono installate, ma non abilitate. Se si verifica un problema, reinstallare le estensioni.
-- Se la macchina virtuale sottoposta a backup era associata a un indirizzo IP statico, la macchina virtuale ripristinata avrà un indirizzo IP dinamico per evitare conflitti. È possibile [aggiungere un indirizzo IP statico alla macchina virtuale ripristinata](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
+- Se la macchina virtuale sottoposta a backup era associata a un indirizzo IP statico, la macchina virtuale ripristinata avrà un indirizzo IP dinamico per evitare conflitti. È possibile [aggiungere un indirizzo IP statico alla macchina virtuale ripristinata](/previous-versions/azurevirtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
 - Una macchina virtuale ripristinata non ha un set di disponibilità. Se si usa l'opzione Ripristina disco, è possibile [specificare un set di disponibilità](../virtual-machines/windows/tutorial-availability-sets.md) quando si crea una macchina virtuale dal disco usando il modello fornito o PowerShell.
 - Se si usa una distribuzione Linux basata su cloud-init, ad esempio Ubuntu, per motivi di sicurezza la password verrà bloccata dopo il ripristino. Per [reimpostare la password](../virtual-machines/linux/reset-password.md) nella VM ripristinata, usare l'estensione VMAccess. È consigliabile usare chiavi SSH in queste distribuzioni in modo da non dover reimpostare la password dopo il ripristino.
 - Se non si riesce ad accedere alla macchina virtuale dopo il ripristino a causa di una relazione di macchina virtuale con il controller di dominio, attenersi alla procedura seguente per visualizzare la macchina virtuale:

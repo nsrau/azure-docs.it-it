@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: 9d71dd854c9a5059c2d0a48f57ad3ba5bb1eddf9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 2636e9a225002148e4cd79bb2176e0883aed623a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721320"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844939"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Log nel database di Azure per PostgreSQL-server singolo
 Database di Azure per PostgreSQL consente di configurare e accedere ai log standard di postgres. I log possono essere usati per identificare, risolvere i problemi e correggere errori di configurazione e prestazioni non ottimali. Le informazioni di registrazione che è possibile configurare e l'accesso includono errori, informazioni sulle query, record autovacuum, connessioni e Checkpoint. (L'accesso ai log delle transazioni non è disponibile).
@@ -69,7 +69,7 @@ Per abilitare i log di diagnostica tramite PowerShell, l'interfaccia della riga 
 
 ### <a name="access-diagnostic-logs"></a>Accedere ai log di diagnostica
 
-Il modo in cui si accede ai log dipende dall'endpoint scelto. Per archiviazione di Azure, lo schema è descritto nell'articolo [logs storage account](../azure-monitor/platform/resource-logs-collect-storage.md) . Per gli hub eventi, vedere l'articolo [flusso di log di Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
+Il modo in cui si accede ai log dipende dall'endpoint scelto. Per archiviazione di Azure, vedere l'articolo relativo all' [account di archiviazione dei log](../azure-monitor/platform/resource-logs-collect-storage.md) . Per gli hub eventi, vedere l'articolo [flusso di log di Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
 
 Per i log di monitoraggio di Azure, i log vengono inviati all'area di lavoro selezionata. I log Postgres usano la modalità di raccolta **AzureDiagnostics** , in modo che possano essere sottoposti a query dalla tabella AzureDiagnostics. I campi della tabella sono descritti di seguito. Per altre informazioni sull'esecuzione di query e avvisi, vedere Panoramica delle [query dei log di monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md) .
 
@@ -78,7 +78,7 @@ Di seguito sono riportate le query che è possibile provare a iniziare. È possi
 Cerca tutti i log Postgres per un determinato server nell'ultimo giorno
 ```
 AzureDiagnostics
-| where LogicalServerName_s == 'myservername'
+| where LogicalServerName_s == "myservername"
 | where TimeGenerated > ago(1d) 
 ```
 

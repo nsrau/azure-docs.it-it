@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.openlocfilehash: e0c58c5c3fef41a472fe791f66292c9280531493
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.date: 01/28/2020
+ms.openlocfilehash: 9a3a58cab2d9673a4660967e3a11d7f88900e718
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514681"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844956"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Log di query lente nel database di Azure per MySQL
 Nel Database di Azure per MySQL, il log delle query lente è disponibile per gli utenti. L'accesso al log delle transazioni non è supportato. Il log delle query lente può essere usato per identificare eventuali colli di bottiglia delle prestazioni e procedere alla risoluzione dei problemi.
@@ -51,9 +51,6 @@ Per una descrizione completa dei parametri per il log di query lente, vedere la 
 
 ## <a name="diagnostic-logs"></a>Log di diagnostica
 Database di Azure per MySQL è integrato con i log di diagnostica di Monitoraggio di Azure. Dopo aver abilitato i log di query lente nel server MySQL, è possibile scegliere di crearli in log di monitoraggio di Azure, Hub eventi o archiviazione di Azure. Per altre informazioni sull'abilitazione dei log di diagnostica, vedere la sezione sulle procedure della [documentazione sui log di diagnostica](../azure-monitor/platform/platform-logs-overview.md).
-
-> [!IMPORTANT]
-> Questa funzionalità di diagnostica per i log del server è disponibile solo nei [piani tariffari](concepts-pricing-tiers.md)per utilizzo generico e con ottimizzazione per la memoria.
 
 La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di output, è possibile che i campi inclusi e il relativo ordine di visualizzazione siano differenti.
 

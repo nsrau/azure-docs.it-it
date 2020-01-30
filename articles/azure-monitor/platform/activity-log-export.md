@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: e46574ae7f8faa67c2cc0c1afef1917270f69175
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 1c2047fc4b92ecd5776cb835a2f2138c25f5cb65
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715890"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845458"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Esportare il log attività di Azure nell'archiviazione o in hub eventi di Azure
 
@@ -36,9 +36,10 @@ L'archiviazione del log attività in un account di archiviazione è utile se si 
 ### <a name="storage-account"></a>Account di archiviazione
 Se si sta archiviando il log attività, è necessario [creare un account di archiviazione](../../storage/common/storage-account-create.md) , se non ne è già presente uno. Non usare un account di archiviazione esistente con altri dati non di monitoraggio archiviati, in modo da poter controllare meglio l'accesso ai dati di monitoraggio. Se si archiviano anche log e metriche in un account di archiviazione, è possibile scegliere di usare lo stesso account di archiviazione per conservare tutti i dati di monitoraggio in una posizione centrale.
 
-L'account di archiviazione non deve trovarsi nella stessa sottoscrizione della sottoscrizione che emette log, purché l'utente che configura l'impostazione abbia un accesso RBAC appropriato a entrambe le sottoscrizioni.
-> [!NOTE]
->  Non è al momento possibile archiviare i dati in un account di archiviazione che risiede dietro una rete virtuale protetta.
+L'account di archiviazione non deve trovarsi nella stessa sottoscrizione della sottoscrizione che emette log, purché l'utente che configura l'impostazione abbia un accesso RBAC appropriato a entrambe le sottoscrizioni. 
+
+> [!TIP]
+> Vedere [configurare i firewall e le reti virtuali di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) per fornire l'accesso a un account di archiviazione dietro una rete virtuale protetta.
 
 ### <a name="event-hubs"></a>Hub eventi
 Se si sta inviando il log attività a un hub eventi, è necessario [creare un hub eventi](../../event-hubs/event-hubs-create.md) , se non è già presente. Se in precedenza sono stati trasmessi eventi del log attività a questo spazio dei nomi di hub eventi, l'hub eventi verrà riutilizzato.

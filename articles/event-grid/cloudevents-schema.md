@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: e7cddf95a6537e5799acc523effb484c2249453d
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 25a24c5bb44c77038a508e4c2f4e099132101f6a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548051"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844735"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Usare lo schema CloudEvents v 1.0 con griglia di eventi
 
@@ -73,7 +73,6 @@ I valori delle intestazioni per gli eventi recapitati nello schema CloudEvents e
 |--------------------|---------------------
 | Formato CloudEvents | Formato CloudEvents
 | Formato di Griglia di eventi  | Formato CloudEvents
-| Formato CloudEvents | Formato di Griglia di eventi
 | Formato di Griglia di eventi  | Formato di Griglia di eventi
 
 Per tutti gli schemi di eventi, Griglia di eventi richiede la convalida quando si esegue la pubblicazione in un argomento di Griglia di eventi e quando si crea una sottoscrizione di eventi. Per altre informazioni, vedere [Event Grid security and authentication](security-authentication.md) (Sicurezza e autenticazione di Griglia di eventi).
@@ -109,8 +108,6 @@ New-AzureRmEventGridTopic `
   -Name <topic_name> `
   -InputSchema CloudEventSchemaV1_0
 ```
-
-La versione corrente di CloudEvents non supporta l'invio in batch di eventi. Per pubblicare eventi con lo schema CloudEvent in un argomento, pubblicare singolarmente ogni evento.
 
 ### <a name="output-schema"></a>Schema di output.
 

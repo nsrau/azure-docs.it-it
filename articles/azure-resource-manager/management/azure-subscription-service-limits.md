@@ -3,13 +3,13 @@ title: Limiti e quote della sottoscrizione di Azure
 description: Fornisce un elenco di limiti, quote e vincoli comuni relativi alle sottoscrizioni e ai servizi di Azure. Questo articolo include informazioni su come aumentare i limiti insieme ai valori massimi.
 tags: billing
 ms.topic: conceptual
-ms.date: 01/02/2020
-ms.openlocfilehash: ebfa1139ba0649280634bc0fd18627ba74f0c3cc
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.date: 01/28/2020
+ms.openlocfilehash: c6661ce6d3e0f62c47b1f234898dbf47de36f3ee
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294117"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845980"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione ad Azure e limiti, quote e vincoli del servizio
 

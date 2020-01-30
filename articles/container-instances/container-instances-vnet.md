@@ -4,12 +4,12 @@ description: Informazioni su come distribuire gruppi di contenitori in una rete 
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: danlep
-ms.openlocfilehash: 12260dcb43a675414d38cb5067b230832dd2d16b
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 920ad9598f17fbab25218827045a396d953a6531
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887957"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845184"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuire le istanze di contenitore in una rete virtuale di Azure
 
@@ -32,7 +32,8 @@ Gruppi di contenitori distribuiti in una rete virtuale di Azure abilitano scenar
 Quando si distribuiscono gruppi di contenitori in una rete virtuale, si applicano alcune limitazioni.
 
 * Per distribuire gruppi di contenitori in una subnet, quest'ultima non può contenere altri tipi di risorse. Rimuovere tutte le risorse presenti in una subnet esistente prima di distribuire gruppi di contenitori nella subnet oppure creare una nuova subnet.
-* Non è possibile usare un'[identità gestita](container-instances-managed-identity.md) in un gruppo di contenitori distribuito in una rete virtuale.
+* Non è possibile usare un' [identità gestita](container-instances-managed-identity.md) in un gruppo di contenitori distribuito in una rete virtuale.
+* Non è possibile abilitare un probe di [Livezza](container-instances-liveness-probe.md) o un probe di [conformità](container-instances-readiness-probe.md) in un gruppo di contenitori distribuito in una rete virtuale.
 * A causa delle risorse di rete aggiuntive, la distribuzione di un gruppo di contenitori in una rete virtuale è in genere più lenta rispetto alla distribuzione di un'istanza di contenitore standard.
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
@@ -261,7 +262,7 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 
 > [!NOTE]
-> Se viene visualizzato un errore durante il tentativo di rimuovere il profilo di rete, consentire 2-3 giorni per la piattaforma per attenuare automaticamente il problema e ritentare l'eliminazione. Se si verificano ancora problemi durante la rimozione del profilo di rete, [aprire una richiesta di supporto](https://azure.microsoft.com/support/create-ticket/).
+> Se viene visualizzato un errore durante il tentativo di rimuovere il profilo di rete, consentire 3-4 giorni per la piattaforma per attenuare automaticamente il problema e ritentare l'eliminazione. Se è necessario eliminare immediatamente un profilo di rete, [aprire una richiesta di supporto](https://azure.microsoft.com/support/create-ticket/) che fa riferimento al servizio istanze di contenitore di Azure.
 
 Questa funzionalità richiede attualmente diversi comandi aggiuntivi per eliminare le risorse di rete create in precedenza. Se sono stati usati i comandi di esempio nelle sezioni precedenti di questo articolo per creare la rete virtuale e la subnet, è possibile usare lo script seguente per eliminare le risorse di rete.
 

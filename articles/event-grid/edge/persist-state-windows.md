@@ -9,16 +9,18 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 485c6d4a92539a2ba67aece319c68d31649e8045
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 42f7b5315cecd75e2aaf67145c57982872f43550
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992262"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844616"
 ---
 # <a name="persist-state-in-windows"></a>Mantieni stato in Windows
 
-Gli argomenti e le sottoscrizioni create nel modulo di griglia di eventi vengono archiviati per impostazione predefinita nel contenitore file system. Senza persistenza, se il modulo viene ridistribuito, tutti i metadati creati andranno perduti. Per mantenere i dati tra le distribuzioni, è necessario salvare in modo permanente i dati all'esterno del contenitore file system. Attualmente, vengono mantenuti solo i metadati. Gli eventi vengono archiviati in memoria. Se il modulo griglia di eventi viene ridistribuito o riavviato, eventuali eventi non recapitati andranno persi.
+Gli argomenti e le sottoscrizioni create nel modulo di griglia di eventi vengono archiviati nel contenitore file system per impostazione predefinita. Senza persistenza, se il modulo viene ridistribuito, tutti i metadati creati andranno perduti. Per mantenere i dati tra le distribuzioni e i riavvii, è necessario salvare in modo permanente i dati all'esterno del contenitore file system. 
+
+Per impostazione predefinita, solo i metadati sono persistenti e gli eventi rimangono archiviati in memoria per migliorare le prestazioni. Seguire la sezione relativa agli eventi di persistenza per abilitare la persistenza degli eventi.
 
 Questo articolo illustra i passaggi necessari per distribuire il modulo di griglia di eventi con la persistenza nelle distribuzioni di Windows.
 
@@ -27,7 +29,7 @@ Questo articolo illustra i passaggi necessari per distribuire il modulo di grigl
 
 ## <a name="persistence-via-volume-mount"></a>Persistenza tramite montaggio del volume
 
-I [volumi Docker](https://docs.docker.com/storage/volumes/) vengono usati per mantenere i dati tra le distribuzioni. Per montare un volume, è necessario crearlo usando i comandi di Docker, concedere le autorizzazioni in modo che il contenitore possa leggere, scrivere su di esso e quindi distribuire il modulo. Non è previsto alcun provisioning per la creazione automatica di un volume con le autorizzazioni necessarie per Windows. Deve essere creato prima della distribuzione.
+I [volumi Docker](https://docs.docker.com/storage/volumes/) vengono usati per mantenere i dati tra le distribuzioni. Per montare un volume, è necessario crearlo usando i comandi di Docker, concedere le autorizzazioni in modo che il contenitore possa leggere, scrivere su di esso e quindi distribuire il modulo.
 
 1. Per creare un volume, eseguire il comando seguente:
 
@@ -82,17 +84,17 @@ I [volumi Docker](https://docs.docker.com/storage/volumes/) vengono usati per ma
     ```json
         {
               "Env": [
-                "inbound:serverAuth:tlsPolicy=strict",
-                "inbound:serverAuth:serverCert:source=IoTEdge",
-                "inbound:clientAuth:sasKeys:enabled=false",
-                "inbound:clientAuth:clientCert:enabled=true",
-                "inbound:clientAuth:clientCert:source=IoTEdge",
-                "inbound:clientAuth:clientCert:allowUnknownCA=true",
-                "outbound:clientAuth:clientCert:enabled=true",
-                "outbound:clientAuth:clientCert:source=IoTEdge",
-                "outbound:webhook:httpsOnly=true",
-                "outbound:webhook:skipServerCertValidation=false",
-                "outbound:webhook:allowUnknownCA=true"
+                "inbound__serverAuth__tlsPolicy=strict",
+                "inbound__serverAuth__serverCert__source=IoTEdge",
+                "inbound__clientAuth__sasKeys__enabled=false",
+                "inbound__clientAuth__clientCert__enabled=true",
+                "inbound__clientAuth__clientCert__source=IoTEdge",
+                "inbound__clientAuth__clientCert__allowUnknownCA=true",
+                "outbound__clientAuth__clientCert__enabled=true",
+                "outbound__clientAuth__clientCert__source=IoTEdge",
+                "outbound__webhook__httpsOnly=true",
+                "outbound__webhook__skipServerCertValidation=false",
+                "outbound__webhook__allowUnknownCA=true"
               ],
               "HostConfig": {
                 "Binds": [
@@ -118,21 +120,22 @@ I [volumi Docker](https://docs.docker.com/storage/volumes/) vengono usati per ma
     ```json
     {
         "Env": [
-            "inbound:serverAuth:tlsPolicy=strict",
-            "inbound:serverAuth:serverCert:source=IoTEdge",
-            "inbound:clientAuth:sasKeys:enabled=false",
-            "inbound:clientAuth:clientCert:enabled=true",
-            "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=true",
-            "outbound:clientAuth:clientCert:enabled=true",
-            "outbound:clientAuth:clientCert:source=IoTEdge",
-            "outbound:webhook:httpsOnly=true",
-            "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true"
+            "inbound__serverAuth__tlsPolicy=strict",
+            "inbound__serverAuth__serverCert__source=IoTEdge",
+            "inbound__clientAuth__sasKeys__enabled=false",
+            "inbound__clientAuth__clientCert__enabled=true",
+            "inbound__clientAuth__clientCert__source=IoTEdge",
+            "inbound__clientAuth__clientCert__allowUnknownCA=true",
+            "outbound__clientAuth__clientCert__enabled=true",
+            "outbound__clientAuth__clientCert__source=IoTEdge",
+            "outbound__webhook__httpsOnly=true",
+            "outbound__webhook__skipServerCertValidation=false",
+            "outbound__webhook__allowUnknownCA=true"
          ],
          "HostConfig": {
             "Binds": [
-                "myeventgridvol:C:\\app\\metadataDb"
+                "myeventgridvol:C:\\app\\metadataDb",
+                "C:\\myhostdir2:C:\\app\\eventsDb"
              ],
              "PortBindings": {
                     "4438/tcp": [
@@ -147,7 +150,7 @@ I [volumi Docker](https://docs.docker.com/storage/volumes/) vengono usati per ma
 
 ## <a name="persistence-via-host-directory-mount"></a>Persistenza tramite montaggio directory host
 
-In alternativa, è possibile scegliere di creare una directory sul sistema host e montare tale directory.
+Anziché montare un volume, è possibile creare una directory nel sistema host e montare tale directory.
 
 1. Creare una directory nel file System host eseguendo il comando seguente.
 
@@ -180,21 +183,22 @@ In alternativa, è possibile scegliere di creare una directory sul sistema host 
     ```json
     {
         "Env": [
-            "inbound:serverAuth:tlsPolicy=strict",
-            "inbound:serverAuth:serverCert:source=IoTEdge",
-            "inbound:clientAuth:sasKeys:enabled=false",
-            "inbound:clientAuth:clientCert:enabled=true",
-            "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=true",
-            "outbound:clientAuth:clientCert:enabled=true",
-            "outbound:clientAuth:clientCert:source=IoTEdge",
-            "outbound:webhook:httpsOnly=true",
-            "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true"
+            "inbound__serverAuth__tlsPolicy=strict",
+            "inbound__serverAuth__serverCert__source=IoTEdge",
+            "inbound__clientAuth__sasKeys__enabled=false",
+            "inbound__clientAuth__clientCert__enabled=true",
+            "inbound__clientAuth__clientCert__source=IoTEdge",
+            "inbound__clientAuth__clientCert__allowUnknownCA=true",
+            "outbound__clientAuth__clientCert__enabled=true",
+            "outbound__clientAuth__clientCert__source=IoTEdge",
+            "outbound__webhook__httpsOnly=true",
+            "outbound__webhook__skipServerCertValidation=false",
+            "outbound__webhook__allowUnknownCA=true"
          ],
          "HostConfig": {
             "Binds": [
-                "C:\\myhostdir:C:\\app\\metadataDb"
+                "C:\\myhostdir:C:\\app\\metadataDb",
+                "C:\\myhostdir2:C:\\app\\eventsDb"
              ],
              "PortBindings": {
                     "4438/tcp": [
@@ -206,3 +210,30 @@ In alternativa, è possibile scegliere di creare una directory sul sistema host 
          }
     }
     ```
+## <a name="persist-events"></a>Mantieni eventi
+
+Per abilitare la persistenza degli eventi, è necessario abilitare prima la persistenza dei metadati tramite il montaggio del volume o il montaggio della directory host usando le sezioni precedenti.
+
+Aspetti importanti da notare sugli eventi di salvataggio permanente:
+
+* Gli eventi di salvataggio permanente sono abilitati per ogni sottoscrizione di evento ed è il consenso esplicito dopo che è stato montato un volume o una directory.
+* La persistenza degli eventi è configurata in una sottoscrizione di eventi in fase di creazione e non può essere modificata dopo la creazione della sottoscrizione di eventi. Per abilitare o disabilitare la persistenza degli eventi, è necessario eliminare e ricreare la sottoscrizione di eventi.
+* Il mantenimento degli eventi è quasi sempre più lento rispetto alle operazioni di memoria, ma la differenza di velocità dipende in modo estremamente dalle caratteristiche dell'unità. Il compromesso tra velocità e affidabilità è inerente a tutti i sistemi di messaggistica, ma diventa un evidente su larga scala.
+
+Per abilitare la persistenza degli eventi in una sottoscrizione di eventi, impostare `persistencePolicy` su `true`:
+
+ ```json
+        {
+          "properties": {
+            "persistencePolicy": {
+              "isPersisted": "true"
+            },
+            "destination": {
+              "endpointType": "WebHook",
+              "properties": {
+                "endpointUrl": "<your-webhook-url>"
+              }
+            }
+          }
+        }
+ ```

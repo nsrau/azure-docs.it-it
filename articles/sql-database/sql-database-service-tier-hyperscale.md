@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: aeda79ec4cb850ce73db18398c57d90aa4eb2acd
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 226ed1fcc72eada399c0a9a9eb4225d79cd83dd7
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759500"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845897"
 ---
 # <a name="hyperscale-service-tier"></a>Livello di servizio Hyperscale
 
@@ -72,7 +72,7 @@ Il livello di servizio Hyperscale è disponibile solo nel [modello vCore](sql-da
 
 - **Storage** (Archiviazione):
 
-  Non è necessario specificare le dimensioni massime dei dati durante la configurazione di un database Hyperscale. Nel livello Hyperscale ti vengono addebitate le risorse di archiviazione per il tuo database in base all'allocazione effettiva. Lo spazio di archiviazione viene allocato automaticamente tra 40 GB e 100 TB, con incrementi regolati in modo dinamico tra 10 GB e 40 GB. Un database con iperscalabilità viene creato con una dimensione iniziale di 10 GB e inizia a crescere di 10 GB ogni 10 minuti, fino a raggiungere le dimensioni di 40 GB.
+  Non è necessario specificare le dimensioni massime dei dati durante la configurazione di un database Hyperscale. Nel livello Hyperscale ti vengono addebitate le risorse di archiviazione per il tuo database in base all'allocazione effettiva. Lo spazio di archiviazione viene allocato automaticamente tra 40 GB e 100 TB, in 10 GB incrementi di 10 GB. Se necessario, possono crescere più file di dati contemporaneamente. Un database con iperscalabilità viene creato con una dimensione iniziale di 10 GB e inizia a crescere di 10 GB ogni 10 minuti, fino a raggiungere le dimensioni di 40 GB.
 
 Per altre informazioni sui prezzi di Hyperscale, vedere [Prezzi di Database SQL di Azure](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
@@ -112,13 +112,13 @@ Con la possibilità di accelerare/diminuore la velocità dei nodi di calcolo di 
 
 ## <a name="create-a-hyperscale-database"></a>Creare un database con iperscalabilità
 
-È possibile creare un database con iperscalabilità usando il [portale di Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) o l'[interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). I database con iperscalabilità sono disponibili solo con il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
+È possibile creare un database con iperscalabilità usando il [portale di Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) o l' [interfaccia](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)della riga di comando. I database con iperscalabilità sono disponibili solo con il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
 
 Il comando T-SQL seguente crea un database Hyperscale. Nell'istruzione `CREATE DATABASE` è necessario specificare sia l'edizione che l'obiettivo del servizio. Per un elenco degli obiettivi di servizio validi, vedere i [limiti delle risorse](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen4) .
 
 ```sql
--- Create a HyperScale Database
-CREATE DATABASE [HyperScaleDB1] (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
+-- Create a Hyperscale Database
+CREATE DATABASE [HyperscaleDB1] (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
 GO
 ```
 Verrà creato un database con iperscalabilità nell'hardware quinta generazione con 4 core.
@@ -130,14 +130,14 @@ Verrà creato un database con iperscalabilità nell'hardware quinta generazione 
 Il comando T-SQL seguente sposta un database nel livello di servizio Hyperscale. Nell'istruzione `ALTER DATABASE` è necessario specificare sia l'edizione che l'obiettivo del servizio.
 
 ```sql
--- Alter a database to make it a HyperScale Database
-ALTER DATABASE [DB2] MODIFY (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
+-- Alter a database to make it a Hyperscale Database
+ALTER DATABASE [DB2] MODIFY (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
 GO
 ```
 
 ## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>Connettersi a una replica scalabilità in lettura di un database Hyperscale
 
-Nei database con iperscalabilità l'argomento `ApplicationIntent` nella stringa di connessione fornita dal client indica se la connessione viene instradata alla replica in scrittura o a una replica secondaria di sola lettura. Se `ApplicationIntent` è impostato su `READONLY` e il database non ha una replica secondaria, la connessione viene indirizzata alla replica primaria con il comportamento predefinito `ReadWrite`.
+Nei database iperscalari, l'argomento `ApplicationIntent` nella stringa di connessione fornita dal client determina se la connessione viene instradata alla replica di scrittura o a una replica secondaria di sola lettura. Se `ApplicationIntent` è impostato su `READONLY` e il database non ha una replica secondaria, la connessione viene indirizzata alla replica primaria con il comportamento predefinito `ReadWrite`.
 
 ```cmd
 -- Connection string with application intent
@@ -160,7 +160,7 @@ Se è necessario ripristinare un database iperscalabile del database SQL di Azur
 2. Seguire le istruzioni riportate nell'argomento relativo al [ripristino geografico](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) della pagina relativa al ripristino dei database SQL di Azure dai backup automatici.
 
 > [!NOTE]
-> Poiché l'origine e la destinazione si trovano in aree separate, il database non può condividere l'archiviazione snapshot con il database di origine come nei ripristini non geografici, che vengono completati molto rapidamente.  Nel caso di un ripristino geografico di un database con iperscalabilità, sarà un'operazione di dimensioni dei dati, anche se la destinazione si trova nell'area abbinata dell'archiviazione con replica geografica.  Ciò significa che l'esecuzione di un ripristino geografico può richiedere tempo proporzionale alla dimensione del database da ripristinare.  Se la destinazione si trova nell'area abbinata, la copia sarà all'interno di un Data Center, che sarà notevolmente più veloce rispetto a una copia a lunga distanza su Internet, ma copierà comunque tutti i bit.
+> Poiché l'origine e la destinazione si trovano in aree separate, il database non può condividere l'archiviazione snapshot con il database di origine come nei ripristini non geografici, che vengono completati molto rapidamente. Nel caso di un ripristino geografico di un database con iperscalabilità, sarà un'operazione di dimensioni dei dati, anche se la destinazione si trova nell'area abbinata dell'archiviazione con replica geografica.  Ciò significa che l'esecuzione di un ripristino geografico può richiedere tempo proporzionale alla dimensione del database da ripristinare.  Se la destinazione è nell'area abbinata, la copia sarà all'interno di un'area, che sarà notevolmente più veloce rispetto a una copia tra aree, ma sarà comunque un'operazione di dimensioni dei dati.
 
 ## <a name=regions></a>Aree disponibili
 

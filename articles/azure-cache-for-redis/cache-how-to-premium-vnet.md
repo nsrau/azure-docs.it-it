@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: f449dc08dede30a7dec977bb66e0a2c0b509a1f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6c7c041565f6376e7f8b8b84f5076b30c1eec7bf
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433496"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846398"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium
 Cache Redis di Azure include diverse soluzioni cache che offrono flessibilità di scelta riguardo alle dimensioni e alle funzionalità della cache, tra cui le funzionalità del livello Premium come clustering, persistenza e supporto per reti virtuali. Una rete virtuale è una rete privata nel cloud. Quando un'istanza di Cache Redis di Azure viene configurata con una rete virtuale, non è indirizzabile pubblicamente ed è accessibile solo da macchine virtuali e applicazioni all'interno della rete virtuale. Questo articolo descrive come configurare il supporto di una rete virtuale per un'istanza Premium di Cache Redis di Azure.
@@ -37,7 +37,7 @@ Per configurare la rete virtuale per la nuova cache, fare clic su **Rete virtual
 
 ![Rete virtuale][redis-cache-vnet]
 
-Nell'elenco a discesa **Subnet** selezionare la subnet desiderata e specificare l'**indirizzo IP statico**. Se si usa una rete virtuale classica, il campo **Indirizzo IP statico** è facoltativo e, se non è specificato, ne verrà scelto uno dalla subnet selezionata.
+Selezionare la subnet desiderata dall'elenco a discesa **subnet** .  Se lo si desidera, specificare un **indirizzo IP statico**. Il campo **indirizzo IP statico** è facoltativo e, se non ne viene specificato alcuno, ne viene scelto uno dalla subnet selezionata.
 
 > [!IMPORTANT]
 > Quando si distribuisce Cache Redis di Azure in una rete virtuale di Resource Manager, la cache deve trovarsi in una subnet dedicata che non contenga altre risorse, ad eccezione delle istanze di Cache Redis di Azure. Se si tenta di distribuire un'istanza di Cache Redis di Azure in una rete virtuale di Resource Manager all'interno di una subnet contenente altre risorse, la distribuzione non riesce.

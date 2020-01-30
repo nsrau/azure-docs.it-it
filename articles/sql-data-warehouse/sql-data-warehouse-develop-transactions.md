@@ -11,21 +11,21 @@ ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 376b7b8a734e5064713237e9250542a4c5cc18f1
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: a4a2eccc3c46b7f982836c73d3144f1793e5034b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903080"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846193"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>Uso delle transazioni in SQL Data Warehouse
 Suggerimenti per l'implementazione di transazioni in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 
-## <a name="what-to-expect"></a>Cosa aspettarsi
+## <a name="what-to-expect"></a>Programma
 Come si può immaginare, SQL Data Warehouse supporta le transazioni come parte del carico di lavoro del data warehouse. Tuttavia, per garantire che le prestazioni di SQL Data Warehouse siano mantenute al massimo livello, alcune funzionalità sono limitate rispetto a SQL Server. Questo articolo evidenzia le differenze ed elenca le altre. 
 
 ## <a name="transaction-isolation-levels"></a>Livelli di isolamento delle transazioni
-SQL Data Warehouse implementa le transazioni ACID. Tuttavia, il livello di isolamento del supporto delle transazioni è limitato a READ UNCOMMITTED e non può essere modificato. È possibile implementare numerosi metodi di codifica per evitare letture dirty dei dati se READ UNCOMMITTED costituisce un problema. I metodi più diffusi usano CTAS e il cambio della partizione di tabella (spesso noto come modello di finestra temporale scorrevole) per impedire agli utenti di eseguire query sui dati ancora in fase di preparazione. Anche le visualizzazioni che filtrano preventivamente i dati costituiscono un approccio comune.  
+SQL Data Warehouse implementa le transazioni ACID. Per impostazione predefinita, il livello di isolamento del supporto transazionale è READ UNCOMMITTED.  È possibile modificarlo in READ COMMITTED SNAPSHOT ISOLAtion attivando l'opzione di database READ_COMMITTED_SNAPSHOT per un database utente quando si è connessi al database master.  Una volta abilitate, tutte le transazioni in questo database vengono eseguite nell'isolamento dello SNAPSHOT READ COMMITTED e l'impostazione READ UNCOMMITTED sul livello della sessione non verrà rispettata. Per informazioni dettagliate, vedere [Opzioni ALTER database set (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest) .
 
 ## <a name="transaction-size"></a>Dimensioni delle transazioni
 Le dimensioni di una singola transazione di modifica dati sono limitate. Il limite è applicato per ogni distribuzione. Per calcolare l'allocazione totale, quindi, è possibile moltiplicare il limite per il conteggio di distribuzione. Per calcolare approssimativamente il numero massimo di righe nella transazione, dividere il limite di distribuzione per le dimensioni totali di ogni riga. Per le colonne di lunghezza variabile valutare la possibilità di usare una lunghezza di colonna media invece delle dimensioni massime.
@@ -40,7 +40,7 @@ Ecco alcuni presupposti riportati nella tabella seguente:
 | [DWU](sql-data-warehouse-overview-what-is.md) | Limite per distribuzione (GB) | Numero di distribuzioni | Dimensioni MASSIMe transazioni (GB) | Numero di righe per distribuzione | Righe max per transazione |
 | --- | --- | --- | --- | --- | --- |
 | DW100c |1 |60 |60 |4\.000.000 |240.000.000 |
-| DW200c |1,5 |60 |90 |6\.000.000 |360.000.000 |
+| DW200c |1.5 |60 |90 |6\.000.000 |360.000.000 |
 | DW300c |2.25 |60 |135 |9\.000.000 |540.000.000 |
 | DW400c |3 |60 |180 |12.000.000 |720.000.000 |
 | DW500c |3,75 |60 |225 |15.000.000 |900.000.000 |
@@ -61,7 +61,7 @@ Ecco alcuni presupposti riportati nella tabella seguente:
 | [DWU](sql-data-warehouse-overview-what-is.md) | Limite per distribuzione (GB) | Numero di distribuzioni | Dimensioni MASSIMe transazioni (GB) | Numero di righe per distribuzione | Righe max per transazione |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4\.000.000 |240.000.000 |
-| DW200 |1,5 |60 |90 |6\.000.000 |360.000.000 |
+| DW200 |1.5 |60 |90 |6\.000.000 |360.000.000 |
 | DW300 |2.25 |60 |135 |9\.000.000 |540.000.000 |
 | DW400 |3 |60 |180 |12.000.000 |720.000.000 |
 | DW500 |3,75 |60 |225 |15.000.000 |900.000.000 |
@@ -199,5 +199,5 @@ Ecco quali sono:
 * Nessun supporto per DDL come CREATE TABLE all'interno di una transazione definita dall'utente
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sull'ottimizzazione delle transazioni, vedere [Ottimizzazione delle transazioni per SQL Data Warehouse](sql-data-warehouse-develop-best-practices-transactions.md). Per altre informazioni sulle procedure consigliate per SQL Data Warehouse, vedere [Procedure consigliate per Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md).
+Per altre informazioni sull'ottimizzazione delle transazioni, vedere [Procedure consigliate per le transazioni](sql-data-warehouse-develop-best-practices-transactions.md). Per altre informazioni sulle procedure consigliate per SQL Data Warehouse, vedere [Procedure consigliate per SQL Data Warehouse](sql-data-warehouse-best-practices.md).
 

@@ -1,31 +1,19 @@
 ---
 title: Matrice di supporto Azure Migrate
 description: Fornisce un riepilogo delle impostazioni e delle limitazioni del supporto per il servizio Azure Migrate.
-services: backup
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 01/28/2020
 ms.author: raynew
-ms.openlocfilehash: fa6ea1ec1992c94d44531cda9802290edf8db301
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 5c29b80f30b024d34ec4e8f65e51b59fc70e8f93
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74669144"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846553"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matrice di supporto Azure Migrate
 
 È possibile usare il [servizio Azure migrate](migrate-overview.md) per valutare ed eseguire la migrazione di computer nel cloud Microsoft Azure. Questo articolo riepiloga le impostazioni e le limitazioni generali del supporto per Azure Migrate scenari e distribuzioni.
-
-
-## <a name="azure-migrate-versions"></a>Versioni di Azure Migrate
-
-Sono disponibili due versioni del servizio Azure Migrate:
-
-- **Versione corrente**: con questa versione è possibile creare nuovi progetti di Azure migrate, individuare le valutazioni locali e orchestrare valutazioni e migrazioni. [Altre informazioni](whats-new.md#release-version-july-2019).
-- **Versione precedente**: per i clienti che usano la versione precedente di Azure migrate (è supportata solo la valutazione delle macchine virtuali VMware locali), è ora necessario usare la versione corrente. Nella versione precedente non è possibile creare nuovi progetti di Azure Migrate o eseguire nuove individuazioni.
 
 ## <a name="supported-assessmentmigration-scenarios"></a>Scenari di valutazione/migrazione supportati
 
@@ -71,13 +59,23 @@ VM Hyper-V | Valutazione di un massimo di 35.000 macchine virtuali Hyper-V in un
 
 Un progetto può includere sia macchine virtuali VMware che macchine virtuali Hyper-V, fino ai limiti di valutazione.
 
+## <a name="azure-permissions"></a>Autorizzazioni di Azure
+
+Per Azure Migrate usare Azure, è necessario disporre di queste autorizzazioni prima di iniziare la valutazione e la migrazione dei computer.
+
+**Attività** | **Autorizzazioni** | **Dettagli**
+--- | --- | ---
+Creare un progetto di Azure Migrate | L'account di Azure necessita di autorizzazioni per creare un progetto. | Configurare per [VMware](tutorial-prepare-vmware.md#assign-permissions-to-create-project), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-create-project)o [server fisici](tutorial-prepare-physical.md#assign-permissions-to-create-project).
+Registrare il dispositivo Azure Migrate | Azure Migrate usa un' [appliance di Azure migrate](migrate-appliance.md) Lightweight per valutare le macchine virtuali vmware con Azure migrate server assessment e per eseguire la [migrazione senza agenti](server-migrate-overview.md) di macchine virtuali VMware con Azure migrate migrazione del server. L'appliance individua le macchine virtuali, ne invia i metadati e i dati sulle prestazioni ad Azure Migrate.<br/><br/> Durante la registrazione, Azure Migrate crea due app Azure Active Directory (Azure AD) che identificano l'appliance in modo univoco. Per crearle, è necessario fornire le relative autorizzazioni.<br/><br/> - La prima app comunica con gli endpoint del servizio Azure Migrate.<br/><br/> - La seconda app accede a un'istanza di Azure Key Vault creata durante la registrazione per archiviare le informazioni delle app Azure AD e le impostazioni di configurazione dell'appliance. | Configurare per [VMware](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-register-the-appliance)o [server fisici](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance).
+Creare un insieme di credenziali delle chiavi per la migrazione senza agenti VMware | Per eseguire la migrazione di macchine virtuali VMware con la migrazione senza agente Azure Migrate server, Azure Migrate crea un Key Vault per gestire le chiavi di accesso all'account di archiviazione della replica nella sottoscrizione. Per creare l'insieme di credenziali, è necessario impostare le autorizzazioni (proprietario, collaboratore e amministratore accesso utenti) nel gruppo di risorse in cui risiede il progetto Azure Migrate. | [Impostare](tutorial-prepare-vmware.md#assign-role-assignment-permissions) le autorizzazioni.
+
 ## <a name="supported-geographies"></a>Aree geografiche supportate
 
 È possibile creare un progetto Azure Migrate in diverse aree geografiche. Sebbene sia possibile creare progetti solo in queste aree geografiche, è possibile valutare o migrare i computer per altri percorsi di destinazione. L'area geografica del progetto viene usata solo per archiviare i metadati individuati.
 
 **Area geografica** | **Posizione di archiviazione dei metadati**
 --- | ---
-Azure per enti pubblici | US Gov Virginia
+Azure per enti pubblici | Governo degli Stati Uniti - Virginia
 Asia Pacifico | Asia orientale o Asia sud-orientale
 Australia | Australia orientale o Australia sudorientale
 Brasile | Brasile meridionale
@@ -104,6 +102,14 @@ Stati Uniti | Stati Uniti centrali o Stati Uniti occidentali 2
 
 [Esaminare](migrate-support-matrix-hyper-v.md) la matrice di supporto per la migrazione del server e la valutazione di Azure migrate server per le macchine virtuali Hyper-V.
 
+
+
+## <a name="azure-migrate-versions"></a>Versioni di Azure Migrate
+
+Sono disponibili due versioni del servizio Azure Migrate:
+
+- **Versione corrente**: con questa versione è possibile creare nuovi progetti di Azure migrate, individuare le valutazioni locali e orchestrare valutazioni e migrazioni. [Altre informazioni](whats-new.md#release-version-july-2019)
+- **Versione precedente**: per i clienti che usano la versione precedente di Azure migrate (è supportata solo la valutazione delle macchine virtuali VMware locali), è ora necessario usare la versione corrente. Nella versione precedente non è possibile creare nuovi progetti di Azure Migrate o eseguire nuove individuazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

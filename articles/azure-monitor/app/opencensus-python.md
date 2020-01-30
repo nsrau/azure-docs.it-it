@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 83b4e1e10af8e398f6671f6b2561485bfdb6b7f4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 87c0b62cec0b61bfc52ec31233ca7c1f947fdd98
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432491"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846123"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurare monitoraggio di Azure per l'applicazione Python (anteprima)
 
@@ -136,7 +136,7 @@ Ecco gli esportatori che OpenCensus fornisce mappato ai tipi di dati di telemetr
 
 4. A questo punto, quando si esegue lo script Python, viene comunque richiesto di immettere i valori, ma solo il valore viene stampato nella shell. Il `SpanData` creato verrà inviato a monitoraggio di Azure. È possibile trovare i dati di intervallo emessi in `dependencies`.
 
-5. Per informazioni sul campionamento in OpenCensus, vedere [campionamento in OpenCensus](https://docs.microsoft.com/azure/azure-monitor/app/sampling#configuring-fixed-rate-sampling-in-opencensus-python).
+5. Per informazioni sul campionamento in OpenCensus, vedere [campionamento in OpenCensus](sampling.md#configuring-fixed-rate-sampling-for-opencensus-python-applications).
 
 6. Per informazioni dettagliate sulla correlazione dei dati di telemetria nei dati di traccia, esaminare la [correlazione di telemetria](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python)di OpenCensus.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 43ea197c4dc774a4e011cd9fb2b3adcf94866d90
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 423f0866494054702330c8e51fb1ef45e74a0650
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926075"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845697"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Creare e configurare un cluster del servizio Azure Kubernetes per l'uso di nodi virtuali tramite l'interfaccia della riga di comando di Azure
 
@@ -150,7 +150,7 @@ Per concedere l'accesso corretto per il cluster AKS per l'uso della rete virtual
 az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
 ```
 
-## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
+## <a name="create-an-aks-cluster"></a>Creare un cluster AKS
 
 Distribuire un cluster del servizio Azure Kubernetes nella subnet del servizio creata nel passaggio precedente. Ottenere l'ID di questa subnet usando [AZ Network VNET subnet Show][az-network-vnet-subnet-show]:
 
@@ -188,7 +188,7 @@ az aks enable-addons \
     --subnet-name myVirtualNodeSubnet
 ```
 
-## <a name="connect-to-the-cluster"></a>Connettersi al cluster
+## <a name="connect-to-the-cluster"></a>Stabilire la connessione al cluster
 
 Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il comando [az aks get-credentials][az-aks-get-credentials]. Con questo passaggio si scaricano le credenziali e si configura l'interfaccia della riga di comando di Kubernetes per il loro uso.
 
@@ -196,7 +196,7 @@ Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il com
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Per verificare la connessione al cluster, usare il comando [kubectl get][kubectl-get] per restituire un elenco dei nodi del cluster.
+Per verificare la connessione al cluster, usare il comando [kubectl get][kubectl-get] per restituire un elenco di nodi del cluster.
 
 ```console
 kubectl get nodes
@@ -319,6 +319,10 @@ az aks disable-addons --resource-group myResourceGroup --name myAKSCluster --add
 
 A questo punto, rimuovere le risorse di rete virtuale e il gruppo di risorse:
 
+
+> [!NOTE]
+> Se viene visualizzato un errore durante il tentativo di rimuovere il profilo di rete, consentire 3-4 giorni per la piattaforma per attenuare automaticamente il problema e ritentare l'eliminazione. Se è necessario eliminare immediatamente un profilo di rete, [aprire una richiesta di supporto](https://azure.microsoft.com/support/create-ticket/) che fa riferimento al servizio istanze di contenitore di Azure.
+
 ```azurecli-interactive
 # Change the name of your resource group, cluster and network resources as needed
 RES_GROUP=myResourceGroup
@@ -334,12 +338,6 @@ NETWORK_PROFILE_ID=$(az network profile list --resource-group $NODE_RES_GROUP --
 
 # Delete the network profile
 az network profile delete --id $NETWORK_PROFILE_ID -y
-
-# Get the service association link (SAL) ID
-SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
-
-# Delete the default SAL ID for the subnet
-az resource delete --ids $SAL_ID --api-version 2018-07-01
 
 # Delete the subnet delegation to Azure Container Instances
 az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --remove delegations 0

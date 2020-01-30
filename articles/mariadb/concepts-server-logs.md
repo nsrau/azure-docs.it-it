@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.openlocfilehash: b38838c20e4ab18b64cabcb2749ec39163f1b52d
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.date: 01/28/2020
+ms.openlocfilehash: 3f82a061f276aaf786bc0a9bae15b60e8bdda009
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76515055"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846331"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Log di query lente nel database di Azure per MariaDB
 Nel Database di Azure per MariaDB, il log delle query lente è disponibile per gli utenti. L'accesso al log delle transazioni non è supportato. Il log delle query lente può essere usato per identificare eventuali colli di bottiglia delle prestazioni e procedere alla risoluzione dei problemi.
@@ -51,9 +51,6 @@ Vedere [documentazione riguardante il log delle query lente](https://mariadb.com
 
 ## <a name="diagnostic-logs"></a>Log di diagnostica
 Il database di Azure per MariaDB è integrato con i log di diagnostica di monitoraggio di Azure. Dopo aver abilitato i log di query lente sul server MariaDB, è possibile scegliere di crearli in log di monitoraggio di Azure, Hub eventi o archiviazione di Azure. Per altre informazioni sull'abilitazione dei log di diagnostica, vedere la sezione sulle procedure della [documentazione sui log di diagnostica](../azure-monitor/platform/platform-logs-overview.md).
-
-> [!IMPORTANT]
-> Questa funzionalità di diagnostica per i log del server è disponibile solo nei [piani tariffari](concepts-pricing-tiers.md)per utilizzo generico e con ottimizzazione per la memoria.
 
 La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di output, è possibile che i campi inclusi e il relativo ordine di visualizzazione siano differenti.
 

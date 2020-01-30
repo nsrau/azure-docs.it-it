@@ -4,18 +4,23 @@ description: Gestire una macchina virtuale di Azure con la raccolta dell'inventa
 services: automation
 ms.subservice: change-inventory-management
 keywords: inventario, automazione, modifica, gestione
-ms.date: 02/06/2019
+ms.date: 01/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: c5ac5cb1b1f02ea1e8b7eccb65fba978c99cc4f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d0324038b8a38d7eba84e5472b8f90439b0322c1
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75419821"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844820"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gestire una macchina virtuale di Azure con la raccolta dell'inventario
 
-È possibile abilitare il monitoraggio dell'inventario per una macchina virtuale di Azure dalla pagina delle risorse della macchina virtuale. È possibile raccogliere e visualizzare l'inventario per il software, i file, i daemon Linux, i servizi di Windows e le chiavi del Registro di sistema di Windows presenti nei computer. Questo metodo offre un'interfaccia utente basata sul browser per la configurazione della raccolta dell'inventario.
+È possibile abilitare il monitoraggio dell'inventario per una macchina virtuale di Azure dalla pagina delle risorse della macchina virtuale. È possibile raccogliere e visualizzare le informazioni di inventario seguenti nei computer:
+
+- Software Windows (applicazioni Windows e aggiornamenti di Windows), servizi, file e chiavi del registro di sistema
+- Daemon e file di software Linux (pacchetti)
+
+Questo metodo offre un'interfaccia utente basata sul browser per la configurazione della raccolta dell'inventario.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

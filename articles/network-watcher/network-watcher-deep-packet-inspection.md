@@ -3,9 +3,7 @@ title: Ispezione dei pacchetti con Azure Network Watcher | Microsoft Docs
 description: Questo articolo descrive come usare Network Watcher per eseguire un'ispezione approfondita dei pacchetti raccolti da una VM
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: 7b907d00-9c35-40f5-a61e-beb7b782276f
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 7f3fc69bbfd881a26ceb25705852558b66c60153
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: damendo
+ms.openlocfilehash: c937a07133dc38d2d9e1e1ef2cc324b4c8bb360e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64716910"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845071"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Ispezione dei pacchetti con Azure Network Watcher
 
@@ -41,7 +39,7 @@ In questo scenario:
 
 In questo scenario viene illustrato come visualizzare il tempo di round trip (RTT, Round Trip Time) di una conversazione TCP (Transmission Control Protocol) che avviene tra due endpoint.
 
-Quando viene stabilita una connessione TCP, i primi tre pacchetti inviati nella connessione seguono un modello chiamato in genere handshake a tre livelli. Esaminando i primi due pacchetti inviati in questo handshake, una richiesta iniziale dal client e una risposta dal server, è possibile calcolare la latenza quando questa connessione viene stabilita. Questa latenza è chiamata tempo di round trip. Per altre informazioni sul protocollo TCP e l'handshake a tre livelli, vedere la risorsa seguente. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip](https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip )
+Quando viene stabilita una connessione TCP, i primi tre pacchetti inviati nella connessione seguono un modello chiamato in genere handshake a tre livelli. Esaminando i primi due pacchetti inviati in questo handshake, una richiesta iniziale dal client e una risposta dal server, è possibile calcolare la latenza quando questa connessione viene stabilita. Questa latenza è chiamata tempo di round trip. Per altre informazioni sul protocollo TCP e l'handshake a tre livelli, vedere la risorsa seguente. https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip
 
 ### <a name="step-1"></a>Passaggio 1
 
@@ -53,7 +51,7 @@ Caricare il file con estensione **cap** dall'acquisizione di pacchetti. Questo f
 
 ### <a name="step-3"></a>Passaggio 3
 
-Per visualizzare il tempo di round trip iniziale nelle conversazioni TCP, verranno esaminati solo i primi due pacchetti coinvolti nell'handshake TCP. Nell'handshake a tre livelli verranno usati i primi due pacchetti, ovvero [SYN] e [SYN, ACK]. Il nome deriva dai flag impostati nell'intestazione TCP. L'ultimo pacchetto nell'handshake, il pacchetto [ACK], non verrà usato in questo scenario. Il pacchetto [SYN] viene inviato dal client. Dopo che è stato ricevuto, il server invia il pacchetto [ACK] come acknowledgement della ricezione di SYN dal client. Sfruttando il fatto che la risposta del server richiede un overhead molto basso, il tempo RTT viene calcolato sottraendo dall'ora in cui il pacchetto [SYN, ACK] è stato ricevuto dal client l'ora in cui il pacchetto [SYN] è stato inviato dal client.
+Per visualizzare il tempo di round trip iniziale nelle conversazioni TCP, verranno esaminati solo i primi due pacchetti coinvolti nell'handshake TCP. Nell'handshake a tre livelli verranno usati i primi due pacchetti, ovvero [SYN] e [SYN, ACK]. Il nome deriva dai flag impostati nell'intestazione TCP. L'ultimo pacchetto nell'handshake, il pacchetto [ACK], non verrà usato in questo scenario. Il pacchetto [SYN] viene inviato dal client. Una volta ricevuta, il server invia il pacchetto [ACK] come riconoscimento della ricezione del SYN dal client. Sfruttando il fatto che la risposta del server richiede un overhead molto basso, il tempo RTT viene calcolato sottraendo dall'ora in cui il pacchetto [SYN, ACK] è stato ricevuto dal client l'ora in cui il pacchetto [SYN] è stato inviato dal client.
 
 Usando WireShark questo valore viene calcolato automaticamente.
 

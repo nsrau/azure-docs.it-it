@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5b2fa550029c35ca989d6746254298cf1e92992d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 01ab09383a29db38d2ce8c7c513bed76aafcc44a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75764576"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845950"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creare ed eseguire pipeline di Machine Learning con Azure Machine Learning SDK
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -40,7 +40,7 @@ Se non è disponibile una sottoscrizione di Azure, creare un account gratuito pr
 * [Configurare l'ambiente di sviluppo](how-to-configure-environment.md) per l'installazione di Azure Machine Learning SDK oppure usare un' [istanza di calcolo Azure Machine Learning (anteprima)](concept-compute-instance.md) con l'SDK già installato.
 
 > [!NOTE]
-> Le istanze di calcolo sono disponibili solo per le aree di lavoro con **Stati Uniti centro-settentrionali** o **Regno Unito meridionale** come area geografica.
+> Le istanze di calcolo sono disponibili solo per le aree di lavoro con gli **Stati Uniti centro-settentrionali**, * * Stati Uniti orientali 2 * *, **europa settentrionale** o **Regno Unito meridionale**.
 >Se l'area di lavoro si trova in qualsiasi altra area geografica, è possibile continuare a creare e usare una [macchina virtuale notebook](concept-compute-instance.md#notebookvm) in alternativa. 
 
 Per iniziare, aggiungere l'area di lavoro:

@@ -3,12 +3,12 @@ title: Sviluppare funzioni di Azure usando Visual Studio Code
 description: Informazioni su come sviluppare e testare funzioni di Azure usando l'estensione funzioni di Azure per Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 4a5f60c2da8a77f385dba40dcd4d342583e989c1
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 59c350b267583a2bccfdd66996aa6c1f97954218
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547422"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845392"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Sviluppare funzioni di Azure usando Visual Studio Code
 
@@ -65,11 +65,13 @@ L'estensione Functions consente di creare un progetto di app per le funzioni, in
 
 1. Selezionare la cartella per il progetto di app per le funzioni e quindi **selezionare una lingua per il progetto di funzione**.
 
+1. Se non sono stati ancora installati gli strumenti di base, viene richiesto di **selezionare una versione** degli strumenti di base da installare. Scegliere versione 2. x o versione successiva. 
+
 1. Selezionare il modello di funzione **trigger http** . in alternativa, è possibile selezionare **Ignora per ora** per creare un progetto senza una funzione. È sempre possibile [aggiungere una funzione al progetto in](#add-a-function-to-your-project) un secondo momento.
 
     ![Scegliere il modello Trigger HTTP](./media/functions-develop-vs-code/create-function-choose-template.png)
 
-1. Digitare **HTTPTrigger** per il nome della funzione e premere INVIO, quindi selezionare autorizzazione **funzione** . Per questo livello di autorizzazione è necessario fornire un [tasto funzione](functions-bindings-http-webhook.md#authorization-keys) quando si chiama l'endpoint funzione.
+1. Digitare **HttpExample** per il nome della funzione e premere INVIO, quindi selezionare autorizzazione **funzione** . Per questo livello di autorizzazione è necessario fornire un [tasto funzione](functions-bindings-http-webhook.md#authorization-keys) quando si chiama l'endpoint funzione.
 
     ![Seleziona autorizzazione funzione](./media/functions-develop-vs-code/create-function-auth.png)
 
@@ -189,6 +191,8 @@ Per altre informazioni, vedere riferimento dell' [associazione di output dell'ar
 ---
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
+
+[!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
 ## <a name="publish-to-azure"></a>Pubblicazione in Azure
 

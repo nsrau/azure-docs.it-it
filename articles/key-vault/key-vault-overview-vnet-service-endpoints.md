@@ -8,12 +8,12 @@ manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: e31153a1c490948266714633202d5e59fe66fa3a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: d8461cb2d98ec8fe914c2cc878e9002d132c9995
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980476"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845830"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Endpoint servizio di rete virtuale per Azure Key Vault
 
@@ -75,7 +75,8 @@ Di seguito è riportato un elenco di servizi attendibili che sono autorizzati ad
 |Azure Databricks|[Servizio di analisi veloce, facile e collaborativo basato su Apache Spark](../azure-databricks/what-is-azure-databricks.md)|
 |Gestione API di Azure|[Distribuire i certificati per un dominio personalizzato da Key Vault usando MSI](../api-management/api-management-howto-use-managed-service-identity.md#use-the-managed-service-identity-to-access-other-resources)|
 |Data factory di Azure|[Recuperare le credenziali dell'archivio dati in Key Vault da Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
-
+|Hub eventi di Azure|[Consentire l'accesso a un insieme di credenziali delle chiavi per uno scenario con chiavi gestite dal cliente](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
+|Service Bus di Azure|[Consentire l'accesso a un insieme di credenziali delle chiavi per uno scenario con chiavi gestite dal cliente](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
 
 
 > [!NOTE]

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7e83aa69cb4099885fc45e719c812a6c92299b7a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 161d9d18c914f65b3ab3ef7e44f8cd2f4a1992db
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359962"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76887657"
 ---
 Questo articolo risponde alle domande frequenti su Managed Disks e i dischi SSD Premium di Azure.
 
@@ -145,31 +145,23 @@ Le [Immagini di generazione 2](https://docs.microsoft.com/azure/virtual-machines
 
 Snapshot di supporto SSD Premium, SSD standard e HDD standard. Per questi tre tipi di dischi, gli snapshot sono supportati per tutte le dimensioni dei dischi (inclusi i dischi con dimensioni fino a 32 TiB). I dischi Ultra non supportano gli snapshot.
 
-### <a name="disk-reservation"></a>Prenotazione disco
+**Che cosa sono le prenotazioni dischi di Azure?**
+La prenotazione del disco è la possibilità di acquistare un anno di spazio di archiviazione su disco in anticipo, riducendo i costi totali. Per informazioni dettagliate sulle prenotazioni dischi di Azure, vedere l'articolo sull'argomento: [informazioni sul modo in cui viene applicato lo sconto per la prenotazione al disco di Azure](../articles/cost-management-billing/reservations/understand-disk-reservations.md).
 
-**Che cos'è la prenotazione dischi di Azure?**
-La prenotazione del disco è la possibilità di acquistare un anno di spazio di archiviazione su disco in anticipo, riducendo i costi totali.
+**Quali sono le opzioni offerte dalla prenotazione dischi di Azure?** Prenotazione dischi di Azure offre la possibilità di acquistare SSD Premium negli SKU specificati da P30 (1 TiB) fino a P80 (32 TiB) per un periodo di validità di un anno. Non esiste alcuna limitazione sulla quantità minima di dischi necessaria per acquistare una prenotazione su disco. Puoi inoltre scegliere di pagare con un unico pagamento anticipato o con pagamenti mensili. Non è stato applicato alcun costo transazionale aggiuntivo per SSD Premium Managed Disks. 
 
-**Quali sono le opzioni offerte dalla prenotazione dischi di Azure?**
-Prenotazione dischi di Azure offre la possibilità di acquistare SSD Premium negli SKU specificati da P30 (1 TiB) fino a P80 (32 TiB) per un periodo di validità di un anno. Non esiste alcuna limitazione sulla quantità minima di dischi necessaria per acquistare una prenotazione su disco. Puoi inoltre scegliere di pagare con un unico pagamento anticipato o con pagamenti mensili. Non è stato applicato alcun costo transazionale aggiuntivo per SSD Premium Managed Disks.
+Le prenotazioni vengono effettuate sotto forma di dischi, non di capacità. In altre parole, quando si riserva un disco P80 (32 TiB), si ottiene un singolo disco P80, non è quindi possibile dividere la prenotazione specifica in due dischi P70 (16 TiB) più piccoli. Naturalmente, è possibile riservare il numero di dischi desiderato, inclusi due dischi P70 (16 TiB) distinti.
 
-Le prenotazioni vengono effettuate sotto forma di dischi, non di capacità. In altre parole, quando si riserva un disco P80 (32 TiB), si ottiene un singolo disco P80, quindi non è possibile i tale prenotazione specifica in due dischi P70 (16 TiB) più piccoli. Naturalmente, è possibile riservare il numero di dischi desiderato, inclusi due dischi P70 (16 TiB) distinti.
+**Come viene applicata la prenotazione dischi di Azure?**  
+La prenotazione dischi segue un modello simile alle istanze di macchina virtuale riservate (VM). La differenza consiste nel fatto che non è possibile applicare una prenotazione disco a SKU diversi, mentre un'istanza di macchina virtuale può. Per altre informazioni sulle istanze di VM, vedere [risparmiare sui costi con le istanze di VM riservate di Azure](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) .    
 
-**Come verrà addebitato il costo per la prenotazione dischi di Azure?**
-- Per i clienti Enterprise Agreement (EA), l'impegno monetario di Azure verrà prima usato per l'acquisto di prenotazioni dischi di Azure. Negli scenari in cui i clienti con contratto Enterprise hanno usato tutto l'impegno monetario, è possibile che le prenotazioni dei dischi siano ancora acquistate e tali acquisti verranno fatturati per il singolo pagamento iniziale per la fatturazione successiva.
+È **possibile usare la risorsa di archiviazione dei dati acquistata tramite prenotazione dischi di Azure in più aree?**     
+La prenotazione dei dischi di Azure viene acquistata per un'area e uno SKU specifici, ad esempio P30 in Stati Uniti orientali 2, e pertanto non può essere usata all'esterno di questi costrutti. È sempre possibile acquistare una prenotazione aggiuntiva di dischi di Azure per le esigenze di archiviazione su disco in altre aree o SKU. 
 
-- Per i clienti che acquistano tramite Azure.com, al momento dell'acquisto, la carta di credito su file verrà addebitata per il pagamento anticipato completo (o per i pagamenti mensili fissi) della prenotazione dei dischi di Azure.
-
-**Come viene applicata la prenotazione dischi di Azure?**
-La prenotazione dischi segue un modello simile alle istanze di macchina virtuale riservate (VM). La differenza consiste nel fatto che non è possibile applicare una prenotazione disco a SKU diversi, mentre un'istanza di macchina virtuale può. Per altre informazioni sulle istanze di VM, vedere [risparmiare sui costi con le istanze di VM riservate di Azure](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) . 
-
-**È possibile usare la risorsa di archiviazione dei dati acquistata tramite prenotazione dischi di Azure in più aree?**
-La prenotazione dei dischi di Azure viene acquistata per un'area e uno SKU specifici, ad esempio P30 in Stati Uniti orientali 2, e pertanto non può essere usata all'esterno di questi costrutti. È sempre possibile acquistare una prenotazione aggiuntiva di dischi di Azure per le esigenze di archiviazione su disco in altre aree o SKU.
-
-**Cosa accade quando la prenotazione di dischi di Azure scade?**
+**Cosa accade quando la prenotazione di dischi di Azure scade?**    
 Si riceveranno le notifiche tramite posta elettronica 30 giorni prima della scadenza e nuovamente alla data di scadenza. Al termine della prenotazione, i dischi distribuiti continueranno a essere eseguiti e verranno fatturati con le [tariffe con pagamento in base](https://azure.microsoft.com/pricing/details/managed-disks/)al consumo più recenti.
 
-## <a name="ultra-disks"></a>Dischi Ultra
+## <a name="ultra-disks"></a>Dischi ultra
 
 **Per cosa è necessario impostare la velocità effettiva del disco Ultra?**
 Se non si è certi di cosa impostare la velocità effettiva del disco, è consigliabile iniziare supponendo una dimensione di i/o di 16 KiB e regolare le prestazioni da tale posizione durante il monitoraggio dell'applicazione. La formula è: velocità effettiva in MBps = # di IOPS * 16/1000.

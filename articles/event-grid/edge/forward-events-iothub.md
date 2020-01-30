@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 073205b5bdc3f6de80bd7e347469c3f06aeb515b
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: d0034810ff86de2a40e275ca54a2f0f9cbc856c2
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73098655"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844701"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>Esercitazione: inviare eventi a IoTHub
 
@@ -78,9 +78,11 @@ Come server di pubblicazione di un evento, è necessario creare un argomento di 
         ]
    ```
 
-## <a name="create-event-subscription"></a>Crea sottoscrizione evento
+## <a name="create-event-subscription"></a>Crea sottoscrizione di eventi
 
 I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. Per ricevere qualsiasi evento, sarà necessario creare una sottoscrizione di griglia di eventi in un argomento di interesse.
+
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Creare subscription4. JSON con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md) .
 
@@ -212,3 +214,4 @@ In questa esercitazione sono stati creati un argomento di griglia di eventi, una
 * Configurare la persistenza del modulo di griglia di eventi in [Linux](persist-state-linux.md) o [Windows](persist-state-windows.md)
 * Segui la [documentazione](configure-client-auth.md) per configurare l'autenticazione client
 * Inviare eventi a griglia di eventi di Azure nel cloud seguendo questa [esercitazione](forward-events-event-grid-cloud.md)
+* [Monitorare gli argomenti e le sottoscrizioni sui dispositivi perimetrali](monitor-topics-subscriptions.md)

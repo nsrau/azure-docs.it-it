@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 01/28/2020
 ms.author: cherylmc
-ms.openlocfilehash: cbddd912831247e30f2913414c6dfa13131dde99
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 02e2c0472a6ba7449229a5de5c6d8948be064644
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719858"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845797"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -58,7 +58,7 @@ Nella tabella seguente vengono fornite informazioni su aree e confini geopolitic
 
 | **Area geopolitica** | **Aree di Azure** | **Località per ExpressRoute** |
 | --- | --- | --- |
-| **Cloud del governo degli Stati Uniti** |US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia, US DoD (area centrale), US DoD (area orientale)  |Chicago, Dallas, New York, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
+| **Cloud del US Gov** |US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia, US DoD (area centrale), US DoD (area orientale)  |Chicago, Dallas, New York, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
 | **Cina orientale** |Cina orientale, Cina orientale 2 |Shanghai, Shanghai2 |
 | **Cina settentrionale** |Cina settentrionale, Cina settentrionale 2 |Beijing (Pechino), Beijing2 |
 | **Germania** |Germania centrale, Germania orientale |Berlino, Francoforte |
@@ -95,7 +95,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | 3 | Emirati Arabi Uniti settentrionali | N/D | du datamena, Megaport, Orange, Orixcom |
 | **Dublino** | [DB3 Equinix](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | Europa settentrionale | 10G, 100G | Colt, eir, Equinix, Interxion, Megaport |
 | **Francoforte** | [FRA11 Interxion](https://www.interxion.com/Locations/frankfurt/) | 1 | Germania centro-occidentale | 10G, 100G | Colt, DE-CIX, GEANT, Interxion, Megaport, Orange, Telia Carrier |
-| **Geneva** | [GV2 Equinix](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Svizzera occidentale | 10G, 100G | Equinix |
+| **Geneva** | [GV2 Equinix](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Svizzera occidentale | 10G, 100G | Equinix, Megaport |
 | **RAS di Hong Kong** | [HK1 Equinix](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | Asia orientale | N/D | Reti Aryaka, British Telecom, CenturyLink Cloud Connect, Chief Telecom, Cina Telecom Global, Equinix, intercloud, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telia Carrier, Verizon |
 | **Giacarta** | Telkom Indonesia | 4 | N/D | 10G | |
 | **Johannesburg** | [Teraco JB1](https://www.teraco.co.za/data-centre-locations/johannesburg/#jb1) | 3 | Sudafrica settentrionale | 10G | British Telecom, soluzioni Internet-Cloud Connect, Liquid Telecom, Orange, teraco |
@@ -108,7 +108,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Melbourne** | [NextDC M1](https://www.nextdc.com/data-centres/m1-melbourne-data-centre) | 2 | Australia sudorientale | 10G, 100G | AARNet, Devoli, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
 | **Miami** | [MI1 Equinix](https://www.equinix.com/locations/americas-colocation/united-states-colocation/miami-data-centers/mi1/) | 1 | N/D | 10G | C3ntro, Equinix, Megaport, reti neutre |
 | **Milano** | [IRIDEos](https://irideos.it/en/data-centers/) | 1 | N/D | 10G | |
-| **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | N/D | N/D | Bell Canada, Cologix, Megaport, Telus, Zayo |
+| **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | N/D | 10G, 100G | Bell Canada, Cologix, Megaport, Telus, Zayo |
 | **Mumbai** | Tata Communications | 2 | India occidentale | N/D | Global CloudXchange (GCX), Reliance jio, Sify, Tata Communications, Verizon |
 | **Mumbai2** | Airtel | 2 | India occidentale | N/D | Airtel, Sify, Vodafone Idea |
 | **Monaco** | [EdgeConneX](https://www.edgeconnex.com/locations/europe/) | 1 | N/D | 10G, 100G | |
@@ -160,7 +160,7 @@ I cloud nazionali di Azure sono isolati tra loro e da Azure commerciale globale.
 | **Posizione** | **Provider di servizi** |
 | --- | --- |
 | **Pechino** |China Telecom |
-| **Beijing2** | Telecom per la Cina, GDS |
+| **Beijing2** | China Telecom, Cina Unicom, GDS |
 | **Shanghai** |China Telecom |
 | **Shanghai2** | Telecom per la Cina, GDS |
 

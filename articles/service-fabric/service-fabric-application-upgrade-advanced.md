@@ -2,21 +2,87 @@
 title: Argomenti avanzati sull'aggiornamento delle applicazioni
 description: Questo articolo illustra alcuni degli argomenti avanzati relativi all'aggiornamento di un'applicazione di Service Fabric.
 ms.topic: conceptual
-ms.date: 2/23/2018
-ms.openlocfilehash: bd95d651e02cb61bcbe7a108db92afce8b5484bd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 1/28/2020
+ms.openlocfilehash: 09f3fdf1f26a13c6722eb039e132256f33be38ff
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457522"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845438"
 ---
-# <a name="service-fabric-application-upgrade-advanced-topics"></a>Aggiornamento di un'applicazione di Service Fabric: argomenti avanzati
-## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>Aggiunta o rimozione di tipi di servizio durante l'aggiornamento di un'applicazione
+# <a name="service-fabric-application-upgrade-advanced-topics"></a>Aggiornamento dell'applicazione Service Fabric: argomenti avanzati
+
+## <a name="add-or-remove-service-types-during-an-application-upgrade"></a>Aggiungere o rimuovere i tipi di servizio durante l'aggiornamento di un'applicazione
+
 Se si aggiunge un nuovo tipo di servizio a un'applicazione pubblicata nel corso di un aggiornamento, il nuovo tipo di servizio viene aggiunto all'applicazione distribuita. Tale aggiornamento non influisce sulle istanze del servizio che facevano già parte dell'applicazione, ma è necessario creare un'istanza del tipo di servizio che è stato aggiunto per consentire l'attivazione del nuovo tipo di servizio (vedere [New-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)).
 
 Analogamente, i tipi di servizio possono essere rimossi da un'applicazione durante un aggiornamento. Tuttavia, prima di procedere con l'aggiornamento è necessario rimuovere tutte le istanze del tipo di servizio da rimuovere (vedere [Remove-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
 
+## <a name="avoid-connection-drops-during-stateless-service-planned-downtime-preview"></a>Evitare le perdite di connessione durante i tempi di inattività pianificati per il servizio senza stato
+
+Per i tempi di inattività pianificati per le istanze senza stato, ad esempio l'aggiornamento dell'applicazione/cluster o la disattivazione del nodo, le connessioni possono essere eliminate a causa della rimozione dell'endpoint esposto dopo l'arresto.
+
+Per evitare questo problema, configurare la funzionalità *RequestDrain* (anteprima) aggiungendo una *durata del ritardo di chiusura dell'istanza* di replica nella configurazione del servizio. In questo modo si garantisce che l'endpoint annunciato dall'istanza senza stato venga rimosso *prima* che venga avviato il timer di ritardo per la chiusura dell'istanza. Questo ritardo consente lo svuotamento normale delle richieste esistenti prima che l'istanza diventi effettivamente inattiva. Ai client viene notificata la modifica dell'endpoint tramite la funzione di callback, in modo da poter risolvere nuovamente l'endpoint ed evitare di inviare nuove richieste all'istanza.
+
+### <a name="service-configuration"></a>Configurazione del servizio
+
+Esistono diversi modi per configurare il ritardo sul lato del servizio.
+
+ * **Quando si crea un nuovo servizio**, specificare un `-InstanceCloseDelayDuration`:
+
+    ```powershell
+    New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>`
+    ```
+
+ * **Quando si definisce il servizio nella sezione impostazioni predefinite del manifesto dell'applicazione**, assegnare la proprietà `InstanceCloseDelayDurationSeconds`:
+
+    ```xml
+          <StatelessService ServiceTypeName="Web1Type" InstanceCount="[Web1_InstanceCount]" InstanceCloseDelayDurationSeconds="15">
+              <SingletonPartition />
+          </StatelessService>
+    ```
+
+ * **Quando si aggiorna un servizio esistente**, specificare un `-InstanceCloseDelayDuration`:
+
+    ```powershell
+    Update-ServiceFabricService [-Stateless] [-ServiceName] <Uri> [-InstanceCloseDelayDuration <TimeSpan>]`
+    ```
+
+### <a name="client-configuration"></a>Configurazione del client
+
+Per ricevere una notifica in caso di modifica di un endpoint, i client possono registrare un callback (`ServiceManager_ServiceNotificationFilterMatched`) simile al seguente: 
+
+```csharp
+    var filterDescription = new ServiceNotificationFilterDescription
+    {
+        Name = new Uri(serviceName),
+        MatchNamePrefix = true
+    };
+    fbClient.ServiceManager.ServiceNotificationFilterMatched += ServiceManager_ServiceNotificationFilterMatched;
+    await fbClient.ServiceManager.RegisterServiceNotificationFilterAsync(filterDescription);
+
+private static void ServiceManager_ServiceNotificationFilterMatched(object sender, EventArgs e)
+{
+      // Resolve service to get a new endpoint list
+}
+```
+
+La notifica delle modifiche indica che gli endpoint sono stati modificati, che il client deve risolvere di nuovo gli endpoint e non usare gli endpoint che non sono più annunciati Man mano che diminuiranno a breve.
+
+### <a name="optional-upgrade-overrides"></a>Sostituzioni di aggiornamento facoltative
+
+Oltre a impostare le durate di ritardo predefinite per ogni servizio, è anche possibile eseguire l'override del ritardo durante l'aggiornamento dell'applicazione o del cluster usando la stessa opzione (`InstanceCloseDelayDurationSec`):
+
+```powershell
+Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationTypeVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
+
+Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManifestVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
+```
+
+La durata del ritardo si applica solo all'istanza di aggiornamento richiamata e in caso contrario non modifica le singole configurazioni dei ritardi del servizio. Ad esempio, è possibile usare questo valore per specificare un ritardo di `0` per ignorare eventuali ritardi di aggiornamento preconfigurati.
+
 ## <a name="manual-upgrade-mode"></a>Modalità di aggiornamento manuale
+
 > [!NOTE]
 > Per tutti gli aggiornamenti di Service Fabric è consigliabile usare la modalità di aggiornamento *Monitored*.
 > La modalità di aggiornamento*UnmonitoredManual* deve essere presa in considerazione solo per gli aggiornamenti non riusciti e sospesi. 
@@ -30,6 +96,7 @@ In modalità *UnmonitoredManual* l'amministratore dell'applicazione ha il contro
 Infine, la modalità *UnmonitoredAuto* è utile per l'esecuzione di iterazioni di aggiornamento rapide durante lo sviluppo o il test del servizio, poiché non è richiesto alcun input da parte dell'utente e non viene valutato alcun criterio di integrità dell'applicazione.
 
 ## <a name="upgrade-with-a-diff-package"></a>Aggiornare con un pacchetto Diff
+
 Anziché con il provisioning di un pacchetto dell'applicazione completo, gli aggiornamenti possono essere eseguiti anche con il provisioning di pacchetti diff che contengono solo i pacchetti di codice/configurazione/dati aggiornati insieme al manifesto completo dell'applicazione e ai manifesti completi del servizio. I pacchetti dell'applicazione completi sono necessari solo per l'installazione iniziale di un'applicazione nel cluster. Gli aggiornamenti successivi possono essere eseguiti da pacchetti dell'applicazione completi o da pacchetti diff.  
 
 Qualsiasi riferimento nel manifesto dell'applicazione o nei manifesti del servizio di un pacchetto diff che non è presente nel pacchetto dell'applicazione viene automaticamente sostituito con la versione di cui è stato eseguito il provisioning.
@@ -113,7 +180,7 @@ HealthState            : Ok
 ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAfter" }
 ```
 
-## <a name="rolling-back-application-upgrades"></a>Rollback degli aggiornamenti dell'applicazione
+## <a name="roll-back-application-upgrades"></a>Eseguire il rollback degli aggiornamenti dell'applicazione
 
 Mentre il roll forward degli aggiornamenti può essere eseguito in tre modalità (*Monitored*, *UnmonitoredAuto* o *UnmonitoredManual*), il rollback può essere eseguito solo in modalità *UnmonitoredAuto* o *UnmonitoredManual*. Il rollback in modalità *UnmonitoredAuto* funziona esattamente come il roll forward, tranne per il fatto che il valore predefinito di *UpgradeReplicaSetCheckTimeout* è diverso. Vedere [Parametri di aggiornamento di un'applicazione](service-fabric-application-upgrade-parameters.md). Il rollback in modalità *UnmonitoredManual* funziona esattamente come il roll forward. Il rollback viene sospeso automaticamente al termine di ogni UD e, per continuare, deve essere ripreso in modo esplicito usando [ Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps).
 

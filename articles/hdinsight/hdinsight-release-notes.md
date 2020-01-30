@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/08/2019
-ms.openlocfilehash: 56be45b8d0f8086d9a64811fe715fad967fca33e
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 01/24/2020
+ms.openlocfilehash: 9d484afb1d80ee6b110438cc3ddea1d3d67ad999
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027768"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844684"
 ---
 # <a name="release-notes"></a>Note sulla versione
 
@@ -23,7 +23,7 @@ Questo articolo include informazioni sugli aggiornamenti di versione di Azure HD
 
 Azure HDInsight è uno dei servizi più diffusi tra i clienti aziendali per l'analisi open source in Azure.
 
-## <a name="release-date-01092019"></a>Data di rilascio: 01/09/2019
+## <a name="release-date-01092020"></a>Data di rilascio: 01/09/2020
 
 Questa versione è valida per HDInsight 3,6 e 4,0. La versione HDInsight viene resa disponibile per tutte le aree in diversi giorni. La data di rilascio indica la data di rilascio della prima area. Se non vengono visualizzate le modifiche riportate di seguito, attendere che la versione risieda nella propria area in diversi giorni.
 
@@ -42,7 +42,7 @@ Tutti i dischi gestiti in HDInsight sono protetti con Crittografia del servizio 
 ## <a name="deprecation"></a>Deprecazione
 Nessuna deprecazione per questa versione. Per prepararsi a deprecazioni future, vedere [modifiche imminenti](#upcoming-changes).
 
-## <a name="behavior-changes"></a>Modifiche funzionali
+## <a name="behavior-changes"></a>Modifiche del comportamento
 Nessuna modifica del comportamento per questa versione. Per prepararsi a modifiche imminenti, vedere [future changes](#upcoming-changes).
 
 ## <a name="upcoming-changes"></a>Modifiche imminenti
@@ -65,3 +65,34 @@ HDInsight continua a migliorare l'affidabilità e le prestazioni del cluster.
 
 ## <a name="component-version-change"></a>Modifica della versione del componente
 Nessuna modifica della versione del componente per questa versione. È possibile trovare le versioni dei componenti correnti per HDInsight 4,0 ad HDInsight 3,6 qui.
+
+## <a name="known-issues"></a>Problemi noti
+
+A partire dal 24 gennaio 2020, si verifica un problema attivo in cui è possibile che si verifichi un errore durante il tentativo di usare un notebook di Jupyter. Per risolvere il problema, attenersi alla procedura riportata di seguito. È anche possibile fare riferimento a questo post [MSDN](https://social.msdn.microsoft.com/Forums/en-us/8c763fb4-79a9-496f-a75c-44a125e934ac/hdinshight-create-not-create-jupyter-notebook?forum=hdinsight) o a questo [post di StackOverflow](https://stackoverflow.com/questions/59687614/azure-hdinsight-jupyter-notebook-not-working/59831103) per informazioni aggiornate o per porre domande aggiuntive. Questa pagina verrà aggiornata quando il problema viene risolto.
+
+**Errori**
+
+* ValueError: non è possibile convertire il notebook in V5 perché la versione non esiste
+* Errore durante il caricamento del notebook. si è verificato un errore sconosciuto durante il caricamento del notebook. Questa versione può caricare i formati notebook V4 o versioni precedenti
+
+**Causa** 
+
+Il file _version. py nel cluster è stato aggiornato a 5. x. x anziché 4.4. x. # #.
+
+**Soluzione**
+
+Se si crea un nuovo notebook di Jupyter e si riceve uno degli errori elencati in precedenza, eseguire la procedura seguente per risolvere il problema.
+
+1. Aprire Ambari in un Web browser passando a https://CLUSTERNAME.azurehdinsight.net, dove CLUSTERname è il nome del cluster.
+1. In Ambari, nel menu a sinistra, fare clic su **Jupyter**, quindi su **azioni servizio**fare clic su **Arresta**.
+1. eseguire ssh nel nodo head del cluster in cui è in esecuzione il servizio Jupyter.
+1. Aprire il file/usr/bin/Anaconda/lib/python2.7/site-packages/nbformat/_version. py in modalità sudo.
+1. La voce esistente dovrebbe mostrare un codice simile al seguente: 
+
+    version_info = (5, 0, 3)
+
+    Modificare la voce in: 
+    
+    version_info = (4, 4, 0)
+1. Salvare il file.
+1. Tornare a Ambari e in **azioni servizio**fare clic su **riavvia tutto**.

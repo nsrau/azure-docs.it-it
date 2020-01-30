@@ -4,9 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Informazioni su come usare la funzionalità di risoluzione dei problemi di connessione di Azure Network Watcher con l'API REST di Azure.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -14,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: kumud
-ms.openlocfilehash: 792556a63b5ca9ef53a33960e8284354972b3895
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f1d4b02731f9e0f22fb1eaba03e55e49f84cd87a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275966"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845087"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Risolvere i problemi relativi alle connessioni con Azure Network Watcher usando l'API REST di Azure
 
@@ -132,7 +130,7 @@ Date: Fri, 02 Jun 2017 20:21:16 GMT
 null
 ```
 
-### <a name="response"></a>response
+### <a name="response"></a>Risposta
 
 La risposta seguente è relativa all'esempio precedente.  In questa risposta `ConnectionStatus` è **Unreachable**. Si noti che tutti i probe inviati presentano un errore. Si è verificato un problema di connettività nell'appliance virtuale a causa di un valore `NetworkSecurityRule` configurato dall'utente per bloccare il traffico in ingresso sulla porta 80, denominato **UserRule_Port80**. Queste informazioni possono essere usate per analizzare i problemi di connessione.
 
@@ -248,7 +246,7 @@ Date: Fri, 02 Jun 2017 20:26:05 GMT
 null
 ```
 
-### <a name="response"></a>response
+### <a name="response"></a>Risposta
 
 Nell'esempio seguente `connectionStatus` è **Unreachable**. I dettagli relativi a `hops` sotto `issues` indicano che il traffico è stato bloccato a causa di un valore `UserDefinedRoute`.
 
@@ -344,7 +342,7 @@ Date: Fri, 02 Jun 2017 20:31:00 GMT
 null
 ```
 
-### <a name="response"></a>response
+### <a name="response"></a>Risposta
 
 Nella risposta seguente il valore indicato per `connectionStatus` è **Reachable**. In caso di esito positivo della connessione vengono forniti i valori della latenza.
 
@@ -431,7 +429,7 @@ Date: Fri, 02 Jun 2017 20:05:03 GMT
 null
 ```
 
-### <a name="response"></a>response
+### <a name="response"></a>Risposta
 
 Di seguito è riportata la risposta di esempio generata dall'esecuzione della chiamata API precedente. Poiché il controllo ha esito positivo, il valore indicato per la proprietà `connectionStatus` è **Reachable**.  Vengono forniti i dettagli sul numero di hop necessari per raggiungere il BLOB di archiviazione e la latenza.
 

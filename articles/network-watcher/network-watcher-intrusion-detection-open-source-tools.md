@@ -4,9 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Questo articolo descrive come usare Azure Network Watcher e strumenti open source per eseguire il rilevamento di intrusioni di rete
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
 ms.devlang: na
@@ -14,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 8a0b4ff4fc985355d8dc76f2f3fd7fb35da55ec0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 781f3788c9001276315a2baed7060450fa00d77a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275929"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845024"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Eseguire il rilevamento di intrusioni di rete con Network Watcher e strumenti open source
 
@@ -36,7 +34,7 @@ Questo articolo illustra come configurare l'ambiente per eseguire il rilevamento
 
 Entrambi gli strumenti open source possono essere configurati in una VM di Azure, consentendo di eseguire questa analisi nell'ambiente di rete di Azure.
 
-## <a name="steps"></a>Passi
+## <a name="steps"></a>Procedure
 
 ### <a name="install-suricata"></a>Installare Suricata
 
@@ -211,7 +209,7 @@ Per altre istruzioni sull'installazione di Elasticsearch, vedere la pagina [Inst
     sudo chmod 775 /var/log/suricata/eve.json
     ```
 
-1. Per avviare Logstash, eseguire il comando:
+1. Per avviare Logstash, eseguire questo comando:
 
     ```
     sudo /etc/init.d/logstash start
@@ -244,7 +242,7 @@ Per altre istruzioni sull'installazione di Logstash, vedere la [documentazione u
 
 Per questo articolo, è stato fornito un dashboard di esempio per visualizzare tendenze e dettagli degli avvisi.
 
-1. Scaricare il file del dashboard [qui](https://aka.ms/networkwatchersuricatadashboard), il file di visualizzazione [qui](https://aka.ms/networkwatchersuricatavisualization) e il file della ricerca salvato [qui](https://aka.ms/networkwatchersuricatasavedsearch).
+1. Scaricare il file del dashboard [qui](https://aka.ms/networkwatchersuricatadashboard), il file delle visualizzazioni [qui](https://aka.ms/networkwatchersuricatavisualization) e il file della ricerca salvata [qui](https://aka.ms/networkwatchersuricatasavedsearch).
 
 1. Nella scheda **Management** (Gestione) di Kibana passare a **Saved Objects** (Oggetti salvati) e importare tutti e tre i file. Dalla scheda **Dashboard** è quindi possibile aprire e caricare il dashboard di esempio.
 
@@ -278,7 +276,7 @@ Il dashboard di esempio offre diverse visualizzazioni dei log di avvisi di Suric
 
 Per altri documenti sulla creazione di visualizzazioni e dashboard personalizzati, vedere la [documentazione ufficiale di Kibana](https://www.elastic.co/guide/en/kibana/current/introduction.html).
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 
 Combinando le acquisizioni di pacchetti fornite da Network Watcher e da strumenti IDS open source come Suricata, è possibile eseguire il rilevamento di intrusioni di rete per svariate minacce. Questi dashboard consentono di trovare rapidamente tendenze e anomalie nella rete, oltre che esaminare i dati per trovare le cause radice degli avvisi, ad esempio agenti utenti malintenzionati o porte vulnerabili. Con i dati estratti, è possibile prendere decisioni informate su come reagire e proteggere la rete da qualsiasi tentativo di intrusione dannoso e creare regole per impedire intrusioni future nella rete.
 

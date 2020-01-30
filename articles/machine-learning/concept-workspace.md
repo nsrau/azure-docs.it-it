@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
-ms.openlocfilehash: 4891ec0ae87f0d7b0cd7e5d5d550f955a8fde1db
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: d013fc257bc03d7961a4f2d5ae52d0fde12c83bb
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312380"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844076"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Che cos'è un'area di lavoro Azure Machine Learning?
 
@@ -49,7 +49,7 @@ Il diagramma mostra i componenti seguenti di un'area di lavoro:
 
 + Sul Web:
     + [Azure Machine Learning Studio](https://ml.azure.com) 
-    + [Azure machine learning designer](concept-designer.md) -disponibile solo nelle aree di lavoro [Enterprise Edition](overview-what-is-azure-ml.md#sku) .
+    + [Progettazione Azure Machine Learning (anteprima)](concept-designer.md) -disponibile solo nelle aree di lavoro [Enterprise Edition](overview-what-is-azure-ml.md#sku) .
 + In qualsiasi ambiente Python con [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + In qualsiasi ambiente R con l' [SDK Azure Machine Learning per r](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + Dalla riga di comando usando l' [estensione CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) Azure Machine Learning
@@ -79,7 +79,7 @@ Le attività di Machine Learning leggono e/o scrivono elementi nell'area di lavo
 | Creare una VM notebook |   | **&check;** | |     |
 
 > [!NOTE]
-> Le istanze di calcolo sono disponibili solo per le aree di lavoro con **Stati Uniti centro-settentrionali** o **Regno Unito meridionale** come area geografica.
+> Le istanze di calcolo sono disponibili solo per le aree di lavoro con gli **Stati Uniti centro-settentrionali**, * * Stati Uniti orientali 2 * *, **europa settentrionale** o **Regno Unito meridionale**.
 >Se l'area di lavoro si trova in qualsiasi altra area geografica, è possibile continuare a creare e usare una [macchina virtuale notebook](concept-compute-instance.md#notebookvm) in alternativa.
 
 ## <a name='create-workspace'></a>Creare un'area di lavoro

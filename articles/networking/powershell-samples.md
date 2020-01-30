@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/24/2017
 ms.author: gwallace
-ms.openlocfilehash: fb4b63d8329f0a175252b819653e192c746489b6
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: d1e6027a0dc71f0962293143ca9bd3de67a659e6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092025"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844905"
 ---
 # <a name="azure-powershell-samples-for-networking"></a>Esempi di Azure PowerShell per la rete
 
@@ -35,6 +35,5 @@ La tabella seguente include i collegamenti agli script creati usando Azure Power
 | [Filtrare il traffico della VM in ingresso e in uscita](./scripts/virtual-network-powershell-filter-network-traffic.md?toc=%2fazure%2fnetworking%2ftoc.json) | Crea una rete virtuale con subnet front-end e back-end. Il traffico di rete in ingresso alla subnet front-end è limitato a HTTP e HTTPS. Non è consentito il traffico in uscita verso Internet dalla subnet di back-end. |
 |**Bilanciamento del carico e direzione del traffico**||
 | [Eseguire il bilanciamento del carico per il traffico verso le VM per la disponibilità elevata](./scripts/load-balancer-windows-powershell-sample-nlb.md?toc=%2fazure%2fnetworking%2ftoc.json) | Consente di creare più macchine virtuali in una configurazione a disponibilità elevata e con bilanciamento del carico. |
-| [Eseguire il bilanciamento del carico per più siti Web sulle VM](./scripts/load-balancer-windows-powershell-load-balance-multiple-websites-vm.md?toc=%2fazure%2fnetworking%2ftoc.json) | Crea due VM con più configurazioni IP, unite a un set di disponibilità di Azure, accessibili tramite un servizio di bilanciamento del carico di Azure. |
 | [Dirigere il traffico su più aree per la disponibilità elevata delle applicazioni](./scripts/traffic-manager-powershell-websites-high-availability.md?toc=%2fazure%2fnetworking%2ftoc.json) |  Crea due piani di servizio app, due app Web, un profilo di gestione traffico e due endpoint di gestione traffico. |
 | | |

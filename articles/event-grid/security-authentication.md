@@ -1,6 +1,6 @@
 ---
 title: Sicurezza e autenticazione di Griglia di eventi di Azure
-description: Descrive Griglia di eventi di Azure e ne illustra i principali concetti.
+description: Vengono descritti il servizio Griglia di eventi di Azure e i concetti correlati.
 services: event-grid
 author: banisadr
 manager: timlt
@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: dfa53acaf392e225873a40b05b8517de2f9780dc
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: e8913c1f198c89bdcd779d2faf2706f9d4079c5c
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74169567"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846302"
 ---
 # <a name="event-grid-security-and-authentication"></a>Sicurezza e autenticazione di Griglia di eventi 
 
@@ -85,9 +85,9 @@ Per dimostrare la proprietà dell'endpoint, rimandare il codice di convalida nel
 }
 ```
 
-È necessario restituire un codice di stato risposta HTTP 200 OK. HTTP 202 accettato non è riconosciuto come risposta valida per la convalida della sottoscrizione di griglia di eventi. La richiesta HTTP deve essere completata entro 30 secondi. Se l'operazione non termina entro 30 secondi, l'operazione verrà annullata e potrebbe essere ritentata dopo 5 secondi. Se tutti i tentativi hanno esito negativo, verranno considerati come errori di handshake di convalida.
+È necessario restituire un codice di stato risposta HTTP 200 OK. HTTP 202 Accettata non una risposta di convalida di sottoscrizione di Griglia di eventi riconosciuta come valida. La richiesta HTTP deve essere completata entro 30 secondi. Se l'operazione non termina entro 30 secondi, l'operazione verrà annullata e potrebbe essere ritentata dopo 5 secondi. Se tutti i tentativi hanno esito negativo, verranno considerati come errori di handshake di convalida.
 
-In alternativa, è possibile convalidare manualmente la sottoscrizione inviando una richiesta GET all'URL di convalida. La sottoscrizione di eventi rimane in stato di attesa fino a quando non viene convalidata. L'URL di convalida usa la porta 553. Se le regole del firewall bloccano la porta 553, potrebbe essere necessario aggiornare le regole per un handshake manuale riuscito.
+In alternativa, è possibile convalidare manualmente la sottoscrizione inviando una richiesta GET all'URL di convalida. La sottoscrizione dell'evento rimane nello stato in sospeso fino a quando non viene convalidata. L'URL di convalida usa la porta 553. Se le regole del firewall bloccano la porta 553, potrebbe essere necessario aggiornare le regole per un handshake manuale riuscito.
 
 Per un esempio di gestione dell'handshake di convalida della sottoscrizione, vedere un [ esempio C#](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
@@ -95,7 +95,7 @@ Per un esempio di gestione dell'handshake di convalida della sottoscrizione, ved
 
 Durante la creazione della sottoscrizione di eventi, se viene visualizzato un messaggio di errore, ad esempio "tentativo di convalidare l'endpoint specificato https:\//your-endpoint-Here non riuscito. Per altri dettagli, vedere https:\//aka.ms/esvalidation "indica che si è verificato un errore nell'handshake di convalida. Per risolvere questo errore, verificare gli aspetti seguenti:
 
-* È possibile controllare il codice dell'applicazione nell'endpoint di destinazione? Se, ad esempio, si scrive una funzione di Azure basata su un trigger HTTP, si è autorizzati ad accedere al codice dell'applicazione per modificarlo?
+* Si controlla il codice dell'applicazione in esecuzione nell'endpoint di destinazione? Se, ad esempio, si scrive una funzione di Azure basata su un trigger HTTP, si è autorizzati ad accedere al codice dell'applicazione per modificarlo?
 * Se si è autorizzati ad accedere al codice dell'applicazione, implementare il meccanismo di handshake basato su ValidationCode, come illustrato nell'esempio precedente.
 
 * Se non si è autorizzati ad accedere al codice dell'applicazione, ad esempio se si usa un servizio di terze parti che supporta webhook, è possibile usare il meccanismo di handshake manuale. Assicurarsi di usare la versione dell'API 2018-05-01-preview o versione successiva (installare l'estensione dell'interfaccia della riga di comando di Azure della griglia di eventi) per ricevere validationUrl nell'evento di convalida. Per completare l'handshake di convalida manuale, ottenere il valore della proprietà `validationUrl` e visitare l'URL nel Web browser. Se la convalida ha esito positivo, verrà visualizzato un messaggio nel Web browser che indica che la convalida ha avuto esito positivo. Si noterà che provisioningState della sottoscrizione dell'evento è "Succeeded". 
@@ -348,6 +348,10 @@ Le seguenti sono definizioni di esempio del ruolo di Griglia di eventi che conse
 ```
 
 È possibile creare ruoli personalizzati con [PowerShell](../role-based-access-control/custom-roles-powershell.md), l'[interfaccia della riga di comando di Azure](../role-based-access-control/custom-roles-cli.md) e [REST](../role-based-access-control/custom-roles-rest.md).
+
+## <a name="encryption-at-rest"></a>Crittografia di dati inattivi
+
+Tutti gli eventi o i dati scritti sul disco dal servizio griglia di eventi vengono crittografati da una chiave gestita da Microsoft, assicurando la crittografia dei dati inattivi. Inoltre, il periodo massimo di tempo durante il quale gli eventi o i dati vengono conservati è di 24 ore in conformità con i [criteri di ripetizione dei tentativi di griglia di eventi](delivery-and-retry.md). Griglia di eventi eliminerà automaticamente tutti gli eventi o i dati dopo 24 ore o la durata (TTL) dell'evento, a seconda del numero minore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

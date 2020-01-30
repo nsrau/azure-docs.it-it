@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: a9c64f4bafa770de9bbbd97ae9a0295b72d81f54
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 24114defe5e78bb7adbd006adc4ddbf8250b3188
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719824"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844973"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Azure ricerca cognitiva
 
@@ -26,6 +26,10 @@ Ecco cosa c'è di nuovo nel servizio. Aggiungere un segnalibro a questa pagina p
 Ricerca di Azure è stato rinominato in **azure ricerca cognitiva** per riflettere l'uso espanso (ancora facoltativo) delle competenze cognitive e dell'elaborazione di intelligenza artificiale nelle operazioni principali. Le versioni API, i pacchetti NuGet, gli spazi dei nomi e gli endpoint sono invariati. Le soluzioni di ricerca nuove e esistenti non sono interessate dalla modifica del nome del servizio.
 
 ## <a name="feature-announcements"></a>Annunci di funzionalità
+
+### <a name="february-2020"></a>2020 febbraio
+
++ Il rilevamento delle informazioni [personali](cognitive-search-skill-pii-detection.md) è una competenza cognitiva usata durante l'indicizzazione che estrae informazioni personali da un testo di input e offre la possibilità di mascherarle da tale testo in diversi modi.
 
 ### <a name="january-2020"></a>Gennaio 2020
 
@@ -52,7 +56,7 @@ Ricerca di Azure è stato rinominato in **azure ricerca cognitiva** per riflette
 
 + L' [estrazione dei documenti (anteprima)](cognitive-search-skill-document-extraction.md) è una competenza cognitiva usata durante l'indicizzazione che consente di estrarre il contenuto di un file dall'interno di un skillt. In precedenza, il cracking del documento si verificava solo prima dell'esecuzione di Skills. Con l'aggiunta di questa competenza, è anche possibile eseguire questa operazione all'interno dell'esecuzione di competenze.
 
-+ [Traduzione testo (anteprima)](cognitive-search-skill-text-translation.md) è una competenza cognitiva utilizzata durante l'indicizzazione che valuta il testo e, per ogni record, restituisce il testo convertito nel linguaggio di destinazione specificato.
++ La [traduzione del testo](cognitive-search-skill-text-translation.md) è una competenza cognitiva utilizzata durante l'indicizzazione che valuta il testo e, per ogni record, restituisce il testo convertito nel linguaggio di destinazione specificato.
 
 + [Power bi modelli](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) possono avviare rapidamente le visualizzazioni e l'analisi di contenuto arricchito in un archivio informazioni in Power bi desktop. Questo modello è progettato per le proiezioni di tabelle di Azure create tramite la [procedura guidata Importa dati](knowledge-store-create-portal.md).
 

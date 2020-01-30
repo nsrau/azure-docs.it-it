@@ -8,12 +8,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: aaa551619b48bb385bf5b1fef2331d382e32a040
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b0a800a95d00e482b2342911111f43cfadb5a9c6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406543"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845633"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gestire l'utilizzo e i costi per Application Insights
 
@@ -38,9 +38,9 @@ Esistono due approcci per risolvere questo problema: l'uso del monitoraggio pred
 
 ### <a name="data-collection-when-using-sampling"></a>Raccolta dati quando si usa il campionamento
 
-Con il [campionamento adattivo](https://docs.microsoft.com/azure/azure-monitor/app/sampling#adaptive-sampling-in-your-aspnetaspnet-core-web-applications)di ASP.NET SDK, il volume di dati viene regolato automaticamente per rimanere entro una frequenza massima specificata di traffico per il monitoraggio predefinito Application Insights. Se l'applicazione produce una quantità ridotta di dati di telemetria, ad esempio durante il debug o a causa di un utilizzo ridotto, gli elementi non verranno eliminati dal processore di campionamento, purché il volume sia inferiore al livello di eventi configurati al secondo. Per un'applicazione con volume elevato, con la soglia predefinita di cinque eventi al secondo, il campionamento adattivo limiterà il numero di eventi giornalieri a 432.000. Se si usa una dimensione di evento Media tipica di 1 KB, corrisponde a 13,4 GB di dati di telemetria per ogni mese di 31 giorni per nodo che ospita l'applicazione (poiché il campionamento viene eseguito localmente in ogni nodo). 
+Con il [campionamento adattivo](sampling.md#adaptive-sampling)di ASP.NET SDK, il volume di dati viene regolato automaticamente per rimanere entro una frequenza massima specificata di traffico per il monitoraggio predefinito Application Insights. Se l'applicazione produce una quantità ridotta di dati di telemetria, ad esempio durante il debug o a causa di un utilizzo ridotto, gli elementi non verranno eliminati dal processore di campionamento, purché il volume sia inferiore al livello di eventi configurati al secondo. Per un'applicazione con volume elevato, con la soglia predefinita di cinque eventi al secondo, il campionamento adattivo limiterà il numero di eventi giornalieri a 432.000. Se si usa una dimensione di evento Media tipica di 1 KB, corrisponde a 13,4 GB di dati di telemetria per ogni mese di 31 giorni per nodo che ospita l'applicazione (poiché il campionamento viene eseguito localmente in ogni nodo). 
 
-Per gli SDK che non supportano il campionamento adattivo, è possibile usare il [campionamento](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling)per inserimento, che include esempi quando i dati vengono ricevuti da Application Insights in base a una percentuale di dati da conservare o un [campionamento a frequenza fissa per i siti web ASP.NET, ASP.NET Core e Java](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-java-websites-and-python-applications) per ridurre il traffico inviato dal server Web e dai Web browser
+Per gli SDK che non supportano il campionamento adattivo, è possibile usare il [campionamento](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling)per inserimento, che include esempi quando i dati vengono ricevuti da Application Insights in base a una percentuale di dati da conservare o un [campionamento a frequenza fissa per i siti web ASP.NET, ASP.NET Core e Java](sampling.md#fixed-rate-sampling) per ridurre il traffico inviato dal server Web e dai Web browser
 
 ### <a name="learn-from-what-similar-customers-collect"></a>Impara da ciò che i clienti simili raccolgono
 

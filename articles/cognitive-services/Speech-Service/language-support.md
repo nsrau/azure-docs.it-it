@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 01/28/2020
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 34d362a4b28ade5116c68e2243a2341bab9fca9d
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 008f0b1b83e8ba856fae2fe40b026dcc645e46ab
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760624"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845323"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>Supporto di lingue e aree per il servizio di riconoscimento vocale
 
@@ -72,7 +72,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 `ta-IN` | Tamil (India) | Sì | Modello linguistico
 `te-IN` | Telugu (India) | Sì | No
 `th-TH` | Thai (Thailandia) | Sì | No
-`tr-TR` | Turchia | Sì | No
+`tr-TR` | Turco (Turchia) | Sì | No
 `zh-CN` | Cinese (mandarino, semplificato) | Sì | Modello acustico<br>Modello linguistico
 `zh-HK` | Cinese (cantonese, tradizionale) | Sì | Modello linguistico
 `zh-TW` | Cinese (mandarino taiwanese) | Sì | Modello linguistico
@@ -111,7 +111,7 @@ Sono disponibili più di 75 voci standard in oltre 45 lingue e impostazioni loca
 
 Impostazioni locali | Lingua | Genere | Mapping completo del nome del servizio | Nome breve
 -------|----------|---------|----------|----------
-<sup>**1**</sup>`ar-EG` | Arabo (Egitto) | Femminile | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)" | "ar-EG-un".
+<sup>1</sup>`ar-EG` | Arabo (Egitto) | Femminile | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)" | "ar-EG-un".
 `ar-SA` | Arabo (Arabia Saudita) | Maschile | "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)" | "ar-SA-Naayf"
 `bg-BG` | Bulgaro | Maschile | "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)" | "BG-BG-Ivan"
 `ca-ES` | Catalano (Spagna) | Femminile | "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)" | "ca-ES-HerenaRUS"
@@ -181,7 +181,7 @@ Impostazioni locali | Lingua | Genere | Mapping completo del nome del servizio |
 `ta-IN` | Tamil (India) | Maschile | "Microsoft Server Speech Text to Speech Voice (ta-IN, Valluvar)" | "TA-IN-Valluvar"
 `te-IN` | Telugu (India) | Femminile | "Microsoft Server Speech Text to Speech Voice (te-IN, Chitra)" | "te-IN-Chitle"
 `th-TH` | Thai | Maschile | "Microsoft Server Speech Text to Speech Voice (th-TH, Pattara)" | "th-TH-Pattara"
-`tr-TR` | Turco | Femminile | "Microsoft Server Speech Text to Speech Voice (tr-TR, SedaRUS)" | "tr-TR-SedaRUS"
+`tr-TR` | Turco (Turchia) | Femminile | "Microsoft Server Speech Text to Speech Voice (tr-TR, SedaRUS)" | "tr-TR-SedaRUS"
 `vi-VN` | Vietnamita | Maschile | "Microsoft Server Speech Text to Speech Voice (vi-VN, An)" | "vi-VN-An"
 `zh-CN` | Cinese (Terraferma) | Femminile | "Microsoft Server Speech Text to Speech Voice (zh-CN, HuihuiRUS)" | "zh-CN-HuihuiRUS"
 | | | Femminile | "Microsoft Server Speech Text to Speech Voice (zh-CN, Yaoyao, Apollo)" | "zh-CN-Yaoyao-Apollo"

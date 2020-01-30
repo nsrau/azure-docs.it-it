@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 502a495bad4115daf9f0f4ffed276a307adf1fc4
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 7184fb5c45ce41de2bd63b55fb67cbd9ba6361e3
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100644"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844718"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>Esercitazione: eseguire la trasmissione di eventi al cloud di griglia di eventi
 
@@ -23,7 +23,7 @@ Questo articolo illustra tutti i passaggi necessari per l'invio di eventi Edge a
 * Reagire agli eventi Edge nel cloud.
 * Consente di inviare eventi a griglia di eventi nel cloud e di usare hub eventi di Azure o le code di archiviazione di Azure per memorizzare nel buffer gli eventi prima di elaborarli nel cloud.
 
-Per completare questa esercitazione, è necessario conoscere i concetti relativi a griglia di eventi in [Edge](concepts.md) e [Azure](../concepts.md).
+ Per completare questa esercitazione, è necessario conoscere i concetti relativi a griglia di eventi in [Edge](concepts.md) e [Azure](../concepts.md). Per altri tipi di destinazione, vedere [gestori di eventi](event-handlers.md). 
 
 ## <a name="prerequisites"></a>Prerequisiti 
 Per completare questa esercitazione, è necessario:
@@ -83,6 +83,7 @@ Se, ad esempio, è stato creato un argomento denominato `testegcloudtopic` negli
   
 ## <a name="create-event-grid-subscription-at-the-edge"></a>Creare una sottoscrizione di griglia di eventi al perimetro
 
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Creare subscription3. JSON con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md) .
 
@@ -201,3 +202,4 @@ In questa esercitazione è stato pubblicato un evento sul perimetro ed è stato 
 * Per risolvere i problemi relativi all'uso di griglia di eventi di Azure in IoT Edge, vedere [Guida alla risoluzione dei problemi](troubleshoot.md).
 * Eseguire il provisioning di eventi in IoTHub seguendo questa [esercitazione](forward-events-iothub.md)
 * Inviare gli eventi al webhook nel cloud seguendo questa [esercitazione](pub-sub-events-webhook-cloud.md)
+* [Monitorare gli argomenti e le sottoscrizioni sui dispositivi perimetrali](monitor-topics-subscriptions.md)

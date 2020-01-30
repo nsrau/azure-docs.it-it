@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 690a9751111ca4c86ebb34825f2845ea59d6f186
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6ee339cb709a5d825b39b4accf294761c99ee41a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462500"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846278"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limiti dei servizi in Azure ricerca cognitiva
 
@@ -117,7 +117,7 @@ Sono disponibili tempi di esecuzione massimi per fornire bilanciamento e stabili
 | Tempo massimo di esecuzione <sup>5</sup> | 1-3 minuti |24 ore |24 ore |24 ore |24 ore |N/D  |24 ore |24 ore |
 | Tempo massimo di esecuzione per set di competenze di ricerca cognitiva o indicizzazione BLOB con analisi delle immagini <sup>5</sup> | 3-10 minuti |2 ore |2 ore |2 ore |2 ore |N/D  |2 ore |2 ore |
 | Indicizzatore BLOB: dimensioni massime per un BLOB, MB |16 |16 |128 |256 |256 |N/D  |256 |256 |
-| Indicizzatore BLOB: numero massimo di caratteri di contenuto estratti da un BLOB |32.000 |64.000 |4&nbsp;milioni |4&nbsp;milioni |4&nbsp;milioni |N/D |4&nbsp;milioni |4&nbsp;milioni |
+| Indicizzatore BLOB: numero massimo di caratteri di contenuto estratti da un BLOB |32.000 |64.000 |4&nbsp;milioni |8&nbsp;milioni |16&nbsp;milioni |N/D |4&nbsp;milioni |4&nbsp;milioni |
 
 <sup>1</sup> I servizi del livello Gratuito hanno un tempo massimo di esecuzione degli indicizzatori di 3 minuti per le origini BLOB e di 1 minuto per tutte le altre origini dati. Per l'indicizzazione di intelligenza artificiale che effettua chiamate in Servizi cognitivi, i servizi gratuiti sono limitati a 20 transazioni gratuite al giorno, in cui una transazione viene definita come documento che passa correttamente attraverso la pipeline di arricchimento.
 
@@ -151,7 +151,7 @@ Per i livelli ottimizzati per l'archiviazione è necessario prevedere una veloci
 
 ## <a name="data-limits-ai-enrichment"></a>Limiti dei dati (arricchimento AI)
 
-Una [pipeline di arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md) che effettua chiamate a una risorsa analisi del testo per il [riconoscimento di entità](cognitive-search-skill-entity-recognition.md), l' [estrazione di frasi chiave](cognitive-search-skill-keyphrases.md), l' [analisi dei sentimenti](cognitive-search-skill-sentiment.md)e il [rilevamento della lingua](cognitive-search-skill-language-detection.md) sono soggetti a limiti di dati. La dimensione massima di un record deve essere di 50.000 caratteri misurata da [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se è necessario suddividere i dati prima di inviarli all'analizzatore di valutazione, usare la [competenza cognitiva di divisione del testo](cognitive-search-skill-textsplit.md).
+Una [pipeline di arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md) che effettua chiamate a una risorsa analisi del testo per il [riconoscimento di entità](cognitive-search-skill-entity-recognition.md), l' [estrazione di frasi chiave](cognitive-search-skill-keyphrases.md), l' [analisi dei sentimenti](cognitive-search-skill-sentiment.md), il rilevamento della [lingua](cognitive-search-skill-language-detection.md)e il rilevamento delle informazioni [personali](cognitive-search-skill-pii-detection.md) sono soggette a limiti di dati La dimensione massima di un record deve essere di 50.000 caratteri misurata da [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se è necessario suddividere i dati prima di inviarli all'analizzatore di valutazione, usare la [competenza cognitiva di divisione del testo](cognitive-search-skill-textsplit.md).
 
 ## <a name="throttling-limits"></a>Limiti di limitazione
 

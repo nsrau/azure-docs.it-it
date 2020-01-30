@@ -9,16 +9,16 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 5fb6cab4bfeea4308873210fb5f9122b37b61dcd
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: c82f1edfc3acd73c1d38425f963aaaf2976a1cc5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100315"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844591"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Esercitazione: pubblicare, sottoscrivere eventi nel cloud
 
-Questo articolo illustra tutti i passaggi necessari per pubblicare e sottoscrivere gli eventi usando griglia di eventi in IoT Edge.
+Questo articolo illustra tutti i passaggi necessari per pubblicare e sottoscrivere gli eventi usando griglia di eventi in IoT Edge. Questa esercitazione USA e la funzione di Azure come gestore dell'evento. Per altri tipi di destinazione, vedere [gestori di eventi](event-handlers.md).
 
 Vedere [concetti relativi a griglia di eventi](concepts.md) per comprendere l'argomento e la sottoscrizione di griglia di eventi prima di procedere.
 
@@ -107,6 +107,8 @@ Come server di pubblicazione di un evento, è necessario creare un argomento di 
 ## <a name="create-an-event-subscription"></a>Creare una sottoscrizione di eventi
 
 I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. Per ricevere qualsiasi evento, i sottoscrittori dovranno creare una sottoscrizione di griglia di eventi in un argomento di interesse.
+
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Creare subscription2. JSON con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md) .
 
@@ -203,3 +205,4 @@ In questa esercitazione sono stati creati un argomento di griglia di eventi, una
 * Configurare la persistenza del modulo di griglia di eventi in [Linux](persist-state-linux.md) o [Windows](persist-state-windows.md)
 * Segui la [documentazione](configure-client-auth.md) per configurare l'autenticazione client
 * Inviare eventi a griglia di eventi di Azure nel cloud seguendo questa [esercitazione](forward-events-event-grid-cloud.md)
+* [Monitorare gli argomenti e le sottoscrizioni sui dispositivi perimetrali](monitor-topics-subscriptions.md)

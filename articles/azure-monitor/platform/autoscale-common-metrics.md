@@ -4,12 +4,12 @@ description: Informazioni su quali metriche vengono comunemente usate per la sca
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
-ms.openlocfilehash: 7b9c19ba3b85813eb12f6b906427f3cfdc9a0f67
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2c335168683212337876c963a7cfdb441d0ac69a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364595"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845573"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Metriche comuni per la scalabilità automatica di Monitoraggio di Azure
 
@@ -36,7 +36,7 @@ Le metriche a livello di host seguenti vengono generate per impostazione predefi
 - [Metriche host per le VM Windows e Linux basate su Resource Manager](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)
 - [Metriche host per i set di scalabilità di macchine virtuali Windows e Linux basati su Resource Manager](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
-### <a name="guest-os-metrics-resource-manager-based-windows-vms"></a>Metriche del sistema operativo guest per le VM Windows basate su Resource Manager
+### <a name="guest-os-metrics-for-resource-manager-based-windows-vms"></a>Metriche del sistema operativo guest per macchine virtuali Windows basate su Gestione risorse
 Quando si crea una nuova VM in Azure, la diagnostica viene abilitata con l'uso dell'estensione Diagnostica. L'estensione Diagnostica genera un set di metriche recuperate dall'interno della VM. Questo significa che è possibile gestire la scalabilità automatica con metriche non generate per impostazione predefinita.
 
 Per generare un elenco delle metriche è possibile usare il comando seguente in PowerShell.
@@ -129,8 +129,8 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \NetworkInterface\TotalTxErrors |Conteggio |
 | \NetworkInterface\TotalCollisions |Conteggio |
 
-## <a name="commonly-used-web-server-farm-metrics"></a>Metriche Web (server farm) usate comunemente
-È possibile eseguire la scalabilità automatica anche in base a metriche di server Web comuni, come la lunghezza della coda HTTP. Il nome della metrica è **HttpQueueLength**.  La sezione seguente riporta un elenco delle metriche di server farm (app Web) disponibili.
+## <a name="commonly-used-app-service-server-farm-metrics"></a>Metriche del servizio app comunemente usate (server farm)
+È possibile eseguire la scalabilità automatica anche in base a metriche di server Web comuni, come la lunghezza della coda HTTP. Il nome della metrica è **HttpQueueLength**.  La sezione seguente elenca le metriche di server farm (servizio app) disponibili.
 
 ### <a name="web-apps-metrics"></a>Metriche di app Web
 Per generare un elenco delle metriche di app Web è possibile usare il comando seguente in PowerShell.
@@ -159,8 +159,8 @@ Per un account di archiviazione classico, ad esempio, la classe metricTrigger pe
 
 ```
 "metricName": "ApproximateMessageCount",
- "metricNamespace": "",
- "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
+"metricNamespace": "",
+"metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
  ```
 
 Per un account di archiviazione non classico, metricTrigger includerà:
@@ -177,7 +177,7 @@ Per un account di archiviazione non classico, metricTrigger includerà:
 Per i set di scalabilità di macchine virtuali, è possibile aggiornare l'impostazione di scalabilità automatica nel modello di Resource Manager in modo da usare *metricName* come *ApproximateMessageCount* e passare l'ID della coda di archiviazione come *metricResourceUri*.
 
 ```
-"metricName": "MessageCount",
+"metricName": "ApproximateMessageCount",
  "metricNamespace": "",
 "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ServiceBus/namespaces/SB_NAMESPACE/queues/QUEUE_NAME"
 ```

@@ -3,12 +3,12 @@ title: Individuare app, ruoli e funzionalità nei server locali con Azure Migrat
 description: Informazioni su come individuare app, ruoli e funzionalità nei server locali con Azure Migrate Assessment server.
 ms.topic: article
 ms.date: 11/20/2019
-ms.openlocfilehash: 454d70a53c3ea00a4dc592703c0bc04d5517b97f
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 7c3a6360e051b8cb694393695e75578ce2c135ec
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280765"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846309"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Individuare app, ruoli e funzionalità del computer
 
@@ -28,7 +28,7 @@ Individuazione app con Azure Migrate: la valutazione del server è senza agente.
 2. Assicurarsi di aver [aggiunto](how-to-assess.md) lo strumento Azure migrate: server Assessment a un progetto.
 4. Verificare i [requisiti di VMware](migrate-support-matrix-vmware.md#vmware-requirements) per l'individuazione e la valutazione delle macchine virtuali VMware con l'appliance Azure migrate.
 5. Verificare i [requisiti](migrate-appliance.md) per la distribuzione di Azure migrate Appliance.
-6. [Verificare il supporto e i requisiti](/migrate-support-matrix-vmware.md#application-discovery) per l'individuazione delle applicazioni.
+6. [Verificare il supporto e i requisiti](migrate-support-matrix-vmware.md#application-discovery) per l'individuazione delle applicazioni.
 
 ## <a name="prepare-for-app-discovery"></a>Prepararsi per l'individuazione delle app
 

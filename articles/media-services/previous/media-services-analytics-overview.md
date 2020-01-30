@@ -15,23 +15,22 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
-ms.openlocfilehash: 66edbc872fe5f1d4320107aa21ed2792bdd4fecc
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 4b0d360c11313e086f6ec26e5ee46b8d6f49869a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083880"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844344"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Analisi Servizi multimediali nella piattaforma Servizi multimediali 
 
 ## <a name="retirement-plans"></a>Piani di ritiro
 
 > [!IMPORTANT]
-> I seguenti processori di contenuti multimediali legacy verranno ritirati in 2020, vedere i dettagli nella tabella seguente. 
+> Il processore di contenuti multimediali legacy seguente verrà ritirato in 2020, vedere i dettagli nella tabella seguente. 
 
 |Nome processore di contenuti multimediali|Data di ritiro|Note aggiuntive|
 |---|---|
-|[Azure Media Indexer 2](media-services-process-content-with-indexer2.md)| 1 gennaio 2020|Questo processore di contenuti multimediali verrà sostituito da [servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). Per altre informazioni, vedere [eseguire la migrazione da Azure Media Indexer 2 a servizi multimediali di Azure video Indexer](migrate-indexer-v1-v2.md).|
 |[Azure Media Indexer](media-services-index-content.md)|1 ° ottobre di 2020|Questo processore di contenuti multimediali verrà sostituito da [servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). Per altre informazioni, vedere [eseguire la migrazione da Azure Media Indexer a servizi multimediali di Azure video Indexer](migrate-indexer-v1-v2.md)
  
 ## <a name="overview"></a>Overview
@@ -50,19 +49,23 @@ I processori di contenuti multimediali di Analisi Servizi multimediali producono
 
 ## <a name="media-analytics-services"></a>Servizi di Analisi Servizi multimediali
 
-### <a name="indexer"></a>Indexer
-Azure Media Indexer consente di rendere disponibili per la ricerca i contenuti, oltre a generare tracce per i sottotitoli codificati. Rispetto alla versione precedente, Azure Media Indexer 2 Preview offre prestazioni di indicizzazione superiori e un più ampio supporto di lingue. Le lingue supportate includono inglese, spagnolo, francese, tedesco, italiano, cinese, portoghese e arabo. Per informazioni dettagliate ed esempi, vedere [Elaborare video con Azure Media Indexer 2](media-services-process-content-with-indexer2.md).
+### <a name="indexer"></a>Indicizzatore
+Azure Media Indexer consente di rendere disponibili per la ricerca i contenuti, oltre a generare tracce per i sottotitoli codificati. Per informazioni dettagliate ed esempi, vedere [indicizzazione di file multimediali con Azure Media Indexer](media-services-index-content.md).
+
 ### <a name="motion-detector"></a>Motion Detector
 È possibile usare Motion Detector per rilevare i movimenti in un video con sfondi fissi. Questo rende possibile per verificare la presenza di falsi positivi in eventi di movimento rilevati da videocamere di sorveglianza. Per informazioni dettagliate ed esempi, vedere [Rilevamento dei movimenti per Analisi Servizi multimediali di Azure](media-services-motion-detection.md).
+
 ### <a name="face-detector"></a>Face Detector
 Grazie all'uso di Face Detector, è possibile individuare i volti delle persone e le relative emozioni, ad esempio felicità, tristezza e sorpresa. Questa funzionalità vanta numerose applicazioni utili nel settore, descritte di seguito, tra cui l'aggregazione e l'analisi delle reazioni delle persone che partecipano a un evento. Per informazioni dettagliate ed esempi, vedere [Rilevamento di volti ed emozioni per Analisi Servizi multimediali di Azure](media-services-face-and-emotion-detection.md).
+
 ### <a name="video-summarization"></a>Riepilogo video
 Il riepilogo video consente di creare un riepilogo per video lunghi selezionando in modo automatico frammenti interessanti del video di origine. Questa funzione risulta particolarmente utile quando si intende creare una panoramica rapida dei contenuti offerti nella versione più lunga del video. Per informazioni dettagliate ed esempi, vedere [Uso di Azure Media Video Thumbnails per creare un riepilogo video](media-services-video-summarization.md).
 ### <a name="optical-character-recognition"></a>Riconoscimento ottico dei caratteri
 Il riconoscimento ottico dei caratteri (OCR) di Analisi Servizi multimediali di Azure consente di convertire il contenuto di testo dei file video in testo digitale modificabile e sui cui è possibile eseguire ricerche. È possibile automatizzare così l'estrazione di metadati importanti dal segnale video del contenuto multimediale.
 ### <a name="scalable-face-redaction"></a>Offuscamento dei volti scalabile
 Azure Media Redactor è un processore di contenuti multimediali di Analisi Servizi multimediali di Azure che offre funzionalità scalabili di offuscamento dei volti nel cloud. Usando l'offuscamento dei volti è possibile modificare un video per sfocare i volti di persone selezionate. Si potrebbe scegliere di usare tale servizio in scenari di notizie giornalistiche o pubblica sicurezza. Offuscare manualmente alcuni minuti di filmato contenenti più volti può richiedere ore, ma con questo servizio l'offuscamento dei volti richiederà pochi semplici passaggi. Per altre informazioni, vedere l'articolo [Offuscare i volti con Analisi Servizi multimediali di Azure](media-services-face-redaction.md).
-### <a name="content-moderation"></a>Moderazione dei contenuti
+
+### <a name="content-moderation"></a>Servizio di moderazione dei contenuti
 Azure Content Moderator consente di usare funzionalità di moderazione automatica per i video. Ad esempio, è possibile rilevare nei video contenuti pornografici e per adulti ed eseguire la revisione dei contenuti contrassegnati in modalità manuale. La moderazione manuale dei video per i contenuti indesiderati è un'attività costosa, che richiede molto tempo. Con questo servizio e gli strumenti di revisione associati, vengono combinate funzionalità di moderazione automatica e manuale allo scopo di ottenere risultati migliori in termini di efficacia ed efficienza. Per altre informazioni, vedere l'articolo [Process your videos with Azure Content Moderator](media-services-content-moderation.md) (Analizzare i video con Azure Content Moderator).
 
 ## <a name="common-scenarios"></a>Scenari comuni
@@ -75,7 +78,7 @@ Analisi Servii multimediali può aiutare le organizzazioni e le aziende a scopri
 Questa sezione elenca tutti i processori di contenuti multimediali di Analisi Servizi multimediali e illustra come usare .NET o REST per ottenere un oggetto dei processori di contenuti multimediali.
 
 ### <a name="mp-names"></a>Nomi dei processori di contenuti multimediali
-* Azure Media Indexer 2 Preview
+
 * Azure Media Indexer
 * Rilevamento multimediale volti di Azure
 * Rilevatore multimediale di movimento Azure
@@ -112,7 +115,7 @@ Richiesta:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <token>
-    x-ms-version: 2.12
+    x-ms-version: 2.19
     Host: media.windows.net
 
 Risposta:
@@ -136,7 +139,7 @@ Risposta:
 ## <a name="demos"></a>Demo
 Vedere le [demo di Analisi Servizi multimediali di Azure](https://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>Articoli correlati

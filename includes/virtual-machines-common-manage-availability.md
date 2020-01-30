@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5350ecdd3b73894e43db3b9f342fc657cf73f224
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 40810b9a9b295f2aa9d56caaf4b51cab7dbbe5bc
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76268262"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76887576"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Informazioni sui riavvii delle VM: manutenzione e tempo di inattività
 Sono tre gli scenari che possono interessare la macchina virtuale in Azure: manutenzione dell'hardware non pianificata, tempo di inattività imprevisto e manutenzione pianificata.
@@ -79,12 +79,13 @@ Get-AzComputeResourceSku | where{$_.ResourceType -eq 'availabilitySets' -and $_.
 az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Location:locationInfo[0].location, MaximumFaultDomainCount:capabilities[0].value}' -o Table
 ```
 
-> Nota: in alcune circostanze, è possibile che due macchine virtuali che fanno parte dello stesso abilitate per condividono lo stesso FaultDomain. Per confermare questo problema, passare a abilitate per e selezionare la colonna "dominio di errore".
-> Questo comportamento può essere osservato quando si verifica la sequenza seguente durante la distribuzione delle macchine virtuali:
+> [!NOTE]
+> In determinate circostanze, 2 macchine virtuali nella stessa abilitate per possono condividere lo stesso FaultDomain. Questa operazione può essere confermata passando al set di disponibilità e controllando la colonna **dominio di errore** .
+> Questo problema può essere causato dalla sequenza seguente durante la distribuzione delle macchine virtuali:
 > - Distribuire la prima VM
 > - Arrestare/deallocare la prima VM
 > - Distribuire la seconda macchina virtuale in queste circostanze, il disco del sistema operativo della seconda macchina virtuale potrebbe essere creato nello stesso dominio di errore della prima VM, quindi anche la seconda macchina virtuale verrà visualizzata nella stessa FaultDomain. 
-> Per evitare questo problema, è consigliabile non arrestare/deallocare la VM tra le distribuzioni.
+> Per evitare questo problema, è consigliabile non arrestare/deallocare le macchine virtuali tra le distribuzioni.
 
 Se si intende usare macchine virtuali con dischi non gestiti, seguire queste procedure consigliate per gli account di archiviazione in cui i dischi rigidi virtuali delle macchine virtuali vengono archiviati come [BLOB di pagine](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 

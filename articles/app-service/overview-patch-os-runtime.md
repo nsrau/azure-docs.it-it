@@ -4,12 +4,12 @@ description: Informazioni sul modo in cui il servizio app Azure aggiorna il sist
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1a56fed04399325be315d8d977e5a72223bddac5
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 02fa89305c19ee4ec5e151ad36f7f5fa3e130f63
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688579"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846253"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Applicazione di patch a sistema operativo e runtime in Servizio app di Azure
 
@@ -83,6 +83,7 @@ La tabella seguente illustra come ottenere informazioni sulle versioni di Window
 | Versione PHP | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br> `php --version` |
 | Versione predefinita di Node.js | In [Cloud Shell](../cloud-shell/overview.md) eseguire il comando seguente: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
 | Versione Python | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br> `python --version` |  
+| Versione Java | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br> `java -version` |  
 
 > [!NOTE]  
 > L'accesso al percorso del Registro di sistema `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, dove sono archiviate le informazioni sulle [patch "KB"](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins), è bloccato.

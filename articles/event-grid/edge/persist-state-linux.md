@@ -9,16 +9,18 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 3506399537fe2cb16014ceb3429bce5aeee8cb69
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 39b16c6cfd5b94d412827ed88197edbef2da1453
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100344"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844633"
 ---
 # <a name="persist-state-in-linux"></a>Mantieni stato in Linux
 
-Gli argomenti e le sottoscrizioni create nel modulo di griglia di eventi vengono archiviati per impostazione predefinita nel contenitore file system. Senza persistenza, se il modulo viene ridistribuito, tutti i metadati creati andranno perduti. Attualmente solo i metadati sono salvati in permanenza. Gli eventi vengono archiviati in memoria. Se il modulo griglia di eventi viene ridistribuito o riavviato, eventuali eventi non recapitati andranno persi.
+Gli argomenti e le sottoscrizioni create nel modulo di griglia di eventi vengono archiviati nel contenitore file system per impostazione predefinita. Senza persistenza, se il modulo viene ridistribuito, tutti i metadati creati andranno perduti. Per mantenere i dati tra le distribuzioni e i riavvii, è necessario salvare in modo permanente i dati all'esterno del contenitore file system.
+
+Per impostazione predefinita, solo i metadati sono persistenti e gli eventi rimangono archiviati in memoria per migliorare le prestazioni. Seguire la sezione relativa agli eventi di persistenza per abilitare la persistenza degli eventi.
 
 Questo articolo illustra i passaggi per distribuire il modulo di griglia di eventi con la persistenza nelle distribuzioni di Linux.
 
@@ -61,7 +63,8 @@ La configurazione seguente, ad esempio, comporterà la creazione del volume **eg
   ],
   "HostConfig": {
     "Binds": [
-      "egmetadataDbVol:/app/metadataDb"
+      "egmetadataDbVol:/app/metadataDb",
+      "egdataDbVol:/app/eventsDb"
     ],
     "PortBindings": {
       "4438/tcp": [
@@ -74,7 +77,7 @@ La configurazione seguente, ad esempio, comporterà la creazione del volume **eg
 }
 ```
 
-In alternativa, è possibile creare un volume Docker usando i comandi client di Docker. 
+Anziché montare un volume, è possibile creare una directory nel sistema host e montare tale directory.
 
 ## <a name="persistence-via-host-directory-mount"></a>Persistenza tramite montaggio directory host
 
@@ -138,7 +141,8 @@ Anziché un volume Docker, è anche possibile montare una cartella host.
           ],
           "HostConfig": {
                 "Binds": [
-                  "/myhostdir:/app/metadataDb"
+                  "/myhostdir:/app/metadataDb",
+                  "/myhostdir2:/app/eventsDb"
                 ],
                 "PortBindings": {
                       "4438/tcp": [
@@ -153,3 +157,32 @@ Anziché un volume Docker, è anche possibile montare una cartella host.
 
     >[!IMPORTANT]
     >Non modificare la seconda parte del valore di binding. Punta a una posizione specifica all'interno del modulo. Per il modulo di griglia di eventi in Linux è necessario **/app/Metadata**.
+
+
+## <a name="persist-events"></a>Mantieni eventi
+
+Per abilitare la persistenza degli eventi, è necessario abilitare prima la persistenza dei metadati tramite il montaggio del volume o il montaggio della directory host usando le sezioni precedenti.
+
+Aspetti importanti da notare sugli eventi di salvataggio permanente:
+
+* Gli eventi di salvataggio permanente sono abilitati per ogni sottoscrizione di evento ed è il consenso esplicito dopo che è stato montato un volume o una directory.
+* La persistenza degli eventi è configurata in una sottoscrizione di eventi in fase di creazione e non può essere modificata dopo la creazione della sottoscrizione di eventi. Per abilitare o disabilitare la persistenza degli eventi, è necessario eliminare e ricreare la sottoscrizione di eventi.
+* Il mantenimento degli eventi è quasi sempre più lento rispetto alle operazioni di memoria, ma la differenza di velocità dipende in modo estremamente dalle caratteristiche dell'unità. Il compromesso tra velocità e affidabilità è inerente a tutti i sistemi di messaggistica, ma in genere diventa solo un evidente su larga scala.
+
+Per abilitare la persistenza degli eventi in una sottoscrizione di eventi, impostare `persistencePolicy` su `true`:
+
+ ```json
+        {
+          "properties": {
+            "persistencePolicy": {
+              "isPersisted": "true"
+            },
+            "destination": {
+              "endpointType": "WebHook",
+              "properties": {
+                "endpointUrl": "<your-webhook-url>"
+              }
+            }
+          }
+        }
+ ```

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 3a87475146e2b23c4a824e568ea3da33e1f4abf0
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3a52d906d958fdfd1d7e09c6229b12af3204bc52
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512947"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846391"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Origini evento di Griglia di eventi di Azure
 
@@ -132,6 +132,9 @@ Sottoscrivere gli eventi del bus di servizio per rispondere ai messaggi senza un
 ## <a name="storage"></a>Archiviazione
 
 Sottoscrivere gli eventi di archiviazione BLOB per rispondere agli eventi creati ed eliminati dai BLOB.
+
+>[!NOTE]
+> Solo gli account di archiviazione di tipo **archiviazione V2 (utilizzo generico v2)** e **BlobStorage** supportano l'integrazione degli eventi. **Archiviazione (genral scopo V1)** non *supporta l'* integrazione con griglia di eventi.
 
 |Titolo  |Description  |
 |---------|---------|

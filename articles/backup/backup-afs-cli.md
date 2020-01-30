@@ -3,12 +3,12 @@ title: Backup di condivisioni file di Azure con l'interfaccia della riga di coma
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per eseguire il backup di condivisioni file di Azure nell'insieme di credenziali
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 10ae6d88e8a40ba4175e664ed338f0a02be7a7ca
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: ff1d8c6245521d2d0262b0440177d65713058742
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294487"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844042"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Eseguire il backup delle condivisioni file di Azure con CLI
 
@@ -104,7 +104,7 @@ Se si vuole attivare un backup su richiesta per la condivisione file anziché at
 
 Per attivare un backup su richiesta, è necessario definire i parametri seguenti:
 
-* **--Container-Name** è il nome dell'account di archiviazione che ospita la condivisione file. Per recuperare il **nome** o il **nome descrittivo** del contenitore, usare il comando [AZ backup container list](https://docs.microsoft.com/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
+* **--Container-Name** è il nome dell'account di archiviazione che ospita la condivisione file. Per recuperare il **nome** o il **nome descrittivo** del contenitore, usare il comando [AZ backup container list](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
 * **--Item-Name** è il nome della condivisione file per cui si vuole attivare un backup su richiesta. Per recuperare il **nome** o il **nome descrittivo** dell'elemento di cui è stato eseguito il backup, usare il comando [AZ backup Item List](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
 * **--Mantieni-fino** a quando non viene specificata la data fino a quando non si desidera mantenere il punto di ripristino. Il valore deve essere impostato in formato ora UTC (gg-mm-aaaa).
 

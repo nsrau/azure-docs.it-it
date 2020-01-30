@@ -3,9 +3,7 @@ title: Creare un'istanza di Azure Network Watcher | Microsoft Docs
 description: Informazioni su come abilitare Network Watcher in un'area di Azure.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: b1314119-0b87-4f4d-b44c-2c4d0547fb76
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: fd293c2815721295715c5e02846c55d4cdb74a32
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.author: damendo
+ms.openlocfilehash: b091c501fb565fb267c40f686dc037e41f3c90ee
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693478"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845134"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Creare un'istanza di Azure Network Watcher
 
@@ -55,7 +53,7 @@ Passare ad **Tutti i servizi** > **Rete** > **Network Watcher**. È possibile se
 
 ![Creare un'istanza di Network Watcher](./media/network-watcher-create/figure1.png)
 
-Quando si abilita Network Watcher tramite il portale, il nome dell'istanza di Network Watcher viene impostato automaticamente su *NetworkWatcher_region_name* dove *region_name* corrisponde all'area di Azure in cui l'istanza è abilitata. Ad esempio, un Network Watcher abilitato nell'area centro-occidentale degli Stati Uniti viene denominato *NetworkWatcher_westcentralus*.
+Quando si abilita Network Watcher tramite il portale, il nome dell'istanza di Network Watcher viene impostato automaticamente su *NetworkWatcher_region_name* dove *region_name* corrisponde all'area di Azure in cui l'istanza è abilitata. Ad esempio, un Network Watcher abilitato nell'area Stati Uniti centro-occidentale viene denominato *NetworkWatcher_westcentralus*.
 
 L'istanza di Network Watcher viene creata automaticamente in un gruppo di risorse denominato *NetworkWatcherRG*. Questo gruppo di risorse viene creato se non esiste già.
 

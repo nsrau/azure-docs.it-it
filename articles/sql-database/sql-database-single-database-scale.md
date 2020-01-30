@@ -11,20 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: 8d4917bb8956185e0cb557368fbb0c64343c0ac6
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: e23a4c39f93ea4de7f5dd38bb266d63ed52913cb
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422551"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845850"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Ridimensionare le risorse di database singoli nel database SQL di Azure
 
 Questo articolo descrive come ridimensionare le risorse di calcolo e di archiviazione disponibili per un database SQL di Azure nel livello di calcolo di cui è stato effettuato il provisioning. In alternativa, il [livello di calcolo senza server](sql-database-serverless.md) fornisce scalabilità automatica di calcolo e fatture al secondo per il calcolo usato.
 
-## <a name="change-compute-size-vcores-or-dtus"></a>Modificare le dimensioni di calcolo (VCore o DTU)
-
-Dopo aver selezionato inizialmente il numero di Vcore o DTU, è possibile ridimensionare un singolo database in modo dinamico in base all'esperienza effettiva usando il [portale di Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), l'interfaccia della riga di comando di [Azure](/cli/azure/sql/db#az-sql-db-update)o l' [API REST. ](https://docs.microsoft.com/rest/api/sql/databases/update).
+Dopo aver selezionato inizialmente il numero di Vcore o DTU, è possibile ridimensionare un singolo database in modo dinamico in base all'esperienza effettiva usando il [portale di Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), l'interfaccia della riga di comando di [Azure](/cli/azure/sql/db#az-sql-db-update)o l' [API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
 
 Il video seguente mostra come modificare in modo dinamico il livello di servizio e le dimensioni di calcolo per aumentare le DTU disponibili per un singolo database.
 
@@ -33,7 +31,7 @@ Il video seguente mostra come modificare in modo dinamico il livello di servizio
 > [!IMPORTANT]
 > In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [Gestire lo spazio file nel database SQL di Azure](sql-database-file-space-management.md).
 
-### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Effetti della modifica delle dimensioni di calcolo del livello di servizio o di ridimensionamento
+## <a name="impact"></a>Impatto
 
 La modifica del livello di servizio o delle dimensioni di calcolo di comporta principalmente il servizio che esegue i passaggi seguenti:
 
@@ -48,7 +46,7 @@ La modifica del livello di servizio o delle dimensioni di calcolo di comporta pr
 > [!IMPORTANT]
 > Durante qualsiasi passaggio del flusso di lavoro non viene perso alcun dato. Assicurarsi di aver implementato una logica di [ripetizione dei tentativi](sql-database-connectivity-issues.md) nelle applicazioni e nei componenti che usano il database SQL di Azure durante la modifica del livello di servizio.
 
-### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Latenza di modifica del livello di servizio o di ridimensionamento delle dimensioni di calcolo
+## <a name="latency"></a>Latenza 
 
 La latenza stimata per modificare il livello di servizio o ridimensionare le dimensioni di calcolo di un singolo database o di un pool elastico è parametrizzata come indicato di seguito:
 
@@ -59,13 +57,13 @@ La latenza stimata per modificare il livello di servizio o ridimensionare le dim
 |**Premium o business critical database singolo o pool elastico**|&bull; &nbsp;latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull; &nbsp;in genere, meno di 1 minuto per GB di spazio usato|&bull; &nbsp;latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull; &nbsp;in genere, meno di 1 minuto per GB di spazio usato|&bull; &nbsp;latenza proporzionale allo spazio del database usato a causa della copia dei dati</br>&bull; &nbsp;in genere, meno di 1 minuto per GB di spazio usato|
 
 > [!TIP]
-> Per monitorare le operazioni in corso, vedere: [gestire le operazioni tramite l'API REST SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [gestire le operazioni tramite l'interfaccia](/cli/azure/sql/db/op)della riga di comando, [monitorare le operazioni usando T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e questi due comandi di PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) e [ Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
+> Per monitorare le operazioni in corso, vedere: [gestire le operazioni tramite l'API REST di SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [gestire le operazioni tramite l'interfaccia](/cli/azure/sql/db/op)della riga di comando, [monitorare le operazioni usando T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e questi due comandi di PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) e [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
-### <a name="cancelling-service-tier-changes-or-compute-rescaling-operations"></a>Annullamento delle modifiche al livello di servizio o delle operazioni di ridimensionamento del calcolo
+## <a name="cancelling-changes"></a>Annullamento delle modifiche
 
 Una modifica del livello di servizio o un'operazione di ridimensionamento del calcolo può essere annullata.
 
-#### <a name="azure-portal"></a>portale di Azure
+#### <a name="azure-portal"></a>Portale di Azure
 
 Nel pannello Panoramica database passare a **notifiche** e fare clic sul riquadro che indica che è in corso un'operazione:
 
@@ -90,7 +88,7 @@ else {
 }
 ```
 
-### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Considerazioni aggiuntive quando si modificano le dimensioni di calcolo del livello di servizio o di ridimensionamento
+## <a name="additional-considerations"></a>Altre considerazioni
 
 - Se si esegue l'aggiornamento a un livello di servizio o dimensioni di calcolo superiori, le dimensioni massime del database non aumentano a meno che non si specifichino esplicitamente dimensioni più elevate (massime).
 - Per effettuare il downgrade di un database, la relativa quantità di spazio usato deve essere inferiore alle dimensioni massime consentite per il livello di servizio e le dimensioni di calcolo di destinazione.
@@ -100,7 +98,7 @@ else {
 - Le offerte per il ripristino del servizio sono diverse per i vari livelli di servizio. In caso di downgrade al livello **Basic**, il periodo di conservazione dei backup sarà inferiore. Vedere l'articolo relativo ai [backup del database SQL di Azure](sql-database-automated-backups.md).
 - Le nuove proprietà del database non vengono applicate finché non sono state completate le modifiche.
 
-### <a name="billing-during-compute-rescaling"></a>Fatturazione durante il ridimensionamento del calcolo
+## <a name="billing"></a>Fatturazione 
 
 Viene fatturata ogni ora per cui un database esiste usando il livello di servizio più elevato e le dimensioni di calcolo applicati in quell'ora, indipendentemente dall'uso o dal fatto che il database sia stato attivo per meno di un'ora. Ad esempio, se si crea un database singolo che viene eliminato cinque minuti dopo, in fattura viene riportato l'addebito relativo a un'ora di database.
 
@@ -125,9 +123,13 @@ Viene fatturata ogni ora per cui un database esiste usando il livello di servizi
 > [!IMPORTANT]
 > In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [Gestire lo spazio file nel database SQL di Azure](sql-database-file-space-management.md).
 
+### <a name="geo-replicated-database"></a>Database con replica geografica
+
+Per modificare le dimensioni del database di un database secondario replicato, modificare le dimensioni del database primario. Questa modifica verrà quindi replicata e implementata anche nel database secondario. 
+
 ## <a name="p11-and-p15-constraints-when-max-size-greater-than-1-tb"></a>Vincoli P11 e P15 quando la dimensione massima è maggiore di 1 TB
 
-Più di 1 TB di spazio di archiviazione nel livello Premium è attualmente disponibile in tutte le aree, ad eccezione di: Cina orientale, Cina settentrionale, Germania centrale, Germania nord-orientale, Stati Uniti centro-occidentali, US DoD aree e Stati Uniti centrali. In queste aree la quantità massima di spazio di archiviazione nel livello Premium è limitata a 1 TB. Ai database P11 e P15 con dimensioni massime maggiori di 1 TB vengono applicate le considerazioni e le limitazioni seguenti:
+Più di 1 TB di spazio di archiviazione nel livello Premium è attualmente disponibile in tutte le aree, ad eccezione di: Cina orientale, Cina settentrionale, Germania centrale, Germania nord-orientale, Stati Uniti centro-occidentali, US DoD aree e Stati Uniti centrali. In queste aree la quantità massima di risorse di archiviazione nel livello Premium è limitata a 1 TB. Ai database P11 e P15 con dimensioni massime maggiori di 1 TB vengono applicate le considerazioni e le limitazioni seguenti:
 
 - Se le dimensioni massime per un database P11 o P15 sono state impostate su un valore maggiore di 1 TB, è possibile che vengano ripristinate o copiate solo in un database P11 o P15.  Successivamente, il database può essere ridimensionato a una dimensione di calcolo diversa, a condizione che la quantità di spazio allocata al momento dell'operazione di ridimensionamento non superi i limiti di dimensioni massime delle nuove dimensioni di calcolo.
 - Per gli scenari di replica geografica attiva:

@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/04/2020
-ms.openlocfilehash: eb73d614ca94bc1fa007a14f3705e50c74ab9e4f
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 940ada83aeabf4bf8746ad5f90592e0917f7b403
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922467"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844446"
 ---
 # <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>API REST del servizio ricerca cognitiva di Azure-versione 2019-05-06-Preview
 
@@ -30,10 +30,6 @@ Questo articolo descrive la versione `api-version=2019-05-06-Preview` dell'API R
 + [Cosmos DB indicizzatore](search-howto-index-cosmosdb.md) supporta l'API MongoDB (anteprima), l'API Gremlin (anteprima) e la API Cassandra (anteprima).
 
 + [Azure Data Lake storage Gen2 indicizzatore (anteprima)](search-howto-index-azure-data-lake-storage.md) può indicizzare il contenuto e i metadati da data Lake storage Gen2.
-
-+ L' [estrazione dei documenti (anteprima)](cognitive-search-skill-document-extraction.md) è una competenza cognitiva usata durante l'indicizzazione che consente di estrarre il contenuto di un file dall'interno di un skillt. In precedenza, il cracking del documento si verificava solo prima dell'esecuzione di Skills. Con l'aggiunta di questa competenza, è anche possibile eseguire questa operazione all'interno dell'esecuzione di competenze.
-
-+ [Traduzione testo (anteprima)](cognitive-search-skill-text-translation.md) è una competenza cognitiva utilizzata durante l'indicizzazione che valuta il testo e, per ogni record, restituisce il testo convertito nel linguaggio di destinazione specificato.
 
 + [Archivio informazioni](knowledge-store-concept-intro.md) è una nuova destinazione di una pipeline di arricchimento basata su intelligenza artificiale. La struttura dei dati fisici esiste nell'archiviazione BLOB di Azure e nell'archiviazione tabelle di Azure e viene creata e popolata quando si esegue un indicizzatore con un sistema di competenze cognitive collegato. La definizione di un archivio informazioni viene specificata in una definizione di competenze. All'interno della definizione dell'archivio delle informazioni, è possibile controllare le strutture fisiche dei dati tramite elementi di *proiezione* che determinano la modalità di modellazione dei dati, se i dati vengono archiviati nell'archiviazione tabelle o nell'archiviazione BLOB e se sono presenti più viste.
 

@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 169b0c8084259ac27b466dbfd3606e465da35d99
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: e403d690470f3c4f1d0c8e565e90641d9c114a80
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73098628"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844547"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Esercitazione: pubblicare, sottoscrivere gli eventi in locale
 
@@ -59,11 +59,13 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
    * **URI immagine**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **Opzioni di creazione del contenitore**:
 
+   [!INCLUDE [event-grid-edge-module-version-update](../../../includes/event-grid-edge-module-version-update.md)]
+
     ```json
         {
           "Env": [
-            "inbound:clientAuth:clientCert:enabled=false",
-            "outbound:webhook:httpsOnly=false"
+            "inbound__clientAuth__clientCert__enabled=false",
+            "outbound__webhook__httpsOnly=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -76,7 +78,7 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
           }
         }
     ```    
- 1. Fare clic su **Salva**.
+ 1. Fare clic su **Save** (Salva).
  1. Passare alla sezione successiva per aggiungere il modulo funzioni di Azure prima di distribuirli insieme.
 
     >[!IMPORTANT]
@@ -117,7 +119,7 @@ Questa sezione illustra come distribuire il modulo di Azure Functions, che funge
             }
        ```
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Save** (Salva).
 1. Fare clic su **Avanti** per passare alla sezione Route
 
  ### <a name="setup-routes"></a>Route di installazione
@@ -178,6 +180,8 @@ Come server di pubblicazione di un evento, è necessario creare un argomento di 
 ## <a name="create-an-event-subscription"></a>Creare una sottoscrizione di eventi
 
 I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. Per ricevere qualsiasi evento, è necessario creare una sottoscrizione di griglia di eventi per un argomento di interesse.
+
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Creare Subscription. JSON con il contenuto seguente. Per informazioni dettagliate sul payload, vedere la [documentazione dell'API](api.md)
 
@@ -307,4 +311,5 @@ In questa esercitazione sono stati creati un argomento di griglia di eventi, una
 - Segui la [documentazione](configure-client-auth.md) per configurare l'autenticazione client
 - Eseguire il provisioning di eventi in funzioni di Azure nel cloud seguendo questa [esercitazione](pub-sub-events-webhook-cloud.md)
 - [Reagire agli eventi di archiviazione BLOB in IoT Edge](react-blob-storage-events-locally.md)
+- [Monitorare gli argomenti e le sottoscrizioni sui dispositivi perimetrali](monitor-topics-subscriptions.md)
 

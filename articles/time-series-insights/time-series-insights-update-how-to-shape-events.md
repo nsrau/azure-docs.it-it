@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 567770c00c645aeb79e1efb0e9119b9ac829f3fe
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: fd744e6283b00b0dfdd50805cb628f5bc40ab8d6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861660"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846150"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Definire la struttura degli eventi con Anteprima di Time Series Insights
 
@@ -156,5 +156,4 @@ Nell'esempio precedente, la proprietà `data_flow` bidimensionale presenta un co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per applicare queste linee guida, leggere [Azure Time Series Insights sintassi di query di anteprima](./time-series-insights-query-data-csharp.md). Verranno fornite altre informazioni sulla sintassi di query per l'API REST di Time Series Insights Preview per l'accesso ai dati.
-- Per informazioni sulle forme JSON supportate, vedere [forme JSON supportate](./time-series-insights-send-events.md#supported-json-shapes).
+Per applicare queste linee guida, leggere [Azure Time Series Insights sintassi di query di anteprima](./time-series-insights-query-data-csharp.md). Verranno fornite altre informazioni sulla sintassi di query per l'API REST di Time Series Insights Preview per l'accesso ai dati.

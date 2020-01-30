@@ -4,22 +4,20 @@ titleSuffix: Azure Network Watcher
 description: Questo articolo illustra come diagnosticare la connettività locale con Automazione di Azure e Network Watcher
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 07847289c156aaa48b9d15c40d4135ce2cf39c10
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 74c9f44ff5fbbbb50bba1594d371633fd49857eb
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275900"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845048"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitorare i gateway VPN con la risoluzione dei problemi di Network Watcher
 
@@ -177,7 +175,7 @@ Nel pannello **Nuova pianificazione** immettere le informazioni sulla pianificaz
 > [!NOTE]
 > Se un runbook specifico deve essere eseguito con una frequenza superiore a un'ora, è necessario creare più pianificazioni a intervalli diversi, vale a dire a 15, 30, 45 minuti dopo l'ora.
 
-![Passaggio 9][9]
+![Passaggio 9:][9]
 
 ### <a name="step-3"></a>Passaggio 3
 
