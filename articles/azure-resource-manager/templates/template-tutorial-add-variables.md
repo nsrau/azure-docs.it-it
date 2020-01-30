@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a27022f8c06449d8b05f90f78055b983bc88c01c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 881d91d5b8ca06a9591b8752af0a73da7f00b0c1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471526"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765495"
 ---
 # <a name="tutorial-add-variables-to-your-resource-manager-template"></a>Esercitazione: Aggiungere variabili al modello di Resource Manager
 
@@ -26,7 +26,7 @@ Questa esercitazione illustra come aggiungere una variabile al modello. Le varia
 
 Al termine dell'esercitazione precedente, il modello includeva il codice JSON seguente:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json":::
 
 Il parametro per il nome dell'account di archiviazione è difficile da usare perché richiede la specifica di un nome univoco. Se sono state completate le esercitazioni precedenti di questa serie, probabilmente non si ha voglia di formulare un nome univoco. Per risolvere questo problema, aggiungere una variabile che costruisce un nome univoco per l'account di archiviazione.
 
@@ -34,7 +34,7 @@ Il parametro per il nome dell'account di archiviazione è difficile da usare per
 
 Nell'esempio seguente sono evidenziate le modifiche per aggiungere al modello una variabile che crea un nome di account di archiviazione univoco. Copiare l'intero file e sostituire il modello con il contenuto del file.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json?range=1-47&highlight=5-9,29-31,36)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json" range="1-47" highlight="5-9,29-31,36":::
 
 Si noti che include una variabile denominata **uniqueStorageName**. Questa variabile usa quattro funzioni per costruire un valore stringa.
 

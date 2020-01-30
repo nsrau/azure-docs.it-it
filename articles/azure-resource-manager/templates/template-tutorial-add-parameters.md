@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 28c171dfa067ec9b3eff2e0d7e5d5dd0a0c274c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 89101a96f4fc228e2d5c45d67e10b52ac5d8aa11
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471686"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773197"
 ---
 # <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Esercitazione: Aggiungere parametri al modello di Resource Manager
 
@@ -26,7 +26,7 @@ Nell'[esercitazione precedente](template-tutorial-add-resource.md) è stato illu
 
 Al termine dell'esercitazione precedente, il modello includeva il codice JSON seguente:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json":::
 
 Si sarà probabilmente notato che si è verificato un problema con questo modello. Il nome dell'account di archiviazione è hardcoded. Questo modello può quindi essere usato solo per distribuire ogni volta lo stesso account di archiviazione. Per distribuire un account di archiviazione con un nome diverso, è necessario creare un nuovo modello e questa non è certo una soluzione pratica per automatizzare le distribuzioni.
 
@@ -36,7 +36,7 @@ Per rendere riutilizzabile il modello, si aggiungerà un parametro che è possib
 
 Copiare l'intero file e sostituire il modello con il contenuto del file.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json?range=1-26&highlight=4-10,15)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json" range="1-26" highlight="4-10,15":::
 
 ## <a name="deploy-template"></a>Distribuire il modello
 
@@ -80,7 +80,7 @@ I parametri consentono di personalizzare la distribuzione fornendo valori specif
 
 Con il modello precedente veniva sempre distribuito un account di archiviazione di tipo Archiviazione con ridondanza locale Standard (Standard_LRS). Si potrebbe però voler distribuire SKU diversi a seconda dell'ambiente. Nell'esempio seguente sono illustrate le modifiche da apportare per aggiungere un parametro per lo SKU. Copiare l'intero file e incollarlo nel modello sovrascrivendolo.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json?range=1-40&highlight=10-23,32)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json" range="1-40" highlight="10-23,32":::
 
 Al parametro **storageSKU** è assegnato un valore predefinito. Questo valore viene usato quando non si specifica un valore durante la distribuzione. Include anche un elenco di valori consentiti. Questi valori corrispondono a quelli necessari per creare un account di archiviazione. Non si vuole che gli utenti del modello passino SKU che non funzionano.
 

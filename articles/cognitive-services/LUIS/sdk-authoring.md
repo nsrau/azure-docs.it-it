@@ -3,13 +3,13 @@ title: 'Avvio rapido: Libreria client di creazione di LUIS (Language Understandi
 description: Questo argomento di avvio rapido illustra come usare la libreria client di LUIS. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 ms.topic: quickstart
 ms.date: 01/14/2020
-zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 2e01e07a5d6d706ae184a44ad840829df6f33ee7
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+zone_pivot_groups: programming-languages-set-diberry-3core
+ms.openlocfilehash: 16aa45ab0f0860b93815601a2f82eff34dbd1f6f
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170411"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774228"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library"></a>Avvio rapido: Libreria client di creazione di LUIS (Language Understanding)
 

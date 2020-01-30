@@ -1,10 +1,9 @@
 ---
-title: 'Guida introduttiva: Usare le code del bus di servizio con Python'
-description: Informazioni su come usare le code del bus di servizio con Python.
+title: 'Avvio rapido: Usare le code del bus di servizio con Python'
+description: Questo articolo illustra come usare Python per creare, inviare e ricevere messaggi dalle code del bus di servizio di Azure.
 services: service-bus-messaging
 documentationcenter: python
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: b95ee5cd-3b31-459c-a7f3-cf8bcf77858b
 ms.service: service-bus-messaging
@@ -12,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/27/2020
 ms.author: aschhab
 ms.custom: seo-python-october2019
-ms.openlocfilehash: d0f579fcd82860380f1aaa651a61c0259d075a0d
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: aa9ffc48d9b1374fa510f450bab2c66641421446
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748539"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773500"
 ---
-# <a name="quickstart-use-azure-service-bus-queues-with-python"></a>Guida introduttiva: Usare le code del bus di servizio con Python
+# <a name="quickstart-use-azure-service-bus-queues-with-python"></a>Avvio rapido: Usare le code del bus di servizio con Python
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
@@ -30,8 +29,8 @@ Questo articolo illustra come usare Python per creare, inviare e ricevere messag
 
 Per altre informazioni sulle librerie del bus di servizio di Azure per Python, vedere [Librerie del bus di servizio per Python](/python/api/overview/azure/servicebus?view=azure-python).
 
-## <a name="prerequisites"></a>Prerequisiti
-- Una sottoscrizione di Azure. È possibile attivare i [vantaggi della sottoscrizione Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+## <a name="prerequisites"></a>Prerequisites
+- Una sottoscrizione di Azure. È possibile attivare i [vantaggi per i sottoscrittori di Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) oppure registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Uno spazio dei nomi del bus di servizio, creato seguendo la procedura descritta in [Avvio rapido: Usare il portale di Azure per creare un argomento del bus di servizio e le sottoscrizioni](service-bus-quickstart-topics-subscriptions-portal.md). Copiare la stringa di connessione primaria dalla schermata **Criteri di accesso condiviso**, che verrà usata più avanti in questo articolo. 
 - Python 3.4x o versione successiva, con il pacchetto [Python Azure Service Bus][Python Azure Service Bus package] installato. Per altre informazioni, vedere la [Guida all'installazione di Python](/azure/python/python-sdk-azure-install). 
 

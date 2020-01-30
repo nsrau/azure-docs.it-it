@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Usare gli argomenti e le sottoscrizioni del bus di servizio di Azure con Java'
-description: 'Guida introduttiva: Usare gli argomenti e le sottoscrizioni del bus di servizio in Azure.'
+title: Usare gli argomenti e le sottoscrizioni del bus di servizio di Azure con Java
+description: In questa guida di avvio rapido viene scritto codice Java per inviare messaggi a un argomento del bus di servizio di Azure e quindi ricevere messaggi dalle sottoscrizioni all'argomento.
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -12,23 +12,23 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 8a721d929ff89fd644c78296ae54cee757bf9610
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 9b75b5cd5e674020f41897309a3c69b9371cc768
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720011"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759296"
 ---
-# <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>Guida introduttiva: Usare gli argomenti e le sottoscrizioni del bus di servizio con Java
+# <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>Avvio rapido: Usare gli argomenti e le sottoscrizioni del bus di servizio con Java
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 In questa guida di avvio rapido viene scritto codice Java per inviare messaggi a un argomento del bus di servizio di Azure e quindi ricevere messaggi dalle sottoscrizioni all'argomento. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi della sottoscrizione Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) oppure registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Seguire la procedura descritta in [Avvio rapido: Usare il portale di Azure per creare un argomento del bus di servizio e le sottoscrizioni all'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per eseguire le attività seguenti:

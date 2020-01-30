@@ -3,8 +3,7 @@ title: 'Esercitazione: Monitorare la comunicazione di rete tramite il portale di
 description: Questa esercitazione descrive come monitorare la comunicazione di rete tra due macchine virtuali con la funzionalità di monitoraggio connessione di Network Watcher di Azure.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem.
@@ -14,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 9d01060a966d55d26d7fc308ee352fb79cc73363
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419705"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834655"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Esercitazione: Monitorare la comunicazione di rete tra due macchine virtuali tramite il portale di Azure
 
-La corretta comunicazione tra una macchina virtuale (VM) e un endpoint, ad esempio, un'altra VM, può essere fondamentale per l'organizzazione. In alcuni casi, vengono introdotte modifiche di configurazione che possono interrompere la comunicazione. In questa esercitazione si apprenderà come:
+La corretta comunicazione tra una macchina virtuale (VM) e un endpoint, ad esempio, un'altra VM, può essere fondamentale per l'organizzazione. In alcuni casi, vengono introdotte modifiche di configurazione che possono interrompere la comunicazione. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare due VM
@@ -49,13 +48,13 @@ Creare due macchine virtuali.
 2. Selezionare **Calcolo**, quindi selezionare un sistema operativo. In questa esercitazione viene usato **Windows Server 2016 Datacenter**.
 3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi scegliere **OK**:
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |---|---|
-    |NOME|myVm1|
+    |Nome|myVm1|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Selezionare la propria sottoscrizione.|
-    |Gruppo di risorse| Selezionare **Crea nuovo** e immettere **myResourceGroup**.|
+    |Resource group| Selezionare **Crea nuovo** e immettere **myResourceGroup**.|
     |Location| Selezionare **Stati Uniti orientali**.|
 
 4. Selezionare una dimensione per la VM e quindi selezionare **Seleziona**.
@@ -71,10 +70,10 @@ Creare due macchine virtuali.
 
 Completare nuovamente i passaggi descritti in [Creare la prima VM](#create-the-first-vm) con le modifiche seguenti:
 
-|Passaggio|Impostazione|Valore|
+|Passaggio|Impostazione|valore|
 |---|---|---|
 | 1 | Selezionare una versione di **Ubuntu Server** |                                                                         |
-| 3 | NOME                                  | myVM2                                                                   |
+| 3 | Nome                                  | myVM2                                                                   |
 | 3 | Tipo di autenticazione                   | Incollare la chiave pubblica SSH o selezionare **Password** e immettere una password. |
 | 3 | Resource group                        | Selezionare **Usa esistente** e selezionare **myResourceGroup**.                 |
 | 6 | Estensioni                            | **Network Watcher Agent for Linux**                                             |
@@ -91,9 +90,9 @@ Creare un monitoraggio della connessione per monitorare la comunicazione della c
 4. Selezionare **+ Aggiungi**.
 5. Immettere o selezionare le informazioni per la connessione da monitorare e quindi selezionare **Aggiungi**. Nell'esempio illustrato nella figura seguente viene monitorata la connessione dalla VM *myVm1* alla VM *myVm2* tramite la porta 22:
 
-    | Impostazione                  | Valore               |
+    | Impostazione                  | valore               |
     | ---------                | ---------           |
-    | NOME                     | myVm1-myVm2(22)     |
+    | Nome                     | myVm1-myVm2(22)     |
     | Source (Sorgente)                   |                     |
     | Macchina virtuale          | myVm1               |
     | Destination              |                     |
@@ -115,7 +114,7 @@ Creare un monitoraggio della connessione per monitorare la comunicazione della c
 
     Tenere presente quanto segue:
 
-    | Elemento                     | Valore                      | Dettagli                                                     |
+    | Elemento                     | valore                      | Dettagli                                                     |
     | ---------                | ---------                  |--------                                                     |
     | Stato                   | Raggiungibile                  | Consente di conoscere se l'endpoint è raggiungibile o meno.|
     | AVG. ROUND TRIP          | Consente di conoscere il tempo di round trip per stabilire la connessione, in millisecondi. Il monitoraggio della connessione esegue il probe della connessione ogni 60 secondi per consentire di monitorare la latenza nel corso del tempo.                                         |
@@ -147,12 +146,12 @@ Per impostazione predefinita, Azure consente la comunicazione su tutte le porte 
 
 4. La regola predefinita che consente la comunicazione tra tutte le VM in una rete virtuale è la regola denominata **AllowVnetInBound**. Creare una regola con una priorità maggiore (un numero inferiore) rispetto alla regola **AllowVnetInBound** che nega la comunicazione in ingresso sulla porta 22. Selezionare o immettere le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi selezionare **Aggiungi**:
 
-    | Impostazione                 | Valore          |
+    | Impostazione                 | valore          |
     | ---                     | ---            |
     | Intervalli di porte di destinazione | 22             |
     | Azione                  | Nega           |
     | Priorità                | 100            |
-    | NOME                    | DenySshInbound |
+    | Nome                    | DenySshInbound |
 
 5. Poiché il monitoraggio della connessione esegue il probe a intervalli di 60 secondi, attendere qualche minuto e quindi sul lato sinistro del portale selezionare **Network Watcher**, **Monitoraggio della connessione** e quindi selezionare nuovamente il monitoraggio  **myVm1-myVm2(22)** . I risultati sono diversi a questo punto, come illustrato nell'immagine seguente:
 

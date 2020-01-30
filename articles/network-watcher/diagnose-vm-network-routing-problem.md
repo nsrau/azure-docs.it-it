@@ -4,8 +4,7 @@ titleSuffix: Azure Network Watcher
 description: In questa esercitazione si apprenderà come diagnosticare un problema di routing di rete di una macchina virtuale usando la funzionalità Hop successivo di Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
@@ -16,18 +15,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: f9c7139dc9c27ed5b4f97f38e98b4663e9676288
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 52d398fa9c258528ef8f87842ba94f139bbf737b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276037"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845215"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Esercitazione: Diagnosticare un problema di routing di rete di una macchina virtuale tramite il portale di Azure
 
-Quando si distribuisce una macchina virtuale, Azure crea per essa più route predefinite. È possibile creare le proprie route per eseguire l'override delle route predefinite di Azure. In alcuni casi, una route personalizzata può comportare l'impossibilità per una macchina virtuale di comunicare con altre risorse. In questa esercitazione si apprenderà come:
+Quando si distribuisce una macchina virtuale, Azure crea per essa più route predefinite. È possibile creare le proprie route per eseguire l'override delle route predefinite di Azure. In alcuni casi, una route personalizzata può comportare l'impossibilità per una macchina virtuale di comunicare con altre risorse. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare una macchina virtuale
@@ -49,13 +48,13 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 2. Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter** o **Ubuntu Server 17.10 VM**.
 3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi scegliere **OK**:
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |---|---|
-    |NOME|myVm|
+    |Nome|myVm|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Selezionare la propria sottoscrizione.|
-    |Gruppo di risorse| Selezionare **Crea nuovo** e immettere **myResourceGroup**.|
+    |Resource group| Selezionare **Crea nuovo** e immettere **myResourceGroup**.|
     |Location| Selezionare **Stati Uniti orientali**.|
 
 4. Selezionare una dimensione per la VM e quindi selezionare **Seleziona**.
@@ -70,7 +69,7 @@ Per testare la comunicazione di rete con Network Watcher è necessario innanzitu
 
 Se si dispone già di un Network Watcher abilitato in almeno un'area, passare al paragrafo [Usare la funzionalità Hop successivo](#use-next-hop).
 
-1. Nel portale selezionare **Tutti i servizi**. Nella **casella del filtro** immettere *Network Watcher*. Selezionare **Network Watcher** quando viene visualizzato tra i risultati.
+1. Nel portale selezionare **Tutti i servizi**. Nella **casella del filtro** immettere *Network Watcher*. Quando **Network Watcher** viene visualizzato tra i risultati, selezionarlo.
 2. Selezionare **Area** per espandere e quindi selezionare **...** a destra di **Stati Uniti orientali**, come mostrato nell'immagine seguente:
 
     ![Abilitare Network Watcher](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
@@ -79,12 +78,12 @@ Se si dispone già di un Network Watcher abilitato in almeno un'area, passare al
 
 ### <a name="use-next-hop"></a>Usare la funzionalità Hop successivo
 
-Azure crea automaticamente le route per le destinazioni predefinite. È possibile creare route personalizzate per eseguire l'override delle route predefinite. In alcuni casi, le route personalizzate possono impedire la comunicazione. Usare la funzionalità Hop successivo di Network Watcher per determinare quali route vengono usate da Azure per indirizzare il traffico.
+Azure crea automaticamente le route per le destinazioni predefinite. È possibile creare route personalizzate per eseguire l'override delle route predefinite. In alcuni casi, le route personalizzate possono generare un errore di comunicazione. Usare la funzionalità Hop successivo di Network Watcher per determinare quali route vengono usate da Azure per indirizzare il traffico.
 
 1. Nel portale di Azure, selezionare **Hop successivo** in **Network Watcher**.
 2. Selezionare la sottoscrizione, immettere o selezionare i valori seguenti e quindi selezionare **Hop successivo**, come illustrato nell'immagine seguente:
 
-    |Impostazione                  |Valore                                                   |
+    |Impostazione                  |valore                                                   |
     |---------                |---------                                               |
     | Resource group          | Selezionare myResourceGroup                                 |
     | Macchina virtuale         | Selezionare myVm                                            |
@@ -119,7 +118,7 @@ Quando non sono più necessari, eliminare il gruppo di risorse e tutte le risors
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stata creata una macchina virtuale e diagnosticato il routing di rete dalla macchina virtuale. Si è appreso che Azure crea più route predefinite diverse e testa il routing verso due destinazioni diverse. Per altre informazioni, vedere il [routing in Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e come [creare route personalizzate](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
+In questa esercitazione è stata creata una macchina virtuale e diagnosticato il routing di rete dalla macchina virtuale. Si è appreso che Azure crea più route predefinite e testa il routing verso due destinazioni diverse. Per altre informazioni, vedere il [routing in Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e come [creare route personalizzate](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
 
 Per le connessioni delle macchine virtuali in uscita è anche possibile determinare la latenza, il traffico di rete consentito e negato tra la macchina virtuale e un endpoint e la route usata per un endpoint, tramite la funzionalità di [risoluzione dei problemi di connessione](network-watcher-connectivity-portal.md) di Network Watcher. Informazioni su come monitorare la comunicazione nel corso del tempo tra una macchina virtuale e un endpoint, ad esempio un indirizzo IP o un URL, usando la funzionalità di monitoraggio connessione di Network Watcher.
 

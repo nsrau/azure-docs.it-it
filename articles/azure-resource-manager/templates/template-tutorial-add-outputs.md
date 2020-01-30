@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 540e037e83d359dc67cb32f98dec0319bf490707
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 381f9f54a95b6d457aa65c7e8ef6abe49fe9eeea
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471706"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765739"
 ---
 # <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>Esercitazione: Aggiungere output al modello di Resource Manager
 
@@ -26,7 +26,7 @@ Questa esercitazione illustra come restituire un valore dal modello. Gli output 
 
 Al termine dell'esercitazione precedente, il modello includeva il codice JSON seguente:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json":::
 
 Distribuisce un account di archiviazione, ma non restituisce informazioni relative all'account di archiviazione. Può essere necessario acquisire le proprietà da una nuova risorsa in modo che siano disponibili in seguito per riferimento.
 
@@ -36,7 +36,7 @@ Distribuisce un account di archiviazione, ma non restituisce informazioni relati
 
 L'esempio seguente evidenzia la modifica apportata al modello per aggiungere un valore di output. Copiare l'intero file e sostituire il modello con il contenuto del file.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json?range=1-53&highlight=47-52)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json" range="1-53" highlight="47-52":::
 
 Ecco alcune importanti aspetti da considerare sul valore di output aggiunto.
 

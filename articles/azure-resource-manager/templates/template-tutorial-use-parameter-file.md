@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: abafa00febe0431acf5c678cc179c6c114fa9179
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6a12d92c0cfb9d86ebf4c335c351944997f79b4e
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75470836"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773155"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>Esercitazione: Usare file di parametri per distribuire il modello di Azure Resource Manager
 
@@ -26,7 +26,7 @@ Questa esercitazione illustra come usare i [file di parametri](parameter-files.m
 
 Il modello include numerosi parametri che è possibile specificare durante la distribuzione. Al termine dell'esercitazione precedente, il modello era simile al seguente:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json":::
 
 Questo modello funziona correttamente, ma ora si vogliono gestire facilmente i parametri passati per il modello.
 
@@ -36,13 +36,13 @@ I file di parametri sono file JSON con una struttura simile a quella del modello
 
 In VS Code creare un nuovo file con il contenuto seguente. Salvare il file con il nome **azuredeploy.parameters.dev.json**.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.dev.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.dev.json":::
 
 Questo è il file di parametri per l'ambiente di sviluppo. Si noti che usa Standard_LRS come account di archiviazione, aggiunge il prefisso **dev** alle risorse e imposta il tag **Environment** su **Dev**.
 
 Creare un nuovo file con il contenuto seguente. Salvare il file con il nome **azuredeploy.parameters.prod.json**.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json":::
 
 Questo è il file di parametri per l'ambiente di produzione. Si noti che usa Standard_GRS come account di archiviazione, aggiunge il prefisso **contoso** alle risorse e imposta il tag **Environment** su **Production**. In un ambiente di produzione reale si vuole anche usare un servizio app con uno SKU diverso da quello gratuito, ma per questa esercitazione si continuerà a usare lo SKU gratuito.
 

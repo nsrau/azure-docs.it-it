@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 11/17/2019
-ms.openlocfilehash: 2574f27b4b86bab276a56f95fda9fa2a1434c095
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.date: 01/29/2020
+ms.openlocfilehash: c160f04ef7120a6c90991d8e6ecdf98b2f0d348e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995933"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836560"
 ---
 # <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>Esercitazione: Inserire ed eseguire query sui dati di monitoraggio in Esplora dati di Azure 
 
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come:
 > [!NOTE]
 > Creare tutte le risorse nella stessa località o area di Azure. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * [Un cluster e un database di Esplora dati di Azure](create-cluster-database-portal.md). In questa esercitazione il nome del database è *TestDatabase*.
@@ -330,7 +330,7 @@ Per eseguire il mapping dei dati dei log attività alla tabella, usare la query 
 2. Aggiungere il [criterio di aggiornamento](/azure/kusto/concepts/updatepolicy) nella tabella di destinazione. Questo criterio eseguirà automaticamente la query su tutti i nuovi dati inseriti nella tabella dati intermedia *DiagnosticRawRecords* e inserirà i relativi risultati nella tabella *DiagnosticMetrics*:
 
     ```kusto
-    .alter table DiagnosticMetrics policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticMetricsExpand()", "IsEnabled": "True"}]'
+    .alter table DiagnosticMetrics policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticMetricsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 
 # <a name="diagnostic-logstabdiagnostic-logs"></a>[Log di diagnostica](#tab/diagnostic-logs)
@@ -344,7 +344,7 @@ Per eseguire il mapping dei dati dei log attività alla tabella, usare la query 
         | mv-expand events = Records
         | where isnotempty(events.operationName)
         | project
-            Timestamp = todatetime(events.time),
+            Timestamp = todatetime(events['time']),
             ResourceId = tostring(events.resourceId),
             OperationName = tostring(events.operationName),
             Result = tostring(events.resultType),
@@ -363,7 +363,7 @@ Per eseguire il mapping dei dati dei log attività alla tabella, usare la query 
 2. Aggiungere il [criterio di aggiornamento](/azure/kusto/concepts/updatepolicy) nella tabella di destinazione. Questo criterio eseguirà automaticamente la query su tutti i nuovi dati inseriti nella tabella dati intermedia *DiagnosticRawRecords* e inserirà i relativi risultati nella tabella *DiagnosticLogs*:
 
     ```kusto
-    .alter table DiagnosticLogs policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticLogsExpand()", "IsEnabled": "True"}]'
+    .alter table DiagnosticLogs policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticLogsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 
 # <a name="activity-logstabactivity-logs"></a>[Log attività](#tab/activity-logs)
@@ -376,7 +376,7 @@ Per eseguire il mapping dei dati dei log attività alla tabella, usare la query 
         ActivityLogsRawRecords
         | mv-expand events = Records
         | project
-            Timestamp = todatetime(events.time),
+            Timestamp = todatetime(events['time']),
             ResourceId = tostring(events.resourceId),
             OperationName = tostring(events.operationName),
             Category = tostring(events.category),
@@ -393,7 +393,7 @@ Per eseguire il mapping dei dati dei log attività alla tabella, usare la query 
 2. Aggiungere il [criterio di aggiornamento](/azure/kusto/concepts/updatepolicy) nella tabella di destinazione. Questo criterio eseguirà automaticamente la query sui nuovi dati inseriti nella tabella dati intermedia *ActivityLogsRawRecords* e inserirà i relativi risultati nella tabella *ActivityLogs*:
 
     ```kusto
-    .alter table ActivityLogs policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
+    .alter table ActivityLogs policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 ---
 

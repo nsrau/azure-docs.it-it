@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: ae5e3481d51a27b05afdb334e6e04c785a68c01a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 664d6006ab78f91a8ed0e199cf78fae9512efd73
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447684"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843040"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Avvio rapido: Aggiungere domande e risposte con il portale di QnA Maker
 
@@ -28,7 +28,7 @@ Ad esempio, le domande riportate nella tabella seguente sono relative ai limiti 
 <a name="qna-table"></a>
 
 
-|Configurazione|Domande|Risposta|Metadati|
+|Set|Domande|Risposta|Metadati|
 |--|--|--|--|
 |#1|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
 |#2|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Cognitive Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Cognitive Search service size?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Cognitive Search tier supports.`|`service=search`<br>`link_in_answer=false`|
@@ -86,7 +86,7 @@ In questa procedura si aggiungeranno altre domande.
 
 ## <a name="add-metadata-to-filter-the-answers"></a>Aggiungere metadati per filtrare le risposte
 
-L'aggiunta di metadati a un set di domande e risposte consente all'applicazione client di richiedere risposte filtrate. Questo filtro viene applicato prima dell'applicazione [del primo e del secondo classificatore](../concepts/knowledge-base.md#ranker-process).
+L'aggiunta di metadati a un set di domande e risposte consente all'applicazione client di richiedere risposte filtrate. Questo filtro viene applicato prima dell'applicazione [del primo e del secondo classificatore](../concepts/query-knowledge-base.md#ranker-process).
 
 1. Aggiungere il secondo set di domande e risposte, senza i metadati, dalla [prima tabella di questa guida di avvio rapido](#qna-table), quindi continuare con i passaggi seguenti.
 

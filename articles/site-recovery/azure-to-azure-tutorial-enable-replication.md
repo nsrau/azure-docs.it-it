@@ -2,14 +2,15 @@
 title: Configurare il ripristino di emergenza delle VM di Azure con Azure Site Recovery
 description: Informazioni su come configurare il ripristino di emergenza per macchine virtuali di Azure in un'area di Azure diversa usando il servizio Azure Site Recovery.
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 1/24/2020
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7d78064285057f6abd91c3ca95e01ec86f1a1a39
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 979b390f65363b43f33ce2f09d26844c3cc1a2e8
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169343"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759790"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure
 
@@ -75,17 +76,6 @@ Se si usa un proxy firewall basato su URL per controllare la connettività in us
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Connettività in uscita per gli intervalli di indirizzi IP
 
 Se si usa un gruppo di sicurezza di rete, creare regole dei gruppi di sicurezza di rete basate su tag del servizio per l'accesso ad Archiviazione di Azure, Azure Active Directory, servizio Site Recovery e monitoraggio di Site Recovery. [Altre informazioni](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)
-
-> [!NOTE]
-> È consigliabile configurare sempre le regole dei gruppi di sicurezza di rete con i tag del servizio per l'accesso in uscita.
-
-Per controllare la connettività in uscita usando gli indirizzi IP anziché gli URL, autorizzare questi indirizzi per regole dei gruppi di sicurezza di rete, proxy e firewall basati su IP:
-
-- [Intervalli IP del data center di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653)
-- [Intervalli IP del data center di Microsoft Azure in Germania](https://www.microsoft.com/download/details.aspx?id=54770)
-- [Intervalli IP del data center di Microsoft Azure in Cina](https://www.microsoft.com/download/details.aspx?id=42064)
-- [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
-- [Indirizzi IP dell'endpoint di servizio di Site Recovery](https://aka.ms/site-recovery-public-ips)
 
 ## <a name="verify-azure-vm-certificates"></a>Verificare i certificati della macchina virtuale di Azure
 

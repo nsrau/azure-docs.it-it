@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7ccc4aaed8e5827fbc06b252c8c88b814d9a31fb
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: c2a15393c5c8e685e9a565f1099eeee935c0d5da
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133998"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845836"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Usare App per la logica per ricevere messaggi di posta elettronica sulle modifiche dello stato dei segreti dell'insieme di credenziali delle chiavi
 
@@ -22,7 +22,7 @@ In questa guida si apprenderà come rispondere agli eventi di Azure Key Vault ri
 
 Per una panoramica dell'integrazione tra Azure Key Vault e Griglia di eventi di Azure, vedere [Monitoraggio di Key Vault con Griglia di eventi di Azure (anteprima)](event-grid-overview.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Un account di un provider di posta elettronica supportato da App per la logica di Azure, come Office 365 Outlook. Questo account di posta elettronica viene usato per inviare le notifiche degli eventi. Per un elenco completo dei connettori per App per la logica supportati, vedere [Panoramica dei connettori](/connectors).
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
@@ -34,7 +34,6 @@ Per prima cosa, creare un'app per la logica con un gestore griglia di eventi e s
 
 Per creare una sottoscrizione di Griglia di eventi di Azure, seguire questa procedura:
 
-1. Aprire il portale di Azure usando il collegamento seguente: https://portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true. 
 1. Nel portale di Azure passare all'insieme di credenziali delle chiavi, selezionare **Eventi > Attività iniziali** e fare clic su **App per la logica**
 
     
@@ -86,7 +85,7 @@ Una volta creato il segreto, si riceverà un messaggio di posta elettronica all'
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Panoramica [Monitoraggio di Key Vault con Griglia di eventi di Azure (anteprima)](event-grid-overview.md)
+- Panoramica: [Monitoraggio di Key Vault con Griglia di eventi di Azure (anteprima)](event-grid-overview.md)
 - Procedura: [Inoltrare le notifiche dell'insieme di credenziali delle chiavi ad Automazione di Azure](event-grid-tutorial.md).
 - [Schema di eventi di Griglia di eventi di Azure per Azure Key Vault (anteprima)](../event-grid/event-schema-key-vault.md)
 - Altre informazioni su [Griglia di eventi di Azure](../event-grid/index.yml).

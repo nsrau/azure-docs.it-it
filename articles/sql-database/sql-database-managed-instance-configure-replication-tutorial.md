@@ -9,12 +9,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 11/21/2019
-ms.openlocfilehash: e1ee616adadcabb2deb3fa08a5f3d4f768fddfd5
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: fa6e393500e9deeb91ee84aa5255320003817f08
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045658"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719892"
 ---
 # <a name="tutorial-configure-transactional-replication-between-two-managed-instances-and-sql-server"></a>Esercitazione: Configurare la replica transazionale tra due istanze gestite e SQL Server
 
@@ -385,7 +385,7 @@ Possibili soluzioni:
 
 Quando si aggiunge una nuova sottoscrizione tramite la procedura guidata **Nuova sottoscrizione**, nella pagina **Pubblicazione** è possibile che non siano presenti database e pubblicazioni come opzioni disponibili e che venga visualizzato il messaggio di errore seguente:
 
-`There are no publications to which yuo can subscribe, either because this server has no publications or because you do not have sufficient privileges to access the publications.`
+`There are no publications to which you can subscribe, either because this server has no publications or because you do not have sufficient privileges to access the publications.`
  
 Anche se è possibile che questo messaggio di errore sia accurato e che non ci siano effettivamente pubblicazioni disponibili nel server di pubblicazione a cui si è connessi o che non si abbiano autorizzazioni sufficienti, questo errore può essere causato anche da una versione meno recente di SQL Server Management Studio. Provare a eseguire l'aggiornamento a SQL Server Management Studio 18.0 o versione successiva per escludere che sia questa la causa radice. 
 

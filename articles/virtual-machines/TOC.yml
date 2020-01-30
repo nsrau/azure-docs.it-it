@@ -9,15 +9,15 @@
 - name: Carichi di lavoro
   items:
     - name: Red Hat
-      href: /redhat/redhat-overview.md
+      href: ./workloads/redhat/redhat-overview.md
     - name: HPC (High Performance Computing)
-      href: /hpc/overview.md
+      href: ./workloads/hpc/overview.md
     - name: SAP
-      href: /sap/get-started.md
+      href: ./workloads/sap/get-started.md
     - name: Oracle
-      href: /oracle/oracle-considerations.md
+      href: ./workloads/oracle/oracle-considerations.md
     - name: Re-hosting del mainframe
-      href: /mainframe-rehosting/overview.md
+      href: ./workloads/mainframe-rehosting/overview.md
 - name: Distribuzioni classiche
   items:
     - name: Macchine virtuali Linux con distribuzione classica

@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ed5e5c63bed90136e498491a6735cbaa127cf1f9
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: d7853d388b9159328a515818697ba9ddd5b95637
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689676"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773189"
 ---
 # <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Esercitazione: Aggiungere tag nel modello di Azure Resource Manager
 
@@ -26,7 +26,7 @@ Questa esercitazione illustra come aggiungere tag alle risorse nel modello. I [t
 
 Con il modello precedente sono stati distribuiti un account di archiviazione, un piano di servizio app e un'app Web.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json":::
 
 Dopo la distribuzione di queste risorse, può essere necessario tenere traccia dei costi e individuare le risorse appartenenti a una categoria. Per risolvere questi problemi, è possibile aggiungere tag.
 
@@ -36,7 +36,7 @@ L'aggiunta di un tag alle risorse consente di aggiungere valori per identificarn
 
 L'esempio seguente evidenzia le modifiche apportate al modello. Copiare l'intero file e sostituire il modello con il contenuto del file.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,86,103)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json" range="1-118" highlight="46-52,64,78,102":::
 
 ## <a name="deploy-template"></a>Distribuire il modello
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault'
+title: 'Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault'
 description: Guida introduttiva che illustra come impostare e recuperare un segreto da Azure Key Vault usando l'interfaccia della riga di comando di Azure
 services: key-vault
 author: msmbaldwin
@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f005266b6e2e12a13f79b3f2007b1bbbafb4acef
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 1b5ebbcd3a891149a72b3dbe8cb19b3c8de528a1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311552"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773758"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault usando l'interfaccia della riga di comando di Azure
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault usando l'interfaccia della riga di comando di Azure
 
 In questo argomento di avvio rapido viene creato un insieme di credenziali delle chiavi in Azure Key Vault con l'interfaccia della riga di comando di Azure. Azure Key Vault è un servizio cloud che funziona come archivio protetto dei segreti. È possibile archiviare in modo sicuro chiavi, password, certificati e altri segreti. Per altre informazioni su Key Vault, vedere la [panoramica](key-vault-overview.md). L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure con comandi o script. Successivamente verrà archiviato un segreto.
 
@@ -73,7 +73,7 @@ Digitare i comandi seguenti per creare in Key Vault un segreto denominato **Exam
 az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
-È ora possibile fare riferimento a questa password aggiunta ad Azure Key Vault usando il relativo URI. Usare **https://ContosoVault.vault.azure.net/secrets/ExamplePassword** per ottenere la versione corrente. 
+È ora possibile fare riferimento a questa password aggiunta ad Azure Key Vault usando il relativo URI. Usare **https://Contoso-Vault2.vault.azure.net/secrets/ExamplePassword** per ottenere la versione corrente. 
 
 Per visualizzare il valore contenuto nel segreto come testo normale:
 

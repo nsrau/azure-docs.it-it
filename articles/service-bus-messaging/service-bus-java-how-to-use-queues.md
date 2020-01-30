@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Usare le code del bus di servizio di Azure con Java'
-description: 'Guida introduttiva: Informazioni su come usare le code del bus di servizio in Azure. Gli esempi di codice sono scritti in Java.'
+title: Usare le code del bus di servizio di Azure con Java
+description: Questa esercitazione illustra come creare applicazioni Java per inviare e ricevere messaggi da una coda del bus di servizio di Azure.
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: bb51f30a69294cd78d0664a5bdae70c969da1972
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 5a32d92dd8a44602034d84262f2e502a60ac23a9
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721698"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760641"
 ---
-# <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Guida introduttiva: Usare le code del bus di servizio di Azure con Java per inviare e ricevere messaggi
+# <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Avvio rapido: Usare le code del bus di servizio di Azure con Java per inviare e ricevere messaggi
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 Questa esercitazione illustra come creare applicazioni Java per inviare e ricevere messaggi da una coda del bus di servizio di Azure. 
@@ -30,7 +30,7 @@ Questa esercitazione illustra come creare applicazioni Java per inviare e riceve
 > [!NOTE]
 > È possibile trovare esempi di Java in GitHub nel [repository azure-service-bus](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Se non si ha una coda da usare, seguire la procedura descritta nell'articolo [Usare il portale di Azure per creare una coda del bus di servizio](service-bus-quickstart-portal.md) per crearne una.
     1. Leggere la breve **panoramica** delle **code** del bus di servizio. 

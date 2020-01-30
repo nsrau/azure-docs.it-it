@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 99eb1581c03732691af5eaf9f482ca4ba0605863
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0feb0a1a682328f1e23a7d800eb4f5653a6acdd1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471136"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765411"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Esercitazione: Usare i modelli di avvio rapido di Azure
 
@@ -26,7 +26,7 @@ I [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templ
 
 Al termine dell'esercitazione precedente, il modello includeva il codice JSON seguente:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json":::
 
 Questo modello è adatto per la distribuzione di account di archiviazione e piani di servizio app, ma è possibile che si voglia aggiungere un sito Web. È possibile usare i modelli predefiniti per individuare rapidamente il codice JSON necessario per la distribuzione di una risorsa.
 
@@ -45,7 +45,7 @@ Questo modello è adatto per la distribuzione di account di archiviazione e pian
 
 Unire il modello di avvio rapido con quello esistente:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json?range=1-108&highlight=32-45,49,85-100)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json" range="1-108" highlight="32-45,49,85-100":::
 
 Il nome dell'app Web deve essere univoco in Azure. Per evitare nomi duplicati, la variabile **webAppPortalName** è stata aggiornata da **"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"** a **"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"** .
 

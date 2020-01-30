@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 8ec3e399459adfbb7cef9e3eafbaa024fec1589f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 26c7996d6a955a183121a59254131dcb1dc6706f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447612"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844263"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Avvio rapido: Creare, eseguire il training e pubblicare la knowledge base QnA Maker
 
@@ -155,9 +155,8 @@ Pulire le risorse di QnA Maker e Bot Framework nel portale di Azure.
 
 Per altre informazioni:
 
-* [Formato Markdown nelle risposte](../concepts/data-sources-supported.md)
-* [Test di Markdown](../concepts/data-sources-supported.md#testing-your-markdown)
-* [Origini dati](../Concepts/data-sources-supported.md) di QnA Maker.
+* [Formato Markdown nelle risposte](../reference-markdown-format.md)
+* [Origini dati](../concepts/knowledge-base.md) di QnA Maker.
 * [Impostazioni di configurazione delle risorse bot](../tutorials/create-qna-bot.md).
 
 > [!div class="nextstepaction"]

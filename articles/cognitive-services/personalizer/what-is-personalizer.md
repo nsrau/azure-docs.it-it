@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 01/21/2020
 ms.author: diberry
-ms.openlocfilehash: 756363d0c46dee6f7d0037fda48ab22dbdaeb0b0
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 685e4f841ba077c81f46a27af8040fa6c57c0021
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514304"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846207"
 ---
 # <a name="what-is-personalizer"></a>Informazioni su Personalizza esperienze
 
@@ -99,6 +99,6 @@ Poiché Personalizza esperienze usa informazioni collettive quasi in tempo reale
 * Vedere le informazioni su [cos'è l'apprendimento per rinforzo](concepts-reinforcement-learning.md)
 * [Informazioni sulle funzionalità e le azioni per la richiesta di classificazione](concepts-features.md)
 * [Informazioni su come determinare il punteggio per la richiesta di ricompensa](concept-rewards.md)
-* [Guide introduttive]()
-* [Esercitazione]()
+* [Guide introduttive](sdk-learning-loop.md)
+* [Esercitazione](tutorial-use-azure-notebook-generate-loop-data.md)
 * [Usare la demo interattiva](https://personalizationdemo.azurewebsites.net/)

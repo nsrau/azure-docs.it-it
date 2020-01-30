@@ -4,9 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Questa esercitazione illustra come diagnosticare un problema di comunicazione tra una rete virtuale di Azure connessa a una rete locale o a un'altra rete virtuale, tramite un gateway di rete virtuale di Azure, tramite la funzionalità di diagnostica VPN di Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 Customer intent: I need to determine why resources in a virtual network can't communicate with resources in a different network.
 ms.service: network-watcher
 ms.devlang: na
@@ -14,18 +12,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: e2ec59cf609fcde79d289e321331ca5018401a5e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 974e45b761fb45e4bc1c451fa6755e16cab49e11
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419726"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834685"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Esercitazione: Diagnosticare un problema di comunicazione tra reti tramite il portale di Azure
 
-Un gateway di rete virtuale connette una rete virtuale di Azure a una rete locale o a un'altra rete virtuale. In questa esercitazione si apprenderà come:
+Un gateway di rete virtuale connette una rete virtuale di Azure a una rete locale o a un'altra rete virtuale. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Diagnosticare un problema con un gateway di rete virtuale con funzionalità di diagnostica VPN di Network Watcher
@@ -37,7 +35,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per usare la diagnostica VPN, è necessario un gateway VPN esistente, in esecuzione. Se non si dispone di un gateway VPN esistente per la diagnosi, è possibile distribuire uno usando uno [script di PowerShell](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). È possibile eseguire lo script di PowerShell da:
 - **Un'installazione locale di PowerShell**: Per questo script è necessario il modulo `Az` di Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
@@ -53,7 +51,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 Se si dispone già di un Network Watcher abilitato nell'area Stati Uniti orientali, passare al paragrafo [Diagnosticare un gateway](#diagnose-a-gateway).
 
-1. Nel portale selezionare **Tutti i servizi**. Nella **casella del filtro** immettere *Network Watcher*. Selezionare **Network Watcher** quando viene visualizzato tra i risultati.
+1. Nel portale selezionare **Tutti i servizi**. Nella **casella del filtro** immettere *Network Watcher*. Quando **Network Watcher** viene visualizzato tra i risultati, selezionarlo.
 2. Selezionare **Area** per espandere e quindi selezionare **...** a destra di **Stati Uniti orientali**, come mostrato nell'immagine seguente:
 
     ![Abilitare Network Watcher](./media/diagnose-communication-problem-between-networks/enable-network-watcher.png)

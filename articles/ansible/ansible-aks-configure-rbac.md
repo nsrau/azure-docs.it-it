@@ -4,12 +4,12 @@ description: Informazioni su come usare Ansible per configurare Controllo degli 
 keywords: ansible, azure, devops, bash, cloudshell, playbook, servizio Azure Kubernetes, contenitore, aks, kubernetes, azure active directory, controllo degli accessi in base al ruolo
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: 1be123eb06bd2679169478daf27a7148d2a8b055
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 5fac42383ee56318cc4b8f39323c02d05853dbb6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156866"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836967"
 ---
 # <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>Esercitazione: Configurare ruoli Controllo degli accessi in base al ruolo nel servizio Azure Kubernetes con Ansible
 
@@ -26,7 +26,7 @@ ms.locfileid: "74156866"
 > * Creare un cluster del servizio Azure Kubernetes abilitato per Azure AD
 > * Configurare un ruolo Controllo degli accessi in base al ruolo nel cluster
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
@@ -46,7 +46,7 @@ Richiedere i valori seguenti all'amministratore del tenant di Azure:
 
 Questi valori sono necessari quando si esegue il playbook di esempio.  
 
-## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
+## <a name="create-an-aks-cluster"></a>Creare un cluster AKS
 
 In questa sezione viene creato un servizio Azure Kubernetes con l'[applicazione Azure AD](#configure-azure-ad-for-aks-authentication).
 
@@ -156,7 +156,7 @@ subjects:
   name: <your-aad-account>
 ```
 
-Sostituire il segnaposto `&lt;your-aad-account>` con l'[ID oggetto](#get-the-azure-ad-object-id) del tenant di Azure AD.
+Sostituire il segnaposto `<your-aad-account>` con l'[ID oggetto](#get-the-azure-ad-object-id) del tenant di Azure AD.
 
 Il playbook seguente distribuisce il nuovo ruolo nel servizio Azure Kubernetes. Salvarlo come `aks-kube-deploy.yml`:
 
@@ -237,7 +237,7 @@ aks-nodepool1-33413200-2   Ready    agent   49m   v1.12.6
 
 Quando non sono più necessarie, eliminare le risorse create in questo articolo. 
 
-Aggiungere il codice seguente come `cleanup.yml`:
+Salvare il codice seguente come `cleanup.yml`:
 
 ```yml
 ---

@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6c22a8e2b479ed7d3a225bc649d89f5302d0f536
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0680309b13bf4499f0d153f44e575c1762b54d79
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471126"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773162"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Esercitazione: Usare il modello esportato dal portale di Azure
 
@@ -26,7 +26,7 @@ In questa serie di esercitazioni è stato creato un modello per distribuire un a
 
 Al termine dell'esercitazione precedente, il modello includeva il codice JSON seguente:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
 
 Questo modello è adatto per la distribuzione di account di archiviazione, ma è possibile che si voglia aggiungere altre risorse. È possibile esportare un modello da una risorsa esistente per ottenere rapidamente il codice JSON per tale risorsa.
 
@@ -76,7 +76,7 @@ L'esempio seguente evidenzia le aggiunte apportate al modello. Contiene infatti 
 
 Copiare l'intero file e sostituire il modello con il contenuto del file.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json?range=1-77&highlight=28-31,50-69)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json" range="1-77" highlight="28-31,50-69":::
 
 ## <a name="deploy-template"></a>Distribuire il modello
 

@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Documentazione di QnA Maker
   description: QnA Maker è un servizio API basato sul cloud che crea un livello di domande e risposte simile a una conversazione sui dati. QnA Maker consente di sviluppare un servizio di domande e risposte a partire dal contenuto semistrutturato, ad esempio documenti con domande frequenti, URL e manuali di prodotti. Il servizio QnA Maker risponde alle domande degli utenti in un linguaggio naturale associandole alle migliori risposte possibili presenti nelle domande e risposte della knowledge base.
-  ms.openlocfilehash: 03518a1d7156d57424b28980d05bb03bfef56503
-  ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+  ms.openlocfilehash: e566fdb18bdabe80447de9b2882cf7d57209d15e
+  ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 01/14/2020
-  ms.locfileid: "75945599"
+  ms.lasthandoff: 01/29/2020
+  ms.locfileid: "76844110"
 landingContent:
 - title: Informazioni su QnA Maker
   linkLists:
@@ -35,7 +35,7 @@ landingContent:
     - text: Ciclo di vita di sviluppo
       url: concepts/development-lifecycle-knowledge-base.md
     - text: Origini dati
-      url: concepts/data-sources-supported.md
+      url: concepts/knowledge-base.md
   - linkListType: video
     links:
     - text: Creare un bot in pochi minuti
@@ -100,7 +100,7 @@ landingContent:
       url: tutorials/integrate-qnamaker-luis.md
     - text: Altri esempi di bot
       url: https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md
-- title: Riferimento
+- title: Informazioni di riferimento
   linkLists:
   - linkListType: reference
     links:
@@ -120,7 +120,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: risoluzione dei problemi
+    - text: Risoluzione dei problemi
       url: troubleshooting.md
     - text: Inviare domande a Stack Overflow
       url: https://stackoverflow.com/questions/tagged/QnAMaker
