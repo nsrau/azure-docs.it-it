@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione: Distribuire un modello di Machine Learning con la finestra di progettazione'
 titleSuffix: Azure Machine Learning
-description: Questa esercitazione mostra come creare una soluzione di analisi predittiva nella finestra di progettazione di Azure Machine Learning. Eseguire il training, assegnare punteggi e distribuire un modello di Machine Learning usando moduli con trascinamento della selezione.
+description: Questa esercitazione mostra come creare una soluzione di analisi predittiva nella finestra di progettazione di Azure Machine Learning (anteprima). Eseguire il training, assegnare punteggi e distribuire un modello di Machine Learning usando moduli con trascinamento della selezione.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 89fdac5e59b59c60d7e20b94799d78b029d236d6
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 470e633b2c64283db9b6a5b1cd777a6a054dad16
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314998"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719790"
 ---
-# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Esercitazione: Distribuire un modello di Machine Learning con la finestra di progettazione
+# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Esercitazione: Distribuire un modello di Machine Learning con la finestra di progettazione (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 È possibile distribuire il modello predittivo sviluppato nella [prima parte dell'esercitazione](tutorial-designer-automobile-price-train-score.md) per offrire ad altri la possibilità di usarlo. Nella prima parte è stato eseguito il training del modello. Ora è il momento di generare nuove stime in base all'input dell'utente. In questa parte dell'esercitazione si apprenderà come:
@@ -55,10 +55,6 @@ Per distribuire la pipeline, è necessario prima convertire la pipeline di train
     >
 
 1. Selezionare **Run** (Esegui) e usare la stessa destinazione di calcolo e lo stesso esperimento usati nella prima parte.
-
-1. Selezionare il modulo **Score Model** (Punteggio modello).
-
-1. Nel riquadro delle proprietà selezionare **Outputs** > **Visualize** (Output > Visualizza) per verificare che il modello funzioni ancora. Come si può notare, vengono visualizzati i dati originali insieme al prezzo stimato ("Scored Labels", Etichette con punteggio).
 
 1. Selezionare **Distribuisci**.
 

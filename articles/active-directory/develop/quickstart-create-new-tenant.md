@@ -13,15 +13,14 @@ ms.date: 02/05/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9d4e51e6242da90a1e7044e0c3a182ea59ad187
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 860577938eab0f7561e9b66d0f58c9fc0d077b26
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74915114"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704154"
 ---
-# <a name="quickstart-set-up-a-tenant"></a>Guida introduttiva: Configurare un tenant
+# <a name="quickstart-set-up-a-tenant"></a>Avvio rapido: Configurare un tenant
 
 Microsoft Identity Platform consente agli sviluppatori di creare app che si rivolgono a un'ampia gamma di identità e ambienti Microsoft 365 personalizzati. Per iniziare a usare Microsoft Identity Platform occorre accedere a un ambiente, detto anche tenant di Azure AD, in grado di registrare e gestire le app, accedere ai dati di Microsoft 365 e distribuire le restrizioni di accesso condizionale e tenant personalizzate.
 

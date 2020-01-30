@@ -12,21 +12,20 @@ ms.date: 08/14/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a45b3ee9bf9cea71255ac9a83f970d2b6c72b67f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e005ba9c5458849863bd4668ffde1e0f6fb4bf91
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966113"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704222"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Guida introduttiva: Configurare un'applicazione per l'esposizione di API Web
+# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Avvio rapido: Configurare un'applicazione per l'esposizione di API Web
 
 È possibile sviluppare un'API Web e renderla disponibile per applicazioni client esponendo [ambiti/autorizzazioni](developer-glossary.md#scopes) e [ruoli](developer-glossary.md#roles). Un'API Web correttamente configurata viene resa disponibile come le altre API Web Microsoft, tra cui l'API Graph e le API di Office 365.
 
 In questa guida introduttiva verrà illustrato come configurare un'applicazione in modo da esporre un nuovo ambito e renderla così disponibile per applicazioni client.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per iniziare, assicurarsi di soddisfare questi prerequisiti:
 
@@ -60,19 +59,19 @@ Per esporre un nuovo ambito tramite l'interfaccia utente:
 
 1. Nella pagina **Aggiungi un ambito** visualizzata immettere le informazioni dell'ambito:
 
-    | Campo | DESCRIZIONE |
+    | Campo | Descrizione |
     |-------|-------------|
     | **Nome ambito** | Immettere un nome significativo per l'ambito.<br><br>Ad esempio: `Employees.Read.All`. |
     | **Utenti che possono fornire il consenso** | Selezionare se il consenso per l'ambito può essere fornito dagli utenti o è necessario il consenso amministratore. Selezionare **Solo amministratori** per autorizzazioni con privilegi più elevati. |
-    | **Nome visualizzato per il consenso amministratore** | Immettere una descrizione significativa per l'ambito, che verrà visualizzata agli amministratori.<br><br>Ad esempio: `Read-only access to Employee records` |
-    | **Descrizione del consenso amministratore** | Immettere una descrizione significativa per l'ambito, che verrà visualizzata agli amministratori.<br><br>Ad esempio: `Allow the application to have read-only access to all Employee data.` |
+    | **Nome visualizzato per il consenso amministratore** | Immettere una descrizione significativa per l'ambito, che verrà visualizzata agli amministratori.<br><br>Ad esempio, usare `Read-only access to Employee records` |
+    | **Descrizione del consenso amministratore** | Immettere una descrizione significativa per l'ambito, che verrà visualizzata agli amministratori.<br><br>Ad esempio, usare `Allow the application to have read-only access to all Employee data.` |
 
     Se gli utenti possono fornire il consenso per l'ambito, aggiungere valori anche per i campi seguenti:
 
-    | Campo | DESCRIZIONE |
+    | Campo | Descrizione |
     |-------|-------------|
-    | **Nome visualizzato per il consenso utente** | Immettere un nome significativo per l'ambito, che verrà visualizzato agli utenti.<br><br>Ad esempio: `Read-only access to your Employee records` |
-    | **Descrizione del consenso utente** | Immettere una descrizione significativa per l'ambito, che verrà visualizzata agli utenti.<br><br>Ad esempio: `Allow the application to have read-only access to your Employee data.` |
+    | **Nome visualizzato per il consenso utente** | Immettere un nome significativo per l'ambito, che verrà visualizzato agli utenti.<br><br>Ad esempio, usare `Read-only access to your Employee records` |
+    | **Descrizione del consenso utente** | Immettere una descrizione significativa per l'ambito, che verrà visualizzata agli utenti.<br><br>Ad esempio, usare `Allow the application to have read-only access to your Employee data.` |
 
 1. Impostare **Stato** e al termine selezionare **Aggiungi l'ambito**.
 

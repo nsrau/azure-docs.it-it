@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 12/06/2019
+ms.date: 01/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e41c3409ac5b81fe9e099ab34abd7256ef39d330
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: dd81942832e598319261829e67fd0b8f1704fc99
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930583"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716197"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-nodejs"></a>Avvio rapido: Cercare immagini con l’SDK di Ricerca immagini Bing per Node.js
 
@@ -24,10 +24,10 @@ Usare questa guida introduttiva per effettuare la prima ricerca di immagini tram
 
 Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/imageSearch.js) con altre annotazioni e informazioni sulla gestione degli errori.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-* Il [SDK Ricerca immagini di Servizi cognitivi per Node.js](https://www.npmjs.com/package/azure-cognitiveservices-imagesearch)
-    * Installare usando `npm install azure-cognitiveservices-imagesearch`
+* Il [SDK Ricerca immagini di Servizi cognitivi per Node.js](https://www.npmjs.com/package/@azure/cognitiveservices-imagesearch)
+    * Installare usando `npm install @azure/cognitiveservices-imagesearch`
 * Il modulo [REST di Azure Node.js](https://www.npmjs.com/package/ms-rest-azure)
     * Installare usando `npm install ms-rest-azure`
 
@@ -39,11 +39,11 @@ Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.
 
     ```javascript
     'use strict';
-    const ImageSearchAPIClient = require('azure-cognitiveservices-imagesearch');
+    const ImageSearchAPIClient = require('@azure/cognitiveservices-imagesearch');
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
     ```
 
-2. Nel metodo principale del progetto, creare variabili per la chiave di sottoscrizione valida, i risultati di immagine che devono essere restituita da Bing e un termine di ricerca. Creare quindi il client di ricerca delle immagini usando la chiave.
+2. Nel metodo principale del progetto, creare variabili per la chiave di sottoscrizione valida, i risultati immagini che devono essere restituiti da Bing e un termine di ricerca. Creare quindi un'istanza del client di ricerca delle immagini usando la chiave.
 
     ```javascript
     //replace this value with your valid subscription key.
@@ -52,7 +52,7 @@ Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.
     //the search term for the request
     let searchTerm = "canadian rockies";
 
-    //instantiate the image search client 
+    //instantiate the image search client
     let credentials = new CognitiveServicesCredentials(serviceKey);
     let imageSearchApiClient = new ImageSearchAPIClient(credentials);
 
@@ -60,7 +60,7 @@ Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.
 
 ## <a name="create-an-asynchronous-helper-function"></a>Creare una funzione helper asincrone
 
-1. Creare una funzione per chiamare il client in modo asincrono e restituire la risposta dal servizio di ricerca immagini Bing.  
+1. Creare una funzione per chiamare il client in modo asincrono e restituire la risposta dal servizio di ricerca immagini Bing.
     ```javascript
     //a helper function to perform an async call to the Bing Image Search API
     const sendQuery = async () => {
@@ -71,7 +71,7 @@ Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.
 
 1. Chiamare la funzione helper e gestire il relativo `promise` per analizzare i risultati di immagine restituiti con la risposta.
 
-    Se la risposta contiene i risultati della ricerca, archiviare il primo risultato e stamparne i dettagli, ad esempio l'URL di anteprima e l'URL originale, insieme al numero totale di immagini restituite.  
+    Se la risposta contiene i risultati della ricerca, archiviare il primo risultato e stamparne i dettagli, ad esempio l'URL di anteprima e l'URL originale, insieme al numero totale di immagini restituite.
     ```javascript
     sendQuery().then(imageResults => {
         if (imageResults == null) {
@@ -98,8 +98,8 @@ Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Informazioni su Ricerca immagini Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Provare una demo interattiva online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Informazioni su Ricerca immagini Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)
+* [Provare una demo interattiva online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
 * [Ottenere gratuitamente una chiave di accesso per Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
 * [Esempi Node.js per SDK di Servizi cognitivi di Azure](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 * [Documentazione di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services)

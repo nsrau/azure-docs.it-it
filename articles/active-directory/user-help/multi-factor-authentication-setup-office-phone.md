@@ -10,13 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 08/12/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1adbb913fc8ec6376f1c5f47708da4fd7df740ff
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 32d58a5536cda5a5a446eee15401dabc0c936304
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619852"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705225"
 ---
 # <a name="set-up-an-office-phone-as-your-two-factor-verification-method"></a>Configurare il telefono dell'ufficio come metodo di verifica a due fattori
 
@@ -54,4 +53,4 @@ Dopo aver configurato il metodo di verifica a due fattori, è possibile aggiunge
 
 - [Accedere usando la verifica a due fattori](multi-factor-authentication-end-user-signin.md)
 
-- [Risoluzione dei problemi della verifica a due fattori](multi-factor-authentication-end-user-troubleshoot.md)
+- [Risolvere i problemi relativi alla verifica a due fattori](multi-factor-authentication-end-user-troubleshoot.md)

@@ -10,13 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 08/12/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f03e92c1bfd86d15bf582487e3e92a3713b63e2
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: c01a7a9c5adb050d98840938260c8486ecdeb199
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619822"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705191"
 ---
 # <a name="set-up-a-mobile-device-as-your-two-factor-verification-method"></a>Configurare un dispositivo mobile come metodo di verifica a due fattori
 
@@ -77,4 +76,4 @@ Dopo aver configurato il metodo di verifica a due fattori, è possibile aggiunge
 
 - [Accedere usando la verifica a due fattori](multi-factor-authentication-end-user-signin.md)
 
-- [Risoluzione dei problemi della verifica a due fattori](multi-factor-authentication-end-user-troubleshoot.md)
+- [Risolvere i problemi relativi alla verifica a due fattori](multi-factor-authentication-end-user-troubleshoot.md)

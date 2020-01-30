@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Usare Node.js per eseguire query da un account API SQL di Azure Cosmos DB'
+title: 'Avvio rapido: Usare Node.js per eseguire query da un account API SQL di Azure Cosmos DB'
 description: Come usare Node.js per creare un'app che si connette a un account API SQL di Azure Cosmos DB ed esegue query sui dati.
 author: deborahc
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: dech
-ms.openlocfilehash: 44cdd4307be56d864afb45d619958cc59a3fa978
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8df78df27ffb7e8bb8fc88567bd0b3d37be20488
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74220529"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719501"
 ---
-# <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Guida introduttiva: Usare Node.js per connettersi ai dati ed eseguire query da un account API SQL di Azure Cosmos DB
+# <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Avvio rapido: Usare Node.js per connettersi ai dati ed eseguire query da un account API SQL di Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -27,16 +27,16 @@ ms.locfileid: "74220529"
 
 Questo argomento di avvio rapido illustra come usare un'app Node.js per connettersi all'account [API SQL](sql-api-introduction.md) in Azure Cosmos DB. È quindi possibile usare le query SQL di Azure Cosmos DB per eseguire query e gestire i dati. L'app Node.js compilata in questo articolo usa [SQL JavaScript SDK](sql-api-sdk-node.md). Questa guida introduttiva usa la versione 2.0 di [JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* Eseguire anche queste operazioni:
+* Inoltre:
     * [Node.js](https://nodejs.org/en/) versione v6.0.0 o successiva
     * [Git](https://git-scm.com/)
 
-## <a name="create-a-database"></a>Creare un database 
+## <a name="create-a-database"></a>Creazione di un database 
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -142,13 +142,13 @@ Tornare ora al portale di Azure per ottenere i dettagli della stringa di conness
 
 3. Copiare il valore di URI dal portale (usando il pulsante di copia) e impostarlo come valore della chiave di endpoint in `config.js`. 
 
-    `config.endpoint = "https://FILLME.documents.azure.com"`
+    `config.endpoint = "<Your Azure Cosmos account URI>"`
 
 4. Copiare quindi il valore di CHIAVE PRIMARIA dal portale e impostarlo come valore di `config.key` in `config.js`. L'app è stata aggiornata con tutte le informazioni necessarie per comunicare con Azure Cosmos DB. 
 
-    `config.key = "FILLME"`
+    `config.key = "<Your Azure Cosmos account key>"`
     
-## <a name="run-the-app"></a>Esecuzione dell'app
+## <a name="run-the-app"></a>Eseguire l'app
 
 1. Eseguire `npm install` in un terminale per installare i moduli npm necessari
 

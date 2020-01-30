@@ -12,15 +12,14 @@ ms.date: 08/07/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec5fe8e93c9032a07c1defe5b28753e0f520a320
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 32691892ccae31541855f47bd8274aa28b6dc185
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963334"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704290"
 ---
-# <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Guida introduttiva: Configurare un'applicazione client per accedere alle API Web
+# <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Avvio rapido: Configurare un'applicazione client per accedere alle API Web
 
 Per consentire a un'applicazione Web/client riservata di partecipare a un flusso di concessioni di autorizzazioni che richiede l'autenticazione (e ottenere un token di accesso), è necessario definire credenziali protette. Il metodo di autenticazione predefinito supportato dal portale di Azure è ID client + chiave privata.
 
@@ -40,7 +39,7 @@ In questa guida introduttiva verrà illustrato come configurare l'app per esegui
 * [Aggiungere credenziali all'applicazione Web](#add-credentials-to-your-web-application)
 * [Aggiungere autorizzazioni per accedere ad API Web](#add-permissions-to-access-web-apis)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per iniziare, assicurarsi di soddisfare questi prerequisiti:
 

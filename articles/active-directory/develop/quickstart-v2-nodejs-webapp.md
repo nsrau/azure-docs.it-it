@@ -11,21 +11,20 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2869333fe0e9103724b9b1075270a5c3301c472
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0d69f762cea53f2a4c022ad6dddb52faeced1adf
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74968018"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76703338"
 ---
-# <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Guida introduttiva: Aggiungere l'accesso con OpenID Connect a un'app Web Node.js
+# <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Avvio rapido: Aggiungere l'accesso con OpenID Connect a un'app Web Node.js
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 Questo avvio rapido illustra come configurare l'autenticazione OpenID Connect in un'applicazione Web creata usando Node.js con Express. L'esempio è progettato per l'esecuzione in qualsiasi piattaforma.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Ecco i prerequisiti per eseguire questo esempio:
 
@@ -44,7 +43,7 @@ Ecco i prerequisiti per eseguire questo esempio:
 1. Selezionare **Nuova registrazione**.
 
 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'app:
-    - Nella sezione **Nome** immettere un nome significativo che verrà visualizzato agli utenti dell'app. Ad esempio:  MyWebApp
+    - Nella sezione **Nome** immettere un nome significativo che verrà visualizzato agli utenti dell'app. Ad esempio: MyWebApp
     - Nella sezione **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)** .
 
     Se sono presenti più URI di reindirizzamento, è necessario aggiungerli in un secondo momento dalla scheda **Autenticazione** dopo la creazione dell'app.
@@ -65,7 +64,7 @@ Ecco i prerequisiti per eseguire questo esempio:
     - Selezionare una durata per la chiave, ovvero **Tra 1 anno, Tra 2 anni** oppure **Non scade mai**.
     - Quando si fa clic sul pulsante **Aggiungi**, viene visualizzato il valore della chiave. Copiare il valore della chiave e conservarlo in un luogo sicuro.
 
-    Questa chiave sarà necessaria più avanti per configurare l'applicazione. Il valore della chiave non verrà visualizzato di nuovo, né potrà essere recuperato in altro modo, di conseguenza è opportuno prenderne nota non appena viene visualizzato nel portale di Azure.
+    Questa chiave sarà necessaria più avanti per configurare l'applicazione. Il valore della chiave non viene visualizzato di nuovo, né può essere recuperato in altro modo, di conseguenza è opportuno prenderne nota non appena viene visualizzato nel portale di Azure.
 
 ## <a name="download-the-sample-application-and-modules"></a>Scaricare l'applicazione e i moduli di esempio
 
@@ -75,7 +74,7 @@ Dalla shell o dalla riga di comando:
 
 `$ git clone git@github.com:AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git`
 
-oppure
+o
 
 `$ git clone https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git`
 

@@ -2,18 +2,18 @@
 author: aahill
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/28/2019
+ms.date: 01/22/2020
 ms.author: aahi
-ms.openlocfilehash: 7cb3dce31592771deb5c57b9d73670465f7424fe
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: d5197cfe749ae27b9f8807ba62825c8a73371c85
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281428"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748997"
 ---
 <a name="HOLTop"></a>
 
-[Documentazione di riferimento](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [Pacchetto (NPM)](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics) | [Esempi](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
+[Documentazione di riferimento](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [Pacchetto (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-textanalytics) | [Esempi](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -28,13 +28,13 @@ ms.locfileid: "76281428"
 
 ### <a name="create-a-new-nodejs-application"></a>Creare una nuova applicazione Node.js
 
-In una finestra della console, ad esempio cmd, PowerShell o Bash, creare e passare a una nuova directory per l'app. 
+In una finestra della console, ad esempio cmd, PowerShell o Bash, creare e passare a una nuova directory per l'app.
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-Eseguire il comando `npm init` per creare un'applicazione Node con un file `package.json`. 
+Eseguire il comando `npm init` per creare un'applicazione Node con un file `package.json`.
 
 ```console
 npm init
@@ -67,9 +67,9 @@ Il file `package.json` dell'app viene aggiornato con le dipendenze.
 
 Il client di Analisi del testo è un oggetto [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient) che esegue l'autenticazione in Azure tramite la chiave. Il client fornisce diversi metodi per l'analisi del testo, come singola stringa o batch.
 
-Il testo viene inviato all'API come elenco di `documents`, che sono oggetti `dictionary` contenenti una combinazione di attributi `id`, `text` e `language`, a seconda del metodo usato. L'attributo `text` archivia il testo da analizzare in base all'attributo `language` di origine, mentre `id` può essere un valore qualsiasi. 
+Il testo viene inviato all'API come elenco di `documents`, che sono oggetti `dictionary` contenenti una combinazione di attributi `id`, `text` e `language`, a seconda del metodo usato. L'attributo `text` archivia il testo da analizzare in base all'attributo `language` di origine, mentre `id` può essere un valore qualsiasi.
 
-L'oggetto risposta è un elenco contenente le informazioni di analisi per ogni documento. 
+L'oggetto risposta è un elenco contenente le informazioni di analisi per ogni documento.
 
 ## <a name="code-examples"></a>Esempi di codice
 

@@ -12,15 +12,14 @@ ms.date: 05/09/2019
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58a68b89ce38664c0d0ec87b509fe5f872cfd78c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: bb741fe36e00c3d528470866669e64e9b0b221ae
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921416"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704137"
 ---
-# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Guida introduttiva: Registrare un'applicazione con Microsoft Identity Platform
+# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Avvio rapido: Registrare un'applicazione con Microsoft Identity Platform
 
 Gli sviluppatori aziendali e i provider SaaS (Software as a Service) possono sviluppare servizi cloud commerciali o applicazioni line-of-business integrabili con Microsoft Identity Platform per garantire la sicurezza dell'accesso e dell'autorizzazione per i propri servizi.
 
@@ -36,7 +35,7 @@ Questa guida introduttiva illustra come aggiungere e registrare un'applicazione 
    - **Nome**: immettere un nome di applicazione significativo, che verrà visualizzato agli utenti dell'app.
    - **Tipi di account supportati**: selezionare gli account che dovranno essere supportati dall'applicazione.
 
-       | Tipi di account supportati | DESCRIZIONE |
+       | Tipi di account supportati | Descrizione |
        |-------------------------|-------------|
        | **Account solo in questa directory organizzativa** | Selezionare questa opzione se si sta creando un'applicazione line-of-business. L'opzione non è disponibile se non si registra l'applicazione in una directory.<br><br>Questa opzione esegue il mapping solo a un tenant singolo di Azure AD.<br><br>È l'opzione predefinita a meno che non si registri l'app all'esterno di una directory. Nei casi in cui l'app viene registrata all'esterno di una directory, l'impostazione predefinita è costituita da account Microsoft personali e multi-tenant Azure AD. |
        | **Account in qualsiasi directory organizzativa** | Selezionare questa opzione se si preferisce includere tutti i clienti aziendali o di istituti di istruzione.<br><br>Questa opzione esegue il mapping solo a multi-tenant Azure AD.<br><br>Un'app registrata solo come a tenant singolo Azure AD può essere aggiornata a multi-tenant Azure AD e di nuovo a tenant singolo tramite il pannello **Autenticazione**. |

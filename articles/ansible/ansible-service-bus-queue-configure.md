@@ -4,12 +4,12 @@ description: Informazioni su come usare Ansible per creare una coda nel bus di s
 keywords: ansible, azure, devops, bash, playbook, bus di servizio, coda
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: 9903419a52be61cd7ec74214858bce81df7e727e
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 8ba4c2296d903c4f35aa36eb92dfbc3b56ec4b18
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155818"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713228"
 ---
 # <a name="tutorial-configure-queues-in-azure-service-bus-using-ansible"></a>Esercitazione: Configurare code nel bus di servizio di Azure tramite Ansible
 
@@ -27,7 +27,7 @@ ms.locfileid: "74155818"
 > * Recuperare informazioni sulla coda
 > * Revocare i criteri di firma di accesso condiviso della coda
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
@@ -90,7 +90,7 @@ Salvare il playbook seguente come `servicebus_queue_policy.yml`:
       namespace: servicebustestns
       queue: servicebustestqueue
   tasks:
-    - name: Create a policy with send and listen priviledge
+    - name: Create a policy with send and listen privilege
       azure_rm_servicebussaspolicy:
           name: "{{ queue }}-policy"
           queue: "{{ queue }}"
@@ -193,7 +193,7 @@ Salvare il playbook seguente come `servicebus_queue_policy_delete.yml`:
       namespace: servicebustestns
       queue: servicebustestqueue
   tasks:
-    - name: Create a policy with send and listen priviledge
+    - name: Create a policy with send and listen privilege
       azure_rm_servicebussaspolicy:
           name: "{{ queue }}-policy"
           queue: "{{ queue }}"
@@ -212,7 +212,7 @@ ansible-playbook servicebus_queue_policy_delete.yml
 
 Quando non sono più necessarie, eliminare le risorse create in questo articolo. 
 
-Aggiungere il codice seguente come `cleanup.yml`:
+Salvare il codice seguente come `cleanup.yml`:
 
 ```yml
 ---

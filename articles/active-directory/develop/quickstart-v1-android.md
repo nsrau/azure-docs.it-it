@@ -15,15 +15,14 @@ ms.date: 10/25/2019
 ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87dd60f00278389c1fc03d6fd69652608ae0c998
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e1b8b38474b9dfd620ea8501151a754ab0a31f6d
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966062"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704035"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app-v10"></a>Guida introduttiva: Accesso utenti e chiamata dell'API Microsoft Graph da un'app Android (v1.0)
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app-v10"></a>Avvio rapido: Accesso utenti e chiamata dell'API Microsoft Graph da un'app Android (v1.0)
 
 [Microsoft Identity Platform](v2-overview.md) è un'evoluzione della piattaforma per sviluppatori di Azure Active Directory (Azure AD). Consente agli sviluppatori di creare applicazioni che supportano l'accesso per tutte le identità Microsoft e il recupero di token per chiamare API Microsoft, come Microsoft Graph o API create dagli sviluppatori.
 

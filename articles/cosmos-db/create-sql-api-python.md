@@ -12,12 +12,12 @@ ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: a794a9ed35cbbdd36c2cf136b8afc208c3ea0692
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 1e0016e8ce6bc9178befd1a5ca96aa2554929ac5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549011"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719535"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Avvio rapido: Creare un'applicazione Python usando un account API SQL di Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Questo argomento di avvio rapido usa la versione 4 di [Python SDK](https://pypi.
 
 * [Python 3.6+](https://www.python.org/downloads/), con il file eseguibile `python` disponibile in `PATH`.
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Estensione di Python per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
+* [Estensione Python per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 

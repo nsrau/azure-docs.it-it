@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 974a60bafb3e9be56618824d6205d21c364d6601
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 9b390806e678c7900b166a07316d7f8ac32a5153
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76153021"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716177"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Esercitazione: Eseguire ricerche vicino a punti di interesse con Mappe di Azure
 
@@ -247,7 +247,7 @@ La mappa creata finora analizza solo i dati di longitudine/latitudine per i risu
 
     ```JavaScript
     function showPopup(e) {
-        //Get the properties and coordinates of the first shape that the event occured on.
+        //Get the properties and coordinates of the first shape that the event occurred on.
 
         var p = e.shapes[0].getProperties();
         var position = e.shapes[0].getCoordinates();

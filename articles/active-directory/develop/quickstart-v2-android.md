@@ -11,15 +11,14 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: twhitney
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84603dfa865afe1c7661f49d7dac7374fa62a2a0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e0616ae2c3b58c694e300abca28a9e34f8442fcb
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920787"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76703712"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Guida introduttiva: Accesso utenti e chiamata dell'API Microsoft Graph da un'app di Android
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Avvio rapido: Accesso utenti e chiamata dell'API Microsoft Graph da un'app di Android
 
 In questo avvio rapido si usa un esempio di codice per illustrare in che modo un'applicazione Android può accedere ad account personali, aziendali o dell'istituto di istruzione mediante Microsoft Identity Platform, ottenere un token di accesso e chiamare l'API Microsoft Graph.
 
