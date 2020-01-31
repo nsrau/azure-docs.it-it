@@ -65,6 +65,7 @@
       items:
         - name: Informazioni sulle unità di flusso e su come modificarle
           href: stream-analytics-streaming-unit-consumption.md
+          displayName: 'scale, performance'
         - name: Ottimizzare le prestazioni di query
           href: stream-analytics-parallelization.md
         - name: Ripartizionare l'input
@@ -176,6 +177,8 @@
           href: stream-analytics-live-data-local-testing.md
         - name: Visualizzare i processi in Visual Studio
           href: stream-analytics-vs-tools.md
+        - name: Eseguire il debug delle query con il diagramma del processo
+          href: debug-locally-using-job-diagram.md
         - name: Sviluppare un processo Edge
           href: stream-analytics-tools-for-visual-studio-edge-jobs.md
         - name: Configurare una pipeline di integrazione continua/recapito continuo
@@ -551,7 +554,7 @@
     - name: Garanzie di recapito degli eventi
       href: /stream-analytics-query/event-delivery-guarantees-azure-stream-analytics
       maintainContext: true
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.streamanalytics

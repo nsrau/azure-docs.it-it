@@ -10,29 +10,28 @@
       href: functions-compare-logic-apps-ms-flow-webjobs.md
     - name: Opzioni del piano di hosting
       href: functions-scale.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
-    - name: 'Creare una funzione - C#'
-      href: functions-create-your-first-function-visual-studio.md
-    - name: Creare una funzione - Java
-      href: functions-create-first-java-maven.md
-    - name: Creare una funzione - JavaScript
-      href: functions-create-first-function-vs-code.md
-    - name: Creare una funzione - PowerShell
-      href: functions-create-first-function-powershell.md
-    - name: Creare una funzione - Python
-      href: functions-create-first-function-python.md
-    - name: Connettersi ai servizi
+    - name: Creare una funzione
+      expanded: true
       items:
-        - name: 'Archiviazione - C#'
-          href: functions-add-output-binding-storage-queue-vs.md
-        - name: Archiviazione - Java
-          href: functions-add-output-binding-storage-queue-java.md
-        - name: Archiviazione - JavaScript
+        - name: Visual Studio Code
+          href: /azure/azure-functions/functions-create-first-function-vs-code
+        - name: Visual Studio
+          href: functions-create-your-first-function-visual-studio.md
+        - name: Riga di comando
+          href: functions-create-first-azure-function-azure-cli.md
+        - name: Maven (Java)
+          href: functions-create-first-java-maven.md
+    - name: Connettersi alla risorsa di archiviazione
+      items:
+        - name: Visual Studio Code
           href: functions-add-output-binding-storage-queue-vs-code.md
-        - name: Archiviazione - Python
-          href: functions-add-output-binding-storage-queue-python.md
+        - name: Visual Studio
+          href: functions-add-output-binding-storage-queue-vs.md
+        - name: Maven (Java)
+          href: functions-add-output-binding-storage-queue-java.md
 - name: Esercitazioni
   items:
     - name: Funzioni con App per la logica
@@ -137,7 +136,7 @@
       href: functions-networking-options.md
     - name: Indirizzi IP
       href: ip-addresses.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Sviluppo
       items:
@@ -160,7 +159,7 @@
                 - name: Portale di Azure
                   href: functions-create-first-azure-function.md
                 - name: Riga di comando
-                  href: functions-create-first-azure-function-azure-cli.md
+                  href: create-cli.md
                 - name: Visual Studio
                   href: create-visual-studio.md
                 - name: Visual Studio Code
@@ -256,7 +255,7 @@
           displayName: 'App Insights, Application Insights, logs, logging'
         - name: Analizzare i log
           href: functions-monitor-log-analytics.md
-    - name: Proteggere
+    - name: Sicurezza
       items:
         - name: Aggiungere un certificato SSL
           href: ../app-service/configure-ssl-certificate.md?toc=%2fazure%2fazure-functions%2ftoc.json
@@ -312,7 +311,7 @@
       items:
         - name: Risolvere i problemi relativi alle risorse di archiviazione
           href: functions-recover-storage-account.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: Informazioni di riferimento sulle API
       items:
@@ -384,7 +383,7 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Informazioni sulle quote
       href: 'functions-scale.md#service-limits'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Video
       href: 'https://www.youtube.com/c/AzureFunctions'

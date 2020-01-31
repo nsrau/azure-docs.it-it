@@ -44,6 +44,8 @@
           href: class-type-database-management.md
         - name: Python e Jupyter Notebook
           href: class-type-jupyter-notebook.md
+        - name: Sviluppo di app per dispositivi mobili con Android Studio
+          href: class-type-mobile-dev-android-studio.md
     - name: Creare e configurare account lab (proprietario di account lab)
       items:
         - name: Creare e gestire account di lab
@@ -90,7 +92,7 @@
           href: how-to-use-remote-desktop-linux-student.md
         - name: Impostare o reimpostare le password per le macchine virtuali
           href: how-to-set-virtual-machine-passwords-student.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: API REST
       href: 'https://docs.microsoft.com/rest/api/labservices/'

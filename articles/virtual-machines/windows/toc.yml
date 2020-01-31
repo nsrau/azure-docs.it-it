@@ -232,6 +232,8 @@
           href: disks-types.md
         - name: Crittografia
           href: disk-encryption.md
+        - name: Prenotazioni di archiviazione su disco
+          href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Progettazione per prestazioni elevate
           href: premium-storage-performance.md
         - name: Bursting del disco
@@ -551,6 +553,8 @@
           href: disks-use-storage-explorer-managed-disks.md
         - name: Snapshot di un disco
           href: snapshot-copy-managed-disk.md
+        - name: Riservare archiviazione su disco
+          href: disks-reserved-capacity.md
         - name: Creare uno snapshot incrementale
           href: disks-incremental-snapshots.md
         - name: Eseguire il backup di dischi non gestiti
@@ -650,7 +654,7 @@
               href: migration-classic-resource-manager-faq.md
 - name: Risolvere problemi
   href: ../troubleshooting/index.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/vm
@@ -683,7 +687,7 @@
       href: 'https://azure.microsoft.com/documentation/templates'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/#Linux'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-virtual-machine'

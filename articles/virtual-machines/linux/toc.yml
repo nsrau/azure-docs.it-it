@@ -7,9 +7,9 @@
 - name: Avvi rapidi
   expanded: true
   items:
-    - name: Creare una macchina virtuale - Interfaccia della riga di comando di Azure
+    - name: 'Creare una VM: interfaccia della riga di comando di Azure'
       href: quick-create-cli.md
-    - name: Creare una macchina virtuale - Portale
+    - name: 'Creare una VM: portale'
       href: quick-create-portal.md
     - name: Creare una macchina virtuale - Azure PowerShell
       href: quick-create-powershell.md
@@ -150,6 +150,8 @@
           href: disks-types.md
         - name: Crittografia
           href: disk-encryption.md
+        - name: Prenotazioni di archiviazione su disco
+          href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Progettazione per prestazioni elevate
           href: premium-storage-performance.md
         - name: Bursting del disco
@@ -555,6 +557,8 @@
           href: disks-use-storage-explorer-managed-disks.md
         - name: Snapshot di un disco
           href: snapshot-copy-managed-disk.md
+        - name: Riservare archiviazione su disco
+          href: disks-reserved-capacity.md
         - name: Creare uno snapshot incrementale
           href: disks-incremental-snapshots.md
         - name: Eseguire il backup di dischi non gestiti
