@@ -459,6 +459,8 @@
           href: speech-sdk.md
         - name: Disponibilità di scenari
           href: scenario-availability.md
+        - name: Spedire un'applicazione
+          href: ship-application.md
     - name: Avvi rapidi
       items:
         - name: Creare un progetto

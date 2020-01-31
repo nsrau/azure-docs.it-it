@@ -6,7 +6,7 @@
       href: notification-hubs-push-notification-overview.md
     - name: Integrazione con le app per dispositivi mobili del servizio app
       href: notification-hubs-app-service.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare un hub di notifica - Portale di Azure
@@ -79,6 +79,8 @@
       href: samples-powershell.md
 - name: Concetti
   items:
+    - name: Transport Layer Security (TLS)
+      href: notification-hubs-tls12.md
     - name: Guida all'architettura push aziendale
       href: notification-hubs-enterprise-push-notification-architecture.md
     - name: Registrazioni del dispositivo
@@ -90,7 +92,7 @@
           href: notification-hubs-templates-cross-platform-push-messages.md
     - name: Modello di protezione
       href: notification-hubs-push-notification-security.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Modificare il piano tariffario
       href: change-pricing-tier.md
@@ -138,7 +140,7 @@
       href: notification-hubs-push-notification-fixer.md
     - name: Eseguire il push di notifiche usando il push cloud Baidu
       href: notification-hubs-baidu-china-android-notifications-get-started.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: .NET
       href: /dotnet/api/microsoft.azure.notificationhubs

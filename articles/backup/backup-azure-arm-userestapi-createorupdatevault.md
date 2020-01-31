@@ -30,7 +30,7 @@ Gli argomenti seguenti sono obbligatori:
 | Intestazione della richiesta   | DESCRIZIONE |
 |------------------|-----------------|
 | *Content-Type:*  | Obbligatorio. Impostare su `application/json`. |
-| *Authorization:* | Obbligatorio. Impostare su un `Bearer`token di accesso[ ](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) valido. |
+| *Authorization:* | Obbligatorio. Impostare su un `Bearer` [token di accesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) valido. |
 
 Per altre informazioni su come creare la richiesta, vedere [Componenti di una richiesta/risposta dell'API REST](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -50,7 +50,7 @@ Si noti che il nome dell'insieme di credenziali e il nome del gruppo di risorse 
 
 ## <a name="example-request-body"></a>Esempio di corpo della richiesta
 
-Il corpo di esempio riportato di seguito viene usato per creare un insieme di credenziali in "West US". Specificare la località. Lo SKU è sempre "Standard".
+Il corpo di esempio riportato di seguito viene usato per creare un insieme di credenziali in "Stati Uniti occidentali". Specificare la località. Lo SKU è sempre "Standard".
 
 ```json
 {

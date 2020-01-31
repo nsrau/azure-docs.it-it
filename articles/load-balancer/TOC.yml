@@ -28,12 +28,6 @@
       href: tutorial-load-balancer-standard-public-zonal-portal.md
     - name: Configurare il port forwarding in Load Balancer
       href: tutorial-load-balancer-port-forwarding-portal.md
-- name: Esempi
-  items:
-    - name: Interfaccia della riga di comando di Azure
-      href: cli-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
 - name: Concetti
   items:
     - name: Componenti e limiti
@@ -50,8 +44,6 @@
           href: load-balancer-query-metrics-rest-api.md
     - name: Porte a disponibilità elevata
       href: load-balancer-ha-ports-overview.md
-    - name: Supporto per IPv6
-      href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-overview'
     - name: Più front-end
       href: load-balancer-multivip-overview.md
     - name: Connessioni in uscita
@@ -68,10 +60,6 @@
   items:
     - name: Aggiornare Load Balancer pubblico Basic a Load Balancer pubblico Standard
       href: upgrade-basic-standard.md
-    - name: Bilanciare il carico delle VM tra zone di disponibilità (interfaccia della riga di comando)
-      href: load-balancer-standard-public-zone-redundant-cli.md
-    - name: Bilanciare il carico delle VM in una zona (interfaccia della riga di comando)
-      href: load-balancer-standard-public-zonal-cli.md
     - name: Configurare le regole in uscita
       items:
         - name: Interfaccia della riga di comando di Azure
@@ -121,6 +109,12 @@
       items:
         - name: Risolvere i problemi di Azure Load Balancer
           href: load-balancer-troubleshoot.md
+- name: Esempi
+  items:
+    - name: Interfaccia della riga di comando di Azure
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
 - name: Informazioni di riferimento
   items:
     - name: Esempi di codice

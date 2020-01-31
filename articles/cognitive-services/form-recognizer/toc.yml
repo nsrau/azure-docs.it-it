@@ -17,36 +17,20 @@
       items:
         - name: Eseguire il training e usare il modello personalizzato senza le etichette
           items:
-            - name: v2.0
-              items:
-                - name: cURL
-                  href: quickstarts/curl-train-extract.md
-                - name: Python
-                  href: quickstarts/python-train-extract.md
-            - name: v1.0
-              items:
-                - name: cURL
-                  href: quickstarts/curl-train-extract-v1.md
-                - name: Python
-                  href: quickstarts/python-train-extract-v1.md
+            - name: cURL
+              href: quickstarts/curl-train-extract.md
+            - name: Python
+              href: quickstarts/python-train-extract.md
         - name: Eseguire il training e usare il modello personalizzato con le etichette
           items:
             - name: Python
               href: quickstarts/python-labeled-data.md
         - name: Usare un modello di ricevute predefinito
           items:
-            - name: v2.0
-              items:
-                - name: cURL
-                  href: quickstarts/curl-receipts.md
-                - name: Python
-                  href: quickstarts/python-receipts.md
-            - name: v1.0
-              items:
-                - name: cURL
-                  href: quickstarts/curl-receipts-v1.md
-                - name: Python
-                  href: quickstarts/python-receipts-v1.md
+            - name: cURL
+              href: quickstarts/curl-receipts.md
+            - name: Python
+              href: quickstarts/python-receipts.md
         - name: Ottenere informazioni sul layout del testo
           items:
             - name: Python
@@ -71,7 +55,7 @@
           displayName: 'docker, container, run, billing, apikey, logging'
         - name: Usare istanze di contenitore
           href: deploy-form-recognizer-on-container-instances.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: API Riconoscimento modulo v2.0
       href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm'
@@ -91,7 +75,7 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2087186'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://go.microsoft.com/fwlink/?linkid=2087185'
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

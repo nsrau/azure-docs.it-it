@@ -51,7 +51,7 @@
     - name: Servizio app e Funzioni di Azure
       href: /azure/app-service/overview-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
     - name: Hub eventi di Azure
-      href: /azure/event-hubs/event-hubs-managed-service-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
+      href: /azure/event-hubs/authenticate-managed-identity.md?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
     - name: Istanze di Azure Container
       href: /azure/container-instances/container-instances-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
 - name: Guide pratiche
