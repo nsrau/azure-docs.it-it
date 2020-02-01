@@ -6,16 +6,14 @@
       href: load-balancer-overview.md
 - name: Guida introduttiva
   items:
-    - name: Creare un Azure Load Balancer
-      items:
-        - name: Portale
-          href: quickstart-load-balancer-standard-public-portal.md
-        - name: Interfaccia della riga di comando di Azure
-          href: quickstart-load-balancer-standard-public-cli.md
-        - name: Azure PowerShell
-          href: quickstart-create-standard-load-balancer-powershell.md
-        - name: Modello
-          href: quickstart-load-balancer-standard-public-template.md
+    - name: Portale
+      href: quickstart-load-balancer-standard-public-portal.md
+    - name: Interfaccia della riga di comando di Azure
+      href: quickstart-load-balancer-standard-public-cli.md
+    - name: Azure PowerShell
+      href: quickstart-create-standard-load-balancer-powershell.md
+    - name: Modello
+      href: quickstart-load-balancer-standard-public-template.md
 - name: Esercitazioni
   items:
     - name: Bilanciare il carico del traffico Internet verso le macchine virtuali
@@ -28,6 +26,12 @@
       href: tutorial-load-balancer-standard-public-zonal-portal.md
     - name: Configurare il port forwarding in Load Balancer
       href: tutorial-load-balancer-port-forwarding-portal.md
+- name: Esempi
+  items:
+    - name: Interfaccia della riga di comando di Azure
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
 - name: Concetti
   items:
     - name: Componenti e limiti
@@ -109,12 +113,6 @@
       items:
         - name: Risolvere i problemi di Azure Load Balancer
           href: load-balancer-troubleshoot.md
-- name: Esempi
-  items:
-    - name: Interfaccia della riga di comando di Azure
-      href: cli-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
 - name: Informazioni di riferimento
   items:
     - name: Esempi di codice
