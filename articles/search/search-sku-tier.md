@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: 772f6f51fb98b3a9adbd1efe6571842c667e8e8e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/30/2020
+ms.openlocfilehash: 35dbd064a09a96dae58e1b15a6d8889bda45ee0d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427023"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899841"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Scegliere un piano tariffario per Azure ricerca cognitiva
 
@@ -21,15 +21,20 @@ Quando si crea un servizio ricerca cognitiva di Azure, [viene creata una risorsa
 
 La maggior parte dei clienti inizia con il livello gratuito, in modo da poter valutare il servizio. Dopo la valutazione, è comune creare un secondo servizio in uno dei livelli superiori per le distribuzioni di sviluppo e produzione.
 
-Sebbene tutti i livelli, incluso il livello gratuito, offrano generalmente la parità di funzionalità, i carichi di lavoro di dimensioni maggiori possono determinare una necessità per i livelli più elevati. Ad esempio, l' [arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md) ha competenze a esecuzione prolungata che si timeout su un servizio gratuito, a meno che il set di dati non sia di piccole dimensioni.
+## <a name="feature-availability-by-tier"></a>Disponibilità delle funzionalità per livello
 
-> [!NOTE] 
-> L'eccezione alla parità di funzionalità è costituita da [indicizzatori](search-indexer-overview.md), che non sono disponibili in S3 HD.
->
+Quasi tutte le funzionalità sono disponibili in ogni livello, incluso gratuito, ma una funzionalità o un flusso di lavoro con utilizzo intensivo delle risorse potrebbe non funzionare correttamente a meno che non si fornisca una capacità sufficiente. Ad esempio, l' [arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md) ha competenze a esecuzione prolungata che si timeout su un servizio gratuito, a meno che il set di dati non sia di piccole dimensioni.
 
-## <a name="available-tiers"></a>Livelli disponibili
+Nella tabella seguente vengono descritti i vincoli di funzionalità correlati al livello.
 
-I livelli rispecchiano le caratteristiche dell'hardware che ospita il servizio (anziché le funzionalità) e si differenziano per:
+| Funzionalità | Limitazioni |
+|---------|-------------|
+| [indicizzatori](search-indexer-overview.md) | Gli indicizzatori non sono disponibili in S3 HD. |
+| [Chiavi di crittografia gestite dal cliente](search-security-manage-encryption-keys.md) | Non disponibile per il livello gratuito. |
+
+## <a name="tiers-skus"></a>Livelli (SKU)
+
+I livelli sono differenziati per:
 
 + Quantità di indici e indicizzatori che è possibile creare
 + Dimensione e velocità delle partizioni (archiviazione fisica)
@@ -97,9 +102,9 @@ La tariffa di fatturazione è oraria per SU. Ogni livello ha una velocità progr
 
 La maggior parte dei clienti porta online solo una parte della capacità totale, tenendo il resto di riserva. Per la fatturazione, il numero di partizioni e repliche che si porta online, calcolato dalla formula SU, determina il pagamento su base oraria.
 
-## <a name="how-to-manage-and-reduce-costs"></a>Come gestire e ridurre i costi
+## <a name="how-to-manage-costs"></a>Come gestire i costi
 
-Oltre ai suggerimenti seguenti, vedere [fatturazione e gestione dei costi](https://docs.microsoft.com/azure/billing/billing-getting-started).
+I suggerimenti seguenti consentono di ridurre al minimo i costi:
 
 - Creare tutte le risorse nella stessa area o in un minor numero di aree possibile per ridurre al minimo o eliminare gli addebiti per la larghezza di banda.
 
@@ -109,7 +114,11 @@ Oltre ai suggerimenti seguenti, vedere [fatturazione e gestione dei costi](https
 
 - Scalabilità verticale per operazioni con utilizzo intensivo di risorse, ad esempio l'indicizzazione, quindi riadatta verso il basso per carichi di lavoro di query normali. Iniziare con la configurazione minima per ricerca cognitiva di Azure (uno SU composto da una partizione e una replica), quindi monitorare le attività degli utenti per identificare i modelli di utilizzo che indicano la necessità di una maggiore capacità. Se è disponibile un modello stimabile, è possibile sincronizzare la scala con l'attività (per automatizzare questa operazione è necessario scrivere il codice).
 
-Non è possibile arrestare un servizio di ricerca per ridurre la fattura. Le risorse dedicate sono sempre operative, allocate per l'uso esclusivo per la durata del servizio. Per quanto riguarda il servizio stesso, l'unico modo per abbassare la fattura consiste nel ridurre le repliche e le partizioni a un livello che fornisce comunque una [conformità](https://azure.microsoft.com/support/legal/sla/search/v1_0/)accettabile per le prestazioni e il contratto di servizio oppure creare un servizio a un livello inferiore (le tariffe orarie S1 sono inferiori alle tariffe S2 o S3). Supponendo di effettuare il provisioning del servizio nella parte inferiore delle proiezioni di carico, se si aumenta il servizio, è possibile creare un secondo servizio a più livelli, ricompilare gli indici nel secondo servizio e quindi eliminare il primo.
+Inoltre, visitare [Gestione costi e fatturazione](https://docs.microsoft.com/azure/billing/billing-getting-started) per gli strumenti e le funzionalità predefinite correlati alla spesa.
+
+L'arresto di un servizio di ricerca su base temporanea non è possibile. Le risorse dedicate sono sempre operative, allocate per l'uso esclusivo per la durata del servizio. L'eliminazione di un servizio è permanente ed elimina anche i dati associati.
+
+Per quanto riguarda il servizio stesso, l'unico modo per abbassare la fattura consiste nel ridurre le repliche e le partizioni a un livello che fornisce comunque una [conformità](https://azure.microsoft.com/support/legal/sla/search/v1_0/)accettabile per le prestazioni e il contratto di servizio oppure creare un servizio a un livello inferiore (le tariffe orarie S1 sono inferiori alle tariffe S2 o S3). Supponendo di effettuare il provisioning del servizio nella parte inferiore delle proiezioni di carico, se si aumenta il servizio, è possibile creare un secondo servizio a più livelli, ricompilare gli indici nel secondo servizio e quindi eliminare il primo.
 
 ## <a name="how-to-evaluate-capacity-requirements"></a>Come valutare i requisiti di capacità
 

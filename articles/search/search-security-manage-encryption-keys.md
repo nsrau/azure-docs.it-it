@@ -8,12 +8,12 @@ ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 6c7be7d92cae992e54ca6e9f50dda6342c57856b
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: cb17fe24339ad618229b3456ece15c206f79bdb7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945725"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899937"
 ---
 # <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Crittografia dei dati inattivi in Azure ricerca cognitiva usando chiavi gestite dal cliente in Azure Key Vault
 
@@ -26,13 +26,13 @@ La crittografia con chiavi gestite dal cliente viene configurata a livello di in
 Non è necessario che tutte le chiavi si trovino nella stessa Key Vault. Un singolo servizio di ricerca può ospitare più indici crittografati o mappe di sinonimi ciascuno crittografato con le proprie chiavi di crittografia gestite dal cliente archiviate in insiemi di credenziali delle chiavi diversi.  È anche possibile avere indici e mappe sinonimi nello stesso servizio che non sono crittografati con chiavi gestite dal cliente. 
 
 > [!IMPORTANT] 
-> Questa funzionalità è disponibile nell' [API REST versione 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) e [.net SDK versione 8,0-Preview](search-dotnet-sdk-migration-version-9.md). Attualmente non è disponibile alcun supporto per la configurazione delle chiavi di crittografia gestite dal cliente nel portale di Azure.
+> Questa funzionalità è disponibile nell' [API REST versione 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) e [.net SDK versione 8,0-Preview](search-dotnet-sdk-migration-version-9.md). Attualmente non è disponibile alcun supporto per la configurazione delle chiavi di crittografia gestite dal cliente nel portale di Azure. Il servizio di ricerca deve essere creato dopo il 2019 gennaio e non può essere un servizio gratuito (condiviso).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 In questo esempio vengono usati i servizi seguenti. 
 
-+ [Creare un servizio di Ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. Il servizio di ricerca deve essere creato dopo il 2019 gennaio e non può essere un servizio gratuito (condiviso).
++ [Creare un servizio di Ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. 
 
 + [Creare una risorsa Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) o trovare un insieme di credenziali esistente nella sottoscrizione.
 

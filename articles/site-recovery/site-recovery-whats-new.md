@@ -3,12 +3,12 @@ title: Novità di Azure Site Recovery
 description: Fornisce un riepilogo delle nuove funzionalità e degli aggiornamenti più recenti nel servizio Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 4a9feff3b0bc98b5d9853268d033e60de55ea5ea
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: ecd42c624cf1fe62c8041a0b8798585c8870cabc
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76024822"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896042"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novità di Site Recovery
 
@@ -20,17 +20,17 @@ Il servizio [Azure Site Recovery](site-recovery-overview.md) viene aggiornato e 
 
 ## <a name="supported-updates"></a>Aggiornamenti supportati
 
-Per Site Recovery componenti, sono supportate le versioni N-4, dove N è la versione rilasciata più recente. Questi report sono riepilogati nella tabella seguente.
+Per Site Recovery componenti, sono supportate le versioni N-4, dove N è la versione rilasciata più recente. Questi sono riepilogati nella tabella seguente.
 
 **Aggiornamento** |  **Configurazione unificata** | **OVA del server di configurazione** | **Agente del servizio Mobility** | **Provider di Site Recovery** | **Agente di Servizi di ripristino**
 --- | --- | --- | --- | --- | ---
-[Rollup 43](https://support.microsoft.com/help/4531426/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
+[Rollup 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
 [Rollup 42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
 [Rollup 41](https://support.microsoft.com/help/4528026/) | 9.29.5367.1 | 5.1.5000.0 | 9.29.5367.1 | 5.1.5000.0 | 2.0.9165.0
 [Rollup 40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [Rollup 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 
-        
+
 
 [Altre](service-updates-how-to.md) informazioni sull'installazione e il supporto degli aggiornamenti.
 
@@ -153,7 +153,7 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
-Nuovi avvisi del server di elaborazione | Sono stati aggiunti nuovi avvisi del server di elaborazione. [Altre informazioni](vmware-physical-azure-monitor-process-server.md) 
+Nuovi avvisi del server di elaborazione | Sono stati aggiunti nuovi avvisi del server di elaborazione. [Altre informazioni](vmware-physical-azure-monitor-process-server.md)
 
 ### <a name="hyper-v-disaster-recovery"></a>Ripristino di emergenza di Hyper-V
 
@@ -183,7 +183,7 @@ Le nuove funzionalità per il ripristino di emergenza delle macchine virtuali di
 **Funzionalità** | **Dettagli**
 --- | ---
 **Crittografia senza Azure AD** | La crittografia senza un'app Azure AD è ora supportata per la replica di macchine virtuali di Azure in dischi gestiti che eseguono Windows.
-**Risorse di rete per il failover** | Quando si esegue il failover in un'altra area, è ora possibile alleghi le impostazioni delle risorse di rete (gruppi, bilanciamento del carico, indirizzo IP pubblico) a una macchina virtuale. 
+**Risorse di rete per il failover** | Quando si esegue il failover in un'altra area, è ora possibile alleghi le impostazioni delle risorse di rete (gruppi, bilanciamento del carico, indirizzo IP pubblico) a una macchina virtuale.
 
 ## <a name="updates-july-2019"></a>Aggiornamenti (2019 luglio)
 
@@ -255,7 +255,7 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
-**Monitoraggio del server di elaborazione** | Per il ripristino di emergenza di server fisici e VM VMware locali, monitorare e risolvere i problemi relativi al server di elaborazione con report e avvisi di integrità del server migliorati. [Altre informazioni](vmware-physical-azure-monitor-process-server.md) 
+**Monitoraggio del server di elaborazione** | Per il ripristino di emergenza di server fisici e VM VMware locali, monitorare e risolvere i problemi relativi al server di elaborazione con report e avvisi di integrità del server migliorati. [Altre informazioni](vmware-physical-azure-monitor-process-server.md)
 
 
 
@@ -284,7 +284,7 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 ## <a name="updates-february-2019"></a>Aggiornamenti (febbraio 2019)
 
-### <a name="update-rollup-34"></a>Aggiornamento cumulativo 34 
+### <a name="update-rollup-34"></a>Aggiornamento cumulativo 34
 
 L' [aggiornamento cumulativo 34](https://support.microsoft.com/help/4490016/update-rollup-34-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
 
@@ -294,7 +294,7 @@ L' [aggiornamento cumulativo 34](https://support.microsoft.com/help/4490016/upda
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup).
 
 
-### <a name="update-rollup-33"></a>Aggiornamento cumulativo 33 
+### <a name="update-rollup-33"></a>Aggiornamento cumulativo 33
 
 L' [aggiornamento cumulativo 33](https://support.microsoft.com/help/4489582/update-rollup-33-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
 
@@ -304,17 +304,19 @@ L' [aggiornamento cumulativo 33](https://support.microsoft.com/help/4489582/upda
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup).
 
 
-### <a name="azure-vm-disaster-recovery"></a>Ripristino di emergenza per macchine virtuali di Azure 
+### <a name="azure-vm-disaster-recovery"></a>Ripristino di emergenza per macchine virtuali di Azure
+
 Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
-**Mapping di rete** | Per il ripristino di emergenza di macchine virtuali di Azure, è ora possibile usare qualsiasi rete di destinazione disponibile quando si Abilita la replica. 
+**Mapping di rete** | Per il ripristino di emergenza di macchine virtuali di Azure, è ora possibile usare qualsiasi rete di destinazione disponibile quando si Abilita la replica.
 **Standard SSD** | È ora possibile configurare il ripristino di emergenza per le macchine virtuali di Azure con [SDD standard dischi](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd).
 **Spazi di archiviazione diretta** | È possibile configurare il ripristino di emergenza per le app in esecuzione in app VM di Azure usando [spazi di archiviazione diretta](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview) per la disponibilità elevata.  L'uso di Spazi di archiviazione diretta (S2D) insieme a Site Recovery offre una protezione completa dei carichi di lavoro delle macchine virtuali di Azure. S2D consente di ospitare un cluster guest in Azure. Questa operazione è particolarmente utile quando una macchina virtuale ospita un'applicazione critica, ad esempio SAP ASC layer, SQL Server o file server con scalabilità orizzontale.
 
 
 ### <a name="vmwarephysical-server-disaster-recovery"></a>Ripristino di emergenza di VMware/server fisici
+
 Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 **Funzionalità** | **Dettagli**
@@ -332,7 +334,7 @@ La funzionalità rete accelerata abilita Single Root I/O Virtualization (SR-IOV)
 
 [Altre informazioni](azure-vm-disaster-recovery-with-accelerated-networking.md)
 
-### <a name="update-rollup-32"></a>Aggiornamento cumulativo 32 
+### <a name="update-rollup-32"></a>Aggiornamento cumulativo 32
 
 L' [aggiornamento cumulativo 32](https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
 
@@ -347,19 +349,19 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
-**Supporto di Linux** | È stato aggiunto il supporto per RedHat workstation 6/7 e le nuove versioni del kernel per Ubuntu, Debian e SUSE.
+**Supporto Linux** | È stato aggiunto il supporto per RedHat workstation 6/7 e le nuove versioni del kernel per Ubuntu, Debian e SUSE.
 **Spazi di archiviazione diretta** | Site Recovery supporta macchine virtuali di Azure con Spazi di archiviazione diretta (S2D).
 
 ### <a name="vmware-vmsphysical-servers-disaster-recovery"></a>Ripristino di emergenza di macchine virtuali VMware/server fisici
 
 Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
- 
+
 **Funzionalità** | **Dettagli**
 --- | ---
-**Supporto di Linux** | È stato aggiunto il supporto per RedHat Enterprise Linux 7,6, RedHat workstation 6/7, Oracle Linux 6,10 e Oracle Linux 7,6 e le nuove versioni del kernel per Ubuntu, Debian e SUSE.
+**Supporto Linux** | È stato aggiunto il supporto per RedHat Enterprise Linux 7,6, RedHat workstation 6/7, Oracle Linux 6,10 e Oracle Linux 7,6 e le nuove versioni del kernel per Ubuntu, Debian e SUSE.
 
 
-### <a name="update-rollup-31"></a>Aggiornamento cumulativo 31 
+### <a name="update-rollup-31"></a>Aggiornamento cumulativo 31
 
 L' [aggiornamento cumulativo 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
 
@@ -368,11 +370,13 @@ L' [aggiornamento cumulativo 31](https://support.microsoft.com/help/4478871/upda
 **Provider e agenti** | Aggiornamento per Site Recovery agenti e provider (come descritto in dettaglio nel rollup).
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup).
 
-### <a name="vmware-vmsphysical-servers-replication"></a>Replica di VM VMware/server fisici 
+### <a name="vmware-vmsphysical-servers-replication"></a>Replica di VM VMware/server fisici
+
 Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
+
 **Funzionalità** | **Dettagli**
 --- | ---
-**Supporto di Linux** |  È stato aggiunto il supporto per Oracle Linux 6,8, Oracle Linux 6,9 e Oracle Linux 7,0 con il kernel compatibile con Red Hat e per il kernel Enterprise Unbreakable (UEK) versione 5.
+**Supporto Linux** |  È stato aggiunto il supporto per Oracle Linux 6,8, Oracle Linux 6,9 e Oracle Linux 7,0 con il kernel compatibile con Red Hat e per il kernel Enterprise Unbreakable (UEK) versione 5.
 **LVM** | Aggiunto il supporto per i volumi LVM e LVM2.<br/><br/> La directory/boot in una partizione disco e nei volumi LVM è ora supportata.
 **Directories** | È stato aggiunto il supporto per queste directory configurate come partizioni separate o file System che non si trovano sullo stesso disco di sistema:<br/><br/> /(root), /boot, /usr, /usr/local, /var, /etc.
 **Windows Server 2008** | Aggiunto il supporto per i dischi dinamici.
@@ -380,11 +384,12 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 **Supporto UEFI** | Le macchine virtuali di Azure non supportano il tipo di avvio UEFI. È ora possibile eseguire la migrazione di server fisici locali con UEFI ad Azure con Site Recovery. Site Recovery esegue la migrazione del server convertendo il tipo di avvio in BIOS prima della migrazione. Site Recovery supportata in precedenza questa conversione solo per le macchine virtuali. Il supporto è disponibile per i server fisici che eseguono Windows Server 2012 o versioni successive.
 
 ### <a name="azure-vm-disaster-recovery"></a>Ripristino di emergenza per macchine virtuali di Azure
+
 Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
-**Supporto di Linux** | È stato aggiunto il supporto per Oracle Linux 6,8, Oracle Linux 6,9 e Oracle Linux 7,0 con il kernel compatibile con Red Hat e per il kernel Enterprise Unbreakable (UEK) versione 5.
+**Supporto Linux** | È stato aggiunto il supporto per Oracle Linux 6,8, Oracle Linux 6,9 e Oracle Linux 7,0 con il kernel compatibile con Red Hat e per il kernel Enterprise Unbreakable (UEK) versione 5.
 **file system Linux BRTFS** | Supportato per le macchine virtuali di Azure.
 **Macchine virtuali di Azure nelle zone di disponibilità** | È possibile abilitare la replica in un'altra area per le macchine virtuali di Azure distribuite in zone di disponibilità. È ora possibile abilitare la replica per una macchina virtuale di Azure e impostare la destinazione per il failover su una singola istanza di macchina virtuale, una macchina virtuale in un set di disponibilità o una macchina virtuale in una zona di disponibilità. L'impostazione non influisce sulla replica. [Leggere](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region/) l'annuncio.
 **Archiviazione abilitata al firewall (portale/PowerShell)** | Aggiunto il supporto per gli [account di archiviazione abilitati](https://docs.microsoft.com/azure/storage/common/storage-network-security)per il firewall.<br/><br/> È possibile replicare le macchine virtuali di Azure con dischi non gestiti in account di archiviazione abilitati per il firewall in un'altra area di Azure per il ripristino di emergenza.<br/><br/> È possibile usare account di archiviazione abilitati per il firewall come account di archiviazione di destinazione per i dischi non gestiti.<br/><br/> Supportato nel portale e tramite PowerShell.
@@ -411,7 +416,7 @@ Il ripristino di emergenza di macchine virtuali di Azure comporta costi di licen
 
 ## <a name="updates-october-2018"></a>Aggiornamenti (2018 ottobre)
 
-### <a name="update-rollup-30"></a>Aggiornamento cumulativo 30 
+### <a name="update-rollup-30"></a>Aggiornamento cumulativo 30
 
 L' [aggiornamento cumulativo 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30) fornisce gli aggiornamenti seguenti.
 
@@ -431,7 +436,7 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 **Archiviazione abilitata al firewall (PowerShell)** | Aggiunto il supporto per gli [account di archiviazione abilitati](https://docs.microsoft.com/azure/storage/common/storage-network-security)per il firewall.<br/><br/> È possibile replicare le macchine virtuali di Azure con dischi non gestiti in account di archiviazione abilitati per il firewall in un'altra area di Azure per il ripristino di emergenza.<br/><br/> È possibile usare account di archiviazione abilitati per il firewall come account di archiviazione di destinazione per i dischi non gestiti.<br/><br/> Supportato solo con PowerShell.
 
 
-### <a name="update-rollup-29"></a>Aggiornamento cumulativo 29 
+### <a name="update-rollup-29"></a>Aggiornamento cumulativo 29
 
 L' [aggiornamento cumulativo 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
 
@@ -443,7 +448,7 @@ L' [aggiornamento cumulativo 29](https://support.microsoft.com/help/4466466/upda
 
 ## <a name="updates-august-2018"></a>Aggiornamenti (2018 agosto)
 
-### <a name="update-rollup-28"></a>Aggiornamento cumulativo 28 
+### <a name="update-rollup-28"></a>Aggiornamento cumulativo 28
 
 L' [aggiornamento cumulativo 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
 
@@ -452,21 +457,21 @@ L' [aggiornamento cumulativo 28](https://support.microsoft.com/help/4460079/upda
 **Provider e agenti** | Aggiornamento per Site Recovery agenti e provider (come descritto in dettaglio nel rollup).
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup).
 
-### <a name="azure-vm-disaster-recovery"></a>Ripristino di emergenza per macchine virtuali di Azure 
+### <a name="azure-vm-disaster-recovery"></a>Ripristino di emergenza per macchine virtuali di Azure
 Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
-**Supporto di Linux** | Aggiunta supportata per RedHat Enterprise Linux 6,10; CentOS 6,10.<br/><br/>
+**Supporto Linux** | Aggiunta supportata per RedHat Enterprise Linux 6,10; CentOS 6,10.<br/><br/>
 **Supporto Cloud** | Ripristino di emergenza supportato per le macchine virtuali di Azure nel cloud Germania.
 **Ripristino di emergenza tra sottoscrizioni** | Supporto per la replica di VM di Azure in un'area in un'altra area in una sottoscrizione diversa, all'interno dello stesso tenant Azure Active Directory. [Altre informazioni](https://aka.ms/cross-sub-blog)
 
-### <a name="vmware-vmphysical-server-disaster-recovery"></a>Ripristino di emergenza di macchine virtuali VMware/server fisici 
+### <a name="vmware-vmphysical-server-disaster-recovery"></a>Ripristino di emergenza di macchine virtuali VMware/server fisici
 Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
-**Supporto di Linux** | È stato aggiunto il supporto per RedHat Enterprise Linux 6,10, CentOS 6,10.<br/><br/> Sono ora supportate le macchine virtuali basate su Linux che usano lo stile di partizione GPT (tabella di partizione GUID) in modalità di compatibilità BIOS legacy. Per ulteriori informazioni, vedere le [domande frequenti sulle VM di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks) . 
+**Supporto Linux** | È stato aggiunto il supporto per RedHat Enterprise Linux 6,10, CentOS 6,10.<br/><br/> Sono ora supportate le macchine virtuali basate su Linux che usano lo stile di partizione GPT (tabella di partizione GUID) in modalità di compatibilità BIOS legacy. Per ulteriori informazioni, vedere le [domande frequenti sulle VM di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks) .
 **Ripristino di emergenza per le VM dopo la migrazione** | Supporto per l'abilitazione del ripristino di emergenza in un'area secondaria per una VM VMware locale migrata in Azure, senza la necessità di disinstallare il servizio Mobility nella macchina virtuale prima di abilitare la replica.
 **Windows Server 2008** | Supporto per la migrazione di computer che eseguono Windows Server 2008 R2/2008 a 64 bit e 32 bit.<br/><br/> Solo migrazione (replica e failover). Il failback non è supportato.
 
@@ -481,21 +486,21 @@ L' [aggiornamento cumulativo 27](https://support.microsoft.com/help/4055712/upda
 **Provider e agenti** | Aggiornamento per Site Recovery agenti e provider (come descritto in dettaglio nel rollup).
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup).
 
-### <a name="azure-vm-disaster-recovery"></a>Ripristino di emergenza per macchine virtuali di Azure 
+### <a name="azure-vm-disaster-recovery"></a>Ripristino di emergenza per macchine virtuali di Azure
 
 Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
-**Supporto di Linux** | È stato aggiunto il supporto per Red Hat Enterprise Linux 7,5.
+**Supporto Linux** | È stato aggiunto il supporto per Red Hat Enterprise Linux 7,5.
 
-### <a name="vmware-vmphysical-server-disaster-recovery"></a>Ripristino di emergenza di macchine virtuali VMware/server fisici 
+### <a name="vmware-vmphysical-server-disaster-recovery"></a>Ripristino di emergenza di macchine virtuali VMware/server fisici
 
 Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
-**Supporto di Linux** | È stato aggiunto il supporto per Red Hat Enterprise Linux 7,5, SUSE Linux Enterprise Server 12.
+**Supporto Linux** | È stato aggiunto il supporto per Red Hat Enterprise Linux 7,5, SUSE Linux Enterprise Server 12.
 
 
 
