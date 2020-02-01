@@ -7,6 +7,7 @@ author: zhiweiwangmsft
 manager: daveba
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abed56ee64cbca8646c1aa1d24fea292aa4d8de3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 61490f75d12967f7f396d5f767f2d2e696474572
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60245330"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897216"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Monitorare la sincronizzazione di Azure AD Connect con Azure AD Connect Health
 La documentazione seguente è specifica per il monitoraggio di Azure Active Directory Connect (Sincronizzazione) con Azure AD Connect Health.  Per informazioni sul monitoraggio di AD FS con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health con AD FS](how-to-connect-health-adfs.md). Per informazioni sul monitoraggio di Servizi di dominio Active Directory con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health con Servizi di dominio Active Directory](how-to-connect-health-adds.md).
@@ -69,7 +70,7 @@ Questa funzionalità offre un report sugli errori di sincronizzazione che posson
 * Il report contiene gli errori registrati dal client di sincronizzazione (Azure AD Connect versione 1.1.281.0 o successiva).
 * Include gli errori verificatisi nell'ultima operazione di sincronizzazione nel motore di sincronizzazione (operazione di esportazione nel connettore Azure AD).
 * Affinché il report includa i dati più recenti, l'agente di Azure AD Connect Health per la sincronizzazione deve avere la connettività in uscita agli endpoint necessari.
-* Il report viene **aggiornato ogni 30 minuti** usando i dati caricati dall'agente di Azure AD Connect Health per la sincronizzazione. Offre le funzionalità chiave seguenti:
+* Il report viene **aggiornato dopo ogni 30 minuti** utilizzando i dati caricati da Azure ad Connect Health agente per la sincronizzazione. Offre le funzionalità principali seguenti:
 
   * Categorizzazione degli errori
   * Elenco degli oggetti con errore per categoria
@@ -80,14 +81,14 @@ Questa funzionalità offre un report sugli errori di sincronizzazione che posson
 ### <a name="categorization-of-errors"></a>Categorizzazione degli errori
 Il report suddivide gli errori di sincronizzazione esistenti nelle categorie seguenti:
 
-| Category | Descrizione |
+| Categoria | Description |
 | --- | --- |
 | Attributo duplicato |Errori che si verificano quando Azure AD Connect prova a creare o aggiornare oggetti con valori duplicati per uno o più attributi di Azure AD che devono essere univoci in un tenant, come proxyAddresses o UserPrincipalName. |
 | Dati non corrispondenti |Errori di sincronizzazione che si verificano quando la funzionalità di corrispondenza flessibile non riesce a trovare una corrispondenza con l'oggetto. |
 | Errore di convalida dei dati |Errori causati da dati non validi, ad esempio caratteri non supportati in attributi critici come UserPrincipalName o errori di formato che non superano la convalida prima della scrittura in Azure AD. |
 | Modifica del dominio federato | Errori che si verificano quando gli account usano un dominio federato diverso. |
 | Attributo di grandi dimensioni |Errori che si verificano quando uno o più attributi superano le dimensioni, la lunghezza o il numero consentito. |
-| Altri |Tutti gli altri errori che non rientrano nelle categorie precedenti. Questa categoria verrà suddivisa in sottocategorie in base ai commenti e suggerimenti. |
+| Altro |Tutti gli altri errori che non rientrano nelle categorie precedenti. Questa categoria verrà suddivisa in sottocategorie in base ai commenti e suggerimenti. |
 
 ![Riepilogo del report degli errori di sincronizzazione](./media/how-to-connect-health-sync/errorreport01.png)
 ![Categorie del report degli errori di sincronizzazione](./media/how-to-connect-health-sync/SyncErrorByTypes.PNG)

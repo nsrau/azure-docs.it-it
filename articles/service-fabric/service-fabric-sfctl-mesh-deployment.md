@@ -3,14 +3,14 @@ title: INTERFACCIA della riga di comando di Azure Service Fabric-distribuzione m
 description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per la creazione di Service Fabric risorse mesh.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 6512cce075906fc8708a39fa0747ec27be33e961
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 108389407221779ed20e81310f084b7b5c23b8c7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645362"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906034"
 ---
 # <a name="sfctl-mesh-deployment"></a>sfctl mesh deployment
 Consente di creare le risorse mesh Service Fabric.
@@ -28,8 +28,8 @@ Crea una distribuzione delle risorse di mesh Service Fabric.
 
 |Argomento|Description|
 | --- | --- |
-| --input-yaml-files [Obbligatorio] | Percorsi di file relativi/assoluti delimitati da virgole di tutti i file YAML o del percorso relativo/assoluto della directory (ricorsivo) che contengono file YAML. |
-| --parameters | Un percorso relativo/assoluto al file YAML o un oggetto JSON che contiene i parametri di cui è necessario eseguire l'override. |
+| --input-yaml-files [Obbligatorio] | Percorsi di file relativi o assoluti delimitati da virgole di tutti i file YAML o del percorso relativo o assoluto della directory (ricorsiva) che contengono file YAML. |
+| --parameters | Percorso relativo o assoluto di un file YAML o di un oggetto JSON che contiene i parametri di cui è necessario eseguire l'override. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 

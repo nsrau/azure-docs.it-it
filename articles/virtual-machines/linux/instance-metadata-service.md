@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: ad3f9329ce79812e908fd15037e2054ca5a8906e
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 5b3f3eea4d23d84d684648d19fb67258d1ea2050
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045149"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76907007"
 ---
 # <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
 
@@ -542,7 +542,7 @@ Il BLOB di firma è una versione [pkcs7](https://aka.ms/pkcs7) firmata del docum
 
 I metadati dell'istanza possono essere recuperati in Windows tramite l'utilità PowerShell `curl`:
 
- ```bash
+ ```powershell
 curl -H @{'Metadata'='true'} "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890" | select -ExpandProperty Content
 ```
 
@@ -922,14 +922,14 @@ L'oggetto disco del sistema operativo contiene le informazioni seguenti sul disc
 
 Dati    | Description
 --------|-----------------
-memorizzazione nella cache | Requisiti per la memorizzazione nella cache
+Caching | Requisiti per la memorizzazione nella cache
 createOption | Informazioni sul modo in cui è stata creata la macchina virtuale
 diffDiskSettings | Impostazioni disco temporaneo
 diskSizeGB | Dimensioni del disco in GB
 image   | Disco rigido virtuale dell'immagine dell'utente di origine
 lun     | Numero di unità logica del disco
 managedDisk | Parametri del disco gestito
-name    | Nome disco
+name    | Nome del disco
 VHD     | Disco rigido virtuale
 writeAcceleratorEnabled | Indica se writeAccelerator è abilitato sul disco
 
@@ -937,14 +937,14 @@ L'array di dischi dati contiene un elenco di dischi dati collegati alla macchina
 
 Dati    | Description
 --------|-----------------
-memorizzazione nella cache | Requisiti per la memorizzazione nella cache
+Caching | Requisiti per la memorizzazione nella cache
 createOption | Informazioni sul modo in cui è stata creata la macchina virtuale
 diffDiskSettings | Impostazioni disco temporaneo
 diskSizeGB | Dimensioni del disco in GB
 Crittografia | Impostazioni di crittografia per il disco
 image   | Disco rigido virtuale dell'immagine dell'utente di origine
 managedDisk | Parametri del disco gestito
-name    | Nome disco
+name    | Nome del disco
 osType  | Tipo di sistema operativo incluso nel disco
 VHD     | Disco rigido virtuale
 writeAcceleratorEnabled | Indica se writeAccelerator è abilitato sul disco

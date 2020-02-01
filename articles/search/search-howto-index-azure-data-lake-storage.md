@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 628b8bb5c3cb83ae6038a7150420893d7abe61d5
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 4b725c8a1bf0649a640c02a9a1828ec9014d36d6
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112277"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905653"
 ---
 # <a name="indexing-documents-in-azure-data-lake-storage-gen2"></a>Indicizzazione di documenti in Azure Data Lake Storage Gen2
 
@@ -47,3 +47,10 @@ L'indicizzazione del contenuto nel Data Lake Storage Gen2 è identica a quella d
 Azure Data Lake Storage Gen2 implementa un [modello di controllo di accesso](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) che supporta il controllo degli accessi in base al ruolo di Azure (RBAC) e gli elenchi di controllo di accesso (ACL) di tipo POSIX. Quando si indicizza il contenuto da Data Lake Storage Gen2, Azure ricerca cognitiva non estrae le informazioni RBAC e ACL dal contenuto. Di conseguenza, queste informazioni non verranno incluse nell'indice del ricerca cognitiva di Azure.
 
 Se la gestione del controllo di accesso in ogni documento nell'indice è importante, spetta allo sviluppatore dell'applicazione implementare il [taglio di sicurezza](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search).
+
+## <a name="change-detection"></a>Rilevamento delle modifiche
+
+L'indicizzatore Data Lake Storage Gen2 supporta il rilevamento delle modifiche. Ciò significa che quando l'indicizzatore viene eseguito, indicizza solo i BLOB modificati in base a quanto determinato dal timestamp `LastModified` del BLOB.
+
+> [!NOTE] 
+> Data Lake Storage Gen2 consente la ridenominazione delle directory. Quando una directory viene rinominata, i timestamp per i BLOB in tale directory non vengono aggiornati. Di conseguenza, l'indicizzatore non effettuerà la reindicizzazione dei BLOB. Se è necessario reindicizzare i BLOB in una directory dopo la ridenominazione di una directory perché ora hanno nuovi URL, è necessario aggiornare il timestamp `LastModified` per tutti i BLOB nella directory in modo che l'indicizzatore sappia reindicizzarli durante un'esecuzione futura.

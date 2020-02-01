@@ -1,6 +1,6 @@
 ---
-title: Creare dashboard di Azure a livello di codice | Microsoft Docs
-description: È possibile usare un dashboard nel portale di Azure come modello per creare dashboard di Azure a livello di codice. Include il riferimento JSON.
+title: Creare dashboard di Azure a livello di codice
+description: Usare un dashboard nel portale di Azure come modello per creare dashboard di Azure a livello di codice. Include il riferimento JSON.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/01/2017
+ms.date: 01/29/2020
 ms.author: mblythe
-ms.openlocfilehash: 498e0255cfa289f7d8ccb93040980c362cf510a0
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 414427c722b3531c994bb99dbd5d1332c5253dfd
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75640347"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900900"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creare dashboard di Azure a livello di codice
 
@@ -28,74 +28,84 @@ Questo documento descrive in modo dettagliato il processo di creazione e pubblic
 
 ## <a name="overview"></a>Overview
 
-I dashboard condivisi in Azure sono [risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) molto simili alle macchine virtuali e agli account di archiviazione.  Di conseguenza, possono essere gestiti a livello di codice tramite le [API REST di Azure Resource Manager](/rest/api/), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure) e i [comandi di Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps). Inoltre, molte funzionalità del [portale di Azure](https://portal.azure.com) sono basate su queste API per semplificare la gestione delle risorse.  
+I dashboard condivisi nel [portale di Azure](https://portal.azure.com) sono [risorse come le](../azure-resource-manager/management/overview.md) macchine virtuali e gli account di archiviazione. È possibile gestire le risorse a livello di programmazione usando le [API REST di Azure Resource Manager](/rest/api/), l'interfaccia della riga di comando di [Azure](/cli/azure)e i [comandi di Azure PowerShell](/powershell/azure/get-started-azureps).  
 
-Ognuno degli strumenti e delle API permette di creare, elencare, recuperare, modificare ed eliminare risorse in modi diversi.  Poiché i dashboard sono risorse, è possibile selezionare l'API o lo strumento preferito da usare.
+Molte funzionalità di si basano su queste API per semplificare la gestione delle risorse. Ognuno degli strumenti e delle API permette di creare, elencare, recuperare, modificare ed eliminare risorse in modi diversi. Poiché i dashboard sono risorse, è possibile scegliere l'API o lo strumento preferito da usare.
 
-Indipendentemente dallo strumento usato, è necessario creare una rappresentazione JSON dell'oggetto dashboard prima di poter chiamare qualsiasi API di creazione delle risorse. Questo oggetto contiene informazioni sulle parti del dashboard, chiamate anche riquadri. Include anche dimensioni, posizioni, risorse cui sono associati questi elementi e tutte le personalizzazioni dell'utente.
+Indipendentemente dagli strumenti usati, è necessario creare una rappresentazione JSON dell'oggetto dashboard. Questo oggetto contiene informazioni sui riquadri nel dashboard. Include le dimensioni, le posizioni, le risorse a cui sono associati e tutte le personalizzazioni degli utenti.
 
-Il modo più pratico per creare il documento JSON consiste nell'usare il [portale](https://portal.azure.com/) per aggiungere e posizionare i riquadri in modo interattivo. È quindi necessario esportare il documento JSON. Infine, creare un modello dal risultato, da usare successivamente in script, programmi e strumenti di distribuzione.
+Il modo più pratico per creare questo documento JSON consiste nell'usare il portale di Azure. È possibile aggiungere e posizionare i riquadri in modo interattivo. Esportare quindi il file JSON e creare un modello dal risultato per un uso successivo in script, programmi e strumenti di distribuzione.
 
 ## <a name="create-a-dashboard"></a>Creare un dashboard
 
-Per creare un nuovo dashboard, usare il comando Nuovo dashboard nella schermata principale del portale.
+Per creare un dashboard, selezionare **Dashboard** dal menu [portale di Azure](https://portal.azure.com) , quindi selezionare **nuovo dashboard**.
 
 ![Comando Nuovo dashboard](./media/azure-portal-dashboards-create-programmatically/new-dashboard-command.png)
 
-È quindi possibile usare la raccolta di riquadri per trovare e aggiungere riquadri. Per aggiungere i riquadri, trascinarli e rilasciarli. Alcuni riquadri supportano il ridimensionamento tramite un quadratino di trascinamento, mentre altri hanno dimensioni fisse, visualizzabili nel menu di scelta rapida corrispondente.
+Usare la raccolta di riquadri per trovare e aggiungere riquadri. Per aggiungere i riquadri, trascinarli e rilasciarli. Alcuni riquadri supportano il ridimensionamento tramite un handle di trascinamento.
 
-### <a name="drag-handle"></a>Quadratino di trascinamento
-![Quadratino di trascinamento](./media/azure-portal-dashboards-create-programmatically/drag-handle.png)
+![handle di trascinamento per modificare le dimensioni](./media/azure-portal-dashboards-create-programmatically/drag-handle.png)
 
-### <a name="fixed-sizes-via-context-menu"></a>Dimensioni fisse nel menu di scelta rapida
-![Menu di scelta rapida delle dimensioni](./media/azure-portal-dashboards-create-programmatically/sizes-context-menu.png)
+Altri hanno dimensioni fisse da scegliere nel menu di scelta rapida.
+
+![dimensioni del menu di scelta rapida per modificare le dimensioni](./media/azure-portal-dashboards-create-programmatically/sizes-context-menu.png)
 
 ## <a name="share-the-dashboard"></a>Condividere il dashboard
 
-Dopo aver configurato il dashboard in base alle preferenze, il passaggio successivo consiste nel pubblicarlo (con il comando Condividi) e quindi usare Esplora risorse per recuperare la rappresentazione JSON.
+Dopo aver configurato il dashboard, la procedura successiva consiste nel pubblicare il dashboard usando il comando **share** e quindi usare il Esplora inventario risorse per recuperare il file JSON.
 
-![Comando Condividi](./media/azure-portal-dashboards-create-programmatically/share-command.png)
+![condivisione di un dashboard](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Facendo clic sul comando Condividi, viene visualizzata una finestra di dialogo che chiede in quale sottoscrizione e gruppo di risorse eseguire la pubblicazione. Tenere presente che [è necessario avere accesso in scrittura](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) alla sottoscrizione e al gruppo di risorse scelti.
+Selezionando **Condividi** viene richiesto di scegliere la sottoscrizione e il gruppo di risorse in cui eseguire la pubblicazione. È necessario avere accesso in scrittura alla sottoscrizione e al gruppo di risorse scelti. Per altre informazioni, vedere [aggiungere o rimuovere assegnazioni di ruolo usando RBAC di Azure e il portale di Azure](../role-based-access-control/role-assignments-portal.md).
 
-![Condivisione e accesso](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
+![modificare la condivisione e l'accesso](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
 ## <a name="fetch-the-json-representation-of-the-dashboard"></a>Recuperare la rappresentazione JSON del dashboard
 
-La pubblicazione richiede solo pochi secondi.  Al termine, il passaggio successivo consiste nell'accedere a [Esplora risorse](https://portal.azure.com/#blade/HubsExtension/ArmExplorerBlade) per recuperare la rappresentazione JSON.
+La pubblicazione richiede solo pochi secondi.  Al termine, il passaggio successivo consiste nell'andare alla [Esplora inventario risorse](https://portal.azure.com/#blade/HubsExtension/ArmExplorerBlade) per recuperare il file JSON.
 
-![Spostamento in Esplora risorse](./media/azure-portal-dashboards-create-programmatically/browse-resource-explorer.png)
+![Sfoglia Esplora inventario risorse](./media/azure-portal-dashboards-create-programmatically/search-resource-explorer.png)
 
-Da Esplora risorse passare alla sottoscrizione e al gruppo di risorse scelti. Quindi, fare clic sulla risorsa dashboard appena pubblicata per visualizzare la rappresentazione JSON.
+Dalla Esplora inventario risorse passare alla sottoscrizione e al gruppo di risorse scelto. Selezionare quindi la risorsa del dashboard appena pubblicata per rivelare il codice JSON.
 
-![JSON in Esplora risorse](./media/azure-portal-dashboards-create-programmatically/resource-explorer-json.png)
+![Visualizza JSON in Esplora inventario risorse](./media/azure-portal-dashboards-create-programmatically/resource-explorer-json-detail.png)
 
 ## <a name="create-a-template-from-the-json"></a>Creare un modello dalla rappresentazione JSON
 
-Il passaggio successivo consiste nel creare un modello dalla rappresentazione JSON per poterlo riutilizzare a livello di codice con le API di gestione delle risorse e gli strumenti della riga di comando appropriati oppure nel portale.
+Il passaggio successivo consiste nel creare un modello da questo JSON. Usare questo modello a livello di codice con le API di gestione delle risorse appropriate, gli strumenti da riga di comando o all'interno del portale.
 
-Per creare un modello, non è necessaria una comprensione approfondita della struttura JSON del dashboard. Nella maggior parte dei casi, è bene preservare la struttura e la configurazione di ogni riquadro e quindi impostare i parametri per il set di risorse di Azure a cui puntano. Esaminare il dashboard JSON esportato e individuare tutte le occorrenze degli ID risorsa di Azure. Il dashboard di esempio contiene più riquadri che puntano tutti a una singola macchina virtuale di Azure. Questo è perché il dashboard considera una sola risorsa. Se nel codice JSON di esempio (incluso alla fine del documento) si cerca "/subscriptions", si troveranno diverse occorrenze di questo ID.
+Non è necessario comprendere completamente la struttura JSON del dashboard per creare un modello. Nella maggior parte dei casi, si desidera mantenere la struttura e la configurazione di ogni riquadro. Quindi parametrizzare il set di risorse di Azure a cui puntano i riquadri. Esaminare il dashboard JSON esportato e trovare tutte le occorrenze degli ID risorsa di Azure. Il dashboard di esempio contiene più riquadri che puntano tutti a una singola macchina virtuale di Azure. Questo perché il dashboard esamina solo questa singola risorsa. Se si esegue una ricerca nell'esempio JSON, incluso alla fine del documento, per "/Subscriptions" si trovano diverse occorrenze di questo ID.
 
 `/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1`
 
-Per pubblicare il dashboard per qualsiasi macchina virtuale in futuro, è necessario impostare i parametri per ogni occorrenza di questa stringa all'interno del codice JSON. 
+Per pubblicare questo dashboard per qualsiasi macchina virtuale in futuro, parametrizzare ogni occorrenza di questa stringa all'interno di JSON.
 
-Esistono due tipi di API che creano risorse in Azure. [API imperative](https://docs.microsoft.com/rest/api/resources/resources), che creano una risorsa per volta, e un sistema di [distribuzione basato su modello](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), che può orchestrare la creazione di più risorse dipendenti con un'unica chiamata API. Poiché il secondo tipo supporta in modo nativo la parametrizzazione e la creazione di modelli, è quello usato per questo esempio.
+Esistono due approcci per le API che creano risorse in Azure:
+
+* Le API imperative creano una risorsa alla volta. Per altre informazioni, vedere [Risorse](/rest/api/resources/resources).
+* Un sistema di distribuzione basato su modello che crea più risorse dipendenti con una singola chiamata API. Per altre informazioni, vedere [distribuire risorse con modelli e Azure PowerShell di gestione risorse](../azure-resource-manager/resource-group-template-deploy.md).
+
+La distribuzione basata su modello supporta la parametrizzazione e la creazione di modelli. Questo approccio viene usato in questo articolo.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Creare un dashboard a livello di codice dal modello usando una distribuzione di modelli
 
-Azure offre la possibilità di orchestrare la distribuzione di più risorse. È necessario creare un modello di distribuzione che indica il set di risorse da distribuire, nonché le rispettive relazioni.  Il formato JSON di ogni risorsa è lo stesso di quando le risorse vengono create una per una. La differenza è che il [linguaggio del modello](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) aggiunge alcuni concetti come variabili, parametri, funzioni di base e altro ancora. Questa sintassi estesa è supportata solo nel contesto di una distribuzione di modelli e non funziona se usata con le API imperative descritte in precedenza.
+Azure offre la possibilità di orchestrare la distribuzione di più risorse. Viene creato un modello di distribuzione che esprime il set di risorse da distribuire e le relazioni tra di esse.  Il formato JSON di ogni risorsa è lo stesso di quando le risorse vengono create una per una. La differenza è che il linguaggio del modello aggiunge alcuni concetti come variabili, parametri, funzioni di base e altro ancora. Questa sintassi estesa è supportata solo nel contesto di una distribuzione modello. Non funziona se usato con le API imperative descritte in precedenza. Per altre informazioni, vedere [comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
-Se si intende seguire questo approccio, la parametrizzazione deve essere eseguita usando la sintassi dei parametri del modello.  Sostituire tutte le istanze dell'ID risorsa trovate prima, come mostrato qui.
+La parametrizzazione deve essere eseguita utilizzando la sintassi dei parametri del modello.  Si sostituiscono tutte le istanze dell'ID risorsa trovato in precedenza, come illustrato di seguito.
 
-### <a name="example-json-property-with-hard-coded-resource-id"></a>Proprietà JSON di esempio con ID risorsa hardcoded
-`id: "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"`
+Proprietà JSON di esempio con ID risorsa hardcoded:
 
-### <a name="example-json-property-converted-to-a-parameterized-version-based-on-template-parameters"></a>Proprietà JSON di esempio convertita in versione parametrizzata basata sui parametri del modello
+```json
+id: "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"
+```
 
-`id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"`
+Proprietà JSON di esempio convertita in versione parametrizzata basata sui parametri del modello
 
-È anche necessario dichiarare alcuni metadati del modello obbligatori e i parametri nella parte superiore del modello JSON, in questo modo:
+```json
+id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
+```
+
+Dichiarare i metadati del modello obbligatori e i parametri nella parte superiore del modello JSON come segue:
 
 ```json
 
@@ -118,15 +128,20 @@ Se si intende seguire questo approccio, la parametrizzazione deve essere eseguit
     ... rest of template omitted ...
 ```
 
-__Il modello completo e funzionante viene mostrato alla fine di questo documento.__
+È possibile visualizzare il modello completo e funzionante alla fine di questo documento.
 
-Dopo aver creato il modello, è possibile distribuirlo usando le [API REST](https://docs.microsoft.com/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/group/deployment#az-group-deployment-create) oppure la [pagina per la distribuzione di modelli del portale](https://portal.azure.com/#create/Microsoft.Template).
+Dopo aver configurato il modello, distribuirlo usando uno dei metodi seguenti:
 
-Ecco due versioni della rappresentazione JSON del dashboard di esempio. La prima è la versione esportata dal portale e già associata a una risorsa. La seconda è la versione modello che può essere associata a livello di codice a qualsiasi macchina virtuale e distribuita con Azure Resource Manager.
+* [API REST](/rest/api/resources/deployments)
+* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [Interfaccia della riga di comando di Azure](/cli/azure/group/deployment#az-group-deployment-create)
+* [Pagina di distribuzione del modello di portale di Azure](https://portal.azure.com/#create/Microsoft.Template)
 
-## <a name="json-representation-of-our-example-dashboard-before-templating"></a>Rappresentazione JSON del dashboard di esempio (prima della creazione del modello)
+Ecco due versioni della rappresentazione JSON del dashboard di esempio. La prima è la versione esportata dal portale e già associata a una risorsa. Il secondo è la versione del modello che può essere associata a livello di codice a qualsiasi macchina virtuale e distribuita con Azure Resource Manager.
 
-Ecco che cosa verrà probabilmente visualizzato se si seguono le istruzioni precedenti per recuperare la rappresentazione JSON di un dashboard che è già stato distribuito. Notare gli identificatori di risorsa hardcoded, che mostrano che il dashboard punta a una macchina virtuale di Azure specifica.
+## <a name="json-representation-of-our-example-dashboard-before-templating"></a>Rappresentazione JSON del dashboard di esempio prima del modello
+
+Questo esempio mostra cosa si può prevedere se è stato seguito questo articolo. Le istruzioni esportano la rappresentazione JSON di un dashboard già distribuito. Gli identificatori di risorsa hardcoded che indicano che questo dashboard punta a una macchina virtuale di Azure specifica.
 
 ```json
 
@@ -380,9 +395,9 @@ Ecco che cosa verrà probabilmente visualizzato se si seguono le istruzioni prec
 
 ### <a name="template-representation-of-our-example-dashboard"></a>Rappresentazione basata su modello del dashboard di esempio
 
-La versione modello del dashboard ha definito tre parametri chiamati __virtualMachineName__, __virtualMachineResourceGroup__ e __dashboardName__.  I parametri permettono di fare in modo che il dashboard punti a una macchina virtuale di Azure diversa a ogni distribuzione. Gli ID con parametri sono evidenziati per indicare che questo dashboard può essere configurato e distribuito a livello di codice in modo da puntare a qualsiasi macchina virtuale di Azure. Il modo più semplice per testare questa funzionalità consiste nel copiare il modello seguente e incollarlo nella [pagina di distribuzione dei modelli del portale di Azure](https://portal.azure.com/#create/Microsoft.Template). 
+La versione del modello del dashboard ha definito tre parametri denominati `virtualMachineName`, `virtualMachineResourceGroup`e `dashboardName`.  I parametri permettono di fare in modo che il dashboard punti a una macchina virtuale di Azure diversa a ogni distribuzione. Questo dashboard può essere configurato e distribuito a livello di codice per puntare a qualsiasi macchina virtuale di Azure. Per testare questa funzionalità, copiare il modello seguente e incollarlo nella [pagina di distribuzione del modello portale di Azure](https://portal.azure.com/#create/Microsoft.Template).
 
-Questo esempio distribuisce solo un dashboard, ma il linguaggio del modello permette di distribuire più risorse e di generare un bundle di uno o più dashboard insieme. 
+Questo esempio distribuisce solo un dashboard, ma il linguaggio del modello permette di distribuire più risorse e di generare un bundle di uno o più dashboard insieme.
 
 ```json
 {

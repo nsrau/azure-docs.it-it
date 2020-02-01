@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a51bb91a63f032f87da59fe95f5e3282cbaa0bea
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: b77d6fe03a051c019519f195d55cdeb00fb9afb2
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771616"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906262"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -201,49 +201,14 @@ Questa sezione si applica solo alle condivisioni file standard. Tutte le condivi
 
 ### <a name="regional-availability"></a>Disponibilità a livello di area
 
-Le condivisioni file standard sono disponibili in tutte le aree fino a 5 TiB. In determinate aree sono disponibili con un limite di 100 TiB, le aree sono elencate nella tabella seguente:
+Le condivisioni file standard con limite di capacità di 100 TiB sono disponibili a livello globale in tutte le aree di Azure-
 
-|Area |Ridondanza supportata |
-|-------|---------|
-|Australia centrale    |LRS     |
-|Australia centrale 2    |LRS     |
-|Australia orientale |LRS     |
-|Australia sudorientale|LRS |
-|Brasile meridionale    |LRS     |
-|Canada centrale  |LRS     |
-|Canada orientale     |LRS     |
-|India centrale  |LRS     |
-|Stati Uniti centrali *   |CON RIDONDANZA LOCALE, ZRS    |
-|Asia orientale      |LRS     |
-|Stati Uniti orientali *        |CON RIDONDANZA LOCALE, ZRS|
-|Stati Uniti orientali 2 *      |CON RIDONDANZA LOCALE, ZRS     |
-|Francia centrale |CON RIDONDANZA LOCALE, ZRS|
-|Francia meridionale   |LRS     |
-|Giappone orientale     |LRS     |
-|Giappone occidentale     |LRS     |
-|Corea centrale  |LRS     |
-|Corea meridionale    |LRS     |
-|Stati Uniti centro-settentrionali |LRS   |
-|Europa settentrionale   |LRS     |
-|India meridionale    |LRS     |
-|Stati Uniti centro-meridionali |LRS     |
-|Asia sud-orientale |CON RIDONDANZA LOCALE, ZRS|
-|Svizzera settentrionale    |LRS     |
-|Svizzera occidentale    |LRS     |
-|Emirati Arabi Uniti centrali    |LRS     |
-|Emirati Arabi Uniti settentrionali    |LRS     |
-|Regno Unito settentrionale   |CON RIDONDANZA LOCALE, ZRS    |
-|Regno Unito meridionale    |LRS     |
-|Regno Unito occidentale    |LRS     |
-|Stati Uniti centro-occidentali|LRS     |
-|Europa occidentale *    |CON RIDONDANZA LOCALE, ZRS|
-|India occidentale   |LRS     |
-|Stati Uniti occidentali        |LRS     |
-|Stati Uniti occidentali 2      |CON RIDONDANZA LOCALE, ZRS|
+- CON ridondanza locale: tutte le aree, ad eccezione dell'area Sud Africa settentrionale e Sud Africa occidentale.
+   - I cloud nazionali (Government, Germania, Cina) sono supportati tramite PowerShell e l'interfaccia della riga di comando di Azure. Nessun supporto per il portale. 
+   - Stati Uniti orientali, Stati Uniti orientali, Europa occidentale: tutti i nuovi account sono supportati. Un numero ridotto di account esistenti non ha completato il processo di aggiornamento. È possibile verificare se gli account di archiviazione esistenti hanno completato il processo di aggiornamento tentando di [abilitare condivisioni file di grandi dimensioni](storage-files-how-to-create-large-file-share.md).
 
-\* supportato per i nuovi account, non tutti gli account esistenti hanno completato il processo di aggiornamento. È possibile verificare se gli account di archiviazione esistenti hanno completato il processo di aggiornamento tentando di [abilitare condivisioni file di grandi dimensioni](storage-files-how-to-create-large-file-share.md).
-
-Per aiutarci a classificare in ordine di priorità nuove aree e funzionalità, compila questo [sondaggio](https://aka.ms/azurefilesatscalesurvey).
+- ZRS: tutte le aree, ad eccezione di Giappone orientale, Europa settentrionale, Sudafrica settentrionale.
+- GRS/GZRS: non supportato.
 
 ### <a name="enable-and-create-larger-file-shares"></a>Abilitare e creare condivisioni file di dimensioni maggiori
 

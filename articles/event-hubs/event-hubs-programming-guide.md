@@ -1,5 +1,5 @@
 ---
-title: Guida per programmatori .NET-Hub eventi di Azure | Microsoft Docs
+title: Guida per programmatori .NET-Hub eventi di Azure (legacy) | Microsoft Docs
 description: Questo articolo fornisce informazioni su come scrivere codice per Hub eventi di Azure tramite Azure .NET SDK.
 services: event-hubs
 documentationcenter: na
@@ -7,17 +7,21 @@ author: ShubhaVijayasarathy
 ms.service: event-hubs
 ms.custom: seodec18
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 01/15/2020
 ms.author: shvija
-ms.openlocfilehash: c2e23c38abbec5fd0e6010bdfc0feca882a6180d
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: afd466e0266cf2d95f95eb8536943f5856c26a58
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309825"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899916"
 ---
-# <a name="net-programming-guide-for-azure-event-hubs"></a>Guida per programmatori .NET per hub eventi di Azure
+# <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Guida per programmatori .NET per hub eventi di Azure (pacchetto Microsoft. Azure. EventHubs legacy)
 Questo articolo prende in esame alcuni scenari comuni nella scrittura di codice tramite Hub eventi di Azure. Si presuppone una conoscenza preliminare di Hub eventi. Per una panoramica sui concetti relativi a Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md).
+
+> [!WARNING]
+> Questa guida è destinata al vecchio pacchetto **Microsoft. Azure. EventHubs** . Si consiglia di [eseguire la migrazione](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MIGRATIONGUIDE.md) del codice per usare il pacchetto [Azure. Messaging. EventHubs](get-started-dotnet-standard-send-v2.md) più recente.  
+
 
 ## <a name="event-publishers"></a>Autori di eventi
 
@@ -25,7 +29,7 @@ L'invio di eventi a un hub eventi viene eseguito tramite una connessione AMQP 1.
 
 Quando si usano le API gestite da .NET, i costrutti primari per la pubblicazione dei dati in Hub eventi sono le classi [EventHubClient][] e [EventData][]. [EventHubClient][] offre il canale di comunicazione AMQP tramite il quale gli eventi vengono inviati all'hub eventi. La classe [EventData][] rappresenta un evento e viene usata per pubblicare i messaggi in un hub eventi. Questa classe include il corpo, alcuni metadati (proprietà) e le informazioni di intestazione (SystemProperties) sull'evento. Altre proprietà vengono aggiunte all'oggetto [EventData][] quando passa attraverso un hub eventi.
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Inizia oggi stesso
 Le classi .NET che supportano Hub eventi vengono fornite con il pacchetto NuGet [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/). È possibile eseguire l'installazione tramite Esplora soluzioni di Visual Studio o la [Console di gestione pacchetti](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) in Visual Studio. A tale scopo, eseguire il comando seguente nella finestra della [Console di gestione pacchetti](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) :
 
 ```shell
@@ -58,7 +62,7 @@ Gli eventi vengono inviati a un hub eventi tramite la creazione di un'istanza di
 
 ## <a name="event-serialization"></a>Serializzazione degli eventi
 
-La classe [EventData][] ha [due costruttori di overload](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor) che accettano una serie di parametri, byte o una matrice di byte, che rappresentano il payload dei dati degli eventi. Quando si usa JSON con [EventData][]è possibile usare **Encoding.UTF8.GetBytes()** per recuperare la matrice di byte per una stringa con codifica JSON. Esempio:
+La classe [EventData][] ha [due costruttori di overload](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor) che accettano una serie di parametri, byte o una matrice di byte, che rappresentano il payload dei dati degli eventi. Quando si usa JSON con [EventData][]è possibile usare **Encoding.UTF8.GetBytes()** per recuperare la matrice di byte per una stringa con codifica JSON. Ad esempio:
 
 ```csharp
 for (var i = 0; i < numMessagesToSend; i++)
@@ -110,10 +114,10 @@ Per usare la classe [EventProcessorHost][], è possibile implementare [IEventPro
 * [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
-Per avviare l'elaborazione di eventi, creare un'istanza [EventProcessorHost][]fornendo i parametri appropriati per l'hub eventi. Esempio:
+Per avviare l'elaborazione di eventi, creare un'istanza [EventProcessorHost][]fornendo i parametri appropriati per l'hub eventi. Ad esempio:
 
 > [!NOTE]
-> EventProcessorHost e le classi correlate sono disponibili nel pacchetto **Microsoft. Azure. EventHubs. Processor** . Aggiungere il pacchetto al progetto di Visual Studio seguendo le istruzioni riportate in [questo articolo](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) oppure eseguendo il comando seguente nella finestra della [console di gestione pacchetti](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) :`Install-Package Microsoft.Azure.EventHubs.Processor`.
+> EventProcessorHost e le classi correlate sono disponibili nel pacchetto **Microsoft. Azure. EventHubs. Processor** . Aggiungere il pacchetto al progetto di Visual Studio seguendo le istruzioni riportate in [questo articolo](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) oppure eseguendo il comando seguente nella finestra [console di gestione pacchetti](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) :`Install-Package Microsoft.Azure.EventHubs.Processor`.
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(

@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: 10c9a1d3723ed30bee5437c3ab7a41308e253bd8
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 97399635399c12022006ac95e60c5828bf2a9dc5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666653"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905442"
 ---
 # <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Eseguire la migrazione di app e soluzioni da servizi BizTalk in app per la logica di Azure
 
@@ -125,7 +125,7 @@ A differenza di Servizi BizTalk, queste azioni sono separate dai protocolli di t
 
 ## <a name="manage-and-monitor"></a>Gestire e monitorare
 
-In Servizi BizTalk un portale dedicato offre funzionalità di rilevamento per monitorare e risolvere i problemi. App per la logica offre funzionalità di monitoraggio e rilevamento più avanzate tramite il [portale di Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md) e include un'app per dispositivi mobili per avere un controllo continuo quando si è in viaggio.
+In Servizi BizTalk un portale dedicato offre funzionalità di rilevamento per monitorare e risolvere i problemi. App per la logica offre funzionalità di monitoraggio e monitoraggio più complete per [monitorare le app per la logica nella portale di Azure](../logic-apps/monitor-logic-apps.md)e include un'app per dispositivi mobili per tenere d'occhio gli elementi quando si è in movimento.
 
 ## <a name="high-availability"></a>Disponibilità elevata
 

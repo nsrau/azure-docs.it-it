@@ -1,30 +1,33 @@
 ---
-title: Elenchi di sicurezza di portale di Azure URL | Microsoft Docs
+title: Attendibilità degli URL portale di Azure nel firewall o nel server proxy
 description: Aggiungere questi URL al bypass del server proxy per comunicare con il portale di Azure e i relativi servizi
 services: azure-portal
 keywords: ''
 author: mgblythe
 ms.author: mblythe
-ms.date: 09/13/2019
+ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 3f81d41bc6d8ce07ea4e7b11c7c48f9b68d70466
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: c5bba7296a05cfbb72698a991ece1ef298689bd1
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310569"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900652"
 ---
 # <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Attendibilità degli URL portale di Azure nel firewall o nel server proxy
 
-Per prestazioni ottimali e connettività tra la rete locale o l'area estesa e il cloud di Azure, configurare i dispositivi di sicurezza locali per ignorare le restrizioni di sicurezza per gli URL portale di Azure. Gli amministratori di rete spesso distribuiscono server proxy, firewall o altri dispositivi per proteggere e controllare il modo in cui gli utenti accedono a Internet. Tuttavia, le regole progettate per proteggere gli utenti possono a volte bloccare o rallentare il traffico Internet basato sull'azienda, incluse le comunicazioni tra l'utente e Azure. Per ottimizzare la connettività tra la rete e il portale di Azure e i relativi servizi, è consigliabile aggiungere URL portale di Azure all'elenchi di sicurezza.
+È possibile configurare i dispositivi di sicurezza locali per ignorare le restrizioni di sicurezza per gli URL portale di Azure. Questa configurazione può migliorare le prestazioni e la connettività tra la rete locale o l'area estesa e il cloud di Azure.
+
+Gli amministratori di rete spesso distribuiscono server proxy, firewall o altri dispositivi. Questi dispositivi consentono di proteggere e controllare il modo in cui gli utenti accedono a Internet. Le regole progettate per la protezione degli utenti possono a volte bloccare o rallentare il traffico Internet relativo alle aziende legittime. Questo traffico include le comunicazioni tra l'utente e Azure. Per ottimizzare la connettività tra la rete e il portale di Azure e i relativi servizi, è consigliabile aggiungere URL portale di Azure all'elenchi di sicurezza.
 
 ## <a name="azure-portal-urls-for-proxy-bypass"></a>URL di portale di Azure per il bypass del proxy
 
-Gli endpoint URL per la portale di Azure di sicurezza sono specifici del cloud di Azure in cui viene distribuita l'organizzazione. Selezionare il cloud, quindi aggiungere l'elenco di URL al server proxy o al firewall per consentire al traffico di rete verso questi endpoint di ignorare le restrizioni.
+Gli endpoint URL per la portale di Azure di sicurezza sono specifici del cloud di Azure in cui viene distribuita l'organizzazione. Per consentire al traffico di rete a questi endpoint di ignorare le restrizioni, selezionare il cloud. Aggiungere quindi l'elenco di URL al server proxy o al firewall.
 
 #### <a name="public-cloudtabpublic-cloud"></a>[Cloud pubblico](#tab/public-cloud)
+
 ```
 *.aadcdn.microsoftonline-p.com
 *.aka.ms
@@ -48,6 +51,7 @@ Gli endpoint URL per la portale di Azure di sicurezza sono specifici del cloud d
 ```
 
 #### <a name="us-government-cloudtabus-government-cloud"></a>[Cloud per enti pubblici statunitensi](#tab/us-government-cloud)
+
 ```
 *.azure.us
 *.loganalytics.us
@@ -60,6 +64,7 @@ Gli endpoint URL per la portale di Azure di sicurezza sono specifici del cloud d
 ```
 
 #### <a name="china-government-cloudtabchina-government-cloud"></a>[Cloud per enti pubblici Cina](#tab/china-government-cloud)
+
 ```
 *.azure.cn
 *.microsoft.cn

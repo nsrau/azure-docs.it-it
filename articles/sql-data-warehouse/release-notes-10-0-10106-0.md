@@ -11,12 +11,12 @@ ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6d51213402f852daee8fe4a6b5dbbd473afda659
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 917a698840850182d2d41ef780ba01d948e11c2f
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122458"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896378"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Note sulla versione di Azure SQL Data Warehouse
 
@@ -38,6 +38,7 @@ Usare la versione identificata per confermare quale versione è stata applicata 
 | --- | --- |
 |**Metriche di portale di gestione del carico di lavoro (anteprima)**|Con il rilascio dell' [isolamento dei carichi di lavoro](/azure/sql-data-warehouse/sql-data-warehouse-workload-isolation) per l'anteprima di ottobre, gli utenti possono creare [gruppi di carico di lavoro](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) per gestire in modo efficiente le risorse di sistema e garantire che i contratti di business siano soddisfatti.  Come parte dei miglioramenti complessivi della [gestione del carico di lavoro](/azure/sql-data-warehouse/sql-data-warehouse-workload-management) per l'analisi delle sinapsi di Azure, sono ora disponibili nuove metriche di [monitoraggio della gestione](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor) del carico di lavoro.</br> </br> Il monitoraggio del carico di lavoro ora presenta maggiori informazioni con le metriche seguenti: </br> -Percentuale di risorse limite effettivo  </br> -Percentuale effettiva minima delle risorse </br> -Query attive del gruppo di carico di lavoro </br> -Allocazione del gruppo di carico di lavoro per percentuale massima delle risorse </br> -Allocazione gruppo del carico di lavoro per percentuale sistema </br> -Timeout query gruppo di carico di lavoro </br> -Query in coda del gruppo di carico di lavoro </br></br> Usare queste metriche per identificare i [colli di bottiglia del gruppo di carico di lavoro](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor#workload-group-bottleneck) o i gruppi del carico di lavoro configurati con isolamento del carico di [lavoro sottoutilizzato](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor#underutilized-workload-isolation)  Queste metriche possono essere usate nel portale di Azure che consente la suddivisione in base al gruppo del carico di lavoro.  Filtrare e aggiungere i grafici preferiti a un dashboard per accedere rapidamente alle informazioni dettagliate.|
 |**Metriche di monitoraggio del portale**| Al portale sono state aggiunte le metriche seguenti per il monitoraggio dell'attività complessiva delle query: </br> -Query attive </br> -Query accodate </br> </br>Queste metriche sono descritte insieme alle metriche esistenti nella [documentazione sull'utilizzo delle risorse di monitoraggio e sull'attività di query](/azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity).|
+|**Nome prodotto**|Entro il 2020 giugno, il nome del prodotto restituito da SELECT @@VERSION cambierà da Microsoft Azure SQL Data Warehouse ad Azure sinapsi Analytics. La pianificazione viene pubblicata nelle note sulla versione. Questa modifica è pertinente per i clienti che analizzano il nome del prodotto dal risultato di SELECT @@VERSION nel codice dell'applicazione. Per evitare modifiche al codice dell'applicazione dovute alla ripersonalizzazione del prodotto, usare questi comandi per eseguire una query su SERVERPROPERTY per il nome e la versione del prodotto del database. </br> Per restituire il numero di versione di DW XX. X. XXXXX. X (senza nome prodotto) usare questo comando: SELECT SERVERPROPERTY (' ProductVersion ') </br> Per restituire l'edizione del motore, usare questo comando che restituisce 6 per Azure sinapsi Analytics (in precedenza SQL Data Warehouse): SELECT SERVERPROPERTY (' EngineEdition ')|
 
 ## <a name="october-2019"></a>Ottobre 2019
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
-ms.openlocfilehash: 934dc94da9bbdfc38cc12e78eaa5b67fa9f786ca
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 75a9e3e8422c0c59e00c290f1f360d61fce1eceb
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083317"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901572"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -156,7 +156,7 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 | **Area di Microsoft Azure** | **Community BGP regionale** | **Community BGP di archiviazione** | **Community BGP SQL** | **Cosmos DB community BGP** |
 | --- | --- | --- | --- | --- |
 | **America del Nord** | |
-| Stati Uniti Orientali | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
+| Stati Uniti orientali | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
 | Stati Uniti orientali 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 |
 | Stati Uniti occidentali | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 |
 | Stati Uniti occidentali 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 |
@@ -175,9 +175,15 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 | Regno Unito occidentale | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
 | Francia centrale | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
 | Francia meridionale | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
+| Svizzera settentrionale | 12076:51038 | 12076:52038 | 12076:53038 | 12076:54038 | 
+| Svizzera occidentale | 12076:51039 | 12076:52039 | 12076:53039 | 12076:54039 | 
+| Germania settentrionale | 12076:51040 | 12076:52040 | 12076:53040 | 12076:54040 | 
+| Germania centro-occidentale | 12076:51041 | 12076:52041 | 12076:53041 | 12076:54041 | 
+| Norvegia orientale | 12076:51042 | 12076:52042 | 12076:53042 | 12076:54042 | 
+| Norvegia occidentale | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 
 | **Asia Pacifico** | |
 | Asia orientale | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
-| Asia sudorientale | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
+| Asia sud-orientale | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
 | **Giappone** | |
 | Giappone orientale | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 |
 | Giappone occidentale | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 |
@@ -212,7 +218,7 @@ Tutte le route annunciate da Microsoft verranno contrassegnate con il valore del
 ### <a name="service-to-bgp-community-value"></a>Valore della community da servizio a BGP
 Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. Questo si applica solo al peering Microsoft. La tabella seguente fornisce il mapping del servizio al valore della community BGP. Per un elenco completo dei valori più recenti, è possibile eseguire il cmdlet "Get-AzBgpServiceCommunity".
 
-| **Servizio** | **Valore della community BGP** |
+| **Service** | **Valore della community BGP** |
 | --- | --- |
 | Exchange Online * * | 12076:5010 |
 | SharePoint Online * * | 12076:5020 |
@@ -235,12 +241,12 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 | **Area di Azure per cloud nazionali**| **Valore della community BGP** |
 | --- | --- |
 | **US Government** |  |
-| Governo degli Stati Uniti - Arizona | 12076:51106 |
+| US Gov Arizona | 12076:51106 |
 | Governo degli US Gov - Iowa | 12076:51109 |
 | Governo degli Stati Uniti - Virginia | 12076:51105 |
-| Governo degli Stati Uniti - Texas | 12076:51108 |
-| Dipartimento della difesa Stati Uniti centrali | 12076:51209 |
-| Dipartimento della difesa Stati Uniti orientali | 12076:51205 |
+| US Gov Texas | 12076:51108 |
+| US DoD (area centrale) | 12076:51209 |
+| US DoD (area orientale) | 12076:51205 |
 
 
 | **Servizio dei cloud nazionali** | **Valore della community BGP** |

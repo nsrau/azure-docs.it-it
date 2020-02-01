@@ -4,12 +4,12 @@ description: Informazioni su come distribuire gruppi di contenitori in una rete 
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: danlep
-ms.openlocfilehash: 920ad9598f17fbab25218827045a396d953a6531
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 40f312ce8bc08c9b59e7c47f05b6a5d3dc94a994
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845184"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901859"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuire le istanze di contenitore in una rete virtuale di Azure
 
@@ -259,10 +259,6 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 ```
 
 ### <a name="delete-network-resources"></a>Eliminare le risorse di rete
-
-
-> [!NOTE]
-> Se viene visualizzato un errore durante il tentativo di rimuovere il profilo di rete, consentire 3-4 giorni per la piattaforma per attenuare automaticamente il problema e ritentare l'eliminazione. Se è necessario eliminare immediatamente un profilo di rete, [aprire una richiesta di supporto](https://azure.microsoft.com/support/create-ticket/) che fa riferimento al servizio istanze di contenitore di Azure.
 
 Questa funzionalità richiede attualmente diversi comandi aggiuntivi per eliminare le risorse di rete create in precedenza. Se sono stati usati i comandi di esempio nelle sezioni precedenti di questo articolo per creare la rete virtuale e la subnet, è possibile usare lo script seguente per eliminare le risorse di rete.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 12/19/2019
-ms.openlocfilehash: c571a4f36372b250a05564182b240bc4007240a1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 02f1e5e3f3252ffa026d8dffe9fe83c9e5abe65b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977802"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899147"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Indirizzi IP usati da Application Insights e Log Analytics
 Il servizio [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) usa diversi indirizzi IP. Potrebbe essere necessario conoscere questi indirizzi se l'app che si sta monitorando è ospitata dietro un firewall.
@@ -56,6 +56,14 @@ Configurazione di Status Monitor: necessaria solo quando si apportano modifiche.
 
 ## <a name="availability-tests"></a>Test della disponibilità
 Questo è l'elenco di indirizzi da cui vengono eseguiti i [test Web della disponibilità](../../azure-monitor/app/monitor-web-app-availability.md) . Se si vogliono eseguire test Web sull'app, ma il server Web è limitato alla fornitura di servizi a client specifici, è necessario consentire il traffico in ingresso dai server di test della disponibilità.
+
+Se si usano i gruppi di sicurezza di rete di Azure, è sufficiente aggiungere una regola per la **porta in ingresso** per consentire il traffico da Application Insights test di disponibilità selezionando **tag di servizio** come **origine** e **ApplicationInsightsAvailability** come tag del **servizio di origine**.
+
+>[!div class="mx-imgBorder"]
+>![in impostazioni selezionare regole di sicurezza in ingresso e quindi selezionare Aggiungi nella parte superiore della scheda ](./media/ip-addresses/add-inbound-security-rule.png)
+
+>[!div class="mx-imgBorder"]
+>![aggiungere la scheda regola di sicurezza in ingresso](./media/ip-addresses/add-inbound-security-rule2.png)
 
 Aprire le porte 80 (http) e 443 (https) per il traffico in ingresso da questi indirizzi (gli indirizzi IP sono raggruppati per posizione):
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 4f8c20534cdd5abdf5ae97bb097238cf508480c7
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 73b8a559eddec51dbc01f1d55f70414360ff2956
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843549"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898425"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in app per la logica di Azure
 
@@ -324,7 +324,7 @@ Di seguito sono riportate alcune [considerazioni da considerare](#obfuscation-co
 
 #### <a name="considerations-when-hiding-inputs-and-outputs"></a>Considerazioni per nascondere gli input e gli output
 
-* Quando si proteggono gli input o gli output in un trigger o un'azione, app per la logica non invia i dati protetti ad Azure Log Analytics. Non è inoltre possibile aggiungere [proprietà rilevate](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details) a tale trigger o azione per il monitoraggio.
+* Quando si proteggono gli input o gli output in un trigger o un'azione, app per la logica non invia i dati protetti ad Azure Log Analytics. Non è inoltre possibile aggiungere [proprietà rilevate](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) a tale trigger o azione per il monitoraggio.
 
 * L' [API app per la logica per la gestione della cronologia del flusso di lavoro](https://docs.microsoft.com/rest/api/logic/) non restituisce output protetti.
 
@@ -806,7 +806,7 @@ Se l'opzione [identità gestita](../active-directory/managed-identities-azure-re
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Automatizzare la distribuzione per le app per la logica di Azure](logic-apps-azure-resource-manager-templates-overview.md)  
-* [Monitorare le app per la logica](logic-apps-monitor-your-logic-apps.md)  
-* [Diagnosi degli errori delle app per la logica](logic-apps-diagnosing-failures.md)  
-* [Automatizzare la distribuzione delle app per la logica](logic-apps-azure-resource-manager-templates-overview.md)
+* [Automatizzare la distribuzione per le app per la logica di Azure](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)  
+* [Monitorare le app per la logica](../logic-apps/monitor-logic-apps-log-analytics.md)  
+* [Diagnosi degli errori delle app per la logica](../logic-apps/logic-apps-diagnosing-failures.md)  
+* [Automatizzare la distribuzione delle app per la logica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

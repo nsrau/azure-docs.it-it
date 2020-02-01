@@ -3,21 +3,21 @@ title: Procedure consigliate per la configurazione di app Azure | Microsoft Docs
 description: Informazioni su come usare al meglio la configurazione di app Azure
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
+author: lisaguthrie
 manager: maiye
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.author: yegu
+ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 3b43ca5b6bec64d9283a64c9bcc0a3b60c21bca4
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 37f93099027f810e8089119536e089e07080d0bc
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750410"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898644"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Procedure consigliate per la configurazione di app Azure
 

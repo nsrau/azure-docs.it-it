@@ -6,18 +6,19 @@ author: billmath
 manager: daveba
 tags: azuread
 ms.service: active-directory
+ms.subservice: hybrid
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a3a57fbe5df690e4dbdba8cbab85e62648bb298
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5518d516848ba7c006827faa41ff76bbca35d0c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60295374"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897047"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Fattori che influenzano le prestazioni di Azure AD Connect
 
@@ -26,15 +27,15 @@ Azure AD Connect esegue la sincronizzazione di Active Directory e Azure AD. Ques
 | **Fattore di progettazione**| **Definizione** |
 |:-|-|
 | Topologia| Distribuzione dei componenti e degli endpoint che devono essere gestiti da Azure AD Connect in rete. |
-| Scalabilità| Numero di oggetti, ad esempio utenti, gruppi e unità organizzative, che devono essere gestiti da Azure AD Connect. |
+| Scalare| Numero di oggetti, ad esempio utenti, gruppi e unità organizzative, che devono essere gestiti da Azure AD Connect. |
 | Hardware| Hardware (fisico o virtuale) per Azure AD Connect e capacità di prestazioni dipendenti di ogni componente hardware, incluse CPU, memoria, rete e configurazione del disco rigido. |
 | Configurazione| Come Azure AD Connect elabora le directory e le informazioni. |
-| Caricamento| Frequenza delle modifiche degli oggetti. I carichi possono variare nell'arco di un'ora, un giorno o una settimana. A seconda del componente, potrebbe essere necessario eseguire la progettazione per un picco di carico o un carico medio. |
+| Caricare| Frequenza delle modifiche degli oggetti. I carichi possono variare nell'arco di un'ora, un giorno o una settimana. A seconda del componente, potrebbe essere necessario eseguire la progettazione per un picco di carico o un carico medio. |
 
 Questo documento descrive i fattori che influenzano le prestazioni del motore di provisioning di Azure AD Connect. Le organizzazioni complesse o di grandi dimensioni (organizzazioni che effettuano il provisioning di più di 100.000 oggetti) possono usare le raccomandazioni per ottimizzare l'implementazione di Azure AD Connect, se si verificano i problemi relativi alle prestazioni indicati in questo documento. Questo documento non fornisce informazioni sugli altri componenti di Azure AD Connect, ad esempio [Azure AD Connect Health](how-to-connect-health-agent-install.md), e sugli agenti.
 
 > [!IMPORTANT]
-> Microsoft non supporta la modifica o l'uso del servizio Azure AD Connect al di fuori delle azioni descritte in modo formale. Ognuna di queste azioni potrebbe provocare uno stato incoerente o non supportato del sevizio di sincronizzazione Azure AD Connect. Microsoft pertanto non offre il supporto tecnico per distribuzioni di questo tipo.
+> Microsoft non supporta la modifica o l'uso del servizio Azure AD Connect al di fuori delle azioni descritte in modo formale. Una qualsiasi di queste azioni può causare uno stato incoerente o non supportato della sincronizzazione Azure AD Connect. Di conseguenza, Microsoft non è in grado di fornire supporto tecnico per tali distribuzioni.
 
 ## <a name="azure-ad-connect-component-factors"></a>Fattori dei componenti di Azure AD Connect
 
@@ -95,7 +96,7 @@ In un ciclo di sincronizzazione completa sono incluse le operazioni seguenti:
 > [!NOTE]
 > È necessaria un'attenta pianificazione quando si eseguono aggiornamenti in blocco di molti oggetti in Active Directory o in Azure AD. Con gli aggiornamenti in blocco, il processo di sincronizzazione delta richiederà più tempo per l'importazione, perché vengono modificati molti oggetti. Le importazioni possono richiedere molto tempo anche se l'aggiornamento in blocco non influisce sul processo di sincronizzazione. Ad esempio, l'assegnazione di licenze a molti utenti in Azure AD determinerà un ciclo di importazione lungo da Azure AD, ma non comporterà modifiche agli attributi in Active Directory.
 
-### <a name="synchronization"></a>Sincronizzazione
+### <a name="synchronization"></a>Synchronization
 
 Il runtime del processo di sincronizzazione ha le caratteristiche di prestazioni seguenti:
 
@@ -104,7 +105,7 @@ Il runtime del processo di sincronizzazione ha le caratteristiche di prestazioni
 * Anche l'esportazione è lineare.
 * La sincronizzazione aumenterà in modo esponenziale in base al numero di oggetti con riferimenti ad altri oggetti. Le appartenenze ai gruppi e i gruppi annidati hanno l'impatto maggiore sulle prestazioni, perché i membri fanno riferimento agli oggetti utente o ad altri gruppi. Questi riferimenti devono trovarsi e fare riferimento agli oggetti effettivi nel metaverse per completare il ciclo di sincronizzazione.
 
-### <a name="filtering"></a>Filtri
+### <a name="filtering"></a>Filtro
 
 Le dimensioni della topologia di Active Directory da importare è il fattore principale che influenza le prestazioni e il tempo complessivo richiesto dai componenti interni del motore di provisioning.
 

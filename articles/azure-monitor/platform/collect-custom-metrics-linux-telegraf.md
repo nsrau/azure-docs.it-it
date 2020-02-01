@@ -1,6 +1,6 @@
 ---
 title: Raccogliere metriche personalizzate per la VM Linux con l'agente Telegraf InfluxData
-description: istruzioni su come distribuire l'agente InfluxData Telegraf in una macchina virtuale Linux in Azure e configurare l'agente per pubblicare le metriche in monitoraggio di Azure.
+description: Istruzioni su come distribuire l'agente InfluxData Telegraf in una macchina virtuale Linux in Azure e configurare l'agente per pubblicare le metriche in monitoraggio di Azure.
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: b4cf5dc53c0fe256c9ecab5a844300224b860e44
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 365330aa445bcf8e5b1aec575d5e646d533ceaf7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926740"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901332"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Raccogliere metriche personalizzate per una VM Linux con l'agente InfluxData Telegraf
 
@@ -21,7 +21,7 @@ Monitoraggio di Azure consente di raccogliere metriche personalizzate tramite i 
 
 ## <a name="influxdata-telegraf-agent"></a>Agente InfluxData Telegraf 
 
-[Telegraf](https://docs.influxdata.com/telegraf/v1.7/) è un agente basato su plug-in che consente la raccolta delle metriche di oltre 150 origini diverse. A seconda dei carichi di lavoro eseguiti sulla macchina virtuale è possibile configurare l'agente per sfruttare plug-in di input specializzati per raccogliere le metriche. Tra gli esempi vi sono Apache, MySQL e NGINX. Tramite i plug-in di output, l'agente può quindi scrivere nelle destinazioni scelte dall'utente. L'agente Telegraf è integrato direttamente nell'API REST di metriche personalizzate di Monitoraggio di Azure. e supporta un plug-in di output di Monitoraggio di Azure. In questo modo l'agente può raccogliere metriche specifiche del carico di lavoro nella VM Linux e inviarle come metriche personalizzate a Monitoraggio di Azure. 
+[Telegraf](https://docs.influxdata.com/telegraf/) è un agente basato su plug-in che consente la raccolta delle metriche di oltre 150 origini diverse. A seconda dei carichi di lavoro eseguiti sulla macchina virtuale è possibile configurare l'agente per sfruttare plug-in di input specializzati per raccogliere le metriche. Tra gli esempi vi sono Apache, MySQL e NGINX. Tramite i plug-in di output, l'agente può quindi scrivere nelle destinazioni scelte dall'utente. L'agente Telegraf è integrato direttamente nell'API REST di metriche personalizzate di Monitoraggio di Azure. e supporta un plug-in di output di Monitoraggio di Azure. In questo modo l'agente può raccogliere metriche specifiche del carico di lavoro nella VM Linux e inviarle come metriche personalizzate a Monitoraggio di Azure. 
 
  ![Panoramica dell'agente Telegraf](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
 

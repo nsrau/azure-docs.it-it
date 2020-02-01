@@ -3,12 +3,12 @@ title: Modificare le impostazioni del cluster di Service Fabric di Azure
 description: Questo articolo descrive le impostazioni dell'infrastruttura e i criteri di aggiornamento dell'infrastruttura che è possibile personalizzare.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: ba98d4d30d14cb3a1981652fc0b86354923a8851
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 284e8ad566192f027d466ad08d66c2fc5265381d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772126"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905196"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizzare le impostazioni di un cluster di Service Fabric
 Questo articolo illustra le varie impostazioni dell'infrastruttura per il cluster di Service Fabric che è possibile personalizzare. Per i cluster ospitati in Azure, è possibile personalizzare le impostazioni tramite il [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager. Per altre informazioni, vedere [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md) (Aggiornare la configurazione di un cluster Azure). Per i cluster autonomi è possibile personalizzare le impostazioni aggiornando il file *ClusterConfig.json* ed eseguendo un aggiornamento della configurazione nel cluster. Per altre informazioni, vedere [Aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -89,6 +89,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |TargetReplicaSetSize |Int, valore predefinito: 7 |Non consentito|TargetReplicaSetSize per ClusterManager. |
 |UpgradeHealthCheckInterval |Tempo in secondi, il valore predefinito è 60 |Dinamica|Frequenza dei controlli sullo stato di integrità durante gli aggiornamenti di un'applicazione monitorata |
 |UpgradeStatusPollInterval |Tempo in secondi, il valore predefinito è 60 |Dinamica|Frequenza di polling sullo stato di aggiornamento dell'applicazione. Questo valore determina la frequenza di aggiornamento di qualsiasi chiamata GetApplicationUpgradeProgress |
+|CompleteClientRequest | Bool, valore predefinito: false |Dinamica| Completa la richiesta client quando viene accettata da CM. |
 
 ## <a name="common"></a>Comuni
 
@@ -568,6 +569,8 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |ValidatePlacementConstraint | Bool, valore predefinito: true |Dinamica| Specifica se l'espressione PlacementConstraint per un servizio viene convalidata quando viene aggiornato il parametro ServiceDescription di un servizio. |
 |ValidatePrimaryPlacementConstraintOnPromote| Bool, valore predefinito: TRUE |Dinamica|Specifica se l'espressione PlacementConstraint per un servizio viene valutata per le preferenze primarie al failover. |
 |VerboseHealthReportLimit | Int, valore predefinito: 20 | Dinamica|Definisce il numero di posizionamenti non riusciti di una replica prima di inviare un avviso di integrità a riguardo (se è abilitata la creazione di report di integrità dettagliati). |
+|NodeLoadsOperationalTracingEnabled | Bool, valore predefinito: true |Dinamica|Configurazione che consente il caricamento del nodo della traccia strutturale operativa nell'archivio eventi. |
+|NodeLoadsOperationalTracingInterval | TimeSpan, valore predefinito: common:: TimeSpan:: FromSeconds (20) | Dinamica|Specificare l'intervallo di tempo in secondi. Intervallo con cui tracciare i caricamenti dei nodi nell'archivio eventi per ogni dominio del servizio. |
 
 ## <a name="reconfigurationagent"></a>ReconfigurationAgent
 

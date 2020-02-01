@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b606566fa2b8154eb9ac8fda97d3c3ae81cd3447
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 4b5ac2e899de33614fa30b1f4baf0e85efec26bb
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767429"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898862"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -194,7 +194,7 @@ Non usare. Questo ruolo viene assegnato automaticamente al servizio Azure AD Con
 
 ### <a name="directory-writersdirectory-writers-permissions"></a>[Writer di directory](#directory-writers-permissions)
 
-Si tratta di un ruolo legacy che deve essere assegnato alle applicazioni che non supportano il [Framework di consenso](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Non deve essere assegnato agli utenti.
+Si tratta di un ruolo legacy che deve essere assegnato alle applicazioni che non supportano il [Framework di consenso](../develop/quickstart-register-app.md). Non deve essere assegnato agli utenti.
 
 ### <a name="dynamics-365-administrator--crm-administratorcrm-service-administrator-permissions"></a>[Amministratore di Dynamics 365/amministratore CRM](#crm-service-administrator-permissions)
 

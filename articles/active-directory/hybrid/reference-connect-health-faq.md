@@ -8,6 +8,7 @@ manager: daveba
 editor: curtand
 ms.assetid: f1b851aa-54d7-4cb4-8f5c-60680e2ce866
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,18 +16,18 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec88caafa9a6168860a8e9e2ff9e2abe0cfd0e77
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3e6c490ee9d8b6f7f07f52e70ceb8c7c49d699b6
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62096121"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897017"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Domande frequenti su Azure AD Connect Health
 Questo articolo include risposte alle domande frequenti su Azure Active Directory (Azure AD) Connect Health. Le domande sono relative all'uso del servizio, inclusi il modello di fatturazione, le funzionalità, le limitazioni e il supporto.
 
 ## <a name="general-questions"></a>Domande generali
-**D: Quando si gestiscono più directory di Azure AD, come è possibile passare a quella con Azure Active Directory Premium?**
+**D: si gestiscono più directory Azure AD. Ricerca per categorie passare a quello con Azure Active Directory Premium?**
 
 Per spostarsi tra tenant di Azure AD diversi, selezionare il **Nome utente** attualmente connesso nell'angolo in alto a destra e scegliere l'account appropriato. Se l'account non è incluso nell'elenco, selezionare **Disconnetti** e quindi usare le credenziali di amministratore globale della directory con Azure Active Directory Premium abilitato per l'accesso.
 
@@ -65,10 +66,10 @@ Esempio:
 
 Azure AD Connect Health non è supportato nel cloud di Azure Germania ad eccezione della [funzionalità di report degli errori di sincronizzazione](how-to-connect-health-sync.md#object-level-synchronization-error-report).
 
-| Ruoli | Funzionalità | Supportato nel cloud di Azure in Germania |
+| Ruoli | database elastico | Supportato nel cloud di Azure in Germania |
 | ------ | --------------- | --- |
 | Connect Health per la sincronizzazione | Monitoraggio/informazioni dettagliate/avvisi/analisi | No |
-|  | Report degli errori di sincronizzazione | Yes |
+|  | Report degli errori di sincronizzazione | Sì |
 | Connect Health per file system distribuito di Azure | Monitoraggio/informazioni dettagliate/avvisi/analisi | No |
 | Connect Health per ADDS | Monitoraggio/informazioni dettagliate/avvisi/analisi | No |
 
@@ -83,7 +84,7 @@ L'impatto dell'installazione dell'agente di Microsoft Azure AD Connect Health, d
 I numeri seguenti sono approssimativi:
 
 * Utilizzo della CPU: ~1-5% di incremento.
-* Utilizzo della memoria: fino al 10% della memoria di sistema totale.
+* Utilizzo della memoria: fino a al 10% della memoria di sistema totale.
 
 > [!NOTE]
 > Se l'agente non può comunicare con Azure, archivia i dati localmente per un limite massimo definito. L'agente sovrascrive i dati "memorizzati nella cache" secondo un criterio di tipo "intervento di manutenzione meno recente".
@@ -136,12 +137,12 @@ Le possibili cause per cui un agente per l'integrità non riesce a eseguire la r
 * La comunicazione in uscita viene sottoposta a un'ispezione SSL dal livello di rete. In questo modo il certificato usato dall'agente viene sostituito dall'entità o dal server per l'ispezione e non è possibile eseguire i passaggi necessari per completare la registrazione dell'agente.
 * L'utente non dispone dell'accesso per eseguire la registrazione dell'agente. Per impostazione predefinita, agli amministratori globali l'accesso è consentito. È possibile usare il [Controllo degli accessi in base al ruolo](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) per delegare l'accesso ad altri utenti.
 
-**D: Si ricevono avvisi che indicano che "I dati del Servizio integrità non sono aggiornati". Come si risolve il problema?**
+**D: viene generato un avviso che indica che "i dati Servizio integrità non sono aggiornati". Ricerca per categorie risolvere il problema?**
 
 Azure AD Connect Health genera l'avviso quando non riceve tutti i punti dati dal server nelle ultime due ore. [Altre informazioni](how-to-connect-health-data-freshness.md).
 
 ## <a name="operations-questions"></a>Domande sulle operazioni
-**D: È necessario abilitare il controllo nei server proxy applicazione Web?**
+**D: è necessario abilitare il controllo nei server proxy applicazione Web?**
 
 No, il controllo non deve essere abilitato nei server proxy applicazione Web.
 
@@ -149,13 +150,13 @@ No, il controllo non deve essere abilitato nei server proxy applicazione Web.
 
 Gli avvisi di Azure AD Connect Health vengono risolti se si verifica una condizione di esito positivo. Gli agenti di Azure AD Connect Health rilevano e segnalano periodicamente al servizio le condizioni di esito positivo. Per alcuni avvisi, l'eliminazione è basata sul tempo. In altri termini, se entro 72 ore dalla generazione dell'avviso non viene osservata la stessa condizione di errore, l'avviso viene automaticamente risolto.
 
-**D: Viene visualizzato l'avviso "La richiesta di autenticazione di test (transazione sintetica) non è riuscita a ottenere un token". Come si risolve il problema?**
+**D: si riceve un avviso che segnala che la richiesta di autenticazione di test (transazione sintetica) non è riuscita a ottenere un token ". Ricerca per categorie risolvere il problema?**
 
 Azure AD Connect Health per AD FS genera questo avviso quando l'agente installato in un server AD FS non riesce a ottenere un token in quanto parte di una transazione sintetica avviata dall'agente stesso. L'agente di Azure AD Connect Health usa il contesto di sistema locale e tenta di ottenere un token per un self relying party. Si tratta di un test di tipo catch-all per assicurarsi che AD FS sia in uno stato di rilascio di token.
 
 Spesso questo test ha esito negativo perché l'agente di Azure AD Connect Health non può risolvere il nome della farm AD FS. Questa situazione può verificarsi se i server AD FS si trovano dietro un bilanciamento del carico di rete e la richiesta viene avviata da un nodo che si trova dietro il bilanciamento del carico, in contrapposizione a un client normale che si trova davanti al bilanciamento del carico. Questo problema può essere risolto aggiornando il file "hosts" in "C:\Windows\System32\drivers\etc" per includere l'indirizzo IP del server AD FS o un indirizzo IP di loopback (127.0.0.1) per il nome della farm AD FS, come ad esempio sts.contoso.com. Quando si aggiunge il file host, la chiamata di rete viene messa in corto circuito, consentendo in tal modo all'agente di Azure AD Connect Health di ottenere il token.
 
-**D: È stato visualizzato un messaggio di posta elettronica che indica di che macchine virtuali non vengono corretti per gli attacchi ransomware recenti. Qual è il motivo per cui si riceve tale messaggio di posta elettronica?**
+**D: è stato ricevuto un messaggio di posta elettronica che indica che i computer non sono corretti per gli attacchi ransomware recenti. Perché ho ricevuto questo messaggio di posta elettronica?**
 
 Il servizio di Azure AD Connect Health ha analizzato tutti i computer di cui esegue il monitoraggio per verificare che le patch necessarie siano installate. Se almeno un computer non dispone delle patch critiche, viene inviato tale messaggio di posta elettronica agli amministratori del tenant. Per arrivare a tale decisione, è stata usata la logica seguente.
 1. Trovare tutti gli hotfix installati nel computer.
@@ -185,7 +186,7 @@ CheckForMS17-010
 
 ```
 
-**D: Perché nei risultati del cmdlet di PowerShell <i>Get-MsolDirSyncProvisioningError</i> sono riportati meno errori di sincronizzazione?**
+**D: Perché nei risultati del cmdlet di PowerShell <i>Get-MsolDirSyncProvisioningError</i> ci sono meno errori di sincronizzazione?**
 
 <i>Get-MsolDirSyncProvisioningError</i> restituisce solo errori di provisioning DirSync. Oltre a questo, il portale Connect Health mostra altri tipi di errore di sincronizzazione, ad esempio errori di esportazione, in conformità con i risultati Delta di Azure AD Connect. Ulteriori informazioni sugli [errori di sincronizzazione di Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
 
@@ -193,8 +194,8 @@ CheckForMS17-010
 
 Usare il cmdlet di PowerShell <i>Get-AdfsProperties -AuditLevel</i> per assicurarsi che i log di controllo non siano disabilitati. Sono disponibili altre informazioni sui [log di controllo AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Si noti che in presenza di impostazioni di controllo avanzate di cui è stato eseguito il push nel server AD FS, le eventuali modifiche con auditpol.exe verranno sovrascritte, anche se l'impostazione Generato dall'applicazione non è configurata. In questo caso, impostare i criteri di sicurezza locale per la registrazione degli esiti negativi e positivi di Generato dall'applicazione.
 
-**D: Quando il certificato dell'agente sarà rinnovata prima la scadenza automatica?**
-La certificazione dell'agente verrà eseguito automaticamente rinnovato **6 mesi** prima della data di scadenza. Se non viene rinnovato, verificare che la connessione di rete dell'agente sia stabile. Riavviare i servizi dell'agente o l'aggiornamento alla versione più recente può anche risolvere il problema.
+**D: quando il certificato dell'agente viene rinnovato automaticamente prima della scadenza?**
+La certificazione dell'agente verrà rinnovata automaticamente **6 mesi** prima della data di scadenza. Se non viene rinnovato, verificare che la connessione di rete dell'agente sia stabile. È possibile risolvere il problema anche riavviare i servizi dell'agente o eseguire l'aggiornamento alla versione più recente.
 
 
 ## <a name="related-links"></a>Collegamenti correlati

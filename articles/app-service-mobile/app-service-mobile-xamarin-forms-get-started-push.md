@@ -6,12 +6,12 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: f8aab2c5e942944f6251eef0aaaec204ce5ad076
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: fc05763046da365e7770a9b208100e0366062f25
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668785"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898882"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Aggiungere notifiche push all'app Xamarin.Forms
 
@@ -22,7 +22,7 @@ ms.locfileid: "74668785"
 >
 > Per integrare i servizi cloud nelle applicazioni per dispositivi mobili, iscriversi ad [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc).
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 In questa esercitazione vengono aggiunte notifiche push a tutti i progetti creati nella [guida introduttiva per Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md), in modo che a ogni inserimento di record venga inviata una notifica push a tutti i client multipiattaforma.
 
@@ -201,7 +201,8 @@ Dopo aver configurato il back-end con FCM, è possibile aggiungere componenti e 
         {
             var intent = new Intent(this, typeof(MainActivity));
             intent.AddFlags(ActivityFlags.ClearTop);
-            var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
+            //Unique request code to avoid PendingIntent collision.
+            var requestCode = new Random().Next();
 
             var notificationBuilder = new NotificationCompat.Builder(this)
                 .SetSmallIcon(Resource.Drawable.ic_stat_ic_notification)
@@ -410,7 +411,7 @@ Altre informazioni sulle notifiche push:
 
 È possibile anche proseguire con una delle esercitazioni seguenti:
 
-* [Aggiungere l'autenticazione all'app Xamarin.Forms](app-service-mobile-xamarin-forms-get-started-users.md)  
+* [Aggiungere l'autenticazione all'app](app-service-mobile-xamarin-forms-get-started-users.md)  
   : informazioni sull'autenticazione degli utenti dell'app con un provider di identità.
 * [Abilitare la sincronizzazione offline per l'app](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
   Informazioni su come aggiungere il supporto offline all'app usando il back-end di un'app per dispositivi mobili. Con la sincronizzazione offline è possibile interagire con un'app per dispositivi mobili &mdash;visualizzando, aggiungendo e modificando i dati&mdash; anche quando non è disponibile una connessione di rete.

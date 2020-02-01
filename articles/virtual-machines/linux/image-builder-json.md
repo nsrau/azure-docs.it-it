@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 9183805e2817459ac2c408648981b6989edf4e62
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 4ac2c1266933716697a658b1ba88efd8c2f05d34
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760012"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905753"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Anteprima: creare un modello di generatore di immagini di Azure 
 
@@ -317,6 +317,8 @@ Personalizza proprietà:
 - **restartCheckCommand** : comando per verificare se il riavvio è stato completato (facoltativo). 
 - **restartTimeout** -timeout di riavvio specificato come stringa di grandezza e unità. Ad esempio, `5m` (5 minuti) o `2h` (2 ore). Il valore predefinito è:' 5m '
 
+### <a name="linux-restart"></a>Riavvio di Linux  
+Non è disponibile alcun riavvio di Linux verbi, tuttavia, se si installano i driver o i componenti che richiedono un riavvio, è possibile installarli e richiamare un riavvio usando la shell verbi, il timeout SSH di 20 minuti per la macchina virtuale di compilazione.
 
 ### <a name="powershell-customizer"></a>Verbi di PowerShell 
 La shell verbi supporta l'esecuzione di script di PowerShell e il comando inline. gli script devono essere accessibili pubblicamente per poter accedere al IB.

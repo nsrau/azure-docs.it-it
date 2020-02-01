@@ -3,14 +3,14 @@ title: INTERFACCIA della riga di comando di Azure Service Fabric-servizio mesh s
 description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per ottenere i dettagli del servizio per una risorsa dell'applicazione.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 1ae04d054a254746d59b85f4fe366cebf19e3faf
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 2b9f16062b02d7a1a3403d396643a7989b8976b7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646093"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905934"
 ---
 # <a name="sfctl-mesh-service"></a>sfctl mesh service
 Consente di ottenere i dettagli del servizio ed elencare i servizi di una risorsa dell'applicazione.

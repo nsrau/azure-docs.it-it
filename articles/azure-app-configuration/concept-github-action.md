@@ -1,17 +1,17 @@
 ---
 title: Usare le azioni di GitHub con la sincronizzazione della configurazione app Azure
 description: Usare le azioni di GitHub per attivare un aggiornamento dell'istanza di configurazione dell'app quando vengono eseguite azioni definite in un repository GitHub
-author: jpconnock
-ms.author: jeconnoc
+author: lisaguthrie
+ms.author: lcozzens
 ms.date: 01/14/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 1b7586e6321318a3fe4566e8c744c17a1d7ee179
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 269ae5630d1524cb8f89d3af8728892079f6eb5f
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310613"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899617"
 ---
 # <a name="sync-your-app-configuration-instance-using-github-actions"></a>Sincronizzare l'istanza di configurazione dell'app usando le azioni di GitHub
 App Azure configurazione usa le azioni di GitHub per aggiornare un'istanza di configurazione dell'app quando viene attivata da un'azione eseguita in un repository GitHub. È possibile sfruttare i flussi di lavoro GitHub per aggiornare la configurazione dell'app, consentendo l'integrazione degli aggiornamenti della configurazione dell'app nello stesso flusso di lavoro usato per aggiornare il codice dell'app.
@@ -192,7 +192,7 @@ I parametri di input specificano i dati usati dall'azione durante il Runtime.  L
 | separator | Sì | Separatore utilizzato quando si rende flat il file di configurazione a coppie chiave-valore.  I valori validi sono:. , ; : - _ __ / |
 | prefix | No | Prefisso da aggiungere all'inizio delle chiavi. |
 | label | No | Etichetta utilizzata per l'impostazione di coppie chiave-valore. Se non è specificato, viene utilizzata un'etichetta null. |
-| strict | No | Valore booleano che determina se è abilitata la modalità Strict. Il valore predefinito è false. |
+| Strict | No | Valore booleano che determina se è abilitata la modalità Strict. Il valore predefinito è false. |
 | profondità | No | Profondità massima per rendere flat il file di configurazione.  La profondità deve essere un numero positivo.  Il valore predefinito non avrà profondità massima. |
 | tags | No | Specifica il tag impostato sulle coppie chiave-valore.  Il formato previsto è un form file di un oggetto JSON con la forma seguente: {[propertyName: String]: String;} Ogni proprietà nome-valore diventa un tag. |
 

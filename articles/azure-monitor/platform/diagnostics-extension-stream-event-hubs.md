@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: 433d53e09fce6d3f6b2010956da91c4b7cf91d49
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 111fab880887b54b2415d433bda2368c951381bd
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770170"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901228"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Trasmettere i dati di Diagnostica di Azure nel percorso critico tramite Hub eventi
 Diagnostica di Azure fornisce metodi flessibili per raccogliere le metriche e i log delle macchine virtuali (VM) di servizi cloud e trasferire i risultati in Archiviazione di Azure. A partire da marzo 2016 (SDK 2.9), è possibile eseguire inviare la diagnostica a origini dati completamente personalizzate e trasferire i dati del percorso critico in pochi secondi tramite [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/).
@@ -201,7 +201,7 @@ In questo esempio, il sink viene applicato ai log e filtrato solo per l'analisi 
 ## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Distribuire e aggiornare un'applicazione dei servizi cloud e della configurazione della diagnostica
 Visual Studio offre il modo più semplice per distribuire l'applicazione e la configurazione sink dell'Hub eventi. Per visualizzare e modificare il file, aprire il file *.wadcfgx* in Visual Studio, modificarlo e salvarlo. Il percorso è **Progetto servizio cloud** > **Ruoli** >  **(NomeRuolo)**  > **diagnostics.wadcfgx**.  
 
-A questo punto, tutte le operazioni di distribuzione e di aggiornamento delle distribuzioni in Visual Studio, Visual Studio Team System e tutti i comandi o script che si basano su MSBuild e usano la destinazione **/t:publish** includeranno il file *.wadcfgx* nel processo di creazione dei pacchetti. Le distribuzioni e gli aggiornamenti distribuiscono anche il file in Azure tramite l'appropriata estensione agente di Diagnostica di Azure nelle macchine virtuali.
+A questo punto, tutte le azioni di distribuzione e aggiornamento della distribuzione in Visual Studio, Visual Studio Team System e tutti i comandi o script basati su MSBuild e usano la destinazione `/t:publish` includono il *wadcfgx* nel processo di creazione del pacchetto. Le distribuzioni e gli aggiornamenti distribuiscono anche il file in Azure tramite l'appropriata estensione agente di Diagnostica di Azure nelle macchine virtuali.
 
 Al termine della distribuzione dell'applicazione e della configurazione di Diagnostica di Azure, l'attività verrà visualizzata immediatamente nel dashboard dell'Hub eventi. Ciò indica che si è pronti per passare alla visualizzazione dei dati del percorso critico nel client listener o nello strumento di analisi scelto.  
 
@@ -215,13 +215,72 @@ Nella figura seguente, il dashboard Hub eventi mostra l'invio integro dei dati d
 >
 
 ## <a name="view-hot-path-data"></a>Visualizzare i dati del percorso critico
-Come illustrato in precedenza, esistono molti casi d'uso per l'ascolto e l'elaborazione dei dati dell'Hub eventi.
+Come illustrato in precedenza, esistono molti casi d'uso per l'ascolto e l'elaborazione dei dati dell'Hub eventi. Un approccio semplice consiste nel creare una piccola applicazione console di verifica per l'ascolto dell'Hub eventi e per la stampa del flusso di output. 
 
-Un approccio semplice consiste nel creare una piccola applicazione console di verifica per l'ascolto dell'Hub eventi e per la stampa del flusso di output. È possibile inserire il seguente codice (descritto dettagliatamente nell'articolo [Introduzione all'Hub eventi](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)) in un'applicazione console.  
+#### <a name="net-sdk-latest-500-or-latertablatest"></a>[.NET SDK più recente (5.0.0 o versione successiva)](#tab/latest)
+È possibile inserire il seguente codice (descritto dettagliatamente nell'articolo [Introduzione all'Hub eventi](../../event-hubs/get-started-dotnet-standard-send-v2.md)) in un'applicazione console.
 
-L'applicazione console deve includere il [pacchetto Event Processor Host NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).  
+```csharp
+using System;
+using System.Text;
+using System.Threading.Tasks;
+using Azure.Storage.Blobs;
+using Azure.Messaging.EventHubs;
+using Azure.Messaging.EventHubs.Processor;
+namespace Receiver1204
+{
+    class Program
+    {
+        private static readonly string ehubNamespaceConnectionString = "EVENT HUBS NAMESPACE CONNECTION STRING";
+        private static readonly string eventHubName = "EVENT HUB NAME";
+        private static readonly string blobStorageConnectionString = "AZURE STORAGE CONNECTION STRING";
+        private static readonly string blobContainerName = "BLOB CONTAINER NAME";
 
-Sostituire i valori in parentesi tonde nella funzione **Main** con i valori per le proprie risorse.   
+        static async Task Main()
+        {
+            // Read from the default consumer group: $Default
+            string consumerGroup = EventHubConsumerClient.DefaultConsumerGroupName;
+
+            // Create a blob container client that the event processor will use 
+            BlobContainerClient storageClient = new BlobContainerClient(blobStorageConnectionString, blobContainerName);
+
+            // Create an event processor client to process events in the event hub
+            EventProcessorClientOptions options = new EventProcessorClientOptions { }
+            EventProcessorClient processor = new EventProcessorClient(storageClient, consumerGroup, ehubNamespaceConnectionString, eventHubName);
+
+            // Register handlers for processing events and handling errors
+            processor.ProcessEventAsync += ProcessEventHandler;
+            processor.ProcessErrorAsync += ProcessErrorHandler;
+
+            // Start the processing
+            await processor.StartProcessingAsync();
+
+            // Wait for 10 seconds for the events to be processed
+            await Task.Delay(TimeSpan.FromSeconds(10));
+
+            // Stop the processing
+            await processor.StopProcessingAsync();
+        }
+
+        static Task ProcessEventHandler(ProcessEventArgs eventArgs)
+        {
+            Console.WriteLine("\tRecevied event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
+            return Task.CompletedTask;
+        }
+
+        static Task ProcessErrorHandler(ProcessErrorEventArgs eventArgs)
+        {
+            Console.WriteLine($"\tPartition '{ eventArgs.PartitionId}': an unhandled exception was encountered. This was not expected to happen.");
+            Console.WriteLine(eventArgs.Exception.Message);
+            return Task.CompletedTask;
+        }
+    }
+}
+```
+
+#### <a name="net-sdk-legacy-410-or-earliertablegacy"></a>[.NET SDK legacy (4.1.0 o versioni precedenti)](#tab/legacy)
+
+È possibile inserire il seguente codice (descritto dettagliatamente nell'articolo [Introduzione all'Hub eventi](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)) in un'applicazione console. L'applicazione console deve includere il [pacchetto Event Processor Host Nuget](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/). Sostituire i valori in parentesi tonde nella funzione **Main** con i valori per le proprie risorse.   
 
 ```csharp
 //Console application code for EventHub test client
@@ -303,6 +362,7 @@ namespace EventHubListener
     }
 }
 ```
+---
 
 ## <a name="troubleshoot-event-hubs-sinks"></a>Risoluzione dei problemi relativi ai sink dell'Hub eventi
 * L'Hub eventi non visualizza le attività dell'evento in ingresso o in uscita come previsto.
@@ -310,7 +370,7 @@ namespace EventHubListener
     Verificare che l'Hub eventi esegua correttamente il provisioning. Tutte le informazioni di connessione nella sezione **PrivateConfig** del file *.wadcfgx* devono corrispondere ai valori della risorsa, come illustrato nel portale. Assicurarsi di avere definito un criterio SAS ("SendRule" nell'esempio) nel portale e che sia stata concessa l'autorizzazione di *invio* .  
 * Dopo un aggiornamento, l'Hub eventi non visualizza più le attività dell'evento in ingresso o in uscita.
 
-    In primo luogo, assicurarsi che le informazioni di configurazione e dell'Hub eventi siano esatte, come spiegato in precedenza. Capita che a volte **PrivateConfig** venga reimpostato in un aggiornamento della distribuzione. La soluzione consigliata consiste nell'apportare tutte le modifiche nel file *.wadcfgx* del progetto e quindi eseguire il push di un aggiornamento completo dell'applicazione. Se non è possibile, verificare che l'aggiornamento della diagnostica esegua il push della sezione **PrivateConfig** completa, che include la chiave SAS.  
+    Assicurarsi prima di tutto che l'hub eventi e le informazioni di configurazione siano corretti, come illustrato in precedenza. Capita che a volte **PrivateConfig** venga reimpostato in un aggiornamento della distribuzione. La soluzione consigliata consiste nell'apportare tutte le modifiche nel file *.wadcfgx* del progetto e quindi eseguire il push di un aggiornamento completo dell'applicazione. Se non è possibile, verificare che l'aggiornamento della diagnostica esegua il push della sezione **PrivateConfig** completa, che include la chiave SAS.  
 * Ho provato a seguire i suggerimenti, ma l'Hub eventi continua a non funzionare.
 
     Eseguire una ricerca nella tabella di Archiviazione di Azure contenente i log e gli errori della Diagnostica di Azure: **WADDiagnosticInfrastructureLogsTable**. Una possibilità consiste nell'usare uno strumento come [Esplora archivi Azure](https://www.storageexplorer.com) per connettersi a questo account di archiviazione, visualizzare la tabella e aggiungere una query per il TimeStamp delle ultime 24 ore. È possibile utilizzare lo strumento per esportare un file .csv e aprirlo in un'applicazione come Microsoft Excel. Excel semplifica la ricerca di stringhe di presentazione come **EventHubs**per visualizzare l'errore segnalato.  

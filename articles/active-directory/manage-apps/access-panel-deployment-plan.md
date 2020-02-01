@@ -15,12 +15,12 @@ ms.date: 09/27/2019
 ms.author: baselden
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e9b2119964ec2af792e2f2a5b942fde12cf7eab
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 04d8b6c6d40aa81bf56baed59f90417f2147fa56
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512852"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897067"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Pianificare una distribuzione del pannello di accesso Azure Active Directory
 
@@ -36,8 +36,8 @@ Tramite il pannello di accesso Azure AD è possibile:
 
 Consente inoltre agli amministratori di gestire:
 
-* Condizioni per l'utilizzo del servizio
-* Organizations
+* Condizioni del servizio
+* Organizzazioni
 * Verifiche di accesso
 
 
@@ -55,7 +55,7 @@ Il pannello di accesso Azure AD offre vantaggi per le aziende nei modi seguenti:
 
 **Consente di monitorare e controllare l'utilizzo affidabili**: il controllo e il rilevamento dell'utilizzo per tutte le funzionalità utente consentono di capire quando gli utenti usano le risorse e garantiscono la valutazione della sicurezza.
 
-### <a name="licensing-considerations"></a>Considerazioni sulle licenze
+### <a name="licensing-considerations"></a>Considerazioni sulla gestione delle licenze
 
 Il pannello di accesso è gratuito e non richiede licenze da usare a livello di base. Tuttavia, il numero di oggetti nella directory e le funzionalità aggiuntive che si desidera distribuire possono richiedere licenze aggiuntive. Alcuni scenari comuni di Azure AD con requisiti di licenza includono le funzionalità di sicurezza seguenti:
 
@@ -227,9 +227,9 @@ Pianificare l'ordine in cui si aggiungono le applicazioni all'utilità di avvio 
 
 È possibile aggiungere qualsiasi applicazione Azure AD abilitata per l'accesso SSO all'utilità di avvio app personali. Altre applicazioni vengono aggiunte utilizzando l'opzione collegata SSO. È possibile configurare un riquadro dell'applicazione che si collega all'URL dell'applicazione Web esistente. SSO collegato consente di iniziare a indirizzare gli utenti al portale app personali senza eseguire la migrazione di tutte le applicazioni a Azure AD SSO. È possibile spostarsi gradualmente in Azure AD applicazioni configurate con SSO senza compromettere l'esperienza degli utenti.
 
-#### <a name="use-my-apps-workspaces-preview"></a>Usare le aree di lavoro app personali (anteprima)
+#### <a name="use-my-apps-collections"></a>Usare le raccolte di app personali
 
-Per impostazione predefinita, tutte le applicazioni sono elencate insieme in un'unica pagina. Tuttavia, è possibile usare le aree di lavoro per raggruppare le applicazioni correlate e presentarle in una scheda separata, rendendole più facili da trovare. Ad esempio, è possibile utilizzare le aree di lavoro per creare raggruppamenti logici di applicazioni per ruoli, attività, progetti e così via specifici. Per informazioni, vedere [come usare le aree di lavoro app personali per personalizzare i pannelli di accesso utente (anteprima)](access-panel-workspaces.md). 
+Per impostazione predefinita, tutte le applicazioni sono elencate insieme in un'unica pagina. È tuttavia possibile usare le raccolte per raggruppare le applicazioni correlate e presentarle in una scheda separata, rendendole più facili da trovare. È ad esempio possibile utilizzare le raccolte per creare raggruppamenti logici di applicazioni per ruoli di processo, attività, progetti e così via specifici. Per informazioni, vedere [come usare le raccolte di app personali per personalizzare i pannelli di accesso utente](access-panel-collections.md). 
 
 #### <a name="plan-whether-to-use-my-apps-or-an-existing-portal"></a>Pianificare se usare app personali o un portale esistente
 
@@ -261,10 +261,10 @@ Per pianificare l'appartenenza al gruppo self-service, determinare se si consent
 
 Azure AD fornisce [report che offrono informazioni tecniche e aziendali](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). Collaborare con i proprietari delle applicazioni aziendali e tecniche per assumere la proprietà di questi report e per utilizzarli a intervalli regolari. Nella tabella seguente vengono forniti alcuni esempi di scenari di Reporting tipici.
 
-|   | per gestire i rischi.| Aumenta la produttività| Governance e conformità |
+|   | per gestire i rischi.| Aumentare la produttività| Governance e conformità |
 |  - |- | - | - |
 | Tipi di report|  Autorizzazioni e utilizzo dell'applicazione| Attività di provisioning dell'account| Esaminare gli utenti che accedono alle applicazioni |
-| Azioni potenziali| Controllare l'accesso; revoca autorizzazioni| Correggere gli errori di provisioning| revoca dell'accesso |
+| Azioni potenziali| Controllare l'accesso; revoca autorizzazioni| Correggere gli errori di provisioning| Revoca l'accesso |
 
 Azure AD mantiene la maggior parte dei dati di controllo per 30 giorni. I dati sono disponibili tramite il portale di amministrazione di Azure o l'API da scaricare nei sistemi di analisi.
 
@@ -336,11 +336,11 @@ I test seguenti devono essere eseguiti con i dispositivi di proprietà dell'azie
 
 È consigliabile utilizzare il ruolo con privilegi minimi per eseguire un'attività obbligatoria all'interno Azure Active Directory. [Esaminare i diversi ruoli disponibili](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) e scegliere quello più adatto per soddisfare le proprie esigenze per ogni utente di questa applicazione. È possibile che alcuni ruoli debbano essere applicati temporaneamente e rimossi al termine della distribuzione.
 
-| Utenti tipo| Ruoli| Ruolo di Azure AD  |
+| Utenti tipo| Ruoli| Ruolo Azure AD  |
 | - | -| -|
 | Amministratore helpdesk| Supporto di livello 1| Nessuno |
 | Amministratore identità| Configurare ed eseguire il debug quando i problemi hanno effetto Azure AD| Amministratore globale |
-| Amministratore applicazioni| Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni| Nessuno |
+| Amministratore applicazione| Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni| Nessuno |
 | Amministratori dell'infrastruttura| Proprietario del rollover del certificato| Amministratore globale |
 | Proprietario/stakeholder aziendale| Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni| Nessuno |
 

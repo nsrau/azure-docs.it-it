@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 8/19/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a954898a334ead15d8ffdf6dab6e6a309bd57089
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: cc01145423d2961e32bf17313a2873633399d21a
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659832"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901478"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creare e gestire gruppi di azione nel portale di Azure
 Un gruppo di azioni è una raccolta delle preferenze di notifica definite dal proprietario di una sottoscrizione di Azure. Gli avvisi di Monitoraggio di Azure e di integrità dei servizi usano gruppi di azioni per notificare agli utenti l'attivazione di un avviso. I vari avvisi possono usare lo stesso gruppo di azioni o gruppi di azioni diversi, a seconda delle esigenze dell'utente. In una sottoscrizione è possibile configurare fino a 2000 gruppi di azioni.
@@ -72,7 +72,7 @@ Dopo aver creato un gruppo di azione, questo sarà visibile nella sezione **grup
 > [!NOTE]
 > Vedere [limiti del servizio di sottoscrizione per il monitoraggio](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-monitor-limits) dei limiti numerici per ognuno degli elementi seguenti.  
 
-### <a name="automation-runbook"></a>Runbook di Automazione
+### <a name="automation-runbook"></a>Runbook di automazione
 Vedere i [limiti del servizio di sottoscrizione di Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md) per i limiti sui payload Runbook.
 
 Un gruppo di azioni può contenere un numero limitato di azioni Runbook. 
@@ -88,13 +88,13 @@ I messaggi di posta elettronica verranno inviati dagli indirizzi di posta elettr
 
 Un gruppo di azioni può contenere un numero limitato di azioni di posta elettronica. Vedere l'articolo relativo alle [informazioni sulla limitazione della frequenza](./../../azure-monitor/platform/alerts-rate-limiting.md) .
 
-### <a name="email-azure-resource-manager-role"></a>Invia un messaggio di posta elettronica al ruolo di Azure Resource Manager
+### <a name="email-azure-resource-manager-role"></a>Ruolo Azure Resource Manager di posta elettronica
 Inviare un messaggio di posta elettronica ai membri del ruolo della sottoscrizione.
 
 Un gruppo di azioni può contenere un numero limitato di azioni di posta elettronica. Vedere l'articolo relativo alle [informazioni sulla limitazione della frequenza](./../../azure-monitor/platform/alerts-rate-limiting.md) .
 
 ### <a name="function"></a>Funzione
-I tasti funzione per le app per le funzioni configurate come azioni vengono letti tramite l'API Functions, che attualmente richiede app per le funzioni V2 per configurare l'impostazione dell'app "AzureWebJobsSecretStorageType" su "files". Per ulteriori informazioni, vedere [modifiche alla gestione delle chiavi in funzioni V2]( https://aka.ms/funcsecrets).
+Chiama un endpoint di trigger HTTP esistente in [funzioni di Azure](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
 
 Un gruppo di azioni può contenere un numero limitato di azioni di funzione.
 

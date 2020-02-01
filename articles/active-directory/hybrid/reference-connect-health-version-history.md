@@ -8,6 +8,7 @@ manager: daveba
 editor: curtand
 ms.assetid: 8dd4e998-747b-4c52-b8d3-3900fe77d88f
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,23 +16,23 @@ ms.topic: reference
 ms.date: 03/20/2019
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27c0d3055512145396f204fdb17e9375f65a0db3
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: ace8d170a5ba48c00775c3b376df8bb70a337d5d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562326"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897046"
 ---
-# <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Cronologia di rilascio delle versioni
+# <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: cronologia delle versioni
 Il team di Azure Active Directory aggiorna regolarmente Azure AD Connect Health con nuove funzionalità. Questo articolo elenca le versioni e le funzionalità che sono state rilasciate.  
 
 > [!NOTE]
-> Gli agenti di Connect Health vengono aggiornati automaticamente quando viene rilasciata una nuova versione. Verificare che le impostazioni di aggiornamento automatico siano abilitate da portale di Azure. 
+> Gli agenti di Connect Health vengono aggiornati automaticamente quando viene rilasciata una nuova versione. Verificare che le impostazioni di aggiornamento automatico siano abilitate da portale di Azure.
 >
 
 Azure AD Connect Health per la sincronizzazione è integrato con l'installazione di Azure AD Connect. Per altre informazioni, vedere [Azure AD Connect: Cronologia delle versioni](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history). Per fornire un feedback sulle funzionalità, esprimere un voto nel sito [User Voice di Connect Health](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 
-## <a name="july-2019"></a>2019 luglio
+## <a name="july-2019"></a>Luglio 2019
 **Aggiornamento dell'agente**
 * Agente di Azure AD Connect Health per AD FS (versione 3.1.59.0) 
    1. Modifica del testo in TestWindowsTransport
@@ -156,7 +157,7 @@ Azure AD Connect Health per la sincronizzazione è integrato con l'installazione
 **Aggiornamento dell'agente:**
 
  * Agente di Azure AD Connect Health per Sync (versione 3.0.129.0) rilasciato con Azure AD Connect versione 1.1.649.0
-<br></br> È stato risolto il problema di compatibilità di versione tra Azure AD Connect e l'agente di Azure AD Connect Health per la sincronizzazione. Questo problema interessa i clienti che eseguono l'aggiornamento sul posto di Azure AD Connect versione 1.1.647.0, ma hanno attualmente l'agente integrità versione 3.0.127.0. Dopo l'aggiornamento, l'agente integrità non può più inviare dati di integrità relativi al servizio di sincronizzazione di Azure AD Connect al servizio integrità di Azure Active Directory. Con questa correzione, l'agente di integrità versione 3.0.129.0 viene installato durante l'aggiornamento sul posto di Azure AD Connect. L'agente integrità versione 3.0.129.0 non presenta il problema di compatibilità con Azure AD Connect versione 1.1.649.0.
+<br></br> Correzione di un problema di compatibilità delle versioni tra Azure AD Connect e agente Azure AD Connect Health per la sincronizzazione. Questo problema interessa i clienti che eseguono Azure AD Connect l'aggiornamento sul posto alla versione 1.1.647.0, ma dispone attualmente della versione dell'agente per l'integrità 3.0.127.0. Dopo l'aggiornamento, l'agente integrità non può più inviare dati di integrità relativi al servizio di sincronizzazione di Azure AD Connect al servizio integrità di Azure Active Directory. Con questa correzione, l'agente di integrità versione 3.0.129.0 viene installato durante l'aggiornamento sul posto di Azure AD Connect. L'agente integrità versione 3.0.129.0 non presenta il problema di compatibilità con Azure AD Connect versione 1.1.649.0.
 
 ## <a name="july-2017"></a>Luglio 2017
 **Aggiornamento dell'agente:**

@@ -1,6 +1,6 @@
 ---
-title: Panoramica VM di serie HC - macchine virtuali di Azure | Microsoft Docs
-description: Informazioni sul supporto dell'anteprima per le dimensioni di macchine virtuali serie HC in Azure.
+title: Panoramica delle VM serie HC-macchine virtuali di Azure | Microsoft Docs
+description: Informazioni sul supporto in anteprima per le dimensioni della macchina virtuale della serie HC in Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -12,57 +12,57 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: 6cdb539846104f70dabf684925685fb062fea8af
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: a4cd74c9c85ee7413cde9f0fb4cf3ffb54c9b3d0
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797565"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906751"
 ---
-# <a name="hc-series-virtual-machine-overview"></a>Panoramica delle macchine virtuali serie connessione ibrida
+# <a name="hc-series-virtual-machine-overview"></a>Panoramica delle macchine virtuali della serie HC
 
-Ottimizzare le prestazioni di applicazioni HPC sui processori Intel Xeon scalabile richiede un approccio con attenzione alla selezione host di processo su questa nuova architettura. In questo caso, viene descritta l'implementazione di esso in macchine virtuali di Azure serie connessione ibrida per le applicazioni HPC. Si userà il termine "pNUMA" per fare riferimento a un dominio NUMA fisica e "vNUMA" per fare riferimento a un dominio NUMA virtuale. Analogamente, si userà il termine "pCore" per fare riferimento ai core CPU fisici e "vCore" per fare riferimento a virtualizzato di core CPU.
+Per ottimizzare le prestazioni delle applicazioni HPC nei processori Intel Xeon scalabili è necessario un approccio riflessivo per elaborare la selezione host in questa nuova architettura. In questo esempio viene illustrata l'implementazione delle macchine virtuali della serie HC di Azure per le applicazioni HPC. Il termine "pNUMA" viene usato per fare riferimento a un dominio NUMA fisico e "vNUMA" per fare riferimento a un dominio NUMA virtualizzato. Analogamente, si userà il termine "pCore" per fare riferimento ai core CPU fisici e a "vCore" per fare riferimento ai core CPU virtualizzati.
 
-Fisicamente, un server di connessione ibrida è 2 * 24-core Intel Xeon Platinum 8168 CPU per un totale di core fisici 48. Ciascuna CPU è un dominio singolo pNUMA e dispone di unified access ai sei canali di DRAM. Funzionalità di Intel Xeon Platinum CPU a 4 volte più grandi della cache L2 rispetto in previa generazioni (256 KB/core-> 1 MB/core), riducendo al tempo la cache L3 rispetto alle precedenti CPU Intel (MB/core 1.375 2,5 MB/core->).
+Fisicamente, un server HC è costituito da 2 * 24 core Intel Xeon Platinum 8168 per un totale di 48 core fisici. Ogni CPU è un singolo dominio pNUMA e ha accesso unificato a sei canali di DRAM. Le CPU Intel Xeon Platinum presentano una cache L2 di dimensioni superiori a 4 volte superiore rispetto alle generazioni precedenti (256 KB/core-> 1 MB/Core), riducendo al tempo stesso la cache L3 rispetto alle CPU Intel precedenti (2,5 MB/Core-> 1,375 MB/Core).
 
-La topologia precedente è ancora presente anche la configurazione di hypervisor HC-series. Per lasciare spazio per l'hypervisor operare senza interferire con la macchina virtuale di Azure, Microsoft si riserva pCores 0-1 e 24-25 (vale a dire, i primi 2 pCores su ogni socket). Quindi, assegniamo pNUMA domini tutti i core rimanenti per la macchina virtuale. In questo modo, verrà visualizzata la macchina virtuale:
+La topologia precedente viene riportata anche alla configurazione dell'hypervisor della serie HC. Per consentire il funzionamento dell'hypervisor di Azure senza interferire con la macchina virtuale, si riservano pCores 0-1 e 24-25 (ovvero i primi 2 pCores in ogni socket). Si assegnano quindi i domini di pNUMA tutti i core rimanenti alla macchina virtuale. Quindi, la macchina virtuale visualizzerà:
 
-`(2 vNUMA domains) * (22 cores/vNUMA) = 44` core per ogni macchina virtuale
+`(2 vNUMA domains) * (22 cores/vNUMA) = 44` core per macchina virtuale
 
-La macchina virtuale non è a conoscenza che pCores 0-1 e 24-25 non sono stati assegnati a esso. Pertanto, espone ogni vNUMA come se avesse in modo nativo 22 Core.
+La macchina virtuale non è a conoscenza del pCores 0-1 e 24-25. In questo modo, espone ogni vNUMA come se avesse 22 core a livello nativo.
 
-Intel Xeon Platinum, Gold e Silver CPU introducono anche una rete mesh 2D in dado per la comunicazione all'interno ed esterno nel socket della CPU. Si consiglia di associazione del processo per coerenza e prestazioni ottimali. L'aggiunta di processo funzionerà in macchine virtuali della serie HC perché la silicon sottostante è esposta come-consiste nella macchina virtuale guest. Per altre informazioni, vedere [architettura Intel Xeon SP](https://bit.ly/2RCYkiE).
+Con le CPU Intel Xeon Platinum, Gold e Silver è stata introdotta anche una rete mesh 2D su disco per la comunicazione all'interno e all'esterno del socket della CPU. Si consiglia vivamente di bloccare i processi per ottenere prestazioni e coerenza ottimali. Il blocco dei processi funzionerà nelle macchine virtuali della serie HC perché il silicio sottostante viene esposto così com'è alla macchina virtuale guest. Per altre informazioni, vedere [architettura Intel Xeon SP](https://bit.ly/2RCYkiE).
 
-Il diagramma seguente mostra la separazione di core riservati per l'Hypervisor di Azure e la macchina virtuale serie connessione ibrida.
+Il diagramma seguente illustra la separazione dei core riservati per l'hypervisor di Azure e la macchina virtuale della serie HC.
 
-![Separazione dei core riservati per l'Hypervisor di Azure e macchine virtuali serie connessione ibrida](./media/hc-series-overview/segregation-cores.png)
+![Separazione dei core riservati per la VM di Azure hypervisor e della serie HC](./media/hc-series-overview/segregation-cores.png)
 
 ## <a name="hardware-specifications"></a>Specifiche hardware
 
-| Specifiche hardware          | Macchine Virtuali serie connessione ibrida                     |
+| Specifiche hardware          | VM serie HC                     |
 |----------------------------------|----------------------------------|
-| Core                            | 40 (Hyper-Threading disabilitato)                 |
+| Core                            | 44 (HT disabilitato)                 |
 | CPU                              | Intel Xeon Platinum 8168 *        |
-| Frequenza della CPU (non-AVX)          | Fino a 3,7 GHz (core singolo), 2.7, 3.4 GHz (tutti i core) |
-| Memoria                           | 8 GB/core (352 totale)            |
-| Disco locale                       | NVMe 700 GB                      |
-| Infiniband                       | 100 Gb EDR Mellanox ConnectX-5 * * |
-| Rete                          | 50 Gb Ethernet (40 Gb utilizzabile) Azure seconda generazione SmartNIC * * * |
+| Frequenza CPU (non-AVX)          | 3,7 GHz (core singolo), 2.7-3,4 GHz (tutti i core) |
+| Memoria                           | 8 GB/Core (Totale 352)            |
+| Disco locale                       | 700 GB NVMe                      |
+| InfiniBand                       | 100 GB EDR Mellanox ConnectX-5 * * |
+| Rete                          | 50 GB Ethernet (40 GB utilizzabili) Azure Second gen SmartNIC * * * |
 
 ## <a name="software-specifications"></a>Specifiche del software
 
-| Specifiche del software     | Macchine Virtuali serie connessione ibrida          |
+| Specifiche del software     | VM serie HC          |
 |-----------------------------|-----------------------|
-| Dimensioni di processi MPI max            | 4400 core (100 set di scalabilità), 8800 core (200 set di scalabilità di macchine virtuali) |
-| Supporto di MPI                 | MVAPICH2, OpenMPI, MPICH, piattaforma MPI, Intel MPI  |
-| Framework aggiuntivi       | Unified Communication X, libfabric, PGAS |
-| Supporto di archiviazione di Azure       | Standard e Premium (massimi 4 dischi) |
-| Supporto per RDMA SRIOV del sistema operativo   | CentOS/RHEL 7.6+, SLES 12 SP4+, WinServer 2016+ |
-| Supporto per Azure CycleCloud    | Sì                         |
-| Supporto di Azure Batch         | Sì                         |
+| Dimensioni massime del processo MPI            | 13200 Core (300 VM in un singolo VMSS con singlePlacementGroup = true) |
+| Supporto MPI                 | MVAPICH2, OpenMPi, MPICH, Platform MPI, Intel MPI  |
+| Framework aggiuntivi       | Comunicazione unificata X, libfabric, PGA |
+| Supporto per archiviazione di Azure       | STD + Premium (max 4 dischi) |
+| Supporto del sistema operativo per SRIOV RDMA   | CentOS/RHEL 7.6 +, SLES 12 SP4 +, WinServer 2016 + |
+| Supporto di Azure CycleCloud    | Sì                         |
+| Supporto Azure Batch         | Sì                         |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sulle dimensioni delle VM di HPC per [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) e [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc) in Azure.
+* Scopri di più sulle dimensioni delle VM HPC per [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) e [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc) in Azure.
 
-* Altre informazioni sulle [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.
+* Scopri di più su [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.

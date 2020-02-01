@@ -3,38 +3,26 @@ title: 'Guida introduttiva: libreria client di archiviazione BLOB di Azure V8 pe
 description: Si creano un account di archiviazione e un contenitore nell'archivio oggetti (BLOB). Usare quindi la libreria client di archiviazione di Azure V8 per Java per caricare un BLOB in archiviazione di Azure, scaricare un BLOB ed elencare i BLOB in un contenitore.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/05/2019
+ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: a6c4380e44d705e551bc96746a809c57aa02ac5b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 373875aee836485bb994d81e0945cec3a9b088eb
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825381"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906496"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v8-for-java"></a>Guida introduttiva: libreria client di archiviazione BLOB di Azure V8 per Java
+# <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Guida introduttiva: gestire i BLOB con Java V8 SDK
 
-Introduzione alla libreria client di archiviazione BLOB di Azure V8 per Java. Archiviazione BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. L'archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati.
+Questa Guida introduttiva illustra come gestire i BLOB usando Java. I BLOB sono oggetti che possono includere grandi quantità di dati di testo o binari, tra cui immagini, documenti, flussi multimediali e dati di archiviazione. Caricare, scaricare ed elencare i BLOB. Si creeranno anche le autorizzazioni per l'eliminazione e l'eliminazione dei contenitori.
 
-Usare la libreria client di archiviazione BLOB di Azure per Java per:
+## <a name="prerequisites"></a>Prerequisiti
 
-* Creare un contenitore
-* Impostare le autorizzazioni in un contenitore
-* Creare un oggetto BLOB in Archiviazione di Azure
-* Scaricare il BLOB nel computer locale
-* Elencare tutti i BLOB in un contenitore
-* Eliminare un contenitore
-
-## <a name="prerequisites"></a>prerequisiti
-
-* Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
-* Account di archiviazione di Azure: [creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* IDE con integrazione Maven.
-* Oppure installare e configurare Maven per usarlo dalla riga di comando.
-
-Questa guida usa [Eclipse](https://www.eclipse.org/downloads/) con la configurazione "Eclipse IDE for Java Developers" (IDE Eclipse per sviluppatori Java).
+- Un account Azure con una sottoscrizione attiva. [Crea gratuitamente un account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Un account dell'Archiviazione di Azure. [Creare un account di archiviazione](../common/storage-account-create.md).
+- IDE con integrazione Maven. Questa guida usa [Eclipse](https://www.eclipse.org/downloads/) con la configurazione "Eclipse IDE for Java Developers" (IDE Eclipse per sviluppatori Java).
 
 ## <a name="download-the-sample-application"></a>Scaricare l'applicazione di esempio
 
@@ -46,9 +34,9 @@ Usare [git](https://git-scm.com/) per scaricare una copia dell'applicazione nell
 git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
 ```
 
-Questo comando consente di duplicare il repository nella cartella locale git. Per aprire il progetto, avviare Eclipse e chiudere la schermata iniziale. Selezionare **File** quindi **Open Projects from File System** (Apri progetti da file system). Assicurarsi che l'opzione **Detect and configure project natures** (Rileva e configura nature progetto) sia selezionata. Selezionare **Directory** quindi spostarsi dove è stato archiviato il repository clonato. All'interno del repository clonato selezionare la cartella **blobAzureApp**. Verificare che il progetto **blobAzureApp** sia visualizzato come progetto di Eclipse, quindi selezionare **Finish** (Fine).
+Questo comando consente di duplicare il repository nella cartella locale git. Per aprire il progetto, avviare Eclipse e chiudere la schermata iniziale. Selezionare **File** quindi **Open Projects from File System** (Apri progetti da file system). Assicurarsi che **rileva e configura natura progetto** sia selezionato. Selezionare **Directory** quindi spostarsi dove è stato archiviato il repository clonato. All'interno del repository clonato selezionare la cartella **blobAzureApp**. Verificare che il progetto **blobAzureApp** sia visualizzato come progetto di Eclipse, quindi selezionare **Finish** (Fine).
 
-Dopo che l'importazione del progetto è terminata, aprire **AzureApp.java** (che si trova in **blobQuickstart.blobAzureApp** all'interno di **main/src/java**) e sostituire `accountname` ed `accountkey` all'interno della stringa `storageConnectionString`. Quindi eseguire l'applicazione. Le istruzioni specifiche per il completamento di queste attività sono descritte nelle sezioni seguenti.
+Al termine dell'importazione del progetto, aprire **AzureApp. Java** (situato in **blobQuickstart. blobAzureApp** all'interno di **src/main/java**) e sostituire il `accountname` e `accountkey` all'interno della stringa `storageConnectionString`. Quindi eseguire l'applicazione. Le istruzioni specifiche per il completamento di queste attività sono descritte nelle sezioni seguenti.
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
@@ -89,7 +77,7 @@ Prima di continuare controllare nella directory predefinita (*C:\Utenti\<utente>
   >[!NOTE]
   >È anche possibile usare uno strumento come [Azure Storage Explorer](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) per visualizzare i file nell'archiviazione BLOB. Azure Storage Explorer è uno strumento multipiattaforma gratuito che consente di accedere alle informazioni dell'account di archiviazione.
 
-Dopo aver verificato i file, premere **INVIO** per terminare la demo ed eliminare i file di test. Ora che si conosce il risultato dell'esempio, aprire il file **AzureApp.java** per esaminare il codice.
+Dopo aver verificato i file, premere il tasto **invio** per completare la demo ed eliminare i file di test. Ora che si conosce il risultato dell'esempio, aprire il file **AzureApp.java** per esaminare il codice.
 
 ## <a name="understand-the-sample-code"></a>Informazioni sul codice di esempio
 

@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/04/2020
-ms.openlocfilehash: 940ada83aeabf4bf8746ad5f90592e0917f7b403
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 01/15/2020
+ms.openlocfilehash: 71c6879f467823ab01f4c60ac4d9f26cffcd4eea
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844446"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896128"
 ---
 # <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>API REST del servizio ricerca cognitiva di Azure-versione 2019-05-06-Preview
 
@@ -22,8 +22,11 @@ Questo articolo descrive la versione `api-version=2019-05-06-Preview` dell'API R
 > [!NOTE]
 > Le funzionalità di anteprima sono disponibili per i test e la sperimentazione allo scopo di raccogliere commenti e suggerimenti e sono soggette a modifiche. È consigliabile evitare l'uso delle API di anteprima in applicazioni di produzione.
 
+## <a name="features-in-2019-05-06-preview"></a>Funzionalità di 2019-05-06-Preview
 
-## <a name="new-in-2019-05-06-preview"></a>Novità in 2019-05-06-Preview
+Questa sezione elenca le funzionalità con stato anteprima. Nella maggior parte dei casi sono stati aggiunti nell'API 2019-05-06-Preview corrente, ma alcuni come `moreLikeThis` provengono dalle versioni di anteprima precedenti che sono state inserite nell'API di anteprima più recente. 
+
+Quando una funzionalità di anteprima diventa disponibile a livello generale, viene rimossa da questo elenco. È possibile controllare [gli aggiornamenti dei servizi](https://azure.microsoft.com/updates/?product=search) o le [novità per gli](whats-new.md) annunci relativi alla disponibilità generale.
 
 + L' [arricchimento incrementale (anteprima)](cognitive-search-incremental-indexing-conceptual.md) aggiunge la memorizzazione nella cache a una pipeline di arricchimento, consentendo di riutilizzare l'output esistente se una modifica di destinazione, ad esempio un aggiornamento a un skillt o a un altro oggetto, non modifica il contenuto. La memorizzazione nella cache si applica solo ai documenti arricchiti prodotti da un skillt.
 
@@ -33,13 +36,11 @@ Questo articolo descrive la versione `api-version=2019-05-06-Preview` dell'API R
 
 + [Archivio informazioni](knowledge-store-concept-intro.md) è una nuova destinazione di una pipeline di arricchimento basata su intelligenza artificiale. La struttura dei dati fisici esiste nell'archiviazione BLOB di Azure e nell'archiviazione tabelle di Azure e viene creata e popolata quando si esegue un indicizzatore con un sistema di competenze cognitive collegato. La definizione di un archivio informazioni viene specificata in una definizione di competenze. All'interno della definizione dell'archivio delle informazioni, è possibile controllare le strutture fisiche dei dati tramite elementi di *proiezione* che determinano la modalità di modellazione dei dati, se i dati vengono archiviati nell'archiviazione tabelle o nell'archiviazione BLOB e se sono presenti più viste.
 
-## <a name="earlier-preview-features"></a>Funzionalità di anteprima precedenti
-
-Le funzionalità annunciate nelle anteprime precedenti sono ancora in anteprima pubblica. Se si chiama un'API con una versione di anteprima precedente, è possibile continuare a usare tale versione o passare a `2019-05-06-Preview` senza modifiche al comportamento previsto.
-
 + Il [parametro di query moreLikeThis](search-more-like-this.md) trova i documenti pertinenti a un documento specifico. Questa funzionalità è stata presente nelle anteprime precedenti. 
 
-+ L' [indicizzazione di BLOB CSV](search-howto-index-csv-blobs.md) crea un documento per riga, anziché un documento per ogni BLOB di testo.
+## <a name="earlier-preview-features"></a>Funzionalità di anteprima precedenti
+
+Le funzionalità annunciate nelle anteprime precedenti, se non sono state passate alla disponibilità a livello generale, sono ancora in anteprima pubblica. Se si chiama un'API con una versione di anteprima precedente, è possibile continuare a usare tale versione o passare a `2019-05-06-Preview` senza modifiche al comportamento previsto.
 
 ## <a name="how-to-call-a-preview-api"></a>Come chiamare un'API di anteprima
 

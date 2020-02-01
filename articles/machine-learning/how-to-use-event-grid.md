@@ -10,12 +10,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 11/04/2019
-ms.openlocfilehash: 885ddd5c25a36e2b12379ea7639956c1c4ca5437
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 0da5fe56bd56d360cd8052976bdde0cdc910c9a5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75538423"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904277"
 ---
 # <a name="create-event-driven-machine-learning-workflows-preview"></a>Creare flussi di lavoro di machine learning basati su eventi (anteprima)
 
@@ -32,21 +32,6 @@ Usare griglia di eventi per abilitare scenari comuni, ad esempio:
 
 * Accesso come collaboratore o proprietario all'area di lavoro Azure Machine Learning per cui si creeranno gli eventi.
 * Selezionare un endpoint del gestore eventi, ad esempio un webhook o un hub eventi. Per altre informazioni, vedere [gestori eventi](https://docs.microsoft.com/azure/event-grid/event-handlers). 
-
-## <a name="register-resource-providers"></a>Registrare i provider di risorse
-
-Se è stato usato griglia di eventi di Azure o Machine Learning prima del 1 2019 novembre, potrebbe essere necessario registrare nuovamente i provider di risorse prima di poter eseguire i passaggi descritti in questo documento. Per registrare nuovamente i provider, attenersi alla procedura seguente:
-
-1. Passare alla portale di Azure e selezionare __sottoscrizioni__. Selezionare la sottoscrizione che si desidera utilizzare.
-1. Selezionare __provider di risorse__e quindi cercare __EventGrid__.
-1. Selezionare la voce __Microsoft. EventGrid__ , quindi selezionare __Re-Register__.
-
-    ![ri-Register-Resource-Provider](./media/how-to-use-event-grid/re-register-resource-provider.png)
-
-1. Cercare __MachineLearningServices__, selezionare la voce e quindi selezionare __Re-Register__.
-
-> [!TIP]
-> Se non si dispone delle autorizzazioni necessarie per completare questi passaggi, rivolgersi all'amministratore della sottoscrizione per eseguirli.
 
 ## <a name="configure-machine-learning-events-using-the-azure-portal"></a>Configurare gli eventi di Machine Learning usando il portale di Azure
 

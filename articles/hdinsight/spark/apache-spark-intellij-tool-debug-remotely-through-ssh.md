@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/23/2019
-ms.openlocfilehash: 36e665f889ece48661a859e1a9a44f23aec08c37
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 6e3cf8fa70d6abe8005fe2d2de059c0a3944ff81
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75548879"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905311"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Eseguire il debug di applicazioni Apache Spark in un cluster HDInsight con Azure Toolkit for IntelliJ tramite SSH
 
@@ -25,7 +25,7 @@ Questo articolo contiene istruzioni dettagliate su come usare gli strumenti HDIn
 
 * Per gli utenti di Windows: mentre si esegue l'applicazione Spark scala locale in un computer Windows, è possibile che venga generata un'eccezione, come spiegato in [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356). che si verifica a causa di un file WinUtils.exe mancante in Windows.
 
-    Per risolvere questo errore, [scaricare il file eseguibile](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) in un percorso come **C:\WinUtils\bin**. È quindi necessario aggiungere una variabile di ambiente **HADOOP_HOME** e impostare il valore della variabile su **C:\WinUtils**.
+    Per correggere l'errore, scaricare `https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe` in un percorso, ad esempio **C:\WinUtils\bin**. È quindi necessario aggiungere una variabile di ambiente **HADOOP_HOME** e impostare il valore della variabile su **C:\WinUtils**.
 
 * [INTELLIJ idea](https://www.jetbrains.com/idea/download/#section=windows) (la Community Edition è gratuita).
 

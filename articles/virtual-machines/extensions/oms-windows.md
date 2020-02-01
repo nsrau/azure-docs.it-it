@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/12/2019
+ms.date: 01/30/2020
 ms.author: akjosh
-ms.openlocfilehash: 072e30baa4ebb976a662019e5213f7eb26808a93
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 604be42ec74f75e3aa9c790092ed83aee4ad25e1
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969958"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76907015"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Estensione macchina virtuale di monitoraggio di Azure per Windows
 
@@ -38,6 +38,7 @@ Nella tabella seguente viene fornito un mapping della versione dell'estensione d
 
 | Log Analytics versione bundle agente Windows | Versione dell'estensione della macchina virtuale Windows di monitoraggio di Azure | Data di rilascio | Note sulla versione |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18018 | 1.0.18018 | Ottobre 2019 | <ul><li> Correzioni di bug e miglioramenti della stabilizzazione secondari </li></ul> |
 | 10.20.18011 | 1.0.18011 | Luglio 2019 | <ul><li> Correzioni di bug e miglioramenti della stabilizzazione secondari </li><li> Aumento della MaxExpressionDepth a 10000 </li></ul> |
 | 10.20.18001 | 1.0.18001 | Giugno 2019 | <ul><li> Correzioni di bug e miglioramenti della stabilizzazione secondari </li><li> Aggiunta della possibilità di disabilitare le credenziali predefinite quando si crea una connessione proxy (supporto per WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) </li></ul>|
 | 10.19.13515 | 1.0.13515 | Marzo 2019 | <ul><li>Correzioni di stabilizzazione secondarie </li></ul> |
@@ -46,7 +47,7 @@ Nella tabella seguente viene fornito un mapping della versione dell'estensione d
 | 8.0.11103 | N/D |  Aprile 2018 | |
 | 8.0.11081 | 1.0.11081 | Nov 2017 | | 
 | 8.0.11072 | 1.0.11072 | 2017 settembre | |
-| 8.0.11049 | 1.0.11049 | Feb 2017 | |
+| 8.0.11049 | 1.0.11049 | 2017 feb | |
 
 ### <a name="azure-security-center"></a>Centro sicurezza Azure
 

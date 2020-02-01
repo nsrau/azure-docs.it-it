@@ -1,5 +1,5 @@
 ---
-title: Usare l'API di query integrata JavaScript in Azure Cosmos DB
+title: Usare l'API di query integrata JavaScript in Azure Cosmos DB stored procedure e trigger
 description: Questo articolo illustra i concetti per l'API di Language Integrated Query JavaScript per la creazione di stored procedure e trigger in Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 8396608cdbc5638a3640f94c94b44ad7c5f52a73
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7b7ad470b3330224e80a7160fc1a37bb5ee1cde8
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445321"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901829"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>API di query JavaScript in Azure Cosmos DB
 
-Oltre a eseguire query usando L'API SQL di Azure Cosmos DB, l'[SDK di Cosmos DB lato server](https://azure.github.io/azure-cosmosdb-js-server/) consente di eseguire query ottimizzate tramite un'interfaccia JavaScript. Non è necessario conoscere il linguaggio SQL per usare questa interfaccia JavaScript. L'API di query JavaScript consente di creare query a livello di programmazione passando funzioni di predicato in una sequenza di chiamate di funzione, con una sintassi familiare alle librerie JavaScript predefinite e integrate della matrice ECMAScript5 come Lodash. Le query vengono analizzate dal runtime JavaScript ed eseguite in modo efficiente usando gli indici di Azure Cosmos DB.
+Oltre a eseguire query con l'API SQL in Azure Cosmos DB, l' [SDK lato server di Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/) fornisce un'interfaccia JavaScript per l'esecuzione di query ottimizzate in Cosmos DB stored procedure e trigger. Non è necessario conoscere il linguaggio SQL per usare questa interfaccia JavaScript. L'API di query JavaScript consente di creare query a livello di programmazione passando funzioni di predicato in una sequenza di chiamate di funzione, con una sintassi familiare alle librerie JavaScript predefinite e integrate della matrice ECMAScript5 come Lodash. Le query vengono analizzate dal runtime JavaScript ed eseguite in modo efficiente usando gli indici di Azure Cosmos DB.
 
 ## <a name="supported-javascript-functions"></a>Funzioni JavaScript supportate
 

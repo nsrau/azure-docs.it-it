@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 81daada7a62da86772d4657a1a8aaff91f27b673
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 4dd026377d5824853dd713a59a86ed742990bade
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045590"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898840"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Panoramica del portale per sviluppatori di gestione API di Azure
 
@@ -68,7 +68,7 @@ Il *contenuto di gestione API* include entità quali API, operazioni, prodotti e
 
 Il portale è basato su un fork adattato del [Framework Paperbits](https://paperbits.io/). La funzionalità Paperbits originale è stata estesa per fornire widget specifici di gestione API (ad esempio, un elenco di API, un elenco di prodotti) e un connettore al servizio gestione API per il salvataggio e il recupero del contenuto.
 
-## <a name="faq"></a> Domande frequenti
+## <a name="faq"></a>Domande frequenti
 
 In questa sezione vengono riportate le risposte alle domande comuni sul nuovo portale per sviluppatori, che sono di natura generale. Per domande specifiche per la versione self-hosted, vedere [la sezione wiki del repository GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
 
@@ -213,6 +213,18 @@ Questo errore viene visualizzato quando una chiamata `GET` `https://<management-
 Se il servizio gestione API si trova in una VNet, vedere la domanda di connettività VNet precedente.
 
 L'errore di chiamata può anche essere causato da un certificato SSL, che viene assegnato a un dominio personalizzato e non è considerato attendibile dal browser. Come mitigazione, è possibile rimuovere l'endpoint di gestione. gestione API del dominio personalizzato esegue il fallback all'endpoint predefinito con un certificato attendibile.
+
+### <a name="whats-the-browser-support-for-the-portal"></a>Qual è il supporto del browser per il portale?
+
+| Browser                     | Supportato       |
+|-----------------------------|-----------------|
+| Apple Safari                | Sì<sup>1</sup> |
+| Google Chrome               | Sì<sup>1</sup> |
+| Microsoft Edge              | Sì<sup>1</sup> |
+| Microsoft Internet Explorer | No              |
+| Mozilla Firefox             | Sì<sup>1</sup> |
+
+ <small><sup>1</sup> supportato nelle due versioni di produzione più recenti.</small>
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 399b63cab2594610260997f8e5ecef9c3c05318f
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: c6e48a663e4d1702851e11bc5124e56c52309d08
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712814"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908871"
 ---
 # <a name="cookies-definitions-for-azure-ad-b2c"></a>Definizioni dei cookie per Azure AD B2C
 
@@ -30,7 +30,10 @@ Per salvaguardare l'accesso ai siti, i Web browser introdurranno un nuovo modell
 
 Gli sviluppatori devono usare la nuova impostazione del cookie, `SameSite=None`, per designare i cookie per l'accesso tra siti. Quando è presente l'attributo `SameSite=None`, è necessario usare un attributo `Secure` aggiuntivo, in modo che i cookie tra siti possano essere accessibili solo tramite connessioni HTTPS. Convalidare e testare tutte le applicazioni, incluse le applicazioni che usano Azure AD B2C.
 
-Per ulteriori informazioni, vedere [effetti sui siti Web dei clienti e sui prodotti e servizi Microsoft in Chrome versione 80 o successiva](https://support.microsoft.com/help/4522904/potential-disruption-to-customer-websites-in-latest-chrome).
+Per scoprire di più, vedi:
+
+* [Gestire le modifiche ai cookie navigava sullostesso sito nel browser Chrome](../active-directory/develop/howto-handle-samesite-cookie-changes-chrome-browser.md)
+* [Effetti sui siti Web dei clienti e sui prodotti e servizi Microsoft in Chrome versione 80 o successiva](https://support.microsoft.com/help/4522904/potential-disruption-to-customer-websites-in-latest-chrome)
 
 ## <a name="cookies"></a>Cookie
 

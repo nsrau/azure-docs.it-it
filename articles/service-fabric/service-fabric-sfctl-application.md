@@ -3,14 +3,14 @@ title: INTERFACCIA della riga di comando di Azure Service Fabric-applicazione sf
 description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per la gestione delle applicazioni.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 4d416408fd83d7bc316c7045c2a0031fe50d36f5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b4e1066bba1db387c9dc0600bc55522f0b5fe897
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645413"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906205"
 ---
 # <a name="sfctl-application"></a>sfctl application
 Consente di creare, eliminare e gestire le applicazioni e i tipi di applicazioni.
@@ -529,10 +529,13 @@ Facoltativamente, è possibile visualizzare lo stato di caricamento per ogni fil
 
 |Argomento|Description|
 | --- | --- |
-| --path [Obbligatorio] | Percorso del pacchetto di applicazione locale. |
+| --path [obbligatorio] | Percorso del pacchetto di applicazione locale. |
+| --Comprimi | Applicabile solo ai pacchetti dell'applicazione Service Fabric. Creare una nuova cartella contenente il pacchetto dell'applicazione compressa nel percorso predefinito o nel percorso specificato dal parametro compresso-location, quindi caricare la cartella appena creata. <br><br> Se è già presente un file compresso generato da sfctl, questo verrà sovrascritto se questo flag è impostato. Se la directory non è un pacchetto dell'applicazione, verrà restituito un errore. Se è già un pacchetto di applicazione compresso, la cartella verrà copiata così come è. Per impostazione predefinita, il pacchetto di applicazione compresso appena creato verrà eliminato dopo il completamento del caricamento. Se il caricamento ha esito negativo, eseguire manualmente la pulizia del pacchetto compresso in base alle esigenze. L'eliminazione non rimuove i directory vuoti che potrebbero essere stati creati se il parametro del percorso compresso fa riferimento a directory inesistenti. |
+| --compresso-posizione | Percorso in cui inserire il pacchetto di applicazione compresso. <br><br> Se non viene specificato alcun percorso, il pacchetto compresso verrà inserito in una cartella appena creata denominata sfctl_compressed_temp sotto la directory padre specificata nell'argomento path. Ad esempio, se l'argomento path ha il valore C\:/FolderA/AppPkg, il pacchetto compresso verrà aggiunto a C\:/FolderA/sfctl_compressed_temp/AppPkg. |
 | --imagestore-string | Archivio di immagini di destinazione in cui caricare il pacchetto dell'applicazione.  Impostazione predefinita\: fabric\:ImageStore. <br><br> Per caricare in un percorso di file, avviare questo parametro con "file\:". In caso contrario, il valore deve essere la stringa di connessione dell'archivio immagini, ad esempio il valore predefinito. |
+| --Keep-compresso | Indica se lasciare o meno il pacchetto compresso generato al completamento del caricamento. <br><br> Se non è impostato, al termine, i pacchetti dell'applicazione compressi verranno eliminati. Se il caricamento non è riuscito, il pacchetto dell'applicazione verrà sempre mantenuto nella directory di output per il nuovo caricamento. |
 | --show-progress | Mostra lo stato di caricamento del file per i pacchetti di grandi dimensioni. |
-| --timeout -t | Timeout totale in secondi. Il caricamento avrà esito negativo e restituirà un errore dopo il superamento della durata del timeout di caricamento. Questo timeout si applica all'intero pacchetto dell'applicazione e i timeout dei singoli file corrisponderanno alla durata del timeout rimanente.  Il valore predefinito è\: 300. |
+| --timeout -t | Timeout totale in secondi. Il caricamento avrà esito negativo e restituirà un errore dopo il superamento della durata del timeout di caricamento. Questo timeout si applica all'intero pacchetto dell'applicazione e i timeout dei singoli file corrisponderanno alla durata del timeout rimanente. Il timeout non include il tempo necessario per comprimere il pacchetto dell'applicazione.  Il valore predefinito è\: 300. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 

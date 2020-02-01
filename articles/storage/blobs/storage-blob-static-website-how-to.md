@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: d5b8121c7888903f3e4552a21a6ddc175ecc5176
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4214c4eb9fbe1d3e39d1ee16289f30b893b94653
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489097"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906611"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Ospitare un sito Web statico in archiviazione di Azure
 
@@ -221,10 +221,5 @@ Dopo aver abilitato le metriche, le statistiche sul traffico sui file nel conten
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Hosting di siti Web statici in Archiviazione di Azure](storage-blob-static-website.md)
-* [Usare la rete CDN di Azure per accedere ai BLOB con domini personalizzati tramite HTTPS](storage-https-custom-domain-cdn.md)
-* [Configurare un nome di dominio personalizzato per l'endpoint BLOB o Web](storage-custom-domain-name.md)
-* [Funzioni di Azure](/azure/azure-functions/functions-overview)
-* [servizio app di Azure](/azure/app-service/overview)
-* [Compilare la prima app Web serverless](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Esercitazione: Ospitare un dominio in DNS di Azure](../../dns/dns-delegate-domain-azure-dns.md)
+* Informazioni su come configurare un dominio personalizzato con il sito Web statico. Vedere [eseguire il mapping di un dominio personalizzato a un endpoint di archiviazione BLOB di Azure](storage-custom-domain-name.md).
+

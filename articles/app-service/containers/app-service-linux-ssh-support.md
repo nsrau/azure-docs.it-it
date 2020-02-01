@@ -8,20 +8,18 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 299bbfbc50e9ba779898ab0e0e9dec060bf6541d
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 3173fe010106963b9079bf151c92957735253e84
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687586"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898765"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Supporto SSH per il Servizio app di Azure in Linux
 
-[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) viene usato comunemente per eseguire comandi amministrativi in remoto da un terminale della riga di comando. Il Servizio app in Linux offre il supporto SSH nel contenitore di app con ognuna delle immagini Docker predefinite usate per lo stack di runtime di nuove app Web. 
+[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) viene usato comunemente per eseguire comandi amministrativi in remoto da un terminale della riga di comando. Il servizio app in Linux offre il supporto SSH nel contenitore dell'app. 
 
-![Stack di runtime](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
-
-Per le immagini Docker personalizzate tramite la configurazione del server SSH in un'immagine personalizzata.
+![SSH servizio app Linux](./media/app-service-linux-ssh-support/app-service-linux-ssh.png)
 
 È anche possibile connettersi al contenitore direttamente dal computer di sviluppo locale tramite SSH e SFTP.
 
@@ -121,6 +119,6 @@ Per altre informazioni sull'app Web per contenitori, vedere:
 
 * [Introducing remote debugging of Node.js apps on Azure App Service from VS Code](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0) (Introduzione al debug remoto delle app Node.js nel Servizio app di Azure da Visual Studio Code)
 * [Come usare un'immagine Docker personalizzata per l'app Web per contenitori](quickstart-docker-go.md)
-* [Uso di .NET Core in Servizio app di Azure in Linux](quickstart-dotnetcore.md)
-* [Uso di Ruby nel Servizio app di Azure in Linux](quickstart-ruby.md)
+* [Uso di .NET Core nel Servizio app di Azure in Linux](quickstart-dotnetcore.md)
+* [Uso di Ruby in Servizio app di Azure in Linux](quickstart-ruby.md)
 * [Azure App Service Web App for Containers FAQ (Domande frequenti sulle app Web per contenitori del servizio app di Azure)](app-service-linux-faq.md)

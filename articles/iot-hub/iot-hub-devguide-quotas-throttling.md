@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: c17576bb8cd772742b5335000a2453ff34753779
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 64f285ea27bde4565d051a84a65c5b4d7b8e9e8c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457076"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906989"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
 
@@ -107,6 +107,7 @@ L'hub IoT applica altri limiti operativi:
 | Configurazioni automatiche di dispositivi e moduli<sup>1</sup> | 100 configurazioni per hub SKU a pagamento. 20 configurazioni per hub SKU gratuito. |
 | IoT Edge le distribuzioni automatiche<sup>1</sup> | 20 moduli per distribuzione. 100 distribuzioni (incluse le distribuzioni su più livelli) per hub SKU a pagamento. 10 distribuzioni per hub SKU gratuito. |
 | Dispositivi gemelli<sup>1</sup> | Le sezioni dimensioni massime delle proprietà desiderate e delle proprietà segnalate sono 32 KB ognuna. La dimensione massima della sezione dei tag è 8 KB. |
+| Criteri di accesso condivisi | Il numero massimo di criteri di accesso condiviso è 16 |
 
 <sup>1</sup>Questa funzionalità non è disponibile nel livello di base dell'hub IoT. Per altre informazioni, vedere [How to choose the right IoT Hub](iot-hub-scaling.md) (Come scegliere il livello dell'hub IoT corretto).
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/13/2019
-ms.openlocfilehash: 6c82b8ce591bbacb6bf790c8b38635310b33263d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ceeea809232909a196895e11601ad01d3407f763
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435348"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905382"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Usare Azure Toolkit for Eclipse per creare applicazioni Apache Spark per un cluster HDInsight
 
@@ -47,7 +47,7 @@ Quando si apre Eclipse, Strumenti di HDInsight rileva automaticamente se è inst
 
 1. Passare a **guida** > **Eclipse Marketplace...** .
 
-1. Selezionare la scheda **Installati**.
+1. Selezionare la scheda **installato** .
 
 1. Dovrebbe essere visualizzato almeno:
     * > Della versione di \<Azure Toolkit for Eclipse.
@@ -242,7 +242,7 @@ Per impostazione predefinita, gli strumenti di HDInsight in Azure Toolkit for Ec
 
 Quando si esegue l'applicazione Spark Scala locale in un computer Windows, potrebbe essere restituita un'eccezione, come spiegato in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356), che si verifica a causa di un file **WinUtils.exe** mancante in Windows.
 
-Per risolvere questo errore, è necessario [scaricare il file eseguibile](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) in un percorso come **C:\WinUtils\bin**, quindi aggiungere una variabile di ambiente **HADOOP_HOME** e impostare il valore della variabile su **C\WinUtils**.
+Per correggere l'errore, è necessario `https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe` in un percorso come **C:\WinUtils\bin**, quindi aggiungere la variabile di ambiente **HADOOP_HOME** e impostare il valore della variabile su **C\WinUtils**.
 
 ### <a name="run-a-local-spark-scala-application"></a>Eseguire un'applicazione Spark in Scala locale
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: d66b3e1b6ed2c8eef9f5cd21c0657648ad550ebe
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 06ca26ee9a8af7f49aba6a48a1831d30d5886851
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896147"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896339"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Accedere all'API di Servizi multimediali di Azure usando l'interfaccia della riga di comando di Azure
  
@@ -28,7 +28,8 @@ Per usare l'autenticazione dell'entità servizio Azure AD per connettersi all'AP
 * URI di risorsa per Servizi multimediali REST
 * Valori dell'applicazione Azure AD: ID client e Segreto client
 
-Per una spiegazione dettagliata, vedere [accesso alle API di servizi multimediali V3](media-services-apis-overview.md#accessing-the-azure-media-services-api).
+> [!IMPORTANT]
+> Per una spiegazione dettagliata, vedere [accesso alle API di servizi multimediali V3](media-services-apis-overview.md#accessing-the-azure-media-services-api).
 
 Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per creare un'applicazione e un'entità servizio di Azure Active Directory (Azure AD) e ottenere i valori necessari per accedere alle risorse di Servizi multimediali di Azure.
 
@@ -55,7 +56,7 @@ Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il n
 - [Creare una Griglia di eventi - Interfaccia della riga di comando](job-state-events-cli-how-to.md)
 - [Pubblicare un asset - Interfaccia della riga di comando](cli-publish-asset.md)
 - [Applicare un filtro - Interfaccia della riga di comando](filters-dynamic-manifest-cli-howto.md)
-- [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+- [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

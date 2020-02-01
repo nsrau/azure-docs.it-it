@@ -1,5 +1,5 @@
 ---
-title: Sviluppo di applicazioni di lettore video
+title: Sviluppare applicazioni lettore video
 description: L'argomento offre collegamenti a Player Framework e plug-in che è possibile usare per sviluppare le applicazioni client in modo che usino i flussi multimediali da Servizi multimediali.
 author: Juliako
 manager: femila
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b8d4ff3e833dcbe92802845796e3b826735b68ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39459267919747ed49e9fa3f05746294eaf741dc
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465644"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906834"
 ---
-# <a name="develop-video-player-applications"></a>Sviluppo di applicazioni di lettore video
-## <a name="overview"></a>Panoramica
+# <a name="develop-video-player-applications"></a>Sviluppare applicazioni lettore video
+## <a name="overview"></a>Overview
 Servizi multimediali di Azure fornisce gli strumenti necessari per creare applicazioni lettore client avanzate e dinamiche per la maggior parte delle piattaforme, inclusi dispositivi iOS, dispositivi Android, Windows, Windows Phone, Xbox e set-top box. Questo argomento offre anche collegamenti a SDK e Player Framework, che è possibile usare per sviluppare le applicazioni client in modo che usino i flussi multimediali da Servizi multimediali di Azure.
 
 >[!NOTE]
@@ -46,11 +46,11 @@ Per altre informazioni:
 
 * [Smooth Streaming Client SDK](https://www.iis.net/downloads/microsoft/smooth-streaming) 
 * [App Smooth Streaming Windows Store](media-services-build-smooth-streaming-apps.md)
-* [Piattaforma multimediale Microsoft: framework lettore](https://playerframework.codeplex.com/) 
+* [Microsoft Media Platform: Player Framework](https://playerframework.codeplex.com/) 
 * [Documentazione di HTML5 Player Framework](https://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 * [Plug-in Microsoft Smooth Streaming per OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
 * [Licenza per Microsoft® Smooth Streaming Client Porting Kit](https://aka.ms/sspk) 
-* [Sviluppo di applicazioni video per XBox](https://xbox.create.msdn.com/) 
+* [Sviluppo di applicazioni video per XBox](https://www.xbox.com/en-US/developers) 
 
 ## <a name="advertising"></a>Pubblicità
 Servizi multimediali di Azure offre il supporto per l'inserimento di annunci tramite la piattaforma Windows Media Platform, ovvero i player framework. Player Framework con supporto per gli annunci sono disponibili per i dispositivi Windows 8, Silverlight, Windows Phone 8 e iOS. Ciascun Player Framework contiene un codice di esempio che illustra come eseguire l'implementazione di un'applicazione di lettore. Nei file multimediali è possibile inserire tre tipi di annunci.
@@ -68,7 +68,7 @@ Per informazioni sul supporto di sottotitoli codificati e annunci nei video in s
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Vedere anche

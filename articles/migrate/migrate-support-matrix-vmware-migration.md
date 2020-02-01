@@ -3,12 +3,12 @@ title: Supporto per la migrazione di VMware in Azure Migrate
 description: Informazioni sul supporto per la migrazione di macchine virtuali VMware in Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: e33811563063c0f8eb94b9927d07596d51cd45e4
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 6593d4de6823f15f570ab8922d76cbe84fb0e348
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030224"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901551"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matrice di supporto per la migrazione a VMware
 
@@ -73,7 +73,7 @@ La migrazione senza agente usa il dispositivo Azure Migrate, distribuito in una 
 
 **Dispositivo** | **Connection**
 --- | ---
-Elettrodomestici | Connessioni in uscita sulla porta 443 per caricare i dati replicati in Azure e per comunicare con Azure Migrate Services che orchestrano la replica e la migrazione.
+Appliance | Connessioni in uscita sulla porta 443 per caricare i dati replicati in Azure e per comunicare con Azure Migrate Services che orchestrano la replica e la migrazione.
 Server vCenter | Connessioni in ingresso sulla porta 443 per consentire all'appliance di orchestrare la replica: creare snapshot, copiare dati, rilasciare snapshot
 host vSphere/EXSI | In ingresso sulla porta TCP 902 per l'appliance per replicare i dati dagli snapshot.
 
@@ -123,7 +123,15 @@ Quando si configura l'appliance di replica usando il modello OVA fornito nell'hu
 
 - Informazioni sui [requisiti del dispositivo di replica](migrate-replication-appliance.md#appliance-requirements) per VMware.
 - MySQL deve essere installato nell'appliance. Informazioni sulle [Opzioni di installazione](migrate-replication-appliance.md#mysql-installation).
-- Informazioni sugli [URL](migrate-replication-appliance.md#url-access) a cui l'appliance di replica deve accedere.
+- Informazioni sugli [URL](migrate-replication-appliance.md#url-access) e sulle [porte]() a cui deve accedere l'appliance di replica.
+
+## <a name="agent-based-ports"></a>Porte basate su agenti
+
+**Dispositivo** | **Connection**
+--- | ---
+VM | Il servizio Mobility in esecuzione nelle VM comunica con l'appliance di replica locale (server di configurazione) sulla porta HTTPS 443 in ingresso, per la gestione della replica.<br/><br/> Le macchine virtuali inviano i dati della replica al server di elaborazione (in esecuzione sul computer del server di configurazione) sulla porta HTTPS 9443 in ingresso. La porta può essere modificata.
+Appliance di replica | L'appliance di replica orchestra la replica con Azure tramite la porta HTTPS 443 in uscita.
+Server di elaborazione | Il server di elaborazione riceve i dati di replica, li ottimizza e li crittografa e li invia ad archiviazione di Azure tramite la porta 443 in uscita.<br/> Per impostazione predefinita, il server di elaborazione viene eseguito nell'appliance di replica.
 
 ## <a name="azure-vm-requirements"></a>Requisiti per le VM di Azure
 

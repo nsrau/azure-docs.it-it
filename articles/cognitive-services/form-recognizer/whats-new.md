@@ -1,5 +1,5 @@
 ---
-title: Novità del sistema di riconoscimento dei moduli
+title: Novità di Riconoscimento modulo
 titleSuffix: Azure Cognitive Services
 description: Comprendere le ultime modifiche apportate all'API di riconoscimento del modulo.
 author: PatrickFarley
@@ -9,14 +9,14 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.author: pafarley
-ms.openlocfilehash: cb5639dcf0e13ea03d34604816b3939085674c2e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2109d25d3962063c711dcab491855d9ebf1cf694
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456366"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901876"
 ---
-# <a name="whats-new-in-form-recognizer"></a>Novità del sistema di riconoscimento dei moduli
+# <a name="whats-new-in-form-recognizer"></a>Novità di Riconoscimento modulo
 
 Questo articolo evidenzia le principali modifiche apportate con le nuove versioni dell'API di riconoscimento del modulo.
 
@@ -25,13 +25,10 @@ Questo articolo evidenzia le principali modifiche apportate con le nuove version
 
 ## <a name="form-recognizer-20-preview"></a>Riconoscimento form 2,0 (anteprima)
 
-> [!IMPORTANT]
-> Il riconoscitore del modulo 2,0 è attualmente disponibile per le sottoscrizioni nelle aree `West US 2` e `West Europe`. Se la sottoscrizione non si trova in questa area, usare l'API 1,0. Le guide introduttive per il training e l'uso di un modello personalizzato sono disponibili sia per v 1.0 che per v 2.0.
-
 ### <a name="new-features"></a>Nuove funzionalità
 
 * **Modello personalizzato**
-  * Eseguire il **training con etichette** È ora possibile eseguire il training di un modello personalizzato con dati con etichetta manuale. In questo modo si ottiene un modello con prestazioni migliori e si possono produrre modelli che funzionano con moduli o moduli complessi contenenti valori senza chiavi.
+  * Eseguire il **training con etichette** È ora possibile eseguire il training di un modello personalizzato con dati con etichetta manuale. In questo modo si ottengono modelli dalle prestazioni più elevate e anche compatibili con moduli complessi o che contengono valori senza chiavi.
   * **API asincrona** È possibile usare le chiamate API asincrone per eseguire il training e analizzare i set di dati e i file di grandi dimensioni.
   * **Supporto file TIFF** È ora possibile eseguire il training con ed estrarre i dati dai documenti TIFF.
   * **Miglioramenti dell'accuratezza dell'estrazione**

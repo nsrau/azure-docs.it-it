@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 8dc5599e681d9aee84f884cd4990163a2481d386
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: a35239354d23f75361d5577d6b7efc8254943147
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708163"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906584"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hosting di siti Web statici in Archiviazione di Azure
 
@@ -81,22 +81,16 @@ Ad esempio, se si modifica il livello di accesso pubblico del contenitore **$Web
 
 Tuttavia, l'accesso pubblico all'endpoint di servizio BLOB primario `https://contosoblobaccount.blob.core.windows.net/$web/index.html` viene modificato da privato a pubblico. Ora gli utenti possono aprire il file usando uno di questi due endpoint.
 
-## <a name="content-delivery-network-cdn-and-secure-socket-layer-ssl-support"></a>Rete per la distribuzione di contenuti (CDN) e supporto Secure Socket Layer (SSL)
+## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>Mapping di un dominio personalizzato a un URL del sito Web statico
 
-Per rendere disponibili i file di siti web statici tramite il dominio personalizzato e HTTPS, vedere [uso della rete CDN di Azure per accedere ai BLOB con domini personalizzati tramite HTTPS](storage-https-custom-domain-cdn.md). Come parte di questo processo, è necessario puntare la rete CDN all'endpoint del *sito Web statico* primario anziché all'endpoint primario del *servizio BLOB* . Potrebbe essere necessario attendere alcuni minuti prima che il contenuto sia visibile perché la configurazione della rete CDN non è immediatamente eseguita.
+È possibile rendere disponibile il sito Web statico tramite un dominio personalizzato. 
 
-Quando si aggiorna il sito Web statico, assicurarsi di cancellare il contenuto memorizzato nella cache nei server perimetrali della rete CDN ripulendo l'endpoint della rete CDN. Per altre informazioni, vedere [Ripulire un endpoint della rete CDN di Azure](../../cdn/cdn-purge-endpoint.md).
+L'abilitazione dell'accesso HTTP per il dominio personalizzato è più semplice, perché archiviazione di Azure la supporta in modo nativo. Per abilitare HTTPS, è necessario usare la rete CDN di Azure perché archiviazione di Azure non supporta ancora in modo nativo HTTPS con domini personalizzati. per istruzioni dettagliate, vedere [eseguire il mapping di un dominio personalizzato a un endpoint di archiviazione BLOB di Azure](storage-custom-domain-name.md) .
 
-> [!NOTE]
-> HTTPS è supportato in modo nativo tramite l'endpoint Web dell'account, quindi l'endpoint Web è accessibile tramite HTTP e HTTPS. Tuttavia, se l'account di archiviazione è configurato per richiedere il trasferimento sicuro tramite HTTPS, gli utenti devono usare l'endpoint HTTPS. Per altre informazioni, vedere [richiedere il trasferimento sicuro in archiviazione di Azure](../common/storage-require-secure-transfer.md).
->
-> L'uso di domini personalizzati su HTTPS richiede l'uso della rete CDN di Azure in questo momento.
+Se l'account di archiviazione è configurato per [richiedere il trasferimento sicuro](../common/storage-require-secure-transfer.md) tramite HTTPS, gli utenti devono usare l'endpoint HTTPS. 
 
-## <a name="custom-domain-names"></a>Nomi di dominio personalizzati
-
-È possibile rendere disponibile il sito Web statico tramite un dominio personalizzato. Per altre informazioni, vedere [configurare un nome di dominio personalizzato per l'account di archiviazione di Azure](storage-custom-domain-name.md).
-
-Per informazioni dettagliate sull'hosting del dominio in Azure, vedere [ospitare il dominio in DNS di Azure](../../dns/dns-delegate-domain-azure-dns.md).
+> [!TIP]
+> Si consiglia di ospitare il dominio in Azure. Per altre informazioni, vedere [ospitare il dominio in DNS di Azure](../../dns/dns-delegate-domain-azure-dns.md).
 
 ## <a name="pricing"></a>Prezzi
 
@@ -111,8 +105,7 @@ Per abilitare le metriche nelle pagine del sito Web statico, vedere [abilitare l
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Ospitare un sito Web statico in archiviazione di Azure](storage-blob-static-website-how-to.md)
-* [Usare la rete CDN di Azure per accedere ai BLOB con domini personalizzati tramite HTTPS](storage-https-custom-domain-cdn.md)
-* [Configurare un nome di dominio personalizzato per l'endpoint BLOB o Web](storage-custom-domain-name.md)
+* [Eseguire il mapping di un dominio personalizzato a un endpoint di archiviazione BLOB di Azure](storage-custom-domain-name.md)
 * [Funzioni di Azure](/azure/azure-functions/functions-overview)
 * [Servizio app di Azure](/azure/app-service/overview)
 * [Compilare la prima app Web serverless](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)

@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.service: batch
 ms.topic: article
 manager: gwallace
-ms.openlocfilehash: 20fc7844054fc7e05f56105e69ad6bd8a4272ed8
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: c2acd09df51b942a08a85d96d907e064367377a7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026154"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900290"
 ---
 # <a name="azure-batch-best-practices"></a>Procedure consigliate Azure Batch
 
@@ -109,7 +109,7 @@ Le attività sono singole unità di lavoro che comprendono un processo. Le attiv
 - **Inviare un numero elevato di attività in una raccolta.**  
     Le attività possono essere inviate in base a singole o raccolte. Invia le attività in [raccolte](https://docs.microsoft.com/rest/api/batchservice/task/addcollection) fino a 100 alla volta durante l'invio in blocco delle attività per ridurre il sovraccarico e il tempo di invio.
 
-### <a name="task-execution"></a>Esecuzione delle attività
+### <a name="task-execution"></a>Esecuzione di attività
 
 - **Scelta delle attività massime per nodo**  
     Batch supporta l'oversubscriptioning delle attività nei nodi (esecuzione di più attività rispetto a quelle di un nodo con Core). È compito dell'utente verificare che le attività siano adatte ai nodi del pool. È ad esempio possibile che si verifichi una riduzione delle prestazioni se si tenta di pianificare otto attività, ognuna delle quali utilizza il 25% di utilizzo della CPU su un nodo (in un pool con `maxTasksPerNode = 8`).
@@ -152,3 +152,15 @@ Sebbene sia raro, un'attività può essere ritentata internamente a causa di err
 ### <a name="security-isolation"></a>Isolamento di sicurezza
 
 Per quanto riguarda l'isolamento, se lo scenario richiede l'isolamento dei processi tra loro, è necessario isolare questi processi in pool separati. Un pool è il limite di isolamento di sicurezza in batch e, per impostazione predefinita, due pool non sono visibili o sono in grado di comunicare tra loro. Evitare di usare account batch distinti come mezzo di isolamento.
+
+## <a name="moving"></a>Movimento
+
+### <a name="move-batch-account-across-regions"></a>Spostare l'account batch tra le aree 
+
+Esistono diversi scenari in cui si vuole spostare l'account batch esistente da un'area a un'altra. Ad esempio, è possibile passare a un'altra area nell'ambito della pianificazione del ripristino di emergenza.
+
+Non è possibile spostare gli account di Azure Batch da un'area a un'altra. È tuttavia possibile usare un modello di Azure Resource Manager per esportare la configurazione esistente dell'account batch.  È quindi possibile organizzare la risorsa in un'altra area esportando l'account batch in un modello, modificando i parametri in modo che corrispondano all'area di destinazione e quindi distribuire il modello nella nuova area. Dopo aver caricato il modello nella nuova area, sarà necessario ricreare i certificati, le pianificazioni dei processi e i pacchetti dell'applicazione. Per eseguire il commit delle modifiche e completare lo spostamento dell'account batch, ricordarsi di eliminare l'account batch originale o il gruppo di risorse.  
+
+Per altre informazioni su Gestione risorse e sui modelli, vedere [Guida introduttiva: creare e distribuire modelli di Azure Resource Manager tramite il portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+
+

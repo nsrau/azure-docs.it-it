@@ -3,14 +3,14 @@ title: INTERFACCIA della riga di comando di Azure Service Fabric-sfctl mesh code
 description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per ottenere i log per un pacchetto di codice specificato.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 78edc9bb36b711f72300942bc9900b0fde7c51d2
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: f8665e75e4c921a3305c9965601e2ee0825c8995
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646144"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906041"
 ---
 # <a name="sfctl-mesh-code-package-log"></a>sfctl mesh code-package-log
 Consente di ottenere i log per il contenitore del pacchetto di codice specificato per la replica del servizio specificata.

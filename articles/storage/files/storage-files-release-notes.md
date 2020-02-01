@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 67f04b3873da020853c2523f6acc8c7dc7dcdedc
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: d0e830aaca4f952f75c220b4f482ce831883b058
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749595"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905565"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Note sulla versione dell'agente Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Le installazioni Windows Server vengono trasformate in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS e FTPS. Si può usare qualsiasi numero di cache in tutto il mondo.
@@ -35,9 +35,9 @@ L'agente Sincronizzazione file di Azure supporta le versioni seguenti:
 | Aggiornamento cumulativo di giugno 2019- [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 giugno, 2019 | Supportato |
 | Aggiornamento cumulativo di maggio 2019- [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 maggio 2019 | Supportato |
 | Versione V6- [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 aprile 2019 | Supportato |
-| Aggiornamento cumulativo di aprile 2019- [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 4 aprile 2019 | Supportato |
-| Aggiornamento cumulativo di marzo 2019- [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 7 marzo 2019 | Supportato |
-| Versione v5 - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 febbraio 2019 | Supportato |
+| Aggiornamento cumulativo di aprile 2019- [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 4 aprile 2019 | Supportato-la versione dell'agente scadrà il 12 febbraio 2020 |
+| Aggiornamento cumulativo di marzo 2019- [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 7 marzo 2019 | Supportato-la versione dell'agente scadrà il 12 febbraio 2020 |
+| Versione v5 - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 febbraio 2019 | Supportato-la versione dell'agente scadrà il 12 febbraio 2020 |
 | Versione v4 | 4.0.1.0 - 4.3.0.0 | N/D | Non supportato-le versioni dell'agente sono scadute il 6 novembre 2019 |
 | Versione V3 | 3.1.0.0-3.4.0.0 | N/D | Non supportato-le versioni dell'agente scadono il 19 agosto 2019 |
 | Agenti pre-GA | 1.1.0.0 - 3.0.13.0 | N/D | Non supportato: versione dell'agente scaduta il 1° ottobre 2018 |

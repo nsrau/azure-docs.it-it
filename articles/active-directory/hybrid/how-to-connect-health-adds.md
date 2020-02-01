@@ -8,6 +8,7 @@ manager: daveba
 editor: curtand
 ms.assetid: 19e3cf15-f150-46a3-a10c-2990702cd700
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,15 +16,15 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73f30f4f16ad879468a424d6e5cbe81e68b7c33d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e27287a414a2a4edef3e9090b7d91beb1c70f554
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60350646"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897306"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>Uso di Azure AD Connect Health con Servizi di dominio Active Directory
-La documentazione seguente è specifica per il monitoraggio di Servizi di dominio Active Directory con Azure AD Connect Health. Le versioni di Active Directory Domain Services supportate sono: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016.
+La documentazione seguente è specifica per il monitoraggio di Servizi di dominio Active Directory con Azure AD Connect Health. Versioni supportate di AD DS: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016.
 
 Per altre informazioni sul monitoraggio di AD FS con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health con AD FS](how-to-connect-health-adfs.md). Per informazioni sul monitoraggio di Azure Active Directory Connect (Sincronizzazione) con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health per la sincronizzazione](how-to-connect-health-sync.md).
 
@@ -48,10 +49,10 @@ Questo dashboard offre una visualizzazione dello stato e della topologia della r
 
 ![Stato replica](./media/how-to-connect-health-adds/aadconnect-health-adds-replication.png)
 
-## <a name="monitoring"></a>Monitoraggio
+## <a name="monitoring"></a>Monitorare
 Questa funzionalità offre tendenze grafiche dei diversi contatori delle prestazioni, con dati costantemente raccolti da ogni controller di dominio monitorato. Le prestazioni di un controller di dominio possono essere facilmente confrontate con quelle di tutti gli altri controller di dominio monitorati nella foresta. È inoltre possibile visualizzare più contatori delle prestazioni affiancati; ciò è utile durante la risoluzione dei problemi nell'ambiente.
 
-![Monitoraggio](./media/how-to-connect-health-adds/aadconnect-health-adds-monitoring.png)
+![Monitorare](./media/how-to-connect-health-adds/aadconnect-health-adds-monitoring.png)
 
 Per impostazione predefinita sono selezionati quattro contatori delle prestazioni. È tuttavia possibile includerne altri facendo clic sul comando del filtro e selezionando o deselezionando qualsiasi contatore delle prestazioni. È anche possibile fare doppio clic su un grafico relativo ai contatori delle prestazioni per aprire un nuovo pannello, che include punti dati corrispondenti a ogni controller di dominio monitorato.
 

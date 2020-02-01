@@ -3,14 +3,14 @@ title: INTERFACCIA della riga di comando di Azure Service Fabric-replica sfctl
 description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per la gestione delle repliche.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: a0588d84a79407b5df5033f0a32851fc708d598b
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: f6ad0b4c08ac8d710340fe654a068d0a3804e58f
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646042"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905818"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 Consente di gestire le repliche che appartengono alle partizioni del servizio.

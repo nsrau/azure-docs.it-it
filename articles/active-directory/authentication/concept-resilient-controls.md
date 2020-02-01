@@ -6,17 +6,18 @@ author: martincoetzer
 manager: daveba
 tags: azuread
 ms.service: active-directory
+ms.subservice: authentication
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/19/2018
+ms.date: 01/29/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 478cccb3a8235291a4c4f0566cd130b4b75dbe6b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0ca5817e744ff81efcd549bc328d7ce5eeedb2d2
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74208563"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908735"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Creare una strategia di gestione di controllo di accesso resiliente con Azure Active Directory
 
@@ -259,7 +260,7 @@ Se l'organizzazione usa criteri di autenticazione a più fattori obsoleti per l'
 >[!NOTE]
  > La configurazione di [indirizzi IP attendibili](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings) per l'autenticazione a più fattori di Azure è disponibile solo con [licenze Azure AD Premium](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-licensing).
 
-## <a name="learn-more"></a>Altre informazioni
+## <a name="learn-more"></a>Altre informazioni.
 
 * [Documentazione di Autenticazione di Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
 * [Gestire gli account amministrativi di accesso di emergenza in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)

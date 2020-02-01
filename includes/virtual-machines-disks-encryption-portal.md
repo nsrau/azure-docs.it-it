@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 662b2792a2e09603425b1988138326799334f323
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0912316d1c41f46e5dba74b58017f4fd5e8ed529
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973402"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76909207"
 ---
 ### <a name="portal"></a>Portale
 
@@ -77,6 +77,7 @@ Due notifiche dovrebbero apparire e avere esito positivo. Questa operazione cons
 Ora che è stato creato e configurato l'insieme di credenziali delle chiavi e il set di crittografia del disco, è possibile distribuire una VM usando la crittografia.
 Il processo di distribuzione delle VM è simile al processo di distribuzione standard. le uniche differenze sono la necessità di distribuire la macchina virtuale nella stessa area delle altre risorse e di scegliere di usare una chiave gestita dal cliente.
 
+1. Aprire il [collegamento dei set di crittografia del disco](https://aka.ms/diskencryptionsets).
 1. Cercare le **macchine virtuali** e selezionare **+ Aggiungi** per creare una macchina virtuale.
 1. Nella scheda di **base** selezionare la stessa area del set di crittografia del disco e Azure Key Vault.
 1. Inserire gli altri valori nella scheda di **base** , come si desidera.
@@ -96,6 +97,7 @@ Per gestire e configurare la crittografia del disco nei dischi esistenti, è nec
 > [!CAUTION]
 > Per abilitare la crittografia dei dischi in qualsiasi disco collegato a una macchina virtuale, sarà necessario arrestare la macchina virtuale.
 
+1. Aprire il [collegamento dei set di crittografia del disco](https://aka.ms/diskencryptionsets).
 1. Passare a una macchina virtuale che si trova nella stessa area di uno dei set di crittografia del disco.
 1. Aprire la macchina virtuale e selezionare **Arresta**.
 

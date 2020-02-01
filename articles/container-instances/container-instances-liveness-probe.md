@@ -3,12 +3,12 @@ title: Configurare il probe di liveity nell'istanza del contenitore
 description: Informazioni su come configurare probe di attività per riavviare i contenitori non integri in Istanze di Azure Container
 ms.topic: article
 ms.date: 06/08/2018
-ms.openlocfilehash: 96d98d18a3f0ac666fb2c057216f7844b176d177
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 566f7952aff1cf460272fbb418a2a0efff411881
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481688"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901905"
 ---
 # <a name="configure-liveness-probes"></a>Configurare probe di attività
 
@@ -17,6 +17,9 @@ Le applicazioni incluse in contenitori possono essere eseguite per periodi prolu
 Questo articolo illustra come distribuire un gruppo di contenitori che include un probe di attività, per dimostrare il riavvio automatico di un contenitore non integro simulato.
 
 Istanze di contenitore di Azure supporta anche [Probe di conformità](container-instances-readiness-probe.md), che è possibile configurare per garantire che il traffico raggiunga un contenitore solo quando è pronto per l'it.
+
+> [!NOTE]
+> Attualmente non è possibile usare un probe di liveity in un gruppo di contenitori distribuito in una rete virtuale.
 
 ## <a name="yaml-deployment"></a>Distribuzione con file YAML
 

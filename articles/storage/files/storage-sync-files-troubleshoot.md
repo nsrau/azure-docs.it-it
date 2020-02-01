@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 527d0a602b9da1f2d4f21890e896eba9a951494b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 887c10097187f193f55c6e301be3e739a16d6bf7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842717"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906915"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -1102,7 +1102,7 @@ Se non è possibile archiviare a livelli i file in File di Azure:
 | 0x80c83007 | -2134364153 | ECS_E_STORAGE_ERROR | Il file non è riuscito a eseguire il livello a causa di un problema di archiviazione di Azure. | Se l'errore è permanente, aprire una richiesta di supporto. |
 | 0x800703e3 | -2147023901 | ERROR_OPERATION_ABORTED | Non è stato possibile eseguire il livello del file perché è stato richiamato nello stesso momento. | Non è necessaria alcuna azione. Il file verrà suddiviso a livelli al termine del richiamo e il file non verrà più usato. |
 | 0x80c80264 | -2134375836 | ECS_E_GHOSTING_FILE_NOT_SYNCED | Non è stato possibile eseguire il livello del file perché non è stato sincronizzato con la condivisione file di Azure. | Non è necessaria alcuna azione. Il file verrà suddiviso in livelli una volta sincronizzato con la condivisione file di Azure. |
-| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | Non è stato possibile eseguire il livello del file perché il driver del filtro di suddivisione in livelli cloud (StorageSync. sys) non è in esecuzione. | Per risolvere questo problema, aprire un prompt dei comandi con privilegi elevati ed eseguire il comando seguente: fltmc Load StorageSync <br>Se non è possibile caricare il driver del filtro StorageSync quando si esegue il comando Fltmc, disinstallare l'agente di Sincronizzazione file di Azure, riavviare il server e reinstallare l'agente di Sincronizzazione file di Azure. |
+| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | Non è stato possibile eseguire il livello del file perché il driver del filtro di suddivisione in livelli cloud (StorageSync. sys) non è in esecuzione. | Per risolvere questo problema, aprire un prompt dei comandi con privilegi elevati ed eseguire il comando seguente: `fltmc load storagesync`<br>Se non è possibile caricare il driver del filtro StorageSync quando si esegue il comando Fltmc, disinstallare l'agente di Sincronizzazione file di Azure, riavviare il server e reinstallare l'agente di Sincronizzazione file di Azure. |
 | 0x80070070 | -2147024784 | ERROR_DISK_FULL | Impossibile eseguire il livello del file a causa di spazio su disco insufficiente nel volume in cui si trova l'endpoint server. | Per risolvere questo problema, liberare almeno 100 MB di spazio su disco nel volume in cui si trova l'endpoint server. |
 | 0x80070490 | -2147023728 | ERROR_NOT_FOUND | Non è stato possibile eseguire il livello del file perché non è stato sincronizzato con la condivisione file di Azure. | Non è necessaria alcuna azione. Il file verrà suddiviso in livelli una volta sincronizzato con la condivisione file di Azure. |
 | 0x80c80262 | -2134375838 | ECS_E_GHOSTING_UNSUPPORTED_RP | Impossibile eseguire il livello del file perché si tratta di un reparse point non supportato. | Se il file è un reparse point di deduplicazione dati, seguire i passaggi della [Guida alla pianificazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication) per abilitare il supporto della deduplicazione dati. I file con reparse point diversi dalla deduplicazione dei dati non sono supportati e non verranno suddivisi in livelli.  |

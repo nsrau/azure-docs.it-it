@@ -9,6 +9,7 @@ manager: daveba
 editor: curtand
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,15 +18,15 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92825a9ef84edc30b6b34aa875f8a207c70c8511
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bbd1ad6178e0120bf8414fc424b79254e306d2c2
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60350442"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897268"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorare AD FS con Azure AD Connect Health
-La documentazione seguente è specifica per il monitoraggio dell'infrastruttura AD FS con Azure AD Connect Health. Per informazioni sul monitoraggio di Azure Active Directory Connect (Sincronizzazione) con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health per la sincronizzazione](how-to-connect-health-sync.md). Per informazioni sul monitoraggio di Servizi di dominio Active Directory con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health con Servizi di dominio Active Directory](how-to-connect-health-adds.md).
+La documentazione seguente è specifica per il monitoraggio dell'infrastruttura AD FS con Azure AD Connect Health. Per informazioni sul monitoraggio Azure AD Connect (sincronizzazione) con Azure AD Connect Health, vedere [uso di Azure ad Connect Health per la sincronizzazione](how-to-connect-health-sync.md). Per informazioni sul monitoraggio Active Directory Domain Services con Azure AD Connect Health, vedere [utilizzo di Azure ad Connect Health con servizi di dominio Active Directory](how-to-connect-health-adds.md).
 
 ## <a name="alerts-for-ad-fs"></a>Avvisi per AD FS
 La sezione degli avvisi di Azure AD Connect Health contiene l'elenco degli avvisi attivi. Ogni avviso include informazioni pertinenti, la procedura di risoluzione e collegamenti alla documentazione correlata.
@@ -48,10 +49,10 @@ Per selezionare altre metriche, specificare un intervallo di tempo o modificare 
 
 **Metrica: richieste totali**, numero totale di richieste elaborate dal servizio AD FS.
 
-|Raggruppa per | Cosa significa il raggruppamento e perché è utile? |
+|Group By | Cosa significa il raggruppamento e perché è utile? |
 | --- | --- |
-| Tutti | Mostra il conteggio del numero totale di richieste elaborate da tutti i server AD FS.|
-| Applicazione | Raggruppa le richieste totali in base alla relying party di destinazione. Questo raggruppamento è utile per conoscere la percentuale del traffico totale ricevuta da ogni applicazione. |
+| Tutto | Mostra il conteggio del numero totale di richieste elaborate da tutti i server AD FS.|
+| Richiesta | Raggruppa le richieste totali in base alla relying party di destinazione. Questo raggruppamento è utile per conoscere la percentuale del traffico totale ricevuta da ogni applicazione. |
 |  Server |Raggruppa le richieste totali in base al server che ha elaborato la richiesta. Questo raggruppamento è utile per conoscere la distribuzione del carico del traffico totale.
 | Aggiunta all'area di lavoro |Raggruppa le richieste totali in base al fatto che provengano da dispositivi aggiunti all'area di lavoro (noti). Questo raggruppamento è utile per conoscere se le risorse sono accessibili con dispositivi sconosciuti all'infrastruttura di gestione delle identità. |
 |  Metodo di autenticazione | Raggruppa le richieste totali in base al metodo di autenticazione usato per l'autenticazione. Questo raggruppamento è utile per conoscere il metodo di autenticazione comune usato per l'autenticazione. Di seguito sono indicati i metodi di autenticazione possibili <ol> <li>Autenticazione integrata di Windows (Windows)</li> <li>Autenticazione basata su moduli (Forms)</li> <li>SSO (Single Sign On)</li> <li>Autenticazione certificato X509 (certificato)</li> <br>Se i server federativi ricevono la richiesta con un cookie SSO, tale richiesta viene considerata SSO (Single Sign-On). In questi casi, se il cookie è valido, all'utente non viene chiesto di fornire le credenziali e ottiene l'accesso trasparente all'applicazione. Questo comportamento è normale se sono presenti più relying party protette dai server federativi. |
@@ -60,19 +61,19 @@ Per selezionare altre metriche, specificare un intervallo di tempo o modificare 
 
 **Metrica: totale richieste non riuscite**, numero totale di richieste non riuscite elaborate dal servizio federativo. (Questa metrica è disponibile solo in AD FS per Windows Server 2012 R2)
 
-|Raggruppa per | Cosa significa il raggruppamento e perché è utile? |
+|Group By | Cosa significa il raggruppamento e perché è utile? |
 | --- | --- |
-| Tipo di errore | Mostra il numero di errori in base ai tipi di errore predefiniti. Questo raggruppamento è utile per conoscere i tipi di errori comuni. <ul><li>Password o nome utente non validi: errori causati dal nome utente o password non validi.</li> <li>"Blocco Extranet": errori causati dalle richieste ricevute da un utente per il quale è stato bloccato l'accesso alla Extranet </li><li> "Password scaduta": errori causati da utenti che effettuano l'accesso con una password scaduta.</li><li>"Account disabilitato": errori causati da utenti che effettuano l'accesso con un account disabilitato.</li><li>"Autenticazione dispositivo": errori causati da utenti che non riescono ad autenticarsi con Autenticazione dispositivo.</li><li>"Autenticazione certificato utente": errori causati da utenti che non riescono ad autenticarsi a causa di un certificato non valido.</li><li>"MFA": errori causati da utenti che non riescono ad autenticarsi con Multi-Factor Authentication.</li><li>"Altre credenziali": "Autorizzazione rilascio": errori causati da errori di autorizzazione.</li><li>"Delega rilascio": errori causati da errori di delega rilascio.</li><li>"Accettazione token": errori causati dal rifiuto da parte del file system distribuito di Azure del token di un provider di identità di terze parti.</li><li>"Protocollo": errore causato da errori del protocollo.</li><li>"Sconosciuto": tutti gli errori. Eventuali altri errori che non rientrano nelle categorie definite.</li> |
+| Tipo di errore | Mostra il numero di errori in base ai tipi di errore predefiniti. Questo raggruppamento è utile per conoscere i tipi di errori comuni. <ul><li>Nome utente o password non corretta: errori causati da un nome utente o una password non corretta.</li> <li>"Blocco Extranet": errori causati dalle richieste ricevute da un utente per il quale è stato bloccato l'accesso alla Extranet. </li><li> "Password scaduta": errori causati da utenti che effettuano l'accesso con una password scaduta.</li><li>"Account disabilitato": errori causati da utenti che effettuano l'accesso con un account disabilitato.</li><li>"Autenticazione dispositivo": errori causati da utenti che non riescono ad autenticarsi con Autenticazione dispositivo.</li><li>"Autenticazione certificato utente": errori causati da utenti che non riescono ad autenticarsi a causa di un certificato non valido.</li><li>"MFA": errori causati da utenti che non riescono ad autenticarsi con Multi-Factor Authentication.</li><li>"Altre credenziali" e "Autorizzazione rilascio": errori causati da errori di autorizzazione.</li><li>"Delega rilascio": errori causati da errori di delega rilascio.</li><li>"Accettazione token": errori causati dal rifiuto da parte di AD FS del token di un provider di identità di terze parti.</li><li>"Protocollo": errore causato da errori del protocollo.</li><li>"Sconosciuto": tutti gli errori. Eventuali altri errori che non rientrano nelle categorie definite.</li> |
 | Server | Raggruppa gli errori in base al server. Questo raggruppamento è utile per conoscere la distribuzione degli errori nei server. Una distribuzione non uniforme potrebbe indicare che un server è in uno stato difettoso. |
 | Percorso di rete | Raggruppa gli errori in base al percorso di rete delle richieste (Intranet ed Extranet). Questo raggruppamento è utile per conoscere il tipo di richieste che hanno esito negativo. |
-|  Applicazione | Raggruppa gli errori in base all'applicazione di destinazione (relying party). Questo raggruppamento è utile per conoscere l'applicazione di destinazione che sta visualizzando il maggior numero di errori. |
+|  Richiesta | Raggruppa gli errori in base all'applicazione di destinazione (relying party). Questo raggruppamento è utile per conoscere l'applicazione di destinazione che sta visualizzando il maggior numero di errori. |
 
-**Metrica: numero di utenti**, media del numero di utenti univoci che eseguono attivamente l'autenticazione con AD FS
+**Metrica: numero di utenti**, media del numero di utenti univoci che eseguono attivamente l'autenticazione con ADFS
 
-|Raggruppa per | Cosa significa il raggruppamento e perché è utile? |
+|Group By | Cosa significa il raggruppamento e perché è utile? |
 | --- | --- |
-|Tutti |Questa metrica fornisce un conteggio del numero medio di utenti che usano il servizio federativo nel periodo di tempo selezionato. Gli utenti non sono raggruppati. <br>La media dipende dal periodo di tempo selezionato. |
-| Applicazione |Raggruppa il numero medio di utenti in base all'applicazione di destinazione (relying party). Questo raggruppamento è utile per conoscere quanti utenti stanno usando una determinata applicazione. |
+|Tutto |Questa metrica fornisce un conteggio del numero medio di utenti che usano il servizio federativo nel periodo di tempo selezionato. Gli utenti non sono raggruppati. <br>La media dipende dal periodo di tempo selezionato. |
+| Richiesta |Raggruppa il numero medio di utenti in base all'applicazione di destinazione (relying party). Questo raggruppamento è utile per conoscere quanti utenti stanno usando una determinata applicazione. |
 
 ## <a name="performance-monitoring-for-ad-fs"></a>Monitoraggio delle prestazioni per AD FS
 Il monitoraggio delle prestazioni di Azure AD Connect Health offre informazioni di monitoraggio sulle metriche. Se si seleziona la casella Monitoraggio, viene visualizzato un nuovo pannello che include informazioni dettagliate sulle metriche.
@@ -84,7 +85,7 @@ Selezionando l'opzione Filtro nella parte superiore del pannello, è possibile f
 ## <a name="top-50-users-with-failed-usernamepassword-logins"></a>Primi 50 utenti con accessi tramite nome utente/password non riusciti
 Uno dei motivi più comuni per cui una richiesta di autenticazione può non riuscire in un server AD FS è l'uso di credenziali che non sono valide, vale a dire che il nome utente o la password non è valida. Gli utenti rilevano questo problema in genere a causa di password complesse, password dimenticate o errori di digitazione.
 
-Esistono però altri motivi per cui un numero imprevisto di tali richieste può essere gestito dai server AD FS, ad esempio: un'applicazione che memorizza nella cache le credenziali dell'utente che scadono oppure un utente malintenzionato che prova ad accedere a un account con una serie di password comuni. Questi due esempi sono motivi validi di un'eventuale picco nelle richieste.
+Esistono tuttavia altri motivi che possono provocare un numero inaspettatamente elevato di richieste gestite dai server AD FS, ad esempio un'applicazione che memorizza nella cache le credenziali utente in corrispondenza con la scadenza delle credenziali oppure un utente malintenzionato che prova ad accedere a un account con una serie di password note. Questi due esempi sono motivi validi di un'eventuale picco nelle richieste.
 
 Azure AD Connect Health per AD FS fornisce un report sui primi 50 utenti con tentativi di accesso non riusciti a causa di un nome utente o una password non valida. Questo report si ottiene elaborando gli eventi di controllo generati da tutti i server AD FS nelle farm.
 
@@ -107,7 +108,7 @@ Il grafico fornisce le informazioni seguenti:
 
 Il report fornisce le informazioni seguenti:
 
-| Elemento del report | Descrizione |
+| Elemento del report | Description |
 | --- | --- |
 | ID utente |Mostra l'ID utente che è stato usato. Questo valore corrisponde a quanto digitato dall'utente, che a volte corrisponde all'uso di un ID utente non valido. |
 | Tentativi non riusciti |Mostra il numero totale di tentativi non riusciti per l'ID utente specifico. La tabella è riportata in ordine decrescente a partire dal numero maggiore di tentativi non riusciti. |
@@ -120,5 +121,5 @@ Il report fornisce le informazioni seguenti:
 ## <a name="related-links"></a>Collegamenti correlati
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Installazione dell'agente di Azure AD Connect Health](how-to-connect-health-agent-install.md)
-* [Report sugli indirizzi IP rischiosi](how-to-connect-health-adfs-risky-ip.md)
+* [Report IP rischioso](how-to-connect-health-adfs-risky-ip.md)
 

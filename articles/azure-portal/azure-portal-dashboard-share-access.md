@@ -1,5 +1,5 @@
 ---
-title: Condividere i dashboard del portale di Azure tramite l'uso di RBAC | Microsoft Docs
+title: Condividere i dashboard portale di Azure usando il controllo degli accessi in base al ruolo
 description: Questo articolo illustra come condividere un dashboard nel portale di Azure tramite il Controllo degli accessi in base al ruolo.
 services: azure-portal
 documentationcenter: ''
@@ -12,70 +12,86 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/01/2016
+ms.date: 01/29/2020
 ms.author: mblythe
-ms.openlocfilehash: ce94a35ebcbf5d8cf3d176f05ac75ea5da5d8d99
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: e8d251cef9e67cb8fc0c11df8ce546383f75a679
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310748"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900827"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Condividere i dashboard di Azure tramite il Controllo degli accessi in base al ruolo
 
-Dopo aver configurato un dashboard, è possibile pubblicarlo e condividerlo con altri utenti nell'organizzazione. Si consente ad altri utenti di visualizzare il proprio dashboard tramite il [Controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md) di Azure. Si assegna un utente o gruppo di utenti a un ruolo e questo ruolo definisce se gli utenti possono visualizzare o modificare il dashboard pubblicato. 
+Dopo aver configurato un dashboard, è possibile pubblicarlo e condividerlo con altri utenti nell'organizzazione. Si consente ad altri utenti di visualizzare il dashboard usando il [controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md) (RBAC) di Azure. Assegnare un utente o un gruppo di utenti a un ruolo. Tale ruolo definisce se gli utenti possono visualizzare o modificare il dashboard pubblicato.
 
-Tutti i dashboard pubblicati vengono implementati come risorse di Azure, di conseguenza costituiscono elementi gestibili all'interno della sottoscrizione e sono contenuti in un gruppo di risorse.  Dal punto di vista del controllo di accesso, i dashboard non sono diversi da altre risorse, ad esempio una macchina virtuale o un account di archiviazione.
+Tutti i dashboard pubblicati vengono implementati come risorse di Azure. Esistono come elementi gestibili all'interno della sottoscrizione e sono contenuti in un gruppo di risorse. Dal punto di vista del controllo di accesso, i dashboard non sono diversi da altre risorse, ad esempio una macchina virtuale o un account di archiviazione.
 
 > [!TIP]
-> I singoli riquadri del dashboard applicano requisiti di controllo di accesso personalizzati in base alle risorse che visualizzano.  Perciò è possibile progettare un dashboard condiviso più ampiamente, continuando comunque a proteggere i dati nei singoli riquadri.
+> I singoli riquadri del dashboard applicano requisiti di controllo di accesso personalizzati in base alle risorse che visualizzano. È possibile condividere un dashboard su larga scala proteggendo i dati nei singoli riquadri.
 > 
 > 
 
 ## <a name="understanding-access-control-for-dashboards"></a>Informazioni sul controllo di accesso per i dashboard
+
 Con il Controllo degli accessi in base al ruolo è possibile assegnare utenti ai ruoli a tre diversi livelli di ambito:
 
 * sottoscrizione
 * gruppo di risorse
 * resource
 
-Le autorizzazioni assegnate vengono ereditate dalla sottoscrizione fino alla risorsa. Il dashboard pubblicato è una risorsa. È quindi possibile che esistano già utenti assegnati a ruoli per la sottoscrizione, che funzionano anche con il dashboard pubblicato. 
+Le autorizzazioni assegnate ereditano dalla sottoscrizione alla risorsa. Il dashboard pubblicato è una risorsa. È possibile che gli utenti siano già assegnati ai ruoli per la sottoscrizione che si applicano al dashboard pubblicato.
 
-Ecco un esempio.  Si supponga di avere una sottoscrizione di Azure e che ai vari membri del team siano stati assegnati i ruoli di **proprietario**, **collaboratore** o **lettore** della sottoscrizione. Gli utenti con il ruolo di proprietario o collaboratore possono elencare, visualizzare, creare, modificare o eliminare dashboard nella sottoscrizione.  Gli utenti con il ruolo di lettore possono elencare e visualizzare i dashboard, ma non modificarli o eliminarli.  Gli utenti con accesso in lettura possono apportare modifiche locali a un dashboard pubblicato, ad esempio per la risoluzione di un problema, ma non pubblicarle nel server.  Hanno comunque la possibilità di creare una copia privata del dashboard per se.
+Si supponga di avere una sottoscrizione di Azure e che ai vari membri del team siano stati assegnati i ruoli di *proprietario*, *collaboratore* o *lettore* della sottoscrizione. Gli utenti proprietari o collaboratori possono elencare, visualizzare, creare, modificare o eliminare Dashboard nella sottoscrizione. Gli utenti che sono lettori possono elencare e visualizzare i dashboard, ma non modificarli o eliminarli. Gli utenti con accesso in lettura possono apportare modifiche locali a un dashboard pubblicato, ad esempio durante la risoluzione di un problema, ma non possono pubblicare nuovamente tali modifiche nel server. Possono creare una copia privata del dashboard per se stessi.
 
-È tuttavia possibile assegnare autorizzazioni anche al gruppo di risorse che contiene diversi dashboard o a un singolo dashboard. Ad esempio, si potrebbe decidere che un gruppo di utenti deve avere autorizzazioni limitate per la sottoscrizione, ma un accesso più ampio per un determinato dashboard. Assegnare gli utenti a un ruolo per il dashboard. 
+È anche possibile assegnare autorizzazioni al gruppo di risorse che contiene diversi dashboard o a un singolo dashboard. Ad esempio, si potrebbe decidere che un gruppo di utenti deve avere autorizzazioni limitate per la sottoscrizione, ma un accesso più ampio per un determinato dashboard. Assegnare gli utenti a un ruolo per il dashboard.
 
 ## <a name="publish-dashboard"></a>Pubblicare dashboard
-Si supponga di che aver completato la configurazione di un dashboard che si vuole condividere con un gruppo di utenti nella sottoscrizione. I passaggi seguenti illustrano un gruppo personalizzato denominato Storage Managers, o gestori di archiviazione, ma è possibile assegnare al gruppo qualsiasi altro nome. Per informazioni sulla creazione di un gruppo di Active Directory e sull'aggiunta di utenti a tale gruppo, vedere [Gestione dei gruppi in Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+
+Si supponga di configurare un dashboard che si vuole condividere con un gruppo di utenti nella sottoscrizione. I passaggi seguenti illustrano come condividere un dashboard con un gruppo denominato storage managers. È possibile assegnare un nome al gruppo in qualsiasi modo. Per ulteriori informazioni, vedere [gestione dei gruppi in Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+
+Prima di assegnare l'accesso, è necessario pubblicare il dashboard.
 
 1. Nel dashboard selezionare **Condividi**.
-   
-     ![Selezionare Condividi](./media/azure-portal-dashboard-share-access/select-share.png)
-2. Prima di assegnare l'accesso, è necessario pubblicare il dashboard. Per impostazione predefinita, il dashboard verrà pubblicato in un gruppo di risorse denominato **dashboard**. Selezionare **Pubblica**.
-   
-     ![Pubblica](./media/azure-portal-dashboard-share-access/publish.png)
 
-Il dashboard viene pubblicato. Se le autorizzazioni ereditate dalla sottoscrizione sono appropriate, non è necessario eseguire altre operazioni. Altri utenti nell'organizzazione potranno accedere e modificare il dashboard in base al proprio ruolo a livello di sottoscrizione. Tuttavia, per questa esercitazione è possibile assegnare un gruppo di utenti a un ruolo per quel dashboard.
+    ![Selezionare la condivisione per il dashboard](./media/azure-portal-dashboard-share-access/share-dashboard-for-access-control.png)
+
+1. In **condivisione e controllo di accesso**selezionare **pubblica**.
+
+    ![pubblicare il dashboard](./media/azure-portal-dashboard-share-access/publish-dashboard-for-access-control.png)
+
+     Per impostazione predefinita, la condivisione pubblica il dashboard in un gruppo di risorse denominato **Dashboard**.
+
+Il dashboard viene pubblicato. Se le autorizzazioni ereditate dalla sottoscrizione sono appropriate, non è necessario eseguire altre operazioni. Gli altri utenti dell'organizzazione possono accedere e modificare il dashboard in base al relativo ruolo a livello di sottoscrizione.
 
 ## <a name="assign-access-to-a-dashboard"></a>Assegnare l'accesso a un dashboard
-1. Dopo aver pubblicato il dashboard, selezionare **Gestisci utenti**.
-   
-     ![gestione utenti](./media/azure-portal-dashboard-share-access/manage-users.png)
-2. Verrà visualizzato un elenco di utenti esistenti già stati assegnati a un ruolo per questo dashboard. L'elenco di utenti esistenti è diverso da quello nell'immagine seguente. È probabile che le assegnazioni vengono ereditate dalla sottoscrizione. Per aggiungere un nuovo utente o gruppo, selezionare **Aggiungi**.
-   
-     ![Aggiungi utente](./media/azure-portal-dashboard-share-access/existing-users.png)
-3. Selezionare il ruolo che rappresenta le autorizzazioni da concedere. Per questo esempio selezionare **Collaboratore**.
-   
-     ![selezionare il ruolo](./media/azure-portal-dashboard-share-access/select-role.png)
-4. Selezionare l'utente o il gruppo che si vuole assegnare al ruolo. Se l'utente o il gruppo desiderato non è visualizzato nell'elenco, usare la casella di ricerca. L'elenco dei gruppi disponibili dipenderà dai gruppi creati in Active Directory.
-   
-     ![Seleziona utente](./media/azure-portal-dashboard-share-access/select-user.png) 
-5. Al termine dell'operazione di aggiunta di utenti o gruppi, scegliere **OK**. 
-6. La nuova assegnazione viene aggiunta all'elenco di utenti. Si noti che il relativo **Accesso** è elencato come **Assegnato** anziché **Ereditato**.
-   
-     ![Ruoli assegnati](./media/azure-portal-dashboard-share-access/assigned-roles.png)
+
+È possibile assegnare un gruppo di utenti a un ruolo per tale dashboard.
+
+1. Dopo la pubblicazione del dashboard, in **condivisione e controllo di accesso**selezionare **Gestisci utenti**.
+
+    ![gestire gli utenti per un dashboard](./media/azure-portal-dashboard-share-access/manage-users-for-access-control.png)
+
+    Per accedere a **condivisione e controllo di accesso** da un dashboard, selezionare l'opzione **Condividi** o non **condividere** .
+
+1. Selezionare **assegnazioni di ruolo** per visualizzare gli utenti esistenti a cui è già stato assegnato un ruolo per questo dashboard.
+
+1. Per aggiungere un nuovo utente o gruppo, selezionare **Aggiungi**.
+
+    ![aggiungere un utente per l'accesso al dashboard](./media/azure-portal-dashboard-share-access/manage-users-existing-users.png)
+
+1. Consente di selezionare il ruolo che rappresenta le autorizzazioni da concedere. Per questo esempio selezionare **Collaboratore**.
+
+1. Consente di selezionare l'utente o il gruppo da assegnare al ruolo. Se l'utente o il gruppo che si sta cercando non viene visualizzato nell'elenco, usare la casella di ricerca. L'elenco dei gruppi disponibili dipende dai gruppi creati in Active Directory.
+
+1. Al termine dell'operazione di aggiunta di utenti o gruppi, scegliere **OK**.
+
+    La nuova assegnazione viene aggiunta all'elenco di utenti. L' **accesso** viene elencato come **assegnato** anziché **ereditato**.
+
+    ![Ruoli assegnati](./media/azure-portal-dashboard-share-access/assigned-roles.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per un elenco di ruoli, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../role-based-access-control/built-in-roles.md).
-* Per altre informazioni sulla gestione delle risorse, vedere [Gestire le risorse di Azure mediante il portale](resource-group-portal.md).
+
+* Per un elenco dei ruoli, vedere [ruoli predefiniti per le risorse di Azure](../role-based-access-control/built-in-roles.md).
+* Per informazioni sulla gestione delle risorse, vedere [gestire le risorse di Azure usando il portale di Azure](resource-group-portal.md).
 

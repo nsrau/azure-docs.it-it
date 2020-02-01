@@ -5,108 +5,83 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 10/15/2017
-ms.openlocfilehash: 79cc9d1bf7aa9e8848197525646b0a3646a558d2
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.date: 01/31/2020
+ms.openlocfilehash: 1f83f13564a64a0d9d8a5e0144ca95af6a769d6c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666806"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905037"
 ---
 # <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Risolvere i problemi e diagnosticare gli errori del flusso di lavoro nelle App per la logica di Azure
 
-L'app per la logica genera informazioni che possono consentire di eseguire diagnostica e debug dei problemi dell'app. È possibile eseguire la diagnostica di un'app per la logica esaminando ogni passaggio del flusso di lavoro tramite il portale di Azure. Oppure è possibile aggiungere alcuni passaggi a un flusso di lavoro per il debug al runtime.
+L'app per la logica genera informazioni che possono consentire di eseguire diagnostica e debug dei problemi dell'app. È possibile eseguire la diagnostica di un'app per la logica esaminando ogni passaggio del flusso di lavoro tramite il portale di Azure. In alternativa, è possibile aggiungere alcuni passaggi a un flusso di lavoro per il debug in fase di esecuzione.
 
-## <a name="review-trigger-history"></a>Esaminare la cronologia di attivazione
+<a name="check-trigger-history"></a>
 
-Ogni app per la logica si avvia con un trigger. Se il trigger non viene attivato, controllare innanzitutto la cronologia del trigger. Questa cronologia elenca tutti i tentativi di trigger che l'app per la logica ha effettuato e i dettagli relativi agli input e output per ogni tentativo di trigger.
+## <a name="check-trigger-history"></a>Controllare la cronologia del trigger
 
-1. Per esaminare se il trigger si è attivato, nel menu dell'app per la logica scegliere **Panoramica**. In **Cronologia trigger** esaminare lo stato del trigger.
+Ogni esecuzione di app per la logica inizia con un tentativo di trigger, quindi se il trigger non viene attivato, attenersi alla procedura seguente:
 
-   > [!TIP]
-   > Se il menu dell'app per la logica non è visualizzato, provare a tornare al dashboard di Azure e riaprire l'app per la logica.
+1. Controllare lo stato del trigger controllando [la cronologia del trigger](../logic-apps/monitor-logic-apps.md#review-trigger-history). Per visualizzare ulteriori informazioni sul tentativo di attivazione, selezionare l'evento di attivazione, ad esempio:
 
-   ![Esaminare la cronologia di attivazione](./media/logic-apps-diagnosing-failures/logic-app-trigger-history-overview.png)
+   ![Visualizzare lo stato e la cronologia del trigger](./media/logic-apps-diagnosing-failures/logic-app-trigger-history.png)
 
-   > [!TIP]
-   > * Se non si trovano i dati previsti, provare a selezionare **Aggiorna** sulla barra degli strumenti.
-   > * Se l'elenco mostra molti tentativi di trigger e non si trova la voce desiderata, provare a filtrare l'elenco.
+1. Controllare gli input del trigger per verificare che vengano visualizzati come previsto. In **input collegamento**selezionare il collegamento, che mostra il riquadro **input** .
 
-   Di seguito sono riportati i possibili stati per un tentativo di trigger:
+   Gli input del trigger includono i dati previsti dal trigger e richiedono l'avvio del flusso di lavoro. Esaminando questi input è possibile determinare se gli input del trigger sono corretti e se la condizione è stata soddisfatta, in modo che il flusso di lavoro possa continuare.
 
-   | Stato | Description | 
-   | ------ | ----------- | 
-   | **Completato** | Il trigger ha controllato l'endpoint e ha trovato dati disponibili. In genere compare anche lo stato "Attivato" accanto a questo stato. In caso contrario, la definizione del trigger potrebbe essere una condizione o comando `SplitOn` che non è soddisfatto. <p>Questo stato può essere associato a un trigger manuale, un trigger di ricorrenza o un trigger di poll. Un trigger può essere eseguito correttamente, ma l'esecuzione stessa potrebbe comunque non riuscire quando le azioni generano errori non gestiti. | 
-   | **Ignorato** | Il trigger ha controllato l'endpoint ma non ha trovato dati. | 
-   | **Non riuscito** | Si è verificato un errore. Per esaminare i messaggi di errore generati per un trigger non riuscito, selezionare il tentativo di trigger e scegliere **Output**. Ad esempio, si potrebbero trovare input che non sono validi. | 
-   ||| 
+   Ad esempio, la proprietà `feedUrl` qui ha un valore del feed RSS errato:
 
-   Potrebbero esserci più voci di trigger con la stessa data e ora, cosa che accade quando l'app per la logica trova più elementi. 
-   Ogni volta che il trigger viene attivato, il motore di App per la logica crea un'istanza dell'app per la logica per eseguire il flusso di lavoro. Per impostazione predefinita, ogni istanza viene eseguita in parallelo, in modo che nessun flusso di lavoro debba attendere prima di avviare un'esecuzione.
+   ![Esaminare gli input dei trigger per gli errori](./media/logic-apps-diagnosing-failures/review-trigger-inputs-for-errors.png)
+
+1. Controllare gli output dei trigger, se presenti, per verificare che vengano visualizzati come previsto. In **output collegamento**selezionare il collegamento, che mostra il riquadro **output** .
+
+   Gli output dei trigger includono i dati che il trigger passa al passaggio successivo del flusso di lavoro. Esaminando questi output è possibile determinare se i valori corretti o previsti sono passati al passaggio successivo nel flusso di lavoro, ad esempio:
+
+   ![Esaminare gli output dei trigger per gli errori](./media/logic-apps-diagnosing-failures/review-trigger-outputs-for-errors.png)
 
    > [!TIP]
-   > È possibile ricontrollare il trigger senza attendere la successiva ricorrenza. Sulla barra degli strumenti Panoramica scegliere **Esegui trigger** e selezionare il trigger, in modo da imporre un controllo. In alternativa selezionare **Esegui** sulla barra degli strumenti della finestra di progettazione delle app per la logica.
+   > Se si trovano contenuti non riconosciuti, vedere altre informazioni sui [diversi tipi di contenuto](../logic-apps/logic-apps-content-type.md) in app per la logica di Azure.
 
-3. Per esaminare i dettagli di un tentativo di trigger, in **Cronologia trigger** selezionare il tentativo di trigger. 
+<a name="check-runs-history"></a>
 
-   ![Selezionare un tentativo di trigger](./media/logic-apps-diagnosing-failures/logic-app-trigger-history.png)
+## <a name="check-runs-history"></a>Verifica cronologia esecuzioni
 
-4. Esaminare gli input e qualsiasi output che il trigger ha generato. Gli output dei trigger mostrano i dati ricevuti dal trigger. Questi output consentono di determinare se tutte le proprietà sono state restituite come previsto.
+Ogni volta che il trigger viene attivato per un elemento o un evento, il motore delle app per la logica crea ed esegue un'istanza del flusso di lavoro separata per ogni elemento o evento. Se un'esecuzione ha esito negativo, attenersi alla procedura seguente per esaminare gli eventi verificatisi durante l'esecuzione, incluso lo stato di ogni passaggio nel flusso di lavoro più gli input e gli output per ogni passaggio.
 
-   > [!NOTE]
-   > Se si trovano contenuti poco chiari, potrebbe essere utile comprendere il modo in cui le App per la logica di Azure [gestiscono i diversi tipi di contenuto](../logic-apps/logic-apps-content-type.md).
+1. Controllare lo stato di esecuzione del flusso di lavoro [controllando la cronologia delle esecuzioni](../logic-apps/monitor-logic-apps.md#review-runs-history). Per visualizzare ulteriori informazioni su un'esecuzione non riuscita, inclusi tutti i passaggi in eseguiti con lo stato, selezionare l'esecuzione non riuscita.
 
-   ![Output dei trigger](./media/logic-apps-diagnosing-failures/trigger-outputs.png)
+   ![Visualizza cronologia di esecuzione e seleziona esecuzione non riuscita](./media/logic-apps-diagnosing-failures/logic-app-runs-history.png)
 
-## <a name="review-run-history"></a>Esaminare la cronologia di esecuzione
+1. Dopo aver visualizzato tutti i passaggi dell'esecuzione, espandere il primo passaggio non riuscito.
 
-Ogni trigger attivato avvia un'esecuzione del flusso di lavoro. È possibile esaminare ciò che è accaduto durante quell'esecuzione includendo lo stato per ogni passaggio nel flusso di lavoro, nonché gli input e output per ogni passaggio.
+   ![Espandi primo passaggio non riuscito](./media/logic-apps-diagnosing-failures/logic-app-run-pane.png)
 
-1. Nel menu dell'app per la logica scegliere **Panoramica**. In **Cronologia esecuzioni** esaminare l'esecuzione del trigger attivato.
+1. Controllare gli input del passaggio non riuscito per verificare se sono visualizzati come previsto.
 
-   > [!TIP]
-   > Se il menu dell'app per la logica non è visualizzato, provare a tornare al dashboard di Azure e riaprire l'app per la logica.
+1. Esaminare i dettagli per ogni passaggio in un'esecuzione specifica. In **Cronologia esecuzioni** selezionare l'esecuzione che si vuole esaminare.
 
-   ![Esaminare la cronologia delle esecuzioni](./media/logic-apps-diagnosing-failures/logic-app-runs-history-overview.png)
-
-   > [!TIP]
-   > * Se non si trovano i dati previsti, provare a selezionare **Aggiorna** sulla barra degli strumenti.
-   > * Se l'elenco mostra molte esecuzioni e non si trova la voce desiderata, provare a filtrare l'elenco.
-
-   Di seguito sono riportati i possibili stati per un'esecuzione:
-
-   | Stato | Description | 
-   | ------ | ----------- | 
-   | **Completato** | Tutte le azioni hanno avuto esito positivo. <p>Se si sono verificati errori in un'azione specifica, un'azione successiva nel flusso di lavoro ha gestito l'errore. | 
-   | **Non riuscito** | Almeno un'azione non è riuscita e non è stata configurata alcuna azione successiva nel flusso di lavoro per la gestione dell'errore. | 
-   | **Annullato** | Il flusso di lavoro era in esecuzione ma ha ricevuto una richiesta di annullamento. | 
-   | **Running** | Il flusso di lavoro è attualmente in esecuzione, <p>Questo stato potrebbe verificarsi per flussi di lavoro limitati o come conseguenza del piano tariffario corrente. Per altre informazioni vedere i [limiti delle azioni sulla pagina dei prezzi](https://azure.microsoft.com/pricing/details/logic-apps/). Se si configura la [registrazione diagnostica](../logic-apps/logic-apps-monitor-your-logic-apps.md), è anche possibile ottenere informazioni su tutti gli eventi di limitazione che si verificano. | 
-   ||| 
-
-2. Esaminare i dettagli per ogni passaggio in un'esecuzione specifica. In **Cronologia esecuzioni** selezionare l'esecuzione che si vuole esaminare.
-
-   ![Esaminare la cronologia delle esecuzioni](./media/logic-apps-diagnosing-failures/logic-app-run-history.png)
-
-   Che l'esecuzione sia riuscita o meno, la visualizzazione Dettagli esecuzione mostra ogni passaggio e indica se è o non è riuscito.
+   ![Esaminare la cronologia delle esecuzioni](./media/logic-apps-diagnosing-failures/logic-app-runs-history.png)
 
    ![Visualizzare i dettagli per un'esecuzione dell'app per la logica](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
 
-3. Per esaminare gli input, gli output e gli eventuali messaggi di errore per un passaggio specifico, scegliere quel passaggio, in modo che la forma si espanda e vengano mostrati i dettagli. Ad esempio:
+1. Per esaminare gli input, gli output e gli eventuali messaggi di errore per un passaggio specifico, scegliere quel passaggio, in modo che la forma si espanda e vengano mostrati i dettagli. Ad esempio:
 
    ![Visualizzare i dettagli del passaggio](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
 
 ## <a name="perform-runtime-debugging"></a>Eseguire il debug al runtime
 
-Per facilitare il debug, è possibile aggiungere passaggi di diagnostica a un flusso di lavoro, oltre a esaminare il trigger e la cronologia delle esecuzioni. È possibile ad esempio aggiungere passaggi che usano il servizio [Webhook Tester](https://webhook.site/), in modo da poter controllare le richieste HTTP e determinare dimensione, forma e formato esatti.
+Per semplificare il debug, è possibile aggiungere passaggi di diagnostica a un flusso di lavoro di un'app per la logica, oltre a esaminare il trigger e la cronologia delle esecuzioni. È possibile ad esempio aggiungere passaggi che usano il servizio [Webhook Tester](https://webhook.site/), in modo da poter controllare le richieste HTTP e determinare dimensione, forma e formato esatti.
 
-1. Visitare [Webhook Tester](https://webhook.site/) e copiare l'URL univoco creato
+1. Passare al sito del [tester webhook](https://webhook.site/) e copiare l'URL univoco generato.
 
-2. Nell'app per la logica aggiungere un'azione HTTP POST con qualsiasi contenuto del corpo da verificare, ad esempio un'espressione o l'output di un altro passaggio.
+1. Nell'app per la logica aggiungere un'azione HTTP POST e il contenuto del corpo che si vuole testare, ad esempio un'espressione o un altro output del passaggio.
 
-3. Incollare l'URL per Webhook Tester nell'azione HTTP POST.
+1. Incollare l'URL da webhook tester nell'azione HTTP POST.
 
-4. Per esaminare in che modo viene formata una richiesta quando è generata dal motore di App per la logica di Azure, eseguire l'app per la logica e aggiornare Webhook Tester.
+1. Per esaminare il modo in cui viene creata una richiesta quando viene generata dal motore di app per la logica, eseguire l'app per la logica e rivedere il sito del tester webhook per altri dettagli.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Monitorare l'app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+* [Monitorare l'app per la logica](../logic-apps/monitor-logic-apps.md)

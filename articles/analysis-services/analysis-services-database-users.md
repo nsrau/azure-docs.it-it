@@ -4,15 +4,15 @@ description: Informazioni su come gestire ruoli del database e utenti in un serv
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 01/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9d1f3387fcea732e002689a4cdeaaf1d50d8a56f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 26d7c2d8919573c4c971edd7cb0e01b06fef3012
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147003"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901485"
 ---
 # <a name="manage-database-roles-and-users"></a>Gestire ruoli del database e utenti
 
@@ -42,12 +42,12 @@ I **gruppi di sicurezza** devono essere abilitati per la [posta elettronica](htt
   
 4.  Selezionare una delle seguenti autorizzazioni:  
   
-    |Autorizzazione|Descrizione|  
+    |Autorizzazione|Description|  
     |----------------|-----------------|  
-    |**Nessuno**|I membri non possono modificare lo schema del modello e non possono eseguire query sui dati.|  
+    |**Nessuno**|I membri non possono leggere o modificare lo schema del modello e non possono eseguire query sui dati.|  
     |**Lettura**|I membri possono eseguire query su dati, in base ai filtri di riga, ma non possono modificare lo schema del modello.|  
     |**Lettura ed elaborazione**|I membri possono eseguire query su dati in base ai filtri a livello di riga ed eseguire operazioni Elabora ed Elabora tutto, ma non possono modificare lo schema del modello.|  
-    |**Processo**|I membri possono eseguire operazioni Elabora ed Elabora tutto. Non possono modificare lo schema del modello ed eseguire query sui dati.|  
+    |**Processo**|I membri possono effettuare le operazioni relative alle opzioni Elabora ed Elabora tutto, Impossibile leggere o modificare lo schema del modello e non è possibile eseguire query sui dati.|  
     |**Amministratore**|I membri possono modificare lo schema del modello ed eseguire query su tutti i dati.|   
   
 5.  Se il ruolo che si sta creando dispone delle autorizzazioni Lettura o Lettura ed elaborazione, è possibile aggiungere filtri di riga usando una formula DAX. Fare clic sulla scheda **Filtri di riga**, quindi selezionare una tabella, quindi scegliere il campo **Filtro DAX** e quindi digitare una formula DAX.
@@ -71,10 +71,10 @@ Per aggiungere ruoli e utenti a un database modello distribuito, è necessario c
 
 3. Selezionare un'autorizzazione.
 
-   |Autorizzazione|Descrizione|  
+   |Autorizzazione|Description|  
    |----------------|-----------------|  
    |**Controllo completo (amministratore)**|I membri possono modificare lo schema del modello, eseguire operazioni di elaborazione e query su tutti i dati.| 
-   |**Elabora database**|I membri possono eseguire operazioni Elabora ed Elabora tutto. Non possono modificare lo schema del modello ed eseguire query sui dati.|  
+   |**Elaborazione database**|I membri possono effettuare le operazioni relative alle opzioni Elabora ed Elabora tutto, ma non possono modificare lo schema del modello, né eseguire query sui dati.|  
    |**Lettura**|I membri possono eseguire query su dati, in base ai filtri di riga, ma non possono modificare lo schema del modello.|  
   
 4. Fare clic su **Appartenenza**, quindi immettere un utente o un gruppo nel tenant di Azure AD dall'indirizzo e-mail.
@@ -121,7 +121,7 @@ In questo esempio, un gruppo e un utente esterno B2B vengono aggiunti al ruolo a
 
 Il modulo [SqlServer](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) fornisce cmdlet di gestione database specifici dell'attività, oltre al cmdlet Invoke-ASCmd per utilizzo generico che accetta una query o uno script TMSL (Tabular Model Scripting Language). I cmdlet seguenti vengono usati per la gestione di utenti e ruoli del database.
   
-|Cmdlet|Descrizione|
+|Cmdlet|Description|
 |------------|-----------------| 
 |[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Aggiunge un membro a un ruolo del database.| 
 |[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Rimuove un membro da un ruolo del database.|   
@@ -129,17 +129,17 @@ Il modulo [SqlServer](https://docs.microsoft.com/analysis-services/powershell/an
 
 ## <a name="row-filters"></a>Filtri di riga  
 
-I filtri di riga definiscono le righe di una tabella su cui i membri di uno specifico ruolo possono eseguire query. Vengono definiti per ogni tabella in un modello usando formule DAX.  
+I filtri di riga definiscono le righe di una tabella su cui i membri di uno specifico ruolo possono eseguire query. e vengono definiti per ogni tabella in un modello tramite formule DAX.  
   
 I filtri di riga possono essere definiti solo per i ruoli con le autorizzazioni Lettura e Lettura ed elaborazione. Per impostazione predefinita, se non si definisce un filtro di riga per una determinata tabella, i membri possono eseguire query su tutte le righe della tabella a meno che non vengano applicati filtri incrociati da un'altra tabella.
   
  I filtri di riga richiedono una formula DAX, che deve restituire un valore TRUE/FALSE, per definire le righe su cui i membri del ruolo specifico possono eseguire query. Non è possibile eseguire query su righe non incluse nella formula DAX. Ad esempio, nel caso della tabella Customers con l'espressione di filtri di riga seguente, *=Customers [Country] = 'USA'* , i membri del ruolo Sales possono visualizzare solo i clienti negli Stati Uniti.  
   
-I filtri di riga si applicano alle righe specificate e alle righe correlate. Quando una tabella contiene più relazioni, i filtri applicano la sicurezza per la relazione che è attiva. I filtri di riga vengono intersecati con altri filtri di riga definiti per le tabelle correlate, ad esempio:  
+I filtri di riga si applicano alle righe specificate e alle righe correlate. Quando una tabella dispone di più relazioni, tramite i filtri viene applicata la sicurezza alla relazione che è attiva. I filtri di riga vengono intersecati con altri filtri di riga definiti per le tabelle correlate, ad esempio:  
   
-|Table|Espressione DAX|  
+|Tabella|Espressione DAX|  
 |-----------|--------------------|  
-|Region|=Region[Country]="USA"|  
+|Area|=Region[Country]="USA"|  
 |ProductCategory|=ProductCategory[Name]="Bicycles"|  
 |Transazioni|=Transactions[Year]=2016|  
   

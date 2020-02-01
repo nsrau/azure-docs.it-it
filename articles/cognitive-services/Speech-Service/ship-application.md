@@ -3,20 +3,20 @@ title: Sviluppare app con il servizio riconoscimento vocale (Speech SDK)
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come distribuire un'applicazione che usa l'SDK di riconoscimento vocale nelle piattaforme supportate.
 services: cognitive-services
-author: jhakulin
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: jhakulin
+ms.date: 01/30/2020
+ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: f4200a0a43507a335f0e4e59e5a794d2bc4d6142
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 4f75adba27c8173f918fa1afbd44f307d50eb995
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816561"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76902018"
 ---
 # <a name="ship-an-application"></a>Spedire un'applicazione
 
@@ -39,7 +39,7 @@ Per l'input del microfono, è necessario installare le raccolte Media Foundation
 
 I file Speech SDK richiesti possono essere distribuiti nella stessa directory dell'applicazione. In questo modo l'applicazione può accedere direttamente alle raccolte. Assicurarsi di selezionare la versione corretta (Win32/x64) corrispondente all'applicazione.
 
-| name | Funzione |
+| Nome | Funzione |
 | :--- | :------- |
 | `Microsoft.CognitiveServices.Speech.core.dll`   | SDK di base, necessario per la distribuzione nativa e gestita |
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Obbligatorio per le distribuzioni gestite                      |
@@ -76,5 +76,5 @@ sudo apt-get install libssl1.0.2 libasound2
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Accedere alla versione di prova del servizio Voce](https://azure.microsoft.com/try/cognitive-services/)
+- [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
 - [Informazioni sul riconoscimento vocale in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: 58c0ff8cf8a579e2b97ebbe195f47e4baef4621a
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: aac0060527af7b7d880f971e7608be3fa44a2d15
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666823"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905105"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Creare flussi di lavoro di app per la logica da modelli predefiniti
 
@@ -50,7 +50,7 @@ Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account di A
    | **Sottoscrizione** | *nome-sottoscrizione-di-Azure* | Selezionare la sottoscrizione di Azure da usare. | 
    | **Gruppo di risorse** | *nome-gruppo-di-risorse-di-Azure* | Creare o selezionare un [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md) per questa app per la logica e per organizzare tutte le risorse associate a questa app. | 
    | **Posizione** | *area-data-center-di-Azure* | Selezionare l'area del data center per la distribuzione dell'app per la logica, ad esempio Stati Uniti occidentali. | 
-   | **Log Analytics** | **Off** (impostazione predefinita) o **On** | Abilitare la [registrazione diagnostica](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) per l'app per la logica tramite i [log di monitoraggio di Azure](../log-analytics/log-analytics-overview.md). È necessario disporre già di un'area di lavoro Log Analytics. | 
+   | **Log Analytics** | **Off** (impostazione predefinita) o **On** | Configurare la [registrazione diagnostica](../logic-apps/monitor-logic-apps-log-analytics.md) per l'app per la logica usando i [log di monitoraggio di Azure](../log-analytics/log-analytics-overview.md). È necessario disporre già di un'area di lavoro Log Analytics. | 
    |||| 
 
 4. Al termine, selezionare **Aggiungi al dashboard**. L'app per la logica verrà così visualizzata nel dashboard di Azure e aperta dopo la distribuzione. Scegliere **Create**.

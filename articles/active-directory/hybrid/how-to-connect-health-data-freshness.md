@@ -7,6 +7,7 @@ author: zhiweiwangmsft
 manager: SamuelD
 editor: ''
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41c1c102e88e1712d561874aef87a6f22ed250a9
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: a94bd07cf5020981cdf028ec0eccfa8fa531d240
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430224"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897174"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>I dati del Servizio integrità non sono aggiornati
 
@@ -40,7 +41,7 @@ Il pannello **Dettagli avviso** indica quando si è verificato l'avviso e l'ulti
  
 Nella tabella seguente viene eseguito il mapping dei tipi di servizio ai tipi di dati necessari corrispondenti:
 
-| Tipo di servizio | Agent (nome del servizio Windows) | Scopo | Tipo di dati generato  |
+| Tipo di servizio | Agent (nome del servizio Windows) | Finalità | Tipo di dati generato  |
 | --- | --- | --- | --- |  
 | Azure AD Connect (sincronizzazione) | Azure AD Connect Health Sync Insights Service | Raccogliere informazioni specifiche di AAD Connect (connettori, regole di sincronizzazione e così via) | - AadSyncService-SynchronizationRules <br />  -AadSyncService-connettori <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> -AadSyncService-ServiceStatus   |
 |  | Azure AD Connect Health Sync Monitoring Service | Raccolta di contatori delle prestazioni specifici di AAD Connect, tracce ETW, file | Contatore delle prestazioni |

@@ -3,19 +3,21 @@ title: Limiti e quote della sottoscrizione di Azure
 description: Fornisce un elenco di limiti, quote e vincoli comuni relativi alle sottoscrizioni e ai servizi di Azure. Questo articolo include informazioni su come aumentare i limiti insieme ai valori massimi.
 tags: billing
 ms.topic: conceptual
-ms.date: 01/28/2020
-ms.openlocfilehash: c6661ce6d3e0f62c47b1f234898dbf47de36f3ee
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 01/30/2020
+ms.openlocfilehash: c5714dd30be4d557086667a74fff2ff8117e2a2b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845980"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901409"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione ad Azure e limiti, quote e vincoli del servizio
 
 In questo documento sono elencati alcuni dei limiti più comuni di Microsoft Azure, che vengono definiti anche quote. Al momento nel documento non vengono trattati tutti i servizi di Azure. Nel corso del tempo, l'elenco verrà espanso e aggiornato per coprire più servizi.
 
 Per altre informazioni sui prezzi di Azure, vedere [Panoramica dei prezzi di Azure](https://azure.microsoft.com/pricing/). Qui è possibile stimare i costi usando il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/). È anche possibile passare alla pagina dei dettagli prezzi per un particolare servizio, ad esempio [macchine virtuali Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Per suggerimenti su come gestire i costi, vedere [Evitare costi imprevisti con la fatturazione del costi e la fatturazione di Azure](../../billing/billing-getting-started.md).
+
+Per i limiti sui nomi delle risorse, vedere [regole di denominazione e restrizioni per le risorse di Azure](resource-name-rules.md).
 
 > [!NOTE]
 > Per aumentare il limite o la quota superiore al limite predefinito, è possibile [aprire una richiesta di assistenza clienti online senza alcun addebito](../templates/error-resource-quota.md). I limiti non possono essere aumentati oltre il valore limite massimo illustrato nelle tabelle seguenti. Se non è presente alcuna colonna limite massimo, la risorsa non ha limiti regolabili.
@@ -25,7 +27,7 @@ Per altre informazioni sui prezzi di Azure, vedere [Panoramica dei prezzi di Azu
 
 ## <a name="limits-and-azure-resource-manager"></a>Limiti e Azure Resource Manager
 
-È ora possibile combinare più risorse di Azure in un singolo gruppo di risorse di Azure. Quando si usano i gruppi di risorse, i limiti che una volta venivano gestiti globalmente a livello di area con Azure Resource Manager. Per altre informazioni sui gruppi di risorse di Azure, vedere [Panoramica di Azure Resource Manager](overview.md).
+È possibile combinare più risorse di Azure in un singolo gruppo di risorse di Azure. Quando si usano i gruppi di risorse, i limiti che una volta venivano gestiti globalmente a livello di area con Azure Resource Manager. Per altre informazioni sui gruppi di risorse di Azure, vedere [Panoramica di Azure Resource Manager](overview.md).
 
 Nel seguente elenco di limiti, una nuova tabella riflette eventuali differenze nei limiti quando si usa Azure Resource Manager. Ad esempio, è presente una tabella dei **limiti della sottoscrizione** e una tabella relativa ai **limiti di sottoscrizione Azure Resource Manager** . Quando si applica un limite a entrambi gli scenari, viene visualizzato solo nella prima tabella. Se non diversamente indicato, i limiti sono globali in tutte le aree.
 
@@ -484,3 +486,4 @@ Per SQL Data Warehouse limiti, vedere [limiti delle risorse SQL data warehouse](
 * [Informazioni sui limiti e sugli aumenti di Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Dimensioni dei servizi cloud di Azure](../../cloud-services/cloud-services-sizes-specs.md)
+* [Regole di denominazione e restrizioni per le risorse di Azure](resource-name-rules.md)

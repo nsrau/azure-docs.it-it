@@ -3,14 +3,14 @@ title: INTERFACCIA della riga di comando di Azure Service Fabric-nodo sfctl
 description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per la gestione dei nodi del cluster.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 43b242d6c7c41b6198b8f909ab5ae056f0982307
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 5881e6485003abd4fd23a7f6d06a428e768c00fa
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645294"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905872"
 ---
 # <a name="sfctl-node"></a>sfctl node
 Consente di gestire i nodi che formano un cluster.
@@ -19,17 +19,44 @@ Consente di gestire i nodi che formano un cluster.
 
 |Comando|Description|
 | --- | --- |
+| Add-Configuration-Parameter-Overrides | Aggiunge l'elenco di override di configurazione nel nodo specificato. |
 | disabilitare | Disattiva un nodo del cluster di Service Fabric con lo scopo di disattivazione specificato. |
 | abilitare | Attiva un nodo del cluster di Service Fabric che è attualmente disattivato. |
+| Get-Configuration-Overrides | Ottiene l'elenco di override della configurazione nel nodo specificato. |
 | settore sanitario | Mostra l'integrità di un nodo di Service Fabric. |
 | info | Mostra le informazioni su un nodo specifico del cluster di Service Fabric. |
 | list | Mostra l'elenco dei nodi del cluster di Service Fabric. |
 | load | Mostra le informazioni sul caricamento di un nodo di Service Fabric. |
+| Remove-Configuration-Overrides | Rimuove gli override di configurazione nel nodo specificato. |
 | remove-state | Notifica a Service Fabric che lo stato persistente in un nodo è stato rimosso o perso definitivamente. |
 | report-health | Invia un report di integrità nel nodo di Service Fabric. |
 | restart | Riavvia un nodo del cluster di Service Fabric. |
 | transition | Avvia o arresta un nodo del cluster. |
 | transition-status | Mostra lo stato di avanzamento di un'operazione avviata utilizzando StartNodeTransition. |
+
+## <a name="sfctl-node-add-configuration-parameter-overrides"></a>nodo sfctl Add-Configuration-Parameter-Overrides
+Aggiunge l'elenco di override di configurazione nel nodo specificato.
+
+Questa API consente di aggiungere tutti gli override di configurazione esistenti sul nodo specificato.
+
+### <a name="arguments"></a>Argomenti
+
+|Argomento|Description|
+| --- | --- |
+| --config-Parameter-override-list [obbligatorio] | Descrizione per l'aggiunta di un elenco di override della configurazione. |
+| --Node-Name [obbligatorio] | Il nome del nodo. |
+| --force | Forza l'aggiunta di override di configurazione nei nodi specificati. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+
+### <a name="global-arguments"></a>Argomenti globali
+
+|Argomento|Description|
+| --- | --- |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
+| --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
 ## <a name="sfctl-node-disable"></a>sfctl node disable
 Disattiva un nodo del cluster di Service Fabric con lo scopo di disattivazione specificato.
@@ -58,6 +85,28 @@ Disattiva un nodo del cluster di Service Fabric con lo scopo di disattivazione s
 Attiva un nodo del cluster di Service Fabric che è attualmente disattivato.
 
 Attiva un nodo del cluster di Service Fabric che è attualmente disattivato. Dopo essere stato attivato, il nodo diventerà nuovamente una destinazione valida in cui inserire le nuove repliche e tutte le repliche disattivate rimanenti nel nodo verranno riattivate.
+
+### <a name="arguments"></a>Argomenti
+
+|Argomento|Description|
+| --- | --- |
+| --node-name [Required] | Il nome del nodo. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+
+### <a name="global-arguments"></a>Argomenti globali
+
+|Argomento|Description|
+| --- | --- |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
+| --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
+
+## <a name="sfctl-node-get-configuration-overrides"></a>nodo sfctl Get-Configuration-override
+Ottiene l'elenco di override della configurazione nel nodo specificato.
+
+Questa API consente di ottenere tutti gli override di configurazione esistenti nel nodo specificato.
 
 ### <a name="arguments"></a>Argomenti
 
@@ -167,10 +216,32 @@ Recupera le informazioni sul caricamento di un nodo di Service Fabric per tutte 
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
+## <a name="sfctl-node-remove-configuration-overrides"></a>rimozione del nodo sfctl-configurazione-sostituzioni
+Rimuove gli override di configurazione nel nodo specificato.
+
+Questa API consente di rimuovere tutti gli override di configurazione esistenti nel nodo specificato.
+
+### <a name="arguments"></a>Argomenti
+
+|Argomento|Description|
+| --- | --- |
+| --node-name [Required] | Il nome del nodo. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+
+### <a name="global-arguments"></a>Argomenti globali
+
+|Argomento|Description|
+| --- | --- |
+| --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
+| --help -h | Visualizza questo messaggio della guida ed esce. |
+| --output -o | Formato di output.  Valori consentiti\: json, jsonc, table, tsv.  Valore predefinito\: json. |
+| --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
+| --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
+
 ## <a name="sfctl-node-remove-state"></a>sfctl node remove-state
 Notifica a Service Fabric che lo stato persistente in un nodo è stato rimosso o perso definitivamente.
 
-Ciò implica che non è possibile ripristinare lo stato persistente di tale nodo, come in genere si verifica se il contenuto di un disco rigido è stato cancellato o se un disco rigido si arresta in modo anomalo. Il nodo deve essere inattivo perché l'operazione abbia esito positivo. Questa operazione consente a Service Fabric di sapere che le repliche in tale nodo non esistono più e che deve smettere di attendere che tali repliche tornino disponibili. Non eseguire questo cmdlet se lo stato del nodo non è stato rimosso e il nodo può tornare disponibile con lo stato intatto. A partire da Service Fabric 6,5, per usare questa API per i nodi di inizializzazione, impostare i nodi di inizializzazione su nodi regolari (non di inizializzazione), quindi richiamare questa API per rimuovere lo stato del nodo. Se il cluster è in esecuzione in Azure, dopo che il nodo di inizializzazione diventa inattivo, Service Fabric tenterà di modificarlo automaticamente in un nodo non di inizializzazione. Per eseguire questa operazione, assicurarsi che il numero di nodi non di inizializzazione nel tipo di nodo primario non sia inferiore al numero di nodi di inizializzazione inattivo. Se necessario, aggiungere altri nodi al tipo di nodo primario per ottenere questo risultato. Per il cluster autonomo, se non è previsto che il nodo di inizializzazione inattivo venga riattivato con lo stato intatto, rimuovere il nodo dal cluster, vedere https\://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes.
+Ciò implica che non è possibile ripristinare lo stato persistente di tale nodo, come in genere si verifica se il contenuto di un disco rigido è stato cancellato o se un disco rigido si arresta in modo anomalo. Il nodo deve essere inattivo perché l'operazione abbia esito positivo. Questa operazione consente a Service Fabric di sapere che le repliche in tale nodo non esistono più e che deve smettere di attendere che tali repliche tornino disponibili. Non eseguire questo cmdlet se lo stato del nodo non è stato rimosso e il nodo può tornare disponibile con lo stato intatto. A partire da Service Fabric 6,5, per usare questa API per i nodi di inizializzazione, impostare i nodi di inizializzazione su nodi regolari (non di inizializzazione), quindi richiamare questa API per rimuovere lo stato del nodo. Se il cluster è in esecuzione in Azure, dopo che il nodo di inizializzazione diventa inattivo, Service Fabric tenterà di modificarlo automaticamente in un nodo non di inizializzazione. Per eseguire questa operazione, assicurarsi che il numero di nodi non di inizializzazione nel tipo di nodo primario non sia inferiore al numero di nodi di inizializzazione inattivo. Se necessario, aggiungere altri nodi al tipo di nodo primario per ottenere questo risultato. Per il cluster autonomo, se non è previsto che il nodo di inizializzazione inattivo venga riattivato con lo stato intatto, rimuovere il nodo dal cluster, vedere https\://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes.
 
 ### <a name="arguments"></a>Argomenti
 
@@ -207,7 +278,7 @@ Segnala lo stato di integrità del nodo di Service Fabric specificato. Il report
 | --remove-when-expired | Valore che indica se il report viene rimosso dall'archivio integrità quando scade. <br><br> Se impostato su True, il report viene rimosso dall'archivio integrità dopo la scadenza. Se impostato su False, il report viene considerato come errore quando è scaduto. Il valore di questa proprietà è False per impostazione predefinita. Quando i client creano report periodicamente, RemoveWhenExpired sarà impostato su False (valore predefinito). In questo modo, se il reporter presenta problemi (ad esempio, un deadlock) e non può creare report, l'entità viene considerata in stato di errore quando scade il report sull'integrità. L'entità viene quindi contrassegnata con lo stato di integrità di errore. |
 | --sequence-number | Numero di sequenza per questo report sull'integrità come stringa numerica. <br><br> Il numero di sequenza del report viene usato dall'archivio integrità per rilevare i report non aggiornati. Se non specificato, un numero di sequenza viene generato automaticamente dal client di integrità quando viene aggiunto un report. |
 | --timeout -t | Impostazione predefinita\: 60. |
-| --ttl | Durata in cui questo report sull'integrità è valido. Questo campo usa il formato ISO8601 per specificare la durata. <br><br> Quando i client creano report periodicamente, devono inviare i report con una frequenza maggiore della durata (TTL). Se i client segnalano la transizione, possono impostare il tempo di esecuzione fino a infinito. Quando la durata (TTL) scade, l'evento di integrità che contiene le informazioni sull'integrità viene rimosso dall'archivio integrità, se RemoveWhenExpired è True, o considerato in stato di errore, se RemoveWhenExpired è False. Se non è specificato, la durata (TTL) viene impostata su un valore infinito. |
+| --ttl | Durata in cui questo report sull'integrità è valido. Questo campo usa il formato ISO8601 per specificare la durata. <br><br> Quando i client creano report periodicamente, devono inviare i report con una frequenza maggiore della durata (TTL). Se i client inviano report in caso di transizione, possono impostare la durata (TTL) come infinita. Quando la durata (TTL) scade, l'evento di integrità che contiene le informazioni sull'integrità viene rimosso dall'archivio integrità, se RemoveWhenExpired è True, o considerato in stato di errore, se RemoveWhenExpired è False. Se non è specificato, la durata (TTL) viene impostata su un valore infinito. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 

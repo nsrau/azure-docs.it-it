@@ -3,14 +3,14 @@ title: INTERFACCIA della riga di comando di Azure Service Fabric-sfctl rpm
 description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per il servizio di gestione della riparazione.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 674970276046034d13801db7c1bb4ab5175385fb
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 1787c0c8a8d5994ce1f1e9e4c55f155bbca6934c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639089"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904935"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Consente di eseguire query e inviare comandi al servizio di gestione di ripristino.
@@ -77,7 +77,7 @@ Questa API supporta la piattaforma Service Fabric. non deve essere utilizzata di
 |Argomento|Description|
 | --- | --- |
 | --executor-filter | Il nome dell'executor di ripristino le cui attività richieste devono essere incluse nell'elenco. |
-| --state-filter | Un operatore OR bit per bit dei valori seguenti, che specifica gli stati delle attività che devono essere inclusi nell'elenco dei risultati. <br> 1 - Creato <br>2 - Richiesto  <br>4 - Preparazione in corso  <br>8 - Approvato  <br>16 - Esecuzione in corso  <br>32 - Ripristino in corso  <br>64 - Completato |
+| --state-filter | Un operatore OR bit per bit dei valori seguenti, che specifica gli stati delle attività che devono essere inclusi nell'elenco dei risultati. <ul><li>1 - Creato</li><li>2-richiesta</li><li>4-preparazione</li><li>8-approvato</li><li>16-esecuzione</li><li>32-ripristino</li><li>64 - Completato</li></ul>
 | --task-id-filter | Il prefisso dell'ID dell'attività di ripristino da ricercare. |
 
 ### <a name="global-arguments"></a>Argomenti globali

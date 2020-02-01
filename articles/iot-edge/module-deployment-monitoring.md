@@ -4,16 +4,16 @@ description: Usare le distribuzioni automatiche in Azure IoT Edge per gestire gr
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/12/2019
+ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 406830add1891a058e9b43fccb8435aa4d339ed0
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 8aaac6100ba980301ff3e85a3ac3959bfee89b49
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548680"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76895973"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Informazioni sulle distribuzioni automatiche IoT Edge per singoli dispositivi o su vasta scala
 
@@ -61,7 +61,7 @@ La condizione di destinazione viene valutata continuamente per tutto il ciclo di
 
 Ad esempio, si dispone di una distribuzione con i tag della condizione di destinazione. Environment =' prod '. Quando viene avviata la distribuzione, sono disponibili 10 dispositivi di produzione. I moduli vengono installati correttamente in questi 10 dispositivi. Lo stato dell'agente di IoT Edge Mostra 10 dispositivi totali, 10 risposte con esito positivo, 0 risposte di errore e 0 risposte in sospeso. Si aggiungono ora altri cinque dispositivi con tags.environment = 'prod'. Il servizio rileva la modifica e lo stato dell'agente IoT Edge diventa 15 dispositivi totali, 10 risposte con esito positivo, 0 risposte di errore e 5 risposte in sospeso durante la distribuzione nei cinque nuovi dispositivi.
 
-Usare qualsiasi condizione booleana sui tag dei dispositivi gemelli o deviceId per selezionare i dispositivi di destinazione. Se si intende usare una condizione con tag, è necessario aggiungere la sezione "tags"{} nel dispositivo gemello allo stesso livello delle proprietà. [Altre informazioni sui tag nel dispositivo gemello](../iot-hub/iot-hub-devguide-device-twins.md)
+Usare qualsiasi condizione booleana nei tag del dispositivo gemello, le proprietà segnalate dal dispositivo gemello o deviceId per selezionare i dispositivi di destinazione. Se si intende usare una condizione con tag, è necessario aggiungere la sezione "tags"{} nel dispositivo gemello allo stesso livello delle proprietà. [Altre informazioni sui tag nel dispositivo gemello](../iot-hub/iot-hub-devguide-device-twins.md)
 
 Esempi di condizioni di destinazione:
 
@@ -70,10 +70,11 @@ Esempi di condizioni di destinazione:
 * tags.environment = 'prod' AND tags.location = 'westus'
 * tags.environment = 'prod' OR tags.location = 'westus'
 * tags.operator = 'John' AND tags.environment = 'prod' NOT deviceId = 'linuxprod1'
+* Properties. reported. DeviceModel =' 4000X '
 
-Di seguito sono riportati alcuni vincoli validi quando si crea una condizione di destinazione:
+Prendere in considerazione questi vincoli quando si crea una condizione di destinazione:
 
-* In un dispositivo gemello è solo possibile creare una condizione di destinazione tramite tags o deviceId.
+* Nel dispositivo gemello è possibile creare una condizione di destinazione solo usando tag, proprietà segnalate o deviceId.
 * Le virgolette doppie non sono consentite in qualsiasi parte della condizione di destinazione. Usare le virgolette singole.
 * Le virgolette singole rappresentano i valori della condizione di destinazione. Pertanto, è necessario eseguire l'escape della virgoletta singola con un'altra virgoletta singola se fa parte del nome del dispositivo. Ad esempio, per un dispositivo chiamato `operator'sDevice`, scrivere `deviceId='operator''sDevice'`.
 * Nei valori della condizione di destinazione sono consentiti i numeri, le lettere e i caratteri seguenti: `-:.+%_#*?!(),=@;$`.
@@ -92,8 +93,8 @@ Per impostazione predefinita, tutte le distribuzioni segnalano quattro metriche:
 
 * **Targeted** Mostra i dispositivi IOT Edge che corrispondono alla condizione di destinazione della distribuzione.
 * **Applicato** Mostra i dispositivi IOT Edge di destinazione che non sono interessati da un'altra distribuzione con priorità più elevata.
-* **Segnalazione riuscita** Mostra i dispositivi IOT Edge restituiti al servizio che i moduli sono stati distribuiti correttamente.
-* **Segnalazione errori** Mostra i dispositivi IOT Edge che hanno segnalato al servizio che uno o più moduli non sono stati distribuiti correttamente. Per esaminare ulteriormente questo errore, connettersi in remoto a tali dispositivi e visualizzare i file di log.
+* **Segnalazione riuscita** Mostra i dispositivi IOT Edge che hanno segnalato che i moduli sono stati distribuiti correttamente.
+* **Segnalazione errori** Mostra i dispositivi IOT Edge che hanno segnalato che uno o più moduli non sono stati distribuiti correttamente. Per esaminare ulteriormente questo errore, connettersi in remoto a tali dispositivi e visualizzare i file di log.
 
 Inoltre, è possibile definire metriche personalizzate per facilitare il monitoraggio e la gestione della distribuzione.
 
@@ -112,7 +113,7 @@ Le distribuzioni sovrapposte sono distribuzioni automatiche che possono essere c
 
 Le distribuzioni a più livelli hanno gli stessi componenti di base di qualsiasi distribuzione automatica. I dispositivi di destinazione sono basati su tag nei dispositivi gemelli e forniscono la stessa funzionalità per le etichette, le metriche e la creazione di rapporti di stato. Le distribuzioni a più livelli hanno anche le priorità assegnate, ma invece di usare la priorità per determinare quale distribuzione viene applicata a un dispositivo, la priorità determina il modo in cui vengono classificate più distribuzioni in un dispositivo. Se, ad esempio, due distribuzioni a più livelli hanno un modulo o una route con lo stesso nome, la distribuzione a più livelli con la priorità più alta verrà applicata mentre la priorità più bassa viene sovrascritta.
 
-I moduli di runtime di sistema, edgeAgent e edgeHub, non sono configurati come parte di una distribuzione a più livelli. Qualsiasi dispositivo IoT Edge di destinazione di una distribuzione a più livelli necessita di una distribuzione automatica standard applicata prima di tutto per fornire la base su cui è possibile aggiungere distribuzioni a più livelli.
+I moduli di runtime di sistema, edgeAgent e edgeHub, non sono configurati come parte di una distribuzione a più livelli. Per ogni dispositivo IoT Edge di destinazione di una distribuzione a più livelli è necessario prima di tutto applicare una distribuzione automatica standard. La distribuzione automatica fornisce la base su cui è possibile aggiungere le distribuzioni a più livelli.
 
 Un dispositivo IoT Edge può applicare solo una distribuzione automatica standard, ma può applicare più distribuzioni automatiche a più livelli. Le distribuzioni a più livelli destinate a un dispositivo devono avere una priorità più elevata rispetto alla distribuzione automatica per tale dispositivo.
 
@@ -141,7 +142,7 @@ In una distribuzione standard, ad esempio, è possibile aggiungere il modulo di 
 }
 ```
 
-In una distribuzione a più livelli destinata agli stessi dispositivi o a un subset degli stessi dispositivi, potrebbe essere necessario aggiungere una proprietà aggiuntiva che indichi al sensore simulato di inviare 1000 messaggi e quindi arrestare. Non si desidera sovrascrivere le proprietà esistenti, quindi creare una nuova sezione all'interno delle proprietà desiderate denominate `layeredProperties`, che contiene la nuova proprietà:
+In una distribuzione a più livelli destinata ad alcuni o a tutti gli stessi dispositivi, è possibile aggiungere una proprietà che indica al sensore simulato di inviare 1000 messaggi e quindi di arrestarsi. Non si desidera sovrascrivere le proprietà esistenti, quindi creare una nuova sezione all'interno delle proprietà desiderate denominate `layeredProperties`, che contiene la nuova proprietà:
 
 ```json
 "SimulatedTemperatureSensor": {

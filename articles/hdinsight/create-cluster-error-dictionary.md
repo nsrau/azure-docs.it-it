@@ -1,19 +1,19 @@
 ---
 title: Creare un dizionario degli errori del cluster
 description: Informazioni su come creare un dizionario degli errori del cluster.
-ms.reviewer: hrasheed
 author: karkrish
-ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: troubleshooting
-ms.date: 11/19/2019
 ms.author: v-todmc
-ms.openlocfilehash: ee9ed5374b12c3130d952770a4be6a759e37339a
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.reviewer: hrasheed
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 11/19/2019
+ms.openlocfilehash: 6e5ed996a0f44bae6c37027bc01f30be85d164f9
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156863"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905492"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: errori di creazione del cluster
 
@@ -210,7 +210,7 @@ In genere, questo errore viene generato quando si verifica un problema temporane
 
 ### <a name="resolution"></a>Risoluzione
 
-Controllare la pagina di [stato di Azure](https://status.azure.com/status) per eventuali interruzioni di Azure che potrebbero influire sulla distribuzione del cluster. Se non ci sono interruzioni, riprovare la distribuzione del cluster.
+Controllare la pagina di [stato di Azure](https://status.azure.com) per eventuali interruzioni di Azure che potrebbero influire sulla distribuzione del cluster. Se non ci sono interruzioni, riprovare la distribuzione del cluster.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

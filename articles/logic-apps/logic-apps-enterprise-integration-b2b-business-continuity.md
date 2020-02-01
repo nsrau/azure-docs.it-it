@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/10/2017
-ms.openlocfilehash: 25dff0cb14467513bf1cc60fd1fb6c2205bd2276
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 09b77862ad3379efeb8b3063a9d6c60b062ca2d7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666904"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905134"
 ---
 # <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Configurare il ripristino di emergenza tra aree per gli account di integrazione in app per la logica di Azure
 
@@ -240,5 +240,5 @@ In base all'intervallo di tempo, lo stato di runtime incrementale viene replicat
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Monitorare i messaggi B2B](logic-apps-monitor-b2b-message.md)
+[Monitorare i messaggi B2B con i log di monitoraggio di Azure](../logic-apps/monitor-b2b-messages-log-analytics.md)
 

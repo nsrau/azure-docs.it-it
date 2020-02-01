@@ -9,12 +9,12 @@ ms.author: mbullwin
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e30c4812ad11d7b39197062da30c90b2d8b1649b
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: c851978ea1b5af3006f1835f022c30aa7e7128f7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281071"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899070"
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -531,7 +531,7 @@ La precisione dell'approssimazione dipende in gran parte dalla percentuale di ca
 
 *Esistono alcuni eventi rari che si vuole visualizzare sempre. Come è possibile passarli al modulo di campionamento?*
 
-* Il modo migliore per ottenere questo risultato è scrivere un [personalizzata telemetryinitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)personalizzato, che imposta il `SamplingPercentage` su 100 sull'elemento di telemetria che si vuole mantenere, come illustrato di seguito. Poiché gli inizializzatori sono garantiti per l'esecuzione prima dei processori di telemetria (incluso il campionamento), ciò garantisce che tutte le tecniche di campionamento ignoreranno questo elemento da eventuali considerazioni di campionamento.
+* Il modo migliore per ottenere questo risultato è scrivere un [personalizzata telemetryinitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)personalizzato, che imposta il `SamplingPercentage` su 100 sull'elemento di telemetria che si vuole mantenere, come illustrato di seguito. Poiché gli inizializzatori sono garantiti per l'esecuzione prima dei processori di telemetria (incluso il campionamento), ciò garantisce che tutte le tecniche di campionamento ignoreranno questo elemento da eventuali considerazioni di campionamento. Gli inizializzatori di telemetria personalizzati sono disponibili in ASP.NET SDK, SDK ASP.NET Core, JavaScript SDK e Java SDK. Ad esempio, è possibile configurare un inizializzatore di telemetria usando ASP.NET SDK:
 
     ```csharp
     public class MyTelemetryInitializer : ITelemetryInitializer

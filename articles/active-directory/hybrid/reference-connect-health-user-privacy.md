@@ -7,6 +7,7 @@ author: billmath
 manager: daveba
 editor: ''
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.topic: reference
 ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27e5ae48a8194c05a19e5164ee2cc6be68967a62
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 58cddcde71e6e86b9abe07eb4200f13ad55ea659
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60386249"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897086"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Privacy dell'utente e Azure AD Connect Health 
 
@@ -34,7 +35,7 @@ Azure AD Connect Health rientra nella categoria di **elaboratore dati** della cl
 ## <a name="data-retention-policy"></a>Criteri di conservazione dei dati
 Azure AD Connect Health non generare report, esegue analisi o fornisce informazioni dettagliate dopo 30 giorni. Di conseguenza, Azure AD Connect Health non archivia, elabora o conserva i dati oltre i 30 giorni. Ciò è conforme al GDPR, all'Informativa sulla privacy Microsoft e ai criteri di conservazione dei dati di Azure AD. 
 
-I server con avvisi di **errore** **I dati del Servizio integrità non sono aggiornati** attivi per oltre 30 giorni consecutivi indicano che nessun dato ha raggiunto Connect Health durante tale intervallo di tempo. Questi server verranno disabilitati e non visualizzati nel portale di Connect Health. Per abilitare nuovamente i server, è necessario disinstallare e [reinstallare l'agente integrità](how-to-connect-health-agent-install.md). Si noti che questa procedura non è applicabile agli **avvisi** con lo stesso tipo. Gli avvisi indicano che mancano dati parziali nel server per il quale sono stati ricevuti gli avvisi. 
+I server con **i dati del servizio integrità attivo non sono** gli avvisi di **errore** aggiornati per più di 30 giorni consecutivi indicano che nessun dato ha raggiunto Connect Health durante tale intervallo di tempo. Questi server verranno disabilitati e non visualizzati nel portale di Connect Health. Per abilitare nuovamente i server, è necessario disinstallare e [reinstallare l'agente integrità](how-to-connect-health-agent-install.md). Si noti che questa procedura non è applicabile agli **avvisi** con lo stesso tipo. Gli avvisi indicano che mancano dati parziali nel server per il quale sono stati ricevuti gli avvisi. 
  
 ## <a name="disable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Disabilitare la raccolta di dati e il monitoraggio in Azure AD Connect Health
 Azure AD Connect Health consente di arrestare la raccolta di dati per ciascun server monitorato o per un'istanza di un servizio monitorato. Ad esempio, è possibile interrompere la raccolta di dati per i singoli server ADFS (Active Directory Federation Services) che vengono monitorati tramite Azure AD Connect Health. È anche possibile arrestare la raccolta di dati per l'intera istanza ADFS che si desidera monitorare con Azure AD Connect Health. Quando si sceglie di eseguire questa operazione, i server corrispondenti vengono eliminati dal portale di Azure AD Connect Health, dopo l'arresto della raccolta di dati. 

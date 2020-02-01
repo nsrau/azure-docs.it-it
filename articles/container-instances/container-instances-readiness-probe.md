@@ -3,12 +3,12 @@ title: Configurare il probe di conformità sull'istanza del contenitore
 description: Informazioni su come configurare un probe per garantire che i contenitori nelle istanze di contenitore di Azure ricevano richieste solo quando sono pronte
 ms.topic: article
 ms.date: 10/17/2019
-ms.openlocfilehash: 5ebbcdeee231e3e67abd6758485a12984137997e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 50cb341788434a6dc0bb0a1423d9e59a3d93634d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533553"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901845"
 ---
 # <a name="configure-readiness-probes"></a>Configurare probe di idoneità
 
@@ -17,6 +17,9 @@ Per le applicazioni incluse in contenitori che gestiscono il traffico, potrebbe 
 Questo articolo illustra come distribuire un gruppo di contenitori che include un probe di conformità, in modo che un contenitore riceva il traffico solo quando il probe ha esito positivo.
 
 Istanze di contenitore di Azure supporta anche i [Probe di liveity](container-instances-liveness-probe.md), che è possibile configurare per provocare il riavvio automatico di un contenitore non integro.
+
+> [!NOTE]
+> Attualmente non è possibile usare un probe di conformità in un gruppo di contenitori distribuito in una rete virtuale.
 
 ## <a name="yaml-configuration"></a>Configurazione YAML
 

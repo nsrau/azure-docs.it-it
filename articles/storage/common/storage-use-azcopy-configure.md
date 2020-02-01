@@ -4,16 +4,16 @@ description: Configurare, ottimizzare e risolvere i problemi relativi a AzCopy.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 01/28/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 6a1dcd2d8734d7701dab6d913beb8af0ad4e35ab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 00ce40e24a01b765419186a609ecf19ce53c772b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75371395"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905270"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurare, ottimizzare e risolvere i problemi relativi a AzCopy
 
@@ -41,6 +41,14 @@ Attualmente, AzCopy non supporta i proxy che richiedono l'autenticazione con NTL
 ## <a name="optimize-performance"></a>Ottimizzare le prestazioni
 
 È possibile effettuare il benchmark delle prestazioni e quindi usare i comandi e le variabili di ambiente per trovare un compromesso ottimale tra le prestazioni e l'utilizzo delle risorse.
+
+Questa sezione consente di eseguire queste attività di ottimizzazione:
+
+> [!div class="checklist"]
+> * Eseguire test di benchmark
+> * Ottimizzare la velocità effettiva
+> * Ottimizzazione dell'utilizzo della memoria 
+> * Ottimizza sincronizzazione file
 
 ### <a name="run-benchmark-tests"></a>Eseguire test di benchmark
 
@@ -97,6 +105,14 @@ Esprimere questo valore in gigabyte (GB).
 | **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
 | **MacOS** | `export AZCOPY_BUFFER_GB=<value>` |
+
+### <a name="optimize-file-synchronization"></a>Ottimizza sincronizzazione file
+
+Il comando di [sincronizzazione](storage-ref-azcopy-sync.md) identifica tutti i file nella destinazione, quindi confronta i nomi di file e i timestamp dell'Ultima modifica prima di avviare l'operazione di sincronizzazione. Se si dispone di un numero elevato di file, è possibile migliorare le prestazioni eliminando questa elaborazione iniziale. 
+
+A tale scopo, usare invece il comando [copy di azcopy](storage-ref-azcopy-copy.md) e impostare il flag `--overwrite` su `ifSourceNewer`. AzCopy Confronta i file quando vengono copiati senza eseguire analisi e confronti iniziali. In questo modo viene fornito un margine per le prestazioni nei casi in cui è presente un numero elevato di file da confrontare.
+
+Il comando [copy di azcopy](storage-ref-azcopy-copy.md) non elimina i file dalla destinazione, pertanto se si desidera eliminare i file nella destinazione quando non sono più presenti nell'origine, utilizzare il comando [azcopy Sync](storage-ref-azcopy-sync.md) con il flag di `--delete-destination` impostato sul valore `true` o `prompt`. 
 
 ## <a name="troubleshoot-issues"></a>Risolvere i problemi
 

@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 01/30/2020
 ms.author: helohr
-ms.openlocfilehash: e525976edee08097d75605ea1921d0552ed02785
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: b7c7c21f14eddf29c3dda1f420d7748a4c23e53d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841064"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906899"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrazioni di partner desktop virtuali Windows
 
@@ -38,6 +38,14 @@ Come provider approvato, i vantaggi di desktop virtuale di Windows verranno este
 
 - [Iscriviti alla versione Tech Preview di Horizon cloud in Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
 - [Accedere al sito Web del partner](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
+
+## <a name="10zig"></a>10ZiG
+
+![logo di 10ZiG](./media/partners/10zig.png)
+
+la tecnologia 10ZiG, con hardware e software client all'avanguardia e con thin-Edge, è un partner di lunga durata con Microsoft e un Microsoft Azure dedicato e un partner di desktop virtuali Windows. i thin client basati su 10ZiG di Windows 10 sono endpoint potenti, affidabili e convenienti per tutti gli utenti di desktop virtuali Windows. il software 10ZiG Manager fornisce una gestione e una distribuzione eccezionali senza limitazioni di licenza senza costi aggiuntivi. Il team di 10ZiG Tech, il programma di garanzia preliminare e le demo senza problemi sono una soluzione di supporto per desktop virtuali di Windows con una sola interruzione nel cloud.
+
+la leadership del mercato 10ZiG's in dispositivi endpoint client thin e zero e nel software di gestione per i desktop virtuali è esemplificata dal modo in cui lavorano per i clienti. L'hardware thin client viene creato con le funzionalità e le opzioni di vantaggio appositamente progettate per garantire che i clienti ricevano i dispositivi client appropriati in base alle esigenze. 10ZiG Personalizza i dispositivi per adattarsi agli ambienti dei clienti con client basati su Windows e Linux che offrono le migliori prestazioni possibili nei desktop virtuali, sia all'interno che all'esterno del cloud.
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -133,6 +141,14 @@ Liquidware Essentials estende il valore del desktop virtuale di Windows grazie a
 - [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oSY1).
 - [Accedere al sito Web del partner](https://www.liquidware.com/solutions/solutions-platform/microsoft).
 
+## <a name="liquit"></a>Liquit
+
+![Logo di liquit](./media/partners/liquit.png)
+
+Il software per l'aggregazione e la distribuzione di applicazioni liquit consente alle aziende e ai provider di servizi di connettersi e combinare con tutti i back-end dell'area di lavoro (Citrix, VMWare, desktop virtuale Windows, RDP e legacy) e offrire un cliente personalizzato e coerente indipendentemente dalla posizione in cui risiedono le applicazioni del cliente. Quando un cliente pubblica l'icona intelligente, liquit decide dove avviare l'applicazione in base alla posizione, al dispositivo e ai diritti del profilo del cliente.
+
+In qualità di partner di integrazione certificata, liquit consente di accelerare la transizione al cloud senza un ritardo di RIP e sostituzione. Desktop virtuale di Windows è in grado di connettersi facilmente a un ambiente esistente, creare un'area di lavoro e distribuire il desktop. È quindi possibile eseguire la migrazione del tempo dalle piattaforme precedenti e apportare modifiche al back-end senza che gli utenti ne abbiano notato. Ottieni un'esperienza coerente con l'utente finale, un'infrastruttura flessibile e Mantieni il controllo delle tue applicazioni ovunque si trovino.
+
 ## <a name="login-vsi"></a>Accesso VSI
 
 ![Logo VSI di accesso](./media/partners/loginvsi.png)
@@ -202,6 +218,16 @@ RDPSoft è un partner desktop virtuale di Windows che offre soluzioni di monitor
 Le soluzioni Desktop remoto Commander di RDPSoft migliorano l'amministrazione di desktop virtuali Windows. Le funzionalità di gestione Premium semplificano la delega delle attività di gestione di desktop virtuali Windows per supportare il personale del supporto tecnico fornendo assistenza remota, la sessione utente e la gestione dei processi. Allo stesso tempo, la suite Desktop remoto Commander raccoglie metriche avanzate sulle prestazioni e il carico per ogni utente, le attività e il controllo degli utenti, la qualità della connessione desktop virtuale Windows (latenza e larghezza di banda), la gestione delle licenze e la sicurezza in un'istruzione SQL di Azure centrale istanza di database per la revisione. Con RDPSoft, la creazione di report cronologici avanzati e dashboard completi sono semplicemente un semplice clic.
 
 - [Vai al sito Web del partner](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)
+
+## <a name="sepago"></a>sepago
+
+![logo sepago](./media/partners/sepago.png)
+
+sepago è stato creato in 2002 da quattro amici a Colonia. Attualmente, sepago è una consulenza di gestione IT con un numero costantemente crescente di sepagists, con località in tutta la Germania a Colonia, Monaco e Amburgo. sepago sono esperti di provisioning automatizzato di applicazioni, virtualizzazione, soluzioni cloud e sicurezza IT. sepago supporta le società di medie e grandi dimensioni per la trasformazione digitale e garantisce che gli utenti possano lavorare in modo sicuro ed efficiente.
+
+il laboratorio di innovazione e sviluppo di sepago crea soluzioni intelligenti con Big Data e tecnologie di intelligenza artificiale. Queste soluzioni si concentrano sul miglioramento dell'attività, dell'esperienza utente e dell'amministrazione dei prodotti partner come desktop virtuale di Windows.
+
+- [Vai al sito Web del partner](https://www.sepago.de/wvd-value-add-tools/)
 
 ## <a name="thinprint"></a>ThinPrint
 

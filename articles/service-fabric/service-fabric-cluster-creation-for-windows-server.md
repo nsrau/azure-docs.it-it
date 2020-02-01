@@ -5,15 +5,15 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: fbaea9324d82e22a1ab3c6c03a9ebec045bea64b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 461d6021a201ca1fa5722bb44c427baca2a7728e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463244"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76903371"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Creare un cluster autonomo in esecuzione su Windows Server
-Azure Service Fabric consente di creare cluster Service Fabric su qualsiasi macchina virtuale o computer che esegue Windows Server. In questo modo è possibile distribuire ed eseguire applicazioni di Service Fabric in qualsiasi ambiente che contenga un set di computer Windows Server interconnessi, in locale o con qualsiasi provider di cloud. Service Fabric offre un pacchetto di installazione per la creazione di cluster di Service Fabric, denominato pacchetto autonomo per Windows Server. I cluster di Service Fabric tradizionali in Azure sono disponibili come servizio gestito, mentre i cluster autonomi Service Fabric sono self-service.
+Azure Service Fabric consente di creare cluster Service Fabric su qualsiasi macchina virtuale o computer che esegue Windows Server. In questo modo è possibile distribuire ed eseguire applicazioni di Service Fabric in qualsiasi ambiente che contenga un set di computer Windows Server interconnessi, in locale o con qualsiasi provider di cloud. Service Fabric offre un pacchetto di installazione per la creazione di cluster di Service Fabric, denominato pacchetto autonomo per Windows Server. I cluster di Service Fabric tradizionali in Azure sono disponibili come servizio gestito, mentre i cluster autonomi Service Fabric sono self-service. Per altre informazioni sulle differenze, vedere [confronto tra Azure e i cluster autonomi Service Fabric](./service-fabric-deploy-anywhere.md).
 
 Questo articolo illustra la procedura di creazione di un cluster autonomo di Service Fabric.
 
