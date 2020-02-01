@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4da2e3696dd1fad1dcce81831385f1e21891f97
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 43f355f22774477466d2965cef02adcc4ec4f497
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712533"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908854"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
 
@@ -192,6 +192,23 @@ Se il certificato del computer precedente è scaduto ed è stato generato un nuo
 
 > [!NOTE]
 > Se si usano i propri certificati invece di generare certificati con lo script di PowerShell, verificare che rispettino la convenzione di denominazione di Server dei criteri di rete. Il nome oggetto deve essere **CN=\<TenantID\>,OU=Estensione di Server dei criteri di rete Microsoft**. 
+
+### <a name="microsoft-azure-government-additional-steps"></a>Microsoft Azure per enti pubblici passaggi aggiuntivi
+
+Per i clienti che usano il cloud di Azure per enti pubblici, è necessario eseguire i passaggi di configurazione aggiuntivi seguenti in ogni server NPS:
+
+1. Aprire l' **Editor del registro di sistema** nel server NPS.
+1. Accedere a `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Impostare i valori chiave seguenti:
+
+    | Chiave del Registro di sistema       | Valore |
+    |--------------------|-----------------------------------|
+    | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.us   |
+    | STS_URL            | https://login.microsoftonline.us/ |
+
+1. Ripetere i due passaggi precedenti per impostare i valori della chiave del registro di sistema per ogni server NPS.
+1. Riavviare il servizio NPS per ogni server NPS.
+
+    Per un effetto minimo, portare ogni server NPS fuori dalla rotazione del bilanciamento del carico di base una alla volta e attendere lo svuotamento di tutte le connessioni.
 
 ### <a name="certificate-rollover"></a>Rollover dei certificati
 

@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
-ms.openlocfilehash: 21314d3c80832c14538130ce373ccf6d2dd19f18
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965943"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906686"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gestire errori ed eccezioni in App per la logica di Azure
 
@@ -360,9 +360,9 @@ Come riferimento, di seguito è riportato un esempio di un singolo elemento `@re
 
 Le espressioni descritte in precedenza in questo articolo possono essere usate per eseguire diversi modelli di gestione delle eccezioni. È possibile scegliere di eseguire una singola azione di gestione delle eccezioni all'esterno dell'ambito che accetta l'intera matrice filtrata di errori e rimuovere l'azione `For_each`. È anche possibile includere altre proprietà utili della risposta `\@result()` come descritto in precedenza.
 
-## <a name="azure-diagnostics-and-metrics"></a>Diagnostica di Azure e metriche
+## <a name="set-up-azure-monitor-logs"></a>Configurare i log di Monitoraggio di Azure
 
-I modelli precedenti sono un ottimo modo per gestire gli errori e le eccezioni in un'esecuzione, ma è possibile anche identificare e rispondere agli errori indipendentemente dall'esecuzione. [Diagnostica di Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md) offre un modo semplice per inviare tutti gli eventi del flusso di lavoro, inclusi tutti gli Stati di esecuzione e azione, a un account di archiviazione di Azure o a un hub eventi creato con [Hub eventi di Azure](../event-hubs/event-hubs-about.md).
+I modelli precedenti sono un ottimo modo per gestire gli errori e le eccezioni in un'esecuzione, ma è possibile anche identificare e rispondere agli errori indipendentemente dall'esecuzione. [Monitoraggio di Azure](../azure-monitor/overview.md) offre un modo semplice per inviare tutti gli eventi del flusso di lavoro, inclusi tutti gli Stati di esecuzione e azione, a un' [area di lavoro log Analytics](../azure-monitor/platform/data-platform-logs.md), a un [account di archiviazione di Azure](../storage/blobs/storage-blobs-overview.md)o a [Hub eventi di Azure](../event-hubs/event-hubs-about.md).
 
 Per valutare gli stati delle esecuzioni è possibile monitorare i log e le metriche o pubblicarli nello strumento di monitoraggio preferito. Una possibile opzione consiste nel trasmettere tutti gli eventi tramite Hub eventi ad [Analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/). In Analisi di flusso è possibile scrivere query dinamiche in base a un'anomalia, una media o un errore dei log di diagnostica. È possibile usare Analisi di flusso per inviare informazioni ad altre origini dati, ad esempio a code, argomenti, SQL, Azure Cosmos DB o Power BI.
 

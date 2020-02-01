@@ -3,12 +3,12 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Viene descritto come vengono usate le definizioni dei criteri per stabilire le convenzioni per le risorse di Azure nell'organizzazione.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 909d8e69e02b55ee6e45515b0d9c316a549e1332
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e37ff6e1bde594014510880492c2572ad1634400
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972841"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904424"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -175,6 +175,9 @@ Se la posizione della definizione è:
 ## <a name="display-name-and-description"></a>Nome visualizzato e descrizione
 
 Usare **displayName** e **description** per identificare la definizione dei criteri e fornire il contesto d'uso. **displayName** ha una lunghezza massima di _128_ caratteri e **description** una lunghezza massima di _512_ caratteri.
+
+> [!NOTE]
+> Durante la creazione o l'aggiornamento di una definizione dei criteri, **ID**, **tipo**e **nome** sono definiti da proprietà esterne a JSON e non sono necessari nel file JSON. Il recupero della definizione dei criteri tramite SDK restituisce le proprietà **ID**, **tipo**e **nome** come parte di JSON, ma ognuna è costituita da informazioni di sola lettura correlate alla definizione dei criteri.
 
 ## <a name="policy-rule"></a>Regola dei criteri
 

@@ -3,14 +3,14 @@ title: INTERFACCIA della riga di comando di Azure Service Fabric-Chaos sfctl
 description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per la gestione di Chaos.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: b91c11dfb9b1249420429bee20f12439fffa4853
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 6668446363361fbc6d24afc3d11a36a0b786667d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646178"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906173"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Consente di avviare, arrestare e creare report nel servizio di test chaos.

@@ -5,6 +5,7 @@ services: active-directory
 author: msaburnley
 manager: daveba
 ms.service: active-directory
+ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/17/2018
@@ -12,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a2397662112bda6c6789b25691848344a4e611b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 95f1877ae630919ba7da5a851b5f8291ade2d165
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561810"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897574"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Aggiungere le informazioni sulla privacy dell'organizzazione tramite Azure Active Directory
 Questo articolo illustra come un amministratore tenant può aggiungere le informazioni sulla privacy ai tenant di Azure Active Directory (Azure AD) dell'organizzazione, tramite il portale di Azure.
@@ -48,7 +49,7 @@ Aggiungere le informazioni sulla privacy dell'organizzazione nella sezione **Pro
     - **URL dell'informativa sulla privacy**. Inserire il collegamento al documento dell'organizzazione che descrive come viene gestita la privacy dei dati degli interni e dei guest esterni.
 
         >[!Important]
-        >Se l'informativa sulla privacy o il contatto del responsabile della privacy non vengono inclusi, il guest esterno visualizzerà un messaggio di testo nella casella **Verifica autorizzazioni**, ad esempio  **< _nome dell'azienda_> non ha fornito collegamenti alle rispettive condizioni per la verifica da parte dell'utente.** Ad esempio, un utente guest visualizza questo messaggio quando riceve un invito per accedere a un'organizzazione tramite la collaborazione B2B.
+        >Se l'informativa sulla privacy o il contatto del responsabile della privacy non vengono inclusi, il guest esterno visualizzerà un messaggio di testo nella casella **Verifica autorizzazioni**, ad esempio **<_nome dell'azienda_> non ha fornito collegamenti alle rispettive condizioni per la verifica da parte dell'utente.** Ad esempio, un utente guest visualizza questo messaggio quando riceve un invito per accedere a un'organizzazione tramite la collaborazione B2B.
 
         ![Finestra di dialogo per la verifica delle autorizzazioni di Collaborazione B2B con messaggio](media/active-directory-properties-area/active-directory-no-privacy-statement-or-contact.png)
 

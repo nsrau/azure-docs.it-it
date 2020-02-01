@@ -3,14 +3,14 @@ title: INTERFACCIA della riga di comando di Azure Service Fabric-pianificazione 
 description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per la pianificazione Chaos.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: bff83e1d25d04f91611f5bea6c69dfcd299af04c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 29b365c48e405830e238945f1d94156f477c15b4
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639174"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906177"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Ottiene e imposta la pianificazione di chaos.
@@ -71,9 +71,10 @@ Chaos pianificherà automaticamente le esecuzioni in base alla pianificazione di
 
 ### <a name="examples"></a>Esempi
 
-Il comando seguente imposta una pianificazione (presumendo che la versione della pianificazione corrente sia 0) che inizia il giorno 2016-01-01 e scade il giorno 2038-01-01 per l'esecuzione di Chaos 24 ore al giorno, sette giorni alla settimana. Chaos verrà pianificato nel cluster per tale periodo.
-
-    sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
+Il comando seguente imposta una pianificazione (presumendo che la versione della pianificazione corrente sia 0) che inizia il giorno 2016-01-01 e scade il giorno 2038-01-01 per l'esecuzione di Chaos 24 ore al giorno, sette giorni alla settimana.
+Chaos verrà pianificato nel cluster per tale periodo.
+```
+sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
     --chaos-parameters-dictionary
     [
     {
@@ -134,6 +135,8 @@ Il comando seguente imposta una pianificazione (presumendo che la versione della
         ]
     }
     ]
+```
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi

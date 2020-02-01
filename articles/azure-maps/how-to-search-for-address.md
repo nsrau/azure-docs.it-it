@@ -1,6 +1,6 @@
 ---
-title: Percorsi di ricerca usando le mappe di Azure servizio di ricerca | Mappe Microsoft Azure
-description: In questo articolo si apprenderà come cercare un percorso usando il servizio di ricerca Microsoft Azure maps.
+title: Cercare un percorso usando i servizi di ricerca di Azure Maps | Mappe Microsoft Azure
+description: In questo articolo si apprenderà come cercare un percorso usando il Microsoft Azure Maps servizio di ricerca per la geocodifica e la geocodifica inversa.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 01/15/2020
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 20a2c18875096680cd1eba7601e88965fcbcc568
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 3b5da7eab9cff5c5e051fc4d5ab7ff582a95c20d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715347"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899237"
 ---
-# <a name="using-azure-maps-search-services-for-geocoding-and-reverse-geocoding"></a>Uso dei servizi di ricerca di Azure Maps per la geocodifica e la geocodifica inversa
+# <a name="search-for-a-location-using-azure-maps-search-services"></a>Cercare un percorso usando i servizi di ricerca di Azure Maps
 
 Azure Maps [servizio di ricerca](https://docs.microsoft.com/rest/api/maps/search) è un set di API RESTful progettate per aiutare gli sviluppatori a eseguire ricerche in indirizzi, luoghi, elenchi aziendali per nome o categoria e altre informazioni geografiche. Oltre a supportare la geocodifica tradizionale, i servizi possono anche invertire gli indirizzi geocodificati e attraversare le strade in base a latitudine e longitudine. I valori di latitudine e Longitudine restituiti dalla ricerca possono essere usati come parametri in altri servizi di Azure Maps come [Route](https://docs.microsoft.com/rest/api/maps/route) e servizi [meteorologici](https://docs.microsoft.com/rest/api/maps/weather) .
 
-Si apprenderà come:
+In questo articolo si apprenderà come:
 
 * Richiedere le coordinate di latitudine e Longitudine per un indirizzo (geocode address location) usando l' [API di ricerca di indirizzi]( https://docs.microsoft.com/rest/api/maps/search/getsearchaddress)
 * Cercare un indirizzo o un punto di interesse (PDI) usando l' [API di ricerca fuzzy](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
@@ -29,7 +29,7 @@ Si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare i passaggi descritti in questo articolo, è necessario creare prima di tutto un account Azure Maps e ottenere la chiave di sottoscrizione dell'account Maps. Per ottenere la chiave primaria per l'account, seguire le istruzioni riportate in [creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) per creare una sottoscrizione dell'account Azure Maps e seguire i passaggi in [ottenere](quick-demo-map-app.md#get-the-primary-key-for-your-account) la chiave primaria. Per altre informazioni sull'autenticazione in mappe di Azure, vedere [gestire l'autenticazione in mappe di Azure](./how-to-manage-authentication.md).
+Per completare i passaggi descritti in questo articolo, è necessario creare prima di tutto un account Azure Maps e ottenere la chiave di sottoscrizione dell'account Maps. Per ottenere la chiave primaria per l'account, seguire le istruzioni riportate in [creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) per creare una sottoscrizione dell'account Azure Maps e seguire i passaggi in [ottenere](quick-demo-map-app.md#get-the-primary-key-for-your-account) la chiave primaria. Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](./how-to-manage-authentication.md).
 
 Questo articolo usa l'[app Postman](https://www.getpostman.com/apps) per compilare le chiamate REST. È possibile usare qualsiasi ambiente di sviluppo API preferito.
 
@@ -79,7 +79,7 @@ In questo caso, è stata specificata una query di indirizzo completo ed è stato
 
 Il flag **typeahead** indica all'API di ricerca di indirizzi di considerare la query un input parziale e di restituire una matrice di valori predittivi.
 
-## <a name="search-for-an-address-using-fuzzy-search-api"></a>Cercare un indirizzo usando l'API di ricerca fuzzy
+## <a name="using-fuzzy-search-api"></a>Uso dell'API di ricerca fuzzy
 
 L'[ API ricerca fuzzy](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) di Azure Maps è il servizio consigliato da usare quando non si conoscono gli input degli utenti per una query di ricerca. L'API combina la ricerca di punti di interesse (PDI) e la geocodifica in una "ricerca a riga singola" canonica. L'API può ad esempio gestire gli input di qualsiasi combinazione di token di indirizzo e punto di interesse. Può anche essere ponderata con una posizione contestuale (coppia latitudine/longitudine), vincolata completamente da una coordinata e un raggio oppure essere eseguita più genericamente senza alcun punto di ancoraggio di compensazione geografica.
 
@@ -136,49 +136,12 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
     | lat | 47.620525 |
     | lon | -122.349274 |
 
-## <a name="search-for-address-properties-and-coordinates"></a>Cercare proprietà e coordinate di indirizzi
 
-È possibile passare un indirizzo completo o parziale all'API degli indirizzi di ricerca. Si riceve comunque una risposta che include proprietà dell'indirizzo dettagliate. Le proprietà di indirizzo dettagliate sono valori quali i valori posizionali in Altitude e longitudine, municipalità o suddivisione.
+## <a name="search-for-a-street-address-using-reverse-address-search"></a>Cercare un indirizzo tramite la ricerca di indirizzi inversa
 
-1. In Postman fare clic su **New Request** (Nuova richiesta)  | **GET request** (Richiesta GET) e quindi denominare la richiesta **Address Search** (Ricerca indirizzi).
-2. Nella scheda Builder (Generatore) selezionare il metodo HTTP **GET**, immettere l'URL della richiesta per l'endpoint API e selezionare il protocollo di autorizzazione, se necessario.
+L' [API di ricerca dell'indirizzo di ricerca]( https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) di Azure Maps consente di convertire una coordinata (ad esempio: 37,786505-122,3862) in un indirizzo via comprensibile. Spesso questa operazione è necessaria per tenere traccia delle applicazioni in cui si riceve un feed GPS dal dispositivo o dall'asset e si desidera conoscere l'indirizzo in cui si trova la coordinata.
+Se si dispone di un set di percorsi delle coordinate per la geocodifica inversa, è possibile usare l' [API batch inversa dell'indirizzo di ricerca post](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressreversebatch) per inviare un batch di query in una singola chiamata API.
 
-    ![Ricerca di indirizzi](./media/how-to-search-for-address/address_search_url.png)
-  
-    | Parametro | Valore consigliato |
-    |---------------|------------------------------------------------|
-    | Metodo HTTP | GET |
-    | URL richiesta | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) |
-    | Autorizzazione | No Auth (Senza autenticazione) |
-
-3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare come parametri di query o percorso nell'URL della richiesta:
-  
-    ![Ricerca di indirizzi](./media/how-to-search-for-address/address_search_params.png)
-  
-    | Chiave | Valore |
-    |------------------|-------------------------|
-    | api-version | 1.0 |
-    | subscription-key | \<la chiave di Mappe di Azure\> |
-    | query | 400 Broad St, Seattle, WA 98109 |
-  
-4. Fare clic su **Send** (Invia) e quindi esaminare il corpo della risposta.
-  
-    In questo caso, è stata specificata una query di indirizzo completo ed è stato ricevuto un solo risultato nel corpo della risposta.
-  
-5. In Params (Parametri) modificare la stringa di query nel valore seguente:
-    ```plaintext
-        400 Broad, Seattle
-    ```
-
-6. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
-
-    | Chiave | Valore |
-    |-----|------------|
-    | typeahead | true |
-
-    Il flag **typeahead** indica all'API di ricerca di indirizzi di considerare la query un input parziale e di restituire una matrice di valori predittivi.
-
-## <a name="make-a-reverse-address-search"></a>Eseguire una ricerca di indirizzi inversi
 
 1. In Postman fare clic su **New Request** (Nuova richiesta)  | **GET request** (Richiesta GET) e quindi denominare la richiesta **Reverse Address Search** (Ricerca indirizzi inversa).
 
@@ -265,3 +228,4 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Esplorare la documentazione dell'API del [servizio di ricerca di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/search)
+- Informazioni sulle [procedure consigliate](https://docs.microsoft.com/azure/azure-maps/how-to-use-best-practices-for-search).

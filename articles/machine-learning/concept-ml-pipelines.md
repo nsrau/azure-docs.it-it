@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
-ms.openlocfilehash: c93c936664f65e7846f6c4ad82d9aead973fa129
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 840c5cf061658f3210fec963b82b490185b92a4b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772602"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905724"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Che cosa sono le pipeline Azure Machine Learning?
 
@@ -26,7 +26,7 @@ Azure Machine Learning pipeline consentono di creare flussi di lavoro nei proget
 + Flessibilità
 + Controllo delle versioni e rilevamento
 + Modularità 
-+ Controllo qualità
++ Garanzia di qualità
 + Controllo dei costi
 
 Questi vantaggi diventano significativi non appena il progetto di Machine Learning si sposta oltre l'esplorazione pura e l'iterazione. Anche le pipeline semplici di un solo passaggio possono essere utili. I progetti di Machine Learning sono spesso in uno stato complesso e possono essere un sollievo per eseguire in modo preciso un singolo flusso di lavoro in un processo semplice.
@@ -203,6 +203,20 @@ I vantaggi principali dell'uso delle pipeline per i flussi di lavoro di Machine 
 |**Rilevamento e controllo delle versioni**|Invece di tenere traccia manualmente dei dati e dei percorsi dei risultati durante l'iterazione, usare l'SDK delle pipeline per denominare esplicitamente e controllare la versione di origini dati, input e output. È anche possibile gestire gli script e i dati separatamente per una maggiore produttività.|
 | **Modularità** | Separare le aree problematiche e isolare le modifiche consente di evolvere il software a una velocità più elevata con maggiore qualità. | 
 |**Collaborazione**|Le pipeline consentono ai data scientist di collaborare in tutte le aree del processo di progettazione di Machine Learning, pur potendo lavorare simultaneamente sui passaggi della pipeline.|
+
+## <a name="modules"></a>Moduli
+
+Sebbene i passaggi della pipeline consentano il riutilizzo dei risultati di un'esecuzione precedente, in molti casi la costruzione del passaggio presuppone che gli script e i file dipendenti richiesti siano disponibili localmente. Se un data scientist vuole creare una parte del codice esistente, è spesso necessario clonare gli script e le dipendenze da un repository separato.
+
+I moduli sono simili ai passaggi della pipeline, ma forniscono il controllo delle versioni facilitato tramite l'area di lavoro, che consente la collaborazione e la riusabilità su larga scala. I moduli sono progettati per essere riutilizzati in più pipeline e possono evolversi per adattare un calcolo specifico a diversi casi d'uso. Gli utenti possono eseguire le attività seguenti tramite l'area di lavoro, senza usare repository esterni:
+
+* Creare nuovi moduli e pubblicare nuove versioni dei moduli esistenti
+* Deprecare le versioni esistenti
+* Contrassegna le versioni disabilitate per impedire agli utenti di usare tale versione
+* Designare le versioni predefinite
+* Recuperare i moduli per versione dall'area di lavoro, per assicurarsi che i team stiano usando lo stesso codice
+
+Vedere il [notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-modulestep.ipynb) per esempi di codice su come creare, connettere e usare moduli in pipeline Azure Machine Learning.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

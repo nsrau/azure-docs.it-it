@@ -1,16 +1,16 @@
 ---
 title: INTERFACCIA della riga di comando di Azure Service Fabric-proprietà sfctl
-description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per la storia e l'esecuzione di query sulle proprietà.
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per l'archiviazione e l'esecuzione di query sulle proprietà.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: d9129f07db9f3499b51707965d10426dbc3d3c12
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: a9bd75e0b7f8bfceb50a71ca83b60ff1e7b45508
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639106"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905819"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Consente di archiviare proprietà ed eseguire query su di esse con i nomi di Service Fabric.
@@ -105,7 +105,7 @@ Crea o aggiorna la proprietà di Service Fabric specificata con un determinato n
 | --- | --- |
 | --name-id [Obbligatorio] | Nome di Service Fabric, senza lo schema URI "fabric\:". |
 | --property-name [Obbligatorio] | Nome della proprietà di Service Fabric. |
-| --value [Obbligatorio] | Descrive un valore della proprietà di Service Fabric. Si tratta di una stringa JSON. <br><br> La stringa json ha due campi relativi ai dati, "Kind" e "Value". Il valore "Kind" deve essere il primo elemento visualizzato nella stringa JSON e i valori possono essere "Binary", "Int64", "Double", "String" o "Guid". Il valore deve poter eseguire la serializzazione per i tipi specificati. Entrambi i valori "Kind" e "Data" devono essere specificati come stringhe. |
+| --value [Obbligatorio] | Descrive un valore della proprietà di Service Fabric. Si tratta di una stringa JSON. <br><br> La stringa JSON ha due campi, il ' Kind ' dei dati e il valore immesso come ' data ' dei dati. Il valore "Kind" deve essere il primo elemento visualizzato nella stringa JSON e i valori possono essere "Binary", "Int64", "Double", "String" o "Guid". Il valore deve poter eseguire la serializzazione per i tipi specificati. Entrambi i valori "Kind" e "Data" devono essere specificati come stringhe. |
 | --custom-id-type | ID del tipo personalizzato della proprietà. Usando questa proprietà, l'utente può contrassegnare il tipo del valore della proprietà. |
 | --timeout -t | Impostazione predefinita\: 60. |
 

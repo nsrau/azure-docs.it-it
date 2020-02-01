@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: feab221c24034fe29df420b4f9eb6d84e06a90b5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 11b84877171fae8e788d3298973fd74645b35480
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719337"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901925"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Distribuire Azure Cosmos DB e app Web del servizio app di Azure tramite un modello di Azure Resource Manager
 Questa esercitazione illustra come usare un modello di Azure Resource Manager per distribuire e integrare [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), un'app Web del [servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) e un'applicazione Web di esempio.
@@ -69,7 +69,7 @@ Si procederà ora alla distribuzione del primo modello.
    ![Screenshot dell'interfaccia utente della distribuzione del modello](./media/create-website/TemplateDeployment6.png)
 7. Al termine della distribuzione, viene aperto il riquadro del gruppo di risorse.
    ![Screenshot del riquadro del gruppo di risorse](./media/create-website/TemplateDeployment7.png)  
-8. Per usare l'applicazione, passare all'URL dell'app Web. Nell'esempio precedente l'URL sarebbe http://mydemodocdbwebapp.azurewebsites.net).  Verrà visualizzata l'applicazione Web seguente:
+8. Per usare l'applicazione, passare all'URL dell'app Web (nell'esempio precedente, l'URL verrebbe `http://mydemodocdbwebapp.azurewebsites.net`).  Verrà visualizzata l'applicazione Web seguente:
    
    ![Applicazione di esempio](./media/create-website/image2.png)
 9. Proseguire e creare qualche attività nell'app Web, quindi tornare al riquadro del gruppo di risorse nel portale di Azure. Fare clic sulla risorsa dell'account Azure Cosmos DB nell'elenco delle risorse e quindi su **Esplora dati**.

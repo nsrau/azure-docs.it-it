@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 01/30/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d14e6f98f49f112c8b20abec573b48c3b12705db
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f171d9d71d3e6f8fa57671578502675442293793
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841234"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908939"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente in Azure Active Directory B2C
 
@@ -31,6 +31,9 @@ Esistono diversi modi per personalizzare l'interfaccia utente dell'applicazione,
 Se si usano i [flussi utente](user-flow-overview.md), è possibile modificare l'aspetto delle pagine del flusso utente usando *modelli di layout di pagina*predefiniti oppure usando il codice HTML e CSS. Entrambi i metodi sono illustrati più avanti in questo articolo.
 
 Usare il [portale di Azure](tutorial-customize-ui.md) per configurare la personalizzazione dell'interfaccia utente per i flussi utente.
+
+> [!TIP]
+> Se si desidera modificare solo il logo del banner, l'immagine di sfondo e il colore di sfondo delle pagine del flusso utente, è possibile provare la funzionalità di [personalizzazione dell'azienda (anteprima)](#company-branding-preview) descritta più avanti in questo articolo.
 
 ### <a name="custom-policies"></a>Criteri personalizzati
 
@@ -149,6 +152,60 @@ La tabella seguente elenca i frammenti HTML che Azure AD B2C unisce nell'element
 | Unificata per l'iscrizione o l'accesso | Gestisce sia l'iscrizione che l'accesso dei clienti, che possono usare provider di identità basati su social network, come Facebook o Google, o account locali. |
 | Multi-Factor Authentication | Gli utenti possono verificare il proprio numero di telefono (tramite SMS o chiamata vocale) durante la procedura di iscrizione o di accesso. |
 | Errore | Fornisce informazioni sugli errori al cliente. |
+
+## <a name="company-branding-preview"></a>Informazioni personalizzate distintive dell'azienda (anteprima)
+
+È possibile personalizzare le pagine del flusso utente con un logo banner, un'immagine di sfondo e un colore di sfondo usando Azure Active Directory informazioni personalizzate distintive dell' [azienda](../active-directory/fundamentals/customize-branding.md).
+
+Per personalizzare le pagine del flusso utente, è necessario prima configurare le informazioni personalizzate distintive dell'azienda in Azure Active Directory, quindi abilitarla nei layout di pagina dei flussi utente Azure AD B2C.
+
+[!INCLUDE [preview note](../../includes/active-directory-b2c-public-preview.md)]
+
+### <a name="configure-company-branding"></a>Configurare la personalizzazione aziendale
+
+Per iniziare, impostare il logo del banner, l'immagine di sfondo e il colore di sfondo all'interno della **personalizzazione dell'azienda**.
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
+1. Nella portale di Azure cercare e selezionare **Azure ad B2C**.
+1. In **Gestisci**selezionare informazioni personalizzate distintive dell' **azienda**.
+1. Seguire la procedura descritta in [aggiungere informazioni personalizzate alla pagina di accesso dell'Azure Active Directory dell'organizzazione](../active-directory/fundamentals/customize-branding.md).
+
+Tenere presente queste considerazioni quando si configura la personalizzazione dell'azienda in Azure AD B2C:
+
+* Il marchio dell'azienda in Azure AD B2C è attualmente limitato all' **immagine di sfondo**, al **logo banner**e alla personalizzazione del **colore di sfondo** . Le altre proprietà del riquadro branding aziendale, ad esempio quelle in **Impostazioni avanzate**, non sono *supportate*.
+* Nelle pagine del flusso utente, il colore di sfondo viene visualizzato prima del caricamento dell'immagine di sfondo. È consigliabile scegliere un colore di sfondo che corrisponda strettamente ai colori nell'immagine di sfondo per un'esperienza di caricamento più uniforme.
+* Il logo del banner viene visualizzato nei messaggi di posta elettronica di verifica inviati agli utenti quando avviano un flusso utente di iscrizione.
+
+### <a name="enable-branding-in-user-flow-pages"></a>Abilitare la personalizzazione nelle pagine flusso utente
+
+Una volta configurata la personalizzazione dell'azienda, abilitarla nei flussi utente.
+
+1. Nel menu a sinistra del portale di Azure selezionare **Azure ad B2C**.
+1. In **criteri**selezionare **flussi utente (criteri)** .
+1. Selezionare il flusso utente per il quale si desidera abilitare la personalizzazione dell'azienda. Le informazioni personalizzate distintive dell'azienda **non sono supportate** per i tipi di flusso utente per l' *accesso V1* e la *modifica del profilo v1* .
+1. In **Personalizza**selezionare **layout di pagina**e quindi selezionare il layout che si desidera personalizzare. Ad esempio, selezionare la **pagina di iscrizione o di accesso unificata**.
+1. Per la **versione del layout di pagina (anteprima)** , scegliere la versione **1.2.0** o successiva.
+1. Selezionare **Salva**.
+
+Se si vuole personalizzare tutte le pagine del flusso utente, impostare la versione del layout di pagina per ogni layout di pagina nel flusso utente.
+
+![Selezione del layout di pagina in Azure AD B2C nel portale di Azure](media/customize-ui-overview/portal-02-page-layout-select.png)
+
+Questo esempio annotato Mostra un logo banner personalizzato e un'immagine di sfondo in una pagina di *iscrizione e accesso* del flusso utente che usa il modello Blue Ocean:
+
+![Pagina di iscrizione/accesso personalizzata fornita da Azure AD B2C](media/customize-ui-overview/template-ocean-blue-branded.png)
+
+### <a name="use-company-branding-assets-in-custom-html"></a>Usare asset di personalizzazione dell'azienda in codice HTML personalizzato
+
+Per usare le risorse di personalizzazione della società in codice HTML personalizzato, aggiungere i tag seguenti al di fuori del tag `<div id="api">`:
+
+```HTML
+<img data-tenant-branding-background="true" />
+<img data-tenant-branding-logo="true" alt="Company Logo" />
+```
+
+L'origine dell'immagine viene sostituita con quella dell'immagine di sfondo e il logo del banner. Come descritto nella sezione [Introduzione a HTML e CSS personalizzati](#get-started-with-custom-html-and-css) , usare le classi CSS per applicare uno stile e posizionare gli asset nella pagina.
 
 ## <a name="localize-content"></a>Localizzare il contenuto
 

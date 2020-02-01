@@ -10,12 +10,12 @@ ms.date: 01/23/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: bca780eb31a16d3854a2e4dfac821d5a68e9ca43
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 40a7f49cbb2d74b55ccb85dce64eea936a20801e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719348"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905519"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>Ripristino di emergenza e failover dell'account (anteprima)
 
@@ -126,21 +126,6 @@ Il failover dell'account è disponibile in anteprima per tutti i clienti che usa
 - Stati Uniti occidentali 2
 
 La versione di anteprima è destinata solo all'uso in ambienti non di produzione. I contratti di servizio (SLA) di produzione non sono al momento disponibili.
-
-### <a name="register-for-the-preview"></a>Registrarsi per l'anteprima
-
-Per eseguire la registrazione per l'anteprima, usare i comandi seguenti in PowerShell. Assicurarsi di sostituire il segnaposto tra parentesi quadre con il proprio ID sottoscrizione:
-
-```powershell
-Connect-AzAccount -SubscriptionId <subscription-id>
-Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
-```
-
-La ricezione dell'approvazione per l'anteprima può richiedere 5-7 giorni. Per verificare che la registrazione sia stata approvata, usare il comando seguente:
-
-```powershell
-Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
-```
 
 ### <a name="additional-considerations"></a>Altre considerazioni
 

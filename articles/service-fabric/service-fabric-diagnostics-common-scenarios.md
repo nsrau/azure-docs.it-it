@@ -1,16 +1,14 @@
 ---
 title: Scenari comuni di diagnostica di Azure Service Fabric
 description: Informazioni sulla risoluzione dei problemi relativi agli scenari di monitoraggio e diagnostica comuni nelle applicazioni Service Fabric di Azure.
-author: srrengar
 ms.topic: article
 ms.date: 02/25/2019
-ms.author: srrengar
-ms.openlocfilehash: b012e37bef7fe21e869fc3af415ca57b74c61dd8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 3c7f027bad71d48db5fba002f778f23db8225fa5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645787"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906942"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Scenari comuni di diagnosi con Service Fabric
 
@@ -134,6 +132,7 @@ Fare clic su questi collegamenti per l'elenco completo dei contatori delle prest
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* [Cerca errori di attivazione comuni del pacchetto di codice](./service-fabric-diagnostics-code-package-errors.md)
 * [Configurare gli avvisi in AI](../azure-monitor/app/alerts.md) per ricevere una notifica sulle modifiche apportate alle prestazioni o all'uso
 * [Rilevamento intelligente in Application Insights](../azure-monitor/app/proactive-diagnostics.md) esegue un'analisi proattiva dei dati di telemetria che vengono inviati ad AI per avvisare l'utente in caso di potenziali problemi di prestazioni
 * Scopri di più sugli [avvisi](../log-analytics/log-analytics-alerts.md) dei log di monitoraggio di Azure per facilitare il rilevamento e la diagnostica.

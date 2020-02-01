@@ -12,12 +12,12 @@ ms.date: 09/27/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 330f3100858d517666ac14fa8c206b4c06998c4f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 4f9ff446bae0a010b12e84172d5af60c6ca81c0e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274213"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896895"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Esperienze per gli utenti finali per le applicazioni in Azure Active Directory
 
@@ -36,7 +36,7 @@ Il pannello di accesso disponibile all'indirizzo https://myapps.microsoft.com è
 
 ![Screenshot che mostra il portale del pannello di accesso Azure AD](media/what-is-single-sign-on/azure-ad-access-panel.png)
 
-Per impostazione predefinita, tutte le applicazioni sono elencate insieme in un'unica pagina. Tuttavia, è possibile usare le aree di lavoro per raggruppare le applicazioni correlate e presentarle in una scheda separata, rendendole più facili da trovare. Ad esempio, è possibile utilizzare le aree di lavoro per creare raggruppamenti logici di applicazioni per ruoli, attività, progetti e così via specifici. Per informazioni, vedere [come usare le aree di lavoro app personali per personalizzare i pannelli di accesso utente (anteprima)](access-panel-workspaces.md). 
+Per impostazione predefinita, tutte le applicazioni sono elencate insieme in un'unica pagina. È tuttavia possibile usare le raccolte per raggruppare le applicazioni correlate e presentarle in una scheda separata, rendendole più facili da trovare. È ad esempio possibile utilizzare le raccolte per creare raggruppamenti logici di applicazioni per ruoli di processo, attività, progetti e così via specifici. Per informazioni, vedere [come usare le raccolte di app personali per personalizzare i pannelli di accesso utente](access-panel-collections.md). 
 
 Il riquadro di accesso non fa parte del portale di Azure e non richiede agli utenti di avere una sottoscrizione per Azure o Office 365.
 

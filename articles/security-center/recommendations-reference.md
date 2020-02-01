@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2019
 ms.author: memildin
-ms.openlocfilehash: 686b8bedfeb4ae5e1b2b7bf3b750b51074677990
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 3c0fb29c5a4dd73135aa8352c97df29474c36caf
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76288983"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904124"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Raccomandazioni sulla sicurezza-una guida di riferimento
 
@@ -32,9 +32,10 @@ Il Punteggio sicuro si basa sul numero di raccomandazioni del Centro sicurezza c
 |Recommendation|Descrizione & criteri correlati|Gravità|Correzione rapida abilitata? ([Altre informazioni](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Tipo di risorsa|
 |----|----|----|----|----|
 |**Il controllo di accesso alla rete JIT deve essere applicato alle macchine virtuali**|Applicare il controllo di accesso delle macchine virtuali JIT (just-in-Time) per bloccare in modo permanente l'accesso alle porte selezionate e consentire agli utenti autorizzati di aprirle, tramite JIT, solo per un periodo di tempo limitato.<br>(Criterio correlato: il controllo di accesso alla rete JIT deve essere applicato alle macchine virtuali)|Alte|N|Macchina virtuale|
-|**I gruppi di sicurezza di rete a livello di subnet devono essere abilitati**|Abilitare i gruppi di sicurezza di rete per controllare l'accesso alla rete delle risorse distribuite nelle subnet.<br>(Criterio correlato: le subnet devono essere associate a un gruppo di sicurezza di rete)|Alta/media|N|Subnet|
-|**Le macchine virtuali devono essere associate a un gruppo di sicurezza di rete**|Consente di abilitare i gruppi di sicurezza di rete per controllare l'accesso alla rete delle macchine virtuali.<br>(Criterio correlato: le macchine virtuali devono essere associate a un gruppo di sicurezza di rete)|Alta/media|N|Macchina virtuale|
-|**L'accesso deve essere limitato per i gruppi di sicurezza di rete permissivi con macchine virtuali con connessione Internet**|Rafforzare i gruppi di sicurezza di rete delle macchine virtuali con connessione Internet limitando l'accesso alle regole di autorizzazione esistenti.<br>(Criterio correlato: le regole del gruppo di sicurezza di rete per le macchine virtuali con connessione Internet devono essere finalizzate)|Alte|N|Macchina virtuale|
+|**I gruppi di sicurezza di rete a livello di subnet devono essere abilitati**|Abilitare i gruppi di sicurezza di rete per controllare l'accesso alla rete delle risorse distribuite nelle subnet.<br>(Criterio correlato: le subnet devono essere associate a un gruppo di sicurezza di rete.<br>Questo criterio è disabilitato per impostazione predefinita)|Alta/media|N|Subnet|
+|**Le macchine virtuali con connessione Internet devono essere protette con i gruppi di sicurezza di rete**|Consente di abilitare i gruppi di sicurezza di rete per controllare l'accesso alla rete delle macchine virtuali.<br>(Criterio correlato: le macchine virtuali con connessione Internet devono essere protette con i gruppi di sicurezza di rete)|Alta/media|N|Macchina virtuale|
+|**Tutte le porte di rete devono essere limitate in NSG associate alla VM**|Rafforzare i gruppi di sicurezza di rete delle macchine virtuali con connessione Internet limitando l'accesso alle regole di autorizzazione esistenti.<br>Questa raccomandazione viene attivata quando una porta viene aperta a *tutte le* origini (ad eccezione delle porte 22, 3389, 5985, 5986, 80 e 1443).<br>(Criterio correlato: l'accesso tramite endpoint con connessione Internet deve essere limitato)|Alte|N|Macchina virtuale|
+|**Le raccomandazioni per la protezione avanzata della rete adattiva devono essere applicate alle macchine virtuali con connessione Internet**|I clienti con piano tariffario standard vedranno questa raccomandazione quando la funzionalità di protezione avanzata della rete adattiva trova una regola NSG eccessivamente permissiva.<br>(Criteri correlati: le raccomandazioni per la protezione avanzata della rete adattiva devono essere applicate alle macchine virtuali con connessione Internet)|Alte|N|Macchina virtuale|
 |**Le regole per le applicazioni Web in IaaS gruppi devono essere finalizzate**|Rafforzare il gruppo di sicurezza di rete (NSG) delle macchine virtuali che eseguono applicazioni Web, con regole NSG che sono eccessivamente permissive per quanto concerne le porte dell'applicazione Web.<br>(Criterio correlato: le regole gruppi per le applicazioni Web in IaaS devono essere finalizzate)|Alte|N|Macchina virtuale|
 |**L'accesso ai servizi app deve essere limitato**|Limitare l'accesso ai servizi app modificando la configurazione di rete per negare il traffico in ingresso da intervalli troppo ampi.<br>(Criterio correlato: [Anteprima]: è necessario limitare l'accesso ai servizi app)|Alte|N|Servizio app|
 |**Le porte di gestione devono essere chiuse nelle macchine virtuali**|Rafforzare il gruppo di sicurezza di rete delle macchine virtuali per limitare l'accesso alle porte di gestione.<br>(Criterio correlato: le porte di gestione devono essere chiuse nelle macchine virtuali)|Alte|N|Macchina virtuale|

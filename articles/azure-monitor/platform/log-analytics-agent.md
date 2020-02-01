@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/24/2019
-ms.openlocfilehash: 8e563ae095cf39cdce3e671d4099d2bf1592100a
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.date: 01/29/2020
+ms.openlocfilehash: d43b580f60f5ae8d2782cf9762b02aa1360e5a40
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513627"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901208"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>Raccogliere i dati di log con l'agente di Log Analytics
 
@@ -81,7 +81,7 @@ A partire dalle versioni rilasciate dopo il mese di agosto 2018, al modello di s
 >OpenSSL 1.1.0 è supportato solo su piattaforme x86_x64 (64 bit), mentre le versioni di OpenSSL precedenti a 1.x non sono supportate su alcuna piattaforma.
 >
 
-### <a name="agent-prerequisites"></a>Prerequisiti agente
+### <a name="agent-prerequisites"></a>Prerequisiti degli agenti
 
 La tabella seguente evidenzia i pacchetti necessari per le distribuzioni Linux supportate in cui verrà installato l'agente.
 
@@ -106,6 +106,7 @@ Le informazioni seguenti elencano le informazioni di configurazione del proxy e 
 
 |Risorsa agente|Porte |Direction |Ignorare l'analisi HTTPS|
 |------|---------|--------|--------|   
+|OMS *. Azure. com |Porta 443 |In uscita |Sì |
 |*.ods.opinsights.azure.com |Porta 443 |In uscita|Sì |  
 |*.oms.opinsights.azure.com |Porta 443 |In uscita|Sì |  
 |*.blob.core.windows.net |Porta 443 |In uscita|Sì |  
