@@ -10,14 +10,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/21/2019
+ms.date: 01/30/2020
 ms.author: juliako
-ms.openlocfilehash: 23d546d6adcdb91b4ef4702b81fe77536fe9f3d3
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 91a09df83c8ba474d3124c3322f4e3dd5eb7367c
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186268"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934682"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analizzare i file audio e video con servizi multimediali di Azure
 
@@ -27,6 +27,10 @@ Per analizzare i contenuti usando i set di impostazioni di Media Services V3, cr
 
 > [!NOTE]
 > Quando si usa un set di impostazioni di analisi video o audio, usare il portale di Azure per impostare l'account in modo che abbia 10 Media Reserved Units S3. Per altre informazioni, vedere [Panoramica del ridimensionamento dell'elaborazione multimediale](media-reserved-units-cli-how-to.md).
+
+## <a name="compliance-privacy-and-security"></a>Conformità, privacy e sicurezza
+
+Come promemoria importante, è necessario rispettare tutte le leggi applicabili nell'utilizzo di Video Indexer e non è possibile utilizzare Video Indexer o altri servizi di Azure in modo da violare i diritti di altri utenti o potrebbero essere dannosi ad altri utenti. Prima di caricare tutti i video, inclusi i dati biometrici, nel servizio Video Indexer per l'elaborazione e l'archiviazione, è necessario disporre di tutti i diritti appropriati, inclusi tutti i consensi appropriati, dai singoli nel video. Per informazioni su conformità, privacy e sicurezza in Video Indexer, le [condizioni per servizi cognitivi](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)Microsoft. Per gli obblighi sulla privacy e la gestione dei dati di Microsoft, consultare l' [informativa sulla privacy](https://privacy.microsoft.com/PrivacyStatement)di Microsoft, le condizioni per i [servizi online ("Ost")](https://www.microsoft.com/licensing/product-licensing/products) e l'appendice per l' [elaborazione dei dati](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Informazioni aggiuntive sulla privacy, tra cui la conservazione dei dati, l'eliminazione o la distruzione, sono disponibili nella OST e [qui](../video-indexer/faq.md). Utilizzando Video Indexer, l'utente accetta di essere vincolato dalle condizioni di servizi cognitivi, OST, DPA e informativa sulla privacy.
 
 ## <a name="built-in-presets"></a>Set di impostazioni predefiniti
 
@@ -63,12 +67,12 @@ L'output include un file JSON (Insights. Json) con tutte le informazioni dettagl
 
 ### <a name="transcript"></a>transcript
 
-|Nome|DESCRIZIONE|
+|Nome|Description|
 |---|---|
 |id|ID della riga.|
 |text|Testo della trascrizione.|
-|Lingua|Lingua della trascrizione. Questo elemento è stato progettato per supportare trascrizioni in cui ogni riga può avere una lingua diversa.|
-|instances|Elenco degli intervalli di tempo in cui è presente la riga. Se l'istanza corrisponde a un'intera trascrizione, è riportata una sola istanza.|
+|Linguaggio|Lingua della trascrizione. Questo elemento è stato progettato per supportare trascrizioni in cui ogni riga può avere una lingua diversa.|
+|istanze|Elenco degli intervalli di tempo in cui è presente la riga. Se l'istanza corrisponde a un'intera trascrizione, è riportata una sola istanza.|
 
 Esempio:
 
@@ -101,13 +105,13 @@ Esempio:
 
 ### <a name="ocr"></a>ocr
 
-|Nome|DESCRIZIONE|
+|Nome|Description|
 |---|---|
 |id|ID della riga di riconoscimento ottico dei caratteri.|
 |text|Testo risultante dal riconoscimento ottico dei caratteri.|
 |confidence|Grado di attendibilità del riconoscimento.|
-|Lingua|Lingua del riconoscimento ottico dei caratteri.|
-|instances|Elenco degli intervalli di tempo in cui è presente la riga di riconoscimento ottico dei caratteri. La stessa riga può apparire più volte.|
+|Linguaggio|Lingua del riconoscimento ottico dei caratteri.|
+|istanze|Elenco degli intervalli di tempo in cui è presente la riga di riconoscimento ottico dei caratteri. La stessa riga può apparire più volte.|
 
 ```json
 "ocr": [
@@ -144,19 +148,19 @@ Esempio:
 
 ### <a name="faces"></a>faces
 
-|Nome|DESCRIZIONE|
+|Nome|Description|
 |---|---|
 |id|ID del volto.|
-|Nome|Nome del volto. Può essere "Unknown #0", una celebrità identificata o una persona con training del cliente.|
+|name|Nome del volto. Può essere "Unknown #0", una celebrità identificata o una persona con training del cliente.|
 |confidence|Grado di attendibilità dell'identificazione del volto.|
-|Descrizione|Descrizione del personaggio noto. |
+|description|Descrizione del personaggio noto. |
 |thumbnailId|ID dell'anteprima del volto.|
 |knownPersonId|ID interno (se si tratta di una persona nota).|
 |referenceId|ID Bing (se si tratta di una celebrità Bing).|
 |referenceType|Attualmente solo Bing.|
 |title|Il titolo (se si tratta di una celebrità, ad esempio, "CEO di Microsoft").|
 |imageUrl|L'URL dell'immagine, se si tratta di una celebrità.|
-|instances|Istanze in cui la faccia appare nell'intervallo di tempo specificato. Ogni istanza è associata anche un thumbnailsId. |
+|istanze|Istanze in cui la faccia appare nell'intervallo di tempo specificato. Ogni istanza è associata anche un thumbnailsId. |
 
 ```json
 "faces": [{
@@ -189,11 +193,11 @@ Esempio:
 
 ### <a name="shots"></a>shots
 
-|Nome|DESCRIZIONE|
+|Nome|Description|
 |---|---|
 |id|ID dello scatto.|
 |keyFrames|Elenco dei fotogrammi chiave inclusi nello scatto, ciascuno con un ID e un elenco degli intervalli di tempo delle istanze. Le istanze dei fotogrammi chiave hanno un campo thumbnailId con l'ID anteprima del fotogramma chiave.|
-|instances|Elenco degli intervalli di tempo dello scatto. Per gli scatti è prevista una sola istanza.|
+|istanze|Elenco degli intervalli di tempo dello scatto. Per gli scatti è prevista una sola istanza.|
 
 ```json
 "Shots": [
@@ -244,9 +248,9 @@ Esempio:
   ]
 ```
 
-### <a name="statistics"></a>statistics
+### <a name="statistics"></a>statistiche
 
-|Nome|DESCRIZIONE|
+|Nome|Description|
 |---|---|
 |CorrespondenceCount|Numero di corrispondenze nel video.|
 |WordCount|Numero di parole per ogni voce.|
@@ -259,11 +263,11 @@ Esempio:
 
 Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro/negativo), ad esempio 0-0.1, 0.1-0.2.
 
-|Nome|DESCRIZIONE|
+|Nome|Description|
 |---|---|
 |id|ID della valutazione.|
 |averageScore |Media di tutti i punteggi di tutte le istanze di un determinato tipo di valutazione: positivo/neutro/negativo.|
-|instances|Elenco degli intervalli di tempo in cui è presente la valutazione.|
+|istanze|Elenco degli intervalli di tempo in cui è presente la valutazione.|
 |sentimentType |Il tipo può essere "Positive", "Neutral" o "Negative".|
 
 ```json
@@ -294,12 +298,12 @@ Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro
 
 ### <a name="labels"></a>Etichette
 
-|Nome|DESCRIZIONE|
+|Nome|Description|
 |---|---|
 |id|ID dell'etichetta.|
-|Nome|Nome dell'etichetta, ad esempio 'Computer' o 'TV'.|
-|Lingua|Lingua del nome dell'etichetta, quando tradotto. BCP-47|
-|instances|Elenco degli intervalli di tempo in cui è presente l'etichetta. La stessa etichetta può apparire più volte. Ogni istanza ha un campo che indica il grado di attendibilità. |
+|name|Nome dell'etichetta, ad esempio 'Computer' o 'TV'.|
+|Linguaggio|Lingua del nome dell'etichetta, quando tradotto. BCP-47|
+|istanze|Elenco degli intervalli di tempo in cui è presente l'etichetta. La stessa etichetta può apparire più volte. Ogni istanza ha un campo che indica il grado di attendibilità. |
 
 ```json
 "labels": [
@@ -352,13 +356,13 @@ Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro
 
 ### <a name="keywords"></a>keywords
 
-|Nome|DESCRIZIONE|
+|Nome|Description|
 |---|---|
 |id|ID della parola chiave.|
 |text|Testo della parola chiave.|
 |confidence|Grado di attendibilità del riconoscimento della parola chiave.|
-|Lingua|Lingua della parola chiave, quando tradotta.|
-|instances|Elenco degli intervalli di tempo in cui è presente la parola chiave. La stessa parola chiave può apparire più volte.|
+|Linguaggio|Lingua della parola chiave, quando tradotta.|
+|istanze|Elenco degli intervalli di tempo in cui è presente la parola chiave. La stessa parola chiave può apparire più volte.|
 
 ```json
 "keywords": [
@@ -403,12 +407,12 @@ Il blocco visualContentModeration contiene gli intervalli di tempo in cui Video 
 
 I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere disponibili solo per la visualizzazione privata. Gli utenti possono inviare una richiesta di revisione umana del contenuto, nel qual caso l'attributo `IsAdult` conterrà il risultato della revisione umana.
 
-|Nome|DESCRIZIONE|
+|Nome|Description|
 |---|---|
 |id|ID della moderazione dei contenuti visivi.|
 |adultScore|Punteggio contenuti per adulti (dalla moderazione del contenuto).|
 |racyScore|Punteggio contenuti spinti (dalla moderazione del contenuto).|
-|instances|Elenco degli intervalli di tempo in cui è presente questa moderazione dei contenuti visivi.|
+|istanze|Elenco degli intervalli di tempo in cui è presente questa moderazione dei contenuti visivi.|
 
 ```json
 "VisualContentModeration": [

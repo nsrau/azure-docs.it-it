@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 0ab714efc3e9eb0de9d6753854031110e09fe06b
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 79e65671613364f5cc05153d90cfdcd5959a279f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147843"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939317"
 ---
 # <a name="get-started-with-device-management-net"></a>Introduzione alla gestione dei dispositivi (.NET)
 
@@ -62,7 +62,7 @@ In questa sezione si crea un'app console .NET, usando C#, che avvia un riavvio r
 
 1. In **creare un nuovo progetto**individuare e selezionare il modello di progetto **App Console (.NET Framework)** , quindi fare clic su **Avanti**.
 
-1. In **configurare il nuovo progetto**assegnare al progetto il nome *TriggerReboot*e selezionare .NET Framework versione 4.5.1 o successiva. Selezionare **Create**.
+1. In **configurare il nuovo progetto**assegnare al progetto il nome *TriggerReboot*e selezionare .NET Framework versione 4.5.1 o successiva. Selezionare **Create** (Crea).
 
     ![Nuovo progetto desktop di Windows classico in Visual C#](./media/iot-hub-csharp-csharp-device-management-get-started/create-trigger-reboot-configure.png)
 
@@ -81,7 +81,7 @@ In questa sezione si crea un'app console .NET, usando C#, che avvia un riavvio r
    using Microsoft.Azure.Devices.Shared;
    ```
 
-1. Aggiungere i campi seguenti alla classe **Program** . Sostituire il `{iot hub connection string}` valore del segnaposto con la stringa di connessione dell'hub Internet che è stata copiata in precedenza in [ottenere la stringa di connessione dell'hub Internet](#get-the-iot-hub-connection-string).
+1. Aggiungere i campi seguenti alla classe **Program** . Sostituire il valore del segnaposto `{iot hub connection string}` con la stringa di connessione dell'hub Internet che è stata copiata in precedenza in [ottenere la stringa di connessione dell'hub Internet](#get-the-iot-hub-connection-string).
 
    ```csharp
    static RegistryManager registryManager;
@@ -143,9 +143,9 @@ In questa sezione verrà illustrato come:
 
 Per creare l'app per dispositivo simulato, seguire questa procedura:
 
-1. In Visual Studio, nella soluzione TriggerReboot già creata, selezionare **file** > **nuovo** > **progetto**. In **creare un nuovo progetto**individuare e selezionare il modello di progetto **App Console (.NET Framework)** , quindi fare clic su **Avanti**.
+1. In Visual Studio, nella soluzione TriggerReboot già creata, selezionare **File** > **nuovo** > **progetto**. In **creare un nuovo progetto**individuare e selezionare il modello di progetto **App Console (.NET Framework)** , quindi fare clic su **Avanti**.
 
-1. In **Configura il nuovo progetto**, denominare il progetto *SimulateManagedDevice*e per **soluzione**selezionare **Aggiungi a soluzione**. Selezionare **Create**.
+1. In **Configura il nuovo progetto**, denominare il progetto *SimulateManagedDevice*e per **soluzione**selezionare **Aggiungi a soluzione**. Selezionare **Create** (Crea).
 
     ![Nome e aggiunta del progetto alla soluzione](./media/iot-hub-csharp-csharp-device-management-get-started/configure-device-app.png)
 
@@ -164,7 +164,7 @@ Per creare l'app per dispositivo simulato, seguire questa procedura:
     using Microsoft.Azure.Devices.Shared;
     ```
 
-1. Aggiungere i campi seguenti alla classe **Program** . Sostituire il `{device connection string}` valore del segnaposto con la stringa di connessione del dispositivo annotata in precedenza in [registrare un nuovo dispositivo nell'hub](#register-a-new-device-in-the-iot-hub).
+1. Aggiungere i campi seguenti alla classe **Program** . Sostituire il valore del segnaposto `{device connection string}` con la stringa di connessione del dispositivo annotata in precedenza in [registrare un nuovo dispositivo nell'hub](#register-a-new-device-in-the-iot-hub).
 
     ```csharp
     static string DeviceConnectionString = "{device connection string}";
@@ -200,7 +200,7 @@ Per creare l'app per dispositivo simulato, seguire questa procedura:
            Console.WriteLine("Error in sample: {0}", ex.Message);
        }
 
-       string result = "'Reboot started.'";
+       string result = @"{""result"":""Reboot started.""}";
        return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
    }
    ```
@@ -234,7 +234,7 @@ Per creare l'app per dispositivo simulato, seguire questa procedura:
 
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e selezionare **Imposta progetti di avvio**.
 
-1. Per**progetto di avvio** **Proprietà** > comuni selezionare **progetto di avvio singolo**, quindi selezionare il progetto **SimulateManagedDevice** . Selezionare **OK** per salvare le modifiche.
+1. Per **Proprietà comuni** > **progetto di avvio**, selezionare **progetto di avvio singolo**, quindi selezionare il progetto **SimulateManagedDevice** . Selezionare **OK** per salvare le modifiche.
 
 1. Selezionare **Compila** > **Compila soluzione**.
 

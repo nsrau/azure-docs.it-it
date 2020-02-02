@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/03/2019
+ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 65759b32889f9a99b0322823bb8a4924788e8c09
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e300bc0f29808215673407d21b65fe329e50ad45
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786470"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76930429"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gestire i moduli in automazione di Azure
 
@@ -64,7 +64,7 @@ Se si verificano problemi con un modulo o è necessario eseguire il rollback a u
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Nella portale di Azure passare all'account di automazione e selezionare **moduli** in **risorse condivise**. Selezionare il modulo che si desidera rimuovere. Nella pagina del **modulo** clcick **Delete**. Se questo modulo è uno dei [moduli predefiniti](#default-modules), verrà eseguito il rollback alla versione che era presente al momento della creazione dell'account di automazione.
+Nella portale di Azure passare all'account di automazione e selezionare **moduli** in **risorse condivise**. Selezionare il modulo che si desidera rimuovere. Nella pagina **modulo** selezionare **Elimina**. Se questo modulo è uno dei [moduli predefiniti](#default-modules), verrà eseguito il rollback alla versione che era presente al momento della creazione dell'account di automazione.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -79,10 +79,10 @@ Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automa
 Di seguito è riportato un elenco di cmdlet nel modulo `Orchestrator.AssetManagement.Cmdlets` interno che viene importato in ogni account di automazione. Questi cmdlet sono accessibili nelle configurazioni manuali operativi e DSC e consentono di interagire con gli asset nell'account di automazione. I cmdlet interni consentono inoltre di recuperare i segreti da valori di **variabili** crittografati, **credenziali**e campi di **connessione** crittografati. I cmdlet Azure PowerShell non sono in grado di recuperare questi segreti. Questi cmdlet non richiedono la connessione implicita ad Azure quando vengono usati, ad esempio l'uso di un account RunAs per l'autenticazione in Azure.
 
 >[!NOTE]
->Questi cmdlet interni non sono disponibili in un ruolo di lavoro ibrido per Runbook, ma sono accessibili solo da manuali operativi in esecuzione in Azure. Usare i moduli [AzureRM. Automation](https://docs.microsoft.com/powershell/module/AzureRM.Automation/?view=azurermps-6.13.0) o [AZ](../az-modules.md) corrispondenti per manuali operativi in esecuzione direttamente nel computer o nelle risorse dell'ambiente. 
+>Questi cmdlet interni sono disponibili in un ruolo di lavoro ibrido per Runbook Windows, non sono disponibili in un ruolo di lavoro ibrido per Runbook Linux. Usare i moduli [AzureRM. Automation](https://docs.microsoft.com/powershell/module/AzureRM.Automation/?view=azurermps-6.13.0) o [AZ](../az-modules.md) corrispondenti per manuali operativi in esecuzione direttamente nel computer o nelle risorse dell'ambiente. 
 >
 
-|name|Description|
+|Nome|Description|
 |---|---|
 |Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
 |Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |
@@ -265,13 +265,13 @@ La tabella seguente elenca i moduli importati per impostazione predefinita quand
 | AzureRM.Storage | 1.0.3 |
 | ComputerManagementDsc | 5.0.0.0 |
 | GPRegistryPolicyParser | 0,2 |
-| Microsoft. PowerShell. Core | 0 |
-| Microsoft. PowerShell. Diagnostics |  |
-| Microsoft. PowerShell. Management |  |
-| Microsoft. PowerShell. Security |  |
-| Microsoft. PowerShell. Utility |  |
-| Microsoft. WSMan. Management |  |
-| Agente di orchestrazione. AssetManagement. Cmdlets | 1 |
+| Microsoft.PowerShell.Core | 0 |
+| Microsoft.PowerShell.Diagnostics |  |
+| Microsoft.PowerShell.Management |  |
+| Microsoft.PowerShell.Security |  |
+| Microsoft.PowerShell.Utility |  |
+| Microsoft.WSMan.Management |  |
+| Orchestrator.AssetManagement.Cmdlets | 1 |
 | PSDscResources | 2.9.0.0 |
 | SecurityPolicyDsc | 2.1.0.0 |
 | StateConfigCompositeResources | 1 |

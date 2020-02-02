@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 01/31/2020
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 008f0b1b83e8ba856fae2fe40b026dcc645e46ab
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 20b99cfffdaa0d942ccd4d954909810342cbfcb8
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845323"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935351"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>Supporto di lingue e aree per il servizio di riconoscimento vocale
 
@@ -240,8 +240,10 @@ L'API **Traduzione vocale** supporta lingue diverse per la traduzione vocale e c
 | Hmong Daw      | `mww`          |
 | Ungherese      | `hu`          |
 | Indonesiano      | `id`          |
+| Irlandese      | `ga`          |
 | Italiano      | `it`          |
 | Giapponese      | `ja`          |
+| Kannada      | `kn`          |
 | Kiswahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Klingon (plqaD)      | `tlh-Qaak`          |
@@ -250,11 +252,14 @@ L'API **Traduzione vocale** supporta lingue diverse per la traduzione vocale e c
 | Lituano      | `lt`          |
 | Malgascio      | `mg`          |
 | Malese      | `ms`          |
+| Malayalam      | `ml`          |
 | Maltese      | `mt`          |
 | Norvegese      | `nb`          |
 | Persiano      | `fa`          |
 | Polacco      | `pl`          |
-| Portoghese      | `pt`          |
+| Portoghese (Brasile)      | `pt-br`          |
+| Portoghese (Portogallo)      | `pt-pt`          |
+| Punjabi      | `pa`          |
 | Querétaro Otomi      | `otq`          |
 | Rumeno      | `ro`          |
 | Russo      | `ru`          |

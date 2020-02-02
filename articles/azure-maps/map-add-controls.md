@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 6652ca30d9f38eb6184fce5f1ff5428d29c271a6
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: e2ad8eb181685d3ac3de8b1e0ed7ef8ddfa4e224
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911260"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933290"
 ---
 # <a name="add-controls-to-a-map"></a>Aggiungere controlli a una mappa
 
@@ -21,7 +21,7 @@ Questo articolo illustra come aggiungere controlli a una mappa. Si apprenderà a
 
 ## <a name="add-zoom-control"></a>Aggiungere un controllo zoom
 
-Un controllo zoom aggiunge pulsanti per lo zoom avanti e indietro della mappa. L'esempio di codice seguente crea un'istanza della classe [zoomcontrol](/javascript/api/azure-maps-control/atlas.control.zoomcontrol) e la aggiunge all'angolo inferiore destro della mappa.
+Un controllo zoom aggiunge pulsanti per lo zoom avanti e indietro della mappa. Nell'esempio di codice seguente viene creata un'istanza della classe [zoomcontrol](/javascript/api/azure-maps-control/atlas.control.zoomcontrol) e viene aggiunto l'angolo inferiore destro della mappa.
 
 ```javascript
 //Construct a zoom control and add it to the map.
@@ -39,7 +39,7 @@ Di seguito è riportato l'esempio di codice completo per l'esecuzione delle funz
 
 ## <a name="add-pitch-control"></a>Aggiungere un controllo inclinazione
 
-Un controllo pitch aggiunge i pulsanti per inclinare il pitch per eseguire il mapping rispetto all'orizzonte. Nell'esempio di codice seguente viene creata un'istanza della classe [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) e viene aggiunto l'angolo superiore destro della mappa.
+Un controllo pitch aggiunge i pulsanti per inclinare il pitch per eseguire il mapping rispetto all'orizzonte. Nell'esempio di codice seguente viene creata un'istanza della classe [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) . Aggiunge PitchControl all'angolo superiore destro della mappa.
 
 ```javascript
 //Construct a pitch control and add it to the map.

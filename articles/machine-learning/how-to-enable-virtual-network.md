@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: 53644066276aa8e9fb57b4802142bca3fe4b342f
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: fafb40c8505b7178782ab15c14184c5bec052a1b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760853"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937854"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteggere i processi di sperimentazione e inferenza di Azure ML in una rete virtuale di Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -136,7 +136,7 @@ Per usare un'istanza di calcolo Azure Machine Learning o un cluster di calcolo i
 > * La subnet specificata per l'istanza di calcolo o il cluster deve disporre di indirizzi IP non assegnati sufficienti per contenere il numero di macchine virtuali di destinazione. Se la subnet non dispone di un numero sufficiente di indirizzi IP non assegnati, un cluster di calcolo verrà allocato parzialmente.
 > * Controllare se i criteri di sicurezza o i blocchi nella sottoscrizione o nel gruppo di risorse della rete virtuale limitano le autorizzazioni per la gestione della rete virtuale. Se si prevede di proteggere la rete virtuale limitando il traffico, lasciare aperte alcune porte per il servizio di calcolo. Per altre informazioni, vedere la sezione [Porte richieste](#mlcports).
 > * Se si intende inserire più istanze di calcolo o cluster in una rete virtuale, potrebbe essere necessario richiedere un aumento della quota per una o più risorse.
-> * Se anche gli account di archiviazione di Azure per l'area di lavoro sono protetti in una rete virtuale, devono trovarsi nella stessa rete virtuale del Azure Machine Learning istanza di calcolo o del cluster. Se si sta creando un'istanza di calcolo nella stessa rete virtuale, sarà necessario scollegare gli account di archiviazione dalla rete virtuale, creare l'istanza di calcolo nella rete virtuale e quindi riconnettere gli account di archiviazione alla rete virtuale...
+> * Se anche gli account di archiviazione di Azure per l'area di lavoro sono protetti in una rete virtuale, devono trovarsi nella stessa rete virtuale del Azure Machine Learning istanza di calcolo o del cluster. 
 
 Il Machine Learning istanza di calcolo o il cluster alloca automaticamente altre risorse di rete nel gruppo di risorse che contiene la rete virtuale. Per ogni istanza di calcolo o cluster, il servizio alloca le risorse seguenti:
 

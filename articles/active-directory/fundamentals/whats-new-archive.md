@@ -2,23 +2,23 @@
 title: Per informazioni sulle novità di Azure Active Directory, | Microsoft Docs
 description: Le novità delle note sulla versione nella sezione Panoramica di questo insieme di contenuti includono 6 mesi di attività. Dopo 6 mesi, gli elementi vengono rimossi dall'articolo principale e inseriti in questo articolo di archivio.
 services: active-directory
-author: eross-msft
+author: msmimart
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/10/2019
-ms.author: lizross
+ms.date: 01/27/2020
+ms.author: mimart
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dc2a8d523b2aabd72348529561f7cfdac1b7a9d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c92305d3b8aae5bbc54df58d414cd9b103945bcb
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422804"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931450"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Per informazioni sulle novità di Azure Active Directory,
 
@@ -31,6 +31,263 @@ Quali sono le novità di Azure Active Directory? le note sulla versione fornisco
 - Correzioni di bug
 - Funzionalità deprecate
 - Modifiche pianificate
+
+---
+
+## <a name="july-2019"></a>Luglio 2019
+
+### <a name="plan-for-change-application-proxy-service-update-to-support-only-tls-12"></a>Pianificare la modifica: aggiornamento del servizio proxy di applicazione per supportare solo TLS 1,2
+
+**Tipo:** Modifica pianificata  
+**Categoria di servizio:** Proxy app  
+**Funzionalità del prodotto:** Controllo di accesso
+
+Per fornire la crittografia più avanzata, l'accesso al servizio proxy di applicazione verrà limitato solo ai protocolli TLS 1,2. Questa limitazione verrà inizialmente implementata per i clienti che usano già i protocolli TLS 1,2, quindi non sarà possibile vedere l'effetto. La deprecazione completa dei protocolli TLS 1,0 e TLS 1,1 verrà completata il 31 agosto 2019. I clienti che usano ancora TLS 1,0 e TLS 1,1 riceveranno una notifica avanzata per prepararsi a questa modifica.
+
+Per mantenere la connessione al servizio proxy di applicazione in tutte le modifiche, è consigliabile assicurarsi che le combinazioni client-server e browser-server siano aggiornate per l'uso di TLS 1,2. È inoltre consigliabile assicurarsi di includere tutti i sistemi client usati dai dipendenti per accedere alle app pubblicate tramite il servizio proxy di applicazione.
+
+Per altre informazioni, vedere [aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application).
+
+---
+
+### <a name="plan-for-change-design-updates-are-coming-for-the-application-gallery"></a>Pianificare le modifiche: gli aggiornamenti della progettazione sono disponibili per la raccolta di applicazioni
+
+**Tipo:** Modifica pianificata  
+**Categoria di servizio:** App aziendali  
+**Funzionalità del prodotto:** SSO
+
+Nuove modifiche all'interfaccia utente verranno apportate alla progettazione dell' **aggiunta dall'area raccolta** del pannello **Aggiungi un'applicazione** . Queste modifiche consentiranno di trovare più facilmente le app che supportano il provisioning automatico, OpenID Connect, Security Assertion Markup Language (SAML) e Single Sign-On di password (SSO).
+
+---
+
+### <a name="plan-for-change-removal-of-the-mfa-server-ip-address-from-the-office-365-ip-address"></a>Pianificare la modifica: rimozione dell'indirizzo IP del server multi-factor authentication dall'indirizzo IP di Office 365
+
+**Tipo:** Modifica pianificata  
+**Categoria di servizio:** AMF  
+**Funzionalità del prodotto:** Protezione e sicurezza delle identità
+
+È in corso la rimozione dell'indirizzo IP del server multi-factor authentication dall' [indirizzo IP di Office 365 e dal servizio Web URL](https://docs.microsoft.com/office365/enterprise/office-365-ip-web-service). Se attualmente si fa affidamento su queste pagine per aggiornare le impostazioni del firewall, è necessario assicurarsi di includere anche l'elenco degli indirizzi IP documentati nella sezione **requisiti del firewall di azure server multi-factor authentication** dell'articolo [introduzione ad Azure server multi-factor authentication](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy#azure-multi-factor-authentication-server-firewall-requirements) .
+
+---
+
+### <a name="app-only-tokens-now-require-the-client-app-to-exist-in-the-resource-tenant"></a>I token solo app richiedono ora che l'app client esista nel tenant delle risorse
+
+**Tipo:** Correzione  
+**Categoria di servizio:** Autenticazioni (accessi)  
+**Funzionalità del prodotto:** Autenticazione utente
+
+Il 26 luglio 2019 è stato modificato il modo in cui vengono forniti i token solo app tramite la [concessione delle credenziali client](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow). In precedenza, le app potevano ottenere i token per chiamare altre app, indipendentemente dal fatto che l'app client si trovasse nel tenant. Questo comportamento è stato aggiornato in modo che le risorse a tenant singolo, talvolta chiamate API Web, possano essere chiamate solo da app client presenti nel tenant delle risorse.
+
+Se l'app non si trova nel tenant delle risorse, viene visualizzato un messaggio di errore che indica `The service principal named <app_name> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.` per risolvere il problema, è necessario creare l'entità servizio dell'app client nel tenant, usando l' [endpoint di consenso dell'amministratore](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint) o [tramite PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell), che garantisce al tenant l'autorizzazione dell'app per operare nel tenant.
+
+Per ulteriori informazioni, vedere [What ' s New for Authentication?](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant).
+
+> [!NOTE]
+> Il consenso esistente tra il client e l'API continua a non essere necessario. Le app devono ancora eseguire controlli di autorizzazione personalizzati.
+
+---
+
+### <a name="new-passwordless-sign-in-to-azure-ad-using-fido2-security-keys"></a>Nuovo accesso senza password per Azure AD usando le chiavi di sicurezza FIDO2
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Autenticazioni (accessi)  
+**Funzionalità del prodotto:** Autenticazione utente
+
+Azure AD i clienti possono ora impostare i criteri per gestire le chiavi di sicurezza FIDO2 per gli utenti e i gruppi dell'organizzazione. Gli utenti finali possono anche registrare autonomamente le proprie chiavi di sicurezza, usare le chiavi per accedere ai propri account Microsoft nei siti Web, mentre nei dispositivi che supportano FIDO, nonché accedere ai dispositivi Windows 10 aggiunti a Azure AD.
+
+Per altre informazioni, vedere [abilitare l'accesso senza password per Azure ad (anteprima)](/azure/active-directory/authentication/concept-authentication-passwordless) per le informazioni relative all'amministratore e [configurare le informazioni di sicurezza per l'uso di una chiave di sicurezza (anteprima)](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-security-key) per le informazioni relative all'utente finale.
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---july-2019"></a>Nuove app federate disponibili nella raccolta di App Azure AD-2019 luglio
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** App aziendali  
+**Funzionalità del prodotto:** Integrazione con app di terze parti
+
+Nel 2019 luglio sono state aggiunte le 18 nuove app con supporto federativo per la raccolta di app:
+
+[Ungerboeck software](https://docs.microsoft.com/azure/active-directory/saas-apps/ungerboeck-software-tutorial), [Bright pattern omnicanale Contact Center](https://docs.microsoft.com/azure/active-directory/saas-apps/bright-pattern-omnichannel-contact-center-tutorial), [clever Nelly](https://docs.microsoft.com/azure/active-directory/saas-apps/clever-nelly-tutorial), [AcquireIO](https://docs.microsoft.com/azure/active-directory/saas-apps/acquireio-tutorial), [looop](https://www.looop.co/schedule-a-demo/), [productboard](https://docs.microsoft.com/azure/active-directory/saas-apps/productboard-tutorial), [MS Azure SSO Access per Ethidex Compliance Office™](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on#password-based-sso), [hype](https://docs.microsoft.com/azure/active-directory/saas-apps/hype-tutorial), [abstract](https://docs.microsoft.com/azure/active-directory/saas-apps/abstract-tutorial), [ascentis](https://docs.microsoft.com/azure/active-directory/saas-apps/ascentis-tutorial), [Flipsnack](https://www.flipsnack.com/accounts/sign-in-sso.html), [Wandera](https://docs.microsoft.com/azure/active-directory/saas-apps/wandera-tutorial), [TwineSocial](https://twinesocial.com/), [Kallidus](https://docs.microsoft.com/azure/active-directory/saas-apps/kallidus-tutorial), [iperanna](https://docs.microsoft.com/azure/active-directory/saas-apps/hyperanna-tutorial), PharmID [WasteWitness](https://www.pharmid.com/), [i2B Connect](https://www.i2b-online.com/sign-up-to-use-i2b-connect-here-sso-access/), [JFrog Artifactory](https://docs.microsoft.com/azure/active-directory/saas-apps/jfrog-artifactory-tutorial)
+
+Per altre informazioni sulle app, vedere [Integrazione dell'applicazione SaaS con Azure Active Directory](https://aka.ms/appstutorial). Per altre informazioni su come inserire l'applicazione nella raccolta di app di Azure AD, vedere [Inserire l'applicazione nella raccolta di applicazioni di Azure Active Directory](https://aka.ms/azureadapprequest).
+
+---
+
+### <a name="automate-user-account-provisioning-for-these-newly-supported-saas-apps"></a>Automatizzare il provisioning degli account utente per queste app SaaS appena supportate
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** App aziendali  
+**Funzionalità del prodotto:** Monitoraggio e creazione report
+
+È ora possibile automatizzare la creazione, l'aggiornamento e l'eliminazione degli account utente per queste app appena integrate:
+
+- [Tastierino](https://docs.microsoft.com/azure/active-directory/saas-apps/dialpad-provisioning-tutorial)
+
+- [Directory federata](https://docs.microsoft.com/azure/active-directory/saas-apps/federated-directory-provisioning-tutorial)
+
+- [Figma](https://docs.microsoft.com/azure/active-directory/saas-apps/figma-provisioning-tutorial)
+
+- [Leapsome](https://docs.microsoft.com/azure/active-directory/saas-apps/leapsome-provisioning-tutorial)
+
+- [Peakon](https://docs.microsoft.com/azure/active-directory/saas-apps/peakon-provisioning-tutorial)
+
+- [Smartsheet](https://docs.microsoft.com/azure/active-directory/saas-apps/smartsheet-provisioning-tutorial)
+
+Per altre informazioni su come proteggere meglio l'organizzazione usando il provisioning automatizzato degli account utente, vedere automatizzare il [provisioning degli utenti in applicazioni SaaS con Azure ad](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)
+
+---
+
+### <a name="new-azure-ad-domain-services-service-tag-for-network-security-group"></a>Nuovo tag del servizio Azure AD Domain Services per il gruppo di sicurezza di rete
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Azure AD Domain Services  
+**Funzionalità del prodotto:** Azure AD Domain Services
+
+Se si è stanchi di gestire lunghi elenchi di indirizzi IP e intervalli, è possibile usare il nuovo tag del servizio di rete **AzureActiveDirectoryDomainServices** nel gruppo di sicurezza di rete di Azure per proteggere il traffico in ingresso verso la subnet della rete virtuale Azure ad Domain Services.
+
+Per ulteriori informazioni su questo nuovo tag di servizio, vedere [gruppi di sicurezza di rete per Azure ad Domain Services](../../active-directory-domain-services/network-considerations.md#network-security-groups-and-required-ports).
+
+---
+
+### <a name="new-security-audits-for-azure-ad-domain-services-public-preview"></a>Nuovi controlli di sicurezza per Azure AD Domain Services (anteprima pubblica)
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Azure AD Domain Services  
+**Funzionalità del prodotto:** Azure AD Domain Services
+
+Siamo lieti di annunciare il rilascio di Azure AD controllo della sicurezza del servizio del dominio per l'anteprima pubblica. Il controllo della sicurezza consente di fornire informazioni importanti sui servizi di autenticazione tramite lo streaming di eventi di controllo di sicurezza a risorse mirate, tra cui archiviazione di Azure, aree di lavoro di Azure Log Analytics e hub eventi di Azure, usando il servizio del dominio Azure AD Portale.
+
+Per ulteriori informazioni, vedere [Enable Security Audits for Azure ad Domain Services (Preview)](https://docs.microsoft.com/azure/active-directory-domain-services/security-audit-events).
+
+---
+
+### <a name="new-authentication-methods-usage--insights-public-preview"></a>Nuovi metodi di autenticazione utilizzo & Insights (anteprima pubblica)
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Reimpostazione self-service delle password  
+**Funzionalità del prodotto:** Monitoraggio e creazione report
+
+I nuovi metodi di autenticazione & i report di Insights consentono di comprendere in che modo le funzionalità come Azure Multi-Factor Authentication e la reimpostazione della password self-service vengono registrate e usate nell'organizzazione, incluso il numero di registrato utenti per ogni funzionalità, frequenza con cui viene usata la reimpostazione della password self-service per reimpostare le password e con quale metodo viene eseguita la reimpostazione.
+
+Per altre informazioni, vedere [metodi di autenticazione utilizzo & Insights (anteprima)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-methods-usage-insights).
+
+---
+
+### <a name="new-security-reports-are-available-for-all-azure-ad-administrators-public-preview"></a>Sono disponibili nuovi report di sicurezza per tutti gli amministratori di Azure AD (anteprima pubblica)
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Protezione delle identità  
+**Funzionalità del prodotto:** Protezione e sicurezza delle identità
+
+Tutti gli amministratori di Azure AD ora possono selezionare il banner nella parte superiore dei report di sicurezza esistenti, ad esempio il report **utenti contrassegnati per il rischio** , per iniziare a usare la nuova esperienza di sicurezza, come illustrato in **utenti a rischio** e report sugli **accessi a rischio** . Nel corso del tempo, tutti i report sulla sicurezza passano dalle versioni precedenti alle nuove versioni, con i nuovi report che forniscono le funzionalità aggiuntive seguenti:
+
+- Filtro e ordinamento avanzati
+
+- Azioni bulk, ad esempio la dismissing del rischio utente
+
+- Conferma di entità compromesse o sicure
+
+- Stato di rischio, copertura: a rischio, non rilasciata, risolta e confermata compromessa
+
+Per altre informazioni, vedere [report utenti a rischio](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-users) e [report sugli accessi a rischio](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-investigate-risk#risky-sign-ins).
+
+---
+
+### <a name="new-security-audits-for-azure-ad-domain-services-public-preview"></a>Nuovi controlli di sicurezza per Azure AD Domain Services (anteprima pubblica)
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Azure AD Domain Services  
+**Funzionalità del prodotto:** Azure AD Domain Services
+
+Siamo lieti di annunciare il rilascio di Azure AD controllo della sicurezza del servizio del dominio per l'anteprima pubblica. Il controllo della sicurezza consente di fornire informazioni importanti sui servizi di autenticazione tramite lo streaming di eventi di controllo di sicurezza a risorse mirate, tra cui archiviazione di Azure, aree di lavoro di Azure Log Analytics e hub eventi di Azure, usando il servizio del dominio Azure AD Portale.
+
+Per ulteriori informazioni, vedere [Enable Security Audits for Azure ad Domain Services (Preview)](https://docs.microsoft.com/azure/active-directory-domain-services/security-audit-events).
+
+---
+
+### <a name="new-b2b-direct-federation-using-samlws-fed-public-preview"></a>Nuova federazione diretta B2B con SAML/WS-Fed (anteprima pubblica)
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** B2B  
+**Funzionalità del prodotto:** B2B/B2C
+
+La Federazione diretta aiuta a semplificare l'utilizzo dei partner la cui soluzione di gestione delle identità gestita da IT non è Azure AD, usando sistemi di identità che supportano gli standard SAML o WS-Fed. Dopo aver configurato una relazione di federazione diretta con un partner, qualsiasi nuovo utente Guest invitato da tale dominio potrà collaborare con l'utente usando il proprio account aziendale esistente, rendendo l'esperienza utente per i guest più trasparente.
+
+Per ulteriori informazioni, vedere [Federazione diretta con ad FS e provider di terze parti per utenti Guest (anteprima)](https://docs.microsoft.com/azure/active-directory/b2b/direct-federation).
+
+---
+
+### <a name="automate-user-account-provisioning-for-these-newly-supported-saas-apps"></a>Automatizzare il provisioning degli account utente per queste app SaaS appena supportate
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** App aziendali  
+**Funzionalità del prodotto:** Monitoraggio e creazione report
+
+È ora possibile automatizzare la creazione, l'aggiornamento e l'eliminazione degli account utente per queste app appena integrate:
+
+- [Tastierino](https://docs.microsoft.com/azure/active-directory/saas-apps/dialpad-provisioning-tutorial)
+
+- [Directory federata](https://docs.microsoft.com/azure/active-directory/saas-apps/federated-directory-provisioning-tutorial)
+
+- [Figma](https://docs.microsoft.com/azure/active-directory/saas-apps/figma-provisioning-tutorial)
+
+- [Leapsome](https://docs.microsoft.com/azure/active-directory/saas-apps/leapsome-provisioning-tutorial)
+
+- [Peakon](https://docs.microsoft.com/azure/active-directory/saas-apps/peakon-provisioning-tutorial)
+
+- [Smartsheet](https://docs.microsoft.com/azure/active-directory/saas-apps/smartsheet-provisioning-tutorial)
+
+Per altre informazioni su come proteggere meglio l'organizzazione usando il provisioning automatizzato degli account utente, vedere automatizzare il [provisioning degli utenti in applicazioni SaaS con Azure ad](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+
+---
+
+### <a name="new-check-for-duplicate-group-names-in-the-azure-ad-portal"></a>Nuovo controllo per i nomi di gruppi duplicati nel portale di Azure AD
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Gestione gruppi  
+**Funzionalità del prodotto:** Collaborazione
+
+A questo punto, quando si crea o si aggiorna un nome di gruppo dal portale di Azure AD, verrà eseguito un controllo per verificare se si sta duplicando un nome di gruppo esistente nella risorsa. Se si determina che il nome è già in uso da parte di un altro gruppo, verrà chiesto di modificarne il nome.
+
+Per altre informazioni, vedere [gestire i gruppi nel portale di Azure ad](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context).
+
+---
+
+### <a name="azure-ad-now-supports-static-query-parameters-in-reply-redirect-uris"></a>Azure AD ora supporta i parametri di query statici negli URI di risposta (Reindirizzamento)
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Autenticazioni (accessi)  
+**Funzionalità del prodotto:** Autenticazione utente
+
+Azure AD app possono ora registrare e usare URI di risposta (Reindirizzamento) con parametri di query statici, ad esempio `https://contoso.com/oauth2?idp=microsoft`, per richieste OAuth 2,0. Il parametro della query statica è soggetto alle stringhe corrispondenti per gli URI di risposta, esattamente come qualsiasi altra parte dell'URI di risposta. Se non è presente alcuna stringa registrata corrispondente all'URI di reindirizzamento con decodifica URL, la richiesta viene rifiutata. Se viene trovato l'URI di risposta, l'intera stringa viene utilizzata per reindirizzare l'utente, incluso il parametro della query statica.
+
+Gli URI di risposta dinamici sono ancora proibiti perché rappresentano un rischio per la sicurezza e non possono essere usati per mantenere le informazioni sullo stato attraverso una richiesta di autenticazione. A questo scopo, usare il parametro `state`.
+
+Attualmente, le schermate di registrazione delle app del portale di Azure continuano a bloccare i parametri della query. Tuttavia, è possibile modificare manualmente il manifesto dell'applicazione per aggiungere e testare i parametri di query nell'app. Per ulteriori informazioni, vedere [What ' s New for Authentication?](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#redirect-uris-can-now-contain-query-string-parameters).
+
+---
+
+### <a name="activity-logs-ms-graph-apis-for-azure-ad-are-now-available-through-powershell-cmdlets"></a>I log attività (API Graph) per Azure AD sono ora disponibili tramite i cmdlet di PowerShell
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Creazione di report  
+**Funzionalità del prodotto:** Monitoraggio e creazione report
+
+Siamo lieti di annunciare che Azure AD log attività (report di controllo e accesso) sono ora disponibili tramite il modulo di Azure AD PowerShell. In precedenza, era possibile creare script personalizzati usando gli endpoint MS API Graph e ora abbiamo esteso questa funzionalità ai cmdlet di PowerShell.
+
+Per ulteriori informazioni sull'utilizzo di questi cmdlet, vedere [Azure ad cmdlet di PowerShell per la creazione di report](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-powershell-reporting).
+
+---
+
+### <a name="updated-filter-controls-for-audit-and-sign-in-logs-in-azure-ad"></a>Controlli filtro aggiornati per i log di controllo e accesso in Azure AD
+
+**Tipo:** Funzionalità modificata  
+**Categoria di servizio:** Creazione di report  
+**Funzionalità del prodotto:** Monitoraggio e creazione report
+
+I report di controllo e accesso sono stati aggiornati per poter applicare diversi filtri senza doverli aggiungere come colonne nelle schermate dei report. Inoltre, è ora possibile decidere il numero di filtri che si desidera visualizzare sullo schermo. Questi aggiornamenti interagiscono tra loro per semplificare la lettura dei report e l'ambito delle proprie esigenze.
+
+Per altre informazioni su questi aggiornamenti, vedere [filtrare i log di controllo](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs#filtering-audit-logs) e le [attività di accesso al filtro](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#filter-sign-in-activities).
 
 ---
 
@@ -250,7 +507,7 @@ I miglioramenti includono:
 
 - Possibilità di scegliere un indirizzo di posta elettronica e di aggiungere proprietari durante la creazione del gruppo.
 
-Per altre informazioni, vedere [Creare un gruppo di base e aggiungere membri con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+Per altre informazioni, vedere [creare un gruppo di base e aggiungere membri con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
 
 ---
 
@@ -314,7 +571,7 @@ Per altre informazioni sull'accesso condizionale e sulla reimpostazione della pa
 
 Azure AD rilevamento Intelligence per le minacce è ora disponibile come parte della funzionalità Azure AD Identity Protection aggiornata. Questa nuova funzionalità consente di indicare un'attività insolita dell'utente per un utente o un'attività specifica, coerente con i modelli di attacco noti basati sulle fonti di intelligence per le minacce interne ed esterne di Microsoft.
 
-Per ulteriori informazioni sulla versione aggiornata di Azure AD Identity Protection, vedere i [quattro miglioramenti principali Azure ad Identity Protection sono ora disponibili in anteprima pubblica](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935) Blog e gli [elementi Azure Active Directory Identity Protection (aggiornati)?](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-v2) . Per ulteriori informazioni sul rilevamento Azure AD Intelligence per le minacce, vedere l'articolo relativo ai [rilevamenti dei rischi Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks) .
+Per ulteriori informazioni sulla versione aggiornata di Azure AD Identity Protection, vedere i [quattro miglioramenti principali Azure ad Identity Protection sono ora disponibili in anteprima pubblica](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935) Blog e gli [elementi Azure Active Directory Identity Protection (aggiornati)?](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-v2) articolo. Per ulteriori informazioni sul rilevamento Azure AD Intelligence per le minacce, vedere l'articolo relativo ai [rilevamenti dei rischi Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks) .
 
 ---
 

@@ -2,17 +2,17 @@
 title: Ospitare app Web di Azure con carico bilanciato nel dominio radice
 description: Usare un record alias del DNS di Azure per ospitare app Web con carico bilanciato nel dominio radice
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 08/10/2019
-ms.author: allensu
-ms.openlocfilehash: a673a74f8f6f919e7ebb7fc3b065ee0742ab3a10
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 8ba96a028d51e6e5503bb4a8e6735b48033c9ba1
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212359"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937361"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Ospitare app Web di Azure con carico bilanciato nel dominio radice
 
@@ -26,7 +26,7 @@ Questo articolo descrive come creare un record alias per il dominio radice e con
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 È necessario disporre di un nome di dominio che si possa ospitare in DNS di Azure per il test. È necessario disporre del controllo completo di questo dominio, inclusa la possibilità di impostare i record di nome server (NS) per il dominio.
 
@@ -43,9 +43,9 @@ Creare un gruppo di risorse per contenere le risorse utilizzate in questo artico
 Creare due piani di servizio app Web nel gruppo di risorse usando la tabella seguente per le informazioni di configurazione. Per altre informazioni sulla creazione di un piano di servizio app, vedere [Gestire un piano di servizio app in Azure](../app-service/app-service-plan-manage.md).
 
 
-|Nome  |Sistema operativo  |Location  |Piano tariffario  |
+|Nome  |Sistema operativo  |Percorso  |Piano tariffario  |
 |---------|---------|---------|---------|
-|ASP-01     |Windows|Stati Uniti Orientali|Sviluppo/test D1-Shared|
+|ASP-01     |Windows|Stati Uniti orientali|Sviluppo/test D1-Shared|
 |ASP-02     |Windows|Stati Uniti centrali|Sviluppo/test D1-Shared|
 
 ## <a name="create-app-services"></a>Creare Servizi app
@@ -55,12 +55,12 @@ Creare due app Web, una in ciascun piano di servizio app.
 1. Nell'angolo superiore sinistro della pagina portale di Azure selezionare **Crea una risorsa**.
 2. Digitare **App Web** nella barra di ricerca e premere INVIO.
 3. Selezionare **app Web**.
-4. Selezionare **Create**.
+4. Selezionare **Create** (Crea).
 5. Accettare le impostazioni predefinite e usare la tabella seguente per configurare le due app Web:
 
-   |Nome<br>(deve essere univoco all'interno di .azurewebsites.net)|gruppo di risorse |Stack di runtime|Area|Piano di servizio app/Località
+   |Nome<br>(deve essere univoco all'interno di .azurewebsites.net)|Gruppo di risorse |Stack di runtime|Area|Piano di servizio app/Località
    |---------|---------|-|-|-------|
-   |App-01|Usa esistente<br>Selezionare un gruppo di risorse|.NET Core 2.2|Stati Uniti Orientali|ASP-01 (D1)|
+   |App-01|Usa esistente<br>Selezionare un gruppo di risorse|.NET Core 2.2|Stati Uniti orientali|ASP-01 (D1)|
    |App-02|Usa esistente<br>Selezionare un gruppo di risorse|.NET Core 2.2|Stati Uniti centrali|ASP-02 (D1)|
 
 ### <a name="gather-some-details"></a>Raccogliere alcune informazioni dettagliate
@@ -87,9 +87,9 @@ Ora è possibile creare gli endpoint per le due app Web.
 3. Selezionare **Aggiungi**.
 4. Usare la tabella seguente per configurare gli endpoint:
 
-   |digitare  |Nome  |Destinazione  |Location  |Impostazioni intestazione personalizzata|
+   |Tipo  |Nome  |Obiettivo  |Percorso  |Impostazioni intestazione personalizzata|
    |---------|---------|---------|---------|---------|
-   |Endpoint esterno     |End-01|Indirizzo IP registrato per App-01|Stati Uniti Orientali|host:\<URL registrato per App-01\><br>Esempio: **host:app-01.azurewebsites.net**|
+   |Endpoint esterno     |End-01|Indirizzo IP registrato per App-01|Stati Uniti orientali|host:\<URL registrato per App-01\><br>Esempio: **host:app-01.azurewebsites.net**|
    |Endpoint esterno     |End-02|Indirizzo IP registrato per App-02|Stati Uniti centrali|host:\<URL registrato per App-02\><br>Esempio: **host:app-02.azurewebsites.net**
 
 ## <a name="create-dns-zone"></a>Creare una zona DNS
@@ -104,7 +104,7 @@ Quando si aggiunge un nome host personalizzato alle app Web, si cercherà un rec
 2. Selezionare **Set di record**.
 3. Aggiungere il set di record usando la tabella seguente. Per il valore, usare l'URL dell'app Web effettivo registrato in precedenza:
 
-   |Nome  |digitare  |Valore|
+   |Nome  |Tipo  |Valore|
    |---------|---------|-|
    |@     |TXT|App-01.azurewebsites.net|
 
@@ -132,7 +132,7 @@ Aggiungere ora un record alias per il vertice della zona.
 2. Selezionare **Set di record**.
 3. Aggiungere il set di record usando la tabella seguente:
 
-   |Nome  |digitare  |Set di record di alias  |Tipo di alias  |Risorsa di Azure|
+   |Nome  |Tipo  |Set di record di alias  |Tipo di alias  |Risorsa di Azure|
    |---------|---------|---------|---------|-----|
    |@     |A|Sì|Risorsa di Azure|Gestione traffico - Profilo personale|
 

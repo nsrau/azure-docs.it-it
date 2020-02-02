@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 7bd097885d629a6c8541b57195f2a2996e45ffaf
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 9886f41b25e7c1b34f9805a2c16b716c642ae90e
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552662"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936302"
 ---
 # <a name="container-security-in-security-center"></a>Sicurezza del contenitore nel centro sicurezza
 
@@ -32,7 +32,7 @@ Questo articolo descrive come migliorare, monitorare e gestire la sicurezza dei 
 [![scheda sicurezza contenitore del Centro sicurezza di Azure](media/container-security/container-security-tab.png)](media/container-security/container-security-tab.png#lightbox)
 
 ## <a name="vulnerability-management---scanning-container-images-preview"></a>Gestione delle vulnerabilità-analisi delle immagini del contenitore (anteprima)
-Per monitorare la Container Registry di Azure, assicurarsi di essere al livello standard del Centro sicurezza (vedere i [prezzi](/azure/security-center/security-center-pricing)). Abilitare quindi il bundle facoltativo dei registri contenitori. Quando viene effettuato il push di una nuova immagine, il Centro sicurezza esegue l'analisi dell'immagine usando uno scanner del fornitore leader del settore per l'analisi delle vulnerabilità, Qualys.
+Per monitorare la Container Registry di Azure basata su ARM, assicurarsi di essere al livello standard del Centro sicurezza (vedere i [prezzi](/azure/security-center/security-center-pricing)). Abilitare quindi il bundle facoltativo dei registri contenitori. Quando viene effettuato il push di una nuova immagine, il Centro sicurezza esegue l'analisi dell'immagine usando uno scanner del fornitore leader del settore per l'analisi delle vulnerabilità, Qualys.
 
 Quando vengono rilevati problemi, da Qualys o dal centro sicurezza, si riceverà una notifica nel dashboard del Centro sicurezza. Per ogni vulnerabilità, il Centro sicurezza offre raccomandazioni di utilità pratica, oltre a una classificazione di gravità e indicazioni su come correggere il problema. Per informazioni dettagliate sulle raccomandazioni del Centro sicurezza, vedere l' [elenco di riferimento di raccomandazioni](recommendations-reference.md).
 

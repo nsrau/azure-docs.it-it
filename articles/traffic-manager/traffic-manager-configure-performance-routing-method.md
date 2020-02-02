@@ -4,20 +4,20 @@ description: Questo articolo descrive come configurare Gestione traffico per ins
 services: traffic-manager
 manager: twooley
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: allensu
-ms.openlocfilehash: 5e9b02a4145d86b86ea3ba0d509d06b7c148cc6d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohink
+ms.openlocfilehash: f5e9b7690c28793a35c692a6125a6b11c7a140a4
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048467"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938763"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>Configurare un metodo di routing del traffico delle prestazioni
 
@@ -25,7 +25,7 @@ Il metodo di routing del traffico Prestazioni consente di indirizzare il traffic
 
 ##  <a name="to-configure-performance-routing-method"></a>Per configurare un metodo di routing del traffico delle prestazioni
 
-1. In un browser accedere al [portale di Azure](https://portal.azure.com). Se non si ha già di un account, è possibile iscriversi per ottenere una [versione di valutazione gratuita della durata di un mese](https://azure.microsoft.com/free/). 
+1. Da un browser accedere al [portale di Azure](https://portal.azure.com). Se non si ha già di un account, è possibile iscriversi per ottenere una [versione di valutazione gratuita della durata di un mese](https://azure.microsoft.com/free/). 
 2. Nella barra di ricerca del portale cercare i **profili di Gestione traffico** e quindi fare clic sul nome di profilo per cui si vuole configurare il metodo.
 3. Nel pannello **Profilo di Gestione traffico** verificare che siano presenti sia i servizi cloud che i siti Web che si intende includere nella configurazione.
 4. Nella sezione **Impostazioni** fare clic su **Configurazione** e nel pannello **Configurazione** procedere come indicato di seguito:
@@ -37,7 +37,7 @@ Il metodo di routing del traffico Prestazioni consente di indirizzare il traffic
 5.  Verificare le modifiche apportate alla configurazione come indicato di seguito:
     1.  Nella barra di ricerca del portale cercare il nome del profilo di Gestione traffico e fare clic su tale profilo nei risultati visualizzati.
     2.  Nel pannello **Profilo di Gestione traffico** fare clic su **Informazioni generali**.
-    3.  Nel pannello **Profilo di Gestione traffico** viene visualizzato il nome DNS del profilo di Gestione traffico creato. Questo nome può essere usato da qualsiasi client (ad esempio accedendovi tramite un Web browser) per essere indirizzato all'endpoint corretto in base al tipo di routing. In questo caso tutte le richieste vengono indirizzate all'endpoint con latenza più bassa dalla rete del client.
+    3.  Il pannello **Profilo di Gestione traffico** visualizza il nome DNS del profilo di Gestione traffico appena creato. Questo nome può essere usato da qualsiasi client (ad esempio raggiungendolo tramite un Web browser) che deve essere indirizzato all'endpoint corretto in base al tipo di routing. In questo caso tutte le richieste vengono indirizzate all'endpoint con latenza più bassa dalla rete del client.
 6. Dopo aver verificato il funzionamento del profilo di Gestione traffico, modificare il record DNS sul server DNS autorevole per fare in modo che il nome del dominio aziendale punti al nome di dominio di Gestione traffico.
 
 ![Configurazione del metodo di routing del traffico delle prestazioni con Gestione traffico][1]

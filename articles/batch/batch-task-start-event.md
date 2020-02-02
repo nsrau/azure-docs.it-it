@@ -1,6 +1,6 @@
 ---
-title: Evento di avvio attività di Azure Batch | Microsoft Docs
-description: Riferimento per l'evento di avvio dell'attività batch.
+title: Evento di avvio attività Azure Batch
+description: Informazioni di riferimento per l'evento di avvio dell'attività batch. Questo evento viene generato una volta che un'attività è stata pianificata per l'avvio su un nodo di calcolo dall'utilità di pianificazione.
 services: batch
 author: ju-shim
 manager: gwallace
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: jushiman
-ms.openlocfilehash: e8265286a5d33c9a8a118dafa66a83b5ed36f8a6
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 517a5c58bc1de7dd6ffa4dfd39d09f4b6b4fac1a
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029615"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939061"
 ---
 # <a name="task-start-event"></a>Evento di avvio attività
 

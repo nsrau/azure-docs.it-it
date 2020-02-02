@@ -1,6 +1,6 @@
 ---
-title: Eseguire processi end-to-end usando i modelli - Azure Batch | Microsoft Docs
-description: Creare pool, processi e attività di Batch con file di modelli e l'interfaccia della riga di comando di Azure.
+title: Eseguire i processi end-to-end usando i modelli-Azure Batch
+description: Con i soli comandi dell'interfaccia della riga di comando, è possibile creare un pool, caricare dati di input, creare processi e attività associate e scaricare i dati di output risultanti.
 services: batch
 author: ju-shim
 manager: gwallace
@@ -11,12 +11,12 @@ ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 2612986491268651222e51646e75cdecc95dc40c
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 89a354320ed474ce3e5f9049a75e06313c5860e2
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029744"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935066"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Usare il trasferimento di file e i modelli dell'interfaccia della riga di comando di Azure Batch
 

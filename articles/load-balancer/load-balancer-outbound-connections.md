@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 5bdcd955919a91760f16287a62956542cfaa47c5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f9135d0a602bfa1f36f9723311e82a4d26abe6c9
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225290"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934562"
 ---
 # <a name="outbound-connections-in-azure"></a>Connessioni in uscita in Azure
 
@@ -40,7 +40,7 @@ Sono presenti più [scenari in uscita](#scenarios). È possibile combinare quest
 
 Quando si usa [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), vengono definiti in modo esplicito il servizio Azure Load Balancer e le risorse correlate.  Attualmente, Azure offre tre diversi metodi per ottenere la connettività in uscita per le risorse di Azure Resource Manager. 
 
-| SKU | Scenario | Metodo | Protocolli IP | DESCRIZIONE |
+| SKU | Scenario | Metodo | Protocolli IP | Description |
 | --- | --- | --- | --- | --- |
 | Standard, di base | [1. macchina virtuale con indirizzo IP pubblico (con o senza Load Balancer)](#ilpip) | SNAT, il mascheramento delle porte non viene usato | TCP, UDP, ICMP, ESP | Azure usa l'indirizzo IP pubblico assegnato alla configurazione IP della scheda di interfaccia di rete dell'istanza. L'istanza ha tutte le porte temporanee disponibili. Quando si usa Load Balancer Standard, è consigliabile usare le [regole in uscita](load-balancer-outbound-rules-overview.md) per definire in modo esplicito la connettività in uscita. |
 | Standard, di base | [2. public Load Balancer associato a una macchina virtuale (nessun indirizzo IP pubblico nell'istanza)](#lb) | SNAT con mascheramento delle porte (PAT) tramite i front-end di Load Balancer | TCP, UDP |Azure condivide l'indirizzo IP pubblico dei front-end di Load Balancer pubblici con più IP privati. Azure usa le porte temporanee dei front-end per PAT. |
@@ -160,7 +160,7 @@ Nella tabella seguente sono riportate le preallocazioni delle porte SNAT per i l
 
 | Dimensioni del pool (istanze VM) | Porte SNAT preallocate per configurazione IP|
 | --- | --- |
-| 1-50 | 1024 |
+| 1-50 | 1\.024 |
 | 51-100 | 512 |
 | 101-200 | 256 |
 | 201-400 | 128 |
@@ -237,7 +237,7 @@ Se si applica la scalabilità orizzontale fino al successivo livello più alto d
 
 ### <a name="idletimeout"></a>Usare keep-alive per reimpostare il timeout di inattività per le connessioni uscita
 
-Il timeout di inattività delle connessioni in uscita è di 4 minuti. Questo timeout non è modificabile. È comunque possibile usare keep-alive del livello trasporto (ad esempio, keep-alive TCP) o del livello applicazione per aggiornare un flusso inattivo e reimpostare il timeout di inattività, se necessario.  
+Il timeout di inattività delle connessioni in uscita è di 4 minuti. Questo timeout è regolabile tramite [le regole in uscita](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout). Per aggiornare un flusso inattivo e reimpostare il timeout di inattività, se necessario, è anche possibile usare il trasporto (ad esempio, keep-alive TCP) o i keep-alive a livello di applicazione.  
 
 Quando si usano keep-alive TCP, è sufficiente abilitarli sul lato della connessione. Ad esempio, è sufficiente abilitarli sul lato server solo per reimpostare il timer di inattività del flusso, mentre questo non è necessario per entrambi i lati per i keep-alive TCP avviati.  Si applicano concetti simili anche per il livello dell'applicazione, tra cui le configurazioni client-server di database.  Controllare il lato server per verificare le opzioni disponibili per keep-alive specifici dell'applicazione.
 

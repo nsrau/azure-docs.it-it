@@ -2,21 +2,21 @@
 title: Delegare un sottodominio-Azure PowerShell-DNS di Azure
 description: Con questo percorso di apprendimento, iniziare a delegare un sottodominio DNS di Azure usando Azure PowerShell.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 2/7/2019
-ms.author: allensu
-ms.openlocfilehash: b6023adb65469dedeeba664a51917306e634146f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 7e019afaae98422b8d5a3c8fa7a5f79e26c6a149
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212494"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937702"
 ---
 # <a name="delegate-an-azure-dns-subdomain-using-azure-powershell"></a>Delegare un sottodominio DNS di Azure con Azure PowerShell
 
-È possibile usare Azure PowerShell per delegare un sottodominio DNS. Se, ad esempio, si è proprietari del dominio contoso.com, è possibile delegare un sottodominio denominato *engineering* a un'altra zona distinta che può essere amministrata separatamente dalla zona di contoso.com.
+È possibile usare Azure PowerShell per delegare un sottodominio DNS. Se ad esempio si è proprietari del dominio contoso.com, è possibile delegare un sottodominio denominato *engineering* a un'altra zona distinta che può essere amministrata separatamente dalla zona di contoso.com.
 
 Se si preferisce, è possibile delegare un sottodominio usando il [portale di Azure](delegate-subdomain.md).
 
@@ -27,7 +27,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per delegare un sottodominio DNS di Azure occorre prima delegare il dominio pubblico alla zona DNS di Azure. Per istruzioni sulla configurazione dei server dei nomi per la delega, vedere [Esercitazione: Ospitare il dominio in DNS di Azure](./dns-delegate-domain-azure-dns.md). Una volta delegato il dominio alla zona del servizio DNS di Azure, è possibile delegare il sottodominio.
 

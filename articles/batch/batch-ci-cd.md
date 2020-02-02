@@ -1,5 +1,5 @@
 ---
-title: Usare Azure Pipelines per compilare e distribuire soluzioni HPC-Azure Batch | Microsoft Docs
+title: Usare Azure Pipelines per compilare & distribuire soluzioni HPC-Azure Batch
 description: Informazioni su come distribuire una pipeline di compilazione/versione per un'applicazione HPC in esecuzione in Azure Batch.
 author: christianreddington
 ms.author: chredd
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.service: batch
-ms.openlocfilehash: 03e383e43cbe90ae2f59766a235f167cff623b6a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ee87cd7d80d4b24e8c52fb3c7dbb780d39071066
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982705"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935145"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usare Azure Pipelines per compilare e distribuire soluzioni HPC
 

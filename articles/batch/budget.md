@@ -1,6 +1,6 @@
 ---
 title: Analisi dei costi e budget-Azure Batch
-description: Informazioni su come ottenere un'analisi dei costi e impostare un budget per il carico di lavoro batch.
+description: Informazioni su come ottenere un'analisi dei costi e impostare un budget per le risorse di calcolo sottostanti e le licenze software usate per eseguire i carichi di lavoro di batch.
 services: batch
 author: ju-shim
 manager: gwallace
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 07/19/2019
 ms.author: jushiman
-ms.openlocfilehash: 7707d966049e9eced1add1104441af8fee356ef0
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 0cd17271d041b41f9f71c7861e29ab8116c74710
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029560"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76930198"
 ---
 # <a name="cost-analysis-and-budgets-for-azure-batch"></a>Analisi dei costi e budget per Azure Batch
 
@@ -83,7 +83,7 @@ SSD Premium dischi del sistema operativo sono più costosi, ma hanno prestazioni
 
 Se si prevede di usare batch per un lungo periodo di tempo, è possibile risparmiare sui costi delle macchine virtuali usando le [prenotazioni di Azure](../cost-management-billing/reservations/save-compute-costs-reservations.md) per i carichi di lavoro. Una tariffa di prenotazione è notevolmente inferiore rispetto a una tariffa con pagamento in base al consumo. Per le istanze di macchine virtuali usate senza prenotazione viene addebitata una tariffa con pagamento in base al consumo. Se si acquista una prenotazione, viene applicato lo sconto di prenotazione e non vengono più addebitate le tariffe con pagamento in base al consumo.
 
-### <a name="automatic-scaling"></a>Scalabilità automatica
+### <a name="automatic-scaling"></a>Ridimensionamento automatico
 
 Il [ridimensionamento automatico ridimensiona](batch-automatic-scaling.md) in modo dinamico il numero di macchine virtuali nel pool di batch in base alle esigenze del processo corrente. Ridimensionando il pool in base alla durata di un processo, il ridimensionamento automatico garantisce che le macchine virtuali vengano aumentate e usate solo quando è presente un processo da eseguire. Al termine del processo o se non sono presenti processi, le macchine virtuali vengono automaticamente ridimensionate per ridurre le risorse di calcolo. La scalabilità consente di ridurre il costo complessivo della soluzione batch usando solo le risorse necessarie.
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: c4395628ac31dd69a4978f7f68ecc24ca1e15cfb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 225ae9d07cc6df2fa809e250083ee6007ab2f945
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453116"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932075"
 ---
 # <a name="create-a-private-link-service-using-azure-powershell"></a>Creare un servizio di collegamento privato utilizzando Azure PowerShell
 Questo articolo illustra come creare un servizio di collegamento privato in Azure usando Azure PowerShell.
@@ -109,7 +109,7 @@ Ottenere i dettagli sul servizio di collegamento privato con [Get-AzPrivateLinkS
 $pls = Get-AzPrivateLinkService -Name $plsName -ResourceGroupName $rgName 
 ```
 
-In questa fase, il servizio di collegamento privato viene creato correttamente ed è pronto per ricevere il traffico. Si noti che l'esempio precedente è solo per dimostrare la creazione di un servizio di collegamento privato tramite PowerShell.  I pool back-end del servizio di bilanciamento del carico o qualsiasi applicazione nei pool back-end non sono stati configurati per l'ascolto del traffico. Se si desidera visualizzare i flussi di traffico end-to-end, è consigliabile configurare l'applicazione in base al servizio di bilanciamento del carico standard. 
+In questa fase, il servizio di collegamento privato viene creato correttamente ed è pronto per ricevere il traffico. Si noti che l'esempio precedente è solo per dimostrare la creazione di un servizio di collegamento privato tramite PowerShell.  I pool back-end del servizio di bilanciamento del carico o qualsiasi applicazione nei pool back-end non sono stati configurati per l'ascolto del traffico. Per visualizzare i flussi di traffico end-to-end, è consigliabile configurare l'applicazione in base al servizio di bilanciamento del carico standard. 
 
 Verrà ora illustrato come eseguire il mapping di questo servizio a un endpoint privato in VNet diversi usando PowerShell. Anche in questo caso, l'esempio è limitato alla creazione dell'endpoint privato e alla connessione al servizio di collegamento privato creato in precedenza. È possibile creare macchine virtuali nella rete virtuale per inviare/ricevere traffico all'endpoint privato per la compilazione dello scenario. 
 

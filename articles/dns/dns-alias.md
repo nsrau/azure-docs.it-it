@@ -2,17 +2,17 @@
 title: Cenni preliminari sui record alias-DNS di Azure
 description: In questo articolo vengono fornite informazioni sul supporto per i record alias in Microsoft Azure DNS.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 08/09/2019
-ms.author: allensu
-ms.openlocfilehash: da396d3e3db4acd1a9843977b8b3e3d51c33f021
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 085e5fc20a6b5356e012eb2f674fafc00cef828f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212335"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937330"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Panoramica dei record di alias DNS di Azure
 
@@ -27,7 +27,7 @@ Un set di record alias è supportato per i tipi di record seguenti in una zona D
 > [!NOTE]
 > Se si prevede di usare un record alias per i tipi di record A o AAAA per puntare a un [profilo di Gestione traffico di Azure](../traffic-manager/quickstart-create-traffic-manager-profile.md) è necessario assicurarsi che il profilo di Gestione traffico disponga solo di [endpoint esterni](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). È necessario specificare gli indirizzi IPv4 o IPv6 per gli endpoint esterni in Gestione traffico. Non è possibile usare nomi di dominio completi (FQDN) negli endpoint. Idealmente, usare indirizzi IP statici.
 
-## <a name="capabilities"></a>Capabilities
+## <a name="capabilities"></a>Funzionalità
 
 - **Puntare a una risorsa IP pubblica da un set di record DNS A/AAAA**. È possibile creare un set di record A/AAAA e renderlo un set di record alias in modo che punti a una risorsa IP pubblica (standard o Basic). Il set di record DNS cambia automaticamente se l'indirizzo IP pubblico cambia o viene eliminato. Vengono evitati i record DNS inesatti che puntano a indirizzi IP non corretti.
 

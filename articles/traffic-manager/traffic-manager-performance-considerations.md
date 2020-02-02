@@ -3,20 +3,20 @@ title: Considerazioni sulle prestazioni per Gestione traffico di Azure | Documen
 description: Informazioni sulle prestazioni in Gestione traffico e su come testare le prestazioni in un sito Web quando si usa Gestione traffico
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: allensu
-ms.openlocfilehash: 315165677bd3186bb3bdc87ed688c426776569fc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohink
+ms.openlocfilehash: 84367a00643c48e7fe2fb7f907bab64589193b2e
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071047"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938532"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Considerazioni sulle prestazioni per Gestione traffico
 
@@ -28,7 +28,7 @@ Sono presenti istanze del sito Web nelle aree Stati Uniti occidentali e Asia ori
 
 L'unico impatto sulle prestazioni prodotto da Gestione traffico in un sito Web è la ricerca DNS iniziale. Il server radice DNS Microsoft che ospita la zona trafficmanager.net gestisce una richiesta DNS per il nome del profilo di Gestione traffico. Gestione traffico popola e aggiorna regolarmente i server radice DNS Microsoft in base ai criteri e ai risultati dei probe. Di conseguenza, a Gestione traffico non viene inviata alcuna query DNS nemmeno durante la ricerca DNS iniziale.
 
-Gestione traffico è costituito da diversi componenti: Assegnare un nome DNS server, un servizio API, il livello di archiviazione e un endpoint servizio di monitoraggio. Un eventuale errore in uno di questi componenti non ha alcun effetto sul nome DNS associato al profilo di Gestione traffico. I record presenti nel server DNS Microsoft rimangono invariati. Il monitoraggio degli endpoint e l'aggiornamento DNS, tuttavia, non vengono eseguiti. Di conseguenza, in caso di arresto del sito primario, Gestione traffico non è in grado di aggiornare DNS in modo che punti al sito di failover.
+Gestione traffico è costituito da diversi componenti: server dei nomi DNS, un servizio API, il livello di archiviazione e un servizio di monitoraggio degli endpoint. Un eventuale errore in uno di questi componenti non ha alcun effetto sul nome DNS associato al profilo di Gestione traffico. I record presenti nel server DNS Microsoft rimangono invariati. Il monitoraggio degli endpoint e l'aggiornamento DNS, tuttavia, non vengono eseguiti. Di conseguenza, in caso di arresto del sito primario, Gestione traffico non è in grado di aggiornare DNS in modo che punti al sito di failover.
 
 La risoluzione dei nomi DNS è rapida e i risultati vengono memorizzati nella cache. La velocità della ricerca DNS iniziale dipende dai server DNS usati dal client per la risoluzione dei nomi. In genere, un client è in grado di eseguire una ricerca DNS in circa 50 ms. I risultati della ricerca vengono memorizzati nella cache per la durata (TTL) del DNS. Per Gestione traffico, la durata (TTL) predefinita è 300 secondi.
 
@@ -58,7 +58,7 @@ Gli strumenti disponibili in questi siti misurano la latenza DNS e visualizzano 
 
 * [CA App Synthetic Monitor](https://asm.ca.com/en/checkit.php)
 
-    Precedentemente noto come lo strumento di espressioni di controllo mouse Check Website, questo sito mostra i tempi di risoluzione DNS da più aree geografiche simultaneamente. Immettere l'URL per visualizzare i tempi di risoluzione DNS, i tempi di connessione e la velocità da diverse aree geografiche. Usare questo test per vedere quale servizio ospitato viene restituito per le diverse aree geografiche.
+    Noto in precedenza come strumento di controllo del sito Web di controllo del mouse, questo sito mostra i tempi di risoluzione DNS da più aree geografiche simultaneamente. Immettere l'URL per visualizzare i tempi di risoluzione DNS, i tempi di connessione e la velocità da diverse aree geografiche. Usare questo test per vedere quale servizio ospitato viene restituito per le diverse aree geografiche.
 
     ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
 

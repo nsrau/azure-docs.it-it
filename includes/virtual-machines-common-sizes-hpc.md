@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/26/2019
 ms.author: azcspmt;jonbeck;cynthn;amverma
 ms.custom: include file
-ms.openlocfilehash: 006a44e42ed209b6f0e614b92f97e43ec30b99ef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 29e453dd6a9ea7ac83d84adb7eb0f3d998c1eaaf
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75469675"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76961450"
 ---
 Le macchine virtuali ottimizzate per HPC di Azure sono progettate per offrire prestazioni di classe leadership, scalabilità MPI ed efficienza dei costi per un'ampia gamma di applicazioni reali.
  
@@ -34,7 +34,7 @@ Archiviazione Premium: supportata
 
 | Dimensioni | vCPU | Processore | Memoria (GB) | Larghezza di banda di memoria (GB/sec) | Frequenza CPU di base (GHz) | Frequenza di tutti i core (GHz, picco) | Frequenza a core singolo (GHz, picco) | Prestazioni RDMA (GB/sec) | Supporto MPI | Archiviazione temporanea (GB) | Numero massimo di dischi dati | NIC Ethernet max |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_HB120rs | 120 | AMD EPYC 7742 | 480 | 350 | 2.45 | 2.45 | 3.4 | 200 | Tutto | 480 + 960 | 8 | 1 |
+| Standard_HB120rs_v2 | 120 | AMD EPYC 7V12 | 480 | 350 | 2.45 | 3.1 | 3.3 | 200 | Tutto | 480 + 960 | 8 | 1 |
 
 <br>
 

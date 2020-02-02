@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: 7ed58201fa7aa1e608cba6d64ac95740cf9a60dc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0a21af683d9fa7849d3e96c545983c9f40a8d4c6
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965928"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935328"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Log di monitoraggio di Azure per Load Balancer di base pubblici
 
@@ -156,11 +156,11 @@ Questo log viene generato solo se è stato abilitato per ogni bilanciamento del 
 
 L'output JSON mostra nel campo proprietà le informazioni di base per lo stato di integrità del probe. La proprietà *dipDownCount* Visualizza il numero totale di istanze nel back-end che non ricevono il traffico di rete a causa di risposte probe non riuscite.
 
-### <a name="view-and-analyze-the-audit-log"></a>Visualizzare e analizzare il log di controllo
+### <a name="view-and-analyze-the-activity-log"></a>Visualizzare e analizzare Log attività
 
-È possibile visualizzare e analizzare i dati del log di controllo con uno dei metodi seguenti:
+È possibile visualizzare e analizzare i dati di Log attività con uno dei metodi seguenti:
 
-* **Strumenti di Azure:** Recuperare le informazioni dai log di controllo tramite Azure PowerShell, l'interfaccia della riga di comando di Azure (CLI), l'API REST di Azure o il portale di Azure. Per istruzioni dettagliate per ogni metodo, vedere l'articolo [Operazioni di controllo con Gestione risorse](../azure-resource-manager/management/view-activity-logs.md) .
+* **Strumenti di Azure:** Recuperare le informazioni dal log attività tramite Azure PowerShell, l'interfaccia della riga di comando di Azure (CLI), l'API REST di Azure o l'portale di Azure. Per istruzioni dettagliate per ogni metodo, vedere l'articolo [Operazioni di controllo con Gestione risorse](../azure-resource-manager/management/view-activity-logs.md) .
 * **Power BI:** se non esiste ancora un account [Power BI](https:// .microsoft.com/pricing) , è possibile crearne uno di prova gratuitamente. Con il [pacchetto di contenuto dei log di controllo di Azure per Power BI](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs) è possibile analizzare i dati con dashboard preconfigurati oppure personalizzare le viste in base alle esigenze.
 
 ### <a name="view-and-analyze-the-health-probe-and-event-log"></a>Visualizzare e analizzare il log eventi e del probe di integrità

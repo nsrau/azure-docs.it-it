@@ -3,7 +3,7 @@ title: DNS inverso per i servizi di Azure-DNS di Azure
 description: Con questo percorso di apprendimento, iniziare a configurare le ricerche DNS inverse per i servizi ospitati in Azure.
 services: dns
 documentationcenter: na
-author: asudbring
+author: rohinkoul
 manager: KumudD
 ms.service: dns
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: allensu
-ms.openlocfilehash: 550ba617dec0359fd7d4e0bc309e411095de0d1e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 073e84ece11f6817bfe2c5a94735ec6e16dac4fe
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211221"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932362"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Configurare il DNS inverso per i servizi ospitati in Azure
 
@@ -212,7 +212,7 @@ Per rimuovere una proprietà di DNS inverso da un servizio cloud esistente:
 Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse DNS" –ReverseDnsFqdn ""
 ```
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>FAQ
 
 ### <a name="how-much-do-reverse-dns-records-cost"></a>Quanto costano i record DNS inversi?
 

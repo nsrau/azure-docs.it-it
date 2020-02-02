@@ -2,13 +2,13 @@
 title: Novità di Azure Site Recovery
 description: Fornisce un riepilogo delle nuove funzionalità e degli aggiornamenti più recenti nel servizio Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: ecd42c624cf1fe62c8041a0b8798585c8870cabc
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 01/31/2020
+ms.openlocfilehash: d6aa04586c9c087a736c7e1b10b8c21328a63cab
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896042"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934929"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novità di Site Recovery
 
@@ -36,6 +36,18 @@ Per Site Recovery componenti, sono supportate le versioni N-4, dove N è la vers
 
 ## <a name="updates-january-2020"></a>Aggiornamenti (2020 gennaio)
 
+### <a name="update-rollup-44"></a>Aggiornamento cumulativo 44
+L' [aggiornamento cumulativo 44](https://support.microsoft.com/help/4538187/update-rollup-44-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
+
+**Aggiornamento** | **Dettagli**
+--- | ---
+**Correzioni di problemi/miglioramenti** | Un numero di aggiornamenti per Site Recovery agenti e provider (come descritto in dettaglio nel rollup).
+
+### <a name="azure-vmware-disaster-recovery"></a>Ripristino di emergenza di Azure VMware
+
+Le macchine virtuali di Azure supportano ora le VM abilitate per la crittografia inattiva con chiavi gestite dal cliente. [Altre informazioni](azure-to-azure-how-to-enable-replication-cmk-disks.md)
+
+
 ### <a name="update-rollup-43"></a>Aggiornamento cumulativo 43
 
 L' [aggiornamento cumulativo 43](https://support.microsoft.com/help/4537047/update-rollup-43-for-azure-site-recovery) fornisce gli aggiornamenti seguenti.
@@ -58,7 +70,7 @@ L' [aggiornamento cumulativo 42](https://support.microsoft.com/help/4531426/upda
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti (come descritto in dettaglio nel rollup)
 
 
-## <a name="azure-vm-disaster-recovery"></a>Ripristino di emergenza per macchine virtuali di Azure
+### <a name="azure-vm-disaster-recovery"></a>Ripristino di emergenza per macchine virtuali di Azure
 
 Le nuove funzionalità per il ripristino di emergenza delle macchine virtuali di Azure sono riepilogate nella tabella.
 

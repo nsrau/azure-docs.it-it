@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 859b15954f64f8b481f6b86c04fc28b542599f02
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 04db62f402c25dd4a04281047f684dc23d41a502
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890489"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934628"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintassi query per il routing dei messaggi di hub IoT
 
@@ -20,7 +20,7 @@ Il routing dei messaggi consente agli utenti di instradare diversi tipi di dati,
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Il routing dei messaggi consente di eseguire query sulle proprietà e sul corpo dei messaggi, nonché sui tag dei dispositivi gemelli e sulle proprietà dei dispositivi gemelli. Se il corpo del messaggio non è JSON, il routing dei messaggi può comunque instradare il messaggio, ma le query non possono essere applicate al corpo del messaggio.  Le query vengono definite come espressioni booleane in cui un valore booleano true rende la query riuscita e che instrada tutti i dati in ingresso, mentre il valore booleano false rende una query errata e nessun dato viene instradato. Se l'espressione dà come valore null o non definito, viene considerata come false e verrà generato un errore nel log di diagnostica in caso di esito negativo. La sintassi di query deve essere corretta per la route per essere salvata e valutata.  
+Il routing dei messaggi consente di eseguire query sulle proprietà dei messaggi e sul corpo del messaggio, nonché sui tag e sulle proprietà del dispositivo gemello. Se il corpo del messaggio non è JSON, il routing dei messaggi può comunque instradare il messaggio, ma le query non possono essere applicate al corpo del messaggio.  Le query vengono definite come espressioni booleane in cui un valore booleano true rende la query riuscita e che instrada tutti i dati in ingresso, mentre il valore booleano false rende una query errata e nessun dato viene instradato. Se l'espressione dà come valore null o non definito, viene considerata come false e verrà generato un errore nel log di diagnostica in caso di esito negativo. La sintassi di query deve essere corretta per la route per essere salvata e valutata.  
 
 ## <a name="message-routing-query-based-on-message-properties"></a>Routing messaggi di query basato sulle proprietà del messaggio 
 
@@ -50,13 +50,13 @@ L'hub IoT definisce un [formato comune](iot-hub-devguide-messages-construct.md) 
 
 Le proprietà di sistema identificano contenuto e origine dei messaggi. 
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | Tipo | Description |
 | -------- | ---- | ----------- |
-| contentType | stringa | L'utente specifica il tipo di contenuto del messaggio. Per consentire query sul corpo del messaggio, questo valore deve essere impostato su application/JSON. |
-| contentEncoding | stringa | L'utente specifica il tipo di codifica del messaggio. Valori consentiti sono UTF-8, UTF-16, UTF-32 Se il contentType è impostato su application/JSON. |
-| iothub-connection-device-id | stringa | Questo valore viene impostato dall'hub IoT e identifica l'ID del dispositivo. Per la query, usare `$connectionDeviceId`. |
-| iothub-enqueuedtime | stringa | Questo valore viene impostato dall'hub IoT e rappresenta l'ora effettiva di inserimento in coda del messaggio in UTC. Per la query, usare `enqueuedTime`. |
-| iothub-interface-name | stringa | Questo valore viene impostato dall'utente e rappresenta il nome dell'interfaccia digitale gemella che implementa il messaggio di telemetria. Per la query, usare `$interfaceName`. Questa funzionalità è disponibile come parte del [plug and Play di anteprima pubblica](../iot-pnp/overview-iot-plug-and-play.md). |
+| contentType | string | L'utente specifica il tipo di contenuto del messaggio. Per consentire query sul corpo del messaggio, questo valore deve essere impostato su application/JSON. |
+| contentEncoding | string | L'utente specifica il tipo di codifica del messaggio. Valori consentiti sono UTF-8, UTF-16, UTF-32 Se il contentType è impostato su application/JSON. |
+| iothub-connection-device-id | string | Questo valore viene impostato dall'hub IoT e identifica l'ID del dispositivo. Per la query, usare `$connectionDeviceId`. |
+| iothub-enqueuedtime | string | Questo valore viene impostato dall'hub IoT e rappresenta l'ora effettiva di inserimento in coda del messaggio in UTC. Per la query, usare `enqueuedTime`. |
+| iothub-interface-name | string | Questo valore viene impostato dall'utente e rappresenta il nome dell'interfaccia digitale gemella che implementa il messaggio di telemetria. Per la query, usare `$interfaceName`. Questa funzionalità è disponibile come parte del [plug and Play di anteprima pubblica](../iot-pnp/overview-iot-plug-and-play.md). |
 
 Come descritto in [messaggi dell'hub IoT](iot-hub-devguide-messages-construct.md), sono disponibili le proprietà di sistema aggiuntive in un messaggio. Oltre a **contentType**, **contentEncoding** e **enqueuedTime**, è possibile sottoporre a query anche **connectionDeviceId** e **connectionModuleId**.
 
@@ -163,7 +163,7 @@ $body.Weather.Temperature = 50 AND processingPath = 'hot'
 
 ## <a name="message-routing-query-based-on-device-twin"></a>Query di routing dei messaggi basata sul dispositivo gemello 
 
-Il routing dei messaggi consente di eseguire query su tag e proprietà del [Dispositivo gemello](iot-hub-devguide-device-twins.md), che sono oggetti JSON. L'esecuzione di query sul modulo gemello non è supportata. Di seguito è riportato un esempio di tag e proprietà del Dispositivo gemello.
+Il routing dei messaggi consente di eseguire query su tag e proprietà del [Dispositivo gemello](iot-hub-devguide-device-twins.md), che sono oggetti JSON. È supportata anche l'esecuzione di query sul modulo gemello. Di seguito è riportato un esempio di tag e proprietà del Dispositivo gemello.
 
 ```JSON
 {
@@ -196,7 +196,7 @@ Il routing dei messaggi consente di eseguire query su tag e proprietà del [Disp
 
 ### <a name="query-expressions"></a>Espressioni di query
 
-Una query nel corpo del messaggio deve essere preceduta da `$twin`. L'espressione di query può anche combinare un tag gemello o un riferimento alla proprietà con un riferimento al corpo o un riferimento alle proprietà di sistema e applicazione del messaggio. È consigliabile usare nomi univoci per tag e proprietà, poiché la query non fa distinzione tra maiuscole e minuscole. Evitare anche di usare `twin`, `$twin`, `body` o `$body` come nomi di proprietà. Ad esempio, di seguito sono riportate tutte le espressioni di query valide: 
+Una query nel corpo del messaggio deve essere preceduta da `$twin`. L'espressione di query può anche combinare un tag gemello o un riferimento alla proprietà con un riferimento al corpo o un riferimento alle proprietà di sistema e applicazione del messaggio. È consigliabile usare nomi univoci per tag e proprietà, poiché la query non fa distinzione tra maiuscole e minuscole. Questo vale sia per i dispositivi gemelli che per i moduli gemelli. Evitare anche di usare `twin`, `$twin`, `body` o `$body` come nomi di proprietà. Ad esempio, di seguito sono riportate tutte le espressioni di query valide: 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'

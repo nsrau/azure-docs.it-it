@@ -1,6 +1,6 @@
 ---
-title: Disponibilità elevata e ripristino di emergenza - Azure Batch | Microsoft Docs
-description: Informazioni su come progettare un'applicazione Batch per un'interruzione a livello di area
+title: Disponibilità elevata e ripristino di emergenza-Azure Batch
+description: Informazioni su come progettare un'applicazione batch per un'interruzione a livello di area. I carichi di lavoro devono eseguire il failover in un'altra area o essere suddivisi tra due o più aree.
 services: batch
 documentationcenter: ''
 author: ju-shim
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: jushiman
-ms.openlocfilehash: f30d2d8e7d08277a5782c3fc39c10fcdff9463f2
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 11546a6a664e6fb185a32d8e6cd593a850803fe8
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029546"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76930108"
 ---
 # <a name="design-your-application-for-high-availability"></a>Progettare l'applicazione per la disponibilità elevata
 

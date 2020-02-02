@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 6bf391f22843991bf224539b82037c0e29251e7b
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: fdc98991134e0857d24575d22962a52e43266cbe
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260954"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939232"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gestire il ciclo di vita di Archiviazione BLOB di Azure
 
@@ -348,9 +348,9 @@ Questo esempio illustra la transizione di BLOB in blocchi con prefisso `containe
 }
 ```
 
-### <a name="archive-data-at-ingest"></a>Archiviare i dati al momento dell'inserimento
+### <a name="archive-data-after-ingest"></a>Archiviare i dati dopo l'inserimento
 
-Alcuni dati rimangono inattivi sul cloud e gli utenti vi accedono raramente, se non mai, dopo l'archiviazione. I criteri del ciclo di vita seguenti sono configurati per archiviare i dati dopo l'inserimento. Questo esempio esegue la transizione dei BLOB in blocchi nell'account di archiviazione all'interno del contenitore `archivecontainer` in un livello archivio. La transizione viene eseguita agendo sui BLOB 0 giorni dopo l'ora dell'Ultima modifica:
+Alcuni dati rimangono inattivi sul cloud e gli utenti vi accedono raramente, se non mai, dopo l'archiviazione. I criteri del ciclo di vita seguenti sono configurati per archiviare i dati subito dopo l'inserimento. Questo esempio esegue la transizione dei BLOB in blocchi nell'account di archiviazione all'interno del contenitore `archivecontainer` in un livello archivio. La transizione viene eseguita agendo sui BLOB 0 giorni dopo l'ora dell'Ultima modifica:
 
 > [!NOTE] 
 > È consigliabile caricare i BLOB direttamente nel livello Archivio per essere più efficienti. È possibile usare l'intestazione x-MS-Acess-Tier per [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) o [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) con la versione 2018-11-09 e successive o le librerie client di archiviazione BLOB più recenti. 

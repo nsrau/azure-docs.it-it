@@ -2,7 +2,7 @@
 title: Abilitare la registrazione diagnostica in Gestione traffico di Azure
 description: Informazioni su come abilitare la registrazione diagnostica per il profilo personale di Gestione traffico e accedere ai file di log creati come risultato.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
-ms.author: allensu
-ms.openlocfilehash: b2ebeb41e69b7edfd43c38cc3b828069a1b3401a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohink
+ms.openlocfilehash: 0ed2ecef86795f62aa3fe5798dcd0d07adbaf9cc
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071236"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938681"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Abilitare la registrazione diagnostica in Gestione traffico di Azure
 
@@ -24,7 +24,7 @@ Questo articolo descrive come abilitare la registrazione diagnostica e accedere 
 
 I log di diagnostica di Gestione traffico di Azure possono offrire informazioni dettagliate sul comportamento della risorsa del profilo di Gestione traffico. È possibile, ad esempio, usare i dati di log del profilo per determinare il motivo per cui si è verificato il timeout di singoli probe rispetto a un endpoint.
 
-## <a name="enable-diagnostic-logging"></a>Abilitare la registrazione diagnostica
+## <a name="enable-diagnostic-logging"></a>Abilitare la funzionalità di registrazione diagnostica
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -72,8 +72,8 @@ La tabella seguente include lo schema dei log specifico della risorsa del profil
 |||||
 |----|----|---|---|
 |**Nome campo**|**Tipo di campo**|**Definizione**|**Esempio**|
-|EndpointName|String|Nome dell'endpoint di Gestione traffico di cui viene registrato lo stato di integrità.|*myPrimaryEndpoint*|
-|Stato|String|Stato di integrità dell'endpoint di Gestione traffico di cui è stato creato il probe. Lo stato può essere **Up** (Attivo) o **Down** (Non attivo).|**Attivo**|
+|EndpointName|string|Nome dell'endpoint di Gestione traffico di cui viene registrato lo stato di integrità.|*myPrimaryEndpoint*|
+|Stato|string|Stato di integrità dell'endpoint di Gestione traffico di cui è stato creato il probe. Lo stato può essere **Up** (Attivo) o **Down** (Non attivo).|**Attivo**|
 |||||
 
 ## <a name="next-steps"></a>Passaggi successivi

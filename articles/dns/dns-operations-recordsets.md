@@ -3,7 +3,7 @@ title: Gestire i record DNS in DNS di Azure tramite Azure PowerShell | Documenta
 description: Gestione dei set di record e dei record DNS in DNS di Azure quando si ospita il dominio in DNS di Azure. Tutti i comandi di PowerShell per le operazioni sui set di record e i record.
 services: dns
 documentationcenter: na
-author: asudbring
+author: rohinkoul
 manager: timlt
 ms.assetid: 7136a373-0682-471c-9c28-9e00d2add9c2
 ms.service: dns
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
-ms.author: allensu
-ms.openlocfilehash: c11a5c4a3cfe18fbc203ad641ab1de866915bcc4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: b9244d9b2bdc9cb20195bbc103c0b1eb48a9de63
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211681"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932540"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gestire record e recordset DNS in DNS di Azure con Azure PowerShell
 
@@ -50,7 +50,7 @@ Se il nuovo record ha lo stesso nome e tipo di un record esistente, è necessari
 
 ### <a name="create-a-records-in-a-new-record-set"></a>Creare record di tipo "A" in un nuovo set di record
 
-I set di record vengono creati usando il cmdlet `New-AzDnsRecordSet` . Quando si crea un set di record, è necessario specificare il nome, la zona, la durata (TTL), il tipo di record e i record da creare.
+I set di record vengono creati usando il cmdlet `New-AzDnsRecordSet`. Quando si crea un set di record, è necessario specificare il nome, la zona, la durata (TTL), il tipo di record e i record da creare.
 
 I parametri per l'aggiunta di record a un set di record variano a seconda del tipo del set di record. Quando ad esempio si usa un set di record di tipo A, è necessario specificare l'indirizzo IP usando il parametro `-IPv4Address`. Per altri tipi di record vengono usati altri parametri. Per altre informazioni, vedere la sezione Altri esempi di tipi di record.
 
@@ -230,7 +230,7 @@ Per aggiungere un record a un set di record esistente, seguire questa procedura 
     Set-AzDnsRecordSet -RecordSet $rs
     ```
 
-`Set-AzDnsRecordSet`*sostituisce* il set di record esistente nel servizio DNS di Azure, e tutti i record in esso contenuti, con il set di record specificato. I [controlli ETag](dns-zones-records.md#etags) vengono usati per fare in modo che le modifiche simultanee non vengano sovrascritte. È possibile usare l'opzione facoltativa `-Overwrite` per disattivare tali controlli.
+L'uso di `Set-AzDnsRecordSet` *sostituisce* il set di record esistente nel servizio DNS di Azure (e in tutti i record in esso contenuti) con il set di record specificato. I [controlli ETag](dns-zones-records.md#etags) vengono usati per fare in modo che le modifiche simultanee non vengano sovrascritte. È possibile usare l'opzione facoltativa `-Overwrite` per disattivare tali controlli.
 
 Questa sequenza di operazioni può anche essere *inviata tramite pipe*, vale a dire che l'oggetto set di record può essere passato usando la pipe anziché come parametro:
 

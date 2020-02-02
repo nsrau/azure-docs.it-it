@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 01/07/2020
 ms.author: juliako
-ms.openlocfilehash: 88effd58e807d39e5915aa41425ecf2e8ca8e3cc
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: f1387273f9736fea70682177d5d48dc2f141bbad
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75832318"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933853"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Note sulla versione di servizi multimediali di Azure Video Indexer
 
@@ -29,6 +29,24 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 * Problemi noti
 * Correzioni di bug
 * Funzionalità deprecate
+
+## <a name="january-2020"></a>Gennaio 2020
+ 
+### <a name="custom-language-support-for-additional-languages"></a>Supporto del linguaggio personalizzato per lingue aggiuntive
+
+Video Indexer supporta ora modelli di lingua personalizzati per `ar-SY`, `en-UK`e `en-AU` (solo API).
+ 
+### <a name="delete-account-timeframe-action-update"></a>Elimina l'aggiornamento dell'azione dell'intervallo di tempo dell'account
+
+Elimina l'azione dell'account ora elimina l'account entro 90 giorni anziché 48 ore.
+ 
+### <a name="new-video-indexer-github-repository"></a>Nuovo repository GitHub Video Indexer
+
+Un nuovo Video Indexer GitHub con progetti diversi, guide introduttive ed esempi di codice sono ora disponibili: https://github.com/Azure-Samples/media-services-video-indexer
+ 
+### <a name="swagger-update"></a>Aggiornamento di spavalderia
+
+Video Indexer le **autenticazioni** e **le operazioni** unificate in una singola [specifica video Indexer openapi (spavalderia)](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson). Develpers è in grado di trovare le API nel [portale per sviluppatori video Indexer](https://api-portal.videoindexer.ai/).
 
 ## <a name="december-2019"></a>Dicembre 2019
 

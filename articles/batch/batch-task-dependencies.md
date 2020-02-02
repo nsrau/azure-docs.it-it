@@ -1,5 +1,5 @@
 ---
-title: 'Usare le relazioni tra attività per eseguire attività basate sul completamento di altre attività: Azure Batch | Microsoft Docs'
+title: Creare relazioni tra attività per eseguire attività-Azure Batch
 description: Creare attività che dipendono dal completamento di altre attività per l'elaborazione di carichi di lavoro di tipo MapReduce e carichi di lavoro Big Data simili in Azure Batch.
 services: batch
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 875e0314c41a6bb277769361b6faa0345312db2b
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 733c6e0fb178ed246ac77e0783225ddd642a5fed
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026238"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937776"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Creare relazioni tra attività per eseguire attività che dipendono da altre attività
 

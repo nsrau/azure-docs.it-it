@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 01/23/2020
-ms.openlocfilehash: fab24d55509ab315775437ca343e35fc90174f63
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 01/30/2020
+ms.openlocfilehash: 09cc9e1475616700aa77cdf92fd7ca808cd4290c
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715095"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937846"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Livelli di servizio del database SQL di Azure
 
@@ -53,7 +53,7 @@ Nella tabella seguente vengono descritte le differenze principali tra i livelli 
 |**OLTP in memoria** | | N/D | N/D | Disponibile |
 |**Repliche di sola lettura**| | 0 incorporato <br> 0-4 uso della [replica geografica](sql-database-active-geo-replication.md) | 0-4 predefinito | 1 incorporato, incluso nel prezzo <br> 0-4 uso della [replica geografica](sql-database-active-geo-replication.md) |
 |**Prezzi/fatturazione** | Database singolo | vengono addebitati [vCore, archiviazione riservata e archiviazione di backup](https://azure.microsoft.com/pricing/details/sql-database/single/) . <br/>Per IOPS non viene addebitato alcun costo. | vengono addebitati [vCore per ogni replica e l'archiviazione usata](https://azure.microsoft.com/pricing/details/sql-database/single/) . <br/>IOPS non ancora addebitato. | vengono addebitati [vCore, archiviazione riservata e archiviazione di backup](https://azure.microsoft.com/pricing/details/sql-database/single/) . <br/>Per IOPS non viene addebitato alcun costo. |
-|| Istanza gestita | viene addebitato [vCore e l'archiviazione riservata](https://azure.microsoft.com/pricing/details/sql-database/managed/) . <br/>Per IOPS non viene addebitato alcun costo.<br/>L'archiviazione di backup non è ancora addebitata. | N/D | viene addebitato [vCore e l'archiviazione riservata](https://azure.microsoft.com/pricing/details/sql-database/managed/) . <br/>Per IOPS non viene addebitato alcun costo.<br/>L'archiviazione di backup non è ancora addebitata. | 
+|| Istanza gestita | vengono addebitati [vCore, archiviazione riservata e archiviazione di backup](https://azure.microsoft.com/pricing/details/sql-database/managed/) . <br/>IOPS non addebitato| N/D | vengono addebitati [vCore, archiviazione riservata e archiviazione di backup](https://azure.microsoft.com/pricing/details/sql-database/managed/) . <br/>Per IOPS non viene addebitato alcun costo.| 
 |**Modelli di sconto**| | [Istanze riservate](sql-database-reserved-capacity.md)<br/>[Vantaggio Azure Hybrid](sql-database-azure-hybrid-benefit.md) (non disponibile nelle sottoscrizioni di sviluppo/test)<br/>Sottoscrizioni di sviluppo/test [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [con pagamento in base al](https://azure.microsoft.com/offers/ms-azr-0023p/) consumo| [Vantaggio Azure Hybrid](sql-database-azure-hybrid-benefit.md) (non disponibile nelle sottoscrizioni di sviluppo/test)<br/>Sottoscrizioni di sviluppo/test [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [con pagamento in base al](https://azure.microsoft.com/offers/ms-azr-0023p/) consumo| [Istanze riservate](sql-database-reserved-capacity.md)<br/>[Vantaggio Azure Hybrid](sql-database-azure-hybrid-benefit.md) (non disponibile nelle sottoscrizioni di sviluppo/test)<br/>Sottoscrizioni di sviluppo/test [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [con pagamento in base al](https://azure.microsoft.com/offers/ms-azr-0023p/) consumo|
 
 Per ulteriori informazioni, vedere le differenze dettagliate tra i livelli di servizio nel [database singolo (vCore)](sql-database-vcore-resource-limits-single-databases.md), i pool di database singoli ( [vCore)](sql-database-dtu-resource-limits-single-databases.md), i [database singoli (DTU)](sql-database-dtu-resource-limits-single-databases.md), i [pool di database singoli (DTU)](sql-database-dtu-resource-limits-single-databases.md)e le pagine [istanza gestita](sql-database-managed-instance-resource-limits.md) .

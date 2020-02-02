@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/12/2019
+ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 582645919825c308fce4fe3211fa601955aaf37d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 767c1fddbc3d1f46d4341a70c990c2b57ad40e54
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850177"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76930408"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Asset credenziali in Automazione di Azure
 
@@ -25,27 +25,16 @@ Un asset delle credenziali di automazione contiene un oggetto che contiene le cr
 > [!NOTE]
 > Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure usando una chiave univoca generata per ogni account di automazione. Questa chiave viene archiviata in Key Vault. Prima di archiviare un asset sicuro, la chiave viene caricata da Key Vault e quindi usata per crittografare l'asset.
 
-## <a name="azure-classic-powershell-cmdlets"></a>Cmdlet di Azure classici per PowerShell
+## <a name="azure-powershell-az-cmdlets"></a>Cmdlet di Azure PowerShell AZ
 
-I cmdlet della tabella seguente vengono usati per creare e gestire asset credenziali di automazione con Windows PowerShell.  Vengono forniti come parte del [modulo Azure PowerShell](/powershell/azure/overview), disponibile per l'uso nei manuali operativi di automazione e nelle configurazioni DSC.
+Per Azure PowerShell AZ Module, i cmdlet della tabella seguente vengono usati per creare e gestire asset delle credenziali di automazione con Windows PowerShell. Vengono forniti come parte del [modulo AzureAz. Automation](/powershell/azure/new-azureps-module-az?view=azps-1.1.0), disponibile per l'uso nei manuali operativi di automazione e nelle configurazioni DSC.
 
-| Cmdlets | Description |
+| Cmdlet | Description |
 |:--- |:--- |
-| [Get-AzureAutomationCredential](/powershell/module/servicemanagement/azure/get-azureautomationcredential) |Recupera informazioni riguardo un asset credenziali. Dall'attività **Get-AutomationPSCredential** è possibile recuperare soltanto le credenziali stesse. |
-| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) |Crea nuove credenziali di Automazione. |
-| [Remove-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) |Rimuove le credenziali di Automazione. |
-| [Set-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) |Imposta le proprietà per le credenziali di Automazione esistenti. |
-
-## <a name="azurerm-powershell-cmdlets"></a>Cmdlet di PowerShell AzureRM
-
-Per AzureRM, per creare e gestire asset di credenziali di automazione con Windows PowerShell, vengono usati i cmdlet della tabella seguente.  Vengono forniti come parte del [modulo AzureRM. Automation](/powershell/azure/overview), disponibile per l'uso nei manuali operativi di automazione e nelle configurazioni DSC.
-
-| Cmdlets | Description |
-|:--- |:--- |
-| [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential) |Recupera informazioni riguardo un asset credenziali. Questa operazione non restituisce un oggetto PSCredential.  |
-| [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential) |Crea nuove credenziali di Automazione. |
-| [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential) |Rimuove le credenziali di Automazione. |
-| [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential) |Imposta le proprietà per le credenziali di Automazione esistenti. |
+| [Get-AzAutomationCredential](/powershell/module/az.automation/get-azautomationcredential?view=azps-3.3.0) |Recupera informazioni riguardo un asset credenziali. Questa operazione non restituisce un oggetto PSCredential.  |
+| [New-AzAutomationCredential](/powershell/module/az.automation/new-azautomationcredential?view=azps-3.3.0) |Crea nuove credenziali di Automazione. |
+| [Remove-AzAutomationCredential](/powershell/module/az.automation/remove-azautomationcredential?view=azps-3.3.0) |Rimuove le credenziali di Automazione. |
+| [Set-AzAutomationCredential](/powershell/module/az.automation/set-azautomationcredential?view=azps-3.3.0) |Imposta le proprietà per le credenziali di Automazione esistenti. |
 
 ## <a name="activities"></a>Attività
 
@@ -74,8 +63,8 @@ La funzione nella tabella seguente viene usata per accedere alle credenziali in 
 ### <a name="to-create-a-new-credential-asset-with-the-azure-portal"></a>Per creare un nuovo asset credenziali con il portale di Azure
 
 1. Con il proprio account di Automazione, selezionare **Credenziali** in **Risorse condivise**.
-1. Fare clic su **+ Aggiungi credenziali**.
-1. Completare il modulo e fare clic su **Crea** per salvare le nuove credenziali.
+1. Selezionare **Aggiungi credenziali**.
+1. Completare il modulo e selezionare **Crea** per salvare le nuove credenziali.
 
 > [!NOTE]
 > Gli account utente che usano l'autenticazione a più fattori non sono supportati per l'uso in Automazione di Azure.
@@ -96,7 +85,7 @@ New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name
 L'attività **Get-AutomationPSCredential** permette di recuperare un asset credenziali in un Runbook o configurazione DSC. Verrà restituito un [PSCredential object](/dotnet/api/system.management.automation.pscredential) da usare con un'attività o un cmdlet che richiede un parametro PSCredential. È anche possibile recuperare le proprietà dell'oggetto credenziali da usare individualmente. L'oggetto ha una proprietà per il nome utente e la password protetta oppure è possibile usare il metodo **GetNetworkCredential** per restituire un oggetto [NetworkCredential](/dotnet/api/system.net.networkcredential) che fornirà una versione non protetta della password.
 
 > [!NOTE]
-> **Get-AzureRmAutomationCredential** non restituisce un **PSCredential** che può essere usato per l'autenticazione. Fornisce solo informazioni sulle credenziali. Se è necessario usare una credenziale in un Runbook, è necessario usare **Get-AutomationPSCredential** per recuperare l'oggetto **PSCredential** .
+> **Get-AzAutomationCredential** non restituisce un **PSCredential** che può essere usato per l'autenticazione. Fornisce solo informazioni sulle credenziali. Se è necessario usare una credenziale in un Runbook, è necessario usare **Get-AutomationPSCredential** per recuperare l'oggetto **PSCredential** .
 
 ### <a name="textual-runbook-sample"></a>Esempio di Runbook testuale
 
@@ -109,7 +98,7 @@ $securePassword = $myCredential.Password
 $password = $myCredential.GetNetworkCredential().Password
 ```
 
-È anche possibile usare le credenziali per eseguire l'autenticazione in Azure con [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount). Nella maggior parte dei casi, è consigliabile usare un [account RunAs](../manage-runas-account.md) e recuperarlo con [Get-AutomationConnection](../automation-connections.md).
+È anche possibile usare le credenziali per eseguire l'autenticazione in Azure con [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.3.0). Nella maggior parte dei casi, è consigliabile usare un [account RunAs](../manage-runas-account.md) e recuperarlo con [Get-AzAutomationConnection](../automation-connections.md).
 
 ```azurepowershell
 $myCred = Get-AutomationPSCredential -Name 'MyCredential'
@@ -128,7 +117,7 @@ Per aggiungere un'attività **Get-AutomationPSCredential** a un runbook grafico,
 
 ![Aggiungere credenziali all'area di disegno](../media/credentials/credential-add-canvas.png)
 
-La figura seguente mostra un esempio dell'uso di credenziali in un Runbook grafico.  In questo caso, viene usato per fornire l'autenticazione per un Runbook alle risorse di Azure, come descritto in [autenticazione di manuali operativi con Azure ad account utente](../automation-create-aduser-account.md).  La prima attività recupera le credenziali che possono accedere alla sottoscrizione di Azure.  L'attività **Add-AzureAccount** usa quindi queste credenziali per fornire l'autenticazione per eventuali attività successive.  Viene usato un [collegamento pipeline](../automation-graphical-authoring-intro.md#links-and-workflow) poiché **Get-AutomationPSCredential** prevede un singolo oggetto.  
+La figura seguente mostra un esempio dell'uso di credenziali in un Runbook grafico. In questo caso, viene usato per fornire l'autenticazione per un Runbook alle risorse di Azure, come descritto in [autenticazione di manuali operativi con Azure ad account utente](../automation-create-aduser-account.md). La prima attività recupera le credenziali che possono accedere alla sottoscrizione di Azure. L'attività **Connect-AzureRmAccount** usa quindi questa credenziale per fornire l'autenticazione per tutte le attività che lo derivano. Viene usato un [collegamento pipeline](../automation-graphical-authoring-intro.md#links-and-workflow) poiché **Get-AutomationPSCredential** prevede un singolo oggetto.  
 
 ![Aggiungere credenziali all'area di disegno](../media/credentials/get-credential.png)
 

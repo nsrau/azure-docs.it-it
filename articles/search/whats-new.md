@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: 24114defe5e78bb7adbd006adc4ddbf8250b3188
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 01/30/2020
+ms.openlocfilehash: d0e0e8a5aa3a3e43997e3f9512525be9f51d2018
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844973"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934860"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Azure ricerca cognitiva
 
@@ -29,13 +29,15 @@ Ricerca di Azure è stato rinominato in **azure ricerca cognitiva** per riflette
 
 ### <a name="february-2020"></a>2020 febbraio
 
-+ Il rilevamento delle informazioni [personali](cognitive-search-skill-pii-detection.md) è una competenza cognitiva usata durante l'indicizzazione che estrae informazioni personali da un testo di input e offre la possibilità di mascherarle da tale testo in diversi modi.
++ Il rilevamento delle informazioni [personali (anteprima)](cognitive-search-skill-pii-detection.md) è una competenza cognitiva usata durante l'indicizzazione che estrae informazioni personali da un testo di input e offre la possibilità di mascherarle da tale testo in diversi modi.
+
++ La [ricerca di entità personalizzata (anteprima)](cognitive-search-skill-custom-entity-lookup.md ) Cerca il testo da un elenco personalizzato di parole e frasi definito dall'utente. Utilizzando questo elenco, vengono etichettati tutti i documenti con le entità corrispondenti. L'abilità supporta inoltre un grado di corrispondenza fuzzy che può essere applicato per trovare corrispondenze simili ma non esatte. 
 
 ### <a name="january-2020"></a>Gennaio 2020
 
 + Le [chiavi di crittografia gestite dal cliente](search-security-manage-encryption-keys.md) sono ora disponibili a livello generale. Se si usa REST, è possibile accedere alla funzionalità usando `api-version=2019-05-06`. Per il codice gestito, il pacchetto corretto è ancora [.NET SDK versione 8,0-Preview](search-dotnet-sdk-migration-version-9.md) anche se la funzionalità non è in anteprima. 
 
-+ L'accesso privato a un servizio di ricerca è disponibile tramite due meccanismi:
++ L'accesso privato a un servizio di ricerca è disponibile tramite due meccanismi, attualmente in anteprima:
 
   + È possibile limitare l'accesso a indirizzi IP specifici usando l'API REST di gestione `api-version=2019-10-01-Preview` per creare il servizio. L'API di anteprima include nuove proprietà **IpRule** e **NetworkRuleSet** nell' [API CreateOrUpdate](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate). Questa funzionalità di anteprima è disponibile nelle aree selezionate. Per altre informazioni, vedere [come usare l'API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 

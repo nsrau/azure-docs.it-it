@@ -1,6 +1,6 @@
 ---
-title: Evento di creazione pool di Azure Batch | Microsoft Docs
-description: Riferimento per l’evento di creazione del pool di batch.
+title: Evento di creazione pool di Azure Batch
+description: Riferimento per l'evento di creazione del pool di batch, che viene generato dopo la creazione di un pool. Il contenuto del registro espone informazioni generali sul pool.
 services: batch
 author: ju-shim
 manager: gwallace
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: jushiman
-ms.openlocfilehash: b804d828d276c39febf7fdd9347bce04a062676a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: cb109daee20300d4564ecd40c0a3c14de0f3de1c
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026743"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76929850"
 ---
 # <a name="pool-create-event"></a>Evento di creazione di pool
 

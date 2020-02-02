@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: 598bf677b06c5ec1f431144e7e76deee55d23f33
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 982e80f4c47a6f59b65edb06461a9d592248cc61
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435474"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76929879"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Indirizzi IP di gestione di HDInsight
 
 > [!Important]
-> Usare la funzionalità [tag di servizio](hdinsight-service-tags.md) per i gruppi di sicurezza di rete. Le nuove aree verranno aggiunte solo per i tag di servizio e gli indirizzi IP statici saranno deprecati.
+> Nella maggior parte dei casi, è ora possibile usare la funzionalità [tag di servizio](hdinsight-service-tags.md) per i gruppi di sicurezza di rete, anziché aggiungere manualmente gli indirizzi IP. Le nuove aree verranno aggiunte solo per i tag di servizio e gli indirizzi IP statici saranno deprecati.
 
 Se si usano gruppi di sicurezza di rete (gruppi) o route definite dall'utente (UDR) per controllare il traffico in ingresso verso il cluster HDInsight, è necessario assicurarsi che il cluster sia in grado di comunicare con i servizi di gestione e integrità di Azure critici.  Alcuni degli indirizzi IP per questi servizi sono specifici dell'area e alcuni di essi si applicano a tutte le aree di Azure. Potrebbe anche essere necessario consentire il traffico dal servizio DNS di Azure se non si usa un DNS personalizzato.
 

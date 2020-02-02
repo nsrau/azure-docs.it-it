@@ -11,12 +11,12 @@ ms.date: 01/13/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 66edde9591d4491fa630772f99372f9901319b2f
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 287ad5467f9f3aac7eb8c9d7c19ea15c380c6879
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940587"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935403"
 ---
 # <a name="what-is-workload-management"></a>Definizione di gestione del carico di lavoro
 
@@ -31,7 +31,7 @@ Un carico di lavoro data warehouse si riferisce a tutte le operazioni che trasco
 - Esportazione dei dati dal data warehouse
 
 La capacità a livello di prestazioni di un data warehouse è determinata dalle [unità di data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md).
-- Per visualizzare le risorse allocate per tutti i profili prestazioni, vedere [limiti di memoria e concorrenza] memoria-concorrenza-limits.md).
+- Per visualizzare le risorse allocate per tutti i profili prestazioni, vedere [limiti di memoria e concorrenza](memory-concurrency-limits.md).
 - Per regolare la capacità, è possibile [aumentare o ridurre](quickstart-scale-compute-portal.md)le prestazioni.
 
 

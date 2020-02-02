@@ -2,17 +2,17 @@
 title: Guida alla risoluzione dei problemi-DNS di Azure
 description: In questo percorso di apprendimento, iniziare a risolvere i problemi comuni con il servizio DNS di Azure
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 09/20/2019
-ms.author: allensu
-ms.openlocfilehash: b5fedba7b739c07a37f3aabf75ddd8ca465ba73b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: b5e1624bf852256f6e8fb0b616258f932c5a8998
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210946"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939035"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di DNS di Azure
 

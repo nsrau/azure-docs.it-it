@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5a15b3b9e51772d8c7e5312968fecb180069e2a7
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 4cc3b1789ef2f7ef44e5421cbacb5a93c2a0a1ff
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911242"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933615"
 ---
 # <a name="add-html-markers-to-the-map"></a>Aggiungere indicatori HTML alla mappa
 
@@ -24,7 +24,7 @@ Questo articolo illustra come aggiungere un codice HTML personalizzato, ad esemp
 > Gli indicatore HTML non si connettono alle origini dati. Le informazioni sulla posizione sono invece aggiunte direttamente all'indicatore, il quale viene aggiunto alla proprietà `markers` delle mappe, un [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest).
 
 > [!IMPORTANT]
-> A differenza della maggior parte dei livelli nel controllo Web di Mappe di Azure, dove per il rendering viene sfruttato WebGL, gli indicatori HTML usano elementi DOM tradizionali. Di conseguenza, più si aggiungono indicatori HTML a una pagina, più saranno disponibili elementi DOM. Le prestazioni possono calare dopo aver aggiunto alcune centinaia di indicatori HTML. Per set di dati più grandi, prendere in considerazione il clustering dei dati o l'uso di un livello per i simboli o per le bolle.
+> A differenza della maggior parte dei livelli nel controllo Web di Mappe di Azure, dove per il rendering viene sfruttato WebGL, gli indicatori HTML usano elementi DOM tradizionali. Di conseguenza, maggiore è il numero di marcatori HTML aggiunti a una pagina, più sono gli elementi DOM. Le prestazioni possono calare dopo aver aggiunto alcune centinaia di indicatori HTML. Per set di dati più grandi, prendere in considerazione il clustering dei dati o l'uso di un livello per i simboli o per le bolle.
 
 ## <a name="add-an-html-marker"></a>Aggiungere un indicatore HTML
 
@@ -33,7 +33,7 @@ La classe [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-cont
 Il codice seguente crea un marcatore HTML e imposta la proprietà Color su "DodgerBlue" e la proprietà Text su "10". Un popup viene collegato al marcatore e `click` evento viene usato per impostare la visibilità del popup.
 
 ```javascript
-//Create a HTML marker and add it to the map.
+//Create an HTML marker and add it to the map.
 var marker = new atlas.HtmlMarker({
     color: 'DodgerBlue',
     text: '10',

@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 63706a3cdd34e5656f881c8668d8b88d9ac2e9ff
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ca9b70bd71a618f8e3d5f4fe9504ba66a9f14c6f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843923"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935487"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Risolvere i problemi di Azure Load Balancer
 
-Questa pagina fornisce informazioni sulla risoluzione dei problemi comuni di Azure Load Balancer. Quando la connettività di Load Balancer non è disponibile, i sintomi più comuni sono i seguenti: 
+In questa pagina vengono fornite informazioni sulla risoluzione dei problemi comuni di base e standard Azure Load Balancer domande. Per altre informazioni su Load Balancer Standard, vedere la [panoramica di Load Balancer Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics).
+
+Quando la connettività di Load Balancer non è disponibile, i sintomi più comuni sono i seguenti: 
+
 - Le macchine virtuali controllate da Load Balancer non rispondono ai probe di integrità 
 - Le macchine virtuali dietro Load Balancer non rispondono al traffico nella porta configurata
 
@@ -124,6 +127,10 @@ Se l'applicazione ospitata nella macchina virtuale back-end di un servizio di bi
 Se è configurato un servizio di bilanciamento del carico interno in una rete virtuale e una delle macchine virtuali del back-end sta tentando di accedere al front-end del servizio di bilanciamento del carico interno, potrebbero verificarsi errori durante il mapping del flusso alla macchina virtuale di origine. Questo scenario non è supportato. Per informazioni più dettagliate, vedere [Limitazioni](concepts-limitations.md#limitations).
 
 **Risoluzione** È possibile sbloccare questo scenario in diversi modi, incluso l'uso di un proxy. Valutare un gateway applicazione o altri proxy di terze parti, ad esempio nginx o haproxy. Per altre informazioni sul gateway applicazione, vedere [Panoramica del gateway applicazione](../application-gateway/application-gateway-introduction.md)
+
+## <a name="symptom-cannot-change-backend-port-for-existing-lb-rule-of-a-load-balancer-which-has-vm-scale-set-deployed-in-the-backend-pool"></a>Sintomo: non è possibile modificare la porta back-end per la regola LB esistente di un servizio di bilanciamento del carico con set di scalabilità di VM distribuiti nel pool back-end 
+### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>Motivo: non è possibile modificare la porta back-end per una regola di bilanciamento del carico usata da un probe di integrità per il servizio di bilanciamento del carico a cui fa riferimento il set di scalabilità di macchine virtuali.
+**Risoluzione** dei problemi Per modificare la porta, è possibile rimuovere il probe di integrità aggiornando il set di scalabilità di macchine virtuali, aggiornare la porta e quindi configurare di nuovo il probe di integrità.
 
 ## <a name="additional-network-captures"></a>Altre acquisizioni di rete
 Se si decide di aprire un caso di supporto, raccogliere le informazioni seguenti per una soluzione più rapida. Scegliere una singola macchina virtuale back-end per eseguire questi test:

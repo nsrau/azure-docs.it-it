@@ -9,23 +9,23 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0088cced84da08828d02d3a0f83846babf286b71
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 462d820824ad6c53ad4b93ad5c88c66128619467
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911274"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933657"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Aggiungere un livello bolle a una mappa
 
-Questo articolo illustra come è possibile eseguire il rendering dei dati punto da un'origine dati come livello Bubble su una mappa. I livelli bolle eseguono il rendering dei punti come cerchi sulla mappa con raggio dei pixel fisso. 
+Questo articolo illustra come eseguire il rendering dei dati punto da un'origine dati come livello Bubble su una mappa. I livelli bolle eseguono il rendering dei punti come cerchi sulla mappa con raggio dei pixel fisso. 
 
 > [!TIP]
 > Per impostazione predefinita i livelli bolle eseguiranno il rendering delle coordinate di tutte le geometrie in un'origine dati. Per limitare il livello in modo che esegua il rendering solo delle funzionalità di geometria dei punti, impostare la proprietà `filter` del livello su `['==', ['geometry-type'], 'Point']` o `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` se si desidera includere anche le funzionalità MultiPoint.
 
 ## <a name="add-a-bubble-layer"></a>Aggiungere un livello per le bolle
 
-Il codice seguente carica una matrice di punti in un'origine dati e la connette a un [livello Bubble](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). Al livello Bubble vengono concesse le opzioni per eseguire il rendering del raggio di ogni bolla a cinque pixel, un colore di riempimento bianco, un colore del tratto blu e una larghezza del tratto di sei pixel. 
+Il codice seguente carica una matrice di punti in un'origine dati. Quindi, i punti dati sono connessi a un [livello Bubble](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). Il livello Bubble esegue il rendering del raggio di ogni bolla con cinque pixel, il colore di riempimento del bianco, il colore del tratto blu e una larghezza del tratto di sei pixel. 
 
 ```javascript
 //Add point locations.

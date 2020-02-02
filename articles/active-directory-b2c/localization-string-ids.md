@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 01/31/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: da1390de4e2eb0624032dc490416e7b6e5d61baa
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 349932073394a967da58bf521449d22a48c1f91d
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67846842"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931727"
 ---
 # <a name="localization-string-ids"></a>ID della stringa di localizzazione
 
@@ -41,14 +41,14 @@ Gli ID seguenti vengono usati per una definizione del contenuto con un ID `api.s
 | **requiredField_password** | Immettere la password |
 | **invalid_password** | Il formato della password immessa non è quello previsto. |
 | **forgotpassword_link** | Password dimenticata? |
-| **createaccount_intro** | Non si dispone di un account? |
-| **createaccount_link** | Effettua l'iscrizione ora |
-| **divider_title** | Oppure |
+| **createaccount_intro** | Non hai ancora un account? |
+| **createaccount_link** | Iscriviti ora |
+| **divider_title** | OPPURE |
 | **cancel_message** | L'utente ha dimenticato la password |
-| **button_signin** | Accesso |
+| **button_signin** | Accedi |
 | **social_intro** | Accedere con l'account di social networking |
   **remember_me** |Mantenere l'accesso|
-| **unknown_error** | Si è verificato un errore durante l'accesso. Riprovare più tardi. |
+| **unknown_error** | Si è verificato un errore durante l'accesso. Riprova più tardi. |
 
 L'esempio seguente illustra l'uso di alcuni elementi dell'interfaccia utente nella pagina per l'iscrizione o l'accesso:
 
@@ -79,7 +79,7 @@ L'esempio seguente localizza il provider di identità Facebook sull'arabo:
 <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">فيس بوك</LocalizedString>
 ```
 
-## <a name="sign-up-or-sign-in-error-messages"></a>Messaggi di errore in fase di iscrizione o di accesso
+### <a name="sign-up-or-sign-in-error-messages"></a>Messaggi di errore in fase di iscrizione o di accesso
 
 | ID | Valore predefinito |
 | -- | ------------- |
@@ -88,7 +88,7 @@ L'esempio seguente localizza il provider di identità Facebook sull'arabo:
 | **UserMessageIfOldPasswordUsed** | È stata usata una password non aggiornata. |
 | **DefaultMessage** | Nome utente o password non validi. |
 | **UserMessageIfUserAccountDisabled** | L'account è stato bloccato. Contattare il supporto tecnico per sbloccarlo, quindi riprovare. |
-| **UserMessageIfUserAccountLocked** | L'account è stato temporaneamente bloccato per impedirne l'uso non autorizzato. Riprovare. |
+| **UserMessageIfUserAccountLocked** | L'account è stato temporaneamente bloccato per impedirne l'uso non autorizzato. Riprovare più tardi. |
 | **AADRequestsThrottled** | In questo momento sono presenti troppe richieste. Attendere qualche minuto e riprovare. |
 
 ## <a name="sign-up-and-self-asserted-pages-user-interface-elements"></a>Elementi dell'interfaccia utente delle pagine di iscrizione e di autocertificazione
@@ -104,35 +104,35 @@ Di seguito sono riportati gli ID per una definizione del contenuto con ID `api.l
 | **ver_but_send** | Inviare il codice di verifica |
 | **alert_yes** | Sì |
 | **error_fieldIncorrect** | Uno o più campi sono stati compilati in modo non corretto. Verificare le immissioni e riprovare. |
-| **year** | Year |
+| **year** | Anno |
 | **verifying_blurb** | Attendere mentre vengono elaborate le informazioni. |
 | **button_cancel** | Annulla |
-| **ver_fail_no_retry** | Sono stati effettuati troppi tentativi non validi. Riprovare più tardi. |
-| **mese** | Mese |
+| **ver_fail_no_retry** | Sono stati effettuati troppi tentativi non validi. Riprova più tardi. |
+| **month** | Mese |
 | **ver_success_msg** | Indirizzo di posta elettronica verificato. È ora possibile continuare. |
 | **months** | Gennaio, febbraio, marzo, aprile, maggio, giugno, luglio, agosto, settembre, ottobre, novembre, dicembre |
 | **ver_fail_server** | Si sono verificati problemi nella verifica dell'indirizzo di posta elettronica. Immettere un indirizzo di posta elettronica valido e riprovare. |
 | **error_requiredFieldMissing** | Manca un campo obbligatorio. Compilare tutti i campi obbligatori e riprovare. |
 | **initial_intro** | Specificare i dettagli seguenti. |
 | **ver_but_resend** | Inviare un nuovo codice |
-| **button_continue** | Create |
+| **button_continue** | Creazione |
 | **error_passwordEntryMismatch** | I campi di immissione della password non corrispondono. Immettere la stessa password in entrambi i campi e riprovare. |
 | **ver_incorrect_format** | Il formato non è corretto. |
 | **ver_but_edit** | Cambiare l'indirizzo di posta elettronica |
 | **ver_but_verify** | Verificare il codice |
 | **alert_no** | No |
 | **ver_info_msg** | Il codice di verifica è stato inviato alla Posta in arrivo. Copiarlo nella casella di input qui di seguito. |
-| **giorno** | Giorno |
+| **day** | Giorno |
 | **ver_fail_throttled** | Sono state effettuate troppe richieste di verifica di questo indirizzo di posta elettronica. Attendere qualche minuto e riprovare. |
 | **helplink_text** | Che cos'è? |
-| **ver_fail_retry** | Il codice non è corretto. Riprova più tardi. |
+| **ver_fail_retry** | Il codice non è corretto. Riprovare in seguito. |
 | **alert_title** | Annullare l'immissione dei dettagli personali |
 | **required_field** | Informazione obbligatoria. |
 | **alert_message** | Annullare l'immissione dei dettagli personali? |
 | **ver_intro_msg** | È necessaria la verifica. Fare clic sul pulsante Invia. |
 | **ver_input** | Codice di verifica |
 
-## <a name="sign-up-and-self-asserted-pages-error-messages"></a>Messaggi di errore delle pagine di iscrizione e di autocertificazione
+### <a name="sign-up-and-self-asserted-pages-error-messages"></a>Messaggi di errore delle pagine di iscrizione e di autocertificazione
 
 | ID | Valore predefinito |
 | -- | ------------- |
@@ -160,7 +160,7 @@ I seguenti sono gli ID di definizione del contenuto con ID `api.phonefactor`.
 | ID | Valore predefinito |
 | -- | ------------- |
 | **button_verify** | Chiama |
-| **country_code_label** | Prefisso internazionale |
+| **country_code_label** | Indicativo paese |
 | **cancel_message** | L'utente ha annullato l'autenticazione a più fattori |
 | **text_button_send_second_code** | Inviare un nuovo codice |
 | **code_pattern** | \\d{6} |
@@ -171,7 +171,7 @@ I seguenti sono gli ID di definizione del contenuto con ID `api.phonefactor`.
 | **invalid_code** | Immettere il codice a sei cifre ricevuto |
 | **button_cancel** | Annulla |
 | **local_number_input_placeholder_text** | Numero di telefono |
-| **button_retry** | Retry |
+| **button_retry** | Riprova |
 | **alternative_text** | Non ho il telefono con me |
 | **intro_phone_p** | Nel record dell'utente sono presenti i seguenti numeri. Scegliere un numero al quale si vuole ricevere una telefonata per l'autenticazione. |
 | **intro_phone** | Nel record dell'utente è presente il seguente numero. Faremo una telefonata per autenticare l'utente. |
@@ -190,7 +190,7 @@ I seguenti sono gli ID di definizione del contenuto con ID `api.phonefactor`.
 | **number_label** | Numero di telefono |
 | **error_tryagain** | Il numero di telefono specificato è occupato o non disponibile. Verificare il numero e riprovare. |
 | **error_incorrect_code** | Il codice di verifica immesso non corrisponde a quello in archivio. Riprovare o richiedere un nuovo codice. |
-| **countryList** | {\"Default\"\":paese/\"area geografica, AF:Afghanistan,\"ax:Åland\"\"\"\"\"\" Islands\",\"al:\"Albania\",DZ\":Algeria,come\":\"\"\"\"\"\" Samoa\"americane\",\"ad:\"Andorra,\"Ao:\"Angola,ai\":\"\"\"\" \"Anguilla,\"AQ\":Antartide\",AG: Antigua eBarbuda\",\"\"\"\"\"\"AR\":Argentina\",\"am:\"Armenia, AW:\"Aruba\"\"\"\"\" \",Au\":\"Australia,\"alle:Austria,\"\"\"\"\"\" AZ\":\"Azerbaijan,\"BS\":Bahamas\",BH:\"\"\"\"\" Bahrain\",\"BD:\"Bangladesh\",BB\":Barbados,\"\"\"\"\" Per\":\"Bielorussia,\"be\":Belgio\",BZ:\"\"\"\"\" Belize\",\"BJ:\"Benin\",BM\":Bermuda,\"\"\"\"\"BT\":Bhutan\",\"Bo:\"Bolivia,BQ:\"\"\"\"\"\" Bonaire\",\"BA:Bosnia\"edErzegovina\",\"BW:Botswana\"\"\"<span class="notransla class=""></span class="notransla> Isole Minori Esterne degli Stati Uniti\",\"VI\":\"U.S. Isole Vergini\",\"UG\":\"Uganda\",\"UA\":\"Ucraina\",\"AE\":\"Emirati Arabi Uniti\",\"GB\":\"Regno Unito\",\"US\":\"Stati Uniti\",\"UY\":\"Uruguay\",\"UZ\":\"Uzbekistan\",\"VU\":\"Vanuatu\",\"VA\":\"Città del Vaticano\",\"VE\":\"Venezuela\",\"VN\":\"Vietnam\",\"WF\":\"Wallis e Futuna\",\"YE\":\"Yemen\",\"ZM\":\"Zambia\",\"ZW\":\"Zimbabwe\"} |
+| **countryList** | {\"DEFAULT\":\"Country/Region\",\"AF\":\"Afghanistan\",\"AX\":\"Åland Islands\",\"AL\":\"Albania\",\"DZ\":\"Algeria\",\"AS\":\"American Samoa\",\"AD\":\"Andorra\",\"AO\":\"Angola\",\"AI\":\"Anguilla\",\"AQ\":\"Antarctica\",\"AG\":\"Antigua and Barbuda\",\"AR\":\"Argentina\",\"AM\":\"Armenia\",\"AW\":\"Aruba\",\"AU\":\"Australia\",\"AT\":\"Austria\",\"AZ\":\"Azerbaijan\",\"BS\":\"Bahamas\",\"BH\":\"Bahrain\",\"BD\":\"Bangladesh\",\"BB\":\"Barbados\",\"BY\":\"Belarus\",\"BE\":\"Belgium\",\"BZ\":\"Belize\",\"BJ\":\"Benin\",\"BM\":\"Bermuda\",\"BT\":\"Bhutan\",\"BO\":\"Bolivia\",\"BQ\":\"Bonaire\",\"BA\":\"Bosnia and Herzegovina\",\"BW\":\"Botswana\",\"BV\":\"Bouvet Island\",\"BR\":\"Brazil\",\"IO\":\"British Indian Ocean Territory\",\"VG\":\"British Virgin Islands\",\"BN\":\"Brunei\",\"BG\":\"Bulgaria\",\"BF\":\"Burkina Faso\",\"BI\":\"Burundi\",\"CV\":\"Cabo Verde\",\"KH\":\"Cambodia\",\"CM\":\"Cameroon\",\"CA\":\"Canada\",\"KY\":\"Cayman Islands\",\"CF\":\"Central African Republic\",\"TD\":\"Chad\",\"CL\":\"Chile\",\"CN\":\"China\",\"CX\":\"Christmas Island\",\"CC\":\"Cocos (Keeling) Islands\",\"CO\":\"Colombia\",\"KM\":\"Comoros\",\"CG\":\"Congo\",\"CD\":\"Congo (DRC)\",\"CK\":\"Cook Islands\",\"CR\":\"Costa Rica\",\"CI\":\"Côte d’Ivoire\",\"HR\":\"Croatia\",\"CU\":\"Cuba\",\"CW\":\"Curaçao\",\"CY\":\"Cyprus\",\"CZ\":\"Czech Republic\",\"DK\":\"Denmark\",\"DJ\":\"Djibouti\",\"DM\":\"Dominica\",\"DO\":\"Dominican Republic\",\"EC\":\"Ecuador\",\"EG\":\"Egypt\",\"SV\":\"El Salvador\",\"GQ\":\"Equatorial Guinea\",\"ER\":\"Eritrea\",\"EE\":\"Estonia\",\"ET\":\"Ethiopia\",\"FK\":\"Falkland Islands\",\"FO\":\"Faroe Islands\",\"FJ\":\"Fiji\",\"FI\":\"Finland\",\"FR\":\"France\",\"GF\":\"French Guiana\",\"PF\":\"French Polynesia\",\"TF\":\"French Southern Territories\",\"GA\":\"Gabon\",\"GM\":\"Gambia\",\"GE\":\"Georgia\",\"DE\":\"Germany\",\"GH\":\"Ghana\",\"GI\":\"Gibraltar\",\"GR\":\"Greece\",\"GL\":\"Greenland\",\"GD\":\"Grenada\",\"GP\":\"Guadeloupe\",\"GU\":\"Guam\",\"GT\":\"Guatemala\",\"GG\":\"Guernsey\",\"GN\":\"Guinea\",\"GW\":\"Guinea-Bissau\",\"GY\":\"Guyana\",\"HT\":\"Haiti\",\"HM\":\"Heard Island and McDonald Islands\",\"HN\":\"Honduras\",\"HK\":\"Hong Kong SAR\",\"HU\":\"Hungary\",\"IS\":\"Iceland\",\"IN\":\"India\",\"ID\":\"Indonesia\",\"IR\":\"Iran\",\"IQ\":\"Iraq\",\"IE\":\"Ireland\",\"IM\":\"Isle of Man\",\"IL\":\"Israel\",\"IT\":\"Italy\",\"JM\":\"Jamaica\",\"JP\":\"Japan\",\"JE\":\"Jersey\",\"JO\":\"Jordan\",\"KZ\":\"Kazakhstan\",\"KE\":\"Kenya\",\"KI\":\"Kiribati\",\"KR\":\"Korea\",\"KW\":\"Kuwait\",\"KG\":\"Kyrgyzstan\",\"LA\":\"Laos\",\"LV\":\"Latvia\",\"LB\":\"Lebanon\",\"LS\":\"Lesotho\",\"LR\":\"Liberia\",\"LY\":\"Libya\",\"LI\":\"Liechtenstein\",\"LT\":\"Lithuania\",\"LU\":\"Luxembourg\",\"MO\":\"Macao SAR\",\"MK\":\"North Macedonia\",\"MG\":\"Madagascar\",\"MW\":\"Malawi\",\"MY\":\"Malaysia\",\"MV\":\"Maldives\",\"ML\":\"Mali\",\"MT\":\"Malta\",\"MH\":\"Marshall Islands\",\"MQ\":\"Martinique\",\"MR\":\"Mauritania\",\"MU\":\"Mauritius\",\"YT\":\"Mayotte\",\"MX\":\"Mexico\",\"FM\":\"Micronesia\",\"MD\":\"Moldova\",\"MC\":\"Monaco\",\"MN\":\"Mongolia\",\"ME\":\"Montenegro\",\"MS\":\"Montserrat\",\"MA\":\"Morocco\",\"MZ\":\"Mozambique\",\"MM\":\"Myanmar\",\"NA\":\"Namibia\",\"NR\":\"Nauru\",\"NP\":\"Nepal\",\"NL\":\"Netherlands\",\"NC\":\"New Caledonia\",\"NZ\":\"New Zealand\",\"NI\":\"Nicaragua\",\"NE\":\"Niger\",\"NG\":\"Nigeria\",\"NU\":\"Niue\",\"NF\":\"Norfolk Island\",\"KP\":\"North Korea\",\"MP\":\"Northern Mariana Islands\",\"NO\":\"Norway\",\"OM\":\"Oman\",\"PK\":\"Pakistan\",\"PW\":\"Palau\",\"PS\":\"Palestinian Authority\",\"PA\":\"Panama\",\"PG\":\"Papua New Guinea\",\"PY\":\"Paraguay\",\"PE\":\"Peru\",\"PH\":\"Philippines\",\"PN\":\"Pitcairn Islands\",\"PL\":\"Poland\",\"PT\":\"Portugal\",\"PR\":\"Puerto Rico\",\"QA\":\"Qatar\",\"RE\":\"Réunion\",\"RO\":\"Romania\",\"RU\":\"Russia\",\"RW\":\"Rwanda\",\"BL\":\"Saint Barthélemy\",\"KN\":\"Saint Kitts and Nevis\",\"LC\":\"Saint Lucia\",\"MF\":\"Saint Martin\",\"PM\":\"Saint Pierre and Miquelon\",\"VC\":\"Saint Vincent and the Grenadines\",\"WS\":\"Samoa\",\"SM\":\"San Marino\",\"ST\":\"São Tomé and Príncipe\",\"SA\":\"Saudi Arabia\",\"SN\":\"Senegal\",\"RS\":\"Serbia\",\"SC\":\"Seychelles\",\"SL\":\"Sierra Leone\",\"SG\":\"Singapore\",\"SX\":\"Sint Maarten\",\"SK\":\"Slovakia\",\"SI\":\"Slovenia\",\"SB\":\"Solomon Islands\",\"SO\":\"Somalia\",\"ZA\":\"South Africa\",\"GS\":\"South Georgia and South Sandwich Islands\",\"SS\":\"South Sudan\",\"ES\":\"Spain\",\"LK\":\"Sri Lanka\",\"SH\":\"St Helena, Ascension, Tristan da Cunha\",\"SD\":\"Sudan\",\"SR\":\"Suriname\",\"SJ\":\"Svalbard\",\"SZ\":\"Swaziland\",\"SE\":\"Sweden\",\"CH\":\"Switzerland\",\"SY\":\"Syria\",\"TW\":\"Taiwan\",\"TJ\":\"Tajikistan\",\"TZ\":\"Tanzania\",\"TH\":\"Thailand\",\"TL\":\"Timor-Leste\",\"TG\":\"Togo\",\"TK\":\"Tokelau\",\"TO\":\"Tonga\",\"TT\":\"Trinidad and Tobago\",\"TN\":\"Tunisia\",\"TR\":\"Turkey\",\"TM\":\"Turkmenistan\",\"TC\":\"Turks and Caicos Islands\",\"TV\":\"Tuvalu\",\"UM\":\"U.S. Outlying Islands\",\"VI\":\"U.S. Virgin Islands\",\"UG\":\"Uganda\",\"UA\":\"Ukraine\",\"AE\":\"United Arab Emirates\",\"GB\":\"United Kingdom\",\"US\":\"United States\",\"UY\":\"Uruguay\",\"UZ\":\"Uzbekistan\",\"VU\":\"Vanuatu\",\"VA\":\"Vatican City\",\"VE\":\"Venezuela\",\"VN\":\"Vietnam\",\"WF\":\"Wallis and Futuna\",\"YE\":\"Yemen\",\"ZM\":\"Zambia\",\"ZW\":\"Zimbabwe\"} |
 | **error_448** | Il numero di telefono specificato non è raggiungibile. |
 | **error_449** | L'utente ha superato il numero di tentativi consentiti. |
 | **verification_code_input_placeholder_text** | Codice di verifica |
@@ -202,6 +202,29 @@ L'esempio seguente illustra l'uso di alcuni elementi dell'interfaccia utente nel
 L'esempio seguente illustra l'uso di alcuni elementi dell'interfaccia utente nella pagina di convalida MFA:
 
 ![Elementi dell'esperienza utente per la verifica della posta elettronica della pagina di iscrizione](./media/localization-string-ids/localization-mfa2.png)
+
+## <a name="verification-display-control-user-interface-elements"></a>Elementi dell'interfaccia utente del controllo visualizzazione Verifica
+
+Di seguito sono riportati gli ID per un [controllo di visualizzazione Verifica](display-control-verification.md)
+
+| ID | Valore predefinito |
+| -- | ------------- |
+|verification_control_but_change_claims |Modifica |
+|verification_control_fail_send_code |Non è stato possibile inviare il codice. riprovare più tardi. |
+|verification_control_fail_verify_code |Non è stato possibile verificare il codice. riprovare più tardi. |
+|verification_control_but_send_code |Invia codice |
+|verification_control_but_send_new_code |Invia nuovo codice |
+|verification_control_but_verify_code |Verificare il codice |
+
+### <a name="verification-display-control-error-messages"></a>Verifica visualizzazione messaggi di errore controllo
+
+| ID | Valore predefinito |
+| -- | ------------- |
+|UserMessageIfMaxRetryAttempted |Una sola volta la verifica fornita dalla password ha superato il numero massimo di tentativi |
+|UserMessageIfSessionDoesNotExist |Una sessione di verifica della password è scaduta |
+|UserMessageIfSessionConflict |La sessione di verifica della password una volta è in conflitto |
+|UserMessageIfInvalidCode |Una password specificata per la verifica non è corretta |
+
 
 
 

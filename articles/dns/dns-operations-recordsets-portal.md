@@ -2,17 +2,17 @@
 title: Gestire set di record e record DNS con DNS di Azure
 description: DNS di Azure consente di gestire i set di record DNS in caso di hosting del dominio.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 10/6/2018
-ms.author: allensu
-ms.openlocfilehash: 6d0b917c72b1ebb6f1156df269908fb9af3657ed
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 4012b32eb2684126b8dc64b9e86bf35a016e9fba
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211793"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936832"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Gestire record e set di record DNS con il portale di Azure
 

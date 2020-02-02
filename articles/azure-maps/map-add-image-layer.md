@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d2260e5c9e4125be1c4b0fa5e9d7c39a8e03d43f
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: cfdf7dfd4c16f70065e338f8983d2124d3f6f0ef
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911200"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933206"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Aggiungere un livello per le immagini a una mappa
 
@@ -60,7 +60,7 @@ Ecco l'esempio di codice completo per l'esecuzione del codice precedente.
 <iframe height='500' scrolling='no' title='Livello semplice per le immagini' src='//codepen.io/azuremaps/embed/eQodRo/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Penna <a href='https://codepen.io/azuremaps/pen/eQodRo/'>Livello semplice per le immagini</a> da Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) su <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="import-a-kml-ground-overlay"></a>Importare una sovrapposizione di terra KML
+## <a name="import-a-kml-file-as-ground-overlay"></a>Importa un file KML come sovrapposizione di base
 
 Nell'esempio seguente viene illustrato come sovrapporre le informazioni sulla sovrapposizione di base KML come livello immagine sulla mappa. Le sovrapposizioni di base KML forniscono coordinate Nord, Sud, est e ovest e una rotazione in senso antiorario, mentre il livello immagine prevede coordinate per ogni angolo dell'immagine. La sovrimpressione di base KML in questo esempio è della Cattedrale di Chartres e viene originata da [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
 

@@ -3,20 +3,20 @@ title: Gestione endpoint in Gestione traffico di Azure | Documentazione Microsof
 description: Questo articolo aiuterà ad aggiungere, rimuovere, abilitare e disabilitare gli endpoint da Gestione traffico di Azure.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
-ms.author: allensu
-ms.openlocfilehash: 573a8f7ede29b045053d77194d15707df9e23641
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohink
+ms.openlocfilehash: 2aee4282fe6a66151ea39018f0d6c0db51f2c027
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071091"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939126"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Aggiungere, disabilitare, abilitare o eliminare gli endpoint
 
@@ -71,7 +71,7 @@ La funzionalità App Web nell’Azure App Service offre già funzionalità di ro
 2. Nella barra di ricerca del portale cercare il nome del **profilo di Gestione traffico** che si vuole modificare e quindi fare clic su tale profilo nei risultati visualizzati.
 3. Nel pannello **Profilo di Gestione traffico** fare clic su **Endpoint** nella sezione **Impostazioni**. 
 4. Fare clic sull'endpoint che si desidera eliminare.
-5. Nel **Endpoint** pannello, fare clic su **Delete**
+5. Nel pannello **endpoint** fare clic su **Elimina** .
 
 
 ## <a name="next-steps"></a>Passaggi successivi

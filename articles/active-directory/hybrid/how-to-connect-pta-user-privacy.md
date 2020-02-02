@@ -17,19 +17,19 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1a7b740a6b248a12fa3d95f85f602ef7a8b2fa5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0af1c42e7e2c163e7f9e7407d0236e35bfacf8e8
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60242368"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931017"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Privacy dell'utente e autenticazione pass-through di Azure Active Directory
 
 
 [!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 L'autenticazione pass-through di Azure AD crea il seguente tipo di log, che può contenere informazioni personali:
 
@@ -73,7 +73,7 @@ Per visualizzare i log correlati all'agente di autenticazione pass-through, apri
 
 ### <a name="delete-authentication-agent-trace-log-files"></a>Eliminare i file di log di traccia dell'agente di autenticazione
 
-È consigliabile controllare regolarmente il contenuto di <strong>%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\</strong> ed eliminare il contenuto di questa cartella ogni 48 ore. 
+È consigliabile controllare regolarmente il contenuto di **%ProgramData%\MICROSOFT\AZURE ad Connect Authentication Agent\Trace** ed eliminare il contenuto di questa cartella ogni 48 ore. 
 
 >[!IMPORTANT]
 >Se il servizio agente di autenticazione è in esecuzione, non sarà possibile eliminare il file di log corrente nella cartella. Arrestare il servizio prima di riprovare. Per evitare errori di accesso dell'utente, l'autenticazione pass-through deve essere già configurata per la [disponibilità elevata](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).

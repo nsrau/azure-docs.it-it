@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/28/2019
 ms.author: radeltch
-ms.openlocfilehash: 15abee96f81bca68575d61be1276d4394e9a6f55
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 179df26eb0cc75899c9b509ebe00410ffa916dc8
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293811"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935188"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Connettività degli endpoint pubblici per le macchine virtuali con Load Balancer Standard di Azure in scenari a disponibilità elevata di SAP
 
@@ -165,7 +165,7 @@ L'architettura avrà un aspetto analogo al seguente:
    La regola del firewall avrà un aspetto simile al seguente: ![connessione in uscita con il firewall di Azure](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
 
 6. Creare una route definita dall'utente dalla subnet delle macchine virtuali all'indirizzo IP privato di **MyAzureFirewall**.
-   1. Quando si è posizionati nella tabella di route, fare clic su route. Fare clic su Aggiungi. 
+   1. Quando si è posizionati nella tabella di route, fare clic su route. Selezionare Aggiungi. 
    1. Nome Route: ToMyAzureFirewall, prefisso Indirizzo: **0.0.0.0/0**. Tipo hop successivo: selezionare appliance virtuale. Indirizzo hop successivo: immettere l'indirizzo IP privato del firewall configurato: **11.97.1.4**.  
    1. Salva
 
@@ -200,11 +200,11 @@ Per consentire a pacemaker di comunicare con l'API di gestione di Azure, seguire
   - SUSE  
      ```
      # Place the cluster in maintenance mode
-     sudo pcs property set maintenance-mode=true
+     sudo crm configure property maintenance-mode=true
      #Restart on all nodes
      sudo systemctl restart pacemaker
      # Take the cluster out of maintenance mode
-     sudo pcs property set maintenance-mode=false
+     sudo crm configure property maintenance-mode=true
      ```
 
   - Red Hat  

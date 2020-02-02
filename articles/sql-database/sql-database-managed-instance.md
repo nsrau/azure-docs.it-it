@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 01/21/2020
-ms.openlocfilehash: fb9b665f5631e6992966679b1dc0864539fde543
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: d28eb6c4ee4fadf8a090a17121f6910eb34135e3
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514556"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935213"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Che cos'è l'istanza gestita di database SQL di Azure?
 
@@ -303,7 +303,7 @@ Il diagramma seguente illustra la compatibilità della superficie di attacco in 
 
 ### <a name="key-differences-between-sql-server-on-premises-and-in-a-managed-instance"></a>Differenze principali tra SQL Server in locale e in un'istanza gestita
 
-L'opzione di distribuzione dell'istanza gestita offre vantaggi derivanti dall'essere sempre aggiornati nel cloud, mentre alcune funzionalità di SQL Server in locale possono essere obsolete, essere state ritirate o sostituite con alternative. In alcuni casi specifici gli strumenti devono riconoscere che una determinata funzionalità funziona in modo leggermente diverso o che il servizio non funziona in un ambiente di cui non si ha il controllo completo:
+L'opzione di distribuzione dell'istanza gestita offre vantaggi derivanti dall'essere sempre aggiornati nel cloud, mentre alcune funzionalità di SQL Server in locale possono essere obsolete, essere state ritirate o sostituite con alternative. Esistono casi specifici in cui gli strumenti devono riconoscere che una particolare funzionalità funziona in modo leggermente diverso o che il servizio è in esecuzione in un ambiente che non è completamente controllato:
 
 - La disponibilità elevata è integrata e preconfigurata mediante una tecnologia simile a [Gruppi di disponibilità AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 - Backup automatici e ripristino temporizzato. Il cliente può avviare backup `copy-only` che non interferiscono con la catena di backup automatica.

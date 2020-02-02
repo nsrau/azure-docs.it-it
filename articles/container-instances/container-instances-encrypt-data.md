@@ -1,17 +1,18 @@
 ---
-title: Crittografa dati di distribuzione
+title: Crittografare i dati della distribuzione
 description: Informazioni sulla crittografia dei dati salvati in modo permanente per le risorse dell'istanza di contenitore e su come crittografare i dati con una chiave gestita dal cliente
 ms.topic: article
-ms.date: 01/10/2020
-ms.author: danlep
-ms.openlocfilehash: 146effd7f1a7ad1ddd94886d1a79e2914bd1c94b
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.date: 01/17/2020
+author: dkkapur
+ms.author: dekapur
+ms.openlocfilehash: 14a51ce103d831bcf1dfd52c892102f72531a4c8
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75904211"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934314"
 ---
-# <a name="encrypt-deployment-data"></a>Crittografa dati di distribuzione
+# <a name="encrypt-deployment-data"></a>Crittografare i dati della distribuzione
 
 Quando si eseguono risorse di istanze di contenitore di Azure (ACI) nel cloud, il servizio ACI raccoglie e Salva in modo permanente i dati relativi ai contenitori. ACI crittografa automaticamente questi dati quando vengono salvati in modo permanente nel cloud. Questa crittografia consente di proteggere i dati per soddisfare gli impegni di sicurezza e conformità dell'organizzazione. ACI offre inoltre la possibilità di crittografare i dati con la propria chiave, garantendo un maggiore controllo sui dati relativi alle distribuzioni di ACI.
 
@@ -80,22 +81,25 @@ Creare nuovi criteri di accesso per consentire al servizio ACI di accedere alla 
 
 I criteri di accesso dovrebbero ora essere visualizzati nei criteri di accesso dell'insieme di credenziali delle chiavi.
 
-![Nuovo criterio di accesso](./media/container-instances-encrypt-data/access-policy.png)
+![Nuovi criteri di accesso](./media/container-instances-encrypt-data/access-policy.png)
 
 ### <a name="modify-your-json-deployment-template"></a>Modificare il modello di distribuzione JSON
 
 > [!IMPORTANT]
 > La crittografia dei dati di distribuzione con una chiave gestita dal cliente è disponibile nella versione più recente dell'API (2019-12-01) attualmente in fase di implementazione. Specificare questa versione dell'API nel modello di distribuzione. In caso di problemi, rivolgersi al supporto tecnico di Azure.
 
-Una volta configurati i criteri di accesso e la chiave dell'insieme di credenziali delle chiavi, aggiungere la proprietà seguente al modello di distribuzione ACI. Per altre informazioni sulla distribuzione di risorse ACI con un modello, vedere l' [esercitazione: distribuire un gruppo multicontenitore usando un modello di gestione risorse](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+Una volta configurati i criteri di accesso e la chiave dell'insieme di credenziali delle chiavi, aggiungere le proprietà seguenti al modello di distribuzione ACI. Per altre informazioni sulla distribuzione di risorse ACI con un modello [, vedere l'esercitazione: distribuire un gruppo multicontenitore usando un modello di gestione risorse](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+* In `resources`impostare `apiVersion` su `2012-12-01`.
+* Nella sezione Proprietà gruppo di contenitori del modello di distribuzione aggiungere un `encryptionProperties`, che contiene i valori seguenti:
+  * `vaultBaseUrl`: il nome DNS dell'insieme di credenziali delle chiavi è reperibile nel pannello panoramica della risorsa key Vault nel portale
+  * `keyName`: il nome della chiave generata in precedenza
+  * `keyVersion`: la versione corrente della chiave. Questo può essere trovato facendo clic sulla chiave stessa (in "chiavi" nella sezione impostazioni della risorsa key Vault)
+* In Proprietà gruppo di contenitori aggiungere una proprietà `sku` con valore `Standard`. La proprietà `sku` è obbligatoria nella versione API 2019-12-01.
 
-In particolare, nella sezione Proprietà gruppo di contenitori del modello di distribuzione, aggiungere un "encryptionProperties", che contiene i valori seguenti:
-* vaultBaseUrl: il nome DNS dell'insieme di credenziali delle chiavi. si trova nel pannello panoramica della risorsa key Vault nel portale
-* Nome chiave: il nome della chiave generata in precedenza
-* chiave Version: versione corrente della chiave. Questo può essere trovato facendo clic sulla chiave stessa (in "chiavi" nella sezione impostazioni della risorsa key Vault)
-
+Il frammento di modello seguente mostra queste proprietà aggiuntive per crittografare i dati di distribuzione:
 
 ```json
+[...]
 "resources": [
     {
         "name": "[parameters('containerGroupName')]",
@@ -108,12 +112,107 @@ In particolare, nella sezione Proprietà gruppo di contenitori del modello di di
                 "keyName": "acikey",
                 "keyVersion": "xxxxxxxxxxxxxxxx"
             },
+            "sku": "Standard",
             "containers": {
                 [...]
             }
         }
     }
 ]
+```
+
+Di seguito è riportato un modello completo, adattato dal modello in [esercitazione: distribuire un gruppo multicontenitore usando un modello di gestione risorse](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "containerGroupName": {
+      "type": "string",
+      "defaultValue": "myContainerGroup",
+      "metadata": {
+        "description": "Container Group name."
+      }
+    }
+  },
+  "variables": {
+    "container1name": "aci-tutorial-app",
+    "container1image": "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
+    "container2name": "aci-tutorial-sidecar",
+    "container2image": "mcr.microsoft.com/azuredocs/aci-tutorial-sidecar"
+  },
+  "resources": [
+    {
+      "name": "[parameters('containerGroupName')]",
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2019-12-01",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "encryptionProperties": {
+            "vaultBaseUrl": "https://example.vault.azure.net",
+            "keyName": "acikey",
+            "keyVersion": "xxxxxxxxxxxxxxxx"
+        },
+        "sku": "Standard",  
+        "containers": [
+          {
+            "name": "[variables('container1name')]",
+            "properties": {
+              "image": "[variables('container1image')]",
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
+                }
+              },
+              "ports": [
+                {
+                  "port": 80
+                },
+                {
+                  "port": 8080
+                }
+              ]
+            }
+          },
+          {
+            "name": "[variables('container2name')]",
+            "properties": {
+              "image": "[variables('container2image')]",
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
+                }
+              }
+            }
+          }
+        ],
+        "osType": "Linux",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "protocol": "tcp",
+              "port": "80"
+            },
+            {
+                "protocol": "tcp",
+                "port": "8080"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "containerIPv4Address": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', parameters('containerGroupName'))).ipAddress.ip]"
+    }
+  }
+}
 ```
 
 ### <a name="deploy-your-resources"></a>Distribuire le risorse

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 40810b9a9b295f2aa9d56caaf4b51cab7dbbe5bc
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: a4140ffc0d4e97afabb1c3080951eeb75c792a8c
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76887576"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76961494"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Informazioni sui riavvii delle VM: manutenzione e tempo di inattività
 Sono tre gli scenari che possono interessare la macchina virtuale in Azure: manutenzione dell'hardware non pianificata, tempo di inattività imprevisto e manutenzione pianificata.
@@ -53,7 +53,7 @@ Altre informazioni sulla distribuzione di una macchina virtuale [Windows](../art
 I set di disponibilità sono un'altra configurazione del Data Center per garantire la ridondanza e la disponibilità delle VM. Questa configurazione in un data center assicura infatti che, nel corso di un evento di manutenzione pianificata o non pianificata, almeno una delle macchine virtuali sia sempre disponibile e soddisfi per almeno il 99,95% i requisiti del contratto di servizio di Azure. Per altre informazioni, vedere [Contratto di Servizio per Macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
-> Evitare di lasciare un'unica istanza di macchina virtuale in un set di disponibilità. Le macchine virtuali in questa configurazione non si qualificano per la garanzia del Contratto di servizio e sono soggette a tempi di inattività durante gli eventi di manutenzione pianificata di Azure, fatta eccezione per quando una macchina virtuale singola usa [unità SSD Premium di Azure](../articles/virtual-machines/windows/disks-types.md#premium-ssd). Il Contratto di servizio di Azure si applica alle macchine virtuali singole che usano unità SSD Premium.
+> Una macchina virtuale a istanza singola in un set di disponibilità da solo deve usare SSD Premium o ultra disk per tutti i dischi del sistema operativo e i dischi dati per poter essere idonei per il contratto di servizio per la connettività delle macchine virtuali pari almeno al 99,9%.
 
 A ciascuna macchina virtuale nel set di disponibilità viene assegnato un **dominio di aggiornamento** e un **dominio di errore** dalla piattaforma Azure sottostante. Per ogni set di disponibilità vengono assegnati cinque domini di aggiornamento non configurabili dall'utente per impostazione predefinita, è possibile quindi aumentare le distribuzioni Resource Manager per fornire fino a venti domini di aggiornamento, per indicare i gruppi di macchine virtuali con il relativo hardware fisico sottostante che è possibile riavviare contemporaneamente. Se in un set di disponibilità vengono configurate più di cinque macchine virtuali, la sesta macchina viene inserita nello stesso dominio di aggiornamento della prima, la settima nel dominio di aggiornamento della seconda e così via. I domini di aggiornamento non vengono necessariamente riavviati in ordine sequenziale durante la manutenzione pianificata, ma ne viene riavviato uno solo alla volta. Un dominio di aggiornamento riavviato ha 30 minuti di tempo per eseguire il ripristino prima che venga avviata la manutenzione in un altro dominio di aggiornamento.
 

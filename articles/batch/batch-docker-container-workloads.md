@@ -1,6 +1,6 @@
 ---
-title: Carichi di lavoro del contenitore in Azure Batch | Microsoft Docs
-description: Informazioni su come eseguire le applicazioni dalle immagini del contenitore in Azure Batch.
+title: Carichi di lavoro del contenitore-Azure Batch
+description: Informazioni su come eseguire e ridimensionare le app dalle immagini del contenitore in Azure Batch. Creare un pool di nodi di calcolo che supporta l'esecuzione di attività contenitore.
 services: batch
 author: ju-shim
 manager: gwallace
@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 08/09/2019
 ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 097ab13ad64477274e756d8e8e93e3614dd1a4e8
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 493c9b30f6c7f735d69e113f3f1efe26ca6c1576
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029716"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935061"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Eseguire le applicazioni del contenitore in Azure Batch
 

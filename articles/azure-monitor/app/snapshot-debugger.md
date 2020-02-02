@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/23/2019
-ms.reviewer: brahmnes
-ms.openlocfilehash: 681190a23fd09402ae96c328b7d98044baf3444e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.reviewer: cweining
+ms.openlocfilehash: 44b4a7bb5910f7f2d89a9f76e21ccfcacda667fb
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406401"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932581"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Snapshot di debug per le eccezioni nelle app .NET
-Quando si verifica un'eccezione, è possibile raccogliere automaticamente uno snapshot di debug dall'applicazione Web live. Lo snapshot mostra lo stato del codice sorgente e delle variabili nel momento in cui è stata generata l'eccezione. Snapshot Debugger (anteprima) di [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitora la telemetria delle eccezioni dall'app Web. Raccoglie snapshot per le eccezioni generate più frequentemente in modo che l'utente possa avere le informazioni necessarie per diagnosticare i problemi nell'ambiente di produzione. Includere il [pacchetto NuGet snapshot Collector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'applicazione e, facoltativamente, configurare i parametri di raccolta in [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Gli snapshot vengono visualizzati nelle [eccezioni](../../azure-monitor/app/asp-net-exceptions.md) nel portale di Application Insights.
+Quando si verifica un'eccezione, è possibile raccogliere automaticamente uno snapshot di debug dall'applicazione Web live. Lo snapshot mostra lo stato del codice sorgente e delle variabili nel momento in cui è stata generata l'eccezione. Il Snapshot Debugger in [applicazione Azure Insights](../../azure-monitor/app/app-insights-overview.md) monitora i dati di telemetria delle eccezioni dall'app Web. Raccoglie snapshot per le eccezioni generate più frequentemente in modo che l'utente possa avere le informazioni necessarie per diagnosticare i problemi nell'ambiente di produzione. Includere il [pacchetto NuGet snapshot Collector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'applicazione e, facoltativamente, configurare i parametri di raccolta in [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Gli snapshot vengono visualizzati nelle [eccezioni](../../azure-monitor/app/asp-net-exceptions.md) nel portale di Application Insights.
 
 È possibile visualizzare gli snapshot di debug nel portale per vedere lo stack di chiamate e ispezionare le variabili in ogni stack frame di chiamate. Per ottenere un'esperienza di debug più potente con il codice sorgente, aprire gli snapshot con Visual Studio 2019 Enterprise. In Visual Studio è anche possibile [impostare punti di ancoraggio per creare in modo interattivo snapshot](https://aka.ms/snappoint) senza attendere un'eccezione.
 
@@ -33,7 +33,7 @@ Sono supportati i seguenti ambienti:
 * [Servizi cloud di Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) che eseguono la famiglia di sistemi operativi 4 o versioni successive
 * [Servizi di Service fabric di Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) in esecuzione in Windows Server 2012 R2 o versione successiva
 * [Macchine virtuali di Azure e set di scalabilità di macchine virtuali](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) che eseguono Windows Server 2012 R2 o versione successiva
-* [Computer virtuali o fisici locali](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) che eseguono Windows Server 2012 R2 o versione successiva
+* [Computer fisici o virtuali locali](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) che eseguono Windows Server 2012 R2 o versione successiva o Windows 8.1 o versione successiva
 
 > [!NOTE]
 > Le applicazioni client (ad esempio, WPF, Windows Forms o piattaforma UWP) non sono supportate.

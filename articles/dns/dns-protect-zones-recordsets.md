@@ -2,17 +2,17 @@
 title: Protezione di Zone DNS e record-DNS di Azure
 description: In questo percorso di apprendimento iniziare a proteggere le zone DNS e i set di record in Microsoft Azure DNS.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 12/4/2018
-ms.author: allensu
-ms.openlocfilehash: c87f9d51c69c4f4d330862e83e5cc8e8e849a988
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.author: rohink
+ms.openlocfilehash: 64c71047c60482ff198dbba833d4d0a35c80c60d
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969013"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932427"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Come proteggere le zone e i record DNS
 

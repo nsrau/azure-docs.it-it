@@ -3,7 +3,7 @@ title: Metriche e avvisi-DNS di Azure
 description: Con questo percorso di apprendimento, iniziare a usare le metriche e gli avvisi di DNS di Azure.
 services: dns
 documentationcenter: na
-author: asudbring
+author: rohinkoul
 manager: kumudD
 ms.service: dns
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
-ms.author: allensu
-ms.openlocfilehash: dc4d7de3d235fcdaf4a7f681065ba6e2857eb2ce
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 42acbc0d32b3ce5de4befcf112b68f611ad70542
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212409"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937447"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Metriche e avvisi di DNS di Azure
 DNS di Azure è un servizio di hosting per i domini DNS che offre la risoluzione dei nomi usando l'infrastruttura di Microsoft Azure. Questo articolo descrive le metriche e gli avvisi per il servizio DNS di Azure.

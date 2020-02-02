@@ -3,12 +3,12 @@ title: Matrice di supporto di Backup di Azure
 description: Informazioni riepilogative su impostazioni e limiti del supporto per il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: c424b905f44d6fd3a80a08ef925df4d0a06dd7d8
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 37347e6febdfc3500c218238606fc96463da631c
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705378"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936241"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per backup di Azure
 
@@ -19,6 +19,8 @@ Sono disponibili altre matrici di supporto:
 - Matrice di supporto per il [backup di macchine virtuali (VM) di Azure](backup-support-matrix-iaas.md)
 - Matrice di supporto per il backup mediante [System Center Data Protection Manager (DPM)/Microsoft Server di backup di Azure (MAB)](backup-support-matrix-mabs-dpm.md)
 - Matrice di supporto per il backup tramite l' [agente di servizi di ripristino di Microsoft Azure (Mars)](backup-support-matrix-mars-agent.md)
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="vault-support"></a>Supporto degli insiemi di credenziali
 

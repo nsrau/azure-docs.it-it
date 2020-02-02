@@ -2,17 +2,17 @@
 title: Panoramica della delega di DNS di Azure
 description: Informazioni su come modificare la delega di dominio e usare server dei nomi DNS di Azure per fornire hosting di dominio.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.date: 2/19/2019
-ms.author: allensu
+ms.author: rohink
 ms.topic: conceptual
-ms.openlocfilehash: 3d8a87e199736bf51fcdc051c17c2fded3402b79
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9304556edb5e6207296d8ee4e8392e345869cb92
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212091"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939047"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Delega di zone DNS con DNS di Azure
 
@@ -24,7 +24,7 @@ DNS di Azure consente di ospitare una zona DNS e gestire i record DNS per un dom
 
 Domain Name System è una gerarchia di domini. La gerarchia inizia dal dominio "radice", il cui nome è semplicemente " **.** ",  seguito dai domini di primo livello, come "com", "net", "org", "uk" o "jp",  e quindi dai domini di secondo livello, come "org.uk" o "co.jp"  e così via. I domini nella gerarchia DNS sono ospitati usando zone DNS separate. Queste zone vengono distribuite a livello globale, ospitate dai server dei nomi DNS in tutto il mondo.
 
-**Zona DNS**: un dominio è un nome univoco nel Domain Name System, ad esempio "contoso.com". Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. Il dominio "contoso.com", ad esempio, può contenere diversi record DNS, come "mail.contoso.com" (per un server di posta) e "www.contoso.com" (per un sito Web).
+**Zona DNS**: un dominio è un nome univoco nel Domain Name System, ad esempio "contoso.com". Una zona DNS viene usata per ospitare i record DNS per un dominio specifico. Il dominio "contoso.com", ad esempio, può contenere diversi record DNS, come "mail.contoso.com" (per un server di posta) e "www.contoso.com" (per un sito Web).
 
 **Registrar**: un registrar è una società che può fornire nomi di dominio Internet. e verificare se il dominio Internet richiesto è disponibile, consentendo all'utente di acquistarlo. Dopo che il nome di dominio è stato registrato, si diventa il legittimo proprietario del nome di dominio. Se si ha già un dominio Internet, si userà il registrar corrente per delegare al NS di Azure.
 

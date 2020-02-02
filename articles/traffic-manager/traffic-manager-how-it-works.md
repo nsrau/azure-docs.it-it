@@ -3,7 +3,7 @@ title: Come funziona Gestione traffico di Azure | Microsoft Docs
 description: Questo articolo aiuterà a comprendere come Gestione traffico instrada il traffico per garantire prestazioni e disponibilità elevate delle applicazioni Web
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: allensu
-ms.openlocfilehash: 281e1e591d7c3cc31b77a116fb42af49dc27798c
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.author: rohink
+ms.openlocfilehash: 709e89b94ba10db954aa5cf3f70aeffb0d239edb
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312143"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938632"
 ---
 # <a name="how-traffic-manager-works"></a>Funzionamento di Gestione traffico
 

@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/04/2019
+ms.date: 01/30/2020
 ms.author: victorh
-ms.openlocfilehash: 323f01e08007260d4fb6d651b20937c5d5d5e357
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 9d9deca0365e13a0a8ad7404a476b05d0afef077
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645090"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935008"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Regole personalizzate per il Web Application Firewall V2 in applicazione Azure gateway
 
@@ -22,7 +22,7 @@ Le regole personalizzate consentono di creare regole personalizzate che vengono 
 
 Ad esempio, è possibile bloccare tutte le richieste da un indirizzo IP compreso nell'intervallo 192.168.5.4/24. In questa regola, l'operatore è *IPMatch*, matchValues è l'intervallo di indirizzi IP (192.168.5.4/24) e l'azione consiste nel bloccare il traffico. È anche possibile impostare il nome e la priorità della regola.
 
-Le regole personalizzate supportano l'uso della logica di composizione per apportare regole più avanzate per soddisfare le esigenze di sicurezza. Ad esempio, (condizione 1 **e** condizione 2) **o** condizione 3).  Questo esempio indica che se la condizione 1 **e** la condizione 2 sono soddisfatte **o** se viene soddisfatta la condizione 3, il WAF deve eseguire l'azione specificata nella regola personalizzata.
+Le regole personalizzate supportano l'uso della logica di composizione per apportare regole più avanzate per soddisfare le esigenze di sicurezza. Ad esempio, (condizione 1 **e** condizione 2) **o** condizione 3). Ciò significa che se la condizione 1 **e** la condizione 2 sono soddisfatte **o** se viene soddisfatta la condizione 3, il WAF deve eseguire l'azione specificata nella regola personalizzata.
 
 Condizioni di corrispondenza diverse all'interno della stessa regola vengono sempre composte mediante **e**. Ad esempio, bloccare il traffico da un indirizzo IP specifico e solo se viene usato un determinato browser.
 
@@ -31,7 +31,7 @@ Se si desiderano **o** due condizioni diverse, le due condizioni devono essere i
 > [!NOTE]
 > Il numero massimo di regole personalizzate di WAF è 100. Per altre informazioni sui limiti del gateway applicazione, vedere [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
-Le espressioni regolari sono supportate anche nelle regole personalizzate, esattamente come nei RuleSet di CRS. Per esempi, vedere gli esempi 3 e 5 in [creare e usare regole Web Application Firewall personalizzate](create-custom-waf-rules.md).
+Le espressioni regolari sono supportate anche nelle regole personalizzate, esattamente come nei RuleSet di CRS. Per esempi, vedere gli esempi 3 e 5 nella pagina relativa alla [creazione e all'uso di regole di Web Application Firewall personalizzate](create-custom-waf-rules.md).
 
 ## <a name="allowing-vs-blocking"></a>Consentire il blocco di Visual Studio
 
@@ -92,7 +92,7 @@ Questa regola personalizzata contiene un nome, una priorità, un'azione e la mat
 
 ### <a name="name-optional"></a>Nome [facoltativo]
 
-Si tratta del nome della regola. Questo nome viene visualizzato nei log.
+Nome della regola.  Viene visualizzato nei log.
 
 ### <a name="priority-required"></a>Priority [obbligatorio]
 
@@ -157,198 +157,13 @@ Elenco di valori da confrontare, che può essere considerato come *o*' ed. Ad es
 
 ### <a name="action-required"></a>Azione [obbligatorio]
 
-- Consenti: autorizza la transazione, ignorando tutte le regole successive. Ciò significa che la richiesta specificata viene aggiunta all'elenco Consenti e una volta corrispondente, la richiesta interrompe un'ulteriore valutazione e viene inviata al pool back-end. Le regole presenti nell'elenco Consenti non vengono valutate per altre regole personalizzate o regole gestite.
+- Consenti: autorizza la transazione, ignorando tutte le altre regole. La richiesta specificata viene aggiunta all'elenco Consenti e una volta corrispondente, la richiesta interrompe un'ulteriore valutazione e viene inviata al pool back-end. Le regole presenti nell'elenco Consenti non vengono valutate per altre regole personalizzate o regole gestite.
 - Block: blocca la transazione in base a *SecDefaultAction* (modalità di rilevamento/prevenzione). Proprio come l'azione Consenti, una volta che la richiesta viene valutata e aggiunta all'elenco dei blocchi, la valutazione viene arrestata e la richiesta viene bloccata. Eventuali richieste successive a quelle che soddisfano le stesse condizioni non verranno valutate e verranno bloccate. 
-- Log: consente alla regola di scrivere nel log, ma consente di eseguire le altre regole per la valutazione. Le regole personalizzate successive vengono valutate in ordine di priorità, seguite dalle regole gestite.
+- Log: consente alla regola di scrivere nel log, ma consente di eseguire le altre regole per la valutazione. Le altre regole personalizzate vengono valutate in ordine di priorità, seguite dalle regole gestite.
 
 ## <a name="geomatch-custom-rules-preview"></a>Geomatch-regole personalizzate (anteprima)
 
-Le regole personalizzate consentono di creare regole personalizzate in base alle esigenze specifiche delle applicazioni e ai criteri di sicurezza. È ora possibile limitare l'accesso alle applicazioni Web per paese/area geografica, disponibile in anteprima pubblica. Come per tutte le regole personalizzate, questa logica può essere composta con altre regole in base alle esigenze dell'applicazione. 
-
-   > [!NOTE]
-   > Le regole personalizzate di geocorrispondenza sono disponibili negli Stati Uniti centro-meridionali e in Europa settentrionale. Per accedervi nel portale, usare [questo collegamento](https://aka.ms/AppGWWAFGeoMatch) fino a quando non diventa disponibile per tutti. 
-
-Se si utilizza l'operatore geomatch, i selettori possono essere uno qualsiasi dei seguenti codici paese a due cifre. 
-
-|Indicativo paese | Nome del paese |
-| ----- | ----- |
-| AD | Andorra |
-| AE | Emirati Arabi Uniti|
-| AF | Afghanistan|
-| AG | Antigua e Barbuda|
-| AL | Albania|
-| AM | Armenia|
-| AO | Angola|
-| AR | Argentina|
-| AS | Samoa americane|
-| AT | Austria|
-| AU | Australia|
-| AZ | Azerbaigian|
-| BA | Bosnia ed Erzegovina|
-| BB | Barbados|
-| BD | Bangladesh|
-| BE | Belgio|
-| BF | Burkina Faso|
-| BG | Bulgaria|
-| BH | Bahrain|
-| BI | Burundi|
-| BJ | Benin|
-| BL | Saint Barthélemy|
-| BN | Brunei Darussalam|
-| BO | Bolivia|
-| BR | Brasile|
-| BS | Bahamas|
-| BT | Bhutan|
-| BW | Botswana|
-| BY | Bielorussia|
-| BZ | Belize|
-| CA | Canada|
-| CD | Repubblica democratica del Congo|
-| CF | Repubblica Centrafricana|
-| CH | Svizzera|
-| CI | Côte d'Ivoire (Costa d'Avorio)|
-| CL | Cile|
-| CM | Camerun|
-| CN | Cina|
-| CO | Colombia|
-| CR | Costa Rica|
-| CU | Cuba|
-| CV | Cabo Verde|
-| CY | Cipro|
-| CZ | Repubblica Ceca|
-| DE | Germania|
-| DK | Danimarca|
-| DO | Repubblica Domenicana|
-| DZ | Algeria|
-| EC | Ecuador|
-| EE | Estonia|
-| EG | Egitto|
-| ES | Spagna|
-| ET | Etiopia|
-| FI | Finlandia|
-| FJ | Figi|
-| FM | Micronesia, stati di|
-| VF | Francia|
-| GB | Regno Unito|
-| GE | Georgia|
-| GF | Guayana francese|
-| GH | Ghana|
-| GN | Guinea|
-| GP | Guadalupa|
-| GR | Grecia|
-| GT | Guatemala|
-| GY | Guiana|
-| HK | RAS di Hong Kong|
-| HN | Honduras|
-| Risorse umane | Croazia|
-| HT | Haiti|
-| HU | Ungheria|
-| ID | Indonesia|
-| IE | Irlanda|
-| IL | Israele|
-| IN | India|
-| IQ | Iraq|
-| IR | Iran, Repubblica islamica|
-| IS | Islanda|
-| IT | Italia|
-| JM | Giamaica|
-| JO | Giordania|
-| JP | Giappone|
-| KE | Kenya|
-| KG | Kirghizistan|
-| KH | Cambogia|
-| KI | Kiribati|
-| KN | Saint Christopher e Nevis|
-| KP | Repubblica democratica popolare di Corea|
-| KR | Repubblica di Corea|
-| KW | Kuwait|
-| KY | Isole Cayman|
-| KZ | Kazakhstan|
-| LA | Repubblica democratica popolare del Laos|
-| LB | Libano|
-| LI | Liechtenstein|
-| LK | Sri Lanka|
-| LR | Liberia|
-| LS | Lesotho|
-| LT | Lituania|
-| LU | Lussemburgo|
-| LV | Lettonia|
-| LY | Libia |
-| MA | Marocco|
-| MD | Moldova, Repubblica|
-| MG | Madagascar|
-| MK | Macedonia del Nord|
-| ML | Mali|
-| MM | Myanmar|
-| MN | Mongolia|
-| MO | RAS di Macao|
-| MQ | Martinica|
-| MR | Mauritania|
-| MT | Malta|
-| MV | Maldive|
-| MW | Malawi|
-| MX | Messico|
-| MY | Malaysia|
-| MZ | Mozambico|
-| ND | Namibia|
-| NE | Niger|
-| NG | Nigeria|
-| NI | Nicaragua|
-| NL | Paesi Bassi|
-| NO | Norvegia|
-| NP | Nepal|
-| NR | Nauru|
-| NZ | Nuova Zelanda|
-| OM | Oman|
-| PA | Panama|
-| PE | Perù|
-| PH | Filippine|
-| PK | Pakistan|
-| PL | Polonia|
-| PR | Portorico|
-| PT | Portogallo|
-| PW | Palau|
-| PY | Paraguay|
-| QA | Qatar|
-| RE | Riunione|
-| RO | Romania|
-| RS | Serbia|
-| RU | Federazione russa|
-| LS | Ruanda|
-| SA | Arabia Saudita|
-| SD | Sudan|
-| SE | Svezia|
-| SG | Singapore|
-| SI | Slovenia|
-| SK | Slovacchia|
-| SN | Senegal|
-| SO | Somalia|
-| SR | Suriname|
-| SS | Sudan del Sud|
-| SV | El Salvador|
-| SY | Repubblica araba siriana|
-| SZ | Swaziland|
-| TC | Isole Turks e Caicos|
-| TG | Togo|
-| TH | Tailandia|
-| TN | Tunisia|
-| TR | Turchia|
-| TT | Trinidad e Tobago|
-| TW | Taiwan|
-| TZ | Tanzania, Repubblica del|
-| UA | Ucraina|
-| UG | Uganda|
-| Stati Uniti | Stati Uniti|
-| UY | Uruguay|
-| UZ | Uzbekistan|
-| VC | Saint Vincent e Grenadine|
-| VE | Venezuela|
-| VG | Isole Vergini britanniche|
-| VI | Isole Vergini Americane|
-| VN | Vietnam|
-| ZA | Sudafrica|
-| ZM | Zambia|
-| ZW | Zimbabwe|
+Le regole personalizzate consentono di creare regole personalizzate per soddisfare le esigenze specifiche delle applicazioni e dei criteri di sicurezza. È possibile limitare l'accesso alle applicazioni Web in base al paese o all'area geografica. Per ulteriori informazioni, vedere la pagina relativa [alle regole personalizzate di geocorrispondenza (anteprima)](geomatch-custom-rules.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

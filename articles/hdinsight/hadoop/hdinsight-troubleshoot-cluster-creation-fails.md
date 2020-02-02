@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/26/2019
-ms.openlocfilehash: 093bfbd976ace41f635976ff27fa4292e5c4df3c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 1e13c7ef8eae81ef2a12a8761b0596f6329f94dc
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905147"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937913"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Risolvere gli errori di creazione del cluster con Azure HDInsight
 
@@ -64,7 +64,7 @@ Se si usa una route Express o un server DNS personalizzato, vedere [pianificare 
 
 ## <a name="resources-locks"></a>Blocchi di risorse  
 
-Assicurarsi che non siano presenti [blocchi per la rete virtuale e il gruppo di risorse](../../azure-resource-manager/management/lock-resources.md).  
+Assicurarsi che non siano presenti [blocchi per la rete virtuale e il gruppo di risorse](../../azure-resource-manager/management/lock-resources.md). I cluster non possono essere creati o eliminati se il gruppo di risorse è bloccato. 
 
 ## <a name="unsupported-component-versions"></a>Versioni di componenti non supportate
 

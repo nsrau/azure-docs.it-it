@@ -3,12 +3,12 @@ title: Panoramica delle Attività del Registro Azure Container
 description: Introduzione alle attività di ACR, una suite di funzionalità in Azure Container Registry che fornisce la compilazione, la gestione e l'applicazione di patch di immagini del contenitore sicure e automatizzate nel cloud.
 ms.topic: article
 ms.date: 09/05/2019
-ms.openlocfilehash: 96997f963f0bcb319d5318e2dd88a6e1e21fb36b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f8ab3c3bd259f83a61d0b030a49e158ccd6e2a69
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74840766"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938887"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizzare le compilazioni e la manutenzione delle immagini del contenitore con le attività ACR
 
@@ -58,13 +58,13 @@ Le attività ACR supportano i trigger seguenti quando si imposta un repository G
 
 | Trigger | Abilitato per impostazione predefinita |
 | ------- | ------------------ |
-| Commit | SÌ |
+| Commit | Sì |
 | Richiesta pull | No |
 
 Per configurare un trigger di aggiornamento del codice sorgente, è necessario fornire all'attività un token di accesso personale (PAT) per impostare il webhook nel repository GitHub pubblico o privato o Azure DevOps.
 
 > [!NOTE]
-> Attualmente, le attività ACR non supportano i trigger di richiesta commit o pull nei repository di GitHub Enterprise.
+> Attualmente, Attività del Registro Azure Container non supporta i trigger per il commit o le richieste pull nei repository di GitHub Enterprise.
 
 Per informazioni su come attivare compilazioni in caso di commit del codice sorgente, vedere la seconda esercitazione su Attività del Registro Azure Container, [Automatizzare la compilazione di immagini dei contenitori con Attività del Registro Azure Container](container-registry-tutorial-build-task.md).
 
@@ -122,6 +122,7 @@ La tabella seguente mostra alcuni esempi di percorsi di contesto supportati per 
 | Ramo master GitHub | File nel ramo master (o un altro valore predefinito) di un repository GitHub pubblico o privato.  | `https://github.com/gituser/myapp-repo.git` |
 | Ramo GitHub | Ramo specifico di un repository GitHub pubblico o privato.| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | Sottocartella di GitHub | File all'interno di una sottocartella in un repository GitHub pubblico o privato. Esempio mostra la combinazione di una specifica di Branch e sottocartella. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| Commit di GitHub | Commit specifico in un repository GitHub pubblico o privato. Esempio mostra la combinazione di una specifica di commit hash (SHA) e della sottocartella. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |
 | Sottocartella DevOps di Azure | File all'interno di una sottocartella in un repository di Azure pubblico o privato. Esempio mostra la combinazione di specifiche di Branch e sottocartelle. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | File tarball remoto | File in un archivio compresso in un server Web remoto. | `http://remoteserver/myapp.tar.gz` |
 
@@ -132,9 +133,9 @@ La tabella seguente mostra alcuni esempi di percorsi di contesto supportati per 
 
 Per impostazione predefinita, le attività ACR compilano immagini per il sistema operativo Linux e l'architettura amd64. Specificare il tag `--platform` per compilare immagini Windows o immagini Linux per altre architetture. Specificare il sistema operativo e, facoltativamente, un'architettura supportata nel formato del sistema operativo/architettura, ad esempio `--platform Linux/arm`. Per le architetture ARM, è possibile specificare facoltativamente una variante nel formato sistema operativo/architettura/variante (ad esempio, `--platform Linux/arm64/v8`):
 
-| Sistema operativo | Architecture|
+| Sistema operativo | Architettura|
 | --- | ------- | 
-| Linux | amd64<br/>arm<br/>arm64<br/>386 |
+| Linux | amd64<br/>ARM<br/>arm64<br/>386 |
 | Windows | amd64 |
 
 ## <a name="view-task-logs"></a>Visualizzare i log delle attività

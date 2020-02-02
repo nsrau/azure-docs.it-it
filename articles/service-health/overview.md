@@ -3,12 +3,12 @@ title: Informazioni sull'integrità del servizio di Azure
 description: Informazioni personalizzate su come le app di Azure sono interessate dalla manutenzione e dai problemi attuali e futuri dei servizi di Azure.
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: 4d9d9dcb4db483b524cb7be8e006ba12edcc8442
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 039583d9243f8ce76b33afcee098e71a670b5285
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463960"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939205"
 ---
 # <a name="what-is-azure-service-health"></a>Informazioni sull'integrità del servizio di Azure
 
@@ -27,3 +27,5 @@ Insieme, queste esperienze offrono una visualizzazione completa dello stato di i
 **Guardare una panoramica della pagina stato di Azure, integrità dei servizi di Azure e Integrità risorse di Azure**
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OgX6]
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]

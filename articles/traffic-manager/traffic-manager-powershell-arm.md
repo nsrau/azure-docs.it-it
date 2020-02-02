@@ -3,20 +3,20 @@ title: Uso di PowerShell per Gestione traffico in Azure
 description: Con questo percorso di apprendimento, iniziare a usare Azure PowerShell per gestione traffico.
 services: traffic-manager
 documentationcenter: na
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: allensu
-ms.openlocfilehash: f8dd01f22dec58c3345798b391c1c37c968d1025
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.author: rohink
+ms.openlocfilehash: 7886764a69eefa68be071a801bea65ae995fbdc3
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038130"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938507"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Uso di PowerShell per Gestione traffico
 
@@ -38,7 +38,7 @@ Ogni profilo di Gestione traffico è rappresentato da una risorsa di tipo "Traff
 
 In queste istruzioni viene usato Microsoft Azure PowerShell. L'articolo seguente illustra come installare e configurare Azure PowerShell.
 
-* [modalità di installazione e configurazione di Azure PowerShell](/powershell/azure/overview)
+* [Come installare e configurare Azure PowerShell](/powershell/azure/overview)
 
 Negli esempi inclusi in questo articolo si presuppone che esista un gruppo di risorse. È possibile creare un gruppo di risorse usando il comando seguente:
 
@@ -59,7 +59,7 @@ $TmProfile = New-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
 
 La tabella seguente descrive i parametri:
 
-| . | DESCRIZIONE |
+| Parametro | Description |
 | --- | --- |
 | Nome |Il nome della risorsa per la risorsa del profilo di Gestione traffico. I profili dello stesso gruppo di risorse devono disporre di nomi univoci. Tale nome è diverso rispetto a quello DNS utilizzato per le query DNS. |
 | ResourceGroupName |Il nome del gruppo di risorse che include la risorsa del profilo. |
@@ -115,15 +115,15 @@ In tutti e tre i casi è possibile aggiungere gli endpoint in due modi:
 
 Gli endpoint di Azure fanno riferimento ai servizi ospitati in Azure. Sono attualmente supportati due tipi di endpoint di Azure:
 
-1. servizio app di Azure
+1. Servizio app di Azure
 2. Risorse di tipo publicIpAddress di Azure, che possono essere associate a un servizio di bilanciamento del carico o a una scheda di interfaccia di rete di una macchina virtuale. La risorsa di tipo PublicIpAddress deve avere un nome DNS assegnato da usare in Gestione traffico.
 
 In ogni caso:
 
 * Il servizio viene specificato usando il parametro "targetResourceId" di `Add-AzTrafficManagerEndpointConfig` o `New-AzTrafficManagerEndpoint`.
 * TargetResourceId usa in modo implicito "Target" ed "EndpointLocation".
-* "Weight" è facoltativo ed è possibile scegliere se specificarlo. I pesi vengono usati solo se il profilo è configurato per l'uso del metodo di routing del traffico "Weighted". In caso contrario, vengono ignorati. Il valore deve essere un numero compreso tra 1 e 1000. Il valore predefinito è "1".
-* "Priority" è facoltativo ed è possibile scegliere se specificarlo. Le priorità vengono usate solo se il profilo è configurato per l'uso del metodo di routing del traffico "Priority". In caso contrario, vengono ignorati. I valori validi sono compresi tra 1 e 1000 con i valori più bassi che indicano una priorità più alta. Se si specifica questo valore per un endpoint, sarà necessario specificarlo per tutti gli endpoint. Se questo valore viene omesso, verranno applicati i valori predefiniti a partire da "1" nell'ordine in cui sono elencati gli endpoint.
+* "Weight" è facoltativo ed è possibile scegliere se specificarlo. I pesi vengono usati solo se il profilo è configurato per l'uso del metodo di routing del traffico "Weighted". In caso contrario, vengono ignorate. Il valore deve essere un numero compreso tra 1 e 1000. il cui valore predefinito è 1.
+* "Priority" è facoltativo ed è possibile scegliere se specificarlo. Le priorità vengono usate solo se il profilo è configurato per l'uso del metodo di routing del traffico "Priority". In caso contrario, vengono ignorate. I valori validi sono compresi tra 1 e 1000 con i valori più bassi che indicano una priorità più alta. Se si specifica questo valore per un endpoint, sarà necessario specificarlo per tutti gli endpoint. Se questo valore viene omesso, verranno applicati i valori predefiniti a partire da "1" nell'ordine in cui sono elencati gli endpoint.
 
 ### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>Esempio 1: aggiunta di endpoint del servizio app con `Add-AzTrafficManagerEndpointConfig`
 
@@ -177,14 +177,14 @@ New-AzTrafficManagerEndpoint -Name eu-endpoint -ProfileName MyProfile -ResourceG
 
 ## <a name="adding-nested-endpoints"></a>Aggiunta di endpoint 'annidati'
 
-Ciascun profilo di Gestione traffico specifica un solo metodo di routing del traffico. Esistono scenari che tuttavia richiedono un sistema di routing del traffico più avanzato anziché il routing fornito da un singolo profilo di Gestione traffico. È possibile annidare i profili di Gestione traffico per combinare i vantaggi offerti da più metodi di routing del traffico. I profili annidati consentono di ignorare il comportamento predefinito di Gestione traffico per supportare distribuzioni di dimensioni maggiori e più complesse. Per esempi più dettagliati, vedere [Profili annidati di Gestione traffico](traffic-manager-nested-profiles.md).
+Ciascun profilo di Gestione traffico specifica un solo metodo di routing del traffico. Esistono scenari che tuttavia richiedono un sistema di routing del traffico più avanzato anziché il routing fornito da un singolo profilo di Gestione traffico. È possibile annidare i profili di Gestione traffico per combinare i vantaggi offerti da più metodi di routing del traffico. I profili annidati consentono di ignorare il comportamento predefinito di Gestione traffico per supportare distribuzioni di applicazioni di dimensioni maggiori e più complesse. Per esempi più dettagliati, vedere [Profili annidati di Gestione traffico](traffic-manager-nested-profiles.md).
 
 Endpoint annidati vengono configurati nel profilo padre tramite un tipo di endpoint specifico, 'NestedEndpoints'. Quando si specificano endpoint annidati:
 
 * L'endpoint deve essere specificato usando il parametro "targetResourceId"
 * "EndpointLocation" è obbligatorio se viene usato il metodo di routing del traffico "Performance". In caso contrario, è facoltativo. Il valore deve essere un [nome di area di Azure valido](https://azure.microsoft.com/regions/).
 * I parametri "Weight" e "Priority" sono facoltativi, come per gli endpoint di Azure.
-* Il parametro "MinChildEndpoints" è facoltativo. Il valore predefinito è "1". Se il numero di endpoint disponibili scende sotto questa soglia, il profilo padre considera il profilo figlio "degradato" con conseguente deviazione del traffico agli altri endpoint del profilo padre.
+* Il parametro "MinChildEndpoints" è facoltativo. il cui valore predefinito è 1. Se il numero di endpoint disponibili scende sotto questa soglia, il profilo padre considera il profilo figlio "degradato" con conseguente deviazione del traffico agli altri endpoint del profilo padre.
 
 ### <a name="example-1-adding-nested-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>Esempio 1: Aggiunta di endpoint annidati usando `Add-AzTrafficManagerEndpointConfig` e `Set-AzTrafficManagerProfile`
 

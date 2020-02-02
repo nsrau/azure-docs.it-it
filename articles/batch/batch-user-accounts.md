@@ -1,6 +1,6 @@
 ---
-title: Eseguire attività con account utente - Azure Batch | Microsoft Docs
-description: Configurare gli account utente per l'esecuzione di attività in Azure Batch
+title: Eseguire attività in account utente-Azure Batch
+description: È utile essere in grado di configurare l'account utente con cui si desidera eseguire un'attività. Informazioni sui tipi di account utente e su come configurarli.
 services: batch
 author: ju-shim
 manager: gwallace
@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 11/18/2019
 ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: d4975935c872f059dde6b08bcd7a4f06540c2dfd
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 01342c8fcd0d2d3c603762b06350a9fcf7c12d03
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029594"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937956"
 ---
 > [!NOTE] 
 > Gli account utente descritti in questo articolo sono diversi dagli account utente usati per la Remote Desktop Protocol (RDP) o Secure Shell (SSH), per motivi di sicurezza. 

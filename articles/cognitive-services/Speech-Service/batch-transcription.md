@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: 5732df2551eafa74b81f9a918a1cb7cf5ac1395c
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 8a53f1cfbde2f518848e7ef1104bf41ba4996961
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76768033"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936399"
 ---
 # <a name="how-to-use-batch-transcription"></a>Come usare la trascrizione batch
 
@@ -78,7 +78,7 @@ I parametri di configurazione vengono forniti in formato JSON:
     "AddWordLevelTimestamps" : "True | False",
     "AddSentiment" : "True | False",
     "AddDiarization" : "True | False",
-    "TranscriptionResultsContainerUrl" : "<SAS to Azure container to store results into (write permission required)>"
+    "TranscriptionResultsContainerUrl" : "<service SAS URI to Azure container to store results into (write permission required)>"
   }
 }
 ```
@@ -94,7 +94,7 @@ Usare queste proprietà facoltative per configurare la trascrizione:
 | `AddWordLevelTimestamps` | Specifica se i timestamp a livello di parola devono essere aggiunti all'output. I valori accettati sono `true`, che abilita i timestamp a livello di parola, e `false` (valore predefinito), che li disabilita. |
 | `AddSentiment` | Specifica che il sentimento deve essere aggiunto all'espressione. I valori accettati sono `true` che Abilita il sentimento per enunciato e `false` (valore predefinito) per disabilitarlo. |
 | `AddDiarization` | Specifica che l'analisi della fase di esecuzione deve essere eseguita nell'input che dovrebbe essere canale mono contenente due voci. I valori accettati sono `true` che consentono di eseguire la `false` (valore predefinito) e di disabilitarlo. Richiede anche che `AddWordLevelTimestamps` sia impostato su true.|
-|`TranscriptionResultsContainerUrl`|Token SAS facoltativo per un contenitore scrivibile in Azure. Il risultato verrà archiviato in questo contenitore.
+|`TranscriptionResultsContainerUrl`|URL facoltativo con firma di accesso condiviso del [servizio](../../storage/common/storage-sas-overview.md) per un contenitore scrivibile in Azure. Il risultato verrà archiviato in questo contenitore.
 
 ### <a name="storage"></a>Archiviazione
 

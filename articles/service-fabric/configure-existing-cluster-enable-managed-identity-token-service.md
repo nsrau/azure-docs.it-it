@@ -1,28 +1,30 @@
 ---
-title: Azure Service Fabric-configurare un cluster di Azure Service Fabric esistente per abilitare il supporto per le identità gestite
-description: Questo articolo illustra come configurare un cluster di Azure Service Fabric esistente per abilitare il supporto per le identità gestite
+title: Configurare il supporto di identità gestite in un cluster di Service Fabric esistente
+description: Ecco come abilitare il supporto per le identità gestite in un cluster di Azure Service Fabric esistente
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: 13b8b38a206b0dae0877263a5cda56a134d4788d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: sfrev
+ms.openlocfilehash: cb6e4ab00afd80cba41881e46296f7046a905919
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351602"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934959"
 ---
-# <a name="configure-an-existing-azure-service-fabric-cluster-to-enable-managed-identity-support-preview"></a>Configurare un cluster di Azure Service Fabric esistente per abilitare il supporto per le identità gestite (anteprima)
-Per accedere alla funzionalità di identità gestita per le applicazioni Azure Service Fabric, è necessario abilitare prima il **servizio token di identità gestito** nel cluster. Questo servizio è responsabile dell'autenticazione delle applicazioni Service Fabric usando le identità gestite e per ottenere i token di accesso per loro conto. Quando il servizio è abilitato, è possibile visualizzarlo in Service Fabric Explorer nella sezione **sistema** nel riquadro sinistro, in esecuzione con il nome **Fabric:/System/ManagedIdentityTokenService**.
+# <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster-preview"></a>Configurare il supporto di identità gestite in un cluster di Service Fabric esistente (anteprima)
+
+Per usare le [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) nelle applicazioni Service Fabric, abilitare prima il *servizio token di identità gestito* nel cluster. Questo servizio è responsabile dell'autenticazione delle applicazioni Service Fabric usando le identità gestite e per ottenere i token di accesso per loro conto. Quando il servizio è abilitato, è possibile visualizzarlo in Service Fabric Explorer nella sezione **sistema** nel riquadro sinistro, in esecuzione con il nome **Fabric:/System/ManagedIdentityTokenService**.
 
 > [!NOTE]
 > Per abilitare il **servizio token di identità gestito**, è necessario Service Fabric versione di runtime 6.5.658.9590 o successiva.  
-> 
+>
 > È possibile trovare la versione Service Fabric di un cluster dalla portale di Azure aprendo la risorsa cluster e controllando la proprietà **versione Service Fabric** **nella sezione informazioni** di base.
-> 
+>
 > Se il cluster è in modalità di aggiornamento **manuale** , è necessario prima aggiornarlo a 6.5.658.9590 o versione successiva.
 
+## <a name="enable-managed-identity-token-service-in-an-existing-cluster"></a>Abilitare il *servizio token di identità gestito* in un cluster esistente
 
-## <a name="enable-the-managed-identity-token-service-in-an-existing-cluster"></a>Abilitare il servizio token di identità gestito in un cluster esistente
-Per abilitare il servizio token di identità gestito in un cluster esistente, è necessario avviare un aggiornamento del cluster specificando due modifiche: abilitazione del servizio token di identità gestito e richiesta di riavvio di ciascun nodo. A tale scopo, aggiungere i due frammenti di codice seguenti nel modello di Azure Resource Manager:
+Per abilitare il servizio token di identità gestito in un cluster esistente, è necessario avviare un aggiornamento del cluster specificando due modifiche: (1) abilitando il servizio token di identità gestito e (2) richiedendo un riavvio di ogni nodo. Per prima cosa, aggiungere il frammento di codice seguente Azure Resource Manager modello di cluster:
 
 ```json
 "fabricSettings": [

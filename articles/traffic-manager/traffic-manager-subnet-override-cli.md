@@ -3,18 +3,18 @@ title: Override della subnet di gestione traffico di Azure con l'interfaccia del
 description: Questo articolo illustra come usare l'override della subnet di gestione traffico per eseguire l'override del metodo di routing di un profilo di gestione traffico per indirizzare il traffico a un endpoint in base all'indirizzo IP dell'utente finale tramite un intervallo IP predefinito per i mapping degli endpoint.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.topic: article
 ms.service: traffic-manager
 ms.date: 09/18/2019
-ms.author: allensu
-ms.openlocfilehash: d285db22ef92128e025a677ea7f86d623dfe130c
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.author: rohink
+ms.openlocfilehash: 818b692884bd9d31efd08663a582ebcfec2032e9
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351174"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938478"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-cli"></a>Sostituzione della subnet di gestione traffico con l'interfaccia della riga
 
@@ -76,7 +76,7 @@ az network traffic-manager endpoint update \
     --type AzureEndpoints
 
 ```
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Altre informazioni sui [metodi di routing](traffic-manager-routing-methods.md)di Gestione traffico.
 
 Informazioni sul [metodo di routing del traffico della subnet](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method)

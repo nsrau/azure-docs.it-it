@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 739322feb8e844a197f2943f4ff050cacc0f2274
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: e298aad6dc43f85f5b6c344eec56f5d8b37980d4
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911304"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933308"
 ---
 # <a name="building-an-accessible-application"></a>Compilazione di un'applicazione accessibile
 
@@ -80,11 +80,11 @@ La mappa dispone di una serie di tasti di scelta rapida incorporati che semplifi
 | `Shift` + freccia giù | Riduci il pitch della mappa di 10 gradi |
 | `Shift` + freccia destra | Ruotare la mappa di 15 gradi in senso orario |
 | `Shift` + freccia sinistra | Ruotare la mappa di 15 gradi in senso antiorario |
-| Segno più (`+`) o <sup>*</sup>segno di uguale (`=`) | Eseguire lo zoom avanti |
-| Segno meno, trattino (`-`) o carattere di sottolineatura <sup>*</sup>(`_`) | Eseguire lo zoom indietro | 
+| Segno più (`+`) o <sup>*</sup>segno di uguale (`=`) | Zoom avanti |
+| Segno meno, trattino (`-`) o carattere di sottolineatura <sup>*</sup>(`_`) | Zoom indietro | 
 | `Shift` + trascina il mouse sulla mappa per l'area di estrazione | Ingrandisci area |
 
-<sup>*</sup> Questi tasti di scelta rapida della chiave condividono in genere la stessa chiave su una tastiera. Questi sono stati aggiunti per migliorare l'esperienza utente, in modo che non sia importante se l'utente usa il tasto MAIUSC o meno per questi tasti di scelta rapida.
+<sup>*</sup> Questi tasti di scelta rapida della chiave condividono in genere la stessa chiave su una tastiera. Questi tasti di scelta rapida sono stati aggiunti per migliorare l'esperienza utente. Inoltre, non è importante se l'utente utilizza il tasto MAIUSC o meno per questi tasti di scelta rapida.
 
 ## <a name="screen-reader-support"></a>Supporto per la lettura dello schermo
 
@@ -94,9 +94,9 @@ A eventuali informazioni aggiuntive inserite nella mappa di base devono corrispo
 
 ## <a name="make-popups-keyboard-accessible"></a>Rendere accessibile la tastiera popup
 
-Un marcatore o un simbolo viene spesso utilizzato per rappresentare una posizione sulla mappa. Informazioni aggiuntive sulla posizione vengono in genere visualizzate in un popup quando l'utente interagisce con il marcatore. Nella maggior parte delle applicazioni i popup vengono visualizzati quando un utente fa clic o tocca un marcatore, tuttavia è necessario che l'utente usi un mouse o un touchscreen. È consigliabile fare in modo che i popup siano accessibili quando si usa una tastiera. Questa operazione può essere eseguita creando un popup per ogni punto dati e aggiungendolo alla mappa. 
+Un marcatore o un simbolo viene spesso utilizzato per rappresentare una posizione sulla mappa. Informazioni aggiuntive sulla posizione vengono in genere visualizzate in un popup quando l'utente interagisce con il marcatore. Nella maggior parte delle applicazioni i popup vengono visualizzati quando un utente fa clic o tocca un marcatore. Tuttavia, per questo evento è necessario che l'utente usi un mouse o un touchscreen. È consigliabile fare in modo che i popup siano accessibili quando si usa una tastiera. Questa funzionalità può essere eseguita creando un popup per ogni punto dati e aggiungendolo alla mappa. 
 
-Nell'esempio seguente vengono caricati i punti di interesse sulla mappa utilizzando un livello di simbolo e viene aggiunto un popup alla mappa per ogni punto di interesse. Un riferimento a ogni popup viene archiviato nelle proprietà di ogni punto dati, in modo che sia possibile recuperarlo anche per un marcatore, ad esempio quando si fa clic su un marcatore. Quando si è concentrati sulla mappa, premere il tasto TAB per consentire all'utente di scorrere ogni popup sulla mappa.
+Nell'esempio seguente vengono caricati i punti di interesse sulla mappa utilizzando un livello di simbolo e viene aggiunto un popup alla mappa per ogni punto di interesse. Un riferimento a ogni popup viene archiviato nelle proprietà di ogni punto dati. Può anche essere recuperato per un marcatore, ad esempio quando si fa clic su un marcatore. Quando si è concentrati sulla mappa, premere il tasto TAB per consentire all'utente di scorrere ogni popup sulla mappa.
 
 <br/>
 
@@ -106,23 +106,23 @@ Nell'esempio seguente vengono caricati i punti di interesse sulla mappa utilizza
 
 ## <a name="additional-accessibility-tips"></a>Suggerimenti sull'accessibilità aggiuntivi
 
-Ecco alcuni suggerimenti aggiuntivi per rendere l'applicazione di mapping Web più accessibile.
+Ecco alcuni suggerimenti aggiuntivi per rendere più accessibile l'applicazione di mapping Web.
 
-- Se viene visualizzata una grande quantità di dati punto interattivo sulla mappa, provare a ridurre il disordine e a usare il clustering. 
+- Se si visualizzano molti dati punto interattivi sulla mappa, provare a ridurre il disordine e a usare il clustering. 
 - Verificare che il rapporto contrasto colori tra testo/simboli e colori di sfondo sia 4.5:1 o più.
 - Mantieni i messaggi (attributi ARIA, ALT e titolo) per la lettura dello schermo, brevi, descrittivi e significativi. Evitare gli acronimi e il gergo superflui.
-- Provare ad ottimizzare i messaggi inviati all'utilità per la lettura dello schermo per fornire informazioni significative brevi che è facile da digerire per l'utente. Ad esempio, se si desidera aggiornare la lettura dello schermo a frequenza elevata, ad esempio quando la mappa è in fase di trasferimento, è consigliabile eseguire le operazioni seguenti:
+- Provare ad ottimizzare i messaggi inviati all'utilità per la lettura dello schermo per fornire informazioni significative brevi che è facile da digerire per l'utente. Ad esempio, se si desidera aggiornare la lettura dello schermo a frequenza elevata, ad esempio quando la mappa è in fase di trasferimento, provare a eseguire i punti seguenti:
     - Attendere il completamento del passaggio della mappa per aggiornare la lettura dello schermo.
     - Limitare gli aggiornamenti a ogni pochi secondi. 
     - Combinare i messaggi in modo logico. 
-- Evitare di trasmettere le informazioni solo tramite il colore. Usare testo, icone o modelli per integrare o sostituire il colore. Alcune considerazioni:
+- Evitare di usare il colore come unico mezzo per fornire informazioni. Usare testo, icone o modelli per integrare o sostituire il colore. Alcune considerazioni:
     - Se si usa un livello Bubble per visualizzare il valore relativo tra i punti dati, provare a ridimensionare il raggio di ogni bolla in aggiunta a o come alternativa a colorarli. 
     - Prendere in considerazione l'uso di un livello di simbolo con icone diverse per diverse categorie di metriche, ad esempio triangoli, stelle e quadrati. Il livello dei simboli supporta anche la scalabilità delle dimensioni dell'icona. È anche possibile visualizzare un'etichetta di testo.
     - Se si visualizzano i dati della riga, è possibile usare la larghezza per rappresentare il peso o le dimensioni. Un modello di matrice Dash può essere utilizzato per rappresentare diverse categorie di righe. Un livello di simbolo può essere usato in combinazione con una linea per sovrapporre le icone lungo la riga. L'uso di un'icona a freccia è utile per visualizzare il flusso o la direzione della linea.
     - Se vengono visualizzati dati poligoni, è possibile usare un modello, ad esempio strisce, come alternativa al colore. 
 - Alcune visualizzazioni, ad esempio Heatmaps, livelli di sezione e livelli di immagine, non sono accessibili per gli utenti con problemi di visione. Alcune considerazioni:
     - Fare in modo che l'lettore della schermata descriva le informazioni visualizzate dal livello quando viene aggiunto alla mappa. Se, ad esempio, viene visualizzato un livello sezione del radar meteorologico, fare in modo che l'lettore dello schermo sia simile a "i dati del radar meteorologico sovrapposti alla mappa".
-- Limitare la quantità di funzionalità che richiede il passaggio del mouse. Questi non saranno accessibili agli utenti che usano una tastiera o un dispositivo touch per interagire con l'applicazione. Si noti che è comunque consigliabile avere uno stile hover per contenuto interattivo, ad esempio icone, collegamenti e pulsanti selezionabili.
+- Limitare la quantità di funzionalità che richiede il passaggio del mouse. Queste funzionalità non saranno accessibili agli utenti che usano una tastiera o un dispositivo touch per interagire con l'applicazione. Si noti che è comunque consigliabile avere uno stile hover per contenuto interattivo, ad esempio icone, collegamenti e pulsanti selezionabili.
 - Provare a spostarsi nell'applicazione usando la tastiera. Assicurarsi che l'ordinamento delle schede sia logico.
 - Se si creano tasti di scelta rapida, provare a limitarlo a due chiavi o meno. 
 

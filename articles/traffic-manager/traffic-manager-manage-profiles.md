@@ -3,7 +3,7 @@ title: Gestire i profili di Gestione Traffico di Azure | Documentazione Microsof
 description: Questo articolo consente di creare, disabilitare, abilitare ed eliminare un profilo di gestione traffico di Azure.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 manager: twooley
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
-ms.author: allensu
-ms.openlocfilehash: 8ec30a4d3f02505e764cd6f8dcec42c56d11ed27
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohink
+ms.openlocfilehash: adfe7d117d2329832a5b5e9e782a9029a682ff3b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071106"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938600"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Gestire un profilo di Gestione traffico di Azure
 
@@ -37,7 +37,7 @@ I profili di Gestione traffico di Azure usano metodi di routing del traffico per
     3. In **Sottoscrizione** selezionare la sottoscrizione in cui si vuole creare il profilo.
     4. In **Gruppo di risorse** creare un nuovo gruppo di risorse in cui aggiungere il profilo.
     5. In **Località del gruppo di risorse** selezionare la località del gruppo di risorse. Questa impostazione indica la località del gruppo di risorse e non ha alcun impatto sul profilo di Gestione traffico che sarà distribuito a livello globale.
-    6. Fare clic su **Create**(Crea).
+    6. Fare clic su **Crea**.
     7. Una volta completata la distribuzione globale del profilo di Gestione traffico, il profilo sarà elencato nel rispettivo gruppo di risorse come una delle risorse.
 
 ## <a name="disable-enable-or-delete-a-profile"></a>Disabilitare, abilitare o eliminare un profilo

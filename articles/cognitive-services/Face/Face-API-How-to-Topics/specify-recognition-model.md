@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: longl
-ms.openlocfilehash: 44392b807659ff8f13511b48d0afd33db080e4f6
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: da9ad5576d146c007e45124668875e9681860ce6
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76166467"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938832"
 ---
 # <a name="specify-a-face-recognition-model"></a>Specificare un modello di riconoscimento volto
 
@@ -109,6 +109,7 @@ In questo articolo si è appreso come specificare il modello di riconoscimento d
 
 * [.NET SDK facet](../Quickstarts/csharp-sdk.md)
 * [Python SDK per visi](../Quickstarts/python-sdk.md)
+* [SDK per visi go](../Quickstarts/go-sdk.md)
 
 [Rilevamento viso]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Faccia-trova simile]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237

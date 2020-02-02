@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/13/2019
-ms.openlocfilehash: ceeea809232909a196895e11601ad01d3407f763
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 07ed22879180d8126711eba9af0a2cac5b7b2953
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905382"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936491"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Usare Azure Toolkit for Eclipse per creare applicazioni Apache Spark per un cluster HDInsight
 
@@ -242,7 +242,7 @@ Per impostazione predefinita, gli strumenti di HDInsight in Azure Toolkit for Ec
 
 Quando si esegue l'applicazione Spark Scala locale in un computer Windows, potrebbe essere restituita un'eccezione, come spiegato in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356), che si verifica a causa di un file **WinUtils.exe** mancante in Windows.
 
-Per correggere l'errore, è necessario `https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe` in un percorso come **C:\WinUtils\bin**, quindi aggiungere la variabile di ambiente **HADOOP_HOME** e impostare il valore della variabile su **C\WinUtils**.
+Per correggere l'errore, è necessario [file winutils. exe](https://github.com/steveloughran/winutils) in un percorso come **C:\WinUtils\bin**, quindi aggiungere la variabile di ambiente **HADOOP_HOME** e impostare il valore della variabile su **C\WinUtils**.
 
 ### <a name="run-a-local-spark-scala-application"></a>Eseguire un'applicazione Spark in Scala locale
 

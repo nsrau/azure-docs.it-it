@@ -3,7 +3,7 @@ title: Uso dei servizi di bilanciamento del carico in Azure | Microsoft Docs
 description: 'Questa esercitazione illustra come creare uno scenario tramite il portafoglio di soluzioni Azure per il bilanciamento del carico: Gestione traffico, il gateway applicazione e Load Balancer.'
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
-ms.author: allensu
-ms.openlocfilehash: 4a7f8fd45b1e496ba3f0208d523ac569a24e9e7c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: b77248813463f51d4bd2c5186e421aec43ffaf52
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227782"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939216"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Uso dei servizi di bilanciamento del carico in Azure
 
@@ -127,7 +127,7 @@ Quando si sceglie un pool back-end, un gateway applicazione configurato con una 
    + **Impostazione HTTP**: impostazioni HTTP da usare con questa regola.
 
    > [!IMPORTANT]
-   > Percorsi: i percorsi validi devono iniziare con "/". Il carattere jolly "\*" è consentito solo alla fine del percorso. Alcuni esempi validi: /xyz, /xyz\* o /xyz/\*.
+   > Percorsi: i percorsi validi devono iniziare con "/". Il carattere jolly "\*" è consentito solo alla fine del percorso. Alcuni esempi validi: /xyz, /xyz\*, o /xyz/\*.
 
    ![Pannello "Aggiungi regola basata sul percorso" del gateway applicazione](./media/traffic-manager-load-balancing-azure/s2-appgw-pathrule-blade.png)
 
@@ -211,4 +211,4 @@ Vengono ora configurati l'indirizzo IP e la porta font-end del servizio di bilan
 
 * [Gestione traffico di Azure](traffic-manager-overview.md)
 * [Panoramica del gateway applicazione](../application-gateway/application-gateway-introduction.md)
-* [Panoramica del servizio di bilanciamento del carico](../load-balancer/load-balancer-overview.md)
+* [Panoramica di Azure Load Balancer](../load-balancer/load-balancer-overview.md)

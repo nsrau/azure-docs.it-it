@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 79bafb331cb7ad38ea7cad9e510b22886b647764
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 45d210725f7f09663b126528479655d7f4d9c19f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911141"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933361"
 ---
 # <a name="add-a-popup-to-the-map"></a>Aggiungere un popup alla mappa
 
@@ -22,7 +22,7 @@ Questo articolo illustra come aggiungere un pop a un punto in una mappa.
 
 ## <a name="understand-the-code"></a>Informazioni sul codice
 
-Il codice seguente aggiunge alla mappa una funzionalità di punto, che ha `name` e `description` proprietà, usando un livello di simboli. Viene creata un'istanza della [classe popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) che non viene visualizzata. Gli eventi del mouse vengono aggiunti al livello del simbolo per attivare l'apertura e la chiusura del popup quando il mouse passa sopra e fuori dal marcatore del simbolo. Quando il simbolo del marcatore viene posizionato al passaggio del mouse, la proprietà `position` del popup viene aggiornata con la posizione del marcatore e l'opzione `content` viene aggiornata con un codice HTML che esegue il wrapping del `name` e `description` le proprietà della funzionalità punto al passaggio del mouse. Il popup viene quindi visualizzato sulla mappa utilizzando la relativa funzione `open`.
+Il codice seguente aggiunge alla mappa una funzionalità di punto, che ha `name` e `description` proprietà, usando un livello di simboli. Viene creata un'istanza della [classe popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) che non viene visualizzata. Gli eventi del mouse vengono aggiunti al livello del simbolo per attivare l'apertura e la chiusura del popup. Quando il simbolo del marcatore viene posizionato al passaggio del mouse, la proprietà `position` del popup viene aggiornata con la posizione del marcatore e l'opzione `content` viene aggiornata con un codice HTML che esegue il wrapping del `name` e `description` le proprietà della funzionalità punto al passaggio del mouse. Il popup viene quindi visualizzato sulla mappa utilizzando la relativa funzione `open`.
 
 ```javascript
 //Define an HTML template for a custom popup content laypout.
@@ -85,7 +85,7 @@ Di seguito è riportato l'esempio di codice completo per l'esecuzione delle funz
 
 ## <a name="reusing-a-popup-with-multiple-points"></a>Riutilizzare un popup con più punti
 
-Quando si dispone di un numero elevato di punti e si desidera visualizzare solo un popup alla volta, l'approccio migliore consiste nel creare un popup e riutilizzarlo anziché creare un popup per ogni funzionalità del punto. Riutilizzando il popup, il numero di elementi DOM creati dall'applicazione è notevolmente ridotto, che può offrire prestazioni migliori. Nell'esempio seguente vengono create funzionalità a tre punti. Se si fa clic su una di esse, verrà visualizzato un popup con il contenuto di tale funzionalità punto.
+Quando si dispone di un numero elevato di punti e si desidera visualizzare solo un popup alla volta, l'approccio migliore consiste nel creare un popup e riutilizzare. Riutilizzando il popup, il numero di elementi DOM creati dall'applicazione è notevolmente ridotto, che può offrire prestazioni migliori. Nell'esempio seguente vengono create funzionalità a tre punti. Se si fa clic su una di esse, verrà visualizzato un popup con il contenuto di tale funzionalità punto.
 
 <br/>
 
@@ -94,7 +94,7 @@ Quando si dispone di un numero elevato di punti e si desidera visualizzare solo 
 
 ## <a name="customizing-a-popup"></a>Personalizzazione di un popup
 
-Per impostazione predefinita, il popup presenta uno sfondo bianco, una freccia del puntatore in basso e un pulsante Chiudi nell'angolo superiore destro. Nell'esempio seguente il colore di sfondo viene modificato in nero utilizzando l'opzione `fillColor` del popup. Il pulsante Chiudi viene rimosso impostando l'opzione `shoCloseButton` su false. Il contenuto HTML del popup USA 10 pixel riempiti dai bordi del popup e il testo viene reso bianco, in modo che venga visualizzato perfettamente sullo sfondo nero.  
+Per impostazione predefinita, il popup presenta uno sfondo bianco, una freccia del puntatore in basso e un pulsante Chiudi nell'angolo superiore destro. Nell'esempio seguente il colore di sfondo viene modificato in nero utilizzando l'opzione `fillColor` del popup. Il pulsante Chiudi viene rimosso impostando l'opzione `CloseButton` su false. Il contenuto HTML del popup utilizza un riempimento di 10 pixel dai bordi del popup. Il testo viene reso bianco, quindi viene visualizzato perfettamente sullo sfondo nero.  
 
 <br/>
 
@@ -104,7 +104,7 @@ Vedere il <a href='https://codepen.io/azuremaps/pen/ymKgdg/'>popup personalizzat
 
 ## <a name="popup-events"></a>Eventi popup
 
-I popup possono essere aperti, chiusi e trascinati. La classe popup fornisce eventi per aiutare gli sviluppatori a rispondere a queste azioni. Nell'esempio seguente vengono evidenziati gli eventi che vengono generati quando si apre, si chiude o si trascina il popup. 
+I popup possono essere aperti, chiusi e trascinati. La classe popup fornisce eventi per aiutare gli sviluppatori a rispondere a questi eventi. Nell'esempio seguente vengono evidenziati gli eventi generati quando l'utente apre, chiude o trascina il popup. 
 
 <br/>
 

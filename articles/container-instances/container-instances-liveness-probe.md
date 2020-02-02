@@ -2,13 +2,13 @@
 title: Configurare il probe di liveity nell'istanza del contenitore
 description: Informazioni su come configurare probe di attività per riavviare i contenitori non integri in Istanze di Azure Container
 ms.topic: article
-ms.date: 06/08/2018
-ms.openlocfilehash: 566f7952aff1cf460272fbb418a2a0efff411881
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 01/30/2020
+ms.openlocfilehash: 11c6c9d39067c536bf4325f74eb24b2ab64ef515
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901905"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934171"
 ---
 # <a name="configure-liveness-probes"></a>Configurare probe di attività
 
@@ -63,41 +63,41 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ### <a name="start-command"></a>Comando di avvio
 
-La distribuzione definisce un comando iniziale da eseguire quando viene avviata per la prima volta l'esecuzione del contenitore, definito dalla proprietà `command`, che accetta una matrice di stringhe. In questo esempio, verrà avviata una sessione bash e verrà creato un file denominato `healthy` all'interno della directory `/tmp` passando questo comando:
+La distribuzione include una proprietà `command` che definisce un comando di avvio che viene eseguito all'avvio dell'esecuzione del contenitore. Questa proprietà accetta una matrice di stringhe. Questo comando simula il contenitore che entra in uno stato non integro.
+
+Viene innanzitutto avviata una sessione bash e viene creato un file denominato `healthy` all'interno della directory `/tmp`. Quindi dorme per 30 secondi prima di eliminare il file, quindi entra in uno stato di sospensione di 10 minuti:
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
 ```
 
- Quindi verrà sospeso per 30 secondi prima di eliminare il file e quindi entrerà in una sospensione di 10 minuti.
-
 ### <a name="liveness-command"></a>Comando di verifica dell'attività (liveness)
 
-Questa distribuzione definisce un `livenessProbe` che supporta un comando `exec` liveity che funge da controllo della durata. Se questo comando termina con un valore diverso da zero, il contenitore verrà terminato e riavviato, a indicare che non è stato trovato il file `healthy`. Se questo comando termina correttamente con il codice di uscita 0, non verrà eseguita alcuna azione.
+Questa distribuzione definisce un `livenessProbe` che supporta un comando `exec` liveity che funge da controllo della durata. Se questo comando viene terminato con un valore diverso da zero, il contenitore viene terminato e riavviato, segnalando che non è stato possibile trovare il file `healthy`. Se il comando termina correttamente con il codice di uscita 0, non viene eseguita alcuna azione.
 
 La proprietà `periodSeconds` stabilisce che il comando di verifica dell'attività deve essere eseguito ogni 5 secondi.
 
 ## <a name="verify-liveness-output"></a>Verificare l'output di attività
 
-Entro i primi 30 secondi deve essere confermata l'esistenza del file `healthy` creato dal comando di avvio. Quando il comando di verifica dell'attività controlla l'esistenza del file `healthy`, il codice di stato restituisce zero, a indicare l'esito positivo, quindi non si verifica alcun riavvio.
+Entro i primi 30 secondi deve essere confermata l'esistenza del file `healthy` creato dal comando di avvio. Quando il comando di liveity controlla l'esistenza del file di `healthy`, il codice di stato restituisce 0, segnalando l'esito positivo, quindi non viene eseguito il riavvio.
 
-Dopo 30 secondi, inizieranno gli errori per `cat /tmp/healthy`, con conseguente generazione degli eventi per lo stato non integro e la terminazione.
+Dopo 30 secondi, il `cat /tmp/healthy` comando inizia ad avere esito negativo, causando la generazione di eventi non integri e l'interruzione.
 
 Questi eventi possono essere visualizzati dal portale di Azure o dall'interfaccia della riga di comando di Azure.
 
 ![Evento di non integrità nel portale][portal-unhealthy]
 
-Quando si visualizzano gli eventi nel portale di Azure, gli eventi di tipo `Unhealthy` verranno attivati in caso di errore del comando liveness. L'evento successivo sarà di tipo `Killing`, che significa l'eliminazione di un contenitore, quindi può iniziare un riavvio. Il numero di riavvio per il contenitore viene incrementato ogni volta che si verifica questo evento.
+Visualizzando gli eventi nel portale di Azure, gli eventi di tipo `Unhealthy` vengono attivati in caso di errore del comando liveity. L'evento successivo è di tipo `Killing`, che indica l'eliminazione di un contenitore, quindi è possibile iniziare un riavvio. Il numero di riavvio per il contenitore viene incrementato ogni volta che si verifica questo evento.
 
-I riavvi vengono completati sul posto, in modo da mantenere risorse come gli indirizzi IP pubblici e il contenuto specifico del nodo.
+I riavvii vengono completati sul posto, quindi le risorse come gli indirizzi IP pubblici e il contenuto specifico del nodo vengono mantenute.
 
 ![Contatore di riavvio nel portale][portal-restart]
 
-Se il probe di attività ha continuamente esito negativo e genera troppi riavvii, per il contenitore subentrerà un ritardo di backoff esponenziale.
+Se il probe di vita continua a non riuscire e attiva un numero eccessivo di riavvii, il contenitore immette un ritardo esponenziale.
 
 ## <a name="liveness-probes-and-restart-policies"></a>Probe di attività e criteri di riavvio
 
-I criteri di riavvio sostituiscono il comportamento di riavvio attivato dai probe di attività. Se, ad esempio, si impostano un `restartPolicy = Never` *e* un probe di Livezza, il gruppo di contenitori non viene riavviato a causa di un controllo del tempo di insuccesso. Il gruppo di contenitori dovrà invece rispettare i criteri di riavvio `Never` del gruppo di contenitori.
+I criteri di riavvio sostituiscono il comportamento di riavvio attivato dai probe di attività. Se, ad esempio, si impostano un `restartPolicy = Never` *e* un probe di Livezza, il gruppo di contenitori non viene riavviato a causa di un controllo del tempo di insuccesso. Il gruppo di contenitori rispetta invece i criteri di riavvio del gruppo di contenitori del `Never`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 1/24/2020
 ms.author: mlearned
-ms.openlocfilehash: a477c2011ff3c6cf1987ed80ef5c19c26abc40f0
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 934dfdb43d6d2e4ccc346b728f0ac4f5febea327
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713335"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932588"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Creare un cluster privato del servizio Kubernetes di Azure (anteprima)
 
@@ -131,7 +131,7 @@ L'endpoint del server API non ha un indirizzo IP pubblico. Di conseguenza, è ne
 * Per usare un server DNS personalizzato, distribuire un server AD con DNS da trasmettere a questo 168.63.129.16 IP
 
 ## <a name="limitations"></a>Limitazioni 
-* zone di disponibilità non sono attualmente supportati
+* zone di disponibilità sono attualmente supportate solo per le aree Stati Uniti orientali 2 e Stati Uniti occidentali 2
 * Le [limitazioni del servizio di collegamento privato di Azure][private-link-service] si applicano a cluster privati, endpoint privati di Azure e endpoint di servizio della rete virtuale, che non sono attualmente supportati nella stessa rete virtuale.
 * Nessun supporto per i nodi virtuali in un cluster privato per la rotazione di istanze di contenitore di Azure private in una rete virtuale di Azure privata
 * Nessun supporto per l'integrazione di Azure DevOps con i cluster privati

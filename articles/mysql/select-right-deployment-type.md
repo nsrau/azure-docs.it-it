@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 3cc03ba1670299f1ea43a1fde666c2917eaf6b9d
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8cff61d547e75b186869b3ab4d57c5eb12e6e2f5
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770459"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935455"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Scegliere l'opzione del server MySQL corretta in Azure
 
@@ -36,7 +36,7 @@ Le differenze principali tra queste opzioni sono elencate nella tabella seguente
 | Contratto di servizio                | Offre SLA con disponibilità del 99,99%| Disponibilità fino al 99,95% con due o più istanze nello stesso set di disponibilità.<br/><br/>disponibilità del 99,9% con una macchina virtuale a istanza singola che usa archiviazione Premium.<br/><br/>99,99% con zone di disponibilità con più istanze in più set di disponibilità.<br/><br/>Vedere il [contratto di contratto per macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). |
 | Applicazione di patch al sistema operativo        | Automatico  | Gestito dai clienti |
 | Patch di MySQL     | Automatico  | Gestito dai clienti |
-| Disponibilità elevata | Il modello a disponibilità elevata è basato sui meccanismi di failover predefiniti per quando si verifica un'interruzione a livello di nodo. In questi casi, il servizio crea automaticamente una nuova istanza e connette lo spazio di archiviazione a questa istanza. | I clienti progettano, implementano, testano e gestiscono la disponibilità elevata. Le funzionalità possono includere il clustering di failover always on, la replica di gruppi always on, log shipping o la replica transazionale.|
+| Disponibilità elevata | Il modello a disponibilità elevata è basato sui meccanismi di failover predefiniti per quando si verifica un'interruzione a livello di nodo. In questi casi, il servizio crea automaticamente una nuova istanza e connette lo spazio di archiviazione a questa istanza. | I clienti progettano, implementano, testano e gestiscono la disponibilità elevata. Le funzionalità possono includere clustering, replica e così via.|
 | Ridondanza della zona | Attualmente non supportati | Le macchine virtuali di Azure possono essere configurate per l'esecuzione in diverse zone di disponibilità. Per una soluzione locale, i clienti devono creare, gestire e gestire i propri data center secondari.|
 | Scenari ibridi | Con [replica dei dati in ingresso](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication)è possibile sincronizzare i dati da un server MySQL esterno al servizio database di Azure per MySQL. Il server esterno può trovarsi in locale, in macchine virtuali, o essere un servizio di database ospitato da altri provider di servizi cloud.<br/><br/> Con la funzionalità di [lettura della replica](https://docs.microsoft.com/azure/mysql/concepts-read-replicas) è possibile replicare i dati da un server master di database di Azure per MySQL a un massimo di cinque server di replica di sola lettura. Le repliche si trovano nella stessa area di Azure o in aree diverse. Le repliche di sola lettura vengono aggiornate in modo asincrono tramite la tecnologia di replica binlog.| Gestito dai clienti
 | Backup e ripristino | Crea automaticamente [backup del server](https://docs.microsoft.com/azure/mysql/concepts-backup#backups) e li archivia in una risorsa di archiviazione configurata dall'utente con ridondanza locale o con ridondanza geografica. Il servizio accetta backup completi, differenziali e del log delle transazioni | Gestito dai clienti |
@@ -66,7 +66,7 @@ Per ulteriori informazioni sui prezzi, vedere gli articoli seguenti:
 * [Prezzi di macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * [Calcolatore prezzi di Azure](https://azure.microsoft.com/pricing/calculator/)
 
-### <a name="administration"></a>Administration
+### <a name="administration"></a>Amministrazione
 
 Per molte aziende, la decisione di passare a un servizio cloud è la quantità di spazio di ripartizione della complessità dell'amministrazione, in quanto si tratta di costi. Con IaaS e PaaS, Microsoft:
 

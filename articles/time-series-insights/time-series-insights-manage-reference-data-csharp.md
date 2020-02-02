@@ -9,20 +9,30 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/27/2020
+ms.date: 01/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2bdd11c3b53b650e636d53942fcb94142de556b2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 079cfcee543cf1ce36c4a1394479a622b3658789
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772837"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935115"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-using-c"></a>Gestire i dati di riferimento di GA per un ambiente Azure Time Series Insights usandoC#
 
 Questo articolo illustra come combinare C#, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)e Azure Active Directory per eseguire richieste API a livello di codice al riferimento Azure Time Series Insights GA [Gestione dati API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="summary"></a>Riepilogo
+
+Il codice di esempio seguente illustra le funzionalità seguenti:
+
+* Acquisizione di un token di accesso con [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**.
+* Operazioni di creazione, lettura, aggiornamento ed eliminazione sequenziali sul [riferimento GA gestione dati API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
+* Codici di risposta comuni, inclusi i [codici di errore comuni](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling).
+    
+    L'API di riferimento Gestione dati elabora ogni elemento singolarmente e un errore con un elemento non impedisce il completamento corretto degli altri. Se, ad esempio, la richiesta contiene 100 elementi e un elemento contiene un errore, verranno scritti 99 elementi e ne verrà rifiutato uno.
+
+## <a name="prerequisites-and-setup"></a>Prerequisiti e configurazione
 
 Prima di compilare ed eseguire lo script di esempio, completare questa procedura:
 
@@ -296,16 +306,6 @@ namespace CsharpTsiMsalGaSample
     }
 }
 ```
-
-## <a name="summary"></a>Riepilogo
-
-Il codice di esempio precedente illustra le funzionalità seguenti:
-
-* Acquisizione di un token di accesso con [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**.
-* Operazioni di creazione, lettura, aggiornamento ed eliminazione sequenziali sul [riferimento GA gestione dati API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
-* Codici di risposta comuni, inclusi i [codici di errore comuni](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling).
-    
-    L'API di riferimento Gestione dati elabora ogni elemento singolarmente e un errore con un elemento non impedisce il completamento corretto degli altri. Se, ad esempio, la richiesta contiene 100 elementi e un elemento contiene un errore, verranno scritti 99 elementi e ne verrà rifiutato uno.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

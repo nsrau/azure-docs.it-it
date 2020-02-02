@@ -2,13 +2,13 @@
 title: Risorse senza limite di 800 conteggi
 description: Elenca i tipi di risorse di Azure che possono avere più di 800 istanze in un gruppo di risorse.
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.openlocfilehash: 42e8ddeebcd1dda4fc67e4e7be137c5e01decdf4
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 01/30/2020
+ms.openlocfilehash: 735cad0bfa936c41f603e42bdb9be77a1562cc1f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715618"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937947"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Risorse non limitate a 800 di istanze per gruppo di risorse
 
@@ -89,6 +89,10 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 * software
 * softwareUpdateProfile
 * softwareUpdates
+
+## <a name="microsoftinsights"></a>Microsoft.Insights
+
+* metricalerts
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
@@ -179,10 +183,6 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 
 * apiManagementAccounts/apis
 * siti
-
-## <a name="microsoftinsights"></a>microsoft.insights
-
-* metricalerts
 
 ## <a name="next-steps"></a>Passaggi successivi
 

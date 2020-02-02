@@ -2,20 +2,20 @@
 title: Monitoraggio degli endpoint di Gestione traffico di Azure | Microsoft Docs
 description: Questo articolo illustra in che modo Gestione traffico usa il monitoraggio e il failover automatico degli endpoint per consentire ai clienti di Azure di distribuire applicazioni a disponibilità elevata
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
-ms.author: allensu
-ms.openlocfilehash: e06d2ce93ac7c534f2c729dce794e66e3ee894d8
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.author: rohink
+ms.openlocfilehash: fcc9c5333b37c041342c2d20a53cf5d3908d1a26
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333806"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938549"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitoraggio degli endpoint di Gestione traffico
 
@@ -27,7 +27,7 @@ Per configurare il monitoraggio degli endpoint è necessario specificare le segu
 
 * **Protocollo**. Scegliere HTTP, HTTPS o TCP come protocollo che Gestione traffico usa quando esegue il sondaggio dell'endpoint per verificarne l'integrità. Il monitoraggio HTTPS non verifica la validità del certificato SSL, ma solo la presenza.
 * **Porta**. scegliere la porta usata per la richiesta.
-* **Percorso**. Questa impostazione di configurazione è valida solo per i protocolli HTTP e HTTPS, per i quali è necessario specificare l'impostazione del percorso. Se si specifica questa impostazione per il protocollo di monitoraggio TCP, viene generato un errore. Per i protocolli HTTP e HTTPS specificare il percorso relativo e il nome della pagina Web o il file a cui accede il monitoraggio. Una barra (/) è una voce valida per il percorso relativo. Questo valore implica che il file sia nella directory radice (impostazione predefinita).
+* **Path**. Questa impostazione di configurazione è valida solo per i protocolli HTTP e HTTPS, per i quali è necessario specificare l'impostazione del percorso. Se si specifica questa impostazione per il protocollo di monitoraggio TCP, viene generato un errore. Per i protocolli HTTP e HTTPS specificare il percorso relativo e il nome della pagina Web o il file a cui accede il monitoraggio. Una barra (/) è una voce valida per il percorso relativo. Questo valore implica che il file sia nella directory radice (impostazione predefinita).
 * **Impostazioni intestazione personalizzata**. Questa impostazione di configurazione consente di aggiungere specifiche intestazioni HTTP ai controlli di integrità che Gestione traffico invia agli endpoint in un profilo. È possibile specificare le intestazioni personalizzate a livello di profilo (rendendole applicabili per tutti gli endpoint nel profilo) e/o a livello di endpoint (rendendole applicabili solo a tale endpoint). È possibile usare le intestazioni personalizzate per garantire che i controlli di integrità per gli endpoint in un ambiente multi-tenant vengano instradati correttamente alla relativa destinazione specificando un'intestazione host. È anche possibile usare questa impostazione mediante l'aggiunta di intestazioni univoche che possono essere usate per identificare le richieste HTTP(S) originate da Gestione traffico ed elaborarle in modo diverso. È possibile specificare fino a otto coppie intestazione: valore separate da una virgola. Ad esempio, "Header1: value1, header2: Value2". 
 * **Intervalli di codici di stato previsti**. Questa impostazione consente di specificare più intervalli di codici di riuscita nel formato 200-299, 301-301. Se questi codici di stato vengono ricevuti come risposta da un endpoint quando viene avviato un controllo di integrità, Gestione traffico contrassegna tale endpoint come integro. È possibile specificare un massimo di 8 intervalli di codici di stato. Questa impostazione è applicabile solo al protocollo HTTP e HTTPS e a tutti gli endpoint. Questa impostazione è a livello di profilo di Gestione traffico e per impostazione predefinita è definito il valore 200 come il codice di stato di riuscita.
 * **Intervallo sondaggio**. Questo valore specifica la frequenza con cui viene controllata l'integrità di un endpoint dall'agente di sondaggio di Gestione traffico. È possibile specificare due valori qui: 30 secondi (sondaggio normale) e 10 secondi (sondaggio veloce). Se non viene specificato alcun valore, il profilo imposta un valore predefinito di 30 secondi. Per altre informazioni sui prezzi per il sondaggio rapido, visitare la pagina dei [prezzi per Gestione traffico](https://azure.microsoft.com/pricing/details/traffic-manager).
@@ -36,11 +36,11 @@ Per configurare il monitoraggio degli endpoint è necessario specificare le segu
 
     ![Monitoraggio degli endpoint di Gestione traffico](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
 
-    **Figura:  Monitoraggio degli endpoint di Gestione traffico**
+    **Figura: monitoraggio degli endpoint di Gestione traffico**
 
 ## <a name="how-endpoint-monitoring-works"></a>Funzionamento del monitoraggio degli endpoint
 
-Se il protocollo di monitoraggio è impostato come HTTP o HTTPS, l'agente di sondaggio di Gestione traffico esegue una richiesta GET all'endpoint usando il protocollo, la porta e il percorso relativo specificati. Se viene restituita una risposta 200-OK o una qualsiasi delle risposte configurate negli **intervalli di codice \*di stato previsti**, l'endpoint viene considerato integro. Se la risposta è un valore diverso, oppure se non viene ricevuta alcuna risposta entro il periodo di timeout specificato, l'agente di sondaggio di Gestione traffico esegue un nuovo tentativo in base all'impostazione Numero di tentativi tollerati. Se quindi questa impostazione è pari a 0, non viene eseguito alcun altro tentativo. Se il numero di tentativi consecutivi non riusciti è superiore all'impostazione di Numero di tentativi tollerati, l'endpoint viene contrassegnato come non integro. 
+Se il protocollo di monitoraggio è impostato come HTTP o HTTPS, l'agente di sondaggio di Gestione traffico esegue una richiesta GET all'endpoint usando il protocollo, la porta e il percorso relativo specificati. Se viene restituita una risposta 200-OK o una qualsiasi delle risposte configurate nel **codice di stato previsto \*intervalli**, l'endpoint viene considerato integro. Se la risposta è un valore diverso, oppure se non viene ricevuta alcuna risposta entro il periodo di timeout specificato, l'agente di sondaggio di Gestione traffico esegue un nuovo tentativo in base all'impostazione Numero di tentativi tollerati. Se quindi questa impostazione è pari a 0, non viene eseguito alcun altro tentativo. Se il numero di tentativi consecutivi non riusciti è superiore all'impostazione di Numero di tentativi tollerati, l'endpoint viene contrassegnato come non integro. 
 
 Se il protocollo di monitoraggio è TCP, l'agente di sondaggio di Gestione traffico avvia una richiesta di connessione TCP usando la porta specificata. Se l'endpoint risponde alla richiesta con una risposta per stabilire la connessione, il controllo integrità viene contrassegnato come esito positivo e l'agente di sondaggio di Gestione traffico reimposta la connessione TCP. Se la risposta è un valore diverso, oppure se non viene ricevuta alcuna risposta entro il periodo di timeout specificato, l'agente di sondaggio di Gestione traffico esegue un nuovo tentativo in base all'impostazione Numero di tentativi tollerati. Se quindi questa impostazione è pari a 0, non viene eseguito alcun altro tentativo. Se il numero di tentativi consecutivi non riusciti è superiore all'impostazione di Numero di errori tollerati, l'endpoint viene contrassegnato come non integro.
 
@@ -69,12 +69,12 @@ Il valore relativo allo stato di monitoraggio dell'endpoint viene generato da Ge
 
 | Stato profilo | Stato endpoint | Endpoint monitor status (Stato monitoraggio endpoint) | Note |
 | --- | --- | --- | --- |
-| Disabled |Enabled |Inattivo |Il profilo è stato disabilitato. Anche se lo stato dell'endpoint è Enabled, se lo stato del profilo è Disabled, quest'ultimo avrà la precedenza. Gli endpoint nei profili disabilitati non vengono monitorati. Per la query DNS viene restituito un codice di risposta NXDOMAIN. |
+| Disabled |Attivato |Inactive |Il profilo è stato disabilitato. Anche se lo stato dell'endpoint è Enabled, se lo stato del profilo è Disabled, quest'ultimo avrà la precedenza. Gli endpoint nei profili disabilitati non vengono monitorati. Per la query DNS viene restituito un codice di risposta NXDOMAIN. |
 | &lt;qualsiasi&gt; |Disabled |Disabled |L'endpoint è stato disabilitato. Gli endpoint disabilitati non vengono monitorati. L'endpoint non è incluso nelle risposte DNS e pertanto non riceve traffico. |
-| Enabled |Enabled |Online |L'endpoint è monitorato e integro. È incluso nelle risposte DNS ed è in grado di ricevere traffico. |
-| Enabled |Enabled |Danneggiato |I controlli di integrità del monitoraggio dell'endpoint hanno esito negativo. L'endpoint non è incluso nelle risposte DNS e non riceve traffico. <br>Un'eccezione a questa situazione è quando tutti gli endpoint sono danneggiati. In questo caso tutti gli elementi vengono considerati da restituire nella risposta alla query.</br>|
-| Enabled |Enabled |CheckingEndpoint |L'endpoint è monitorato, ma i risultati del primo test non sono ancora pervenuti. CheckingEndpoint è un stato temporaneo che in genere si verifica immediatamente dopo l'aggiunta o l'abilitazione di un endpoint nel profilo. Un endpoint con questo stato viene incluso nelle risposte DNS e può ricevere traffico. |
-| Enabled |Enabled |Arrestato |L'app Web a cui punta l'endpoint non è in esecuzione. Controllare le impostazioni dell'app Web. Questa situazione può verificarsi anche se l'endpoint è di tipo annidato e il profilo figlio è disabilitato o non è attivo. <br>Gli endpoint con stato Interrotto non vengono monitorati. Non è incluso nelle risposte DNS e non riceve traffico. Un'eccezione a questa situazione è quando tutti gli endpoint sono danneggiati. In questo caso tutti gli elementi vengono considerati da restituire nella risposta alla query.</br>|
+| Attivato |Attivato |Online |L'endpoint è monitorato e integro. È incluso nelle risposte DNS ed è in grado di ricevere traffico. |
+| Attivato |Attivato |Degraded |I controlli di integrità del monitoraggio dell'endpoint hanno esito negativo. L'endpoint non è incluso nelle risposte DNS e non riceve traffico. <br>Un'eccezione a questa situazione è quando tutti gli endpoint sono danneggiati. In questo caso tutti gli elementi vengono considerati da restituire nella risposta alla query.</br>|
+| Attivato |Attivato |CheckingEndpoint |L'endpoint è monitorato, ma i risultati del primo test non sono ancora pervenuti. CheckingEndpoint è un stato temporaneo che in genere si verifica immediatamente dopo l'aggiunta o l'abilitazione di un endpoint nel profilo. Un endpoint con questo stato viene incluso nelle risposte DNS e può ricevere traffico. |
+| Attivato |Attivato |Arrestata |L'app Web a cui punta l'endpoint non è in esecuzione. Controllare le impostazioni dell'app Web. Questa situazione può verificarsi anche se l'endpoint è di tipo annidato e il profilo figlio è disabilitato o non è attivo. <br>Gli endpoint con stato Interrotto non vengono monitorati. Non è incluso nelle risposte DNS e non riceve traffico. Un'eccezione a questa situazione è quando tutti gli endpoint sono danneggiati. In questo caso tutti gli elementi vengono considerati da restituire nella risposta alla query.</br>|
 
 Per informazioni dettagliate su come viene calcolato lo stato del monitoraggio degli endpoint nidificati, vedere [Profili nidificati di Gestione traffico](traffic-manager-nested-profiles.md).
 
@@ -83,15 +83,15 @@ Per informazioni dettagliate su come viene calcolato lo stato del monitoraggio d
 
 ### <a name="profile-monitor-status"></a>Stato monitoraggio profilo
 
-Lo stato di monitoraggio del profilo è una combinazione dei valori relativi allo stato del profilo configurato e allo stato di monitoraggio di tutti gli endpoint. I possibili valori sono descritti nella tabella seguente:
+Lo stato di monitoraggio del profilo è una combinazione dei valori relativi allo stato del profilo configurato e allo stato di monitoraggio di tutti gli endpoint. I valori possibili sono illustrati nella tabella seguente:
 
 | Stato profilo (come configurato) | Endpoint monitor status (Stato monitoraggio endpoint) | Stato monitoraggio profilo | Note |
 | --- | --- | --- | --- |
 | Disabled |&lt;qualsiasi&gt; o un profilo senza endpoint definiti. |Disabled |Il profilo è stato disabilitato. |
-| Enabled |Almeno un endpoint è associato allo stato Degraded. |Danneggiato |Esaminare i valori di stato dei singoli endpoint per determinare quali endpoint richiedono attenzione. |
-| Enabled |Almeno un endpoint è associato allo stato Online. Nessun endpoint presenta lo stato Degraded. |Online |Il servizio sta accettando il traffico. Non è necessaria alcuna azione. |
-| Enabled |Almeno un endpoint è associato allo stato CheckingEndpoint. Nessun endpoint presenta lo stato Online o Degraded. |CheckingEndpoints |Questo stato di transizione si verifica quando un profilo viene creato o abilitato. Viene verificata l'integrità dell'endpoint per la prima volta. |
-| Enabled |Tutti gli endpoint del profilo presentano lo stato Disabled o Stopped oppure nel profilo non sono definiti endpoint. |Inattivo |Non ci sono endpoint attivi, ma il profilo presenta lo stato Enabled. |
+| Attivato |Almeno un endpoint è associato allo stato Degraded. |Degraded |Esaminare i valori di stato dei singoli endpoint per determinare quali endpoint richiedono attenzione. |
+| Attivato |Almeno un endpoint è associato allo stato Online. Nessun endpoint presenta lo stato Degraded. |Online |Il servizio sta accettando il traffico. Non è necessaria alcuna azione. |
+| Attivato |Almeno un endpoint è associato allo stato CheckingEndpoint. Nessun endpoint presenta lo stato Online o Degraded. |CheckingEndpoints |Questo stato di transizione si verifica quando un profilo viene creato o abilitato. Viene verificata l'integrità dell'endpoint per la prima volta. |
+| Attivato |Tutti gli endpoint del profilo presentano lo stato Disabled o Stopped oppure nel profilo non sono definiti endpoint. |Inactive |Non ci sono endpoint attivi, ma il profilo presenta lo stato Enabled. |
 
 ## <a name="endpoint-failover-and-recovery"></a>Failover e ripristino degli endpoint
 
@@ -112,7 +112,7 @@ La sequenza temporale nella figura seguente è una descrizione dettagliata del p
 
 ![Sequenza di failover e failback degli endpoint di Gestione traffico](./media/traffic-manager-monitoring/timeline.png)
 
-**Figura:  Sequenza di failover e ripristino degli endpoint di Gestione traffico**
+**Figura: Sequenza di failover e ripristino degli endpoint di Gestione traffico**
 
 1. **GET**. Per ogni endpoint, il sistema di monitoraggio di Gestione traffico esegue una richiesta GET sul percorso specificato nelle impostazioni di monitoraggio.
 2. **200 OK o intervallo di codici personalizzato specificato nelle impostazioni di monitoraggio del profilo di Gestione traffico**. Il sistema di monitoraggio si aspetta che venga restituito entro 10 secondi un codice HTTP 200 OK o un intervallo di codici personalizzato specificato nelle impostazioni di monitoraggio del profilo di Gestione traffico. Alla ricezione della risposta, il sistema riconosce la disponibilità del servizio.

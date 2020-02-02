@@ -3,7 +3,7 @@ title: Gestire le zone DNS in DNS di Azure - Interfaccia della riga di comando d
 description: È possibile gestire le zone DNS utilizzando Azure CLI. Questo articolo illustra come aggiornare, eliminare e creare le zone DNS in DNS di Azure.
 services: dns
 documentationcenter: na
-author: asudbring
+author: rohinkoul
 manager: timlt
 ms.assetid: 8ab63bc4-5135-4ed8-8c0b-5f0712b9afed
 ms.service: dns
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
-ms.author: allensu
-ms.openlocfilehash: e1a3c401de32beb9757011ac306443334da8b867
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 413c2ab3ee04249c2bb52bf42ca6a31a58fb9082
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211932"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936936"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Come gestire le zone DNS in DNS di Azure DNS usando l'interfaccia della riga di comando di Azure
 
@@ -62,7 +62,7 @@ Controllare le sottoscrizioni per l'account.
 az account list
 ```
 
-Scegliere le sottoscrizioni ad Azure da usare.
+Scegliere quali sottoscrizioni Azure usare.
 
 ```azurecli
 az account set --subscription "subscription name"
@@ -76,7 +76,7 @@ az extension add --name dns
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Azure Resource Manager richiede che tutti i gruppi di risorse specifichino una località. che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Tuttavia, dato che tutte le risorse DNS sono globali, non regionali, la scelta del percorso del gruppo di risorse non ha alcun impatto sul servizio DNS di Azure.
+Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Tuttavia, dato che tutte le risorse DNS sono globali, non regionali, la scelta del percorso del gruppo di risorse non ha alcun impatto sul servizio DNS di Azure.
 
 Se si usa un gruppo di risorse esistente, è possibile ignorare questo passaggio.
 

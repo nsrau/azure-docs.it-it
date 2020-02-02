@@ -11,15 +11,15 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 11/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: d43e04e0ef347ec46a8aad12aac380f68106fc2f
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: aba613911328b1272ebb07eeae633932cb4a442f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541608"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935363"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gestire l'accesso a un'area di lavoro Azure Machine Learning
-[!INCLUDE [aml-applies-to-enterprise-sku](../../includes/aml-applies-to-enterprise-sku.md)]
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Questo articolo illustra come gestire l'accesso a un'area di lavoro Azure Machine Learning. Il [controllo degli accessi in base al ruolo (RBAC)](/azure/role-based-access-control/overview) viene usato per gestire l'accesso alle risorse di Azure. Agli utenti nella Azure Active Directory vengono assegnati ruoli specifici che consentono di accedere alle risorse. Azure fornisce ruoli predefiniti e la possibilità di creare ruoli personalizzati.
 

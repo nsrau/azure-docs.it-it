@@ -1,20 +1,19 @@
 ---
 title: Azure Service Fabric-configurare le credenziali del repository del contenitore
 description: Configurare le credenziali del repository per scaricare immagini dal registro contenitori
-author: arya
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.author: arya
-ms.openlocfilehash: 25fe3c69b19d397137d1e1802e941e0433a1b160
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: sfrev
+ms.openlocfilehash: 9bd6e6a0a22f7568760f014897fd28ff47e9450b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351665"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934988"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>Configurare le credenziali del repository per l'applicazione per scaricare le immagini del contenitore
 
-Configurare l'autenticazione del registro contenitori aggiungendo `RepositoryCredentials` a `ContainerHostPolicies` nel file ApplicationManifest.xml. Aggiungere l'account e la password per il contenitore myregistry.azurecr.io, per consentire al servizio di scaricare l'immagine del contenitore dal repository.
+Configurare l'autenticazione del registro contenitori aggiungendo `RepositoryCredentials` alla sezione `ContainerHostPolicies` del manifesto dell'applicazione. Aggiungere l'account e la password per il registro contenitori (*MyRegistry.azurecr.io* nell'esempio seguente), che consente al servizio di scaricare l'immagine del contenitore dal repository.
 
 ```xml
 <ServiceManifestImport>
@@ -55,7 +54,7 @@ Service Fabric usa quindi le credenziali predefinite del repository che è possi
 * DefaultContainerRepositoryAccountName (stringa)
 * DefaultContainerRepositoryPassword (stringa)
 * IsDefaultContainerRepositoryPasswordEncrypted (bool)
-* DefaultContainerRepositoryPasswordType (stringa) - Supportato a partire dal runtime 6.4
+* DefaultContainerRepositoryPasswordType (stringa)
 
 Di seguito è riportato un esempio di ciò che è possibile aggiungere all'interno della sezione `Hosting` nel file ClusterManifestTemplate. JSON. La sezione `Hosting` può essere aggiunta in fase di creazione del cluster o in un secondo momento in un aggiornamento della configurazione. Per altre informazioni, vedere [Personalizzare le impostazioni di un cluster di Service Fabric](service-fabric-cluster-fabric-settings.md) e [Gestire i segreti nelle applicazioni di Service Fabric](service-fabric-application-secret-management.md).
 
@@ -90,19 +89,19 @@ Di seguito è riportato un esempio di ciò che è possibile aggiungere all'inter
 ]
 ```
 
-## <a name="leveraging-the-managed-identity-of-the-virtual-machine-scale-set-by-using-managed-identity-service-msi"></a>Uso dell'identità gestita del set di scalabilità di macchine virtuali tramite il servizio identità gestito (MSI)
+## <a name="use-tokens-as-registry-credentials"></a>Usare i token come credenziali del registro di sistema
 
-Service Fabric supporta l'uso di token come credenziali per scaricare immagini per i contenitori.  Questa funzionalità sfrutta l'identità gestita del set di scalabilità di macchine virtuali sottostante per l'autenticazione nel registro di sistema, eliminando la necessità di gestire le credenziali utente.  Per ulteriori informazioni su MSI, vedere [identità del servizio gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) .  Per usare questa funzionalità, è necessario eseguire i passaggi seguenti:
+Service Fabric supporta l'uso di token come credenziali per scaricare immagini per i contenitori.  Questa funzionalità sfrutta l' *identità gestita* del set di scalabilità di macchine virtuali sottostante per l'autenticazione nel registro di sistema, eliminando la necessità di gestire le credenziali utente.  Per altre informazioni, vedere [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) .  Per usare questa funzionalità, è necessario eseguire i passaggi seguenti:
 
-1.  Verificare che l'identità gestita assegnata dal sistema sia abilitata per la macchina virtuale (vedere la schermata riportata di seguito)
+1. Verificare che l' *identità gestita assegnata dal sistema* sia abilitata per la macchina virtuale.
 
-    ![Crea identità del set di scalabilità di macchine virtuali](./media/configure-container-repository-credentials/configure-container-repository-credentials-acr-iam.png)
+    ![Portale di Azure: creare un'opzione di identità del set di scalabilità di macchine virtuali](./media/configure-container-repository-credentials/configure-container-repository-credentials-acr-iam.png)
 
-2.  Successivamente, concedere le autorizzazioni alla VM (SS) per eseguire il pull/leggere le immagini dal registro di sistema.  Passare a controllo di accesso (IAM) del pannello ACR tramite Azure e assegnare alla VM (SS) le autorizzazioni corrette, come illustrato di seguito:
+2. Concedere le autorizzazioni al set di scalabilità di macchine virtuali per eseguire il pull/leggere le immagini dal registro di sistema. Nel pannello controllo di accesso (IAM) del Container Registry di Azure nella portale di Azure aggiungere un'assegnazione di *ruolo* per la macchina virtuale:
 
     ![Aggiungi entità macchina virtuale a ACR](./media/configure-container-repository-credentials/configure-container-repository-credentials-vmss-identity.png)
 
-3.  Una volta completati i passaggi precedenti, modificare il file ApplicationManifest. XML.  Trovare il tag denominato "ContainerHostPolicies" e aggiungere l'attributo `‘UseTokenAuthenticationCredentials=”true”`.
+3. Modificare quindi il manifesto dell'applicazione. Nella sezione `ContainerHostPolicies` aggiungere l'attributo `‘UseTokenAuthenticationCredentials=”true”`.
 
     ```xml
       <ServiceManifestImport>
@@ -121,4 +120,4 @@ Service Fabric supporta l'uso di token come credenziali per scaricare immagini p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere altre informazioni sull' [autenticazione del registro contenitori](/azure/container-registry/container-registry-authentication).
+* Vedere altre informazioni sull' [autenticazione del registro contenitori](../container-registry/container-registry-authentication.md).

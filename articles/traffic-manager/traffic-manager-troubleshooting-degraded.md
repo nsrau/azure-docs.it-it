@@ -3,7 +3,7 @@ title: Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traf
 description: Come risolvere i problemi relativi ai profili di Gestione traffico quando risulta uno stato Danneggiato.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
-ms.author: allensu
-ms.openlocfilehash: 8b8fbdf55e408874f6a6e83d6333583238865b5c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: c398763405472c9018a5c30d34fbd3963ecb93b7
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227709"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938373"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico
 
@@ -79,7 +79,7 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 [System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 [Informazioni sui metodi di routing di Gestione traffico](traffic-manager-routing-methods.md)
 
@@ -87,7 +87,7 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [Servizi cloud](https://go.microsoft.com/fwlink/?LinkId=314074)
 
-[servizio app di Azure](https://azure.microsoft.com/documentation/services/app-service/web/)
+[Servizio app di Azure](https://azure.microsoft.com/documentation/services/app-service/web/)
 
 [Operazioni per Gestione traffico (informazioni di riferimento API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
 

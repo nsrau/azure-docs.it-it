@@ -2,13 +2,13 @@
 title: Configurare il probe di conformità sull'istanza del contenitore
 description: Informazioni su come configurare un probe per garantire che i contenitori nelle istanze di contenitore di Azure ricevano richieste solo quando sono pronte
 ms.topic: article
-ms.date: 10/17/2019
-ms.openlocfilehash: 50cb341788434a6dc0bb0a1423d9e59a3d93634d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 01/30/2020
+ms.openlocfilehash: 64bb4a3e429ce820835abbf8e235600e592f7868
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901845"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935688"
 ---
 # <a name="configure-readiness-probes"></a>Configurare probe di idoneità
 
@@ -23,7 +23,7 @@ Istanze di contenitore di Azure supporta anche i [Probe di liveity](container-in
 
 ## <a name="yaml-configuration"></a>Configurazione YAML
 
-Ad esempio, creare un file di `readiness-probe.yaml` con il frammento di codice che include un probe di conformità. Questo file definisce un gruppo di contenitori costituito da un contenitore che esegue un'app Web di piccole dimensioni. L'app viene distribuita dall'immagine `mcr.microsoft.com/azuredocs/aci-helloworld` pubblica. Questa app contenitore è illustrata anche in guide introduttive come [distribuire un'istanza di contenitore in Azure usando l'interfaccia della riga di comando di Azure](container-instances-quickstart.md).
+Ad esempio, creare un file di `readiness-probe.yaml` con il frammento di codice che include un probe di conformità. Questo file definisce un gruppo di contenitori costituito da un contenitore che esegue un'app Web di piccole dimensioni. L'app viene distribuita dall'immagine `mcr.microsoft.com/azuredocs/aci-helloworld` pubblica. Questa app in contenitori è illustrata anche in [distribuire un'istanza di contenitore in Azure usando l'interfaccia della riga di](container-instances-quickstart.md) comando di Azure e altre guide introduttive.
 
 ```yaml
 apiVersion: 2018-10-01
@@ -63,7 +63,9 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### <a name="start-command"></a>Comando di avvio
 
-Il file YAML include un comando iniziale da eseguire all'avvio del contenitore, definito dalla proprietà `command` che accetta una matrice di stringhe. Questo comando Simula un'ora in cui viene eseguita l'app Web, ma il contenitore non è pronto. Innanzitutto, avvia una sessione della shell ed esegue un comando `node` per avviare l'app Web. Avvia anche un comando per la sospensione di 240 secondi, dopo il quale viene creato un file denominato `ready` all'interno della directory `/tmp`:
+La distribuzione include una proprietà `command` che definisce un comando di avvio che viene eseguito all'avvio dell'esecuzione del contenitore. Questa proprietà accetta una matrice di stringhe. Questo comando Simula un'ora in cui viene eseguita l'app Web, ma il contenitore non è pronto. 
+
+Innanzitutto, avvia una sessione della shell ed esegue un comando `node` per avviare l'app Web. Avvia anche un comando per la sospensione di 240 secondi, dopo il quale viene creato un file denominato `ready` all'interno della directory `/tmp`:
 
 ```console
 node /usr/src/app/index.js & (sleep 240; touch /tmp/ready); wait

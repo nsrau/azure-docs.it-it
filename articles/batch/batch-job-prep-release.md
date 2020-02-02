@@ -1,5 +1,5 @@
 ---
-title: Creare attività per preparare e completare i processi nei nodi di calcolo - Azure Batch | Documentazione Microsoft
+title: 'Creare attività per preparare & processi completi nei nodi di calcolo: Azure Batch'
 description: Usare le attività di preparazione a livello di processo per ridurre al minimo il trasferimento dei dati ai nodi di calcolo di Azure Batch e le attività di rilascio per la pulizia del nodo al completamento del processo.
 services: batch
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 7c5c9dfcaa88b35e14cf5d56b01b4e364c856600
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: ed3b96ff7f1117b1185159cfa4e4b03aa80d6b02
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027126"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935039"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Eseguire attività di preparazione e rilascio del processo in nodi di calcolo di Batch
 

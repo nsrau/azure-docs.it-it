@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 553dffd14182c93a52ed076e742830c68130551b
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 4c89765a3bc59a37a182a2dfabf0727f95b575b8
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911228"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933232"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Aggiungere una barra degli strumenti di disegno a una mappa
 
@@ -68,7 +68,7 @@ Vedere la penna <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>aggiungere u
 
 ## <a name="change-drawing-rendering-style"></a>Modificare lo stile di rendering del disegno
 
-Il codice seguente ottiene i livelli di rendering dal gestore del disegno e modifica le opzioni per modificare lo stile di rendering per il disegno. In questo caso, verrà eseguito il rendering dei punti con un'icona di marcatore blu, le linee saranno rosse e quattro pixel di larghezza, i poligoni avranno un colore di riempimento verde e un contorno arancione.
+Il codice seguente ottiene i livelli di rendering dal gestore del disegno e modifica le opzioni per modificare lo stile di rendering per il disegno. In questo caso, verrà eseguito il rendering dei punti con un'icona del marcatore blu. Le linee saranno di colore rosso e di quattro pixel. I poligoni avranno un colore di riempimento verde e un contorno arancione.
 
 ```Javascript
 var layers = drawingManager.getLayers();

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5b59bdc06d455c7bd0ec9cf889f5cfa382948467
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 8503b12be628fe7d5651221c9d0379bee3e292bd
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911178"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933475"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Aggiungere un livello linea alla mappa
 
@@ -23,7 +23,7 @@ Un livello linea può essere utilizzato per eseguire il rendering di `LineString
 > [!TIP]
 > Per impostazione predefinita, i livelli linea eseguono il rendering delle coordinate dei poligoni e delle linee in un'origine dati. Per limitare il livello in modo che esegua il rendering solo delle funzionalità LineString, impostare la proprietà `filter` del livello su `['==', ['geometry-type'], 'LineString']` o `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` se si desidera includere anche le funzionalità MultiLineString.
 
-Il codice seguente illustra come creare una riga, aggiungerla a un'origine dati ed eseguirne il rendering con un livello linea usando la classe [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) .
+Nel codice seguente viene illustrato come creare una riga. Aggiungere la riga a un'origine dati, quindi eseguirne il rendering con un livello linea utilizzando la classe [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) .
 
 ```javascript
 //Create a data source and add it to the map.
@@ -51,7 +51,7 @@ Di seguito è riportato l'esempio di codice completo per l'esecuzione delle funz
 
 ## <a name="add-symbols-along-a-line"></a>Aggiungi simboli lungo una riga
 
-In questo esempio viene illustrato come aggiungere icone a freccia lungo una riga sulla mappa. Quando si usa un livello di simboli, impostare l'opzione "posizionamento" su "linea", in modo da eseguire il rendering dei simboli lungo la linea e ruotare le icone (0 gradi = destra).
+In questo esempio viene illustrato come aggiungere icone a freccia lungo una riga sulla mappa. Quando si usa un livello di simboli, impostare l'opzione "posizionamento" su "riga". Questa opzione consente di eseguire il rendering dei simboli lungo la linea e di ruotare le icone (0 gradi = a destra).
 
 <br/>
 
@@ -66,7 +66,7 @@ Per le mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in
 
 ## <a name="add-a-stroke-gradient-to-a-line"></a>Aggiungere una sfumatura del tratto a una riga
 
-Oltre a poter applicare un singolo colore tratto a una riga, è anche possibile riempire una linea con una sfumatura di colori per visualizzare la transizione da un segmento di linea a quello successivo. Ad esempio, è possibile usare le sfumature di linea per rappresentare le modifiche nel tempo e nella distanza oppure con temperature diverse in una linea di oggetti connessa. Per applicare questa funzionalità a una riga, è necessario che l'opzione `lineMetrics` dell'origine dati sia impostata su true, quindi un'espressione di sfumatura di colore possa essere passata all'opzione `strokeColor` della riga. L'espressione di sfumatura del tratto deve fare riferimento all'espressione di dati `['line-progress']` che espone le metriche della linea calcolata all'espressione.
+È possibile applicare un colore a tratto singolo a una riga. È anche possibile riempire una linea con una sfumatura di colori per visualizzare la transizione da un segmento di linea al segmento di riga successivo. Ad esempio, è possibile usare le sfumature di linea per rappresentare le modifiche nel tempo e nella distanza oppure con temperature diverse in una linea di oggetti connessa. Per applicare questa funzionalità a una riga, è necessario che l'opzione `lineMetrics` dell'origine dati sia impostata su true, quindi un'espressione di sfumatura di colore possa essere passata all'opzione `strokeColor` della riga. L'espressione di sfumatura del tratto deve fare riferimento all'espressione di dati `['line-progress']` che espone le metriche della linea calcolata all'espressione.
 
 <br/>
 
@@ -76,7 +76,7 @@ Vedere la linea della penna <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>c
 
 ## <a name="customize-a-line-layer"></a>Personalizzare un livello linea
 
-Per il livello linea sono disponibili varie opzioni di stile. Lo strumento seguente consente di provarle.
+Il livello linea presenta diverse opzioni di stile. Lo strumento seguente consente di provarle.
 
 <br/>
 

@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: fbfe120484f7a5fdfb847448a4bba2309f3fedc6
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 3b3b83719da4c1c19706845fa4cb1dc75712d145
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543563"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932385"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuire modelli con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ Informazioni su come distribuire un modello di machine learning come servizio We
 Il flusso di lavoro è simile indipendentemente [da dove si distribuisce](#target) il modello:
 
 1. Registrare il modello.
-1. Preparare la distribuzione (specificare asset, utilizzo, destinazione di calcolo).
+1. Preparare la distribuzione. (Specificare asset, utilizzo, destinazione di calcolo.)
 1. Distribuire il modello nella destinazione di calcolo.
 1. Testare il modello distribuito, detto anche servizio Web.
 
@@ -174,12 +174,12 @@ Per un esempio E2E che illustra come usare più modelli dietro un singolo endpoi
 
 ## <a name="prepare-to-deploy"></a>Preparare la distribuzione
 
-Per distribuire il modello, è necessario quanto segue:
+Per distribuire il modello, sono necessari gli elementi seguenti:
 
-* **Uno script di avvio**. Questo script accetta le richieste, assegna un punteggio alle richieste usando il modello e restituisce i risultati.
+* **Uno script di immissione**. Questo script accetta le richieste, assegna un punteggio alle richieste usando il modello e restituisce i risultati.
 
     > [!IMPORTANT]
-    > * Lo script di avvio è specifico del modello. Deve comprendere il formato dei dati della richiesta in ingresso, il formato dei dati previsti dal modello e il formato dei dati restituiti ai client.
+    > * Lo script di immissione è specifico del modello. Deve comprendere il formato dei dati della richiesta in ingresso, il formato dei dati previsti dal modello e il formato dei dati restituiti ai client.
     >
     >   Se i dati della richiesta sono in un formato non utilizzabile dal modello, lo script può trasformarlo in un formato accettabile. Può anche trasformare la risposta prima di restituirla al client.
     >
@@ -187,21 +187,21 @@ Per distribuire il modello, è necessario quanto segue:
     >
     >   Un'alternativa che può funzionare per lo scenario è la [stima in batch](how-to-use-parallel-run-step.md), che fornisce l'accesso agli archivi dati durante il punteggio.
 
-* **Dipendenze**, ad esempio script helper o pacchetti Python/Conda necessari per eseguire lo script di avvio o il modello.
+* **Dipendenze**, ad esempio gli script helper o i pacchetti Python/conda necessari per eseguire lo script di immissione o il modello.
 
-* **Configurazione di distribuzione** per la destinazione di calcolo che ospita il modello distribuito. Questa configurazione descrive elementi come i requisiti di memoria e CPU necessari per eseguire il modello.
+* **Configurazione della distribuzione** per la destinazione di calcolo che ospita il modello distribuito. Questa configurazione descrive elementi quali i requisiti di memoria e CPU necessari per eseguire il modello.
 
-Questi elementi vengono incapsulati in una *configurazione di inferenza* e in una *configurazione di distribuzione*. La configurazione di inferenza fa riferimento allo script di avvio e ad altre dipendenze. È possibile definire queste configurazioni a livello di codice quando si usa l'SDK per eseguire la distribuzione. Le configurazioni vengono definite nei file JSON quando si usa l'interfaccia della riga di comando.
+Questi elementi vengono incapsulati in una *configurazione di inferenza* e una *configurazione di distribuzione*. La configurazione dell'inferenza fa riferimento allo script di immissione e ad altre dipendenze. Queste configurazioni vengono definite a livello di codice quando si usa l'SDK per eseguire la distribuzione. Vengono definiti nei file JSON quando si usa l'interfaccia della riga di comando.
 
 ### <a id="script"></a>1. definire lo script di immissione e le dipendenze
 
-Lo script di avvio riceve i dati inviati a un servizio Web distribuito e li passa al modello. Riceve quindi la risposta restituita dal modello e la restituisce al client. *Lo script è specifico del modello*. Deve comprendere i dati previsti e restituiti dal modello.
+Lo script di immissione riceve i dati inviati a un servizio Web distribuito e li passa al modello. Riceve quindi la risposta restituita dal modello e la restituisce al client. *Lo script è specifico del modello*. Deve comprendere i dati previsti e restituiti dal modello.
 
-Lo script contiene due funzioni per il caricamento e l'esecuzione del modello:
+Lo script contiene due funzioni che caricano ed eseguono il modello:
 
 * `init()`: in genere, questa funzione carica il modello in un oggetto globale. Questa funzione viene eseguita una sola volta, quando viene avviato il contenitore Docker per il servizio Web.
 
-* `run(input_data)`: questa funzione utilizza il modello per stimare un valore in base ai dati di input. Gli input e gli output dell'esecuzione usano in genere JSON per la serializzazione e la deserializzazione. È anche possibile usare dati binari non elaborati. È possibile trasformare i dati prima dell'invio al modello o prima della restituzione al client.
+* `run(input_data)`: questa funzione utilizza il modello per stimare un valore in base ai dati di input. Gli input e gli output dell'esecuzione usano in genere JSON per la serializzazione e la deserializzazione. È anche possibile usare dati binari non elaborati. È possibile trasformare i dati prima di inviarli al modello o prima di restituirli al client.
 
 #### <a name="locate-model-files-in-your-entry-script"></a>Individuare i file del modello nello script di immissione
 
@@ -220,17 +220,23 @@ Nella tabella seguente viene descritto il valore di AZUREML_MODEL_DIR in base al
 | Modello singolo | Percorso della cartella che contiene il modello. |
 | Più modelli | Percorso della cartella contenente tutti i modelli. I modelli si trovano in base al nome e alla versione in questa cartella (`$MODEL_NAME/$VERSION`) |
 
-Per ottenere il percorso di un file in un modello, combinare la variabile di ambiente con il nome file che si sta cercando.
-I nomi file dei file di modello vengono conservati durante la registrazione e la distribuzione. 
+Durante la registrazione e la distribuzione del modello, i modelli vengono inseriti nel percorso AZUREML_MODEL_DIR e i relativi nomi file originali vengono conservati.
+
+Per ottenere il percorso di un file di modello nello script di immissione, combinare la variabile di ambiente con il percorso del file che si sta cercando.
 
 **Esempio di modello singolo**
 ```python
+# Example when the model is a file
 model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_regression_model.pkl')
+
+# Example when the model is a folder containing a file
+file_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'my_model_folder', 'sklearn_regression_model.pkl')
 ```
 
 **Esempio di più modelli**
 ```python
-model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model/1/sklearn_regression_model.pkl')
+# Example when the model is a file, and the deployment contains multiple models
+model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model', '1', 'sklearn_regression_model.pkl')
 ```
 
 ##### <a name="get_model_path"></a>get_model_path
@@ -859,7 +865,7 @@ Per altri progetti ed esempi di esempio, vedere questi repository di esempio in 
 ## <a name="download-a-model"></a>Scaricare un modello
 Se si vuole scaricare il modello per usarlo nel proprio ambiente di esecuzione, è possibile eseguire questa operazione con i comandi SDK/CLI seguenti:
 
-SDK di  -
+SDK
 ```python
 model_path = Model(ws,'mymodel').download()
 ```
@@ -912,7 +918,7 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-### <a name="scikit-learn-models"></a>Modelli Scikit-Learn
+### <a name="scikit-learn-models"></a>Scikit-informazioni sui modelli
 
 Nessuna distribuzione del modello di codice è supportata per tutti i tipi di modello Scikit-learn predefiniti.
 

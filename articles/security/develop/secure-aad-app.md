@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
 ms.author: terrylan
-ms.openlocfilehash: a936fb4a0a6eadc2840fc6d642428091a6b0fe9e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 11bf7c0ae05c2e52d59efb32be47ce6bd96fac4f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771275"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937973"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Sviluppare un'app sicura per un'app Azure AD
 ## <a name="overview"></a>Overview
@@ -185,7 +185,7 @@ $gwSubnet = New-AzVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 
 
 #Assign an address range to be used for the back-end address pool.
 
-$nicSubnet = New-AzVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.0.0/24
+$nicSubnet = New-AzVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
 
 #Create a virtual network with the subnets defined in the preceding steps.
 
@@ -212,7 +212,7 @@ $fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAdd
 
 #Configure the back-end IP address pool with the IP addresses of the back-end web servers
 
-$pool = New-AzApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 10.0.0.0
+$pool = New-AzApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 10.0.3.11
 
 #Configure the front-end IP port for the public IP endpoint
 
@@ -222,6 +222,7 @@ $fp = New-AzApplicationGatewayFrontendPort -Name 'port01'  -Port 443
 
 $passwd = ConvertTo-SecureString  "P@ssword!1" -AsPlainText -Force 
 $cert = New-AzApplicationGatewaySSLCertificate -Name cert01 -CertificateFile "C:\AAD\Securities\Certificates\sslcert.com.cer" -Password $passwd 
+
 
 #Create the HTTP listener for the application gateway
 
@@ -334,7 +335,7 @@ Ora che è stata abilitata l'integrazione della rete virtuale, è possibile aggi
 
 5. Nel pannello subnet del NSG selezionare **associa**, selezionare la rete virtuale creata nella distribuzione e selezionare la subnet del gateway denominata **GW-Subnet**. NSG viene applicato alla subnet.
 
-6. Creare un'altra NSG come nel passaggio precedente, questa volta per l'istanza del servizio app. Assegnare un nome. Aggiungere la regola in ingresso per la porta 443 come per il gateway applicazione NSG.
+6. Creare un'altra NSG come nel passaggio precedente, questa volta per l'istanza del servizio app. Assegnargli un nome. Aggiungere la regola in ingresso per la porta 443 come per il gateway applicazione NSG.
 
    Se è stata distribuita un'istanza del servizio app in un'istanza di ambiente del servizio app, che non è il caso di questa app, è possibile aggiungere regole in ingresso per consentire i probe di integrità dei servizi di Azure aprendo le porte 454-455 nei gruppi di sicurezza in ingresso del servizio app NSG. Ecco la configurazione:
 
@@ -411,7 +412,7 @@ I servizi di Azure registrano in modo completo le attività di sistema e degli u
    - Chiave di Application Insights
    - Chiave di accesso all'archiviazione dati
    - Stringa di connessione
-   - Data table name
+   - Nome tabella dati
    - Credenziali dell'utente
    - I criteri di accesso avanzati vengono configurati in base alle necessità
    - I criteri di accesso Key Vault vengono definiti con le autorizzazioni minime necessarie per le chiavi e i segreti
@@ -465,7 +466,7 @@ Per abilitare l'autenticazione a più fattori per gli accessi amministrativi
    1. Passare alla scheda **Azure Active Directory** nella portale di Azure
    2. Nella categoria sicurezza selezionare accesso condizionale. Viene visualizzata questa schermata
 
-       ![Accesso condizionale - Criteri](./media/secure-aad-app/ad-mfa-conditional-add.png)
+       ![Accesso condizionale-criteri](./media/secure-aad-app/ad-mfa-conditional-add.png)
 
 Se non è possibile creare un nuovo criterio
 

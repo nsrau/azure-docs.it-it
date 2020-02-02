@@ -4,7 +4,7 @@ titleSuffix: Azure Traffic Manager
 description: Questo articolo descrive la funzionalità "Profili nidificati" di Gestione traffico di Azure
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -12,19 +12,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
-ms.author: allensu
-ms.openlocfilehash: a5444c05b59196f53c670a2ae782f2bda5527c54
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 282099cb274c1ea872a0df9c2753a939ef31421f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227758"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938581"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Profili nidificati di Gestione traffico
 
 Gestione traffico include diversi metodi di routing del traffico, che consentono di controllare la modalità con cui Gestione traffico sceglie quale endpoint deve ricevere traffico da ogni utente finale. Per altre informazioni, vedere [Metodi di routing del traffico di Gestione traffico](traffic-manager-routing-methods.md).
 
-Ciascun profilo di Gestione traffico specifica un solo metodo di routing del traffico. Esistono scenari che tuttavia richiedono un sistema di routing del traffico più avanzato anziché il routing fornito da un singolo profilo di Gestione traffico. È possibile annidare i profili di Gestione traffico per combinare i vantaggi offerti da più metodi di routing del traffico. I profili annidati consentono di ignorare il comportamento predefinito di Gestione traffico per supportare distribuzioni di dimensioni maggiori e più complesse.
+Ciascun profilo di Gestione traffico specifica un solo metodo di routing del traffico. Esistono scenari che tuttavia richiedono un sistema di routing del traffico più avanzato anziché il routing fornito da un singolo profilo di Gestione traffico. È possibile annidare i profili di Gestione traffico per combinare i vantaggi offerti da più metodi di routing del traffico. I profili annidati consentono di ignorare il comportamento predefinito di Gestione traffico per supportare distribuzioni di applicazioni di dimensioni maggiori e più complesse.
 
 Gli esempi seguenti illustrano come usare i profili di Gestione traffico annidati in vari scenari.
 
@@ -54,7 +54,7 @@ Tornando all'esempio precedente, si supponga che la distribuzione di produzione 
 
 ![Failover dei profili nidificati (comportamento predefinito)][3]
 
-È possibile che questa soluzione risulti soddisfacente, o che si tema che tutto il traffico dell'Europa occidentale venga indirizzato alla distribuzione di prova invece che a un sottoinsieme limitato. Indipendentemente dall'integrità della distribuzione di prova, si preferisce eseguire il failover ad altre aree se la distribuzione di produzione in Europa occidentale ha esito negativo. Per abilitare questo failover, durante la configurazione del profilo figlio come endpoint nel profilo padre è possibile specificare il parametro 'MinChildEndpoints', che determina il numero minimo di endpoint che devono essere disponibili nel profilo figlio, Il valore predefinito è "1". In questo scenario, impostare il valore MinChildEndpoints su 2. Al di sotto di questa soglia, il profilo padre considererà l'intero profilo figlio non disponibile e indirizzerà il traffico agli altri endpoint.
+È possibile che questa soluzione risulti soddisfacente, o che si tema che tutto il traffico dell'Europa occidentale venga indirizzato alla distribuzione di prova invece che a un sottoinsieme limitato. Indipendentemente dall'integrità della distribuzione di prova, si preferisce eseguire il failover ad altre aree se la distribuzione di produzione in Europa occidentale ha esito negativo. Per abilitare questo failover, durante la configurazione del profilo figlio come endpoint nel profilo padre è possibile specificare il parametro 'MinChildEndpoints', che determina il numero minimo di endpoint che devono essere disponibili nel profilo figlio, il cui valore predefinito è 1. In questo scenario, impostare il valore MinChildEndpoints su 2. Al di sotto di questa soglia, il profilo padre considererà l'intero profilo figlio non disponibile e indirizzerà il traffico agli altri endpoint.
 
 L'immagine seguente illustra questa configurazione:
 
