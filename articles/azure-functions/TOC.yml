@@ -130,6 +130,9 @@
     - name: Considerazioni sulle prestazioni
       href: functions-best-practices.md
       displayName: best practice
+    - name: Considerazioni sulle risorse di archiviazione
+      href: storage-considerations.md
+      displayName: 'encryption, keys'
     - name: Proxy di Funzioni
       href: functions-proxies.md
     - name: Opzioni di rete
