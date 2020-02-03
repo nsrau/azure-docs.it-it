@@ -5,12 +5,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19674cb024bd9b9c9ea9f510080e30614fad8b60
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f808ff2a88a86df25b555f94257168e2d176e7f8
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433304"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963658"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Ottimizzare le prestazioni e l'affidabilità delle funzioni di Azure
 
@@ -74,7 +74,9 @@ Riutilizzare le connessioni alle risorse esterne, quando possibile. Vedere [come
 
 ### <a name="avoid-sharing-storage-accounts"></a>Evitare di condividere gli account di archiviazione
 
-Quando si crea un'app per le funzioni, è necessario associarla a un account di archiviazione. La connessione dell'account di archiviazione viene mantenuta nell' [impostazione dell'applicazione AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). Per ottimizzare le prestazioni, usare un account di archiviazione separato per ogni app per le funzioni. Questa operazione è particolarmente importante quando si hanno Durable Functions o funzioni attivate da Hub eventi, che generano entrambe un volume elevato di transazioni di archiviazione. Quando la logica dell'applicazione interagisce con archiviazione di Azure, direttamente (usando l'SDK di archiviazione) o tramite una delle associazioni di archiviazione, è necessario usare un account di archiviazione dedicato. Ad esempio, se si dispone di una funzione attivata da Hub eventi che scrive alcuni dati nell'archivio BLOB, usare due account di archiviazione&mdash;uno per l'app per le funzioni e un altro per i BLOB archiviati dalla funzione.
+Quando si crea un'app per le funzioni, è necessario associarla a un account di archiviazione. La connessione dell'account di archiviazione viene mantenuta nell' [impostazione dell'applicazione AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). 
+
+[!INCLUDE [functions-shared-storage](../../includes/functions-shared-storage.md)]
 
 ### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Non combinare codice di test e di produzione nella stessa app per le funzioni
 

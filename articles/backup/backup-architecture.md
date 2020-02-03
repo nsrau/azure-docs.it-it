@@ -3,12 +3,12 @@ title: Panoramica dell'architettura
 description: Panoramica dell'architettura, dei componenti e dei processi usati dal servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: de532bb02b4ecf5e912a71df404418338325d582
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f311f6d49a776a49080675f3c1ccc28a7a27cb92
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450188"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963938"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architettura e componenti di backup di Azure
 
@@ -101,6 +101,23 @@ Backup incrementale |![Sì][green] |![Sì][green] |![Sì][green]
 Backup di dischi deduplicati | | | ![Parzialmente][yellow]<br/><br/> Solo per i server DPM/MABS distribuiti in locale.
 
 ![Chiave tabella](./media/backup-architecture/table-key.png)
+
+## <a name="backup-policy-essentials"></a>Informazioni di base sui criteri di backup
+
+- Un criterio di backup viene creato per ogni insieme di credenziali.
+- Un criterio di backup può essere creato per il backup dei carichi di lavoro seguenti
+  - Macchina virtuale di Azure
+  - SQL in macchine virtuali di Azure
+  - Condivisione file di Azure
+- Un criterio può essere assegnato a più risorse. Un criterio di backup di macchine virtuali di Azure può essere usato per proteggere più macchine virtuali di Azure.
+- Un criterio è costituito da due componenti
+  - Pianificazione: quando creare il backup
+  - Conservazione: per quanto tempo ogni backup deve essere conservato.
+- La pianificazione può essere "giornaliera" o "settimanale" rispetto a uno specifico punto temporale.
+- La conservazione può essere definita per punti di backup "giornalieri", "settimanali", "mensili" e "annuali".
+- "Settimanale" si riferisce a un backup eseguito in un determinato giorno della settimana, "mensile" indica un backup eseguito in un determinato giorno del mese e "annuale" fa riferimento a un backup eseguito in un determinato giorno dell'anno.
+- La conservazione per i punti di backup "mensili" o "annuali" viene definita "LongTermRetention".
+- Quando viene creato un insieme di credenziali, viene creato anche un criterio per i backup di VM di Azure denominato "DefaultPolicy" e può essere usato per eseguire il backup di macchine virtuali di Azure.
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>Architettura: backup di macchine virtuali di Azure predefinito
 

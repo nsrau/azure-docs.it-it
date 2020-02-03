@@ -138,6 +138,8 @@
       href: custom-disaster-recovery.md
     - name: Risolvere gli errori
       href: troubleshoot-errors.md
+    - name: Abilitare i log di diagnostica per un argomento
+      href: enable-diagnostic-logs-topic.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

@@ -740,18 +740,18 @@
   items:
     - name: Glossario
       href: developer-glossary.md
-    - name: Roadmap per Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: Video
+      href: identity-videos.md
     - name: Blog di Azure AD
       href: 'https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory'
     - name: Blog di Microsoft Identity Platform per sviluppatori
       href: 'https://developer.microsoft.com/en-us/identity/blogs/'
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: Provare l'opzione Accedi con Microsoft
       href: 'https://azure.microsoft.com/develop/identity/signin/'
+    - name: Identità gestite per le risorse di Azure
+      href: 'https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview'
     - name: Risorse della Guida
       displayName: 'support, help options'
       href: developer-support-help-options.md
-    - name: Identità gestite per le risorse di Azure
-      href: 'https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview'
-    - name: Video su Microsoft Identity Platform
-      href: identity-videos.md

@@ -6,16 +6,16 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 754977788c5f6e5e574500552f670ba9083cf683
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1ff432c2073536448c8194ebe537c8bf8cf00663
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490611"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964244"
 ---
 # <a name="how-to-configure-a-dataset-mapping-for-a-received-share-in-azure-data-share"></a>Come configurare un mapping del set di dati per una condivisione ricevuta in una condivisione dati di Azure
 
-Questo articolo illustra come configurare un mapping del set di dati per una condivisione ricevuta usando la condivisione di dati di Azure. Questa operazione deve essere eseguita se è stato accettato un invito alla condivisione dati, ma si è scelto di accettare e configurare in un secondo momento. È possibile configurare un mapping del set di dati se è necessario modificare la destinazione per i dati condivisi con l'utente o se si desidera ricevere dati in un SQL Server. 
+Questo articolo illustra come configurare un mapping del set di dati per una condivisione ricevuta usando la condivisione di dati di Azure. Questa operazione può essere eseguita se è stato accettato un invito alla condivisione dati ma si è scelto di "accettare e configurare in un secondo momento" oppure se i dati sono condivisi sul posto. È possibile configurare un mapping del set di dati se è necessario modificare la destinazione per i dati condivisi con l'utente o se si desidera ricevere dati in un SQL Server. 
 
 ## <a name="navigate-to-a-received-data-share"></a>Passare a una condivisione di dati ricevuta
 
@@ -27,9 +27,9 @@ Selezionare la casella accanto al set di dati a cui si vuole assegnare una desti
 
 ![Mappa a destinazione](./media/dataset-map-target.png "Mappa a destinazione") 
 
-## <a name="select-a-new-destination-store"></a>Selezionare un nuovo archivio di destinazione
+## <a name="select-a-new-target-store"></a>Selezionare un nuovo archivio di destinazione
 
-Selezionare un tipo di dati di destinazione in cui si desidera che vengano inseriti i dati. Si noti che tutti i dati già esistenti in qualsiasi account di archiviazione con mapping in precedenza non verranno spostati automaticamente nella nuova destinazione.
+Selezionare un tipo di dati di destinazione in cui si desidera che vengano inseriti i dati. Per la condivisione basata su snapshot, tutti i dati già esistenti in tutti gli account di archiviazione con mapping in precedenza non verranno spostati automaticamente nel nuovo archivio di destinazione. Per la condivisione sul posto selezionare un archivio dati nel percorso specificato. Il percorso è il data center di Azure in cui si trova l'archivio dati di origine del provider di dati.
 
 ![Account di archiviazione di destinazione](./media/dataset-map-target-sql.png "Archiviazione di destinazione") 
 

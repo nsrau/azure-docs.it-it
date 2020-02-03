@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: e7770a3faef0ccf7ca0f5b8c56f98007b8d89436
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 52d8dda8b543e5bdf3ca88ae3784df65be3a2ba1
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719841"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76962944"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -36,6 +36,13 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 
 Per altre informazioni, vedere [Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="january-2020"></a>Gennaio 2020
+
+### <a name="improvements-in-media-processors"></a>Miglioramenti ai processori di contenuti multimediali
+
+- Supporto migliorato per le origini interlacciate nell'analisi dei video: il contenuto è ora deinterlacciato correttamente prima di essere inviato ai motori di inferenza.
+- Quando si generano anteprime con la modalità "migliore", il codificatore ora cerca oltre 30 secondi per selezionare un frame non monocromatico.
+ 
 ## <a name="november-2019"></a>Novembre 2019
 
 ### <a name="live-transcription-preview"></a>Anteprima della trascrizione in tempo reale

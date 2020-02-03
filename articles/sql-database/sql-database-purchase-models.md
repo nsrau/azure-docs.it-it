@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 04/26/2019
-ms.openlocfilehash: 6dbe61c47a7323e2dec599d2f3c77453aa6f8d82
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 02/01/2020
+ms.openlocfilehash: aa7197dc631ea281bd5616b572f4ca01aeb9d45c
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973527"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964771"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Scegliere tra i modelli di acquisto vCore e DTU
 
@@ -47,9 +47,9 @@ La tabella e il grafico seguenti confrontano e contrastano i modelli di acquisto
 
 Nel livello di calcolo con provisioning il costo di calcolo riflette la capacità di calcolo totale di cui è stato effettuato il provisioning per l'applicazione.
 
-Nel livello di servizio Business Critical vengono allocate automaticamente almeno tre repliche. Per riflettere questa allocazione aggiuntiva di risorse di calcolo, il prezzo nel modello di acquisto basato su vCore è superiore a 2.7 x nel livello di servizio business critical rispetto al livello di servizio per utilizzo generico. Analogamente, il prezzo di archiviazione superiore per GB nel livello di servizio business critical riflette l'i/O elevato e la bassa latenza dell'archiviazione SSD.
+Nel livello di servizio Business Critical vengono allocate automaticamente almeno 3 repliche. Per riflettere questa allocazione aggiuntiva di risorse di calcolo, il prezzo nel modello di acquisto basato su vCore è approssimativamente 2.7 x in un livello di servizio business critical superiore rispetto al livello di servizio per utilizzo generico. Analogamente, il prezzo di archiviazione superiore per GB nel livello di servizio business critical riflette i limiti di i/o più elevati e la latenza inferiore dell'archiviazione SSD.
 
-Il costo dell'archiviazione di backup è lo stesso per il livello di servizio business critical e per il livello di servizio per utilizzo generico perché entrambi i livelli usano l'archiviazione standard.
+Il costo dell'archiviazione di backup è lo stesso per il livello di servizio business critical e per il livello di servizio per utilizzo generico perché entrambi i livelli utilizzano l'archiviazione standard per i backup.
 
 ### <a name="serverless-compute-costs"></a>Costi di calcolo senza server
 
@@ -67,7 +67,7 @@ Per altre informazioni sui prezzi delle risorse di archiviazione, vedere la pagi
 
 Un core virtuale (vCore) rappresenta una CPU logica e offre la possibilità di scegliere tra generazioni di hardware e le caratteristiche fisiche dell'hardware, ad esempio il numero di core, la memoria e le dimensioni di archiviazione. Il modello di acquisto basato su vCore offre flessibilità, controllo, trasparenza del consumo di risorse individuali e un modo semplice per tradurre i requisiti del carico di lavoro locale nel cloud. Questo modello consente di scegliere risorse di calcolo, memoria e archiviazione in base alle esigenze del carico di lavoro.
 
-Nel modello di acquisto basato su vCore è possibile scegliere tra i livelli di servizio per [utilizzo generico](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) e [business critical](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) per [database singoli](sql-database-single-database-scale.md), [pool elastici](sql-database-elastic-pool.md)e [istanze gestite](sql-database-managed-instance.md). Per i database singoli, è anche possibile scegliere il [livello di servizio di iperscalabilità](sql-database-service-tier-hyperscale.md).
+Nel modello di acquisto basato su vCore è possibile scegliere tra i livelli di servizio [per utilizzo generico](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) e [business critical](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) per i [database singoli](sql-database-single-database-scale.md), i [pool elastici](sql-database-elastic-pool.md)e le [istanze gestite](sql-database-managed-instance.md). Per i database singoli, è anche possibile scegliere il [livello di servizio di iperscalabilità](sql-database-service-tier-hyperscale.md).
 
 Il modello di acquisto basato su vCore consente di scegliere in modo indipendente le risorse di calcolo e di archiviazione, soddisfare le prestazioni locali e ottimizzare il prezzo. Nel modello di acquisto basato su vCore si paga:
 
@@ -83,7 +83,7 @@ Se il database singolo o il pool elastico consuma più di 300 DTU, la conversion
 
 Per eseguire la conversione dal modello di acquisto basato su DTU al modello di acquisto basato su vCore, selezionare la dimensione di calcolo usando le seguenti regole di Thumb:
 
-- Ogni 100 DTU nel livello standard richiede almeno 1 vCore nel livello di servizio per utilizzo generico.
+- Ogni DTU 100 nel livello standard richiede almeno 1 vCore nel livello di servizio per utilizzo generico.
 - Ogni 125 DTU nel livello Premium richiede almeno 1 vCore nel livello di servizio business critical.
 
 ## <a name="dtu-based-purchasing-model"></a>modello di acquisto basato su DTU
@@ -102,7 +102,7 @@ Le risorse usate dal carico di lavoro non influiscano sulle risorse disponibili 
 
 ![rettangolo di selezione](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
-DTU sono particolarmente utili per comprendere le risorse relative allocate per i database SQL di Azure con diverse dimensioni di calcolo e livelli di servizio. ad esempio:
+DTU sono particolarmente utili per comprendere le risorse relative allocate per i database SQL di Azure con diverse dimensioni di calcolo e livelli di servizio. Ad esempio:
 
 - Raddoppiare il DTU aumentando le dimensioni di calcolo di un database equivale a raddoppiare il set di risorse disponibili per il database.
 - Un database P11 con livello di servizio Premium con 1750 DTU offre 350x più capacità di calcolo DTU rispetto a un database del livello di servizio Basic con 5 DTU.  
@@ -125,7 +125,19 @@ A un pool viene assegnato un numero definito di eDTU per un prezzo prestabilito.
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>Determinare il numero di DTU necessarie per un carico di lavoro
 
-Se si vuole eseguire la migrazione di un carico di lavoro locale o SQL Server macchina virtuale esistente al database SQL di Azure, usare il [calcolatore DTU](https://dtucalculator.azurewebsites.net/) per approssimare il numero di DTU necessari. Per un carico di lavoro del database SQL di Azure esistente, usare [informazioni dettagliate sulle prestazioni delle query](sql-database-query-performance.md) per comprendere l'utilizzo delle risorse del database (DTU) e ottenere informazioni più dettagliate per l'ottimizzazione del carico di lavoro. La vista a gestione dinamica (DMV) [sys. dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) consente di visualizzare l'utilizzo delle risorse nell'ultima ora. La vista del catalogo [sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) Visualizza l'utilizzo delle risorse negli ultimi 14 giorni, ma con una fedeltà inferiore di medie di cinque minuti.
+Se si vuole eseguire la migrazione di un carico di lavoro locale o SQL Server macchina virtuale esistente al database SQL di Azure, usare il [calcolatore DTU](https://dtucalculator.azurewebsites.net/) per approssimare il numero di DTU necessari. Per un carico di lavoro del database SQL di Azure esistente, usare [informazioni dettagliate sulle prestazioni delle query](sql-database-query-performance.md) per comprendere l'utilizzo delle risorse del database (DTU) e ottenere informazioni più dettagliate per l'ottimizzazione del carico di lavoro. La vista a gestione dinamica (DMV) [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) consente di visualizzare l'utilizzo delle risorse nell'ultima ora. La vista del catalogo [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) Visualizza l'utilizzo delle risorse negli ultimi 14 giorni, ma con una fedeltà inferiore di medie di cinque minuti.
+
+### <a name="determine-dtu-utilization"></a>Determinare l'utilizzo di DTU
+
+Per determinare la percentuale media di utilizzo di DTU/eDTU rispetto al limite DTU/eDTU di un database o di un pool elastico, usare la formula seguente:
+
+`avg_dtu_percent = MAX(avg_cpu_percent, avg_data_io_percent, avg_log_write_percent)`
+
+I valori di input per questa formula possono essere ottenuti da [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)e [sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) DMV. In altre parole, per determinare la percentuale di utilizzo di DTU/eDTU verso il limite di DTU/eDTU di un database o di un pool elastico, selezionare il valore percentuale più grande tra quelli riportati di seguito: `avg_cpu_percent`, `avg_data_io_percent`e `avg_log_write_percent` in un determinato momento.
+
+> [!NOTE]
+> Il limite di DTU di un database è determinato da CPU, letture, Scritture e memoria disponibili per il database. Tuttavia, poiché il motore di database di SQL Server in genere usa tutta la memoria disponibile per la cache dei dati per migliorare le prestazioni, il valore di `avg_memory_usage_percent` sarà in genere prossimo al 100% indipendentemente dal carico del database corrente. Pertanto, anche se la memoria influisce indirettamente sul limite DTU, non viene utilizzata nella formula di utilizzo DTU.
+>
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Carichi di lavoro che traggono vantaggio da un pool elastico di risorse
 

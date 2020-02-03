@@ -47,6 +47,7 @@
     - name: Configurare l'autenticazione multi-applicazione di Azure AD per la VPN utente (anteprima)
       href: openvpn-azure-ad-tenant-multi-app.md
     - name: Configurare l'automazione (partner della rete WAN virtuale)
+    - name: Scaricare profili VPN basati su hub e globali
       href: virtual-wan-configure-automation-providers.md
     - name: Configurare il routing
       items:
@@ -58,7 +59,7 @@
               href: virtual-wan-route-table.md
         - name: Visualizzare le route effettive dell'hub virtuale
           href: effective-routes-virtual-hub.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Azure PowerShell
       href: '/powershell/module/az.network#networking'

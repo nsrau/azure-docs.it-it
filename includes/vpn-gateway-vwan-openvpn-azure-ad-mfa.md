@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/16/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4cef4e09038288e4609f37c4e33f225bd79113be
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 93f645c41780d5ad5a342a04fc909d5c253fdaf3
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76166687"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964718"
 ---
 ## <a name="mfa"></a>Aprire la pagina di autenticazione a più fattori
 
@@ -29,10 +29,3 @@ ms.locfileid: "76166687"
 2. Selezionare **Abilita**.
 
    ![Seleziona](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa2.jpg)
-
-## <a name="enableauth"></a>Abilita autenticazione
-
-1. Passare a **Azure Active Directory-> applicazioni aziendali-> tutte le applicazioni**.
-2. Nella pagina **applicazioni aziendali-tutte le applicazioni** selezionare **VPN di Azure**.
-
-   ![ID directory](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/user1.jpg)

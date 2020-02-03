@@ -14,12 +14,12 @@ ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 15fa6b9c7b9c84cd17b67c53dd65acd54ea63910
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 7b42676fa387914bc4825e2850b3d2f032827a79
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76699224"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76962119"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenziali del certificato di autenticazione dell'applicazione Microsoft Identity Platform
 
@@ -130,6 +130,6 @@ Nella registrazione dell'app di Azure per l'applicazione client:
 ## <a name="code-sample"></a>Esempio di codice
 
 > [!NOTE]
-> È necessario calcolare l'intestazione X5T usando l'hash del certificato e convertirlo in una stringa Base64. C# Il risultato sarà simile a quello di: `System.Convert.ToBase64String(cert.GetCertHash());`
+> Per calcolare l'intestazione X5T, è necessario convertirla in una stringa di base 64 usando l'hash del certificato. Il codice per eseguire questa operazione C# in è: `System.Convert.ToBase64String(cert.GetCertHash());`
 
 L'esempio di codice relativo all' [autenticazione alla piattaforma di identità Microsoft nelle app daemon con certificati](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) Mostra come un'applicazione usa le proprie credenziali per l'autenticazione. Illustra anche come è possibile [creare un certificato autofirmato](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) usando il comando `New-SelfSignedCertificate` di PowerShell. È possibile anche sfruttare e usare gli [script di creazione di app](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) per creare i certificati, calcolare l'identificazione personale e così via.

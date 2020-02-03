@@ -8,12 +8,12 @@ ms.date: 05/20/2019
 author: rboucher
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 5d38786d3c7b852d3a9b65cd366eed68ebbb01e3
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: dcf5276393400be864e738d89bc5713f5aac242b
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152953"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963479"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Metriche della piattaforma di monitoraggio di Azure esportabili tramite le impostazioni di diagnostica
 
@@ -24,6 +24,19 @@ Monitoraggio di Azure offre [metriche della piattaforma](data-platform-metrics.m
 2. Usare l' [API REST delle metriche](https://docs.microsoft.com/rest/api/monitor/metrics/list)
 
 A causa delle complessità del back-end di monitoraggio di Azure, non tutte le metriche sono esportabili usando le impostazioni di diagnostica. La tabella seguente elenca le opzioni che possono e non possono essere esportate usando le impostazioni di diagnostica.
+
+La tabella contiene le colonne seguenti. 
+- Esportabili tramite le impostazioni di diagnostica? 
+- ResourceType 
+- Metrica 
+- MetricDisplayName
+- Unità 
+- AggregationType
+
+
+> [!NOTE]
+> La tabella seguente può avere una barra di scorrimento orizzontale in basso. Se si ritiene di non avere informazioni, verificare che la barra di scorrimento sia a sinistra.  
+
 
 Esportabili tramite le impostazioni di diagnostica? | ResourceType | Metrica | MetricDisplayName | Unità | AggregationType
 |----|-----|------|----|----|-----|
@@ -435,7 +448,7 @@ Sì | Microsoft.CognitiveServices/accounts | TotalTokenCalls | Totale chiamate t
 Sì | Microsoft.CognitiveServices/accounts | TotalTransactions | Totale transazioni | Conteggio | Totale
 Sì | Microsoft.Compute/virtualMachines | Crediti CPU usati | Crediti CPU usati | Conteggio | Media
 Sì | Microsoft.Compute/virtualMachines | Crediti CPU rimanenti | Crediti CPU rimanenti | Conteggio | Media
-Sì | Microsoft.Compute/virtualMachines | Profondità coda per un disco dati | Profondità coda del disco dati (anteprima) | Conteggio | Media
+Sì | Microsoft.Compute/virtualMachines | Profondità della coda del disco dati | Profondità coda del disco dati (anteprima) | Conteggio | Media
 Sì | Microsoft.Compute/virtualMachines | Byte letti dal disco dati/sec | Byte letti da disco/sec per un disco dati (anteprima) | Conteggio al secondo | Media
 Sì | Microsoft.Compute/virtualMachines | Operazioni di lettura disco dati/sec | Operazioni di lettura da disco/sec per un disco dati (anteprima) | Conteggio al secondo | Media
 Sì | Microsoft.Compute/virtualMachines | Byte scritti disco dati/sec | Byte scritti su disco/sec per un disco dati (anteprima) | Conteggio al secondo | Media
@@ -450,7 +463,7 @@ Sì | Microsoft.Compute/virtualMachines | Rete in ingresso | Rete in fatturabile
 Sì | Microsoft.Compute/virtualMachines | Rete totale | Rete totale | Byte | Totale
 Sì | Microsoft.Compute/virtualMachines | Rete in uscita | Rete in uscita fatturabile (deprecata) | Byte | Totale
 Sì | Microsoft.Compute/virtualMachines | Totale rete in uscita | Totale rete in uscita | Byte | Totale
-Sì | Microsoft.Compute/virtualMachines | Profondità coda per un disco del sistema operativo | Profondità coda del disco del sistema operativo (anteprima) | Conteggio | Media
+Sì | Microsoft.Compute/virtualMachines | Profondità coda del disco del sistema operativo | Profondità coda del disco del sistema operativo (anteprima) | Conteggio | Media
 Sì | Microsoft.Compute/virtualMachines | Byte letti dal disco del sistema operativo/sec | Byte letti da disco/sec per un disco del sistema operativo (anteprima) | Conteggio al secondo | Media
 Sì | Microsoft.Compute/virtualMachines | Operazioni di lettura disco del sistema operativo/sec | Operazioni di lettura da disco/sec per un disco del sistema operativo (anteprima) | Conteggio al secondo | Media
 Sì | Microsoft.Compute/virtualMachines | Byte scritti disco del sistema operativo/sec | Byte scritti su disco/sec per un disco del sistema operativo (anteprima) | Conteggio al secondo | Media
@@ -474,7 +487,7 @@ Sì | Microsoft.Compute/virtualMachines | Hit lettura cache del disco del sistem
 Sì | Microsoft.Compute/virtualMachines | Cache del disco del sistema operativo Premium Read Miss | Cache del disco del sistema operativo Premium lettura mancata (anteprima) | Percentuale | Media
 Sì | Microsoft.Compute/virtualMachineScaleSets | Crediti CPU usati | Crediti CPU usati | Conteggio | Media
 Sì | Microsoft.Compute/virtualMachineScaleSets | Crediti CPU rimanenti | Crediti CPU rimanenti | Conteggio | Media
-Sì | Microsoft.Compute/virtualMachineScaleSets | Profondità coda per un disco dati | Profondità coda del disco dati (anteprima) | Conteggio | Media
+Sì | Microsoft.Compute/virtualMachineScaleSets | Profondità della coda del disco dati | Profondità coda del disco dati (anteprima) | Conteggio | Media
 Sì | Microsoft.Compute/virtualMachineScaleSets | Byte letti dal disco dati/sec | Byte letti da disco/sec per un disco dati (anteprima) | Conteggio al secondo | Media
 Sì | Microsoft.Compute/virtualMachineScaleSets | Operazioni di lettura disco dati/sec | Operazioni di lettura da disco/sec per un disco dati (anteprima) | Conteggio al secondo | Media
 Sì | Microsoft.Compute/virtualMachineScaleSets | Byte scritti disco dati/sec | Byte scritti su disco/sec per un disco dati (anteprima) | Conteggio al secondo | Media
@@ -489,7 +502,7 @@ Sì | Microsoft.Compute/virtualMachineScaleSets | Rete in ingresso | Rete in fat
 Sì | Microsoft.Compute/virtualMachineScaleSets | Rete totale | Rete totale | Byte | Totale
 Sì | Microsoft.Compute/virtualMachineScaleSets | Rete in uscita | Rete in uscita fatturabile (deprecata) | Byte | Totale
 Sì | Microsoft.Compute/virtualMachineScaleSets | Totale rete in uscita | Totale rete in uscita | Byte | Totale
-Sì | Microsoft.Compute/virtualMachineScaleSets | Profondità coda per un disco del sistema operativo | Profondità coda del disco del sistema operativo (anteprima) | Conteggio | Media
+Sì | Microsoft.Compute/virtualMachineScaleSets | Profondità coda del disco del sistema operativo | Profondità coda del disco del sistema operativo (anteprima) | Conteggio | Media
 Sì | Microsoft.Compute/virtualMachineScaleSets | Byte letti dal disco del sistema operativo/sec | Byte letti da disco/sec per un disco del sistema operativo (anteprima) | Conteggio al secondo | Media
 Sì | Microsoft.Compute/virtualMachineScaleSets | Operazioni di lettura disco del sistema operativo/sec | Operazioni di lettura da disco/sec per un disco del sistema operativo (anteprima) | Conteggio al secondo | Media
 Sì | Microsoft.Compute/virtualMachineScaleSets | Byte scritti disco del sistema operativo/sec | Byte scritti su disco/sec per un disco del sistema operativo (anteprima) | Conteggio al secondo | Media
@@ -513,7 +526,7 @@ Sì | Microsoft.Compute/virtualMachineScaleSets | Hit lettura cache del disco de
 Sì | Microsoft.Compute/virtualMachineScaleSets | Cache del disco del sistema operativo Premium Read Miss | Cache del disco del sistema operativo Premium lettura mancata (anteprima) | Percentuale | Media
 Sì | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Crediti CPU usati | Crediti CPU usati | Conteggio | Media
 Sì | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Crediti CPU rimanenti | Crediti CPU rimanenti | Conteggio | Media
-Sì | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Profondità coda per un disco dati | Profondità coda del disco dati (anteprima) | Conteggio | Media
+Sì | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Profondità della coda del disco dati | Profondità coda del disco dati (anteprima) | Conteggio | Media
 Sì | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Byte letti dal disco dati/sec | Byte letti da disco/sec per un disco dati (anteprima) | Conteggio al secondo | Media
 Sì | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Operazioni di lettura disco dati/sec | Operazioni di lettura da disco/sec per un disco dati (anteprima) | Conteggio al secondo | Media
 Sì | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Byte scritti disco dati/sec | Byte scritti su disco/sec per un disco dati (anteprima) | Conteggio al secondo | Media
@@ -528,7 +541,7 @@ Sì | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Rete in ingres
 Sì | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Rete totale | Rete totale | Byte | Totale
 Sì | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Rete in uscita | Rete in uscita fatturabile (deprecata) | Byte | Totale
 Sì | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Totale rete in uscita | Totale rete in uscita | Byte | Totale
-Sì | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Profondità coda per un disco del sistema operativo | Profondità coda del disco del sistema operativo (anteprima) | Conteggio | Media
+Sì | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Profondità coda del disco del sistema operativo | Profondità coda del disco del sistema operativo (anteprima) | Conteggio | Media
 Sì | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Byte letti dal disco del sistema operativo/sec | Byte letti da disco/sec per un disco del sistema operativo (anteprima) | Conteggio al secondo | Media
 Sì | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Operazioni di lettura disco del sistema operativo/sec | Operazioni di lettura da disco/sec per un disco del sistema operativo (anteprima) | Conteggio al secondo | Media
 Sì | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Byte scritti disco del sistema operativo/sec | Byte scritti su disco/sec per un disco del sistema operativo (anteprima) | Conteggio al secondo | Media
@@ -575,7 +588,7 @@ Sì | Microsoft.DataBoxEdge/dataBoxEdgeDevices | HyperVMemoryUtilization | Calco
 Sì | Microsoft.DataBoxEdge/dataBoxEdgeDevices | HyperVVirtualProcessorUtilization | Calcolo Edge-percentuale CPU | Percentuale | Media
 Sì | Microsoft.DataBoxEdge/dataBoxEdgeDevices | NICReadThroughput | Velocità effettiva di lettura (rete) | Byte al secondo | Media
 Sì | Microsoft.DataBoxEdge/dataBoxEdgeDevices | NICWriteThroughput | Velocità effettiva scrittura (rete) | Byte al secondo | Media
-Sì | Microsoft.DataBoxEdge/dataBoxEdgeDevices | Archiviazione | Capacità totale: | Byte | Media
+Sì | Microsoft.DataBoxEdge/dataBoxEdgeDevices | Archiviazione | Capacità totale | Byte | Media
 Sì | Microsoft.DataFactory/datafactories | FailedRuns | Esecuzioni non riuscite | Conteggio | Totale
 Sì | Microsoft.DataFactory/datafactories | SuccessfulRuns | Esecuzioni riuscite | Conteggio | Totale
 Sì | Microsoft.DataFactory/factories | ActivityCancelledRuns | Metriche delle esecuzioni di attività annullate | Conteggio | Totale
@@ -751,8 +764,8 @@ Sì | Microsoft.DocumentDB/databaseAccounts | ReplicationLatency | Latenza di re
 No | Microsoft.DocumentDB/databaseAccounts | ServiceAvailability | Disponibilità del servizio | Percentuale | Media
 Sì | Microsoft.DocumentDB/databaseAccounts | TotalRequests | Totale richieste | Conteggio | Conteggio
 Sì | Microsoft.DocumentDB/databaseAccounts | TotalRequestUnits | Total Request Units (Unità richiesta totali) | Conteggio | Totale
-No | Microsoft. EnterpriseKnowledgeGraph/Services | FailureCount | Failure Count | Conteggio | Conteggio
-No | Microsoft. EnterpriseKnowledgeGraph/Services | SuccessCount | Conteggio completo | Conteggio | Conteggio
+No | Microsoft. EnterpriseKnowledgeGraph/Services | FailureCount | Conteggio errori | Conteggio | Conteggio
+No | Microsoft. EnterpriseKnowledgeGraph/Services | SuccessCount | Conteggio delle esecuzioni riuscite | Conteggio | Conteggio
 No | Microsoft. EnterpriseKnowledgeGraph/Services | SuccessLatency | Latenza riuscita | Millisecondi | Media
 No | Microsoft. EnterpriseKnowledgeGraph/Services | TransactionCount | Conteggio transazioni | Conteggio | Conteggio
 Sì | Microsoft.EventGrid/domains | DeadLetteredCount | Eventi di messaggi non recapitati | Conteggio | Totale

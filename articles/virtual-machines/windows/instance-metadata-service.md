@@ -11,15 +11,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/25/2019
+ms.date: 01/31/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 8849029f59ee4eef3baa43a6027022598e12d102
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 25b61b7e21e70c1cd4d27f88a0f5ce965c01c5a5
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045881"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964652"
 ---
 # <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
 
@@ -542,7 +542,7 @@ Il BLOB di firma è una versione [pkcs7](https://aka.ms/pkcs7) firmata del docum
 
 I metadati dell'istanza possono essere recuperati in Windows tramite l'utilità PowerShell `curl`:
 
- ```bash
+ ```powershell
 curl -H @{'Metadata'='true'} "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890" | select -ExpandProperty Content
 ```
 
@@ -923,14 +923,14 @@ L'oggetto disco del sistema operativo contiene le informazioni seguenti sul disc
 
 Dati    | Description
 --------|-----------------
-memorizzazione nella cache | Requisiti per la memorizzazione nella cache
+Caching | Requisiti per la memorizzazione nella cache
 createOption | Informazioni sul modo in cui è stata creata la macchina virtuale
 diffDiskSettings | Impostazioni disco temporaneo
 diskSizeGB | Dimensioni del disco in GB
 image   | Disco rigido virtuale dell'immagine dell'utente di origine
 lun     | Numero di unità logica del disco
 managedDisk | Parametri del disco gestito
-name    | Nome disco
+name    | Nome del disco
 VHD     | Disco rigido virtuale
 writeAcceleratorEnabled | Indica se writeAccelerator è abilitato sul disco
 
@@ -938,14 +938,14 @@ L'array di dischi dati contiene un elenco di dischi dati collegati alla macchina
 
 Dati    | Description
 --------|-----------------
-memorizzazione nella cache | Requisiti per la memorizzazione nella cache
+Caching | Requisiti per la memorizzazione nella cache
 createOption | Informazioni sul modo in cui è stata creata la macchina virtuale
 diffDiskSettings | Impostazioni disco temporaneo
 diskSizeGB | Dimensioni del disco in GB
 Crittografia | Impostazioni di crittografia per il disco
 image   | Disco rigido virtuale dell'immagine dell'utente di origine
 managedDisk | Parametri del disco gestito
-name    | Nome disco
+name    | Nome del disco
 osType  | Tipo di sistema operativo incluso nel disco
 VHD     | Disco rigido virtuale
 writeAcceleratorEnabled | Indica se writeAccelerator è abilitato sul disco
@@ -1055,7 +1055,7 @@ Puppet | https://github.com/keirans/azuremetadata
 8. Come si ottiene assistenza per il servizio?
    * Per ottenere assistenza per il servizio, creare una richiesta di supporto nel portale di Azure per la macchina virtuale per la quale non si riesce a ottenere la risposta dei metadati dopo lunghi tentativi.
 9. Ricevo il timeout della richiesta per la chiamata del servizio?
-   * Le chiamate di metadati devono essere effettuate dall'indirizzo IP primario assegnato alla scheda di rete della macchina virtuale. Inoltre, nel caso in cui siano state modificate le route, deve essere presente una route per l'indirizzo 169.254.0.0/16 esterna alla scheda di rete.
+   * Le chiamate ai metadati devono essere effettuate dall'indirizzo IP primario assegnato alla scheda di rete primaria della macchina virtuale. Inoltre, nel caso in cui siano state modificate le route, è necessario che sia presente una route per l'indirizzo 169.254.0.0/16 fuori dalla scheda di rete.
 10. Perché dopo essere stati aggiornati, i tag nel set di scalabilità di macchine virtuali non vengono visualizzati nelle istanze, a differenza delle macchine virtuali?
     * Attualmente per i set di scalabilità i tag vengono visualizzati nella macchina virtuale solo al riavvio/ricreazione dell'immagine/o cambio del disco per l'istanza.
 

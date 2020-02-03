@@ -7,17 +7,17 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 16f944146cf97666fd9866607ff436a49d5fb031
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 9cf65edc3bdd5f675ba1972501139b9ecebcfafd
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667730"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964397"
 ---
 # <a name="create-an-event-grid-data-connection-for-azure-data-explorer-by-using-python"></a>Creare una connessione dati di griglia di eventi per Esplora dati di Azure con Python
 
 > [!div class="op_single_selector"]
-> * [di Microsoft Azure](ingest-data-event-grid.md)
+> * [Portale](ingest-data-event-grid.md)
 > * [C#](data-connection-event-grid-csharp.md)
 > * [Python](data-connection-event-grid-python.md)
 > * [Modello di Azure Resource Manager](data-connection-event-grid-resource-manager.md)
@@ -26,10 +26,10 @@ Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilit�
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account Azure gratuito](https://azure.microsoft.com/free/).
-* Creare [un cluster e un database](create-cluster-database-csharp.md)
-* Creazione del [mapping di tabelle e colonne](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
-* Impostare i [criteri di database e tabella](database-table-policies-csharp.md) (facoltativo)
+* Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* Creare [un cluster e un database](create-cluster-database-python.md)
+* Creazione del [mapping di tabelle e colonne](python-ingest-data.md#create-a-table-on-your-cluster)
+* Impostare i [criteri di database e tabella](database-table-policies-python.md) (facoltativo)
 * Creare un [account di archiviazione con una sottoscrizione di griglia di eventi](ingest-data-event-grid.md#create-an-event-grid-subscription-in-your-storage-account).
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]
@@ -60,20 +60,20 @@ credentials = ServicePrincipalCredentials(
     )
 kusto_management_client = KustoManagementClient(credentials, subscription_id)
 
-resource_group_name = "testrg";
+resource_group_name = "testrg"
 #The cluster and database that are created as part of the Prerequisites
-cluster_name = "mykustocluster";
-database_name = "mykustodatabase";
-data_connection_name = "myeventhubconnect";
+cluster_name = "mykustocluster"
+database_name = "mykustodatabase"
+data_connection_name = "myeventhubconnect"
 #The event hub and storage account that are created as part of the Prerequisites
 event_hub_resource_id = "/subscriptions/xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/xxxxxx/providers/Microsoft.EventHub/namespaces/xxxxxx/eventhubs/xxxxxx"
 storage_account_resource_id = "/subscriptions/xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/xxxxxx/providers/Microsoft.Storage/storageAccounts/xxxxxx"
-consumer_group = "$Default";
-location = "Central US";
+consumer_group = "$Default"
+location = "Central US"
 #The table and column mapping that are created as part of the Prerequisites
-table_name = "StormEvents";
-mapping_rule_name = "StormEvents_CSV_Mapping";
-data_format = "csv";
+table_name = "StormEvents"
+mapping_rule_name = "StormEvents_CSV_Mapping"
+data_format = "csv"
 
 #Returns an instance of LROPoller, check https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.data_connections.create_or_update(resource_group_name=resource_group_name, cluster_name=cluster_name, database_name=database_name, data_connection_name=data_connection_name,
@@ -96,6 +96,6 @@ poller = kusto_management_client.data_connections.create_or_update(resource_grou
 | event_hub_resource_id | *ID risorsa* | ID risorsa dell'hub eventi in cui è configurata la griglia di eventi per l'invio di eventi. |
 | storage_account_resource_id | *ID risorsa* | ID risorsa dell'account di archiviazione che include i dati per l'inserimento. |
 | consumer_group | *$Default* | Il gruppo di consumer dell'hub eventi.|
-| location | *Stati Uniti centrali* | Percorso della risorsa di connessione dati.|
+| posizione | *Stati Uniti centrali* | Percorso della risorsa di connessione dati.|
 
 [!INCLUDE [data-explorer-data-connection-clean-resources-python](../../includes/data-explorer-data-connection-clean-resources-python.md)]

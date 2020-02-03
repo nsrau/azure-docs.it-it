@@ -7,17 +7,17 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 113c039c9b7f0319bb724bcde1432044c0770672
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 81aded7639cc0bed86c3d3ab3be9e6ef7b355734
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667680"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964533"
 ---
 # <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-python"></a>Creare una connessione dati di hub eventi per Esplora dati di Azure con Python
 
 > [!div class="op_single_selector"]
-> * [di Microsoft Azure](ingest-data-event-hub.md)
+> * [Portale](ingest-data-event-hub.md)
 > * [C#](data-connection-event-hub-csharp.md)
 > * [Python](data-connection-event-hub-python.md)
 > * [Modello di Azure Resource Manager](data-connection-event-hub-resource-manager.md)
@@ -26,10 +26,10 @@ Esplora dati di Azure √® un servizio di esplorazione dati rapido e a scalabilit√
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account Azure gratuito](https://azure.microsoft.com/free/).
-* Creare [un cluster e un database](create-cluster-database-csharp.md)
-* Creazione del [mapping di tabelle e colonne](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
-* Impostare i [criteri di database e tabella](database-table-policies-csharp.md) (facoltativo)
+* Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* Creare [un cluster e un database](create-cluster-database-python.md)
+* Creazione del [mapping di tabelle e colonne](python-ingest-data.md#create-a-table-on-your-cluster)
+* Impostare i [criteri di database e tabella](database-table-policies-python.md) (facoltativo)
 * Creare un [Hub eventi con i dati per](ingest-data-event-hub.md#create-an-event-hub)l'inserimento. 
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]
@@ -59,19 +59,19 @@ credentials = ServicePrincipalCredentials(
     )
 kusto_management_client = KustoManagementClient(credentials, subscription_id)
 
-resource_group_name = "testrg";
+resource_group_name = "testrg"
 #The cluster and database that are created as part of the Prerequisites
-cluster_name = "mykustocluster";
-database_name = "mykustodatabase";
-data_connection_name = "myeventhubconnect";
+cluster_name = "mykustocluster"
+database_name = "mykustodatabase"
+data_connection_name = "myeventhubconnect"
 #The event hub that is created as part of the Prerequisites
 event_hub_resource_id = "/subscriptions/xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/xxxxxx/providers/Microsoft.EventHub/namespaces/xxxxxx/eventhubs/xxxxxx";
-consumer_group = "$Default";
-location = "Central US";
+consumer_group = "$Default"
+location = "Central US"
 #The table and column mapping that are created as part of the Prerequisites
-table_name = "StormEvents";
-mapping_rule_name = "StormEvents_CSV_Mapping";
-data_format = "csv";
+table_name = "StormEvents"
+mapping_rule_name = "StormEvents_CSV_Mapping"
+data_format = "csv"
 #Returns an instance of LROPoller, check https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.data_connections.create_or_update(resource_group_name=resource_group_name, cluster_name=cluster_name, database_name=database_name, data_connection_name=data_connection_name,
                                         parameters=EventHubDataConnection(event_hub_resource_id=event_hub_resource_id, consumer_group=consumer_group, location=location,
@@ -93,6 +93,6 @@ poller = kusto_management_client.data_connections.create_or_update(resource_grou
 | data_format | *CSV* | Formato dati del messaggio.|
 | event_hub_resource_id | *ID risorsa* | ID risorsa dell'hub eventi che include i dati per l'inserimento. |
 | consumer_group | *$Default* | Il gruppo di consumer dell'hub eventi.|
-| location | *Stati Uniti centrali* | Percorso della risorsa di connessione dati.|
+| posizione | *Stati Uniti centrali* | Percorso della risorsa di connessione dati.|
 
 [!INCLUDE [data-explorer-data-connection-clean-resources-python](../../includes/data-explorer-data-connection-clean-resources-python.md)]

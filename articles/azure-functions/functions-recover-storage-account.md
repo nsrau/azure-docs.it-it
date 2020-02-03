@@ -5,33 +5,29 @@ author: alexkarcher-msft
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 40037252ddf8e505ae7fe734813d598e7de96336
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 910b582cb40b9f8aff6a553621b4677d6b019826
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834226"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963887"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Come risolvere il problema del "runtime di Funzioni di Azure non raggiungibile"
 
-
-## <a name="error-text"></a>Testo dell'errore
-Questo articolo è destinato a risolvere l'errore seguente quando viene visualizzato nel portale di funzioni.
+Questo articolo ha lo scopo di risolvere il messaggio di errore "Runtime di funzioni non raggiungibile" quando viene visualizzato nella portale di Azure. Quando si verifica questo errore, nel portale viene visualizzata la stringa di errore seguente.
 
 `Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
 
-### <a name="summary"></a>Riepilogo
-Questo problema si verifica quando non è possibile avviare il runtime di Funzioni di Azure. Il motivo più comune per cui si verifica questo errore è che l'app per le funzioni perde l'accesso al relativo account di archiviazione. [Altre informazioni sui requisiti dell'account di archiviazione sono reperibili qui](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
+Questo errore si verifica quando non è possibile avviare il runtime di Funzioni di Azure. Il motivo più comune per cui si verifica questo errore è che l'app per le funzioni perde l'accesso al relativo account di archiviazione. Per altre informazioni, vedere [requisiti dell'account di archiviazione](storage-considerations.md#storage-account-requirements).
 
-### <a name="troubleshooting"></a>Risoluzione dei problemi
-Verranno esaminati i quattro casi di errore più comuni, come identificare e come risolvere ogni caso.
+Nella parte restante di questo articolo vengono illustrate le cause seguenti di questo errore, tra cui come identificare e risolvere ogni caso.
 
-1. Account di archiviazione eliminato
-1. Impostazioni di applicazione dell'account di archiviazione eliminate
-1. Credenziali dell'account di archiviazione non valide
-1. Account di archiviazione inaccessibile
-1. Quota di esecuzione giornaliera completa
-1. L'app è dietro un firewall
++ [Account di archiviazione eliminato](#storage-account-deleted)
++ [Impostazioni applicazione dell'account di archiviazione eliminate](#storage-account-application-settings-deleted)
++ [Credenziali dell'account di archiviazione non valide](#storage-account-credentials-invalid)
++ [Account di archiviazione inaccessibile](#storage-account-inaccessible)
++ [Quota di esecuzione giornaliera superata](#daily-execution-quota-full)
++ [L'app è dietro un firewall](#app-is-behind-a-firewall)
 
 
 ## <a name="storage-account-deleted"></a>Account di archiviazione eliminato
@@ -60,9 +56,9 @@ Nel passaggio precedente, se non è presente una stringa di connessione dell'acc
 
 ### <a name="guidance"></a>Guida
 
-* Non selezionare "impostazione slot" per qualsiasi di queste impostazioni. Quando si scambiano gli slot di distribuzione la funzione verrà interrotta.
+* Non selezionare "impostazione slot" per una di queste impostazioni. Quando si scambiano gli slot di distribuzione, l'app per le funzioni si interrompe.
 * Non modificare queste impostazioni come parte delle distribuzioni automatiche.
-* Queste impostazioni devono essere valide e devono essere indicate al momento della creazione. Una distribuzione automatizzata che non contiene queste impostazioni comporterà un'app non funzionante, anche se le impostazioni vengono aggiunte al termine dell'attività.
+* Queste impostazioni devono essere valide e devono essere indicate al momento della creazione. Una distribuzione automatica che non contiene queste impostazioni genera un'app per le funzioni che non verrà eseguita, anche se le impostazioni vengono aggiunte in un secondo momento.
 
 ## <a name="storage-account-credentials-invalid"></a>Credenziali dell'account di archiviazione non valide
 
@@ -72,34 +68,29 @@ Se si rigenerano le chiavi di archiviazione, è necessario aggiornare le stringh
 
 L'app per le funzioni deve essere in grado di accedere all'account di archiviazione. I problemi comuni che bloccano un accesso delle funzioni a un account di archiviazione sono:
 
-* L'app per le funzioni distribuita agli ambienti del servizio app senza le regole di rete corrette per consentire il traffico da e verso l'account di archiviazione
-* Il firewall dell'account di archiviazione è abilitato e non è configurato per consentire il traffico da e verso le funzioni. [Altre informazioni sulla configurazione del firewall dell'account di archiviazione sono reperibili qui](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
++ app per le funzioni distribuite in ambienti del servizio app (ASE) senza le regole di rete corrette per consentire il traffico da e verso l'account di archiviazione.
+
++ Il firewall dell'account di archiviazione è abilitato e non è configurato per consentire il traffico da e verso le funzioni. Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Archiviazione di Azure](../storage/common/storage-network-security.md).
 
 ## <a name="daily-execution-quota-full"></a>Quota di esecuzione giornaliera completa
 
-Se si dispone di una Quota di esecuzione giornaliera configurata, verrà disabilitata temporaneamente l'app per le funzioni e molti dei controlli del portale non saranno più disponibili. 
+Se è configurata una quota di esecuzione giornaliera, l'app per le funzioni è temporaneamente disabilitata, causando la mancata disponibilità di molti dei controlli del portale. 
 
-* Per verificare, aprire funzionalità della piattaforma > Impostazioni app per le funzioni nel portale. Se si supera la quota, verrà visualizzato il messaggio seguente:
-    * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
-* Rimuovere la quota e riavviare l'app per risolvere il problema.
++ Per verificare nella [portale di Azure](https://portal.azure.com), aprire **funzionalità della piattaforma** > **impostazioni app per le funzioni** nell'app per le funzioni. Quando si supera la **quota di utilizzo giornaliera** impostata, viene visualizzato il messaggio seguente:
+
+    `The function app has reached daily usage quota and has been stopped until the next 24 hours time frame.`
+
++ Per risolvere il problema, rimuovere o aumentare la quota giornaliera e riavviare l'app. In caso contrario, l'esecuzione dell'app verrà bloccata fino al giorno successivo.
 
 ## <a name="app-is-behind-a-firewall"></a>L'app è dietro un firewall
 
 Il runtime della funzione non sarà raggiungibile se l'app per le funzioni è ospitata in un [ambiente del servizio app con carico bilanciato internamente](../app-service/environment/create-ilb-ase.md) ed è configurata per bloccare il traffico Internet in ingresso oppure è configurata una [restrizione IP in ingresso](functions-networking-options.md#inbound-ip-restrictions) per bloccare l'accesso a Internet. Il portale di Azure effettua chiamate dirette all'app in esecuzione per recuperare l'elenco di funzioni ed effettua chiamate HTTP anche all'endpoint KUDU. Le impostazioni a livello di piattaforma nella scheda `Platform Features` saranno ancora disponibili.
 
-* Per verificare la configurazione dell'ambiente del servizio app, passare alla NSG della subnet in cui si trova l'ambiente del servizio app e convalidare le regole in entrata per consentire il traffico proveniente dall'IP pubblico del computer a cui si sta accedendo. È anche possibile usare il portale da un computer connesso alla rete virtuale che esegue l'app o una macchina virtuale in esecuzione nella rete virtuale. [Per altre informazioni sulla configurazione delle regole in ingresso, vedere qui](https://docs.microsoft.com/azure/app-service/environment/network-info#network-security-groups)
+Per verificare la configurazione dell'ambiente del servizio app, passare alla NSG della subnet in cui si trova l'ambiente del servizio app e convalidare le regole in entrata per consentire il traffico proveniente dall'IP pubblico del computer a cui si sta accedendo. È anche possibile usare il portale da un computer connesso alla rete virtuale che esegue l'app o una macchina virtuale in esecuzione nella rete virtuale. [Per altre informazioni sulla configurazione delle regole in ingresso, vedere qui](../app-service/environment/network-info.md#network-security-groups)
 
 ## <a name="next-steps"></a>Fasi successive
 
-Ora che l'app per le funzioni è nuovamente operativa, esaminare i riferimenti per sviluppatori e i modelli di avvio rapido per iniziare a usare nuovamente l'app.
+Informazioni sul monitoraggio delle app per le funzioni:
 
-* [Creare la prima funzione di Azure](functions-create-first-azure-function.md)  
-  Informazioni su come iniziare immediatamente a creare la prima funzione tramite Avvio rapido di Funzioni di Azure. 
-* [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md)  
-  Include informazioni più tecniche sul runtime di Funzioni di Azure, nonché informazioni di riferimento per la codifica di funzioni e la definizione di trigger e associazioni.
-* [Test di Funzioni di Azure](functions-test-a-function.md)  
-  Descrive diversi strumenti e tecniche per il test delle funzioni.
-* [Come aumentare le prestazioni di Funzioni di Azure](functions-scale.md)  
-  Presenta i piani di servizio disponibili con Funzioni di Azure, tra cui il piano di hosting A consumo, e spiega come scegliere quello più appropriato. 
-* [Informazioni sul servizio app di Azure](../app-service/overview.md)  
-  Funzioni di Azure sfrutta il servizio app di Azure per le funzionalità di base, ad esempio distribuzioni, variabili di ambiente e diagnostica. 
+> [!div class="nextstepaction"]
+> [Monitorare funzioni di Azure](functions-monitoring.md)

@@ -112,7 +112,7 @@
               href: azure-create-vm.md
             - name: Gestire macchine virtuali CloudSimple in Azure
               href: azure-manage-vm.md
-    - name: Guide alle procedure
+    - name: Guide pratiche
       items:
         - name: Proteggere l'ambiente
           href: private-cloud-secure.md
@@ -136,6 +136,8 @@
               href: on-premises-dns-setup.md
             - name: Configurare connessioni VPN da sito a sito a disponibilità elevata
               href: high-availability-vpn-connection.md
+            - name: Configurazione DNS del cloud privato in locale
+              href: private-cloud-dns-forwarding.md
         - name: Piattaforma VMware
           items:
             - name: Informazioni sul modello di autorizzazioni del cloud privato
