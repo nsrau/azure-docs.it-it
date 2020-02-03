@@ -89,7 +89,7 @@ Per informazioni sul confronto tra utenti membri e utenti guest, vedere [quali s
 
 1. Aggiungere un segno di spunta accanto al coamministratore che si desidera rimuovere.
 
-1. Scegliere **Rimuovi**.
+1. Fare clic su **Rimuovi accesso**.
 
 1. Nella finestra di messaggio visualizzata fare clic su **Sì**.
 
@@ -142,7 +142,7 @@ Seguire questi passaggi per visualizzare l'amministratore account.
 
 1. Aprire [Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selezionare una sottoscrizione.
 
-1. Scegliere **Proprietà**.
+1. Fare clic su **Proprietà**.
 
     L'amministratore account della sottoscrizione viene visualizzato nella casella **Amministratore account**.
 

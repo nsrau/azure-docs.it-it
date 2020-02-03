@@ -49,7 +49,7 @@ Azure Time Series Insights supporta il codice JSON codificato UTF8 inviato trami
 
 Di seguito è riportato l'elenco dei tipi di dati supportati.
 
-| Tipo di dati | Description |
+| Tipo di dati | Descrizione |
 |-----------|------------------|-------------|
 | bool      |   Tipo di dati con uno dei due stati: true o false.       |
 | dateTime    |   Rappresenta un istante di tempo, in genere espresso come data e ora del giorno. Il formato di DateTime deve essere ISO 8601.      |
@@ -115,7 +115,7 @@ Per ulteriori informazioni sulle unità di velocità effettiva e sulle partizion
 * [Scalabilità dell'hub eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
 * [Partizioni dell'hub eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions)
 
-### <a name="data-storage"></a>Archiviazione dati
+### <a name="data-storage"></a>Archiviazione dei dati
 
 Quando si crea un ambiente con SKU con pagamento in base al consumo Time Series Insights anteprima, si creano due risorse di Azure:
 

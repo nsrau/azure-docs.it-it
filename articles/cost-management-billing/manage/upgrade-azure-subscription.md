@@ -14,10 +14,10 @@ ms.date: 10/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3e1e99313454c8352b96b8f11ec35f482521f7b5
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989774"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Aggiornare l'account Azure gratuito o l'account Azure for Students Starter
@@ -30,7 +30,7 @@ Se è stata effettuata l'iscrizione per un account [Azure for Students Starter](
 
 ## <a name="upgrade-your-azure-free-account"></a>Aggiornare l'account Azure gratuito
 
-Quando si esegue l'aggiornamento dell'account Azure gratuito, si mantiene il credito rimanente per 30 giorni dalla data dell'iscrizione. Ad esempio, se l'utente ha effettuato l'iscrizione il 1 ° novembre e l'aggiornamento il 5 novembre, tutti i crediti non usati saranno disponibili fino al 30 novembre. Dopo l'aggiornamento, si avrà inoltre accesso ai servizi gratuiti per 12 mesi.
+Quando si esegue l'aggiornamento dell'account Azure gratuito, si mantiene il credito rimanente per 30 giorni dalla data dell'iscrizione. Ad esempio: Se l'iscrizione è stata effettuata il 1 ° novembre e l'aggiornamento è stato effettuato il 5 novembre, tutti i crediti non utilizzati saranno disponibili fino al 30 novembre. Dopo l'aggiornamento, si avrà inoltre accesso ai servizi gratuiti per 12 mesi.
 
 1. Accedere al [portale di Azure](https://portal.azure.com)
 1. Cercare **Sottoscrizioni.**

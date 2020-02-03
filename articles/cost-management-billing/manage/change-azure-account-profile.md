@@ -14,10 +14,10 @@ ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a1cbbbcb110e9943f9714d9f6463c01b408fc1d7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75993050"
 ---
 # <a name="change-the-profile-information-for-your-azure-account"></a>Cambiare le informazioni del profilo per l'account Azure
@@ -76,7 +76,7 @@ Immettere l'indirizzo di posta elettronica a cui ricevere le comunicazioni relat
 
 * Passare all'area [Informazioni contatto](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) nel portale di Azure e immettere un indirizzo di posta elettronica. All'indirizzo specificato verranno inviate le comunicazioni di servizio e di marketing. L'indirizzo di posta elettronica del profilo del Centro account di Azure viene automaticamente aggiornato di conseguenza. L'aggiornamento dell'indirizzo di posta elettronica del profilo non influisce sull'indirizzo di posta elettronica di accesso.
 
-* Nel [portale di Azure](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) selezionare l'icona con le proprie iniziali o con l'immagine. Quindi, selezionare il menu di scelta rapida ( **...** ). Selezionare quindi le **informazioni di contatto** dal menu e immettere un indirizzo di posta elettronica. All'indirizzo specificato verranno inviate le comunicazioni di servizio e di marketing. L'indirizzo di posta elettronica del profilo del Centro account di Azure viene automaticamente aggiornato di conseguenza. L'aggiornamento dell'indirizzo di posta elettronica del profilo non influisce sull'indirizzo di posta elettronica di accesso.
+* Nel [portale di Azure](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) selezionare l'icona con le proprie iniziali o con l'immagine. Quindi selezionare il menu di scelta rapida ( **...** ). Scegliere **Informazioni di contatto** dal menu e immettere un indirizzo di posta elettronica. All'indirizzo specificato verranno inviate le comunicazioni di servizio e di marketing. L'indirizzo di posta elettronica del profilo del Centro account di Azure viene automaticamente aggiornato di conseguenza. L'aggiornamento dell'indirizzo di posta elettronica del profilo non influisce sull'indirizzo di posta elettronica di accesso.
 
 ![Esempio di aggiornamento di un indirizzo di posta elettronica in Azure](./media/change-azure-account-profile/azure-contact-information.png)
 
@@ -98,7 +98,7 @@ Quando si rifiuta esplicitamente di ricevere comunicazioni di marketing, si cont
     ![Esempio di ridenominazione della sottoscrizione di Azure](./media/change-azure-account-profile/rename-sub.png)
 1. Dopo aver cambiato il nome, selezionare **Salva**.
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 

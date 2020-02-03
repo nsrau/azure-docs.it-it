@@ -128,7 +128,7 @@ In Funzioni di Azure, gli input vengono suddivisi in due categorie, ovvero l'inp
    };
    ```
 
-### <a name="outputs"></a>Output
+### <a name="outputs"></a>Outputs
 Gli output (associazioni di `direction === "out"`) possono essere scritti da una funzione in diversi modi. In tutti i casi, la proprietà `name` dell'associazione come definita in *function.json* corrisponde al nome del membro dell'oggetto scritto nella funzione. 
 
 È possibile assegnare i dati alle associazioni di output in uno dei modi seguenti (non combinare questi metodi):
@@ -265,7 +265,7 @@ context.log(message)
 Permette di scrivere nei log della console di streaming nel livello di traccia predefinito. In `context.log` sono disponibili altri metodi di registrazione che permettono di scrivere log di funzioni in altri livelli di traccia:
 
 
-| Metodo                 | Description                                |
+| Metodo                 | Descrizione                                |
 | ---------------------- | ------------------------------------------ |
 | **error(_messaggio_)**   | Scrive nella registrazione a livello di errore o inferiore.   |
 | **warn(_messaggio_)**    | Scrive nella registrazione a livello di avviso o inferiore. |
@@ -342,7 +342,7 @@ I trigger e i webhook HTTP e le associazioni di output HTTP usano oggetti di ric
 
 L'oggetto (richiesta) `context.req` ha le proprietà seguenti:
 
-| Proprietà      | Description                                                    |
+| Proprietà      | Descrizione                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Oggetto che contiene il corpo della richiesta.               |
 | _headers_     | Oggetto che contiene le intestazioni della richiesta.                   |
@@ -357,7 +357,7 @@ L'oggetto (richiesta) `context.req` ha le proprietà seguenti:
 
 L'oggetto (risposta) `context.res` ha le proprietà seguenti:
 
-| Proprietà  | Description                                               |
+| Proprietà  | Descrizione                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | Oggetto che contiene il corpo della risposta.         |
 | _headers_ | Oggetto che contiene le intestazioni della risposta.             |
@@ -485,7 +485,7 @@ Per l'esecuzione in locale, le impostazioni dell'app vengono lette dal file di p
 
 ## <a name="configure-function-entry-point"></a>Configurare il punto di ingresso della funzione
 
-È possibile usare le proprietà `scriptFile` e `entryPoint` di `function.json` per configurare il percorso e il nome della funzione esportata. Queste proprietà possono essere importanti quando JavaScript viene sottoposto a transpile.
+È possibile usare le proprietà `function.json` e `scriptFile` di `entryPoint` per configurare il percorso e il nome della funzione esportata. Queste proprietà possono essere importanti quando JavaScript viene sottoposto a transpile.
 
 ### <a name="using-scriptfile"></a>Utilizzo di `scriptFile`
 
@@ -637,7 +637,7 @@ Quando si crea un'app per le funzioni che usa il piano di servizio app, è consi
 
 Quando si sviluppano funzioni di Azure in un modello di hosting serverless, gli avvii a freddo sono una realtà. Il termine *avvio a freddo* si riferisce al fatto che quando viene avviata per la prima volta dopo un periodo di inattività, l'app per le funzioni richiede più tempo per l'avvio. Per le funzioni di JavaScript con alberi delle dipendenze estesi, in particolare, l'avvio a freddo può essere significativo. Per velocizzare il processo di avvio a freddo [eseguire le funzioni come un file di pacchetto](run-functions-from-deployment-package.md) quando possibile. Molti metodi di distribuzione usano il modello di esecuzione dal pacchetto per impostazione predefinita, ma in presenza di numerosi avvii a freddo e se questo non è il modello di esecuzione in uso, questa modifica può offrire miglioramenti significativi.
 
-### <a name="connection-limits"></a>Limiti di connessione
+### <a name="connection-limits"></a>Limiti connessione
 
 Quando si usa un client specifico del servizio in un'applicazione di funzioni di Azure, non creare un nuovo client con ogni chiamata di funzione. In alternativa, creare un singolo client statico nell'ambito globale. Per altre informazioni, vedere [gestione delle connessioni in funzioni di Azure](manage-connections.md).
 
@@ -693,10 +693,10 @@ module.exports = async function (context) {
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere le seguenti risorse:
+Per ulteriori informazioni, vedere le seguenti risorse:
 
 + [Procedure consigliate per Funzioni di Azure](functions-best-practices.md)
 + [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md)
 + [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 
-[`func azure functionapp publish`]: functions-run-local.md#project-file-deployment
+[' Func Azure functionapp publish ']: functions-run-local.md#project-file-deployment

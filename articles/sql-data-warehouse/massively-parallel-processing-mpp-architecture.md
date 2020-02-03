@@ -19,7 +19,7 @@ ms.locfileid: "76720317"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Architettura di Azure sinapsi Analytics (in precedenza SQL DW) 
 
-Azure Synapse è un servizio di analisi senza limiti che riunisce funzionalità aziendali di data warehousing e analisi di Big Data. Offre la libertà di eseguire query sui dati in base alle tue esigenze, usando risorse serverless su richiesta o con provisioning, su larga scala. Azure Synapse offre questi due mondi insieme a un'esperienza unificata per l'inserimento, la preparazione, la gestione e la distribuzione dei dati per esigenze immediate di business intelligence e Machine Learning.
+Azure Synapse è un servizio di analisi senza limiti che riunisce funzionalità aziendali di data warehousing e analisi di Big Data. Offre la libertà di eseguire query sui dati in base alle proprie esigenze, usando risorse serverless su richiesta o con provisioning, su larga scala. Le sinapsi di Azure offrono questi due mondi insieme a un'esperienza unificata per l'inserimento, la preparazione, la gestione e la gestione dei dati per esigenze immediate di BI e machine learning.
 
  Azure Synapse è costituito da quattro componenti:
 - Analisi SQL: completare le analisi basate su T-SQL 
@@ -54,7 +54,7 @@ Analisi SQL sfrutta l'archiviazione di Azure per proteggere i dati utente.  Poic
 
 * Hash
 * Round robin
-* Replica
+* Replicate
 
 ### <a name="control-node"></a>Nodo di controllo
 

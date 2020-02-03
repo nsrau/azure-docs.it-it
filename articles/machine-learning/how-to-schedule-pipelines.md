@@ -134,7 +134,7 @@ Se quindi si esegue di nuovo `Schedule.list(ws)`, dovrebbe essere presente un el
 
 In questo articolo è stato usato l'SDK Azure Machine Learning per Python per pianificare una pipeline in due modi diversi. Una pianificazione si ripete in base al tempo di clock trascorso. L'altra pianificazione viene eseguita se un file viene modificato in un `Datastore` specificato o all'interno di una directory nell'archivio. Si è visto come usare il portale per esaminare la pipeline e le singole esecuzioni. Infine, si è appreso come disabilitare una pianificazione in modo che l'esecuzione della pipeline venga arrestata.
 
-Per scoprire di più, vedi:
+Per altre informazioni, vedere:
 
 > [!div class="nextstepaction"]
 > [Usare pipeline di Azure Machine Learning per l'assegnazione dei punteggi in batch](tutorial-pipeline-batch-scoring-classification.md)

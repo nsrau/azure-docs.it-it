@@ -123,7 +123,7 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
 
 ## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Configurare l'interfaccia della riga di comando di Service Fabric (sfctl) in un computer Mac
 
-Per installare l'interfaccia della riga di comando di Service Fabric (`sfctl`) in un computer Mac, seguire le istruzioni riportate in [Interfaccia della riga di comando di Azure Service Fabric](service-fabric-cli.md#cli-mac).
+Per installare l'interfaccia della riga di comando di Service Fabric ([) in un computer Mac, seguire le istruzioni riportate in ](service-fabric-cli.md#cli-mac)Interfaccia della riga di comando di Azure Service Fabric`sfctl`.
 I comandi dell'interfaccia della riga di comando supportano l'interazione con entità di Service Fabric come cluster, applicazioni e servizi.
 
 1. Eseguire questo comando per connettersi al cluster prima di distribuire le applicazioni. 
@@ -155,7 +155,7 @@ Service Fabric fornisce strumenti di scaffolding che consentono di creare un'app
     npm install -g generator-azuresfguest      # for Service Fabric Guest executables
     npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
     ```
-4. Al termine dell'installazione dei generatori, creare i servizi contenitore o eseguibili guest eseguendo rispettivamente `yo azuresfcontainer` o `yo azuresfguest`.
+4. Al termine dell'installazione dei generatori, creare i servizi contenitore o eseguibili guest eseguendo rispettivamente `yo azuresfguest` o `yo azuresfcontainer`.
 
 5. Per compilare un'applicazione Java di Service Fabric nel computer Mac, JDK versione 1.8 e Gradle devono essere installati nel computer host. Il software può essere installato usando [HomeBrew](https://brew.sh/), come segue: 
 
@@ -194,7 +194,7 @@ Installare il [.NET Core 2.0 SDK per Mac](https://www.microsoft.com/net/core#mac
 
 Azure Service Fabric fornisce un plug-in per Eclipse Neon (o versione successiva) per l'ambiente IDE Java. Il plug-in semplifica il processo di creazione, compilazione e distribuzione di servizi Java. Per installare o aggiornare il plug-in Service Fabric per Eclipse alla versione più recente, seguire [questa procedura](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse). Sono applicabili anche gli altri passaggi della [documentazione di Service Fabric per Eclipse](service-fabric-get-started-eclipse.md): compilare un'applicazione, aggiungere un servizio a un'applicazione, disinstallare un'applicazione e così via.
 
-L'ultimo passaggio prevede la creazione di un'istanza del contenitore con un percorso condiviso con l'host. Il plug-in richiede che questo tipo di creazione di istanza usi il contenitore Docker nel Mac, Ad esempio:
+L'ultimo passaggio prevede la creazione di un'istanza del contenitore con un percorso condiviso con l'host. Il plug-in richiede che questo tipo di creazione di istanza usi il contenitore Docker nel Mac, Ad esempio,
 
 ```bash
 docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox microsoft/service-fabric-onebox

@@ -85,7 +85,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
    Opzione \#1: Uso di SQL Server Management Studio.
    
    * Accedere alla macchina virtuale SQL Server
-   * Eseguire SQL Server Management Studio
+   * Eseguire SQL Server Management Studio.
    * Creare tabelle di database e di destinazione
    * Utilizzare uno dei metodi di importazione globale per caricare i dati dai file della macchina virtuale locale.
    
@@ -120,7 +120,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
    
     b.  Se i dati non sono già stati salvati, scaricare i file di dati dal contenitore di archiviazione di Azure alla cartella locale della macchina virtuale.
    
-    c.  Eseguire SQL Server Management Studio
+    c.  Eseguire SQL Server Management Studio.
    
     d.  Creare tabelle di database e di destinazione
    
@@ -156,7 +156,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
    
    b.  Scaricare i file di dati da un contenitore di archiviazione di Azure alla cartella locale della macchina virtuale.
    
-   c.  Eseguire SQL Server Management Studio
+   c.  Eseguire SQL Server Management Studio.
    
    d.  Creare tabelle di database e di destinazione
    

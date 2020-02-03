@@ -33,7 +33,7 @@ Log di monitoraggio di Azure è progettato per scalare e supportare la raccolta,
 
 In questo articolo viene esaminato come è possibile monitorare in modo proattivo il volume di dati e la crescita dell'archiviazione inseriti e definire i limiti per controllare i costi associati. 
 
-## <a name="pricing-model"></a>Modello tariffario
+## <a name="pricing-model"></a>Modello di prezzi
 
 Il piano tariffario predefinito per Log Analytics è un modello con **pagamento in** base al consumo basato sul volume di dati inserito e, facoltativamente, per la conservazione dei dati più lunga. Il volume dei dati viene misurato come dimensione dei dati che verranno archiviati. Ogni area di lavoro Log Analytics viene addebitata come servizio separato e contribuisce alla fatturazione per la sottoscrizione di Azure. La quantità di inserimento dei dati può essere notevole a seconda dei fattori seguenti: 
 

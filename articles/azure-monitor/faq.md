@@ -18,7 +18,7 @@ ms.locfileid: "76715926"
 
 Queste domande frequenti su Microsoft sono un elenco di domande frequenti su monitoraggio di Azure.
 
-## <a name="general"></a>Informazioni di carattere generale
+## <a name="general"></a>Generale
 
 ### <a name="what-is-azure-monitor"></a>Informazioni su Monitoraggio di Azure
 [Monitoraggio di Azure](overview.md) è un servizio di Azure che offre il monitoraggio delle prestazioni e della disponibilità per le applicazioni e i servizi in Azure, in altri ambienti cloud o in locale. Monitoraggio di Azure raccoglie dati da più origini in una piattaforma dati comune in cui possono essere analizzati per individuare tendenze e anomalie. Le funzionalità avanzate di monitoraggio di Azure consentono di identificare e rispondere rapidamente a situazioni critiche che potrebbero influire sull'applicazione.
@@ -82,7 +82,7 @@ Per visualizzare le soluzioni nella portale di Azure, fare clic su **altro** nel
 
 
 
-## <a name="logs"></a>Log
+## <a name="logs"></a>Registri
 
 ### <a name="whats-the-difference-between-azure-monitor-logs-and-azure-data-explorer"></a>Qual è la differenza tra i log di monitoraggio di Azure e Esplora dati di Azure?
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. I log di monitoraggio di Azure si basano su Esplora dati di Azure e usano lo stesso linguaggio di query kusto (KQL) con alcune differenze minime. Vedere le [differenze del linguaggio di query del log di monitoraggio di Azure](log-query/data-explorer-difference.md).
@@ -90,7 +90,7 @@ Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilit�
 ### <a name="how-do-i-retrieve-log-data"></a>Ricerca per categorie recuperare i dati di log?
 Tutti i dati vengono recuperati da un'area di lavoro Log Analytics usando una query di log scritta con kusto Query Language (KQL). È possibile scrivere query personalizzate o usare soluzioni e informazioni dettagliate che includono query di log per un'applicazione o un servizio specifico. Vedere [Panoramica delle query di log in monitoraggio di Azure](log-query/log-query-overview.md).
 
-### <a name="what-is-a-log-analytics-workspace"></a>Che cos'è un'area di lavoro di Log Analytics?
+### <a name="what-is-a-log-analytics-workspace"></a>Che cos'è un'area di lavoro Log Analytics?
 Tutti i dati di log raccolti da monitoraggio di Azure vengono archiviati in un'area di lavoro Log Analytics. Un'area di lavoro è essenzialmente un contenitore in cui i dati di log vengono raccolti da diverse origini. È possibile che si disponga di una singola area di lavoro Log Analytics per tutti i dati di monitoraggio o che siano necessari requisiti per più aree di lavoro. Vedere [progettazione della distribuzione dei log di monitoraggio di Azure](platform/design-logs-deployment.md).
 
 ### <a name="can-you-move-an-existing-log-analytics-workspace-to-another-azure-subscription"></a>È possibile spostare un'area di lavoro Log Analytics esistente in un'altra sottoscrizione di Azure?
@@ -273,13 +273,13 @@ In Esplora soluzioni fare clic con il pulsante destro del mouse su `ApplicationI
 
 Un'app desktop che è possibile usare nel server Web IIS per configurare Application Insights nelle app Web. Non raccoglie dati di telemetria: è possibile interromperlo se non si sta configurando un'app. 
 
-[Altre informazioni](app/monitor-performance-live-website-now.md#questions)
+[Altre informazioni](app/monitor-performance-live-website-now.md#questions).
 
 ### <a name="what-telemetry-is-collected-by-application-insights"></a>Quali dati di telemetria vengono raccolti da Application Insights?
 
 Da app Web del server:
 
-* Richieste HTTP
+* richieste HTTP
 * [Dipendenze](app/asp-net-dependencies.md). Chiamate a: database SQL, chiamate HTTP a servizi esterni, Azure Cosmos DB, tabelle, archiviazione BLOB e code. 
 * [Eccezioni](app/asp-net-exceptions.md) e analisi dello stack.
 * [Contatori delle prestazioni](app/performance-counters.md) : se si usa [Status Monitor](app/monitor-performance-live-website-now.md), [monitoraggio di Azure per i servizi app](app/azure-web-apps.md), [monitoraggio di Azure per VM o set di scalabilità di macchine virtuali](app/azure-vm-vmss-apps.md)o il [writer Application Insights collectd](app/java-collectd.md).
@@ -319,7 +319,7 @@ Viene cercato l'indirizzo IP (IPv4 o IPv6) del client Web tramite [GeoLite2](htt
 * Per altre informazioni su come vengono raccolti i dati relativi all'indirizzo IP e alla georilevazione in Application Insights fare riferimento a questo [articolo](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
 
 
-È possibile configurare `ClientIpHeaderTelemetryInitializer` per ottenere l'indirizzo IP da un'intestazione diversa. Ad esempio, in alcuni sistemi viene spostato da un proxy, da un bilanciamento del carico o da una rete CDN a `X-Originating-IP`. [Altre informazioni](https://apmtips.com/blog/2016/07/05/client-ip-address/)
+È possibile configurare `ClientIpHeaderTelemetryInitializer` per ottenere l'indirizzo IP da un'intestazione diversa. Ad esempio, in alcuni sistemi viene spostato da un proxy, da un bilanciamento del carico o da una rete CDN a `X-Originating-IP`. [Altre informazioni](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
 È possibile [usare Power BI](app/export-power-bi.md ) per visualizzare i dati di telemetria della richiesta in una mappa.
 
@@ -375,9 +375,9 @@ Usare una singola risorsa per tutti i componenti o i ruoli in un singolo sistema
 | Telemetria di dipendenza |[Installare Status Monitor di Application Insights nel server](app/monitor-performance-live-website-now.md) |Diagnosticare i problemi relativi a database o altri componenti esterni |
 | Ricavare analisi dello stack dalle eccezioni |[Inserire chiamate TrackException nel codice](app/asp-net-exceptions.md) (ma alcune sono segnalate automaticamente) |Rilevare e diagnosticare le eccezioni |
 | Eseguire la ricerca di tracce dei log |[Aggiungere un adattatore di registrazione](app/asp-net-trace-logs.md) |Diagnosticare le eccezioni, problemi di prestazioni |
-| Nozioni di base dell'utilizzo del client: visualizzazioni pagina, sessioni, ... |[Inizializzatore JavaScript nelle pagine Web](app/javascript.md) |Analisi di utilizzo |
-| Metriche personalizzate client |[Rilevamento delle chiamate nelle pagine Web](app/api-custom-events-metrics.md) |Miglioramento dell'esperienza utente |
-| Metriche personalizzate server |[Rilevamento delle chiamate nel server](app/api-custom-events-metrics.md) |Business Intelligence |
+| Nozioni di base dell'utilizzo del client: visualizzazioni pagina, sessioni, ... |[Inizializzatore JavaScript nelle pagine Web](app/javascript.md) |Analisi dell'utilizzo |
+| Metriche personalizzate client |[Rilevamento delle chiamate nelle pagine Web](app/api-custom-events-metrics.md) |Migliorare l'esperienza utente |
+| Metriche personalizzate server |[Rilevamento delle chiamate nel server](app/api-custom-events-metrics.md) |Business intelligence |
 
 ### <a name="why-are-the-counts-in-search-and-metrics-charts-unequal"></a>Perché i conteggi nei grafici di ricerca e di metrica non sono uguali?
 
@@ -487,7 +487,7 @@ Per altre informazioni, vedere l'articolo di DotNet in [defaultProxy](https://do
 
 ### <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>È possibile eseguire test Web di disponibilità in un server Intranet?
 
-I [test Web](app/monitor-web-app-availability.md) vengono eseguiti in punti di presenza distribuiti in tutto il globo. Sono disponibili due soluzioni:
+I [test Web](app/monitor-web-app-availability.md) vengono eseguiti in punti di presenza distribuiti in tutto il globo. Sono due le possibili soluzioni:
 
 * Porta di firewall: consentire al server di ricevere richieste dall'[elenco esteso e modificabile degli agenti di test Web](app/ip-addresses.md).
 * Scrivere un codice personalizzato per inviare richieste periodiche al server dall'interno della rete Intranet. A tale scopo è anche possibile eseguire test Web di Visual Studio. Il tester può inviare i risultati ad Application Insights tramite l'API TrackAvailability().

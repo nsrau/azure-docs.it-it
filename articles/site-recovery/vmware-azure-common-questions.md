@@ -18,7 +18,7 @@ ms.locfileid: "76719552"
 
 Questo articolo risponde a domande comuni che potrebbero emergere quando si distribuisce il ripristino di emergenza di macchine virtuali VMware locali in Azure.
 
-## <a name="general"></a>Informazioni di carattere generale
+## <a name="general"></a>Generale
 
 ### <a name="what-do-i-need-for-vmware-vm-disaster-recovery"></a>Cosa è necessario per il ripristino di emergenza delle macchine virtuali VMware?
 
@@ -73,7 +73,7 @@ No, Site Recovery non intercetta i dati replicati e non contiene informazioni su
 
 Site Recovery è certificata per ISO 27001:2013 e 27018, HIPAA e DPA. È in fase di valutazione di SOC2 e FedRAMP JAB.
 
-## <a name="pricing"></a>Prezzi
+## <a name="pricing"></a>Pricing
 
 ### <a name="how-do-i-calculate-approximate-charges-for-vmware-disaster-recovery"></a>Ricerca per categorie calcolare le tariffe approssimative per il ripristino di emergenza di VMware?
 
@@ -103,7 +103,7 @@ In ogni macchina virtuale che si vuole replicare installare il servizio con uno 
 - [Installazione manuale](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) dall'interfaccia utente o da PowerShell
 - Distribuzione tramite uno strumento di distribuzione come [Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
 
-## <a name="managed-disks"></a>Managed Disks
+## <a name="managed-disks"></a>Dischi gestiti
 
 ### <a name="where-does-site-recovery-replicate-data-to"></a>Dove Site Recovery replicare i dati?
 
@@ -169,7 +169,7 @@ I dischi dinamici possono essere replicati. Il disco del sistema operativo deve 
 
 ### <a name="if-i-use-replication-groups-for-multi-vm-consistency-can-i-add-a-new-vm-to-an-existing-replication-group"></a>Se si usano i gruppi di replica per la coerenza tra più macchine virtuali, è possibile aggiungere una nuova macchina virtuale a un gruppo di replica esistente?
 
-Sì, è possibile aggiungere nuove macchine virtuali a un gruppo di replica esistente quando si abilita la replica per le suddette macchine. Tuttavia
+Sì, è possibile aggiungere nuove macchine virtuali a un gruppo di replica esistente quando si abilita la replica per le suddette macchine. Tuttavia:
 
 - Non è possibile aggiungere una macchina virtuale a un gruppo di replica esistente dopo che la replica è iniziata.
 - Non è possibile creare un gruppo di replica per le macchine virtuali esistenti.
@@ -188,7 +188,7 @@ No, Site Recovery non supporta la replica nell'archiviazione di Azure nelle reti
 
 ## <a name="component-upgrade"></a>Aggiornamento componenti
 
-### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>La versione dell'agente di servizi Mobility o del server di configurazione è obsoleta e l'aggiornamento non è riuscito. Che cosa occorre fare?
+### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>La versione dell'agente di servizi Mobility o del server di configurazione è obsoleta e l'aggiornamento non è riuscito. Quale operazione devo eseguire?
 
 Site Recovery segue il modello di supporto N-4. [Altre](https://aka.ms/asr_support_statement) informazioni su come eseguire l'aggiornamento da versioni molto obsolete.
 
@@ -202,7 +202,7 @@ Informazioni [sull'aggiornamento di](https://aka.ms/asr_vmware_upgrades).
 
 ## <a name="do-i-need-to-reboot-source-machines-for-each-upgrade"></a>È necessario riavviare I computer di origine per ogni aggiornamento?
 
-Un riavvio è consigliato ma non obbligatorio per ogni aggiornamento. [Altre informazioni](https://aka.ms/asr_vmware_upgrades)
+Un riavvio è consigliato ma non obbligatorio per ogni aggiornamento. [Altre informazioni](https://aka.ms/asr_vmware_upgrades).
 
 ## <a name="configuration-server"></a>Server di configurazione
 
@@ -326,7 +326,7 @@ Per VMware in Azure, il punto di ripristino meno recente che è possibile usare 
 
 ### <a name="how-do-i-access-azure-vms-after-failover"></a>Come si accede alle macchine virtuali di Azure dopo il failover?
 
-Dopo il failover, è possibile accedere alle macchine virtuali di Azure tramite una connessione Internet sicura, una VPN da sito a sito o una ExpressRoute di Azure. Per connettersi, è necessario preparare diversi elementi. [Altre informazioni](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+Dopo il failover, è possibile accedere alle macchine virtuali di Azure tramite una connessione Internet sicura, una VPN da sito a sito o una ExpressRoute di Azure. Per connettersi, è necessario preparare diversi elementi. [Altre informazioni](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 
 ### <a name="is-failed-over-data-resilient"></a>Il failover dei dati è stato superato?
 
@@ -338,7 +338,7 @@ Il [failover](site-recovery-failover.md) non è automatico. Per avviare un failo
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>È possibile eseguire il failback in una posizione diversa?
 
-Sì. Se è stato eseguito il failover in Azure, è possibile eseguire il failback in un percorso diverso se quello originale non è disponibile. [Altre informazioni](concepts-types-of-failback.md#alternate-location-recovery-alr)
+Sì. Se è stato eseguito il failover in Azure, è possibile eseguire il failback in un percorso diverso se quello originale non è disponibile. [Altre informazioni](concepts-types-of-failback.md#alternate-location-recovery-alr).
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-with-private-peering-to-fail-back"></a>Perché è necessaria una VPN o ExpressRoute con peering privato per eseguire il failback?
 
@@ -349,13 +349,13 @@ Quando si esegue il failback da Azure, i dati di Azure vengono copiati di nuovo 
 
 ### <a name="can-i-set-up-replication-with-scripting"></a>È possibile configurare la replica con lo scripting?
 
-Sì. È possibile automatizzare i flussi di lavoro Site Recovery usando l'API REST, PowerShell o Azure SDK. [Altre informazioni](vmware-azure-disaster-recovery-powershell.md)
+Sì. È possibile automatizzare i flussi di lavoro Site Recovery usando l'API REST, PowerShell o Azure SDK. [Altre informazioni](vmware-azure-disaster-recovery-powershell.md).
 
 ## <a name="performance-and-capacity"></a>Prestazioni e capacità
 
 ### <a name="can-i-throttle-replication-bandwidth"></a>È possibile limitare la larghezza di banda per la replica?
 
-Sì. [Altre informazioni](site-recovery-plan-capacity-vmware.md)
+Sì. [Altre informazioni](site-recovery-plan-capacity-vmware.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

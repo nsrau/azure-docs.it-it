@@ -123,7 +123,7 @@ Importare la libreria Spark, MLlib e altre librerie necessarie tramite il codice
     val sqlContext = new SQLContext(sc)
 
 
-## <a name="data-ingestion"></a>Inserimento di dati
+## <a name="data-ingestion"></a>Inserimento dati
 Il primo passaggio nel processo di analisi scientifica dei dati è inserire i dati da analizzare. Spostare i dati dalle origini o dai sistemi in cui si trovano nell'ambiente di esplorazione e modellazione dei dati. In questo articolo, i dati inseriti rappresentano un campione unito in join pari allo 0,1% del file con estensione tsv relativo alle corse e alle tariffe dei taxi. L'ambiente di modellazione ed esplorazione dei dati è Spark. Questa sezione contiene il codice per completare la serie di attività seguenti:
 
 1. Impostare i percorsi di directory per l'archiviazione di dati e modelli.
@@ -249,7 +249,7 @@ Successivamente, eseguire query sulla tabella per i dati relativi alle tariffe, 
 
 | fare_amount | passenger_count | tip_amount | tipped |
 | --- | --- | --- | --- |
-|        13,5 |1.0 |2,9 |1.0 |
+|        13.5 |1.0 |2,9 |1.0 |
 |        16,0 |2.0 |3.4 |1.0 |
 |        10.5 |2.0 |1.0 |1.0 |
 
@@ -290,10 +290,10 @@ Nel codice seguente, il magic `%%local` crea un frame di dati locali, sqlResults
  Il kernel Spark visualizza automaticamente l'output delle query SQL (HiveQL) dopo aver eseguito il codice. È possibile scegliere tra diversi tipi di visualizzazioni:
 
 * Tabella
-* Grafico a torta
+* Torta
 * Riga
 * Area
-* Grafico a barre
+* Barre
 
 Di seguito è indicato il codice per tracciare i dati:
 

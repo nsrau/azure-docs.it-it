@@ -71,11 +71,11 @@ La funzionalità dei nodi virtuali dipende molto dal set di funzionalità di ACI
 * [Gli elementi daemonset](concepts-clusters-workloads.md#statefulsets-and-daemonsets) non distribuirà i pod al nodo virtuale
 * I [nodi di Windows Server (attualmente in anteprima in AKS)](windows-container-cli.md) non sono supportati insieme ai nodi virtuali. È possibile usare i nodi virtuali per pianificare i contenitori di Windows Server senza la necessità di nodi di Windows Server in un cluster AKS.
 
-## <a name="sign-in-to-azure"></a>Accedere a Azure
+## <a name="sign-in-to-azure"></a>Accedi ad Azure
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
-## <a name="create-an-aks-cluster"></a>Creare un cluster AKS
+## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
 
 Nell'angolo superiore sinistro del portale di Azure, selezionare **Crea una risorsa** > **Servizio Kubernetes**.
 

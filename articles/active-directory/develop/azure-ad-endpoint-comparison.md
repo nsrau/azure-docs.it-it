@@ -85,7 +85,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-Qui il parametro **scope** indica per quali risorse e autorizzazioni l'app richiede l'autorizzazione. La risorsa desiderata è ancora presente nella richiesta: è inclusa in ognuno dei valori del parametro di ambito. L'uso del parametro scope in questo modo consente all'endpoint della piattaforma di identità Microsoft di essere più conforme alla specifica OAuth 2,0 e si allinea più strettamente con le comuni procedure di settore. Consente inoltre alle app di eseguire [autorizzazioni incrementali](#incremental-and-dynamic-consent), richiedendo solo le autorizzazioni quando l'applicazione le richiede, anziché prima.
+Qui il parametro **scope** indica per quali risorse e autorizzazioni l'app richiede l'autorizzazione. La risorsa desiderata è ancora presente nella richiesta: è inclusa in ognuno dei valori del parametro di ambito. L'uso del parametro scope in questo modo consente all'endpoint della piattaforma di identità Microsoft di essere più conforme alla specifica OAuth 2,0 e si allinea più strettamente con le comuni procedure di settore. Consente inoltre alle app di eseguire autorizzazioni [incrementali](#incremental-and-dynamic-consent) , richiedendo solo le autorizzazioni quando l'applicazione le richiede, anziché prima.
 
 ## <a name="well-known-scopes"></a>Ambiti conosciuti
 

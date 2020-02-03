@@ -327,7 +327,7 @@ Posizionare l'annotazione [TwilioSmsOutput](https://docs.microsoft.com/java/api/
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `TwilioSms`.
 
-| Proprietà v1 function.json | Proprietà v2 function.json | Proprietà dell'attributo |Description|
+| Proprietà v1 function.json | Proprietà v2 function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|---------|----------------------|
 |**type**|**type**| deve essere impostato su `twilioSms`.|
 |**direction**|**direction**| deve essere impostato su `out`.|

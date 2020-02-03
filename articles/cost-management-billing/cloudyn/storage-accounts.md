@@ -1,21 +1,20 @@
 ---
 title: Configurare gli account di archiviazione per Cloudyn di Azure | Microsoft Docs
 description: Questo articolo descrive come configurare gli account di archiviazione di Azure e i contenitori di archiviazione di AWS per Cloudyn.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: benshy
+ms.reviewer: benshy
 ms.custom: secdec18
-ms.openlocfilehash: 2a8f3645dcf2987d0c0a204e7e8a86cd6d718e47
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: aa5fc1dddec6931b5eff1e34cf6c12b218bdf2fd
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75994870"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769952"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Configurare gli account di archiviazione per Cloudyn
 
@@ -23,7 +22,7 @@ ms.locfileid: "75994870"
 
 È possibile salvare i report di Cloudyn nel portale di Cloudyn, nell'archiviazione di Azure o nei contenitori di archiviazione di AWS. Il salvataggio dei report nel portale di Cloudyn è gratuito. Il salvataggio dei report in una risorsa di archiviazione del provider di servizi cloud è tuttavia facoltativo e comporta un costo aggiuntivo. Questo articolo consente di configurare gli account di archiviazione di Azure e i bucket di archiviazione di Amazon Web Services (AWS) per l'archiviazione dei report.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 È necessario un account di archiviazione di Azure o un bucket di archiviazione di Amazon.
 
@@ -53,7 +52,7 @@ La configurazione dell'archiviazione di Azure per l'uso di Cloudyn è semplice. 
 
 ## <a name="configure-an-aws-storage-bucket"></a>Configurare un bucket di archiviazione di AWS
 
-Il portale di Cloudyn usa le credenziali AWS esistenti, per l'utente o il ruolo, per salvare i report nel bucket. Per verificare l'accesso, Cloudyn tenta di salvare un file di testo di piccole dimensioni nel bucket con il nome file _check-bucket-permission.txt_.
+Cloudyn usa le credenziali AWS esistenti, Utente o Ruolo, per salvare i report nel bucket. Per verificare l'accesso, Cloudyn tenta di salvare un file di testo di piccole dimensioni nel bucket con il nome file _check-bucket-permission.txt_.
 
 Specificare il ruolo o l'utente di Cloudyn con l'autorizzazione PutObject per il bucket. Per salvare i report, usare quindi un bucket esistente o crearne uno nuovo. Decidere infine come gestire la classe di archiviazione, impostare le regole del ciclo di vita o rimuovere i file non necessari.
 
@@ -65,7 +64,7 @@ Quando si crea un nuovo criterio, specificare le autorizzazioni esatte necessari
 2. Dall'elenco dei servizi selezionare **IAM**.
 3. Sul lato sinistro della console selezionare **Policies** (Criteri) e quindi fare clic su **Create Policy** (Crea criterio).
 4. Fare clic sulla scheda **JSON**.
-5. Il criterio seguente consente di salvare un report in un bucket di S3. Copiare e incollare l'esempio di criteri seguente nella scheda **JSON** . sostituire &lt;bucketname&gt; con il nome del bucket.
+5. Il criterio seguente consente di salvare un report in un bucket di S3. Copiare e incollare l'esempio di criterio seguente nella scheda **JSON**. Sostituire &lt;bucketname&gt; con il nome del bucket.
 
    ```json
    {

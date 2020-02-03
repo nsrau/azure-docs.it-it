@@ -73,9 +73,9 @@ Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
 * * *
 
-|Oggetto dati|Tipo di dati|Posizione dei Dati|Valore|
+|Oggetto dati|Tipo di dati|Posizione dei dati|Valore|
 |--|--|--|--|
-|Finalità|string|topScoringIntent.intent|"GetStoreInfo"|
+|Finalità|String|topScoringIntent.intent|"GetStoreInfo"|
 
 Se l'app chatbot o LUIS-Calling prende una decisione in base a più di un punteggio preventivo, restituisce tutti i punteggi di Intent.
 
@@ -135,10 +135,10 @@ Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
 Le finalità vengono ordinate dal punteggio più alto al più basso.
 
-|Oggetto dati|Tipo di dati|Posizione dei Dati|Valore|Punteggio|
+|Oggetto dati|Tipo di dati|Posizione dei dati|Valore|Punteggio|
 |--|--|--|--|:--|
-|Finalità|string|intents[0].intent|"GetStoreInfo"|0,984749258|
-|Finalità|string|intents[0].intent|"None"|0,0168218873|
+|Finalità|String|intents[0].intent|"GetStoreInfo"|0,984749258|
+|Finalità|String|intents[0].intent|"None"|0,0168218873|
 
 Se si aggiungono domini predefiniti, il nome della finalità indica il dominio, ad esempio `Utilties` o `Communication` e la finalità:
 
@@ -196,11 +196,11 @@ Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
 * * *
 
-|Dominio|Oggetto dati|Tipo di dati|Posizione dei Dati|Valore|
+|Domain|Oggetto dati|Tipo di dati|Posizione dei dati|Valore|
 |--|--|--|--|--|
-|Servizi pubblici|Finalità|string|intents[0].intent|"<b>Utilities</b>.ShowNext"|
-|Comunicazione|Finalità|string|intents[0].intent|<b>Communication</b>.StartOver"|
-||Finalità|string|intents[2].intent|"None"|
+|Servizi pubblici|Finalità|String|intents[0].intent|"<b>Utilities</b>.ShowNext"|
+|Comunicazione|Finalità|String|intents[0].intent|<b>Communication</b>.StartOver"|
+||Finalità|String|intents[2].intent|"None"|
 
 
 ## <a name="data-from-entities"></a>Dati da entità
@@ -540,7 +540,7 @@ Le entità [PersonName](luis-reference-prebuilt-person.md) e [GeographyV2](luis-
 
 ### <a name="names-of-people"></a>Nomi di persone
 
-I nomi delle persone possono presentare un formato a seconda della lingua e delle impostazioni cultura. Utilizzare un'entità **[personName](luis-reference-prebuilt-person.md)** predefinita o un' **[entità semplice](luis-concept-entity-types.md#simple-entity)** con [ruoli](luis-concept-roles.md) di nome e cognome.
+I nomi delle persone possono presentare un formato a seconda della lingua e delle impostazioni cultura. Utilizzare un'entità **[PersonName](luis-reference-prebuilt-person.md)** predefinita o un' **[entità semplice](luis-concept-entity-types.md#simple-entity)** con [ruoli](luis-concept-roles.md) di nome e cognome.
 
 Se si usa l'entità semplice, assicurarsi di fornire esempi che usano il nome e il cognome in parti diverse dell'espressione, in espressioni di lunghezze diverse ed espressioni in tutti gli Intent, inclusa la finalità None. [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
 
@@ -681,7 +681,7 @@ Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
 [Pattern. any](reference-entity-pattern-any.md) è un segnaposto a lunghezza variabile usato solo nell'espressione di modello di un modello per contrassegnare l'inizio e la fine dell'entità.
 
-## <a name="sentiment-analysis"></a>Analisi dei sentimenti
+## <a name="sentiment-analysis"></a>Analisi del sentiment
 Se l'analisi del sentiment è configurata, è inclusa nella risposta json LUIS. Per ulteriori informazioni sull'analisi del sentiment, vedere la documentazione [Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
 
 ### <a name="sentiment-data"></a>Dati sentiment

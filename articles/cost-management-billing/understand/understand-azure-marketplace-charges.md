@@ -13,10 +13,10 @@ ms.date: 10/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f94b79e03cf97275ec4dacf17e097e1678e81d10
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989423"
 ---
 # <a name="understand-your-azure-external-services-charges"></a>Informazioni sugli addebiti per i servizi esterni di Azure
@@ -57,7 +57,7 @@ Se non si dispone di un Contratto del cliente Microsoft o Contratto Microsoft Pa
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Cercare **Gestione dei costi e fatturazione**.
 1. Nel menu a sinistra selezionare **Fatture**.
-1. Fai clic sulla scheda **Azure Marketplace e prenotazioni** .  ![immagine di Azure Marketplace e della scheda prenotazioni](./media/understand-azure-marketplace-charges/invoice-tabs.png)
+1. Fare clic sulla scheda **Azure Marketplace e prenotazioni**.  ![Immagine della scheda Azure Marketplace e prenotazioni](./media/understand-azure-marketplace-charges/invoice-tabs.png)
 1. Nell'elenco a discesa delle sottoscrizioni selezionare la sottoscrizione che contiene i servizi esterni per i quali si vogliono visualizzare le fatture.
 
 ## <a name="external-spending-for-ea-customers"></a>Spesa esterna per i clienti EA
@@ -111,7 +111,7 @@ Se si desidera annullare l'ordine di servizio esterno, eliminare la risorsa nel 
 ## <a name="check-billing-account-type"></a>Controllare il tipo di account di fatturazione
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 

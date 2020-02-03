@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 793caae31841c0ea744a80a811c86aa4af63f60a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75990970"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Termini presenti nella fattura del Contratto del cliente Microsoft in Azure
@@ -38,7 +38,7 @@ Le sezioni seguenti riportano i termini importanti presenti nella fattura e le d
 
 ![Sezione di riepilogo della fattura](./media/mca-understand-your-invoice/invoicesummary.png)
 
-| Durata | Description |
+| Termine | Descrizione |
 | --- | --- |
 | Venduto a |Indirizzo della persona giuridica, riportato nelle proprietà dell'account di fatturazione|
 | Indirizzo di fatturazione |Indirizzo di fatturazione del profilo di fatturazione che riceve la fattura, riportato nelle proprietà del profilo di fatturazione|
@@ -54,10 +54,10 @@ Le sezioni seguenti riportano i termini importanti presenti nella fattura e le d
 
 ![Sezione Riepilogo fatturazione](./media/mca-understand-your-invoice/billingsummary.png)
 
-| Durata | Description |
+| Termine | Descrizione |
 | --- | --- |
 | Charges|Numero totale di addebiti Microsoft per il profilo di fatturazione dall'ultimo periodo di fatturazione |
-| Riconoscimenti |Crediti ricevuti da restituzioni |
+| Credits |Crediti ricevuti da restituzioni |
 | Crediti Azure applicati | Crediti Azure applicati automaticamente agli addebiti di Azure per ogni periodo di fatturazione |
 | Subtotale |Importo dovuto al lordo delle imposte |
 | Imposta |Tipo e importo delle imposte da pagare, a seconda del paese/area geografica del profilo di fatturazione. Se non è necessario pagare imposte, questa voce non verrà visualizzata nella fattura. |
@@ -78,12 +78,12 @@ L'importo totale dovuto per ogni famiglia di servizi viene calcolato sottraendo 
 
 ![Dettagli per sezione della fattura](./media/mca-understand-your-invoice/invoicesectiondetails.png)
 
-| Durata |Description |
+| Termine |Descrizione |
 | --- | --- |
 | Prezzo unitario | Prezzo unitario valido del servizio (nella valuta dei prezzi) usato per valutare l'utilizzo. È univoco per un prodotto, una famiglia di servizi, un contatore e un'offerta. |
-| Quantità | Quantità acquistata o utilizzata durante il periodo di fatturazione |
+| Qtà | Quantità acquistata o utilizzata durante il periodo di fatturazione |
 | Charges/Credits (Addebiti/crediti) | Importo netto degli addebiti dopo l'applicazione di crediti e rimborsi |
-| Credito di Azure | Importo dei crediti Azure applicati a Charges/Credits (Addebiti/crediti)|
+| Credito Azure | Importo dei crediti Azure applicati a Charges/Credits (Addebiti/crediti)|
 | Aliquota d'imposta | Aliquota/e d'imposta in base al paese/area geografica |
 | Importo imposte | Importo delle imposte applicate all'acquisto in base all'aliquota |
 | Totale | Importo totale dovuto per l'acquisto |
@@ -99,7 +99,7 @@ Se nella fattura sono inclusi servizi di terze parti, il nome e l'indirizzo di o
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificare l'accesso a un Contratto del cliente Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 

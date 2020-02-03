@@ -120,7 +120,7 @@ Nei passaggi seguenti viene creato uno schema per i dati in uno o più contenito
 1. Nella finestra **Editor schema**, fare clic su **Crea nuovo**.
     Nella finestra **Genera schema** vengono visualizzati tutti i contenitori nell'account Azure Cosmos DB. 
 
-1. Selezionare un contenitore nella scheda **visualizzazione esempio** , nella colonna **definizione mapping** per il contenitore, fare clic su **modifica**. A quel punto, nella finestra **Mapping Definition** (Definizione mapping) selezionare il metodo **Table Delimiters** (Delimitatori di tabella). Eseguire quindi le operazioni seguenti:
+1. Selezionare un contenitore nella scheda **visualizzazione esempio** , nella colonna **definizione mapping** per il contenitore, fare clic su **modifica**. A quel punto, nella finestra **Mapping Definition** (Definizione mapping) selezionare il metodo **Table Delimiters** (Delimitatori di tabella). Quindi procedere come segue:
 
     a. Nel riquadro **Attributi** digitare il nome di una proprietà delimitatore. Si tratta di una proprietà nel documento per cui si desidera eseguire il campionamento. Digitare ad esempio City e premere INVIO. 
 

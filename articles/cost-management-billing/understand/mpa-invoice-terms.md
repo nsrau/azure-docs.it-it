@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 07/22/2019
 ms.author: banders
 ms.openlocfilehash: 7555fc490804a847e61a46f194e77c62f0a985d9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989748"
 ---
 # <a name="terms-in-your-microsoft-partner-agreement-invoice"></a>Termini presenti nella fattura del Contratto Microsoft Partner in Azure
@@ -36,7 +36,7 @@ La fattura viene emessa mensilmente. Gli addebiti maturati tra la fine del perio
 
 <!-- add screenshot -->
 
-| Durata | Description |
+| Termine | Descrizione |
 | --- | --- |
 | Venduto a |Indirizzo della persona giuridica, riportato nelle proprietà dell'account di fatturazione|
 | Indirizzo di fatturazione |Indirizzo di fatturazione del profilo di fatturazione che riceve la fattura, riportato nelle proprietà del profilo di fatturazione|
@@ -52,10 +52,10 @@ La fattura viene emessa mensilmente. Gli addebiti maturati tra la fine del perio
 
 <!-- add screenshot -->
 
-| Durata | Description |
+| Termine | Descrizione |
 | --- | --- |
 | Charges|Numero totale di addebiti Microsoft per il profilo di fatturazione dall'ultimo periodo di fatturazione |
-| Riconoscimenti |Crediti ricevuti da restituzioni |
+| Credits |Crediti ricevuti da restituzioni |
 | Crediti Azure applicati | Crediti Azure applicati automaticamente agli addebiti di Azure per ogni periodo di fatturazione |
 | Subtotale |Importo dovuto al lordo delle imposte |
 | Imposta |Tipo e importo delle imposte da pagare, a seconda del paese/area geografica del profilo di fatturazione. Se non è necessario pagare imposte, questa voce non verrà visualizzata nella fattura. |
@@ -77,7 +77,7 @@ Se nella fattura sono inclusi servizi di terze parti, il nome e l'indirizzo di o
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Verificare l'accesso a un Contratto Microsoft Partner
 [!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 

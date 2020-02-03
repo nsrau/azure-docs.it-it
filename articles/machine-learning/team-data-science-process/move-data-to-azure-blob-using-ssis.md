@@ -64,14 +64,14 @@ Per spostare i dati usando il Feature Pack di SSIS da una posizione locale a un 
 
 I parametri usati dall'attività sono descritti di seguito:
 
-| Campo | Description |
+| Campo | Descrizione |
 | --- | --- |
 | **AzureStorageConnection** |Specifica una gestione connessione di archiviazione di Azure esistente o ne crea una nuova che fa riferimento a un account di archiviazione di Azure che punta alla posizione in cui sono ospitati i file BLOB. |
 | **BlobContainer** |Specifica il nome del contenitore BLOB che include i file caricati come BLOB. |
 | **BlobDirectory** |Specifica la directory BLOB in cui viene archiviato il file caricato come BLOB in blocchi. La directory BLOB è una struttura gerarchica virtuale. Se il BLOB esiste già, verrà sostituito. |
 | **LocalDirectory** |Specifica la directory locale che include i file da caricare. |
 | **FileName** |Specifica un filtro per i nomi per la selezione di file con il modello di nomi specificato. Ad esempio, MySheet\*.xls\* include file, quali MySheet001.xls e MySheetABC.xlsx |
-| **TimeRangeFrom/TimeRangeTo** |Specifica un filtro basato su un intervallo di tempo. Sono inclusi i file modificati dopo *TimeRangeFrom* e prima di *TimeRangeTo*. |
+| **TimeRangeFrom/TimeRangeTo** |Consente di specificare un filtro basato su un intervallo di tempo. Sono inclusi i file modificati dopo *TimeRangeFrom* e prima di *TimeRangeTo*. |
 
 > [!NOTE]
 > Le credenziali di **AzureStorageConnection** devono essere corrette e **BlobContainer** deve essere presente prima del tentativo di trasferimento.

@@ -17,10 +17,10 @@ ms.date: 12/02/2018
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 9f78675878bd7a36e27ec1bdce0f3e38540d6039
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75991438"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gestire l'accesso alle informazioni di fatturazione per Azure
@@ -114,6 +114,6 @@ La funzionalità Fatturazione per lettore è disponibile in anteprima e non supp
 - Gli utenti in altri ruoli, ad esempio proprietario o collaboratore, possono accedere non solo alle informazioni di fatturazione, ma anche ai servizi di Azure. Per gestire questi ruoli, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 - Per altre informazioni sui ruoli, vedere [Ruoli predefiniti per le risorse di Azure](../../role-based-access-control/built-in-roles.md).
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).

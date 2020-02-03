@@ -173,7 +173,7 @@ Dopo aver creato un listener, associarlo a una regola di routing delle richieste
 
 Quando si crea un gateway applicazione usando il portale di Azure, si crea una regola predefinita (*Rule1*). Questa regola associa il listener predefinito (*appGatewayHttpListener*) con il pool back-end predefinito (*appGatewayBackendPool*) e le impostazioni http back-end predefinite (*appGatewayBackendHttpSettings*). Dopo aver creato il gateway, è possibile modificare le impostazioni della regola predefinita o creare nuove regole.
 
-### <a name="rule-type"></a>Tipo di regola
+### <a name="rule-type"></a>Tipo regola
 
 Quando si crea una regola, è possibile scegliere tra [ *base* e *basata sul percorso*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules).
 
@@ -241,7 +241,7 @@ Per ulteriori informazioni sul reindirizzamento, vedere:
 
 #### <a name="rewrite-the-http-header-setting"></a>Riscrivere l'impostazione dell'intestazione HTTP
 
-Questa impostazione consente di aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP mentre i pacchetti di richiesta e risposta vengono spostati tra il client e i pool back-end. Per scoprire di più, vedi:
+Questa impostazione consente di aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP mentre i pacchetti di richiesta e risposta vengono spostati tra il client e i pool back-end. Per altre informazioni, vedere:
 
  - [Panoramica delle intestazioni HTTP di riscrittura](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
  - [Configurare la riscrittura dell'intestazione HTTP](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)

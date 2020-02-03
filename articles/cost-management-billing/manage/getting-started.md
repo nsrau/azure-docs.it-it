@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: a78edc29ef85430dc8af57e60dfcba1f2e46413e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75991477"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evitare addebiti imprevisti con la gestione dei costi e della fatturazione di Azure
@@ -32,7 +32,7 @@ Quando si effettua l'iscrizione ad Azure, è consigliabile eseguire alcune opera
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Ottenere una stima dei costi prima di aggiungere servizi di Azure
 
 Usare uno degli strumenti seguenti per stimare il costo dell'utilizzo di un servizio di Azure:
-- Calcolatore dei prezzi di Azure
+- Calcolatore prezzi di Azure
 - Elenco prezzi di Azure
 - Portale di Azure
 
@@ -82,7 +82,7 @@ Una volta che i servizi di Azure sono in esecuzione, controllare regolarmente i 
 
 4. È possibile filtrare in base a diverse proprietà, ad esempio tag, tipo di risorsa e intervallo di tempo. Fare clic su **Aggiungi filtro** per aggiungere il filtro per una proprietà e selezionare i valori da filtrare. Selezionare **Esporta** per esportare la visualizzazione in un file con valori delimitati da virgole (CSV).
 
-5. È inoltre possibile fare clic sulle etichette del grafico per visualizzare la cronologia della spesa giornaliera per l'etichetta corrispondente. Per esempio: nella schermata seguente, facendo clic su macchine virtuali viene visualizzato il costo giornaliero per l'esecuzione delle macchine virtuali.
+5. È inoltre possibile fare clic sulle etichette del grafico per visualizzare la cronologia della spesa giornaliera per l'etichetta corrispondente. Ad esempio: Nello screenshot seguente quando si fa clic sulle macchine virtuali, viene visualizzato il costo giornaliero per l'esecuzione delle macchine virtuali.
 
     ![Screenshot della visualizzazione della cronologia di spesa nel portale di Azure](./media/getting-started/costhistory.png)
 
@@ -131,8 +131,8 @@ Per iniziare, rivolgersi all'account manager o al partner di Azure.
 | Offerta | Risorse |
 |-------------------------------|-----------------------------------------------------------------------------------|
 | Contratto Enterprise Agreement (EA) | [Portale EA](https://ea.azure.com/), [documentazione della guida](https://ea.azure.com/helpdocs) e [report di Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-enterprise/) |
-| Cloud Solution Provider (CSP) | Rivolgersi al provider |
-| Sponsorizzazione Azure | [Portale Sponsorship](https://www.microsoftazuresponsorships.com/) |
+| Provider di soluzioni cloud (CSP) | Rivolgersi al provider |
+| Azure Sponsorship | [Portale Sponsorship](https://www.microsoftazuresponsorships.com/) |
 
 Se si è responsabili della gestione IT per un'organizzazione di grandi dimensioni, è consigliabile leggere l'articolo relativo allo [scaffolding aziendale Azure](/azure/architecture/cloud-adoption-guide/subscription-governance) e il [white paper per l'IT aziendale](https://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (download file PDF, solo in lingua inglese).
 
@@ -179,7 +179,7 @@ Per alcuni servizi sono previsti alcuni prerequisiti per l'applicazione del cont
 
 Per altre informazioni, vedere [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/) e [Riepilogo dei contratti di servizio per i servizi di Azure](https://azure.microsoft.com/support/legal/sla/summary/).
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 

@@ -77,11 +77,11 @@ Selezionare un elemento nella visualizzazione elenco per ottenere maggiori infor
 
 È possibile filtrare i dati di controllo in base ai campi seguenti:
 
-- Servizio
-- Categoria
+- Service
+- Category
 - Attività
 - Stato
-- Obiettivo
+- Destinazione
 - Azione avviata da (attore)
 - Intervallo di date
 
@@ -89,16 +89,16 @@ Selezionare un elemento nella visualizzazione elenco per ottenere maggiori infor
 
 Il filtro del **servizio** consente di effettuare una selezione da un elenco a discesa dei servizi seguenti:
 
-- Tutto
+- Tutte
 - Verifiche di accesso
-- Provisioning degli account 
+- Provisioning account 
 - SSO applicazione
 - Metodi di autenticazione
 - B2C
 - Accesso condizionale
 - Directory principale
-- Gestione entitlement
-- Protezione delle identità
+- Gestione dei diritti
+- Identity Protection
 - Utenti invitati
 - PIM
 - Gestione gruppi self-service
@@ -107,11 +107,11 @@ Il filtro del **servizio** consente di effettuare una selezione da un elenco a d
 
 Il filtro **Category** consente di selezionare uno dei filtri seguenti:
 
-- Tutto
+- Tutte
 - AdministrativeUnit
 - ApplicationManagement
 - Autenticazione
-- Autorizzazione
+- Authorization
 - Contatto
 - Dispositivo
 - DeviceConfiguration
@@ -119,7 +119,7 @@ Il filtro **Category** consente di selezionare uno dei filtri seguenti:
 - EntitlementManagement
 - GroupManagement
 - Altro
-- Criterio
+- Criteri
 - ResourceManagement
 - RoleManagement
 - UserManagement
@@ -130,9 +130,9 @@ Il filtro **attività** è basato sulla selezione del tipo di risorsa Activity e
 
 Il filtro di **stato** consente di filtrare in base allo stato di un'operazione di controllo. Lo stato può essere uno dei seguenti:
 
-- Tutto
-- Operazione completata
-- Operazioni non riuscite
+- Tutte
+- Success
+- Errore
 
 Il filtro di **destinazione** consente di cercare una determinata destinazione in base al nome o al nome dell'entità utente (UPN). Il nome di destinazione e l'UPN fanno distinzione tra maiuscole e minuscole. 
 

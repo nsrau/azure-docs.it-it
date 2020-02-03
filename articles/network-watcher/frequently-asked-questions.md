@@ -23,14 +23,14 @@ ms.locfileid: "76720268"
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Domande frequenti su Azure Network Watcher
 Il servizio [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) offre una suite di strumenti per monitorare, diagnosticare, visualizzare le metriche e abilitare o disabilitare i log per le risorse in una rete virtuale di Azure. Questo articolo risponde a domande comuni sul servizio.
 
-## <a name="general"></a>Informazioni di carattere generale
+## <a name="general"></a>Generale
 
 ### <a name="what-is-network-watcher"></a>Che cos'è Network Watcher?
 Network Watcher è progettato per monitorare e ripristinare lo stato di integrità della rete dei componenti IaaS (Infrastructure-as-a-Service), che include macchine virtuali, reti virtuali, gateway applicazione, servizi di bilanciamento del carico e altre risorse in una rete virtuale di Azure. Non si tratta di una soluzione per il monitoraggio dell'infrastruttura PaaS (piattaforma distribuita come servizio) o di analisi Web/per dispositivi mobili.
 
 ### <a name="what-tools-does-network-watcher-provide"></a>Quali strumenti Network Watcher fornire?
 Network Watcher offre tre principali set di funzionalità
-* Monitorare
+* Monitoraggio
   * La [visualizzazione topologia](https://docs.microsoft.com/azure/network-watcher/view-network-topology) Mostra le risorse nella rete virtuale e le relazioni tra di esse.
   * Il [monitoraggio della connessione](https://docs.microsoft.com/azure/network-watcher/connection-monitor) consente di monitorare la connettività e la latenza tra una macchina virtuale e un'altra risorsa di rete.
   * [Monitoraggio prestazioni rete](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor) consente di monitorare la connettività e le latenze tra architetture di rete ibride, circuiti Expressroute e endpoint di servizio/applicazione.  
@@ -91,5 +91,5 @@ I log di flusso NSG sono compantible con gli endpoint di servizio senza richiede
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>Qual è la differenza tra i log dei flussi versioni 1 & 2?
 Log dei flussi versione 2 introduce il concetto di *stato del flusso* & archivia le informazioni su byte e pacchetti trasmessi. [Altre informazioni](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file).
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
  - Passare alla [pagina Panoramica della documentazione](https://docs.microsoft.com/azure/network-watcher/) per alcune esercitazioni per iniziare a usare Network Watcher.

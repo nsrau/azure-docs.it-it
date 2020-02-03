@@ -312,7 +312,7 @@ Sono supportati due tipi di chiave *RSA* oppure *RSA HSM* con certificati. La po
 
 Oltre ai metadati del certificato, a una chiave e a un segreto indirizzabili, un certificato di Key Vault contiene anche attributi e tag.  
 
-#### <a name="attributes"></a>Attributes
+#### <a name="attributes"></a>Attributi
 
 Gli attributi di certificato si riflettono negli attributi della chiave e del segreto indirizzabile creati quando viene creato KV certificato.  
 

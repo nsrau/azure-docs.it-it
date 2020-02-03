@@ -202,7 +202,7 @@ Per aggiungere macchine virtuali a un dominio, è necessario disporre di un cont
 
 ### <a name="can-i-use-a-self-signed-certificate-in-an-aad-ds-secure-ldap-setup-and-provision-an-esp-cluster"></a>È possibile usare un certificato autofirmato in una configurazione LDAP sicura di AAD-DS ed effettuare il provisioning di un cluster ESP?
 
-È consigliabile usare un certificato emesso da un'autorità di certificazione, ma anche l'uso di un certificato autofirmato è supportato in ESP. Per scoprire di più, vedi:
+È consigliabile usare un certificato emesso da un'autorità di certificazione, ma anche l'uso di un certificato autofirmato è supportato in ESP. Per altre informazioni, vedere:
 
 - [Abilita Azure Active Directory Domain Services](domain-joined/apache-domain-joined-configure-using-azure-adds.md#enable-azure-ad-ds)
 
@@ -249,7 +249,7 @@ No, attualmente non è possibile aggiungere un account di archiviazione Azure Da
  
 ### <a name="how-can-i-calculate-the-usage-of-storage-accounts-and-blob-containers-for-my-hdinsight-clusters"></a>Come è possibile calcolare l'utilizzo di account di archiviazione e contenitori BLOB per i cluster HDInsight?
 
-Eseguire una delle operazioni seguenti:
+Esegui una delle operazioni seguenti:
 
 - [Usare PowerShell](../storage/scripts/storage-blobs-container-calculate-size-powershell.md)
 
@@ -279,7 +279,7 @@ done
 
 Attualmente non esiste alcun plug-in Ranger per l'archiviazione BLOB e Azure Data Lake Storage Gen1 o Gen2. Per i cluster ESP, è necessario usare Azure Data Lake Storage, perché è possibile impostare almeno le autorizzazioni con granularità fine manualmente a livello di file system usando gli strumenti di HDFS. Inoltre, quando si usa Azure Data Lake Storage, i cluster ESP eseguiranno alcune delle file system il controllo degli accessi usando Azure Active Directory a livello di cluster. 
 
-È possibile assegnare criteri di accesso ai dati ai gruppi di sicurezza degli utenti usando il Azure Storage Explorer. Per scoprire di più, vedi:
+È possibile assegnare criteri di accesso ai dati ai gruppi di sicurezza degli utenti usando il Azure Storage Explorer. Per altre informazioni, vedere:
 
 - [Ricerca per categorie impostare le autorizzazioni per consentire agli utenti Azure AD di eseguire query sui dati in Data Lake Storage Gen2 usando hive o altri servizi?](hdinsight-hadoop-use-data-lake-storage-gen2.md#how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services)
 - [Impostare autorizzazioni a livello di file e directory usando Azure Storage Explorer con Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)

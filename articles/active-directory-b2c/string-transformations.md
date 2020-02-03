@@ -126,7 +126,7 @@ Crea un'attestazione di stringa dal parametro di input specificato nei criteri.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | Valore | string | Stringa da impostare |
+| InputParameter | value | string | Stringa da impostare |
 | OutputClaim | createdClaim | string | Tipo attestazione generato dopo che questa trasformazione di attestazioni è stato richiamato con il valore specificato nel parametro di input. |
 
 Usare questa trasformazione di attestazioni per impostare un valore ClaimType di stringa.
@@ -157,7 +157,7 @@ Determina se un'attestazione di stringa è uguale a un'altra. Il risultato è un
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Tipo della prima attestazione di cui eseguire il confronto. |
 | InputClaim | inputClaim2 | string | Tipo della seconda attestazione di cui eseguire il confronto. |
-| InputParameter | operator | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
+| InputParameter | operatore | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
 | InputParameter | ignoreCase | boolean | Specifica se il confronto deve ignorare l'uso di maiuscole e minuscole nelle stringhe da confrontare. |
 | OutputClaim | outputClaim | boolean | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
 
@@ -197,7 +197,7 @@ Determina se un valore di attestazione è uguale al valore del parametro di inpu
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Tipo della prima attestazione di cui eseguire il confronto. |
-| InputParameter | operator | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
+| InputParameter | operatore | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
 | InputParameter | compareTo | string | Confronto tra le stringhe con valori Ordinal e OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | boolean | Specifica se il confronto deve ignorare l'uso di maiuscole e minuscole nelle stringhe da confrontare. |
 | OutputClaim | outputClaim | boolean | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |

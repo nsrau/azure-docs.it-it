@@ -88,11 +88,11 @@ Per creare una macchina virtuale Windows Server, aggiungerla a un dominio gestit
     |---------------------------|-------|
     | Sottoscrizione              | Selezionare la stessa sottoscrizione di Azure in cui è abilitato Azure Active Directory Domain Services. |
     | Gruppo di risorse            | Scegliere il gruppo di risorse per la macchina virtuale. |
-    | Percorso                  | Selezionare il percorso di per la macchina virtuale. |
+    | Location                  | Selezionare il percorso di per la macchina virtuale. |
     | Nome VNET esistente        | Nome della rete virtuale esistente a cui connettere la VM, ad esempio *myVnet*. |
     | Nome subnet esistente      | Nome della subnet della rete virtuale esistente, ad esempio *carichi di lavoro*. |
     | Prefisso etichetta DNS          | Immettere un nome DNS da usare per la macchina virtuale, ad esempio *MyVM*. |
-    | Dimensioni VM                   | Specificare le dimensioni della macchina virtuale, ad esempio *Standard_DS2_v2*. |
+    | Dimensioni macchina virtuale                   | Specificare le dimensioni della macchina virtuale, ad esempio *Standard_DS2_v2*. |
     | Dominio da aggiungere            | Nome DNS del dominio gestito di Azure AD DS, ad esempio *aadds.contoso.com*. |
     | Nome utente di dominio           | Account utente nel dominio gestito Azure AD DS da usare per aggiungere la macchina virtuale al dominio gestito, ad esempio `contosoadmin@aadds.contoso.com`. Questo account deve essere membro del gruppo *amministratori di Azure ad controller* di dominio. |
     | Password di dominio           | Password per l'account utente specificato nell'impostazione precedente. |
@@ -121,7 +121,7 @@ Per aggiungere una macchina virtuale Windows Server esistente a un dominio gesti
     |---------------------------|-------|
     | Sottoscrizione              | Selezionare la stessa sottoscrizione di Azure in cui è abilitato Azure Active Directory Domain Services. |
     | Gruppo di risorse            | Scegliere il gruppo di risorse con la macchina virtuale esistente. |
-    | Percorso                  | Selezionare il percorso della macchina virtuale esistente. |
+    | Location                  | Selezionare il percorso della macchina virtuale esistente. |
     | Elenco VM                   | Immettere l'elenco delimitato da virgole delle macchine virtuali esistenti da aggiungere al dominio gestito di Azure AD DS, ad esempio *myVM1, myVM2*. |
     | Nome utente aggiunta al dominio     | Account utente nel dominio gestito Azure AD DS da usare per aggiungere la macchina virtuale al dominio gestito, ad esempio `contosoadmin@aadds.contoso.com`. Questo account deve essere membro del gruppo *amministratori di Azure ad controller* di dominio. |
     | Password utente aggiunta al dominio | Password per l'account utente specificato nell'impostazione precedente. |

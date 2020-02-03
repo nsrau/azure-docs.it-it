@@ -17,10 +17,10 @@ ms.date: 05/11/2018
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 1573a5d5d9b537b208b2f6d6aea29b9738ddad3e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75988110"
 ---
 # <a name="no-subscriptions-found-sign-in-error-for-azure-portal-or-azure-account-center"></a>Errore di accesso Non sono state trovate sottoscrizioni per il portale di Azure o il Centro account di Azure
@@ -37,7 +37,7 @@ Questo problema si verifica se è stata effettuata una selezione nella directory
 
 ## <a name="solution"></a>Soluzione
 
-### <a name="scenario-1-error-message-is-received-in-the-azure-portalhttpsportalazurecom"></a>Scenario 1: Il messaggio di errore viene visualizzato nel [portale di Azure](https://portal.azure.com)
+### <a name="scenario-1-error-message-is-received-in-the-azure-portalhttpsportalazurecom"></a>Scenario 1: Il messaggio di errore appare nel [portale di Azure](https://portal.azure.com)
 
 Per risolvere il problema:
 
@@ -46,7 +46,7 @@ Per risolvere il problema:
   ![Selezionare la directory in alto a destra nel portale di Azure](./media/no-subscriptions-found/directory-switch.png)
 * Se è selezionata la directory di Azure corretta, ma viene comunque visualizzato il messaggio di errore, [assegnare il ruolo di proprietario all'account](../../role-based-access-control/role-assignments-portal.md).
 
-### <a name="scenario-2-error-message-is-received-in-the-azure-account-centerhttpsaccountwindowsazurecomsubscriptions"></a>Scenario 2: Il messaggio di errore viene visualizzato nel [Centro account di Azure](https://account.windowsazure.com/Subscriptions)
+### <a name="scenario-2-error-message-is-received-in-the-azure-account-centerhttpsaccountwindowsazurecomsubscriptions"></a>Scenario 2: Il messaggio di errore appare nel [Centro account di Azure](https://account.windowsazure.com/Subscriptions)
 
 Controllare se l'account usato è l'amministratore account. Per verificare chi è l'amministratore account, seguire questa procedura:
 
@@ -54,6 +54,6 @@ Controllare se l'account usato è l'amministratore account. Per verificare chi �
 1. Scegliere la sottoscrizione da controllare e quindi controllare la sezione **Impostazioni**.
 1. Selezionare **Proprietà**. L'amministratore account della sottoscrizione viene visualizzato nella casella **Amministratore account** .  
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).

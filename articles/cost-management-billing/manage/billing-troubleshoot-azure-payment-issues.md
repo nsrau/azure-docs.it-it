@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/12/2019
 ms.author: jaserano
 ms.openlocfilehash: 986af72ed2ac10a285cfe32768d8541b7fce2428
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989995"
 ---
 # <a name="troubleshoot-azure-payment-issues"></a>Risolvere i problemi di pagamento di Azure
@@ -50,7 +50,7 @@ Per risolvere questo problema, vedere [Errore di accesso Non sono state trovate 
 
 ## <a name="unable-to-make-payment-for-a-subscription"></a>Impossibile effettuare il pagamento di una sottoscrizione
 
-Se viene visualizzato il messaggio di errore, il *pagamento è scaduto. Si è verificato un problema con il metodo di pagamento* oppure *non è possibile salvare le informazioni. Chiudere il browser e riprovare.* è presente un pagamento in sospeso sulla scheda perché la scheda è stata negata dall'istituto finanziario.
+Se viene visualizzato il messaggio di errore seguente: *Il pagamento è scaduto. Si è verificato un problema con il metodo di pagamento* o *Siamo spiacenti, non è possibile salvare le informazioni. Chiudere il browser e riprovare.* , potrebbe esserci un pagamento in sospeso sulla carta, perché quest'ultima è stata rifiutata dall'ente finanziario.
 
 Verificare che la carta di credito disponga di un saldo sufficiente per effettuare un pagamento. In caso contrario, usare un'altra carta per effettuare il pagamento o rivolgersi all'istituto finanziario per risolvere il problema.
 

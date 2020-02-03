@@ -302,9 +302,9 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 | 0.9.1-prelease |19 dicembre 2014 |29 febbraio 2016 |
 | 0.9.0-prelease |10 dicembre 2014 |29 febbraio 2016 |
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Domande frequenti
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 Per altre informazioni su Cosmos DB, vedere la pagina del servizio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 

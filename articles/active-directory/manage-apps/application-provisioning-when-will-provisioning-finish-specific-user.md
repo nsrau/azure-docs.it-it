@@ -74,13 +74,13 @@ La tabella seguente riepiloga i tempi di sincronizzazione per gli scenari di pro
 | Configurazione dell'ambito | Utenti, gruppi e membri nell'ambito | Tempo ciclo iniziale | Tempo ciclo incrementale |
 | -------- | -------- | -------- | -------- |
 | Sincronizza solo utenti e gruppi assegnati |  < 1.000 |  < 30 minuti | < 30 minuti |
-| Sincronizza solo utenti e gruppi assegnati |  1\.000-10.000 | 142 - 708 minuti | < 30 minuti |
+| Sincronizza solo utenti e gruppi assegnati |  1\.000 - 10.000 | 142 - 708 minuti | < 30 minuti |
 | Sincronizza solo utenti e gruppi assegnati |   10.000 - 100.000 | 1\.170 - 2.340 minuti | < 30 minuti |
 | Sincronizza tutti gli utenti e i gruppi in Azure AD |  < 1.000 | < 30 minuti  | < 30 minuti |
-| Sincronizza tutti gli utenti e i gruppi in Azure AD |  1\.000-10.000 | < 30 - 120 minuti | < 30 minuti |
+| Sincronizza tutti gli utenti e i gruppi in Azure AD |  1\.000 - 10.000 | < 30 - 120 minuti | < 30 minuti |
 | Sincronizza tutti gli utenti e i gruppi in Azure AD |  10.000 - 100.000  | 713 - 1.425 minuti | < 30 minuti |
 | Sincronizza tutti gli utenti in Azure AD|  < 1.000  | < 30 minuti | < 30 minuti |
-| Sincronizza tutti gli utenti in Azure AD | 1\.000-10.000  | 43 - 86 minuti | < 30 minuti |
+| Sincronizza tutti gli utenti in Azure AD | 1\.000 - 10.000  | 43 - 86 minuti | < 30 minuti |
 
 
 Per l' **utente e i gruppi assegnati alla sincronizzazione**della configurazione, è possibile usare le formule seguenti per determinare il tempo di **ciclo iniziale** minimo e massimo previsto:

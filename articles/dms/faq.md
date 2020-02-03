@@ -22,7 +22,7 @@ ms.locfileid: "76717782"
 
 Questo articolo elenca le domande frequenti sull'uso del servizio migrazione del database di Azure insieme alle risposte correlate.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 **D. che cos'è il servizio migrazione del database di Azure?**
 Il servizio migrazione del database di Azure è un servizio completamente gestito progettato per consentire migrazioni senza interruzioni da più origini di database alle piattaforme dati di Azure con tempi di inattività minimi. Il servizio è attualmente disponibile a livello generale, con attività di sviluppo continue incentrate su:
@@ -51,7 +51,7 @@ Il servizio migrazione del database di Azure è il metodo preferito per la migra
 **D. come si confronta il servizio migrazione del database di Azure con la Azure Migrate offerta?**
 Azure Migrate facilita la migrazione di macchine virtuali locali in Azure IaaS. Il servizio valuta l'idoneità alla migrazione e il dimensionamento in base alle prestazioni e offre stime dei costi per l'esecuzione delle macchine virtuali locali in Azure. Azure Migrate è utile per le migrazioni in modalità lift-and-shift di carichi di lavoro basati su VM locali a VM IaaS di Azure. Tuttavia, a differenza del servizio migrazione del database di Azure, Azure Migrate non è un'offerta di servizio di migrazione del database specializzata per le piattaforme di database relazionali di Azure PaaS, ad esempio il database SQL di Azure o Istanza gestita di database SQL di Azure.
 
-## <a name="setup"></a>Configurazione
+## <a name="setup"></a>Programma di installazione
 
 **D. quali sono i prerequisiti per l'utilizzo del servizio migrazione del database di Azure?**
 Sono necessari alcuni prerequisiti per garantire che il servizio migrazione del database di Azure venga eseguito senza problemi durante l'esecuzione delle migrazioni del database. Alcuni dei prerequisiti si applicano a tutti gli scenari (coppie di origine-destinazione) supportati dal servizio, mentre altri prerequisiti sono univoci per uno scenario specifico.
@@ -88,7 +88,7 @@ Potrebbe essere necessario includere nell'elenco indirizzi consentiti anche l'or
 **D. Ricerca per categorie configurare una Rete virtuale di Microsoft Azure?**
 Sebbene più esercitazioni di Microsoft possano illustrare il processo di configurazione di una rete virtuale, la documentazione ufficiale viene visualizzata nell'articolo [rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 **D. che cos'è un riepilogo dei passaggi necessari per usare il servizio migrazione del database di Azure per eseguire una migrazione del database?**
 Durante una semplice migrazione di database tipica, è necessario:

@@ -101,7 +101,7 @@ I dati di misurazioni, dispositivi e modelli di dispositivo vengono esportati ne
 
 ## <a name="data-format"></a>Formato dati 
 
-### <a name="measurements"></a>Misurazioni
+### <a name="measurements"></a>Misure
 
 I dati delle misurazioni esportati contengono tutti i nuovi messaggi che IoT Central ha ricevuto da tutti i dispositivi durante tale periodo. I file esportati sono nello stesso formato dei file dei messaggi esportati dal [routing dei messaggi dell'hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) nell'archiviazione BLOB.
 

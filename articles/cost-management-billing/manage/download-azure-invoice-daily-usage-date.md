@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: banders
 ms.openlocfilehash: c5068dc38597d64634f19297fa7784de8d55d590
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992556"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Scaricare o visualizzare la fattura e i dati di uso giornalieri di Azure
@@ -119,7 +119,7 @@ Se si ha un Contratto del cliente Microsoft, è possibile acconsentire esplicita
 
 ### <a name="opt-out-of-getting-your-billing-profile-invoices-in-email"></a>Rifiutare esplicitamente di ricevere le fatture del profilo di fatturazione tramite posta elettronica
 
-È possibile rifiutare esplicitamente di ottenere la fattura tramite posta elettronica attenendosi alla procedura descritta sopra e facendo clic su **rifiuta esplicitamente**. Anche tutti i proprietari, i collaboratori, i lettori e i responsabili delle fatture non potranno più ottenere la fattura tramite posta elettronica. Se si è un lettore, non è possibile modificare la preferenza per la fattura tramite posta elettronica.
+Per rifiutare esplicitamente di ricevere la fattura tramite posta elettronica, seguire la procedura precedente e fare clic su **Rifiuta esplicitamente**. Tutti gli utenti con il ruolo di proprietario, collaboratore, lettore o gestione fatture potranno anche scegliere di non ricevere la fattura tramite posta elettronica. Se si è un lettore, non è possibile modificare la preferenza per la fattura tramite posta elettronica.
 
 ## <a name="download-usage-in-azure-portal"></a>Scaricare i dati di utilizzo nel portale di Azure
 
@@ -171,7 +171,7 @@ Per visualizzare e scaricare i dati di utilizzo per un profilo di fatturazione, 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificare l'accesso a un Contratto del cliente Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 

@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
 ms.openlocfilehash: 553cc7fd27571ebc925e33f824060c023664a369
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75991776"
 ---
 # <a name="export-and-view-your-top-level-subscription-information"></a>Esportare e visualizzare le informazioni della sottoscrizione di livello superiore
@@ -28,8 +28,8 @@ Se è necessario visualizzare il set di ID sottoscrizione associato alle credenz
 [!INCLUDE [gdpr-dsr-and-stp-note](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 Il file con estensione json scaricato offre le informazioni seguenti:
-- Indirizzo di posta elettronica: indirizzo di posta elettronica associato all'account.
-- PUID: identificatore univoco associato all'account di fatturazione.
+- Posta elettronica: indirizzo di posta elettronica associato all'account.
+- Puid: identificatore univoco associato all'account di fatturazione.
 - ID sottoscrizione: elenco di sottoscrizioni appartenenti all'account, enumerate in base all'ID sottoscrizione.
 
 ### <a name="subscriptionsjson-sample"></a>esempio di subscriptions.json

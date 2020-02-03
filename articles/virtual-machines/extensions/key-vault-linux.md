@@ -67,9 +67,9 @@ Il codice JSON seguente mostra lo schema per l'estensione di macchina virtuale K
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Nome | Valore/Esempio | Tipo di dati |
+| Name | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | Data |
+| apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | string |
 | type | KeyVaultForLinux | string |
 | typeHandlerVersion | 1.0 | int |
@@ -78,7 +78,7 @@ Il codice JSON seguente mostra lo schema per l'estensione di macchina virtuale K
 | linkOnRenewal | false | boolean |
 | certificateStoreLocation  | LocalMachine | string |
 | requiredInitialSync | true | boolean |
-| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Matrice di stringhe
+| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | matrice di stringhe
 
 
 ## <a name="template-deployment"></a>Distribuzione del modello
@@ -193,7 +193,7 @@ Tenere presenti le restrizioni e i requisiti seguenti:
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risolvere i problemi
+### <a name="troubleshoot"></a>Risoluzione dei problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite Azure PowerShell. Per visualizzare lo stato di distribuzione delle estensioni per una macchina virtuale specifica, eseguire il comando seguente tramite Azure PowerShell.
 

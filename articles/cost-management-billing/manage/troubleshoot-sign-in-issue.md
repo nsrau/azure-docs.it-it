@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/12/2019
 ms.author: v-miegge
 ms.openlocfilehash: 74cf3f197895823bcbd94db0bf3c7bd8065df767
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75988136"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Risolvere i problemi di accesso alla sottoscrizione di Azure
@@ -32,7 +32,7 @@ Se si blocca la pagina del browser Internet, provare ciascuna delle seguenti ope
 
 - Aggiornare la pagina.
 - Usare un browser Internet diverso.
-- Usare la modalità di esplorazione privata per il browser. Per Internet Explorer: fare clic su **strumenti** > **sicurezza** > **InPrivate Browsing**, quindi accedere al [portale di Azure](https://portal.azure.com/) o al [centro account di Azure](https://account.azure.com/Subscriptions).
+- Usare la modalità di esplorazione privata per il browser. Per Internet Explorer: Fare clic su **Strumenti** > **Sicurezza** > **InPrivate Browsing**, quindi accedere al [portale di Azure](https://portal.azure.com/) o al [Centro account di Azure](https://account.azure.com/Subscriptions).
 
 ### <a name="you-are-automatically-signed-in-as-a-different-user"></a>Viene eseguito l'accesso automaticamente come utente diverso
 
@@ -42,20 +42,20 @@ Per risolvere il problema, utilizzare uno dei seguenti metodi alternativi:
 
 - Svuotare la cache ed eliminare i cookie di Internet. In Internet Explorer fare clic su **Strumenti** > **Opzioni Internet** > **Elimina**. Verificare di aver selezionato sia le caselle di controllo per file temporanei, cookie, password e cronologia esplorazioni, quindi fare clic su Elimina.
 - Riconfigurare le impostazioni di Internet Explorer per ripristinare le impostazioni personali definite. Fare clic su **Strumenti** > **Opzioni Internet** > **Avanzate** > selezionare la casella di controllo **Elimina impostazioni personali** > **Ripristina**.
-- Usare la modalità di esplorazione privata per il browser. Per Internet Explorer: fare clic su **strumenti** > **sicurezza** > **InPrivate Browsing**, quindi accedere al [portale di Azure](https://portal.azure.com/) o al [centro account di Azure](https://account.azure.com/Subscriptions).
+- Usare la modalità di esplorazione privata per il browser. Per Internet Explorer:  Fare clic su **Strumenti** > **Sicurezza** > **InPrivate Browsing**, quindi accedere al [portale di Azure](https://portal.azure.com/) o al [Centro account di Azure](https://account.azure.com/Subscriptions).
 
 ### <a name="i-can-sign-in-but-i-see-no-subscriptions-found"></a>È possibile accedere, ma viene visualizzato il messaggio *Non sono state trovate sottoscrizioni*
 
 Questo problema si verifica se è stata effettuata una selezione nella directory errata o se l'account non ha autorizzazioni sufficienti.
 
-**Scenario 1:** Messaggio di errore ricevuto nel [portale di Azure](https://portal.azure.com/)
+**Scenario 1:** Il messaggio di errore appare nel [portale di Azure](https://portal.azure.com/)
 
 Per risolvere il problema:
 
 - Verificare che sia selezionata la directory di Azure corretta facendo clic sull'account in alto a destra.
 - Se è selezionata la directory di Azure corretta, ma viene comunque visualizzato il messaggio di errore, richiedere che il proprio account venga [aggiunto come proprietario](add-change-subscription-administrator.md).
 
-**Scenario 2:** Messaggio di errore ricevuto nel [centro account di Azure](https://account.windowsazure.com/Subscriptions)
+**Scenario 2:** Il messaggio di errore appare nel [Centro account di Azure](https://account.windowsazure.com/Subscriptions)
 
 Controllare se l'account usato è l'amministratore account. Per verificare chi è l'amministratore account, seguire questa procedura:
 

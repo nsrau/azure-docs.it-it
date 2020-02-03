@@ -1,5 +1,5 @@
 ---
-title: Dynamic Data Masking
+title: Maschera dati dinamica
 description: La maschera dati dinamica limita l'esposizione dei dati sensibili mediante la maschera a utenti senza privilegi per il database SQL e data warehouse
 services: sql-database
 ms.service: sql-database

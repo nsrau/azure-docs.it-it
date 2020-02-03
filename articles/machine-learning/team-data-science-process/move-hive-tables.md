@@ -82,7 +82,7 @@ Per impostazione predefinita, dopo l'invio della query Hive nella riga di comand
     hive -S -e "<Hive queries>"
 
 #### <a name="submit-hive-queries-in-hive-command-console"></a>Inviare query Hive nella console dei comandi di Hive
-Innanzitutto è possibile immettere la console dei comandi di Hive eseguendo il comando `hive` nella riga di comando di Hadoop, quindi inviare query Hive nella console dei comandi di Hive. Ecco un esempio. In questo esempio, le due caselle rosse evidenziano i comandi usati per inserire la console dei comandi di Hive e la query Hive inviata nella console dei comandi. La casella verde evidenzia l'output dalla query Hive.
+Innanzitutto è possibile immettere la console dei comandi di Hive eseguendo il comando `hive` nella riga di comando di Hadoop, quindi inviare query Hive nella console dei comandi di Hive. Esempio: In questo esempio, le due caselle rosse evidenziano i comandi usati per inserire la console dei comandi di Hive e la query Hive inviata nella console dei comandi. La casella verde evidenzia l'output dalla query Hive.
 
 ![Aprire la console dei comandi di Hive, immettere il comando e visualizzare l'output della query Hive](./media/move-hive-tables/run-hive-queries-2.png)
 

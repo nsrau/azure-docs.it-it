@@ -111,7 +111,7 @@ Alcuni sistemi e applicazioni che supportano la personalizzazione dell'elenco di
 
 - Salesforce
 - ServiceNow
-- Workday
+- Giornata lavorativa
 - Azure Active Directory (sono supportati gli [attributi predefiniti dell'API Graph di Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) e le estensione della directory personalizzate)
 - App che supportano [SCIM 2.0](https://tools.ietf.org/html/rfc7643), in cui devono essere aggiunti gli attributi definiti nello [schema di base](https://tools.ietf.org/html/rfc7643)
 

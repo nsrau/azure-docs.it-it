@@ -11,10 +11,10 @@ ms.service: cost-management-billing
 manager: vitavor
 ms.custom: seodec18
 ms.openlocfilehash: 47a53136a8f299e5c8654d122d8e319be4ae29db
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75988383"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Come ottimizzare gli investimenti per il cloud con Gestione costi di Azure
@@ -56,7 +56,7 @@ Una gestione dei costi ben strutturata consente di fornire alle persone informaz
 
 Attribuire i costi all'interno dell'organizzazione per assicurarsi che le persone siano responsabili delle spese del proprio team. Per comprendere pienamente le spese dell'organizzazione per Azure, è consigliabile organizzare le risorse per ottimizzare l'analisi dell'attribuzione dei costi. Una buona organizzazione aiuta a gestire e ridurre i costi e a responsabilizzare le persone per quanto riguarda l'efficienza delle spese nell'organizzazione.
 
-#### <a name="optimization"></a>Ottimizzazione
+#### <a name="optimization"></a>Optimization
 
 Impegnarsi per ridurre le spese basandosi sulle conclusioni raggiunte grazie alla pianificazione e alla maggiore visibilità sui costi. Prendere in considerazione la possibilità di ottimizzare acquisti e gestione delle licenze e di implementare le modifiche alla distribuzione dell'infrastruttura, esaminate più avanti in questo documento.
 
@@ -95,7 +95,7 @@ Per altre informazioni sulle diverse opzioni, vedere [Come acquistare Azure](htt
 
 - Nessun pagamento minimo o impegno
 - Prezzi competitivi
-- Pagamento solo per le risorse usate
+- Pagamento in base all'utilizzo
 - Massima libertà di annullamento
 
 #### <a name="enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement"></a>[Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
@@ -107,7 +107,7 @@ Per altre informazioni sulle diverse opzioni, vedere [Come acquistare Azure](htt
 
 Prima di distribuire qualsiasi infrastruttura, valutare quanto costerà la soluzione. La valutazione aiuterà a creare un budget iniziale per l'organizzazione per il carico di lavoro. Sarà quindi possibile usare il budget nel tempo per valutare la validità della stima iniziale e confrontarla con il costo effettivo della soluzione distribuita.
 
-### <a name="azure-pricing-calculator"></a>Calcolatore dei prezzi di Azure
+### <a name="azure-pricing-calculator"></a>Calcolatore prezzi di Azure
 
 Il calcolatore prezzi di Azure consente di creare diverse combinazioni di servizi di Azure per visualizzare una stima dei costi. È possibile implementare la soluzione in Azure in modi diversi, ognuno dei quali potrebbe influire sulla spesa complessiva. Considerando in anticipo tutte le esigenze di infrastruttura della distribuzione cloud, è possibile usare lo strumento nel modo più efficiente possibile. È possibile realizzare una stima attendibile delle spese previste in Azure.
 

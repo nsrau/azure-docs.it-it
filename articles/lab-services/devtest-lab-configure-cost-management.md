@@ -39,7 +39,7 @@ Per visualizzare il grafico della tendenza dei costi mensili stimati, seguire qu
 
     Il valore del **Costo stimato** corrisponde al costo attualmente stimato per il mese di calendario corrente. Il **Costo previsto** corrisponde al costo stimato per l'intero mese di calendario corrente, calcolato sulla base del costo del lab dei cinque giorni precedenti.
 
-    Gli importi vengono arrotondati al numero intero successivo. Ad esempio: 
+    Gli importi vengono arrotondati al numero intero successivo. Ad esempio, 
 
    * 5,01 arrotondato a 6 
    * 5,50 arrotondato a 6

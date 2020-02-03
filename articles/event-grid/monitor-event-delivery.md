@@ -76,7 +76,7 @@ Visualizzare le metriche per l'argomento dell'evento personalizzato.
 
 ![Visualizzare le metriche degli eventi](./media/monitor-event-delivery/custom-topic-metrics.png)
 
-## <a name="set-alerts"></a>Impostare avvisi
+## <a name="set-alerts"></a>Impostazione di avvisi
 
 È possibile impostare gli avvisi sull'argomento e la metrica a livello di dominio per gli argomenti personalizzati e i domini di evento. Nel pannello panoramica per selezionare **avvisi** dal menu delle risorse a sinistra per visualizzare, gestire e creare regole di avviso. [Altre informazioni sugli avvisi di monitoraggio di Azure](../azure-monitor/platform/alerts-overview.md)
 

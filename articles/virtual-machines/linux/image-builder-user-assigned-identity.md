@@ -185,9 +185,9 @@ az resource invoke-action \
      --action Run 
 ```
 
-Attendere il completamento del processo di compilazione. Questa operazione può richiedere circa 15 minuti.
+Attendere il completamento della compilazione. Questa operazione può richiedere circa 15 minuti.
 
-## <a name="create-a-vm"></a>Creare una VM
+## <a name="create-a-vm"></a>Creare una macchina virtuale
 
 Creare una macchina virtuale dall'immagine. 
 

@@ -36,7 +36,7 @@ Le associazioni di SendGrid sono incluse nel pacchetto NuGet [Microsoft.Azure.We
 
 L'esempio seguente mostra una [funzione C#](functions-dotnet-class-library.md) che usa un trigger della coda del bus di servizio e un'associazione di output SendGrid.
 
-### <a name="synchronous"></a>Sincrono
+### <a name="synchronous"></a>Synchronous
 
 ```cs
 [FunctionName("SendEmail")]
@@ -62,7 +62,7 @@ public class OutgoingEmail
 }
 ```
 
-### <a name="asynchronous"></a>Asincrona
+### <a name="asynchronous"></a>Asynchronous
 
 ```cs
 [FunctionName("SendEmail")]
@@ -346,16 +346,16 @@ L'annotazione [SendGridOutput](https://github.com/Azure/azure-functions-java-lib
 
 La tabella seguente elenca le proprietà di configurazione dell'associazione disponibili nel file *Function. JSON* e l'attributo/annotazione `SendGrid`.
 
-| *Function. JSON* (proprietà) | Proprietà attribute/annotation | Description | Facoltativo |
+| *Function. JSON* (proprietà) | Proprietà attribute/annotation | Descrizione | Facoltativa |
 |--------------------------|-------------------------------|-------------|----------|
-| type |N/D| Il valore deve essere impostato su `sendGrid`.| No |
-| direction |N/D| Il valore deve essere impostato su `out`.| No |
-| name |N/D| Nome della variabile usato nel codice della funzione per la richiesta o il corpo della richiesta. Questo valore è `$return` quando viene restituito un solo valore. | No |
+| type |n/d| Il valore deve essere impostato su `sendGrid`.| No |
+| direction |n/d| Il valore deve essere impostato su `out`.| No |
+| name |n/d| Nome della variabile usato nel codice della funzione per la richiesta o il corpo della richiesta. Questo valore è `$return` quando viene restituito un solo valore. | No |
 | apiKey | ApiKey | Il nome di un'impostazione dell'app che contiene la chiave API. Se non è impostato, il nome predefinito dell'impostazione dell'app è *AzureWebJobsSendGridApiKey*.| No |
-| to| Per | Indirizzo e-mail del destinatario. | Sì |
-| da| Da | Indirizzo di posta elettronica del mittente. |  Sì |
-| subject| Argomento | Oggetto del messaggio di posta elettronica. | Sì |
-| text| Testo | Contenuto del messaggio di posta elettronica. | Sì |
+| a| Per | Indirizzo e-mail del destinatario. | Sì |
+| from| From | Indirizzo di posta elettronica del mittente. |  Sì |
+| subject| Subject | Oggetto del messaggio di posta elettronica. | Sì |
+| testo| Text | Contenuto del messaggio di posta elettronica. | Sì |
 
 Le proprietà facoltative possono avere valori predefiniti definiti nell'associazione e aggiunti o sottoposti a override a livello di codice.
 
@@ -381,9 +381,9 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 }
 ```  
 
-|Proprietà  |Predefinito | Description |
+|Proprietà  |Default | Descrizione |
 |---------|---------|---------| 
-|da|N/D|Indirizzo di posta elettronica del mittente in tutte le funzioni.| 
+|from|n/d|Indirizzo di posta elettronica del mittente in tutte le funzioni.| 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

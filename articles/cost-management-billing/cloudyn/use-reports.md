@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: benshy
+ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 139ad67035a96fb67bd96c4abb14ce9e1f26bf4f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: 6f974ae35dbf23a134b775fe0d4f8cf5195a75af
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989059"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76773922"
 ---
 # <a name="reports-available-in-the-cloudyn-portal"></a>Report disponibili nel portale di Cloudyn
 
@@ -198,7 +198,7 @@ Per creare un addebito personalizzato:
 7. In **Date** se è stata selezionata una tariffa una tantum, in **Data di validità** immettere la data di pagamento dell'addebito. Se è stata selezionata la tariffa ricorrente, immettere l'intervallo di date tra cui la data di inizio e data di fine dell'addebito.
 8. Nell'**albero Entità** selezionare le entità a cui si desidera applicare l'addebito e quindi selezionare **Attivo**.
 
-_Quando gli addebiti vengono assegnati a un'entità, gli utenti non possono modificarli. Gli addebiti aggiunti da un amministratore a un'entità padre sono di sola lettura._
+_Quando gli addebiti vengono assegnati a un'entità, gli utenti non possono modificarli. Gli addebiti che vengono aggiunti da un amministratore a un'entità padre sono di sola lettura._
 
 Per visualizzare gli addebiti personalizzati:
 
@@ -210,9 +210,9 @@ Allocazione dei costi a 360° consente di creare modelli di allocazione dei cost
 
 Per altre informazioni sulla creazione dei modelli di costo personalizzati, vedere [Esercitazione: Gestire i costi tramite Cloudyn](tutorial-manage-costs.md).
 
-### <a name="cost-vs-budget-over-time-report"></a>Rapporto tra costi e budget nel tempo
+### <a name="cost-vs-budget-over-time-report"></a>Report Costi e budget nel tempo
 
-Il report costo rispetto al budget nel tempo consente di confrontare i principali collaboratori a costo del budget. Il budget assegnato viene visualizzato nel report in modo che sia possibile visualizzare il consumo del budget, superato, non superato o in pari, nel corso del tempo. L'uso di Mostra/nascondi campi nella parte superiore del report consente di scegliere di visualizzare il costo, il budget, il costo accumulato e il budget totale.
+Il report Costi e budget nel tempo consente di confrontare i principali collaboratori dei costi rispetto al budget. Il budget assegnato viene visualizzato nel report in modo che sia possibile visualizzare il consumo del budget, superato, non superato o in pari, nel corso del tempo. L'uso di Mostra/nascondi campi nella parte superiore del report consente di scegliere di visualizzare il costo, il budget, il costo accumulato e il budget totale.
 
 ### <a name="current-month-projected-cost-report"></a>Report Previsione dei costi per il mese corrente
 
@@ -246,7 +246,7 @@ Per importare un file per il budget annuo:
 
 Per esportare il budget completato come file CSV, in **Azioni** selezionare **Esporta** per scaricare il file.
 
-Al termine, il budget viene visualizzato nei report di analisi dei costi e nel rapporto cost vs. budget nel tempo. È anche possibile pianificare i report in base alle soglie di budget.
+Al termine dell'operazione, il budget viene mostrato nel report Analisi dei costi e nel report Costo e tra costo e budget nel tempo. È anche possibile pianificare i report in base alle soglie di budget.
 
 ### <a name="azure-resource-explorer-report"></a>Report Azure Resource Explorer
 

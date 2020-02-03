@@ -33,7 +33,7 @@ Prima di procedere con questo articolo, assicurarsi di aver installato FarmBeats
 - Segreto client
 - Stringa di connessione EventHub
 
-Seguire questa procedura.
+Eseguire la procedura seguente.
 
 >[!NOTE]
 > Per eseguire la procedura seguente, è necessario essere un amministratore.
@@ -86,17 +86,17 @@ Seguire questa procedura.
 |          Produttore            |         Nome del produttore    |
 |  ProductCode                    |  Codice prodotto del dispositivo o numero o nome del modello. Ad esempio, EnviroMonitor # 6800.  |
 |            Porte          |     Nome e tipo della porta, che è digitale o analogo.
-|     Nome                 |  Nome per identificare la risorsa. Ad esempio, il nome del modello o il nome del prodotto.
-      Description     | Fornire una descrizione significativa del modello.
+|     Name                 |  Nome per identificare la risorsa. Ad esempio, il nome del modello o il nome del prodotto.
+      Descrizione     | Fornire una descrizione significativa del modello.
 |    Proprietà          |    Proprietà aggiuntive del produttore.   |
 |    **Dispositivo**             |                      |
 |   DeviceModelId     |     ID del modello di dispositivo associato.  |
 |  HardwareId          | ID univoco per il dispositivo, ad esempio l'indirizzo MAC.
 |  ReportingInterval        |   Intervallo di Reporting in secondi.
-|  Percorso            |  Latitudine del dispositivo (da-90 a + 90), Longitudine (-180 a 180) ed elevazione (in metri).   
+|  Location            |  Latitudine del dispositivo (da-90 a + 90), Longitudine (-180 a 180) ed elevazione (in metri).   
 |ParentDeviceId       |    ID del dispositivo padre a cui è connesso il dispositivo. Ad esempio, un nodo connesso a un gateway. Un nodo ha parentDeviceId come gateway.  |
-|    Nome            | Nome per identificare la risorsa. I partner del dispositivo devono inviare un nome coerente con il nome del dispositivo sul lato del partner. Se il nome del dispositivo partner è definito dall'utente, lo stesso nome definito dall'utente deve essere propagato a FarmBeats.|
-|     Description       |      Fornire una descrizione significativa. |
+|    Name            | Nome per identificare la risorsa. I partner del dispositivo devono inviare un nome coerente con il nome del dispositivo sul lato del partner. Se il nome del dispositivo partner è definito dall'utente, lo stesso nome definito dall'utente deve essere propagato a FarmBeats.|
+|     Descrizione       |      Fornire una descrizione significativa. |
 |     Proprietà    |  Proprietà aggiuntive del produttore.
 |     **SensorModel**        |          |
 |       Tipo (analogico, digitale)          |      Tipo di sensore, sia analogico che digitale.       |
@@ -107,17 +107,17 @@ Seguire questa procedura.
 |    Tipo > SensorMeasures    |Tipo di misura dei dati di telemetria del sensore. I tipi definiti dal sistema sono Temperaturaambiente, CO2, depth, ElectricalConductivity, LeafWetness, length, LiquidLevel, nitrate, O2, PH, fosfato, PointInTime, potassio, Pressure, RainGauge, RelativeHumidity, salinità, SoilMoisture, SoilTemperature, SolarRadiation, state, TimeDuration, UVRadiation, UVIndex, volume, WindDirection, WindRun, WindSpeed, evapotraspirazione, PAR. Per aggiungere altre informazioni, vedere l'API/ExtendedType.|
 |        Unità > SensorMeasures              | Unità di dati di telemetria del sensore. Le unità definite dal sistema sono nounit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, millimetro, centimetro, metro, pollice, feet, Mile, chilometro, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, percentuale, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, litro, millilitro, seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour per aggiungere altro, fare riferimento all'API/ExtendedType.|
 |    SensorMeasures > AggregationType    |  I valori possibili sono None, Average, Maximum, Minimum o StandardDeviation.  |
-|          Nome            | Nome per identificare una risorsa. Ad esempio, il nome del modello o il nome del prodotto.  |
-|    Description        | Fornire una descrizione significativa del modello.  |
+|          Name            | Nome per identificare una risorsa. Ad esempio, il nome del modello o il nome del prodotto.  |
+|    Descrizione        | Fornire una descrizione significativa del modello.  |
 |   Proprietà       |  Proprietà aggiuntive del produttore.  |
 |    **Sensore**      |          |
 | HardwareId          |   ID univoco per il sensore impostato dal produttore. |
 |  SensorModelId     |    ID del modello di sensore associato.   |
-| Percorso          |  Latitudine del sensore (da-90 a + 90), Longitudine (-180 a 180) ed elevazione (in metri).|
+| Location          |  Latitudine del sensore (da-90 a + 90), Longitudine (-180 a 180) ed elevazione (in metri).|
 |   Nome > porta        |  Nome e tipo della porta a cui il sensore è connesso nel dispositivo. Il nome deve corrispondere a quello definito nel modello di dispositivo. |
-|    DeviceID  |    ID del dispositivo a cui è connesso il sensore.     |
-| Nome            |   Nome per identificare la risorsa. Ad esempio, il nome del sensore o il nome del prodotto e il numero di modello o il codice prodotto.|
-|    Description      | Fornire una descrizione significativa. |
+|    ID dispositivo  |    ID del dispositivo a cui è connesso il sensore.     |
+| Name            |   Nome per identificare la risorsa. Ad esempio, il nome del sensore o il nome del prodotto e il numero di modello o il codice prodotto.|
+|    Descrizione      | Fornire una descrizione significativa. |
 |    Proprietà        |Proprietà aggiuntive del produttore. |
 
 Per ulteriori informazioni sugli oggetti, vedere [spavalderia](https://aka.ms/FarmBeatsDatahubSwagger).

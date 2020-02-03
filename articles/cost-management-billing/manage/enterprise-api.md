@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 513dac3a1cdcefa7a49116ea02af5410265af3ec
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75991997"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Panoramica delle API di creazione di report per i clienti Enterprise
@@ -29,7 +29,7 @@ Le API di creazione di report consentono ai clienti Enterprise di Azure di estra
 * **Generare o recuperare la chiave API**: accedere a Enterprise Portal e passare a Report > Scarica utilizzo > API Access Key (Chiave di accesso API) per generare o recuperare la chiave API.
 * **Passare le chiavi nell'API** - La chiave API deve essere passata per ogni chiamata per l'autenticazione e l'autorizzazione. La proprietà seguente deve essere passata alle intestazioni HTTP:
 
-|Chiave intestazione necessaria | Valore|
+|Chiave intestazione necessaria | valore|
 |-|-|
 |Autorizzazione| Specificare il valore nel formato: **bearer {API_KEY}** <br/> Esempio: bearer eyr....09|
 
@@ -54,10 +54,10 @@ Vengono restituiti ETag in risposta a tutte le API indicate in precedenza. Una m
 
 
 ## <a name="api-response-codes"></a>Codici di risposta dell'API   
-|Codice di stato della risposta|Messaggio|Description|
+|Codice di stato della risposta|Message|Descrizione|
 |-|-|-|
 |200| OK|Nessun errore|
-|401| Non autorizzato| Chiave API non trovata, non valida, scaduta e così via|
+|401| Non autorizzata| Chiave API non trovata, non valida, scaduta e così via|
 |404| Non disponibile| Endpoint del report non trovato|
 |400| Bad Request| Parametri non validi (intervalli di date, numeri EA e così via)|
 |500| Errore del server| Errore imprevisto nell'elaborazione della richiesta|

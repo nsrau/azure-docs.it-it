@@ -13,7 +13,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76715119"
 ---
-# <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticazione e autorizzazione in Servizio app di Azure
+# <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticazione e autorizzazione nel servizio app di Azure
 
 > [!NOTE]
 > A questo punto, AAD V2 (incluso MSAL) non è supportato per servizi app Azure e funzioni di Azure. Verificare la disponibilità di aggiornamenti.
@@ -31,7 +31,7 @@ Per consentire processi sicuri di autenticazione e autorizzazione, è necessario
 
 Per informazioni specifiche per le app per dispositivi mobili native, vedere [Autenticazione e autorizzazione per le app per dispositivi mobili in Servizio app di Azure](../app-service-mobile/app-service-mobile-auth.md).
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Il modulo di autenticazione e autorizzazione viene eseguito nello stesso ambiente sandbox del codice dell'applicazione. Quando è abilitato, ogni richiesta HTTP in ingresso passa attraverso tale modulo prima di essere gestita dal codice dell'applicazione.
 

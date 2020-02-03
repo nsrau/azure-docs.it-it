@@ -28,13 +28,13 @@ Queste tecnologie vengono usate in questa procedura dettagliata.
 * U-SQL e Visual Studio
 * Python
 * Azure Machine Learning
-* partizioni elastiche
+* Script
 
 
 ### <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics.
 [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) include tutte le funzionalità che consentono ai data scientist di archiviare con facilità dati di qualsiasi dimensione, forma e velocità e di eseguire attività di elaborazione di dati, analisi avanzate e modellazione di Machine Learning con scalabilità elevata e costi contenuti.   Il pagamento viene effettuato per i singoli processi, solo quando i dati vengono effettivamente elaborati. Analisi Azure Data Lake include U-SQL, un linguaggio che unisce la natura dichiarativa di SQL all'efficacia espressiva di C# per offrire funzionalità di query distribuite e scalabili. Consente di elaborare dati non strutturati applicando lo schema in fase di lettura, nonché di inserire logica e funzioni UDF personalizzate e aggiungere estensibilità per permettere il controllo granulare sulle modalità di esecuzione in scala. Per altre informazioni sulla filosofia di progettazione alla base di U-SQL, vedere questo [post di blog su Visual Studio](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
-Data Lake Analytics è anche un componente chiave di Cortana Analytics Suite e si integra con Azure SQL Data Warehouse, Power BI e Data Factory. Questa combinazione offre una piattaforma di analisi avanzata e Big Data cloud completa.
+Analisi Data Lake è anche un componente chiave di Cortana Analytics Suite e si integra con Azure SQL Data Warehouse, Power BI e Data Factory, Questa combinazione offre una piattaforma di analisi avanzata e Big Data cloud completa.
 
 Questa procedura dettagliata descrive prima di tutto come installare i prerequisiti e le risorse necessari per completare le attività del processo di data science. Descrive quindi i passaggi di elaborazione dei dati con U-SQL e termina mostrando come usare Python e hive con Azure Machine Learning Studio (classico) per compilare e distribuire i modelli predittivi.
 
@@ -47,7 +47,7 @@ Questa procedura dettagliata contiene anche una sezione in cui si descrive come 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning 
 Azure Machine Learning Studio (classico) viene usato per compilare e distribuire i modelli predittivi usando due approcci: prima con gli script Python e con le tabelle hive in un cluster HDInsight (Hadoop).
 
-### <a name="scripts"></a>partizioni elastiche
+### <a name="scripts"></a>Script
 In questa procedura dettagliata sono illustrati solo i passaggi principali. È possibile scaricare lo **script U-SQL** completo e il **notebook di Jupyter** da [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -491,7 +491,7 @@ Per eseguire il notebook di Jupyter di esempio o il file di script Python, sono 
 
 
 ### <a name="read-in-the-data-from-blob"></a>Leggere i dati dal BLOB
-* Connection String
+* Stringa di connessione
 
         CONTAINERNAME = 'test1'
         STORAGEACCOUNTNAME = 'XXXXXXXXX'
@@ -690,7 +690,7 @@ Il dashboard del servizio Web verrà visualizzato a breve:
 ## <a name="summary"></a>Riepilogo
 Completando questa procedura dettagliata, è stato creato un ambiente di data science per la creazione di soluzioni end-to-end scalabili in Azure Data Lake. Questo ambiente è stato quindi usato per analizzare un set di dati pubblico di grandi dimensioni, sottoposto ai passaggi del processo di analisi scientifica dei dati: dall'acquisizione dei dati al training del modello, fino alla distribuzione del modello come servizio Web. U-SQL è stato usato per elaborare, esplorare ed eseguire il campionamento dei dati. Python e hive sono stati usati con Azure Machine Learning Studio (classico) per compilare e distribuire modelli predittivi.
 
-## <a name="whats-next"></a>Potrai anche
+## <a name="whats-next"></a>Quali sono le operazioni successive?
 Nel percorso di apprendimento relativo al [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) sono inclusi alcuni collegamenti ad argomenti che descrivono ogni passaggio del processo di analisi avanzata. È disponibile una serie di procedure dettagliate collegate alla pagina [Processo di analisi scientifica dei dati per i team](walkthroughs.md) che illustrano come usare risorse e servizi nei vari scenari di analisi predittiva:
 
 * [Processo di analisi scientifica dei dati per i team in azione: uso di SQL Data Warehouse](sqldw-walkthrough.md)

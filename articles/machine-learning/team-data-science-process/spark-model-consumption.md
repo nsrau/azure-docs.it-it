@@ -586,6 +586,6 @@ Se si preferisce non ricorrere al codice, usare [App per la logica di Azure](htt
 
 ![Progettazione app per la logica](./media/spark-model-consumption/spark-logica-app-client.png)
 
-## <a name="whats-next"></a>Potrai anche
+## <a name="whats-next"></a>Quali sono le operazioni successive?
 **Convalida incrociata e sweep di iperparametri**: vedere [Esplorazione e modellazione avanzate dei dati con Spark](spark-advanced-data-exploration-modeling.md) per informazioni su come istruire i modelli sulla convalida incrociata e lo sweep di iperparametri.
 

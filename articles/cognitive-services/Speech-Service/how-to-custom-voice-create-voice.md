@@ -35,7 +35,7 @@ Passare alla scheda **dati** e fare clic su **Carica dati**. Nella procedura gui
 Ogni set di dati caricato deve soddisfare i requisiti per il tipo di dati scelto. È importante formattare correttamente i dati prima che vengano caricati. Ciò garantisce che i dati vengano elaborati accuratamente dal servizio Voice personalizzato. Passare a [preparare i dati per la voce personalizzata](how-to-custom-voice-prepare-data.md) e assicurarsi che i dati siano stati formattati correttamente.
 
 > [!NOTE]
-> Gli utenti della sottoscrizione gratuita (F0) possono caricare contemporaneamente due set di impostazioni. Gli utenti della sottoscrizione standard (S0) possono caricare contemporaneamente cinque set di impostazioni. Se si raggiunge il limite, attendere che l'importazione di almeno un set di dati venga completata. Quindi riprovare.
+> Gli utenti della sottoscrizione gratuita (F0) possono caricare contemporaneamente due set di impostazioni. Gli utenti della sottoscrizione standard (S0) possono caricare contemporaneamente cinque set di impostazioni. Se si raggiunge il limite, attendere che l'importazione di almeno un set di dati venga completata. quindi riprovare.
 
 > [!NOTE]
 > Il numero massimo di set di dati che possono essere importati per ogni sottoscrizione è 10 file zip per gli utenti della sottoscrizione gratuita (F0) e 500 per gli utenti con sottoscrizione standard (S0).
@@ -44,10 +44,10 @@ I set di impostazioni vengono convalidati automaticamente quando si preme il pul
 
 Nella tabella seguente sono indicati gli stati di elaborazione per i set di dati importati:
 
-| Statale | Significato |
+| Stato | Significato |
 | ----- | ------- |
 | Elaborazione | Il set di dati è stato ricevuto ed è in corso l'elaborazione. |
-| Operazione completata | Il set di dati è stato convalidato e può ora essere usato per compilare un modello vocale. |
+| Succeeded | Il set di dati è stato convalidato e può ora essere usato per compilare un modello vocale. |
 | Operazione non riuscita | Errore del set di dati durante l'elaborazione a causa di diversi motivi, ad esempio errori di file, problemi relativi ai dati o problemi di rete. |
 
 Al termine della convalida, è possibile visualizzare il numero totale di espressioni corrispondenti per ognuno dei set di impostazioni nella colonna **enunciazioni** . Se il tipo di dati selezionato richiede una segmentazione audio lunga, questa colonna riflette solo le espressioni che sono state segmentate in base alle trascrizioni o tramite il servizio di trascrizione vocale. È possibile scaricare ulteriormente il set di dati convalidato per visualizzare i risultati dettagliati degli enunciati importati correttamente e le relative trascrizioni di mapping. Suggerimento: la segmentazione dell'audio lungo può richiedere più di un'ora per completare l'elaborazione dei dati.
@@ -86,10 +86,10 @@ Nella tabella training viene visualizzata una nuova voce che corrisponde al mode
 
 Lo stato illustrato riflette il processo di conversione del set di dati in un modello vocale, come illustrato di seguito.
 
-| Statale | Significato |
+| Stato | Significato |
 | ----- | ------- |
 | Elaborazione | È in corso la creazione del modello vocale. |
-| Operazione completata | Il modello vocale è stato creato e può essere distribuito. |
+| Succeeded | Il modello vocale è stato creato e può essere distribuito. |
 | Operazione non riuscita | Non è stato possibile eseguire il training del modello vocale a causa di diversi motivi, ad esempio problemi relativi ai dati o problemi di rete. |
 
 Il tempo necessario per il training varia a seconda del volume dei dati audio elaborati. In genere, i tempi vanno da 30 minuti per alcune centinaia di espressioni a 40 ore per 20.000 espressioni. Una volta completato il training del modello, è possibile iniziare a testarlo.

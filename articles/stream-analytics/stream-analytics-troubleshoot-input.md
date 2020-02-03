@@ -137,7 +137,7 @@ FROM data
 
 Per le query in cui tre o più input sono connessi allo stesso gruppo di consumer di hub eventi, creare gruppi di consumer separati. Ciò richiede la creazione di input di Analisi di flusso aggiuntivi.
 
-## <a name="get-help"></a>Ottenere supporto
+## <a name="get-help"></a>Guida in linea
 
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 

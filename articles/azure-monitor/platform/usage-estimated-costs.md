@@ -25,7 +25,7 @@ ms.locfileid: "76715780"
 
 ## <a name="azure-monitor-pricing-model"></a>Modello di determinazione dei prezzi di monitoraggio di Azure
 
-Il modello di fatturazione di base di monitoraggio di Azure è un piano tariffario basato sul consumo (con pagamento in base al consumo). Paghi solo per le risorse usate. I dettagli relativi ai prezzi sono disponibili per [avvisi, metriche, notifiche](https://azure.microsoft.com/pricing/details/monitor/), [log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) e [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
+Il modello di fatturazione di base di monitoraggio di Azure è un piano tariffario basato sul consumo (con pagamento in base al consumo). Si paga solo per le risorse utilizzate. I dettagli relativi ai prezzi sono disponibili per [avvisi, metriche, notifiche](https://azure.microsoft.com/pricing/details/monitor/), [log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) e [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
 
 Oltre al modello con pagamento in base al consumo per i dati di log, Log Analytics dispone di prenotazioni di capacità, che consentono di risparmiare fino al 25% rispetto al prezzo con pagamento in base al consumo. I prezzi per la prenotazione della capacità ti permettono di acquistare una prenotazione a partire da 100 GB/giorno. Qualsiasi utilizzo sopra il livello di prenotazione verrà fatturato in base alla tariffa con pagamento in base al consumo. [Altre](https://azure.microsoft.com/pricing/details/monitor/) informazioni sui prezzi di prenotazione della capacità.
 

@@ -11,10 +11,10 @@ ms.service: cost-management-billing
 manager: jasonh
 ms.custom: seodec18
 ms.openlocfilehash: 76ee5aba0f1d0769e15a5969409dfef2a018e477
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75984036"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Esercitazione: Creare e gestire dati esportati

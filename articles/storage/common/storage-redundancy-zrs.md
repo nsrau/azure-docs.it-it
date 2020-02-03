@@ -37,14 +37,14 @@ Per gli account per utilizzo generico V2, ZRS è disponibile a livello generale 
 - Sudafrica settentrionale
 - Regno Unito meridionale
 - Stati Uniti centrali
-- Stati Uniti orientali
+- Stati Uniti Orientali
 - Stati Uniti orientali 2
 - Stati Uniti occidentali 2
 
 Per gli account filestorage (condivisioni file Premium) e gli account BlockBlobStorage (BLOB in blocchi Premium), ZRS è disponibile a livello generale nelle aree seguenti:
 
 - Europa occidentale
-- Stati Uniti orientali
+- Stati Uniti Orientali
 
 Microsoft continua ad abilitare l'archiviazione con ridondanza della zona in aree di Azure aggiuntive. Fare riferimento regolarmente alla pagina [Aggiornamenti di Azure](https://azure.microsoft.com/updates/) per informazioni sulle nuove aree.
 
@@ -100,16 +100,16 @@ Tenere presenti le limitazioni seguenti relative alla migrazione in tempo reale:
 È possibile richiedere la migrazione in tempo reale tramite il [portale del supporto tecnico di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Nel portale selezionare l'account di archiviazione da convertire in archiviazione con ridondanza della zona.
 1. Selezionare **Nuova richiesta di supporto**
 2. Completare le **nozioni di base** con le informazioni relative all'account. Nella sezione **Assistenza** selezionare **Gestione Account di archiviazione** e la risorsa che si vuole convertire in archiviazione con ridondanza della zona. 
-3. Selezionare **Avanti**. 
+3. Fare clic su **Avanti**. 
 4. Specificare i valori seguenti nella sezione **Problema**: 
     - **Gravità**: lasciare il valore predefinito.
     - **Tipo di problema**: selezionare **Migrazione dei dati**.
     - **Category**: selezionare **migrate to ZRS**.
     - **Titolo**: digitare un titolo descrittivo, ad esempio **migrazione di account con archiviazione con ridondanza della zona**.
     - **Dettagli**: digitare ulteriori dettagli nella casella **Dettagli** , ad esempio, si desidera eseguire la migrazione a ZRS da [con ridondanza locale, GRS] nell'area \_\_. 
-5. Selezionare **Avanti**.
+5. Fare clic su **Avanti**.
 6. Verificare che le informazioni di contatto nel pannello **Informazioni contatto** siano corrette.
-7. Selezionare **Create** (Crea).
+7. Selezionare **Crea**.
 
 Un addetto del supporto tecnico contatterà l'utente e fornirà l'assistenza necessaria.
 
@@ -165,7 +165,7 @@ Per eseguire l'aggiornamento a ZRS tramite CLI, chiamare il comando seguente:
 az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
 ```
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 - [Replica di Archiviazione di Azure](storage-redundancy.md)
 - [Archiviazione con ridondanza locale: ridondanza dei dati a basso costo per Archiviazione di Azure](storage-redundancy-lrs.md)
 - [Archiviazione con ridondanza geografica: replica tra più aree per Archiviazione di Azure](storage-redundancy-grs.md)

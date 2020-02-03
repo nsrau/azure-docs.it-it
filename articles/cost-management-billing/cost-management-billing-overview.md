@@ -4,17 +4,16 @@ description: Le funzionalità di Gestione dei costi e fatturazione di Azure cons
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/20/2019
+ms.date: 01/24/2020
 ms.topic: overview
 ms.service: cost-management-billing
-manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: cadff1d83a8b47a540efe9b74ffaf6de171138b3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 1c6f03663a7487e814272c6296f6e7862c65c806
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982789"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769895"
 ---
 # <a name="what-is-azure-cost-management-and-billing"></a>Che cos'è Gestione dei costi e fatturazione di Azure?
 

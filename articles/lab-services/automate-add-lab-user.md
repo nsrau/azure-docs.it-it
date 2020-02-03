@@ -24,8 +24,8 @@ Azure DevTest Labs consente di creare rapidamente ambienti di sviluppo e test Se
 
 Per aggiungere un utente a un Lab, è necessario aggiungere l'utente al ruolo **utente DevTest Labs** per il Lab. Questo articolo illustra come automatizzare l'aggiunta di un utente a un Lab usando uno dei modi seguenti:
 
-- Modelli di Azure Resource Manager
-- Cmdlet PowerShell per Azure 
+- Modelli di Gestione risorse di Azure
+- Cmdlet di Azure PowerShell 
 - Interfaccia della riga di comando di Azure.
 
 ## <a name="use-azure-resource-manager-templates"></a>Usare i modelli di Gestione risorse di Azure

@@ -109,7 +109,7 @@ Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 
 ## <a name="convert-managed-disks-from-standard-to-premium-in-the-azure-portal"></a>Convertire i dischi gestiti da standard a Premium nella portale di Azure
 
-A tale scopo, seguire questa procedura:
+Esegui questi passaggi:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare la VM dall'elenco di **macchine virtuali** nel portale.

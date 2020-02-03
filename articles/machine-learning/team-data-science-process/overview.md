@@ -1,5 +1,5 @@
 ---
-title: Che cos'è il processo di data science per i team?
+title: Introduzione a Team Data Science Process
 description: Fornisce una metodologia di data science per offrire soluzioni di analisi predittiva e applicazioni intelligenti.
 services: machine-learning
 author: marktab
@@ -18,7 +18,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76721388"
 ---
-# <a name="what-is-the-team-data-science-process"></a>Che cos'è il processo di data science per i team?
+# <a name="what-is-the-team-data-science-process"></a>Introduzione a Team Data Science Process
 
 Il processo di data science per i team (TDSP) è una metodologia di data science agile e iterativa mirata a offrire soluzioni di analisi predittiva e applicazioni intelligenti in modo efficiente. TDSP consente di migliorare la collaborazione e l'apprendimento del team suggerendo il modo migliore per collaborare con i ruoli del team. TDSP include procedure consigliate e strutture di Microsoft e di altri leader del settore per consentire una corretta implementazione delle iniziative data science. L'obiettivo è aiutare le aziende a realizzare completamente i vantaggi del proprio programma di analisi.
 
@@ -57,7 +57,7 @@ Di seguito si riporta una rappresentazione visiva del **Ciclo di vita del proces
 Gli obiettivi, le attività e gli elementi di documentazione per ogni fase del ciclo di vita del TDSP sono descritti nell'argomento [Ciclo di vita del processo di data science per i team](lifecycle.md). Queste attività ed elementi sono associati a ruoli di progetto:
 
 - Architetto di soluzioni
-- Project manager
+- Responsabile di progetto
 - Data scientist
 - Responsabile di progetto 
 
@@ -69,7 +69,7 @@ Il diagramma seguente offre una visualizzazione a griglia delle attività (in bl
 
 Poiché tutti i progetti condividono la stessa struttura di directory e usano modelli per i documenti di progetto è più facile per i membri del team trovare informazioni relative ai propri progetti. Tutto il codice e i documenti vengono archiviati in un sistema di controllo di versione (VCS) come Git, TFS o Subversion per consentire la collaborazione tra team. Monitorare le attività e le funzionalità in un sistema di monitoraggio di progetto agile come Jira, Rally o Azure DevOps consente un monitoraggio più stretto delle singole funzionalità. Tale monitoraggio permette inoltre ai team di ottenere stime dei costi migliori. Il TDSP consiglia di creare un repository separato per ogni progetto del VCS per il controllo delle versioni, la protezione delle informazioni e la collaborazione. La struttura standard per tutti i progetti consente di creare conoscenze istituzionali nell'intera organizzazione.
 
-Sono forniti modelli per la struttura di cartelle e i documenti richiesti in posizioni standard. Questa struttura di cartelle consente di organizzare i file che contengono codice per l'esplorazione dei dati e l'estrazione delle funzioni e che registrano le iterazioni del modello. Questi modelli semplificano ai membri del team la comprensione delle attività completate da altri utenti e l'aggiunta di nuovi membri ai team. È facile visualizzare e aggiornare i modelli di documento in formato markdown. Usare i modelli per fornire elenchi di controllo con domande chiave per ogni progetto, per garantire che il problema sia ben definito e che i risultati finali soddisfino la qualità prevista. Ad esempio:
+Sono forniti modelli per la struttura di cartelle e i documenti richiesti in posizioni standard. Questa struttura di cartelle consente di organizzare i file che contengono codice per l'esplorazione dei dati e l'estrazione delle funzioni e che registrano le iterazioni del modello. Questi modelli semplificano ai membri del team la comprensione delle attività completate da altri utenti e l'aggiunta di nuovi membri ai team. È facile visualizzare e aggiornare i modelli di documento in formato markdown. Usare i modelli per fornire elenchi di controllo con domande chiave per ogni progetto, per garantire che il problema sia ben definito e che i risultati finali soddisfino la qualità prevista. Ecco alcuni esempi:
 
 - un atto costitutivo di progetto per documentare il problema aziendale e l'ambito del progetto stesso
 - report di dati per documentare la struttura e le statistiche dei dati non elaborati
@@ -86,7 +86,7 @@ La struttura di directory può essere clonata da [GitHub](https://github.com/Azu
 Il TDSP fornisce suggerimenti per la gestione dell'infrastruttura di analisi e archiviazione, ad esempio:
 
 - file system su cloud per l'archiviazione dei set di dati 
-- databases
+- database
 - cluster Big Data (Hadoop o Spark) 
 - servizio Machine Learning 
 

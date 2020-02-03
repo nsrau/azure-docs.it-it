@@ -126,7 +126,7 @@ Per distribuire il contenitore nel servizio Azure Kubernetes, le immagini del co
 
     Per tenere traccia della versione del registro contenitori, aggiungere il tag con un formato di versione, ad esempio `v1`.
 
-1. Eseguire il push dell'immagine nel registro contenitori. L'operazione potrebbe richiedere alcuni minuti.
+1. Eseguire il push dell'immagine nel registro contenitori. L'operazione può richiedere qualche minuto.
 
     ```console
     docker push pattyregistry.azurecr.io/language-frontend:v1
@@ -150,7 +150,7 @@ Per distribuire il contenitore nel servizio Azure Kubernetes, le immagini del co
 
 ## <a name="get-language-detection-docker-image"></a>Ottenere l'immagine Docker di rilevamento lingua
 
-1. Eseguire il pull dell'ultima versione dell'immagine Docker nel computer locale. L'operazione potrebbe richiedere alcuni minuti. Se è disponibile una versione più recente di questo contenitore, modificare il valore da `1.1.006770001-amd64-preview` alla versione più recente.
+1. Eseguire il pull dell'ultima versione dell'immagine Docker nel computer locale. L'operazione può richiedere qualche minuto. Se è disponibile una versione più recente di questo contenitore, modificare il valore da `1.1.006770001-amd64-preview` alla versione più recente.
 
     ```console
     docker pull mcr.microsoft.com/azure-cognitive-services/language:1.1.006770001-amd64-preview
@@ -162,7 +162,7 @@ Per distribuire il contenitore nel servizio Azure Kubernetes, le immagini del co
     docker tag mcr.microsoft.com/azure-cognitive-services/language pattiyregistry.azurecr.io/language:1.1.006770001-amd64-preview
     ```
 
-1. Eseguire il push dell'immagine nel registro contenitori. L'operazione potrebbe richiedere alcuni minuti.
+1. Eseguire il push dell'immagine nel registro contenitori. L'operazione può richiedere qualche minuto.
 
     ```console
     docker push pattyregistry.azurecr.io/language:1.1.006770001-amd64-preview
@@ -313,14 +313,14 @@ Questa sezione usa l'interfaccia della riga di comando di **kubectl** per comuni
 
 1. Modificare le righe nella sezione deployment del contenitore language-frontend in `language.yml` sulla base della tabella seguente per aggiungere il nome della propria immagine del registro contenitori, il segreto client e le impostazioni di analisi del testo.
 
-    Impostazioni di distribuzione del contenitore language-frontend|Finalità|
+    Impostazioni di distribuzione del contenitore language-frontend|Scopo|
     |--|--|
     |Riga 32<br> Proprietà `image`|Percorso dell'immagine di language-frontend nel registro contenitori<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
     |Riga 44<br> Proprietà `name`|Segreto del registro contenitori per l'immagine, definito `<client-secret>` in una sezione precedente.|
 
 1. Modificare le righe nella sezione deployment del contenitore language in `language.yml` sulla base della tabella seguente per aggiungere il nome della propria immagine del registro contenitori, il segreto client e le impostazioni di analisi del testo.
 
-    |Impostazioni di distribuzione del contenitore language|Finalità|
+    |Impostazioni di distribuzione del contenitore language|Scopo|
     |--|--|
     |Riga 78<br> Proprietà `image`|Percorso dell'immagine di language nel registro contenitori<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |Riga 95<br> Proprietà `name`|Segreto del registro contenitori per l'immagine, definito `<client-secret>` in una sezione precedente.|

@@ -58,7 +58,7 @@ Le librerie client per le connessioni client sono diverse dai provider di dati n
 
 ### <a name="amo"></a>AMO  
 
- AMO è una libreria client gestita usata per l'amministrazione di server e la definizione di dati. Viene installata e usata da strumenti e applicazioni client. SQL Server Management Studio (SSMS), ad esempio, usa AMO per connettersi ad Analysis Services. Una connessione che usa AMO è in genere minima, costituita da `"data source=\<servername>"`. Dopo che è stata stabilita una connessione, l'API consente di usare le raccolte di database e gli oggetti principali. Sia Visual Studio che SSMS utilizzano AMO per connettersi a un'istanza di Analysis Services.  
+ AMO è una libreria client gestita utilizzata per l'amministrazione del server e la definizione dei dati. Viene installata e usata da strumenti e applicazioni client. SQL Server Management Studio (SSMS), ad esempio, usa AMO per connettersi ad Analysis Services. Una connessione che usa AMO è in genere minima, costituita da `"data source=\<servername>"`. Dopo che è stata stabilita una connessione, l'API consente di usare le raccolte di database e gli oggetti principali. Sia Visual Studio che SSMS utilizzano AMO per connettersi a un'istanza di Analysis Services.  
 
   
 ### <a name="adomd"></a>ADOMD

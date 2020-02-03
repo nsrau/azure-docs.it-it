@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 01/02/2020
 ms.author: banders
 ms.openlocfilehash: ae33d320213cc526710845e78c23a83143a73771
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989904"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Informazioni sui ruoli amministrativi per il Contratto Enterprise di Azure
@@ -38,10 +38,10 @@ Le sezioni seguenti descrivono i limiti e le funzionalità di ogni ruolo.
 
 |Ruolo| Limite di utenti|
 |---|---|
-|Amministratore dell'organizzazione|Senza limiti|
-|Amministratore dell'organizzazione (sola lettura)|Senza limiti|
-|Amministratore del reparto|Senza limiti|
-|Amministratore del reparto (sola lettura)|Senza limiti|
+|Amministratore dell'organizzazione|Nessuna limitazione|
+|Amministratore dell'organizzazione (sola lettura)|Nessuna limitazione|
+|Amministratore del reparto|Nessuna limitazione|
+|Amministratore del reparto (sola lettura)|Nessuna limitazione|
 |Proprietario dell'account|1 per account<sup>1</sup>|
 
 <sup>1</sup> Ogni account richiede un account Microsoft univoco oppure un account aziendale o dell'istituto di istruzione.
@@ -97,7 +97,7 @@ La tabella seguente illustra la relazione tra i ruoli di amministratore del Cont
 |Proprietario dell'account OPPURE Amministratore del reparto|✘ Disabilitato|Proprietario|Prezzi al dettaglio|
 |Proprietario dell'account OPPURE Amministratore del reparto|✔ Abilitato |none|Nessun prezzo|
 |Proprietario dell'account OPPURE Amministratore del reparto|✘ Disabilitato |none|Nessun prezzo|
-|Nessuno|Non applicabile |Proprietario|Prezzi al dettaglio|
+|nessuno|Non applicabile |Proprietario|Prezzi al dettaglio|
 
 Si impostano il ruolo di amministratore dell'organizzazione e i criteri di visualizzazione degli addebiti nell'Enterprise Portal. Il ruolo di controllo degli accessi in base al ruolo può essere aggiornato nel portale di Azure. Per altre informazioni, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 

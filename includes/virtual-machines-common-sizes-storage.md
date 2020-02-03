@@ -35,7 +35,7 @@ Archiviazione Premium: supportata
 
 Caching archiviazione Premium: non supportato
 
-| Dimensioni          | vCPU | Memoria (GiB) | Disco temporaneo<sup>1</sup> (GiB) | Dischi NVMe<sup>2</sup> | Velocità effettiva dischi NVMe<sup>3</sup> (IOPS di lettura/MBps) | Numero massimo di velocità effettiva del disco dati non memorizzati nella cache (IOPs/MBps)<sup>4</sup> | Numero massimo di dischi dati | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+| Dimensione          | vCPU | Memoria (GiB) | Disco temporaneo<sup>1</sup> (GiB) | Dischi NVMe<sup>2</sup> | Velocità effettiva dischi NVMe<sup>3</sup> (IOPS di lettura/MBps) | Numero massimo di velocità effettiva del disco dati non memorizzati nella cache (IOPs/MBps)<sup>4</sup> | Numero massimo di dischi dati | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
 | Standard_L8s_v2   |  8 |  64 |  80 |  1 x 1,92 TB  | 400000/2000  | 8000/160   | 16 | 2 / 3200  |
 | Standard_L16s_v2  | 16 | 128 | 160 |  2 x 1,92 TB  | 800000/4000  | 16000/320  | 32 | 4 / 6400  |

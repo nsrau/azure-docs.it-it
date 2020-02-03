@@ -105,7 +105,7 @@ Nei seguenti comandi AzCopy, sostituire i parametri seguenti con i valori effett
 * ***\<path_to_data_folder >*** La directory (insieme al percorso) nel computer che contiene i file di dati decompressi.  
 * ***nome dell'account di archiviazione\<del cluster Hadoop >*** L'account di archiviazione associato al cluster HDInsight.
 * ***\<contenitore predefinito del cluster Hadoop >*** Il contenitore predefinito usato dal cluster. Il nome del contenitore predefinito è in genere lo stesso nome del cluster stesso. Ad esempio, se il nome del cluster è "abc123.azurehdinsight.net", quello del contenitore predefinito sarà abc123.
-* ***chiave dell'account di archiviazione\<*** Chiave per l'account di archiviazione usato dal cluster.
+* ***chiave dell'account di archiviazione\<>*** Chiave per l'account di archiviazione usato dal cluster.
 
 Da un prompt dei comandi o una finestra di Windows PowerShell eseguire i due comandi AzCopy seguenti.
 

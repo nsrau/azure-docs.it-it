@@ -60,7 +60,7 @@ Il diagramma e i passaggi seguenti descrivono l'architettura della pipeline CI/C
 10. Le richieste degli utenti per l'app passano attraverso il server DNS.
 11. Il server DNS passa le richieste a un servizio di bilanciamento del carico e restituisce le risposte agli utenti.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Team Data Science Process (TDSP)](/azure/machine-learning/team-data-science-process/)
 - [Azure Machine Learning (AML)](/azure/machine-learning/)

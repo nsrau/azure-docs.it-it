@@ -1,21 +1,20 @@
 ---
 title: 'Esercitazione: Gestire i costi con Cloudyn di Azure | Microsoft Docs'
 description: In questa esercitazione si apprenderà come gestire i costi usando l'allocazione dei costi e i report di showback e chargeback.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 01/24/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
-manager: benshy
-ms.openlocfilehash: d4117e8a40f277c6ac0213272176b75a1c161eb1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.reviewer: benshy
+ms.openlocfilehash: c628a30e5a49e6bf9c0938ca8cccc0f349777668
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75984216"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769903"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Esercitazione: Gestire i costi usando Cloudyn
 

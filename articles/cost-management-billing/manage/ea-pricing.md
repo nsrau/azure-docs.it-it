@@ -13,10 +13,10 @@ ms.date: 09/30/2019
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 14346ceda9574d18050108e585d5ff4cdb133e31
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992023"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Visualizzare e scaricare i prezzi di Azure dell'organizzazione
@@ -36,7 +36,7 @@ In base ai criteri impostati per l'organizzazione dall'amministratore dell'organ
 
    ![Screenshot che mostra l'utilizzo e gli addebiti in Fatturazione](./media/ea-pricing/ea-pricing-usage-charges-nav.png)
 
-1. Selezionare ![screenshot che Mostra portale di Azure Cerca](./media/ea-pricing/download-icon.png) **scaricare** per il mese.
+1. Selezionare ![Screenshot che mostra una ricerca del portale di Azure](./media/ea-pricing/download-icon.png) **Scarica** per il mese.
 
 1. In **Elenco prezzi** selezionare **Scarica CSV**.
 

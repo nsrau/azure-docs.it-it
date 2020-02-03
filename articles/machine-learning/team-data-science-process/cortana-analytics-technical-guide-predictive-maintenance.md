@@ -39,7 +39,7 @@ Gli obiettivi di questo articolo sono:
 > 
 > 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 ![Architettura di manutenzione predittiva](./media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
 La distribuzione della soluzione comporta l'attivazione dei servizi di Azure nell'ambito di Cortana Analytics Suite (inclusi Hub eventi, Analisi di flusso, HDInsight, Data Factory e Machine Learning). Il diagramma dell'architettura mostra come costruire il modello di soluzione per la manutenzione predittiva nel settore aerospaziale. È possibile esaminare i servizi nel portale di Azure facendo clic su di essi nel diagramma del modello di soluzione creato con la distribuzione della soluzione, ad eccezione di HDInsight, di cui viene effettuato il provisioning su richiesta quando le attività della pipeline correlate devono essere eseguite e successivamente eliminate.
@@ -134,7 +134,7 @@ Le attività incluse sono:
 
 * L'attività [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md), che usa un servizio [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) che esegue uno script [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) per le operazioni necessarie di aggregazione e progettazione delle funzioni per l'esperimento di [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
   Lo script [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) per questa attività di partizionamento è ***PrepareMLInput.hql***.
-* L'attività [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx), che sposta i risultati dall'attività [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) a un unico BLOB di [Archiviazione di Azure](https://msdn.microsoft.com/library/azure/dn894009.aspx) accessibile dall'attività [AzureMLBatchScoring](https://azure.microsoft.com/services/storage/).
+* L'attività [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx), che sposta i risultati dall'attività [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) a un unico BLOB di [Archiviazione di Azure](https://azure.microsoft.com/services/storage/) accessibile dall'attività [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx).
 * L'attività [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx), che chiama l'esperimento di [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) con i risultati inseriti in un unico BLOB di [Archiviazione di Azure](https://azure.microsoft.com/services/storage/).
 
 #### <a name="copyscoredresultpipeline"></a>*CopyScoredResultPipeline*
@@ -221,7 +221,7 @@ La procedura seguente mostra come visualizzare l'output dei dati da processi di 
    * Assicurarsi che il riquadro ***Visualizzazioni*** sia aperto e visualizzato sul lato destro dello schermo.
 3. Dopo aver ottenuto il flusso dati in Power BI, è possibile iniziare a visualizzare i dati di streaming. Di seguito è riportato un dashboard di esempio a cui sono state aggiunte alcune visualizzazioni del percorso critico. È possibile creare altri riquadri del dashboard in base a set di dati appropriati. A seconda del tempo di esecuzione del generatore di dati, i numeri nelle visualizzazioni possono variare.
 
-    ![Visualizzazione dashboard](media/cortana-analytics-technical-guide-predictive-maintenance/dashboard-view.png)
+    ![Vista dashboard](media/cortana-analytics-technical-guide-predictive-maintenance/dashboard-view.png)
 
 1. Di seguito sono riportati alcuni passaggi per creare uno dei riquadri precedenti, ovvero il riquadro "Vista Fleet of Sensor 11 vs. Threshold 48,26":
    

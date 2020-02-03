@@ -16,7 +16,7 @@ ms.locfileid: "76713185"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
 
-## <a name="overview"></a>Overview ##
+## <a name="overview"></a>Panoramica ##
 
  Azure [ambiente del servizio app][Intro] è una distribuzione di app Azure servizio in una subnet nella rete virtuale di Azure (VNet). È possibile distribuire un ambiente del servizio app in due modi:
 
@@ -53,7 +53,7 @@ Quando si aumenta o si riduce il numero di istanze, vengono aggiunti nuovi ruoli
 
 Per il funzionamento dell'ambiente del servizio app, l'ambiente del servizio app richiede che siano aperte le porte seguenti:
 
-| Uso | Da | Per |
+| Utilizzo | From | Per |
 |-----|------|----|
 | Gestione | Indirizzi di gestione del servizio app | Subnet dell'ambiente del servizio app: 454, 455 |
 |  Comunicazione interna dell'ambiente del servizio app | Subnet dell'ambiente del servizio app: tutte le porte | Subnet dell'ambiente del servizio app: tutte le porte
@@ -69,7 +69,7 @@ Per le comunicazioni tra Azure Load Balancer e la subnet dell'ambiente del servi
 
 Le altre porte di cui è necessario preoccuparsi sono le porte dell'applicazione:
 
-| Uso | Porte |
+| Utilizzo | Porte |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
@@ -90,7 +90,7 @@ L'ambiente del servizio app comunica con indirizzi Internet accessibili sulle po
 | NTP | 123 |
 | CRL, aggiornamenti di Windows, dipendenze di Linux, servizi di Azure | 80/443 |
 | Azure SQL | 1433 | 
-| Monitorare | 12000 |
+| Monitoraggio | 12000 |
 
 Le dipendenze in uscita sono elencate nel documento in cui viene descritto il [blocco del traffico in uscita ambiente del servizio app](./firewall-integration.md). L'ambiente del servizio app smette di funzionare se perde l'accesso alle relative dipendenze. Se questa condizione si prolunga nel tempo, l'ambiente del servizio app viene sospeso. 
 
@@ -134,7 +134,7 @@ Tutti questi indirizzi IP sono visibili nella portale di Azure dall'interfaccia 
    > [!NOTE]
    > Questi indirizzi IP non verranno modificati finché l'ambiente del servizio app resta operativo e in esecuzione.  Se l'ambiente del servizio app viene sospeso e ripristinato, gli indirizzi usati dall'ambiente del servizio app verranno modificati. Il motivo più comune per la sospensione di un ambiente del servizio app è il blocco dell'accesso della gestione in ingresso o il blocco dell'accesso a una dipendenza dell'ambiente del servizio app. 
 
-![Indirizzi IP][3]
+![indirizzi IP][3]
 
 ### <a name="app-assigned-ip-addresses"></a>Indirizzi IP assegnati alle app ###
 
@@ -166,7 +166,7 @@ Per il funzionamento di un ambiente del servizio app, è necessario che le voci 
 
 Non è necessario aggiungere la porta DNS perché il traffico verso DNS non è influenzato dalle regole NSG. Queste porte non includono le porte richieste dalle app per un uso corretto. Le porte di accesso alle app normali sono:
 
-| Uso | Porte |
+| Utilizzo | Porte |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
@@ -210,7 +210,7 @@ Per creare le stesse route manualmente, seguire questa procedura:
 
     ![Gruppi di sicurezza di rete e route][7]
 
-## <a name="service-endpoints"></a>Endpoint del servizio ##
+## <a name="service-endpoints"></a>Endpoint servizio ##
 
 Gli endpoint servizio consentono di limitare l'accesso ai servizi multi-tenant a un set di reti e subnet virtuali di Azure. Per altre informazioni sugli endpoint servizio, vedere la pagina [Endpoint servizio di rete virtuale][serviceendpoints]. 
 
@@ -218,7 +218,7 @@ Quando si abilitano gli endpoint del servizio su una risorsa, alcune route sono 
 
 Quando gli endpoint servizio sono abilitati in una subnet con un'istanza di SQL di Azure, tutte le istanze di SQL di Azure verso cui si esegue la connessione da tale subnet devono avere gli endpoint servizio abilitati. Se si desidera accedere a più istanze di SQL di Azure dalla stessa subnet, non è possibile abilitare gli endpoint servizio in un'istanza di SQL di Azure e non in un'altra. Nessun altro servizio di Azure si comporta come Azure SQL rispetto agli endpoint di servizio. Quando si abilitano gli endpoint servizio con Archiviazione di Azure, si blocca l'accesso a tale risorsa dalla propria subnet ma è comunque possibile accedere ad altri account di archiviazione di Azure, anche se non hanno gli endpoint servizio abilitati.  
 
-![Endpoint del servizio][8]
+![Endpoint servizio][8]
 
 <!--Image references-->
 [1]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow.png

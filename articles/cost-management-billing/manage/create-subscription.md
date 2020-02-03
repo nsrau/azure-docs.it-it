@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
 ms.openlocfilehash: 33fa553e9148a1ac838e6bf53fc83cf7eadd7499
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992582"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Creare una sottoscrizione di Azure aggiuntiva
@@ -66,7 +66,7 @@ Per creare sottoscrizioni è necessario disporre delle autorizzazioni seguenti:
 |---------|---------|
 |Profilo di fatturazione     | Gli addebiti per la sottoscrizione verranno fatturati al profilo di fatturazione selezionato. Se si ha accesso a un solo profilo di fatturazione, la selezione sarà disattivata.     |
 |Sezione della fattura     | Gli addebiti per la sottoscrizione verranno visualizzati in questa sezione della fattura del profilo di fatturazione. Se si ha accesso a una sola sezione della fattura, la selezione sarà disattivata.  |
-|Pianificare     | Selezionare Piano di Microsoft Azure per Sviluppo/test se si intende usare questa sottoscrizione per i carichi di lavoro di sviluppo o test, altrimenti scegliere Piano di Microsoft Azure. Se è abilitato solo un piano per il profilo di fatturazione, la selezione sarà disattivata.  |
+|Piano     | Selezionare Piano di Microsoft Azure per Sviluppo/test se si intende usare questa sottoscrizione per i carichi di lavoro di sviluppo o test, altrimenti scegliere Piano di Microsoft Azure. Se è abilitato solo un piano per il profilo di fatturazione, la selezione sarà disattivata.  |
 |Nome     | Nome visualizzato che consente di identificare facilmente la sottoscrizione nel portale di Azure.  |
 
 **Contratto Microsoft Partner**
@@ -88,6 +88,6 @@ Per creare sottoscrizioni è necessario disporre delle autorizzazioni seguenti:
 - [Creare gruppi di gestione per la gestione e l'organizzazione delle risorse](../../governance/management-groups/create.md)
 - [Annullare la sottoscrizione di Azure](cancel-azure-subscription.md)
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).

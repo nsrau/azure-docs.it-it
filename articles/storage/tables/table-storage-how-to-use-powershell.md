@@ -46,7 +46,7 @@ Dopo l'installazione o l'aggiornamento di Azure PowerShell, è necessario instal
 Install-Module AzTable
 ```
 
-## <a name="sign-in-to-azure"></a>Accedere a Azure
+## <a name="sign-in-to-azure"></a>Accedi ad Azure
 
 Accedere alla sottoscrizione di Azure con il comando `Add-AzAccount` e seguire le istruzioni visualizzate.
 
@@ -63,7 +63,7 @@ Get-AzLocation | select Location
 $location = "eastus"
 ```
 
-## <a name="create-resource-group"></a>Creare un gruppo di risorse
+## <a name="create-resource-group"></a>Crea gruppo di risorse
 
 Creare un gruppo di risorse con il comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
 

@@ -58,7 +58,7 @@ I punteggi corrispondenti delle funzioni selezionate sono illustrati nella figur
 
 Applicando questo modulo di [selezione delle funzionalità basato su filtro][filter-based-feature-selection] , vengono selezionate 50 di 256 funzionalità che includono le funzionalità più correlate con la variabile di destinazione "col1", in base al metodo di assegnazione dei punteggi "correlazione di Pearson".
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 Progettazione di funzioni e selezione di funzioni sono due funzionalità di uso comune e selezionate aumentano l'efficienza del processo di training che tenta di estrarre le informazioni chiave contenute nei dati. Migliorano anche le potenzialità di questi modelli per la classificazione accurata dei dati di input e per la stima più affidabile dei risultati di interesse. Progettazione e selezione delle funzioni possono anche combinarsi per rendere l'apprendimento più computazionalmente trattabile. Questa operazione viene eseguita tramite il miglioramento e la successiva riduzione del numero di funzioni richieste per calibrare o eseguire il training di un modello. Da un punto di vista matematico, le funzioni selezionate per eseguire il training di un modello sono costituite da un set minimo di variabili indipendenti che spiegano i modelli nei dati e quindi stimano correttamente i risultati.
 
 Non sempre è necessario eseguire la progettazione o la selezione delle funzioni. La necessità o meno di questi passaggi dipende dai dati raccolti, dall'algoritmo selezionato e dall'obiettivo dell'esperimento.

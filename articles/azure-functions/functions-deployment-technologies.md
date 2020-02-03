@@ -114,7 +114,7 @@ Usare la distribuzione zip per eseguire il push di un file con estensione zip ch
 
 È possibile distribuire un'immagine del contenitore Linux che contiene l'app per le funzioni.
 
->__Come usarlo:__ Creare un'app per le funzioni Linux nel piano Premium o dedicato e specificare l'immagine del contenitore da cui eseguire. Questa operazione può essere eseguita in due modi:
+>__Come usarlo:__ Creare un'app per le funzioni Linux nel piano Premium o dedicato e specificare l'immagine del contenitore da cui eseguire. Tale operazione può essere eseguita in due modi:
 >
 >* Creare un'app per le funzioni Linux in un piano di servizio app Azure nel portale di Azure. Per **Publish**selezionare **Docker image**e quindi Configure the container. Immettere il percorso in cui è ospitata l'immagine.
 >* Creare un'app per le funzioni di Linux in un piano di servizio app usando l'interfaccia della riga di comando di Azure. Per informazioni, vedere [creare una funzione in Linux usando un'immagine personalizzata](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function).

@@ -95,13 +95,13 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 
     ![opzioni di archiviazione](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
-6. Per configurare la scrittura dei log per un account di archiviazione, selezionare **memorizzazione** e aprire **dettagli archiviazione**. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e quindi selezionare il periodo di conservazione. I log meno recenti verranno eliminati. Fare quindi clic su **OK**.
+6. Per configurare la scrittura dei log per un account di archiviazione, selezionare **memorizzazione** e aprire **dettagli archiviazione**. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e quindi selezionare il periodo di conservazione. I log meno recenti verranno eliminati. Fare quindi clic su **OK**,
 
    > [!IMPORTANT]
    > - Il valore predefinito per il periodo di memorizzazione è 0 (conservazione illimitata). È possibile modificare questo valore spostando il dispositivo di scorrimento **conservazione (giorni)** nelle **impostazioni di archiviazione** quando si configura l'account di archiviazione per il controllo.
    > - Se si modifica il periodo di conservazione da 0 (conservazione illimitata) a qualsiasi altro valore, si noti che la conservazione verrà applicata solo ai log scritti dopo la modifica del valore di conservazione (i log scritti durante il periodo in cui la conservazione è stata impostata su illimitata vengono conservati, anche dopo conservazione abilitata)
 
-    ![archiviazione di Azure](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+    ![account di archiviazione](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
 7. Per configurare la scrittura dei log di controllo in un'area di lavoro Log Analytics, selezionare **Log Analytics (anteprima)** e aprire **Dettagli di Log Analytics**. Selezionare o creare l'area di lavoro Log Analytics in cui verranno scritti i log e quindi scegliere **OK**.
 
@@ -111,7 +111,7 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 
     ![Hub eventi](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
 
-9. Fare clic su **Salva**.
+9. Fare clic su **Save**.
 10. Per personalizzare gli eventi controllati, è possibile usare i [cmdlet PowerShell](#subheading-7) o l'[API REST](#subheading-9).
 11. Dopo aver configurato le impostazioni di controllo, è possibile attivare la nuova funzionalità di rilevamento delle minacce e configurare gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. Quando si usa il rilevamento delle minacce, si ricevono avvisi proattivi sulle attività di database anomale che possono indicare potenziali minacce per la sicurezza. Per altre informazioni, vedere [Introduzione al rilevamento delle minacce](sql-database-threat-detection-get-started.md).
 

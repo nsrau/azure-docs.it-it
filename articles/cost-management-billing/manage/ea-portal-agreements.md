@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
 ms.openlocfilehash: d748be3a304222831a55bb9319a04fba1e28e955
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992361"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratti Azure EA e modifiche
@@ -72,16 +72,16 @@ Microsoft non accederà né utilizzerà il ricarico specificato e i prezzi assoc
 
 ### <a name="how-the-calculation-works"></a>Come funziona il calcolo
 
-Il Licensing Solution Provider (LSP) specifica un singolo valore percentuale in EA Portal.  Tutte le informazioni commerciali sul portale verranno apportate in base alla percentuale fornita dallo LSP. Esempio:
+Il Licensing Solution Provider (LSP) specifica un singolo valore percentuale in EA Portal.  Tutte le informazioni commerciali sul portale verranno incrementate in base alla percentuale specificata dall'LSP. Esempio:
 
 - Il cliente firma un Contratto Enterprise con un impegno monetario di 100.000 USD.
 - La tariffa del contatore per il Servizio A è 10 USD all'ora.
 - L'LSP imposta una percentuale di ricarico del 10% in EA Portal.
 - L'esempio seguente mostra in che modo le informazioni commerciali saranno visibili al cliente:
-    - Saldo monetario: USD 110.000.
-    - Velocità del contatore per il servizio A: USD 11/ora.
-    - Informazioni di utilizzo/hosting per il servizio A se usate per 100 ore: USD 1.100.
-    - Saldo monetario disponibile per il cliente dopo la deduzione del servizio A consumo: USD 108.900.
+    - Saldo monetario: 110.000 USD.
+    - Tariffa del contatore per il Servizio A: 11 USD all'ora.
+    - Informazioni sull'utilizzo o l'hosting del Servizio A se usato per 100 ore: 1.100 USD.
+    - Saldo monetario disponibile per il cliente dopo la deduzione dell'importo relativo all'utilizzo del Servizio A: 108.900 USD.
 
 ### <a name="when-to-use-a-markup"></a>Quando usare un ricarico
 
@@ -101,14 +101,14 @@ Assicurarsi di esaminare le informazioni commerciali, ovvero i dati sul saldo mo
 
 ### <a name="how-to-add-a-price-markup"></a>Come aggiungere un ricarico ai prezzi
 
-**Primo passaggio: aggiungere il markup del prezzo**
+**Passaggio 1: Aggiungere la percentuale di ricarico**
 
 1. In Enterprise Portal fare clic su **Report** nel riquadro di spostamento a sinistra.
 1. In _Riepilogo utilizzo_ fare clic sulla voce **Markup** (Ricarico) di colore azzurro.
 1. Immettere la percentuale di ricarico (compresa tra -100 e 100) e fare clic su **Anteprima**.
 
 
-**Passaggio 2: verificare e convalidare**
+**Passaggio 2: Rivedere e convalidare**
 
 Rivedere il prezzo di ricarico in _Riepilogo utilizzo_ per il periodo di impegno nella visualizzazione del cliente. Il prezzo Microsoft rimarrà disponibile nella visualizzazione del partner. È possibile attivare o disattivare le visualizzazioni usando l'interruttore relativo alle "persone" per il ricarico del partner in alto a destra.
 
@@ -116,7 +116,7 @@ Rivedere il prezzo di ricarico in _Riepilogo utilizzo_ per il periodo di impegno
 1. Prima di procedere alla pubblicazione è possibile apportare modifiche selezionando **Modifica** nella scheda _View Usage Summary > Customer View_ (Visualizza riepilogo utilizzo > Visualizzazione cliente).  
   Ai prezzi dei servizi ai saldi dell'impegno verranno applicate le stesse percentuali di ricarico. Se si prevede di applicare percentuali diverse per il saldo monetario e le tariffe dei contatori oppure per servizi diversi, non usare questa funzionalità.
 
-**Passaggio 3: pubblicare**
+**Passaggio 3: Pubblicare**
 
 Dopo aver esaminato e convalidato i prezzi, fare clic su **Pubblica**.
   
@@ -124,7 +124,7 @@ I prezzi con ricarico saranno disponibili per gli amministratori dell'organizzaz
 
 ### <a name="which-enrollments-have-a-markup-enabled"></a>Per quali registrazioni è abilitato il ricarico?
 
-Per verificare se una registrazione ha un markup pubblicato, fare clic su **Gestisci** nel riquadro di spostamento a sinistra e fare clic sulla scheda **registrazione** . Selezionare la casella di registrazione per verificare e visualizzare lo stato del markup in _Dettagli registrazione_. Verrà visualizzato lo stato corrente della funzionalità di ricarico per il Contratto Enterprise, che può essere come Disabilitato, Anteprima o Pubblicato.
+Per verificare se in una registrazione è stato pubblicato un ricarico, fare clic su **Gestisci** nel riquadro di spostamento a sinistra e quindi fare clic sulla scheda **Registrazione**. Selezionare la casella della registrazione da verificare e visualizzare lo stato del ricarico in _Dettagli della registrazione_. Verrà visualizzato lo stato corrente della funzionalità di ricarico per il Contratto Enterprise, che può essere come Disabilitato, Anteprima o Pubblicato.
 
 ### <a name="how-can-the-customer-download-usage-estimates"></a>Come può il cliente scaricare le stime sull'utilizzo?
 
@@ -141,11 +141,11 @@ I partner possono usare la funzionalità di ricarico (in Azure EA) dopo l'elabor
 | **Risorsa** | **Quota predefinita** | **Commenti** |
 | --- | --- | --- |
 | Istanze di calcolo di Microsoft Azure | 20 istanze di calcolo piccole simultanee o un numero equivalente di istanze di calcolo di altre dimensioni. | La tabella seguente illustra come calcolare il numero equivalente di istanze rispetto alle istanze piccole:<ul><li> Extra Small: equivalente a 1 istanza piccola </li><li> Small: equivalente a 1 istanza piccola </li><li> Medium: equivalente a 2 istanze piccole </li><li> Large: equivalente a 4 istanze piccole </li><li> Extra Large: equivalente a 8 istanze piccole </li> </ul>|
-| VM Istanze di calcolo di Microsoft Azure v2 | EA: 350 Core | VM GA IaaS v2:<ul><li> Gruppo A0\_A7: 350 core </li><li> Gruppo B\_A0\_A4: 350 core </li><li> Gruppo A8\_A9: 350 core </li><li> Gruppo DF: 350 core</li><li> Gruppo GF: 350 core </li></ul>|
+| VM Istanze di calcolo di Microsoft Azure v2 | EA: 350 core | VM GA IaaS v2:<ul><li> Gruppo A0\_A7: 350 core </li><li> Gruppo B\_A0\_A4: 350 core </li><li> Gruppo A8\_A9: 350 core </li><li> Gruppo DF: 350 core</li><li> Gruppo GF: 350 core </li></ul>|
 | Servizi ospitati di Microsoft Azure | 6 servizi ospitati | Il numero di servizi ospitati non può superare il limite di sei per singola sottoscrizione. Se sono necessari altri servizi ospitati, aggiungere altre sottoscrizioni. |
 | Archiviazione di Microsoft Azure | 5 account di archiviazione, ciascuno con una dimensione massima di 100 TB. | È possibile aumentare il numero di account di archiviazione fino a 20 per sottoscrizione. Se sono necessari altri account di archiviazione, aggiungere altre sottoscrizioni. |
 | SQL Azure | 149 database di entrambi i tipi, ovvero Web Edition o Business Edition. |   |
-| Controllo di accesso | 50 spazi dei nomi per account. 100 milioni di transazioni di Controllo di accesso al mese |   |
+| Controllo dell’accesso | 50 spazi dei nomi per account. 100 milioni di transazioni di Controllo di accesso al mese |   |
 | Bus di servizio | 50 spazi dei nomi per account. 40 connessioni del bus di servizio | I clienti che acquistano connessioni del bus di servizio tramite i pacchetti di connessione avranno quote uguali al punto medio tra il pacchetto di connessioni acquistato e la quantità del pacchetto di connessioni più alto successivo. I clienti che scelgono un pacchetto da 500 avranno una quota pari a 750. |
 
 ## <a name="resource-commitment"></a>Impegno delle risorse
@@ -228,7 +228,7 @@ Gli amministratori dell'organizzazione possono aggiungere nuovi proprietari di a
 
 ### <a name="existingnew-account-owners-to-create-new-subscriptions"></a>Proprietari di account nuovi o esistenti per creare nuove sottoscrizioni
 
-**Passaggio 1: accedere all'account**
+**Passaggio 1: Accedere all'account**
 1. In Azure EA Portal selezionare la scheda **Gestisci** e passare a **Sottoscrizione** nel menu in alto.
 1. Verificare di aver eseguito l'accesso come proprietario dell'account.
 1. Fare clic su **+Aggiungi sottoscrizione**.
@@ -238,7 +238,7 @@ La prima volta che si aggiunge una sottoscrizione a un account, è necessario sp
 
 La prima volta che si aggiunge una sottoscrizione all'account, viene chiesto di accettare il Contratto di Sottoscrizione Microsoft Online e un piano tariffario. Queste sezioni NON sono applicabili ai clienti del Contratto Enterprise, ma sono attualmente necessarie per il provisioning della sottoscrizione. L'emendamento della registrazione del Contratto Microsoft Azure Enterprise prevale sulle informazioni riportate in queste sezioni e la relazione contrattuale non cambia. Selezionare la casella che indica di accettare le condizioni.
 
-**Passaggio 2: aggiornare il nome della sottoscrizione**
+**Passaggio 2: Aggiornare il nome della sottoscrizione**
 
 Tutte le nuove sottoscrizioni vengono aggiunte con il nome predefinito "Microsoft Azure Enterprise". È importante aggiornare il nome della sottoscrizione per distinguerlo dalle altre sottoscrizioni all'interno della registrazione Enterprise e assicurarsi che sia riconoscibile sui report a livello aziendale.
 
@@ -259,11 +259,11 @@ Quando vengono aggiunti nuovi proprietari di account a una registrazione per la 
 
 Questo scenario si verifica quando il cliente ha distribuito servizi con il numero di registrazione errato o ha selezionato i servizi non corretti.
 
-Per verificare che la distribuzione venga eseguita in base alla registrazione corretta, è possibile controllare le informazioni sulle unità incluse tramite l'elenco dei prezzi. Accedere come amministratore dell'organizzazione e fare clic su **report** nel pannello di navigazione a sinistra e selezionare scheda **elenco prezzi** . fare clic sull'icona di download nell'angolo in alto a destra e trovare i numeri di parte dello SKU del piano corrispondenti con filtro sulla colonna "quantità inclusa" e selezionare valori maggiori di "0".
+Per verificare che la distribuzione venga eseguita in base alla registrazione corretta, è possibile controllare le informazioni sulle unità incluse tramite l'elenco dei prezzi. Accedere come amministratore dell'organizzazione, fare clic su **Report** nel riquadro di spostamento a sinistra e quindi selezionare la scheda **Elenco prezzi**. Fare clic sull'icona di download nell'angolo in alto a destra, trovare i numeri di parte degli SKU di piano corrispondenti impostando un filtro sulla colonna "Quantità inclusa" e quindi selezionare i valori maggiori di "0".
 
 Verificare che il piano OMS sia visualizzato nell'elenco dei prezzi tra le unità incluse. Se non sono presenti unità incluse per il piano OMS nella registrazione, il piano OMS potrebbe trovarsi in un'altra registrazione. Contattare il supporto di Azure Enterprise Portal all'indirizzo [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).
 
-Se le unità incluse per i servizi nell'elenco prezzi non corrispondono a quelle distribuite, ad esempio Operational Insights dati Premium analizzati rispetto a Operational Insights dati standard analizzati, significa che è possibile che siano stati distribuiti servizi che non sono coperti dal piano. contattare il supporto tecnico di Azure Enterprise Portal in [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport) per ottenere assistenza più approfondita.
+Se le unità incluse per i servizi nell'elenco dei prezzi non corrispondono a quelle distribuite, ad esempio Operational Insights Premium Data Analyzed rispetto a Operational Insights Standard Data Analyzed, significa che potrebbero essere stati distribuiti servizi che non sono coperti dal piano. Contattare il supporto di Azure Enterprise Portal all'indirizzo [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport) per ricevere assistenza.
 
 **Servizi SKU di piano di cui è stato effettuato il provisioning in una registrazione non valida**
 

@@ -1,5 +1,5 @@
 ---
-title: Ruoli di fatturazione per i contratti dei clienti Microsoft-Azure
+title: Ruoli di fatturazione per i Contratti del cliente Microsoft - Azure
 description: Questo articolo offre informazioni sui ruoli di fatturazione per gli account di fatturazione di Azure per i contratti dei clienti Microsoft.
 author: amberbhargava
 manager: amberbhargava
@@ -11,10 +11,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: eaec828abe83164d18796cfb2e795a363353fab4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75987941"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Informazioni sui ruoli amministrativi per i contratti dei clienti Microsoft in Azure
@@ -27,7 +27,7 @@ Questo articolo di applica a un account di fatturazione per un Contratto del cli
 
 La tabella seguente descrive i ruoli di fatturazione usati per gestire l'account di fatturazione, i profili di fatturazione e le sezioni delle fatture.
 
-|Ruolo|Description|
+|Ruolo|Descrizione|
 |---|---|
 |Proprietario dell'account di fatturazione|Consente di gestire tutti gli elementi per l'account di fatturazione|
 |Collaboratore per l'account di fatturazione|Consente di gestire tutti gli elementi ad eccezione delle autorizzazioni nell'account di fatturazione|
@@ -203,7 +203,7 @@ La tabella seguente indica il ruolo necessario per completare le attività nel c
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificare l'accesso a un Contratto del cliente Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Opzioni per Contattare il supporto tecnico
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 Se si necessita assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
 ## <a name="next-steps"></a>Passaggi successivi

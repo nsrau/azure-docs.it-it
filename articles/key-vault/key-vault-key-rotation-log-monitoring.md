@@ -36,7 +36,7 @@ Questo articolo illustra:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="set-up-key-vault"></a>Configurare il servizio Key Vault
+## <a name="set-up-key-vault"></a>Configurare l'insieme di credenziali delle chiavi
 
 Per consentire a un'applicazione di recuperare un segreto dall'insieme di credenziali delle chiavi, è prima necessario creare il segreto e caricarlo nell'insieme di credenziali.
 
@@ -189,7 +189,7 @@ In **Asset**selezionare **moduli**. Selezionare **raccolta**, quindi cercare e i
 > [!NOTE]
 > Al momento della stesura di questo articolo è necessario aggiornare solo i moduli indicati in precedenza per lo script seguente. Se il processo di automazione non riesce, verificare di aver importato tutti i moduli necessari e le relative dipendenze.
 
-Dopo aver recuperato l'ID applicazione per la connessione di automazione di Azure, è necessario indicare all'insieme di credenziali delle chiavi che l'applicazione è autorizzata ad aggiornare i segreti nell'insieme di credenziali. Usare il comando di PowerShell seguente:
+Dopo aver recuperato l'ID applicazione per la connessione di automazione di Azure, è necessario indicare all'insieme di credenziali delle chiavi che l'applicazione è autorizzata ad aggiornare i segreti nell'insieme di credenziali. Usare il seguente comando PowerShell:
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set

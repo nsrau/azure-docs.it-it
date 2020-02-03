@@ -55,7 +55,7 @@ I dati sono locali o nel cloud? Le posizioni possibili includono:
 Dove devono trovarsi i dati per l'elaborazione o la modellazione? 
 
 * Archiviazione BLOB di Azure
-* Database SQL Azure
+* database SQL Azure
 * SQL Server in una macchina virtuale Azure
 * Tabelle Hive o HDInsight (Hadoop in Azure)
 * Azure Machine Learning
@@ -139,7 +139,7 @@ Sono disponibili numerose opzioni relative a linguaggi, ambienti di sviluppo e s
 
 ### <a name="what-languages-do-you-prefer-to-use-for-analysis"></a>Quali linguaggi si preferisce usare per l'analisi?
 
-* R
+* V
 * Python
 * SQL
 

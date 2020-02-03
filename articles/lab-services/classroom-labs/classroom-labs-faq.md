@@ -58,7 +58,7 @@ Sottoscrivere il [blog Azure Lab Services](https://azure.microsoft.com/blog/tag/
 ## <a name="update-notifications"></a>Notifiche degli aggiornamenti
 Sottoscrivere [gli aggiornamenti di Lab Services](https://azure.microsoft.com/updates/?product=lab-services) per rimanere sempre aggiornati sulle nuove funzionalità di Lab Services.
 
-## <a name="general"></a>Informazioni di carattere generale
+## <a name="general"></a>Generale
 ### <a name="what-if-my-question-isnt-answered-here"></a>Cosa fare se non è disponibile una risposta alla domanda?
 Se la domanda non è elencata, è possibile inviarla a Microsoft, per consentire di trovare una risposta.
 

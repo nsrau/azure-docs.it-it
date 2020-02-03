@@ -1,21 +1,20 @@
 ---
 title: Panoramica di Cloudyn in Azure | Microsoft Docs
 description: Cloudyn è una soluzione di gestione dei costi multi-cloud che consente di usare Azure e altre risorse cloud.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/14/2019
+ms.date: 01/24/2020
 ms.topic: overview
 ms.service: cost-management-billing
-manager: benshy
+ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: d4a31518dcd6fb5722fc19617b153bafb8a20f68
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bfd00613a3949b29e2defcb6f97398a39091d0e6
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982989"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76774049"
 ---
 # <a name="what-is-the-cloudyn-service"></a>Che cos'è il servizio Cloudyn?
 

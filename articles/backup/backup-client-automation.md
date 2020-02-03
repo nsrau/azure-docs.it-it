@@ -111,7 +111,7 @@ MARSAgentInstaller.exe /?
 
 Le opzioni disponibili includono:
 
-| Opzione | Dettagli | Predefinito |
+| Opzione | Dettagli | Default |
 | --- | --- | --- |
 | /q |Installazione non interattiva |- |
 | /p:"location" |Percorso della cartella di installazione per l'agente di Backup di Azure. |C:\Programmi\Agente di Servizi di ripristino di Microsoft Azure |

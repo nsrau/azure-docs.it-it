@@ -8,12 +8,12 @@ ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: effc7dfb8ca540d044b5698b90b3195da0f29b19
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
-ms.translationtype: MT
+ms.openlocfilehash: dfb46a40291a74cb8a2c172700f621ef835ef50e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547575"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769660"
 ---
 # <a name="azure-ea-portal-administration"></a>Amministrazione di Azure EA Portal
 
@@ -21,7 +21,7 @@ Questo articolo illustra le attività comuni eseguite da un amministratore in Az
 
 ## <a name="add-a-new-enterprise-administrator"></a>Aggiungere un nuovo amministratore dell'organizzazione
 
-Gli amministratori dell'organizzazione hanno il maggior numero di privilegi per la gestione di una registrazione EA di Azure. Il primo amministratore EA di Azure è stato creato al momento della configurazione del contratto Enterprise Agreement. Tuttavia, è possibile aggiungere o rimuovere nuovi amministratori in qualsiasi momento. I nuovi amministratori possono essere aggiunti solo dagli amministratori esistenti. Per ulteriori informazioni sull'aggiunta di altri amministratori dell'organizzazione, vedere [creare un altro](ea-portal-get-started.md#create-another-enterprise-admin)amministratore dell'organizzazione. Per ulteriori informazioni sui ruoli del profilo di fatturazione e le attività, vedere [ruoli e attività del profilo di fatturazione](understand-mca-roles.md#billing-profile-roles-and-tasks).
+Gli amministratori dell'organizzazione hanno il maggior numero di privilegi per la gestione di una registrazione EA di Azure. Il primo amministratore EA di Azure è stato creato al momento della configurazione del contratto Enterprise Agreement. Tuttavia, è possibile aggiungere o rimuovere nuovi amministratori in qualsiasi momento. I nuovi amministratori possono essere aggiunti solo dagli amministratori esistenti. Per altre informazioni sull'aggiunta di altri amministratori dell'organizzazione, vedere [Creare un altro amministratore dell'organizzazione](ea-portal-get-started.md#create-another-enterprise-administrator). Per altre informazioni sui ruoli e le attività del profilo di fatturazione, vedere [Ruoli e attività del profilo di fatturazione](understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## <a name="update-user-state-from-pending-to-active"></a>Aggiornare lo stato dell'utente da in sospeso ad attivo
 
@@ -31,7 +31,7 @@ Quando vengono aggiunti nuovi proprietari di account a una registrazione EA di A
 
 Dopo che un amministratore EA di Azure ha creato un reparto, l'amministratore dell'organizzazione di Azure può aggiungere amministratori di reparto e associare ognuno a un reparto. Un amministratore del reparto può creare nuovi account. I nuovi account sono necessari per la creazione di sottoscrizioni EA di Azure.
 
-Per altre informazioni sull'aggiunta di un amministratore di reparto, vedere [Creare un amministratore di reparto EA di Azure](ea-portal-get-started.md#add-a-department-admin).
+Per altre informazioni sull'aggiunta di un amministratore di reparto, vedere [Creare un amministratore di reparto EA di Azure](ea-portal-get-started.md#add-a-department-administrator).
 
 ## <a name="associate-an-account-to-a-department"></a>Associare un account a un reparto
 
@@ -63,7 +63,7 @@ L'amministratore del reparto può visualizzare la quota di spesa, ma l'importo d
     - In questa fase è anche possibile modificare il nome del reparto e il centro di costo.
  1. Premere **Salva**.
 
-La quota di spesa del reparto sarà ora visibile nella visualizzazione elenco reparto sotto la scheda Department. Al termine dell'impegno corrente, il portale di Azure EA manterrà le quote di spesa per il periodo di impegno successivo.
+La quota di spesa del reparto sarà ora visibile nella visualizzazione dell'elenco dei reparti nella scheda Reparto. Al termine dell'impegno corrente, Azure EA Portal manterrà le quote di spesa per il periodo di impegno successivo.
 
 L'importo della quota del reparto è indipendente dall'impegno monetario corrente e gli avvisi e l'importo della quota sono validi solo per l'utilizzo da parte del produttore. La quota di spesa del reparto è solo a scopo informativo e non impone limiti di spesa.
 
@@ -124,7 +124,7 @@ Quando si trasferisce un account aziendale in una nuova registrazione, tenere pr
 - Vengono trasferiti solo gli account specificati nella richiesta. Se si selezionano tutti gli account, vengono trasferiti tutti.
 - La registrazione di origine mantiene il proprio stato come attiva o estesa. È possibile continuare a usarla fino alla scadenza.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
 Quando si richiede il trasferimento di un account, fornire le informazioni seguenti:
 
@@ -164,7 +164,7 @@ La data di validità del trasferimento può essere una data corrispondente o suc
 
 L'utilizzo della registrazione di origine viene addebitato in base all'impegno monetario o come eccedenza. L'utilizzo che ha luogo dopo la data di trasferimento effettiva viene trasferito alla nuova registrazione e addebitato di conseguenza.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
 Quando si richiede il trasferimento di una registrazione, fornire le informazioni seguenti:
 

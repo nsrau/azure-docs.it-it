@@ -113,7 +113,7 @@ Se si vuole eseguire il provisioning degli utenti solo al primo accesso all'appl
 
 SAML JIT usa le informazioni sulle attestazioni nel token SAML per creare e aggiornare le informazioni utente nell'applicazione. I clienti possono configurare queste attestazioni richieste nell'applicazione Azure AD in base alle esigenze. In alcuni casi è necessario abilitare il provisioning JIT dal lato dell'applicazione in modo che il cliente possa usare questa funzionalità. Il protocollo JIT SAML è utile per la creazione e l'aggiornamento degli utenti, ma non può eliminare o disattivare gli utenti nell'applicazione.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 * [Abilitare l'accesso Single Sign-on per l'applicazione](isv-sso-content.md)
 

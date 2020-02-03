@@ -11,10 +11,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 99ceebe0825c868e40f6a68f44ca55eee91f087c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992777"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Creare i servizi inclusi nell'account gratuito di Azure
@@ -34,7 +34,7 @@ Per informazioni sulla disponibilità dei servizi di Azure per area, vedere [Pro
 ## <a name="create-multiple-service-instances-in-allowed-limits"></a>Creare più istanze dei servizi nei limiti consentiti
 È possibile creare gratuitamente più istanze dei servizi purché la somma dell'utilizzo non superi il limite di utilizzo. Ad esempio, con l'account gratuito Azure sono disponibili 750 ore gratuite di macchina virtuale B1S di Windows. È possibile usare 750 ore in qualsiasi combinazione. Ad esempio, è possibile creare 5 macchine virtuali B1S di Windows e usarle ciascuna per 150 ore.
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 

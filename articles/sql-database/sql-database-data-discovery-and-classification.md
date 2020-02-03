@@ -88,7 +88,7 @@ Una volta definiti i criteri a livello di tenant, è possibile continuare con la
 
 4. Per scaricare un report in formato Excel, fare clic sull'opzione **Esporta** nel menu superiore della finestra.
 
-   ![Eseguire l'esportazione in Excel](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png)
+   ![Esportare in Excel](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png)
 
 5. <a id="step-5"></a>Per iniziare la classificazione dei dati, fare clic sulla scheda **Classificazione** nella parte superiore della finestra.
 

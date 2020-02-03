@@ -83,7 +83,7 @@ Per pulire i dati, eliminare alcune colonne non rilevanti per il modello. A tale
 1. Trascinare il modulo **Select Columns in DataSet** in **Data Transformation < Manipulation** nell'area di disegno. Connettere questo modulo al modulo **Import Data** .
 2. Fare clic su **Launch column selector** nel riquadro Proprietà per specificare le colonne da eliminare.
 
-   ![Colonne progetto](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4-projectcolumns-new.png)
+   ![Project Columns](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4-projectcolumns-new.png)
 3. Escludere due colonne: CustomerAlternateKey e GeographyKey.
 
    ![Rimuovere le colonne non necessarie](media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5-columnselector-new.png)

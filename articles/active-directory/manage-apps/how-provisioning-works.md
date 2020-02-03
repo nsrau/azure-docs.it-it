@@ -24,7 +24,7 @@ ms.locfileid: "76711556"
 ---
 # <a name="how-provisioning-works"></a>Come funziona il provisioning
 
-Il provisioning automatico si riferisce alla creazione di identità e ruoli utente nelle applicazioni cloud a cui gli utenti devono accedere. Oltre a creare le identità utente, il provisioning automatico include la manutenzione e la rimozione delle identità utente durante la modifica dello stato o dei ruoli. Prima di iniziare una distribuzione, è possibile leggere questo articolo per informazioni sul funzionamento del provisioning di Azure AD e ottenere consigli sulla configurazione. 
+Il provisioning automatico si riferisce alla creazione di identità e ruoli utente nelle applicazioni cloud a cui gli utenti devono accedere. Oltre a creare le identità utente, il provisioning automatico include la manutenzione e la rimozione delle identità utente quando lo stato o i ruoli cambiano. Prima di iniziare una distribuzione, è possibile leggere questo articolo per informazioni sul funzionamento del provisioning di Azure AD e ottenere consigli sulla configurazione. 
 
 Il **servizio di provisioning Azure ad esegue il provisioning** degli utenti nelle app SaaS e in altri sistemi connettendosi a un endpoint dell'API di gestione utenti di gestione delle identità tra domini (SCIM) 2,0 fornito dal fornitore dell'applicazione. Questo endpoint SCIM consente Azure AD di creare, aggiornare e rimuovere gli utenti a livello di codice. Per le applicazioni selezionate, il servizio di provisioning può anche creare, aggiornare e rimuovere oggetti correlati all'identità aggiuntivi, ad esempio gruppi e ruoli. Il canale usato per il provisioning tra Azure AD e l'applicazione viene crittografato con la crittografia SSL HTTPS.
 
@@ -44,7 +44,7 @@ Il servizio di provisioning Azure AD usa il [protocollo SCIM 2,0](https://techco
 
 Per richiedere un connettore di provisioning automatico Azure AD per un'app che attualmente non dispone di un connettore, compilare una [richiesta Azure Active Directory applicazione](https://aka.ms/aadapprequest).
 
-## <a name="authorization"></a>Autorizzazione
+## <a name="authorization"></a>Authorization
 
 Per Azure AD connettersi all'API di gestione degli utenti dell'applicazione, sono necessarie le credenziali. Durante la configurazione del provisioning utenti automatico per un'applicazione, è necessario immettere credenziali valide. È possibile trovare i tipi di credenziali e i requisiti per l'applicazione facendo riferimento all'esercitazione sull'app. Nel portale di Azure sarà possibile testare le credenziali con Azure AD tentativo di connessione all'app di provisioning dell'app con le credenziali fornite.
 
@@ -62,7 +62,7 @@ Quando si configura il provisioning, è importante esaminare e configurare i map
 
 Quando si configura il provisioning in un'applicazione SaaS, come mapping degli attributi è possibile specificare il mapping di espressioni. Per questi mapping è necessario scrivere un'espressione simile a uno script che consente di trasformare i dati degli utenti in formati più accettabili per l'applicazione SaaS. Per informazioni dettagliate, vedere [scrittura di espressioni per i mapping degli attributi](functions-for-customizing-application-data.md).
 
-## <a name="scoping"></a>Scoping 
+## <a name="scoping"></a>Definizione dell'ambito 
 ### <a name="assignment-based-scoping"></a>Ambito basato sull'assegnazione
 
 Per il provisioning in uscita da Azure AD a un'applicazione SaaS, basarsi sulle [assegnazioni di utenti o gruppi](assign-user-or-group-access-portal.md) è il modo più comune per determinare quali utenti sono inclusi nell'ambito del provisioning. Poiché le assegnazioni utente vengono usate anche per l'abilitazione di Single Sign-On, è possibile usare lo stesso metodo per gestire l'accesso e il provisioning. L'ambito basato sull'assegnazione non si applica agli scenari di provisioning in ingresso, ad esempio giorni lavorativi e SuccessFactors.
@@ -188,7 +188,7 @@ Se si verifica uno dei quattro eventi precedenti e l'applicazione di destinazion
 
 Se viene visualizzato un attributo IsSoftDeleted nei mapping degli attributi, viene usato per determinare lo stato dell'utente e se inviare una richiesta di aggiornamento con Active = false per eliminare temporaneamente l'utente. 
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 [Pianificare una distribuzione automatica del provisioning utenti](plan-auto-user-provisioning.md)
 

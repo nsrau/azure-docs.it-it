@@ -21,7 +21,7 @@ ms.locfileid: "76721048"
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Risoluzione dei problemi relativi a SQL Data Warehouse di Azure
 In questo articolo sono elencate le domande frequenti relative alla risoluzione dei problemi.
 
-## <a name="connecting"></a>Connecting
+## <a name="connecting"></a>Connessione in corso
 | Problema                                                        | Risoluzione                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Accesso non riuscito per l'utente 'NT AUTHORITY\ANONYMOUS LOGON'. (Microsoft SQL Server, Errore: 18456) | Questo errore si verifica quando un utente AAD tenta di connettersi al database master, ma non dispone di un utente nel database master.  Per risolvere questo problema specificare l'istanza di SQL Data Warehouse a cui si desidera connettersi al momento della connessione o aggiungere l'utente al database master.  Per ulteriori dettagli, vedere l'articolo [Panoramica della sicurezza](sql-data-warehouse-overview-manage-security.md) . |
@@ -37,7 +37,7 @@ In questo articolo sono elencate le domande frequenti relative alla risoluzione 
 | La creazione manuale di script, l'utilizzo di script o la connessione tramite SSMS è lenta, non risponde o produce errori | Assicurarsi che gli utenti siano stati creati nel database master. Nelle opzioni di scripting, assicurarsi inoltre che l'edizione del motore sia impostata come "Edizione Microsoft Azure SQL Data Warehouse" e che il tipo di motore sia "Database SQL di Microsoft Azure". |
 | Errore della generazione di script in SSMS                               | La generazione di uno script per SQL Data Warehouse ha esito negativo se l'opzione "genera script per oggetti dipendenti" è impostata su "true". Come soluzione alternativa, gli utenti devono passare manualmente a **strumenti-> Opzioni-> Esplora oggetti di SQL Server-> generare uno script per le opzioni dipendenti e impostare su false** |
 
-## <a name="performance"></a>Performance
+## <a name="performance"></a>Prestazioni
 | Problema                                                        | Risoluzione                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Risoluzione dei problemi di prestazioni delle query                            | Se si sta cercando di risolvere i problemi relativi a una determinata query, un ottimo punto di partenza è l'articolo su come [imparare a monitorare le query](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md#monitor-query-execution). |

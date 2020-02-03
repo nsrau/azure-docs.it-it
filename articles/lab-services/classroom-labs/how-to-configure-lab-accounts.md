@@ -30,7 +30,7 @@ Per connettere una rete virtuale come rete peer alla rete virtuale del Lab, segu
 
     ![Pagina di configurazione Labs](../media/how-to-manage-lab-accounts/labs-configuration-page.png) 
 1. Per **rete virtuale peer**selezionare **abilitato** o **disabilitato**. Il valore predefinito è **disabled**. Per abilitare la rete virtuale peer, seguire questa procedura: 
-    1. Selezionare **Enabled**.
+    1. Selezionare **Abilitato**.
     2. Selezionare **VNet** dall'elenco a discesa. 
 3. Sulla barra degli strumenti selezionare **Salva**. 
 

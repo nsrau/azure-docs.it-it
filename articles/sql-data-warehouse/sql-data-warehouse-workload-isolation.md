@@ -1,5 +1,5 @@
 ---
-title: Isolamento del carico di lavoro
+title: Isolamento dei carichi di lavoro
 description: Linee guida per l'impostazione dell'isolamento del carico di lavoro con i gruppi del carico Azure SQL Data Warehouse di lavoro
 services: sql-data-warehouse
 author: ronortloff
@@ -28,7 +28,7 @@ I gruppi del carico di lavoro sono contenitori per un set di richieste e costitu
 
 Nelle sezioni seguenti viene evidenziato in che modo i gruppi del carico di lavoro consentono di definire l'isolamento, il contenimento, la definizione delle risorse di richiesta e di rispettare le regole di esecuzione.
 
-## <a name="workload-isolation"></a>Isolamento del carico di lavoro
+## <a name="workload-isolation"></a>Isolamento dei carichi di lavoro
 
 L'isolamento del carico di lavoro significa che le risorse sono riservate esclusivamente per un gruppo di carico di lavoro.  Per ottenere l'isolamento del carico di lavoro, è necessario configurare il parametro MIN_PERCENTAGE_RESOURCE su un valore maggiore di zero nella sintassi [create workload Group](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) .  Per i carichi di lavoro di esecuzione continua che devono essere conformi a contratti di sicurezza limitati, l'isolamento garantisce che le risorse siano sempre disponibili per il gruppo del carico di lavoro 
 

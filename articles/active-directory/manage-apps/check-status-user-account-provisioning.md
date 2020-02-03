@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) include un [servizio di provisioning degli acc
 
 In questo articolo viene descritto come controllare lo stato dei processi di provisioning in seguito alla loro configurazione e come risolvere i problemi di provisioning di singoli utenti e gruppi.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 I connettori di provisioning vengono impostati e configurati tramite il [portale di Azure](https://portal.azure.com) in base alla [documentazione disponibile](../saas-apps/tutorial-list.md) per l'applicazione supportata. Una volta configurati e in esecuzione, i processi di provisioning possono essere segnalati tramite uno dei due metodi seguenti:
 

@@ -22,7 +22,7 @@ Azure Machine Learning offre diversi modi per eseguire il training dei modelli, 
 
 + [SDK di Azure Machine Learning per Python](#python-sdk): Python SDK offre diversi modi per eseguire il training dei modelli, ognuno con funzionalità diverse.
 
-    | Metodo di training | Description |
+    | Metodo di training | Descrizione |
     | ----- | ----- |
     | [Configurazione di esecuzione](#run-configuration) | Un **modo generico per** eseguire il training di modelli consiste nell'usare uno script di training ed eseguire la configurazione. La configurazione di esecuzione fornisce le informazioni necessarie per configurare l'ambiente di training utilizzato per il training del modello. È possibile eseguire una configurazione di esecuzione, uno script di training e una destinazione di calcolo (ambiente di training) ed eseguire un processo di training. |
     | [Machine Learning automatizzato](#automated-machine-learning) | Automatizzato Machine Learning consente di eseguire il **training di modelli senza approfondite Data Science o conoscenze di programmazione**. Per gli utenti con data science e la programmazione, fornisce un modo per risparmiare tempo e risorse automatizzando la selezione dell'algoritmo e l'ottimizzazione degli iperparametri. Non è necessario preoccuparsi di definire una configurazione di esecuzione quando si usa Machine Learning automatizzato. |

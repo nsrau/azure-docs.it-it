@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 83937e31d844ba0cc8efc17f1ecefa2ad6e7a7c1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992829"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Controllare l'uso dei servizi gratuiti inclusi con l'account gratuito di Azure
@@ -38,19 +38,19 @@ I costi dei servizi inclusi gratuitamente in un account Azure gratuito non vengo
 
     La tabella è composta dalle colonne seguenti:
 
-* **Contatore:** Identifica l'unità di misura per il servizio utilizzato.
-* **Uso/Limite:** uso e limite del mese attuale per il misuratore.
-* **Stato:** Stato di utilizzo del servizio. In base all'utilizzo, sarà mostrato uno degli stati seguenti:
-  * **Non in uso:** Il contatore non è stato usato o l'utilizzo per il contatore non ha raggiunto il sistema di fatturazione.
-  * **Il limite è stato superato il giorno \<Date>:** il limite per il misuratore è stato superato il giorno \<Date>.
-  * È **improbabile che superi:** È improbabile che venga superato il limite per il contatore.
-  * **Supera \<> di data:** È probabile che venga superato il limite per il contatore in \<data >.
+* **Contatore:** identifica l'unità di misura per il servizio utilizzato.
+* **Utilizzo/Limite:** utilizzo e limite del mese attuale per il misuratore.
+* **Stato:** stato di utilizzo del servizio. In base all'utilizzo, sarà mostrato uno degli stati seguenti:
+  * **Non in uso:** il misuratore non è stato usato o l'uso del misuratore non ha raggiunto il sistema di fatturazione.
+  * **Il limite è stato superato il giorno \<Data>:** il limite per il misuratore è stato superato il giorno \<Data>.
+  * **Il superamento è improbabile:** è improbabile che il limite per il misuratore verrà superato.
+  * **Data del superamento \<Data>:** è improbabile che il limite per il misuratore verrà superato il giorno \<Data>.
 
 > [!IMPORTANT]
 >
 > I servizi gratuiti sono disponibili solo per la sottoscrizione creata al momento dell'iscrizione per l'account Azure gratuito. Se la tabella dei servizi gratuiti non è visualizzata nella pagina della panoramica della sottoscrizione, i servizi gratuiti non sono disponibili per la sottoscrizione.
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 

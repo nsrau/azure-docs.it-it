@@ -20,7 +20,7 @@ ms.locfileid: "76721626"
 La scheda **Marketplace** della pagina **Nuova offerta** consente di offrire ai clienti potenziali informazioni e contratti legali, di vendita e marketing e di gestire i clienti potenziali generati dal marketplace. Questa modulo di grandi dimensioni è suddiviso in quattro sezioni: **Overview** (Panoramica), **Marketing Artifacts** (Artefatti di marketing), **Lead Management** (Gestione clienti potenziali) e **Legal** (Legale).
 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 In questa sezione immettere le informazioni generali sull'offerta di Azure Marketplace.  Un asterisco (*) accodato al nome del campo indica che si tratta di un campo obbligatorio.
 
@@ -33,8 +33,8 @@ La tabella seguente descrive lo scopo e il contenuto di questi campi. I campi ob
 | **\* titolo**                 | Titolo dell'offerta. Verrà visualizzato in posizione prominente nel marketplace.  La lunghezza massima consentita è di 50 caratteri. <!--ADD PICTURE IN ACTION-->|
 | **Riepilogo\***               | Breve riepilogo dell'offerta. La lunghezza massima consentita è di 100 caratteri. <!--ADD PICTURE IN ACTION-->|
 | **\* di riepilogo lungo**          | Riepilogo più lungo dell'offerta (sebbene possa essere coincidere con il **riepilogo**).  La lunghezza massima consentita è di 256 caratteri. <!--ADD PICTURE IN ACTION-->|
-| **Descrizione\***           | Descrizione dell'offerta.  La lunghezza massima consentita è di 3000 caratteri. Supporta la formattazione HTML semplice.<br/> Deve includere un paragrafo di *requisiti hardware minimi* nella parte inferiore, ad esempio: <br/> <p><u>Requisiti hardware minimi:</u> sistema operativo Linux x64 e arm32, 1 GB di RAM, risorsa di archiviazione da 500 MB</p>
-| **Identificatore marketing\***  | URL univoco da associare a questa offerta. Include in genere il nome dell'organizzazione e della soluzione. La lunghezza massima consentita è di 50 caratteri.  Ad esempio: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
+| **Descrizione\***           | Descrizione dell'offerta.  La lunghezza massima consentita è di 3000 caratteri. Supporta la formattazione HTML semplice.<br/> Deve includere un paragrafo di *requisiti hardware minimi* nella parte inferiore, Ad esempio: <br/> <p><u>Requisiti hardware minimi:</u> sistema operativo Linux x64 e arm32, 1 GB di RAM, risorsa di archiviazione da 500 MB</p>
+| **Identificatore marketing\***  | URL univoco da associare a questa offerta. Include in genere il nome dell'organizzazione e della soluzione. La lunghezza massima consentita è di 50 caratteri.  Ad esempio, <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
 | **Preview Subscription IDs** (ID sottoscrizione di anteprima) | Aggiungere da uno a 100 identificatori di sottoscrizione di visualizzatori anteprima. Queste sottoscrizioni consentite avranno accesso all'offerta dopo la pubblicazione, prima che venga attivata. |
 | **Collegamenti utili**          | Selezione multipla di categorie commerciali e tecniche a cui associare l'offerta in modo ottimale.  È consentita una selezione massima di 10 elementi. Assicurarsi di aggiungere almeno un collegamento alla documentazione e un collegamento ai dispositivi IoT Edge compatibili dal [catalogo di dispositivi Azure IoT](https://catalog.azureiotsolutions.com/). |
 | **Categorie suggerite\*** | Scegliere fino a cinque categorie. Verranno visualizzati nella pagina dei dettagli del prodotto. Nelle pagine del browser tutti i moduli IoT Edge vengono visualizzati nella categoria *Internet delle cose \> Modulo IoT Edge*.|
@@ -136,7 +136,7 @@ As an example, the following hero icon is for the Azure Container Service.
 -->
 
 
-## <a name="lead-management"></a>Gestione dei lead
+## <a name="lead-management"></a>Lead management (Gestione di clienti potenziali)
 
 Questa sezione consente di configurare le opzioni per la raccolta dei clienti potenziali generati dalle offerte di Azure Marketplace. È possibile selezionare le opzioni di archiviazione seguenti da un elenco a discesa.
 

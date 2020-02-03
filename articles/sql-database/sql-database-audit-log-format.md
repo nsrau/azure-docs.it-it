@@ -43,7 +43,7 @@ Gli eventi di controllo vengono scritti nell'area di lavoro Log Analytics defini
 
 ## <a id="subheading-1"></a>Campi del log di controllo
 
-| Nome (BLOB) | Nome (hub eventi/Log Analytics) | Description | Tipo di BLOB | Tipo di hub eventi/Log Analytics |
+| Nome (BLOB) | Nome (hub eventi/Log Analytics) | Descrizione | Tipo BLOB | Tipo di hub eventi/Log Analytics |
 |-------------|---------------------------------|-------------|-----------|-------------------------------|
 | action_id | action_id_s | ID dell'azione. | varchar(4) | string |
 | action_name | action_name_s | Nome dell'azione | N/D | string |
@@ -60,7 +60,7 @@ Gli eventi di controllo vengono scritti nell'area di lavoro Log Analytics defini
 | database_principal_id | database_principal_id_d | ID del contesto utente del database in cui viene eseguita l'azione | int | int |
 | database_principal_name | database_principal_name_s | Nome del contesto utente del database in cui viene eseguita l'azione | sysname | string |
 | duration_milliseconds | duration_milliseconds_d | Durata esecuzione query in millisecondi | bigint | int |
-| event_time | event_time_t | Data e ora in cui viene attivata l'azione controllabile | datetime2 | Datetime |
+| event_time | event_time_t | Data e ora in cui viene attivata l'azione controllabile | datetime2 | datetime |
 | host_name | N/D | Nome host client | string | N/D |
 | is_column_permission | is_column_permission_s | Flag che indica se si tratta di un'autorizzazione a livello di colonna. 1 = true, 0 = false | bit | string |
 | N/D | is_server_level_audit_s | Flag che indica se il controllo è a livello di server | N/D | string |
@@ -76,9 +76,9 @@ Gli eventi di controllo vengono scritti nell'area di lavoro Log Analytics defini
 | server_principal_id | server_principal_id_d | ID del contesto di accesso in cui viene eseguita l'azione | int | int |
 | server_principal_name | server_principal_name_s | Account di accesso corrente | sysname | string |
 | server_principal_sid | server_principal_sid_s | SID di accesso corrente | varbinary | string |
-| session_id | session_id_d | ID della sessione in cui si è verificato l'evento | SMALLINT | int |
+| session_id | session_id_d | ID della sessione in cui si è verificato l'evento | smallint | int |
 | session_server_principal_name | session_server_principal_name_s | Entità server per la sessione | sysname | string |
-| istruzione | statement_s | Istruzione T-SQL eseguita (se presente) | nvarchar(4000) | string |
+| statement | statement_s | Istruzione T-SQL eseguita (se presente) | nvarchar(4000) | string |
 | succeeded | succeeded_s | Indica se l'azione che ha generato l'evento è riuscita. Per gli eventi diversi da login e batch, questo indica solo se il controllo delle autorizzazioni ha avuto esito positivo o negativo, non l'operazione. 1 = esito positivo, 0 = esito negativo | bit | string |
 | target_database_principal_id | target_database_principal_id_d | Entità database su cui viene eseguita un'operazione GRANT/DENY/REVOKE. 0 se non applicabile | int | int |
 | target_database_principal_name | target_database_principal_name_s | Utente di destinazione dell'azione. NULL se non applicabile | string | string |
@@ -86,9 +86,9 @@ Gli eventi di controllo vengono scritti nell'area di lavoro Log Analytics defini
 | target_server_principal_name | target_server_principal_name_s | Account di accesso di destinazione dell'azione. NULL se non applicabile | sysname | string |
 | target_server_principal_sid | target_server_principal_sid_s | SID dell'account di accesso di destinazione. NULL se non applicabile | varbinary | string |
 | transaction_id | transaction_id_d | Solo SQL Server (a partire da 2016)-0 per il database SQL di Azure | bigint | int |
-| user_defined_event_id | user_defined_event_id_d | ID evento definito dall'utente passato come argomento per sp_audit_write. NULL per gli eventi di sistema (impostazione predefinita) e diverso da zero per l'evento definito dall'utente. Per ulteriori informazioni, vedere [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | SMALLINT | int |
+| user_defined_event_id | user_defined_event_id_d | ID evento definito dall'utente passato come argomento per sp_audit_write. NULL per gli eventi di sistema (impostazione predefinita) e diverso da zero per l'evento definito dall'utente. Per ulteriori informazioni, vedere [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | smallint | int |
 | user_defined_information | user_defined_information_s | Informazioni definite dall'utente passate come argomento per sp_audit_write. NULL per gli eventi di sistema (impostazione predefinita) e diverso da zero per l'evento definito dall'utente. Per ulteriori informazioni, vedere [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar(4000) | string |
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni sul [controllo del database SQL di Azure](sql-database-auditing.md).

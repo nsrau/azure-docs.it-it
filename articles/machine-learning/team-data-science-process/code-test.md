@@ -26,7 +26,7 @@ Il "testing unità" è una prassi consolidata dello sviluppo di software. Tuttav
 
 * Preparazione dei dati
 * Analisi della qualità dei dati
-* Creazione di modelli
+* Modellazione
 * Distribuzione di modelli 
 
 In questo articolo il termine "testing unità" è sostituito con "test del codice". Il termine si riferisce alle funzioni che consentono di valutare se il codice di una fase specifica di un ciclo di vita di data science produce i risultati previsti. La persona che scrive il test definisce i risultati previsti, a seconda del risultato della funzione, ad esempio del controllo della qualità o della modellazione dei dati.

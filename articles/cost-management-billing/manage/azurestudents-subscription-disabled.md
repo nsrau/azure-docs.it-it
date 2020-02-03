@@ -13,10 +13,10 @@ ms.date: 03/01/2018
 ms.author: banders
 ROBOTS: NOINDEX
 ms.openlocfilehash: 111b95ddcff3667fa3f1e7df694af1d38887710f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75990021"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>Perché la sottoscrizione di Azure per studenti è disabilitata e cosa occorre fare per riattivarla?
@@ -52,6 +52,6 @@ Il credito di Azure per studenti scade al termine dei 12 mesi. Una volta scaduto
 
 Se la sottoscrizione di Azure for Students è stata annullata per errore, è possibile riattivarla contattando il [supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Dopo la riattivazione si avrà accesso al credito rimanente e ai servizi gratuiti per 12 mesi dalla data di iscrizione.
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).

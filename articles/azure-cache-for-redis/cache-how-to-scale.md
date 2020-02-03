@@ -22,16 +22,16 @@ Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilit
 Per determinare se è necessario un ridimensionamento è possibile monitorare le metriche seguenti.
 
 * Carico server Redis
-* Utilizzo della memoria
-* Larghezza di banda della rete
-* Utilizzo di CPU
+* Utilizzo memoria
+* Larghezza di banda di rete
+* Utilizzo CPU
 
 Se si determina che la cache non soddisfa più i requisiti dell'applicazione, è possibile ridimensionare la cache in base a un piano tariffario superiore o inferiore che sia adatto all'applicazione. Per altre informazioni su come determinare il tipo di piano tariffario della cache appropriato, vedere l'articolo relativo all' [offerta e alle dimensioni di Cache Redis da usare](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
 
 ## <a name="scale-a-cache"></a>Ridimensionare una cache
 Per ridimensionare la cache, [accedere alla cache](cache-configure.md#configure-azure-cache-for-redis-settings) nel [portale di Azure](https://portal.azure.com) e fare clic su **Ridimensionare** nel **menu Risorsa**.
 
-![Scalare](./media/cache-how-to-scale/redis-cache-scale-menu.png)
+![Scala](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
 Selezionare il piano tariffario desiderato nel pannello **Seleziona piano tariffario** e fare clic su **Seleziona**.
 
@@ -49,7 +49,7 @@ Il passaggio a un piano tariffario diverso è soggetto alle restrizioni seguenti
  
 Mentre è in corso il ridimensionamento della cache in base al nuovo piano tariffario, nel pannello **Cache Redis di Azure** viene visualizzato lo stato **Ridimensionamento**.
 
-![Scalabilità][redis-cache-scaling]
+![Ridimensionamento][redis-cache-scaling]
 
 Al termine dell'operazione, lo stato passa da **Ridimensionamento** a **In esecuzione**.
 

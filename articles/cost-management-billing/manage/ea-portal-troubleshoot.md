@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.service: cost-management-billing
 manager: boalcsva
 ms.openlocfilehash: 41af65c2bfa35da30a0172ae7a39b3bad56597b8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992127"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Risolvere i problemi di accesso ad Azure EA Portal
@@ -93,7 +93,7 @@ Una volta raccolte tutte le informazioni necessarie, inviare una richiesta all'i
 Il primo amministratore EA può essere aggiornato in Volume Licensing Service Center (VLSC) modificando il contatto per le comunicazioni e l'amministratore online nel portale. Per l'aggiornamento in EA Portal saranno necessarie circa 24 ore. Al termine dell'aggiornamento, il nuovo amministratore EA riceverà un messaggio di posta elettronica di conferma dell'attivazione.
 
 Se non si ha accesso al portale VLSC o se l'amministratore EA iniziale non è più in grado di gestire la registrazione e non ha accesso a EA Portal, inviare una richiesta all'indirizzo [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport) per richiedere un aggiornamento specificando le informazioni seguenti:
-- Numero di iscrizione
+- Numero di registrazione
 - Indirizzo di posta elettronica da aggiungere e tipo di autenticazione (account aziendale o dell'istituto di istruzione o account Microsoft)
 - Motivo della modifica dell'amministratore EA iniziale
 - Approvazione tramite posta elettronica dell'amministratore EA iniziale
@@ -101,7 +101,7 @@ Se non si ha accesso al portale VLSC o se l'amministratore EA iniziale non è pi
 ### <a name="my-current-ea-admin-is-no-longer-with-the-company"></a>L'amministratore EA corrente non lavora più nell'organizzazione
 
 Una registrazione EA può avere più amministratori EA. È possibile rivolgersi a un altro amministratore EA per richiedere di aggiungere un nuovo amministratore EA, proprietario di account o amministratore di reparto. Se tuttavia non si riesce a capire esattamente chi sia l'amministratore EA dell'organizzazione o non sono definiti altri amministratori EA per la registrazione, rivolgersi a Microsoft specificando le informazioni seguenti:
-- Numero di iscrizione
+- Numero di registrazione
 - Indirizzo di posta elettronica da aggiungere e tipo di autenticazione (account aziendale o dell'istituto di istruzione o account Microsoft)
 - Informazioni da cui risulta che l'amministratore EA corrente non lavora più nell'organizzazione
 
@@ -146,9 +146,9 @@ Se la procedura precedente per la risoluzione dei problemi non ha avuto esito po
 
 ### <a name="what-is-the-difference-between-a-workschool-account-and-microsoft-account"></a>Qual è la differenza tra account aziendale o dell'istituto di istruzione e account Microsoft?
 
-**Account Microsoft:** Account che sono stati associati a Live ID in [https://signup.live.com](https://signup.live.com).
+**Account Microsoft**: è l'account che è stato associato a Live ID su [https://signup.live.com](https://signup.live.com).
 
-**Account aziendale/dell'Istituto di istruzione:** Disponibile solo per le aziende che hanno configurato Active Directory con la Federazione sul cloud e tutti gli account si trovano in un singolo tenant. Se l'istanza interna di Active Directory dell'organizzazione è federata nel cloud, è possibile aggiungere utenti con tipo di autenticazione aziendale o dell'istituto di istruzione.
+**Account aziendale o dell'istituto di istruzione:** è l'account disponibile solo per le organizzazioni che hanno configurato Active Directory con la federazione nel cloud e gestiscono tutti gli account in un singolo tenant. Se l'istanza interna di Active Directory dell'organizzazione è federata nel cloud, è possibile aggiungere utenti con tipo di autenticazione aziendale o dell'istituto di istruzione.
 
   Dal mese di settembre 2016, Microsoft non consente più la registrazione di indirizzi di posta elettronica aziendali o dell'istituto di istruzione come account Microsoft. Per altri dettagli, fare riferimento ai materiali seguenti: [https://blogs.technet.microsoft.com/enterprisemobility/2016/09/15/cleaning-up-the-azure-ad-and-microsoft-account-overlap/](https://blogs.technet.microsoft.com/enterprisemobility/2016/09/15/cleaning-up-the-azure-ad-and-microsoft-account-overlap/).
 

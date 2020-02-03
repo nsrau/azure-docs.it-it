@@ -20,7 +20,7 @@ Il monitoraggio di Azure per i contenitori introduce il supporto per la raccolta
 
 Come parte di questa funzionalità sono abilitate le metriche seguenti:
 
-| Spazio dei nomi delle metriche | Metrica | Description |
+| Spazio dei nomi delle metriche | Metrica | Descrizione |
 |------------------|--------|-------------|
 | insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Si tratta di metriche del *nodo* che includono *host* come dimensione e includono anche<br> nome del nodo come valore per la dimensione *host* . |
 | Insights. container/Pod | podCount | Si tratta di metriche *Pod* e includono le seguenti dimensioni: controllerName, spazio dei nomi Kubernetes, nome, fase. |

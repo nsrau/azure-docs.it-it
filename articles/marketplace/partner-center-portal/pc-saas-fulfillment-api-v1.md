@@ -26,7 +26,7 @@ Questo articolo illustra come creare un'offerta SaaS con le API. Le API, costitu
 Le API seguenti sono fornite per semplificare l'integrazione del servizio SaaS con Azure:
 
 -   Risolvi
--   Abbonati
+-   Subscribe
 -   Conversione
 -   Annullare la sottoscrizione
 
@@ -86,10 +86,10 @@ Quando un utente viene reindirizzato al sito Web di un ISV, l'URL contiene un to
 
 | **Nome parametro** | **Tipo di dati** | **Descrizione**                       |
 |--------------------|---------------|---------------------------------------|
-| id                 | string        | ID della sottoscrizione SaaS.          |
-| subscriptionName| string| Nome della sottoscrizione SaaS impostata dall'utente in Azure durante la sottoscrizione al servizio SaaS.|
-| OfferId            | string        | ID dell'offerta sottoscritta dall'utente. |
-| planId             | string        | ID del piano sottoscritto dall'utente.  |
+| id                 | String        | ID della sottoscrizione SaaS.          |
+| subscriptionName| String| Nome della sottoscrizione SaaS impostata dall'utente in Azure durante la sottoscrizione al servizio SaaS.|
+| OfferId            | String        | ID dell'offerta sottoscritta dall'utente. |
+| planId             | String        | ID del piano sottoscritto dall'utente.  |
 |  |  |  |
 
 
@@ -116,7 +116,7 @@ Quando un utente viene reindirizzato al sito Web di un ISV, l'URL contiene un to
 |  |  |  |
 
 
-### <a name="subscribe"></a>Abbonati
+### <a name="subscribe"></a>Subscribe
 
 L'endpoint di sottoscrizione consente agli utenti di avviare una sottoscrizione a un servizio SaaS per un determinato piano e attiva la fatturazione nel sistema commerciale.
 
@@ -243,7 +243,7 @@ L'endpoint di modifica consente all'utente di convertire il piano attualmente so
 | Operation-Location | Sì          | Collegamento a una risorsa per ottenere lo stato dell'operazione.                                                        |
 |  |  |  |
 
-### <a name="delete-subscription"></a>Eliminare una sottoscrizione
+### <a name="delete-subscription"></a>Eliminare la sottoscrizione
 
 L'azione Eliminare dell'endpoint "sottoscrivere" consente all'utente di eliminare una sottoscrizione con un ID specifico.
 
@@ -332,11 +332,11 @@ Questo endpoint consente all'utente di tracciare lo stato di un'operazione asinc
 
 | **Nome parametro** | **Tipo di dati** | **Descrizione**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
-| id                 | string        | ID dell'operazione.                                                                      |
-| status             | Enum          | Stato dell'operazione, uno dei seguenti: `In Progress`, `Succeeded` o `Failed`.          |
-| resourceLocation   | string        | Collegamento alla sottoscrizione creata o modificata. In questo modo, il client ottiene lo stato successivo all'operazione aggiornato. Questo valore non è impostato per le operazioni `Unsubscribe`. |
-| created            | Data e ora      | Ora della creazione dell'operazione in formato UTC.                                                           |
-| LastModified       | Data e ora      | Ultimo aggiornamento dell'operazione in formato UTC.                                                      |
+| id                 | String        | ID dell'operazione.                                                                      |
+| stato             | Enum          | Stato dell'operazione, uno dei seguenti: `In Progress`, `Succeeded` o `Failed`.          |
+| resourceLocation   | String        | Collegamento alla sottoscrizione creata o modificata. In questo modo, il client ottiene lo stato successivo all'operazione aggiornato. Questo valore non è impostato per le operazioni `Unsubscribe`. |
+| created            | DateTime      | Ora della creazione dell'operazione in formato UTC.                                                           |
+| LastModified       | DateTime      | Ultimo aggiornamento dell'operazione in formato UTC.                                                      |
 |  |  |  |
 
 *Codici di risposta*
@@ -402,13 +402,13 @@ L'azione Ottieni nell'endpoint di sottoscrizione consente agli utenti di recuper
 
 | **Nome parametro**     | **Tipo di dati** | **Descrizione**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | string        | ID di una risorsa di sottoscrizione SaaS in Azure.    |
-| offerId                | string        | ID dell'offerta sottoscritta dall'utente.         |
-| planId                 | string        | ID del piano sottoscritto dall'utente.          |
-| saasSubscriptionName   | string        | Nome della sottoscrizione SaaS.                |
-| saasSubscriptionStatus | Enum          | Stato dell'operazione.  I tipi validi sono:  <br/> - `Subscribed`: La sottoscrizione è attiva.  <br/> - `Pending`: La risorsa viene creata dall'utente ma non viene attivata dall'ISV.   <br/> - `Unsubscribed`: L'utente ha annullato la sottoscrizione.   <br/> - `Suspended`: L'utente ha sospeso la sottoscrizione.   <br/> - `Deactivated`: La sottoscrizione di Azure è sospesa.  |
-| created                | Data e ora      | Valore timestamp relativo alla creazione della sottoscrizione in formato UTC. |
-| LastModified           | Data e ora      | Valore timestamp relativo alla modifica della sottoscrizione in formato UTC. |
+| id                     | String        | ID di una risorsa di sottoscrizione SaaS in Azure.    |
+| offerId                | String        | ID dell'offerta sottoscritta dall'utente.         |
+| planId                 | String        | ID del piano sottoscritto dall'utente.          |
+| saasSubscriptionName   | String        | Nome della sottoscrizione SaaS.                |
+| saasSubscriptionStatus | Enum          | Stato dell'operazione.  Uno dei seguenti:  <br/> - `Subscribed`: La sottoscrizione è attiva.  <br/> - `Pending`: La risorsa viene creata dall'utente ma non viene attivata dall'ISV.   <br/> - `Unsubscribed`: L'utente ha annullato la sottoscrizione.   <br/> - `Suspended`: L'utente ha sospeso la sottoscrizione.   <br/> - `Deactivated`: La sottoscrizione di Azure è sospesa.  |
+| created                | DateTime      | Valore timestamp relativo alla creazione della sottoscrizione in formato UTC. |
+| LastModified           | DateTime      | Valore timestamp relativo alla modifica della sottoscrizione in formato UTC. |
 |  |  |  |
 
 *Codici di risposta*
@@ -474,13 +474,13 @@ L'azione Ottieni nell'endpoint di sottoscrizione consente all'utente di recupera
 
 | **Nome parametro**     | **Tipo di dati** | **Descrizione**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | string        | ID della risorsa di sottoscrizione SaaS in Azure    |
-| offerId                | string        | ID offerta sottoscritta dall'utente         |
-| planId                 | string        | ID del piano sottoscritto dall'utente          |
-| saasSubscriptionName   | string        | Nome della sottoscrizione SaaS                |
-| saasSubscriptionStatus | Enum          | Stato dell'operazione.  I tipi validi sono:  <br/> - `Subscribed`: La sottoscrizione è attiva.  <br/> - `Pending`: La risorsa viene creata dall'utente ma non viene attivata dall'ISV.   <br/> - `Unsubscribed`: L'utente ha annullato la sottoscrizione.   <br/> - `Suspended`: L'utente ha sospeso la sottoscrizione.   <br/> - `Deactivated`: La sottoscrizione di Azure è sospesa.  |
-| created                | Data e ora      | Valore timestamp creazione sottoscrizione (UTC) |
-| LastModified           | Data e ora      | Valore timestamp della sottoscrizione modificato (UTC) |
+| id                     | String        | ID della risorsa di sottoscrizione SaaS in Azure    |
+| offerId                | String        | ID offerta sottoscritta dall'utente         |
+| planId                 | String        | ID del piano sottoscritto dall'utente          |
+| saasSubscriptionName   | String        | Nome della sottoscrizione SaaS                |
+| saasSubscriptionStatus | Enum          | Stato dell'operazione.  Uno dei seguenti:  <br/> - `Subscribed`: La sottoscrizione è attiva.  <br/> - `Pending`: La risorsa viene creata dall'utente ma non viene attivata dall'ISV.   <br/> - `Unsubscribed`: L'utente ha annullato la sottoscrizione.   <br/> - `Suspended`: L'utente ha sospeso la sottoscrizione.   <br/> - `Deactivated`: La sottoscrizione di Azure è sospesa.  |
+| created                | DateTime      | Valore timestamp creazione sottoscrizione (UTC) |
+| LastModified           | DateTime      | Valore timestamp della sottoscrizione modificato (UTC) |
 |  |  |  |
 
 *Codici di risposta*
@@ -524,14 +524,14 @@ Un webhook SaaS viene usato per notificare le modifiche in modo proattivo al ser
 
 | **Nome parametro**     | **Tipo di dati** | **Descrizione**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id  | string       | ID univoco per l'operazione attivata.                |
-| activityId   | string        | Valore stringa univoco per tenere traccia della richiesta dal servizio. Viene usato per eventuali riconciliazioni.               |
-| subscriptionId                     | string        | ID di una risorsa di sottoscrizione SaaS in Azure.    |
-| offerId                | string        | ID dell'offerta sottoscritta dall'utente. Fornito solo con l'azione di aggiornamento.        |
-| publisherId                | string        | ID dell'autore dell'offerta SaaS.         |
-| planId                 | string        | ID del piano sottoscritto dall'utente. Fornito solo con l'azione di aggiornamento.          |
-| action                 | string        | Azione che attiva questa notifica. I valori possibili sono Activate, Delete, Suspend, Reinstate, Update.          |
-| Timestamp                 | string        | Valore del timestamp in UTC in cui questa notifica è stata attivata.          |
+| id  | String       | ID univoco per l'operazione attivata.                |
+| activityId   | String        | Valore stringa univoco per tenere traccia della richiesta dal servizio. Viene usato per eventuali riconciliazioni.               |
+| subscriptionId                     | String        | ID di una risorsa di sottoscrizione SaaS in Azure.    |
+| offerId                | String        | ID dell'offerta sottoscritta dall'utente. Fornito solo con l'azione di aggiornamento.        |
+| publisherId                | String        | ID dell'autore dell'offerta SaaS.         |
+| planId                 | String        | ID del piano sottoscritto dall'utente. Fornito solo con l'azione di aggiornamento.          |
+| action                 | String        | Azione che attiva questa notifica. I valori possibili sono Activate, Delete, Suspend, Reinstate, Update.          |
+| Timestamp                 | String        | Valore del timestamp in UTC in cui questa notifica è stata attivata.          |
 |  |  |  |
 
 

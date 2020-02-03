@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
 ms.openlocfilehash: 26c132d42bfc89c9b6e887c8ca02232848513698
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992075"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Istanze riservate di VM per Azure EA
@@ -54,7 +54,7 @@ Dopo aver abilitato la registrazione di EA per l'aggiunta di istanze riservate, 
 
 ### <a name="how-to-view-reserved-instance-purchase-details"></a>Come visualizzare i dettagli di acquisto di un'istanza riservata
 
-È possibile visualizzare i dettagli di acquisto di un'istanza riservata tramite il menu _Prenotazioni_ sul lato sinistro del [portale di Azure](https://aka.ms/reservations) o dal [portale di Azure EA](https://ea.azure.com/). Selezionare **report** dal menu a sinistra e scorrere verso il basso fino alla sezione _addebiti per servizi_ nella scheda _Riepilogo utilizzo_ . scorrere fino alla fine della sezione. gli acquisti e l'utilizzo delle istanze riservate vengono elencati alla fine come indicato dalla designazione "1 anno" o "3 anni" accanto al nome del servizio, ad esempio: Standard_DS1_v2 eastus 1 anno o Standard_D2s_v3 eastus2 3 years.
+È possibile visualizzare i dettagli di acquisto di un'istanza riservata tramite il menu _Prenotazioni_ sul lato sinistro del [portale di Azure](https://aka.ms/reservations) o dal [portale di Azure EA](https://ea.azure.com/). Selezionare **Report** nel menu a sinistra e scorrere verso il basso fino alla sezione _Charges by Services_ (Addebiti per servizi) della scheda _Riepilogo utilizzo_. Scorrere fino alla fine della sezione, dove vengono elencati gli acquisti di istanze riservate con relativo utilizzo, in base a quanto indicato dalla designazione "1 anno" o "3 anni" accanto al nome del servizio, ad esempio: Standard_DS1_v2 eastus 1 anno o Standard_D2s_v3 eastus2 3 anni.
 
 ### <a name="how-can-i-change-the-subscription-associated-with-reserved-instance-or-transfer-my-reserved-instance-benefits-to-a-subscription-under-the-same-account"></a>Come è possibile modificare la sottoscrizione associata a un'istanza riservata o trasferire i vantaggi di un'istanza riservata a una sottoscrizione con lo stesso account?
 
@@ -65,7 +65,7 @@ I vantaggi delle istanze riservate non possono essere conseguiti da più sottosc
 
 ### <a name="how-to-view-reserved-instance-usage-details"></a>Come visualizzare i dettagli di utilizzo di un'istanza riservata
 
-È possibile visualizzare i dettagli di utilizzo di un'istanza riservata nel [portale di Azure](https://aka.ms/reservations) o nel [portale di Azure EA](https://ea.azure.com/) (per i clienti di EA che hanno accesso alle informazioni di fatturazione) in _Report_ > _Riepilogo di utilizzo_ > _Charges by Services_ (Addebiti per servizi). Le istanze riservate possono essere identificate come nomi di servizio contenenti ' Reservation ', ad esempio: Istanze riservate di VM di base o prenotazione di macchine virtuali-Windows Server (1 Core).
+È possibile visualizzare i dettagli di utilizzo di un'istanza riservata nel [portale di Azure](https://aka.ms/reservations) o nel [portale di Azure EA](https://ea.azure.com/) (per i clienti di EA che hanno accesso alle informazioni di fatturazione) in _Report_ > _Riepilogo di utilizzo_ > _Charges by Services_ (Addebiti per servizi). Le istanze riservate possono essere identificate come nomi di servizio contenenti il termine "Reservation", ad esempio: Macchina virtuale Reservation-Base o macchine virtuali Reservation-Windows Svr (1 core).
 
 Il file CSV di download con il report avanzato e i dettagli di utilizzo contiene informazioni aggiuntive sull'utilizzo delle istanze riservate. Il campo _Informazioni aggiuntive_ consente di identificare l'utilizzo effettivo di istanze riservate.
 
@@ -79,7 +79,7 @@ Negli scenari in cui i clienti EA hanno usato tutto il rispettivo impegno moneta
 
 ### <a name="reserved-instance-expiration"></a>Scadenza di un'istanza riservata
 
-Si riceveranno notifiche tramite posta elettronica 30 giorni prima della prenotazione e alla scadenza. Al termine della prenotazione, le VM distribuite continueranno a essere eseguite e fatturate alla tariffa con pagamento in base al consumo. Per altre informazioni, vedere l'articolo relativo all'[offerta delle istanze di macchina virtuale riservate](https://azure.microsoft.com/pricing/reserved-vm-instances/).
+Si riceveranno notifiche tramite posta elettronica 30 giorni prima della prenotazione e alla scadenza. Al termine della prenotazione, le macchine virtuali distribuite continueranno a essere eseguite e fatturate alla tariffa con pagamento in base al consumo. Per altre informazioni, vedere l'articolo relativo all'[offerta delle istanze di macchina virtuale riservate](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per altre informazioni sulle prenotazioni di Azure, vedere [Informazioni sulle prenotazioni di Azure](../reservations/save-compute-costs-reservations.md).

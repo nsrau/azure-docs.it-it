@@ -64,7 +64,7 @@ I metadati e la risposta al servizio, corrispondenti ai metadati del servizio We
 
 1. Per applicare le modifiche, selezionare **Aggiorna** nella parte inferiore della schermata
 
-### <a name="disable"></a>Disabilitare
+### <a name="disable"></a>Disabilita
 
 1. Nella [portale di Azure](https://portal.azure.com)aprire l'area di lavoro
 1. Selezionare **distribuzioni**, selezionare il servizio, quindi fare clic su **modifica** .

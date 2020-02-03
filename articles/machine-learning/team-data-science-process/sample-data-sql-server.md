@@ -81,7 +81,7 @@ La libreria [Pandas](https://pandas.pydata.org/) in Python fornisce una vasta ga
 È ora possibile lavorare con i dati campionati nel frame di dati Pandas. 
 
 ### <a name="python-aml"></a>Connessione ad Azure Machine Learning
-È possibile utilizzare il codice di esempio seguente per salvare i dati ricampionati in un file e caricarli in un BLOB di Azure. I dati nel BLOB possono essere letti direttamente in un esperimento di Azure Machine Learning usando il modulo [Import Data][import-data] . Attenersi alla procedura seguente: 
+È possibile utilizzare il codice di esempio seguente per salvare i dati ricampionati in un file e caricarli in un BLOB di Azure. I dati nel BLOB possono essere letti direttamente in un esperimento di Azure Machine Learning usando il modulo [Import Data][import-data] . I passaggi sono i seguenti: 
 
 1. Scrivere il frame di dati Pandas in un file locale
    

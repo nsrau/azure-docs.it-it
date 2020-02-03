@@ -130,7 +130,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
      1. (Facoltativo) Accedere all'account di Azure:
 
-        ![Accedere a Azure](./media/sql-managed-instance-auditing/12_mi_SSMS_sign_in_to_azure.png)
+        ![Accedi ad Azure](./media/sql-managed-instance-auditing/12_mi_SSMS_sign_in_to_azure.png)
 
      1. Selezionare una sottoscrizione, un account di archiviazione e un contenitore BLOB dagli elenchi a discesa oppure creare un contenitore personalizzato facendo clic su **Crea**. Al termine, fare clic su **OK**:
 
@@ -171,7 +171,7 @@ I log di controllo da un'istanza gestita possono essere inviati anche a hub o lo
 
 5. Selezionare una destinazione per gli eventi di controllo: Hub eventi, log di monitoraggio di Azure o entrambi. Configurare per ogni destinazione i parametri obbligatori (ad esempio Log Analytics dell'area di lavoro).
 
-6. Fare clic su **Salva**.
+6. Fare clic su **Save**.
 
     ![Configurare le impostazioni di diagnostica](./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png)
 

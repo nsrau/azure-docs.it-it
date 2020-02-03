@@ -43,7 +43,7 @@ Di seguito sono riportate le definizioni per i tipi di elemento di lavoro:
   
 - **Storia utente**: le storie utente sono elementi di lavoro necessari per completare una funzionalità end-to-end. Esempi di storie utente includono:
   - Recuperare i dati 
-  - Esplorazione dei dati 
+  - Esplorare i dati 
   - Genera funzionalità
   - Creare modelli
   - Rendere operativi i modelli 

@@ -23,7 +23,7 @@ ms.locfileid: "76721881"
 > [!NOTE]
 > Questo elemento è in manutenzione. Si consiglia di usare il [servizio API del rilevatore di anomalie](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) basato su una raccolta di algoritmi di Machine Learning in Servizi cognitivi di Azure per rilevare le anomalie dalle metriche aziendali, operative e Internet.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 [API di rilevamento delle anomalie](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) è un esempio compilato con Azure Machine Learning che consente di rilevare anomalie nei dati della serie temporale con i valori numerici disposti in modo uniforme nel tempo.
 
 Questa API può rilevare i seguenti tipi di modelli di anomalie nei dati delle serie temporali:
@@ -111,7 +111,7 @@ La figura seguente illustra un esempio di anomalie che l'API Score può rilevare
 ### <a name="detectors"></a>Funzionalità di rilevamento
 L'API di rilevamento delle anomalie supporta i rilevatori in tre categorie generali. Informazioni dettagliate su specifici parametri di input e output per ogni funzionalità di rilevamento sono disponibili nella tabella seguente.
 
-| Categoria di rilevamento | Funzionalità di rilevamento | Description | Parametri di input | Output |
+| Categoria di rilevamento | Funzionalità di rilevamento | Descrizione | Parametri di input | Outputs |
 | --- | --- | --- | --- | --- |
 | Rilevamento picchi |Rilevamento picchi TSpike |Rileva picchi e flessioni in base alla distanza dei valori dal primo e dal terzi quartile |*tspikedetector.sensitivity:* accetta il valore intero nell'intervallo 1-10, predefinito: 3; i valori più elevati accetteranno valori più estremi, riducendo però la sensibilità |TSpike: valori binari, '1' se viene rilevato un picco o una flessione. In caso contrario '0'. |
 | Rilevamento picchi | Rilevamento picchi ZSpike |Rileva picchi e flessioni in base alla distanza dei punti dati dalla loro media |*zspikedetector.sensitivity:* accetta il valore intero nell'intervallo 1-10, predefinito: 3; i valori più elevati accetteranno valori più estremi, riducendo la sensibilità |ZSpike: valori binari, '1' se viene rilevato un picco o una flessione. In caso contrario '0'. |
@@ -121,12 +121,12 @@ L'API di rilevamento delle anomalie supporta i rilevatori in tre categorie gener
 ### <a name="parameters"></a>Parametri
 Informazioni più dettagliate su questi parametri di input sono elencate nella tabella seguente:
 
-| Parametri di input | Description | Impostazione predefinita | Tipo | Intervallo valido | Intervallo consigliato |
+| Parametri di input | Descrizione | Impostazione predefinita | Type | Intervallo valido | Intervallo consigliato |
 | --- | --- | --- | --- | --- | --- |
 | detectors.historywindow |Cronologia, in numero di punti dati, usata per il calcolo del punteggio delle anomalie |500 |integer |10-2000 |In base alle serie temporali. |
-| detectors.spikesdips | Se rilevare solo i picchi, le flessioni o entrambi |Entrambi |enumerato |Entrambi, picchi e flessioni |Entrambi |
-| bileveldetector.sensitivity |Sensibilità per il rilevamento delle modifiche di livello bidirezionali. |3.25 |double |Nessuno |3.25-5 (Meno valori, maggiore sensibilità) |
-| trenddetector.sensitivity |Sensibilità per il rilevamento di tendenza positiva. |3.25 |double |Nessuno |3.25-5 (Meno valori, maggiore sensibilità) |
+| detectors.spikesdips | Se rilevare solo i picchi, le flessioni o entrambi |Entrambe |enumerate |Entrambi, picchi e flessioni |Entrambe |
+| bileveldetector.sensitivity |Sensibilità per il rilevamento delle modifiche di livello bidirezionali. |3.25 |double |None |3.25-5 (Meno valori, maggiore sensibilità) |
+| trenddetector.sensitivity |Sensibilità per il rilevamento di tendenza positiva. |3.25 |double |None |3.25-5 (Meno valori, maggiore sensibilità) |
 | tspikedetector.sensitivity |Sensibilità per il rilevamento di picchi TSpike. |3 |integer |1-10 |3-5 (Minori sono i valori, maggiore è la sensibilità) |
 | zspikedetector.sensitivity |Sensibilità per il rilevamento di picchi ZSpike |3 |integer |1-10 |3-5 (Minori sono i valori, maggiore è la sensibilità) |
 | postprocess.tailRows |Numero di punti dati più recenti da mantenere nei risultati di output. |0 |integer |0 (mantiene tutti i punti dati) o specificare il numero di punti da mantenere nei risultati. |N/D |
@@ -134,10 +134,10 @@ Informazioni più dettagliate su questi parametri di input sono elencate nella t
 ### <a name="output"></a>Output
 L'API esegue tutte le funzionalità di rilevamento sui dati delle serie temporali e restituisce i punteggi delle anomalie e gli indicatori di picco binari per ogni punto temporizzato. La tabella seguente include l'elenco di output dell'API.
 
-| Output | Description |
+| Outputs | Descrizione |
 | --- | --- |
-| Durata |Timestamp di dati non elaborati o dati aggregati (e/o) attribuiti se viene applicata l'aggregazione (e/o) l'attribuzione di dati mancanti. |
-| Dati |Valori di dati non elaborati o dati aggregati (e/o) attribuiti se viene applicata l'aggregazione (e/o) l'attribuzione di dati mancanti. |
+| Tempo |Timestamp di dati non elaborati o dati aggregati (e/o) attribuiti se viene applicata l'aggregazione (e/o) l'attribuzione di dati mancanti. |
+| Data |Valori di dati non elaborati o dati aggregati (e/o) attribuiti se viene applicata l'aggregazione (e/o) l'attribuzione di dati mancanti. |
 | Tspike |Indicatore binario per indicare se viene rilevato un picco dalla funzionalità di rilevamento di TSpike. |
 | Zspike |Indicatore binario per indicare se viene rilevato un picco dalla funzionalità di rilevamento di ZSpike. |
 | rpscore |Numero mobile che rappresenta il punteggio dell'anomalia nella modifica di livello bidirezionale. |
@@ -157,29 +157,29 @@ I rilevatori nell'endpoint stagionalità sono simili a quelli nell'endpoint non 
 
 Informazioni più dettagliate su questi parametri di input sono elencate nella tabella seguente:
 
-| Parametri di input | Description | Impostazione predefinita | Tipo | Intervallo valido | Intervallo consigliato |
+| Parametri di input | Descrizione | Impostazione predefinita | Type | Intervallo valido | Intervallo consigliato |
 | --- | --- | --- | --- | --- | --- |
 | preprocess.aggregationInterval |Intervallo in secondi per l'aggregazione di serie temporali di input. |0, non viene eseguita alcuna aggregazione. |integer |0: ignora l'aggregazione. In caso contrario > 0. |Da 5 minuti a 1 giorno, in base alle serie temporali. |
-| preprocess.aggregationFunc |Funzione usata per aggregare i dati nel parametro AggregationInterval specificato. |mean |enumerato |mean, sum, length |N/D |
-| preprocess.replaceMissing |Valori usati per l'attribuzione dei dati mancanti. |lkv (ultimo valore noto) |enumerato |zero, lkv, mean |N/D |
+| preprocess.aggregationFunc |Funzione usata per aggregare i dati nel parametro AggregationInterval specificato. |media |enumerate |mean, sum, length |N/D |
+| preprocess.replaceMissing |Valori usati per l'attribuzione dei dati mancanti. |lkv (ultimo valore noto) |enumerate |zero, lkv, mean |N/D |
 | detectors.historywindow |Cronologia, in numero di punti dati, usata per il calcolo del punteggio delle anomalie |500 |integer |10-2000 |In base alle serie temporali. |
-| detectors.spikesdips | Se rilevare solo i picchi, le flessioni o entrambi |Entrambi |enumerato |Entrambi, picchi e flessioni |Entrambi |
-| bileveldetector.sensitivity |Sensibilità per il rilevamento delle modifiche di livello bidirezionali. |3.25 |double |Nessuno |3.25-5 (Meno valori, maggiore sensibilità) |
-| postrenddetector.sensitivity |Sensibilità per il rilevamento di tendenza positiva. |3.25 |double |Nessuno |3.25-5 (Meno valori, maggiore sensibilità) |
-| negtrenddetector.sensitivity |Sensibilità per il rilevamento di tendenza negativa. |3.25 |double |Nessuno |3.25-5 (Meno valori, maggiore sensibilità) |
+| detectors.spikesdips | Se rilevare solo i picchi, le flessioni o entrambi |Entrambe |enumerate |Entrambi, picchi e flessioni |Entrambe |
+| bileveldetector.sensitivity |Sensibilità per il rilevamento delle modifiche di livello bidirezionali. |3.25 |double |None |3.25-5 (Meno valori, maggiore sensibilità) |
+| postrenddetector.sensitivity |Sensibilità per il rilevamento di tendenza positiva. |3.25 |double |None |3.25-5 (Meno valori, maggiore sensibilità) |
+| negtrenddetector.sensitivity |Sensibilità per il rilevamento di tendenza negativa. |3.25 |double |None |3.25-5 (Meno valori, maggiore sensibilità) |
 | tspikedetector.sensitivity |Sensibilità per il rilevamento di picchi TSpike. |3 |integer |1-10 |3-5 (Minori sono i valori, maggiore è la sensibilità) |
 | zspikedetector.sensitivity |Sensibilità per il rilevamento di picchi ZSpike |3 |integer |1-10 |3-5 (Minori sono i valori, maggiore è la sensibilità) |
 | seasonality.enable |Se è necessario eseguire analisi di stagionalità. |true |boolean |true, false |In base alle serie temporali. |
 | seasonality.numSeasonality |Numero massimo di cicli periodici da rilevare. |1 |integer |1, 2 |Da 1 a 2 |
-| seasonality.transform |Se i componenti stagionali (e) di tendenza devono essere rimossi prima di applicare il rilevamento delle anomalie. |deseason |enumerato |none, deseason, deseasontrend |N/D |
+| seasonality.transform |Se i componenti stagionali (e) di tendenza devono essere rimossi prima di applicare il rilevamento delle anomalie. |deseason |enumerate |none, deseason, deseasontrend |N/D |
 | postprocess.tailRows |Numero di punti dati più recenti da mantenere nei risultati di output. |0 |integer |0 (mantiene tutti i punti dati) o specificare il numero di punti da mantenere nei risultati. |N/D |
 
 ### <a name="output"></a>Output
 L'API esegue tutte le funzionalità di rilevamento sui dati delle serie temporali e restituisce i punteggi delle anomalie e gli indicatori di picco binari per ogni punto temporizzato. La tabella seguente include l'elenco di output dell'API.
 
-| Output | Description |
+| Outputs | Descrizione |
 | --- | --- |
-| Durata |Timestamp di dati non elaborati o dati aggregati (e/o) attribuiti se viene applicata l'aggregazione (e/o) l'attribuzione di dati mancanti. |
+| Tempo |Timestamp di dati non elaborati o dati aggregati (e/o) attribuiti se viene applicata l'aggregazione (e/o) l'attribuzione di dati mancanti. |
 | OriginalData |Valori di dati non elaborati o dati aggregati (e/o) attribuiti se viene applicata l'aggregazione (e/o) l'attribuzione di dati mancanti. |
 | ProcessedData |Una delle opzioni seguenti: <ul><li>Serie temporali regolate in base alla stagionalità in caso di rilevamento di una stagionalità significativa e di selezione dell'opzione deseason</li><li>Serie temporali regolate in base alla stagionalità e senza tendenza, se è stata rilevata una stagionalità significativa ed è selezionata l'opzione deseasontrend</li><li>in caso contrario, questa opzione corrisponde a OriginalData</li> |
 | Tspike |Indicatore binario per indicare se viene rilevato un picco dalla funzionalità di rilevamento di TSpike. |

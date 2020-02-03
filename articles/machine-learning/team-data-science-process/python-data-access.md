@@ -36,7 +36,7 @@ La libreria client Python è stata testata negli ambienti seguenti:
 
 Presenta una dipendenza dai pacchetti seguenti:
 
-* requests
+* richieste
 * python-dateutil
 * pandas
 
@@ -87,7 +87,7 @@ I token di autorizzazione vengono gestiti nella pagina **AUTHORIZATION TOKENS** 
 2. Selezionare il set di dati a cui si desidera accedere. È possibile selezionare qualsiasi set di dati dall'elenco **MY DATASETS** o **SAMPLES**.
 3. Sulla barra degli strumenti inferiore fare clic su **Generate Data Access Code**(Genera codice di accesso ai dati). Se i dati si presentano in un formato non compatibile con la raccolta client di Python, questo pulsante non è attivo.
    
-    ![Set di dati][datasets]
+    ![Dataset][datasets]
 4. Selezionare il frammento di codice dalla finestra che viene visualizzata e copiarlo negli Appunti.
    
     ![Pulsante per generare il codice di accesso ai dati][dataset-access-code]

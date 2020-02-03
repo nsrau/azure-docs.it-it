@@ -1,5 +1,5 @@
 ---
-title: Cmdlet di PowerShell
+title: Cmdlet PowerShell
 description: I cmdlet principali di PowerShell per Azure SQL Data Warehouse, compresi quelli per sospendere e riavviare un database.
 services: sql-data-warehouse
 author: kevinvngo

@@ -21,7 +21,7 @@ ms.locfileid: "76717832"
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>Come creare un ticket di supporto per SQL Data Warehouse
 Se si verificano problemi con la SQL Data Warehouse, creare un ticket di supporto in modo che il team di supporto tecnico possa fornire assistenza.
 
-## <a name="create-a-support-ticket"></a>Crea un ticket di supporto
+## <a name="create-a-support-ticket"></a>Creare un ticket di supporto
 1. Aprire il [portale di Azure](https://portal.azure.com/).
 2. Nella schermata iniziale fare clic sulla scheda **Guida e supporto**.
    
@@ -31,7 +31,7 @@ Se si verificano problemi con la SQL Data Warehouse, creare un ticket di support
    Selezionare il proprio [piano di supporto di Azure](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/).
    
    * Il supporto per **fatturazione, quote e gestione delle sottoscrizioni** è disponibile per tutti i livelli.
-   * Il supporto per la **correzione delle interruzioni** viene fornito tramite il supporto tecnico [Developer](https://azure.microsoft.com/support/plans/developer/), [standard](https://azure.microsoft.com/support/plans/standard/), [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/)o [Premier](https://azure.microsoft.com/support/plans/premier/) . I problemi durante il periodo di garanzia si verificano quando i clienti utilizzano Azure ed è ragionevolmente probabile che il problema sia provocato da Microsoft.
+   * Il supporto per la **correzione delle interruzioni** viene fornito tramite il supporto tecnico [Developer](https://azure.microsoft.com/support/plans/developer/), [standard](https://azure.microsoft.com/support/plans/standard/), [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/)o [Premier](https://azure.microsoft.com/support/plans/premier/) . I problemi in garanzia si verificano quando i clienti usano Azure ed è ragionevolmente probabile che il problema sia provocato da Microsoft.
    * I servizi di **mentoring** e di **consulenza** per sviluppatori sono disponibili ai livelli di supporto [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/) e [Premier](https://azure.microsoft.com/support/plans/premier/) . 
      
      Se si dispone di un piano di supporto tecnico Premier, è anche possibile segnalare SQL Data Warehouse problemi correlati nel [portale di Microsoft Premier Online](https://premier.microsoft.com/). Vedere i [piani di supporto di Azure](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/) per altre informazioni sui vari piani di supporto, inclusi ambito, tempi di risposta, prezzi e così via.  Per domande frequenti sul supporto tecnico di Azure, vedere [domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).  

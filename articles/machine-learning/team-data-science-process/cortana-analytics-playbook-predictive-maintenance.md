@@ -36,13 +36,13 @@ Nella prima metà della guida vengono descritti i problemi aziendali tipici, i v
 | [Modelli di soluzioni per la manutenzione predittiva](#solution-templates-for-predictive-maintenance)|un progettista software o uno sviluppatore di intelligenza artificiale che vuole preparare rapidamente una demo o un modello di verifica |
 | [Risorse di formazione per la manutenzione predittiva](#training-resources-for-predictive-maintenance) | un professionista che ricopre uno o più dei ruoli precedenti e si è interessati ad apprendere i concetti fondamentali alla base della data science, gli strumenti e le tecniche.
 
-### <a name="prerequisite-knowledge"></a>Conoscenze richieste
+### <a name="prerequisite-knowledge"></a>Prerequisiti di conoscenze
 Il contenuto per i BDM non prevede alcuna conoscenza precedente della data science da parte del lettore. Per il contenuto per i TDM, sono utili conoscenze di base di statistica e data science. È inoltre consigliabile la conoscenza dei servizi dati e di intelligenza artificiale di Azure, Python, R, XML e JSON. Le tecniche di intelligenza artificiale sono implementate in pacchetti Python e R. I modelli di soluzione vengono implementati usando i servizi di Azure, gli strumenti di sviluppo e gli SDK.
 
 ## <a name="business-case-for-predictive-maintenance"></a>Casi aziendali per la manutenzione predittiva
 
-Per le aziende è essenziale che le apparecchiature strategiche funzionino con la massima efficienza e vengano usate in modo ottimale per realizzare il ritorno sul capitale investito. Questi asset possono andare da motori di velivoli, turbine, ascensori o sistemi di raffreddamento industriali, che costano milioni, fino ad apparecchiature di uso quotidiano, come fotocopiatrici, macchine per il caffè o distributori d'acqua.
-- Generalmente, la maggior parte delle aziende si affida alla _manutenzione correttiva_, in cui le parti vengono sostituite quando presentano un problema. La manutenzione correttiva garantisce che le parti vengano usate completamente (quindi evita sprechi della vita utile del componente), ma presenta costi per le aziende in termini di tempi di inattività, manodopera e requisiti di manutenzione non pianificata (ore di straordinari o località scomode).
+Per le aziende è essenziale che le apparecchiature critiche funzionino con la massima efficienza e vengano usate in modo ottimale per realizzare il ritorno sul capitale investito. Questi asset possono andare da motori di velivoli, turbine, ascensori o sistemi di raffreddamento industriali, che costano milioni, fino ad apparecchiature di uso quotidiano, come fotocopiatrici, macchine per il caffè o distributori d'acqua.
+- Generalmente, la maggior parte delle aziende si affida alla _manutenzione correttiva_, in cui le parti vengono sostituite quando presentano un problema. La manutenzione correttiva garantisce che le parti vengano usate completamente (quindi evita sprechi della vita utile del componente), ma presenta costi per le aziende in termini di tempi di inattività, manodopera e requisiti di manutenzione non pianificata (attività fuori dall'orario lavorativo o in posizioni difficili da raggiungere).
 - Al livello successivo, alcune aziende applicano la _manutenzione preventiva_, in cui viene determinato il ciclo di vita utile per una parte, in modo da eseguire la manutenzione o la sostituzione prima che si verifichi un guasto. La manutenzione preventiva consente di evitare i problemi non pianificati e di grave entità. Tuttavia, i costi elevati di tempo di inattività pianificato, al di sotto dell'utilizzo del componente durante la durata utile e continuano a rimanere.
 - L'obiettivo della _manutenzione predittiva_ è ottimizzare l'equilibrio tra la manutenzione correttiva e quella preventiva, rendendo possibile la sostituzione _just-in-time_ dei componenti. In questo approccio, i componenti vengono sostituiti solo quando sta per verificarsi un guasto. Estendendo il ciclo di vita dei componenti (rispetto alla manutenzione preventiva) e riducendo i costi della manutenzione non pianificata e della manodopera (rispetto alla manutenzione correttiva), le aziende possono ottenere riduzioni dei costi e vantaggi competitivi.
 
@@ -231,7 +231,7 @@ Le specifiche tecniche delle apparecchiature come la data di fabbricazione, il n
 
 Come risultato delle operazioni di preparazione dei dati descritte finora, i dati saranno organizzati come illustrato di seguito. I dati di training, test e convalida devono avere questo schema logico (in questo esempio il tempo è espresso in unità di giorni).
 
-| ID asset | Durata | Colonne della funzionalità \< | Etichette |
+| ID asset | Tempo | Colonne della funzionalità \<> | Etichetta |
 | ---- | ---- | --- | --- |
 | A123 |Giorno 1 | . . . | . |
 | A123 |Giorno 2 | . . . | . |
@@ -361,7 +361,7 @@ Nei problemi di classificazione, se sono presenti più esempi di una classe risp
 Molti problemi PdM implicano set di dati sbilanciati di questo tipo, in cui una classe è gravemente sotto-rappresentata rispetto alle altre classi. In alcuni casi, la classe di minoranza può costituire solo lo 0,001% dei punti dati totali. Lo sbilanciamento delle classi non è un problema specifico di PdM. Un problema simile si presenta in altri ambiti in cui errori e anomalie si presentano di rado, ad esempio il rilevamento delle frodi e delle intrusioni di rete. Questi errori costituiscono gli esempi della classe di minoranza.
 
 In caso di sbilanciamento delle classi nei dati, le prestazioni della maggior parte degli algoritmi di apprendimento standard vengono compromesse, perché il loro scopo è ridurre il tasso di errore complessivo. Per un set di dati con il 99% di esempi positivi e l'1% di esempi negativi, un modello potrebbe risultare con un'accuratezza del 99% assegnando un'etichetta negativa a tutte le istanze. Il modello tuttavia classificherà erroneamente tutti gli esempi positivi, pertanto, anche se l'accuratezza è elevata, l'algoritmo non è utile. Di conseguenza, le metriche di valutazione convenzionali, come l'_accuratezza complessiva sul tasso di errore_, non sono sufficienti per l'apprendimento sbilanciato. Quando è necessario gestire set di dati sbilanciati, vengono usate altre metriche per la valutazione del modello:
-- Precision
+- Precisione
 - Richiamo
 - Punteggi F1
 - Costo ROC (Receiver Operating Characteristics) rettificato
@@ -423,7 +423,7 @@ Al contrario, PdM comporta un _punteggio batch_. Per essere conformi alla firma 
 
 La sezione finale di questa guida fornisce un elenco di modelli di soluzioni PdM, esercitazioni ed esperimenti implementati in Azure. In alcuni casi, queste applicazioni PdM possono essere distribuite in una sottoscrizione di Azure in pochi minuti. Possono essere usate come demo di modelli di verifica, ambienti sandbox per sperimentare alternative o acceleratori per le implementazioni effettive in produzione. Questi modelli sono disponibili in [Azure AI Gallery](https://gallery.azure.ai) o nel repository [GitHub di Azure](https://github.com/Azure). Questi diversi esempi verranno distribuiti nel modello di soluzione nel corso del tempo.
 
-| # | Titolo | Description |
+| # | Titolo | Descrizione |
 |--:|:------|-------------|
 | 2 | [Modello di soluzione per la manutenzione predittiva di Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Modello di soluzione open source che illustra la modellazione di Azure ML e un'infrastruttura di Azure completa in grado di supportare scenari di manutenzione predittiva nel contesto del monitoraggio remoto. |
 | 3 | [Apprendimento avanzato per la manutenzione predittiva](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Notebook di Azure con una soluzione demo sull'uso di reti LSTM (Long Short-Term Memory), una classe delle reti neurali ricorrenti, per la manutenzione predittiva, con un [post di blog su questo esempio](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|

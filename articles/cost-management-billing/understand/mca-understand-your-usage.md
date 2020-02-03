@@ -1,5 +1,5 @@
 ---
-title: Condizioni per i file di utilizzo e addebiti per il contratto clienti Microsoft
+title: Termini inclusi nel file Utilizzo e addebiti di Azure del Contratto del cliente Microsoft
 description: Informazioni su come leggere e comprendere le sezioni del file CSV Utilizzo e addebiti di Azure per il proprio profilo di fatturazione.
 author: bandersmsft
 manager: jureid
@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: b48cc5d5a36a382909adb250dd76b4f5783a4340
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75990905"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Condizioni nel file Utilizzo e addebiti di Azure per un Contratto del cliente Microsoft
@@ -35,9 +35,9 @@ Se si è un cliente con contratto Enterprise, si noterà che le condizioni nel f
 | File CSV di utilizzo del contratto Enterprise di Azure | File CSV Utilizzo e addebiti di Azure del contratto del cliente Microsoft |
 | --- | --- |
 | Data | Data |
-| Mese| Data |
+| Month| Data |
 | Giorno | Data |
-| Anno | Data |
+| Year | Data |
 | Prodotto | product |
 | ID contatore | meterID |
 | MeterCategory | meterCategory |
@@ -65,7 +65,7 @@ Se si è un cliente con contratto Enterprise, si noterà che le condizioni nel f
 
 I termini seguenti sono riportati nel file Utilizzo e addebiti di Azure.
 
-Durata | Description
+Termine | Descrizione
 --- | ---
 invoiceId | ID univoco del documento elencato nella fattura in formato PDF
 previousInvoiceId | Riferimento a una fattura originale se questa voce è un rimborso
@@ -107,8 +107,8 @@ resourceLocation | Identifica la posizione del data center in cui è in esecuzio
 posizione | Posizione normalizzata della risorsa se sono configurate posizioni di risorse diverse per le stesse aree
 quantity | Numero di unità acquistate o utilizzate
 unitOfMeasure | Unità di misura per la fatturazione del servizio. I servizi di calcolo, ad esempio, vengono fatturati all'ora.
-chargeType | Tipo di addebito. Valori: <ul><li>AsCharged-Usage: addebiti accumulati in base all'utilizzo di un servizio di Azure. Questo include l'utilizzo delle macchine virtuali che non vengono addebitate a causa di istanze riservate.</li><li>AsCharged-PurchaseMarketplace: costi ricorrenti monouso o fissi dagli acquisti nel Marketplace</li><li>AsCharged-UsageMarketplace: addebiti per i servizi del Marketplace addebitati in base alle unità di consumo</li></ul>
-isAzureCreditEligible | Flag che indica se l'addebito per il servizio è idoneo a essere pagato per l'uso di crediti di Azure (valori: true, false)
+chargeType | Tipo di addebito. Valori: <ul><li>AsCharged-Usage: Addebiti accumulati in base all'utilizzo di un servizio di Azure. Questo include l'utilizzo delle macchine virtuali che non vengono addebitate a causa di istanze riservate.</li><li>AsCharged-PurchaseMarketplace: Addebiti periodici una tantum o fissi dagli acquisti su Marketplace</li><li>AsCharged-UsageMarketplace: Addebiti per i servizi del Marketplace addebitati in base alle unità di utilizzo</li></ul>
+isAzureCreditEligible | Flag che indica se l'addebito per il servizio è idoneo a essere pagato per l'uso di crediti Azure (valori: True, False)
 serviceInfo1 | Metadati specifici del servizio
 serviceInfo2 | Campo legacy che acquisisce i metadati specifici del servizio facoltativo
 additionalInfo | Metadati specifici del servizio aggiuntivi.
@@ -121,7 +121,7 @@ Per assicurarsi che gli addebiti nel file di utilizzo dettagliato siano corretti
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificare l'accesso a un Contratto del cliente Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 

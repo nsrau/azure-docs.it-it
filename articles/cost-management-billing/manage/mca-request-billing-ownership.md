@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: f7d6c6cbe5b99cb429b5399df7ba9765c1553901
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75991113"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Ottenere la proprietà della fatturazione delle sottoscrizioni di Azure da altri account
@@ -35,29 +35,29 @@ Per richiedere la proprietà della fatturazione, è necessario essere un **propr
 
     ![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione nel portale di Azure](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. Nella pagina ambiti di fatturazione selezionare l'account di fatturazione che verrà usato per pagare l'utilizzo delle sottoscrizioni. L'account di fatturazione deve essere di tipo **Contratto clienti Microsoft**.
+3. Nella pagina Ambiti di fatturazione selezionare l'account di fatturazione che verrà usato per pagare l'utilizzo delle sottoscrizioni. L'account di fatturazione dovrebbe essere di tipo **Contratto del cliente Microsoft**.
 
     ![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione nel portale](./media/mca-request-billing-ownership/list-of-scopes.png)
 
     > [!NOTE]
     >
-    > Portale di Azure memorizza l'ultimo ambito di fatturazione a cui si accede e visualizza l'ambito alla successiva pagina Gestione costi e fatturazione. Non verrà visualizzata la pagina ambiti di fatturazione se è stato visitato gestione costi e fatturazione precedente. In tal caso, verificare di trovarsi nell' [ambito corretto](#check-for-access). In caso contrario, [modificare l'ambito](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) per selezionare l'account di fatturazione per un contratto del cliente Microsoft.
+    > Il portale di Azure tiene traccia dell'ultimo ambito di fatturazione a cui si accede e lo visualizza al successivo accesso alla pagina Gestione dei costi e fatturazione. La pagina Ambiti di fatturazione non viene visualizzata se la pagina Gestione dei costi e fatturazione è stata visitata in precedenza. In tal caso, verificare di essere nell'[ambito corretto](#check-for-access). In caso contrario, [cambiare ambito](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) per selezionare l'account di fatturazione relativo a un Contratto del cliente Microsoft.
 
-4. Selezionare **profili di fatturazione** dalla parte sinistra.
+4. Selezionare **Profili di fatturazione** sul lato sinistro.
 
     ![Screenshot che mostra la selezione dei profili di fatturazione](./media/mca-request-billing-ownership/mca-select-profiles.png)     
 
     > [!Note]
     >
-    > Se non vengono visualizzati i profili di fatturazione, l'utente non si trova nell'ambito di fatturazione appropriato. È necessario selezionare un account di fatturazione per un contratto cliente Microsoft e quindi selezionare profili di fatturazione. Per informazioni su come modificare gli ambiti, vedere [cambiare ambito di fatturazione nel portale di Azure](view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
+    > Se l'opzione Profili di fatturazione non è visualizzata, significa che non si è nell'ambito di fatturazione corretto. Occorre selezionare un account di fatturazione per un Contratto del cliente Microsoft e quindi selezionare Profili di fatturazione. Per informazioni su come cambiare ambito, vedere [Cambiare ambito di fatturazione nel portale di Azure](view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
 
-5. Selezionare un **profilo di fatturazione** dall'elenco. Una volta acquisita la proprietà delle sottoscrizioni, l'utilizzo verrà fatturato in base a questo profilo di fatturazione.
+5. Selezionare un **profilo di fatturazione** dall'elenco. Dopo aver assunto la proprietà delle sottoscrizioni, il loro utilizzo verrà fatturato in base a questo profilo di fatturazione.
 
 6. Selezionare **Sezioni della fattura** sul lato sinistro.
 
     ![Screenshot che mostra la selezione di Sezioni della fattura](./media/mca-request-billing-ownership/mca-select-invoice-sections.png)   
 
-7. Selezionare una sezione della fattura nell'elenco. Una volta acquisita la proprietà delle sottoscrizioni, l'utilizzo verrà assegnato a questa sezione della fattura del profilo di fatturazione.
+7. Selezionare una sezione della fattura nell'elenco. Dopo aver assunto la proprietà delle sottoscrizioni, il loro utilizzo verrà assegnato a questa sezione della fattura del profilo di fatturazione.
 
 8. Selezionare **Richieste di trasferimento** sul lato sinistro e quindi **Aggiungi una nuova richiesta**.
 
@@ -83,19 +83,19 @@ Per richiedere la proprietà della fatturazione, è necessario essere un **propr
 
     ![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione nel portale di Azure](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. Nella pagina ambiti di fatturazione selezionare l'account di fatturazione per cui è stata inviata la richiesta di trasferimento.
+3. Nella pagina Ambiti di fatturazione selezionare l'account di fatturazione per il quale è stata inviata la richiesta di trasferimento.
 
-4. Selezionare **profili di fatturazione** dalla parte sinistra.
+4. Selezionare **Profili di fatturazione** sul lato sinistro.
 
     ![Screenshot che mostra la selezione dei profili di fatturazione](./media/mca-request-billing-ownership/mca-select-profiles.png)     
 
-5. Consente di selezionare il **profilo di fatturazione** per cui è stata inviata la richiesta di trasferimento.
+5. Selezionare il **profilo di fatturazione** per il quale è stata inviata la richiesta di trasferimento.
 
 6. Selezionare **Sezioni della fattura** sul lato sinistro.
 
     ![Screenshot che mostra la selezione di Sezioni della fattura](./media/mca-request-billing-ownership/mca-select-invoice-sections.png)   
 
-7. Selezionare la sezione della fattura nell'elenco per cui è stata inviata la richiesta di trasferimento.
+7. Selezionare nell'elenco la sezione della fattura per cui è stata inviata la richiesta di trasferimento.
 
 8. Selezionare **Richieste di trasferimento** sul lato sinistro. Nella pagina Richieste di trasferimento vengono visualizzate le informazioni seguenti:
 
@@ -113,11 +113,11 @@ Per richiedere la proprietà della fatturazione, è necessario essere un **propr
    |Stato|Definizione|
    |---------|---------|
    |In corso|L'utente non ha accettato la richiesta di trasferimento|
-   |Elaborazione|L'utente ha approvato la richiesta di trasferimento. La fatturazione per le sottoscrizioni che l'utente ha selezionato verrà trasferita alla sezione della fattura|
+   |Elaborazione in corso|L'utente ha approvato la richiesta di trasferimento. La fatturazione per le sottoscrizioni che l'utente ha selezionato verrà trasferita alla sezione della fattura|
    |Completi| La fatturazione per le sottoscrizioni che l'utente ha selezionato è stata trasferita alla sezione della fattura|
    |Completato con errori|La richiesta è stata completata ma non è stato possibile trasferire la fatturazione per alcune sottoscrizioni selezionate dall'utente|
    |Scaduto|L'utente non ha accettato la richiesta in tempo e la richiesta è scaduta|
-   |Annullato|Un utente con accesso alla richiesta di trasferimento ha annullato la richiesta|
+   |Cancellati|Un utente con accesso alla richiesta di trasferimento ha annullato la richiesta|
    |Rifiutata|L'utente ha rifiutato la richiesta di trasferimento|
 
 9. Selezionare una richiesta di trasferimento per visualizzare i dettagli. Nella pagina Dettagli del trasferimento vengono visualizzate le informazioni seguenti:
@@ -207,7 +207,7 @@ I prodotti SaaS non vengono trasferiti con le sottoscrizioni. Chiedere all'utent
 ## <a name="check-for-access"></a>Verificare l'accesso
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Opzioni per Contattare il supporto tecnico
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 
 Se si necessita assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 

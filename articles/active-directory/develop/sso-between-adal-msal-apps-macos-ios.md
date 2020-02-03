@@ -207,7 +207,7 @@ Poiché `homeAccountId` non è disponibile nelle versioni precedenti di ADAL, è
                               error:(NSError * __autoreleasing *)error;
 ```
 
-Ad esempio:
+Ad esempio,
 
 Objective-C:
 

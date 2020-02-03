@@ -1,21 +1,20 @@
 ---
 title: Connettere un account di Amazon Web Services a Cloudyn in Azure | Microsoft Docs
 description: Connettere un account di Amazon Web Services per visualizzare i dati relativi ai costi e all'utilizzo nei report di Cloudyn.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/21/2019
+ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: benshy
+ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: b64d54df43b27abb51210995f2426e23690fa2d3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: dcb4c30fe485559834791fa567856bc78cff067e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75994883"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76770339"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Connettere un account di Amazon Web Services
 
@@ -45,11 +44,11 @@ Per prima cosa, è necessario ottenere dal portale di Cloudyn la passphrase di c
 1. Accedere alla console di AWS all'indirizzo https://console.aws.amazon.com/iam/home e selezionare **Roles** (Ruoli).
 2. Fare clic su **Create Role** (Crea ruolo) e quindi selezionare **AWS account** (Account AWS).
 3. Nella casella **Account ID** (ID account) incollare `432263259397`. Questo è l'ID dell'account dell'agente di raccolta dati di Cloudyn assegnato da AWS al servizio Cloudyn. Usare l'ID account esattamente com'è visualizzato.
-4. Accanto a **Options** (Opzioni) selezionare **Require external ID** (Richiedi ID esterno). Incollare il valore univoco copiato in precedenza dal campo **External ID** (ID esterno) in Cloudyn. Quindi fare clic su **Next: Permissions** (Avanti: Autorizzazioni).  
+4. Accanto a **Options** (Opzioni) selezionare **Require external ID** (Richiedi ID esterno). Incollare il valore univoco copiato in precedenza dal campo **External ID** (ID esterno) in Cloudyn. Fare quindi clic su **Avanti: Permissions** (Avanti: Autorizzazioni).  
     ![Incollare l'ID esterno da Cloudyn nella pagina Create role (Crea ruolo)](./media/connect-aws-account/create-role01.png)
 5. In **Attach permissions policies** (Collega i criteri di autorizzazione), nella casella del filtro di ricerca **Policy type** (Tipo di criteri), digitare `ReadOnlyAccess`, selezionare **ReadOnlyAccess** e quindi fare clic su **Next: Review** (Avanti: Revisione).  
     ![Selezionare ReadOnlyAccess nell'elenco di nomi di criteri](./media/connect-aws-account/readonlyaccess.png)
-6. Nella pagina Review (Revisione) verificare che le selezioni siano corrette e digitare un valore in **Role name** (Nome ruolo). Ad esempio, *Azure-cost-Gest*. Immettere una **Descrizione del ruolo**. Ad esempio, _Assegnazione di ruolo per Cloudyn_ e quindi fare clic su **Create role** (Crea ruolo).
+6. Nella pagina Review (Revisione) verificare che le selezioni siano corrette e digitare un valore in **Role name** (Nome ruolo). Ad esempio, *Azure-Cost-Mgt*. Immettere una descrizione in **Role description** (Descrizione ruolo). Ad esempio, _Assegnazione di ruolo per Cloudyn_ e quindi fare clic su **Create role** (Crea ruolo).
 7. Nell'elenco **Roles** (Ruoli) fare clic sul ruolo creato e copiare il valore di **Role ARN** (ARN ruolo) dalla pagina Summary (Riepilogo). L'ARN (Amazon Resource Name) del ruolo sarà utile in un secondo momento, quando si registrerà la configurazione in Cloudyn.  
     ![Copiare il valore di Role ARN (ARN del ruolo) dalla pagina Summary (Riepilogo)](./media/connect-aws-account/role-arn.png)
 

@@ -34,7 +34,7 @@ GZRS e RA-GZRS sono attualmente disponibili per l'anteprima nelle aree seguenti:
 - Europa occidentale
 - Giappone orientale
 - Regno Unito meridionale
-- Stati Uniti orientali
+- Stati Uniti Orientali
 - Stati Uniti orientali 2
 - Stati Uniti centrali
 
@@ -111,7 +111,7 @@ Sono disponibili due opzioni per la migrazione a GZRS o RA-GZRS da un account co
 
 Se è necessario completare la migrazione entro una determinata data, provare a eseguire una migrazione manuale. Una migrazione manuale offre maggiore flessibilità rispetto a una migrazione in tempo reale. Con una migrazione manuale, è possibile controllare le tempistiche.
 
-Per eseguire manualmente la migrazione dei dati da un account esistente a un account GZRS o RA-GZRS, usare uno strumento che consente di copiare i dati in modo efficiente. Di seguito sono riportati alcuni esempi:
+Per eseguire manualmente la migrazione dei dati da un account esistente a un account GZRS o RA-GZRS, usare uno strumento che consente di copiare i dati in modo efficiente. Alcuni esempi includono:
 
 - Usare un'utilità come AzCopy o uno strumento di terze parti affidabile. Per informazioni su AzCopy, vedere [Introduzione a AzCopy](storage-use-azcopy-v10.md).
 - Se si ha familiarità con Hadoop o HDInsight, associare gli account di archiviazione di origine e di destinazione al cluster. Successivamente, parallelizzare il processo di copia dei dati con uno strumento come DistCp.
@@ -144,20 +144,20 @@ Per richiedere una migrazione in tempo reale, usare la [portale di Azure](https:
 
 1. Selezionare **nuova richiesta di supporto**.
 2. Completare le **nozioni di base** con le informazioni relative all'account. Nella sezione **servizio** selezionare **Gestione account di archiviazione** e specificare l'account da migrare.
-3. Selezionare **Avanti**.
+3. Fare clic su **Avanti**.
 4. Specificare i valori seguenti nella sezione **Problema**:
     - **Gravità**: lasciare il valore predefinito.
     - **Tipo di problema**: selezionare **Migrazione dei dati**.
     - **Categoria**: selezionare **Esegui migrazione a (RA-) GZRS all'interno di un'area**.
     - **Title**: digitare un titolo descrittivo, ad esempio, **(RA-) GZRS migrazione dell'account**.
     - **Dettagli**: digitare ulteriori dettagli nella casella **Dettagli** , ad esempio, "si desidera eseguire la migrazione a GZRS da [con ridondanza locale, GRS] nell'area \_\_". o "Desidero eseguire la migrazione a RA-GZRS da [con ridondanza locale, RA-GRS] nell'area \_\_".
-5. Selezionare **Avanti**.
+5. Fare clic su **Avanti**.
 6. Verificare che le informazioni di contatto nel pannello **Informazioni contatto** siano corrette.
-7. Selezionare **Create** (Crea).
+7. Selezionare **Crea**.
 
 Un rappresentante del supporto contatterà l'utente per fornire assistenza.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Replica di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 - [Archiviazione con ridondanza locale: ridondanza dei dati a basso costo per Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)

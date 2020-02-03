@@ -35,4 +35,4 @@ Durante l'handshake TLS sono consentite solo le crittografie seguenti:
 
 ## <a name="customer-feedback"></a>Commenti e suggerimenti degli utenti
 
-Anche se l'applicazione di TLS 1.2 è una scelta di crittografia ottimale a livello di intero settore e verrà abilitata come pianificato, vogliamo comunque ottenere informazioni dai clienti sulle rispettive distribuzioni e sulle difficoltà specifiche a livello di adozione di TLS 1.2. A questo scopo, è possibile inviare i commenti a [iot_tls1_deprecation@microsoft.com](mailto:iot_tls1_deprecation@microsoft.com).
+Sebbene l'imposizione di TLS 1,2 sia una scelta ottimale per la crittografia a livello di settore e verrà abilitata in base a quanto previsto, è comunque opportuno che i clienti riscontrino le loro specifiche distribuzioni e difficoltà ad adottare TLS 1,2. A questo scopo, è possibile inviare i commenti a [iot_tls1_deprecation@microsoft.com](mailto:iot_tls1_deprecation@microsoft.com).

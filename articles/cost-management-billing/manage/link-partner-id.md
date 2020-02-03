@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: a67f2985e2db8c48d7e50a91d20c76b88c1c55e6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75991919"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Collegare un ID partner agli account Azure
@@ -28,11 +28,11 @@ I partner Microsoft offrono servizi che aiutano i clienti a raggiungere i loro o
 
 Prima di collegare l'ID partner, il cliente deve consentire l'accesso alle risorse di Azure tramite una delle opzioni seguenti:
 
-- **Utente Guest**: il cliente può aggiungere l'utente come utente Guest e assegnare i ruoli di controllo degli accessi in base al ruolo (RBAC). Per altre informazioni, vedere [Aggiungere utenti guest da un'altra directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- **Utente guest**: il cliente può consentire l'accesso come utente guest e assegnare uno dei ruoli Controllo degli accessi in base al ruolo. Per altre informazioni, vedere [Aggiungere utenti guest da un'altra directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
-- **Account directory**: il cliente può creare un account utente nella propria directory e assegnare qualsiasi ruolo controllo degli accessi in base al ruolo.
+- **Account directory**: il cliente può creare un account utente nella propria directory e assegnare ruoli RBAC.
 
-- **Entità servizio**: il cliente può aggiungere un'app o uno script dall'organizzazione nella propria directory e assegnare qualsiasi ruolo RBAC. L'identità dell'app o dello script viene definita entità servizio.
+- **Entità servizio**: il cliente può aggiungere un'app o uno script dell'organizzazione nella propria directory e assegnare uno dei ruoli RBAC. L'identità dell'app o dello script viene definita entità servizio.
 
 ## <a name="link-to-a-partner-id"></a>Collegamento a un ID partner
 

@@ -103,10 +103,10 @@ Dopo la pubblicazione nell'endpoint dell'argomento, si riceve una risposta. La r
 
 |Risultato  |Risposta  |
 |---------|---------|
-|Operazione completata  | 200 - OK  |
+|Success  | 200 OK  |
 |I dati di evento hanno un formato non corretto | 400 - Richiesta non valida |
-|Chiave di accesso non valida | 401 - Non autorizzato |
-|Endpoint non corretto | 404 - Pagina non trovata |
+|Chiave di accesso non valida | 401 Operazione non autorizzata |
+|Endpoint non corretto | 404 - Non trovato |
 |Una matrice o un evento supera i limiti delle dimensioni | 413 Payload Too Large (413 Payload troppo grande) |
 
 Per gli errori, il corpo del messaggio ha il formato seguente:

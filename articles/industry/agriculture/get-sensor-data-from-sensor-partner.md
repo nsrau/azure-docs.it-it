@@ -96,17 +96,17 @@ Attualmente, FarmBeats supporta i dispositivi seguenti:
 - **Node**: dispositivo a cui sono collegati uno o più sensori.
 - **Gateway**: un dispositivo a cui sono collegati uno o più nodi.
 
-Seguire questa procedura.
+Eseguire la procedura seguente.
 
 1. Nella home page selezionare **dispositivi** dal menu.
   Nella pagina **dispositivi** vengono visualizzati il tipo di dispositivo, il modello, lo stato, la farm in cui è inserito e la data dell'ultimo aggiornamento per i metadati. Per impostazione predefinita, la colonna della farm è impostata su *null*. È possibile scegliere di assegnare un dispositivo a una farm. Per altre informazioni, vedere [assegnare i dispositivi](#assign-devices).
 2. Selezionare il dispositivo per visualizzare le proprietà del dispositivo, la telemetria e i dispositivi figlio connessi al dispositivo.
 
-    ![Pagina Dispositivi](./media/get-sensor-data-from-sensor-partner/view-devices-1.png)
+    ![Pagina dei dispositivi](./media/get-sensor-data-from-sensor-partner/view-devices-1.png)
 
 ### <a name="view-sensors"></a>Visualizza sensori
 
-Seguire questa procedura.
+Eseguire la procedura seguente.
 
 1. Nella home page selezionare **sensori** dal menu.
   La pagina **sensori** Visualizza i dettagli relativi al tipo di sensore, alla farm a cui è connessa, al dispositivo padre, al nome della porta, al tipo di porta e all'ultimo stato aggiornato.
@@ -134,7 +134,7 @@ Una volta che i dati del sensore sono stati propagati, è possibile assegnarli a
 
 ### <a name="visualize-sensor-data"></a>Visualizzare i dati dei sensori
 
-Seguire questa procedura.
+Eseguire la procedura seguente.
 
 1. Nella home page selezionare **Farm** dal menu per visualizzare la pagina **Farm** .
 2. Selezionare la **Farm** per cui si desidera visualizzare i dati del sensore.
@@ -144,7 +144,7 @@ Seguire questa procedura.
 
 ## <a name="delete-a-sensor"></a>Eliminare un sensore
 
-Seguire questa procedura.
+Eseguire la procedura seguente.
 
 1. Nella home page selezionare **sensori** dal menu per visualizzare la pagina **sensori** .
 2. Selezionare il dispositivo che si desidera eliminare e selezionare **Elimina** nella finestra di conferma.
@@ -155,7 +155,7 @@ Un messaggio di conferma indica che il sensore è stato eliminato correttamente.
 
 ## <a name="delete-devices"></a>Eliminare dispositivi
 
-Seguire questa procedura.
+Eseguire la procedura seguente.
 
 1. Nella home page selezionare **dispositivi** dal menu per visualizzare la pagina **dispositivi** .
 2. Selezionare il dispositivo che si desidera eliminare e selezionare **Elimina** nella finestra di conferma.

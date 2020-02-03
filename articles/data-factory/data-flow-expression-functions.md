@@ -78,20 +78,23 @@ Seleziona un valore di colonna in base al nome nel flusso. È possibile passare 
 * ``toString(byName('Bogus Column'))``
 * ``toString(byName('Bogus Column', 'DeriveStream'))``
 ___
-### <code>byPosition</code><br/><br/>
+### <code>byPosition</code>
+<code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
 Seleziona un valore di colonna in base alla relativa posizione (basata su 1) nel flusso. Se la posizione è fuori limite, viene restituito un valore NULL. Il valore restituito deve essere di tipo convertito da una delle funzioni di conversione del tipo (TO_DATE, TO_STRING...) Gli input calcolati non sono supportati, ma è possibile usare le sostituzioni di parametro * ``toString(byPosition(1))``
 * ``toDecimal(byPosition(2), 10, 2)``
 * ``toBoolean(byName(4))``
 * ``toString(byName($colName))``
 * ``toString(byPosition(1234))``
 ___
-### <code>case</code><br/><br/>
+### <code>case</code>
+<code><b>case(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, <i>&lt;false_expression&gt;</i> : any, ...) => any</b></code><br/><br/>
 In base alle condizioni alternative, applica un valore o l'altro. Se il numero di input è pari, l'altro viene impostato come NULL per l'ultima condizione * ``case(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'``
 * ``case(10 + 20 == 25, 'bojjus', 'do' < 'go', 'gunchus') -> 'gunchus'``
 * ``isNull(case(10 + 20 == 25, 'bojjus', 'do' > 'go', 'gunchus')) -> true``
 * ``case(10 + 20 == 25, 'bojjus', 'do' > 'go', 'gunchus', 'dumbo') -> 'dumbo'``
 ___
-### <code>cbrt</code><br/><br/>
+### <code>cbrt</code>
+<code><b>cbrt(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calcolare la radice del cubo di un numero * ``cbrt(8) -> 2.0``
 ___
 ### <code>ceil</code>
@@ -480,7 +483,8 @@ Restituisce un valore NULL. Usare la sintassi della funzione (null()) se è pres
 * ``isNull(10 + 20) -> false``
 * ``isNull(10/0) -> true``
 ___
-### <code>or</code><br/><br/>
+### <code>or</code>
+<code><b>or(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
 Operatore OR logico. Uguale a | | * ``or(true, false) -> true``
 * ``true || false -> true``
 ___
@@ -593,7 +597,8 @@ Estrae un subset di una matrice da una posizione. La posizione è in base 1. Se 
 * ``isNull(slice([10, 20, 30, 40], 2)[20]) -> true``
 * ``slice(['a', 'b', 'c', 'd'], 8) -> []``
 ___
-### <code>sort</code><br/><br/>
+### <code>sort</code>
+<code><b>sort(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : binaryfunction) => array</b></code><br/><br/>
 Ordina la matrice utilizzando la funzione di predicato fornita. Sort prevede un riferimento a due elementi consecutivi nella funzione Expression come #item1 e #item2 * ``sort([4, 8, 2, 3], compare(#item1, #item2)) -> [2, 3, 4, 8]``
 * ``sort(['a3', 'b2', 'c1'], iif(right(#item1, 1) >= right(#item2, 1), 1, -1)) -> ['c1', 'b2', 'a3']``
 ___
@@ -611,7 +616,8 @@ Suddivide una stringa in base a un delimitatore e restituisce una matrice di str
 * ``isNull(split('bojjus, guchus, dumbo', ', ')[20]) -> true``
 * ``split('bojjusguchusdumbo', ',') -> ['bojjusguchusdumbo']``
 ___
-### <code>sqrt</code><br/><br/>
+### <code>sqrt</code>
+<code><b>sqrt(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calcola la radice quadrata di un numero * ``sqrt(9) -> 3``
 ___
 ### <code>startsWith</code>
@@ -633,7 +639,8 @@ Estrae una sottostringa di una determinata lunghezza da una posizione. La posizi
 * ``substring('Cat in the hat', 5) -> 'in the hat'``
 * ``substring('Cat in the hat', 100, 100) -> ''``
 ___
-### <code>tan</code><br/><br/>
+### <code>tan</code>
+<code><b>tan(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calcola un valore tangente * ``tan(0) -> 0.0``
 ___
 ### <code>tanh</code>
@@ -708,7 +715,8 @@ Converte un tipo di dati primitivo in una stringa. Per numeri e date è possibil
 * ``isNull(toString(toDate('2018-12-31', 'MM/dd/yy'))) -> true``
 * ``toString(4 == 20) -> 'false'``
 ___
-### <code>toTimestamp</code><br/><br/>
+### <code>toTimestamp</code>
+<code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></code><br/><br/>
 Converte una stringa in un timestamp in base a un formato timestamp facoltativo. Vedere Java SimpleDateFormat per tutti i formati possibili. Se il timestamp viene omesso, viene utilizzato il modello predefinito. aaaa-[M] M-[d] d HH: mm: SS [. f...]. È possibile passare un fuso orario facoltativo nel formato ' GMT ',' PST ',' UTC ',' America/Cayman '. Timestamp supporta la precisione fino a millisecondo con il valore di SimpleDateFormat di 999Refer Java per i formati disponibili. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``
 * ``toTimestamp('2016-12-31T00:12:00', 'yyyy-MM-dd\'T\'HH:mm:ss', 'PST') -> toTimestamp('2016-12-31 00:12:00')``
 * ``toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss') -> toTimestamp('2016-12-31 00:12:00')``

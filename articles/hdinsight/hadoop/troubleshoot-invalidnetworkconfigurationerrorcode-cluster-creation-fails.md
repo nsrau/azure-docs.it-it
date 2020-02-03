@@ -95,7 +95,7 @@ Verificare che 168.63.129.16 sia nella catena DNS personalizzata. I server DNS a
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Eseguire il comando seguente:
+1. Eseguire il seguente comando:
 
     ```bash
     cat /etc/resolv.conf | grep nameserver*

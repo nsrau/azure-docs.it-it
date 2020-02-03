@@ -20,7 +20,7 @@ Il generatore di immagini di macchine virtuali di Azure (Generatore di immagini 
 > Azure Image Builder è attualmente disponibile in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="preview-features"></a>Anteprima funzionalità
+## <a name="preview-features"></a>Funzionalità di anteprima
 
 Per l'anteprima, queste funzionalità sono supportate:
 
@@ -33,7 +33,7 @@ Per l'anteprima, queste funzionalità sono supportate:
 - Creazione di immagini in formato VHD.
  
 
-## <a name="regions"></a>Aree
+## <a name="regions"></a>Regions
 Il servizio Azure Image Builder sarà disponibile per l'anteprima in queste aree. Le immagini possono essere distribuite al di fuori di queste aree.
 - Stati Uniti orientali
 - Stati Uniti orientali 2
@@ -60,7 +60,7 @@ AIB supporterà l'ISO RHEL come origine per:
 
 RHEL 7,6 ISOs non sono supportati, ma sono in fase di test.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 
 ![Disegno concettuale di Azure Image Builder](./media/virtual-machines-image-builder-overview/image-builder.png)

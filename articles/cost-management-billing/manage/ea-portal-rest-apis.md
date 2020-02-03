@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
 ms.openlocfilehash: 8680a575872053f4b575db70ec649b6c1669b961
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992140"
 ---
 # <a name="azure-enterprise-rest-apis"></a>API REST Azure Enterprise
@@ -68,7 +68,7 @@ Se si vuole assegnare le chiavi di accesso API a utenti che non sono amministrat
 
 Passare la chiave API per ogni chiamata per l'autenticazione e l'autorizzazione. Passare la proprietà seguente alle intestazioni HTTP:
 
-| Chiave di intestazione della richiesta | Valore |
+| Chiave di intestazione della richiesta | valore |
 | --- | --- |
 | Autorizzazione | Specificare il valore nel formato: **bearer {API\_KEY}**
 Esempio: bearer \&lt;APIKey\&gt; |
@@ -81,10 +81,10 @@ Un endpoint Swagger è disponibile alla pagina [Enterprise Reporting v3 APIs](ht
 
 Quando si usa un'API, vengono visualizzati i codici di stato della risposta. La tabella seguente descrive questi codici.
 
-| Codice di stato della risposta | Messaggio | Description |
+| Codice di stato della risposta | Message | Descrizione |
 | --- | --- | --- |
 | 200 | OK | Nessun errore |
-| 401 | Non autorizzato | Chiave API non trovata, non valida, scaduta e così via |
+| 401 | Non autorizzata | Chiave API non trovata, non valida, scaduta e così via |
 | 404 | Non disponibile | Endpoint del report non trovato |
 | 400 | Bad Request | Parametri non validi (intervalli di date, numeri EA e così via) |
 | 500 | Errore del server | Errore imprevisto nell'elaborazione della richiesta |
@@ -122,15 +122,15 @@ Il formato JSON viene generato dal report CSV. Di conseguenza, il formato è ugu
 | SubscriptionGuid | MOCPSubscriptionGuid | SubscriptionGuid |   |
 | Nome sottoscrizione | SubscriptionName | SubscriptionName |   |
 | Data | Data | Data | Indica la data di esecuzione del report del catalogo di servizi. Il formato è una stringa di data senza timestamp. |
-| Mese | Mese | Mese |   |
+| Month | Month | Month |   |
 | Giorno | Giorno | Giorno |   |
-| Anno | Anno | Anno |   |
+| Year | Year | Year |   |
 | Prodotto | BillableItemName | Prodotto |   |
 | ID misuratore | ResourceGUID | ID contatore |   |
-| Categoria del contatore | Servizio | MeterCategory | È utile per trovare i servizi. Pertinente per i servizi con più ServiceType. Esempio: Macchine virtuali. |
-| Sottocategoria del contatore | ServiceType | MeterSubCategory | Fornisce un secondo livello di dettagli per un servizio. Esempio: VM A1 (non Windows).  |
+| Categoria misuratore | Service | MeterCategory | È utile per trovare i servizi. Pertinente per i servizi con più ServiceType. Esempio: Macchine virtuali. |
+| Sottocategoria misuratore | ServiceType | MeterSubCategory | Fornisce un secondo livello di dettagli per un servizio. Esempio: VM A1 (non Windows).  |
 | Area misuratore | ServiceRegion | MeterRegion | Terzo livello di dettaglio richiesto per un servizio. Utile per trovare il contesto dell'area di ResourceGUID. |
-| Nome del contatore | ServiceResource | MeterName | Il nome del servizio. |
+| Nome misuratore | ServiceResource | MeterName | Il nome del servizio. |
 | Quantità consumata | ResourceQtyConsumed | ConsumedQuantity |   |
 | ResourceRate | ResourceRate | ResourceRate |   |
 | ExtendedCost | ExtendedCost | ExtendedCost |   |
@@ -144,7 +144,7 @@ Il formato JSON viene generato dal report CSV. Di conseguenza, il formato è ugu
 | Identificatore del servizio di archiviazione   | OrderNumber | StoreServiceIdentifier   |   |
 | Department Name | DepartmentName | DepartmentName |   |
 | Cost Center | CostCenter | CostCenter |   |
-| Unità di misura | UnitOfMeasure | UnitOfMeasure | Valori di esempio: hours, GB, Events, pushs, Unit, ore unità, MB, Daily unit |
+| Unità di misura | UnitOfMeasure | UnitOfMeasure | Valori di esempio: Hours, GB, Events, Pushes, Unit, Unit Hours, MB, Daily Units |
 | ResourceGroup | ResourceGroup | ResourceGroup |   |
 
 #### <a name="azure-marketplace-report"></a>Report di Azure Marketplace
@@ -157,9 +157,9 @@ Il formato JSON viene generato dal report CSV. Di conseguenza, il formato è ugu
 | SubscriptionGuid | SubscriptionGuid | SubscriptionGuid |
 | Nome sottoscrizione | SubscriptionName |  SubscriptionName |
 | Data | BillingCycle |  Date (solo stringa di data, senza timestamp)
-| Mese | Mese |  Mese |
+| Month | Month |  Month |
 | Giorno | Giorno |  Giorno |
-| Anno | Anno |  Anno |
+| Year | Year |  Year |
 | ID misuratore | MeterResourceId |  ID contatore |
 | Nome entità di pubblicazione | PublisherFriendlyName |  PublisherName |
 | Nome offerta | OfferFriendlyName |  OfferName |
@@ -180,7 +180,7 @@ Il formato JSON viene generato dal report CSV. Di conseguenza, il formato è ugu
 
 | Nome colonna CSV | Nome colonna JSON | Comment |
 | --- | --- | --- |
-| Servizio | Servizio |  Nessuna modifica al prezzo |
+| Service | Service |  Nessuna modifica al prezzo |
 | Unità di misura | UnitOfMeasure |   |
 | Overage Part Number | ConsumptionPartNumber |   |
 | Overage Unit Price | ConsumptionPrice |   |

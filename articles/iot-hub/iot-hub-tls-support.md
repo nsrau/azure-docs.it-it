@@ -78,7 +78,7 @@ Gli hub Internet delle cose configurati per accettare solo TLS 1,2 applicheranno
 
 Usare i collegamenti seguenti per configurare TLS 1,2 e le crittografie consentite negli SDK client dell'hub Internet.
 
-| Lingua | TLS 1,2 supportato | Documentazione |
+| Lingua: | TLS 1,2 supportato | Documentazione |
 |----------|-------------------|---------------|
 | C        | Sì               | [Collegamento](https://aka.ms/Tls_C_SDK_IoT) |
 | Python   | Sì               | [Collegamento](https://aka.ms/Tls_Python_SDK_IoT) |

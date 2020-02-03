@@ -16,7 +16,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76719365"
 ---
-# <a name="train-clustering-model"></a>Eseguire il training del modello di clustering
+# <a name="train-clustering-model"></a>Modello di clustering di training
 
 Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 

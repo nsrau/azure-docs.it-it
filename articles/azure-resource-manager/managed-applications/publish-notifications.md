@@ -16,7 +16,7 @@ ms.locfileid: "76715679"
 
 Le notifiche delle applicazioni gestite di Azure consentono agli editori di automatizzare le azioni in base agli eventi del ciclo di vita delle istanze di applicazioni gestite. Gli editori possono specificare endpoint del webhook di notifica personalizzati per ricevere notifiche degli eventi sulle istanze di applicazioni gestite nuove ed esistenti. Gli editori possono impostare flussi di lavoro personalizzati al momento del provisioning, degli aggiornamenti e dell'eliminazione dell'applicazione.
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 Per iniziare a ricevere le applicazioni gestite, creare un endpoint HTTPS pubblico e specificarlo quando si pubblica la definizione dell'applicazione del catalogo di servizi o l'offerta di Azure Marketplace.
 
 Ecco i passaggi consigliati per iniziare rapidamente:
@@ -69,13 +69,13 @@ Nella tabella seguente vengono descritte tutte le possibili combinazioni di Even
 
 EventType | ProvisioningState | Trigger per la notifica
 ---|---|---
-PUT | Accepted | Il gruppo di risorse gestite è stato creato e proiettato correttamente dopo l'inserimento dell'applicazione (prima che la distribuzione all'interno del gruppo di risorse gestite venga avviata).
-PUT | Operazione completata | Il provisioning completo dell'applicazione gestita è riuscito dopo un'operazione PUT.
+PUT | Accettato | Il gruppo di risorse gestite è stato creato e proiettato correttamente dopo l'inserimento dell'applicazione (prima che la distribuzione all'interno del gruppo di risorse gestite venga avviata).
+PUT | Succeeded | Il provisioning completo dell'applicazione gestita è riuscito dopo un'operazione PUT.
 PUT | Operazione non riuscita | Errore di inserimento del provisioning dell'istanza dell'applicazione in qualsiasi momento.
-PATCH | Operazione completata | Dopo una PATCH corretta nell'istanza dell'applicazione gestita per aggiornare i tag, i criteri di accesso JIT o l'identità gestita.
-Elimina | Eliminazione | Non appena l'utente avvia un'eliminazione di un'istanza dell'app gestita.
-Elimina | Eliminato | Dopo l'eliminazione completa e corretta dell'applicazione gestita.
-Elimina | Operazione non riuscita | Dopo qualsiasi errore durante il processo di deprovisioning che blocca l'eliminazione.
+PATCH | Succeeded | Dopo una PATCH corretta nell'istanza dell'applicazione gestita per aggiornare i tag, i criteri di accesso JIT o l'identità gestita.
+DELETE | Eliminazione | Non appena l'utente avvia un'eliminazione di un'istanza dell'app gestita.
+DELETE | Eliminato | Dopo l'eliminazione completa e corretta dell'applicazione gestita.
+DELETE | Operazione non riuscita | Dopo qualsiasi errore durante il processo di deprovisioning che blocca l'eliminazione.
 ## <a name="notification-schema"></a>Schema di notifica
 Quando si avvia l'endpoint del webhook per gestire le notifiche, è necessario analizzare il payload per ottenere proprietà importanti e quindi agire sulla notifica. Il catalogo di servizi e le notifiche delle applicazioni gestite di Azure Marketplace forniscono molte delle stesse proprietà. Nella tabella riportata di seguito vengono descritte due differenze minime.
 
@@ -176,13 +176,13 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
 
 ```
 
-Parametro | Description
+Parametro | Descrizione
 ---|---
 eventType | Tipo di evento che ha attivato la notifica. (Ad esempio, PUT, PATCH, DELETE).
 applicationId | Identificatore di risorsa completo dell'applicazione gestita per la quale è stata attivata la notifica.
 eventTime | Timestamp dell'evento che ha attivato la notifica. (Data e ora in formato UTC ISO 8601).
 provisioningState | Stato di provisioning dell'istanza dell'applicazione gestita. (Ad esempio, Succeeded, failed, Deleting, Deleted.)
-error | *Specificata solo se ProvisioningState non è riuscito*. Contiene il codice di errore, il messaggio e i dettagli del problema che ha causato l'errore.
+Errore | *Specificata solo se ProvisioningState non è riuscito*. Contiene il codice di errore, il messaggio e i dettagli del problema che ha causato l'errore.
 applicationDefinitionId | *Specificata solo per le applicazioni gestite del catalogo di servizi*. Rappresenta l'identificatore di risorsa completo della definizione di applicazione per cui è stato effettuato il provisioning dell'istanza dell'applicazione gestita.
 piano | *Specificata solo per le applicazioni gestite di Azure Marketplace*. Rappresenta il server di pubblicazione, l'offerta, lo SKU e la versione dell'istanza dell'applicazione gestita.
 billingDetails | *Specificata solo per le applicazioni gestite di Azure Marketplace.* Dettagli di fatturazione dell'istanza dell'applicazione gestita. Contiene la resourceUsageId che è possibile usare per eseguire query su Azure Marketplace per i dettagli di utilizzo.

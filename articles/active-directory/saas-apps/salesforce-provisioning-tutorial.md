@@ -82,15 +82,15 @@ In questa sezione viene descritto come abilitare il provisioning utenti degli ac
 
 6. Per ottenere il token di sicurezza di Salesforce, aprire una nuova scheda e accedere allo stesso account di amministratore di Salesforce. Nell'angolo superiore destro della pagina fare clic sul proprio nome e quindi su **Impostazioni**.
 
-    ![Abilita provisioning utenti automatico](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Abilita provisioning utenti automatico")
+    ![Abilita provisioning utenti automatico](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Abilitazione del provisioning utenti automatico")
 
 7. Nel pannello di navigazione sinistro fare clic su **My Personal Information** (Informazioni personali) per espandere la sezione corrispondente e quindi fare clic su **Reset My Security Token** (Reimposta token di sicurezza personale).
   
-    ![Abilita provisioning utenti automatico](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Abilita provisioning utenti automatico")
+    ![Abilita provisioning utenti automatico](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Abilitazione del provisioning utenti automatico")
 
 8. Nella pagina **Reset Security Token** (Reimposta token di sicurezza) fare clic sul pulsante **Reset Security Token** (Reimposta token di sicurezza).
 
-    ![Abilita provisioning utenti automatico](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Abilita provisioning utenti automatico")
+    ![Abilita provisioning utenti automatico](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Abilitazione del provisioning utenti automatico")
 
 9. Controllare la casella di posta elettronica associata a questo account di amministratore. Cercare un messaggio di posta elettronica da Salesforce.com contenente il nuovo token di sicurezza.
 

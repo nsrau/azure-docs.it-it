@@ -82,7 +82,7 @@ Nell'URL seguente sostituire [servicePrincipalId] con il **servicePrincipalId** 
 ```
 Copiare il testo aggiornato dal passaggio 3 nel "corpo della richiesta" e impostare l'intestazione "Content-Type" su "application/json" in "Request Headers". 
 
-   ![Inserisci richiesta](media/skip-out-of-scope-deletions/skip-05.png)
+   ![PUT, richiesta](media/skip-out-of-scope-deletions/skip-05.png)
 
 Fare clic su "Esegui query". 
 
