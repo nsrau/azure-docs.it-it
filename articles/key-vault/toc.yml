@@ -118,6 +118,8 @@
       href: event-grid-logicapps.md
     - name: Integrazione con Criteri di Azure
       href: azure-policy.md
+    - name: Integrazione con il servizio di collegamento privato di Azure (anteprima)
+      href: private-link-service.md
     - name: Registrazione di Azure Key Vault
       href: key-vault-logging.md
     - name: Accesso protetto da firewall
@@ -138,7 +140,7 @@
       items:
         - name: Usare Spring Boot Starter
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Codici di errore REST di Key Vault
       href: rest-error-codes.md

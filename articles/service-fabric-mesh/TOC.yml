@@ -5,7 +5,7 @@
   items:
     - name: Informazioni su mesh Service Fabric
       href: service-fabric-mesh-overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
     - name: Distribuire Hello World
       href: service-fabric-mesh-quickstart-deploy-container.md
@@ -51,7 +51,7 @@
       href: service-fabric-mesh-storing-state.md
     - name: Segreti
       href: service-fabric-mesh-secrets-overview.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Configurazione dell'ambiente di sviluppo
       href: service-fabric-mesh-howto-setup-developer-environment-sdk.md
@@ -71,9 +71,11 @@
       href: service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md
     - name: Gestire i segreti
       href: service-fabric-mesh-howto-manage-secrets.md
+    - name: Spostare un'applicazione in un'altra area di Azure
+      href: move-across-regions.md
     - name: Trovare esempi
       href: service-fabric-mesh-howto-find-samples.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: API REST del provider di risorse di Service Fabric Mesh
       href: /rest/api/servicefabric/sfmeshrp-index
@@ -99,5 +101,5 @@
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-fabric'
     - name: Aggiornamenti del servizio
       href: 'https://azure.microsoft.com/updates/?product=service-fabric-mesh'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/regions/services/'

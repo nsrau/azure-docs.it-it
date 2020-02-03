@@ -24,7 +24,7 @@
       href: concept-attributes.md
     - name: Scrittura di espressioni per il mapping degli attributi in Azure Active Directory
       href: reference-expressions.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Installazione e aggiornamento
       items:
@@ -34,11 +34,13 @@
           href: how-to-install.md
         - name: Configurazione del provisioning cloud
           href: how-to-configure.md
+        - name: Usare Single Sign-On
+          href: how-to-sso.md
     - name: Pianificare e progettare
       items:
         - name: Topologie e scenari per il provisioning cloud di Azure AD Connect
           href: plan-cloud-provisioning-topologies.md
-    - name: Gestisci
+    - name: Gestione
       items:
         - name: Aggiornamento automatico dell'agente
           href: how-to-automatic-upgrade.md
@@ -54,7 +56,7 @@
           href: how-to-troubleshoot.md
         - name: Attributi duplicati
           href: 'https://docs.microsoft.com/office365/troubleshoot/administration/duplicate-attributes-prevent-dirsync'
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: Cronologia delle versioni dell'agente di provisioning cloud di Azure AD Connect
       href: /azure/active-directory/manage-apps/provisioning-agent-release-version-history?context=azure/active-directory/cloud-provisioning/context/cp-context

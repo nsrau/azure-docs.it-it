@@ -26,13 +26,13 @@
           href: event-hubs-resource-manager-namespace-event-hub.md
     - name: Inviare e ricevere eventi
       items:
-        - name: .NET Core
-          href: event-hubs-dotnet-standard-getstarted-send.md
-        - name: Java
+        - name: .NET Core (Azure.Messaging.EventHubs)
+          href: get-started-dotnet-standard-send-v2.md
+        - name: Java (azure-eventhubs)
           href: event-hubs-java-get-started-send.md
-        - name: Python
+        - name: Python (azure-eventhub versione 5)
           href: get-started-python-send-v2.md
-        - name: Node.js
+        - name: Node.js (azure/event-hubs versione 5)
           href: get-started-node-send-v2.md
         - name: Go
           href: event-hubs-go-get-started-send.md
@@ -40,15 +40,13 @@
           href: event-hubs-c-getstarted-send.md
         - name: Apache Storm (solo ricezione)
           href: event-hubs-storm-getstarted-receive.md
-        - name: .NET Framework
-          href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Acquisire eventi
       items:
         - name: Usare il portale di Azure per abilitare Acquisizione di Hub eventi
           href: event-hubs-capture-enable-through-portal.md
         - name: Usare un modello di Resource Manager per abilitare Acquisizione di Hub eventi
           href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
-        - name: Acquisire i dati di Hub eventi con Python
+        - name: Acquisire i dati di Hub eventi con Python (azure-eventhub version 5)
           href: get-started-capture-python-v2.md
     - name: Eseguire lo streaming in Hub eventi per Apache Kafka
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
@@ -71,8 +69,10 @@
   items:
     - name: Terminologia relativa a hub eventi
       href: event-hubs-features.md
-    - name: Host processore di eventi
+    - name: Host processore di eventi (SDK legacy)
       href: event-hubs-event-processor-host.md
+    - name: Processore di eventi (SDK più recente)
+      href: event-processor-balance-partition-load.md
     - name: Disponibilità e coerenza
       href: event-hubs-availability-and-consistency.md
     - name: Scalabilità
@@ -116,20 +116,26 @@
           href: event-hubs-exchange-events-different-protocols.md
         - name: Guide alla programmazione
           items:
-            - name: Python
+            - name: .NET (Azure.Messaging.EventHubs)
+              href: 'https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/README.md'
+            - name: Python (azure-eventhub versione 5)
               href: 'https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/README.md'
-            - name: JavaScript
+            - name: JavaScript (azure/event-hubs versione 5)
               href: 'https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/README.md'
-            - name: Guida alla programmazione .NET
+            - name: .NET (Microsoft.Azure.EventHubs)
               href: event-hubs-programming-guide.md
-        - name: Leggere i dati acquisiti con Python (legacy)
+        - name: Leggere i dati acquisiti con Python (azure-eventhub version 1)
           href: event-hubs-capture-python.md
-        - name: Inviare e ricevere eventi (legacy)
+        - name: Inviare e ricevere eventi (versioni/pacchetti precedenti)
           items:
-            - name: Python (legacy)
+            - name: .NET Core (Microsoft.Azure.EventHubs)
+              href: event-hubs-dotnet-standard-getstarted-send.md
+            - name: Python (azure-eventhub versione 1)
               href: event-hubs-python-get-started-send.md
-            - name: Node.js (legacy)
+            - name: Node.js (azure/event-hubs versione 2)
               href: event-hubs-node-get-started-send.md
+            - name: .NET Framework (Microsoft.Azure.EventHubs)
+              href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Elaborazione dei dati
       items:
         - name: Elaborare dati con Analisi di flusso di Azure
@@ -184,36 +190,54 @@
           href: event-hubs-messaging-exceptions.md
         - name: Eccezioni di Resource Manager
           href: resource-manager-exceptions.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
-    - name: Java
-      items:
-        - name: com.microsoft.azure.eventhubs
-          href: /java/api/com.microsoft.azure.eventhubs
-        - name: com.microsoft.azure.eventprocessorhost
-          href: /java/api/com.microsoft.azure.eventprocessorhost
     - name: .NET
       items:
-        - name: Microsoft.Azure.EventHubs
-          href: /dotnet/api/microsoft.azure.eventhubs
-        - name: Microsoft.Azure.EventHubs.Processor
-          href: /dotnet/api/microsoft.azure.eventhubs.processor
-        - name: Microsoft.ServiceBus.Messaging
-          href: /dotnet/api/microsoft.servicebus.messaging
-        - name: Microsoft.ServiceBus.Messaging.EventProcessorHost
-          href: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
-        - name: Microsoft.Azure.Management.EventHub
+        - name: Libreria client
+          items:
+            - name: Eseguire la migrazione da Microsoft.Azure.Event Hubs ad Azure.Messaging.EventHubs
+              href: 'https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MIGRATIONGUIDE.md'
+            - name: Azure.Messaging.EventHubs (più recente)
+              href: /dotnet/api/azure.messaging.eventhubs?view=azure-dotnet-preview
+            - name: Microsoft.Azure.EventHubs (legacy)
+              href: /dotnet/api/microsoft.azure.eventhubs
+            - name: Microsoft.ServiceBus.Messaging (legacy)
+              href: /dotnet/api/microsoft.servicebus.messaging
+        - name: Libreria di gestione
           href: /dotnet/api/microsoft.azure.management.eventhub
-    - name: Node.js
+    - name: Java
       items:
-        - name: Eseguire la migrazione dalla versione 2 alla versione 5
-          href: 'https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md'
-        - name: Informazioni di riferimento sulle API
-          href: /javascript/api/overview/azure/event-hub?view=azure-node-latest
+        - name: Libreria client
+          items:
+            - name: azure-eventhubs
+              href: /java/api/overview/azure/eventhubs/client?view=azure-java-stable
+        - name: Libreria di gestione
+          href: /java/api/com.microsoft.azure.management.eventhub?view=azure-java-stable
     - name: Python
       items:
-        - name: Eseguire la migrazione dalla versione 1 alla versione 5
+        - name: Eseguire la migrazione dalla versione 1 alla versione 5 di azure-eventhub
           href: 'https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md'
+        - name: Libreria client
+          items:
+            - name: azure-eventhub versione 5
+              href: /python/api/azure-eventhub/?view=azure-python-preview
+            - name: azure-eventhub versione 1
+              href: /python/api/azure-eventhub/?view=azure-python
+        - name: Libreria di gestione
+          href: /python/api/overview/azure/event-hub?view=azure-python
+    - name: Node.js
+      items:
+        - name: Eseguire la migrazione dalla versione 2 alla versione 5 di azure/eventhubs
+          href: 'https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md'
+        - name: Libreria client
+          items:
+            - name: azure/eventhubs versione 5
+              href: /javascript/api/@azure/event-hubs/?view=azure-node-preview
+            - name: azure/eventhubs versione 2
+              href: /javascript/api/@azure/event-hubs/?view=azure-node-latest
+        - name: Libreria di gestione
+          href: /javascript/api/@azure/arm-eventhub/?view=azure-node-latest
     - name: REST
       href: /rest/api/eventhub
     - name: Modello di Resource Manager

@@ -888,13 +888,19 @@
             - name: Accedere al monitoraggio esternamente
               href: /azure/databricks/applications/mlflow/access-hosted-tracking-server
               maintainContext: true
+        - name: Creare dashboard con l'API di ricerca MLflow
+          href: /azure/databricks/applications/mlflow/build-dashboards
+          maintainContext: true
         - name: 'Salvare, caricare e distribuire modelli'
           items:
             - name: 'Panoramica su salvataggio, caricamento e distribuzione'
               href: /azure/databricks/applications/mlflow/models
               maintainContext: true
-            - name: Esempi di modelli MLflow
-              href: /azure/databricks/applications/mlflow/  model-examples
+            - name: Esempio di modello MLflow
+              href: /azure/databricks/applications/mlflow/model-example
+              maintainContext: true
+            - name: Distribuzione del modello scikit-learn in Azure
+              href: /azure/databricks/applications/mlflow/scikit-learn-model-deployment-on-azure-ml
               maintainContext: true
         - name: Riprodurre esecuzioni con progetti di MLflow
           href: /azure/databricks/applications/mlflow/projects
@@ -1411,7 +1417,7 @@
               maintainContext: true
         - name: Python
           items:
-            - name: Creare un cluster con Anaconda
+            - name: Creare un cluster con Conda
               href: /azure/databricks/kb/python/anaconda-environment
               maintainContext: true
             - name: Installare e compilare Cython
@@ -1465,6 +1471,9 @@
           items:
             - name: Eseguire codice C++ in Scala
               href: /azure/databricks/kb/scala/running-c-plus-plus-code-scala
+              maintainContext: true
+            - name: Non è possibile eseguire processi JAR Spark simultanei
+              href: /azure/databricks/kb/scala/spark-jar-job-error
               maintainContext: true
         - name: SQL
           items:
@@ -1682,7 +1691,7 @@
                 - name: Databricks Runtime 6.3 ML
                   href: /azure/databricks/release-notes/runtime/6.3ml
                   maintainContext: true
-                - name: Databricks Runtime 6.3 Genomics
+                - name: Databricks Runtime 6.3 Genomica
                   href: /azure/databricks/release-notes/runtime/6.3genomics
                   maintainContext: true
                 - name: Databricks Runtime 6.2

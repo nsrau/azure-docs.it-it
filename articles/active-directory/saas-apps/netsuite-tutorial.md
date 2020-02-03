@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/22/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9be353e6a030708ea0b9939689d8669506d3b80
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 6a920e58f1ffd4c3e3e9769bf6346100a8677b90
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289034"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760054"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Esercitazione: Integrare l'accesso Single Sign-On (SSO) di Azure Active Directory con NetSuite
 
@@ -75,7 +75,7 @@ Per configurare e testare l'accesso SSO di Azure AD con NetSuite, completare le 
     * [Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user): per consentire all'utente B.Simon di usare l'accesso Single Sign-On di Azure AD.
 1. [Configurare l'accesso Single Sign-On di NetSuite](#configure-netsuite-sso): per configurare le impostazioni di Single Sign-On sul lato applicazione.
     * [Creare l'utente di test di NetSuite](#create-the-netsuite-test-user): per avere una controparte dell'utente B.Simon in NetSuite collegata alla rappresentazione dell'utente in Azure AD.
-1. [Testare l'accesso Single Sign-On](#test-sso): per verificare se la configurazione funziona.
+1. [Testare l'accesso SSO](#test-sso) per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
@@ -98,8 +98,12 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     | `https://<Account ID>.na1.sandbox.NetSuite.com/saml2/acs`|
     | `https://<Account ID>.na2.sandbox.NetSuite.com/saml2/acs`|
 
-    > [!NOTE]
-    > I valori negli URL precedenti non sono reali. Aggiornarli con l'URL di risposta effettivo. Per ottenere il valore, contattare il [team di supporto clienti di NetSuite](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). È anche possibile fare riferimento ai formati illustrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    * Si otterrà il valore **<`Account ID`>** nella sezione relativa alla configurazione di NetSuite che viene descritta più avanti nel passaggio 8 dell'esercitazione, in NetSuite Configuration (Configurazione NetSuite). Si troverà il dominio esatto, in questo caso system.na0.netsuite.com.
+
+        ![Configura accesso Single Sign-On](./media/NetSuite-tutorial/domain-value.png)
+
+        > [!NOTE]
+        > I valori negli URL precedenti non sono reali. Aggiornarli con l'URL di risposta effettivo. Per ottenere il valore, contattare il [team di supporto clienti di NetSuite](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). È anche possibile fare riferimento ai formati illustrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 1. L'applicazione NetSuite prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti.
 
@@ -204,7 +208,7 @@ In questa sezione si abilita l'utente B.Simon all'uso dell'accesso Single Sign-O
 
     b. Nel riquadro **Company Information** (Informazioni sulla società) copiare il valore di **Account ID** (ID account) nella colonna di destra.
 
-    c. Incollare il valore di **Account ID** (ID account) copiato dall'account NetSuite nella casella **Valore attributo** in Azure AD. 
+    c. Incollare il valore di **Account ID** (ID account) copiato dall'account NetSuite nella casella **Valore attributo** in Azure AD.
 
 10. Per consentire l'accesso Single Sign-On a NetSuite, è prima di tutto necessario che le autorizzazioni appropriate vengano assegnate agli utenti in NetSuite. Per assegnare queste autorizzazioni, seguire questa procedura:
 

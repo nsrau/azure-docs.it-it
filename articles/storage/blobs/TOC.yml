@@ -82,11 +82,7 @@
             - name: 4- Verificare le metriche di velocità effettiva e latenza
               href: storage-blob-scalable-app-verify-metrics.md
         - name: Ospitare un sito Web statico
-          items:
-            - name: 1 - Creare un sito Web statico
-              href: storage-blob-static-website-host.md
-            - name: 2 - Abilitare un dominio personalizzato con SSL
-              href: storage-blob-static-website-custom-domain.md
+          href: storage-blob-static-website-host.md
         - name: Progettare applicazioni per la disponibilità elevata
           items:
             - name: 1 - Rendere l'applicazione a disponibilità elevata
@@ -383,10 +379,12 @@
             - name: Usare l'emulatore di archiviazione di Azure
               href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Ospitare un sito Web statico
-          href: storage-blob-static-website-how-to.md
-        - name: Eseguire il mapping della rete CDN di Azure con un dominio personalizzato per l'accesso tramite HTTPS
-          href: storage-https-custom-domain-cdn.md
-        - name: Configurare un dominio personalizzato
+          items:
+            - name: Ospitare un sito Web statico
+              href: storage-blob-static-website-how-to.md
+            - name: Integrazione con la rete CDN di Azure
+              href: static-website-content-delivery-network.md
+        - name: Usare un dominio personalizzato
           href: storage-custom-domain-name.md
         - name: Indirizzare gli eventi a un endpoint personalizzato
           href: storage-blob-event-quickstart.md
