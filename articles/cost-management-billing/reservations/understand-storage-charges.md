@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: tamram
 ms.openlocfilehash: 40fba61b173979fb9362de73a87d6192aac9941d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995312"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-storage"></a>Informazioni su come viene applicato lo sconto per la prenotazione ad Archiviazione di Azure
@@ -47,7 +47,7 @@ Si supponga che in una determinata ora del periodo di prenotazione siano stati u
 
 Si supponga che in una determinata ora del periodo di prenotazione siano stati usati 101 TB di capacità di archiviazione. Lo sconto relativo alla prenotazione si applica a 100 TB di dati, per il rimanente TB vengono applicate le tariffe a consumo per quell'ora. Se nell'ora successiva si usano 100 TB, tutto l'utilizzo sarà coperto dalla prenotazione.
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: bb3aa7970f993ec5e0ceb50d10cc0907ed225c2f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995871"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Ottimizzare i costi di Azure Databricks con un preacquisto
@@ -31,7 +31,7 @@ Il preacquisto di Databricks si applica a tutti i carichi di lavoro e i livelli 
 | --- | --- | --- |
 | Analisi dei dati | 0,4 | 0,55 |
 | Ingegneria dei dati | 0,15 | 0,30 |
-| Data Engineering Light | 0,07 | 0,22 |
+| Ingegneria dei dati - Light | 0,07 | 0,22 |
 
 Quando viene utilizzata una quantità di Analisi dei dati nel livello Standard, ad esempio, dalle unità di impegno in Databricks preacquistate vengono detratte 0,4 unità.
 
@@ -41,14 +41,14 @@ Prima dell'acquisto, calcolare la quantità totale di unità Databricks utilizza
 
 È possibile acquistare piani di Databricks nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D). Per acquistare capacità riservata, è necessario avere il ruolo di proprietario per almeno una sottoscrizione Enterprise.
 
-- È necessario avere un ruolo proprietario per almeno un Enterprise Agreement (numeri dell'offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto del cliente Microsoft o una sottoscrizione singola con tariffe a consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P).
-- Per le sottoscrizioni EA, l'opzione Aggiungi istanze riservate deve essere abilitata nel portale EA. In alternativa, se tale impostazione è disabilitata, è necessario essere un amministratore EA per la sottoscrizione.
+- È necessario avere un ruolo di proprietario per almeno un Contratto Enterprise (numeri offerte: MS-AZR-0017P o MS-AZR-0148P) o Contratto del cliente Microsoft o una sottoscrizione individuale con pagamento in base al consumo (numeri offerte: MS-AZR-0003P o MS-AZR-0023P).
+- Per le sottoscrizioni EA, l'opzione Aggiungi istanze riservate deve essere abilitata in EA Portal. Se tale impostazione è disabilitata, è necessario essere un amministratore del contratto EA della sottoscrizione.
 - Per le sottoscrizioni Enterprise, **Aggiungi istanze riservate** deve essere abilitata nel [portale EA](https://ea.azure.com/). In alternativa, se tale impostazione è disabilitata, è necessario essere un amministratore del contratto EA della sottoscrizione.
 
 **Per effettuare l'acquisto:**
 
 1. Accedere al [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D).
-1. Seleziona una sottoscrizione. Usare l'elenco **Sottoscrizione** per selezionare la sottoscrizione usata per pagare la capacità riservata. I costi iniziali relativi alla capacità riservata vengono addebitati in base al metodo di pagamento della sottoscrizione. I costi vengono detratti dal saldo dell'impegno monetario della registrazione oppure addebitati come eccedenza.
+1. Selezionare una sottoscrizione. Usare l'elenco **Sottoscrizione** per selezionare la sottoscrizione usata per pagare la capacità riservata. I costi iniziali relativi alla capacità riservata vengono addebitati in base al metodo di pagamento della sottoscrizione. I costi vengono detratti dal saldo dell'impegno monetario della registrazione oppure addebitati come eccedenza.
 1. Selezionare un ambito. Usare l'elenco **Ambito** per selezionare un ambito della sottoscrizione.
     - **Gruppo di risorse singolo**: lo sconto per la prenotazione si applica solo alle risorse corrispondenti incluse nel gruppo di risorse selezionato.
     - **Sottoscrizione singola**: lo sconto della prenotazione viene applicato alle risorse corrispondenti incluse nella sottoscrizione selezionata.
@@ -71,7 +71,7 @@ Non è possibile dividere o unire il preacquisto di unità di impegno in Databri
 
 Per i piani di preacquisto di Databricks non sono supportati l'annullamento e lo scambio. Tutti gli acquisti sono definitivi.
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

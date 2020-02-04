@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 06/30/2019
 ms.author: banders
 ms.openlocfilehash: af0769ae4e242c86a56ff63d5f7c9ecbe9382b48
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995416"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Ottenere informazioni sui costi di prenotazione e l'utilizzo dei contratti Enterprise Agreement
@@ -33,7 +33,7 @@ Gli addebiti per Marketplace sono consolidati nei dati di utilizzo. Vengono visu
 
 ## <a name="reservation-charges-in-azure-usage-data"></a>Addebiti delle prenotazioni nei dati di utilizzo di Azure
 
-I dati sono divisi in due set di dati separati: _costo effettivo_ e _costo ammortizzato_. Ecco le differenze tra i due set di dati:
+I dati sono divisi in due set di dati separati: _Costo effettivo_ e _Costo ammortizzato_. Ecco le differenze tra i due set di dati:
 
 **Costo effettivo**: fornisce i dati da riconciliare con la fattura mensile. Questi dati includono i costi di acquisto della prenotazione e i dettagli sull'applicazione della stessa. Grazie a questi dati è possibile individuare la sottoscrizione, il gruppo di risorse o la risorsa che ha ricevuto lo sconto sulla prenotazione in un determinato giorno. Il valore di EffectivePrice per l'utilizzo che riceve lo sconto sulla prenotazione è pari a zero.
 
@@ -41,7 +41,7 @@ I dati sono divisi in due set di dati separati: _costo effettivo_ e _costo ammor
 
 Ecco un confronto tra i due set di dati:
 
-| Dati | Set di dati Costo effettivo | Set di dati Costo ammortizzato |
+| Data | Set di dati Costo effettivo | Set di dati Costo ammortizzato |
 | --- | --- | --- |
 | Acquisti di prenotazioni | Disponibili in questa visualizzazione.<br><br>  Per ottenere questi dati, filtrare per ChargeType = &quot;Purchase&quot;. <br><br> Fare riferimento a ReservationID o ReservationName per sapere a quale prenotazione è relativo l'addebito.  | Non applicabili a questa visualizzazione. <br><br> I costi di acquisto non vengono forniti nei dati ammortizzati. |
 | EffectivePrice | Il valore è zero per l'utilizzo che ottiene lo sconto sulla prenotazione. | Il valore è il costo orario ripartito in modo proporzionale della prenotazione per l'utilizzo con lo sconto per la prenotazione. |
@@ -65,9 +65,9 @@ Sono state modificate altre informazioni disponibili nei dati di utilizzo di Azu
 
 Per ottenere i nuovi dati, chiamare l'[API Dettagli utilizzo](/rest/api/consumption/usagedetails/list). Per informazioni dettagliate sulla terminologia, vedere [Comprendere i termini di utilizzo nel file su utilizzo e costi di Azure](../understand/understand-usage.md). Il chiamante deve essere un amministratore dell'organizzazione per il contratto Enterprise Agreement che usa [EA Portal](https://ea.azure.com). Anche gli amministratori dell'organizzazione in sola lettura possono ottenere i dati.
 
-Si noti che questi dati non sono disponibili nelle [API per la creazione di report per i clienti Enterprise-dettagli sull'utilizzo](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
+Tenere presente che questi dati non sono disponibili in [API di creazione di report per i clienti Enterprise - Dettagli di utilizzo](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
-Di seguito è riportato un esempio di chiamata all'API dettagli di utilizzo:
+Ecco una chiamata di esempio all'API Dettagli sull'utilizzo:
 
 ```
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
@@ -89,7 +89,7 @@ Le informazioni riportate nella tabella seguente sulla metrica e sul filtro poss
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>Scaricare il file CSV dei dati di utilizzo con i nuovi dati
 
-Gli amministratori EA possono scaricare il file CSV contenente i nuovi dati di utilizzo dal portale di Azure. Questi dati non sono disponibili dal portale EA (ea.azure.com). per visualizzare i nuovi dati, è necessario scaricare il file di utilizzo da portale di Azure (portal.azure.com).
+Gli amministratori EA possono scaricare il file CSV contenente i nuovi dati di utilizzo dal portale di Azure. Questi dati non sono disponibili in EA Portal (ea.azure.com), occorre scaricare il file di utilizzo dal portale di Azure (portal.azure.com) per visualizzare i nuovi dati.
 
 Nel portale di Azure passare a [Gestione dei costi e fatturazione](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
@@ -111,7 +111,7 @@ I costi di acquisto della prenotazione sono disponibili nei dati di costo effett
 
 ### <a name="get-underutilized-reservation-quantity-and-costs"></a>Ottenere la quantità e i costi delle prenotazioni sottoutilizzate
 
-Ottenere i dati dei costi ammortizzati e filtrare per _ChargeType_ _= UnusedReservation_. Si ottiene la quantità e il costo giornalieri della prenotazione non utilizzata. È possibile filtrare i dati per una prenotazione o un ordine di prenotazione usando rispettivamente i campi _ReservationId_ e _ProductOrderId_. Se una prenotazione è stata utilizzata al 100%, il record ha una quantità pari a 0.
+Ottenere i dati di costo ammortizzato e filtrare per _ChargeType_ _= UnusedReservation_. Si ottiene la quantità e il costo giornalieri della prenotazione non utilizzata. È possibile filtrare i dati per una prenotazione o un ordine di prenotazione usando rispettivamente i campi _ReservationId_ e _ProductOrderId_. Se una prenotazione è stata utilizzata al 100%, il record ha una quantità pari a 0.
 
 ### <a name="amortize-reservation-costs"></a>Ammortizzare i costi delle prenotazioni
 
@@ -122,9 +122,9 @@ Ottenere i dati di costo ammortizzato e filtrare per un ordine di prenotazione u
 È possibile effettuare il chargeback dell'uso della prenotazione ad altre organizzazioni per sottoscrizione, gruppi di risorse o tag. I dati relativi ai costi ammortizzati forniscono il valore monetario dell'utilizzo di una prenotazione con i tipi di dati seguenti:
 
 - Risorse (ad esempio una macchina virtuale)
-- Gruppo di risorse
+- Resource group
 - Tag
-- Sottoscrizione
+- Subscription
 
 ### <a name="get-the-blended-rate-for-chargeback"></a>Ottenere il tasso misto per il chargeback
 
@@ -148,9 +148,9 @@ I costi di prenotazione sono disponibili nell'[analisi dei costi](https://aka.ms
 
 ![Esempio che mostra dove selezionare il costo ammortizzato nell'analisi dei costi](./media/understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 
-Raggruppare per tipo di addebito per visualizzare una ripartizione di utilizzo, acquisti e rimborsi. Raggruppare per prenotazione per una ripartizione dei costi della prenotazione e su richiesta. Tenere presente che gli unici costi di prenotazione che verranno visualizzati quando si esaminano i costi effettivi sono gli acquisti, ma i costi verranno allocati alle singole risorse che hanno utilizzato il vantaggio quando si esaminano i costi ammortizzati. Quando si esamina il costo ammortizzato, viene visualizzato anche un nuovo tipo di addebito **UnusedReservation**.
+Raggruppare per tipo di addebito per visualizzare una ripartizione di utilizzo, acquisti e rimborsi. Raggruppare per prenotazione per una ripartizione dei costi della prenotazione e su richiesta. Tenere presente che gli unici costi di prenotazione che verranno visualizzati quando si esaminano i costi effettivi sono gli acquisti, mentre quando si esaminano i costi ammortizzati i costi verranno allocati alle singole risorse che hanno usato il vantaggio. Quando si esamina il costo ammortizzato, viene visualizzato anche un nuovo tipo di addebito **UnusedReservation**.
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 

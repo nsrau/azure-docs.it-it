@@ -1,5 +1,5 @@
 ---
-title: Sconti sul piano di prenotazione Red Hat-Azure
+title: Sconti sul piano di prenotazione Red Hat - Azure
 description: Informazioni su come vengono applicati gli sconti del piano Red Hat al software Red Hat delle macchine virtuali.
 services: billing
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/30/2019
 ms.author: cwatson
 ms.openlocfilehash: 280764d3b9185abd1d8112f641007a7dc1861b34
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995325"
 ---
 # <a name="understand-how-the-red-hat-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Informazioni su come viene applicato lo sconto del piano di prenotazione del software Red Hat Linux Enterprise per Azure
@@ -165,6 +165,6 @@ Per altre informazioni sulle prenotazioni, vedere gli articoli seguenti:
 - [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](understand-reserved-instance-usage.md)
 - [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

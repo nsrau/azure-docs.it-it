@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: c148351a4475bfdbee474a5e0951cc3b5717404e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995728"
 ---
 # <a name="how-azure-databricks-pre-purchase-discount-is-applied"></a>Come viene applicato lo sconto di preacquisto di Azure Databricks
@@ -31,7 +31,7 @@ Il preacquisto di Databricks si applica a tutti i carichi di lavoro e i livelli 
 | --- | --- | --- |
 | Analisi dei dati | 0,4 | 0,55 |
 | Ingegneria dei dati | 0,15 | 0,30 |
-| Data Engineering Light | 0,07 | 0,22 |
+| Ingegneria dei dati - Light | 0,07 | 0,22 |
 
 Quando viene utilizzata una quantità del carico di lavoro Analisi dei dati nel livello Standard, ad esempio, dalle unità di impegno preacquistate in Databricks vengono detratte 0,4 unità. Quando viene usata una quantità del carico di lavoro Ingegneria dei dati - Light nel livello Standard, dalle unità di impegno preacquistate in Databricks vengono detratte 0,07 unità.
 
@@ -43,7 +43,7 @@ Per determinare l'uso del piano di unità di impegno in Databricks, passare al p
 
 Quando si applica lo sconto di preacquisto all'utilizzo di Databricks, gli addebiti su richiesta vengono visualizzati come zero nei dati di utilizzo. Per altre informazioni sui costi e l'utilizzo delle prenotazioni, vedere [Ottenere i costi e l'utilizzo delle prenotazioni con contratto Enterprise Agreement](understand-reserved-instance-usage-ea.md).
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

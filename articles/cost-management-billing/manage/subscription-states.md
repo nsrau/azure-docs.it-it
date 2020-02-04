@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: andalmia
 ms.openlocfilehash: 741e7cf0869e36b5788d0a883a4e982caf041512
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995936"
 ---
 # <a name="azure-subscription-states"></a>Stati della sottoscrizione di Azure
 Questo articolo descrive i vari stati di una sottoscrizione di Azure. Questi stati vengono visualizzati come "Stato" nei pannelli delle sottoscrizioni.
 
-| Stato sottoscrizione | Description |
+| Stato sottoscrizione | Descrizione |
 |-------------| ----------------|
 | **Attivo** | La sottoscrizione di Azure è attiva. È possibile usare questa sottoscrizione per distribuire nuove risorse e gestire quelle esistenti.|
 | **Scaduta** | Per la sottoscrizione di Azure è presente un pagamento in sospeso. La sottoscrizione è ancora attiva, ma il mancato pagamento delle quote può causare la disabilitazione della sottoscrizione. [Risolvere problemi relativi a un saldo dovuto non pagato per la sottoscrizione di Azure.](https://docs.microsoft.com/azure/billing/billing-azure-subscription-past-due-balance) |

@@ -1,5 +1,5 @@
 ---
-title: Salva per app Azure servizio con capacità riservata
+title: Risparmiare sui costi del Servizio app di Azure con la capacità riservata
 description: Informazioni su come risparmiare sui costi della tariffa stamp per il servizio app di Azure per ambiente isolato con la capacità riservata.
 services: billing
 author: yashesvi
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
 ms.openlocfilehash: 8161b169e8801fae4a9aa81290cf29ec28abf858
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995884"
 ---
 # <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Risparmiare sui costi della tariffa stamp per il servizio app di Azure per ambiente isolato con la capacità riservata
@@ -47,7 +47,7 @@ Acquistare prenotazioni dello stamp di Windows se nello stamp sono presenti uno 
 **Per effettuare l'acquisto:**
 
 1. Accedere al [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D).
-1. Seleziona una sottoscrizione. Usare l'elenco **Sottoscrizione** per scegliere la sottoscrizione usata per pagare la capacità riservata. I costi relativi alla capacità riservata vengono addebitati in base al metodo di pagamento della sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numero offerta: MS-AZR-0017P o MS-AZR-0148P) o con pagamento in base al consumo (numeri offerta: MS-AZR-0003P o MS-AZR-0023P) o una sottoscrizione CSP.
+1. Selezionare una sottoscrizione. Usare l'elenco **Sottoscrizione** per scegliere la sottoscrizione usata per pagare la capacità riservata. I costi relativi alla capacità riservata vengono addebitati in base al metodo di pagamento della sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise (numeri offerta: MS-AZR-0017P o MS-AZR-0148P) o con pagamento in base al consumo (numeri offerta: MS-AZR-0003P o MS-AZR-0023P) o sottoscrizione CSP.
     - Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto.
     - Se si dispone di una sottoscrizione con pagamento in base al consumo, il costo viene addebitato alla carta di credito o al metodo di pagamento tramite fattura per la sottoscrizione.
 1. Usare l'elenco **Ambito** per scegliere un ambito della sottoscrizione.
@@ -57,7 +57,7 @@ Acquistare prenotazioni dello stamp di Windows se nello stamp sono presenti uno 
 1. In **Area** selezionare un'area di Azure coperta dalla capacità riservata e aggiungere la prenotazione al carrello.
 1. Selezionare un tipo di piano Isolato, quindi fare clic su **Seleziona**.  
     ![Esempio ](./media/prepay-app-service-isolated-stamp/app-service-isolated-stamp-select.png)
-1. Immettere la quantità di stamp del servizio app Isolato da riservare. Ad esempio, una quantità pari a tre assegna tre stamp riservati a un'area. Fare clic su **Avanti: verifica + Acquista**.
+1. Immettere la quantità di stamp del servizio app Isolato da riservare. Ad esempio, una quantità pari a tre assegna tre stamp riservati a un'area. Fare clic su **Avanti: Rivedi e acquista**.
 1. Controllare le informazioni e fare clic su **Acquista ora**.
 
 Dopo l'acquisto, passare a [Prenotazioni](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) per visualizzare lo stato di acquisto e monitorarlo in qualsiasi momento.

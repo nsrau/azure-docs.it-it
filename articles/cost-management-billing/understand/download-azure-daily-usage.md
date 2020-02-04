@@ -9,10 +9,10 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.openlocfilehash: 02d446d1b70b64092501804e793b400e983a4d80
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995130"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Visualizzare e scaricare il file dei dati di utilizzo e addebiti di Azure
@@ -31,8 +31,8 @@ Per visualizzare i dati di utilizzo e addebiti di Azure, un cliente con Contratt
 1. A seconda dell'accesso, potrebbe essere necessario selezionare un account di fatturazione o un profilo di fatturazione.
 1. Nel menu a sinistra selezionare **Fatture** in **Fatturazione**.
 1. Nella griglia della fattura trovare la riga del periodo di fatturazione corrispondente ai dati di utilizzo da scaricare.
-1. Selezionare l' **icona di download** o i puntini di sospensione (`...`) a destra.
-1. Si apre il riquadro download a destra. Selezionare **Scarica** nella sezione **Dettagli utilizzo** .
+1. Selezionare l'**icona del download** o i puntini di sospensione (`...`) a destra.
+1. Il riquadro Download si apre sulla destra. Selezionare **Download** nella sezione **Dettagli utilizzo**.
 
 ## <a name="download-usage-for-ea-customers"></a>Scaricare informazioni sull'utilizzo per i clienti EA
 
@@ -61,7 +61,7 @@ Se si dispone di un Contratto del cliente Microsoft, è possibile scaricare i da
 ## <a name="check-your-billing-account-type"></a>Controllare il tipo di account di fatturazione
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 

@@ -11,10 +11,10 @@ ms.workload: na
 ms.date: 08/06/2019
 ms.author: banders
 ms.openlocfilehash: cc24c176b5b61210d68d2dcb244d63f15402928b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75994051"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gestire le prenotazioni per le risorse di Azure
@@ -157,7 +157,7 @@ Se si ritiene che le prenotazioni dell'organizzazione siano sottoutilizzate:
 - Valutare se scambiare la quantità inutilizzata. Per altre informazioni, vedere [Annullamenti e scambi](#cancel-exchange-or-refund-reservations).
 
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 

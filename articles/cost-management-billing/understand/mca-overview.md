@@ -1,5 +1,5 @@
 ---
-title: Inizia a usare la fatturazione del contratto clienti Microsoft-Azure
+title: Introduzione alla fatturazione per il Contratto del cliente Microsoft - Azure
 description: Informazioni sull'account di fatturazione del Contratto del cliente Microsoft
 author: bandersmsft
 manager: amberbhargava
@@ -11,10 +11,10 @@ ms.workload: na
 ms.date: 09/10/2019
 ms.author: banders
 ms.openlocfilehash: 7d26c98ae8e5b9b95038a4a775134282703fa7c6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995117"
 ---
 # <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>Introduzione all'account di fatturazione per il Contratto del cliente Microsoft
@@ -51,7 +51,7 @@ All'inizio del mese viene generata una fattura mensile per ogni profilo di fattu
 
 Per ogni profilo di fatturazione esistono metodi di pagamento specifici che vengono usati per pagare le rispettive fatture. Sono supportati i metodi di pagamento seguenti:
 
-| Tipo             | Definizione  |
+| Type             | Definizione  |
 |------------------|-------------|
 |Crediti Azure    |  I crediti vengono applicati automaticamente agli addebiti idonei nella fattura, riducendo l'importo dovuto. Per altre informazioni, vedere [Tenere traccia del saldo del credito Azure per il profilo di fatturazione](../manage/mca-check-azure-credits-balance.md). |
 |Assegno/bonifico | Indica se l'account è approvato per il pagamento tramite assegno/bonifico. È possibile pagare l'importo dovuto per la fattura tramite assegno/bonifico. Le istruzioni per il pagamento sono indicate nella fattura |
@@ -65,7 +65,7 @@ Applicare criteri per controllare gli acquisti di prenotazioni e quelli effettua
 
 I piani di Azure determinano i prezzi e il contratto di servizio per le sottoscrizioni di Azure. Vengono abilitati automaticamente durante la creazione di un profilo di fatturazione. Tutte le sezioni della fattura associate al profilo di fatturazione possono usare questi piani. Gli utenti con accesso alla sezione della fattura usano i piani per creare sottoscrizioni di Azure. I piani di Azure seguenti sono supportati negli account di fatturazione per il Contratto del cliente Microsoft:
 
-| Pianificare             | Definizione  |
+| Piano             | Definizione  |
 |------------------|-------------|
 |Piano di Microsoft Azure   | Consente agli utenti di creare sottoscrizioni in grado di eseguire qualsiasi carico di lavoro.  |
 |Piano di Microsoft Azure per Sviluppo/test | Consente ai sottoscrittori di Visual Studio di creare sottoscrizioni limitate per carichi di lavoro di sviluppo o test. A queste sottoscrizioni sono associati vantaggi quali tariffe inferiori e accesso a immagini di macchine virtuali esclusive nel portale di Azure. |
@@ -81,7 +81,7 @@ I ruoli nella sezione della fattura dispongono delle autorizzazioni per controll
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificare l'accesso a un Contratto del cliente Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Opzioni per Contattare il supporto tecnico.
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 
 Se si necessita assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 

@@ -9,10 +9,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.openlocfilehash: 88ab9c475d417bc935cf5d2d67f1678794fb74d1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995624"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Informazioni su come viene applicato lo sconto per la prenotazione ad Esplora dati di Azure
@@ -36,7 +36,7 @@ Lo sconto per la prenotazione viene applicato al consumo di ricarico di Esplora 
 ## <a name="examples"></a>Esempi
 
 Gli esempi seguenti mostrano come viene applicato lo sconto per la capacità riservata di Esplora dati di Azure a seconda del numero di unità di ricarico acquistate e dei tempi di esecuzione.
-Ad esempio, per le dimensioni del cluster del motore: **2 D11_v2 macchine virtuali**, gli addebiti totali su richiesta sono per quattro unità di Azure Esplora dati contatore di markup all'ora. 
+Per le dimensioni del cluster motore, ad esempio: **2 macchine virtuali D11_v2**, gli addebiti su richiesta totali sono per quattro unità del contatore di ricarico di Esplora dati di Azure all'ora. 
 
 **Scenario 1** 
 
@@ -58,7 +58,7 @@ Si esegue un cluster motore di Esplora dati di Azure a 16 core dalle 13:00 alle 
 
 Per informazioni sull'applicazione delle prenotazioni di Azure nei report sull'utilizzo per la fatturazione, vedere [Informazioni sull'utilizzo delle prenotazioni di Azure](understand-reserved-instance-usage-ea.md).
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 

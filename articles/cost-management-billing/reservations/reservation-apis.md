@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 992e46cd8f10ff3c434f34a9f90c777870f3ada4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995819"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API per l'automazione delle prenotazioni di Azure
@@ -108,7 +108,7 @@ L'ambito di una prenotazione può essere una singola sottoscrizione, un singolo 
 
 Per modificare l'ambito a livello di codice, usare l'API [Reservation - Update](/rest/api/reserved-vm-instances/reservation/update).
 
-## <a name="learn-more"></a>Altre informazioni.
+## <a name="learn-more"></a>Altre informazioni
 
 - [Informazioni sulle prenotazioni di Azure](save-compute-costs-reservations.md)
 - [Informazioni su come viene applicato lo sconto sulla prenotazione di macchine virtuali](../manage/understand-vm-reservation-charges.md)

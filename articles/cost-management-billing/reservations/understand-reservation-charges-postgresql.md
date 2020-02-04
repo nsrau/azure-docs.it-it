@@ -10,10 +10,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2019
 ms.openlocfilehash: 2f1843690861a463c634f523e82facffc72b6743
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995507"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-postgresql-single-server"></a>Come viene applicato uno sconto per la prenotazione a un server singolo di Database di Azure per PostgreSQL
@@ -32,17 +32,17 @@ Lo sconto per la capacità riservata di un server singolo di Database di Azure p
 
 Gli esempi seguenti mostrano come viene applicato lo sconto per la capacità riservata di server singoli di Database di Azure per PostgreSQL a seconda del numero di core acquistati e di quando vengono eseguiti.
 
-* **Esempio 1**: si acquista una capacità riservata per un singolo server di database di Azure per PostgreSQL per 8 vCore. Se si esegue un server singolo di Database di Azure per PostgreSQL da 16 vCore che corrisponde al resto degli attributi della prenotazione, viene addebitato il prezzo a consumo per 8 vCore dell'utilizzo di risorse di calcolo del server singolo PostgreSQL e si ottiene lo sconto per la prenotazione per un'ora di utilizzo di risorse di calcolo del server singolo PostgreSQL da 8 vCore.</br>
+* **Esempio 1**: si acquista una capacità riservata per un server singolo di Database di Azure per PostgreSQL per 8 vCore. Se si esegue un server singolo di Database di Azure per PostgreSQL da 16 vCore che corrisponde al resto degli attributi della prenotazione, viene addebitato il prezzo a consumo per 8 vCore dell'utilizzo di risorse di calcolo del server singolo PostgreSQL e si ottiene lo sconto per la prenotazione per un'ora di utilizzo di risorse di calcolo del server singolo PostgreSQL da 8 vCore.</br>
 
 Per il resto di questi esempi, si supponga che la capacità riservata del server di Database di Azure per PostgreSQL che si acquista sia per un server singolo di Database di Azure per PostgreSQL da 16 vCore e il resto degli attributi di prenotazione corrisponda ai server singoli PostgreSQL in esecuzione.
 
-* **Esempio 2**: eseguire due server di database di Azure per PostgreSQL singoli con 8 vCore ogni per un'ora. Lo sconto per la prenotazione da 16 vCore viene applicato per l'utilizzo di risorse di calcolo per i due server singoli di Database di Azure per PostgreSQL da 8 vCore.
+* **Esempio 2:** si eseguono due server singoli di Database di Azure per PostgreSQL ciascuno con 8 vCore per un'ora. Lo sconto per la prenotazione da 16 vCore viene applicato per l'utilizzo di risorse di calcolo per i due server singoli di Database di Azure per PostgreSQL da 8 vCore.
 
-* **Esempio 3**: 1 16 eseguire il server singolo del database di Azure per PostgreSQL di Azure vCore da 1 a 1:30 PM. Si esegue un altro server singolo di Database di Azure per PostgreSQL da 16 vCore dalle 13.30 alle 14. A entrambi i database viene applicato lo sconto sulla prenotazione.
+* **Esempio 3**: si esegue un server singolo di Database di Azure per PostgreSQL da 16 vCore dalle 13 alle 13.30. Si esegue un altro server singolo di Database di Azure per PostgreSQL da 16 vCore dalle 13.30 alle 14. A entrambi i database viene applicato lo sconto sulla prenotazione.
 
-* **Esempio 4**: 1 16 eseguire il server singolo database di Azure per PostgreSQL di Azure vCore da 1 a 1:45 PM. Si esegue un altro server singolo di Database di Azure per PostgreSQL da 16 vCore dalle 13.30 alle 14. Viene addebitata la tariffa con pagamento in base al consumo per la sovrapposizione di 15 minuti. Lo sconto sulla prenotazione viene applicato all'utilizzo delle risorse di calcolo per il resto del tempo.
+* **Esempio 4**: si esegue un server singolo di Database di Azure per PostgreSQL da 16 vCore dalle 13 alle 13.45. Si esegue un altro server singolo di Database di Azure per PostgreSQL da 16 vCore dalle 13.30 alle 14. Viene addebitata la tariffa con pagamento in base al consumo per la sovrapposizione di 15 minuti. Lo sconto sulla prenotazione viene applicato all'utilizzo delle risorse di calcolo per il resto del tempo.
 
 Per informazioni sull'applicazione delle prenotazioni di Azure nei report sull'utilizzo per la fatturazione, vedere [Informazioni sull'utilizzo delle prenotazioni di Azure](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).

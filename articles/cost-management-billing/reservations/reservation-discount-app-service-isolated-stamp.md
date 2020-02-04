@@ -1,5 +1,5 @@
 ---
-title: Sconti per le prenotazioni per il servizio app Azure
+title: Sconti per le prenotazioni per il Servizio app di Azure
 description: Informazioni sulla modalità di applicazione degli sconti per le prenotazioni alle tariffe stamp per il servizio app Isolato di Azure.
 services: billing
 author: yashesvi
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 1294ee126ecef1f635ffc4d6bec6da02c6171897
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995793"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-app-service-isolated-stamps"></a>Modalità di applicazione degli sconti per le prenotazioni alle tariffe stamp per il servizio app Isolato di Azure
@@ -39,10 +39,10 @@ Una prenotazione di Linux deve essere acquistata esclusivamente se si prevede ch
 
 Gli esempi seguenti illustrano la modalità di applicazione dello sconto per l'istanza riservata della tariffa stamp per ambiente isolato a seconda delle distribuzioni.
 
-- **Esempio 1**: si acquista un'istanza di capacità di timbro riservata isolata in un'area senza servizio app isolato timbri. Si distribuisce un nuovo stamp nell'area e si pagano le tariffe riservate per tale stamp.
-- **Esempio 2**: si acquista un'istanza di capacità di timbro riservata isolata in un'area in cui è già distribuito un timbro servizio app isolato. Si inizia a ricevere la tariffa riservata per lo stamp distribuito.
-- **Esempio 3**: si acquista un'istanza di capacità di timbro riservata isolata in un'area con un timbro servizio app isolato già distribuito. Si inizia a ricevere la tariffa riservata per lo stamp distribuito. Successivamente, si elimina lo stamp e se ne distribuisce uno nuovo. Si riceve la tariffa riservata per il nuovo stamp. Gli sconti non vengono mantenuti per l'intera durata senza stamp distribuiti.
-- **Esempio 4**: si acquista un'istanza di capacità di timbro riservata Linux isolata in un'area e quindi si distribuisce un nuovo timbro nell'area. Quando lo stamp viene inizialmente distribuito senza ruoli di lavoro, viene generato il contatore di stamp Windows. Non viene ricevuto alcuno sconto. Quando nello stamp viene distribuito il primo ruolo di lavoro Linux, viene generato il contatore di stamp Linux e viene applicato lo sconto relativo alla prenotazione. Se successivamente nello stamp viene distribuito un ruolo di lavoro di Windows, viene ripristinato il contatore di stamp Windows. Non si riceve più uno sconto per la prenotazione dello stamp riservato Linux per ambiente isolato.
+- **Esempio 1**: si acquista un'istanza della capacità riservata per lo stamp per ambiente isolato in un'area senza stamp per il servizio app Isolato. Si distribuisce un nuovo stamp nell'area e si pagano le tariffe riservate per tale stamp.
+- **Esempio 2:** si acquista un'istanza della capacità riservata per lo stamp per ambiente isolato in un'area in cui è già distribuito uno stamp per il servizio app Isolato. Si inizia a ricevere la tariffa riservata per lo stamp distribuito.
+- **Esempio 3**: si acquista un'istanza della capacità riservata per lo stamp per ambiente isolato in un'area con uno stamp per il servizio app Isolato già distribuito. Si inizia a ricevere la tariffa riservata per lo stamp distribuito. Successivamente, si elimina lo stamp e se ne distribuisce uno nuovo. Si riceve la tariffa riservata per il nuovo stamp. Gli sconti non vengono mantenuti per l'intera durata senza stamp distribuiti.
+- **Esempio 4**: si acquista un'istanza della capacità riservata per lo stamp Linux per ambiente isolato in un'area e quindi si distribuisce un nuovo stamp nell'area. Quando lo stamp viene inizialmente distribuito senza ruoli di lavoro, viene generato il contatore di stamp Windows. Non viene ricevuto alcuno sconto. Quando nello stamp viene distribuito il primo ruolo di lavoro Linux, viene generato il contatore di stamp Linux e viene applicato lo sconto relativo alla prenotazione. Se successivamente nello stamp viene distribuito un ruolo di lavoro di Windows, viene ripristinato il contatore di stamp Windows. Non si riceve più uno sconto per la prenotazione dello stamp riservato Linux per ambiente isolato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

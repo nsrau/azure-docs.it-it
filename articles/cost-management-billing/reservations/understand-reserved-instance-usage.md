@@ -1,5 +1,5 @@
 ---
-title: Utilizzo prenotazione di Azure per una singola sottoscrizione
+title: Utilizzo della prenotazione di Azure per una sottoscrizione singola
 description: Informazioni su come leggere l'utilizzo per identificare come viene applicata la prenotazione di Azure per la sottoscrizione singola con pagamento in base al consumo.
 author: bandersmsft
 manager: yashr
@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 1404f8626086124aa2c6affcf2d173cef0be7df3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995364"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Informazioni sull'utilizzo della prenotazione di Azure per la sottoscrizione singola con pagamento in base al consumo
@@ -30,12 +30,12 @@ Questo articolo presuppone che la prenotazione venga applicata a una sottoscrizi
 
 Per le sezioni seguenti si presuppone di eseguire una macchina virtuale Windows Standard_DS1_v2 nell'area Stati Uniti orientali e che le informazioni sull'istanza riservata siano simili a quelle della tabella seguente:
 
-| Campo | Valore |
+| Campo | valore |
 |---| :---: |
 |ReservationId |8117adfb-1d94-4675-be2b-f3c1bca808b6|
 |Quantità |1|
 |SKU | Standard_DS1_v2|
-|Area | eastus |
+|Region | eastus |
 
 La parte hardware della VM è coperta perché la VM distribuita corrisponde agli attributi della prenotazione. Per identificare quale software Windows non è coperto dall'istanza di macchina virtuale riservata, vedere [Costi del software Windows per le istanze di macchina virtuale riservate di Azure](reserved-instance-windows-software-costs.md)
 
@@ -55,7 +55,7 @@ Applicare un filtro in **Informazioni aggiuntive** e digitare l'**ID prenotazion
 
 1. **ReservationId** nel campo **Informazioni aggiuntive** rappresenta la prenotazione applicata alla macchina virtuale.
 2. **ConsumptionMeter** è l'ID contatore per la macchina virtuale.
-3. La riga della **sottocategoria** **istanze riservate di VM di base** Meter rappresenta la sezione dell'istruzione $0 cost in. Il costo dell'esecuzione di questa macchina virtuale è già coperto dalla prenotazione.
+3. La riga **Istanze riservate di VM di base** in **Sottocategoria contatore** rappresenta la riga del costo con valore $ 0 nella sezione del rendiconto. Il costo dell'esecuzione di questa macchina virtuale è già coperto dalla prenotazione.
 4. **ID contatore** è l'ID contatore della prenotazione. Il costo di questo contatore è $ 0. Questo ID contatore è visualizzato per qualsiasi macchina virtuale idonea per lo sconto sulla prenotazione.
 5. Standard_DS1_v2 è una VM con vCPU che viene distribuita senza il vantaggio Azure Hybrid. Di conseguenza, questo contatore copre il costo aggiuntivo del software Windows. Per trovare il contatore corrispondente alla macchina virtuale serie D con 1 core, vedere [Costi del software Windows delle istanze di macchina virtuale riservate di Azure](reserved-instance-windows-software-costs.md). Se si ha il Vantaggio Azure Hybrid, questo costo aggiuntivo non viene applicato.
 
@@ -65,12 +65,12 @@ Le sezioni seguenti usano il database SQL di Azure come esempio per descrivere i
 
 Si presuppone che sia eseguito un database SQL di quarta generazione nell'area Stati Uniti orientali e che le informazioni sulla prenotazione siano simili a quelle della tabella seguente:
 
-| Campo | Valore |
+| Campo | valore |
 |---| --- |
 |ReservationId |446ec809-423d-467c-8c5c-bbd5d22906b1|
 |Quantità |2|
 |Prodotto| Database SQL Gen4 (2 core)|
-|Area | eastus |
+|Region | eastus |
 
 ### <a name="statement-section-of-csv-file"></a>Sezione relativa al rendiconto nel file CSV
 
@@ -90,7 +90,7 @@ Applicare un filtro in **Informazioni aggiuntive** e digitare l'**ID prenotazion
 2. **ConsumptionMeter** è l'ID contatore per la risorsa database SQL.
 3. **ID contatore** è il contatore della prenotazione. Il costo di questo contatore è $ 0. Questo ID contatore è presente nel file CSV per qualsiasi risorsa database SQL idonea per lo sconto sulla prenotazione.
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 

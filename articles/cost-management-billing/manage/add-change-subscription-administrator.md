@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: banders
 ms.openlocfilehash: a35d7d4ef24218c96e305abf623f746c92c8aa87
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75993700"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure
@@ -74,9 +74,9 @@ Se non si conosce l'amministratore account per una sottoscrizione, seguire quest
 
 * [Che cos'è il controllo degli accessi in base al ruolo?](../../role-based-access-control/overview.md)
 * [Comprendere i diversi ruoli in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Procedura: associare o aggiungere una sottoscrizione di Azure a Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+* [Procedura: Associare o aggiungere una sottoscrizione di Azure ad Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)
 
-## <a name="need-help-contact-support"></a>Opzioni per Contattare il supporto tecnico
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
