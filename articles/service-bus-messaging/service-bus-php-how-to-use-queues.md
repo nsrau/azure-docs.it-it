@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Come usare le code del bus di servizio con PHP'
-description: 'Guida introduttiva: Informazioni su come usare le code del bus di servizio in Azure. Gli esempi di codice sono scritti in PHP.'
+title: Come usare le code del bus di servizio di Azure con PHP
+description: Questa esercitazione illustra come creare applicazioni PHP per inviare e ricevere messaggi da una coda del bus di servizio.
 services: service-bus-messaging
 documentationcenter: php
 author: axisc
@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: d576c269f4178c7543327c6b75f46f5487d7a205
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: fcb735d81cac587c75a133ad582f2a839551dcfa
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719197"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760692"
 ---
-# <a name="quickstart-how-to-use-service-bus-queues-with-php"></a>Guida introduttiva: Come usare le code del bus di servizio con PHP
+# <a name="quickstart-how-to-use-service-bus-queues-with-php"></a>Avvio rapido: Come usare le code del bus di servizio con PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 Questa esercitazione illustra come creare applicazioni PHP per inviare e ricevere messaggi da una coda del bus di servizio. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Se non si ha una coda da usare, seguire la procedura descritta nell'articolo [Usare il portale di Azure per creare una coda del bus di servizio](service-bus-quickstart-portal.md) per crearne una.
     1. Leggere la breve **panoramica** delle **code** del bus di servizio. 

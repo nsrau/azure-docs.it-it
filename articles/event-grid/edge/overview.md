@@ -7,19 +7,19 @@ ms.service: event-grid
 ms.topic: overview
 ms.date: 10/22/2019
 ms.author: babanisa
-ms.openlocfilehash: e03429ed3df5bd3518d5e5194bd842b9a4f290ba
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: feac5891734731e6f7377750127958a40a815036
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991494"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844658"
 ---
 # <a name="what-is-azure-event-grid-on-azure-iot-edge"></a>Che cos'è Griglia di eventi di Azure in Azure IoT Edge?
-Griglia di eventi su IoT Edge consente di sfruttare la potenza e la flessibilità di Griglia di eventi di Azure in Edge per tutti gli scenari di pubblicazione/sottoscrizione e basati su eventi. È possibile creare argomenti, pubblicare eventi e sottoscrivere più destinazioni, sia che si tratti di moduli nello stesso dispositivo, altri dispositivi Edge o servizi nel cloud.
+Griglia di eventi su IoT Edge consente di sfruttare la potenza e la flessibilità di Griglia di eventi di Azure in Edge. È possibile creare argomenti, pubblicare eventi e sottoscrivere più destinazioni, sia che si tratti di moduli nello stesso dispositivo, altri dispositivi Edge o servizi nel cloud.
 
-Come nel cloud, Griglia di eventi nel modulo IoT Edge gestisce il routing, il filtro e il recapito affidabile di eventi su larga scala. È possibile filtrare gli eventi per assicurarsi che solo gli eventi rilevanti vengano inviati a gestori eventi diversi usando filtri stringa, numerici e booleani avanzati. La logica di ripetizione dei tentativi garantisce che l'evento raggiunga il modulo di destinazione, il dispositivo Edge o il servizio cloud anche se non è disponibile al momento della pubblicazione. Consente di usare Griglia di eventi in IoT Edge come un potente meccanismo di archiviazione e inoltro.
+Come nel cloud, Griglia di eventi nel modulo IoT Edge gestisce il routing, il filtro e il recapito affidabile di eventi su larga scala. È possibile filtrare gli eventi per assicurarsi che solo gli eventi rilevanti vengano inviati a gestori eventi diversi usando filtri stringa, numerici e booleani avanzati. La logica di ripetizione dei tentativi garantisce che l'evento raggiunga la destinazione anche se non è disponibile al momento della pubblicazione. Consente di usare Griglia di eventi in IoT Edge come un potente meccanismo di archiviazione e inoltro.
 
-Griglia di eventi in IoT Edge supporta CloudEvents v 1.0 e schemi di eventi personalizzati, nonché la stessa semantica di pubblicazione e sottoscrizione di Griglia di eventi nel cloud per semplificare l'interoperabilità con Azure e soluzioni di terze parti.
+Griglia di eventi in IoT Edge supporta CloudEvents v 1.0 e schemi di eventi personalizzati, Supporta anche la stessa semantica di pubblicazione/sottoscrizione di Griglia di eventi nel cloud per semplificare l'interoperabilità.
 
 Questo articolo offre una panoramica di Griglia di eventi di Azure in IoT Edge. Per istruzioni dettagliate sull'uso di questo modulo in Edge, vedere [Pubblicare e sottoscrivere eventi in locale](pub-sub-events-webhook-local.md). 
 
@@ -29,7 +29,7 @@ Questa immagine illustra solo alcuni dei modi in cui è possibile usare Griglia 
 
 ## <a name="when-to-use-event-grid-on-iot-edge"></a>Quando usare Griglia di eventi in IoT Edge
 
-Griglia di eventi in IoT Edge è progettato per offrire un modello di gestione eventi uniforme, affidabile e facile da usare per la creazione di architetture basate su eventi tra Edge e il cloud.
+Griglia di eventi su IoT Edge fornisce un modello di eventi facile da usare e affidabile tra Edge e il cloud.
 
 Griglia di eventi in IoT Edge è stata creata con una superficie di attacco del runtime simmetrica al servizio cloud di Azure, di conseguenza è possibile usare gli stessi eventi e le stesse chiamate API ovunque sia necessario. Se si esegue la pubblicazione o la sottoscrizione nel cloud, in Edge o tra queste due destinazioni, Griglia di eventi in IoT Edge ora può essere la soluzione ideale.
 
@@ -55,8 +55,12 @@ Griglia di eventi in IoT Edge consente di inviare eventi ovunque. Al momento, so
 
 * Altri moduli, tra cui l'hub IoT, funzioni e moduli personalizzati
 * Altri dispositivi Edge
-* Servizi ospitati nel cloud, tra cui Griglia di eventi di Azure e Funzioni di Azure
 * Webhook
+* Servizio cloud Griglia di eventi di Azure
+* Hub eventi
+* Code del bus di servizio
+* Argomenti del bus di servizio
+* Code di archiviazione
 
 ## <a name="supported-environments"></a>Ambienti supportati
 Al momento sono supportati gli ambienti Windows a 64 bit, Linux a 64 bit e ARM a 32 bit.

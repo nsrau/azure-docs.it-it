@@ -1,6 +1,6 @@
 ---
 title: Panoramica della messaggistica del bus di servizio di Azure | Microsoft Docs
-description: Descrizione della messaggistica del bus di servizio
+description: Questo articolo fornisce una panoramica di alto livello del bus di servizio di Azure, un broker di messaggi di integrazione aziendale completamente gestito.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 12d4bada4f84098f1559ea7b59fbbd35e0801347
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 49a54491c36ef29209d1a53094cc5baf57057557
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561590"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759381"
 ---
 # <a name="what-is-azure-service-bus"></a>Cos'è il bus di servizio di Azure?
 
@@ -35,7 +35,7 @@ Alcuni scenari di messaggistica comuni sono:
 
 Uno spazio dei nomi è un contenitore per tutti i componenti di messaggistica. Più code e argomenti possono essere presenti in un unico spazio dei nomi e gli spazi dei nomi vengono spesso usati come contenitori di applicazioni.
 
-## <a name="queues"></a>Queues
+## <a name="queues"></a>Code
 
 I messaggi vengono inviati e ricevuti dalle *code*. Le code consentono di archiviare i messaggi fino a quando l'applicazione di destinazione è disponibile a riceverli ed elaborarli.
 

@@ -1,17 +1,17 @@
 ---
 title: Creare un membro del servizio Azure Blockchain - Interfaccia della riga di comando di Azure
 description: Creare un membro del servizio Azure Blockchain per un consorzio blockchain con l'interfaccia della riga di comando di Azure
-ms.date: 11/20/2019
+ms.date: 01/23/2020
 ms.topic: quickstart
 ms.reviewer: janders
-ms.openlocfilehash: 6a9673431c3da21b3ce645b9aff30506be1012f3
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 703444b6077c2301e1ffec77c8096fb76ddaa731
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455954"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759927"
 ---
-# <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Guida introduttiva: Creare un membro della blockchain del servizio Azure Blockchain usando l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Avvio rapido: Creare un membro della blockchain del servizio Azure Blockchain usando l'interfaccia della riga di comando di Azure
 
 In questo argomento di avvio rapido si distribuisce un nuovo membro e un consorzio blockchain nel servizio Azure Blockchain usando l'interfaccia della riga di comando di Azure.
 
@@ -37,7 +37,9 @@ az group create \
 
 ## <a name="create-a-blockchain-member"></a>Creare un membro della blockchain
 
-Creare un membro della blockchain nel servizio Azure Blockchain che esegue il protocollo di libro mastro Quorum in un nuovo consorzio. È necessario passare diversi parametri e proprietà. Sostituire i parametri dell'esempio con i propri valori.
+Un membro del servizio Azure Blockchain è un nodo blockchain in una rete blockchain del consorzio privato. Quando si effettua il provisioning di un membro, è possibile creare o partecipare alla rete di un consorzio. Per una rete del consorzio è necessario almeno un membro. Il numero di membri di blockchain necessari per i partecipanti dipende dallo scenario. I partecipanti del consorzio possono avere uno o più membri di blockchain oppure possono condividere i membri con altri partecipanti. Per altre informazioni sui consorzi, vedere [Consorzio del servizio Azure Blockchain](consortium.md).
+
+È necessario passare diversi parametri e proprietà. Sostituire i parametri dell'esempio con i propri valori.
 
 ```azurecli-interactive
 az resource create \
@@ -48,13 +50,13 @@ az resource create \
                     --properties '{"location":"westus2", "properties":{"password":"strongMemberAccountPassword@1", "protocol":"Quorum", "consortium":"myConsortiumName", "consortiumManagementAccountPassword":"strongConsortiumManagementPassword@1"}, "sku":{"name":"S0"}}'
 ```
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 |---------|-------------|
 | **resource-group** | Nome del gruppo di risorse in cui vengono create le risorse del servizio Azure Blockchain. Usare il gruppo di risorse creato nella sezione precedente.
 | **nome** | Nome univoco che identifica il membro della blockchain del servizio Azure Blockchain. Il nome viene usato per l'indirizzo dell'endpoint pubblico. Ad esempio: `myblockchainmember.blockchain.azure.com`.
 | **location** | Area di Azure in cui viene creato il membro della blockchain. Ad esempio: `westus2`. Scegliere la località più vicina agli utenti o alle altre applicazioni Azure.
 | **password** | La password per il nodo della transazione predefinito del membro. Usare la password per l'autenticazione di base quando ci si connette all'endpoint pubblico del nodo della transazione predefinito per il membro della blockchain.
-| **consortium** | Nome del consorzio da creare o a cui eseguire l'aggiunta.
+| **consortium** | Nome del consorzio da creare o a cui eseguire l'aggiunta. Per altre informazioni sui consorzi, vedere [Consorzio del servizio Azure Blockchain](consortium.md).
 | **PasswordAccountConsorzio** | La password dell'account del consorzio è nota anche come password dell'account del membro. La password dell'account del membro viene usata per crittografare la chiave privata per l'account Ethereum creato per il membro. L'account del membro account e la password dell'account del membro si usano per la gestione del consorzio.
 | **skuName** | Tipo di livello di servizio. Usare S0 per Standard e B0 per Basic.
 
@@ -74,7 +76,7 @@ az group delete \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa argomento di avvio rapido è stato distribuito un membro del servizio Azure Blockchain e un nuovo consorzio. Provare l'avvio rapido successivo per usare Azure Blockchain Development Kit per Ethereum per collegarsi a un consorzio nel servizio Azure Blockchain.
+In questo argomento di avvio rapido sono stati distribuiti un membro del servizio Azure Blockchain e un nuovo consorzio. Provare l'avvio rapido successivo per usare Azure Blockchain Development Kit per Ethereum per collegarsi a un membro del servizio Azure Blockchain.
 
 > [!div class="nextstepaction"]
 > [Usare Visual Studio Code per connettersi al servizio Azure Blockchain](connect-vscode.md)

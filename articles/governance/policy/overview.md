@@ -3,12 +3,13 @@ title: Panoramica dei criteri di Azure
 description: Criteri di Azure è un servizio disponibile in Azure che consente di creare, assegnare e gestire definizioni di criteri nell'ambiente Azure.
 ms.date: 11/25/2019
 ms.topic: overview
-ms.openlocfilehash: a7cc5ebca74e249057d159334e4207a3efca37f5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 9babfd52071ed7d033761802f696c3b6021287af
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885467"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846026"
 ---
 # <a name="what-is-azure-policy"></a>Informazioni su Criteri di Azure
 
@@ -62,7 +63,7 @@ Per altre informazioni sulle strutture delle definizioni dei criteri, vedere [St
 
 ## <a name="policy-assignment"></a>Assegnazione di criteri
 
-Un'assegnazione di criteri è una definizione di criteri che è stata assegnata per l'implementazione in un ambito specifico. L'ambito può spaziare da un [gruppo di gestione](../management-groups/overview.md) a un gruppo di risorse. Il termine *ambito* fa riferimento a tutti i gruppi di risorse, le sottoscrizioni o i gruppi di gestione a cui è assegnata la definizione di criteri. Le assegnazioni dei criteri vengono ereditate da tutte le risorse figlio. Questa progettazione significa che i criteri applicati a un gruppo di risorse vengono applicati a tutte le risorse presenti nel gruppo. È tuttavia possibile escludere un sottoambito dall'assegnazione dei criteri.
+Un'assegnazione di criteri è una definizione di criteri che è stata assegnata per l'implementazione in un ambito specifico. L'ambito può spaziare da un [gruppo di gestione](../management-groups/overview.md) a una singola risorsa. Il termine *ambito* fa riferimento a tutte le risorse, i gruppi di risorse, le sottoscrizioni o i gruppi di gestione a cui è assegnata la definizione di criteri. Le assegnazioni dei criteri vengono ereditate da tutte le risorse figlio. Questa progettazione significa che i criteri applicati a un gruppo di risorse vengono applicati a tutte le risorse presenti nel gruppo. È tuttavia possibile escludere un sottoambito dall'assegnazione dei criteri.
 
 Nell'ambito della sottoscrizione è ad esempio possibile assegnare criteri che non permettono la creazione di risorse di rete. È possibile escludere un gruppo di risorse nella sottoscrizione che è pensato per l'infrastruttura di rete. e consentire quindi l'accesso a questo gruppo specifico a utenti fidati in grado di creare risorse di rete.
 
@@ -93,7 +94,7 @@ In questa iniziativa saranno incluse definizioni di criteri come le seguenti:
 
 ## <a name="initiative-assignment"></a>Assegnazione di iniziativa
 
-Analogamente a un'assegnazione di criteri, un'assegnazione di iniziativa è una definizione di iniziativa assegnata a un ambito specifico. Le assegnazioni di iniziativa riducono l'esigenza di creare diverse definizioni di iniziativa per ogni ambito. L'ambito può anche comprendere da un gruppo di gestione a un gruppo di risorse.
+Analogamente a un'assegnazione di criteri, un'assegnazione di iniziativa è una definizione di iniziativa assegnata a un ambito specifico. Le assegnazioni di iniziativa riducono l'esigenza di creare diverse definizioni di iniziativa per ogni ambito. L'ambito può spaziare anche da un gruppo di gestione a una singola risorsa.
 
 Ogni iniziativa è assegnabile a diversi ambiti. Un'iniziativa può essere assegnata sia a **subscriptionA** che a **subscriptionB**.
 
@@ -106,7 +107,7 @@ Si consideri ad esempio uno scenario con una definizione di iniziativa, **initia
 | Policy | Nome del parametro |Tipo di parametro  |Note |
 |---|---|---|---|
 | policyA | allowedLocations | array  |Questo parametro prevede come valore un elenco di stringhe, perché il parametro è stato definito come di tipo matrice |
-| policyB | allowedSingleLocation |stringa |Questo parametro prevede come valore una parola, perché il parametro è stato definito come di tipo stringa |
+| policyB | allowedSingleLocation |string |Questo parametro prevede come valore una parola, perché il parametro è stato definito come di tipo stringa |
 
 In questo scenario, per la definizione dei parametri dell'iniziativa **initiativeC** sono disponibili tre opzioni:
 

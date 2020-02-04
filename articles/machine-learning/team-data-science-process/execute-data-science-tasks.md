@@ -62,7 +62,7 @@ Viene usato un file YAML per specificare:
 - quali algoritmi eseguire 
 - la scelta dei parametri di controllo per l'ottimizzazione del modello:
     - convalida incrociata 
-    - bootstrap
+    - avvio automatico
     - riduzione della convalida incrociata
 - l'iperparametro imposta ogni algoritmo. 
 
@@ -70,7 +70,7 @@ Il numero di algoritmi, il numero di riduzioni per l'ottimizzazione, gli iperpar
 
 Per altre informazioni, vedere [Automated Modeling and Reporting Utility in TDSP Data Science Utilities](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling) (Modellazione automatizzata e utilità di creazione di report nelle utilità data science di analisi scientifica di TDSP).
 
-### <a name="model-management"></a>Gestione modelli
+### <a name="model-management"></a>Gestione di modelli
 Dopo aver creato più modelli, è in genere necessario usare un sistema per registrarli e gestirli. Solitamente, sono necessari una combinazione di script o API e un database back-end o un sistema di controllo delle versioni. Ecco alcune opzioni che è possibile prendere in considerazione per queste attività di gestione:
 
 1. [Azure Machine Learning - servizio Gestione modelli](../index.yml)

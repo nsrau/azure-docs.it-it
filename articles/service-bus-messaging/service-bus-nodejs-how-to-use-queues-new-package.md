@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Come usare le code di azure/service-bus in Node.js'
-description: "Guida introduttiva: Informazioni su come usare le code del bus di servizio in Azure da un'app Node.js usando il pacchetto azure/service-bus."
+title: Come usare le code di azure/service-bus in Node.js
+description: Informazioni su come scrivere un programma NodeJS per inviare e ricevere messaggi da una coda del bus di servizio usando il nuovo pacchetto @azure/service-bus.
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -11,25 +11,25 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 9901ccd6bb1abf27bb1141c618d0bfde167b9cc3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 9db359d8331859e3eebf345d91fe5dc6e66c0d4c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721677"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774585"
 ---
-# <a name="quickstart-how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Guida introduttiva: Come usare le code del bus di servizio con Node.js e il pacchetto azure/service-bus
+# <a name="quickstart-how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Avvio rapido: Come usare le code del bus di servizio con Node.js e il pacchetto azure/service-bus
 > [!div class="op_multi_selector" title1="Linguaggio di programmazione" title2="Pacchetto Node.js"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
 
 Questa esercitazione illustra come scrivere un programma NodeJS per inviare e ricevere messaggi da una coda del bus di servizio usando il nuovo pacchetto [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus). Questo pacchetto usa il [protocollo AMQP 1.0 ](service-bus-amqp-overview.md) più veloce, mentre il precedente pacchetto [azure-sb](https://www.npmjs.com/package/azure-sb) usava le [API di runtime REST del bus di servizio](/rest/api/servicebus/service-bus-runtime-rest). Gli esempi sono scritti in JavaScript.
 
-## <a name="prerequisites"></a>Prerequisiti
-- Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) oppure registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Se non si ha una coda da usare, seguire la procedura descritta nell'articolo [Usare il portale di Azure per creare una coda del bus di servizio](service-bus-quickstart-portal.md) per creare una coda. Prendere nota della stringa di connessione per l'istanza del bus di servizio e del nome della coda creata. Questi valori verranno usati negli esempi.
+## <a name="prerequisites"></a>Prerequisites
+- Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Se non si ha una coda da usare, seguire la procedura descritta nell'articolo [Usare il portale di Azure per creare una coda del bus di servizio](service-bus-quickstart-portal.md) per crearne una. Prendere nota della stringa di connessione per l'istanza del bus di servizio e del nome della coda creata. Questi valori verranno usati negli esempi.
 
 > [!NOTE]
 > - Questa esercitazione usa esempi che è possibile copiare ed eseguire usando [NodeJS](https://nodejs.org/). Per istruzioni su come creare un'applicazione Node.js, vedere [Creare e distribuire un'applicazione Node.js in un sito Web di Azure](../app-service/app-service-web-get-started-nodejs.md) oppure [Servizio cloud Node.js tramite PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
@@ -84,7 +84,7 @@ L'interazione con una coda del bus di servizio inizia con la creazione di un'ist
     });
     ```
 3. Immettere la stringa di connessione e il nome della coda nel codice precedente.
-4. Eseguire quindi questo file tramite il comando `node send.js` nel prompt dei comandi.
+4. Eseguire quindi questo file tramite il comando `node send.js` in un prompt dei comandi.
 
 Congratulazioni! I messaggi sono stati inviati a una coda del bus di servizio.
 
