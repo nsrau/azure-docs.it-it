@@ -6,14 +6,14 @@ ms.author: mbaldwin
 ms.date: 11/05/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 29e1af5f23b2167a524872731490b5862a14e5c1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 9b92796e477ea0dd6795015edd3f400dd2cc9aa7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975398"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773752"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v3"></a>Guida introduttiva: Libreria client di Azure Key Vault per .NET (SDK v3)
+# <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v3"></a>Avvio rapido: Libreria client di Azure Key Vault per .NET (SDK v3)
 
 Introduzione alla libreria client di Azure Key Vault per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
@@ -25,7 +25,7 @@ L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi 
 - Aumentare la sicurezza e il controllo di chiavi e password.
 - Creare e importare chiavi di crittografia in pochi minuti.
 - Ridurre la latenza con ridondanza globale e su scala cloud.
-- Semplificare e automatizzare le attività per i certificati SSL/TLS.
+- Semplificare e automatizzare le attività per i certificati TLS/SSL.
 - Usare moduli di protezione hardware convalidati in base agli standard FIPS 140-2 livello 2.
 
 [Documentazione di riferimento dell'API](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
@@ -34,7 +34,7 @@ L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi 
 > Ogni insieme di credenziali delle chiavi deve avere un nome univoco. Negli esempi seguenti sostituire <your-unique-keyvault-name> con il nome dell'insieme di credenziali delle chiavi in uso.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [.NET Core 2.1 SDK o versione successiva](https://dotnet.microsoft.com/download/dotnet-core/2.1).

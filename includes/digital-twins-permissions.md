@@ -7,14 +7,14 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 01/06/2020
+ms.date: 01/23/2020
 ms.custom: include file
-ms.openlocfilehash: a6adbe095b3ed486be8eb2e2611db5a40162d5dd
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: a1576e4a97af5de0b936c662de636aae542a19b5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895414"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748923"
 ---
 >[!NOTE]
 >Questa sezione fornisce istruzioni relative alla [registrazione app di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
@@ -33,9 +33,18 @@ ms.locfileid: "75895414"
 
 1. Per assicurarsi che [l'app sia registrata come **client pubblico**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), aprire il riquadro **Autenticazione** per la registrazione app e scorrere verso il basso. Nella sezione **Tipo di client predefinito** scegliere **Sì** per **Consente di gestire l'applicazione come un client pubblico**, quindi premere **Salva**.
 
-    Selezionare **Token di accesso** per abilitare l'impostazione **oauth2AllowImplicitFlow** nel file Manifest.json.
+    1. È necessario che quanto specificato per **URI di reindirizzamento** corrisponda all'indirizzo fornito dalla richiesta di autenticazione:
 
-    [![Impostazione di configurazione del client pubblico](./media/digital-twins-permissions/aad-configure-public-client.png)](./media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
+        * Per le app ospitate in un ambiente di sviluppo locale, selezionare **Client pubblico (per dispositivi mobili e desktop)** . Assicurarsi di impostare **Tipo di client predefinito** su Sì.
+        * Per le app a pagina singola ospitate nel servizio app di Azure, selezionare **Web**.
+
+        Selezionare **Client pubblico (per dispositivi mobili e desktop)** e immettere `http://localhost:8080/`.
+
+        [![Configurare gli URI di reindirizzamento](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png)](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png#lightbox)
+
+    1. Selezionare **Token di accesso** per configurare l'impostazione **oauth2AllowImplicitFlow** su `true` nel file JSON **Manifest** della risorsa.
+
+        [![Impostazione di configurazione del client pubblico](./media/digital-twins-permissions/aad-configure-public-client.png)](./media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
 
 1.  Aprire il riquadro**Panoramica** dell'app registrata e copiare i valori delle entità seguenti in un file temporaneo. Questi valori verranno usati per configurare l'applicazione di esempio nelle sezioni seguenti.
 

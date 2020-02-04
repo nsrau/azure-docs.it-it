@@ -1,13 +1,18 @@
 ---
-ms.openlocfilehash: 52dfbfca5f79a7f92848ea39eddc00aa10f05ff1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: MT
+ms.openlocfilehash: b5fec8bbc0db78454b080a411702014bd96f7db9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67179863"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76887544"
 ---
-## <a name="locate-a-cloud-spatial-anchor"></a>Individuare un punto di ancoraggio cloud spaziali
+## <a name="locate-a-cloud-spatial-anchor"></a>Individuare un ancoraggio nello spazio cloud
 
-La possibilità di individuare un punto di ancoraggio cloud caricato in precedenza spaziale è uno dei motivi principali per l'uso della libreria di Azure gli ancoraggi spaziale. Per individuare gli ancoraggi spaziali cloud, è necessario conoscere i relativi identificatori. Gli ID di ancoraggio possono essere archiviati nel servizio back-end dell'applicazione e accessibili a tutti i dispositivi che possono eseguire correttamente l'autenticazione ad esso. Per un esempio di questo, vedere [esercitazione: Condividere punti di ancoraggio spaziale tra dispositivi](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices/).
+La possibilità di individuare un ancoraggio nello spazio cloud salvato in precedenza è uno dei motivi principali per usare gli ancoraggi nello spazio di Azure. Esistono diversi modi in cui è possibile individuare un ancoraggio nello spazio cloud. È possibile usare una strategia in un watcher alla volta.
+- Individuare gli ancoraggi in base all'identificatore.
+- Individuare gli ancoraggi connessi a un ancoraggio individuato in precedenza. Per altre informazioni sulle relazioni tra ancoraggi, vedere [qui](/azure/spatial-anchors/concepts/anchor-relationships-way-finding/).
+- Individuare un ancoraggio tramite la [rilocalizzazione grossolana](/azure/spatial-anchors/concepts/coarse-reloc/).
 
-Creare un'istanza di un `AnchorLocateCriteria` dell'oggetto, impostare gli identificatori si sta cercando e richiamare il `CreateWatcher` metodo nella sessione, fornendo il `AnchorLocateCriteria`.
+Se si prevede di individuare gli ancoraggi nello spazio cloud in base all'identificatore, sarà necessario archiviare l'identificatore dell'ancoraggio nello spazio cloud nel servizio back-end dell'applicazione e renderlo accessibile a tutti i dispositivi che possono autenticarsi correttamente. Per un esempio, vedere [Esercitazione: Condividere gli ancoraggi nello spazio tra dispositivi](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices/).
+
+Creare un'istanza dell'oggetto `AnchorLocateCriteria`, impostare gli identificatori da cercare e richiamare il metodo `CreateWatcher` nella sessione specificando `AnchorLocateCriteria`.

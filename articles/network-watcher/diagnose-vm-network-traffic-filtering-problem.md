@@ -1,11 +1,10 @@
 ---
-title: 'Guida introduttiva: Diagnosticare un problema di filtro del traffico di rete di una VM - Portale di Azure'
+title: 'Avvio rapido: Diagnosticare un problema di filtro del traffico di rete di una VM - Portale di Azure'
 titleSuffix: Azure Network Watcher
 description: In questa guida introduttiva si apprende come diagnosticare un problema di filtro del traffico di rete di una macchina virtuale usando la funzionalità di verifica del flusso IP di Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
@@ -16,16 +15,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: d436fab100dc05cde8a434af564c67477b33d8d3
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 68f575164487f726c2f6c7477ceacd731bb52b0f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276002"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844922"
 ---
-# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Guida introduttiva: Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale con il portale di Azure
+# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Avvio rapido: Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale con il portale di Azure
 
 In questa guida introduttiva si distribuisce una macchina virtuale e quindi si controllano le comunicazioni verso un indirizzo IP e un URL e da un indirizzo IP. Viene determinata la causa di un errore di comunicazione e si apprende come è possibile risolverlo.
 
@@ -41,13 +40,13 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 2. Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter** o una versione di **Ubuntu Server**.
 3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi scegliere **OK**:
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |---|---|
-    |NOME|myVm|
+    |Nome|myVm|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Selezionare la propria sottoscrizione.|
-    |Gruppo di risorse| Selezionare **Crea nuovo** e immettere **myResourceGroup**.|
+    |Resource group| Selezionare **Crea nuovo** e immettere **myResourceGroup**.|
     |Location| Selezionare **Stati Uniti orientali**.|
 
 4. Selezionare una dimensione per la VM e quindi selezionare **Seleziona**.
@@ -62,7 +61,7 @@ Per testare la comunicazione di rete con Network Watcher è necessario innanzitu
 
 Se si dispone già di un Network Watcher abilitato in almeno un'area, passare al paragrafo [Usare la verifica del flusso IP](#use-ip-flow-verify).
 
-1. Nel portale selezionare **Tutti i servizi**. Nella **casella del filtro** immettere *Network Watcher*. Selezionare **Network Watcher** quando viene visualizzato tra i risultati.
+1. Nel portale selezionare **Tutti i servizi**. Nella **casella del filtro** immettere *Network Watcher*. Quando **Network Watcher** viene visualizzato tra i risultati, selezionarlo.
 2. Abilitare un Network Watcher nell'area Stati Uniti orientali, poiché questa è l'area in cui è stata distribuita la VM nel passaggio precedente. Selezionare **Area** per espandere e quindi selezionare **...** a destra di **Stati Uniti orientali**, come mostrato nell'immagine seguente:
 
     ![Abilitare Network Watcher](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
@@ -73,17 +72,17 @@ Se si dispone già di un Network Watcher abilitato in almeno un'area, passare al
 
 Quando si crea una macchina virtuale, per impostazione predefinita Azure consente e nega il traffico di rete da e verso la macchina virtuale. È possibile eseguire l'override in un secondo momento delle impostazioni predefinite di Azure, consentendo o negando altri tipi di traffico.
 
-1. Nel portale selezionare **Tutti i servizi**. Nella casella **Tutti i servizi** *Filtro* immettere *Network Watcher*. Selezionare **Network Watcher** quando viene visualizzato tra i risultati.
+1. Nel portale selezionare **Tutti i servizi**. Nella casella **Filtro** *Tutti i servizi* immettere *Network Watcher*. Quando **Network Watcher** viene visualizzato tra i risultati, selezionarlo.
 2. Selezionare **Verifica flusso IP** in **Strumenti di diagnostica di rete**.
 3. Selezionare la sottoscrizione, immettere o selezionare i valori seguenti e quindi selezionare **Controllo**, come illustrato nell'immagine seguente:
 
-    |Impostazione            |Valore                                                                                              |
+    |Impostazione            |valore                                                                                              |
     |---------          |---------                                                                                          |
     | Resource group    | Selezionare myResourceGroup                                                                            |
     | Macchina virtuale   | Selezionare myVm                                                                                       |
     | interfaccia di rete | MyVM: il nome dell'interfaccia di rete creata dal portale quando è stata creata la VM è diverso. |
     | Protocollo          | TCP                                                                                               |
-    | Direzione         | In uscita                                                                                          |
+    | Direction         | In uscita                                                                                          |
     | Indirizzo IP locale  | 10.0.0.4                                                                                          |
     | Porta locale      | 60000                                                                                                |
     | Indirizzo IP remoto | 13.107.21.200: uno degli indirizzi per <www.bing.com>.                                             |

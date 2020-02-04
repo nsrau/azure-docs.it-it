@@ -2,18 +2,17 @@
 title: 'Esercitazione: Eseguire Funzioni di Azure in processi di Analisi di flusso di Azure'
 description: Questa esercitazione descrive come configurare Funzioni di Azure come sink di output per i processi di Analisi di flusso.
 author: mamccrea
+ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/05/2019
-ms.author: mamccrea
-ms.reviewer: mamccrea
-ms.openlocfilehash: 84df3edcebb1ca9f14a68125ae9793f004e56c4d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/27/2020
+ms.openlocfilehash: 1797654f290d751eb5c1cb65a77aaa7ca7a35aa1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369321"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772882"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Esercitazione: Eseguire Funzioni di Azure da processi di Analisi di flusso di Azure 
 
@@ -51,7 +50,7 @@ Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytic
 
 ## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-cache-for-redis"></a>Creare una funzione in Funzioni di Azure che possa scrivere dati in Azure Cache per Redis
 
-1. Vedere la sezione [Creare un'app per le funzioni](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) della documentazione relativa a Funzioni. L'articolo illustra come creare un'app per le funzioni e una [funzione attivata da HTTP in Funzioni di Azure](../azure-functions/functions-create-first-azure-function.md#create-function) usando il linguaggio CSharp.  
+1. Vedere la sezione [Creare un'app per le funzioni](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) della documentazione relativa a Funzioni. Questa sezione illustra come creare un'app per le funzioni e una [funzione attivata da HTTP in Funzioni di Azure](../azure-functions/functions-create-first-azure-function.md#create-function) usando il linguaggio C#.  
 
 2. Passare alla funzione **run.csx** e aggiornarla con il codice seguente. Sostituire **"\<your Azure Cache for Redis connection string goes here\>"** con la stringa di connessione primaria di Azure Cache per Redis recuperata nella sezione precedente. 
 
@@ -149,7 +148,7 @@ Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytic
    |Opzione di importazione| È possibile usare la funzione dalla sottoscrizione corrente oppure specificare manualmente le impostazioni se la funzione si trova in un'altra sottoscrizione. |
    |App per le funzioni| Nome dell'app Funzioni. |
    |Funzione| Nome della funzione nell'app Funzioni (nome della funzione di run.csx).|
-   |Dimensioni massime batch|Imposta la dimensione massima, in byte, per ogni batch di output inviato alla funzione. Per impostazione predefinita, questo valore è impostato su 262.144 byte (256 KB).|
+   |Dimensioni massime batch|Imposta le dimensioni massime, in byte, per ogni batch di output inviato alla funzione. Per impostazione predefinita, questo valore è impostato su 262.144 byte (256 KB).|
    |Numero massimo di batch|Specifica il numero massimo di eventi in ogni batch inviato alla funzione. Il valore predefinito è 100. Questa proprietà è facoltativa.|
    |Chiave|Consente di usare una funzione di un'altra sottoscrizione. Specificare il valore della chiave per accedere alla funzione. Questa proprietà è facoltativa.|
 
@@ -187,13 +186,10 @@ Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytic
    Questo comando dovrebbe visualizzare il valore relativo alla chiave specificata:
 
    ![Screenshot dell’output di Azure Cache per Redis](./media/stream-analytics-with-azure-functions/image5.png)
-   
-## <a name="error-handling-and-retries"></a>Gestione degli errori e tentativi
-In caso di errore durante l'invio di eventi a Funzioni di Azure, Analisi di flusso effettua ulteriori tentativi per completare l'operazione. Non vengono però effettuati ulteriori tentativi per gli errori seguenti:
 
- 1. HttpRequestExceptions
- 2. Entità della richiesta troppo grande (codice errore HTTP 413)
- 3. ApplicationExceptions
+## <a name="error-handling-and-retries"></a>Gestione degli errori e tentativi
+
+Se si verifica un errore durante l'invio di eventi a Funzioni di Azure, Analisi di flusso ritenta la maggior parte delle operazioni. Tutte le eccezioni HTTP vengono ritentate fino all'esito positivo, ad eccezione dell'errore HTTP 413 (entità troppo grande). Un errore di tipo entità troppo grande viene considerato un errore di dati soggetto al [criterio Riprova o Rimuovi](stream-analytics-output-error-policy.md).
 
 ## <a name="known-issues"></a>Problemi noti
 
@@ -210,7 +206,7 @@ Quando non sono più necessari, eliminare il gruppo di risorse, il processo di s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato creato un semplice processo di Analisi di flusso che esegue una funzione di Azure. Per altre informazioni sui processi di Analisi di flusso, continuare con l'esercitazione seguente:
+In questa esercitazione è stato creato un semplice processo di Analisi di flusso che esegue una funzione di Azure. Per altre informazioni sui processi di Analisi di flusso, continuare con l'esercitazione successiva:
 
 > [!div class="nextstepaction"]
 > [Eseguire funzioni JavaScript definite dall'utente in processi di Analisi di flusso](stream-analytics-javascript-user-defined-functions.md)

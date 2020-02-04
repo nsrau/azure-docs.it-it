@@ -1,11 +1,11 @@
 ---
-ms.openlocfilehash: 10eb16dc1757255c77ed8967dc132f42660e070f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: MT
+ms.openlocfilehash: 505670e719e86086dbf7721b4298ec913220f928
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67179850"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76694363"
 ---
-## <a name="provide-frames-to-the-session"></a>Specificare i frame alla sessione
+## <a name="provide-frames-to-the-session"></a>Fornire fotogrammi alla sessione
 
-La sessione di ancoraggio spaziali funziona eseguendo il mapping lo spazio intorno all'utente. In tal modo eviterai per determinare dove si trovano i punti di ancoraggio. Piattaforme per dispositivi mobili (iOS e Android) richiedono una chiamata alla fotocamera feed per ottenere i frame dalla libreria AR della piattaforma nativa. Al contrario, HoloLens è costantemente l'analisi dell'ambiente, in modo che non è necessario per una chiamata specifica, ad esempio con dispositivi mobili.
+Durante la sessione di ancoraggio nello spazio viene eseguito il mapping dello spazio intorno all'utente. Questa operazione consente di determinare dove si trovano gli ancoraggi. Le piattaforme per dispositivi mobili (iOS e Android) richiedono una chiamata nativa al feed della fotocamera per ottenere i fotogrammi dalla libreria AR della piattaforma. Al contrario, HoloLens analizza continuamente l'ambiente, di conseguenza non è necessario eseguire una chiamata specifica come avviene nelle piattaforme per dispositivi mobili.

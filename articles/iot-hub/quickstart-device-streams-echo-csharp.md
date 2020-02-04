@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 14139d56a9a733a284d0ec49cabcb3ff7ce67fce
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: ee709919f550a8b9afaf56e5e071522a494348ac
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084304"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773814"
 ---
-# <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Guida introduttiva: Comunicare con un'applicazione del dispositivo in C# tramite i flussi dispositivo dell'hub IoT (anteprima)
+# <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Avvio rapido: Comunicare con un'applicazione del dispositivo in C# tramite i flussi dispositivo dell'hub IoT (anteprima)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
@@ -28,7 +28,7 @@ I [flussi dispositivo dell'hub IoT](./iot-hub-device-streams-overview.md) consen
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * L'anteprima dei flussi del dispositivo è attualmente supportata solo per gli hub IoT creati nelle aree seguenti:
   * Stati Uniti centrali
@@ -50,7 +50,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
     az extension add --name azure-cli-iot-ext
     ```
 
-* [Scaricare il progetto C# di esempio](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) ed estrarre l'archivio ZIP. È necessario averlo sia sul lato dispositivo che sul lato servizio.
+* [Scaricare gli esempi di C# per Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) ed estrarre l'archivio ZIP. È necessario averlo sia sul lato dispositivo che sul lato servizio.
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 

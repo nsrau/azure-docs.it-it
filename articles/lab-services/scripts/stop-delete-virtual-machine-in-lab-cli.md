@@ -1,6 +1,6 @@
 ---
 title: Interfaccia della riga di comando di Azure - Arrestare ed eliminare una macchina virtuale in un lab
-description: Questo script dell'interfaccia della riga di comando di Azure arresta ed elimina una macchina virtuale in un lab.
+description: Questo articolo include uno script dell'interfaccia della riga di comando di Azure che arresta ed elimina una macchina virtuale in un lab in Azure DevTest Labs.
 services: lab-services
 author: spelluru
 manager: ''
@@ -11,15 +11,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2020
+ms.date: 01/24/2020
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 7465770eaeb35772012be2219858ccda512775d6
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: c4f315593da270155998c3c5bba8def2778f0d41
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76166404"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760447"
 ---
 # <a name="use-azure-cli-to-stop-and-delete-a-virtual-machine-in-a-lab-in-azure-devtest-labs"></a>Usare l'interfaccia della riga di comando di Azure per arrestare ed eliminare una macchina virtuale in un lab in Azure DevTest Labs
 

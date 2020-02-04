@@ -6,12 +6,12 @@ author: msangapu-msft
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
-ms.openlocfilehash: 555a60579c11a7ecb9b39753c5e4b35e801edeb1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 531dc62cacc044187c7800dd8abcdad282c4e633
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422170"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759944"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Esercitazione: Creare un'app multi-contenitore (anteprima) in App Web per contenitori
 
@@ -38,7 +38,7 @@ Per completare questa esercitazione è necessario avere una buona conoscenza di 
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
 
-Per questa esercitazione si userà il file Compose di [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), ma modificato in modo da includere Database di Azure per MySQL, l'archiviazione permanente e Redis. Il file di configurazione è disponibile negli [Esempi di Azure](https://github.com/Azure-Samples/multicontainerwordpress). Per le opzioni di configurazione supportate, vedere [Opzioni di Docker Compose](configure-custom-container.md#docker-compose-options).
+Per questa esercitazione si userà il file Compose di [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), ma modificato in modo da includere Database di Azure per MySQL, l'archiviazione persistente e Redis. Il file di configurazione è disponibile negli [Esempi di Azure](https://github.com/Azure-Samples/multicontainerwordpress). Per le opzioni di configurazione supportate, vedere [Opzioni di Docker Compose](configure-custom-container.md#docker-compose-options).
 
 [!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 
@@ -62,7 +62,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
 
-In Cloud Shell creare un gruppo di risorse con il comando [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *South Central US*. Per visualizzare tutte le località supportate per il servizio app in Linux nel livello **Standard**, eseguire il comando [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
+In Cloud Shell creare un gruppo di risorse con il comando [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *Stati Uniti centro-meridionali*. Per visualizzare tutte le località supportate per il servizio app in Linux nel livello **Standard**, eseguire il comando [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"

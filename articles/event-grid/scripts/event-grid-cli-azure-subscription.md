@@ -1,22 +1,22 @@
 ---
 title: Esempio di script dell'interfaccia della riga di comando di Azure - Sottoscrivere una sottoscrizione di Azure | Microsoft Docs
-description: Esempio di script dell'interfaccia della riga di comando di Azure - Sottoscrivere una sottoscrizione di Azure
+description: Questo articolo include un esempio di script dell'interfaccia della riga di comando di Azure che illustra come sottoscrivere gli eventi di Griglia di eventi tramite l'interfaccia della riga di comando di Azure.
 services: event-grid
 documentationcenter: na
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2018
-ms.author: tomfitz
-ms.openlocfilehash: 9d1aa53ede323c2bb536c74eeaaba9fd28b01712
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 01/23/2020
+ms.author: spelluru
+ms.openlocfilehash: 9d40367c8d0f4f1250504c30fcd6c4846921a830
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580401"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720895"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-azure-cli"></a>Sottoscrivere eventi per una sottoscrizione di Azure con l'interfaccia della riga di comando di Azure
 

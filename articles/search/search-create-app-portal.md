@@ -8,20 +8,22 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 12/05/2019
-ms.openlocfilehash: 16748d9948518964d47ee9543765e3cb59ae2ec4
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 9ed62ea6fdfc0732128ed340cc0bc48481eb73ec
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74902079"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841081"
 ---
-# <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>Guida introduttiva: Creare un'app di ricerca nel portale di Azure (Ricerca cognitiva di Azure)
+# <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>Avvio rapido: Creare un'app di ricerca nel portale di Azure (Ricerca cognitiva di Azure)
 
 Usare la procedura guidata **Crea app di ricerca** del portale per generare un'app Web di tipo "localhost" scaricabile che viene eseguita in un browser. A seconda della configurazione, l'app generata è operativa al primo utilizzo, con una connessione dinamica a un indice remoto. Un'app predefinita può includere una barra di ricerca, un'area dei risultati, i filtri della barra laterale e il supporto per il completamento automatico.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
+
+A questo punto, per questa guida di avvio rapido è opportuno eseguire l'aggiornamento alla [versione più recente di Microsoft Edge](https://www.microsoft.com/edge) o usare il browser Chrome di Google.
 
 [Creare un servizio di Ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido. 
 
@@ -89,7 +91,7 @@ Lo screenshot seguente mostra le opzioni della procedura guidata, affiancate a u
 
 L'indice sottostante è costituito da dati fittizi generati che sono stati duplicati tra i documenti e le descrizioni talvolta non corrispondono all'immagine. Quando si crea un'app in base ai propri indici, è possibile aspettarsi un'esperienza più coerente.
 
-![Esecuzione dell'app](media/search-create-app-portal/run-app.png)
+![Eseguire l'app](media/search-create-app-portal/run-app.png)
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

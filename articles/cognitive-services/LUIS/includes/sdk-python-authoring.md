@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 01/14/2020
+ms.date: 01/23/2020
 ms.author: diberry
-ms.openlocfilehash: bf09d8e9b2dd8cebcf3ef8414afcc8ac031f4cdf
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 69814c89c1c44a63febbcac04a4d161cd4c0921f
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170435"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774241"
 ---
 Usare la libreria client di creazione di Language Understanding (LUIS) per Python per eseguire queste operazioni:
 
@@ -187,3 +187,7 @@ Eseguire l'applicazione con il comando `python` nel file quickstart.
 ```console
 python quickstart-file.py
 ```
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Una volta completate le operazioni con le previsioni, pulire le risorse usate in questo argomento di avvio rapido eliminando il file e le relative sottodirectory.

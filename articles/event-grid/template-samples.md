@@ -1,21 +1,21 @@
 ---
 title: Esempi di modelli di Azure Resource Manager - Griglia di eventi | Microsoft Docs
-description: Esempi di modelli di Azure Resource Manager per Griglia di eventi
+description: Questo articolo include un elenco di esempi di modelli di Azure Resource Manager per Griglia di eventi di Azure in GitHub.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
-ms.date: 01/04/2019
-ms.author: tomfitz
-ms.openlocfilehash: 788d23c7bddd90c1e12a118742c651eb9759529c
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.date: 01/23/2020
+ms.author: spelluru
+ms.openlocfilehash: 38d8db0bcc504760595fe51b63072f63e785577a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062962"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720623"
 ---
 # <a name="azure-resource-manager-templates-for-event-grid"></a>Modelli di Azure Resource Manager per Griglia di eventi
 

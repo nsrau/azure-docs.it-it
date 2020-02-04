@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 01/21/2020
+ms.date: 01/27/2020
 ms.author: helohr
-ms.openlocfilehash: 318997e2ebd7a423d7793a75575617d06ab842ac
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 168a345427be47dc1c33f43be1af47daa8f638ef
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514273"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772776"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Informazioni su Desktop virtuale Windows 
 
@@ -99,13 +99,15 @@ Le macchine virtuali di Azure create per Desktop virtuale Windows devono avere l
 |kms.core.windows.net|Porta TCP 1688|Attivazione di Windows 10|
 
 >[!IMPORTANT]
->L'apertura di questi URL è essenziale per la distribuzione affidabile di Desktop virtuale Windows. Il blocco dell'accesso a questi URL non è supportato e influirà sulle funzionalità del servizio. Questi URL corrispondono solo a siti e risorse di Desktop virtuale Windows e non includono URL per altri servizi come Azure AD.
+>L'apertura di questi URL è essenziale per la distribuzione affidabile di Desktop virtuale Windows. Il blocco dell'accesso a questi URL non è supportato e influirà sulle funzionalità del servizio. Questi URL corrispondono solo a siti e risorse di Desktop virtuale Windows e non includono gli URL di altri servizi come Azure Active Directory.
 
 >[!NOTE]
+>Attualmente per Desktop virtuale Windows non è disponibile un elenco di intervalli di indirizzi IP che è possibile includere in un elenco di elementi consentiti per autorizzare il traffico di rete. Al momento è supportata solo l'aggiunta di URL specifici.
+>
 >È necessario usare il carattere jolly (*) per gli URL che coinvolgono il traffico del servizio. Se si preferisce non usare * per il traffico correlato ad agenti, ecco come trovare gli URL senza caratteri jolly:
 >
 >1. Registrare le macchine virtuali nel pool di host di Desktop virtuale Windows.
->2. Aprire il **Visualizzatore eventi** e quindi passare a **Windows** > **Log applicazioni**  e cercare l'evento con ID 3702.
+>2. Aprire **Visualizzatore eventi**, passare a **Registri di Windows** > **Applicazione** > **WVD-Agent** e cercare l'ID evento 3702.
 >3. Inserire nell'elenco elementi consentiti gli URL trovati nell'evento con ID 3702. Gli URL nell'evento con ID 3702 sono specifici dell'area. È necessario ripetere il processo di inserimento nell'elenco elementi consentiti con gli URL pertinenti per ogni area in cui si vogliono distribuire le macchine virtuali.
 
 Desktop virtuale Windows comprende i desktop e le app Windows distribuiti agli utenti e la soluzione di gestione ospitata come servizio in Azure da Microsoft. I desktop e le app possono essere distribuiti in macchine virtuali (VM) in qualsiasi area di Azure e la soluzione di gestione e i dati per queste macchine virtuali risiederanno negli Stati Uniti. Questo potrebbe comportare il trasferimento dei dati negli Stati Uniti.
@@ -137,7 +139,7 @@ Desktop virtuale Windows supporta le immagini di sistema operativo x64 seguenti:
 * Windows Server 2016
 * Windows Server 2012 R2
 
-Desktop virtuale Windows non supporta le immagini di sistemi operativi x86 (32 bit), Windows 10 Enterprise N o Windows 10 Enterprise KN.
+Desktop virtuale Windows non supporta le immagini di sistemi operativi x86 (32 bit), Windows 10 Enterprise N o Windows 10 Enterprise KN. Windows 7 non supporta inoltre soluzioni di profili basati su VHD o VHDX ospitate in Archiviazione di Azure gestita a causa di una limitazione delle dimensioni dei settori.
 
 Le opzioni di automazione e distribuzione disponibili variano a seconda del sistema operativo e della versione scelta, come illustrato nella tabella seguente: 
 

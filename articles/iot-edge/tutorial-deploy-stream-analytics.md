@@ -7,18 +7,18 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: bd1487d7922d8ea81c4b09773eed978e64cd9e8f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 648eb6cdb1787e1cbdf82bd8e5c8499b0dbaf02c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457245"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772266"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Esercitazione: Distribuire Analisi di flusso di Azure come modulo IoT Edge
 
 Molte soluzioni IoT usano servizi di analisi per ottenere informazioni sui dati quando arrivano nel cloud dai dispositivi IoT. Con Azure IoT Edge, è possibile spostare direttamente nel dispositivo la logica di [Analisi di flusso di Azure](https://docs.microsoft.com/azure/stream-analytics/). Elaborando i flussi di telemetria sul perimetro, è possibile ridurre la quantità di dati caricati e ridurre il tempo necessario per reagire a informazioni dettagliate di utilità pratica.
 
-Azure IoT Edge e Analisi di flusso di Azure sono integrati in modo tale che è possibile creare un processo di Analisi di flusso di Azure nel portale di Azure e quindi distribuirlo come modulo di IoT Edge senza codice aggiuntivo.  
+Azure IoT Edge e Analisi di flusso di Azure sono servizi integrati per semplificare lo sviluppo di carichi di lavoro. È possibile creare un processo di Analisi di flusso di Azure nel portale di Azure e quindi distribuirlo come modulo IoT Edge senza codice aggiuntivo.  
 
 Analisi di flusso di Azure offre una sintassi di query particolarmente strutturata per l'analisi dei dati sia nel cloud che nei dispositivi IoT Edge. Per altre informazioni, vedere [Documentazione di Analisi di flusso di Azure](../stream-analytics/stream-analytics-edge.md).
 
@@ -33,7 +33,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 <center>
 
-![Diagramma - Architettura dell'esercitazione, staging e distribuzione di un processo di Analisi di flusso di Azure](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
+![Diagramma - Architettura dell'esercitazione: staging e distribuzione di un processo di Analisi di flusso di Azure](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -46,7 +46,7 @@ Un dispositivo Azure IoT Edge:
 
 Risorse cloud:
 
-* Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Gratuito o Standard in Azure. 
+* Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Gratuito o Standard in Azure.
 
 ## <a name="create-an-azure-stream-analytics-job"></a>Creare un processo di Analisi di flusso di Azure
 
@@ -54,20 +54,20 @@ In questa sezione si crea un processo di Analisi di flusso di Azure che eseguir�
 
 * Ricevere i dati dal dispositivo IoT Edge.
 * Eseguire query sui dati di telemetria per i valori non compresi in un intervallo impostato.
-* Eseguire un'azione sul dispositivo IoT Edge in base ai risultati della query. 
+* Eseguire un'azione sul dispositivo IoT Edge in base ai risultati della query.
 
 ### <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Quando si crea un processo di Analisi di flusso di Azure da eseguire in un dispositivo IoT Edge, è necessario archiviarlo in modo che possa essere chiamato dal dispositivo. È possibile usare un account di archiviazione di Azure esistente o crearne uno nuovo ora. 
+Quando si crea un processo di Analisi di flusso di Azure da eseguire in un dispositivo IoT Edge, è necessario archiviarlo in modo che possa essere chiamato dal dispositivo. È possibile usare un account di archiviazione di Azure esistente o crearne uno nuovo ora.
 
-1. Nel portale di Azure fare clic su **Crea una risorsa** > **Archiviazione** > **Account di archiviazione**. 
+1. Nel portale di Azure fare clic su **Crea una risorsa** > **Archiviazione** > **Account di archiviazione**.
 
 1. Specificare i valori seguenti per creare l'account di archiviazione:
 
    | Campo | valore |
    | ----- | ----- |
    | Subscription | Scegliere la stessa sottoscrizione dell'hub IoT. |
-   | Resource group | È consigliabile usare lo stesso gruppo di risorse per tutte le risorse di test create durante le esercitazioni e le guide introduttive di IoT Edge. Ad esempio, **IoTEdgeResources**. |
+   | Resource group | È consigliabile usare lo stesso gruppo di risorse per tutte le risorse di test create per le esercitazioni e gli argomenti di avvio rapido su IoT Edge. Ad esempio, **IoTEdgeResources**. |
    | Nome | Immettere un nome univoco per l'account di archiviazione. |
    | Location | Scegliere una località vicina. |
 
@@ -88,7 +88,7 @@ Quando si crea un processo di Analisi di flusso di Azure da eseguire in un dispo
    | Resource group | È consigliabile usare lo stesso gruppo di risorse per tutte le risorse di test create durante le esercitazioni e le guide introduttive di IoT Edge. Ad esempio, **IoTEdgeResources**. |
    | Location | Scegliere una località vicina. |
    | Ambiente di hosting | Selezionare **Edge**. |
- 
+
 1. Selezionare **Create** (Crea).
 
 ### <a name="configure-your-job"></a>Configurare il processo
@@ -105,7 +105,7 @@ Usando i tre elementi di input, di output e di query, questa sezione crea un pro
 
 1. Scegliere **Hub Edge** dall'elenco a discesa.
 
-1. Nel riquadro **Nuovo input** inserire la **temperatura** come alias di input. 
+1. Nel riquadro **Nuovo input** inserire la **temperatura** come alias di input.
 
 1. Mantenere i valori predefiniti per gli altri campi e selezionare **Salva**.
 
@@ -152,7 +152,7 @@ Per preparare la distribuzione del processo di Analisi di flusso in un dispositi
 
 ## <a name="deploy-the-job"></a>Distribuire il processo
 
-È ora possibile iniziare la distribuzione del processo di Analisi di flusso di Azure nel dispositivo IoT Edge. 
+È ora possibile iniziare la distribuzione del processo di Analisi di flusso di Azure nel dispositivo IoT Edge.
 
 In questa sezione si usa la procedura guidata **Imposta moduli** nel portale di Azure per creare un *manifesto della distribuzione*. Un manifesto della distribuzione è un file JSON che descrive tutti i moduli che verranno distribuiti in un dispositivo, i registri di contenitori che archiviano le immagini dei moduli, come i moduli devono essere gestiti e come i moduli possono comunicare tra loro. Il dispositivo IoT Edge recupera il manifesto della distribuzione dall'hub IoT, quindi usa le informazioni contenute per distribuire e configurare tutti i moduli assegnati.
 

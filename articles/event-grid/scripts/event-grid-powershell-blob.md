@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell - Sottoscrivere un account di archiviazione BLOB
-description: Esempio di script di Griglia di eventi di Azure e Azure PowerShell - Sottoscrivere un account di archiviazione BLOB
+description: Questo articolo include un esempio di script di Azure PowerShell che illustra come sottoscrivere gli eventi di Griglia di eventi per un account di archiviazione BLOB.
 services: event-grid
 documentationcenter: na
 author: spelluru
@@ -9,14 +9,14 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/22/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 1e394b27818456b96118f80f17cf459ac08f45a9
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: a8a0982ca118663cbf0f7e4d72412ce8feda3c4b
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790507"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721439"
 ---
 # <a name="subscribe-to-events-for-a-blob-storage-account-with-powershell"></a>Sottoscrivere eventi per un account di archiviazione BLOB con PowerShell
 

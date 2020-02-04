@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: e38de89902c46c6a77060d0d1e2532ab5bb59bb7
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f4eeb646de8b68c2c8d30586d0c75cece5317e40
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978101"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716322"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Esercitazione: Progettare un dashboard di analisi in tempo reale usando Database di Azure per PostgreSQL - Hyperscale (Citus)
 
@@ -22,13 +22,13 @@ In questa esercitazione si usa Database di Azure per PostgreSQL - Hyperscale (Ci
 > [!div class="checklist"]
 > * Creare un gruppo di server Hyperscale (Citus)
 > * Usare l'utilità psql per creare uno schema
-> * Condividere le tabelle tra i nodi
+> * Ripartire le tabelle tra i nodi
 > * Generare i dati di esempio
 > * Eseguire i rollup
 > * Eseguire query sui dati non elaborati e aggregati
 > * Impostare la scadenza dei dati
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
@@ -82,7 +82,7 @@ CREATE TABLE latest_rollup (
 \dt
 ```
 
-## <a name="shard-tables-across-nodes"></a>Condividere le tabelle tra i nodi
+## <a name="shard-tables-across-nodes"></a>Ripartire le tabelle tra i nodi
 
 Una distribuzione con iperscalabilità archivia le righe di tabella in nodi diversi in base al valore di una colonna designata dall'utente. Questa "colonna di distribuzione" determina come i dati vengono condivisi tra i nodi.
 
@@ -196,7 +196,7 @@ Dopo aver creato la funzione, usarla per eseguire il rollup dei dati:
 SELECT rollup_http_request();
 ```
 
-Con i dati in formato preaggregato è possibile eseguire una query sulla tabella di rollup per ottenere lo stesso report di prima. Eseguire questa query:
+Con i dati in formato preaggregato è possibile eseguire una query sulla tabella di rollup per ottenere lo stesso report di prima. Eseguire la query riportata di seguito:
 
 ```sql
 SELECT site_id, ingest_time as minute, request_count,
@@ -222,8 +222,8 @@ Nei passaggi precedenti sono state create risorse di Azure in un gruppo di serve
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato illustrato come effettuare il provisioning di un gruppo di server Hyperscale (Citus). È stata stabilita la connessione al gruppo con psql, è stato creato uno schema e sono stati distribuiti i dati. È stato illustrato come eseguire query sui dati in formato non elaborato, come aggregare regolarmente i dati, eseguire query sulle tabelle aggregate e impostare come scaduti i dati meno recenti.
+In questa esercitazione è stato illustrato come effettuare il provisioning di un gruppo di server Hyperscale (Citus). È stata stabilita la connessione al gruppo con psql, è stato creato uno schema e sono stati distribuiti i dati. È stato illustrato come eseguire query sui dati in formato non elaborato, aggregare regolarmente i dati, eseguire query sulle tabelle aggregate e impostare come scaduti i dati meno recenti.
 
-L'argomento successivo sono i concetti relativi all'iperscalabilità.
+Nell'argomento successivo verranno illustrati i concetti relativi all'iperscalabilità.
 > [!div class="nextstepaction"]
 > [Tipi di nodi Hyperscale](https://aka.ms/hyperscale-concepts)

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: fbda2f645308e30a6f408335b7a1b37095522921
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 5082ed06b4ce5baf3869fc035654be3c7a45f29f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003320"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845301"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Esercitazione: Usare Azure Key Vault con una macchina virtuale Windows in .NET
 
@@ -37,7 +37,7 @@ Prima di iniziare, leggere i [concetti di base di Key Vault](basic-concepts.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per Windows, Mac e Linux:
   * [Git](https://git-scm.com/downloads)
@@ -181,10 +181,11 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
 
-Modificare il file di classe per contenere il codice nel seguente processo in due passaggi:
+Modificare il file di classe in modo da contenere il codice nel seguente processo in tre passaggi:
 
 1. Recupera un token dall'endpoint dell'identità del servizio gestita locale nella macchina virtuale. Anche questa operazione recupera un token da Azure AD.
-1. Passa il token all'insieme di credenziali delle chiavi e recupera il segreto. 
+2. Passa il token all'insieme di credenziali delle chiavi e recupera il segreto. 
+3. Aggiungere alla richiesta il nome dell'insieme di credenziali e il nome del segreto.
 
 ```csharp
  class Program
@@ -205,9 +206,10 @@ Modificare il file di classe per contenere il codice nel seguente processo in du
             WebResponse response = request.GetResponse();
             return ParseWebResponse(response, "access_token");
         }
-
+        
         static string FetchSecretValueFromKeyVault(string token)
         {
+            //Step 3: Add the vault name and secret name to the request.
             WebRequest kvRequest = WebRequest.Create("https://<YourVaultName>.vault.azure.net/secrets/<YourSecretName>?api-version=2016-10-01");
             kvRequest.Headers.Add("Authorization", "Bearer "+  token);
             WebResponse kvResponse = kvRequest.GetResponse();

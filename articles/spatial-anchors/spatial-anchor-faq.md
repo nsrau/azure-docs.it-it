@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ac7fefd8ecabd40070b422c169befe64c08f12a8
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 563e2da8eba228636b05db2112739fdead4a4aa3
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277088"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844888"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Domande frequenti su Ancoraggi nello spazio di Azure
 
@@ -112,6 +112,7 @@ Quando si crea un ancoraggio, l'SDK client acquisisce le informazioni sull'ambie
 **R:** Gli sviluppatori possono creare app con Ancoraggi nello spazio di Azure usando strumenti e framework familiari per il proprio dispositivo:
 
 - Unity in HoloLens, iOS e Android
+- Xamarin in iOS e Android
 - Swift o Objective-C in iOS
 - Java o Android NDK in Android
 - C++/WinRT in HoloLens

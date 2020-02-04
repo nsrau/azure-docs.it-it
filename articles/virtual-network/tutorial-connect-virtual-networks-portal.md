@@ -4,29 +4,25 @@ description: Questa esercitazione illustra come connettere reti virtuali con il 
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 08/16/2018
+ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: b32f3762f2546a4d4956bf38c914173657e9d3da
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a3966615d28630fdd2ab799f478ef7edaa3377e1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499893"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775303"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Esercitazione: Connettere reti virtuali con il peering reti virtuali usando il portale di Azure
 
-È possibile connettere due reti virtuali tra loro con il peering reti virtuali. Queste reti virtuali possono trovarsi in aree geografiche uguali o diverse (detto anche peering di reti virtuali globale). Dopo che è stato eseguito il peering, le risorse delle due reti virtuali possono comunicare tra loro con la stessa larghezza di banda e la stessa latenza che sarebbero disponibili se si trovassero nella stessa rete virtuale. In questa esercitazione si apprenderà come:
+È possibile connettere due reti virtuali tra loro con il peering reti virtuali. Queste reti virtuali possono trovarsi in aree geografiche uguali o diverse (detto anche peering di reti virtuali globale). Dopo che è stato eseguito il peering, le risorse delle due reti virtuali possono comunicare tra loro con la stessa larghezza di banda e la stessa latenza che sarebbero disponibili se si trovassero nella stessa rete virtuale. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare due reti virtuali
@@ -44,26 +40,28 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-virtual-networks"></a>Creare reti virtuali
 
-1. Nel menu del portale di Azure o nella pagina **Home** selezionare **Crea una risorsa**.
+1. Nel portale di Azure fare clic su **Crea una risorsa**.
 2. Selezionare **Rete** e quindi **Rete virtuale**.
-3. Nella pagina **Informazioni di base** immettere o selezionare le informazioni seguenti e accettare le impostazioni predefinite per le opzioni rimanenti:
+3. Nella scheda **Informazioni di base** immettere o selezionare le informazioni seguenti e accettare le impostazioni predefinite per le opzioni rimanenti:
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |---|---|
     |Subscription| Selezionare la propria sottoscrizione.|
-    |Gruppo di risorse| Selezionare **Crea nuovo** e immettere *myResourceGroup*.|
+    |Resource group| Selezionare **Crea nuovo** e immettere *myResourceGroup*.|
     |Region| Selezionare **Stati Uniti orientali**.|
-    |NOME|myVirtualNetwork1|
+    |Nome|myVirtualNetwork1|
 
-4. Nella pagina **Indirizzi IP** immettere 10.0.0.0/16 nel campo **Spazio indirizzi**. Fare clic sul pulsante **Aggiungi subnet** e immettere Subnet1 per **Nome subnet** e 10.0.0.0/24 per **Intervallo di indirizzi subnet**.
+4. Nella scheda **Indirizzi IP** immettere 10.0.0.0/16 nel campo **Spazio indirizzi**. Fare clic sul pulsante **Aggiungi subnet** e immettere *Subnet1* per **Nome subnet** e 10.0.0.0/24 per **Intervallo di indirizzi subnet**.
+5. Selezionare **Rivedi e crea** e quindi **Crea**.
    
-5. Ripetere i passaggi da 1 a 3, con le modifiche seguenti.
+5. Ripetere i passaggi da 1 a 5, con le modifiche seguenti:
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |---|---|
-    |NOME|myVirtualNetwork2|
+    |Nome|myVirtualNetwork2|
     |Spazio degli indirizzi|10.1.0.0/16|
     |Resource group| Selezionare **Usa esistente** e quindi **myResourceGroup**.|
+    |Nome della subnet | Subnet2|
     |Intervallo di indirizzi subnet|10.1.0.0/24|
 
 ## <a name="peer-virtual-networks"></a>Eseguire il peering delle reti virtuali
@@ -75,7 +73,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi scegliere **OK**.
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |---|---|
     |Nome del peering da myVirtualNetwork1 alla rete virtuale remota|myVirtualNetwork1-myVirtualNetwork2 - Al caricamento della pagina, verrà visualizzata la frase "rete virtuale remota" qui. Dopo aver scelto la rete virtuale remota, la frase "rete virtuale remota" verrà sostituita dal nome effettivo della rete.|
     |Subscription| Selezionare la propria sottoscrizione.|
@@ -96,14 +94,14 @@ Creare una macchina virtuale in ogni rete virtuale per poter stabilire la comuni
 
 ### <a name="create-the-first-vm"></a>Creare la prima VM
 
-1. Nel menu del portale di Azure o nella pagina **Home** selezionare **Crea una risorsa**.
+1. Nel portale di Azure fare clic su **Crea una risorsa**.
 2. Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter**. È possibile selezionare un sistema operativo differente, ma i passaggi rimanenti presuppongono che sia stato selezionato **Windows Server 2016 Datacenter**. 
 3. Immettere o selezionare le informazioni seguenti in **Basics** (Generale), accettare le impostazioni predefinite rimanenti e quindi selezionare **Crea**:
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |---|---|
     |Resource group| Selezionare **Usa esistente** e quindi **myResourceGroup**.|
-    |NOME|myVm1|
+    |Nome|myVm1|
     |Location| Selezionare **Stati Uniti orientali**.|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
@@ -111,13 +109,10 @@ Creare una macchina virtuale in ogni rete virtuale per poter stabilire la comuni
 4. Selezionare le dimensioni di macchina virtuale per l'opzione **Dimensioni**.
 5. Selezionare i valori seguenti in **Rete**:
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |---|---|
     |Rete virtuale| myVirtualNetwork1 - se non è già selezionata, selezionare l'opzione **Rete virtuale**, quindi **myVirtualNetwork1**.|
     |Subnet| Subnet1 - se non è già selezionata, selezionare l'opzione **Subnet**, quindi **Subnet1**.|
-    
-
-    ![Impostazioni della macchina virtuale](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
    
 6. Selezionare **Rete**. Scegliere **Consenti porte selezionate** per l'opzione **Porte in ingresso pubbliche**. Scegliere **RDP** per l'opzione **Selezionare le porte in ingresso** al di sotto. 
 
@@ -127,9 +122,9 @@ Creare una macchina virtuale in ogni rete virtuale per poter stabilire la comuni
 
 Ripetere i passaggi da 1 a 6, con le modifiche seguenti:
 
-|Impostazione|Valore|
+|Impostazione|valore|
 |---|---|
-|NOME | myVM2|
+|Nome | myVM2|
 |Rete virtuale | myVirtualNetwork2|
 
 La creazione delle macchine virtuali può richiedere alcuni minuti. Non procedere con i passaggi rimanenti finché non sono state create entrambe le macchine virtuali.

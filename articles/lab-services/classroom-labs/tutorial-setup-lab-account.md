@@ -1,6 +1,6 @@
 ---
 title: Configurare un account lab con Azure Lab Services | Microsoft Docs
-description: Questa esercitazione descrive come configurare un account lab con Azure Lab Services.
+description: Informazioni su come configurare un account lab con Azure Lab Services, aggiungere un autore di lab e specificare le immagini del Marketplace da usare nei lab nell'account lab.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/24/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 8c252870a82a60a561f12fab9d728c028458212a
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 62ccda96563a53ebc77337bb2f89cfddd4410a26
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562103"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719042"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Esercitazione: Configurare un account lab con Azure Lab Services
 In Azure Lab Services l'account lab funge da account centrale in cui vengono gestiti tutti i lab dell'organizzazione. Nell'account lab si concedono ad altri utenti le autorizzazioni alla creazione di lab e di impostano criteri che si applicano a tutti i lab all'interno dell'account lab. Questa esercitazione illustra come creare un account lab come amministratore del lab. 

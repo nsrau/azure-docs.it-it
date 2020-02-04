@@ -10,14 +10,14 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: a106699f4e3148eba85acc913e6f97be6ce9be66
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: bffba0ce5481250a696cdf4ec0aed6b59620bfe9
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515083"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773836"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT (.NET)
+# <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Avvio rapido: Controllare un dispositivo connesso a un hub IoT (.NET)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
@@ -33,7 +33,7 @@ La guida introduttiva usa due applicazioni .NET già scritte.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritte in C#. È necessario .NET Core SDK 2.1.0 o versione successiva nel computer di sviluppo.
 
@@ -45,13 +45,13 @@ Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritt
 dotnet --version
 ```
 
-Eseguire il comando seguente per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
+Eseguire questo comando per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
 ```
 
-Se non è già stato fatto, scaricare il progetto C# di esempio da https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip ed estrarre l'archivio ZIP.
+Se non è già stato fatto, scaricare gli esempi di C# per Azure IoT da https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip ed estrarre l'archivio ZIP.
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
@@ -65,7 +65,7 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
 È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa guida introduttiva si usa Azure Cloud Shell per registrare un dispositivo simulato.
 
-1. Eseguire il comando seguente in Azure Cloud Shell per creare l'identità del dispositivo.
+1. Eseguire questo comando in Azure Cloud Shell per creare l'identità del dispositivo.
 
    **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 

@@ -1,6 +1,6 @@
 ---
 title: Configurare un lab per le classi con Azure Lab Services | Microsoft Docs
-description: Questa esercitazione descrive come configurare un lab da usare in una classe.
+description: In questa esercitazione si usa Azure Lab Services per configurare un lab per le classi con macchine virtuali usate dagli studenti nella classe.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/31/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: a5f8c8c00a9f63558043167c5cf8269f9e139d54
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2c28375ce7252e93340f395b97224d292940ce65
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584904"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719178"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Esercitazione: Configurare un lab per le classi 
 Questa esercitazione descrive come configurare un lab per le classi con macchine virtuali usate dagli studenti nella classe.  
@@ -32,7 +32,7 @@ In questa esercitazione vengono completate le azioni seguenti:
 > * Impostare una pianificazione per il lab
 > * Inviare inviti agli studenti tramite posta elettronica
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Per configurare un lab per le classi in un account del lab, è necessario essere un membro dei ruoli seguenti nell'account del lab: Proprietario, Autore di laboratori o Collaboratore. L'account usato per creare un account del lab viene aggiunto automaticamente al ruolo di Proprietario.
 
 Un proprietario del lab può aggiungere altri utenti al ruolo **Autore di laboratori**. Ad esempio, un proprietario del lab può aggiungere docenti al ruolo Autore di laboratori. Quindi, i docenti creano lab con macchine virtuali per le classi. Gli studenti usano il collegamento di registrazione inviato dai docenti per registrarsi al lab. Una volta registrati, potranno usare le macchine virtuali nei lab per eseguire le attività in classe e a casa. Per istruzioni dettagliate sull'aggiunta di utenti al ruolo di Autore di laboratori, vedere [Aggiungere un utente al ruolo di creatore di lab](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).

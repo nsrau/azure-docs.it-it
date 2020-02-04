@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 01/13/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: 69899f521e73cb5af1af145a0915dbe1a017f307
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 8ae78bb8c0b70e20bfe12b8dc52c02abb6030bdf
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281166"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774112"
 ---
 <a name="HOLTop"></a>
 
@@ -22,6 +22,7 @@ ms.locfileid: "76281166"
 
 > [!NOTE]
 > * Questo argomento di avvio rapido la versione `3.0-preview` della libreria client di Analisi del testo, che include un'anteprima pubblica con funzionalità migliorate di [Analisi del sentiment](../../../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) e [riconoscimento di entità denominate](../../../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
+>
 > * Il codice di questo articolo usa archiviazione con credenziali non protette per motivi di semplicità. Per gli scenari di produzione, è consigliabile inviare le stringhe in batch ai fini di prestazioni e scalabilità. Ad esempio, chiamare `SentimentBatchAsync()` invece di `Sentiment()`.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -36,6 +37,9 @@ ms.locfileid: "76281166"
 [!INCLUDE [text-analytics-resource-creation](../resource-creation.md)]
 
 ### <a name="create-a-new-nodejs-application"></a>Creare una nuova applicazione Node.js
+
+> [!NOTE]
+> È anche possibile eseguire questa versione della libreria client di Analisi del testo [nel browser](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
 
 In una finestra della console, ad esempio cmd, PowerShell o Bash, creare e passare a una nuova directory per l'app. 
 

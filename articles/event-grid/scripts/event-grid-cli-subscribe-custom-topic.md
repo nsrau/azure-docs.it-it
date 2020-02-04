@@ -1,22 +1,22 @@
 ---
 title: Esempio di script dell'interfaccia della riga di comando di Azure - Sottoscrivere un argomento personalizzato | Microsoft Docs
-description: Esempio di script dell'interfaccia della riga di comando di Azure - Sottoscrivere un argomento personalizzato
+description: Questo articolo include un esempio di script dell'interfaccia della riga di comando di Azure che illustra come sottoscrivere gli eventi di Griglia di eventi per un argomento personalizzato.
 services: event-grid
 documentationcenter: na
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2018
-ms.author: tomfitz
-ms.openlocfilehash: a46c348533468ad037ac092037cb34def2b0405c
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 01/23/2020
+ms.author: spelluru
+ms.openlocfilehash: 9d82a5c3d9723c26d5a98bb2f0c92a6739ffee25
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580360"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720130"
 ---
 # <a name="subscribe-to-events-for-a-custom-topic-with-azure-cli"></a>Sottoscrivere eventi per un argomento personalizzato con l'interfaccia della riga di comando di Azure
 

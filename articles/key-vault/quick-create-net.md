@@ -6,14 +6,14 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 3322a9f2a7e09ee76c0fff94a2747c791ecf4804
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: dfe5a9a8b5503bb078cfd633a1f29774613b42b6
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975381"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769215"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v4"></a>Guida introduttiva: Libreria client di Azure Key Vault per .NET (SDK v4)
+# <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v4"></a>Avvio rapido: Libreria client di Azure Key Vault per .NET (SDK v4)
 
 Introduzione alla libreria client di Azure Key Vault per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
@@ -22,12 +22,12 @@ L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi 
 - Aumentare la sicurezza e il controllo di chiavi e password.
 - Creare e importare chiavi di crittografia in pochi minuti.
 - Ridurre la latenza con ridondanza globale e su scala cloud.
-- Semplificare e automatizzare le attività per i certificati SSL/TLS.
+- Semplificare e automatizzare le attività per i certificati TLS/SSL.
 - Usare moduli di protezione hardware convalidati in base agli standard FIPS 140-2 livello 2.
 
 [Documentazione di riferimento dell'API](/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [.NET Core 2.1 SDK o versione successiva](https://dotnet.microsoft.com/download/dotnet-core/2.1).
@@ -125,7 +125,7 @@ az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-se
 
 #### <a name="set-environmental-variables"></a>Impostare le variabili di ambiente
 
-Il metodo DefaultAzureCredential usato nell'applicazione si basa sulle tre variabili di ambiente `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`e `AZURE_TENANT_ID`. Impostare queste variabili sui valori clientId, clientSecret e tenantId annotati nel passaggio [Creare un'entità servizio](#create-a-service-principal) precedente.
+Il metodo DefaultAzureCredential usato nell'applicazione si basa sulle tre variabili di ambiente `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET` e `AZURE_TENANT_ID`. Impostare queste variabili sui valori clientId, clientSecret e tenantId annotati nel passaggio [Creare un'entità servizio](#create-a-service-principal) precedente.
 
 Sarà anche necessario salvare il nome dell'insieme di credenziali delle chiavi come una variabile di ambiente denominata `KEY_VAULT_NAME`;
 

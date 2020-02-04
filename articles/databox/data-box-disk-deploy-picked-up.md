@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d0acc2d92c564f89f4777ccb243c7255e47c9105
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: eb9231a84295240c20e34bfad56f406317c107da
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514120"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845476"
 ---
 ::: zone target="chromeless"
 
@@ -49,7 +49,7 @@ Prima di iniziare, assicurarsi di aver completato l'[Esercitazione: copiare i da
     - È consigliabile imballare i dischi avvolgendoli con cura in una pellicola a bolle d'aria.
     - Assicurarsi di riempire i vuoti per ridurre i movimenti all'interno della scatola.
 
-I passaggi successivi dipendono dalla destinazione di restituzione del dispositivo. Le istruzioni sono diverse per Stati Uniti, Canada, Unione Europea (UE), Australia o paesi asiatici.
+I passaggi successivi dipendono dalla destinazione di restituzione del dispositivo. Le istruzioni sono diverse per Stati Uniti, Canada, Unione Europa (UE), Australia o paesi asiatici.
 
 ### <a name="in-us-or-canadatabin-us-or-canada"></a>[Stati Uniti o Canada](#tab/in-us-or-canada)
 
@@ -155,10 +155,28 @@ Se necessario, è possibile contattare il supporto di Quantium Solutions (in lin
 
    In caso di problemi, contattare Data Box Operations Asia all'indirizzo adbo@microsoft.com. Specificare il nome del processo nell'intestazione dell'oggetto e il problema riscontrato.
 
-3. Consegnare la scatola al corriere. 
+3. Consegnare la scatola al corriere.
 
+### <a name="in-self-managedtabin-selfmanaged"></a>[Nella modalità autogestita](#tab/in-selfmanaged)
+
+Se si usa Data Box Disk in Giappone, Singapore, Corea ed Europa occidentale ed è stata selezionata l'opzione Spedizione autogestita durante la creazione dell'ordine, seguire queste istruzioni. 
+
+1. Passare al pannello **Panoramica** dell'ordine nel portale di Azure. Seguire le istruzioni visualizzate quando si seleziona **Pianifica ritiro**. Verrà visualizzato un codice di autorizzazione da usare per la consegna dell'ordine.
+
+2. Quando si è pronti per restituire il dispositivo, inviare un messaggio di posta elettronica al team delle operazioni di Azure Data Box usando il modello seguente.
+
+    ```
+    To: adbops@microsoft.com
+    Subject: Request for Azure Data Box Disk drop-off for order: ‘orderName’
+    Body: 
+     a. Order name
+     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+    ```
+3. Il team delle operazioni di Azure Data Box collaborerà con l'utente per organizzare la consegna presso il data center di Azure.
 
 ::: zone target="docs"
+
+---
 
 ## <a name="next-steps"></a>Passaggi successivi
 

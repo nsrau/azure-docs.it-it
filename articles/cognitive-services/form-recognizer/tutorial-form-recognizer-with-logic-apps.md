@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 10/27/2019
+ms.date: 01/27/2020
 ms.author: nitinme
-ms.openlocfilehash: 14affb2c2aa53fc7a2b1a5946e81ad124800f678
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0de0c83b0c459d29c304dbf51eaa44a62e895760
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981253"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773090"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Esercitazione: Usare Riconoscimento modulo con App per la logica di Azure per analizzare le fatture
 
-In questa esercitazione viene creato un flusso di lavoro in App per la logica di Azure che usa Riconoscimento modulo, un servizio che fa parte della suite di Servizi cognitivi di Azure, per estrarre i dati dalle fatture. È possibile usare Riconoscimento modulo prima per eseguire il training di un modello usando un set di dati di esempio e quindi per eseguire il test del modello usando un altro set di dati. I dati di esempio usati in questa esercitazione vengono archiviati in contenitori BLOB di Archiviazione di Azure.
+In questa esercitazione viene creato un flusso di lavoro in App per la logica di Azure che usa Riconoscimento modulo, un servizio che fa parte della suite di Servizi cognitivi di Azure, per estrarre i dati dalle fatture. Prima si esegue il training di un modello di Riconoscimento modulo usando un set di dati di esempio e quindi si testa il modello usando un altro set di dati.
 
 Contenuto dell'esercitazione:
 
@@ -41,12 +41,12 @@ Il riconoscimento modulo è disponibile in anteprima ad accesso limitato. Per av
 
 ## <a name="understand-the-invoice-to-be-analyzed"></a>Comprendere la fattura da analizzare
 
-Il set di dati di esempio usato per il training e il test del modello è disponibile come file ZIP da [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Scaricare ed estrarre il file ZIP e aprire un file PDF della fattura nella cartella **/Train**. Notare la tabella con il numero di fattura, la data della fattura e così via. 
+Il set di dati di esempio usato per il training e il test del modello è disponibile come file ZIP in [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Scaricare ed estrarre il file ZIP e aprire un file PDF della fattura nella cartella **/Train**. Notare la tabella con il numero di fattura, la data della fattura e così via. 
 
 > [!div class="mx-imgBorder"]
 > ![Esempio di fattura](media/tutorial-form-recognizer-with-logic-apps/sample-receipt.png)
 
-Questa esercitazione illustra come estrarre le informazioni da tali tabelle in un formato JSON usando un flusso di lavoro creato con App per la logica di Azure e Riconoscimento modulo.
+Questa esercitazione illustra come usare un flusso di lavoro di App per la logica di Azure per estrarre le informazioni da tabelle come queste in formato JSON.
 
 ## <a name="create-an-azure-storage-blob-container"></a>Creare un contenitore BLOB di Archiviazione di Azure
 
@@ -62,7 +62,7 @@ Questo contenitore viene usato per caricare i dati di esempio necessari per eseg
 
 Scaricare i dati di esempio disponibili in [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Estrarre i dati in una cartella locale e caricare il contenuto della cartella **/Train** nel contenitore **formrecocontainer** creato in precedenza. Seguire le istruzioni riportate in [Caricare un BLOB in blocchi](../../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob) per caricare i dati in un contenitore.
 
-Copiare l'URL del contenitore. Sarà necessario usarlo più avanti in questa esercitazione. Se è stato creato l'account di archiviazione e il contenitore con gli stessi nomi elencati in questa esercitazione, l'URL sarà *https:\//formrecostorage.blob.core.windows.net/formrecocontainer/* .
+Copiare l'URL del contenitore. Questo URL sarà necessario più avanti nell'esercitazione. Se è stato creato l'account di archiviazione e il contenitore con gli stessi nomi elencati in questa esercitazione, l'URL sarà *https:\//formrecostorage.blob.core.windows.net/formrecocontainer/* .
 
 ## <a name="create-a-form-recognizer-resource"></a>Creare una risorsa di riconoscimento modulo
 
@@ -75,7 +75,7 @@ Copiare l'URL del contenitore. Sarà necessario usarlo più avanti in questa ese
 * Configurare l'app per la logica per l'uso di un'operazione di **training del modello** di Riconoscimento modulo per eseguire il training di un modello usando i dati di esempio caricati in Archiviazione BLOB di Azure.
 * Configurare l'app per la logica per l'uso di un'operazione di **analisi del modulo** di Riconoscimento modulo per usare il modello di cui è già stato eseguito il training. Questo componente analizzerà la fattura fornita a questa app per la logica in base al modello di cui è stato eseguito il training in precedenza.
 
-Iniziamo! Attenersi alla seguente procedura per configurare il flusso di lavoro.
+Attenersi alla seguente procedura per configurare il flusso di lavoro.
 
 1. Dal menu principale di Azure selezionare **Crea una risorsa** > **Integrazione** > **App per la logica**.
 
@@ -99,7 +99,7 @@ Iniziamo! Attenersi alla seguente procedura per configurare il flusso di lavoro.
 
 ### <a name="configure-the-logic-app-to-trigger-the-workflow-when-an-email-arrives"></a>Configurare l'app per la logica per attivare il flusso di lavoro quando arriva un messaggio di posta elettronica
 
-In questa esercitazione viene attivato il flusso di lavoro quando viene ricevuto un messaggio di posta elettronica con una fattura allegata. Per questa esercitazione viene usato Office 365 come servizio di posta elettronica, ma è possibile usare qualsiasi altro provider di posta elettronica che si vuole usare.
+In questa esercitazione viene attivato il flusso di lavoro quando viene ricevuto un messaggio di posta elettronica con una fattura allegata. Per questa esercitazione viene usato Office 365 come servizio di posta elettronica, ma è possibile usare il provider di posta elettronica desiderato.
 
 1. Nelle schede selezionare Tutti, selezionare **Office 365 Outlook** e quindi in **Trigger**selezionare **All'arrivo di un nuovo messaggio di posta elettronica**.
 
@@ -149,14 +149,14 @@ In questa sezione si aggiunge l'operazione di **analisi del modulo** al flusso d
     > [!div class="mx-imgBorder"]
     > ![Analizzare un modello di Riconoscimento modulo](media/tutorial-form-recognizer-with-logic-apps/logic-app-form-reco-analyze-model.png)
 
-1. Nella finestra di dialogo **Analyze Form** (Analisi del modulo) eseguire le operazioni seguenti:
+1. Nella finestra di dialogo **Analyze Form** (Analizza modulo) eseguire questa procedura:
 
     1. Fare clic sulla casella di testo **ID modello** e nella scheda **Contenuto dinamico** della finestra di dialogo visualizzata selezionare **modelId**. Questa operazione consente di fornire all'applicazione di flusso l'ID del modello di cui è stato eseguito il training nell'ultima sezione.
 
         > [!div class="mx-imgBorder"]
         > ![Usare ModelID per Riconoscimento modulo](media/tutorial-form-recognizer-with-logic-apps/analyze-form-model-id.png)
 
-    2. Fare clic sulla casella di testo **Documento** e nella scheda **Contenuto dinamico** della finestra di dialogo visualizzata selezionare **Attachments Content** (Contenuto allegati). Questa operazione consente di configurare il flusso per l'uso del file di fattura di esempio allegato al messaggio di posta elettronica inviato per attivare il flusso di lavoro.
+    2. Fare clic sulla casella di testo **Documento** e nella scheda **Contenuto dinamico** della finestra di dialogo visualizzata selezionare **Attachments Content** (Contenuto allegati). Questa operazione consente di configurare il flusso per l'uso del file di fattura di esempio allegato al messaggio di posta elettronica per attivare il flusso di lavoro.
 
         > [!div class="mx-imgBorder"]
         > ![Usare l'allegato di posta elettronica per analizzare le fatture](media/tutorial-form-recognizer-with-logic-apps/analyze-form-input-data.png)
@@ -179,7 +179,7 @@ In questa sezione viene configurata l'app per la logica per estrarre le informaz
 
 ## <a name="test-your-logic-app"></a>Testare l'app per la logica
 
-Per testare l'app per la logica, usare le fatture di esempio nella cartella **/Test** del set di dati di esempio scaricato da [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Eseguire la procedura seguente:
+Per testare l'app per la logica, usare le fatture di esempio nella cartella **/Test** del set di dati di esempio scaricato da [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). A tale scopo, seguire questa procedura:
 
 1. Nella finestra di progettazione di App per la logica di Azure per l'app selezionare **Esegui** nella barra degli strumenti in alto. Il flusso di lavoro è ora attivo e attende la ricezione di un messaggio di posta elettronica con la fattura allegata.
 1. Inviare un messaggio di posta elettronica con una fattura di esempio allegata all'indirizzo di posta elettronica fornito durante la creazione dell'app per la logica. Verificare che il messaggio di posta elettronica venga recapitato alla cartella specificata durante la configurazione dell'app per la logica.

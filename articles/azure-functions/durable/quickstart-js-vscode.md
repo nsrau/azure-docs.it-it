@@ -5,12 +5,12 @@ author: ColbyTresness
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.reviewer: azfuncdf, cotresne
-ms.openlocfilehash: 94ba2830824c4a918e9451a9fc5140d422110370
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b0a1d1a9305f6de2a072ee1ded310d8de174436b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231302"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845719"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Creare la prima funzione durevole in JavaScript
 
@@ -22,7 +22,7 @@ Questo articolo spiega come l'estensione di Funzioni di Azure in Visual Studio C
 
 ![Esecuzione di una funzione durevole in Azure](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione:
 
@@ -38,7 +38,31 @@ Per completare questa esercitazione:
 
 [!INCLUDE [functions-install-vs-code-extension](../../../includes/functions-install-vs-code-extension.md)]
 
-[!INCLUDE [functions-create-function-app-vs-code](../../../includes/functions-create-function-app-vs-code.md)]
+## <a name="create-an-azure-functions-project"></a>Creare il progetto locale 
+
+In questa sezione si userà Visual Studio Code per creare un progetto di Funzioni di Azure locale. 
+
+1. In Visual Studio Code premere F1 per aprire il riquadro comandi. Nel riquadro comandi cercare e selezionare `Azure Functions: Create new project...`.
+
+1. Scegliere una posizione della directory per l'area di lavoro del progetto e quindi scegliere **Seleziona**.
+
+    > [!NOTE]
+    > Questa procedura è stata progettata per il completamento all'esterno di un'area di lavoro. In questo caso, non selezionare una cartella di progetto inclusa in un'area di lavoro.
+
+1. Seguire le istruzioni e specificare le informazioni seguenti per il linguaggio desiderato:
+
+    | Prompt | valore | Descrizione |
+    | ------ | ----- | ----------- |
+    | Selezionare un linguaggio per il progetto di app per le funzioni | JavaScript | Creare un progetto Funzioni Node.js locale. |
+    | Selezionare una versione | Funzioni di Azure v2 | Questa opzione viene visualizzata solo quando gli strumenti Core Tools non sono già installati. In questo caso, gli strumenti Core Tools vengono installati la prima volta che si esegue l'app. |
+    | Selezionare un modello per la prima funzione del progetto | Trigger HTTP | Creare una funzione attivata tramite HTTP in nella nuova app per le funzioni. |
+    | Specificare un nome di funzione | HttpTrigger | Premere Invio per usare il nome predefinito. |
+    | Livello di autorizzazione | Funzione | Per il livello di autorizzazione `function` è necessario fornire una chiave di accesso quando si chiama l'endpoint HTTP della funzione. In questo modo, è più difficile accedere un endpoint senza protezione. Per altre informazioni, vedere [Chiavi di autorizzazione](../functions-bindings-http-webhook.md#authorization-keys).  |
+    | Specificare come aprire il progetto | Aggiungere all'area di lavoro | Crea l'app per le funzioni nell'area di lavoro corrente. |
+
+Se necessario, Visual Studio Code installa Azure Functions Core Tools. Crea inoltre il progetto di app per le funzioni in una nuova area di lavoro. Questo progetto contiene i file di configurazione [host.json](../functions-host-json.md) e [local.settings.json](../functions-run-local.md#local-settings-file). Crea anche una cartella HttpExample che contiene il [file di definizione function.json](../functions-reference-node.md#folder-structure) e il [file index.js](../functions-reference-node.md#exporting-a-function), un file Node.js che contiene il codice della funzione.
+
+Viene inoltre creato un file package.json nella cartella radice.
 
 ## <a name="install-the-durable-functions-npm-package"></a>Installare il pacchetto npm di Durable Functions
 

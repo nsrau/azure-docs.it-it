@@ -11,15 +11,15 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 10/07/2019
+ms.date: 01/21/2020
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 992cface653bf3fe52afc7efa3f17573fcf91399
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b35c23e6dd88af01391bf7f01a7e736a1a744fff
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469654"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714437"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Esercitazione: Usare i riferimenti a Key Vault in un'app ASP.NET Core
 
@@ -35,13 +35,13 @@ Questa esercitazione illustra come implementare i riferimenti a Key Vault nel co
 
 Per completare i passaggi riportati in questa esercitazione, è possibile usare qualsiasi editor di codice. Ad esempio, [Visual Studio Code](https://code.visualstudio.com/) è un editor di codice multipiattaforma disponibile per i sistemi operativi Windows, macOS e Linux.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare una chiave di Configurazione app che faccia riferimento a un valore archiviato in Key Vault.
 > * Accedere al valore di questa chiave da un'applicazione Web ASP.NET Core.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione, installare [.NET Core SDK](https://dotnet.microsoft.com/download).
 
@@ -75,7 +75,7 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
 1. Selezionare **Genera/Importa**.
 1. Nel riquadro **Crea un segreto** immettere i valori seguenti:
     - **Opzioni di caricamento**: immettere **Manual**.
-    - **Nome**: immettere **Message**.
+    - **Name**: immettere **Message**.
     - **Value**: immettere **Hello from Key Vault**.
 1. Lasciare invariati i valori predefiniti delle altre proprietà di **Crea un segreto**.
 1. Selezionare **Create** (Crea).
@@ -119,30 +119,62 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
 
 1. Eseguire il comando seguente per consentire all'entità servizio di accedere all'insieme di credenziali delle chiavi:
 
-    ```
+    ```cmd
     az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
     ```
 
-1. Aggiungere segreti per *clientId* e *clientSecret* a Secrets Manager, lo strumento per l'archiviazione di dati sensibili aggiunto al file *csproj* in [Avvio rapido: Creare un'app ASP.NET Core con Configurazione app di Azure](./quickstart-aspnet-core-app.md). Questi comandi devono essere eseguiti nella stessa directory del file con estensione *csproj*.
+1. Aggiungere le variabili di ambiente per archiviare i valori di *clientId*, *clientSecret* e *tenantId*.
 
-    ```
-    dotnet user-secrets set ConnectionStrings:KeyVaultClientId <clientId-of-your-service-principal>
-    dotnet user-secrets set ConnectionStrings:KeyVaultClientSecret <clientSecret-of-your-service-principal>
+    #### <a name="windows-command-prompttabcmd"></a>[Prompt dei comandi di Windows](#tab/cmd)
+
+    ```cmd
+    setx AZURE_CLIENT_ID <clientId-of-your-service-principal>
+    setx AZURE_CLIENT_SECRET <clientSecret-of-your-service-principal>
+    setx AZURE_TENANT_ID <tenantId-of-your-service-principal>
     ```
 
-> [!NOTE]
-> Queste credenziali di Key Vault vengono usate solo all'interno dell'applicazione. Servono solo a eseguire l'autenticazione dell'applicazione direttamente in Key Vault. Non vengono mai passate al servizio Configurazione app.
+    #### <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+
+    ```PowerShell
+    $Env:AZURE_CLIENT_ID = <clientId-of-your-service-principal>
+    $Env:AZURE_CLIENT_SECRET = <clientSecret-of-your-service-principal>
+    $Env:AZURE_TENANT_ID = <tenantId-of-your-service-principal>
+    ```
+
+    #### <a name="bashtabbash"></a>[Bash](#tab/bash)
+
+    ```bash
+    export AZURE_CLIENT_ID = <clientId-of-your-service-principal>
+    export AZURE_CLIENT_SECRET = <clientSecret-of-your-service-principal>
+    export AZURE_TENANT_ID = <tenantId-of-your-service-principal>
+    ```
+
+    ---
+
+    > [!NOTE]
+    > Queste credenziali di Key Vault vengono usate solo all'interno dell'applicazione. Servono solo a eseguire l'autenticazione dell'applicazione direttamente in Key Vault. Non vengono mai passate al servizio Configurazione app.
+
+1. Riavviare il terminale per caricare queste nuove variabili di ambiente.
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Aggiornare il codice per usare un riferimento a Key Vault
+
+1. Aggiungere un riferimento ai pacchetti NuGet richiesti eseguendo il comando seguente:
+
+    ```dotnetcli
+    dotnet add package Microsoft.Azure.KeyVault
+    dotnet add package Azure.Identity
+    ```
 
 1. Aprire *Program.cs* e aggiungere i riferimenti ai pacchetti richiesti seguenti:
 
     ```csharp
     using Microsoft.Azure.KeyVault;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Azure.Identity;
     ```
 
 1. Aggiornare il metodo `CreateWebHostBuilder` per usare Configurazione app effettuando una chiamata al metodo `config.AddAzureAppConfiguration`. Includere l'opzione `UseAzureKeyVault`, che passa un nuovo riferimento `KeyVaultClient` a Key Vault.
+
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -151,18 +183,38 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
             {
                 var settings = config.Build();
 
-                KeyVaultClient kvClient = new KeyVaultClient(async (authority, resource, scope) =>
+                config.AddAzureAppConfiguration(options =>
                 {
-                    var adCredential = new ClientCredential(settings["ConnectionStrings:KeyVaultClientId"], settings["ConnectionStrings:KeyVaultClientSecret"]);
-                    var authenticationContext = new AuthenticationContext(authority, null);
-                    return (await authenticationContext.AcquireTokenAsync(resource, adCredential)).AccessToken;
-                });
-
-                config.AddAzureAppConfiguration(options => {
                     options.Connect(settings["ConnectionStrings:AppConfig"])
-                            .UseAzureKeyVault(kvClient); });
+                            .ConfigureKeyVault(kv =>
+                            {
+                                kv.SetCredential(new DefaultAzureCredential());
+                            });
+                });
             })
             .UseStartup<Startup>();
+    ```
+
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+
+    ```csharp
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                var settings = config.Build();
+
+                config.AddAzureAppConfiguration(options =>
+                {
+                    options.Connect(settings["ConnectionStrings:AppConfig"])
+                            .ConfigureKeyVault(kv =>
+                            {
+                                kv.SetCredential(new DefaultAzureCredential());
+                            });
+                });
+            })
+            .UseStartup<Startup>());
     ```
 
 1. Quando è stata inizializzata la connessione a Configurazione app, è stato passato il riferimento `KeyVaultClient` al metodo `UseAzureKeyVault`. Dopo l'inizializzazione, è possibile accedere ai valori dei riferimenti a Key Vault nello stesso modo in cui si accede ai valori delle normali chiavi di Configurazione app.
@@ -179,7 +231,7 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
         }
         h1 {
             color: @Configuration["TestApp:Settings:FontColor"];
-            font-size: @Configuration["TestApp:Settings:FontSize"];
+            font-size: @Configuration["TestApp:Settings:FontSize"]px;
         }
     </style>
 

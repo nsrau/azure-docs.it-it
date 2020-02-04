@@ -1,23 +1,22 @@
 ---
 title: Esempio di script di Azure PowerShell - Sottoscrivere un argomento personalizzato | Microsoft Docs
-description: Esempio di script di Azure PowerShell - Sottoscrivere un argomento personalizzato
+description: Questo articolo include un esempio di script di Azure PowerShell che illustra come sottoscrivere gli eventi di Griglia di eventi per un argomento personalizzato.
 services: event-grid
 documentationcenter: na
-author: tfitzmac
-manager: timlt
+author: spelluru
 ms.service: event-grid
 ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/10/2018
-ms.author: tomfitz
-ms.openlocfilehash: f16a02cd110397b1ef6bb3aa00ea12c44e4b9563
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 01/23/2020
+ms.author: spelluru
+ms.openlocfilehash: 1c3b158a2608d63fae6eea38c7263d0614519a5e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66117130"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721524"
 ---
 # <a name="subscribe-to-events-for-a-custom-topic-with-powershell"></a>Sottoscrivere eventi per un argomento personalizzato con PowerShell
 

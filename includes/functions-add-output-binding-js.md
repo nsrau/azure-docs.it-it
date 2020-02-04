@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/23/2019
 ms.author: glenga
-ms.openlocfilehash: e84774ba564d807780be5d5a04555bcfa1ea795d
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: d0f1f4cc44fb71899012d63a9caf2ea6a8cb5c4a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838957"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845645"
 ---
 Aggiungere il codice che usa l'oggetto `msg` del binding di output in `context.bindings` per creare un messaggio della coda. Aggiungere questo codice prima dell'istruzione `context.res`.
 

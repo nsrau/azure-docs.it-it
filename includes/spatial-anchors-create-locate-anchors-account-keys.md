@@ -4,17 +4,17 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 02/21/2019
 ms.author: rgarcia
-ms.openlocfilehash: 72616d5d79b4dbdb8e14463c706c1626eeb50e97
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: MT
+ms.openlocfilehash: 9bd213b63b69a25fb2530cd8f6659abf5357616a
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67179844"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76694334"
 ---
 ## <a name="set-up-authentication"></a>Configurare l'autenticazione
 
-Per accedere al servizio, è necessario fornire una chiave dell'account, token di accesso o il token di autenticazione di Azure Active Directory.
+Per accedere al servizio, è necessario specificare una chiave dell'account, un token di accesso o un token di autenticazione di Azure Active Directory. Per altre informazioni, vedere la [pagina relativa al concetto di autenticazione](/azure/spatial-anchors/concepts/authentication).
 
 ### <a name="account-keys"></a>Chiavi dell'account
 
-Le chiavi dell'account sono le credenziali che consente all'applicazione di eseguire l'autenticazione con il servizio di Azure gli ancoraggi spaziale. Lo scopo previsto di chiavi dell'Account è che consentono di iniziare rapidamente. In particolare durante la fase di sviluppo di integrazione dell'applicazione con Azure spaziali ancoraggi. Di conseguenza, è possibile usare le chiavi dell'Account incorporandoli nelle applicazioni client durante lo sviluppo. Come procede oltre allo sviluppo, è consigliabile spostare in un meccanismo di autenticazione che è a livello di produzione, supportata dal token di accesso o l'autenticazione utente di Azure Active Directory. Per ottenere una chiave dell'Account per lo sviluppo, visitare l'account di Azure gli ancoraggi spaziali e passare alla scheda "Chiavi".
+Le chiavi dell'account sono credenziali che consentono all'applicazione di eseguire l'autenticazione con il servizio degli ancoraggi nello spazio di Azure. Le chiavi dell'account consentono di essere subito operativi, soprattutto durante la fase di sviluppo dell'integrazione dell'applicazione con gli ancoraggi nello spazio di Azure. Di conseguenza, è possibile usare le chiavi dell'account incorporandole nelle applicazioni client durante lo sviluppo. Nelle fasi successive allo sviluppo è consigliabile passare a un meccanismo di autenticazione a livello di produzione, supportato da token di accesso o dall'autenticazione utente di Azure Active Directory. Per ottenere una chiave dell'account per lo sviluppo, visitare l'account ancoraggi nello spazio di Azure e passare alla scheda "Chiavi".

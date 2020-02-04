@@ -1,6 +1,6 @@
 ---
 title: Interfaccia della riga di comando di Azure - Sottoscrivere un gruppo di risorse e applicare un filtro per una risorsa
-description: Esempio di script dell'interfaccia della riga di comando di Azure - Sottoscrivere un gruppo di risorse e applicare un filtro per una risorsa
+description: Questo articolo include un esempio di script dell'interfaccia della riga di comando di Azure che illustra come sottoscrivere gli eventi di Griglia di eventi per una risorsa e come applicare filtri per trovare risorse.
 services: event-grid
 documentationcenter: na
 author: spelluru
@@ -9,14 +9,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/22/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: f19890570b13278c15ab3264c83c9290326d69b3
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 3dfe31a38d1bc1ba8662246a5dec3f10d0d1c948
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790749"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720827"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-and-filter-for-a-resource-with-azure-cli"></a>Sottoscrivere eventi per un gruppo di risorse e applicare un filtro per una risorsa con l'interfaccia della riga di comando di Azure
 

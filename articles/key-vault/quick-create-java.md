@@ -6,14 +6,14 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: e06c8d5373f8740e8091daae242a4f7af6c0ea4a
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 0cde8b48e7bd1d1daa8f14dcded87001fb898fa7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995865"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769227"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-java"></a>Guida introduttiva: Libreria client di Azure Key Vault per Java
+# <a name="quickstart-azure-key-vault-client-library-for-java"></a>Avvio rapido: Libreria client di Azure Key Vault per Java
 
 Introduzione alla libreria client di Azure Key Vault per Java. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
@@ -22,12 +22,12 @@ L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi 
 - Aumentare la sicurezza e il controllo di chiavi e password.
 - Creare e importare chiavi di crittografia in pochi minuti.
 - Ridurre la latenza con ridondanza globale e su scala cloud.
-- Semplificare e automatizzare le attività per i certificati SSL/TLS.
+- Semplificare e automatizzare le attività per i certificati TLS/SSL.
 - Usare moduli di protezione hardware convalidati in base agli standard FIPS 140-2 livello 2.
 
 [Codice sorgente](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault) | [Informazioni di riferimento per l'API](https://azure.github.io/azure-sdk-for-java) | [Documentazione del prodotto](index.yml) | [Esempi](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) versione 8 o successiva
@@ -150,7 +150,7 @@ az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-se
 
 #### <a name="set-environmental-variables"></a>Impostare le variabili di ambiente
 
-Il metodo DefaultAzureCredential usato nell'applicazione si basa sulle tre variabili di ambiente `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`e `AZURE_TENANT_ID`. Impostare queste variabili sui valori clientId, clientSecret e tenantId annotati nel passaggio [Creare un'entità servizio](#create-a-service-principal) precedente. Usare il formato `export VARNAME=VALUE` per impostare le variabili di ambiente. Questo metodo imposta solo le variabili per la shell corrente e per i processi creati dalla shell. Per aggiungere in modo permanente queste variabili all'ambiente, modificare il file `/etc/environment `. 
+Il metodo DefaultAzureCredential usato nell'applicazione si basa sulle tre variabili di ambiente `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET` e `AZURE_TENANT_ID`. Impostare queste variabili sui valori clientId, clientSecret e tenantId annotati nel passaggio [Creare un'entità servizio](#create-a-service-principal) precedente. Usare il formato `export VARNAME=VALUE` per impostare le variabili di ambiente. Questo metodo imposta solo le variabili per la shell corrente e per i processi creati dalla shell. Per aggiungere in modo permanente queste variabili all'ambiente, modificare il file `/etc/environment `. 
 
 Sarà anche necessario salvare il nome dell'insieme di credenziali delle chiavi come una variabile di ambiente denominata `KEY_VAULT_NAME`.
 

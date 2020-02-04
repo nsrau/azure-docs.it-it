@@ -4,29 +4,29 @@ description: "Esercitazione: Preparare l'ambiente per lo sviluppo e la distribuz
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 1/23/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2ea4248ebaedd318e4112e41169f72bc80b1120f
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: a36427616691b0a0d400dadb4e35c2f7fbf23b22
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114065"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722289"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Esercitazione: Configurare un ambiente di Machine Learning in IoT Edge
 
 > [!NOTE]
-> Questo articolo fa parte di una serie di documenti relativi a un'esercitazione sull'uso di Azure Machine Learning in IoT Edge. Se l'articolo è stato aperto direttamente, è consigliabile iniziare con il [primo articolo](tutorial-machine-learning-edge-01-intro.md) della serie per risultati ottimali.
+> Questo articolo fa parte di una serie di documenti relativi a un'esercitazione sull'uso di Azure Machine Learning in IoT Edge. Se l'articolo è stato aperto direttamente, è consigliabile iniziare con il [primo articolo](tutorial-machine-learning-edge-01-intro.md) della serie per avere risultati ottimali.
 
-Questo articolo dell'esercitazione completa su Azure Machine Learning in IoT Edge consente di preparare l'ambiente per lo sviluppo e la distribuzione. Configurare prima di tutto un computer di sviluppo con tutti gli strumenti necessari. Quindi creare le risorse cloud necessarie in Azure.
+Questo articolo illustra come preparare l'ambiente per lo sviluppo e la distribuzione. Configurare prima di tutto un computer di sviluppo con tutti gli strumenti necessari. Quindi creare le risorse cloud necessarie in Azure.
 
-## <a name="set-up-a-development-machine"></a>Configurare un computer di sviluppo
+## <a name="set-up-the-development-vm"></a>Configurare la VM di sviluppo
 
 Questo passaggio viene in genere eseguito da sviluppatori cloud. Parte del software può risultare utile anche ai data scientist.
 
-Nel corso dell'articolo vengono eseguite varie attività di sviluppo, tra cui scrittura di codice, compilazione, configurazione e distribuzione di moduli IoT Edge e dispositivi IoT. Per semplicità, è stato creato uno script di PowerShell che crea una macchina virtuale di Azure con molti prerequisiti già configurati. La VM da creare deve essere in grado di gestire la [virtualizzazione annidata](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), per cui sono state scelte le dimensioni della macchina [Standard_D8s_v3](../virtual-machines/windows/sizes-general.md#dsv3-series-1).
+È stato creato uno script di PowerShell che crea una macchina virtuale di Azure con molti prerequisiti già configurati. La VM da creare deve essere in grado di gestire la [virtualizzazione annidata](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), per cui sono state scelte le dimensioni della macchina [Standard_D8s_v3](../virtual-machines/windows/sizes-general.md#dsv3-series-1).
 
 La VM di sviluppo verrà configurata con:
 
@@ -50,101 +50,95 @@ La VM di sviluppo non è strettamente necessaria: tutti gli strumenti di svilupp
 
 Per creare e configurare la macchina virtuale sono necessari circa 30 minuti.
 
-### <a name="get-the-script"></a>Ottenere lo script
+1. Clonare o scaricare il repository di esempi di [Machine Learning e IoT Edge](https://github.com/Azure-Samples/IoTEdgeAndMlSample) nel computer locale.
 
-Clonare o scaricare lo script di PowerShell dal repository di esempi di [Machine Learning e IoT Edge](https://github.com/Azure-Samples/IoTEdgeAndMlSample).
-
-### <a name="create-an-azure-virtual-machine"></a>Creare una macchina virtuale di Azure
-
-La directory DevVM contiene i file necessari per creare una macchina virtuale di Azure appropriata per completare questa esercitazione.
-
-1. Aprire PowerShell come amministratore e passare alla directory in cui è stato scaricato il codice. La directory radice dell'origine verrà identificata come `<srcdir>`.
+1. Aprire PowerShell come amministratore e passare alla directory **\IoTEdgeAndMlSample\DevVM** che si trova nella directory radice in cui è stato scaricato il codice. La directory radice dell'origine verrà identificata come `srcdir`.
 
     ```powershell
-    cd <srcdir>\IoTEdgeAndMlSample\DevVM
+    cd c:\srcdir\IoTEdgeAndMlSample\DevVM
     ```
 
-2. Eseguire il comando seguente per consentire l'esecuzione degli script. Quando richiesto, scegliere **Sì per tutti**.
+   La directory DevVM contiene i file necessari per creare una macchina virtuale di Azure appropriata per completare questa esercitazione.
+
+1. Eseguire il comando seguente per consentire l'esecuzione degli script. Quando richiesto, scegliere **Sì per tutti**.
 
     ```powershell
     Set-ExecutionPolicy Bypass -Scope Process
     ```
 
-3. Eseguire Create-AzureDevVM.ps1 da questa directory.
+1. Eseguire Create-AzureDevVM.ps1.
 
     ```powershell
     .\Create-AzureDevVm.ps1
     ```
 
-    * Quando richiesto, specificare le informazioni seguenti:
-      * **ID sottoscrizione di Azure**: l'ID sottoscrizione, reperibile nel portale di Azure
-      * **Nome del gruppo di risorse**: il nome di un gruppo di risorse nuovo o esistente in Azure
-      * **Località**: scegliere un'area di Azure in cui verrà creata la macchina virtuale, ad esempio westus2 o northeurope. Per altre informazioni, vedere [Aree di Azure](https://azure.microsoft.com/global-infrastructure/locations/).
-      * **AdminUsername**: specificare un nome facile da ricordare per l'account amministratore da creare e usare nella macchina virtuale.
-      * **AdminPassword**: impostare una password per l'account amministratore nella macchina virtuale.
+    Quando richiesto, specificare le informazioni seguenti:
 
-    * Se Azure PowerShell non è installato, lo script installerà il [modulo Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.1.0)
+    * **ID sottoscrizione di Azure**: l'ID sottoscrizione, reperibile in [Sottoscrizioni di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) nel portale.
+    * **Nome del gruppo di risorse**: il nome di un gruppo di risorse nuovo o esistente in Azure.
+    * **Località**: scegliere un'area di Azure in cui verrà creata la macchina virtuale, ad esempio "Stati Uniti occidentali 2" o "Europa settentrionale". Per altre informazioni, vedere [Aree di Azure](https://azure.microsoft.com/global-infrastructure/locations/).
+    * **Nome utente**: specificare un nome facile da ricordare per l'account amministratore della macchina virtuale.
+    * **Password**: impostare una password per l'account amministratore della VM.
 
-    * Verrà visualizzata la richiesta di accedere ad Azure.
+   Lo script viene eseguito per diversi minuti mentre vengono completati i passaggi seguenti:
 
-    * Lo script verifica le informazioni per la creazione della VM. Premere `y` o `Enter` per continuare.
+    1. Lo script installa il modulo [Az di Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.1.0).
+    1. Richiede di accedere ad Azure.
+    1. Verificare le informazioni per la creazione della VM. Premere **y** o **INVIO** per continuare.
+    1. Crea il gruppo di risorse se non esiste.
+    1. Distribuisce la macchina virtuale.
+    1. Abilita Hyper-V nella VM.
+    1. Installa il software necessario per lo sviluppo e clona il repository di esempi.
+    1. Riavvia la VM.
+    1. Crea un file RDP sul desktop per la connessione alla VM.
 
-Lo script viene eseguito per diversi minuti mentre vengono completati i passaggi seguenti:
-
-* Creare il gruppo di risorse se non esiste
-* Distribuire la macchina virtuale
-* Abilitare Hyper-V nella VM
-* Installare il software necessario per lo sviluppo e clonare il repository di esempi
-* Riavviare la VM
-* Creare un file RDP sul desktop per la connessione alla VM
+   Se viene richiesto di specificare il nome della VM per riavviarla, è possibile copiarlo dall'output dello script. L'output include anche il percorso del file RDP per la connessione alla VM.
 
 ### <a name="set-auto-shutdown-schedule"></a>Impostare la pianificazione di arresto automatico
 
-Per ridurre i costi, la VM è stata creata con una pianificazione di arresto automatico impostata su 19:00 PST. Può essere necessario aggiornare questo orario in base alla località e alla propria pianificazione. Per aggiornare la pianificazione di arresto:
+Per ridurre i costi, la VM di sviluppo è stata creata con un arresto automatico pianificato per le 19:00 PST. Può essere necessario aggiornare questa impostazione in base alla località e alla propria pianificazione. Per aggiornare la pianificazione di arresto:
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Nella portale di Azure passare alla VM creata dallo script.
 
-2. Passare alla macchina virtuale nel gruppo di risorse specificato nella sezione precedente.
+1. Dal menu del riquadro sinistro, in **Operazioni**, scegliere **Arresto automatico**.
 
-3. Selezionare **Arresto automatico** nel riquadro di spostamento laterale.
+1. Modificare i valori di **Arresto pianificato** e **Fuso orario** come si desidera, quindi selezionare **Salva**.
 
-4. Immettere un nuovo orario per l'arresto in **Arresto pianificato** oppure cambiare il **Fuso orario** e quindi fare clic su **Salva**.
-
-### <a name="connect-and-configure-development-machine"></a>Connettere e configurare il computer di sviluppo
+## <a name="connect-to-the-development-vm"></a>Connettersi alla VM di sviluppo
 
 Dopo aver creato una VM, occorre completare l'installazione del software necessario per l'esercitazione.
 
-#### <a name="start-a-remote-desktop-session"></a>Avviare una sessione Desktop remoto
+1. Fare doppio clic sul file RDP creato dallo script sul desktop.
 
-1. Lo script di creazione della VM ha creato un file RDP nel desktop.
+1. Verrà visualizzata una finestra di dialogo che informa che l'autore della connessione remota è sconosciuto. È accettabile, quindi selezionare **Connetti**.
 
-2. Fare doppio clic sul file denominato **\<Nome VM di Azure\>.rdp**.
+1. Specificare la password di amministratore fornita per creare la macchina virtuale e fare clic su **OK**.
 
-3. Verrà visualizzata una finestra di dialogo che informa che l'autore della connessione remota è sconosciuto. Fare clic sulla casella di controllo **Non visualizzare più questo messaggio per le connessioni a questo computer** e selezionare **Connetti**.
+1. Verrà chiesto di accettare il certificato per la VM. Selezionare **Sì**.
 
-4. Quando richiesto, specificare il valore di AdminPassword usato durante l'esecuzione dello script per configurare la VM e fare clic su **OK**.
-
-5. Verrà chiesto di accettare il certificato per la VM. Selezionare **Non visualizzare più questo messaggio per le connessioni a questo computer** e scegliere **Sì**.
-
-#### <a name="install-visual-studio-code-extensions"></a>Installare le estensioni di Visual Studio Code
+## <a name="install-visual-studio-code-extensions"></a>Installare le estensioni di Visual Studio Code
 
 Dopo aver stabilito la connessione con il computer di sviluppo, aggiungere alcune estensioni utili a Visual Studio Code per semplificare l'esperienza di sviluppo.
 
-1. In una finestra di PowerShell passare a **C:\\source\\IoTEdgeAndMlSample\\DevVM**.
-
-2. Consentire l'esecuzione di script nella macchina virtuale digitando.
+1. Connettersi alla macchina virtuale di sviluppo, aprire una finestra di PowerShell e passare alla directory **C:\source\IoTEdgeAndMlSample\DevVM**. Questa directory è stata creata dallo script che ha creato la macchina virtuale.
 
     ```powershell
-    Set-ExecutionPolicy Bypass -Scope CurrentUser -Force
+    cd C:\source\IoTEdgeAndMlSample\DevVM
     ```
 
-3. Eseguire lo script.
+1. Eseguire il comando seguente per consentire l'esecuzione degli script. Quando richiesto, scegliere **Sì per tutti**.
+
+    ```powershell
+    Set-ExecutionPolicy Bypass -Scope Process
+    ```
+
+1. Eseguire lo script delle estensioni di Visual Studio Code
 
     ```powershell
     .\Enable-CodeExtensions.ps1
     ```
 
-4. Lo script verrà eseguito per alcuni minuti e installerà le estensioni di VS Code:
+1. Lo script verrà eseguito per alcuni minuti e installerà le estensioni di VS Code:
 
     * Azure IoT Tools
     * Python
@@ -156,19 +150,15 @@ Dopo aver stabilito la connessione con il computer di sviluppo, aggiungere alcun
 
 Questi passaggi vengono in genere eseguiti da sviluppatori cloud.
 
-L'hub IoT di Azure rappresenta la base di qualsiasi applicazione IoT. Gestisce la comunicazione sicura tra dispositivi IoT e il cloud. È il principale punto di coordinamento per il funzionamento della soluzione Machine Learning di IoT Edge.
+L'hub IoT di Azure è il fulcro di qualsiasi applicazione IoT, perché gestisce le comunicazioni sicure tra dispositivi IoT e il cloud. È il principale punto di coordinamento per il funzionamento della soluzione Machine Learning di IoT Edge.
 
-* L'hub IoT usa le route per indirizzare i dati in ingresso provenienti dai dispositivi IoT ad altri servizi downstream. Le route dell'hub IoT verranno usate per inviare dati dei dispositivi ad Archiviazione di Azure, dove potranno essere usati da Azure Machine Learning per eseguire il training del classificatore di vita utile rimanente.
+* L'hub IoT usa le route per indirizzare i dati in ingresso provenienti dai dispositivi IoT ad altri servizi downstream. Per inviare i dati del dispositivo ad Archiviazione di Azure, si sfrutteranno le route dell'hub IoT. In Archiviazione di Azure i dati dei dispositivi vengono utilizzati da Azure Machine Learning per eseguire il training del classificatore di vita utile rimanente.
 
 * Più avanti nell'esercitazione, l'hub IoT verrà usato per configurare e gestire il dispositivo Azure IoT Edge.
 
-In questa sezione viene usato uno script per creare un hub IoT di Azure e un account di archiviazione di Azure. Quindi viene configurata una route che inoltra i dati ricevuti dall'hub a un contenitore BLOB del servizio di archiviazione di Azure usando il portale di Azure. Per completare questi passaggi, sono necessari circa 10 minuti.
+In questa sezione viene usato uno script per creare un hub IoT di Azure e un account di archiviazione di Azure. Quindi nel portale di Azure configurare una route che inoltri i dati ricevuti dall'hub a un contenitore di Archiviazione di Azure. Per completare questi passaggi, sono necessari circa 10 minuti.
 
-### <a name="create-cloud-resources"></a>Creare le risorse cloud
-
-1. Nel computer di sviluppo aprire una finestra di PowerShell.
-
-1. Passare alla directory IoTHub.
+1. Connettersi alla macchina virtuale di sviluppo, aprire una finestra di PowerShell e passare alla directory **IoTHub**.
 
     ```powershell
     cd C:\source\IoTEdgeAndMlSample\IoTHub
@@ -177,50 +167,50 @@ In questa sezione viene usato uno script per creare un hub IoT di Azure e un acc
 1. Eseguire lo script di creazione. Usare gli stessi valori di ID sottoscrizione, località e gruppo di risorse specificati durante la creazione della VM di sviluppo.
 
     ```powershell
-    .\New-HubAndStorage.ps1 -SubscriptionId <subscription id> -Location
-    <location> -ResourceGroupName <resource group>
+    .\New-HubAndStorage.ps1 -SubscriptionId <subscription id> -Location <location> -ResourceGroupName <resource group>
     ```
 
     * Verrà visualizzata la richiesta di accedere ad Azure.
-    * Lo script verifica le informazioni per la creazione dell'hub e dell'account di archiviazione. Premere `y` o `Enter` per continuare.
+    * Lo script verifica le informazioni per la creazione dell'hub e dell'account di archiviazione. Premere **y** o **INVIO** per continuare.
 
-Per eseguire lo script, sono necessari circa due minuti. Al termine, lo script genera il nome dell'hub e dell'account di archiviazione.
+Per eseguire lo script, sono necessari circa due minuti. Al termine, lo script genera il nome dell'hub IoT e dell'account di archiviazione.
 
-### <a name="review-route-to-storage-in-iot-hub"></a>Esaminare la route all'account di archiviazione nell'hub IoT
+## <a name="review-route-to-storage-in-iot-hub"></a>Esaminare la route all'account di archiviazione nell'hub IoT
 
 Durante la creazione dell'hub IoT, lo script eseguito nella sezione precedente ha creato anche un endpoint personalizzato e una route. Le route dell'hub IoT sono costituite da un'espressione di query e da un endpoint. Se un messaggio corrisponde all'espressione, i dati vengono inviati lungo la route all'endpoint associato. Gli endpoint possono essere hub eventi, code del bus di servizio e argomenti. In questo caso, l'endpoint è un contenitore BLOB in un account di archiviazione. Usare il portale di Azure per esaminare la route creata dallo script.
 
-1. Aprire il [portale di Azure](https://portal.azure.com).
+1. Aprire il [portale di Azure](https://portal.azure.com) e passare al gruppo di risorse usato per questa esercitazione.
 
-1. Scegliere tutti i servizi nel riquadro di spostamento sinistro, digitare IoT nella casella di ricerca e selezionare **Hub IoT**.
+1. Nell'elenco di risorse selezionare l'hub IoT creato dallo script. Avrà un nome che termina con caratteri casuali, ad esempio `IotEdgeAndMlHub-jrujej6de6i7w`.
 
-1. Scegliere l'hub IoT creato nel passaggio precedente.
+1. Dal menu del riquadro sinistro, in **Messaggistica**, scegliere **Routing messaggi**.
 
-1. Nel riquadro di spostamento sinistro dell'hub IoT scegliere **Routing messaggi**.
+1. Nella pagina **Routing messaggi** selezionare la scheda **Endpoint personalizzati**.
 
-1. La pagina Routing messaggi include due schede, **Route** e **Endpoint personalizzati**. Selezionare la scheda **Endpoint personalizzati**.
+1. Espandere la sezione **Archiviazione**:
 
-1. In **Archiviazione BLOB** selezionare **turbofanDeviceStorage**.
+   ![Verificare che turbofandevicestorage sia presente nell'elenco di endpoint personalizzati](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
 
-1. Questo endpoint punta a un contenitore BLOB denominato **devicedata** nell'account di archiviazione creato nel passaggio precedente, denominato **iotedgeandml\<suffisso univoco\>** .
+   In effetti **turbofandevicestorage** è incluso nell'elenco di endpoint personalizzati. Notare le caratteristiche seguenti sull'endpoint:
 
-1. Inoltre, il **formato del nome file BLOB** è cambiato rispetto al valore predefinito perché ora l'ultimo elemento del nome include la partizione. Questo formato è più pratico per le operazioni sui file che verranno eseguite in seguito con Azure Notebooks nell'esercitazione.
-
-1. Chiudere il pannello di dettagli dell'endpoint e tornare nella pagina **Routing messaggi**.
+   * Punta al contenitore di archiviazione BLOB creato, denominato `devicedata`, come indicato da **Nome contenitore**.
+   * Il **formato del nome file** include partition come ultimo elemento. Questo formato è più pratico per le operazioni sui file che verranno eseguite in seguito con Azure Notebooks nell'esercitazione.
 
 1. Selezionare la scheda **Route**.
 
 1. Selezionare la route denominata **turbofanDeviceDataToStorage**.
 
-1. L'endpoint della route è l'endpoint personalizzato **turbofanDeviceStorage**.
+1. Nella pagina**Dettagli route** notare che l'endpoint della route è **turbofanDeviceStorage**.
 
-1. Esaminare la query di routing, che è impostata su **true**. Questo significa che tutti i messaggi di telemetria dei dispositivi corrisponderanno a questa route e pertanto verranno inviati all'endpoint **turbofanDeviceStorage**.
+   ![Esaminare i dettagli relativi alla route turbofanDeviceDataToStorage](media/tutorial-machine-learning-edge-02-prepare-environment/route-details.png)
 
-1. Chiudere i dettagli della route.
+1. Esaminare l'opzione **Query di routing**, che è impostata su **true**. Questa impostazione significa che tutti i messaggi di telemetria dei dispositivi corrisponderanno a questa route e pertanto verranno inviati all'endpoint **turbofanDeviceStorage**.
+
+1. Poiché non sono state apportate modifiche, chiudere questa pagina.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato creato un hub IoT ed è stata configurata una route a un account di archiviazione di Azure. Nell'articolo successivo verranno inviati dati da un set di dispositivi simulati all'account di archiviazione tramite l'hub IoT. Più avanti nell'esercitazione, dopo aver configurato il dispositivo e i moduli IoT Edge, verranno riviste le route e verranno fornite altre informazioni sulla query di routing.
+In questo articolo è stato creato un hub IoT ed è stata configurata una route a un account di archiviazione di Azure. Successivamente verranno inviati i dati di un set di dispositivi simulati all'account di archiviazione tramite l'hub IoT. Più avanti nell'esercitazione, dopo aver configurato il dispositivo e i moduli IoT Edge, verranno riviste le route e verranno fornite altre informazioni sulla query di routing.
 
 Per altre informazioni sui passaggi descritti in questa sezione dell'esercitazione su Machine Learning in IoT Edge, vedere:
 

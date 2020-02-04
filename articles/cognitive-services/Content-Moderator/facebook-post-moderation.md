@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 5aa4cc24484a4ba1da608da9676ade492db35b6c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9f25c845302d62e3bc9e230b4a6f8f2669f4ac35
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72936016"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774278"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Esercitazione: Moderare i post e i comandi di Facebook con Azure Content Moderator
 
@@ -35,9 +35,9 @@ Questo diagramma illustra ogni componente di questo scenario:
 ![Diagramma di Content Moderator che riceve informazioni provenienti da Facebook mediante "FBListener" e che invia informazioni tramite "CMListener"](images/tutorial-facebook-moderation.png)
 
 > [!IMPORTANT]
-> Nel 2018, Facebook ha implementato una verifica più rigorosa delle app Facebook. Se l'app non è stata revisionata e approvata dal team di revisione di Facebook, non sarà possibile completare i passaggi di questa esercitazione.
+> Nel 2018 Facebook ha implementato criteri di verifica più rigorosi delle app Facebook. Se l'app non è stata revisionata e approvata dal team di revisione di Facebook, non sarà possibile completare i passaggi di questa esercitazione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Una chiave di sottoscrizione di Content Moderator. Seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere il servizio Content Moderator e ottenere la chiave.
 - Un [account di Facebook](https://www.facebook.com/).
@@ -68,7 +68,7 @@ Accedere al [portale di Azure](https://portal.azure.com/) e seguire questi passa
 1. Andare all'app per le funzioni appena creata.
 1. All'interno dell'app passare alla scheda **Funzionalità della piattaforma** e selezionare **Configurazione**. Nella sezione **Impostazioni applicazione** della pagina successiva selezionare **Nuova impostazione applicazione** per aggiungere le seguenti coppie chiave-valore:
     
-    | Nome impostazione app | value   | 
+    | Nome impostazione app | Valore   | 
     | -------------------- |-------------|
     | cm:TeamId   | ID del team di Content Moderator  | 
     | cm:SubscriptionKey | Chiave di sottoscrizione di Content Moderator - Vedere [Credenziali](review-tool-user-guide/credentials.md) |
@@ -87,7 +87,7 @@ Accedere al [portale di Azure](https://portal.azure.com/) e seguire questi passa
 
     1. Fare clic sul riquadro che indica **Http trigger**.
     1. Immettere il nome **FBListener**. Il campo **Livello di autorizzazione** deve essere impostato su **Funzione**.
-    1. Fare clic su **Create**(Crea).
+    1. Fare clic su **Crea**.
     1. Sostituire i contenuti di **run.csx** con i contenuti da **FbListener/run.csx**
 
     [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-154)]
@@ -144,7 +144,7 @@ Accedere al [portale di Azure](https://portal.azure.com/) e seguire questi passa
         2. [Ambiente Postman](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FB%20Page%20Access%20Token%20Environment.postman_environment.json)       
     3. Aggiornare queste variabili di ambiente:
     
-        | Chiave | Valore   | 
+        | Chiave | valore   | 
         | -------------------- |-------------|
         | appId   | Inserire qui l'identificatore dell'app Facebook  | 
         | appSecret | Inserire qui il segreto dell'app Facebook | 

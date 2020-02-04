@@ -13,33 +13,33 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: c1719064de53b79a127146d0ab034f461657cc64
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a54d418f668d8c7292c8332c1b14c4df45e59308
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714900"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768455"
 ---
-# <a name="create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Creare ed eseguire il training di un modello predittivo in R con Machine Learning Services di database SQL di Azure (anteprima)
+# <a name="quickstart-create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Avvio rapido: Creare ed eseguire il training di un modello predittivo in R con Machine Learning Services di database SQL di Azure (anteprima)
 
-In questo avvio rapido verrà creato ed eseguito il training di un modello predittivo con R, si salverà il modello in una tabella nel database SQL, quindi si userà il modello per stimare i valori dei nuovi dati usando l'anteprima pubblica di [Machine Learning Services (con R) nel Database SQL di Azure ](sql-database-machine-learning-services-overview.md). 
-
-Il modello usato in questo avvio rapido è un semplice modello di regressione che stima la distanza di arresto di un'automobile in base alla velocità. Si userà il set di dati **cars** incluso in R, perché è piccolo e facile da comprendere.
-
-> [!TIP]
-> Molti set di dati di piccole e grandi dimensioni sono inclusi con il runtime di R. Per ottenere un elenco dei set di dati installati con R, digitare `library(help="datasets")` da un prompt dei comandi di R.
+In questo argomento di avvio rapido si userà R per creare un modello predittivo, che verrà sottoposto a training, quindi verrà salvato in una tabella del database e infine verrà usato per prevedere i valori dai nuovi dati tramite Machine Learning Services (con R) in Database SQL di Azure.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-- Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/) prima di iniziare.
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Un [database SQL di Azure](sql-database-single-database-get-started.md) con una [regola del firewall a livello di server](sql-database-server-level-firewall-rule.md)
+- [Machine Learning Services](sql-database-machine-learning-services-overview.md) con R abilitato. [Iscriversi per l'anteprima](sql-database-machine-learning-services-overview.md#signup).
+- [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
-- Per eseguire il codice di esempio in questi esercizi, è necessario disporre di un database SQL di Azure con Machine Learning Services (con R) abilitato. Durante l'anteprima pubblica, Microsoft eseguirà l'onboarding e l'abilitazione dell'apprendimento automatico per il database nuovo o esistente. Seguire la procedura descritta in [Iscriversi per l'anteprima](sql-database-machine-learning-services-overview.md#signup).
+> [!NOTE]
+> Durante l'anteprima pubblica, Microsoft eseguirà l'onboarding e l'abilitazione dell'apprendimento automatico per il database nuovo o esistente.
 
-- Assicurarsi di avere installato la versione più recente di [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). È possibile eseguire gli script R tramite altri strumenti di gestione di database o di query, ma in questo avvio rapido si userà SQL Server Management Studio.
+Questo esempio usa un semplice modello di regressione per prevedere la distanza di arresto di un'automobile in base alla velocità usando il set di dati **cars** incluso in R.
 
-- Questo avvio rapido richiede di configurare una regola del firewall a livello di server. Per informazioni su come eseguire questa operazione, vedere [Creare una regola del firewall a livello di server](sql-database-server-level-firewall-rule.md).
+> [!TIP]
+> Il runtime di R include molti set di dati. Per ottenere un elenco di quelli installati, digitare `library(help="datasets")` al prompt dei comandi di R.
 
 ## <a name="create-and-train-a-predictive-model"></a>Creare ed eseguire il training di un modello predittivo
 
@@ -50,7 +50,7 @@ I requisiti di un modello lineare sono semplici:
 - Fornire i dati di input da usare per eseguire il training del modello.
 
 > [!TIP]
-> Se occorre un ripasso sui modelli lineari, questa esercitazione descrive il processo di adattamento di un modello tramite rxLinMod: [Fitting Linear Models](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model) (Adattamento di modelli lineari)
+> Se è necessario rivedere le informazioni sui modelli lineari, vedere questa esercitazione che descrive il processo di adattamento di un modello tramite rxLinMod: [Fitting Linear Models](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model) (Adattamento di modelli lineari)
 
 Nei passaggi seguenti verranno impostati i dati di training, creato un modello di regressione, eseguito il training del modello usando i dati di training, quindi il modello verrà salvato in una tabella SQL.
 
@@ -173,9 +173,9 @@ VALUES (
 
 ![Modello con training con output aggiuntivo](./media/sql-database-quickstart-r-train-score-model/r-train-model-with-additional-output.png)
 
-## <a name="score-new-data-using-the-trained-model"></a>Assegnare un punteggio ai nuovi dati usando il modello con training
+## <a name="score-new-data-using-the-trained-model"></a>Assegnare punteggi ai nuovi dati usando il modello sottoposto a training
 
-*Assegnazione dei punteggi* è un termine usato nella data science per indicare la generazione di stime, probabilità o altri valori in base a nuovi dati inseriti in un modello con training. Il modello creato nella sezione precedente verrà usato per assegnare un punteggio alle stime in base a nuovi dati.
+L'*assegnazione dei punteggi* è un concetto di data science che indica la generazione di stime, probabilità o altri valori in base ai nuovi dati inseriti in un modello sottoposto a training. Si userà il modello creato nella sezione precedente per assegnare punteggi alle stime in base ai nuovi dati.
 
 Si noti che i dati di training originali terminano in corrispondenza di una velocità pari a 25 miglia orarie. Infatti, i dati originali sono basati su un esperimento del 1920. Ci si potrebbe chiedere quanto tempo è necessario a un'automobile del 1920 per arrestarsi, presupponendo che possa arrivare a 60 o persino 100 miglia all'ora. Per rispondere a questa domanda è possibile fornire alcuni nuovi valori di velocità al modello.
 

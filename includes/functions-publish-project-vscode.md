@@ -1,47 +1,64 @@
 ---
-title: File di inclusione
-description: File di inclusione
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 01/12/2020
 ms.author: glenga
-ms.custom: include file
-ms.openlocfilehash: 30a6d8556a251ba76dff77e004fb864f3eaf04cf
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: f1553a5c9d55366b2764877b48d0606ff8e0b370
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76279508"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842194"
 ---
 ## <a name="publish-the-project-to-azure"></a>Pubblicare il progetto in Azure
 
-Visual Studio Code consente di pubblicare il progetto di Funzioni direttamente in Azure. Durante il processo vengono create un'app per le funzioni e le risorse correlate nella sottoscrizione di Azure. L'app per le funzioni fornisce un contesto di esecuzione per le funzioni. Il progetto viene inserito in un pacchetto e distribuito nella nuova app per le funzioni nella sottoscrizione di Azure.
+In questa sezione verrà creata un'app per le funzioni con le risorse correlate nella sottoscrizione di Azure e quindi verrà distribuito il codice. 
 
-Per impostazione predefinita, Visual Studio Code crea tutte le risorse di Azure necessarie per creare l'app per le funzioni. I nomi di queste risorse sono basati sul nome dell'app per le funzioni selezionata. Se è necessario disporre del controllo completo delle risorse create, è possibile invece [pubblicare utilizzando le opzioni avanzate](../articles/azure-functions/functions-develop-vs-code.md#enable-publishing-with-advanced-create-options).
+1. Selezionare l'icona di Azure nella barra attività, quindi nell'area **Azure: Funzioni** scegliere il pulsante **Deploy to function app...** (Distribuisci nell'app per le funzioni...).
 
-In questa sezione si presuppone che venga creata una nuova app per le funzioni in Azure.
+    ![Pubblicare il progetto in Azure](media/functions-publish-project-vscode/function-app-publish-project.png)
 
-> [!IMPORTANT]
-> La pubblicazione in un'app per le funzioni esistente sovrascrive il contenuto di tale app in Azure.
+1. Quando richiesto, immettere le informazioni seguenti:
 
-1. In Visual Studio Code premere F1 per aprire il riquadro comandi. Nel riquadro comandi cercare e selezionare `Azure Functions: Deploy to function app...`.
+    ::: zone pivot="programming-language-csharp,programming-language-powershell"
 
-1. Se non è stato ancora eseguito l'accesso, viene visualizzata la richiesta per **accedere ad Azure**. È anche possibile **creare un account di Azure gratuito**. Dopo l'accesso dal browser, tornare a Visual Studio Code. 
+    | Prompt | valore | Descrizione |
+    | ------ | ----- | ----- |
+    | Seleziona sottoscrizione | Sottoscrizione in uso | Opzione visualizzata quando sono presenti più sottoscrizioni. |
+    | Selezionare l'app per le funzioni in Azure | + Crea nuova app per le funzioni | La pubblicazione in un'app per le funzioni esistente sovrascrive il contenuto di tale app in Azure. |
+    | Immettere un nome univoco a livello globale per l'app per le funzioni | Nome univoco | I caratteri validi per un nome di app per le funzioni sono `a-z`, `0-9` e `-`. |
+    | Selezionare una località per le nuove risorse | Region | Scegliere [un'area](https://azure.microsoft.com/regions/) nelle vicinanze. | 
 
-1. Se si hanno più sottoscrizioni, **selezionare una sottoscrizione** per l'app per le funzioni e quindi scegliere l'opzione **+ Create New Function App in Azure** (+ Crea nuova app per le funzioni in Azure).
+    ::: zone-end
 
-1. Digitare un nome univoco globale che identifichi l'app per le funzioni, quindi premere INVIO. I caratteri validi per un nome di app per le funzioni sono `a-z`, `0-9` e `-`.
+    ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python"
 
-    Quando si preme INVIO, nella sottoscrizione vengono create le risorse di Azure seguenti:
+    | Prompt | valore | Descrizione |
+    | ------ | ----- | ----- |
+    | Seleziona sottoscrizione | Sottoscrizione in uso | Opzione visualizzata quando sono presenti più sottoscrizioni. |
+    | Selezionare l'app per le funzioni in Azure | + Crea nuova app per le funzioni | La pubblicazione in un'app per le funzioni esistente sovrascrive il contenuto di tale app in Azure. |
+    | Immettere un nome univoco a livello globale per l'app per le funzioni | Nome univoco | I caratteri validi per un nome di app per le funzioni sono `a-z`, `0-9` e `-`. |
+    | Selezionare un runtime | Versione in uso | Scegliere la versione del linguaggio in esecuzione in locale. |
+    | Selezionare una località per le nuove risorse | Region | Scegliere [un'area](https://azure.microsoft.com/regions/) nelle vicinanze. | 
 
-    * **[Gruppo di risorse](../articles/azure-resource-manager/management/overview.md)** : contiene tutte le risorse di Azure create. Il nome si basa sul nome dell'app per le funzioni.
-    * **[Account di archiviazione](../articles/storage/common/storage-account-create.md)** : viene creato un account di archiviazione standard con un nome univoco basato sul nome dell'app per le funzioni.
-    * **[Piano di hosting](../articles/azure-functions/functions-scale.md)** : nell'area Stati Uniti occidentali viene creato un piano a consumo per l'hosting dell'app per le funzioni.
-    * **App per le funzioni**: il progetto viene distribuito ed eseguito nella nuova app per le funzioni.
+    ::: zone-end
 
-    Dopo la creazione dell'app per le funzioni e dopo l'applicazione del pacchetto di distribuzione viene visualizzata una notifica. Selezionare **Visualizza output** nelle notifiche per visualizzare i risultati della creazione e della distribuzione, incluse le risorse di Azure create.
+    
+1.  Al termine, nella sottoscrizione vengono create le risorse di Azure seguenti:
 
-1. Nell'area **Azure: Funzioni** espandere la nuova app per le funzioni nella sottoscrizione. Espandere **Funzioni**, fare clic con il pulsante destro del mouse su **HttpTrigger** e quindi scegliere **Copy function URL** (Copia l'URL della funzione).
+    + **[Gruppo di risorse](../articles/azure-resource-manager/management/overview.md)** : contiene tutte le risorse di Azure create. Il nome si basa sul nome dell'app per le funzioni.
+    + **[Account di archiviazione](../articles//storage/common/storage-introduction.md#types-of-storage-accounts)** : viene creato un account di archiviazione standard con un nome univoco basato sul nome dell'app per le funzioni.
+    + **[Piano di hosting](../articles/azure-functions/functions-scale.md)** : nell'area Stati Uniti occidentali viene creato un piano a consumo per l'hosting dell'app per le funzioni.
+    + **App per le funzioni**: il progetto viene distribuito ed eseguito nella nuova app per le funzioni.
+    + **[Application Insights]()** : viene creata un'istanza connessa all'app per le funzioni in base al nome della funzione.
+
+    Dopo la creazione dell'app per le funzioni e dopo l'applicazione del pacchetto di distribuzione viene visualizzata una notifica. 
+    
+1. Selezionare **Visualizza output** nelle notifiche per visualizzare i risultati della creazione e della distribuzione, incluse le risorse di Azure create.
+
+    ![Notifica di creazione completata](media/functions-publish-project-vscode/function-create-notifications.png)
+
+1. Nell'area **Azure: Funzioni** nella barra laterale espandere la nuova app per le funzioni nella sottoscrizione. Espandere **Funzioni**, fare clic con il pulsante destro del mouse su (Windows) o premere CTRL + clic (MacOS) in **HttpExample**, quindi scegliere **Copy function URL** (Copia URL funzione).
 
     ![Copiare l'URL della funzione per il nuovo trigger HTTP](./media/functions-publish-project-vscode/function-copy-endpoint-url.png)

@@ -5,25 +5,20 @@ description: In questa esercitazione si apprenderà come instradare il traffico 
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 12/12/2018
+ms.date: 01/22/2019
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: be4a47d26bcfc407734956a3d9bf8778c5afcfb4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 96b6788e48b845ef7f0add11767eb36b47cac36b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75350284"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775270"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Esercitazione: Instradare il traffico di rete con una tabella di route usando il portale di Azure
 
@@ -48,19 +43,19 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 ## <a name="create-a-route-table"></a>Creare una tabella di route
 
-1. In alto a sinistra nella schermata selezionare **Crea una risorsa** > **Rete** > **Tabella di route**.
-
-1. In **Crea tabella di route** immettere o selezionare queste informazioni:
+1. Nel menu del portale di Azure selezionare **Crea una risorsa**.
+2. Nella casella di ricerca immettere *Tabella di route*. Selezionare **Tabella di route** quando viene visualizzata nei risultati della ricerca.
+3. Nella pagina **Tabella di route** selezionare **Crea**.
+4. In **Crea tabella di route** immettere o selezionare queste informazioni:
 
     | Impostazione | valore |
     | ------- | ----- |
     | Nome | Immettere *myRouteTablePublic*. |
     | Subscription | Selezionare la propria sottoscrizione. |
     | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare *OK*. |
-    | Location | Lasciare il valore **Stati Uniti orientali** predefinito.
+    | Location | Selezionare **Stati Uniti orientali**.
     | Propagazione della route del gateway di rete virtuale | Lasciare il valore predefinito, **Abilitata**. |
-
-1. Selezionare **Create** (Crea).
+5. Selezionare **Create** (Crea).
 
 ## <a name="create-a-route"></a>Creare una route
 
@@ -160,14 +155,14 @@ Le appliance virtuali di rete sono macchine virtuali con funzioni di rete come l
     | Nome macchina virtuale | Immettere *myVmNva*. |
     | Region | Selezionare **Stati Uniti orientali**. |
     | Opzioni di disponibilità | Lasciare l'impostazione predefinita **Nessuna ridondanza dell'infrastruttura necessaria**. |
-    | Image | Lasciare l'impostazione predefinita **Windows Server 2016 Datacenter**. |
+    | Immagine | Lasciare l'impostazione predefinita **Windows Server 2016 Datacenter**. |
     | Dimensione | Lasciare l'impostazione predefinita **DS1 Standard v2**. |
     | **ACCOUNT AMMINISTRATORE** |  |
     | Username | Immettere un nome utente a scelta. |
     | Password | Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirm Password | Reimmettere la password. |
     | **REGOLE PORTA IN INGRESSO** |  |
-    | Porte in ingresso pubbliche | Lasciare il valore predefinito **Nessuna**.
+    | Porte in ingresso pubbliche | Selezionare **Nessuno**.
     | **RISPARMIA** |  |
     | Già in possesso di una licenza di Windows? | Lasciare il valore predefinito **No**. |
 

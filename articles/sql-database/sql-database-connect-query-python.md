@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Usare Python per eseguire query'
+title: Usare Python per eseguire query su un database
 description: Questo argomento illustra come usare Python per creare un programma che si connette a un database SQL di Azure ed eseguire query usando istruzioni Transact-SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,44 +11,56 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 42d5b500a48e427aad2372710597e0266b2e80aa
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e82f8feae0096202e48a58296dd2e9d21bb61885
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826988"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768565"
 ---
-# <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Guida introduttiva: Usare Python per eseguire query su un database SQL di Azure
+# <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Avvio rapido: Usare Python per eseguire query su un database SQL di Azure
 
- Questo articolo illustra come usare [Python](https://python.org) per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati. Per altri dettagli sull'SDK, vedere la documentazione di [riferimento](https://docs.microsoft.com/python/api/overview/azure/sql), un [esempio pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) e il [repository GitHub pyodbc](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
+Questo argomento di avvio rapido illustra come usare Python per connettersi a un database SQL di Azure e usare le istruzioni T-SQL per eseguire query sui dati.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti seguenti:
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Un [database SQL di Azure](sql-database-single-database-get-started.md)
+- [Python](https://python.org/downloads) 3 e software correlato
 
-- un database SQL di Azure. Per creare e quindi configurare un database in Database SQL di Azure è possibile usare una di queste guide introduttive:
+  # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-  || Database singolo | Istanza gestita |
-  |:--- |:--- |:---|
-  | Create| [Portale](sql-database-single-database-get-started.md) | [Portale](sql-database-managed-instance-get-started.md) |
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Configurare | [Regola del firewall IP a livello di server](sql-database-server-level-firewall-rule.md)| [Connettività da una VM](sql-database-managed-instance-configure-vm.md)|
-  |||[Connettività da locale](sql-database-managed-instance-configure-p2s.md)
-  |Caricare i dati|Adventure Works caricato in base alla guida introduttiva|[Ripristinare Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Ripristinare o importare Adventure Works dal file [BACPAC](sql-database-import.md) ottenuto da [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
-  |||
+  Per installare Homebrew e Python, il driver ODBC, SQLCMD e il driver Python per SQL Server, seguire i passaggi **1.2**, **1.3** e **2.1** della procedura [Creare app Python con SQL Server in macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
 
-  > [!IMPORTANT]
-  > Gli script in questo articolo sono scritti in modo da usare il database Adventure Works. Con un'istanza gestita, è necessario importare il database Adventure Works in un database dell'istanza oppure modificare gli script di questo articolo in modo da usare il database Wide World Importers.
-  
-- Software correlato e Python per il sistema operativo in uso:
-  
-  - **MacOS**: installare Homebrew e Python, installare il driver ODBC e SQLCMD e quindi installare il driver Python per SQL Server. Vedere i passaggi 1.2, 1.3 e 2.1 in [Creare app Python con SQL Server in MacOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/). Per altre informazioni, vedere [Installare il Driver ODBC Microsoft su Linux e MacOS](https://docs.microsoft.com/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
+  Per altre informazioni, vedere [Driver Microsoft ODBC in macOS](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
 
-  - **Ubuntu**: Installare Python e altri pacchetti necessari con `sudo apt-get install python python-pip gcc g++ build-essential`. Scaricare e installare il driver ODBC, SQLCMD e il driver Python per SQL Server. Per istruzioni, vedere [Configurare un ambiente di sviluppo per lo sviluppo Python con pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux).
+  # <a name="ubuntutabubuntu"></a>[Ubuntu](#tab/ubuntu)
 
-  - **Windows**: Installare Python, il driver ODBC, SQLCMD e il driver Python per SQL Server. Per istruzioni, vedere [Configurare un ambiente di sviluppo per lo sviluppo Python con pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows).
+  Per installare Python e altri pacchetti necessari, usare `sudo apt-get install python python-pip gcc g++ build-essential`.
+
+  Per installare il driver ODBC, SQLCMD e il driver Python per SQL Server, vedere [Configurare un ambiente per lo sviluppo di pyodbc Python](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux).
+
+  Per altre informazioni, vedere [Driver Microsoft ODBC in Linux](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
+
+  # <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+  Per installare Python, il driver ODBC, SQLCMD e il driver Python per SQL Server, vedere [Configurare un ambiente per lo sviluppo di pyodbc Python](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows).
+
+  Per altre informazioni, vedere [Driver Microsoft ODBC](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server).
+
+---
+
+> [!IMPORTANT]
+> Gli script di questo articolo sono scritti in modo da usare il database **Adventure Works**.
+
+> [!NOTE]
+> È anche possibile scegliere di usare un'istanza gestita di Azure SQL.
+>
+> Per creare e configurare il progetto, usare il [portale di Azure](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) o l'[interfaccia della riga di comando](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44), quindi configurare la connettività [sul posto](sql-database-managed-instance-configure-p2s.md) o tramite [VM](sql-database-managed-instance-configure-vm.md).
+>
+> Per caricare i dati, vedere come eseguire il [ripristino con BACPAC](sql-database-import.md) con il file di [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) oppure come eseguire il [ripristino del database Wide World Importers](sql-database-managed-instance-get-started-restore.md).
+
+Per esplorare ulteriormente Python e il database SQL di Azure, vedere [Librerie del database SQL di Azure per Python](/python/api/overview/azure/sql), il [repository di pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) e un [esempio di pyodbc](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
 
 ## <a name="get-sql-server-connection-information"></a>Ottenere informazioni di connessione SQL Server
 

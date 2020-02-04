@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 1a9801fc0d8a2a013fa737c9d53138dc7d52b398
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: acf7fd91eff6a868074c61d557effa076033e799
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768462"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845921"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Aggiungere un certificato SSL al servizio app di Azure
 
@@ -61,6 +61,7 @@ Il certificato gratuito gestito dal servizio app è una soluzione rapida ed effi
 - Non supporta i certificati con caratteri jolly.
 - Non supporta i domini di tipo naked.
 - Non è esportabile.
+- Non supporta i record A DNS.
 
 > [!NOTE]
 > Il certificato gratuito viene rilasciato da DigiCert. Per alcuni domini di primo livello, è necessario consentire in modo esplicito a DigiCert di agire come autorità di certificazione creando un [record di dominio CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) con il valore seguente: `0 issue digicert.com`.
