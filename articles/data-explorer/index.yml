@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Documentazione di Esplora dati di Azure
 metadata:
-  title: 'Documentazione d Esplora dati di Azure - Guide introduttive, esercitazioni, informazioni di riferimento sul linguaggio e sulle API'
+  title: 'Guide di avvio rapido, esercitazioni e documentazione su linguaggio/API - Esplora dati di Azure'
   description: Esplora dati di Azure è una piattaforma cloud per l'analisi dei log ottimizzata per query ad hoc su Big Data.
   author: orspod
   ms.author: orspodek
@@ -67,7 +67,7 @@ sections:
             image:
               src: /azure/data-explorer/media/index/logo-pluralsight.svg
               href: 'https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch'
-  - title: riferimento
+  - title: Informazioni di riferimento
     items:
       - type: list
         style: cards
