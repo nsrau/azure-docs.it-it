@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
-ms.date: 05/09/2019
-ms.author: maheshb
-ms.openlocfilehash: f04bfc306a89c7bb6caf3f928f5fdfec66358649
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.date: 02/03/2020
+ms.author: aahi
+ms.openlocfilehash: f00ffee47e3eb6366d632d8b6ee9beb01f048442
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072734"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983113"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Chiamare l'istanza di Ricerca personalizzata Bing dal portale
 
@@ -31,20 +31,20 @@ Per creare una query di ricerca, immettere i valori dei parametri per l'endpoint
 Alcuni parametri importanti sono i seguenti:
 
 
-|.  |DESCRIZIONE  |
+|Parametro  |Description  |
 |---------|---------|
 |Query     | Il termine da cercare. Disponibile solo per gli endpoint Web, Image e Autosuggest |
 |ID di configurazione personalizzato | L'ID di configurazione dell'istanza di Ricerca personalizzata selezionata. Questo campo è di sola lettura. |
-|Market     | Il mercato da cui deriveranno i risultati. Disponibile solo per gli endpoint Web, Image, Video e Hosted UI.        |
+|Commercializzazione     | Il mercato da cui deriveranno i risultati. Disponibile solo per gli endpoint Web, Image, Video e Hosted UI.        |
 |Chiave di sottoscrizione | La chiave di sottoscrizione con cui eseguire il test. È possibile selezionare una chiave nell'elenco a discesa o immetterla manualmente.          |
 
 Facendo clic su **Parametri aggiuntivi** vengono visualizzati i parametri seguenti:  
 
-|.  |DESCRIZIONE  |
+|Parametro  |Description  |
 |---------|---------|
-|Ricerca sicura     | Un filtro utilizzato per filtrare le pagine Web per il contenuto per adulti. Disponibile solo per gli endpoint Web, Image, Video e Hosted UI.        |
+|Ricerca sicura     | Un filtro utilizzato per filtrare le pagine Web per il contenuto per adulti. Disponibile solo per gli endpoint Web, Image, Video e Hosted UI. Si noti che Bing Custom Ricerca video supporta solo due valori: `moderate` e `strict`.        |
 |Lingua dell'interfaccia utente    | La lingua utilizzata per le stringhe dell'interfaccia utente. Ad esempio, se si abilitano immagini e video nell'Hosted UI, le schede**Image** e **Video** usano la lingua specificata.        |
-|Numero     | Il numero di risultati della ricerca da restituire nella risposta. Disponibile solo per gli endpoint Web, Image e Video.         |
+|Conteggio     | Il numero di risultati della ricerca da restituire nella risposta. Disponibile solo per gli endpoint Web, Image e Video.         |
 |Offset    | Il numero di risultati della ricerca da ignorare prima di restituire i risultati. Disponibile solo per gli endpoint Web, Image e Video.        |
     
 Dopo aver specificato tutte le opzioni necessarie, fare clic su **Call** per visualizzare la risposta JSON nel riquadro di destra. Se si seleziona l'endpoint Hosted UI, è possibile provare l'esperienza di ricerca nel riquadro inferiore.

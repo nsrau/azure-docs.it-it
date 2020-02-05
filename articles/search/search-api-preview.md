@@ -7,38 +7,51 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/30/2020
-ms.openlocfilehash: 9985e7ac70c5851699839a95d1e23af4dcca35e7
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.date: 02/03/2020
+ms.openlocfilehash: fd21a4b821e1911e94d542a0922e5269786c365d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935108"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76991066"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Funzionalità in anteprima in Azure ricerca cognitiva
 
 Questo articolo elenca le funzionalità attualmente disponibili in anteprima. Le funzionalità che passano dalla versione di anteprima alla disponibilità generale vengono rimosse da questo elenco. È possibile controllare [gli aggiornamenti dei servizi](https://azure.microsoft.com/updates/?product=search) o le [novità per gli](whats-new.md) annunci relativi alla disponibilità generale.
 
-Mentre alcune funzionalità di anteprima potrebbero essere disponibili nel portale e in .NET SDK, l'API REST include sempre funzionalità di anteprima. La versione dell'API di anteprima corrente è `2019-05-06-Preview`.
+Mentre alcune funzionalità di anteprima potrebbero essere disponibili nel portale e in .NET SDK, l'API REST include sempre funzionalità di anteprima. 
+
++ Per le operazioni di ricerca, la versione dell'API di anteprima corrente è [`2019-05-06-Preview`](https://docs.microsoft.com/rest/api/searchservice/index-2019-05-06-preview)
++ Per le operazioni di gestione, la versione di anteprima corrente è [`2019-10-01-Preview`](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview)
 
 > [!IMPORTANT]
 > La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="features-in-public-preview"></a>Funzionalità disponibili in anteprima pubblica
+## <a name="ai-enrichment-features"></a>Funzionalità di arricchimento di intelligenza artificiale
 
-+ La [ricerca di entità personalizzata (anteprima)](cognitive-search-skill-custom-entity-lookup.md ) Cerca il testo da un elenco personalizzato di parole e frasi definito dall'utente. Utilizzando questo elenco, vengono etichettati tutti i documenti con le entità corrispondenti. L'abilità supporta inoltre un grado di corrispondenza fuzzy che può essere applicato per trovare corrispondenze simili ma non esatte. 
+Esplora i miglioramenti più recenti per l'arricchimento di intelligenza artificiale tramite l' [API di ricerca di anteprima](https://docs.microsoft.com/rest/api/searchservice/index-2019-05-06-preview).
 
-+ Il rilevamento delle informazioni [personali (anteprima)](cognitive-search-skill-pii-detection.md) è una competenza cognitiva usata durante l'indicizzazione che estrae informazioni personali da un testo di input e offre la possibilità di mascherarle da tale testo in diversi modi.
++ L' [esperienza di ricerca di entità personalizzata (anteprima)](cognitive-search-skill-custom-entity-lookup.md ) è una competenza cognitiva che cerca testo da un elenco personalizzato di parole e frasi definito dall'utente. Utilizzando questo elenco, vengono etichettati tutti i documenti con le entità corrispondenti. L'abilità supporta inoltre un grado di corrispondenza fuzzy che può essere applicato per trovare corrispondenze simili ma non esatte. 
+
++ L'esperienza di rilevamento delle informazioni [personali (anteprima)](cognitive-search-skill-pii-detection.md) è una competenza cognitiva usata durante l'indicizzazione che estrae informazioni personali da un testo di input e offre la possibilità di mascherarle da tale testo in diversi modi.
 
 + L' [arricchimento incrementale (anteprima)](cognitive-search-incremental-indexing-conceptual.md) aggiunge la memorizzazione nella cache a una pipeline di arricchimento, consentendo di riutilizzare l'output esistente se una modifica di destinazione, ad esempio un aggiornamento a un skillt o a un altro oggetto, non modifica il contenuto. La memorizzazione nella cache si applica solo ai documenti arricchiti prodotti da un skillt.
+
++ [Archivio informazioni (anteprima)](knowledge-store-concept-intro.md) è una nuova destinazione di una pipeline di arricchimento basata su intelligenza artificiale. La struttura dei dati fisici esiste nell'archiviazione BLOB di Azure e nell'archiviazione tabelle di Azure e viene creata e popolata quando si esegue un indicizzatore con un sistema di competenze cognitive collegato. La definizione di un archivio informazioni viene specificata in una definizione di competenze. All'interno della definizione dell'archivio delle informazioni, è possibile controllare le strutture fisiche dei dati tramite elementi di *proiezione* che determinano la modalità di modellazione dei dati, se i dati vengono archiviati nell'archiviazione tabelle o nell'archiviazione BLOB e se sono presenti più viste.
+
+## <a name="indexing-and-query-features"></a>Funzionalità di indicizzazione ed esecuzione di query
+
+Le funzionalità di anteprima dell'indicizzatore sono disponibili nell'API di ricerca di anteprima. 
 
 + [Cosmos DB indicizzatore](search-howto-index-cosmosdb.md) supporta l'API MongoDB (anteprima), l'API Gremlin (anteprima) e la API Cassandra (anteprima).
 
 + [Azure Data Lake storage Gen2 indicizzatore (anteprima)](search-howto-index-azure-data-lake-storage.md) può indicizzare il contenuto e i metadati da data Lake storage Gen2.
 
-+ [Archivio informazioni (anteprima)](knowledge-store-concept-intro.md) è una nuova destinazione di una pipeline di arricchimento basata su intelligenza artificiale. La struttura dei dati fisici esiste nell'archiviazione BLOB di Azure e nell'archiviazione tabelle di Azure e viene creata e popolata quando si esegue un indicizzatore con un sistema di competenze cognitive collegato. La definizione di un archivio informazioni viene specificata in una definizione di competenze. All'interno della definizione dell'archivio delle informazioni, è possibile controllare le strutture fisiche dei dati tramite elementi di *proiezione* che determinano la modalità di modellazione dei dati, se i dati vengono archiviati nell'archiviazione tabelle o nell'archiviazione BLOB e se sono presenti più viste.
-
 + il [parametro di query moreLikeThis (anteprima)](search-more-like-this.md) consente di trovare documenti rilevanti per un documento specifico. Questa funzionalità è stata presente nelle anteprime precedenti. 
+
+## <a name="management-features"></a>Funzionalità di gestione
+
++ [Supporto per endpoint privati](service-create-private-endpoint.md) tramite [`api-version=2019-10-01-Preview`](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) dell'API REST di gestione. È possibile creare un servizio con restrizioni sulla modalità di accesso all'endpoint.
 
 ## <a name="earlier-preview-features"></a>Funzionalità di anteprima precedenti
 

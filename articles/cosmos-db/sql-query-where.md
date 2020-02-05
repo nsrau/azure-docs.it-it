@@ -1,17 +1,17 @@
 ---
 title: Clausola WHERE in Azure Cosmos DB
 description: Informazioni sulla clausola WHERE SQL per Azure Cosmos DB
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.author: mjbrown
-ms.openlocfilehash: cd5643d8be06afcd43c5bfe38d6f5e9caa6f906e
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 02/03/2020
+ms.author: tisande
+ms.openlocfilehash: 31653b598f0f3a79bf7f9c09231b1d111f167a16
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326632"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982230"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Clausola WHERE in Azure Cosmos DB
 
@@ -40,7 +40,7 @@ WHERE <filter_condition>
   
   Affinché il documento venga restituito, un'espressione specificata come condizione di filtro deve restituire true. Solo un valore booleano true soddisferà la condizione, i valori non definiti, null, false, numero, matrice o oggetto non soddisfano la condizione. 
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 La query seguente richiede elementi che contengono una proprietà `id` il cui valore è `AndersenFamily`. Esclude tutti gli elementi che non dispongono di una proprietà `id` o il cui valore non corrisponde `AndersenFamily`.
 
@@ -74,7 +74,7 @@ Nell'esempio precedente è stata illustrata una semplice query di uguaglianza. L
 |Bit per bit    | \|, &, ^, <<, >>, >>> (spostamento a destra riempimento zero) |
 |Logico    | AND, OR, NOT      |
 |Confronto | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|Stringa     |  \|\| (concatenazione) |
+|string     |  \|\| (concatenazione) |
 
 Nelle query seguenti vengono utilizzati operatori binari:
 
@@ -104,10 +104,10 @@ Nelle query seguenti vengono utilizzati operatori binari:
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-È anche possibile usare i riferimenti alle proprietà nelle query. Ad esempio, `SELECT * FROM Families f WHERE f.isRegistered` restituisce l'elemento JSON che contiene la proprietà `isRegistered` con valore uguale a `true`. Qualsiasi altro valore, ad esempio `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>` o `<array>`, esclude l'elemento dal risultato. 
+È anche possibile usare i riferimenti alle proprietà nelle query. Ad esempio, `SELECT * FROM Families f WHERE f.isRegistered` restituisce l'elemento JSON che contiene la proprietà `isRegistered` con valore uguale a `true`. Qualsiasi altro valore, ad esempio `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`o `<array>`, esclude l'elemento dal risultato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Introduzione](sql-query-getting-started.md)
-- [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Parola chiave IN](sql-query-keywords.md#in)
 - [Clausola FROM](sql-query-from.md)

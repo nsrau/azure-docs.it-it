@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 131621e05d7800e59ce3bbdec5c11c1da9facf11
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: df640f11e8a0e8af22c96a662a602e0de508715c
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442808"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985051"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizzare gli account per sviluppatori usando Azure Active Directory in Gestione API di Azure
 
@@ -50,17 +50,17 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
    ![Passaggi per l'aggiunta di un provider di identità nel portale di Azure](./media/api-management-howto-aad/api-management-with-aad001.png)  
 10. Nel browser aprire una scheda diversa. 
 11. Passare al [Registrazioni app portale di Azure](https://go.microsoft.com/fwlink/?linkid=2083908) per registrare un'App in Active Directory.
-12. In **Gestione** selezionare **Registrazioni per l'app**.
+12. In **Gestisci**selezionare **registrazioni app**.
 13. Selezionare **Nuova registrazione**. Nella pagina **registra un'applicazione** impostare i valori come segue:
     
-* Impostare **nome** su un nome significativo. ad esempio, *Developer-Portal*
-* Impostare i **tipi di account supportati** solo per gli **account in questa directory aziendale**. 
-* Impostare **URI di reindirizzamento** sul valore ottenuto nel passaggio 9. 
-* Scegliere **registra**. 
+    * Impostare **nome** su un nome significativo. ad esempio, *Developer-Portal*
+    * Impostare i **tipi di account supportati** solo per gli **account in questa directory aziendale**. 
+    * Impostare **URI di reindirizzamento** sul valore ottenuto nel passaggio 9. 
+    * Scegliere **registra**. 
 
 14.  Dopo aver registrato l'applicazione, copiare l' **ID applicazione (client)** dalla pagina **Panoramica** . 
 15. Tornare all'istanza di gestione API. Nella finestra **Aggiungi provider di identità** incollare il valore di **ID applicazione (client)** nella casella **ID client** .
-16. Tornare alla configurazione di Azure AD, selezionare **certificati & segreti** in **Gestisci**. Selezionare il pulsante **New client secret** (Nuovo segreto client). Immettere un valore in **Descrizione**, selezionare un'opzione per **Scadenza** e scegliere **Aggiungi**. Copiare il valore del segreto client prima di uscire dalla pagina. Saranno necessari nel passaggio successivo. 
+16. Tornare alla configurazione di Azure AD, selezionare **certificati & segreti** in **Gestisci**. Selezionare il pulsante **nuovo segreto client** . Immettere un valore in **Descrizione**, selezionare un'opzione per la **scadenza** e scegliere **Aggiungi**. Copiare il valore del segreto client prima di uscire dalla pagina. Saranno necessari nel passaggio successivo. 
 17. In **Gestisci**selezionare **autenticazione** , quindi selezionare **token ID** in **concessione implicita**
 18. Tornare all'istanza di gestione API e incollare il segreto nella casella **Secret client** .
 
@@ -71,10 +71,10 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
 
 19. La finestra **Aggiungi provider di identità** contiene anche la casella di testo **Tenant consentiti**. In questa casella specificare i domini delle istanze di Azure AD a cui si vuole concedere l'accesso alle API dell'istanza del servizio Gestione API. È possibile separare più domini con virgole, spazi o caratteri di nuova riga.
 
-> [!NOTE]
-> Nella sezione **Tenant consentiti** si possono specificare più domini. Per consentire a un utente di accedere da un dominio diverso da quello originale in cui è stata registrata l'applicazione, un amministratore globale dell'altro dominio deve concedere l'autorizzazione che permette all'applicazione di accedere ai dati della directory. Per concedere l'autorizzazione, l'amministratore globale deve: a. Passare a `https://<URL of your developer portal>/aadadminconsent` (ad esempio, https://contoso.portal.azure-api.net/aadadminconsent).
-> b. Digitare il nome di dominio del tenant di Azure AD a cui concedere l'accesso.
-> c. Selezionare **Submit** (Invia). 
+    > [!NOTE]
+    > Nella sezione **Tenant consentiti** si possono specificare più domini. Per consentire a un utente di accedere da un dominio diverso da quello originale in cui è stata registrata l'applicazione, un amministratore globale dell'altro dominio deve concedere l'autorizzazione che permette all'applicazione di accedere ai dati della directory. Per concedere l'autorizzazione, l'amministratore globale deve: a. Passare a `https://<URL of your developer portal>/aadadminconsent` (ad esempio, https://contoso.portal.azure-api.net/aadadminconsent).
+    > b. Digitare il nome di dominio del tenant di Azure AD a cui concedere l'accesso.
+    > c. Selezionare **Submit** (Invia). 
 
 20.  Dopo aver specificato la configurazione desiderata, selezionare **Aggiungi**.
 
@@ -95,7 +95,7 @@ A questo punto è possibile aggiungere gruppi di Azure AD esterni dalla scheda *
 
 1. Selezionare la scheda **Gruppi** .
 2. Selezionare il pulsante **Aggiungi gruppo AAD**.
-   ![Pulsante "Aggiungi gruppo AAD"](./media/api-management-howto-aad/api-management-with-aad008.png)
+    ![Pulsante "Aggiungi gruppo AAD"](./media/api-management-howto-aad/api-management-with-aad008.png)
 3. Selezionare il gruppo che si vuole aggiungere.
 4. Scegliere il pulsante **Seleziona**.
 
@@ -105,11 +105,11 @@ Ora gli utenti dell'istanza di Azure AD configurata possono accedere al portale 
 
 ## <a name="a-idlog_in_to_dev_portal-developer-portal---add-azure-ad-account-authentication"></a>portale per sviluppatori <a id="log_in_to_dev_portal"/>-aggiungere l'autenticazione dell'account Azure AD
 
-Nel portale per sviluppatori l'accesso con AAD è possibile con il widget dei **pulsanti OAuth** . Il widget è già incluso nella pagina di accesso del contenuto predefinito del portale per sviluppatori.
-
-![Widget pulsanti AAD](./media/api-management-howto-aad/portal-oauth-widget.png)
+Nel portale per sviluppatori è possibile accedere con AAD con il **pulsante di accesso: OAuth** widget. Il widget è già incluso nella pagina di accesso del contenuto predefinito del portale per sviluppatori.
 
 Sebbene venga creato automaticamente un nuovo account ogni volta che un nuovo utente accede con AAD, è possibile aggiungere lo stesso widget alla pagina di iscrizione.
+
+Il **modulo di iscrizione: OAuth** widget rappresenta un modulo usato per l'iscrizione a OAuth.
 
 > [!IMPORTANT]
 > Per rendere effettive le modifiche di AAD, è necessario [ripubblicare il portale](api-management-howto-developer-portal-customize.md#publish) .

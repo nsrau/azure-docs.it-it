@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 65bc11282726d9e66dbed8fa1fbb75fc1b89c1d1
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 3dfb2c201138a65379aa509ce1bf10894ab6819b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615502"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984711"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Apprendimento avanzato e Framework di intelligenza artificiale per Azure Data Science VM
 I Framework per Deep Learning in DSVM sono elencati di seguito.
@@ -47,7 +47,7 @@ I Framework per Deep Learning in DSVM sono elencati di seguito.
 | Come viene configurata o installata sulla macchina virtuale per data science?  | Chainer viene installato in Python 3,5. |
 | Come eseguirla      | Terminale: attivare l'ambiente Python 3,5, eseguire `python`, quindi `import chainer`. <br/> * JupyterHub: [connettersi a JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), quindi passare alla directory chainer per trovare i blocchi appunti di esempio.| 
 
-## <a name="cuda-cudnn-nvidia-driverhttpsdevelopernvidiacomcuda-toolkit"></a>[CUDA, cuDNN, driver NVIDIA](https://developer.nvidia.com/cuda-toolkit)
+## <a name="cuda-cudnn-nvidia-driverhttpsdevelopernvidiacomcuda-toolkit"></a>[Driver CUDA, cuDNN, NVIDIA](https://developer.nvidia.com/cuda-toolkit)
 
 |    |           |
 | ------------- | ------------- |
@@ -92,7 +92,7 @@ I Framework per Deep Learning in DSVM sono elencati di seguito.
 | Come viene configurata o installata sulla macchina virtuale per data science?  | MXNet viene installato in `C:\dsvm\tools\mxnet` in Windows e `/dsvm/tools/mxnet` su Ubuntu. Le associazioni di Python vengono installate in Python 3,6 in [Windows 2016](dsvm-tools-languages.md#python-windows-server-2016-edition) e in Python 3,5 in [Linux](./dsvm-tools-languages.md#python-linux-edition)) i binding R sono inclusi anche in Ubuntu DSVM. |
 | Come eseguirla      | Terminale: attivare l'ambiente conda corretto, quindi eseguire `import mxnet`. <br/>Jupyter: connettersi a [Jupyter](provision-vm.md#access-the-dsvm) o [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), quindi aprire la directory `mxnet` per gli esempi. |
 
-## <a name="mxnet-model-serverhttpsgithubcomawslabsmxnet-model-serverquick-start"></a>[Server modello MXNet](https://github.com/awslabs/mxnet-model-server#quick-start)
+## <a name="mxnet-model-serverhttpsgithubcomawslabsmxnet-model-serverquick-start"></a>[MXNet Model Server](https://github.com/awslabs/mxnet-model-server#quick-start)
 
 |    |           |
 | ------------- | ------------- |
@@ -115,7 +115,7 @@ I Framework per Deep Learning in DSVM sono elencati di seguito.
 
 |    |           |
 | ------------- | ------------- |
-| Versioni supportate | 1.2.0 |
+| Versioni supportate | 1.2.0 (Ubuntu 16,04, Windows 2016, Windows 2019), 1.4.0 (Ubuntu 18,04) |
 | Edizioni DSVM supportate      | Linux |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | Installato in [Python 3,5](dsvm-tools-languages.md#python-linux-edition). Sono inclusi i notebook di Jupyter di esempio e gli esempi si trovano in/dsvm/Samples/pytorch. |
 | Come eseguirla      | Terminale: attivare l'ambiente corretto, quindi eseguire python.<br/>* [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine): connettersi, quindi aprire la directory PyTorch per gli esempi.  |
@@ -124,16 +124,16 @@ I Framework per Deep Learning in DSVM sono elencati di seguito.
 
 |    |           |
 | ------------- | ------------- |
-| Versioni supportate | 1.13 |
+| Versioni supportate | 1,13 |
 | Edizioni DSVM supportate      | Windows, Linux |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | Installato in Python 3,5 in [Linux](dsvm-tools-languages.md#python-linux-edition) e Python 3,6 in [Windows 2016](dsvm-tools-languages.md#python-windows-server-2016-edition) |
 | Come eseguirla      | Terminale: attivare l'ambiente corretto, quindi eseguire python. <br/> * Jupyter: connettersi a [Jupyter](provision-vm.md) o [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), quindi aprire la directory TensorFlow per gli esempi.   |
 
-## <a name="tensorflow-servinghttpswwwtensorfloworgserving"></a>[Servizio TensorFlow](https://www.tensorflow.org/serving/)
+## <a name="tensorflow-servinghttpswwwtensorfloworgserving"></a>[TensorFlow Serving](https://www.tensorflow.org/serving/)
 
 |    |           |
 | ------------- | ------------- |
-| Versioni supportate | 1.12 |
+| Versioni supportate | 1,12 |
 | Edizioni DSVM supportate      | Linux |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | tensorflow_model_server è disponibile nel terminale. |
 | Come eseguirla      |  Sono disponibili esempi [online](https://www.tensorflow.org/serving/).   |

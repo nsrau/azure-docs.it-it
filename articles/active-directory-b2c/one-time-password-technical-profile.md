@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c50edb03fe849c70596c0bfb3cdc2dafa15f136f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dab35fbcd221af9f4eb587b8c98a8ff85aeef59f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480203"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982790"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definire un profilo tecnico monouso per la password in un Azure AD B2C criteri personalizzati
 
@@ -77,6 +77,7 @@ Per configurare la generazione e la manutenzione del codice, è possibile usare 
 | CodeLength | No | Lunghezza del codice. Il valore predefinito è `6`. |
 | CharacterSet | No | Set di caratteri per il codice, formattato per essere utilizzato in un'espressione regolare. Ad esempio: `a-z0-9A-Z`. Il valore predefinito è `0-9`. Il set di caratteri deve includere almeno 10 caratteri diversi nel set specificato. |
 | NumRetryAttempts | No | Il numero di tentativi di verifica prima che il codice venga considerato non valido. Il valore predefinito è `5`. |
+| Operazione | Sì | L'operazione da eseguire. Valori possibili: `GenerateCode`o `VerifyCode`. |
 | ReuseSameCode | No | Indica se deve essere fornito un codice duplicato anziché generare un nuovo codice quando il codice specificato non è scaduto ed è ancora valido. Il valore predefinito è `false`. |
 
 ### <a name="returning-error-message"></a>Restituzione messaggio di errore

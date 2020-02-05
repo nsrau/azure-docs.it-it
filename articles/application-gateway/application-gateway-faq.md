@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: 14fe8780bb7919d942da186698275d5199f4586e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9d47986df9b9cbc6b8519aa0466b3434d6216e72
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770085"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986003"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -68,7 +68,9 @@ Se si usa un indirizzo IP pubblico come endpoint, le informazioni sull'indirizzo
 
 ### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Quali sono le impostazioni per il timeout keep-alive e il timeout di inattività TCP?
 
- Nello SKU del gateway applicazione V1, il timeout keep-alive è 120 secondi. Il timeout keep-alive per lo SKU V2 è di 75 secondi. Il timeout di inattività TCP è un valore predefinito di 4 minuti nell'indirizzo IP virtuale front-end (VIP) del gateway applicazione.
+Il *timeout keep-alive* determina per quanto tempo il gateway applicazione deve attendere che un client invii un'altra richiesta HTTP su una connessione permanente prima di riutilizzarla o chiuderla. Il *timeout di inattività TCP* determina per quanto tempo una connessione TCP viene mantenuta aperta in caso di assenza di attività. 
+
+Il *timeout keep-alive* nello SKU del gateway applicazione v1 è 120 secondi e nello SKU v2 è 75 secondi. Il *timeout di inattività TCP* è un valore predefinito di 4 minuti nell'IP virtuale front-end (VIP) dello SKU V1 e V2 del gateway applicazione. 
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>Il nome IP o DNS cambia per tutta la durata del gateway applicazione?
 

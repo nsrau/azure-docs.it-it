@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/15/2019
 ms.author: ikbarmen
-ms.openlocfilehash: a9b75c3454c67112b0e00c7ea4b4e8c676ebcc97
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18f2cf3daa281400151ba223e1735e7138d97e8e
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65949478"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990505"
 ---
 # <a name="manage-multiple-tenants"></a>Gestire più tenant
 
@@ -45,7 +45,7 @@ Quando si usa questa architettura, per ciascun tenant viene creato un account Vi
 * Più difficile da gestire a causa degli account multipli per ogni tenant (e i servizi multimediali associati) di Video Indexer.
 
 > [!TIP]
-> Creare un utente amministratore per il sistema nel [Portale per sviluppatori di Video Indexer](https://api-portal.videoindexer.ai/) e usare l'API di autorizzazione per fornire ai tenant il relativo [token di accesso dell'account](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token).
+> Creare un utente amministratore per il sistema nel [Portale per sviluppatori di Video Indexer](https://api-portal.videoindexer.ai/) e usare l'API di autorizzazione per fornire ai tenant il relativo [token di accesso dell'account](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token).
 
 ## <a name="single-video-indexer-account-for-all-users"></a>Account singolo di Video Indexer per tutti gli utenti
 
@@ -79,4 +79,4 @@ Quando si usa questa architettura, ogni tenant avrà la propria sottoscrizione d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Panoramica](video-indexer-overview.md)
+[Overview](video-indexer-overview.md)

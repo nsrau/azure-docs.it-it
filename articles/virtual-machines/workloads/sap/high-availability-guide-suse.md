@@ -3,8 +3,8 @@ title: Disponibilità elevata in macchine virtuali di Azure per SAP NetWeaver su
 description: Guida alla disponibilità elevata per SAP NetWeaver su SUSE Linux Enterprise Server per SAP applications
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: mssedusch
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/07/2019
-ms.author: sedusch
-ms.openlocfilehash: d08f17bd22188f3d969261d8626d47a9e0faf08e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.date: 02/03/2020
+ms.author: radeltch
+ms.openlocfilehash: 77a26d229ddc4ce5f35fde3db010e3b7c146a563
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839602"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985518"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Disponibilità elevata per SAP NetWeaver su macchina virtuali di Azure in SUSE Linux Enterprise Server for SAP applications
 
@@ -78,7 +78,7 @@ Leggere prima di tutto le note e i documenti seguenti relativi a SAP
 * [Guide alle procedure consigliate di SUSE SAP][suse-ha-guide] Le guide contengono tutte le informazioni necessarie per configurare NetWeaver a disponibilità elevata e SAP HANA replica di sistema locale. Usare le guide come indicazioni di base generali. Forniscono informazioni molto più dettagliate.
 * [Note sulla versione di SUSE High Availability Extension 12 SP3][suse-ha-12sp3-relnotes]
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Per ottenere la disponibilità elevata, SAP NetWeaver richiede un server NFS. Il server NFS viene configurato in un cluster separato e può essere usato da più sistemi SAP.
 
@@ -159,7 +159,7 @@ Azure Marketplace contiene un'immagine per SUSE Linux Enterprise Server for SAP 
    9. Nome utente e password amministratore  
       Verrà creato un nuovo utente con cui è possibile accedere alla macchina
    10. Subnet ID  
-   Se si vuole implementare la macchina virtuale in una rete virtuale esistente per cui è stata definita la subnet a cui assegnare la macchina virtuale, denominare l'ID di tale subnet. L'ID in genere è simile al seguente: /subscriptions/ **&lt;ID sottoscrizione&gt;** /resourceGroups/ **&lt;nome gruppo risorse&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;nome rete virtuale&gt;** /subnets/ **&lt;nome subnet&gt;**
+   Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID in genere è simile al seguente: /subscriptions/ **&lt;ID sottoscrizione&gt;** /resourceGroups/ **&lt;nome gruppo risorse&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;nome rete virtuale&gt;** /subnets/ **&lt;nome subnet&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuire Linux manualmente tramite il portale di Azure
 
@@ -267,7 +267,7 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
 
 Seguire i passaggi descritti in [Configurazione di Pacemaker su SUSE Linux Enterprise Server in Azure](high-availability-guide-suse-pacemaker.md) per creare un cluster Pacemaker di base per questo server (A)SCS.
 
-### <a name="installation"></a>Installare
+### <a name="installation"></a>Installazione
 
 Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tutti i nodi, **[1]** - applicabile solo al nodo 1 o **[2]** - applicabile solo al nodo 2.
 
@@ -277,7 +277,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    </code></pre>
 
    > [!NOTE]
-   > Non usare trattini nei nomi host dei nodi del cluster in uso. In caso contrario, il cluster non funzionerà. Si tratta di una limitazione nota e SUSE sta lavorando a una correzione. La correzione verrà rilasciata come patch del pacchetto sap-suse-cloud-connector.
+   > Il problema noto relativo all'uso di un trattino nei nomi host è corretto con la versione **3.1.1** del pacchetto **SAP-SUSE-cluster-Connector**. Assicurarsi di usare almeno la versione 3.1.1 del pacchetto SAP-SUSE-cluster-Connector, se si usano nodi del cluster con Dash nel nome host. In caso contrario, il cluster non funzionerà. 
 
    Verificare di aver installato la nuova versione del connettore del cluster SAP SUSE. La versione precedente era denominata sap_suse_cluster_connector mentre la nuova è denominata **sap-suse-cluster-connector**.
 

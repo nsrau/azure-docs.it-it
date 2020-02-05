@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: fafb40c8505b7178782ab15c14184c5bec052a1b
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 3dfdbc56456ea67c830d0e1e9785b9d0032bf2cc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76937854"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988219"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteggere i processi di sperimentazione e inferenza di Azure ML in una rete virtuale di Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -180,8 +180,8 @@ Se non si vogliono usare le regole in uscita predefinite e si vuole limitare l'a
 - Negare la connessione Internet in uscita usando le regole NSG.
 
 - Per un' __istanza di calcolo__ o un __cluster di calcolo__, limitare il traffico in uscita agli elementi seguenti:
-   - Archiviazione di Azure con __tag di servizio__ di __archiviazione__
-   - Azure Container Registry, usando il __tag di servizio__ di __AzureContainerRegistry__
+   - Archiviazione di Azure, usando il __tag di servizio__ di __storage. RegionName__. Dove `{RegionName}` è il nome di un'area di Azure.
+   - Azure Container Registry, usando il __tag di servizio__ di __AzureContainerRegistry. RegionName__. Dove `{RegionName}` è il nome di un'area di Azure.
    - Azure Machine Learning, usando il __tag di servizio__ di __AzureMachineLearning__
    
 - Per un' __istanza di calcolo__, aggiungere anche gli elementi seguenti:

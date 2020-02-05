@@ -1,5 +1,5 @@
 ---
-title: Connettersi a Esplora dati di Azure da Azure Databricks usando Python
+title: Connettersi a Esplora dati di Azure da Azure Databricks tramite Python
 description: Questo argomento illustra come usare una libreria Python in Azure Databricks per accedere ai dati da Esplora dati di Azure usando uno di due metodi di autenticazione.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.openlocfilehash: 55257d441916971b505432247f28033d6222c3be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 03dee0570faa863ca411ed91f2a6ec85a1e38380
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861209"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985680"
 ---
 # <a name="connect-to-azure-data-explorer-from-azure-databricks-by-using-python"></a>Connettersi a Esplora dati di Azure da Azure Databricks usando Python
 

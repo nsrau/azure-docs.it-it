@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 98b5cc707ca8b5ebd1ee88f02082fd3f10fa73dc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9042f3d34ee550af50e043167db6339f36b71bd0
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434994"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987595"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Estendi IoT Central di Azure con regole personalizzate usando analisi di flusso, funzioni di Azure e SendGrid
 
@@ -40,7 +40,7 @@ Creare un'applicazione IoT Central nel sito Web di [Azure IOT Central Applicatio
 
 | Impostazione | Valore |
 | ------- | ----- |
-| Piano di pagamento | Pagamento in base al consumo |
+| Piano tariffario | Standard |
 | Modello di applicazione | Applicazione legacy |
 | Nome applicazione | Accetta il nome predefinito o scegli il tuo nome |
 | URL | Accettare l'impostazione predefinita o scegliere il prefisso URL univoco |
@@ -67,7 +67,7 @@ Usare il [portale di Azure per creare uno spazio dei nomi di hub eventi](https:/
 | Percorso | Stati Uniti orientali |
 | Unità elaborate | 1 |
 
-### <a name="stream-analytics-job"></a>Processo di Analisi di flusso
+### <a name="stream-analytics-job"></a>Processo di analisi di flusso
 
 Usare il [portale di Azure per creare un processo di analisi di flusso](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) con le impostazioni seguenti:
 

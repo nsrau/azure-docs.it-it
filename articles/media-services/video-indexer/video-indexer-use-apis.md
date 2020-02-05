@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: 4da437fecf0529194d72b2d403302ff81055ec0f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 8b6d160f71bfe8b2e5c447296d511b54ce6542c8
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892686"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989774"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Esercitazione: Usare l'API Video Indexer
 
@@ -86,7 +86,7 @@ Il parametro Account ID è obbligatorio in tutte le chiamate alle API delle oper
 
 * Usare il **portale per sviluppatori di Video Indexer** per ottenere l'ID account a livello di codice.
 
-    Usare l'API [Get accounts](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Accounts?) (Ottieni account).
+    Usare l'API per [ottenere l'account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account?) .
 
     > [!TIP]
     > È possibile generare i token di accesso per gli account definendo `generateAccessTokens=true`.
@@ -99,7 +99,7 @@ Il parametro Account ID è obbligatorio in tutte le chiamate alle API delle oper
     https://www.videoindexer.ai/accounts/00000000-f324-4385-b142-f77dacb0a368/videos/d45bf160b5/
     ```
 
-## <a name="recommendations"></a>Raccomandazioni
+## <a name="recommendations"></a>Consigli
 
 In questa sezione sono elencati alcuni suggerimenti per l'uso dell'API Video Indexer.
 
@@ -214,4 +214,6 @@ Debug.WriteLine(playerWidgetLink);
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Esaminare i dettagli dell'output JSON](video-indexer-output-json-v2.md).
+- [Esaminare i dettagli del codice JSON di output](video-indexer-output-json-v2.md)
+- Vedere il [codice di esempio](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/API) che illustra un aspetto importante del caricamento e dell'indicizzazione di un video. Seguendo il codice, è consigliabile usare l'API per le funzionalità di base. Assicurarsi di leggere i commenti inline e di notare i consigli per le procedure consigliate.
+

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: d682c49aa833b9e11dbbddc5e9f6afd52cbb6e84
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3cc6f82676f426240fba4cc4910246073aa9a556
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952875"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982461"
 ---
 # <a name="use-application-templates"></a>Usare i modelli di applicazione
 
@@ -59,7 +59,7 @@ Per usare un modello di applicazione per creare una nuova applicazione IoT Centr
 
 ![Creare un'applicazione da un modello](media/howto-use-app-templates/create-app.png)
 
-Selezionare il piano di pagamento e compilare gli altri campi nel modulo. Selezionare quindi **Crea** per creare una nuova applicazione IoT Central dal modello di applicazione.
+Selezionare il piano tariffario e compilare gli altri campi nel form. Selezionare quindi **Crea** per creare una nuova applicazione IoT Central dal modello di applicazione.
 
 ## <a name="manage-application-templates"></a>Gestire i modelli di applicazione
 

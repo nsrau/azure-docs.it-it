@@ -3,12 +3,12 @@ title: Supporto per la valutazione del server fisico con Azure Migrate
 description: Informazioni sul supporto per la valutazione del server fisico con Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 489f95bbbbeb261b56f1a3a86da44f5fcce0adf5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f2698d0ff046147599a8c5c791a0980a54090932
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846579"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990335"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matrice di supporto per la valutazione del server fisico 
 
@@ -38,7 +38,7 @@ Per valutare i computer locali per la migrazione ad Azure con questo articolo, �
 | **Supporto**                | **Dettagli**               
 | :-------------------       | :------------------- |
 | **Distribuzione server fisico**       | Il server fisico può essere autonomo o distribuito in un cluster. |
-| **Autorizzazioni**           | **Windows:** Configurare un account utente locale in tutti i server Windows che si desidera includere nell'individuazione. L'account utente deve essere aggiunto a questi gruppi: Desktop remoto utenti, Performance Monitor Users e Performance Log Users. <br/> **Linux:** È necessario un account radice nei server Linux che si desidera individuare. |
+| **Autorizzazioni**           | **Windows:** Configurare un account utente locale o di dominio in tutti i server Windows che si desidera includere nell'individuazione. L'account utente deve essere aggiunto a questi gruppi: Desktop remoto utenti, Performance Monitor Users e Performance Log Users. <br/> **Linux:** È necessario un account radice nei server Linux che si desidera individuare. |
 | **Sistema operativo** | Sono supportati tutti i sistemi operativi [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , tranne i seguenti:<br/> Windows Server 2003 <br/> SUSE Linux|
 
 

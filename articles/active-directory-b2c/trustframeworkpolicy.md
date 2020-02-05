@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 01/31/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5737a53d3eca0da440f178f9fd34adf5e968dd62
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: b49c873112358db4fec2992ef3d2d61161e8b373
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840180"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982416"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -45,7 +45,7 @@ L'elemento **TrustFrameworkPolicy** contiene gli attributi seguenti:
 | TenantId | Sì | L'identificatore univoco del tenant a cui appartiene questo criterio. |
 | PolicyId | Sì | L'identificatore univoco del criterio. Questo identificatore deve essere preceduto da *B2C_1A_* |
 | PublicPolicyUri | Sì | L'URI per il criterio, ovvero la combinazione dell'ID del tenant e l'ID del criterio. |
-| DeploymentMode | No | I valori possibili sono: `Production`, `Debugging` o `Development`. `Production` è l'impostazione predefinita. Usare questa proprietà per eseguire il debug del criterio. Per altre informazioni, vedere [Raccolta dei log](troubleshoot-with-application-insights.md). |
+| DeploymentMode | No | Valori possibili: `Production`o `Development`. `Production` è l'impostazione predefinita. Usare questa proprietà per eseguire il debug del criterio. Per altre informazioni, vedere [Raccolta dei log](troubleshoot-with-application-insights.md). |
 | UserJourneyRecorderEndpoint | No | L'endpoint che viene usata quando **DeploymentMode** è impostato su `Development`. Il valore deve essere `urn:journeyrecorder:applicationinsights`. Per altre informazioni, vedere [Raccolta dei log](troubleshoot-with-application-insights.md). |
 
 

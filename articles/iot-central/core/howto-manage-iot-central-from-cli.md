@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 1051ea91378cc2e2facec7e34f6d303297b91ce8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f7d31966241e352583ee4338faff8aae7e1a09c6
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454056"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990250"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Gestire IoT Central dall'interfaccia della riga di comando di Azure
 
@@ -44,7 +44,7 @@ az group create --location "East US" \
 az iotcentral app create \
   --resource-group "MyIoTCentralResourceGroup" \
   --name "myiotcentralapp" --subdomain "mysubdomain" \
-  --sku S1 --template "iotc-demo@1.0.0" \
+  --sku ST1 --template "iotc-demo@1.0.0" \
   --display-name "My Custom Display Name"
 ```
 
@@ -56,7 +56,7 @@ Questi comandi creano prima di tutto un gruppo di risorse nella località Stati 
 | posizione          | Per impostazione predefinita, questo comando usa il percorso del gruppo di risorse. Attualmente, è possibile creare un'applicazione IoT Central in **Stati Uniti**, **Australia**, **Asia Pacifico**o nelle località dell' **Europa** . |
 | name              | Nome dell'applicazione nel portale di Azure. |
 | sottodominio         | Sottodominio nell'URL dell'applicazione. In questo esempio l'URL dell'applicazione è https://mysubdomain.azureiotcentral.com. |
-| sku               | L'unico valore attualmente disponibile è **S1** (livello standard). Vedere [Prezzi di Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
+| sku               | Attualmente, è possibile usare **ST1** o **ST2**. Vedere [Prezzi di Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 | template          | Modello di applicazione da usare. Per altre informazioni, vedere la tabella seguente: |
 | display-name      | Nome dell'applicazione visualizzato nell'interfaccia utente. |
 

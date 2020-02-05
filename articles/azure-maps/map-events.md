@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 742cb76f491e76db6dc9ec415c6718066b46f137
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 06fdb9733ad9c173c88936e5502214b58f5d10ee
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911071"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985918"
 ---
 # <a name="interact-with-the-map"></a>Interazione con la mappa
 
-Questo articolo illustra come usare la proprietà [eventi della classe Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events) per evidenziare gli eventi sulla mappa e su livelli diversi della mappa. Viene inoltre illustrato come usare la proprietà degli eventi della classe mappa per evidenziare gli eventi quando si interagisce con un marcatore di HTML.
+Questo articolo illustra come usare la [classe degli eventi di mapping](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events). La proprietà evidenzia gli eventi sulla mappa e su livelli diversi della mappa. È anche possibile evidenziare gli eventi quando si interagisce con un marcatore HTML.
 
 ## <a name="interact-with-the-map"></a>Interazione con la mappa
 
-Giocare con la mappa riportata di seguito e visualizzare gli eventi del mouse corrispondenti evidenziati a destra. È possibile fare clic sulla **scheda JS** per visualizzare e modificare il codice JavaScript. È anche possibile fare clic sul pulsante **Edit on CodePen** (Modifica in CodePen) e modificare il codice in CodePen.
+Giocare con la mappa riportata di seguito e visualizzare gli eventi del mouse corrispondenti evidenziati a destra. È possibile fare clic sulla **scheda JS** per visualizzare e modificare il codice JavaScript. È anche possibile fare clic su **modifica in CodePen** per modificare il codice in CodePen.
 
 <br/>
 
@@ -31,7 +31,7 @@ Giocare con la mappa riportata di seguito e visualizzare gli eventi del mouse co
 
 ## <a name="interact-with-map-layers"></a>Interagire con i livelli mappa
 
-Il codice seguente evidenzia il nome degli eventi che vengono generati durante l'interazione con il livello dei simboli. Il livello Symbol, Bubble, line e poligono supporta lo stesso set di eventi. I livelli mappa termica e riquadro non supportano alcuno di questi eventi.
+Nel codice seguente viene evidenziato l'evento generato quando si interagisce con il livello dei simboli. Il livello Symbol, Bubble, line e poligono supporta lo stesso set di eventi. La mappa termica e i livelli delle sezioni non supportano questi eventi.
 
 <br/>
 

@@ -4,18 +4,18 @@ description: Come gestire e aggiornare la cache HPC di Azure con la portale di A
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 1/08/2020
+ms.date: 1/29/2020
 ms.author: rohogue
-ms.openlocfilehash: a166a904b2e63419efd5803fd54be1d1b59836fb
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 9ad6348e15c8a25f721a89be7eab3e17c58ae17c
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867090"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988867"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Gestire la cache dalla portale di Azure
 
-La pagina Panoramica della cache nel portale di Azure Mostra i dettagli del progetto, lo stato della cache e le statistiche di base per la cache. Dispone inoltre di controlli per eliminare la cache, svuotare i dati nell'archiviazione a lungo termine o aggiornare il software.
+La pagina Panoramica della cache nel portale di Azure Mostra i dettagli del progetto, lo stato della cache e le statistiche di base per la cache. Dispone inoltre di controlli per arrestare o avviare la cache, eliminare la cache, svuotare i dati nell'archiviazione a lungo termine e aggiornare il software.
 
 Per aprire la pagina Panoramica, selezionare la risorsa della cache nell'portale di Azure. Ad esempio, caricare la pagina **tutte le risorse** e fare clic sul nome della cache.
 
@@ -23,12 +23,29 @@ Per aprire la pagina Panoramica, selezionare la risorsa della cache nell'portale
 
 I pulsanti nella parte superiore della pagina possono essere utili per gestire la cache:
 
+* **Avvio** e [**arresto**](#stop-the-cache) -sospende l'operazione cache
 * [**Flush**](#flush-cached-data) -scrive i dati modificati nelle destinazioni di archiviazione
 * [**Aggiornamento**](#upgrade-cache-software) : aggiorna il software della cache
 * **Aggiorna** -ricarica la pagina Panoramica
 * [**Delete: Elimina**](#delete-the-cache) definitivamente la cache
 
 Altre informazioni su queste opzioni sono disponibili di seguito.
+
+## <a name="stop-the-cache"></a>Arrestare la cache
+
+È possibile arrestare la cache per ridurre i costi durante un periodo di inattività. Quando la cache viene arrestata, non viene addebitato alcun tempo di attesa, ma viene addebitata l'archiviazione su disco allocata della cache. Per informazioni dettagliate, vedere la pagina relativa ai [prezzi](https://aka.ms/hpc-cache-pricing) .
+
+Una cache arrestata non risponde alle richieste del client. Prima di arrestare la cache, è necessario smontare i client.
+
+Il pulsante **Arresta** sospende una cache attiva. Il pulsante **Interrompi** è disponibile quando lo stato di una cache è **integro** o **danneggiato**.
+
+![screenshot dei pulsanti principali con l'arresto evidenziato e un messaggio popup che descrive l'azione di arresto e la richiesta di continuare? con Sì (impostazione predefinita) e nessun pulsante](media/stop-cache.png)
+
+Dopo aver fatto clic su Sì per confermare l'arresto della cache, la cache Scarica automaticamente il contenuto nelle destinazioni di archiviazione. Questo processo potrebbe richiedere del tempo, ma garantisce la coerenza dei dati. Infine, lo stato della cache diventa **arrestato**.
+
+Per riattivare una cache arrestata, fare clic sul pulsante **Avvia** . Non è necessaria alcuna conferma.
+
+![screenshot dei pulsanti principali con inizio evidenziato](media/start-cache.png)
 
 ## <a name="flush-cached-data"></a>Scarica dati memorizzati nella cache
 
@@ -68,13 +85,14 @@ I volumi di archiviazione back-end usati come destinazioni di archiviazione non 
 > [!NOTE]
 > La cache HPC di Azure non scrive automaticamente i dati modificati dalla cache nei sistemi di archiviazione back-end prima di eliminare la cache.
 >
-> Per assicurarsi che tutti i dati nella cache siano stati scritti nell'archiviazione a lungo termine, seguire questa procedura:
+> Per assicurarsi che tutti i dati nella cache siano stati scritti nell'archiviazione a lungo termine, [arrestare la cache](#stop-the-cache) prima di eliminarla. Assicurarsi che venga visualizzato lo stato **interrotto** prima di fare clic sul pulsante Elimina.
+<!--... written to long-term storage, follow this procedure:
 >
-> 1. [Rimuovere](hpc-cache-edit-storage.md#remove-a-storage-target) ogni destinazione di archiviazione dalla cache HPC di Azure usando il pulsante Elimina nella pagina Destinazioni di archiviazione. Il sistema scrive automaticamente i dati modificati dalla cache al sistema di archiviazione back-end prima di rimuovere la destinazione.
-> 1. Attendere che la destinazione di archiviazione venga rimossa completamente. Il processo può richiedere un'ora o più se è presente una grande quantità di dati da scrivere dalla cache. Al termine, una notifica del portale indica che l'operazione di eliminazione è stata completata e che la destinazione di archiviazione scompare dall'elenco.
-> 1. Una volta eliminate tutte le destinazioni di archiviazione interessate, è possibile eliminare la cache.
+> 1. [Remove](hpc-cache-edit-storage.md#remove-a-storage-target) each storage target from the Azure HPC Cache by using the delete button on the Storage targets page. The system automatically writes any changed data from the cache to the back-end storage system before removing the target.
+> 1. Wait for the storage target to be completely removed. The process can take an hour or longer if there is a lot of data to write from the cache. When it is done, a portal notification says that the delete operation was successful, and the storage target disappears from the list.
+> 1. After all affected storage targets have been deleted, it is safe to delete the cache.
 >
-> In alternativa, è possibile usare l'opzione [Flush](#flush-cached-data) per salvare i dati memorizzati nella cache, ma esiste un piccolo rischio di perdere il lavoro se un client scrive una modifica nella cache al termine dello scaricamento ma prima che l'istanza della cache venga distrutta.
+> Alternatively, you can use the [flush](#flush-cached-data) option to save cached data, but there is a small risk of losing work if a client writes a change to the cache after the flush completes but before the cache instance is destroyed.-->
 
 ## <a name="cache-metrics-and-monitoring"></a>Metriche e monitoraggio della cache
 

@@ -8,13 +8,13 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 12/06/2019
-ms.openlocfilehash: 4d32980e825f12c76b5c8bf8df0673fa82065751
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/03/2020
+ms.openlocfilehash: 5be6e7937a6e1f710b8e2576a9058963413fb6c2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460403"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984579"
 ---
 1. Nel [portale di Azure](https://ms.portal.azure.com/) selezionare **Azure Active Directory** > **Registrazioni app** > **Nuova registrazione**.
 
@@ -34,18 +34,30 @@ ms.locfileid: "75460403"
 
 1. Il pannello **Autenticazione** specifica importanti impostazioni di configurazione dell'autenticazione. 
 
+    1. Aggiungere gli **URI di reindirizzamento** e configurare i token di **accesso** selezionando **+ Aggiungi una piattaforma**.
+
+    1. Determinare se l'app è un **client pubblico** o meno selezionando **Sì** o **No**.
+
+    1. Verificare quali account e tenant sono supportati.
+
+    [![configurare la concessione implicita](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
+
+1. Dopo aver selezionato la piattaforma appropriata, configurare gli **URI di reindirizzamento** e i token di **accesso** nel pannello laterale a destra dell'interfaccia utente.
+
     1. È necessario che quanto specificato per **URI di reindirizzamento** corrisponda all'indirizzo fornito dalla richiesta di autenticazione:
 
-        * Per le app ospitate in un ambiente di sviluppo locale, selezionare **Client pubblico (per dispositivi mobili e desktop)** . Assicurarsi di impostare **Tipo di client predefinito** su Sì.
-        * Per le app a pagina singola ospitate nel servizio app di Azure, selezionare **Web**.
+        * Per le app ospitate in un ambiente di sviluppo locale, selezionare **Client pubblico (per dispositivi mobili e desktop)** . Assicurarsi di impostare **client pubblico** su **Sì**.
+        * Per le app a singola pagina ospitate nel servizio app Azure, selezionare **Web**.
+
+    1. Determinare se un **URL di disconnessione** è appropriato.
 
     1. Abilitare il flusso di concessione implicita controllando i **token di accesso** o i **token ID**.
 
-   [![creare gli URI di reindirizzamento e configurare la concessione implicita](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
+    [![creare gli URI di Reindirizzamento](media/time-series-insights-aad-registration/active-directory-auth-redirect-uri.png)](media/time-series-insights-aad-registration/active-directory-auth-redirect-uri.png#lightbox)
 
-   Fare clic su **Salva**.
+    Fare clic su **Configura**, quindi su **Salva**.
 
-1. Selezionare **Certificati e segreti** e quindi **Nuovo segreto client** per creare una password dell'applicazione che il client può usare per dimostrare la propria identità.
+1. Selezionare **certificati & segreti** , quindi **nuovo segreto client** per creare una password dell'applicazione che l'app client può usare per dimostrare la propria identità.
 
    [![Creare un nuovo segreto client](media/time-series-insights-aad-registration/active-directory-application-keys-save.png)](media/time-series-insights-aad-registration/active-directory-application-keys-save.png#lightbox)
 

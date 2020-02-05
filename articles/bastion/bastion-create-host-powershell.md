@@ -5,18 +5,20 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6cae6d258da2ddf0c3bfaade65ae74f1201b67b7
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: c3e4c2f2bac45f2e366764473a34b0536bb4cc44
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121067"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990454"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-powershell"></a>Creare un host di Azure Bastion usando Azure PowerShell
 
-Questo articolo illustra come creare un host Bastion di Azure. Dopo aver effettuato il provisioning del servizio Azure Bastion nella rete virtuale, l'esperienza RDP/SSH trasparente è disponibile per tutte le macchine virtuali nella stessa rete virtuale. Questa distribuzione viene effettuata per rete virtuale e non per sottoscrizione/account o macchina virtuale.
+Questo articolo illustra come creare un host di Azure Bastion usando PowerShell. Dopo aver effettuato il provisioning del servizio Azure Bastion nella rete virtuale, l'esperienza RDP/SSH trasparente è disponibile per tutte le macchine virtuali nella stessa rete virtuale. La distribuzione Bastion di Azure è per ogni rete virtuale, non per ogni sottoscrizione, account o macchina virtuale.
+
+Facoltativamente, è possibile creare un host Bastion di Azure usando il [portale di Azure](bastion-create-host-portal.md).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -28,7 +30,7 @@ Verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscriz
 
 Questa sezione consente di creare una nuova risorsa di Azure Bastion usando Azure PowerShell.
 
-1. Creare una rete virtuale e una subnet di Azure Bastion. È necessario creare la subnet di Azure Bastion usando il valore del nome **AzureBastionSubnet**. Questo valore consente ad Azure di stabilire la subnet in cui distribuire le risorse Bastion. Questa operazione è diversa rispetto a una subnet del gateway. È necessario usare una subnet di almeno una subnet/27 o più grande (/27,/26 e così via). Creare **AzureBastionSubnet** senza alcuna tabella o delega di route. Quando si usano i gruppi di sicurezza di rete in **AzureBastionSubnet**, vedere [lavorare con gruppi](bastion-nsg.md).
+1. Creare una rete virtuale e una subnet di Azure Bastion. È necessario creare la subnet di Azure Bastion usando il valore del nome **AzureBastionSubnet**. Questo valore consente ad Azure di stabilire la subnet in cui distribuire le risorse Bastion. Questa operazione è diversa rispetto a una subnet del gateway. È necessario usare una subnet di almeno/27 o una subnet più grande (/27,/26 e così via). Creare **AzureBastionSubnet** senza alcuna tabella o delega di route. Se si usano gruppi di sicurezza di rete in **AzureBastionSubnet**, vedere l'articolo [lavorare con gruppi](bastion-nsg.md) .
 
    ```azurepowershell-interactive
    $subnetName = "AzureBastionSubnet"
@@ -50,4 +52,6 @@ Questa sezione consente di creare una nuova risorsa di Azure Bastion usando Azur
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Leggere le [domande frequenti su Bastion](bastion-faq.md).
+* Per ulteriori informazioni, vedere le [domande frequenti su Bastion](bastion-faq.md) .
+
+* Per usare i gruppi di sicurezza di rete con la subnet di Azure Bastion, vedere usare [gruppi](bastion-nsg.md).

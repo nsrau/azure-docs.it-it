@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 02/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8c832982a5525b0296155197d89684932cebaa95
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dfbf54c19aef00cbda886a4531797cda7ef3a191
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75418836"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986105"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Supporto per i moduli Az in Automazione di Azure
 
@@ -18,7 +18,7 @@ Automazione di Azure supporta la possibilità di usare il [modulo Az di Azure Po
 
 ## <a name="considerations"></a>Considerazioni
 
-Esistono molti aspetti da prendere in considerazione quando si usa il modulo Az in Automazione di Azure. I runbook e i moduli possono essere usati da soluzioni di livello superiore nell'account di automazione. La modifica dei runbook o l'aggiornamento dei moduli può causare potenzialmente problemi con i runbook. È consigliabile testare attentamente tutti i runbook e le soluzioni in un account di automazione distinto prima di importare i nuovi moduli `Az`. Eventuali modifiche ai moduli possono compromettere la soluzione di [avvio/arresto](automation-solution-vm-management.md) . È consigliabile non modificare moduli e runbook in account di automazione che contengono soluzioni. Questo comportamento non è specifico per i moduli Az. Questo comportamento deve essere preso in considerazione quando si introducono modifiche all'account di automazione.
+Esistono molti aspetti da prendere in considerazione quando si usa il modulo Az in Automazione di Azure. I runbook e i moduli possono essere usati da soluzioni di livello superiore nell'account di automazione. La modifica dei runbook o l'aggiornamento dei moduli può causare potenzialmente problemi con i runbook. È consigliabile testare attentamente tutti i runbook e le soluzioni in un account di automazione distinto prima di importare i nuovi moduli `Az`. Eventuali modifiche ai moduli possono influire negativamente sulla soluzione di [avvio/arresto](automation-solution-vm-management.md) . Non è consigliabile modificare i moduli e manuali operativi negli account di automazione che contengono soluzioni. Questo comportamento non è specifico per i moduli Az. Questo comportamento deve essere preso in considerazione quando si introducono modifiche all'account di automazione.
 
 L'importazione di un modulo `Az` nell'account di automazione non comporta automaticamente l'importazione del modulo nella sessione di PowerShell usata dai runbook. I moduli vengono importati nella sessione di PowerShell nelle situazioni seguenti:
 

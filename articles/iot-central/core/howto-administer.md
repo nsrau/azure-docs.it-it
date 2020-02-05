@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4c729d2502464df021df4d03e989d489b2d1ecea
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 89c4dd294cbbf0953545e1055e32adfc5f7cce28
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954591"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990794"
 ---
 # <a name="manage-your-iot-central-application"></a>Gestire l'applicazione IoT Central
 
@@ -40,9 +40,9 @@ Per modificare l'immagine dell'applicazione, vedere [Preparare e caricare immagi
 
 ## <a name="copy-an-application"></a>Copiare un'applicazione
 
-È possibile creare una copia di una qualsiasi applicazione, senza tuttavia includere eventuali istanze di dispositivi, la cronologia dei dati dei dispositivi e i dati degli utenti. La copia è un'applicazione con pagamento in base al consumo a cui verranno addebitati i costi. Non è possibile creare una versione di valutazione di un'applicazione in questo modo.
+È possibile creare una copia di una qualsiasi applicazione, senza tuttavia includere eventuali istanze di dispositivi, la cronologia dei dati dei dispositivi e i dati degli utenti. La copia usa un piano tariffario standard che verrà fatturato. Non è possibile creare un'applicazione che usa il piano tariffario gratuito in questo modo.
 
-Selezionare **copia**. Nella finestra di dialogo immettere i dettagli per la nuova applicazione con pagamento in base al consumo. Quindi selezionare **copia** per confermare che si vuole continuare. Altre informazioni sui campi in questo modulo sono disponibili nella guida introduttiva [Creare un'applicazione](quick-deploy-iot-central.md).
+Selezionare **copia**. Nella finestra di dialogo immettere i dettagli per la nuova applicazione. Quindi selezionare **copia** per confermare che si vuole continuare. Altre informazioni sui campi in questo modulo sono disponibili nella guida introduttiva [Creare un'applicazione](quick-deploy-iot-central.md).
 
 ![Pagina delle impostazioni dell'applicazione](media/howto-administer/appcopy2.png)
 
@@ -71,7 +71,7 @@ I pacchetti SDK di Azure Resource Manager di IoT Central sono disponibili per No
 
 Per altre informazioni, vedere i repository e i pacchetti di GitHub seguenti:
 
-| Linguaggio | Repository | Pacchetto |
+| Lingua | Archivio | Pacchetto |
 | ---------| ---------- | ------- |
 | Nodo | [https://github.com/Azure/azure-sdk-for-node](https://github.com/Azure/azure-sdk-for-node) | [https://www.npmjs.com/package/azure-arm-iotcentral](https://www.npmjs.com/package/azure-arm-iotcentral)
 | Python |[https://github.com/Azure/azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python) | [https://pypi.org/project/azure-mgmt-iotcentral](https://pypi.org/project/azure-mgmt-iotcentral)

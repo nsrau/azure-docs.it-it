@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bde2fcad6f84e4a2df5268d1135e88a263b65ee0
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: b831a3175e1dc8b19395d1c923b076ac9428690c
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949117"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982909"
 ---
 # <a name="date-claims-transformations"></a>Trasformazioni delle attestazioni di data
 
@@ -91,7 +91,7 @@ Converte un ClaimType **Date** in un ClaimType **DateTime**. La trasformazione d
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | date | ClaimType da convertire. |
+| InputClaim | inputClaim | Data | ClaimType da convertire. |
 | OutputClaim | outputClaim | dateTime | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 
 L'esempio seguente illustra la conversione dell'attestazione `dateOfBirth` (tipo di dati date) in un'altra attestazione `dateOfBirthWithTime` (tipo di dati dateTime).
@@ -113,6 +113,35 @@ L'esempio seguente illustra la conversione dell'attestazione `dateOfBirth` (tipo
     - **inputClaim**: 2019-06-01
 - Attestazioni di output:
     - **outputClaim**: 1559347200 (1 giugno 2019 12:00:00 AM)
+
+## <a name="convertdatetimetodateclaim"></a>ConvertDateTimeToDateClaim 
+
+Converte un ClaimType **DateTime** in un ClaimType di **Data** . La trasformazione delle attestazioni rimuove il formato dell'ora dalla data.
+
+| Elemento | TransformationClaimType | Tipo di dati | Note |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | dateTime | ClaimType da convertire. |
+| OutputClaim | outputClaim | Data | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
+
+Nell'esempio seguente viene illustrata la conversione del `systemDateTime` di attestazione (tipo di dati dateTime) in un'altra attestazione `systemDate` (tipo di dati date).
+
+```XML
+<ClaimsTransformation Id="ConvertToDate" TransformationMethod="ConvertDateTimeToDateClaim">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="systemDateTime" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="systemDate" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Esempio
+
+- Attestazioni di input:
+  - **attestazione**: 1559347200 (1 giugno 2019 12:00:00 AM)
+- Attestazioni di output:
+  - **outputClaim**: 2019-06-01
 
 ## <a name="getcurrentdatetime"></a>GetCurrentDateTime
 
@@ -145,7 +174,7 @@ Determinare se un valore dateTime è successivo, precedente o uguale a un altro.
 | InputClaim | secondDateTime | dateTime | Il secondo valore dateTime da confrontare per verificare se è precedente o successivo al primo valore dateTime. Il valore Null viene considerato come il valore dateTime corrente. |
 | InputParameter | operator | string | Uno dei seguenti valori: uguale, successiva a o precedente a. |
 | InputParameter | timeSpanInSeconds | int | Aggiungere l'intervallo di tempo al primo valore datetime. |
-| OutputClaim | risultato | boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
+| OutputClaim | result | boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 
 Usare questa trasformazione di attestazione per determinare se due valori ClaimType sono uguali oppure se uno è successivo o precedente all'altro. Ad esempio, è possibile archiviare l'ultima volta che un utente ha accettato le condizioni d'uso. Dopo 3 mesi, è possibile chiedere all'utente di accedere nuovamente alle condizioni d'uso.
 Per eseguire la trasformazione delle attestazioni, è prima necessario ottenere il valore dateTime corrente e l'ultimo orario in cui l'utente ha accettato le condizioni d'uso.

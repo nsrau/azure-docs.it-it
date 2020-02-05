@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 07ef3858cc6a514ed60a9d25046dc4ff9566fa31
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 963572e19be71bf572357aadeee443696210a262
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546351"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984966"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
@@ -1198,7 +1198,7 @@ Usare una macchina virtuale notebook come ambiente host sicuro e pronto per l'az
 + Arresto intelligente quando non sono definiti criteri di uscita
 + Insiemi in pila
 
-+ Previsione di una serie temporale
++ Previsione delle serie temporali
   + Nuova funzione di previsione stima
   + È ora possibile usare la convalida incrociata di origine in sequenza sui dati di serie temporali
   + Nuove funzionalità aggiunte per configurare i GAL delle serie temporali
@@ -1236,7 +1236,7 @@ Il [`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-c
 
 ### <a name="azure-machine-learning-data-prep-sdk-v112"></a>Azure Machine Learning data Prep SDK v 1.1.2
 
-Nota: la preparazione dei dati Python SDK non installerà più `numpy` e `pandas` i pacchetti. Vedere [le istruzioni di installazione aggiornate](https://aka.ms/aml-data-prep-installation).
+Nota: la preparazione dei dati Python SDK non installerà più `numpy` e `pandas` i pacchetti. Vedere [le istruzioni di installazione aggiornate](https://github.com/Microsoft/AMLDataPrepDocs).
 
 + **Nuove funzionalità**
   + È ora possibile usare la trasformazione pivot.

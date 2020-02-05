@@ -4,50 +4,49 @@ description: In questo articolo vengono fornite le risposte alle domande più co
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 9cf7bf49d29b5faa9811a591b45179fe83c1d483
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f5be97458ba658f315c31ae34e540842b64e3ec4
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172918"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989570"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Avviso di monitoraggio di backup di Azure-Domande frequenti
 
-Questo articolo risponde a domande comuni sull'avviso di monitoraggio di Azure.
+Questo articolo risponde a domande comuni sul monitoraggio e la creazione di report di backup di Azure.
 
 ## <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 
-### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-storage-account"></a>Come verificare se è stato avviato il trasferimento dei dati dei report in un account di archiviazione?
+### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-log-analytics-la-workspace"></a>Ricerca per categorie controllare se i dati di Reporting hanno iniziato a scorrere in un'area di lavoro di Log Analytics (LA)?
 
-Passare all'account di archiviazione configurato e selezionare i contenitori. Se il contenitore include una voce per insights-logs-azurebackupreport, indica che è stato avviato il trasferimento dei dati dei report.
+Passare all'area di lavoro LA configurata, passare alla voce di menu **logs** ed eseguire la query CoreAzureBackup | eseguire 1. Se viene visualizzato un record restituito, significa che i dati sono stati avviati nel flusso nell'area di lavoro. Il push di dati iniziale può richiedere fino a 24 ore.
 
-### <a name="what-is-the-frequency-of-data-push-to-a-storage-account-and-the-azure-backup-content-pack-in-power-bi"></a>Qual è la frequenza del push di dati nell'account di archiviazione e nel pacchetto di contenuto di Backup di Azure in Power BI?
+### <a name="what-is-the-frequency-of-data-push-to-an-la-workspace"></a>Qual è la frequenza di push di dati in un'area di lavoro di LA?
 
-  Per gli utenti al primo tentativo sono necessarie circa 24 ore per il push dei dati in un account di archiviazione. Dopo aver completato il push iniziale, i dati vengono aggiornati con la frequenza illustrata nella figura riportata di seguito.
+I dati di diagnostica dell'insieme di credenziali vengono pompati nell'area di lavoro Log Analytics con un certo ritardo. Ogni evento arriva nell'area di lavoro Log Analytics da 20 a 30 minuti dopo il push dall'insieme di credenziali dei servizi di ripristino. Ecco altri dettagli sul ritardo:
 
-* I dati correlati a **processi**, **avvisi**, **elementi di backup**, **insiemi di credenziali**, **server protetti** e **criteri** vengono sottoposti a push in un account di archiviazione a ogni accesso.
+* Per tutte le soluzioni, viene eseguito il push degli avvisi predefiniti del servizio di backup non appena vengono creati. Quindi, vengono in genere visualizzati nell'area di lavoro Log Analytics dopo 20 o 30 minuti.
+* Per tutte le soluzioni, i processi di backup su richiesta e i processi di ripristino vengono spostati non appena vengono completati.
+* Per tutte le soluzioni ad eccezione di backup SQL, i processi di backup pianificati vengono inseriti non appena vengono completati.
+* Per il backup SQL, poiché i backup del log possono essere eseguiti ogni 15 minuti, le informazioni per tutti i processi di backup pianificati completati, inclusi i log, vengono inserite in batch e inserite ogni 6 ore.
+* Per tutte le soluzioni, altre informazioni, ad esempio l'elemento di backup, i criteri, i punti di ripristino, l'archiviazione e così via, vengono inserite almeno una volta al giorno.
+* Una modifica alla configurazione del backup, ad esempio la modifica dei criteri o la modifica dei criteri, attiva un push di tutte le informazioni di backup correlate.
 
-* I dati correlati all'**archiviazione** vengono sottoposti a push nell'account di archiviazione di un cliente ogni 24 ore.
+### <a name="how-long-can-i-retain-reporting-data"></a>Per quanto tempo è possibile mantenere i dati dei report?
 
-    ![Frequenza del push di dati dei report di Backup di Azure](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
+Dopo aver creato un'area di lavoro di LA, è possibile scegliere di conservare i dati per un massimo di 2 anni. Per impostazione predefinita, un'area di lavoro di LA mantiene i dati per 31 giorni.
 
-* Power BI esegue un [aggiornamento pianificato una volta al giorno](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). È possibile eseguire un aggiornamento manuale dei dati in Power BI per il pacchetto di contenuto.
+### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-la-workspace"></a>I dati nei report vengono visualizzati dopo aver configurato l'area di lavoro di LA?
 
-### <a name="how-long-can-i-retain-reports"></a>Per quanto tempo è possibile conservare i report?
-
-Quando si configura un account di archiviazione, è possibile selezionare un periodo di conservazione per i dati dei report al suo interno. Eseguire il passaggio 6 nella sezione precedente [Configurare l'account di archiviazione per i report](backup-azure-configure-reports.md#configure-storage-account-for-reports). È anche possibile [analizzare i report in Excel](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/) e salvarli per un periodo di conservazione più lungo, in base alle esigenze.
-
-### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-storage-account"></a>Tutti i dati saranno visibili nei report dopo aver configurato l'account di archiviazione?
-
- Tutti i dati generati dopo aver configurato l'account di archiviazione verranno sottoposti a push nell'account di archiviazione e saranno disponibili nei report. I processi in corso non vengono sottoposti a push per la creazione dei report. Dopo che il processo viene completato o ha esito negativo, viene inviato ai report.
-
-### <a name="if-i-already-configured-the-storage-account-to-view-reports-can-i-change-the-configuration-to-use-another-storage-account"></a>Se è già stato configurato l'account di archiviazione per visualizzare i report, è possibile modificare la configurazione per usare un altro account di archiviazione?
-
-Sì, è possibile modificare la configurazione in modo che punti a un account di archiviazione diverso. Durante la connessione al pacchetto di contenuto di Backup di Azure usare l'account di archiviazione appena configurato. Dopo aver configurato un account di archiviazione diverso, i nuovi dati verranno trasferiti in questo account di archiviazione. I dati meno recenti (prima di modificare la configurazione) rimarranno tuttavia nell'account di archiviazione precedente.
+ Tutti i dati generati dopo la configurazione delle impostazioni di diagnostica vengono inseriti nell'area di lavoro di e sono disponibili nei report. I processi in corso non vengono sottoposti a push per la creazione dei report. Una volta completato o non superato il processo, questo viene inviato ai report.
 
 ### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>È possibile visualizzare i report negli insiemi di credenziali e nelle sottoscrizioni?
 
-Sì, è possibile configurare lo stesso account di archiviazione per vari insiemi di credenziali per visualizzare i report tra loro. È anche possibile configurare lo stesso account di archiviazione per gli insiemi di credenziali nelle sottoscrizioni. È quindi possibile usare questo account di archiviazione durante la connessione al pacchetto di contenuto di Backup di Azure in Power BI per visualizzare i report. L'account di archiviazione selezionato deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino.
+Sì, è possibile visualizzare i report negli insiemi di credenziali e nelle sottoscrizioni, nonché nelle aree. I dati possono trovarsi in una singola area di lavoro o in un gruppo di aree di lavoro di.
+
+### <a name="can-i-view-reports-across-tenants"></a>È possibile visualizzare I report tra I tenant?
+
+Se si è un utente di [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) con accesso delegato alle sottoscrizioni dei clienti o alle aree di lavoro di la, è possibile usare i report di backup per visualizzare i dati in tutti i tenant.
 
 ### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Dopo quanto tempo lo stato del processo dell'agente di Backup di Azure viene indicato nel portale?
 

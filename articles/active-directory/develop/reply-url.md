@@ -10,17 +10,22 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 7e289b83daa9c30703d94a7f4c0ff459f96256c0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 1367bf32eea58b828c00ee23a59a32a2fec699ab
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702522"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983096"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Restrizioni e limitazioni degli URI di reindirizzamento/URL di risposta
 
 Un URI di reindirizzamento o un URL di risposta è il percorso a cui il server di autorizzazione invierà l'utente dopo che l'app è stata autorizzata correttamente e ha concesso un codice di autorizzazione o un token di accesso. Il codice o il token è contenuto nell'URI di reindirizzamento o nel token di risposta, quindi è importante registrare il percorso corretto come parte del processo di registrazione dell'app.
 
+ Agli URL di risposta si applicano le restrizioni seguenti:
+
+    * L'URL di risposta deve iniziare con lo schema `https`.
+    * L'URL di risposta fa distinzione tra maiuscole e minuscole. Il caso deve corrispondere al caso del percorso URL dell'applicazione in esecuzione. Se, ad esempio, l'applicazione include come parte del percorso `.../abc/response-oidc`, non specificare `.../ABC/response-oidc` nell'URL di risposta. Poiché il Web browser considera i percorsi come distinzione tra maiuscole e minuscole, i cookie associati a `.../abc/response-oidc` possono essere esclusi se reindirizzati all'URL `.../ABC/response-oidc` senza corrispondenza maiuscole/minuscole.
+    
 ## <a name="maximum-number-of-redirect-uris"></a>Numero massimo di URI di Reindirizzamento
 
 La tabella seguente illustra il numero massimo di URI di reindirizzamento che è possibile aggiungere quando si registra l'app.

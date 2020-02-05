@@ -1,5 +1,5 @@
 ---
-title: Rilevamento delle anomalie delle serie temporali e previsione in Azure Esplora dati
+title: Rilevamento anomalie della serie temporale & previsioni-Azure Esplora dati
 description: Informazioni su come analizzare i dati delle serie temporali per il rilevamento delle anomalie e la previsione con Azure Esplora dati.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 0e06569a3a6948836201b333501bf2de0416d4ca
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 4a7463d6149a921a4a29b43eaebb78a01543323a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766039"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985826"
 ---
 # <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>Rilevamento delle anomalie e previsioni in Azure Esplora dati
 
@@ -125,7 +125,7 @@ demo_make_series2
 
 ![Scalabilità delle serie temporali](media/anomaly-detection/series-scalability.png)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Questo documento descrive in dettaglio le funzioni native di Azure Esplora dati per il rilevamento e la previsione di anomalie della serie temporale. Ogni serie temporale originale è scomposta in componenti stagionali, di tendenza e residui per il rilevamento di anomalie e/o previsioni. Queste funzionalità possono essere usate per scenari di monitoraggio quasi in tempo reale, ad esempio il rilevamento di errori, la manutenzione predittiva e la previsione del carico e della richiesta.
 

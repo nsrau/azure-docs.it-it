@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8e1f144fdf94df445fb64b9b489cba1e9998f381
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 927014ed0c2b261351df786ad8a6b56f20c573a8
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845613"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984864"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funzionamento di Azure Machine Learning: architettura e concetti
 
@@ -85,7 +85,7 @@ Le attività possono fornire notifiche tramite l'SDK o l'interfaccia utente Web 
 ### <a name="compute-instance"></a>Istanza di calcolo (anteprima)
 
 > [!NOTE]
-> Le istanze di calcolo sono disponibili solo per le aree di lavoro con gli **Stati Uniti centro-settentrionali**, * * Stati Uniti orientali 2 * *, **europa settentrionale** o **Regno Unito meridionale**.
+> Le istanze di calcolo sono disponibili solo per le aree di lavoro con un'area geografica **Stati Uniti centro-settentrionali**, **Stati Uniti orientali 2**, **Europa settentrionale** o **Regno Unito meridionale**e il supporto per altre aree presto disponibile.
 >Se l'area di lavoro si trova in qualsiasi altra area geografica, è possibile continuare a creare e usare una [macchina virtuale notebook](concept-compute-instance.md#notebookvm) in alternativa. 
 
 Un' **istanza di calcolo Azure Machine Learning** (in precedenza VM notebook) è una workstation basata sul cloud completamente gestita che include più strumenti e ambienti installati per Machine Learning. Le istanze di calcolo possono essere usate come destinazione di calcolo per il training e l'inferenza dei processi. Per le attività di grandi dimensioni, [Azure Machine Learning cluster di calcolo](how-to-set-up-training-targets.md#amlcompute) con funzionalità di scalabilità a più nodi rappresenta una scelta migliore per la destinazione di calcolo.

@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 446784155cf6f72cfaa80523ed3913eacc7e5cfc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4f513aaf113ef4bd6e75e5c4b31e0f0252d45f10
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513133"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988091"
 ---
 # <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Connettersi a un set di scalabilità di macchine virtuali con Azure Bastion
 
@@ -26,7 +26,7 @@ Assicurarsi di aver configurato un host Bastion di Azure per la rete virtuale in
 
 1. Aprire il [portale di Azure](https://portal.azure.com). Passare al set di scalabilità di macchine virtuali a cui si vuole connettersi.
 
-   ![Navigare](./media/bastion-connect-vm-scale-set/1.png)
+   ![navigare](./media/bastion-connect-vm-scale-set/1.png)
 2. Passare all'istanza del set di scalabilità di macchine virtuali a cui si vuole connettersi, quindi selezionare **Connetti**. Quando si usa una connessione RDP, il set di scalabilità di macchine virtuali deve essere un set di scalabilità di macchine virtuali Windows.
 
    ![set di scalabilità di macchine virtuali](./media/bastion-connect-vm-scale-set/2.png)
@@ -35,7 +35,7 @@ Assicurarsi di aver configurato un host Bastion di Azure per la rete virtuale in
    ![Scheda Bastion](./media/bastion-connect-vm-scale-set/3.png)
 4. Nella scheda Bastion immettere il nome utente e la password per il set di scalabilità di macchine virtuali, quindi selezionare **Connetti**.
 
-   ![Connettersi](./media/bastion-connect-vm-scale-set/4.png)
+   ![connessione](./media/bastion-connect-vm-scale-set/4.png)
 5. La connessione RDP a questa macchina virtuale tramite Bastion verrà aperta direttamente nella portale di Azure (su HTML5) usando la porta 443 e il servizio Bastion.
 
 ## <a name="next-steps"></a>Passaggi successivi

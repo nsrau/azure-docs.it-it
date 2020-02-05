@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 07/11/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: c731dae02e9013fc436d6f30d8c8b2ab384968a0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: df663861010177ba54c56ee4495458ea1b928359
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453999"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985714"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Gestire IoT Central da Azure PowerShell
 
@@ -57,7 +57,7 @@ New-AzResourceGroup -ResourceGroupName "MyIoTCentralResourceGroup" `
 # Create an IoT Central application
 New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
   -Name "myiotcentralapp" -Subdomain "mysubdomain" `
-  -Sku "S1" -Template "iotc-demo@1.0.0" `
+  -Sku "ST1" -Template "iotc-demo@1.0.0" `
   -DisplayName "My Custom Display Name"
 ```
 
@@ -69,7 +69,7 @@ Lo script crea innanzitutto un gruppo di risorse nella località Stati Uniti ori
 |Percorso |Per impostazione predefinita, questo cmdlet usa la località definita per il gruppo di risorse. Attualmente, è possibile creare un'applicazione IoT Central in **Stati Uniti**, **Australia**, **Asia Pacifico**o nelle località dell' **Europa** .  |
 |Nome              |Nome dell'applicazione nel portale di Azure. |
 |Sottodominio         |Sottodominio nell'URL dell'applicazione. In questo esempio l'URL dell'applicazione è https://mysubdomain.azureiotcentral.com. |
-|SKU               |L'unico valore attualmente disponibile è **S1** (livello standard). Vedere [Prezzi di Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
+|SKU               |Attualmente, è possibile usare **ST1** o **ST2**. Vedere [Prezzi di Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 |Modello          | Modello di applicazione da usare. Per altre informazioni, vedere la tabella seguente: |
 |DisplayName       |Nome dell'applicazione visualizzato nell'interfaccia utente. |
 

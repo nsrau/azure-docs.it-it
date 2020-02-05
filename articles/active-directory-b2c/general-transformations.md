@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/27/2019
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 639277177bf63e659e5b0ea804eca5e20f956831
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 98d9730168764f0ba683a246f9ac224c13d3bf31
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948868"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982807"
 ---
 # <a name="general-claims-transformations"></a>Trasformazioni delle attestazioni generali
 
@@ -24,13 +24,42 @@ ms.locfileid: "74948868"
 
 Questo articolo fornisce esempi per l'uso delle trasformazioni delle attestazioni generali dello schema del Framework dell'esperienza di identità in Azure Active Directory B2C (Azure AD B2C). Per altre informazioni, vedere [ClaimsTransformations](claimstransformations.md).
 
+## <a name="copyclaim"></a>CopyClaim
+
+Copia il valore di un'attestazione in un altro. Entrambe le attestazioni devono essere dello stesso tipo.
+
+| Elemento | TransformationClaimType | Tipo di dati | Note |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | stringa, int | Tipo di attestazione da copiare. |
+| OutputClaim | outputClaim | stringa, int | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
+
+Usare questa trasformazione delle attestazioni per copiare un valore da un'attestazione stringa o numerica a un'altra attestazione. Nell'esempio seguente il valore dell'attestazione externalEmail viene copiato in attestazione posta elettronica.
+
+```XML
+<ClaimsTransformation Id="CopyEmailAddress" TransformationMethod="CopyClaim"> 
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="externalEmail" TransformationClaimType="inputClaim"/>
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="email" TransformationClaimType="outputClaim"/>
+  </OutputClaims>         
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Esempio
+
+- Attestazioni di input:
+    - **inputClaim**: bob@contoso.com
+- Attestazioni di output:
+    - **outputClaim**: bob@contoso.com 
+
 ## <a name="doesclaimexist"></a>DoesClaimExist
 
 Controlla se **inputClaim** esiste o meno e imposta **outputClaim** su true o false di conseguenza.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim |Qualsiasi | L'attestazione di input di cui deve essere verificata l'esistenza. |
+| InputClaim | inputClaim |Qualsiasi | L'attestazione di input di cui deve essere verificata l'esistenza. |
 | OutputClaim | outputClaim | boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 
 Usare questa trasformazione delle attestazioni per verificare se un'attestazione esiste o contiene un valore. Il valore restituito è un valore booleano che indica se l'attestazione esiste. L'esempio controlla se l'indirizzo di posta elettronica esiste.

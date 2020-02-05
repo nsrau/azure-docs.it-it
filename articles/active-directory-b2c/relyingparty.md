@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/25/2019
+ms.date: 02/02/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: caa7cbed7c56b63bcbf5ad8f287ab6cf32575c15
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7659c8187f7f4763b51b09362c94dad9554ed1c0
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840299"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982841"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -126,6 +126,8 @@ L'elemento **SingleSignOn** contiene l'attributo seguente:
 | --------- | -------- | ----------- |
 | Ambito | Sì | Ambito del comportamento di Single Sign-On (SSO). I valori possibili sono: `Suppressed`, `Tenant`, `Application` o `Policy`. Il valore `Suppressed` indica che il comportamento viene eliminato. Ad esempio, nel caso di una sessione di Single Sign-On, non viene mantenuta alcuna sessione per l'utente, a cui viene sempre richiesta la selezione di un provider di identità. Il valore `TrustFramework` indica che il comportamento viene applicato per tutti i criteri del framework attendibilità. Ad esempio, a un utente che naviga in due percorsi di criteri per un framework attendibilità non viene richiesto di selezionare un provider di identità. Il valore `Tenant` indica che il comportamento viene applicato a tutti i criteri nel tenant. Ad esempio, a un utente che naviga in due percorsi di criteri per un tenant non viene richiesto di selezionare un provider di identità. Il valore `Application` indica che il comportamento viene applicato a tutti i criteri per l'applicazione che esegue la richiesta. Ad esempio, a un utente che naviga in due percorsi di criteri per un'applicazione non viene richiesto di selezionare un provider di identità. Il valore `Policy` indica che il comportamento si applica solo a un criterio. Ad esempio, a un utente che naviga in due percorsi di criteri per un framework attendibilità viene richiesto di selezionare un provider di identità in caso passaggio da un criterio a un altro. |
 | KeepAliveInDays | Sì | Controlla per quanto tempo l'utente rimane connesso. Se si imposta il valore su 0, la funzionalità KMSI viene disattivata. Per altre informazioni, vedere [Mantenere l'accesso](custom-policy-keep-me-signed-in.md). |
+|EnforceIdTokenHintOnLogout| No|  Forzare il passaggio di un token ID emesso in precedenza all'endpoint di disconnessione come hint per la sessione autenticata corrente dell'utente finale con il client. I valori possibili sono: `false` (impostazione predefinita) o `true`. Per altre informazioni, vedere [accesso Web con OpenID Connect](openid-connect.md).  |
+
 
 ## <a name="journeyinsights"></a>JourneyInsights
 
@@ -176,12 +178,12 @@ L'elemento **TechnicalProfile** contiene gli elementi seguenti:
 
 | Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
-| DisplayName | 0:1 | Stringa contenente il nome del profilo tecnico visualizzato dagli utenti. |
-| Description | 0:1 | Stringa contenente la descrizione del profilo tecnico visualizzato dagli utenti. |
+| DisplayName | 1:1 | Stringa che contiene il nome del profilo tecnico. |
+| Description | 0:1 | Stringa che contiene la descrizione del profilo tecnico. |
 | Protocollo | 1:1 | Protocollo usato per la federazione. |
 | Metadati | 0:1 | Raccolta di *Item* delle coppie chiave-valore usate dal protocollo di comunicazione con l'endpoint durante una transazione per configurare l'interazione tra la relying party e altri membri della community. |
-| OutputClaims | 0:1 | Elenco di tipi di attestazione eseguiti come output nel profilo tecnico. Ognuno di questi elementi contiene un riferimento a un **ClaimType** già definito nella sezione **ClaimsSchema** o in un criterio da cui eredita questo file di criteri. |
-| SubjectNamingInfo | 0:1 | Nome del soggetto usato nei token. |
+| OutputClaims | 1:1 | Elenco di tipi di attestazione eseguiti come output nel profilo tecnico. Ognuno di questi elementi contiene un riferimento a un **ClaimType** già definito nella sezione **ClaimsSchema** o in un criterio da cui eredita questo file di criteri. |
+| SubjectNamingInfo | 1:1 | Nome del soggetto usato nei token. |
 
 L'elemento **Protocol** contiene l'attributo seguente:
 
