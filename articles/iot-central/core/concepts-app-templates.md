@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 12c624c6798ca48cad9312cafaf3425091a82a71
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: fde46ddfe85ca2cd1aa4ba65c8bd93d4db328410
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867449"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019044"
 ---
 # <a name="what-are-application-templates"></a>Che cosa i modelli di applicazione?
 
@@ -26,33 +26,16 @@ I modelli di applicazione sono costituiti da:
 - Regole e processi preconfigurati
 - Documentazione avanzata, incluse le esercitazioni e le procedure
 
-## <a name="preview-templates"></a>Modelli di anteprima
+Il modello di applicazione viene scelto quando si crea l'applicazione. Non è possibile modificare il modello dopo la creazione dell'applicazione.
 
-Il modello di applicazione scelto determina se l'applicazione usa IoT Central funzionalità di anteprima, ad esempio Plug and Play per i dispositivi.
+## <a name="custom-templates"></a>Modelli personalizzati
 
-Attualmente, il modello di applicazione che usa le funzionalità disponibili a livello _generale_ è:
+Se si vuole creare l'applicazione da zero, scegliere uno dei due modelli di applicazione personalizzati:
 
-- App personalizzata > applicazione legacy
+- Applicazione personalizzata
+- Applicazione personalizzata (legacy)
 
-
-Attualmente, i modelli di applicazione che usano le funzionalità di _anteprima pubblica_ sono:
-
-- Applicazione > anteprima dell'app personalizzata
-- Logistica per la vendita al dettaglio >
-- Centro distribuzione digitale > al dettaglio
-- Analisi in-Store del > al dettaglio-monitoraggio delle condizioni
-- Analisi dei > al dettaglio in-Store-checkout
-- Centro di > Micro-evasione al dettaglio
-- Gestione dell'inventario intelligente > al dettaglio
-- Monitoraggio di energia > Smart Meter
-- Monitoraggio del pannello solare di energia >
-- Gestione dello spreco connesso > per enti pubblici
-- Monitoraggio del consumo idrico > per enti pubblici
-- Monitoraggio della qualità dell'acqua > per enti pubblici
-- Assistenza sanitaria > monitoraggio continuo del paziente
-
-> [!NOTE]
-> I modelli di **applicazione legacy** sono attualmente disponibili nelle località **Stati Uniti**, **Australia**, **Asia Pacifico**o **Europa** , mentre altri modelli sono attualmente disponibili solo in **Europa** e negli **Stati Uniti** .
+Scegliere il modello **applicazione personalizzata** a meno che non esista un motivo specifico per usare il modello legacy.
 
 ## <a name="industry-focused-templates"></a>Modelli mirati al settore
 
@@ -61,9 +44,9 @@ Azure IoT Central è una piattaforma applicativa indipendente dal settore. I mod
 - [Retail](../retail/overview-iot-central-retail-pnp.md) (Vendita)
   - Logistica connessa
   - Centro di distribuzione digitale
-  - Analisi in-Store-monitoraggio delle condizioni
-  - Analisi in-Store-checkout
-  - Gestione Smart Inventory
+  - Analisi punti vendita - Monitoraggio delle condizioni
+  - Analisi punti vendita - Pagamento
+  - Gestione inventario intelligente
 - [Energia](../energy/overview-iot-central-energy.md)
   - Monitoraggio contatori intelligenti
   - Monitoraggio pannelli solari

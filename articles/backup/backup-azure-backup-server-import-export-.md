@@ -3,13 +3,13 @@ title: Backup offline per DPM e server di Backup di Azure
 description: Backup di Azure consente di inviare dati fuori rete usando il servizio importazione/esportazione di Azure. Questo articolo illustra il flusso di lavoro di backup offline per DPM e server di Backup di Azure (MAB).
 ms.reviewer: saurse
 ms.topic: conceptual
-ms.date: 05/08/2018
-ms.openlocfilehash: 259be99efdef29e3f7971632adf76c03175bba01
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.date: 1/28/2020
+ms.openlocfilehash: 6be75062ab0ce06784d8cd7c833e0070476acf60
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996324"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022580"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flusso di lavoro di backup offline per DPM e server di Backup di Azure
 
@@ -21,7 +21,7 @@ Il processo di seeding offline di Backup di Azure è strettamente integrato con 
 > Il processo di backup offline per l'agente di Servizi di ripristino di Microsoft Azure (MARS) è diverso da System Center DPM e dal server di Backup di Azure. Per informazioni sull'uso del backup offline con agente MARS, vedere [questo articolo](backup-azure-backup-import-export.md). Il backup offline non è supportato per i backup dello stato del sistema eseguiti tramite l'agente di Backup di Azure.
 >
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Overview
 
 Con la funzionalità di seeding offline di Backup di Azure e Importazione/Esportazione di Azure, caricare i dati offline in Azure tramite dischi è molto semplice. Il processo di backup offline prevede i passaggi seguenti:
 
@@ -56,13 +56,74 @@ Verificare che i seguenti prerequisiti siano soddisfatti prima di avviare il flu
     | Stati Uniti | [Collegamento](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
     | Cina | [Collegamento](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
-* Nella sottoscrizione da cui è stato scaricato il file di impostazioni di pubblicazione è stato creato un account di archiviazione di Azure con modello di distribuzione *classico*, come illustrato di seguito:
+* Nella sottoscrizione da cui è stato scaricato il file di impostazioni di pubblicazione è stato creato un account di archiviazione di Azure con *Gestione risorse* modello di distribuzione, come mostrato di seguito:
 
-  ![Creazione di un account di archiviazione classico](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
+  ![Creazione di un account di archiviazione con Gestione risorse sviluppo](./media/backup-azure-backup-import-export/storage-account-resource-manager.png)
 
 * Viene creato un percorso di gestione temporanea, che può essere una condivisione di rete o qualsiasi unità aggiuntiva nel computer, interna o esterna, con spazio su disco sufficiente per contenere la copia iniziale. Se ad esempio si prevede di eseguire il backup di un file server da 500 GB, verificare che la dimensione dell'area di staging sia di almeno 500 GB. Verrà tuttavia usata una quantità inferiore in virtù della compressione.
 * Per quanto riguarda i dischi che verranno spediti a Azure, assicurarsi che vengano usate solo unità SSD da 2,5 pollici o unità disco rigido interne SATA II/III da 2,5 o 3,5 pollici. È possibile usare dischi rigidi fino a 10 TB. Per informazioni sul set più recente di unità supportato dal servizio, vedere la [documentazione del servizio Importazione/Esportazione di Azure](../storage/common/storage-import-export-requirements.md#supported-hardware).
 * Le unità SATA devono essere connesse a un computer (denominato *computer di copia*) da cui vengono copiati i dati di backup del *percorso di gestione temporanea* nell'unità SATA. Verificare che nel *computer di copia* sia abilitato BitLocker
+
+## <a name="prepare-the-server-for-the-offline-backup-process"></a>Preparare il server per il processo di backup offline
+
+>[!NOTE]
+> Se non è possibile trovare le utilità elencate, ad esempio *AzureOfflineBackupCertGen. exe* , durante l'installazione dell'agente Mars, scrivere in AskAzureBackupTeam@microsoft.com per ottenere l'accesso.
+
+* Aprire un prompt dei comandi con privilegi elevati nel server ed eseguire il comando seguente:
+
+    ```cmd
+    AzureOfflineBackupCertGen.exe CreateNewApplication SubscriptionId:<Subs ID>
+    ```
+
+    Se non ne esiste uno, lo strumento creerà un'applicazione AD di backup offline di Azure.
+
+    Se un'applicazione esiste già, questo eseguibile chiederà di caricare manualmente il certificato nell'applicazione nel tenant. Attenersi alla procedura riportata di seguito in [questa sezione](#manually-upload-offline-backup-certificate) per caricare il certificato manualmente nell'applicazione.
+
+* Lo strumento AzureOfflineBackup. exe genererà un file OfflineApplicationParams. XML.  Copiare questo file nel server con MAB o DPM.
+* Installare la [versione più recente dell'agente Mars](https://aka.ms/azurebackup_agent) nel server di backup di DPM/Azure (MAB).
+* Registrare il server in Azure.
+* Eseguire il comando seguente:
+
+    ```cmd
+    AzureOfflineBackupCertGen.exe AddRegistryEntries SubscriptionId:<subscriptionid> xmlfilepath:<path of the OfflineApplicationParams.xml file>  storageaccountname:<storageaccountname configured with Azure Data Box>
+    ```
+
+* Il comando precedente creerà il file `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch\MicrosoftBackupProvider\OfflineApplicationParams_<Storageaccountname>.xml`
+
+## <a name="manually-upload-offline-backup-certificate"></a>Caricare manualmente il certificato di backup offline
+
+Attenersi alla procedura seguente per caricare manualmente il certificato di backup offline in un'applicazione Azure Active Directory creata in precedenza per il backup offline.
+
+1. Accedere al portale di Azure.
+2. Passare a **Azure Active Directory** > **registrazioni app**
+3. Passare alla scheda **applicazioni di proprietà** e individuare un'applicazione con il formato nome visualizzato `AzureOfflineBackup _<Azure User Id` come illustrato di seguito:
+
+    ![Scheda Individua applicazione in applicazioni di proprietà](./media/backup-azure-backup-import-export/owned-applications.png)
+
+4. Fare clic sull'applicazione. Nella scheda **Gestisci** del riquadro sinistro passare a **certificati & segreti**.
+5. Verificare la presenza di certificati preesistenti o di chiavi pubbliche. Se non è presente alcun valore, è possibile eliminare l'applicazione in modo sicuro facendo clic sul pulsante **Elimina** nella pagina **Panoramica** dell'applicazione. A questo proposito, è possibile ripetere i passaggi per [preparare il server per il](#prepare-the-server-for-the-offline-backup-process) processo di backup non in linea e ignorare i passaggi seguenti. In caso contrario, eseguire i passaggi seguenti dal server DPM/server di Backup di Azure (MAB) in cui si desidera configurare il backup non in linea.
+6. Aprire la scheda **Gestisci applicazione certificato computer** > **Personal** e cercare il certificato con il nome `CB_AzureADCertforOfflineSeeding_<ResourceId>`
+7. Selezionare il certificato precedente, fare clic con il pulsante destro del mouse su **tutte le attività** e quindi **esportare**, senza chiave privata, nel formato CER.
+8. Passare all'applicazione di backup offline di Azure nel portale di Azure.
+9. Fare clic su **Gestisci** **certificati > & segreti** > **caricare il certificato**e caricare il certificato esportato nel passaggio precedente.
+
+    ![Caricare il certificato](./media/backup-azure-backup-import-export/upload-certificate.png)
+10. Nel server aprire il registro di sistema digitando **Regedit** nella finestra Esegui.
+11. Passare alla voce del registro di sistema *computer \ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config\CloudBackupProvider*.
+12. Fare clic con il pulsante destro del mouse su **CloudBackupProvider** e aggiungere un nuovo valore stringa con il nome `AzureADAppCertThumbprint_<Azure User Id>`
+
+    >[!NOTE]
+    > Nota: per trovare l'ID utente di Azure, eseguire una delle operazioni seguenti:
+    >
+    >1. Da PowerShell connesso ad Azure eseguire il comando `Get-AzureRmADUser -UserPrincipalName “Account Holder’s email as appears in the portal”`.
+    >2. Passare al percorso del registro di sistema: `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup; Name: CurrentUserId;`
+
+13. Fare clic con il pulsante destro del mouse sulla stringa aggiunta nel passaggio precedente e scegliere **modifica**. Nel valore specificare l'identificazione personale del certificato esportato nel passaggio 7 e fare clic su **OK**.
+14. Per ottenere il valore dell'identificazione personale, fare doppio clic sul certificato, quindi selezionare la scheda **Dettagli** e scorrere verso il basso fino a visualizzare il campo identificazione personale. Fare clic su **identificazione personale** e copiare il valore.
+
+    ![Copia valore dal campo identificazione personale](./media/backup-azure-backup-import-export/thumbprint-field.png)
+
+15. Continuare con la sezione del [flusso di lavoro](#workflow) per procedere con il processo di backup non in linea.
 
 ## <a name="workflow"></a>Flusso di lavoro
 
@@ -104,7 +165,7 @@ Le informazioni presenti in questa sezione consentono di completare il flusso di
 
 L'utilità *AzureOfflineBackupDiskPrep* consente di preparare le unità SATA da inviare al data center di Azure più vicino. Questa utilità è disponibile nella directory di installazione dell'agente di Servizi di ripristino nel percorso seguente:
 
-    *\\Microsoft Azure Recovery Services Agent\\Utils\\*
+`*\\Microsoft Azure Recovery Services Agent\Utils\*`
 
 1. Passare alla directory e copiare la directory **AzureOfflineBackupDiskPrep** in un computer di copia a cui sono collegate le unità SATA da preparare. Assicurarsi che il computer di copia soddisfi i requisiti seguenti:
 
@@ -218,4 +279,3 @@ Al successivo backup pianificato, Backup di Azure eseguirà il backup incrementa
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per altre informazioni sul flusso di lavoro di Importazione/Esportazione di Azure, vedere [Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archiviazione BLOB](../storage/common/storage-import-export-service.md).
-

@@ -1,17 +1,17 @@
 ---
 title: Azioni di GitHub & servizio Azure Kubernetes
 services: azure-dev-spaces
-ms.date: 11/04/2019
+ms.date: 02/04/2020
 ms.topic: conceptual
 description: Esaminare e testare le modifiche da una richiesta pull direttamente nel servizio Azure Kubernetes usando le azioni di GitHub e Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori, azioni di GitHub, Helm, mesh dei servizi, routing mesh del servizio, kubectl, K8S
 manager: gwallace
-ms.openlocfilehash: 7d96726e829154847744d9aec07a9cb0938f75de
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 35050d0c9d1e6062866747dc8544d03574a8d8fe
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771122"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026099"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Azioni di GitHub & servizio Azure Kubernetes (anteprima)
 
@@ -58,7 +58,6 @@ az ad sp create-for-rbac --sdk-auth --skip-assignment
 
 Salvare l'output JSON perché verrà usato in un passaggio successivo.
 
-
 Usare [AZ AKS Show][az-aks-show] per visualizzare l' *ID* del cluster AKS:
 
 ```cmd
@@ -93,7 +92,6 @@ Passare al repository con fork e fare clic su *Settings (impostazioni*). Fare cl
 1. *CLUSTER_NAME*: il nome del cluster AKS, che in questo esempio è *MyAKS*.
 1. *CONTAINER_REGISTRY*: *LOGINSERVER* per l'ACR.
 1. *Host*: host per lo spazio di sviluppo, che assume il formato *< MASTER_SPACE >. < APP_NAME >.* < HOST_SUFFIX >, che in questo esempio è *dev.bikesharingweb.fedcab0987.EUS.azds.io*.
-1. *HOST_SUFFIX*: il suffisso host per lo spazio di sviluppo, che in questo esempio è *fedcab0987.EUS.azds.io*.
 1. *IMAGE_PULL_SECRET*: il nome del segreto che si vuole usare, ad esempio *demo-Secret*.
 1. *MASTER_SPACE*: il nome dello spazio di sviluppo padre, che in questo esempio è *dev*.
 1. *REGISTRY_USERNAME*: *ClientID* dall'output JSON della creazione dell'entità servizio.
@@ -101,6 +99,8 @@ Passare al repository con fork e fare clic su *Settings (impostazioni*). Fare cl
 
 > [!NOTE]
 > Tutti questi segreti vengono usati dall'azione GitHub e sono configurati in [. github/workflows/Bikes. yml][github-action-yaml].
+
+Facoltativamente, se si desidera aggiornare lo spazio master dopo l'Unione della richiesta pull, aggiungere il *GATEWAY_HOST* Secret, che assume il formato *< MASTER_SPACE >. gateway. <* HOST_SUFFIX >, che in questo esempio è *dev.gateway.fedcab0987.EUS.azds.io*. Una volta unite le modifiche nel ramo master nel fork, viene eseguita un'altra azione per ricompilare ed eseguire l'intera applicazione nello spazio di sviluppo master. In questo esempio, lo spazio master è *dev*. Questa azione è configurata in [. github/workflows/bikesharing. yml][github-action-bikesharing-yaml].
 
 ## <a name="create-a-new-branch-for-code-changes"></a>Creare un nuovo ramo per le modifiche al codice
 

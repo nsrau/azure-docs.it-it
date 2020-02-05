@@ -79,8 +79,6 @@
           href: face-resource-container-config.md
         - name: Usare istanze di contenitore
           href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
-    - name: Usare il servizio connesso Viso
-      href: vs-face-connected-service.md
 - name: Informazioni di riferimento
   items:
     - name: API Viso

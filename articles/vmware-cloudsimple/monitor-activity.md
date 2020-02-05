@@ -1,7 +1,7 @@
 ---
-title: Monitorare l'attività del cloud privato
-titleSuffix: Azure VMware Solution by CloudSimple
-description: Descrive le informazioni disponibili sulle attività nella soluzione VMware di Azure in base all'ambiente CloudSimple, inclusi gli avvisi, gli eventi, le attività e il controllo.
+title: Azure VMware Solutions (AVS)-monitorare l'attività del cloud privato AVS
+description: Descrive le informazioni disponibili sulle attività nella soluzione VMware di Azure in base all'ambiente AVS, inclusi gli avvisi, gli eventi, le attività e il controllo.
+titleSuffix: Azure VMware Solutions (AVS)
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/13/2019
@@ -9,24 +9,24 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1228f3a54e02d4fe7a5133e2bfba55c38e34718a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5d6fd1b92db62ab7cc9edd47c601910b8148bb95
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459210"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019673"
 ---
-# <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>Monitora l'attività CloudSimple della soluzione VMware
+# <a name="monitor-vmware-solutions-avs-activity"></a>Monitorare le attività di VMware Solutions (AVS)
 
-I log attività di CloudSimple forniscono informazioni dettagliate sulle operazioni eseguite nel portale di CloudSimple.  L'elenco include gli avvisi, gli eventi, le attività e il controllo.  Usare i log attività per determinare chi, quando e quali operazioni sono state eseguite.  I log attività non includono le operazioni di lettura eseguite da un utente.
+I log attività AVS forniscono informazioni dettagliate sulle operazioni eseguite nel portale di AVS. L'elenco include gli avvisi, gli eventi, le attività e il controllo. Usare i log attività per determinare chi, quando e quali operazioni sono state eseguite. I log attività non includono le operazioni di lettura eseguite da un utente.
 
 ## <a name="sign-in-to-azure"></a>Accedere a Azure
 
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="access-the-cloudsimple-portal"></a>Accedere al portale di CloudSimple
+## <a name="access-the-avs-portal"></a>Accedere al portale AVS
 
-Accedere al [portale di CloudSimple](access-cloudsimple-portal.md).
+Accedere al [portale AVS](access-cloudsimple-portal.md).
 
 ## <a name="activity-information"></a>Informazioni sulle attività
 
@@ -36,11 +36,11 @@ Per accedere alle pagine attività, selezionare **attività** dal menu laterale.
 
 Per visualizzare i dettagli relativi a una delle attività nella pagina attività, selezionare l'attività. A destra verrà visualizzato un pannello Dettagli. Le azioni nel pannello dipendono dal tipo di attività. Fare clic su **X** per chiudere il pannello.
 
-Fare clic su un'intestazione di colonna per ordinare la visualizzazione.  È possibile filtrare le colonne per valori specifici da visualizzare.  Scaricare il report attività facendo clic sull'icona **Scarica come CSV** .
+Fare clic su un'intestazione di colonna per ordinare la visualizzazione. È possibile filtrare le colonne per valori specifici da visualizzare. Scaricare il report attività facendo clic sull'icona **Scarica come CSV** .
 
 ## <a name="alerts"></a>Avvisi
 
-Gli avvisi sono notifiche di eventuali attività significative nell'ambiente di CloudSimple.  Gli avvisi includono eventi che influiscono sulla fatturazione o sull'accesso utente.
+Gli avvisi sono notifiche di qualsiasi attività significativa nell'ambiente AVS. Gli avvisi includono eventi che influiscono sulla fatturazione o sull'accesso utente.
 
 Per confermare gli avvisi e rimuoverli dall'elenco, selezionare uno o più nell'elenco e fare clic su **conferma**.
 
@@ -51,15 +51,15 @@ Per gli avvisi sono disponibili le seguenti colonne di informazioni. Fare clic s
 | Tipo di avviso | Categoria di avviso.|
 | Durata | Ora in cui si è verificato l'avviso. |
 | Gravità | Importanza dell'avviso.|
-| Nome risorsa | Nome assegnato alla risorsa, ad esempio il nome del cloud privato. |
-| Tipo di risorsa | Categoria della risorsa: cloud privato, rack cloud. |
+| Nome risorsa | Nome assegnato alla risorsa, ad esempio il nome del cloud privato AVS. |
+| Tipo di risorsa | Categoria della risorsa: AVS private cloud, cloud rack. |
 | ID risorsa | Identificatore della risorsa. |
 | Description | Descrizione dell'elemento che ha attivato l'avviso. |
 | Confermato | Indica se l'avviso è stato riconosciuto. |
 
 ## <a name="events"></a>Eventi
 
-Eventi Mostra l'attività dell'utente e del sistema nel portale di CloudSimple. Nella pagina eventi sono elencate le attività associate a una risorsa specifica e la gravità dell'effetto.
+Eventi Mostra l'attività dell'utente e del sistema nel portale AVS. Nella pagina eventi sono elencate le attività associate a una risorsa specifica e la gravità dell'effetto.
 
 Per gli avvisi sono disponibili le seguenti colonne di informazioni. Fare clic su **modifica colonne** e selezionare le colonne che si desidera visualizzare.
 
@@ -68,13 +68,13 @@ Per gli avvisi sono disponibili le seguenti colonne di informazioni. Fare clic s
 | Durata | Data e ora in cui si è verificato l'evento. |
 | Tipo evento | Codice numerico che identifica l'evento. |
 | Gravità | Gravità dell'evento.|
-| Nome risorsa | Nome assegnato alla risorsa, ad esempio il nome del cloud privato. |
-| Tipo di risorsa | Categoria della risorsa: cloud privato, rack cloud. |
+| Nome risorsa | Nome assegnato alla risorsa, ad esempio il nome del cloud privato AVS. |
+| Tipo di risorsa | Categoria della risorsa: AVS private cloud, cloud rack. |
 | Description | Descrizione dell'elemento che ha attivato l'avviso. |
 
 ## <a name="tasks"></a>Attività
 
-Le attività sono attività del cloud privato che dovrebbero richiedere oltre 30 secondi per il completamento. (Le attività che dovrebbero richiedere meno di 30 secondi vengono segnalate solo come eventi). Aprire le pagine attività per tenere traccia dello stato di avanzamento delle attività per il cloud privato.
+Le attività sono le attività del cloud privato AVS che dovrebbero richiedere oltre 30 secondi per il completamento. (Le attività che dovrebbero richiedere meno di 30 secondi vengono segnalate solo come eventi). Aprire le pagine attività per tenere traccia dello stato di avanzamento delle attività per il cloud privato AVS.
 
 Per gli avvisi sono disponibili le seguenti colonne di informazioni. Fare clic su **modifica colonne** e selezionare le colonne che si desidera visualizzare.
 
@@ -84,13 +84,13 @@ Per gli avvisi sono disponibili le seguenti colonne di informazioni. Fare clic s
 | Operazione | Azione eseguita dall'attività. |
 | Utente | Utente assegnato per completare l'attività. |
 | Nome risorsa | Nome assegnato alla risorsa. |
-| Tipo di risorsa | Categoria della risorsa: cloud privato, rack cloud. |
+| Tipo di risorsa | Categoria della risorsa: AVS private cloud, cloud rack. |
 | ID risorsa | Identificatore della risorsa. |
 | Inizio | Ora di inizio dell'attività. |
 | Fine | Ora di fine dell'attività. |
 | Stato | Stato corrente dell'attività. |
 | Tempo trascorso | Tempo richiesto per il completamento dell'attività (se completata) o in corso (se in corso). |
-| Description | Descrizione attività. |
+| Description | Descrizione dell'attività. |
 
 ## <a name="audit"></a>Audit
 
@@ -104,7 +104,7 @@ Per gli avvisi sono disponibili le seguenti colonne di informazioni. Fare clic s
 | Operazione | Azione eseguita dall'attività. |
 | Utente | Utente assegnato all'attività. |
 | Nome risorsa | Nome assegnato alla risorsa. |
-| Tipo di risorsa | Categoria della risorsa: cloud privato, rack cloud. |
+| Tipo di risorsa | Categoria della risorsa: AVS private cloud, cloud rack. |
 | ID risorsa | Identificatore della risorsa. |
 | Risultato | Risultato dell'attività, ad esempio **Success**. |
 | Tempo impiegato | Tempo necessario per completare l'attività. |
@@ -113,4 +113,4 @@ Per gli avvisi sono disponibili le seguenti colonne di informazioni. Fare clic s
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Utilizzare macchine virtuali VMware in Azure](quickstart-create-vmware-virtual-machine.md)
-* Altre informazioni sui [cloud privati](cloudsimple-private-cloud.md)
+* Altre informazioni sui [cloud privati AVS](cloudsimple-private-cloud.md)

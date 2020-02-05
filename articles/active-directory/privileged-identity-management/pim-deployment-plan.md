@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 02/04/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eef096322c8a8cfbf1618447529d46f6fbfd13b1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b8c77b3454026aa309d979bd938674e7c3ae7b6a
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021860"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025997"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuire Azure AD Privileged Identity Management (PIM)
 
@@ -50,7 +50,7 @@ Per altre informazioni, vedere [What is Azure AD Privileged Identity Management?
 
 Per usare Privileged Identity Management, la directory deve avere una delle licenze a pagamento o di valutazione seguenti:
 
-- Azure AD P2 Premium
+- Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5
 - Microsoft 365 M5
 
@@ -58,7 +58,7 @@ Per ulteriori informazioni, vedere [requisiti di licenza per l'utilizzo di Privi
 
 ### <a name="key-terminology"></a>Terminologia chiave
 
-| Termine o concetto | DESCRIZIONE |
+| Termine o concetto | Description |
 | --- | --- |
 | idoneo | Un'assegnazione di ruolo che richiede a un utente di eseguire una o più azioni per usare il ruolo. Se un utente è stato reso idoneo per un ruolo, potrà attivare il ruolo quando avrà bisogno di svolgere le attività con privilegi. Non esiste alcuna differenza sostanziale tra l'accesso concesso a un utente con l'assegnazione permanente e quello con l'assegnazione di idoneità al ruolo. L'unica differenza è che alcuni utenti non necessitano dell'accesso continuo. |
 | activate | Il processo di esecuzione di una o più azioni per usare un ruolo per cui un utente è idoneo. Le azioni possono includere il completamento di un controllo di autenticazione a più fattori (MFA), l'indicazione di una motivazione aziendale e la richiesta di approvazione da parte di responsabili dell'approvazione designati. |
@@ -120,7 +120,7 @@ La sezione seguente consente di identificare tutti gli stakeholder coinvolti nel
 
 Come parte del processo di pianificazione, è necessario prima di tutto concedere il consenso e abilitare Privileged Identity Management seguendo l'articolo [iniziare a usare Privileged Identity Management](pim-getting-started.md) . L'abilitazione di Privileged Identity Management consente di accedere ad alcune funzionalità progettate in modo specifico per facilitare la distribuzione.
 
-Se l'obiettivo consiste nel distribuire Privileged Identity Management per le risorse di Azure, è necessario seguire l'articolo [individuare le risorse di Azure da gestire in Privileged Identity Management](pim-resource-roles-discover-resources.md) . Solo i proprietari di ogni risorsa, gruppo di risorse e sottoscrizione saranno in grado di individuarli all'interno Privileged Identity Management. Gli amministratori globali che tentano di distribuire Privileged Identity Management per le risorse di Azure possono [elevare l'accesso per gestire tutte le sottoscrizioni di Azure](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) per consentire l'accesso a tutte le risorse di Azure nella directory per l'individuazione. Tuttavia, si consiglia di ottenere l'approvazione da ogni proprietario della sottoscrizione prima di gestire le risorse con Privileged Identity Management.
+Se l'obiettivo consiste nel distribuire Privileged Identity Management per le risorse di Azure, è necessario seguire l'articolo [individuare le risorse di Azure da gestire in Privileged Identity Management](pim-resource-roles-discover-resources.md) . Solo i proprietari di sottoscrizioni e gruppi di gestione possono individuare e caricare queste risorse in Privileged Identity Management. Una volta caricato, la funzionalità PIM è disponibile per i proprietari a tutti i livelli, inclusi gruppo di gestione, sottoscrizione, gruppo di risorse e risorsa. Gli amministratori globali che tentano di distribuire Privileged Identity Management per le risorse di Azure possono [elevare l'accesso per gestire tutte le sottoscrizioni di Azure](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) per consentire l'accesso a tutte le risorse di Azure nella directory per l'individuazione. Tuttavia, si consiglia di ottenere l'approvazione da ogni proprietario della sottoscrizione prima di gestire le risorse con Privileged Identity Management.
 
 ### <a name="enforce-principle-of-least-privilege"></a>Applicare il principio di accesso con privilegi minimi
 
@@ -198,7 +198,7 @@ Se hanno utenti guest assegnati, i ruoli sono particolarmente vulnerabili agli a
 > [!TIP]
 > : heavy_check_mark: **Microsoft consiglia** di gestire tutti i ruoli con gli utenti guest utilizzando Privileged Identity Management per ridurre i rischi associati agli account utente Guest compromessi.
 
-I ruoli di lettore, come quelli con autorizzazioni di lettura nella directory, per il Centro messaggi e per la sicurezza, sono talvolta considerati meno importanti rispetto ad altri poiché non dispongono dell'autorizzazione di scrittura. Alcuni clienti, tuttavia, proteggono anche questi ruoli perché gli utenti malintenzionati che hanno accesso a questi account possono riuscire a leggere dati sensibili, ad esempio informazioni personali. È necessario tenere in considerazione questo aspetto quando si decide se i ruoli di Reader nell'organizzazione devono essere gestiti con Privileged Identity Management.
+I ruoli di lettore, come quelli con autorizzazioni di lettura nella directory, per il Centro messaggi e per la sicurezza, sono talvolta considerati meno importanti rispetto ad altri poiché non dispongono dell'autorizzazione di scrittura. Tuttavia, abbiamo visto che alcuni clienti proteggono anche questi ruoli perché gli utenti malintenzionati che hanno ottenuto l'accesso a questi account potrebbero essere in grado di leggere dati sensibili, ad esempio i dati personali. È necessario tenere in considerazione questo aspetto quando si decide se i ruoli di Reader nell'organizzazione devono essere gestiti con Privileged Identity Management.
 
 #### <a name="azure-resource-roles"></a>Ruoli delle risorse di Azure
 
@@ -243,20 +243,20 @@ Prima di implementare la soluzione di Privileged Identity Management, è consigl
 | Ruolo | Richiedere l'autenticazione MFA | Notifica | Ticket di evento imprevisto | Richiedi approvazione | Responsabile approvazione | Durata attivazione | Amministratore permanente |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Amministratore globale | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri amministratori globali | 1 ora | Account di accesso di emergenza |
-| Amministratore di Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | nessuno | 2 ore | nessuno |
-| Amministratore del supporto tecnico | :x: | :x: | :heavy_check_mark: | :x: | nessuno | 8 ore | nessuno |
+| Amministratore di Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Nessuno | 2 ore | Nessuno |
+| Amministratore del supporto tecnico | :x: | :x: | :heavy_check_mark: | :x: | Nessuno | 8 ore | Nessuno |
 
 #### <a name="privileged-identity-management-settings-for-azure-resource-roles"></a>Impostazioni Privileged Identity Management per i ruoli delle risorse di Azure
 
 | Ruolo | Richiedere l'autenticazione MFA | Notifica | Richiedi approvazione | Responsabile approvazione | Durata attivazione | Amministratore attivo | Scadenza assegnazioni attive | Scadenza assegnazioni idonee |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Proprietario di sottoscrizioni critiche | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri proprietari della sottoscrizione | 1 ora | nessuno | N/D | 3 mesi |
-| Amministratore Accesso utenti di sottoscrizioni meno critiche | :heavy_check_mark: | :heavy_check_mark: | :x: | nessuno | 1 ora | nessuno | N/D | 3 mesi |
-| Collaboratore macchine virtuali | :x: | :heavy_check_mark: | :x: | nessuno | 3 ore | nessuno | N/D | 6 mesi |
+| Proprietario di sottoscrizioni critiche | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri proprietari della sottoscrizione | 1 ora | Nessuno | N/D | 3 mesi |
+| Amministratore Accesso utenti di sottoscrizioni meno critiche | :heavy_check_mark: | :heavy_check_mark: | :x: | Nessuno | 1 ora | Nessuno | N/D | 3 mesi |
+| Collaboratore macchine virtuali | :x: | :heavy_check_mark: | :x: | Nessuno | 3 ore | Nessuno | N/D | 6 mesi |
 
 La tabella seguente include le descrizioni per ciascuna delle impostazioni.
 
-| Impostazione | DESCRIZIONE |
+| Impostazione | Description |
 | --- | --- |
 | Ruolo | Nome del ruolo per cui si definiscono le impostazioni. |
 | Richiedere l'autenticazione MFA | Indica se l'utente idoneo deve eseguire l'autenticazione a più fattori (MFA) prima dell'attivazione del ruolo.<br/><br/> : heavy_check_mark: **Microsoft consiglia** di applicare l'autenticazione a più fattori per tutti i ruoli di amministratore, soprattutto se i ruoli hanno utenti guest. |

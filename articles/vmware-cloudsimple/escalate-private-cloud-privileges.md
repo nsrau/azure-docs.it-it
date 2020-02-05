@@ -1,7 +1,7 @@
 ---
-title: Escalation dei privilegi del cloud privato
-titleSuffix: Azure VMware Solution by CloudSimple
-description: Viene descritto come eseguire l'escalation dei privilegi sul cloud privato per le funzioni amministrative in vCenter
+title: Escalation dei privilegi del cloud privato AVS-soluzione VMware di Azure con AVS
+description: Viene descritto come eseguire l'escalation dei privilegi sul cloud privato AVS per le funzioni amministrative in vCenter
+titleSuffix: Azure VMware Solutions (AVS)
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 06/05/2019
@@ -9,18 +9,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3d06f3e8be449e7050c65c75339a0cff6efe19e4
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 211960af359e19f93afef58162c5b09ae1d9b23f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544447"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025317"
 ---
-# <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Escalation dei privilegi di cloud privato nel portale di CloudSimple
+# <a name="escalate-avs-private-cloud-vcenter-privileges-from-the-avs-portal"></a>Escalation dei privilegi AVS private cloud vCenter dal portale AVS
 
-Per l'accesso amministrativo al cloud privato, è possibile inoltrare temporaneamente i privilegi di CloudSimple.  Usando privilegi elevati, è possibile installare soluzioni VMware, aggiungere origini di identità e gestire gli utenti.
+Per l'accesso amministrativo a AVS private cloud vCenter, è possibile inoltrare temporaneamente i privilegi AVS. Usando privilegi elevati, è possibile installare soluzioni VMware, aggiungere origini di identità e gestire gli utenti.
 
-È possibile creare nuovi utenti nel dominio vCenter SSO e accedere a vCenter.  Quando si creano nuovi utenti, aggiungerli ai gruppi predefiniti di CloudSimple per l'accesso a vCenter.  Per altre informazioni, vedere il [modello di autorizzazione del cloud privato CloudSimple di VMware vCenter](https://docs.azure.cloudsimple.com/learn-private-cloud-permissions/).
+È possibile creare nuovi utenti nel dominio vCenter SSO e accedere a vCenter. Quando si creano nuovi utenti, aggiungerli ai gruppi AVS builtin per accedere a vCenter. Per altre informazioni, vedere il [modello di autorizzazione del cloud privato AVS di VMware vCenter](https://docs.azure.cloudsimple.com/learn-private-cloud-permissions/).
 
 > [!CAUTION]
 > Non apportare modifiche alla configurazione per i componenti di gestione. Le azioni eseguite durante lo stato con privilegi escalated possono avere un impatto negativo sul sistema o causare un sistema non disponibile.
@@ -31,15 +31,15 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 ## <a name="escalate-privileges"></a>Riassegnare i privilegi
 
-1. Accedere al [portale di CloudSimple](access-cloudsimple-portal.md).
+1. Accedere al [portale AVS](access-cloudsimple-portal.md).
 
-2. Aprire la pagina **risorse** e selezionare il cloud privato per il quale si desidera eseguire l'escalation dei privilegi.
+2. Aprire la pagina **risorse** e selezionare il cloud privato AVS per il quale si desidera eseguire l'escalation dei privilegi.
 
 3. Nella parte inferiore della pagina Riepilogo in **Modifica privilegi vSphere**fare clic su **escalation**.
 
     ![Modificare il privilegio vSphere](media/escalate-private-cloud-privilege.png)
 
-4. Selezionare il tipo di utente vSphere.  È possibile inoltrare solo `CloudOwner@cloudsimple.local` utente locale.
+4. Selezionare il tipo di utente vSphere. È possibile inoltrare solo `CloudOwner@cloudsimple.local` utente locale.
 
 5. Selezionare l'intervallo di tempo di escalation dall'elenco a discesa. Scegliere il periodo più breve che consentirà di completare l'attività.
 
@@ -51,19 +51,19 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 8. Il processo di escalation può richiedere un paio di minuti. Al termine fare clic su **OK**.
 
-L'escalation dei privilegi inizia e dura fino alla fine dell'intervallo selezionato.  È possibile accedere al cloud privato vCenter per eseguire attività amministrative.
+L'escalation dei privilegi inizia e dura fino alla fine dell'intervallo selezionato. È possibile accedere a AVS private cloud vCenter per eseguire attività amministrative.
 
 > [!IMPORTANT]
-> Un solo utente può disporre di privilegi escalation.  È necessario deinoltrare i privilegi dell'utente prima di poter inoltrare i privilegi di un altro utente.
+> Un solo utente può disporre di privilegi escalation. È necessario deinoltrare i privilegi dell'utente prima di poter inoltrare i privilegi di un altro utente.
 
 > [!CAUTION]
 > I nuovi utenti devono essere aggiunti solo a *cloud-Owner-Group*, *cloud-Global-cluster-admin-* Group, *cloud-Global-Storage-admin-Group*, *cloud-Global-Network-Admin-Group* o, *cloud-Global-VM-admin-Group*.  Gli utenti aggiunti al gruppo *Administrators* verranno rimossi automaticamente.  Solo gli account di servizio devono essere aggiunti al gruppo *Administrators* e gli account del servizio non devono essere usati per accedere all'interfaccia utente Web di vSphere.
 
 ## <a name="extend-privilege-escalation"></a>Estendi escalation dei privilegi
 
-Se è necessario ulteriore tempo per completare le attività, è possibile estendere il periodo di escalation dei privilegi.  Scegliere l'intervallo di tempo di escalation aggiuntivo che consente di completare le attività amministrative.
+Se è necessario ulteriore tempo per completare le attività, è possibile estendere il periodo di escalation dei privilegi. Scegliere l'intervallo di tempo di escalation aggiuntivo che consente di completare le attività amministrative.
 
-1. Nelle **risorse** > Cloud **privati** nel portale di CloudSimple selezionare il cloud privato per il quale si vuole estendere l'escalation dei privilegi.
+1. Nelle **risorse** > i **cloud privati AVS** nel portale AVS selezionare il cloud privato AVS per il quale si vuole estendere l'escalation dei privilegi.
 
 2. Nella parte inferiore della scheda Riepilogo fare clic su **Estendi escalation dei privilegi**.
 
@@ -75,9 +75,9 @@ Se è necessario ulteriore tempo per completare le attività, è possibile esten
 
 ## <a name="de-escalate-privileges"></a>Privilegi de escalation
 
-Una volta completate le attività amministrative, è necessario annullare l'escalation dei privilegi.  
+Una volta completate le attività amministrative, è necessario annullare l'escalation dei privilegi. 
 
-1. Nelle **risorse** > Cloud **privati** nel portale di CloudSimple selezionare il cloud privato per il quale si desidera annullare l'escalation dei privilegi.
+1. Nelle **risorse** > i **cloud privati AVS** nel portale AVS selezionare il cloud privato AVS per il quale si vogliono annullare l'escalation dei privilegi.
 
 2. Fare clic su **de-escalation**.
 

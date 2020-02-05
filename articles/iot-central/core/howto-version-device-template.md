@@ -1,58 +1,72 @@
 ---
-title: Controllo delle versioni dei modelli di dispositivo per app IoT Central di Azure | Microsoft Docs
+title: Informazioni sulle versioni dei modelli di dispositivo per le app Azure IoT Central | Microsoft Docs
 description: Eseguire iterazioni con i modelli di dispositivo creando nuove versioni, senza determinare conseguenze per i dispositivi collegati
-author: sandeeppujar
-ms.author: sandeepu
-ms.date: 07/08/2019
+author: sarahhubbard
+ms.author: sahubbar
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: feaa8abcb6635573b3680b77befa5ccb462ec73a
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 530208ed82c95187fac2173aa763ef5507f56b0b
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930119"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018211"
 ---
 # <a name="create-a-new-device-template-version"></a>Creare una nuova versione di un modello di dispositivo
 
-[!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
-Azure IoT Central consente lo sviluppo rapido di applicazioni IoT. È possibile eseguire velocemente iterazioni con i progetti dei modelli di dispositivo per aggiungere, modificare o eliminare misure, impostazioni o proprietà. Alcune di queste modifiche potrebbe compromettere i dispositivi attualmente connessi. Azure IoT Central identifica queste modifiche intrusive e fornisce un modo per distribuire in sicurezza gli aggiornamenti ai dispositivi.
 
-Un modello di dispositivo ha un numero di versione quando viene creato. Per impostazione predefinita, il numero di versione è 1.0.0. Se si modifica un modello di dispositivo e tale modifica potrebbe influire sui dispositivi attualmente connessi, Azure IoT Central chiederà di creare una nuova versione del modello di dispositivo.
+Azure IoT Central consente lo sviluppo rapido di applicazioni IoT. È possibile eseguire rapidamente l'iterazione delle progettazioni dei modelli di dispositivo aggiungendo, modificando o eliminando funzionalità, visualizzazioni e personalizzazioni del dispositivo. Dopo aver pubblicato il modello di dispositivo, il modello di funzionalità del dispositivo Mostra come **pubblicato** con icone di blocco accanto al modello. Per apportare modifiche al modello di funzionalità del dispositivo, sarà necessario creare una nuova versione del modello di dispositivo. Nel frattempo le proprietà, le personalizzazioni e le visualizzazioni del cloud possono essere modificate in qualsiasi momento senza dover eseguire la versione del modello di dispositivo. Dopo aver salvato una qualsiasi di queste modifiche, è possibile pubblicare il modello di dispositivo per rendere disponibili le ultime modifiche per l'operatore da visualizzare in Device Explorer.
 
 > [!NOTE]
-> Per altre informazioni su come creare un modello di dispositivo, vedere [Configurare un modello di dispositivo](howto-set-up-template.md)
+> Per ulteriori informazioni su come creare un modello di dispositivo, vedere [configurare e gestire un modello di dispositivo](howto-set-up-template.md)
 
-## <a name="changes-that-prompt-a-version-change"></a>Modifiche che richiedono un cambio di versione
+## <a name="add-customizations-to-the-device-template-without-versioning"></a>Aggiungere personalizzazioni al modello di dispositivo senza controllo delle versioni
 
-In generale le modifiche alle impostazioni o proprietà del modello di dispositivo richiedono un cambio di versione.
+È possibile modificare determinati elementi delle funzionalità del dispositivo senza dover eseguire la versione del modello e delle interfacce del dispositivo. Ad esempio, alcuni di questi campi includono il nome visualizzato, il tipo semantico, il valore minimo, il valore massimo, le posizioni decimali, il colore, l'unità, l'unità di visualizzazione, il commento e la descrizione. Per aggiungere una di queste personalizzazioni:
+
+1. Passare alla pagina **modelli di dispositivo** .
+1. Selezionare il modello di dispositivo che si desidera personalizzare.
+1. Scegliere la scheda **Personalizza** .
+1. Tutte le funzionalità definite nel modello di funzionalità del dispositivo verranno elencate qui. Tutti i campi che è possibile modificare possono essere salvati e usati nell'applicazione, senza dover eseguire la versione del modello di dispositivo. Se sono presenti campi di cui si vuole modificare la modalità di sola lettura, è necessario eseguire la versione del modello di dispositivo per modificarli. Selezionare un campo che si desidera modificare e immettere i nuovi valori.
+1. Fare clic su **Salva**. Ora questi valori eseguiranno l'override di qualsiasi elemento salvato inizialmente nel modello di dispositivo e verrà usato nell'applicazione.
+
+## <a name="versioning-a-device-template"></a>Controllo delle versioni di un modello di dispositivo
+
+La creazione di una nuova versione del modello di dispositivo creerà una versione bozza del modello in cui è possibile modificare il modello di funzionalità del dispositivo. Tutte le interfacce pubblicate rimarranno pubblicate fino a quando non saranno con versioni singole. Per modificare un'interfaccia pubblicata, è innanzitutto necessario creare una nuova versione del modello di dispositivo.
+
+Il modello di dispositivo deve essere sottoposto a versione solo quando si tenta di modificare una parte del modello di funzionalità del dispositivo che non è possibile modificare nella sezione personalizzazioni del modello di dispositivo. 
+
+Per la versione di un modello di dispositivo:
+
+1. Passare alla pagina **modelli di dispositivo** .
+1. Selezionare il modello di dispositivo che si sta provando a eseguire la versione.
+1. Fare clic sul pulsante **Version (versione** ) nella parte superiore della pagina e assegnare al modello un nuovo nome. È stato suggerito un nuovo nome che può essere modificato.
+1. Fare clic su **Crea**.
+1. A questo punto il modello di dispositivo è in modalità bozza. Si noterà che le interfacce sono ancora bloccate ed è necessario eseguire il controllo delle versioni singolarmente per la modifica. 
+
+### <a name="versioning-an-interface"></a>Controllo delle versioni di un'interfaccia
+
+Il controllo delle versioni di un'interfaccia consente di aggiungere, aggiornare e rimuovere le funzionalità all'interno dell'interfaccia già creata. 
+
+Per la versione di un'interfaccia:
+
+1. Passare alla pagina **modelli di dispositivo** .
+1. Selezionare il modello di dispositivo in modalità bozza.
+1. Selezionare l'interfaccia in modalità pubblicata che si desidera modificare.
+1. Fare clic sul pulsante **Version (versione** ) nella parte superiore della pagina Interface (interfaccia). 
+1. Fare clic su **Crea**.
+1. Ora l'interfaccia è in modalità bozza. Sarà possibile aggiungere o modificare le funzionalità dell'interfaccia senza suddividere le personalizzazioni e le visualizzazioni esistenti. 
 
 > [!NOTE]
-> Quando si modifica il modello di dispositivo in genere non viene richiesto di creare una nuova versione se non ci sono dispositivi connessi o al massimo c'è un solo dispositivo connesso.
+> Non è possibile modificare il controllo delle versioni o modificare le interfacce standard pubblicate da Azure. Queste interfacce standard vengono usate per la certificazione dei dispositivi.
 
-L'elenco seguente descrive le azioni dell'utente che potrebbero richiedere una nuova versione:
+> [!NOTE]
+> Una volta pubblicata l'interfaccia, non è possibile eliminare le funzionalità anche in modalità bozza. Le funzionalità possono essere modificate o aggiunte all'interfaccia solo in modalità bozza.
 
-* Proprietà (obbligatorie)
-    * Aggiunta o eliminazione di una proprietà obbligatoria
-    * Modifica del nome di campo di una proprietà, nome di campo che viene usato dai dispositivi per inviare messaggi.
-*  Proprietà (facoltative)
-    * Eliminazione di una proprietà facoltativa
-    * Modifica del nome di campo di una proprietà, nome di campo che viene usato dai dispositivi per inviare messaggi.
-    * Modifica di una proprietà facoltativa in obbligatoria
-*  Settings
-    * Aggiunta o eliminazione di un'impostazione
-    * Modifica del nome di campo di un'impostazione, nome di campo utilizzato per inviare e ricevere messaggi dai dispositivi.
-
-## <a name="what-happens-on-version-change"></a>Cosa accade con il cambio di versione?
-
-Cosa accade alle regole e ai dashboard di dispositivo quando viene eseguito un cambio di versione?
-
-Le **regole** della versione precedente del modello di dispositivo continuano a funzionare senza modifiche. Non viene automaticamente eseguita la migrazione delle regole alla nuova versione del modello di dispositivo. È possibile creare regole per la nuova versione del modello come di consueto. Per altre informazioni, vedere l'articolo procedure per la [creazione di una regola di telemetria e la configurazione delle notifiche nell'applicazione Azure IOT Central](howto-create-telemetry-rules.md) .
-
-I **dashboard di dispositivo** possono contenere diversi tipi di riquadri. Alcuni riquadri possono contenere impostazioni e proprietà. Quando viene rimossa un'impostazione o una proprietà utilizzata in un riquadro, il riquadro perde l'integrità totalmente o parzialmente. È possibile accedere al riquadro e risolvere il problema eliminando il riquadro o aggiornando il contenuto del riquadro.
 
 ## <a name="migrate-a-device-across-device-template-versions"></a>Eseguire la migrazione di un dispositivo fra diverse versioni del modello di dispositivo
 
@@ -60,8 +74,8 @@ I **dashboard di dispositivo** possono contenere diversi tipi di riquadri. Alcun
 
 1. Passare alla pagina **Device Explorer** .
 1. Selezionare il dispositivo di cui eseguire la migrazione a un'altra versione.
-1. Scegliere **Migrate Device** (Esegui la migrazione del dispositivo).
-1. Selezionare il numero di versione a cui portare il dispositivo e scegliere **Migrate** (Esegui migrazione).
+1. Scegliere **Esegui migrazione**.
+1. Selezionare il modello di dispositivo con il numero di versione in cui si vuole eseguire la migrazione del dispositivo e scegliere **Esegui migrazione**.
 
 ![Come eseguire la migrazione di un dispositivo](media/howto-version-device-template/pick-version.png)
 
@@ -70,4 +84,4 @@ I **dashboard di dispositivo** possono contenere diversi tipi di riquadri. Alcun
 Ora che si conosce la procedura per usare le versioni dei modelli di dispositivo nell'applicazione Azure IoT Central, il prossimo passaggio suggerito è:
 
 > [!div class="nextstepaction"]
-> [Come creare regole dei dati di telemetria](howto-create-telemetry-rules.md)
+> [Come creare regole dei dati di telemetria](tutorial-create-telemetry-rules.md)

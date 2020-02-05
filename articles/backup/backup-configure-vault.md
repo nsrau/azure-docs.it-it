@@ -3,12 +3,12 @@ title: Eseguire il backup di computer Windows con l'agente MARS
 description: Usare l'agente di backup di Microsoft ripristino di Azure per eseguire il backup dei computer Windows.
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.openlocfilehash: c6e5ea1ed1ec9dd922793dfc6834238c431ddc38
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 990929cc95d1c25117873ca39415d33370456b91
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "76290870"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025538"
 ---
 # <a name="back-up-windows-machines-with-the-azure-backup-mars-agent"></a>Eseguire il backup di computer Windows con l'agente di Servizi di ripristino di Microsoft Azure di Backup di Azure
 
@@ -215,10 +215,10 @@ Creare un criterio come segue:
         -   I backup eseguiti il sabato l'ultima settimana del mese a mezzanotte e 6:00 PM vengono conservati per 12 mesi.
         -   I backup eseguiti a sabato nell'ultima settimana di marzo sono conservati per 10 anni.
 
-    ![Esempio di conservazione](./media/backup-configure-vault/retention-example.png)
+        ![Esempio di conservazione](./media/backup-configure-vault/retention-example.png)
 
 
-11. In **Scegli il tipo di backup iniziale** decidere se si vuole eseguire il backup iniziale sulla rete o usare il backup offline. per altre informazioni, vedere questo [articolo](backup-azure-backup-import-export.md). Per eseguire il backup iniziale sulla rete, selezionare **automaticamente in rete** e fare clic su **Avanti**.
+11. In **Scegli il tipo di backup iniziale** decidere se si vuole eseguire il backup iniziale sulla rete o usare il backup offline. per altre informazioni, vedere questo [articolo](offline-backup-azure-data-box.md). Per eseguire il backup iniziale sulla rete, selezionare **automaticamente in rete** e fare clic su **Avanti**.
 
     ![Tipo di backup iniziale](./media/backup-azure-manage-mars/choose-initial-backup-type.png)
 
@@ -245,7 +245,7 @@ Creare un criterio come segue:
 5. Nel Data Center i dati del disco vengono copiati in un account di archiviazione di Azure.
 6. Backup di Azure copia i dati dall'account di archiviazione all'insieme di credenziali e vengono pianificati i backup incrementali.
 
-[Altre](backup-azure-backup-import-export.md) informazioni sul seeding offline.
+[Altre](offline-backup-azure-data-box.md) informazioni sul seeding offline.
 
 ### <a name="enable-network-throttling"></a>Abilitare la limitazione della larghezza di banda
 

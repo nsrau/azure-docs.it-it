@@ -6,13 +6,13 @@ ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
-ms.date: 01/21/2020
-ms.openlocfilehash: dff4901f1488406ed1259d1411a6b05b949382cb
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/04/2020
+ms.openlocfilehash: fcdcef5d63163b24fe5de0f547dc2dde00cd674f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715852"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016256"
 ---
 # <a name="update-to-azure-activity-log-collection-and-export"></a>Eseguire l'aggiornamento alla raccolta e all'esportazione di log attività di Azure
 Il [log attività di Azure](platform-logs-overview.md) è un [log di piattaforma](platform-logs-overview.md) che fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Il metodo per inviare le voci del log attività a [un hub eventi o](activity-log-export.md) a un account di archiviazione o a un' [area di lavoro log Analytics](activity-log-collect.md) è stato modificato per usare [le impostazioni di diagnostica](diagnostic-settings.md). Questo articolo descrive la differenza tra i metodi e come cancellare le impostazioni legacy in preparazione per passare alle impostazioni di diagnostica.
@@ -53,6 +53,9 @@ Sono state aggiunte le colonne seguenti:
 - Authorization_d
 - Claims_d
 - Properties_d
+
+> [!IMPORTANT]
+> In alcuni casi, i valori in queste colonne possono essere tutti in lettere maiuscole. Se si dispone di una query che include queste colonne, è necessario utilizzare l' [operatore = ~](https://docs.microsoft.com/azure/kusto/query/datatypes-string-operators) per eseguire un confronto senza distinzione tra maiuscole e minuscole.
 
 ## <a name="work-with-legacy-settings"></a>Usare le impostazioni legacy
 Le impostazioni legacy per la raccolta del log attività continueranno a funzionare se non si sceglie di sostituire con un'impostazione di diagnostica. Usare il metodo seguente per gestire il profilo di log per una sottoscrizione.

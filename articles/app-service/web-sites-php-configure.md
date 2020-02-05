@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 2d35c31e23da7addcf0b4c341c6925f258d5c232
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: c73fb55e485d0c92d27eac2ac197a81337b9d5e1
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688252"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016800"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Configurare PHP in Servizio app di Azure
 
@@ -34,20 +34,6 @@ Sono anche disponibili le versioni PHP 7.0 e PHP 7.2, che però non sono abilita
 2. In **configurazione**selezionare **Impostazioni generali** e scegliere la nuova versione di php.
 
 3. Fare clic sul pulsante **Salva** nella parte superiore del pannello **Impostazioni generali** .
-
-### <a name="azure-powershell-windows"></a>Azure PowerShell (solo Windows).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-1. Aprire Azure PowerShell e accedere al proprio account:
-
-        PS C:\> Connect-AzAccount
-2. Impostare la versione PHP per l'app.
-
-        PS C:\> Set-AzureWebsite -PhpVersion {5.6 | 7.0 | 7.2} -Name {app-name}
-3. La versione di PHP è ora impostata. È possibile verificare queste impostazioni:
-
-        PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure 
 

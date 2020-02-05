@@ -1,6 +1,6 @@
 ---
-title: Soluzione VMware di Azure di CloudSimple-scegliere una soluzione di bilanciamento del carico per i cloud privati CloudSimple
-description: Descrive le opzioni di bilanciamento del carico per la distribuzione di un'applicazione in un cloud privato
+title: Azure VMware Solutions (AVS)-scegliere una soluzione di bilanciamento del carico per i cloud privati AVS
+description: Descrive le opzioni di bilanciamento del carico per la distribuzione di un'applicazione in un cloud privato AVS
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6c98b699b1d3aba15ce69c519d35d7ce3e90d123
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 405bc9d95b8d82e2181e2fb828d6bcc00c8c4639
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045743"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77014879"
 ---
-# <a name="choose-a-load-balancing-solution-for-cloudsimple-private-clouds"></a>Scegliere una soluzione di bilanciamento del carico per i cloud privati CloudSimple
+# <a name="choose-a-load-balancing-solution-for-avs-private-clouds"></a>Scegliere una soluzione di bilanciamento del carico per i cloud privati AVS
 
-Quando si distribuisce un'applicazione in un cloud privato CloudSimple, è possibile scegliere una delle diverse opzioni per il bilanciamento del carico.
+Quando si distribuisce un'applicazione in un cloud privato AVS, è possibile scegliere una delle diverse opzioni per il bilanciamento del carico.
 
-È possibile scegliere un servizio di bilanciamento del carico basato su software o virtuale nel cloud privato CloudSimple o anche usare il servizio di bilanciamento del carico di Azure L7 in esecuzione nella sottoscrizione di Azure per il front-end delle macchine virtuali di livello Web in esecuzione nel cloud privato CloudSimple. Qui sono elencate alcune opzioni:
+È possibile scegliere un servizio di bilanciamento del carico basato su software o virtuale nel cloud privato AVS o anche usare il servizio di bilanciamento del carico di Azure L7 in esecuzione nella sottoscrizione di Azure per front-end delle macchine virtuali di livello Web in esecuzione nel cloud privato AVS. Qui sono elencate alcune opzioni:
 
 ## <a name="virtual-load-balancers"></a>Bilanciamento del carico virtuale
 
@@ -29,13 +29,13 @@ Alcuni fornitori più diffusi sono: NginX: http://nginx.org/en/docs/http/load_ba
 
 ## <a name="azure-l7-load-balancer"></a>Servizio di bilanciamento del carico di Azure L7
 
-Quando si usa applicazione Azure gateway come servizio di bilanciamento del carico L7 per l'applicazione in esecuzione in un cloud privato, non è necessario gestire il software di bilanciamento del carico. Il software di bilanciamento del carico è gestito da Azure. Tutte le VM di livello Web nel cloud privato usano indirizzi IP privati e non richiedono regole NAT aggiuntive o indirizzi IP pubblici per la risoluzione dei nomi. Le macchine virtuali di livello Web comunicano con il gateway applicazione Azure tramite una connessione privata a bassa latenza e larghezza di banda elevata.
+Quando si usa applicazione Azure gateway come servizio di bilanciamento del carico L7 per l'applicazione in esecuzione in un cloud privato AVS, non è necessario gestire il software di bilanciamento del carico. Il software di bilanciamento del carico è gestito da Azure. Tutte le VM di livello Web nel cloud privato AVS usano indirizzi IP privati e non richiedono regole NAT aggiuntive o indirizzi IP pubblici per la risoluzione dei nomi. Le macchine virtuali di livello Web comunicano con il gateway applicazione Azure tramite una connessione privata a bassa latenza e larghezza di banda elevata.
 
 Per altre informazioni su come configurare questa soluzione, vedere la guida alla soluzione sull'uso di applicazione Azure gateway come servizio di bilanciamento del carico L7.
 
 ## <a name="azure-internal-load-balancer"></a>Servizio di bilanciamento del carico interno di Azure
 
-Se si sceglie di eseguire l'applicazione in una distribuzione ibrida in cui il livello front-end Web è in esecuzione all'interno di una vNet di Azure nella sottoscrizione di Azure e il livello di database dell'applicazione viene eseguito in macchine virtuali VMware in CloudSimple cloud privato, è possibile usare il caricamento interno di Azure Balancer (servizio di bilanciamento del carico L4) davanti alle macchine virtuali di livello database per la gestione del traffico.
+Se si sceglie di eseguire l'applicazione in una distribuzione ibrida in cui il livello front-end Web è in esecuzione all'interno di una vNet di Azure nella sottoscrizione di Azure e il livello di database dell'applicazione viene eseguito in macchine virtuali VMware in AVS private cloud, è possibile usare il servizio di bilanciamento del carico interno di Azure (L 4 Load Balancer) davanti alle macchine virtuali di livello database per la gestione del traffico.
 
 Per altre informazioni, vedere la documentazione [interna di Load Balancer](../load-balancer/concepts-limitations.md#internalloadbalancer) di Azure.
 

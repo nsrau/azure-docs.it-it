@@ -1,6 +1,6 @@
 ---
-title: Casi d'uso di Gateway finestra di dati di Microsoft Azure | Microsoft Docs
-description: Descrive i casi d'uso per il Gateway di finestra di dati Azure, una soluzione di archiviazione di appliance virtuale che consente di trasferire i dati in Azure
+title: Casi d'uso di Microsoft Azure Data Box Gateway | Microsoft Docs
+description: Descrive i casi d'uso per Azure Data Box Gateway, una soluzione di archiviazione di appliance virtuale che consente di trasferire dati in Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
-ms.openlocfilehash: e9092fb91ad98e6147647717e11d1a64bcff580e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e72113313e27949819db567c550401b1f051473f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754188"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022682"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Casi d'uso di Azure Data Box Gateway
 
@@ -44,14 +44,14 @@ che è ottimizzato per archiviare i dati a cui si accede di rado per almeno 180 
 
 ### <a name="move-data-to-archive-tier"></a>Spostare i dati nel livello di archiviazione archivio
 
-Prima di iniziare, verificare di avere un dispositivo Data Box Gateway funzionante. Seguire le procedure illustrate in [Esercitazione: Preparare la distribuzione di Azure Data Box Gateway](data-box-gateway-deploy-prep.md) e continuare con l'esercitazione successiva finché il dispositivo non è operativo.
+Prima di iniziare, verificare di avere un dispositivo Data Box Gateway funzionante. Seguire i passaggi descritti in [esercitazione: preparare la distribuzione di Azure Data Box gateway](data-box-gateway-deploy-prep.md) e continuare con l'esercitazione successiva fino a quando non si dispone di un dispositivo operativo.
 
 - Usare il dispositivo Data Box Gateway per caricare i dati in Azure tramite la consueta procedura di trasferimento, come descritto in [Esercitazione: Trasferire i dati con Azure Data Box Gateway](data-box-gateway-deploy-add-shares.md).
-- Dopo aver caricato i dati, sarà necessario spostarli nel livello Archivio. È possibile impostare il livello BLOB in due modi: con uno script di Azure PowerShell o con i criteri di gestione del ciclo di vita di Archiviazione di Azure.  
+- Dopo aver caricato i dati, sarà necessario spostarli nel livello Archivio. È possibile impostare il livello BLOB in due modi: Azure PowerShell script o un criterio di gestione del ciclo di vita di archiviazione di Azure.  
     - Se si usa Azure PowerShell, seguire questi [passaggi](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) per spostare i dati nel livello Archivio.
     - Se si usano i criteri di gestione del ciclo di vita di Azure, seguire questi passaggi per spostare i dati nel livello Archivio.
         - [Eseguire la registrazione](/azure/storage/common/storage-lifecycle-management-concepts) per l'anteprima del servizio di gestione del ciclo di vita a livello di BLOB per poter usare il livello Archivio.
-        - Usare i criteri seguenti per [archiviare i dati al momento dell'inserimento](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-at-ingest).
+        - Usare i criteri seguenti per [archiviare i dati al momento dell'inserimento](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-after-ingest).
 - Una volta contrassegnati come Archivio, i BLOB non possono più essere modificati dal gateway a meno che non vengano spostati nel livello di archiviazione ad accesso frequente o ad accesso sporadico. Se il file si trova nell'archivio locale, le eventuali modifiche apportate alla copia locale (incluse le eliminazioni) non vengono caricate nel livello di archiviazione archivio.
 - Per poter essere letti nel livello di archiviazione archivio, i dati devono essere riattivati impostando il livello BLOB sul livello ad accesso frequente o sporadico. L'[aggiornamento della condivisione](data-box-gateway-manage-shares.md#refresh-shares) sul gateway non riattiva il BLOB.
 
