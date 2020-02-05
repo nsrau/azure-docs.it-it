@@ -4,12 +4,12 @@ description: Informazioni sull'uso di Backup di Azure per l'invio di dati offlin
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 47d4c4fb63c2aa0e2944456048b06070e235f012
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 162d129eaea83ef6623daaa063e8a088c021e25d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997361"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022614"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flusso di lavoro del backup offline in Backup di Azure
 
@@ -75,6 +75,15 @@ Questa sezione descrive il flusso di lavoro di backup offline in modo che i dati
 
     ![Schermata di importazione](./media/backup-azure-backup-import-export/offlinebackup_inputs.png)
 
+2. Selezionare l'opzione **trasferimento usando i dischi**personali.
+
+    >[!NOTE]
+    >È consigliabile usare l'opzione Azure Data Box per trasferire i dati di backup iniziali offline. Questa opzione consente di risparmiare sul lavoro richiesto per ottenere i propri dischi compatibili con Azure grazie alla distribuzione di dispositivi di Azure Data Box per i quali i dati di backup possono essere scritti direttamente dall'agente MARS.
+
+3. Fare clic su **Avanti** e compilare attentamente gli input:
+
+    ![Immettere i dettagli del disco](./media/backup-azure-backup-import-export/your-disk-details.png)
+
    Di seguito è riportata la descrizione degli input.
 
     * **Percorso di gestione temporanea**: posizione di archiviazione temporanea in cui verrà scritta la copia del backup iniziale. Il percorso di gestione temporanea può trovarsi in una condivisione di rete o in un computer locale. Se il computer di copia e il computer di origine sono diversi, è consigliabile specificare il percorso di rete completo per la gestione temporanea.
@@ -85,15 +94,15 @@ Questa sezione descrive il flusso di lavoro di backup offline in modo che i dati
   
    Specificare gli input sullo schermo, quindi fare clic su **Avanti**. Salvare i valori di *Percorso di gestione temporanea* e *Nome del processo di importazione di Azure* specificati perché sono necessari per preparare i dischi.
 
-2. Quando verrà richiesto, accedere alla sottoscrizione di Azure. È necessario accedere in modo che Backup di Azure possa creare l'applicazione di Azure Active Directory e dare le autorizzazioni necessarie per accedere al servizio Importazione di Azure.
+4. Quando verrà richiesto, accedere alla sottoscrizione di Azure. È necessario accedere in modo che Backup di Azure possa creare l'applicazione di Azure Active Directory e dare le autorizzazioni necessarie per accedere al servizio Importazione di Azure.
 
-    ![Esegui backup ora](./media/backup-azure-backup-import-export/azurelogin.png)
+    ![Esegui backup ora](./media/backup-azure-backup-import-export/azure-login.png)
 
-3. Completare il flusso di lavoro e nella console dell'agente di Backup di Azure fare clic su **Back Up Now** (Esegui backup).
+5. Completare il flusso di lavoro e nella console dell'agente di Backup di Azure fare clic su **Back Up Now** (Esegui backup).
 
     ![Esegui backup ora](./media/backup-azure-backup-import-export/backupnow.png)
 
-4. Nella pagina di conferma della procedura guidata fare clic su **Backup**. Durante la configurazione il backup iniziale viene scritto nell'area di gestione temporanea.
+6. Nella pagina di conferma della procedura guidata fare clic su **Backup**. Durante la configurazione il backup iniziale viene scritto nell'area di gestione temporanea.
 
    ![Confermare che si è pronti per eseguire il backup ora](./media/backup-azure-backup-import-export/backupnow-confirmation.png)
 
@@ -206,4 +215,3 @@ Dopo aver completato il backup iniziale, è possibile eliminare in modo sicuro i
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per altre informazioni sul flusso di lavoro di Importazione/Esportazione di Azure, vedere [Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archiviazione BLOB](../storage/common/storage-import-export-service.md).
-

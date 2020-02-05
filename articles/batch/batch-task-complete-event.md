@@ -2,21 +2,21 @@
 title: Evento di completamento dell'attività Azure Batch
 description: Riferimento per l'evento di completamento dell'attività batch. Questo evento viene generato al completamento di un'attività, indipendentemente dal codice di uscita.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: jushiman
-ms.openlocfilehash: 2f591330df4a3757ba1f5c6be1a34955c4cc2fa6
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.author: labrenne
+ms.openlocfilehash: 0fee5f071d5c7005e466bf4c3d0c1d0a7db24731
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76937748"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022920"
 ---
 # <a name="task-complete-event"></a>Evento di completamento attività
 

@@ -2,31 +2,38 @@
 title: Aggiornare il profilo & informazioni sull'account dal portale app personali-Azure AD
 description: Informazioni su come aggiornare il profilo e le informazioni sull'account aziendale o dell'Istituto di istruzione, inclusa la modifica della password, l'attivazione della reimpostazione della password, l'aggiornamento dei metodi di verifica della sicurezza, la visualizzazione delle condizioni per l'utilizzo dell'organizzazione e la disconnessione da ovunque sia stato eseguito l'accesso con l'account aziendale o dell'Istituto di istruzione.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/21/2019
-ms.author: lizross
+ms.date: 02/03/2020
+ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 787a0b38cecd76c58017e6dff3da1607ac283d23
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: a6bcfa7fc58d47e64bff0838ff698bc59eda4e70
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704868"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022280"
 ---
-# <a name="update-your-profile-and-work-or-school-account-information-on-the-my-apps-portal"></a>Aggiornare le informazioni sul profilo e sull'account aziendale o dell'Istituto di istruzione nel portale app personali
+# <a name="update-your-profile-and-account-information-on-the-my-apps-portal"></a>Aggiornare il profilo e le informazioni sull'account nel portale app personali
 
-È possibile usare l'account aziendale o dell'istituto di istruzione con il portale **App personali** basato sul Web per visualizzare e avviare molte delle app dell'organizzazione basate sul cloud, per aggiornare alcune informazioni dell'account e del profilo, per visualizzare le informazioni sui **gruppi** e per eseguire **verifiche di accesso** per le app e i gruppi. Se non si ha accesso al portale **App personali**, è necessario contattare il supporto tecnico per l'autorizzazione.
+È possibile usare l'account aziendale o dell'Istituto di istruzione con il portale **app personali** basato sul Web per 
+
+- Visualizza e avvia molte delle app basate sul cloud dell'organizzazione
+- Aggiornare alcune informazioni sul profilo e sull'account
+- Vedere le informazioni sui **gruppi**
+- Eseguire verifiche di **accesso** per le app e i gruppi. 
+
+Se non si ha accesso al portale **App personali**, è necessario contattare il supporto tecnico per l'autorizzazione.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
->[!Important]
->Questo contenuto è destinato agli utenti. Gli amministratori possono trovare altre informazioni su come configurare e gestire le app basate sul cloud nella [documentazione di Gestione applicazioni](https://docs.microsoft.com/azure/active-directory/manage-apps).
+> [!Important]
+> Questo contenuto è destinato agli utenti di **app personali** . Gli amministratori possono trovare altre informazioni su come configurare e gestire le app basate sul cloud nella [documentazione di Gestione applicazioni](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## <a name="view-your-organization-related-profile-information"></a>Visualizzare le informazioni sul profilo correlate all'organizzazione
 

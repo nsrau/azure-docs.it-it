@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ef73abdd6bfdadd0078c30ad1b0145cdae41722
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 69b8cbdba018b9d03dca67573b1f4fe6efa546b6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75767604"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024042"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>Che cos'è il provisioning cloud di Azure AD Connect?
 Azure AD Connect provisioning cloud è un nuovo agente Microsoft progettato per soddisfare e raggiungere gli obiettivi di identità ibrida per la sincronizzazione di utenti, gruppi e contatti con Azure AD.  Può essere usato insieme a Azure AD Connect Sync e offre i vantaggi seguenti:
@@ -46,6 +46,8 @@ La tabella seguente fornisce un confronto tra Azure AD Connect e Azure AD Connec
 | Supporto per oggetti contatto |● |● |
 | Supporto per oggetti dispositivo |● | |
 | Consenti personalizzazione di base per i flussi di attributi |● |● |
+| Attributi di sincronizzare per Exchange Online |● |● |
+| Sincronizzare gli attributi di estensione 1-15 |● |● |
 | Sincronizzare gli attributi di Active Directory definiti dal cliente (estensioni di directory) |● | |
 | Supporto per la sincronizzazione degli hash delle password |●|●|
 | Supporto per l'autenticazione pass-through |●||
@@ -60,7 +62,7 @@ La tabella seguente fornisce un confronto tra Azure AD Connect e Azure AD Connec
 | Personalizzazione avanzata dei flussi di attributi |● | |
 | Supporto per il writeback (password, dispositivi, gruppi) |● | |
 | Supporto Azure AD Domain Services|● | |
-| Configurazione ibrida di Exchange |● | |
+| [Writeback ibrido di Exchange](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
 | Supporto per più di 50.000 oggetti per dominio AD |● | |
 
 ## <a name="next-steps"></a>Passaggi successivi 

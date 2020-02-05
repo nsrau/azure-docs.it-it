@@ -13,12 +13,12 @@ ms.subservice: pim
 ms.date: 09/17/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e7dc54eccd7a5f01d8f3dd98144e0c4bf6269a3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e7cbb8c07b75509825795da45d8352140afd0864
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429854"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024229"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Assegnare ruoli di Azure AD in Privileged Identity Management
 
@@ -34,6 +34,88 @@ A partire da novembre 2019, la parte Azure AD ruoli di Privileged Identity Manag
 1. Aprire **Azure AD Privileged Identity Management**. Se si dispone di un banner nella parte superiore della pagina Panoramica, seguire le istruzioni riportate nella scheda **nuova versione** di questo articolo. In caso contrario, seguire le istruzioni riportate nella scheda **versione precedente** .
 
     ![Nuova versione dei ruoli Azure AD](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+
+# <a name="new-versiontabnew"></a>[Nuova versione](#tab/new)
+
+## <a name="assign-a-role"></a>Assegnare un ruolo
+
+Seguire questa procedura per rendere un utente idoneo per un ruolo di amministratore Azure AD.
+
+1. Accedere a [portale di Azure](https://portal.azure.com/) con un utente membro del ruolo di [amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+
+    Per informazioni su come concedere a un altro amministratore l'accesso per gestire Privileged Identity Management, vedere [concedere l'accesso ad altri amministratori per gestire Privileged Identity Management](pim-how-to-give-access-to-pim.md).
+
+1. Aprire **Azure AD Privileged Identity Management**.
+
+1. Selezionare **Azure ad ruoli**.
+
+1. Selezionare **ruoli** per visualizzare l'elenco dei ruoli per le autorizzazioni Azure ad.
+
+    ![Ruoli di Azure AD](./media/pim-how-to-add-role-to-user/roles-list.png)
+
+1. Selezionare **Aggiungi membro** per aprire la pagina **nuova assegnazione** .
+
+1. Selezionare **selezionare un ruolo** per aprire la pagina selezionare un ruolo.
+
+    ![Riquadro Nuova assegnazione](./media/pim-how-to-add-role-to-user/select-role.png)
+
+1. Selezionare un ruolo da assegnare e quindi fare clic su **Seleziona**.
+
+    Verrà visualizzata la pagina **selezionare un membro o un gruppo** .
+
+1. Selezionare un membro o un gruppo che si desidera assegnare al ruolo, quindi selezionare **Seleziona**.
+
+    ![Riquadro Selezionare un membro o un gruppo](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
+
+    Verrà aperto il riquadro Impostazioni di appartenenza.
+
+1. Nell'elenco **Tipo di assegnazione** selezionare **Idoneo** o **Attivo**.
+
+    ![Riquadro Impostazioni di appartenenza](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
+
+    Privileged Identity Management per le risorse di Azure fornisce due tipi di assegnazione distinti:
+
+    - Le assegnazioni di tipo **Idoneo** richiedono al membro del ruolo di eseguire un'azione per usare il ruolo. Le azioni possono includere il completamento di un controllo di autenticazione a più fattori (MFA), l'indicazione di una motivazione aziendale e la richiesta di approvazione da parte di responsabili dell'approvazione designati.
+
+    - Le assegnazioni di tipo **Attivo** non richiedono al membro di eseguire alcuna azione per usare il ruolo. I membri con questo tipo di assegnazione dispongono di privilegi assegnati al ruolo in qualsiasi momento.
+
+1. Se l'assegnazione deve essere permanente (idonea o assegnata in modo permanente), selezionare la casella di controllo **permanente** .
+
+    A seconda delle impostazioni dei ruoli, la casella di controllo potrebbero non essere visualizzata o potrebbe essere non modificabile.
+
+1. Per indicare una durata specifica per l'assegnazione, deselezionare la casella di controllo e modificare le caselle relative a data e ora di inizio e/o fine.
+
+    ![Impostazioni di appartenenza a - data e ora](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
+
+1. Al termine, selezionare **fine**.
+
+    ![Nuova assegnazione - Aggiungi](./media/pim-resource-roles-assign-roles/resources-new-assignment-add.png)
+
+1. Per creare la nuova assegnazione di ruolo, selezionare **Aggiungi**. Verrà visualizzata una notifica dello stato.
+
+    ![Nuova assegnazione - Notifica](./media/pim-resource-roles-assign-roles/resources-new-assignment-notification.png)
+
+## <a name="update-or-remove-an-existing-role-assignment"></a>Aggiornare o rimuovere un'assegnazione di ruolo esistente
+
+Seguire questi passaggi per aggiornare o rimuovere un'assegnazione di ruolo esistente.
+
+1. Aprire **Azure AD Privileged Identity Management**.
+
+1. Selezionare **Risorse di Azure**.
+
+1. Selezionare la risorsa che si desidera gestire, ad esempio una sottoscrizione o un gruppo di gestione.
+
+1. In Gestisci selezionare **ruoli** per visualizzare l'elenco dei ruoli per le risorse di Azure.
+
+1. Selezionare il ruolo da aggiornare o rimuovere.
+
+1. Trovare l'assegnazione del ruolo nelle schede **Ruoli idonei** o **Ruoli attivi**.
+
+    ![Aggiornare o rimuovere un'assegnazione di ruolo](./media/pim-resource-roles-assign-roles/resources-update-remove.png)
+
+1. Fare clic su **Aggiorna** o su **Rimuovi** per aggiornare o rimuovere l'assegnazione di ruolo.
+
+    Per informazioni sull'estensione di un'assegnazione di ruolo, vedere [estendere o rinnovare i ruoli delle risorse di Azure in Privileged Identity Management](pim-resource-roles-renew-extend.md).
 
 # <a name="previous-versiontabprevious"></a>[Versione precedente](#tab/previous)
 
@@ -148,88 +230,6 @@ Per assegnare il ruolo Amministratore Accesso utenti all'entità servizio MS-PIM
    Dopo qualche istante, all'entità servizio MS-PIM viene assegnato il ruolo Amministratore Accesso utenti nell'ambito della sottoscrizione.
 
    ![Pagina controllo di accesso che mostra l'assegnazione del ruolo amministratore accesso utenti per l'entità servizio MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
-
-# <a name="new-versiontabnew"></a>[Nuova versione](#tab/new)
-
-## <a name="assign-a-role"></a>Assegnare un ruolo
-
-Seguire questa procedura per rendere un utente idoneo per un ruolo di amministratore Azure AD.
-
-1. Accedere a [portale di Azure](https://portal.azure.com/) con un utente membro del ruolo di [amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
-
-    Per informazioni su come concedere a un altro amministratore l'accesso per gestire Privileged Identity Management, vedere [concedere l'accesso ad altri amministratori per gestire Privileged Identity Management](pim-how-to-give-access-to-pim.md).
-
-1. Aprire **Azure AD Privileged Identity Management**.
-
-1. Selezionare **Azure ad ruoli**.
-
-1. Selezionare **ruoli** per visualizzare l'elenco dei ruoli per le autorizzazioni Azure ad.
-
-    ![Ruoli di Azure AD](./media/pim-how-to-add-role-to-user/roles-list.png)
-
-1. Selezionare **Aggiungi membro** per aprire la pagina **nuova assegnazione** .
-
-1. Selezionare **selezionare un ruolo** per aprire la pagina selezionare un ruolo.
-
-    ![Riquadro Nuova assegnazione](./media/pim-how-to-add-role-to-user/select-role.png)
-
-1. Selezionare un ruolo da assegnare e quindi fare clic su **Seleziona**.
-
-    Verrà visualizzata la pagina **selezionare un membro o un gruppo** .
-
-1. Selezionare un membro o un gruppo che si desidera assegnare al ruolo, quindi selezionare **Seleziona**.
-
-    ![Riquadro Selezionare un membro o un gruppo](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
-
-    Verrà aperto il riquadro Impostazioni di appartenenza.
-
-1. Nell'elenco **Tipo di assegnazione** selezionare **Idoneo** o **Attivo**.
-
-    ![Riquadro Impostazioni di appartenenza](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
-
-    Privileged Identity Management per le risorse di Azure fornisce due tipi di assegnazione distinti:
-
-    - Le assegnazioni di tipo **Idoneo** richiedono al membro del ruolo di eseguire un'azione per usare il ruolo. Le azioni possono includere il completamento di un controllo di autenticazione a più fattori (MFA), l'indicazione di una motivazione aziendale e la richiesta di approvazione da parte di responsabili dell'approvazione designati.
-
-    - Le assegnazioni di tipo **Attivo** non richiedono al membro di eseguire alcuna azione per usare il ruolo. I membri con questo tipo di assegnazione dispongono di privilegi assegnati al ruolo in qualsiasi momento.
-
-1. Se l'assegnazione deve essere permanente (idonea o assegnata in modo permanente), selezionare la casella di controllo **permanente** .
-
-    A seconda delle impostazioni dei ruoli, la casella di controllo potrebbero non essere visualizzata o potrebbe essere non modificabile.
-
-1. Per indicare una durata specifica per l'assegnazione, deselezionare la casella di controllo e modificare le caselle relative a data e ora di inizio e/o fine.
-
-    ![Impostazioni di appartenenza a - data e ora](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
-
-1. Al termine, selezionare **fine**.
-
-    ![Nuova assegnazione - Aggiungi](./media/pim-resource-roles-assign-roles/resources-new-assignment-add.png)
-
-1. Per creare la nuova assegnazione di ruolo, selezionare **Aggiungi**. Verrà visualizzata una notifica dello stato.
-
-    ![Nuova assegnazione - Notifica](./media/pim-resource-roles-assign-roles/resources-new-assignment-notification.png)
-
-## <a name="update-or-remove-an-existing-role-assignment"></a>Aggiornare o rimuovere un'assegnazione di ruolo esistente
-
-Seguire questi passaggi per aggiornare o rimuovere un'assegnazione di ruolo esistente.
-
-1. Aprire **Azure AD Privileged Identity Management**.
-
-1. Selezionare **Risorse di Azure**.
-
-1. Selezionare la risorsa che si desidera gestire, ad esempio una sottoscrizione o un gruppo di gestione.
-
-1. In Gestisci selezionare **ruoli** per visualizzare l'elenco dei ruoli per le risorse di Azure.
-
-1. Selezionare il ruolo da aggiornare o rimuovere.
-
-1. Trovare l'assegnazione del ruolo nelle schede **Ruoli idonei** o **Ruoli attivi**.
-
-    ![Aggiornare o rimuovere un'assegnazione di ruolo](./media/pim-resource-roles-assign-roles/resources-update-remove.png)
-
-1. Fare clic su **Aggiorna** o su **Rimuovi** per aggiornare o rimuovere l'assegnazione di ruolo.
-
-    Per informazioni sull'estensione di un'assegnazione di ruolo, vedere [estendere o rinnovare i ruoli delle risorse di Azure in Privileged Identity Management](pim-resource-roles-renew-extend.md).
 
  ---
 

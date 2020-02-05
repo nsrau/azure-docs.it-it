@@ -8,12 +8,12 @@ ms.author: sahubbar
 ms.date: 07/08/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 114946fa37ae161aeb2efd5b7cd50444c5df4c2b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 68d4dbff364f8d3fda72fc2377722031e9cccc3d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906704"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018891"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Creare ed eseguire un processo nell'applicazione IoT Central di Azure
 
@@ -38,7 +38,9 @@ Questa sezione descrive come creare ed eseguire un processo. Viene illustrato co
 
     ![Configurazione del processo](./media/howto-run-a-job/configurejob.png)
 
-6. Dopo aver selezionato i dispositivi, scegliere **Esegui** o **Salva**. Il processo verrà ora visualizzato nella pagina dei **processi** principali. In questa visualizzazione è possibile visualizzare il processo attualmente in esecuzione e la cronologia di tutti i processi eseguiti in precedenza. Il processo in esecuzione viene sempre visualizzato nella parte superiore dell'elenco. È possibile aprire nuovamente il processo salvato in qualsiasi momento per continuare la modifica o l'esecuzione.
+6. Sul lato destro scegliere i dispositivi su cui si vuole eseguire il processo. Selezionando la casella di controllo top, tutti i dispositivi vengono selezionati nell'intero set di dispositivi. Selezionando la casella di controllo accanto a **nome**, verranno selezionati tutti i dispositivi nella pagina corrente.
+
+7. Dopo aver selezionato i dispositivi, scegliere **Esegui** o **Salva**. Il processo verrà ora visualizzato nella pagina dei **processi** principali. In questa visualizzazione è possibile visualizzare il processo attualmente in esecuzione e la cronologia di tutti i processi eseguiti in precedenza. Il processo in esecuzione viene sempre visualizzato nella parte superiore dell'elenco. È possibile aprire nuovamente il processo salvato in qualsiasi momento per continuare la modifica o l'esecuzione.
 
     ![Visualizzare il processo](./media/howto-run-a-job/viewjob.png)
 
@@ -103,6 +105,5 @@ Per visualizzare lo stato del processo e di tutti i dispositivi interessati, sel
 
 Ora che si è appreso come creare processi nell'applicazione IoT Central di Azure, di seguito sono riportati alcuni passaggi successivi:
 
-- [Usare i set di dispositivi](howto-use-device-sets.md)
 - [Gestire i dispositivi](howto-manage-devices.md)
 - [Creare una nuova versione di un modello di dispositivo](howto-version-device-template.md)

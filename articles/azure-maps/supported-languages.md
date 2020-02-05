@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4926cb2bb4cb1aa15b212cc7130e0db995a24ed9
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: eec8e47e75a6c92be8f893af893761a9ccddc650
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910441"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025436"
 ---
 # <a name="localization-support-in-azure-maps"></a>Supporto della localizzazione nelle mappe di Azure
 
@@ -45,10 +45,10 @@ I servizi disponibili in Mappe di Azure sono stati localizzati in varie lingue. 
 | nl-NL      | Olandese (Paesi Bassi)    |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | en-AU      | Inglese (Australia)    |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | en-NZ      | Inglese (Nuova Zelanda)  |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
-| en-GB      | Inglesi (Gran Bretagna) |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
+| en-GB      | Inglese (Gran Bretagna) |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | it-IT      | Inglese (Stati Uniti)          |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
 | et-EE      | Estone               |       |    ✓   |         |      ✓    |         ✓         |                |
-| fil-PH     | Filippino               |       |       |         |     ✓    |                   |                |
+| Fil-PH     | Filippino               |       |       |         |     ✓    |                   |                |
 | fi-FI      | Finlandese                |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
 | fr-FR      | Francese                 |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
 | fr-CA      | Francese (Canada)      |       |    ✓   |         |     ✓     |                   |                |
@@ -69,9 +69,9 @@ I servizi disponibili in Mappe di Azure sono stati localizzati in varie lingue. 
 | es-419     | Spagnolo (America Latina) |       |    ✓   |         |         |                   |                |
 | lv-LV      | Lettone                |       |    ✓   |         |     ✓    |         ✓         |                |
 | lt-LT      | Lituano             |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
-| mk-MK      | Macedone             |       |       |         |     ✓    |                   |                |
+| MK-MK      | Macedone             |       |       |         |     ✓    |                   |                |
 | ms-MY      | Malese (alfabeto latino)          |   ✓   |    ✓   |    ✓    |    ✓   |                   |        ✓       |
-| mr-IN      | Marathi                 |       |       |         |     ✓    |                   |                |
+| Mr-IN      | Marathi                 |       |       |         |     ✓    |                   |                |
 | nb-NO      | Norvegese bokmål       |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
 | NGT        | Mappa con esonimi: lingue ufficiali per tutte le aree con lo specifico sistema di caratteri, se disponibile |   ✓     |        |         |       |        |      ✓          |
 | NGT-Latn   | Mappa con esonimi: esonimi latini. Verrà usato il sistema di caratteri dell'alfabeto latino, se disponibile |   ✓     |        |         |         |                |        ✓         |
@@ -93,21 +93,23 @@ I servizi disponibili in Mappe di Azure sono stati localizzati in varie lingue. 
 | th-TH      | Thai                   |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
 | tr-TR      | Turco                |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
 | uk-UA      | Ucraino               |       |    ✓   |         |     ✓    |                   |                |
-| ur-PK      | Urdu                 |       |       |         |     ✓    |                   |                |
-| uz-Latn-UZ | Uzbeco                 |       |       |         |     ✓    |                   |                |
+| PK      | Urdu                 |       |       |         |     ✓    |                   |                |
+| UZ-Latn-UZ | Uzbeco                 |       |       |         |     ✓    |                   |                |
 | vi-VN      | Vietnamita             |       |    ✓   |         |      ✓    |                  |                |
 
 
 ## <a name="azure-maps-supported-views"></a>Viste supportate di Azure Maps
 
 > [!Note]
-> Azure Maps è stato rilasciato nei paesi/aree geografiche seguenti il 1 ° agosto 2019:
+> Il 1 ° agosto 2019, Azure Maps è stato rilasciato nei paesi/aree geografiche seguenti:
 >  * Argentina
 >  * India
 >  * Marocco
 >  * Pakistan
 >
-> Dopo il 1 ° agosto 2019, l'impostazione del parametro **View** definisce il contenuto della mappa restituito per le nuove aree/Paesi elencati sopra. Si consiglia di assicurarsi di aver configurato il parametro di visualizzazione come richiesto per le API REST e gli SDK utilizzati dai servizi.
+> Dopo il 1 ° agosto 2019, il parametro **View** definirà il contenuto della mappa restituito per le nuove aree/Paesi elencati sopra. Il parametro di **visualizzazione** mappe di Azure, noto anche come "parametro dell'area utente", è un codice paese a due lettere ISO-3166 che mostra le mappe corrette per quel paese/area geografica specificando il set di contenuto geopoliticomente contestato che viene restituito tramite i servizi Maps di Azure, inclusi i bordi e le etichette visualizzati sulla mappa. 
+
+Assicurarsi di aver configurato il parametro di **visualizzazione** come richiesto per le API REST e gli SDK utilizzati dai servizi.
 >  
 >
 >  **API REST:**
@@ -135,15 +137,12 @@ I servizi disponibili in Mappe di Azure sono stati localizzati in varie lingue. 
 >    
 >  **SDK**
 >
->  Assicurarsi di aver configurato il parametro di visualizzazione come richiesto e di avere la versione più recente di Web SDK e Android SDK. SDK interessati:
+>  Assicurarsi di aver configurato il parametro di **visualizzazione** come richiesto e di avere la versione più recente di Web SDK e Android SDK. SDK interessati:
 >
 >    * Azure Maps Web SDK
 >    * Azure Maps Android SDK
 
-
-Il parametro di **visualizzazione** mappe di Azure, noto anche come "parametro dell'area utente", è un codice paese a due lettere ISO-3166 che mostra le mappe corrette per quel paese/area geografica specificando il set di contenuto geopoliticomente contestato che viene restituito tramite i servizi Maps di Azure, inclusi i bordi e le etichette visualizzati sulla mappa. 
-
-Per impostazione predefinita, il parametro di visualizzazione è impostato su **unificato**, anche se non è stato definito nella richiesta. È responsabilità dell'utente determinare la posizione degli utenti e quindi impostare il parametro di visualizzazione correttamente per tale percorso. In alternativa, è possibile impostare ' View = auto ', che restituirà i dati della mappa in base all'indirizzo IP della richiesta.  Il parametro View in Maps di Azure deve essere usato in conformità alle leggi applicabili, incluse quelle relative al mapping del paese in cui sono disponibili mappe, immagini e altri dati e contenuti di terze parti a cui si è autorizzati ad accedere tramite le mappe di Azure.
+Per impostazione predefinita, il parametro di visualizzazione è impostato su **unificato**, anche se non è stato definito nella richiesta. Determinare il percorso degli utenti, quindi impostare il parametro di **visualizzazione** correttamente per tale percorso. In alternativa, è possibile impostare ' View = auto ', che restituirà i dati della mappa in base all'indirizzo IP della richiesta.  Il parametro **View** in Maps di Azure deve essere usato in conformità alle leggi applicabili, incluse le leggi sul mapping del paese in cui sono disponibili mappe, immagini e altri dati e contenuti di terze parti a cui si è autorizzati ad accedere tramite le mappe di Azure.
 
 
 Nella tabella seguente vengono fornite le visualizzazioni supportate.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: 61b43329fcc840bc68f454400a4b5e917f43110c
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e111bcdde9381e8e418e7027d8294aa7dad7e39d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894595"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023872"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrazioni partner del monitoraggio di Azure
 
@@ -63,7 +63,7 @@ Circonus è una piattaforma di monitoraggio e analisi di microservizi per la dis
 
 Unire e automatizzare il cloud con una piattaforma creata per risparmiare tempo e denaro. CloudHealth offre visibilità, ottimizzazione intuitiva e procedure di governance solidissime per la gestione del cloud. La piattaforma CloudHealth consente alle aziende e ai MSPs di massimizzare il ritorno sugli investimenti nel cloud. e di prendere decisioni informate su costi, utilizzo, prestazioni e sicurezza.
 
-[Ulteriori informazioni][cloudhealth-doc]
+[Altre informazioni][cloudhealth-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
 
@@ -136,7 +136,7 @@ LogRhythm, leader di NextGen SIEM, consente alle organizzazioni su sei continent
 
 Microfocus **ArcSight** dispone di uno Smart Connector per hub eventi di monitoraggio di Azure.
 
-[Ulteriori informazioni](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "Documentazione di ArcSight.")
+[Altre informazioni](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "Documentazione di ArcSight.")
 
 Il **Bridge per operazioni** con Microfocus monitora automaticamente tutte le risorse IT ibride, ovvero qualsiasi dispositivo, sistema operativo, database, applicazione o servizio, indipendentemente da dove viene eseguito e applica AIOps a tutti i tipi di dati, ovvero eventi, metriche, log e dipendenze. Offre una combinazione univoca di monitoraggio di qualità del servizio, associata a analisi approfondite dell'integrità delle applicazioni e include il monitoraggio completo delle prestazioni e della disponibilità dei servizi Microsoft Azure. Operations Bridge consente ai clienti di fornire un unico riquadro di vetro, disponibile su qualsiasi dispositivo con un browser, in modo che sia le aziende che gli stakeholder IT possano comprendere.
 
@@ -272,7 +272,7 @@ Turbonomic offre l'automazione dei carichi di lavoro per cloud ibridi, ottimizza
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Documentazione di Elastic."
 [grafana-doc]: ./grafana-plugin.md "Integrazione di Grafana con Monitoraggio di Azure."
 [influxdata-doc]: ./../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md "Integrazione di Telegraf dei dati di monitoraggio di Azure."
-[logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Documentazione di Logic Monitor."
+[logicmonitor-doc]: https://www.logicmonitor.com/lp/azure-monitoring/ "Documentazione di Logic Monitor."
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Documentazione di Moogsoft."
 [newrelic-doc]: https://newrelic.com/azure "Documentazione di NewRelic."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "Documentazione di OpsGenie."

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42d1fde92e9315e8df3f65b2ab91ced74b377c0a
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 70fe718884796ac127be38c375003dd728089be8
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293454"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016035"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Windows in Azure usando l'autenticazione Azure Active Directory (anteprima)
 
@@ -239,9 +239,9 @@ Per completare la Azure AD processo join, è necessario che l'estensione AADLogi
 
    | Comando da eseguire | Output previsto |
    | --- | --- |
-   | Metadati curl-H: true "http://169.254.169.254/metadata/instance?api-version=2017-08-01" | Correggere le informazioni sulla macchina virtuale di Azure |
-   | Metadati curl-H: true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01" | ID tenant valido associato alla sottoscrizione di Azure |
-   | Metadati curl-H: true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01" | Token di accesso valido emesso da Azure Active Directory per l'identità gestita assegnata a questa macchina virtuale |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/instance?api-version=2017-08-01"` | Correggere le informazioni sulla macchina virtuale di Azure |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01"` | ID tenant valido associato alla sottoscrizione di Azure |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Token di accesso valido emesso da Azure Active Directory per l'identità gestita assegnata a questa macchina virtuale |
 
    > [!NOTE]
    > Il token di accesso può essere decodificato usando uno strumento come [http://calebb.net/](http://calebb.net/). Verificare che "AppID" nel token di accesso corrisponda all'identità gestita assegnata alla macchina virtuale.

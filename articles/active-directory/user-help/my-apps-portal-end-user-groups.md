@@ -2,22 +2,22 @@
 title: Aggiornare le informazioni sui gruppi nel portale app personali-Azure AD
 description: Informazioni su come visualizzare e aggiornare le informazioni relative ai gruppi, tra cui la visualizzazione dei gruppi di cui si è proprietari, la creazione di nuovi gruppi, la visualizzazione dei gruppi a cui si è già membri e l'Unione di tutti i gruppi di cui non si fa già parte.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/21/2019
-ms.author: lizross
+ms.date: 02/03/2020
+ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: de7fa1952b2e23276a9f088f5840e54675b44d01
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 00639462fce4e67561b8e50609264d4423872c82
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704953"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022297"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Aggiornare le informazioni sui gruppi nel portale app personali
 
@@ -98,8 +98,6 @@ Se l'amministratore ha concesso l'autorizzazione per visualizzare il riquadro **
 
 Dopo aver creato un gruppo, è possibile modificarne i dettagli, incluso l'aggiornamento di qualsiasi informazione esistente.
 
-### <a name="to-edit-your-details"></a>Per modificare i dettagli
-
 1. Selezionare il gruppo che si desidera modificare dalla pagina **gruppi** , quindi selezionare **Modifica dettagli** nella pagina *&lt;group_name&gt;* .
 
     Viene visualizzata la finestra di dialogo **Modifica dettagli** ed è possibile aggiornare le informazioni aggiunte al momento della creazione iniziale del gruppo.
@@ -108,9 +106,7 @@ Dopo aver creato un gruppo, è possibile modificarne i dettagli, incluso l'aggio
 
 ## <a name="add-or-remove-a-member"></a>Aggiungere o rimuovere un membro
 
-È possibile aggiungere o rimuovere membri per qualsiasi gruppo.
-
-### <a name="to-add-or-remove-a-member"></a>Per aggiungere o rimuovere un membro
+È possibile aggiungere o rimuovere membri per tutti i gruppi di cui si è proprietari.
 
 1. Selezionare il gruppo a cui si desidera aggiungere membri, quindi selezionare **+** nella pagina *&lt;group_name&gt;* .
 
@@ -130,8 +126,6 @@ Dopo aver creato un gruppo, è possibile modificarne i dettagli, incluso l'aggio
 
 Se l'organizzazione lo consente, è possibile rinnovare un gruppo di Office 365, estendendo la data di scadenza.
 
-### <a name="to-renew-a-group"></a>Per rinnovare un gruppo
-
 1. Selezionare il gruppo di Office 365 che si vuole rinnovare, quindi selezionare **rinnova il gruppo**.
 
     ![Rinnovare un gruppo di Office 365, estendendo la data di scadenza](media/my-apps-portal/my-apps-portal-renew-group-link.png)
@@ -144,8 +138,6 @@ Se l'organizzazione lo consente, è possibile rinnovare un gruppo di Office 365,
 
 È possibile eliminare qualsiasi gruppo in qualsiasi momento. Tuttavia, se si elimina un gruppo per errore, sarà necessario crearlo e aggiungere nuovamente i membri.
 
-### <a name="to-delete-the-group"></a>Per eliminare il gruppo
-
 1. Selezionare il gruppo che si desidera eliminare definitivamente, quindi selezionare **Elimina gruppo** nella pagina *&lt;group_name&gt;* .
 
     ![< Group_name pagina > con il collegamento Elimina gruppo evidenziato](media/my-apps-portal/my-apps-portal-delete-group-link.png)
@@ -156,9 +148,7 @@ Se l'organizzazione lo consente, è possibile rinnovare un gruppo di Office 365,
 
 ## <a name="join-an-existing-group"></a>Unisci a un gruppo esistente
 
-È possibile aggiungere un gruppo già esistente dalla pagina **gruppi** .
-
-### <a name="to-join-or-leave-a-group"></a>Per partecipare o uscire da un gruppo
+È possibile aggiungere o lasciare un gruppo già esistente dalla pagina **gruppi** .
 
 1. Nella pagina **gruppi** selezionare **Unisci gruppo** tra i **gruppi in** area.
 
@@ -172,7 +162,7 @@ Se l'organizzazione lo consente, è possibile rinnovare un gruppo di Office 365,
 
 3. Se è stato aggiunto un gruppo per errore o se non è più necessario farne parte, è possibile selezionare il nome del gruppo nella pagina **Unisci gruppi** e quindi selezionare **Lascia gruppo**.
 
-    ![Pagina Unisci gruppi, con pulsante Lascia gruppo evidenziato](media/my-apps-portal/my-apps-portal-leave-group-link.png)    
+    ![Pagina Unisci gruppi, con pulsante Lascia gruppo evidenziato](media/my-apps-portal/my-apps-portal-leave-group-link.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

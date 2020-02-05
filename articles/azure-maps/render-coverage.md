@@ -1,6 +1,6 @@
 ---
 title: Copertura rendering | Mappe Microsoft Azure
-description: In questo articolo vengono fornite informazioni sulle aree con Microsoft Azure code coverage di rendering insieme al relativo livello di dettagli di rendering.
+description: In questo articolo vengono fornite informazioni sulle aree con Microsoft Azure mapping di rendering con mapping insieme al relativo livello di dettagli di rendering.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 03/22/2019
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 84d5d7fc6490420857032ead964f5bccea8f397a
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 04e7aeddaa4e3aba38f1bf08893b0b0487109653
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910678"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025453"
 ---
 # <a name="azure-maps-render-coverage"></a>Copertura per il rendering in Mappe di Azure
 
-Mappe di Azure usa sia i riquadri raster che i riquadri vettoriali per creare le mappe. Alla risoluzione minima, il mondo è incluso in un unico riquadro. Alla risoluzione massima, un singolo riquadro rappresenta 38 metri quadrati. Quando si fa zoom avanti su una mappa, è quindi possibile visualizzare sempre più dettagli di continenti, aree, città e singole strade. Per altre informazioni, vedere [Livelli di zoom e griglia riquadri](zoom-levels-and-tile-grid.md).
+Mappe di Azure usa sia i riquadri raster che i riquadri vettoriali per creare le mappe. Con la risoluzione più bassa, l'intero mondo si integra in un unico riquadro. Con la risoluzione più elevata, un singolo riquadro rappresenta 38 metri quadrati. Quando si esegue lo zoom avanti, verranno visualizzati altri dettagli su continenti, aree, città e strade singole. Per ulteriori informazioni sui riquadri, vedere [livelli di zoom e griglia affiancata](zoom-levels-and-tile-grid.md).
 
-Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte le aree. Le tabelle seguenti forniscono informazioni sul livello del dettaglio di rendering previsto per ogni area.
+Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte le aree. Le tabelle seguenti illustrano in dettaglio il livello di informazioni di cui è possibile eseguire il rendering per ogni area.
 
 ## <a name="legend"></a>Legenda
 

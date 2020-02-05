@@ -1,19 +1,19 @@
 ---
-title: Gestire l'account Azure Maps nel portale di Azure | Mappe Microsoft Azure
+title: Gestire l'account Azure Maps nell'portale di Azure | Mappe Microsoft Azure
 description: In questo articolo si apprenderà come usare il portale di Azure per gestire l'account Microsoft Azure maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2019
+ms.date: 01/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 92c76780473372c3e2ef87cdf4da0f21a22d9ac6
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: a983eab03e948d092af652962d75211eb8ee3e7b
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911508"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025606"
 ---
 # <a name="manage-your-azure-maps-account"></a>Gestire l'account Mappe di Azure
 
@@ -31,13 +31,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 4. Immettere le informazioni del nuovo account.
 
-![Immettere le informazioni sull'account Azure Maps nell'portale di Azure](./media/how-to-manage-account-keys/new-account-portal.png)
+[![immettere le informazioni sull'account Azure Maps nell'portale di Azure](./media/how-to-manage-account-keys/new-account-portal.png)](./media/how-to-manage-account-keys/new-account-portal.png#lightbox)
 
 ## <a name="delete-an-account"></a>Eliminare un account
 
 È possibile eliminare un account dal portale di Azure. Passare alla pagina di panoramica account e selezionare **Elimina**.
 
-![Eliminare l'account Azure Maps nell'portale di Azure](./media/how-to-manage-account-keys/account-delete-portal.png)
+[![eliminare l'account Azure Maps nell'portale di Azure](./media/how-to-manage-account-keys/account-delete-portal.png)](./media/how-to-manage-account-keys/account-delete-portal.png#lightbox)
 
 Viene quindi visualizzata una pagina di conferma. È possibile confermare l'eliminazione dell'account digitandone il nome.
 

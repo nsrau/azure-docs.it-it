@@ -6,13 +6,13 @@ ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 71dc37fc000b2f195478e06f7e755fa8df926444
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 472fe621fc7a95317f143ef96a1d7f8b5adfe581
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688298"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016970"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare un'app in una rete virtuale di Azure
 Questo documento descrive la funzionalità di integrazione della rete virtuale del servizio app Azure e come configurarla con le app nel [servizio app Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Le [reti virtuali di Azure][VNETOverview] (reti virtuali) consentono di inserire molte delle risorse di Azure in una rete instradabile non Internet.  
@@ -74,7 +74,7 @@ Questa funzionalità è in anteprima ma è supportata per i carichi di lavoro di
 * È possibile raggiungere solo indirizzi compresi nell'intervallo RFC 1918. Si tratta di indirizzi nei blocchi di indirizzi 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16.
 * Non è possibile raggiungere risorse tra connessioni di peering globali
 * Non è possibile impostare le route per il traffico proveniente dall'app in VNet
-* La funzionalità è disponibile solo dalle più recenti unità di scala del servizio app che supportano i piani di servizio app PremiumV2.
+* La funzionalità è disponibile solo dalle più recenti unità di scala del servizio app che supportano i piani di servizio app PremiumV2. Si noti che questo non significa che l'app deve essere eseguita in uno SKU di PremiumV2, ma solo che deve essere eseguita in un piano di servizio app in cui è disponibile l'opzione PremiumV2 (che implica che si tratta di un'unità di scala più recente in cui è disponibile anche questa funzionalità di integrazione di VNet).
 * La subnet di integrazione può essere usata solo da un solo piano di servizio app
 * Non è possibile usare la funzionalità da app del piano isolato che si trovano in un ambiente del servizio app
 * Per la funzionalità è necessaria una subnet inutilizzata/27 con indirizzi 32 o più grandi nel Gestione risorse VNet
@@ -248,7 +248,7 @@ Esistono tre addebiti correlati all'uso della funzionalità di integrazione VNet
 * Costi del gateway VPN: un costo per il gateway VNet richiesto per la VPN da punto a sito. I dettagli sono disponibili nella pagina dei [prezzi del gateway VPN][VNETPricing] .
 
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 La funzionalità è semplice da configurare, ma possono comunque verificarsi problemi durante l'uso. In caso di problemi di accesso all'endpoint desiderato, sono disponibili varie utilità che permettono di testare la connettività dalla console dell'app. Le console disponibili sono due: la console Kudu e la console nel portale di Azure. Per accedere alla console Kudu dalla propria app, selezionare Strumenti -> Kudu. È anche possibile accedere alla console Kudo in [SiteName]. SCM. azurewebsites. NET. Una volta caricato il sito Web, passare alla scheda Debug Console. Per accedere alla console ospitata portale di Azure quindi dall'app, passare a strumenti-> Console. 
 
 #### <a name="tools"></a>Strumenti

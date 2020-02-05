@@ -4,12 +4,12 @@ description: Fornisce un riepilogo delle impostazioni e delle limitazioni del su
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.author: raynew
-ms.openlocfilehash: 81939292885e33ec6397eb4a437bef63b4ad0787
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 5c3adecf62f9bd15c820baf116dbc01e5d3542fa
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990726"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77014012"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matrice di supporto Azure Migrate
 
@@ -66,7 +66,7 @@ Per Azure Migrate usare Azure, è necessario disporre di queste autorizzazioni p
 **Attività** | **Autorizzazioni** | **Dettagli**
 --- | --- | ---
 Creare un progetto di Azure Migrate | L'account di Azure necessita di autorizzazioni per creare un progetto. | Configurare per [VMware](tutorial-prepare-vmware.md#assign-permissions-to-create-project), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-create-project)o [server fisici](tutorial-prepare-physical.md#assign-permissions-to-create-project).
-Registrare il dispositivo Azure Migrate | Azure Migrate usa un' [appliance di Azure migrate](migrate-appliance.md) Lightweight per valutare le macchine virtuali vmware con Azure migrate server assessment e per eseguire la [migrazione senza agenti](server-migrate-overview.md) di macchine virtuali VMware con Azure migrate migrazione del server. L'appliance individua le macchine virtuali, ne invia i metadati e i dati sulle prestazioni ad Azure Migrate.<br/><br/> Durante la registrazione, Azure Migrate crea due app Azure Active Directory (Azure AD) che identificano l'appliance in modo univoco. Per crearle, è necessario fornire le relative autorizzazioni.<br/><br/> - La prima app comunica con gli endpoint del servizio Azure Migrate.<br/><br/> - La seconda app accede a un'istanza di Azure Key Vault creata durante la registrazione per archiviare le informazioni delle app Azure AD e le impostazioni di configurazione dell'appliance. | Configurare per [VMware](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-register-the-appliance)o [server fisici](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance).
+Registrare il dispositivo Azure Migrate| Azure Migrate usa un' [appliance di Azure migrate](migrate-appliance.md) Lightweight per valutare i computer con Azure migrate Assessment server e per eseguire la [migrazione senza agenti](server-migrate-overview.md) di macchine virtuali VMware con Azure migrate migrazione del server. Questa appliance individua i computer e invia i metadati e i dati sulle prestazioni a Azure Migrate.<br/><br/> Durante la registrazione, i provider di registrazione (Microsoft. OffAzure, Microsoft. migrate e Microsoft. Vault) sono registrati con la sottoscrizione selezionata nell'appliance, in modo che la sottoscrizione funzioni con il provider di risorse. Per eseguire la registrazione, è necessario l'accesso come collaboratore o proprietario per la sottoscrizione.<br/><br/> **VMware**: durante il caricamento, Azure migrate crea due app Azure Active Directory (Azure ad). La prima app comunica tra gli agenti Appliance e il servizio Azure Migrate. L'app non ha le autorizzazioni necessarie per effettuare chiamate di gestione risorse di Azure o avere l'accesso RBAC per le risorse. La seconda app accede a un Azure Key Vault creato nella sottoscrizione utente per la migrazione VMware senza agente. Nella migrazione senza agenti Azure Migrate crea una Key Vault per gestire le chiavi di accesso all'account di archiviazione della replica nella sottoscrizione. Ha accesso RBAC sul Azure Key Vault (nel tenant del cliente) quando l'individuazione viene avviata dall'appliance.<br/><br/> **Hyper-V**-durante l'onboarding. Azure Migrate crea un'app Azure AD. L'app comunica tra gli agenti Appliance e il servizio Azure Migrate. L'app non ha le autorizzazioni necessarie per effettuare chiamate di gestione risorse di Azure o avere l'accesso RBAC per le risorse. | Configurare per [VMware](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-register-the-appliance)o [server fisici](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance).
 Creare un insieme di credenziali delle chiavi per la migrazione senza agenti VMware | Per eseguire la migrazione di macchine virtuali VMware con la migrazione senza agente Azure Migrate server, Azure Migrate crea un Key Vault per gestire le chiavi di accesso all'account di archiviazione della replica nella sottoscrizione. Per creare l'insieme di credenziali, è necessario impostare le autorizzazioni (proprietario, collaboratore e amministratore accesso utenti) nel gruppo di risorse in cui risiede il progetto Azure Migrate. | [Impostare](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault) le autorizzazioni.
 
 ## <a name="supported-geographies"></a>Aree geografiche supportate

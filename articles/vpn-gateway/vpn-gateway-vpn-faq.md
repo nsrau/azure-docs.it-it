@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: 50b751d8e4e1a69a34e6421884f8b99c3eeb5924
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c556b71acf814203a67317039dafeede5f7b65a6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895986"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016749"
 ---
 # <a name="vpn-gateway-faq"></a>Domande frequenti su Gateway VPN
 
@@ -68,14 +68,15 @@ I gateway basati su criteri implementano VPN basate su criteri. Le VPN basate su
 
 I gateway basati su route implementano VPN basate su route. Le VPN basate su route usano "route" nella tabella di inoltro IP o di routing per reindirizzare i pacchetti nelle interfacce tunnel corrispondenti. Le interfacce tunnel consentono quindi di crittografare o decrittografare i pacchetti all'interno e all'esterno dei tunnel. I criteri o selettori di traffico per le VPN basate su route vengono configurati come any-to-any (o caratteri jolly).
 
-### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>È possibile aggiornare un gateway VPN basato su criteri in gateway VPN basato su route?
+### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>È possibile aggiornare il gateway VPN basato su criteri a basato su Route?
+
 No. Non è possibile modificare un tipo di gateway Azure VNET da criteri in base a route o viceversa. È necessario eliminare e ricreare il gateway e il processo richiede circa 60 minuti. L'indirizzo IP del gateway non verrà mantenuto, come pure la chiave precondivisa.
 1. Eliminare qualsiasi connessione associata al gateway da eliminare.
 1. Eliminare il gateway:
-1. [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
-1. [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-1. [Azure Powershell - classico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [Creare un nuovo gateway del tipo desiderato e completare la configurazione della VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+   - [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
+   - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+   - [Azure PowerShell-classico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. [Creare un nuovo gateway del tipo desiderato e completare la configurazione della VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway).
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>Il valore 'GatewaySubnet' è necessario?
 
@@ -89,11 +90,15 @@ No.
 
 ### <a name="can-i-get-my-vpn-gateway-ip-address-before-i-create-it"></a>È possibile ottenere l'indirizzo IP del gateway VPN prima di crearlo?
 
-No. È necessario prima creare il gateway per ottenere l'indirizzo IP. L'indirizzo IP viene modificato se si elimina e si ricrea il gateway VPN.
+Entrambi i gateway con ridondanza della zona e di zona (SKU del gateway con _AZ_ nel nome) si basano su una risorsa IP pubblico di Azure _SKU standard_ . Le risorse IP pubblico dello SKU standard di Azure devono usare un metodo di allocazione statica. Pertanto, l'indirizzo IP pubblico per il gateway VPN sarà disponibile non appena si crea la risorsa IP pubblico dello SKU standard che si intende usare.
+
+Per i gateway non con ridondanza della zona e non di zona (SKU del gateway che _non_ hanno _AZ_ nel nome), non è possibile ottenere l'indirizzo IP del gateway VPN prima che venga creato. L'indirizzo IP viene modificato solo se si elimina e si ricrea il gateway VPN.
 
 ### <a name="can-i-request-a-static-public-ip-address-for-my-vpn-gateway"></a>È possibile richiedere un indirizzo IP pubblico statico per il gateway VPN?
 
-No. È supportata solo l'assegnazione di indirizzi IP dinamici. Ciò non significa tuttavia che l'indirizzo IP viene modificato dopo l'assegnazione al gateway VPN. L'indirizzo IP del gateway VPN viene modificato solo quando il gateway viene eliminato e ricreato. L'indirizzo IP pubblico del gateway VPN non cambia in caso di ridimensionamento, reimpostazione o altri aggiornamenti o manutenzioni interne del gateway VPN. 
+Come indicato in precedenza, i gateway con ridondanza della zona e di zona (SKU del gateway con _AZ_ nel nome) si basano entrambi su una risorsa IP pubblico di Azure _SKU standard_ . Le risorse IP pubblico dello SKU standard di Azure devono usare un metodo di allocazione statica.
+
+Per i gateway non con ridondanza della zona e non di zona (SKU del gateway che _non_ hanno _AZ_ nel nome), è supportata solo l'assegnazione di indirizzi IP dinamici. Tuttavia, ciò non significa che l'indirizzo IP cambi dopo che è stato assegnato al gateway VPN. L'indirizzo IP del gateway VPN viene modificato solo quando il gateway viene eliminato e quindi ricreato. L'indirizzo IP pubblico del gateway VPN non cambia quando si ridimensionano, reimpostano o completano altri aggiornamenti e manutenzione interna del gateway VPN.
 
 ### <a name="how-does-my-vpn-tunnel-get-authenticated"></a>Come si ottiene l'autenticazione del tunnel VPN?
 

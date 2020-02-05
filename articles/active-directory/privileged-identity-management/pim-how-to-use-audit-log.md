@@ -14,12 +14,12 @@ ms.date: 11/13/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a275b08beac842c7d435d77d6b4c1338e817fbc7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0d46036efa04b4e0225cad6e8a70cd31ad3c10bd
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430098"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024178"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Visualizzare la cronologia di controllo per i ruoli Azure AD in PIM
 
@@ -33,52 +33,6 @@ A partire da novembre 2019, la parte Azure AD ruoli di Privileged Identity Manag
 1. Aprire **Azure AD Privileged Identity Management**. Se si dispone di un banner nella parte superiore della pagina Panoramica, seguire le istruzioni riportate nella scheda **nuova versione** di questo articolo. In caso contrario, seguire le istruzioni riportate nella scheda **versione precedente** .
 
     ![Nuova versione dei ruoli Azure AD](./media/pim-how-to-add-role-to-user/pim-new-version.png)
-
-# <a name="previous-versiontabprevious"></a>[Versione precedente](#tab/previous)
-
-## <a name="view-audit-history"></a>Visualizzare la cronologia di controllo
-
-Per visualizzare la cronologia di controllo per i ruoli di Azure AD, attenersi alla seguente procedura.
-
-1. Accedere al [portale di Azure](https://portal.azure.com/) con un utente membro del ruolo [Amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
-
-1. Aprire **Azure AD Privileged Identity Management**.
-
-1. Selezionare **Azure ad ruoli**.
-
-1. Selezionare **cronologia di controllo ruoli della directory**.
-
-    A seconda della cronologia di controllo, viene visualizzato un istogramma con le attivazioni totali, le attivazioni massime al giorno e le attivazioni medie al giorno.
-
-    ![Cronologia di controllo dei ruoli della directory](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
-
-    Nella parte inferiore della pagina viene visualizzata una tabella con informazioni su ogni azione nella cronologia di controllo disponibile. Le colonne hanno i significati seguenti:
-
-    | Colonna | Description |
-    | --- | --- |
-    | Durata | Quando si è verificata l'azione. |
-    | Utente supporto tecnico | Utente che ha richiesto l'attivazione o la modifica del ruolo. Se il valore è **Azure System**, controllare la cronologia di controllo di Azure per altre informazioni. |
-    | Azione | Azioni eseguite dal richiedente. Le azioni possono includere Assign, Unassign, Activate, disactivate o AddedOutsidePIM. |
-    | Membro | Utente che sta attivando o assegnata a un ruolo. |
-    | Ruolo | Ruolo assegnato o attivato dall'utente. |
-    | Ragionamento | Testo immesso nel campo motivo durante l'attivazione. |
-    | Scadenza | Quando un ruolo attivato scade. Si applica solo alle assegnazioni di ruolo idonee. |
-
-1. Per ordinare la cronologia di controllo, fare clic sui pulsanti **ora**, **azione**e **ruolo** .
-
-## <a name="filter-audit-history"></a>Filtrare la cronologia dei controlli
-
-1. Nella parte superiore della pagina cronologia di controllo fare clic sul pulsante **filtro** .
-
-    Viene visualizzato il riquadro **Aggiorna parametri del grafico** .
-
-1. In **intervallo di tempo**selezionare un intervallo di tempo.
-
-1. In **ruoli**selezionare le caselle di controllo per indicare i ruoli che si desidera visualizzare.
-
-    ![Riquadro Aggiorna parametri grafico](media/pim-how-to-use-audit-log/update-chart-parameters.png)
-
-1. Selezionare **fine** per visualizzare la cronologia di controllo filtrata.
 
 # <a name="new-versiontabnew"></a>[Nuova versione](#tab/new)
 
@@ -113,6 +67,52 @@ Controllo personale consente di visualizzare l'attività del ruolo personale.
 1. Filtrare la cronologia usando una data predefinita o un intervallo personalizzato.
 
     ![Elenco di controllo per l'utente corrente](media/azure-pim-resource-rbac/my-audit-time.png)
+
+# <a name="previous-versiontabprevious"></a>[Versione precedente](#tab/previous)
+
+## <a name="view-audit-history"></a>Visualizzare la cronologia di controllo
+
+Per visualizzare la cronologia di controllo per i ruoli di Azure AD, attenersi alla seguente procedura.
+
+1. Accedere al [portale di Azure](https://portal.azure.com/) con un utente membro del ruolo [Amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
+
+1. Aprire **Azure AD Privileged Identity Management**.
+
+1. Selezionare **Azure ad ruoli**.
+
+1. Selezionare **cronologia di controllo ruoli della directory**.
+
+    A seconda della cronologia di controllo, viene visualizzato un istogramma con le attivazioni totali, le attivazioni massime al giorno e le attivazioni medie al giorno.
+
+    ![Cronologia di controllo dei ruoli della directory](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
+
+    Nella parte inferiore della pagina viene visualizzata una tabella con informazioni su ogni azione nella cronologia di controllo disponibile. Le colonne hanno i significati seguenti:
+
+    | Colonna | Description |
+    | --- | --- |
+    | Durata | Quando si è verificata l'azione. |
+    | Richiedente | Utente che ha richiesto l'attivazione o la modifica del ruolo. Se il valore è **Azure System**, controllare la cronologia di controllo di Azure per altre informazioni. |
+    | Azione | Azioni eseguite dal richiedente. Le azioni possono includere Assign, Unassign, Activate, disactivate o AddedOutsidePIM. |
+    | Membro | Utente che sta attivando o assegnata a un ruolo. |
+    | Ruolo | Ruolo assegnato o attivato dall'utente. |
+    | Ragionamento | Testo immesso nel campo motivo durante l'attivazione. |
+    | Scadenza | Quando un ruolo attivato scade. Si applica solo alle assegnazioni di ruolo idonee. |
+
+1. Per ordinare la cronologia di controllo, fare clic sui pulsanti **ora**, **azione**e **ruolo** .
+
+## <a name="filter-audit-history"></a>Filtrare la cronologia dei controlli
+
+1. Nella parte superiore della pagina cronologia di controllo fare clic sul pulsante **filtro** .
+
+    Viene visualizzato il riquadro **Aggiorna parametri del grafico** .
+
+1. In **intervallo di tempo**selezionare un intervallo di tempo.
+
+1. In **ruoli**selezionare le caselle di controllo per indicare i ruoli che si desidera visualizzare.
+
+    ![Riquadro Aggiorna parametri grafico](media/pim-how-to-use-audit-log/update-chart-parameters.png)
+
+1. Selezionare **fine** per visualizzare la cronologia di controllo filtrata.
 
 ---
 

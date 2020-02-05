@@ -4,12 +4,12 @@ description: Informazioni su come l'agente MARS supporta gli scenari di backup
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d558a19b3025ab1400e873f97b0ce5e5a860c75a
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 348980b840b814c09ce46627f286489d4caa9f8f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902869"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023957"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Informazioni sull'agente di Servizi di ripristino di Microsoft Azure (MARS)
 
@@ -58,8 +58,7 @@ L'agente MARS supporta gli scenari di ripristino seguenti:
 ### <a name="additional-scenarios"></a>Scenari aggiuntivi
 -   Eseguire il backup di **file e cartelle specifici all'interno di macchine virtuali di Azure**: il metodo principale per il backup di macchine virtuali di Azure consiste nell'usare un'estensione di backup di Azure nella macchina virtuale. L'estensione esegue il backup dell'intera macchina virtuale. Se si vuole eseguire il backup di file e cartelle specifici all'interno di una macchina virtuale, è possibile installare l'agente MARS nelle VM di Azure. Per altre informazioni, vedere [architettura: backup di macchine virtuali di Azure predefinito](https://docs.microsoft.com/azure/backup/backup-architecture#architecture-built-in-azure-vm-backup).
 
--   **Seeding offline**: i backup completi iniziali dei dati in Azure in genere trasferiscono grandi quantità di dati e richiedono una maggiore larghezza di banda di rete. I backup successivi trasferiscono solo la quantità di dati Delta o incrementale. Backup di Azure comprime i backup iniziali. Tramite il processo di *seeding offline*, backup di Azure può usare i dischi per caricare i dati di backup iniziali compressi offline in Azure. Per ulteriori informazioni, vedere [flusso di lavoro di backup offline per DPM e server di backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export-).
-
+-   **Seeding offline**: i backup completi iniziali dei dati in Azure in genere trasferiscono grandi quantità di dati e richiedono una maggiore larghezza di banda di rete. I backup successivi trasferiscono solo la quantità di dati Delta o incrementale. Backup di Azure comprime i backup iniziali. Tramite il processo di *seeding offline*, backup di Azure può usare i dischi per caricare i dati di backup iniziali compressi offline in Azure. Per altre informazioni, vedere backup di [Azure offline-backup con Azure Data Box](offline-backup-azure-data-box.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Matrice di supporto dell'agente MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)

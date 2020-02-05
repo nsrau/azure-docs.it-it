@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: ddccd02e7157792d942309ae4f74933322f246f9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5c50186692438be5d0922cd329c28e665310e5c2
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225369"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023532"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configurare la modalità di distribuzione per Azure Load Balancer
 
@@ -59,7 +59,7 @@ Un altro scenario d'uso è il caricamento di contenuti multimediali. Il caricame
 
 ## <a name="configure-source-ip-affinity-settings"></a>Configurare le impostazioni dell'affinità IP di origine
 
-### <a name="azure-portal"></a>portale di Azure
+### <a name="azure-portal"></a>Portale di Azure
 
 È possibile modificare la configurazione della modalità di distribuzione modificando la regola di bilanciamento del carico nel portale.
 
@@ -156,7 +156,7 @@ L'esempio seguente illustra come riconfigurare la modalità di distribuzione del
 
 Per modificare una configurazione di distribuzione esistente, usare il modello di distribuzione classico di Azure. Aggiungere l'intestazione `x-ms-version` e impostare il valore alla versione 2014-09-01 o a una versione successiva.
 
-#### <a name="request"></a>Request
+#### <a name="request"></a>Richiesta
 
     POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet   x-ms-version: 2014-09-01
     Content-Type: application/xml
@@ -181,7 +181,7 @@ Per modificare una configurazione di distribuzione esistente, usare il modello d
 
 Come descritto in precedenza, impostare l'elemento `LoadBalancerDistribution` su sourceIP per l'affinità con due Tuple, sourceIPProtocol per l'affinità a tre Tuple o None per nessuna affinità (affinità a cinque tuple).
 
-#### <a name="response"></a>response
+#### <a name="response"></a>Risposta
 
     HTTP/1.1 202 Accepted
     Cache-Control: no-cache
@@ -194,5 +194,5 @@ Come descritto in precedenza, impostare l'elemento `LoadBalancerDistribution` su
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Panoramica del bilanciamento del carico interno di Azure](load-balancer-internal-overview.md)
-* [Introduzione alla configurazione del bilanciamento del carico con connessione a Internet](load-balancer-get-started-internet-arm-ps.md)
+* [Introduzione alla configurazione del bilanciamento del carico con connessione a Internet](quickstart-create-standard-load-balancer-powershell.md)
 * [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)

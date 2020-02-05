@@ -1,6 +1,6 @@
 ---
-title: Soluzione VMware di Azure di CloudSimple-configurare tabelle e regole del firewall
-description: Viene descritto come configurare le regole e le tabelle del firewall del cloud privato per limitare il traffico su subnet e VLAN.
+title: 'Azure VMware Solutions (AVS): configurare le regole e le tabelle del firewall'
+description: Viene descritto come configurare le regole e le regole del firewall del cloud privato AVS per limitare il traffico su subnet e VLAN.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,14 +8,14 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 411b4bb74c21a445f4001c949e1c7811af212453
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: d133f4d0ac8cc8b70060563ad07da35e9fdf2d37
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606445"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025283"
 ---
-# <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Configurare le regole e le tabelle del firewall per i cloud privati
+# <a name="set-up-firewall-tables-and-rules-for-avs-private-clouds"></a>Configurare le regole e le tabelle del firewall per i cloud privati AVS
 
 Le tabelle del firewall e le regole associate consentono di specificare restrizioni sul traffico da applicare a specifiche subnet e VLAN.
 
@@ -24,7 +24,7 @@ Le tabelle del firewall e le regole associate consentono di specificare restrizi
 
 ## <a name="add-a-new-firewall-table"></a>Aggiungere una nuova tabella firewall
 
-1. [Accedere al portale di CloudSimple](access-cloudsimple-portal.md) e selezionare **rete** dal menu laterale.
+1. [Accedere al portale AVS](access-cloudsimple-portal.md) e selezionare **rete** dal menu laterale.
 2. Selezionare le **tabelle del firewall**.
 3. Selezionare **Crea tabella firewall**.
 
@@ -51,7 +51,7 @@ Le regole del firewall determinano il modo in cui il firewall tratta tipi specif
 2. Configurare la regola come indicato di seguito:
     * **Nome**. Assegnare un nome alla regola.
     * **Priorità**. Assegnare una priorità alla regola. Vengono eseguite per prime le regole con numeri più bassi.
-    * **Tipo di traffico**. Consente di indicare se la regola è destinata a un cloud privato, a Internet o a un traffico VPN (senza stato) o per un indirizzo IP pubblico (con stato).
+    * **Tipo di traffico**. Consente di indicare se la regola è per il cloud privato AVS, Internet o il traffico VPN (senza stato) o per un indirizzo IP pubblico (con stato).
     * **Protocollo**. Selezionare il protocollo coperto dalla regola (TCP, UDP o qualsiasi protocollo).
     * **Direzione**. Consente di indicare se la regola è per il traffico in ingresso o in uscita. È necessario definire regole separate per il traffico in ingresso e in uscita.
     * **Azione**. Selezionare l'azione da eseguire se la regola corrisponde a (Consenti o nega).
@@ -75,5 +75,5 @@ Dopo aver definito una tabella del firewall, è possibile specificare le subnet 
 1. Nella pagina **Network** > **Firewall Tables** Selezionare una tabella del firewall.
 2. Aprire la scheda **VLAN/subnet collegata** .
 3. Fare clic su **Connetti a una VLAN/subnet**.
-4. Selezionare il cloud privato e la VLAN. Vengono visualizzati il nome della subnet e il blocco CIDR associati.
-5. Fare clic su **Submit**.
+4. Selezionare il cloud privato AVS e la VLAN. Vengono visualizzati il nome della subnet e il blocco CIDR associati.
+5. Fare clic su **Submit** (Invia).

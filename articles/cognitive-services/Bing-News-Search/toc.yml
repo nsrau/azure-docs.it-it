@@ -8,7 +8,7 @@
     - name: Confrontare le API di ricerca Bing
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
     - name: API REST
       items:
@@ -44,7 +44,7 @@
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+News+Search'
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Gestire l'evidenziazione dei risultati
       href: ../Bing-Web-Search/hit-highlighting.md
@@ -56,17 +56,13 @@
       href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Eseguire l'aggiornamento dalla versione 5 alla versione 7 dell'API
       href: bing-news-upgrade-guide-v5-to-v7.md
-    - name: Utilizzo di Visual Studio
-      items:
-        - name: Usare il servizio connesso di Ricerca notizie Bing
-          href: vs-bing-news-search-connected-service.md
 - name: Concetti
   items:
     - name: Invio di query di ricerca
       href: concepts/send-search-queries.md
     - name: Ricerca di notizie
       href: concepts/search-for-news.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: API Ricerca notizie Bing v7
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference'
@@ -95,7 +91,7 @@
       href: 'https://cognitive.uservoice.com/forums/911449-bing-news-search-api'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/search?q=bing+news+search'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'

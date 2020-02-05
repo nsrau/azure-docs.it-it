@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: b13349ae4293f6377429e9dc72b6c2cb43f92348
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 35965f238ed5b7768dd174788453838c917adb32
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435123"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023226"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurare il dashboard dell'applicazione
 
@@ -47,7 +47,6 @@ A questo punto, quando un operatore Visualizza il dashboard dell'applicazione pr
 
 > [!div class="mx-imgBorder"]
 > ![scheda "Dashboard" con le impostazioni e le proprietà visualizzate per il riquadro](media/howto-add-tiles-to-your-dashboard/settings-and-properties.png)
-
 
 ## <a name="edit-tiles"></a>Modifica riquadri
 
@@ -87,4 +86,4 @@ La tabella seguente riepiloga l'uso dei riquadri in Azure IoT Central:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come configurare il dashboard dell'applicazione predefinita di Azure IoT Central, è possibile [apprendere come preparare e caricare le immagini](howto-prepare-images.md).
+Ora che si è appreso come configurare il dashboard dell'applicazione predefinita di Azure IoT Central, è possibile [apprendere come creare un dashboard personale](howto-create-personal-dashboards.md).

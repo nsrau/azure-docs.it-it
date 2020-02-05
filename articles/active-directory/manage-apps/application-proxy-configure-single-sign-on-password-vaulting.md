@@ -14,12 +14,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18510bd7ace6ca87278b5bf68f79b372251ac0e1
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: b0259a8d9fcb4c9c513ab2c31103c9a8488e90ae
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807814"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025742"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Insieme di credenziali delle password per l'accesso Single Sign-On con il proxy dell'applicazione
 
@@ -34,9 +34,11 @@ Si presuppone che l'utente abbia già pubblicato e testato l'app con il proxy de
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
 1. Selezionare **Azure Active Directory** > **Applicazioni aziendali** > **Tutte le applicazioni**.
 1. Nell'elenco a discesa selezionare l'app da configurare con la funzione SSO.  
+1. Selezionare **Proxy dell'applicazione**. 
+1. Modificare il **tipo di pre-autenticazione** in **PassThrough** e selezionare **Salva**. In seguito è possibile tornare nuovamente al tipo di **Azure Active Directory** . 
 1. Selezionare **Single Sign-On**.
 
-   ![Selezionare Single sign-on dalla pagina di panoramica dell'app](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
+   ![Selezionare Single Sign-on dalla pagina Panoramica dell'app](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
 
 1. Per la modalità SSO, scegliere **Accesso basato su password**.
 1. Per l'URL di accesso, inserire l'URL della pagina in cui gli utenti immettono nome utente e password per accedere all'app fuori dalla rete aziendale. Potrebbe trattarsi dell'URL esterno creato dopo aver pubblicato l'app tramite il proxy dell'applicazione.
@@ -44,6 +46,17 @@ Si presuppone che l'utente abbia già pubblicato e testato l'app con il proxy de
    ![Scegliere l'accesso basato su password e immettere l'URL](./media/application-proxy-configure-single-sign-on-password-vaulting/password-sso.png)
 
 1. Selezionare **Salva**.
+1. Selezionare **Proxy dell'applicazione**. 
+1. Modificare il **tipo di pre-autenticazione** in **Azure Active Directory** e selezionare **Salva**. 
+1. Selezionare **Users and Groups** (Utenti e gruppi).
+1. Assegnare gli utenti all'applicazione selezionando **Aggiungi utente**. 
+1. Se si desidera predefinire le credenziali per un utente, selezionare la casella di controllo prima del nome utente e selezionare **Aggiorna credenziali**.
+1. Selezionare **Azure Active Directory** > **registrazioni app** > **tutte le applicazioni**.
+1. Nell'elenco selezionare l'App configurata con la password SSO.
+1. Selezionare **Personalizzazione**. 
+1. Aggiornare l' **URL della Home page** con l' **URL di accesso** dalla pagina SSO con password e selezionare **Salva**.  
+
+
 
 <!-- Need to repro?
 7. The page should tell you that a sign-in form was successfully detected at the provided URL. If it doesn't, select **Configure [your app name] Password Single Sign-on Settings** and choose **Manually detect sign-in fields**. Follow the instructions to point out where the sign-in credentials go. 
@@ -51,7 +64,7 @@ Si presuppone che l'utente abbia già pubblicato e testato l'app con il proxy de
 
 ## <a name="test-your-app"></a>Test dell'app
 
-Passare all'URL esterno che è stato configurato per l'accesso remoto all'applicazione. Accedere con le credenziali dell'app (o con le credenziali di un account di prova per cui è stato configurato l'accesso). Dopo l'accesso, dovrebbe essere possibile lasciare l'app e tornare senza dover immettere nuovamente le credenziali.
+Passare al portale app personali. Accedere con le credenziali (o con le credenziali per un account di test configurato con l'accesso). Una volta eseguito l'accesso, fare clic sull'icona dell'app. Questa operazione potrebbe attivare l'installazione dell'estensione del browser per l'accesso sicuro alle app personali. Se l'utente ha credenziali predefinite, l'autenticazione per l'app dovrebbe essere eseguita automaticamente; in caso contrario, è necessario specificare il nome utente o la password per la prima volta. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

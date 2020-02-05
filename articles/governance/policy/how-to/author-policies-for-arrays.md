@@ -3,12 +3,12 @@ title: Criteri autore per le proprietà delle matrici sulle risorse
 description: Informazioni su come usare i parametri di matrice e le espressioni del linguaggio di matrici, valutare l'alias [*] e aggiungere elementi con le regole di definizione dei criteri di Azure.
 ms.date: 11/26/2019
 ms.topic: how-to
-ms.openlocfilehash: 915f50945e0c2520fbda09c4db1b581c9381073b
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 462d9acbda37bbbd007af6d6d1267e9b0e7d3e0a
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873098"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023192"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Modificare i criteri per le proprietà delle matrici nelle risorse di Azure
 
@@ -140,7 +140,8 @@ Il **tipo** di condizione previsto `equals` è _String_. Poiché **allowedLocati
 
 ### <a name="evaluating-the--alias"></a>Valutazione dell'alias [*]
 
-Gli alias con **\[\*\]** allegati al nome indicano che il **tipo** è una _matrice_. Anziché valutare il valore dell'intera matrice, **\[\*\]** rende possibile valutare ogni elemento della matrice. Esistono tre scenari standard in cui questa valutazione per elemento è utile in: nessuno, nessuno e tutti. Per gli scenari complessi, usare [count](../concepts/definition-structure.md#count).
+Gli alias con **\[\*\]** allegati al nome indicano che il **tipo** è una _matrice_. Anziché valutare il valore dell'intera matrice, **\[\*\]** rende possibile valutare ogni elemento della matrice singolarmente, con l'operatore logico and between. Esistono tre scenari standard in cui questa valutazione per elemento è utile in: nessuno _, nessuno_o _tutti_ gli elementi corrispondono.
+Per gli scenari complessi, usare [count](../concepts/definition-structure.md#count).
 
 Il motore dei criteri attiva l' **effetto** in **quindi** solo quando la regola **if** restituisce true.
 Questo aspetto è importante per comprendere nel contesto del modo in cui **\[\*\]** valuta ogni singolo elemento della matrice.
@@ -183,16 +184,16 @@ Per ogni condizione di esempio riportata di seguito, sostituire `<field>` con `"
 
 I risultati seguenti sono il risultato della combinazione della condizione e della regola dei criteri di esempio e della matrice dei valori esistenti precedente:
 
-|Condizione |Risultato |Spiegazione |
-|-|-|-|
-|`{<field>,"notEquals":"127.0.0.1"}` |Niente |Un elemento della matrice restituisce false (127.0.0.1! = 127.0.0.1) e uno come true (127.0.0.1! = 192.168.1.1), quindi la condizione **notEquals** è _false_ e l'effetto non viene attivato. |
-|`{<field>,"notEquals":"10.0.4.1"}` |Effetto criteri |Entrambi gli elementi della matrice restituiscono true (10.0.4.1! = 127.0.0.1 e 10.0.4.1! = 192.168.1.1), quindi la condizione **notEquals** è _true_ e l'effetto viene attivato. |
-|`"not":{<field>,"Equals":"127.0.0.1"}` |Effetto criteri |Un elemento della matrice restituisce true (127.0.0.1 = = 127.0.0.1) e uno come false (127.0.0.1 = = 192.168.1.1), quindi la condizione **Equals** è _false_. L'operatore logico restituisce true (**non** _false_), quindi l'effetto viene attivato. |
-|`"not":{<field>,"Equals":"10.0.4.1"}` |Effetto criteri |Entrambi gli elementi della matrice restituiscono false (10.0.4.1 = = 127.0.0.1 e 10.0.4.1 = = 192.168.1.1), quindi la condizione **Equals** è _false_. L'operatore logico restituisce true (**non** _false_), quindi l'effetto viene attivato. |
-|`"not":{<field>,"notEquals":"127.0.0.1" }` |Effetto criteri |Un elemento della matrice restituisce false (127.0.0.1! = 127.0.0.1) e uno come true (127.0.0.1! = 192.168.1.1), quindi la condizione **notEquals** è _false_. L'operatore logico restituisce true (**non** _false_), quindi l'effetto viene attivato. |
-|`"not":{<field>,"notEquals":"10.0.4.1"}` |Niente |Entrambi gli elementi della matrice restituiscono true (10.0.4.1! = 127.0.0.1 e 10.0.4.1! = 192.168.1.1), quindi la condizione **notEquals** è _true_. L'operatore logico restituisce false (**non** _true_), quindi l'effetto non viene attivato. |
-|`{<field>,"Equals":"127.0.0.1"}` |Niente |Un elemento della matrice restituisce true (127.0.0.1 = = 127.0.0.1) e uno come false (127.0.0.1 = = 192.168.1.1), quindi la condizione **Equals** è _false_ e l'effetto non viene attivato. |
-|`{<field>,"Equals":"10.0.4.1"}` |Niente |Entrambi gli elementi della matrice restituiscono false (10.0.4.1 = = 127.0.0.1 e 10.0.4.1 = = 192.168.1.1), quindi la condizione **Equals** è _false_ e l'effetto non viene attivato. |
+|Condizione |Risultato | Scenario |Spiegazione |
+|-|-|-|-|
+|`{<field>,"notEquals":"127.0.0.1"}` |Nothing |Nessuna corrispondenza |Un elemento della matrice restituisce false (127.0.0.1! = 127.0.0.1) e uno come true (127.0.0.1! = 192.168.1.1), quindi la condizione **notEquals** è _false_ e l'effetto non viene attivato. |
+|`{<field>,"notEquals":"10.0.4.1"}` |Effetto criteri |Nessuna corrispondenza |Entrambi gli elementi della matrice restituiscono true (10.0.4.1! = 127.0.0.1 e 10.0.4.1! = 192.168.1.1), quindi la condizione **notEquals** è _true_ e l'effetto viene attivato. |
+|`"not":{<field>,"notEquals":"127.0.0.1" }` |Effetto criteri |Una o più corrispondenze |Un elemento della matrice restituisce false (127.0.0.1! = 127.0.0.1) e uno come true (127.0.0.1! = 192.168.1.1), quindi la condizione **notEquals** è _false_. L'operatore logico restituisce true (**non** _false_), quindi l'effetto viene attivato. |
+|`"not":{<field>,"notEquals":"10.0.4.1"}` |Nothing |Una o più corrispondenze |Entrambi gli elementi della matrice restituiscono true (10.0.4.1! = 127.0.0.1 e 10.0.4.1! = 192.168.1.1), quindi la condizione **notEquals** è _true_. L'operatore logico restituisce false (**non** _true_), quindi l'effetto non viene attivato. |
+|`"not":{<field>,"Equals":"127.0.0.1"}` |Effetto criteri |Non tutte le corrispondenze |Un elemento della matrice restituisce true (127.0.0.1 = = 127.0.0.1) e uno come false (127.0.0.1 = = 192.168.1.1), quindi la condizione **Equals** è _false_. L'operatore logico restituisce true (**non** _false_), quindi l'effetto viene attivato. |
+|`"not":{<field>,"Equals":"10.0.4.1"}` |Effetto criteri |Non tutte le corrispondenze |Entrambi gli elementi della matrice restituiscono false (10.0.4.1 = = 127.0.0.1 e 10.0.4.1 = = 192.168.1.1), quindi la condizione **Equals** è _false_. L'operatore logico restituisce true (**non** _false_), quindi l'effetto viene attivato. |
+|`{<field>,"Equals":"127.0.0.1"}` |Nothing |Tutte le corrispondenze |Un elemento della matrice restituisce true (127.0.0.1 = = 127.0.0.1) e uno come false (127.0.0.1 = = 192.168.1.1), quindi la condizione **Equals** è _false_ e l'effetto non viene attivato. |
+|`{<field>,"Equals":"10.0.4.1"}` |Nothing |Tutte le corrispondenze |Entrambi gli elementi della matrice restituiscono false (10.0.4.1 = = 127.0.0.1 e 10.0.4.1 = = 192.168.1.1), quindi la condizione **Equals** è _false_ e l'effetto non viene attivato. |
 
 ## <a name="the-append-effect-and-arrays"></a>L'effetto di Accodamento e le matrici
 

@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 5205b12a5f9f6acad8755b69d6da2216ffd4d83e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 408501232891a7971d03c89acc647d9ed19609b3
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760828"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026150"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Le caratteristiche sono informazioni su azioni e contesto
 
@@ -132,6 +132,8 @@ Le sezioni seguenti descrivono le procedure comuni per migliorare i set di carat
 È possibile migliorare i set di caratteristiche modificandoli in modo da renderli più grandi e più o meno densi.
 
 Ad esempio, un timestamp misurato in secondi è una caratteristica molto diradata. Per renderla più densa, e quindi efficace, è possibile classificare il tempo suddividendolo in "mattina", "mezzogiorno", "pomeriggio" e così via.
+
+Anche le informazioni sulla posizione sono in genere utili per la creazione di classificazioni più ampie. Ad esempio, una coordinata di longitudine latitudine, ad esempio Lat: 47,67402 ° N, Long: 122,12154 ° W è troppo precisa e impone al modello di apprendere la latitudine e la longitudine come dimensioni distinte. Quando si prova a personalizzare in base alle informazioni sulla posizione, è possibile raggruppare le informazioni sulla posizione in settori più grandi. Un modo semplice per eseguire questa operazione consiste nel scegliere una precisione di arrotondamento appropriata per i numeri con lunghezza Lat e combinare Latitudine e Longitudine in "aree" inserendoli in una sola stringa. Ad esempio, un modo efficace per rappresentare 47,67402 ° N, Long: 122,12154 ° W in Regions circa pochi chilometri di larghezza sarebbe "location": "34.3, 12,1".
 
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>Espandere i set di caratteristiche con le informazioni estrapolate

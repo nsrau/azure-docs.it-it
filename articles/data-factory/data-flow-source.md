@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 7a438a52ab69810ecf49319c148f817da974ea61
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 128b15bd5b3ba3c3ac891719bf5c3ec8e5137cce
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440210"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023515"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Trasformazione origine nel flusso di dati di mapping 
 
@@ -44,6 +44,8 @@ Dopo aver aggiunto un'origine, configurare tramite la scheda **impostazioni di o
 
 ![Scheda Impostazioni di origine](media/data-flow/source1.png "Scheda Impostazioni di origine")
 
+**Test connessione:** Verificare se il servizio Spark del flusso di dati è in grado di connettersi al servizio collegato usato nel set di dati di origine. Per abilitare questa funzionalità, è necessario attivare la modalità di debug.
+
 **Schema Drift:** la [deriva dello schema](concepts-data-flow-schema-drift.md) è data factory capacità di gestire in modo nativo schemi flessibili nei flussi di dati senza dover definire in modo esplicito le modifiche apportate alle colonne.
 
 * Controllare la casella **Consenti la deviazione dello schema** se le colonne di origine vengono modificate spesso. Questa impostazione consente a tutti i campi di origine in ingresso di scorrere le trasformazioni nel sink.
@@ -69,13 +71,17 @@ Analogamente agli schemi nei set di dati, la proiezione in un'origine definisce 
 
 ![Impostazioni nella scheda proiezione](media/data-flow/source3.png "Proiezione")
 
-Se nel file di testo non è definito alcuno schema, selezionare **rileva tipo di dati** in modo che data factory campionare e dedurre i tipi di dati. Selezionare **Definisci il formato predefinito** per rilevare automaticamente i formati di dati predefiniti. 
+Se nel file di testo non è definito alcuno schema, selezionare **rileva tipo di dati** in modo che data factory campionare e dedurre i tipi di dati. Selezionare **Definisci il formato predefinito** per rilevare automaticamente i formati di dati predefiniti.
+
+**Reimposta schema Reimposta** la proiezione su ciò che viene definito nel set di dati a cui si fa riferimento.
 
 È possibile modificare i tipi di dati delle colonne in una trasformazione di colonna derivata da un flusso inattivo. Utilizzare una trasformazione seleziona per modificare i nomi delle colonne.
 
 ### <a name="import-schema"></a>Importa schema
 
-I set di dati come Avro e CosmosDB che supportano strutture di dati complesse non richiedono la presenza di definizioni dello schema nel DataSet. Sarà quindi possibile fare clic sul pulsante **Importa schema** nella scheda **proiezione** per questi tipi di origini.
+Il pulsante **Importa schema** nella scheda **proiezione** consente di usare un cluster di debug attivo per creare una proiezione dello schema. Disponibile in ogni tipo di origine, l'importazione dello schema qui sostituirà la proiezione definita nel set di dati. L'oggetto DataSet non verrà modificato.
+
+Questa operazione è utile nei set di dati, ad esempio Avro e CosmosDB che supportano strutture di dati complesse, che non richiedono la presenza di definizioni dello schema nel set di dati.
 
 ## <a name="optimize-the-source-transformation"></a>Ottimizzare la trasformazione di origine
 

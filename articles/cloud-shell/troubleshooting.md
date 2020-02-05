@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 5af73e166f3caa4997851ae4b17d8377550bf40a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: db1e2d09c1a75401a8ca24859e9b2d5da9f54b72
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961544"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024280"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Risoluzione dei problemi e limitazioni di Azure Cloud Shell
 
@@ -36,8 +36,8 @@ Le soluzioni note per i problemi in Azure Cloud Shell includono:
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Disabilitazione di Cloud Shell in un ambiente di rete bloccato
 
-- **Dettagli**: gli amministratori possono decidere di disabilitare l'accesso a Cloud Shell per gli utenti. Cloud Shell usa l'accesso al dominio `ux.console.azure.com`, che può essere negato, impedendo l'accesso ai entryPoints di Cloud Shell, tra cui portal.azure.com, shell.azure.com, Visual Studio Code estensione account Azure e docs.microsoft.com.
-- **Risoluzione**: limitare l'accesso a `ux.console.azure.com` tramite le impostazioni di rete dell'ambiente. L'icona Cloud Shell non verrà rimossa in portal.azure.com, ma non verrà eseguita la connessione al servizio.
+- **Dettagli**: gli amministratori possono decidere di disabilitare l'accesso a Cloud Shell per gli utenti. Cloud Shell usa l'accesso al dominio `ux.console.azure.com`, che può essere negato, impedendo l'accesso ai entryPoints di Cloud Shell, tra cui portal.azure.com, shell.azure.com, Visual Studio Code estensione account Azure e docs.microsoft.com. Nel cloud del governo degli Stati Uniti, il EntryPoint è `ux.console.azure.us`; non esiste alcun shell.azure.us corrispondente.
+- **Soluzione**: limitare l'accesso ai `ux.console.azure.com` o `ux.console.azure.us` tramite le impostazioni di rete per l'ambiente. L'icona Cloud Shell continuerà a esistere nell'portale di Azure, ma non si connetterà correttamente al servizio.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Finestra di dialogo archiviazione - Errore: 403 RequestDisallowedByPolicy
 
@@ -113,11 +113,11 @@ Cloud Shell supporta le versioni più recenti dei browser seguenti:
 - Apple Safari
   - Safari in modalità privata non è supportato.
 
-### <a name="copy-and-paste"></a>Copia e Incolla
+### <a name="copy-and-paste"></a>Copiare e incollare
 
 [!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
-### <a name="usage-limits"></a>Limiti di consumo
+### <a name="usage-limits"></a>Limiti di utilizzo
 
 Cloud Shell è pensato per l'uso interattivo e qualsiasi sessione non interattiva in esecuzione prolungata viene quindi interrotta senza preavviso.
 
@@ -163,7 +163,7 @@ Azure Cloud Shell tratta i dati personali dell'utente con molta cautela: i dati 
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-### <a name="export"></a>Export
+### <a name="export"></a>Esporta
 Al fine di **esportare** le impostazioni dell'utente che Cloud Shell salva, ad esempio shell preferita, dimensione e tipo di carattere, eseguire i comandi seguenti.
 
 1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)

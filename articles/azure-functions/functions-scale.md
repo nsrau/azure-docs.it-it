@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a07d019893e69308b35b4a941fe50d2736efe01
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: fb36b81d1b2a343da334d63d9c0555ed537ef122
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921908"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024654"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
 
@@ -26,7 +26,7 @@ Sia il consumo che i piani Premium aggiungono automaticamente la potenza di calc
 
 Il piano Premium offre funzionalità aggiuntive, ad esempio le istanze di calcolo Premium, la possibilità di limitare le istanze a tempo indefinito e la connettività VNet.
 
-Il piano di servizio app consente di sfruttare i vantaggi dell'infrastruttura dedicata, che è possibile gestire. L'app per le funzioni non viene ridimensionata in base agli eventi, il che significa che non viene mai ridimensionato fino a zero. Richiede che [Always on](#always-on) sia abilitato.
+Il piano di servizio app consente di sfruttare i vantaggi dell'infrastruttura dedicata, che è possibile gestire. L'app per le funzioni non viene ridimensionata in base agli eventi, il che significa che non viene mai ridimensionato in zero. Richiede che [Always on](#always-on) sia abilitato.
 
 ## <a name="hosting-plan-support"></a>Supporto del piano di hosting
 
@@ -152,7 +152,7 @@ L'unità di scala per funzioni di Azure è l'app per le funzioni. In caso di aum
 
 Il ridimensionamento può variare in base a numerosi fattori e comportarsi diversamente a seconda del trigger e della lingua selezionati. È necessario tenere presenti alcune complessità dei comportamenti di ridimensionamento:
 
-* Un'app per le funzioni viene ridimensionata solo fino a un massimo di 200 istanze. Una singola istanza può elaborare più di un messaggio o più di una richiesta alla volta. Pertanto, non esiste alcun limite per quanto riguarda il numero di esecuzioni parallele.
+* Una singola app per le funzioni è scalabile solo a un massimo di 200 istanze. Una singola istanza può elaborare più di un messaggio o più di una richiesta alla volta. Pertanto, non esiste alcun limite per quanto riguarda il numero di esecuzioni parallele.
 * Per i trigger HTTP, le nuove istanze verranno allocate al massimo ogni 1 secondo.
 * Per i trigger non HTTP, le nuove istanze verranno allocate al massimo ogni 30 secondi.
 

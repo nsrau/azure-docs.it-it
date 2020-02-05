@@ -1,5 +1,5 @@
 ---
-title: Configurare Message Passing Interface per HPC - macchine virtuali di Azure | Microsoft Docs
+title: Configurare l'interfaccia di passaggio dei messaggi per HPC-macchine virtuali di Azure | Microsoft Docs
 description: Informazioni su come configurare MPI per HPC in Azure.
 services: virtual-machines
 documentationcenter: ''
@@ -12,22 +12,22 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 541e42a72ea604c4d71dc546b14dea2f0857bcc1
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 469e926932ffa11ef9f2a262b78a587ba435549e
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797503"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023991"
 ---
-# <a name="set-up-message-passing-interface-for-hpc"></a>Configurare Message Passing Interface per HPC
+# <a name="set-up-message-passing-interface-for-hpc"></a>Configurare l'interfaccia di passaggio dei messaggi per HPC
 
-I carichi di lavoro di messaggio Passing Interface (MPI) sono una parte significativa dei carichi di lavoro HPC tradizionali. SR-IOV abilitate dimensioni delle macchine Virtuali in Azure consentono di quasi qualsiasi versione di MPI da usare. 
+I carichi di lavoro MPI (Message Passing Interface) rappresentano una parte significativa dei carichi di lavoro HPC tradizionali. Le dimensioni delle VM abilitate per SR-IOV in Azure consentono di usare praticamente qualsiasi versione di MPI. 
 
-Eseguire processi MPI in macchine virtuali richiede l'impostazione di chiavi di partizione (p-chiavi) in un tenant. Seguire i passaggi nel [individua le chiavi di partizione](#discover-partition-keys) sezione per informazioni dettagliate su come determinare i valori della chiave p.
+L'esecuzione di processi MPI nelle VM richiede la configurazione di chiavi di partizione (p-Keys) in un tenant. Per informazioni dettagliate su come determinare i valori della chiave p, seguire i passaggi della sezione [Discover Partition Keys](#discover-partition-keys) .
 
 ## <a name="ucx"></a>UCX
 
-[UCX](https://github.com/openucx/ucx) offre prestazioni ottimali su IB ed è compatibile con MPICH e OpenMPI.
+[UCX](https://github.com/openucx/ucx) offre le migliori prestazioni in IB e funziona con MPICH e openmpi.
 
 ```bash
 wget https://github.com/openucx/ucx/releases/download/v1.4.0/ucx-1.4.0.tar.gz
@@ -45,7 +45,7 @@ Installare UCX come descritto in precedenza.
 sudo yum install –y openmpi
 ```
 
-Compilazione OpenMPI.
+Compilazione OpenMPi.
 
 ```bash
 wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.0.tar.gz
@@ -55,7 +55,7 @@ cd openmpi-4.0.0
 make -j 8 && make install
 ```
 
-Eseguire OpenMPI.
+Eseguire OpenMPi.
 
 ```bash
 <ompi-install-path>/bin/mpirun -np 2 --map-by node --hostfile ~/hostfile -mca pml ucx --mca btl ^vader,tcp,openib -x UCX_NET_DEVICES=mlx5_0:1  -x UCX_IB_PKEY=0x0003  ./osu_latency
@@ -67,7 +67,7 @@ Controllare la chiave di partizione come indicato in precedenza.
 
 Installare UCX come descritto in precedenza.
 
-Compilare MPICH.
+Compila MPICH.
 
 ```bash
 wget https://www.mpich.org/static/downloads/3.3/mpich-3.3.tar.gz
@@ -77,7 +77,7 @@ cd mpich-3.3
 make -j 8 && make install
 ```
 
-MPICH è in esecuzione.
+Esecuzione di MPICH.
 
 ```bash
 <mpich-install-path>/bin/mpiexec -n 2 -hostfile ~/hostfile -env UCX_IB_PKEY=0x0003 -bind-to hwthread ./osu_latency
@@ -87,7 +87,7 @@ Controllare la chiave di partizione come indicato in precedenza.
 
 ## <a name="mvapich2"></a>MVAPICH2
 
-Compilazione MVAPICH2.
+Compila MVAPICH2.
 
 ```bash
 wget http://mvapich.cse.ohio-state.edu/download/mvapich/mv2/mvapich2-2.3.tar.gz
@@ -97,13 +97,13 @@ cd mvapich2-2.3
 make -j 8 && make install
 ```
 
-MVAPICH2 è in esecuzione.
+Esecuzione di MVAPICH2.
 
 ```bash
 <mvapich2-install-path>/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=48 ./osu_latency
 ```
 
-## <a name="platform-mpi-community-edition"></a>Piattaforma MPI Community Edition
+## <a name="platform-mpi-community-edition"></a>Platform MPI Community Edition
 
 Installare i pacchetti necessari per la piattaforma MPI.
 
@@ -120,13 +120,13 @@ Seguire il processo di installazione.
 
 [Scaricare Intel MPI](https://software.intel.com/mpi-library/choose-download).
 
-Modificare la variabile di ambiente I_MPI_FABRICS a seconda della versione. Per Intel MPI 2018, usare `I_MPI_FABRICS=shm:ofa` allo stesso modo per 2019, `I_MPI_FABRICS=shm:ofi`.
+Modificare la variabile di ambiente I_MPI_FABRICS a seconda della versione. Per Intel MPI 2018, usare `I_MPI_FABRICS=shm:ofa` e per 2019, usare `I_MPI_FABRICS=shm:ofi`.
 
-L'aggiunta di processo funziona correttamente per PPN 15, 30 e 60 per impostazione predefinita.
+Il blocco del processo funziona correttamente per le PPN 15, 30 e 60 per impostazione predefinita.
 
 ## <a name="osu-mpi-benchmarks"></a>Benchmark MPI OSU
 
-[Scaricare i benchmark MPI OSU](http://mvapich.cse.ohio-state.edu/benchmarks/) e decomprimere.
+[Scaricare OSU MPI benchmarks](http://mvapich.cse.ohio-state.edu/benchmarks/) e untar.
 
 ```bash
 wget http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.5.tar.gz
@@ -134,26 +134,26 @@ tar –xvf osu-micro-benchmarks-5.5.tar.gz
 cd osu-micro-benchmarks-5.5
 ```
 
-Creare i benchmark con una determinata libreria MPI:
+Creare benchmark usando una particolare libreria MPI:
 
 ```bash
 CC=<mpi-install-path/bin/mpicc>CXX=<mpi-install-path/bin/mpicxx> ./configure 
 make
 ```
 
-I benchmark MPI sono sotto `mpi/` cartella.
+I benchmark MPI si trovano nella cartella `mpi/`.
 
 
-## <a name="discover-partition-keys"></a>Individuare le chiavi di partizione
+## <a name="discover-partition-keys"></a>Individua chiavi di partizione
 
-Individuare le chiavi di partizione (p-chiavi) per la comunicazione con altre macchine virtuali nello stesso tenant (Set di disponibilità o Set di scalabilità di macchine Virtuali).
+Individuare le chiavi di partizione (p-Keys) per la comunicazione con altre macchine virtuali nello stesso tenant (set di disponibilità o set di scalabilità di macchine virtuali).
 
 ```bash
 /sys/class/infiniband/mlx5_0/ports/1/pkeys/0
 /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 ```
 
-Il più elevato tra i due è la chiave del tenant che deve essere usata con MPI. Esempio: Se i seguenti sono le chiavi p, 0x800b deve essere utilizzato con MPI.
+Il numero maggiore dei due è la chiave del tenant da utilizzare con MPI. Esempio: se le chiavi p sono le seguenti, 0x800b deve essere usato con MPI.
 
 ```bash
 cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/0
@@ -162,12 +162,12 @@ cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 0x7fff
 ```
 
-Utilizzare la partizione diversa dalla chiave di partizione predefinito (0x7fff). UCX richiede il byte più significativo della chiave p da cancellare. Ad esempio, impostare UCX_IB_PKEY come 0x000b per 0x800b.
+Utilizzare la partizione diversa dalla chiave di partizione predefinita (0x7FFF). Per UCX è necessario cancellare il MSB della chiave p. Ad esempio, impostare UCX_IB_PKEY come 0x000B per 0x800b.
 
-Si noti inoltre che, purché il tenant (AVSet o VMSS) esiste già, il PKEYs rimangono invariati. Questo vale anche quando i nodi vengono aggiunti o eliminati. Nuovi tenant ottenere PKEYs diverso.
+Si noti anche che, a condizione che il tenant (AVSet o VMSS) esista, il PKEYs rimane invariato. Questo vale anche quando i nodi vengono aggiunti o eliminati. I nuovi tenant ottengono PKEYs diversi.
 
 
-## <a name="set-up-user-limits-for-mpi"></a>Impostare i limiti di utenti per MPI
+## <a name="set-up-user-limits-for-mpi"></a>Configurare i limiti utente per MPI
 
 Configurare i limiti utente per MPI.
 
@@ -183,7 +183,7 @@ EOF
 
 ## <a name="set-up-ssh-keys-for-mpi"></a>Configurare le chiavi SSH per MPI
 
-Consente di impostare le chiavi SSH per i tipi MPI che lo richiedono.
+Configurare le chiavi SSH per i tipi MPI che lo richiedono.
 
 ```bash
 ssh-keygen -f /home/$USER/.ssh/id_rsa -t rsa -N ''
@@ -192,11 +192,12 @@ Host *
     StrictHostKeyChecking no
 EOF
 cat /home/$USER/.ssh/id_rsa.pub >> /home/$USER/.ssh/authorized_keys
+chmod 600 /home/$USER/.ssh/authorized_keys
 chmod 644 /home/$USER/.ssh/config
 ```
 
-La sintassi riportata sopra presuppone una home directory condivisa, altra directory. SSH devono essere copiati in ogni nodo.
+La sintassi precedente presuppone una home directory condivisa. in caso contrario, è necessario copiare la directory SSH in ogni nodo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulle [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.
+Scopri di più su [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.

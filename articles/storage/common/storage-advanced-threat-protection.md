@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 02/04/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 8efbf2107104f31bcfc5e4e5669dbed1835a034b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f9889f58ead8d1dd35ceb50fa100b2b466cbe7cf
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457402"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022393"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Configurare Advanced Threat Protection per archiviazione di Azure
 
@@ -29,7 +29,7 @@ Advanced Threat Protection per archiviazione di Azure inserisce i log di diagnos
 
 ## <a name="set-up-advanced-threat-protection"></a>Configurare Advanced Threat Protection
 
-Per impostazione predefinita, Advanced Threat Protection è abilitato per l'account di archiviazione. È possibile configurare Advanced Threat Protection in diversi modi, descritti nelle sezioni riportate di seguito.
+È possibile configurare Advanced Threat Protection in diversi modi, descritti nelle sezioni riportate di seguito.
 
 ### <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 

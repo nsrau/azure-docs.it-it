@@ -5,7 +5,7 @@
   items:
     - name: Informazioni sulla Visione artificiale
       href: Home.md
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
     - name: Uso dell'SDK client
       items:
@@ -117,7 +117,7 @@
       href: concept-recognizing-text.md
     - name: Rilevamento contenuto per adulti
       href: concept-detecting-adult-content.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Chiamare l'API Visione artificiale
       href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
@@ -135,11 +135,9 @@
         - name: Usare istanze di contenitore
           href: deploy-computer-vision-on-container-instances.md
           displayName: 'container instances, container, containers, images'
-    - name: Usare il servizio connesso di Visione artificiale
-      href: vs-computer-vision-connected-service.md
     - name: Analizzare video in tempo reale
       href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
@@ -175,7 +173,7 @@
       href: FAQ.md
     - name: Tassonomia delle categorie
       href: Category-Taxonomy.md
-    - name: Supporto per le lingue
+    - name: Lingue supportate
       href: language-support.md
     - name: Prezzi e limiti
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision'
@@ -185,7 +183,7 @@
       href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

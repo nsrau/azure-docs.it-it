@@ -1,27 +1,27 @@
 ---
-title: Gestire l'applicazione IoT Central di Azure | Microsoft Docs
-description: Come amministratore, come gestire l'applicazione IoT Central di Azure cambiando il nome dell'applicazione, l'URL, il caricamento dell'immagine, la copia e l'eliminazione di un'applicazione
+title: Modificare le impostazioni dell'applicazione IoT Central di Azure | Microsoft Docs
+description: Come amministratore, come gestire l'applicazione IoT Central di Azure cambiando il nome dell'applicazione, l'URL, il caricamento dell'immagine e l'eliminazione di un'applicazione
 author: viv-liu
 ms.author: viviali
-ms.date: 08/26/2019
+ms.date: 11/27/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 89c4dd294cbbf0953545e1055e32adfc5f7cce28
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: ae0b4c1675228bfa2083b37a0460ff85c2714f50
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990794"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025793"
 ---
-# <a name="manage-your-iot-central-application"></a>Gestire l'applicazione IoT Central
+# <a name="change-iot-central-application-settings"></a>Modificare le impostazioni dell'applicazione IoT Central
 
-[!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
-Questo articolo descrive come un amministratore può gestire l'applicazione modificando il nome e l'URL dell'applicazione, caricando l'immagine, è anche possibile apprendere come copiare ed eliminare un'applicazione nell'applicazione IoT Central di Azure.
 
-Per accedere alla sezione **Amministrazione** e usarla, è necessario disporre del ruolo **Amministratore** per l'applicazione Azure IoT Central. All'utente che crea un'applicazione Azure IoT Central viene automaticamente assegnato il ruolo **Amministratore** per l'applicazione. 
+Questo articolo descrive come un amministratore può gestire l'applicazione modificando il nome e l'URL dell'applicazione, caricando l'immagine ed eliminando un'applicazione nell'applicazione IoT Central di Azure.
+
+Per accedere alla sezione **Amministrazione** e usarla, è necessario disporre del ruolo **Amministratore** per l'applicazione Azure IoT Central. All'utente che crea un'applicazione Azure IoT Central viene automaticamente assegnato il ruolo **Amministratore** per l'applicazione.
 
 ## <a name="change-application-name-and-url"></a>Modificare il nome e l'URL dell'applicazione
 
@@ -29,31 +29,10 @@ Nella pagina **Impostazioni applicazione** è possibile modificare il nome e l'U
 
 ![Pagina delle impostazioni dell'applicazione](media/howto-administer/image0-a.png)
 
-Se l'amministratore crea un tema personalizzato per l'applicazione, questa pagina include un'opzione che consente di nascondere il **nome dell'applicazione** nell'interfaccia utente. Questa operazione è utile se il logo dell'applicazione nel tema personalizzato include il nome dell'applicazione. Per altre informazioni, vedere [personalizzare l'interfaccia utente di Azure IOT Central](./howto-customize-ui.md).
+Se l'amministratore crea un tema personalizzato per l'applicazione, questa pagina include un'opzione che consente di nascondere il **nome dell'applicazione** nell'interfaccia utente. Questa opzione è utile se il logo dell'applicazione nel tema personalizzato include il nome dell'applicazione. Per altre informazioni, vedere [personalizzare l'interfaccia utente di Azure IOT Central](./howto-customize-ui.md).
 
 > [!Note]
 > Se si modifica l'URL, l'URL precedente può essere usato da un altro cliente di Azure IoT Central. In tal caso non sarà più disponibile. L'URL precedente a questo punto non funziona più ed è necessario indicare agli utenti quello nuovo da usare.
-
-## <a name="prepare-and-upload-image"></a>Preparare e caricare immagini
-
-Per modificare l'immagine dell'applicazione, vedere [Preparare e caricare immagini nell'applicazione Azure IoT Central](howto-prepare-images.md).
-
-## <a name="copy-an-application"></a>Copiare un'applicazione
-
-È possibile creare una copia di una qualsiasi applicazione, senza tuttavia includere eventuali istanze di dispositivi, la cronologia dei dati dei dispositivi e i dati degli utenti. La copia usa un piano tariffario standard che verrà fatturato. Non è possibile creare un'applicazione che usa il piano tariffario gratuito in questo modo.
-
-Selezionare **copia**. Nella finestra di dialogo immettere i dettagli per la nuova applicazione. Quindi selezionare **copia** per confermare che si vuole continuare. Altre informazioni sui campi in questo modulo sono disponibili nella guida introduttiva [Creare un'applicazione](quick-deploy-iot-central.md).
-
-![Pagina delle impostazioni dell'applicazione](media/howto-administer/appcopy2.png)
-
-Una volta completata l'operazione di copia dell'app, è possibile passare alla nuova applicazione usando il collegamento.
-
-![Pagina delle impostazioni dell'applicazione](media/howto-administer/appcopy3a.png)
-
-La copia di un'applicazione copia anche la definizione di regole e l'azione di posta elettronica. Alcune azioni come Flow, app per la logica e così via sono associate a regole specifiche tramite l'ID regola. Quando una regola viene copiata in un'altra applicazione, ottiene il proprio ID regola. In questo caso, gli utenti dovranno creare una nuova azione e quindi associarvi la nuova regola. In generale, è consigliabile controllare le regole e le azioni per assicurarsi che siano aggiornate nella nuova app...
-
-> [!WARNING]
-> Se un dashboard include riquadri che visualizzano informazioni su dispositivi specifici, i riquadri mostrano che **la risorsa richiesta non è stata trovata** nella nuova applicazione. È necessario riconfigurare questi riquadri per visualizzare le informazioni sui dispositivi nella nuova applicazione.
 
 ## <a name="delete-an-application"></a>Eliminare un'applicazione
 
@@ -62,8 +41,7 @@ Usare il pulsante **Elimina** per eliminare definitivamente l'applicazione IoT C
 > [!Note]
 > Per eliminare un'applicazione, è necessario disporre anche delle autorizzazioni per eliminare risorse nella sottoscrizione di Azure scelta al momento della creazione dell'applicazione. Per altre informazioni, vedere [Usare il controllo degli accessi in base al ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
 
-
-## <a name="manage-programatically"></a>Gestisci a livello
+## <a name="manage-programmatically"></a>Gestire a livello di codice
 
 I pacchetti SDK di Azure Resource Manager di IoT Central sono disponibili per Node, Python, C#, Ruby, Java e Go. È possibile utilizzare questi pacchetti per creare, elencare, aggiornare o eliminare IoT Central applicazioni. I pacchetti includono helper per gestire l'autenticazione e la gestione degli errori.
 
@@ -81,5 +59,5 @@ Per altre informazioni, vedere i repository e i pacchetti di GitHub seguenti:
 | Go | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go) | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go)
 
 ## <a name="next-steps"></a>Passaggi successivi
- 
+
 Ora che si è appreso come amministrare l'applicazione IoT Central di Azure, il passaggio successivo suggerito consiste nell'acquisire familiarità con la [gestione di utenti e ruoli](howto-manage-users-roles.md) in Azure IOT Central.

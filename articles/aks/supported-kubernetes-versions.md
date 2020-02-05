@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: saudas
-ms.openlocfilehash: bba4196547bda3d3ddcf3344032de5b9286639a0
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 8c144fb0c9818e21c2ca5bd61525067b485531bb
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996749"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026116"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versioni Kubernetes supportate nel servizio Azure Kubernetes
 
@@ -96,7 +96,7 @@ New Supported Version List
 * Per le nuove versioni **secondarie** di Kubernetes
   * Tutti gli utenti vengono informati pubblicamente della nuova versione e della versione che verrà rimossa.
   * Quando viene rilasciata una nuova versione della patch, la versione più recente della patch viene rimossa nello stesso momento.
-  * I clienti hanno **60 giorni** dalla data di notifica pubblica per eseguire l'aggiornamento a una versione secondaria supportata.
+  * I clienti hanno **30 giorni** dalla data di notifica pubblica per eseguire l'aggiornamento a una versione secondaria supportata.
 * Per le nuove versioni di **patch** di Kubernetes
   * A tutti gli utenti viene notificata la nuova versione della patch rilasciata e per eseguire l'aggiornamento alla versione più recente della patch.
   * Gli utenti hanno **30 giorni** per eseguire l'aggiornamento a una versione più recente supportata della patch. Gli utenti hanno **30 giorni** per eseguire l'aggiornamento a una versione di patch supportata prima che venga rimosso il meno recente.
@@ -139,7 +139,7 @@ az aks get-versions --location eastus --output table
 
 **Cosa accade quando un cliente esegue l'aggiornamento di un cluster Kubernetes con una versione secondaria che non è supportata?**
 
-Se si utilizza la versione *n-3* , l'utente non è supportato e verrà richiesto di effettuare l'aggiornamento. Se l'aggiornamento dalla versione n-3 a n-2 ha esito positivo, si è ora all'interno dei criteri di supporto. ad esempio:
+Se si utilizza la versione *n-3* , l'utente non è supportato e verrà richiesto di effettuare l'aggiornamento. Se l'aggiornamento dalla versione n-3 a n-2 ha esito positivo, si è ora all'interno dei criteri di supporto. Ad esempio:
 
 - Se la versione più recente di AKS supportata è *1.13. a* e l'utente si trova in *1.12. b* o versioni precedenti, l'utente non è supportato.
 - Se l'aggiornamento da *1.12. b* a *1.13. a* o versione successiva ha esito positivo, si torna all'interno dei criteri di supporto.

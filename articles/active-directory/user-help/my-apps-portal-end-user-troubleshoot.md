@@ -2,22 +2,22 @@
 title: Ottenere supporto per il portale delle app personali-Azure Active Directory | Microsoft Docs
 description: Ottenere assistenza per l'accesso e l'esecuzione di attività comuni nel portale app personali.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 2987183900ad3232d46b2152bd52808ae96c802b
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: f72dd5595d67ae989cec5681d22def9a2f929adf
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704834"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022342"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Risolvere i problemi del portale app personali
 

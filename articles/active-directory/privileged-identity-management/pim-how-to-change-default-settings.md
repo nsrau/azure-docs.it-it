@@ -14,12 +14,12 @@ ms.date: 11/13/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e15418524790e2169a6f60b79629f15f1d141ec4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 60a480327efacee2d1eb74353b2d0ef7885a6194
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429665"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024212"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurare le impostazioni del ruolo Azure AD in Privileged Identity Management
 
@@ -35,93 +35,6 @@ A partire da novembre 2019, la parte Azure AD ruoli di Privileged Identity Manag
     ![Nuova versione dei ruoli Azure AD](./media/pim-how-to-add-role-to-user/pim-new-version.png)
 
 Attenersi alla procedura descritta in questo articolo per approvare o negare le richieste di Azure AD ruoli.
-
-# <a name="previous-versiontabprevious"></a>[Versione precedente](#tab/previous)
-
-## <a name="open-role-settings"></a>Aprire le impostazioni del ruolo
-
-Per aprire le impostazioni per un ruolo di Azure AD seguire questa procedura.
-
-1. Aprire **Azure AD Privileged Identity Management**.
-
-1. Selezionare **Azure ad ruoli**.
-
-1. Selezionare **Impostazioni**.
-
-    ![Ruoli di Azure AD-impostazioni](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
-
-1. Selezionare **Ruoli**.
-
-1. Selezionare il ruolo di cui si desidera configurare le impostazioni.
-
-    ![Ruoli di Azure AD-ruoli delle impostazioni](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
-
-    Nella pagina delle impostazioni per ogni ruolo sono presenti numerose impostazioni che è possibile configurare. Tali impostazioni interessano solo gli utenti **idonei** per le assegnazioni e non le assegnazioni **permanenti**.
-
-## <a name="activations"></a>Attivazioni
-
-Usare il dispositivo di scorrimento **Attivazioni** per impostare il tempo massimo, espresso in ore, per cui un ruolo rimane attivo prima della scadenza. Questo valore può essere compreso tra 1 e 72 ore.
-
-## <a name="notifications"></a>Notifiche
-
-Usare il parametro **Notifiche** per determinare se gli amministratori riceveranno notifiche via email all'attivazione dei ruoli. Questa notifica può essere utile per rilevare le attivazioni non autorizzate o illegittime.
-
-Se impostato su **Abilita**, le notifiche sono inviate a:
-
-- Amministratore dei ruoli con privilegi
-- Amministratore della sicurezza
-- Amministratore globale
-
-Per ulteriori informazioni, vedere [notifiche tramite posta elettronica in Privileged Identity Management](pim-email-notifications.md).
-
-## <a name="incidentrequest-ticket"></a>Ticket di evento imprevisto/richiesta
-
-Usare l' **opzione** per richiedere agli amministratori idonei di includere un numero di ticket quando attivano il proprio ruolo. Questa procedura può rendere più efficienti i controlli di accesso ai ruoli.
-
-## <a name="multi-factor-authentication"></a>Autenticazione a più fattori
-
-Usare l'opzione **Multi-Factor Authentication** per specificare se richiedere agli utenti di verificare la propria identità con MFA prima di attivare i ruoli. È necessario verificarne l'identità una sola volta per ogni sessione, non ogni volta che viene attivato un ruolo. Tenere presente due suggerimenti quando si abilita l'autenticazione MFA:
-
-- Gli utenti che dispongono di account Microsoft per gli indirizzi di posta elettronica (in genere @outlook.com, ma non sempre) non possono registrarsi per Multi-Factor Authentication di Azure. Se si desidera assegnare ruoli agli utenti con account Microsoft, è necessario renderli amministratori permanenti o disabilitare l'autenticazione a più fattori per quel ruolo.
-- Non è possibile disabilitare Multi-Factor Authentication di Azure per i ruoli con privilegi elevati per Azure AD e Office 365. Questa funzionalità di sicurezza consente di proteggere i ruoli seguenti:  
-  
-  - Amministratore Azure Information Protection
-  - Amministratore fatturazione
-  - Amministratore di applicazioni cloud
-  - Amministratore di conformità
-  - Amministratore di accesso condizionale
-  - Amministratore di Dynamics 365
-  - Responsabile approvazione per l'accesso a Customer Lockbox
-  - Writer di directory
-  - Amministratore di Exchange
-  - Amministratore globale
-  - Amministratore di Intune
-  - Amministratore Power BI
-  - Amministratore dei ruoli con privilegi
-  - Amministratore della sicurezza
-  - Amministratore di SharePoint
-  - Amministratore di Skype for Business
-  - Amministratore utenti
-
-Per altre informazioni, vedere [Autenticazione a più fattori e Privileged Identity Management](pim-how-to-require-mfa.md).
-
-## <a name="require-approval"></a>Richiedi approvazione
-
-Se si desidera delegare l'approvazione richiesta per attivare un ruolo, attenersi alla seguente procedura.
-
-1. Impostare l'opzione **Richiedi approvazione** su **Abilitato**. Il riquadro viene espanso con le opzioni per selezionare i responsabili dell'approvazione.
-
-    ![Ruoli Azure AD-impostazioni-Richiedi approvazione](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
-
-    Se non vengono specificati responsabili approvazione, l'amministratore del ruolo con privilegi diventa il responsabile approvazione predefinito ed è quindi necessario per approvare tutte le richieste di attivazione per questo ruolo.
-
-1. Per aggiungere responsabili approvazione, fare clic su **Seleziona responsabili approvazione**.
-
-    ![Ruoli Azure AD-impostazioni-Richiedi approvazione](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
-
-1. Selezionare uno o più responsabili approvazione oltre all'amministratore dei ruoli con privilegi, quindi fare clic su **Seleziona**. È possibile selezionare utenti o gruppi. È consigliabile aggiungere almeno due responsabili approvazione. Anche se si aggiunge se stessi come responsabile approvazione, non è possibile approvare autonomamente l'attivazione di un ruolo. I responsabili dell'approvazione selezionati vengono visualizzati in un apposito elenco.
-
-1. Dopo aver specificato le impostazioni di tutti i ruoli, selezionare **Salva** per salvare le modifiche.
 
 # <a name="new-versiontabnew"></a>[Nuova versione](#tab/new)
 
@@ -211,6 +124,93 @@ Se si vuole richiedere l'approvazione per attivare un ruolo, seguire questa proc
     I responsabili dell'approvazione selezionati vengono visualizzati in un apposito elenco.
 
 1. Dopo aver specificato le impostazioni di tutti i ruoli, selezionare **Aggiorna** per salvare le modifiche.
+
+# <a name="previous-versiontabprevious"></a>[Versione precedente](#tab/previous)
+
+## <a name="open-role-settings"></a>Aprire le impostazioni del ruolo
+
+Per aprire le impostazioni per un ruolo di Azure AD seguire questa procedura.
+
+1. Aprire **Azure AD Privileged Identity Management**.
+
+1. Selezionare **Azure ad ruoli**.
+
+1. Selezionare **Impostazioni**.
+
+    ![Ruoli di Azure AD-impostazioni](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
+
+1. Selezionare **Ruoli**.
+
+1. Selezionare il ruolo di cui si desidera configurare le impostazioni.
+
+    ![Ruoli di Azure AD-ruoli delle impostazioni](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
+
+    Nella pagina delle impostazioni per ogni ruolo sono presenti numerose impostazioni che è possibile configurare. Tali impostazioni interessano solo gli utenti **idonei** per le assegnazioni e non le assegnazioni **permanenti**.
+
+## <a name="activations"></a>Attivazioni
+
+Usare il dispositivo di scorrimento **Attivazioni** per impostare il tempo massimo, espresso in ore, per cui un ruolo rimane attivo prima della scadenza. Questo valore può essere compreso tra 1 e 72 ore.
+
+## <a name="notifications"></a>Notifiche
+
+Usare il parametro **Notifiche** per determinare se gli amministratori riceveranno notifiche via email all'attivazione dei ruoli. Questa notifica può essere utile per rilevare le attivazioni non autorizzate o illegittime.
+
+Se impostato su **Abilita**, le notifiche sono inviate a:
+
+- Amministratore dei ruoli con privilegi
+- Amministratore della sicurezza
+- Amministratore globale
+
+Per ulteriori informazioni, vedere [notifiche tramite posta elettronica in Privileged Identity Management](pim-email-notifications.md).
+
+## <a name="incidentrequest-ticket"></a>Ticket di evento imprevisto/richiesta
+
+Usare l' **opzione** per richiedere agli amministratori idonei di includere un numero di ticket quando attivano il proprio ruolo. Questa procedura può rendere più efficienti i controlli di accesso ai ruoli.
+
+## <a name="multi-factor-authentication"></a>Autenticazione a più fattori
+
+Usare l'opzione **Multi-Factor Authentication** per specificare se richiedere agli utenti di verificare la propria identità con MFA prima di attivare i ruoli. È necessario verificarne l'identità una sola volta per ogni sessione, non ogni volta che viene attivato un ruolo. Tenere presente due suggerimenti quando si abilita l'autenticazione MFA:
+
+- Gli utenti che dispongono di account Microsoft per gli indirizzi di posta elettronica (in genere @outlook.com, ma non sempre) non possono registrarsi per Multi-Factor Authentication di Azure. Se si desidera assegnare ruoli agli utenti con account Microsoft, è necessario renderli amministratori permanenti o disabilitare l'autenticazione a più fattori per quel ruolo.
+- Non è possibile disabilitare Multi-Factor Authentication di Azure per i ruoli con privilegi elevati per Azure AD e Office 365. Questa funzionalità di sicurezza consente di proteggere i ruoli seguenti:  
+  
+  - Amministratore Azure Information Protection
+  - Amministratore fatturazione
+  - Amministratore di applicazioni cloud
+  - Amministratore di conformità
+  - Amministratore di accesso condizionale
+  - Amministratore di Dynamics 365
+  - Responsabile approvazione per l'accesso a Customer Lockbox
+  - Writer di directory
+  - Amministratore di Exchange
+  - Amministratore globale
+  - Amministratore di Intune
+  - Amministratore Power BI
+  - Amministratore dei ruoli con privilegi
+  - Amministratore della sicurezza
+  - Amministratore di SharePoint
+  - Amministratore di Skype for Business
+  - Amministratore utenti
+
+Per altre informazioni, vedere [Autenticazione a più fattori e Privileged Identity Management](pim-how-to-require-mfa.md).
+
+## <a name="require-approval"></a>Richiedi approvazione
+
+Se si desidera delegare l'approvazione richiesta per attivare un ruolo, attenersi alla seguente procedura.
+
+1. Impostare l'opzione **Richiedi approvazione** su **Abilitato**. Il riquadro viene espanso con le opzioni per selezionare i responsabili dell'approvazione.
+
+    ![Ruoli Azure AD-impostazioni-Richiedi approvazione](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+
+    Se non vengono specificati responsabili approvazione, l'amministratore del ruolo con privilegi diventa il responsabile approvazione predefinito ed è quindi necessario per approvare tutte le richieste di attivazione per questo ruolo.
+
+1. Per aggiungere responsabili approvazione, fare clic su **Seleziona responsabili approvazione**.
+
+    ![Ruoli Azure AD-impostazioni-Richiedi approvazione](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
+
+1. Selezionare uno o più responsabili approvazione oltre all'amministratore dei ruoli con privilegi, quindi fare clic su **Seleziona**. È possibile selezionare utenti o gruppi. È consigliabile aggiungere almeno due responsabili approvazione. Anche se si aggiunge se stessi come responsabile approvazione, non è possibile approvare autonomamente l'attivazione di un ruolo. I responsabili dell'approvazione selezionati vengono visualizzati in un apposito elenco.
+
+1. Dopo aver specificato le impostazioni di tutti i ruoli, selezionare **Salva** per salvare le modifiche.
 
 ---
 

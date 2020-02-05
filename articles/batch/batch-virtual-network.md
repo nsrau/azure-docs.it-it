@@ -2,19 +2,19 @@
 title: Effettuare il provisioning di un pool in una rete virtuale - Azure Batch |Microsoft Docs
 description: Come creare un pool di Batch in una rete virtuale di Azure in modo che i nodi di calcolo possano comunicare in modo sicuro con altre macchine virtuali nella rete, ad esempio un file server.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.service: batch
 ms.topic: article
 ms.date: 04/10/2019
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 06b861f306718068366653685ebe4daf8d5dcfa6
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: bbe38a9dc7be749b8e138ff3ca9ec4f06255b389
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026278"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022767"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Creare un pool di Azure Batch in una rete virtuale
 
