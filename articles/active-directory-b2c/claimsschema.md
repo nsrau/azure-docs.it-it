@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 03/02/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1e72e100bcb3d06403af1514dea13de59c623310
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 3c3bb0cb6726326cda7ede46ba09fa6d17c2ba2c
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713066"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983045"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -42,16 +42,16 @@ L'elemento **ClaimsSchema** definisce i tipi di attestazione a cui è possibile 
 
 L'elemento **ClaimType** contiene l'attributo seguente:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Description |
 | --------- | -------- | ----------- |
-| Id | Sì | Identificatore usato per il tipo di attestazione. Altri elementi possono usare questo identificatore nei criteri. |
+| ID | Sì | Identificatore usato per il tipo di attestazione. Altri elementi possono usare questo identificatore nei criteri. |
 
 L'elemento **ClaimType** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
-| DisplayName | 0:1 | Titolo che viene visualizzato agli utenti nelle varie schermate. Il valore può essere [localizzato](localization.md). |
-| DataType | 0:1 | Tipo di attestazione. È possibile usare i tipi di dati boolean, date, dateTime, int, long, string, stringCollection, alternativeSecurityIdCollection. |
+| DisplayName | 1:1 | Titolo che viene visualizzato agli utenti nelle varie schermate. Il valore può essere [localizzato](localization.md). |
+| DataType | 1:1 | Tipo di attestazione. È possibile utilizzare i tipi di dati Boolean, date, dateTime, int, Long, String, StringCollection. Il tipo di dati primitivo rappresenta C# l'equivalente del tipo di dati della variabile. StringCollection rappresenta una raccolta di stringhe. Per altre informazioni [ C# , vedere tipi e variabili](https://docs.microsoft.com/dotnet/csharp/tour-of-csharp/types-and-variables). Data segue la convenzione ISO 8601. |
 | DefaultPartnerClaimTypes | 0:1 | Tipi di attestazione predefiniti di partner da usare per un protocollo specificato. Il valore può essere sovrascritto nell'elemento **PartnerClaimType** specificato nell'elemento **InputClaim** o **OutputClaim**. Usare questo elemento per specificare il nome predefinito per un protocollo.  |
 | Mask | 0:1 | Stringa di caratteri di mascheramento facoltativa che può essere applicata durante la visualizzazione dell'attestazione. Il numero di telefono 324-232-4343 ad esempio può essere mascherato come XXX-XXX-4343. |
 | UserHelpText | 0:1 | Descrizione del tipo di attestazione che può essere utile agli utenti per comprenderne lo scopo. Il valore può essere [localizzato](localization.md). |
@@ -63,15 +63,15 @@ PredicateValidationReference| 0:1 | Riferimento a un elemento **PredicateValidat
 
 L'elemento **DefaultPartnerClaimTypes** può contenere l'elemento seguente:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
-| Protocollo | 0:n | Elenco di protocolli con il relativo nome del tipo di attestazione di partner predefinito. |
+| Protocollo | 1:n | Elenco di protocolli con il relativo nome del tipo di attestazione di partner predefinito. |
 
 L'elemento **Protocollo** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Description |
 | --------- | -------- | ----------- |
-| Name | Sì | Nome di un protocollo valido supportato da Azure AD B2C. I valori possibili sono: OAuth1, OAuth2, SAML2, OpenIdConnect. |
+| Nome | Sì | Nome di un protocollo valido supportato da Azure AD B2C. I valori possibili sono: OAuth1, OAuth2, SAML2, OpenIdConnect. |
 | PartnerClaimType | Sì | Nome del tipo di attestazione da usare. |
 
 Nell'esempio seguente, quando il framework dell'esperienza di gestione delle identità interagisce con un provider di identità SAML2 o un'applicazione basata su attestazioni, l'attestazione **surname** (cognome) viene mappata a `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`. Quando il framework interagisce con OpenIdConnect e OAuth2, l'attestazione viene mappata a `family_name`.
@@ -104,7 +104,7 @@ Il token JWT emesso da Azure AD B2C crea quindi `family_name` invece del nome di
 
 L'elemento **Mask** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Description |
 | --------- | -------- | ----------- |
 | `Type` | Sì | Tipo di maschera dell'attestazione. I valori possibili sono: `Simple` o `Regex`. Il valore `Simple` indica che viene applicata una semplice maschera di testo alla porzione iniziale di un'attestazione di tipo stringa. Il valore `Regex` indica che viene applicata un'espressione regolare all'intera attestazione di tipo stringa.  Se viene specificato il valore `Regex`, è necessario definire anche un attributo facoltativo insieme all'espressione regolare da usare. |
 | `Regex` | No | Se **`Type`** è impostato su `Regex`, specificare l'espressione regolare da usare.
@@ -144,13 +144,13 @@ Il framework dell'esperienza di gestione delle identità esegue il rendering sol
 
 L'elemento **Restriction** può contenere l'attributo seguente:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Description |
 | --------- | -------- | ----------- |
 | MergeBehavior | No | Metodo usato per unire i valori di enumerazione con un elemento ClaimType nei criteri padre avente lo stesso identificatore. Usare questo attributo quando si sovrascrive un'attestazione specificata nei criteri di base. I valori possibili sono: `Append`, `Prepend` o `ReplaceAll`. Il valore `Append` è una raccolta di dati che è consigliabile accodare alla fine della raccolta specificata nei criteri padre. Il valore `Prepend` è una raccolta di dati che è consigliabile aggiungere all'inizio della raccolta specificata nei criteri padre. Il `ReplaceAll` valore è una raccolta di dati specificati nei criteri padre che è consigliabile ignorare. |
 
 L'elemento **Restriction** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
 | Enumerazione | 1:n | Opzioni disponibili nell'interfaccia utente che l'utente può selezionare per un'attestazione, ad esempio un valore in un menu a discesa. |
 | Modello | 1:1 | Espressione regolare da usare. |
@@ -159,9 +159,9 @@ L'elemento **Restriction** contiene gli elementi seguenti:
 
 L'elemento **Enumeration** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Description |
 | --------- | -------- | ----------- |
-| Text | Sì | Stringa di visualizzazione che viene mostrata all'utente nell'interfaccia utente per questa opzione. |
+| Testo | Sì | Stringa di visualizzazione che viene mostrata all'utente nell'interfaccia utente per questa opzione. |
 |Valore | Sì | Valore di attestazione che viene associato alla selezione di questa opzione. |
 | SelectByDefault | No | Indica se questa opzione deve essere selezionata o meno per impostazione predefinita nell'interfaccia utente. I valori possibili sono: True o False. |
 
@@ -188,7 +188,7 @@ Elenco a discesa delle città con valore predefinito impostato su New York:
 
 L'elemento **Pattern** può contenere gli attributi seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatorio | Description |
 | --------- | -------- | ----------- |
 | RegularExpression | Sì | Espressione regolare a cui le attestazioni di questo tipo devono corrispondere per poter essere valide. |
 | HelpText | No | Criterio o espressione regolare per questa attestazione. |
@@ -354,7 +354,7 @@ Il tipo di input utente **Readonly** viene usato per visualizzare un campo di so
 ```
 
 
-### <a name="paragraph"></a>Paragrafo
+### <a name="paragraph"></a>Paragraph
 
 Il tipo di input utente **Paragraph** viene usato per visualizzare un campo che mostra solo testo in un tag di paragrafo, ad esempio &lt;p&gt;testo&lt;/p&gt;.
 

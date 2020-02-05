@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fbbd7b4bdddf2b58e66cb1203414b5a63eec2f27
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 8f91db91eff3320691a5979d9453bf515ccd59a2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951004"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982297"
 ---
 # <a name="stringcollection-claims-transformations"></a>Trasformazioni delle attestazioni StringCollection
 
@@ -31,8 +31,8 @@ Consente di aggiungere un'attestazione di stringa a una nuova attestazione strin
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | item | string | Il ClaimType da aggiungere all'attestazione di output. |
-| InputClaim | raccolta | stringCollection | [Facoltativo] Se specificato, la trasformazione delle attestazioni copia gli elementi da questa raccolta e aggiunge l'elemento alla fine dell'attestazione di raccolta di output. |
-| OutputClaim | raccolta | stringCollection | I tipi di attestazione generati dopo che ClaimsTransformation è stato richiamato. |
+| InputClaim | collection | stringCollection | [Facoltativo] Se specificato, la trasformazione delle attestazioni copia gli elementi da questa raccolta e aggiunge l'elemento alla fine dell'attestazione di raccolta di output. |
+| OutputClaim | collection | stringCollection | Gli oggetti ClaimType generati dopo che l'oggetto ClaimsTransformation è stato richiamato. |
 
 Usare questa trasformazione delle attestazioni per aggiungere una stringa a un oggetto stringCollection nuovo o esistente. Viene comunemente usato in un profilo tecnico **AAD-UserWriteUsingAlternativeSecurityId**. Prima che venga creato un nuovo account di social networking, la trasformazione di attestazioni **CreateOtherMailsFromEmail** legge il ClaimType e aggiunge il valore al ClaimType **otherMails**.
 
@@ -64,9 +64,9 @@ Consente di aggiungere un parametro di stringa a una nuova attestazione stringCo
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | raccolta | stringCollection | [Facoltativo] Se specificato, la trasformazione delle attestazioni copia gli elementi da questa raccolta e aggiunge l'elemento alla fine dell'attestazione di raccolta di output. |
+| InputClaim | collection | stringCollection | [Facoltativo] Se specificato, la trasformazione delle attestazioni copia gli elementi da questa raccolta e aggiunge l'elemento alla fine dell'attestazione di raccolta di output. |
 | InputParameter | item | string | Il valore da aggiungere all'attestazione di output. |
-| OutputClaim | raccolta | stringCollection | I ClaimType generati dopo che ClaimsTransformation è stato richiamato. |
+| OutputClaim | collection | stringCollection | I ClaimType generati dopo che ClaimsTransformation è stato richiamato. |
 
 Usare questa trasformazione delle attestazioni per aggiungere un valore di stringa a un oggetto stringCollection nuovo o esistente. L'esempio seguente aggiunge un indirizzo di posta elettronica costante (admin@contoso.com) all'attestazione **otherMails**.
 
@@ -99,8 +99,8 @@ Consente di ottenere il primo elemento della raccolta di stringhe fornita.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | raccolta | stringCollection | I ClaimType che vengono usati dalla trasformazione delle attestazioni per ottenere l'elemento. |
-| OutputClaim | extractedItem | string | I tipi di attestazione generati dopo che ClaimsTransformation è stato richiamato. Primo elemento nella raccolta. |
+| InputClaim | collection | stringCollection | I ClaimType che vengono usati dalla trasformazione delle attestazioni per ottenere l'elemento. |
+| OutputClaim | extractedItem | string | Gli oggetti ClaimType generati dopo che l'oggetto ClaimsTransformation è stato richiamato. Primo elemento nella raccolta. |
 
 L'esempio seguente legge l'attestazione **otherMails** e restituisce il primo elemento nell'attestazione **email**.
 
@@ -121,4 +121,42 @@ L'esempio seguente legge l'attestazione **otherMails** e restituisce il primo el
   - **collection**: ["someone@outlook.com", "someone@contoso.com"]
 - Attestazioni di output:
   - **extractedItem**: "someone@outlook.com"
+
+
+## <a name="stringcollectioncontains"></a>StringCollectionContains
+
+Verifica se un tipo di attestazione StringCollection contiene un elemento
+
+| Elemento | TransformationClaimType | Tipo di dati | Note |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | stringCollection | Tipo di attestazione in cui eseguire la ricerca. |
+|InputParameter|item|string|Valore da cercare.|
+|InputParameter|ignoreCase|string|Specifica se il confronto deve ignorare l'uso di maiuscole e minuscole nelle stringhe da confrontare.|
+| OutputClaim | outputClaim | boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. Indicatore booleano se la raccolta contiene una stringa di questo tipo |
+
+Nell'esempio seguente viene verificato se il tipo di attestazione `roles` StringCollection contiene il valore **admin**.
+
+```XML
+<ClaimsTransformation Id="IsAdmin" TransformationMethod="StringCollectionContains">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
+  </InputClaims>
+  <InputParameters>
+    <InputParameter  Id="item" DataType="string" Value="Admin"/>
+    <InputParameter  Id="ignoreCase" DataType="string" Value="true"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="isAdmin" TransformationClaimType="outputClaim"/>
+  </OutputClaims>         
+</ClaimsTransformation>
+```
+
+- Attestazioni di input:
+    - **attestazione**: ["Reader", "Author", "admin"]
+- Parametri di input:
+    - **elemento**: "admin"
+    - **IgnoreCase**: "true"
+- Attestazioni di output:
+    - **outputClaim**: "true"
+
 

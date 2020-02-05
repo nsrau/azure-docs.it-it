@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/04/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 72b3349e0ad4fd86b91a7a02f70b2bcf1efbc271
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 774d3325cff98ef01dc0b2e8d5c1db38e449d1b5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712859"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982758"
 ---
 # <a name="string-claims-transformations"></a>Trasformazioni di attestazioni di stringa
 
@@ -126,7 +126,7 @@ Crea un'attestazione di stringa dal parametro di input specificato nei criteri.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | value | string | Stringa da impostare |
+| InputParameter | Valore | string | Stringa da impostare |
 | OutputClaim | createdClaim | string | Tipo attestazione generato dopo che questa trasformazione di attestazioni è stato richiamato con il valore specificato nel parametro di input. |
 
 Usare questa trasformazione di attestazioni per impostare un valore ClaimType di stringa.
@@ -157,7 +157,7 @@ Determina se un'attestazione di stringa è uguale a un'altra. Il risultato è un
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Tipo della prima attestazione di cui eseguire il confronto. |
 | InputClaim | inputClaim2 | string | Tipo della seconda attestazione di cui eseguire il confronto. |
-| InputParameter | operatore | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
+| InputParameter | operator | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
 | InputParameter | ignoreCase | boolean | Specifica se il confronto deve ignorare l'uso di maiuscole e minuscole nelle stringhe da confrontare. |
 | OutputClaim | outputClaim | boolean | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
 
@@ -197,7 +197,7 @@ Determina se un valore di attestazione è uguale al valore del parametro di inpu
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Tipo della prima attestazione di cui eseguire il confronto. |
-| InputParameter | operatore | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
+| InputParameter | operator | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
 | InputParameter | compareTo | string | Confronto tra le stringhe con valori Ordinal e OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | boolean | Specifica se il confronto deve ignorare l'uso di maiuscole e minuscole nelle stringhe da confrontare. |
 | OutputClaim | outputClaim | boolean | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
@@ -499,6 +499,47 @@ Usare questa trasformazione di attestazioni per analizzare il nome di dominio do
 - Attestazioni di output:
     - **domain**: outlook.com
 
+## <a name="setclaimsifregexmatch"></a>SetClaimsIfRegexMatch
+
+Verifica che un'attestazione di stringa `claimToMatch` e `matchTo` parametro di input siano uguali e imposta le attestazioni di output con il valore presente nel parametro `outputClaimIfMatched` input, insieme all'attestazione di output dei risultati di confronto, che deve essere impostata come `true` o `false` in base al risultato del confronto.
+
+| Elemento | TransformationClaimType | Tipo di dati | Note |
+| ---- | ----------------------- | --------- | ----- |
+| inputClaim | claimToMatch | string | Tipo dell'attestazione di cui eseguire il confronto. |
+| InputParameter | matchTo | string | Espressione regolare di cui trovare una corrispondenza. |
+| InputParameter | outputClaimIfMatched | string | Valore da impostare se le stringhe sono uguali. |
+| OutputClaim | outputClaim | string | Se l'espressione regolare corrisponde, l'attestazione di output contiene il valore del parametro di input `outputClaimIfMatched`. O null, se non è presente alcuna corrispondenza. |
+| OutputClaim | regexCompareResultClaim | boolean | Il tipo di attestazione di output del risultato della corrispondenza di espressione regolare, che deve essere impostato come `true` o `false` in base al risultato della corrispondenza. |
+
+Ad esempio, controlla se il numero di telefono fornito è valido, in base al modello di espressione regolare del numero di telefono.  
+
+```XML
+<ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="setClaimsIfRegexMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="phone" TransformationClaimType="claimToMatch" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="matchTo" DataType="string" Value="^[0-9]{4,16}$" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="isPhone" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="validationResult" TransformationClaimType="outputClaim" />
+    <OutputClaim ClaimTypeReferenceId="isPhoneBoolean" TransformationClaimType="regexCompareResultClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Esempio
+
+- Attestazioni di input:
+    - **claimToMatch**: "64854114520"
+- Parametri di input:
+    - **matchTo**: "^ [0-9]{4,16}$"
+    - **outputClaimIfMatched**: "citofono"
+- Attestazioni di output:
+    - **outputClaim**: "citofono"
+    - **regexCompareResultClaim**: true
+
 ## <a name="setclaimsifstringsareequal"></a>SetClaimsIfStringsAreEqual
 
 Verifica che un'attestazione di stringa e il parametro di input `matchTo` siano uguali e imposta le attestazioni di output con il valore presente nei parametri di input `stringMatchMsg` e `stringMatchMsgCode`, insieme all'attestazione di output del risultato di confronto che deve essere impostato come `true` o `false` in base al risultato del confronto.
@@ -592,3 +633,188 @@ La trasformazione di attestazioni seguente, ad esempio, controlla se il valore d
     - **isMinorResponseCode**: B2C_V1_90001
     - **isMinor**: true
 
+
+## <a name="stringcontains"></a>StringContains
+
+Determinare se una sottostringa specificata si trova all'interno dell'attestazione di input. Il risultato è un nuovo elemento ClaimType booleano con il valore `true` o `false`. `true` se il parametro del valore si trova all'interno di questa stringa; in caso contrario, `false`.
+
+| Elemento | TransformationClaimType | Tipo di dati | Note |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | Tipo di attestazione in cui eseguire la ricerca. |
+|InputParameter|contains|string|Valore da cercare.|
+|InputParameter|ignoreCase|string|Specifica se il confronto deve ignorare la distinzione tra maiuscole e minuscole della stringa confrontata.|
+| OutputClaim | outputClaim | string | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. Indicatore Boolean se la sottostringa si trova all'interno dell'attestazione di input. |
+
+Usare questa trasformazione delle attestazioni per verificare se un tipo di attestazione stringa contiene una sottostringa. Nell'esempio seguente viene verificato se il tipo di attestazione stringa `roles` contiene il valore **admin**.
+
+```XML
+<ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains"> 
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
+  </InputClaims>
+  <InputParameters>
+    <InputParameter  Id="contains" DataType="string" Value="admin"/>
+    <InputParameter  Id="ignoreCase" DataType="string" Value="true"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="isAdmin" TransformationClaimType="outputClaim"/>
+  </OutputClaims>         
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Esempio
+
+- Attestazioni di input:
+    - **attestazione**: "amministrazione, responsabile approvazione, editor"
+- Parametri di input:
+    - **contiene**: "admin"
+    - **ignoreCase**: true
+- Attestazioni di output:
+    - **outputClaim**: true 
+
+## <a name="stringsubstring"></a>Substring
+
+Estrae parti di un tipo di attestazione stringa, a partire dal carattere in corrispondenza della posizione specificata, e restituisce il numero di caratteri specificato.
+
+| Elemento | TransformationClaimType | Tipo di dati | Note |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | Tipo di attestazione, che contiene la stringa. |
+| InputParameter | startIndex | int | Posizione iniziale in base zero del carattere di una sottostringa in questa istanza. |
+| InputParameter | length | int | Numero di caratteri nella sottostringa. |
+| OutputClaim | outputClaim | boolean | Stringa equivalente alla sottostringa di lunghezza che inizia in corrispondenza di startIndex in questa istanza oppure Empty se startIndex è uguale alla lunghezza di questa istanza e la lunghezza è zero. |
+
+Ad esempio, ottenere il prefisso del paese del numero di telefono.  
+
+
+```XML
+<ClaimsTransformation Id="GetPhonePrefix" TransformationMethod="StringSubstring">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="inputClaim" />
+  </InputClaims>
+<InputParameters>
+  <InputParameter Id="startIndex" DataType="int" Value="0" />
+  <InputParameter Id="length" DataType="int" Value="2" />
+</InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="phonePrefix" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+### <a name="example"></a>Esempio
+
+- Attestazioni di input:
+    - **attestazione**: "+ 1644114520"
+- Parametri di input:
+    - **startIndex**: 0
+    - **lunghezza**: 2
+- Attestazioni di output:
+    - **outputClaim**: "+ 1"
+
+## <a name="stringreplace"></a>StringReplace
+
+Cerca un valore specificato in una stringa di tipo di attestazione e restituisce una nuova stringa del tipo di attestazione in cui tutte le occorrenze di una stringa specificata nella stringa corrente vengono sostituite con un'altra stringa specificata.
+
+| Elemento | TransformationClaimType | Tipo di dati | Note |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | Tipo di attestazione, che contiene la stringa. |
+| InputParameter | oldValue | string | Stringa in cui eseguire la ricerca. |
+| InputParameter | newValue | string | Stringa per sostituire tutte le occorrenze di `oldValue` |
+| OutputClaim | outputClaim | boolean | Stringa equivalente alla stringa corrente, ad eccezione del fatto che tutte le istanze di oldValue vengono sostituite con newValue. Se oldValue non viene trovato nell'istanza corrente, il metodo restituisce l'istanza corrente invariata. |
+
+Ad esempio, normalizzare un numero di telefono rimuovendo i caratteri `-`  
+
+
+```XML
+<ClaimsTransformation Id="NormalizePhoneNumber" TransformationMethod="StringReplace">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="inputClaim" />
+  </InputClaims>
+<InputParameters>
+  <InputParameter Id="oldValue" DataType="string" Value="-" />
+  <InputParameter Id="newValue" DataType="string" Value="" />
+</InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+### <a name="example"></a>Esempio
+
+- Attestazioni di input:
+    - **attestazione**: "+ 164-411-452-054"
+- Parametri di input:
+    - **OldValue**: "-"
+    - **lunghezza**: ""
+- Attestazioni di output:
+    - **outputClaim**: "+ 164411452054"
+
+## <a name="stringjoin"></a>StringJoin
+
+Concatena gli elementi di un tipo di attestazione della raccolta di stringhe specificato, usando il separatore specificato tra ogni elemento o membro.
+
+| Elemento | TransformationClaimType | Tipo di dati | Note |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | stringCollection | Raccolta che contiene le stringhe da concatenare. |
+| InputParameter | delimiter | string | Stringa da utilizzare come separatore, ad esempio `,`virgola. |
+| OutputClaim | outputClaim | string | Stringa costituita dai membri della raccolta di stringhe `inputClaim`, delimitata dal parametro di input di `delimiter`. |
+  
+Nell'esempio seguente viene accettata una raccolta di stringhe di ruoli utente e viene convertita in una stringa delimitatore virgola. Questo metodo può essere utilizzato per archiviare una raccolta di stringhe in Azure AD account utente. In seguito, quando l'account viene letto dalla directory, utilizzare il `StringSplit` per convertire la stringa delimitatore della virgola nella raccolta di stringhe.
+
+```XML
+<ClaimsTransformation Id="ConvertRolesStringCollectionToCommaDelimiterString" TransformationMethod="StringJoin">
+  <InputClaims>
+   <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter DataType="string" Id="delimiter" Value="," />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="rolesCommaDelimiterConverted" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Esempio
+
+- Attestazioni di input:
+  - **attestazione**: ["admin", "Author", "Reader"]
+- Parametri di input:
+  - **delimitatore**: ","
+- Attestazioni di output:
+  - **outputClaim**: "admin, Author, Reader"
+
+
+## <a name="stringsplit"></a>Split
+
+Restituisce una matrice di stringhe che contiene le sottostringhe in questa istanza delimitate da elementi di una stringa specificata.
+
+| Elemento | TransformationClaimType | Tipo di dati | Note |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | Tipo di attestazione stringa che contiene le sottostringhe da dividere. |
+| InputParameter | delimiter | string | Stringa da utilizzare come separatore, ad esempio `,`virgola. |
+| OutputClaim | outputClaim | stringCollection | Raccolta di stringhe i cui elementi contengono le sottostringhe in questa stringa delimitate dal parametro di input `delimiter`. |
+  
+Nell'esempio seguente viene accettata una stringa delimitatore virgola di ruoli utente e viene convertita in una raccolta di stringhe.
+
+```XML
+<ClaimsTransformation Id="ConvertRolesToStringCollection" TransformationMethod="StringSplit">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="rolesCommaDelimiter" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <InputParameters>
+  <InputParameter DataType="string" Id="delimiter" Value="," />
+    </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="roles" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Esempio
+
+- Attestazioni di input:
+  - **attestazione**: "admin, Author, Reader"
+- Parametri di input:
+  - **delimitatore**: ","
+- Attestazioni di output:
+  - **outputClaim**: ["admin", "Author", "Reader"]

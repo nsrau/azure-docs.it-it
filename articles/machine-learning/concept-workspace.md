@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
-ms.openlocfilehash: d013fc257bc03d7961a4f2d5ae52d0fde12c83bb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f3c2b1aa8f41b382bea96b33108d23bf09850c78
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844076"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984762"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Che cos'è un'area di lavoro Azure Machine Learning?
 
@@ -79,7 +79,7 @@ Le attività di Machine Learning leggono e/o scrivono elementi nell'area di lavo
 | Creare una VM notebook |   | **&check;** | |     |
 
 > [!NOTE]
-> Le istanze di calcolo sono disponibili solo per le aree di lavoro con gli **Stati Uniti centro-settentrionali**, * * Stati Uniti orientali 2 * *, **europa settentrionale** o **Regno Unito meridionale**.
+> Le istanze di calcolo sono disponibili solo per le aree di lavoro con un'area geografica **Stati Uniti centro-settentrionali**, **Stati Uniti orientali 2**, **Europa settentrionale** o **Regno Unito meridionale**e il supporto per altre aree presto disponibile.
 >Se l'area di lavoro si trova in qualsiasi altra area geografica, è possibile continuare a creare e usare una [macchina virtuale notebook](concept-compute-instance.md#notebookvm) in alternativa.
 
 ## <a name='create-workspace'></a>Creare un'area di lavoro
@@ -92,6 +92,9 @@ Esistono diversi modi per creare un'area di lavoro:
 * Usare [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) per creare un'area di lavoro in tempo reale da script Python o notebook di Jupiter
 * Usare un [modello di Azure Resource Manager](how-to-create-workspace-template.md) o l'interfaccia della riga di comando di [Azure Machine Learning](reference-azure-machine-learning-cli.md) quando è necessario automatizzare o personalizzare la creazione con gli standard di sicurezza aziendali.
 * Se si lavora in Visual Studio Code, utilizzare l' [estensione vs code](tutorial-setup-vscode-extension.md).
+
+> [!NOTE]
+> Il nome dell'area di lavoro non fa distinzione tra maiuscole e minuscole.
 
 ## <a name="upgrade"></a>Eseguire l'aggiornamento a Enterprise Edition
 

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0fef7d6f59b8893ff400914f491f421cddf436b7
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 56d6e8642ffd127f0982485902c466b76cbaaeed
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842921"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986513"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo per Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +59,7 @@ Per installare l'ambiente SDK per il [computer locale](#local), [Jupyter Noteboo
 L' [istanza di calcolo Azure Machine Learning (anteprima)](concept-compute-instance.md) è una workstation di Azure sicura basata sul cloud che fornisce ai data scientist un server Jupyter notebook, JupyterLab e un ambiente ml completamente preparato.
 
 > [!NOTE]
-> Le istanze di calcolo sono disponibili solo per le aree di lavoro con gli **Stati Uniti centro-settentrionali**, * * Stati Uniti orientali 2 * *, **europa settentrionale** o **Regno Unito meridionale**.
+> Le istanze di calcolo sono disponibili solo per le aree di lavoro con un'area geografica **Stati Uniti centro-settentrionali**, **Stati Uniti orientali 2**, **Europa settentrionale** o **Regno Unito meridionale**e il supporto per altre aree presto disponibile.
 >Se l'area di lavoro si trova in qualsiasi altra area geografica, è possibile continuare a creare e usare una [macchina virtuale notebook](concept-compute-instance.md#notebookvm) in alternativa.
 
 Non sono presenti elementi da installare o configurare per un'istanza di calcolo.  Crearne uno in qualsiasi momento dall'area di lavoro Azure Machine Learning. Fornire un solo nome e specificare un tipo di macchina virtuale di Azure. Provare ora con questa [esercitazione: configurare l'ambiente e l'area di lavoro](tutorial-1st-experiment-sdk-setup.md).

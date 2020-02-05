@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: a4a97ebd0e44bfd3b0ee167a2f3a7da435ac5087
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f56a724174b81966642b2870360014597436eade
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513003"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76981090"
 ---
 # <a name="session-monitoring-and-management-for-azure-bastion"></a>Monitoraggio e gestione delle sessioni per Azure Bastion
 
@@ -28,7 +28,7 @@ Una volta eseguito il provisioning e la distribuzione del servizio Bastion nella
    ![Visualizza sessione](./media/session-monitoring/view-session.png)
 3. Selezionare **Aggiorna** per visualizzare l'elenco aggiornato delle sessioni remote. Quando si seleziona Aggiorna, Azure Bastion recupera le informazioni di monitoraggio più recenti e le aggiorna nel portale.
 
-   ![Refresh](./media/session-monitoring/refresh.png)
+   ![refresh](./media/session-monitoring/refresh.png)
 
 >[!IMPORTANT]
 > Abilitare la porta 4443 per il traffico in ingresso da Gestione gateway per il corretto funzionamento del monitoraggio della sessione.
@@ -40,7 +40,7 @@ Una volta eseguito il provisioning e la distribuzione del servizio Bastion nella
 
 1. Passare alla risorsa di Azure Bastion e selezionare **sessioni** dalla pagina del Bastion di Azure.
 
-   ![Navigare](./media/session-monitoring/navigate.png)
+   ![navigare](./media/session-monitoring/navigate.png)
 2. Dopo aver selezionato le sessioni, viene visualizzato un elenco di sessioni remote.
 
    ![elencare le sessioni](./media/session-monitoring/list.png)

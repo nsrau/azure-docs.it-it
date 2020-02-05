@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 285b3608bc57d88ca2e81ed14355923436ed9d8d
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: f0e7c3bbbdcd1edad24422163fde38e3fdce7e27
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028520"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988652"
 ---
 # <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Introduzione all'arricchimento e alla memorizzazione nella cache incrementali in Azure ricerca cognitiva
 
@@ -97,7 +97,7 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 
 Lo scopo della cache è quello di evitare un'elaborazione non necessaria, ma si supponga di apportare una modifica a una competenza non rilevata dall'indicizzatore (ad esempio, modificando qualcosa nel codice esterno, ad esempio un'abilità personalizzata).
 
-In questo caso, è possibile usare le [competenze di reimpostazione](preview-api-resetskills.md) per forzare la rielaborazione di una determinata competenza, incluse le competenze downstream che hanno una dipendenza dall'output di tale capacità. Questa API accetta una richiesta POST con un elenco di competenze che devono essere invalidate e contrassegnate per la rielaborazione. Dopo aver reimpostato le competenze, eseguire l'indicizzatore per richiamare la pipeline.
+In questo caso, è possibile usare le [competenze di reimpostazione](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills) per forzare la rielaborazione di una determinata competenza, incluse le competenze downstream che hanno una dipendenza dall'output di tale capacità. Questa API accetta una richiesta POST con un elenco di competenze che devono essere invalidate e contrassegnate per la rielaborazione. Dopo aver reimpostato le competenze, eseguire l'indicizzatore per richiamare la pipeline.
 
 ## <a name="change-detection"></a>Rilevamento delle modifiche
 
@@ -136,39 +136,27 @@ L'elaborazione incrementale consente di valutare la definizione delle competenze
 * Modifiche alle proiezioni dell'archivio conoscenze, risultanti nella ripetizione della proiezione dei documenti
 * Modifiche ai mapping dei campi di output in un indicizzatore risultanti nella ripetizione della proiezione dei documenti nell'indice
 
-## <a name="api-reference-content-for-incremental-enrichment"></a>Contenuto di riferimento API per l'arricchimento incrementale
+## <a name="api-reference"></a>Informazioni di riferimento sulle API
 
-REST `api-version=2019-05-06-Preview` fornisce le API per l'arricchimento incrementale, con aggiunte a indicizzatori, skillsets e origini dati. La [documentazione di riferimento ufficiale](https://docs.microsoft.com/rest/api/searchservice/) è per le API disponibili a livello generale e non riguarda le funzionalità in anteprima. La sezione seguente fornisce il contenuto di riferimento per le API interessate.
+La versione dell'API REST `2019-05-06-Preview` fornisce l'arricchimento incrementale tramite proprietà aggiuntive su indicizzatori, skillsets e origini dati. Oltre alla documentazione di riferimento, vedere [configurare la memorizzazione nella cache per l'arricchimento incrementale](search-howto-incremental-index.md) per informazioni dettagliate su come chiamare le API.
 
-Informazioni sull'utilizzo ed esempi sono disponibili in [configurare la memorizzazione nella cache per l'arricchimento incrementale](search-howto-incremental-index.md).
++ [Crea indicizzatore (API-Version = 2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer) 
 
-### <a name="indexers"></a>Indicizzatori
++ [Aggiorna indicizzatore (API-Version = 2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-indexer) 
 
-[Crea indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer) e [Aggiorna indicizzatore](https://docs.microsoft.com/rest/api/searchservice/update-indexer) esporrà ora le nuove proprietà relative alla cache:
++ [Update Skills (API-Version = 2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) (nuovo parametro URI nella richiesta)
 
-+ `StorageAccountConnectionString`: la stringa di connessione all'account di archiviazione che verrà utilizzata per memorizzare nella cache i risultati intermedi.
++ [Reimposta le competenze (API-Version = 2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills)
 
-+ `EnableReprocessing`: impostare su `true` per impostazione predefinita, se impostato su `false`, i documenti continueranno a essere scritti nella cache, ma nessun documento esistente verrà rielaborato in base ai dati della cache.
++ Indicizzatori di database (SQL di Azure, Cosmos DB). Alcuni indicizzatori recuperano i dati tramite query. Per le query che recuperano dati, l' [aggiornamento dell'origine dati](https://docs.microsoft.com/rest/api/searchservice/update-data-source) supporta un nuovo parametro in una richiesta **ignoreResetRequirement**, che deve essere impostata su `true` quando l'azione di aggiornamento non deve invalidare la cache. 
 
-+ `ID` (sola lettura): il `ID` è l'identificatore del contenitore all'interno dell'account di archiviazione `annotationCache` che verrà usato come cache per questo indicizzatore. Questa cache sarà univoca per questo indicizzatore e, se l'indicizzatore viene eliminato e ricreato con lo stesso nome, `ID` verrà rigenerato. `ID` non può essere impostato, viene sempre generato dal servizio.
-
-### <a name="skillsets"></a>Set di competenze
-
-+ Il set di [competenze di aggiornamento](https://docs.microsoft.com/rest/api/searchservice/update-skillset) supporta un nuovo parametro nella richiesta: `disableCacheReprocessingChangeDetection`, che deve essere impostato su `true` quando non si desidera aggiornare i documenti esistenti in base all'azione corrente.
-
-+ [Reimpostazione delle competenze](preview-api-resetskills.md) è una nuova operazione utilizzata per invalidare un skillt.
-
-### <a name="datasources"></a>Datasources
-
-+ Alcuni indicizzatori recuperano i dati tramite query. Per le query che recuperano dati, l' [aggiornamento dell'origine dati](https://docs.microsoft.com/rest/api/searchservice/update-data-source) supporta un nuovo parametro in una richiesta `ignoreResetRequirement`, che deve essere impostata su `true` quando l'azione di aggiornamento non deve invalidare la cache.
-
-Usare il `ignoreResetRequirement` sporadicamente perché potrebbe causare incoerenza indesiderata nei dati che non verranno rilevati facilmente.
+  Usare **ignoreResetRequirement** sporadicamente poiché potrebbe causare incoerenza indesiderata nei dati che non verranno rilevati facilmente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-L'arricchimento incrementale è una funzionalità potente che estende il rilevamento delle modifiche per l'arricchimento di skillsets e intelligenza artificiale. Con l'evolversi di skillsets, l'arricchimento incrementale garantisce il minor lavoro possibile, pur continuando a garantire la coerenza finale dei documenti.
+L'arricchimento incrementale è una funzionalità potente che estende il rilevamento delle modifiche per l'arricchimento di skillsets e intelligenza artificiale. L'arricchimento AIncremental consente il riutilizzo del contenuto elaborato esistente durante l'iterazione della progettazione di competenze.
 
-Per iniziare, aggiungere una cache a un indicizzatore esistente o aggiungere la cache quando si definisce un nuovo indicizzatore.
+Come passaggio successivo, abilitare la memorizzazione nella cache su un indicizzatore esistente o aggiungere una cache quando si definisce un nuovo indicizzatore.
 
 > [!div class="nextstepaction"]
 > [Configurare la memorizzazione nella cache per l'arricchimento incrementale](search-howto-incremental-index.md)

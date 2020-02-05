@@ -4,25 +4,25 @@ description: Creare un'app Web di Service Manager usando uno script automatizzat
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: JYOTHIRMAISURI
+author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: 443fe6aa7e97e666075a2fbb985a9b8b00baf81a
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a97ea4d505d17d1d5fb2f2035fb23f3fce94aebe
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932258"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990930"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Creare un'app Web di Service Manager con lo script automatizzato
 
 Usare lo script seguente per creare l'app Web per l'istanza di Service Manager. Altre informazioni sulla connessione di Service Manager sono reperibili qui: [Service Manager Web app](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service) (App Web di Service Manager)
 
-Eseguire lo script, fornendo i seguenti dettagli richiesti:
+Eseguire lo script, fornendo i dettagli richiesti seguenti:
 
 - Dettagli della sottoscrizione di Azure
 - Nome del gruppo di risorse
-- Località
+- Percorso
 - Dettagli del server di Service Manager (nome del server, dominio, nome utente e password)
 - Prefisso del nome del sito per l'app Web
 - Spazio dei nomi ServiceBus.

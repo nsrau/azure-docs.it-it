@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
-ms.openlocfilehash: 4a2b66f95467e7f6cb99f632548351f827e259c3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476425"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986037"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Genomica di Microsoft: Domande comuni
 
@@ -24,6 +24,8 @@ Questo articolo elenca le domande più importanti degli utenti su Genomica di Mi
 ## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>Ricerca per categorie eseguire flussi di lavoro GATK4 su genomica di Microsoft?
 Nel file config. txt del servizio genomica di Microsoft specificare il process_name da `gatk4`. Si noti che verranno addebitate tariffe di fatturazione regolari.
 
+## <a name="how-do-i-enable-output-compression"></a>Ricerca per categorie abilitare la compressione dell'output?
+È possibile comprimere l'output VCF o gvcf usando un argomento facoltativo per la compressione di output. Questa operazione equivale a eseguire `-bgzip` seguito da `-tabix` nell'output di VCF o gvcf per produrre i file `.gz` (output bgzip) e `.tbi` (output di tabix). `bgzip` comprime il file VCF o gvcf e `tabix` crea un indice per il file compresso. L'argomento è un valore booleano, che è impostato su `false` per impostazione predefinita per l'output di VCF e per `true` per impostazione predefinita per l'output di gcvf. Per usare nella riga di comando, specificare `-bz` o `--bgzip-output` come `true` (eseguire bgzip e tabix) o `false`. Per usare questo argomento nel file config. txt, aggiungere `bgzip_output: true` o `bgzip_output: false` al file.
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Qual è il contratto di servizio per Genomica di Microsoft?
 È garantita la disponibilità del servizio Genomica di Microsoft per il 99,9% del tempo a ricevere le richieste di API del flusso di lavoro. Per altre informazioni, vedere [Contratto di servizio](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/).
@@ -61,7 +63,7 @@ La chiave dell'account di archiviazione viene utilizzata per creare token di acc
 
 Sono supportati questi riferimenti:
 
- |Riferimento              | Valore di `-pa/--process-args` |
+ |Riferimenti              | Valore di `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      

@@ -3,12 +3,12 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Viene descritto come vengono usate le definizioni dei criteri per stabilire le convenzioni per le risorse di Azure nell'organizzazione.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: e37ff6e1bde594014510880492c2572ad1634400
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 7502c1c9a2e125052abf71e50273fbd9bab15cd1
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904424"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989876"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -251,8 +251,7 @@ Una condizione valuta se una funzione di accesso **field** o **value** soddisfa 
 Quando si usano le condizioni **like** e **notLike**, è possibile inserire un carattere jolly `*` nel valore.
 Il valore non deve contenere più di un carattere jolly `*`.
 
-Quando si usano le condizioni **match** e **notMatch** , fornire `#` per trovare la corrispondenza con una cifra, `?` per una lettera, `.` in modo che corrisponda a qualsiasi carattere e qualsiasi altro carattere in modo che corrisponda al carattere effettivo.
-**match** e **notMatch** fanno distinzione tra maiuscole e minuscole. Alternative senza distinzione tra maiuscole e minuscole sono disponibili in **matchInsensitively** e **notMatchInsensitively**. Ad esempio, vedere [Consentire modelli nome multipli](../samples/allow-multiple-name-patterns.md).
+Quando si usano le condizioni **match** e **notMatch** , fornire `#` per trovare la corrispondenza con una cifra, `?` per una lettera, `.` in modo che corrisponda a qualsiasi carattere e qualsiasi altro carattere in modo che corrisponda al carattere effettivo. While, **match** e **notMatch** fanno distinzione tra maiuscole e minuscole e tutte le altre condizioni che valutano un _StringValue_ non fanno distinzione tra maiuscole e minuscole. Alternative senza distinzione tra maiuscole e minuscole sono disponibili in **matchInsensitively** e **notMatchInsensitively**. Ad esempio, vedere [Consentire modelli nome multipli](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Campi
 
@@ -399,7 +398,7 @@ Con la regola dei criteri modificata, `if()` controlla la lunghezza del **nome**
 
 ### <a name="count"></a>Conteggio
 
-Le condizioni che contano il numero di membri di una matrice nel payload della risorsa che soddisfano un'espressione di condizione possono essere create usando l'espressione **count** . Gli scenari comuni controllano se ' almeno uno di ',' esattamente uno dei membri della matrice ',' tutti ' o ' nessuno di ' soddisfi la condizione. **count** valuta ogni membro della matrice per un'espressione di condizione e somma i risultati _reali_ , che viene quindi confrontato con l'operatore Expression.
+Le condizioni che contano il numero di membri di una matrice nel payload della risorsa che soddisfano un'espressione di condizione possono essere create usando l'espressione **count** . Gli scenari comuni controllano se ' almeno uno di ',' esattamente uno dei membri della matrice ',' tutti ' o ' nessuno di ' soddisfi la condizione. **count** valuta ogni [\[\*\]](#understanding-the--alias) membro della matrice alias per un'espressione di condizione e somma i risultati _reali_ , che viene quindi confrontato con l'operatore Expression.
 
 La struttura dell'espressione **count** è la seguente:
 
@@ -763,10 +762,7 @@ L'esempio seguente illustra come creare un'iniziativa per la gestione di due tag
                 }
             }
         ]
-    },
-    "id": "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicy",
-    "type": "Microsoft.Authorization/policySetDefinitions",
-    "name": "billingTagsPolicy"
+    }
 }
 ```
 

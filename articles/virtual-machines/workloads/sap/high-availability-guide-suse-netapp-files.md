@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/10/2020
+ms.date: 02/03/2020
 ms.author: radeltch
-ms.openlocfilehash: c2d6e3e42c581c255f207af4a5008e2d09c50a7d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 1a413ce55604ef8b5c3219e8de466fcc23d41bac
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887122"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990942"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure in SUSE Linux Enterprise Server con Azure NetApp Files per le applicazioni SAP
 
@@ -341,7 +341,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    </code></pre>
 
    > [!NOTE]
-   > Non usare trattini nei nomi host dei nodi del cluster in uso. In caso contrario, il cluster non funzionerà. Si tratta di una limitazione nota e SUSE sta lavorando a una correzione. La correzione verrà rilasciata come patch del pacchetto sap-suse-cloud-connector.
+   > Il problema noto relativo all'uso di un trattino nei nomi host è corretto con la versione **3.1.1** del pacchetto **SAP-SUSE-cluster-Connector**. Assicurarsi di usare almeno la versione 3.1.1 del pacchetto SAP-SUSE-cluster-Connector, se si usano nodi del cluster con Dash nel nome host. In caso contrario, il cluster non funzionerà. 
 
    Verificare di aver installato la nuova versione del connettore del cluster SAP SUSE. La versione precedente era denominata sap_suse_cluster_connector mentre la nuova è denominata **sap-suse-cluster-connector**.
 

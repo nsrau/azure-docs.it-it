@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 49c86f3e6c654ecbfcd07809f42a1b038ca3f8ab
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 578abae5b206b31674b00b9d27ef34174b93759f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911116"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988584"
 ---
 # <a name="create-a-map"></a>Creare una mappa
 
@@ -22,7 +22,7 @@ Questo articolo illustra come creare una mappa e aggiungere un'animazione a una 
 
 ## <a name="loading-a-map"></a>Caricamento di una mappa
 
-Per caricare una mappa, creare una nuova istanza della [classe Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest). Quando si inizializza la mappa, viene passato un ID elemento DIV per il rendering della mappa e un set di opzioni da usare durante il caricamento della mappa. Se le informazioni di autenticazione predefinite non sono specificate nello spazio dei nomi `atlas`, è necessario specificare queste informazioni nelle opzioni della mappa quando si carica la mappa. La mappa carica diverse risorse in modo asincrono per le prestazioni. Di conseguenza, dopo aver creato l'istanza della mappa, alleghi un evento `ready` o `load` alla mappa e quindi Aggiungi il codice aggiuntivo che interagisce con la mappa in quel gestore eventi. L'evento `ready` viene attivato non appena la mappa dispone di un numero sufficiente di risorse caricate per interagire a livello di codice. L'evento `load` viene generato al termine del caricamento completo della visualizzazione mappa iniziale. 
+Per caricare una mappa, creare una nuova istanza della [classe Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest). Quando si inizializza la mappa, passare un ID elemento DIV per eseguire il rendering della mappa e passare un set di opzioni da usare durante il caricamento della mappa. Se le informazioni di autenticazione predefinite non sono specificate nello spazio dei nomi `atlas`, è necessario specificare queste informazioni nelle opzioni della mappa quando si carica la mappa. La mappa carica diverse risorse in modo asincrono per le prestazioni. Di conseguenza, dopo aver creato l'istanza della mappa, associare un evento `ready` o `load` alla mappa, quindi aggiungere il codice aggiuntivo che interagisce con la mappa al gestore eventi. L'evento `ready` viene attivato non appena la mappa dispone di un numero sufficiente di risorse caricate per interagire a livello di codice. L'evento `load` viene generato al termine del caricamento completo della visualizzazione mappa iniziale. 
 
 <br/>
 
@@ -31,11 +31,11 @@ Vedere il <a href='https://codepen.io/azuremaps/pen/rXdBXx/'>caricamento della m
 </iframe>
 
 > [!TIP]
-> È possibile caricare più mappe nella stessa pagina e ognuna di esse può usare le stesse impostazioni di autenticazione e lingua diverse.
+> È possibile caricare più mappe nella stessa pagina. Più mappe nella stessa pagina possono utilizzare le stesse impostazioni di autenticazione e lingua.
 
 ## <a name="show-a-single-copy-of-the-world"></a>Mostra un'unica copia del mondo
 
-Quando si esegue lo zoom avanti della mappa in un ampio schermo, più copie del mondo verranno visualizzate orizzontalmente. Questo è ideale per la maggior parte degli scenari, ma per alcune applicazioni potrebbe essere auspicabile visualizzare una sola copia del mondo. Questa operazione può essere eseguita impostando l'opzione Maps `renderWorldCopies` su `false`.
+Quando si esegue lo zoom avanti della mappa in un ampio schermo, più copie del mondo verranno visualizzate orizzontalmente. Questa opzione è ideale per alcuni scenari, ma per altre applicazioni è auspicabile visualizzare una singola copia del mondo. Questo comportamento viene implementato impostando l'opzione Maps `renderWorldCopies` su `false`.
 
 <br/>
 
@@ -45,13 +45,13 @@ Vedere Pen <a href='https://codepen.io/azuremaps/pen/eqMYpZ/'>renderWorldCopies 
 
 ## <a name="controlling-the-map-camera"></a>Controllo della fotocamera della mappa
 
-È possibile impostare l'area visualizzata della mappa utilizzando la fotocamera in due modi. È possibile impostare le opzioni della fotocamera, ad esempio centra e zoom, durante il caricamento della mappa oppure chiamare l'opzione `setCamera` in qualsiasi momento dopo il caricamento della mappa per aggiornare la vista mappa a livello di codice.  
+Esistono due modi per impostare l'area visualizzata della mappa utilizzando la fotocamera di una mappa. È possibile impostare le opzioni della fotocamera durante il caricamento della mappa. In alternativa, è possibile chiamare l'opzione `setCamera` in qualsiasi momento dopo il caricamento della mappa per aggiornare a livello di codice la vista mappa.  
 
 <a id="setCameraOptions"></a>
 
 ### <a name="set-the-camera"></a>Impostare la fotocamera
 
-Nel codice seguente viene creato un [oggetto map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) e sono impostate le opzioni Center e zoom. Le proprietà della mappa, ad esempio il centro e il livello di zoom, fanno parte del [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions).
+Nel codice seguente viene creato un [oggetto map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) e sono impostate le opzioni Center e zoom. Le proprietà della mappa, ad esempio il livello Center e il livello di zoom, fanno parte del [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions).
 
 <br/>
 
@@ -71,7 +71,7 @@ Nel codice seguente viene creato un [oggetto map](https://docs.microsoft.com/jav
 
 ### <a name="animate-map-view"></a>Aggiungere un'animazione alla visualizzazione della mappa
 
-Nel codice seguente il primo blocco di codice crea una mappa e imposta i valori di stile, centra e zoom della mappa. Nel secondo blocco di codice viene creato un gestore dell'evento click per il pulsante animate. Quando si fa clic su questo pulsante, viene chiamata la funzione secamera con alcuni valori casuali per [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions), [AnimationOptions](/javascript/api/azure-maps-control/atlas.animationoptions).
+Nel codice seguente il primo blocco di codice crea una mappa e imposta gli stili della mappa di immissione e zoom. Nel secondo blocco di codice viene creato un gestore dell'evento click per il pulsante animate. Quando si fa clic su questo pulsante, la funzione `setCamera` viene chiamata con alcuni valori casuali per [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions) e [AnimationOptions](/javascript/api/azure-maps-control/atlas.animationoptions).
 
 <br/>
 
@@ -80,7 +80,7 @@ Nel codice seguente il primo blocco di codice crea una mappa e imposta i valori 
 
 ## <a name="try-out-the-code"></a>Provare il codice
 
-Esaminare il codice di esempio precedente. È possibile modificare il codice JavaScript nella **scheda JS** a sinistra e visualizzare le modifiche apportate alla visualizzazione della mappa nella **scheda Result** (Risultato) a destra. È anche possibile fare clic sul pulsante **Edit on CodePen** (Modifica in CodePen) e modificare il codice in CodePen.
+Esaminare gli esempi di codice. È possibile modificare il codice JavaScript all'interno della **scheda JS** e visualizzare le modifiche alla visualizzazione mappa nella **scheda risultato**. È anche possibile fare clic **su modifica in CodePen**, nell'angolo in alto a destra e modificare il codice in CodePen.
 
 <a id="relatedReference"></a>
 

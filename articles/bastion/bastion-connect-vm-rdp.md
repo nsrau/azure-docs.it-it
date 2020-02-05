@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: dc741007c7de8d8e24f9c0f9e4e0c03306d036a4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7dad6a517341f83f693e1e7e1f7d27e899e00f7e
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498352"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990488"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion"></a>Connettersi a una macchina virtuale Windows con Azure Bastion
 
@@ -20,13 +20,22 @@ Questo articolo illustra come eseguire la connessione RDP in modo sicuro e trasp
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Assicurarsi di aver configurato un host Bastion di Azure per la rete virtuale in cui risiede la macchina virtuale. Per altre informazioni, vedere [creare un host Bastion di Azure](bastion-create-host-portal.md). Una volta eseguito il provisioning e la distribuzione del servizio Bastion nella rete virtuale, è possibile usarlo per connettersi a qualsiasi macchina virtuale in questa rete virtuale. Bastion presuppone che si usi il protocollo RDP per connettersi a una macchina virtuale Windows e SSH per connettersi alle macchine virtuali Linux. Per informazioni sulla connessione a una VM Linux, vedere [connettersi a una VM Linux](bastion-connect-vm-ssh.md).
+Assicurarsi di aver configurato un host Bastion di Azure per la rete virtuale in cui risiede la macchina virtuale. Per altre informazioni, vedere [creare un host Bastion di Azure](bastion-create-host-portal.md). Una volta eseguito il provisioning e la distribuzione del servizio Bastion nella rete virtuale, è possibile usarlo per connettersi a qualsiasi macchina virtuale in questa rete virtuale.
 
+Bastion presuppone che si usi il protocollo RDP per connettersi a una macchina virtuale Windows e SSH per connettersi alle macchine virtuali Linux. Per informazioni sulla connessione a una VM Linux, vedere [connettersi a una VM Linux](bastion-connect-vm-ssh.md).
+
+### <a name="required-roles"></a>Ruoli necessari
 Per stabilire una connessione, sono necessari i ruoli seguenti:
 
 * Ruolo Lettore nella macchina virtuale
 * Ruolo Lettore nella scheda di interfaccia di rete con l'indirizzo IP privato della macchina virtuale
 * Ruolo Lettore nella risorsa Azure Bastion
+
+### <a name="ports"></a>Porte
+
+Per connettersi alla macchina virtuale Windows tramite RDP, è necessario che le porte seguenti siano aperte nella macchina virtuale Windows:
+
+* Porte in ingresso: RDP (3389)
 
 ## <a name="rdp"></a>Connetti tramite RDP
 

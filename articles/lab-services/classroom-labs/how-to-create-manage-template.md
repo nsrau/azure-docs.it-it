@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: fd3396a98359aef966cd8bb2f984e556fc6abcc7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 08fbe9565356dc1b7db952fdd265770fef600ca8
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584832"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989043"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Creare e gestire un modello per le classi in Azure Lab Services
 Un modello in un lab è un'immagine della macchina virtuale di base da cui vengono create tutte le macchine virtuali di tutti gli utenti. Configurare la macchina virtuale modello con tutte le caratteristiche che si vuole fornire agli utenti del lab. È possibile specificare un nome e una descrizione del modello che verranno visualizzati dagli utenti del lab. Quindi, pubblicare il modello per rendere disponibili agli utenti del lab le istanze della macchina virtuale modello. Quando si pubblica un modello, Azure Lab Services crea le macchine virtuali nel lab usando il modello. Il numero di macchine virtuali create in questo processo corrisponde al numero massimo di utenti consentiti nel lab, che è possibile impostare nei criteri di utilizzo del lab. Tutte le macchine virtuali hanno la stessa configurazione del modello.
@@ -39,17 +39,15 @@ Seguire questa procedura per impostare il titolo e la descrizione per la prima v
 ## <a name="update-a-template-vm"></a>Aggiornare una macchina virtuale modello
 Usare la procedura seguente per aggiornare una macchina virtuale modello.  
 
-1. Nella pagina **modello** selezionare **Personalizza modello** sulla barra degli strumenti. 
-2. Nella finestra di dialogo **Personalizza modello** selezionare **continua**. Una volta avviato il modello e apportato le modifiche, non avrà più la stessa configurazione delle macchine virtuali pubblicate per l'ultima volta agli utenti. Le modifiche ai modelli non verranno applicate alle macchine virtuali esistenti degli utenti finché non si esegue di nuovo la pubblicazione.
-
-    ![Finestra di dialogo Personalizza](../media/how-to-create-manage-template/customize-template-dialog.png)
 1. Attendere che la macchina virtuale del modello sia avviata e quindi selezionare **Connetti al modello** sulla barra degli strumenti per connettersi alla macchina virtuale modello e seguire le istruzioni. Se si tratta di un computer Windows, verrà visualizzata un'opzione per scaricare il file RDP. 
+1. Quando ci si connette al modello e si apportano modifiche, non sarà più disponibile la stessa configurazione delle macchine virtuali pubblicate per l'ultima volta agli utenti. Le modifiche ai modelli non verranno applicate alle macchine virtuali esistenti degli utenti finché non si esegue di nuovo la pubblicazione.
 
     ![Connettersi alla macchina virtuale modello](../media/how-to-create-manage-template/connect-template-vm.png)
+    
 1. Installare tutto il software necessario agli studenti per eseguire il lab, ad esempio, Visual Studio, Azure Storage Explorer e così via. 
-2. Disconnettersi dalla macchina virtuale modello, ovvero chiudere la sessione di accesso remota. 
-3. **Arrestare** la macchina virtuale del modello selezionando **Arresta modello**. 
-4. Seguire i passaggi della sezione successiva per **pubblicare** la macchina virtuale del modello aggiornata. 
+1. Disconnettersi dalla macchina virtuale modello, ovvero chiudere la sessione di accesso remota. 
+1. **Arrestare** la macchina virtuale del modello selezionando **Arresta modello**. 
+1. Seguire i passaggi della sezione successiva per **pubblicare** la macchina virtuale del modello aggiornata. 
 
 ## <a name="publish-the-template-vm"></a>Pubblicare la macchina virtuale modello  
 Se si non pubblica il modello durante la creazione del lab, è possibile pubblicarlo in un secondo momento. Prima della pubblicazione, è possibile connettersi al modello di macchina virtuale e aggiornarlo con qualsiasi software. Quando si pubblica un modello, Azure Lab Services crea le macchine virtuali nel lab usando il modello. Il numero di macchine virtuali create in questo processo è il numero di macchine virtuali specificate durante la pubblicazione per la prima volta o per quanto specificato nella pagina del pool di macchine virtuali. Tutte le macchine virtuali hanno la stessa configurazione del modello. 
@@ -61,7 +59,7 @@ Se si non pubblica il modello durante la creazione del lab, è possibile pubblic
 
     > [!IMPORTANT]
     > Non è possibile annullare la pubblicazione di un modello, dopo che questo è stato pubblicato. Tuttavia, è possibile ripubblicare il modello. 
-4. È possibile visualizzare lo stato del processo di pubblicazione nella pagina modello. Attendere che lo stato del modello si imposti su **Pubblicato**. 
+1. È possibile visualizzare lo stato del processo di pubblicazione nella pagina modello. Attendere che lo stato del modello si imposti su **Pubblicato**. 
 
     ![Stato della pubblicazione](../media/how-to-create-manage-template/publish-status.png)
 1. Passare alla pagina **Macchine virtuali** e verificare che vengano visualizzate macchine virtuali con lo stato **Non assegnato**. Queste macchine virtuali non sono ancora assegnate agli studenti. Attendere finché le macchine virtuali non vengono create. Devono essere nello stato **Arrestato**. In questa pagina è possibile avviare la macchina virtuale di uno studente, connettersi alla macchina virtuale, arrestare la macchina virtuale ed eliminare la macchina virtuale. In questa pagina è possibile avviare le macchine virtuali o consentire agli studenti di avviarle. 

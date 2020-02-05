@@ -3,17 +3,17 @@ title: Gestire l'autenticazione | Mappe Microsoft Azure
 description: È possibile utilizzare il portale di Azure per gestire l'autenticazione in Microsoft Azure maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 01/16/2020
+ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 1f7f128898089292a8ccd92686af5d68fe328f3c
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: f856aebe5e3acaca142e460d18ec8c6498b18787
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766142"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989305"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gestire l'autenticazione in Mappe di Azure
 
@@ -21,40 +21,40 @@ Dopo aver creato un account Azure Maps, vengono creati un ID client e le chiavi 
 
 ## <a name="view-authentication-details"></a>Visualizzare i dettagli di autenticazione
 
-Dopo la creazione dell'account Azure Maps, vengono generate le chiavi primarie e secondarie. Usare la chiave primaria come chiave di sottoscrizione, a volte questi nomi vengono usati in modo interscambiabile. La chiave secondaria può essere usata in scenari come le modifiche delle chiavi in sequenza. In entrambi i casi, è necessaria una chiave per chiamare Azure maps. Questo processo è denominato [autenticazione con chiave condivisa](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). Per altre informazioni sulla chiave condivisa e sull'autenticazione Azure AD, vedere [autenticazione con Azure Maps](https://aka.ms/amauth) .
+Dopo la creazione dell'account Azure Maps, vengono generate le chiavi primarie e secondarie. È consigliabile usare la chiave primaria come chiave di sottoscrizione, quando si chiamano le mappe di Azure usando [l'autenticazione con chiave condivisa](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). La chiave secondaria può essere usata in scenari come le modifiche delle chiavi in sequenza. Per altre informazioni, vedere [autenticazione con mappe di Azure](https://aka.ms/amauth).
 
 È possibile visualizzare i dettagli di autenticazione nel portale di Azure. Passare all'account e selezionare **autenticazione** dal menu **Impostazioni** .
 
 ![Dettagli di autenticazione](./media/how-to-manage-authentication/how-to-view-auth.png)
 
 
-## <a name="set-up-azure-ad-app-registration"></a>Configurare la registrazione dell'app Azure AD
+## <a name="configure-azure-ad-app-registration"></a>Configurare la registrazione dell'app Azure AD
 
-Dopo aver creato un account Azure Maps, è necessario stabilire un collegamento tra il tenant di Azure AD e la risorsa mappe di Azure.
-
-1. Selezionare **Azure Active Directory** dal menu del portale. Consente di specificare un nome per la registrazione. Fare clic su **registrazioni app** quindi fare clic su **nuova registrazione**. Nella casella **URI di reindirizzamento** specificare il Home page dell'app Web. Ad esempio: https://localhost/. Se si dispone già di un'app registrata, andare al passaggio 2.
+1. Selezionare **Azure Active Directory** dall'elenco dei servizi di Azure in portale di Azure.  Selezionare **registrazioni app** e fare clic su **nuova registrazione**.  Distribuire quindi Immettere **nome**, scegliere **supporto tipo di account**e fare clic su **registra**.  Se si dispone già di un'app registrata, continuare con il passaggio 2. 
 
     ![Registrazione delle app](./media/how-to-manage-authentication/app-registration.png)
 
     ![Dettagli registrazione app](./media/how-to-manage-authentication/app-create.png)
 
-2. Per assegnare le autorizzazioni per le API delegate a mappe di Azure, passare all'applicazione in **registrazioni app**e quindi selezionare **autorizzazioni API**. Selezionare **Aggiungi autorizzazione**. Cercare e selezionare **mappe di Azure** in **selezionare un'API**.
+2. Per assegnare le autorizzazioni per le API delegate a mappe di Azure, passare all'applicazione in **registrazioni app**. Quindi selezionare **autorizzazioni API**, quindi selezionare **Aggiungi un'autorizzazione**. Cercare e selezionare **mappe di Azure** in **API utilizzate dall'organizzazione**.
 
     ![Autorizzazioni API app](./media/how-to-manage-authentication/app-permissions.png)
 
-3. In **Seleziona autorizzazioni selezionare**la casella per la **rappresentazione utente**, quindi fare clic sul pulsante **Seleziona** nella parte inferiore.
+3. Controllare **l'accesso a mappe di Azure** e quindi fare clic su **Aggiungi autorizzazioni**.
 
     ![Selezionare le autorizzazioni dell'API per le app](./media/how-to-manage-authentication/select-app-permissions.png)
 
-4. Completare il passaggio a o b, a seconda del metodo di autenticazione.
+4. Completare il passaggio a o b, a seconda del metodo di autenticazione. 
 
-    1. Se l'applicazione usa l'autenticazione basata su token utente con Azure Maps Web SDK, abilitare `oauth2AllowImplicitFlow` impostando il valore su true nella sezione manifest della registrazione dell'app.
+    1. Se l'applicazione usa l'autenticazione basata su token utente con Azure Maps Web SDK, abilitare `oauth2AllowImplicitFlow`. Per abilitare la `oauth2AllowImplicitFlow`, impostarla su true nella sezione manifesto della registrazione dell'app. 
     
        ![Manifesto dell'app](./media/how-to-manage-authentication/app-manifest.png)
 
-    2. Se l'applicazione usa l'autenticazione server/applicazione, passare al pannello **certificati & segreti** nella registrazione dell'app e creare una password o caricare un certificato di chiave pubblica nella registrazione dell'app. Se si crea una password, archiviarla in modo sicuro per un uso successivo. Questa password verrà usata per acquisire i token da Azure AD.
+    2. Se l'applicazione usa l'autenticazione server/applicazione, passare al pannello **certificati & segreti** nella pagina di registrazione dell'app e creare una password facendo clic su **nuovo segreto client** o caricare un certificato di chiave pubblica nella registrazione dell'app. Se si crea una password, dopo aver fatto clic su **Aggiungi**, copiare la password per un momento successivo e archiviarla in modo sicuro. Questa password verrà usata per acquisire i token da Azure AD.
 
        ![Chiavi dell'app](./media/how-to-manage-authentication/app-keys.png)
+
+       ![Aggiungi chiave](./media/how-to-manage-authentication/add-key.png)
 
 
 ## <a name="grant-role-based-access-control-rbac-to-azure-maps"></a>Concedere il controllo degli accessi in base al ruolo (RBAC) a mappe di Azure

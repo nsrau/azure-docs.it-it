@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/13/2019
-ms.openlocfilehash: 1268dc0d78bf64e0a4b79592c28a9c1e70db7bf3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 01/28/2020
+ms.openlocfilehash: def57dc125a148abd330643fc5848a35cd3b52bf
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892917"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76991007"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiare e trasformare i dati nel database SQL di Azure usando Azure Data Factory
 
@@ -577,7 +577,7 @@ Le impostazioni specifiche del database SQL di Azure sono disponibili nella sche
 
 **Livello di isolamento**: il valore predefinito per le origini SQL nel flusso di dati di mapping è READ UNCOMMITTED. È possibile modificare il livello di isolamento in uno dei seguenti valori:
 * Read Committed
-* Read Uncommitted
+* Read uncommitted
 * Repeatable Read
 * Serializable
 * Nessuno (ignora il livello di isolamento)
@@ -589,6 +589,10 @@ Le impostazioni specifiche del database SQL di Azure sono disponibili nella sche
 Le impostazioni specifiche del database SQL di Azure sono disponibili nella scheda **Impostazioni** della trasformazione sink.
 
 **Metodo di aggiornamento:** Determina quali operazioni sono consentite nella destinazione del database. Per impostazione predefinita, vengono consentiti solo gli inserimenti. Per aggiornare, Upsert o eliminare righe, è necessaria una trasformazione alter-Row per contrassegnare le righe per tali azioni. Per gli aggiornamenti, Upsert ed eliminazioni, è necessario impostare una colonna chiave o colonne per determinare la riga da modificare.
+
+![Colonne chiave](media/data-flow/keycolumn.png "Colonne chiave")
+
+Il nome della colonna scelto come chiave verrà usato da ADF come parte del successivo aggiornamento, Upsert, DELETE. Pertanto, è necessario selezionare una colonna esistente nel mapping del sink. Se non si desidera scrivere il valore in questa colonna chiave, fare clic su "Ignora scrittura colonne chiave".
 
 **Azione tabella:** Determina se ricreare o rimuovere tutte le righe dalla tabella di destinazione prima della scrittura.
 * None: nessuna azione verrà eseguita nella tabella.

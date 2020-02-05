@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
-ms.date: 01/27/2020
+ms.date: 02/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: a1263ecacc2af0559c726fb12c799d0e6d2f1014
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: dce7db9fc508c70d79be62a7e97b3bf52a316b22
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543342"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983699"
 ---
 # <a name="track-models-metrics-with-mlflow-and-azure-machine-learning-preview"></a>Monitorare le metriche dei modelli con MLflow e Azure Machine Learning (anteprima)
 
@@ -108,7 +108,7 @@ Il rilevamento MLflow con Azure Machine Learning consente di archiviare le metri
 
 Le esecuzioni remote consentono di eseguire il training dei modelli su calcoli più potenti, ad esempio macchine virtuali abilitate per la GPU o cluster ambiente di calcolo di Machine Learning. Per informazioni sulle diverse opzioni di calcolo, vedere [configurare le destinazioni di calcolo per il training del modello](how-to-set-up-training-targets.md) .
 
-Configurare l'ambiente di esecuzione di calcolo e training con la classe [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) . Includere `mlflow` e `azure-contrib-run` pacchetti PIP nella sezione [`CondaDependencies`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) dell'ambiente. Costruire quindi [`ScriptRunConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py) con il calcolo remoto come destinazione di calcolo.
+Configurare l'ambiente di esecuzione di calcolo e training con la classe [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) . Includere `mlflow` e `azureml-mlflow` pacchetti PIP nella sezione [`CondaDependencies`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) dell'ambiente. Costruire quindi [`ScriptRunConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py) con il calcolo remoto come destinazione di calcolo.
 
 ```Python
 from azureml.core.environment import Environment
@@ -120,7 +120,7 @@ exp = Experiment(workspace = 'my_workspace',
 
 mlflow_env = Environment(name='mlflow-env')
 
-cd = CondaDependencies.create(pip_packages=['mlflow', 'azureml-contrib-run'])
+cd = CondaDependencies.create(pip_packages=['mlflow', 'azureml-mlflow'])
 
 mlflow_env.python.conda_dependencies = cd
 

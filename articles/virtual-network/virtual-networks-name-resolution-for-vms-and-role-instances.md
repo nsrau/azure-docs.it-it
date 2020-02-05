@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 246af99cfec5ca41347da70e80bfc6dfff448eb3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f17b4ee0e4ce79cd12a6fda6f056b4e63b4161c9
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75368036"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76991032"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Risoluzione dei nomi per le risorse in reti virtuali di Azure
 
@@ -31,13 +31,13 @@ Quando le risorse implementate nelle reti virtuali devono risolvere nomi di domi
 Il tipo di risoluzione dei nomi usato dipende dal modo in cui le risorse devono comunicare tra loro. Nella tabella seguente vengono illustrate diverse ipotesi e le corrispondenti soluzioni di risoluzione dei nomi:
 
 > [!NOTE]
-> A seconda dello scenario, può essere opportuno usare la funzionalità Zone private di DNS di Azure, attualmente in anteprima pubblica. Per altre informazioni, vedere [Uso di DNS di Azure per i domini privati](../dns/private-dns-overview.md).
+> A seconda dello scenario, potrebbe essere necessario usare le zone private di DNS di Azure. Per altre informazioni, vedere [Uso di DNS di Azure per i domini privati](../dns/private-dns-overview.md).
 >
 
 | **Scenario** | **Soluzione** | **Suffisso** |
 | --- | --- | --- |
 | Risoluzione dei nomi tra macchine virtuali situate nella stessa rete virtuale o tra istanze di ruolo di Servizi cloud di Microsoft Azure nello stesso servizio cloud. | [Zone private di DNS di Azure](../dns/private-dns-overview.md) o [risoluzione dei nomi fornita da Azure](#azure-provided-name-resolution) |Nome host o nome di dominio completo |
-| Risoluzione dei nomi tra macchine virtuali in diverse reti virtuali o istanze del ruolo in servizi cloud diversi. |[Zone private di DNS di Azure](../dns/private-dns-overview.md) o server DNS gestiti dal cliente che inoltrano query tra reti virtuali per la risoluzione da parte di Azure (proxy DNS). Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-that-uses-your-own-dns-server). |Solo nome di dominio completo |
+| Risoluzione dei nomi tra macchine virtuali in diverse reti virtuali o istanze del ruolo in servizi cloud diversi. |[Zone private di DNS di Azure](../dns/private-dns-overview.md) o server DNS gestiti dal cliente che inviano query tra reti virtuali per la risoluzione da parte di Azure (proxy DNS). Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-that-uses-your-own-dns-server). |Solo nome di dominio completo |
 | Risoluzione dei nomi da un servizio app di Azure (App Web, Funzioni o Bot) con l'integrazione della rete virtuale in istanze del ruolo o macchine virtuali nella stessa rete virtuale. |Server DNS gestiti dal cliente che inoltrano query tra reti virtuali per la risoluzione da parte di Azure (proxy DNS). Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-that-uses-your-own-dns-server). |Solo nome di dominio completo |
 | Risoluzione dei nomi da app Web del servizio app a macchine virtuali nella stessa rete virtuale. |Server DNS gestiti dal cliente che inoltrano query tra reti virtuali per la risoluzione da parte di Azure (proxy DNS). Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-that-uses-your-own-dns-server). |Solo nome di dominio completo |
 | Risoluzione dei nomi da app Web del servizio app in una rete virtuale a macchine virtuali in una rete virtuale diversa. |Server DNS gestiti dal cliente che inoltrano query tra reti virtuali per la risoluzione da parte di Azure (proxy DNS). Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-that-uses-your-own-dns-server). |Solo nome di dominio completo |

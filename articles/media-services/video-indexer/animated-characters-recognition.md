@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 8cc097bc7083729a0e99c93376fe46b170760cf4
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: af608dcfbb5d98cf3116de4e14dc12bf6facb97b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327474"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989910"
 ---
 # <a name="animated-character-detection-preview"></a>Rilevamento di caratteri animati (anteprima)
 
@@ -81,7 +81,7 @@ Seguire questa procedura per connettere l'account Visione personalizzata al Vide
 1. Selezionare **connetti visione personalizzata account (anteprima)** e fare clic su **prova**.
 1. Compilare i campi obbligatori e il token di accesso e fare clic su **Send (Invia**). 
 
-    Per ulteriori informazioni su come ottenere il token di accesso Video Indexer passare al [portale per sviluppatori](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)e vedere la [documentazione pertinente](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
+    Per ulteriori informazioni su come ottenere il token di accesso Video Indexer passare al [portale per sviluppatori](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token?)e vedere la [documentazione pertinente](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
 1. Quando la chiamata restituisce 200 risposta OK, l'account è connesso.
 1. Per verificare la connessione, passare al portale [video Indexer](https://vi.microsoft.com/)):
 1. Fare clic sul pulsante **personalizzazione modello di contenuto** nell'angolo superiore destro.

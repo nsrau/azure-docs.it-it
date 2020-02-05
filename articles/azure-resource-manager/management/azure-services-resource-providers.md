@@ -3,12 +3,12 @@ title: Provider di risorse per servizi di Azure
 description: Elenca tutti gli spazi dei nomi del provider di risorse per Azure Resource Manager e Mostra il servizio di Azure per lo spazio dei nomi.
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: cdf56c5c84f8837538c2f59b34c3bcf4265d78cb
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d16c5fe148f8b6c907c897963e72cb84bc9ae2d5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644308"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984371"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provider di risorse per i servizi di Azure
 
@@ -32,7 +32,7 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
 | Microsoft.AzureStack | core |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
-| Microsoft.Billing | [Fatturazione](/azure/billing/) |
+| Microsoft.Billing | [Gestione dei costi e fatturazione](/azure/billing/) |
 | Microsoft.BingMaps | [Bing Mappe](https://docs.microsoft.com/BingMaps/#pivot=main&panel=BingMapsAPI) |
 | Microsoft.Blockchain | [Servizio Azure blockchain](/azure/blockchain/workbench/) |
 | Microsoft.Blueprint | [Progetti di Azure](/azure/governance/blueprints/) |
@@ -130,7 +130,7 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.Scheduler | [Utilità di pianificazione](/azure/scheduler/) |
 | Microsoft.Search | [Ricerca di Azure](../../search/index.yml) |
 | Microsoft.Security | [Centro sicurezza](../../security-center/index.yml) |
-| Microsoft. SecurityInsights | [Azure Sentinel](/azure/sentinel/) |
+| Microsoft. SecurityInsights | [Sentinella di Azure](/azure/sentinel/) |
 | Microsoft. SerialConsole | [Console seriale di Azure](../../virtual-machines/troubleshooting/serial-console-windows.md) |
 | Microsoft.ServiceBus | [Bus di servizio](/azure/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |

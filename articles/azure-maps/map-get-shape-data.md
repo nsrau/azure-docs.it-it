@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ca1b9854b118d359167873313f1fcb11bfecee52
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: d74a7906157eed33487a5f88082701da1b2269dc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911003"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988550"
 ---
 # <a name="get-shape-data"></a>Ottenere i dati della forma
 
-Questo articolo illustra come ottenere i dati di forme disegnati sulla mappa usando la funzione [Drawing Manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#getsource--) **DrawingManager. GetSource ()** . Possono essere presenti diversi scenari in cui è possibile estrarre i dati GeoJSON di una forma disegnata e utilizzarli altrove.  
+Questo articolo illustra come ottenere dati di forme disegnate sulla mappa. Si usa la funzione **drawingManager. GetSource ()** all'interno di [Drawing Manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#getsource--). Esistono diversi scenari in cui si desidera estrarre i dati GeoJSON di una forma disegnata e utilizzarli altrove.  
 
 
 ## <a name="get-data-from-drawn-shape"></a>Recupera dati dalla forma disegnata

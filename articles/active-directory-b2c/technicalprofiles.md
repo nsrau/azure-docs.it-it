@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 01/29/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2e2a3dbf0ce3be28a78f04eb5bb1c369aeff1441
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: ad6b84323ac49713506bc61bd0051421e0234a94
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773443"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982280"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -84,7 +84,7 @@ L'elemento **TechnicalProfile** contiene gli elementi seguenti:
 | Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
 | Dominio | 0:1 | Il nome di dominio per il profilo tecnico. Ad esempio, se il profilo tecnico specifica il provider di identità Facebook, il nome di dominio è Facebook.com. |
-| DisplayName | 0:1 | Il nome del profilo tecnico che può essere visualizzato dagli utenti. |
+| DisplayName | 1:1 | Il nome del profilo tecnico che può essere visualizzato dagli utenti. |
 | Description | 0:1 | La descrizione del profilo tecnico che può essere visualizzato dagli utenti. |
 | Protocollo | 0:1 | Il protocollo usato per la comunicazione con altre entità. |
 | Metadati | 0:1 | Una raccolta di coppie di chiavi/valori che vengono usate dal protocollo per comunicare con l'endpoint durante la transazione. |

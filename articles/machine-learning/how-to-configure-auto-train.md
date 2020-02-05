@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 03f01e4c69e92f62774c9b128c960ec2190c9937
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: b4396c82851969b39841ba77fb8aba9679363474
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76937901"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986496"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di Machine Learning automatici in Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -172,7 +172,7 @@ Di seguito sono riportati alcuni esempi:
         n_cross_validations=5)
     ```
 
-I tre valori di parametro `task` diversi (il terzo tipo di attività è `forecasting`e usa un pool di algoritmi simile come attività `regression`) determina l'elenco dei modelli da applicare. Usare i parametri `whitelist` o `blacklist` per modificare ulteriormente le iterazioni con i modelli disponibili da includere o escludere. L'elenco dei modelli supportati è disponibile nella [classe SupportedModels](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels) per [classificazione] (https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification) , [previsione] (https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting) e [regressione] (https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression).
+I tre valori di parametro `task` diversi (il terzo tipo di attività è `forecasting`e usa un pool di algoritmi simile come attività `regression`) determina l'elenco dei modelli da applicare. Usare i parametri `whitelist` o `blacklist` per modificare ulteriormente le iterazioni con i modelli disponibili da includere o escludere. L'elenco dei modelli supportati è disponibile nella [classe SupportedModels](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels) per ([classificazione](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification), [previsione](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting)e [regressione](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression)).
 
 ### <a name="primary-metric"></a>Metrica primaria
 La metrica primaria determina la metrica da utilizzare durante il training del modello per l'ottimizzazione. La metrica disponibile che è possibile selezionare è determinata dal tipo di attività scelto e la tabella seguente mostra le metriche primarie valide per ogni tipo di attività.

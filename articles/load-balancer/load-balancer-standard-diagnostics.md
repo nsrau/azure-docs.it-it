@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 9fd1e72568b4f0c8813a5d050ce7fa7214ca7cd9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: c362829b1babf954868452a3858da1f319008a9a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722442"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990777"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostica di Load Balancer Standard con metriche, avvisi e integrità delle risorse
 
@@ -35,12 +35,14 @@ Azure Load Balancer fornisce metriche multidimensionali tramite le metriche di A
 
 Le varie configurazioni Load Balancer Standard forniscono le seguenti metriche:
 
-| Metrica | Tipo di risorsa | Descrizione | Aggregazione consigliata |
+| Metrica | Tipo di risorsa | Description | Aggregazione consigliata |
 | --- | --- | --- | --- |
 | Disponibilità percorso dati (disponibilità VIP)| Servizio di bilanciamento del carico interno e pubblico | Load Balancer Standard esercita continuamente il percorso dati dall'interno di un'area al front-end di Load Balancer e infine allo stack SDN che supporta la macchina virtuale. Finché sono presenti istanze integre, la misurazione segue lo stesso percorso del traffico con bilanciamento del carico dell'applicazione. Viene anche convalidato il percorso dati usato dai clienti. La misurazione è invisibile all'applicazione e non interferisce con altre operazioni.| Media |
 | Stato del probe di integrità (disponibilità DIP) | Servizio di bilanciamento del carico interno e pubblico | Load Balancer Standard usa un servizio di probe dell'integrità distribuito che monitora l'integrità dell'endpoint dell'applicazione in base alle impostazioni di configurazione. Questa metrica offre una visualizzazione filtrata, aggregata o per endpoint di ogni endpoint dell'istanza nel pool di Load Balancer. In questo modo è possibile visualizzare l'integrità dell'applicazione rilevata da Load Balancer, in base alla configurazione del probe di integrità. |  Media |
 | Pacchetti SYN (sincronizzazione) | Servizio di bilanciamento del carico interno e pubblico | Load Balancer Standard non termina le connessioni TCP (Transmission Control Protocol), né interagisce con i flussi di pacchetti TCP o UDP. I flussi e i relativi handshake sono sempre tra l'origine e l'istanza VM. Per risolvere meglio i problemi degli scenari del protocollo TCP, è possibile usare contatori di pacchetti SYN per determinare quanti tentativi di connessione TCP vengono eseguiti. La metrica indica il numero di pacchetti SYN TCP ricevuti.| Media |
 | Connessioni SNAT | Bilanciamento del carico pubblico |Load Balancer Standard segnala il numero di flussi in uscita mascherati per il front-end dell'indirizzo IP pubblico. Le porte Source Network Address Translation (SNAT) sono una risorsa esauribile. Questa metrica può indicare l'uso che l'applicazione fa di SNAT per i flussi originati in uscita. Vengono segnalati i contatori per i flussi SNAT con esito positivo e negativo, che è possibile usare per risolvere i problemi e comprendere l'integrità dei flussi in uscita.| Media |
+| Porte SNAT allocate | Bilanciamento del carico pubblico | Load Balancer Standard segnala il numero di porte SNAT allocate per ogni istanza di back-end | Media. |
+| Porte SNAT utilizzate | Bilanciamento del carico pubblico | Load Balancer Standard segnala il numero di porte SNAT utilizzate per ogni istanza di back-end. | Media | 
 | Contatori di byte |  Servizio di bilanciamento del carico interno e pubblico | Load Balancer Standard restituisce i dati elaborati per ogni front-end. È possibile notare che i byte non sono distribuiti equamente tra le istanze back-end. Questa operazione è prevista perché l'algoritmo Load Balancer di Azure è basato sui flussi | Media |
 | Contatori di pacchetti |  Servizio di bilanciamento del carico interno e pubblico | Load Balancer Standard restituisce i pacchetti elaborati per ogni front-end.| Media |
 
@@ -142,7 +144,7 @@ Usare **Totale** come aggregazione per la maggior parte degli scenari.
 
 Per ottenere statistiche relative al conteggio di byte o pacchetti:
 1. Selezionare il tipo di metrica **Conteggio byte** e/o **Conteggio pacchetti** con **Media** come aggregazione. 
-2. Eseguire una delle operazioni seguenti:
+2. Effettuare una delle operazioni seguenti:
    * Applicare un filtro su una specifica porta IP front-end, porta front-end, porta IP back-end o porta back-end.
    * È possibile ottenere statistiche generali per la risorsa di Load Balancer senza applicare filtri.
 
@@ -193,11 +195,11 @@ Per visualizzare l'integrità delle risorse della configurazione pubblica di Loa
  
 La tabella seguente elenca i diversi stati di integrità delle risorse e le relative descrizioni: 
 
-| Stato di integrità delle risorse | Descrizione |
+| Stato di integrità delle risorse | Description |
 | --- | --- |
 | Disponibile | Il servizio di bilanciamento del carico standard è integro e disponibile. |
 | Non disponibile | La risorsa di Load Balancer standard non è integra. Diagnosticare l'integrità selezionando **Monitoraggio di Azure** > **Metriche**.<br>Lo stato non*disponibile* potrebbe anche indicare che la risorsa non è connessa al servizio di bilanciamento del carico standard. |
-| Sconosciuto | Lo stato di integrità delle risorse per la risorsa Load Balancer standard non è ancora stato aggiornato.<br>Lo stato*sconosciuto* potrebbe anche indicare che la risorsa non è connessa al servizio di bilanciamento del carico standard.  |
+| Unknown | Lo stato di integrità delle risorse per la risorsa Load Balancer standard non è ancora stato aggiornato.<br>Lo stato*sconosciuto* potrebbe anche indicare che la risorsa non è connessa al servizio di bilanciamento del carico standard.  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

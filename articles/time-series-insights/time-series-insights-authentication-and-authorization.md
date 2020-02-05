@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 02/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 960eb9b48a158358a076202db0d435feb918a6c8
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: ff5f7a80e2dcedb1795bae14ee9140c2842303a5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863479"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984580"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticazione e autorizzazione per l'API Azure Time Series Insights
 
@@ -93,7 +93,7 @@ Al **passaggio 3**, la separazione delle credenziali dell'applicazione e dell'ut
 
    1. Il token può quindi essere passato nell'intestazione `Authorization` quando l'applicazione chiama l'API Time Series Insights.
 
-* In alternativa, gli sviluppatori possono scegliere di eseguire l'autenticazione con MSAL. Per altre informazioni, vedere la pagina relativa [alla migrazione a MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) . 
+* In alternativa, gli sviluppatori possono scegliere di eseguire l'autenticazione con MSAL. Per altre informazioni, vedere la pagina relativa [alla migrazione a MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) e vedere i [dati di C# riferimento di Manage GA per un ambiente Azure Time Series Insights usando l'](time-series-insights-manage-reference-data-csharp.md) articolo. 
 
 ## <a name="common-headers-and-parameters"></a>Intestazioni e parametri comuni
 
@@ -119,7 +119,7 @@ Le intestazioni di richiesta richieste sono descritte di seguito.
 
 > [!IMPORTANT]
 > Il token deve essere emesso esattamente con la risorsa `https://api.timeseries.azure.com/` (nota anche come "audience" del token).
-> * Il [](https://www.getpostman.com/) **AuthUrl** di pubblicazione sarà quindi: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
+> * Il [Postman](https://www.getpostman.com/) **AuthUrl** di pubblicazione sarà quindi: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
 > * `https://api.timeseries.azure.com/` è valido, ma `https://api.timeseries.azure.com` non lo è.
 
 Le intestazioni di richiesta facoltative sono descritte di seguito.

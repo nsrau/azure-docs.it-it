@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 9a6fa62384615f60da88bb41da8ad3538d34e62a
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: b330b6176ba9cadc85fad81876caf2583021d503
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754103"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988635"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Introduzione agli archivi conoscenze in Ricerca cognitiva di Azure
 
@@ -133,147 +133,11 @@ Una volta che gli arricchimenti sono presenti nell'archiviazione, è possibile u
 
 ## <a name="api-reference"></a>Informazioni di riferimento sulle API
 
-Questa sezione è una versione del documento di riferimento [create Skills (API REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset) , modificata per includere una definizione di `knowledgeStore`. 
+La versione dell'API REST `2019-05-06-Preview` fornisce l'archivio delle informazioni tramite definizioni aggiuntive in skillsets. Per informazioni dettagliate su come chiamare le API, vedere l'articolo relativo alla [creazione di un archivio informazioni con il post](knowledge-store-create-rest.md) .
 
-### <a name="example---knowledgestore-embedded-in-a-skillset"></a>Esempio: knowledgeStore incorporato in un Skillt
++ [Creare un set di competenze (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-skillset) 
++ [Update Skills (API-Version = 2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) 
 
-Nell'esempio seguente viene illustrato `knowledgeStore` nella parte inferiore di una definizione di Skills. 
-
-* Utilizzare **post** o **put** per formulare la richiesta.
-* Usare la versione `api-version=2019-05-06-Preview` dell'API REST per accedere alla funzionalità dell'archivio informazioni. 
-
-```http
-POST https://[servicename].search.windows.net/skillsets?api-version=2019-05-06-Preview
-api-key: [admin key]
-Content-Type: application/json
-```
-
-Il corpo della richiesta è un documento JSON che definisce un insieme di competenze, che include `knowledgeStore`.
-
-```json
-{
-  "name": "my-skillset-name",
-  "description": "Extract organization entities and generate a positive-negative sentiment score from each document.",
-  "skills":
-  [
-    {
-      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
-      "categories": [ "Organization" ],
-      "defaultLanguageCode": "en",
-      "inputs": [
-        {
-          "name": "text",
-          "source": "/document/content"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "organizations",
-          "targetName": "organizations"
-        }
-      ]
-    },
-    {
-      "@odata.type": "#Microsoft.Skills.Text.SentimentSkill",
-      "inputs": [
-        {
-          "name": "text",
-          "source": "/document/content"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "score",
-          "targetName": "mySentiment"
-        }
-      ]
-    },
-  ],
-  "cognitiveServices": 
-    {
-    "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
-    "description": "mycogsvcs resource in West US 2",
-    "key": "<YOUR-COGNITIVE-SERVICES-KEY>"
-    },
-    "knowledgeStore": { 
-        "storageConnectionString": "<YOUR-AZURE-STORAGE-ACCOUNT-CONNECTION-STRING>", 
-        "projections": [ 
-            { 
-                "tables": [  
-                { "tableName": "Organizations", "generatedKeyName": "OrganizationId", "source": "/document/organizations*"}, 
-                { "tableName": "Sentiment", "generatedKeyName": "SentimentId", "source": "/document/mySentiment"}
-                ], 
-                "objects": [ ], 
-                "files": [  ]       
-            }    
-        ]     
-    } 
-}
-```
-
-### <a name="request-body-syntax"></a>Sintassi del corpo della richiesta  
-
-Il codice JSON seguente specifica un `knowledgeStore`, che fa parte di un [`skillset`](https://docs.microsoft.com/rest/api/searchservice/create-skillset), che viene richiamato da un `indexer` (non illustrato). Se si ha già familiarità con l'arricchimento di intelligenza artificiale, un insieme di competenze determina la composizione di un documento arricchito. Un set di competenze deve contenere almeno una competenza, molto probabilmente una competenza Shaper se si stanno modulando strutture di dati.
-
-La sintassi per la strutturazione del payload della richiesta è la seguente:
-
-```json
-{   
-    "name" : "Required for POST, optional for PUT requests which sets the name on the URI",  
-    "description" : "Optional. Anything you want, or null",  
-    "skills" : "Required. An array of skills. Each skill has an odata.type, name, input and output parameters",
-    "cognitiveServices": "A key to Cognitive Services, used for billing.",
-    "knowledgeStore": { 
-        "storageConnectionString": "<YOUR-AZURE-STORAGE-ACCOUNT-CONNECTION-STRING>", 
-        "projections": [ 
-            { 
-                "tables": [ 
-                    { "tableName": "<NAME>", "generatedKeyName": "<FIELD-NAME>", "source": "<DOCUMENT-PATH>" },
-                    { "tableName": "<NAME>", "generatedKeyName": "<FIELD-NAME>", "source": "<DOCUMENT-PATH>" },
-                    . . .
-                ], 
-                "objects": [ 
-                    {
-                    "storageContainer": "<BLOB-CONTAINER-NAME>", 
-                    "source": "<DOCUMENT-PATH>", 
-                    }
-                ], 
-                "files": [ 
-                    {
-                    "storageContainer": "<BLOB-CONTAINER-NAME>",
-                    "source": "/document/normalized_images/*"
-                    }
-                ]  
-            },
-            {
-                "tables": [ ],
-                "objects": [ ],
-                "files":  [ ]
-            }  
-        ]     
-    } 
-}
-```
-
-Un `knowledgeStore` dispone di due proprietà: una `storageConnectionString` a un account di archiviazione di Azure e `projections` che definisce l'archiviazione fisica. È possibile usare qualsiasi account di archiviazione, ma è conveniente usare i servizi nella stessa area.
-
-Una raccolta di `projections` contiene oggetti di proiezione. Ogni oggetto di proiezione deve avere `tables`, `objects`, `files` (uno di ciascuno), che sono specificati o null. La sintassi precedente mostra due oggetti, uno completamente specificato e l'altro completamente null. All'interno di un oggetto Projection, una volta espressa nell'archivio, verranno mantenute tutte le relazioni tra i dati, se rilevate. 
-
-Creare il numero di oggetti proiezione necessari per supportare l'isolamento e scenari specifici, ad esempio le strutture di dati usate per l'esplorazione, rispetto a quelle necessarie in un carico di lavoro data science. È possibile ottenere l'isolamento e la personalizzazione per scenari specifici impostando `source` e `storageContainer` o `table` a valori diversi all'interno di un oggetto. Per ulteriori informazioni ed esempi, vedere [utilizzo delle proiezioni in un archivio informazioni](knowledge-store-projection-overview.md).
-
-|Proprietà      | Si applica a | Description|  
-|--------------|------------|------------|  
-|`storageConnectionString`| `knowledgeStore` | Obbligatorio. In questo formato: `DefaultEndpointsProtocol=https;AccountName=<ACCOUNT-NAME>;AccountKey=<ACCOUNT-KEY>;EndpointSuffix=core.windows.net`|  
-|`projections`| `knowledgeStore` | Obbligatorio. Raccolta di oggetti proprietà costituita da `tables`, `objects``files` e dalle rispettive proprietà. Le proiezioni inutilizzate possono essere impostate su null.|  
-|`source`| Tutte le proiezioni| Percorso del nodo della struttura ad albero di arricchimento che è la radice della proiezione. Questo nodo è l'output di una qualsiasi delle competenze del. I percorsi iniziano con `/document/`, che rappresenta il documento arricchito, ma possono essere estesi per `/document/content/` o ai nodi all'interno della struttura ad albero del documento. Esempi: `/document/countries/*` (tutti i paesi) o `/document/countries/*/states/*` (tutti gli stati in tutti i paesi). Per ulteriori informazioni sui percorsi dei documenti, vedere [concetti e composizione di competenze](cognitive-search-working-with-skillsets.md).|
-|`tableName`| `tables`| Tabella da creare nell'archivio tabelle di Azure. |
-|`storageContainer`| `objects`, `files`| Nome di un contenitore da creare nell'archivio BLOB di Azure. |
-|`generatedKeyName`| `tables`| Colonna creata nella tabella che identifica in modo univoco un documento. La pipeline di arricchimento popola questa colonna con i valori generati.|
-
-
-### <a name="response"></a>Risposta  
-
- In caso di richiesta eseguita correttamente, viene visualizzato il codice di stato "201 - Creato". Per impostazione predefinita, il corpo della risposta contiene il codice JSON per la definizione del set di competenze creata. Ricordare che l'archivio informazioni non viene creato fino a quando non si richiama un indicizzatore che fa riferimento a questo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

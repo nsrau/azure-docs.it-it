@@ -3,12 +3,12 @@ title: Appliance Azure Migrate
 description: Viene fornita una panoramica dell'appliance Azure Migrate utilizzata per la valutazione e la migrazione dei server.
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: efad1c48dd2c92c0fd5f268013b4a59f34b3a766
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 6311f24a9c977b5f8b34384f0754f041a0c57ce7
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028818"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990743"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -29,17 +29,17 @@ Computer fisico |  Azure Migrate: valutazione del server |  Individuare i server
 **Requisito** | **VMware** 
 --- | ---
 **Formato di download** | . OVA 
-**Collegamento per il download** | https://aka.ms/migrate/appliance/vmware 
+**Collegamento di download** | https://aka.ms/migrate/appliance/vmware 
 **Dimensioni del download** | 11,2 GB
 **License** | Il modello di appliance scaricato è disponibile con una licenza di valutazione di Windows Server 2016, valida per 180 giorni. Se il periodo di valutazione è prossimo alla scadenza, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della VM del dispositivo.
-**Distribuzione** | Si distribuisce l'appliance come macchina virtuale VMware. Per allocare una macchina virtuale con 32 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un compartitore virtuale esterno, è necessario disporre di risorse sufficienti nel server vCenter.<br/><br/> Il dispositivo richiede l'accesso a Internet, direttamente o tramite un proxy.<br/> La macchina virtuale dell'appliance deve essere distribuita in un host ESXi che esegue la versione 5,5 o successiva.<br/><br/> Il dispositivo può connettersi a una singola server vCenter.
+**Distribuzione** | Si distribuisce l'appliance come macchina virtuale VMware. Per allocare una macchina virtuale con 32 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un compartitore virtuale esterno, è necessario disporre di risorse sufficienti nel server vCenter.<br/> Il dispositivo richiede l'accesso a Internet, direttamente o tramite un proxy.<br/> Il dispositivo può connettersi a una singola server vCenter.
 **Hardware** | Risorse su vCenter per allocare una macchina virtuale con 32 GB di RAM 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un Commuter virtuale esterno. 
 **Valore hash** | MD5: c06ac2a2c0f870d3b274a0b7a73b78b1<br/><br/> SHA256:4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 **server vCenter/host** | La macchina virtuale dell'appliance deve essere distribuita in un host ESXi che esegue la versione 5,5 o successiva.<br/><br/> server vCenter che esegue 5,5, 6,0, 6,5 o 6,7.
 **Progetto Azure Migrate** | Un appliance può essere associato a un singolo progetto. <br/> Un numero qualsiasi di Appliance può essere associato a un singolo progetto.<br/> 
 **Individuazione** | Un dispositivo può individuare fino a 10.000 VM VMware in una server vCenter.<br/> Un appliance può connettersi a una singola server vCenter.
 **Componenti del dispositivo** | App di gestione: app Web in appliance per l'input dell'utente durante la distribuzione.<br/> Agente di individuazione: raccoglie i dati di configurazione del computer.<br/> Agente di valutazione: raccolta dei dati sulle prestazioni.<br/> DRA: Orchestra la replica della macchina virtuale e coordina la comunicazione tra computer/Azure.<br/> Gateway: Invia i dati replicati in Azure.<br/> Aggiornamento automatico del servizio: Aggiorna componenti (eseguito ogni 24 ore).
-**VDDK (migrazione senza agenti)** | Se si esegue una migrazione senza agente con Azure Migrate migrazione del server, è necessario installare il VMware vSphere VDDK nella macchina virtuale dell'appliance.
+**VDDK (migrazione senza agenti)** | Se si esegue una migrazione senza agente con Azure Migrate migrazione del server, è necessario installare il VMware vSphere VDDK nella macchina virtuale del dispositivo.
 
 
 ## <a name="appliance---hyper-v"></a>Appliance-Hyper-V
@@ -47,7 +47,7 @@ Computer fisico |  Azure Migrate: valutazione del server |  Individuare i server
 **Requisito** | **Hyper-V** 
 --- | ---
 **Formato di download** | Cartella compressa (con VHD)
-**Collegamento per il download** | https://aka.ms/migrate/appliance/hyperv 
+**Collegamento di download** | https://aka.ms/migrate/appliance/hyperv 
 **Dimensioni del download** | 10 GB
 **License** | Il modello di appliance scaricato è disponibile con una licenza di valutazione di Windows Server 2016, valida per 180 giorni. Se il periodo di valutazione è prossimo alla scadenza, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della VM del dispositivo.
 **Distribuzione dell'appliance**   |  Si distribuisce l'appliance come macchina virtuale Hyper-V.<br/> La macchina virtuale dell'appliance fornita da Azure Migrate è la macchina virtuale Hyper-V 5,0.<br/> L'host Hyper-V deve eseguire Windows Server 2012 R2 o versione successiva.<br/> L'host necessita di spazio sufficiente per allocare 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione e un commute esterno per la macchina virtuale dell'appliance.<br/> Per l'appliance sono necessari un indirizzo IP statico o dinamico e l'accesso a Internet.
@@ -64,16 +64,14 @@ Computer fisico |  Azure Migrate: valutazione del server |  Individuare i server
 **Requisito** | **Fisico** 
 --- | ---
 **Formato di download** | Cartella compressa (con script del programma di installazione di PowerShell)
-**Collegamento per il download** | [Collegamento per il download](https://go.microsoft.com/fwlink/?linkid=2105112)
+**Collegamento di download** | [Collegamento di download](https://go.microsoft.com/fwlink/?linkid=2105112)
 **Dimensioni del download** | 59,7 MB
-**Hardware** | Computer fisico dedicato o macchina virtuale. Il computer che esegue l'appliance necessita di 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione e un commute esterno.<br/><br/> Per l'appliance sono necessari un indirizzo IP statico o dinamico e l'accesso a Internet.
-**Valore hash** | MD5:96fd99581072c400aa605ab036a0a7c0<br/><br/> SHA256: f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
+**Hardware** | Computer fisico dedicato o macchina virtuale. Il computer che esegue l'appliance necessita di 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione e un commute esterno.<br/> Per l'appliance sono necessari un indirizzo IP statico o dinamico e l'accesso a Internet.
+**Valore hash** | MD5:1e92ede3e87c03bd148e56a708cdd33f<br/><br/> SHA256: a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
 **Software** | Il computer appliance deve eseguire Windows Server 2016. 
 **Distribuzione dell'appliance**   |  Lo script del programma di installazione dell'Appliance viene scaricato dal portale (in una cartella compressa). <br/> È possibile decomprimere la cartella ed eseguire lo script di PowerShell (AzureMigrateInstaller. ps1).
 **Individuazione** | Un'appliance può individuare fino a 250 di server fisici.
 **Componenti del dispositivo** | App di gestione: app Web in appliance per l'input dell'utente durante la distribuzione.<br/> Agente di individuazione: raccoglie i dati di configurazione del computer.<br/> Agente di valutazione: raccolta dei dati sulle prestazioni.<br/>  Aggiornamento automatico del servizio: Aggiorna componenti (eseguito ogni 24 ore).
-**Accesso alla porta** | Dopo aver configurato il dispositivo, le connessioni in ingresso sulla porta TCP 3389 per consentire le connessioni Desktop remoto al dispositivo.<br/><br/> Connessioni in ingresso sulla porta 44368 per accedere in remoto all'app di gestione Appliance usando l'URL:' https://< Appliance-IP-or-name >: 44368.<br/><br/> Connessioni in uscita sulla porta 443, 5671 e 5672 per inviare i metadati di individuazione e prestazioni a Azure Migrate.
-
 
 
 ## <a name="url-access"></a>accesso con URL
@@ -86,16 +84,16 @@ Il dispositivo Azure Migrate richiede la connettività a Internet.
 **URL** | **Dettagli**  
 --- | --- |
 *.portal.azure.com  | Passare al portale di Azure.
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Accedere alla sottoscrizione di Azure.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com | Accedere alla sottoscrizione di Azure.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Creare app Active Directory per l'appliance per comunicare con Azure Migrate.
 management.azure.com | Creare app Active Directory per l'appliance per comunicare con il servizio Azure Migrate.
 dc.services.visualstudio.com | Caricare i log delle app usati per il monitoraggio interno.
 *.vault.azure.net | Gestisci i segreti nel Azure Key Vault.
 aka.ms/* | Consente l'accesso a collegamenti aka. Usato per gli aggiornamenti di Azure Migrate Appliance.
 download.microsoft.com/download | Consenti i download dal Download Microsoft.
-*.servicebus.windows.net | Usato per la migrazione senza agenti di VMware.<br/><br/> Comunicazione tra l'appliance e il servizio Azure Migrate.
-*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Usato per la migrazione senza agenti di VMware.<br/><br/> Connettersi agli URL del servizio Azure Migrate.
-*.blob.core.windows.net |  Usato per la migrazione senza agenti di VMware.<br/><br/>Caricare i dati nella risorsa di archiviazione.
+*.servicebus.windows.net | **Usato per la migrazione senza agenti VMware**<br/><br/> Comunicazione tra l'appliance e il servizio Azure Migrate.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | **Usato per la migrazione senza agenti VMware**<br/><br/> Connettersi agli URL del servizio Azure Migrate.
+*.blob.core.windows.net |  **Usato per la migrazione senza agenti VMware**<br/><br/>Caricare i dati nella risorsa di archiviazione.
 
 
 
@@ -147,7 +145,7 @@ Valore chiave disco | disk.Key
 Numero Dikunit | disk.UnitNumber
 Valore chiave controller del disco | disk.ControllerKey.Value
 Gigabyte con provisioning | virtualDisk.DeviceInfo.Summary
-Nome disco | Valore generato tramite disco. UnitNumber, disco. Chiave, disco. ControllerKey. VAlue
+Nome del disco | Valore generato tramite disco. UnitNumber, disco. Chiave, disco. ControllerKey. VAlue
 Operazioni di lettura per secondo | virtualDisk.numberReadAveraged.average
 Operazioni di scrittura per secondo | virtualDisk.numberWriteAveraged.average
 Velocità effettiva lettura (MB al secondo) | virtualDisk.read.average

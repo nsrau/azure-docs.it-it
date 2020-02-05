@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9a946d189706c9c789ab884670d13b0b3e7fcb0c
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: a89983a9ae45f21deb7a823de049373b4ff9b935
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911806"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989060"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Rispondere agli eventi di Mappe di Azure con Griglia di eventi 
 
-Mappe di Azure si integra con Griglia di eventi di Azure per poter inviare le notifiche degli eventi agli altri servizi e attivare processi downstream. Lo scopo di questo articolo è fornire assistenza per la configurazione delle applicazioni aziendali per l'ascolto degli eventi di Mappe di Azure in modo che sia possibile rispondere agli eventi critici in modo sicuro, scalabile e affidabile. Compilare, ad esempio, un'applicazione per eseguire più azioni, come l'aggiornamento di un database, la creazione di un ticket e il recapito di una notifica di posta elettronica, ogni volta che un dispositivo entra in un recinto virtuale.
+Azure Maps si integra con griglia di eventi di Azure, in modo che gli utenti possano inviare notifiche degli eventi ad altri servizi e attivare processi downstream. Lo scopo di questo articolo è semplificare la configurazione delle applicazioni aziendali per l'ascolto degli eventi di Azure maps. Questo servizio consente di reagire agli eventi critici in modo affidabile, scalabile e sicuro. Ad esempio, gli utenti possono compilare un'applicazione per aggiornare un database, creare un ticket e recapitare una notifica di posta elettronica, ogni volta che un dispositivo immette una rete perimetrale.
 
-Griglia di eventi di Azure è un servizio di routing di eventi completamente gestito che usa un modello di pubblicazione-sottoscrizione. Griglia di eventi include il supporto predefinito per i servizi di Azure, ad esempio [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview) e [App per la logica di Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview), e può recapitare gli avvisi relativi agli eventi ai servizi non di Azure usando i webhook. Per un elenco completo dei gestori di eventi supportati da Griglia di eventi, vedere [Introduzione a Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/overview).
+Griglia di eventi di Azure è un servizio di routing di eventi completamente gestito che usa un modello di pubblicazione-sottoscrizione. Griglia di eventi include il supporto incorporato per i servizi di Azure, come [funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview) e app per la [logica di Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview). Può inviare avvisi di eventi a servizi non di Azure usando i webhook. Per un elenco completo dei gestori di eventi supportati da Griglia di eventi, vedere [Introduzione a Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/overview).
 
 
 ![Modello funzionale di Griglia di eventi di Azure](./media/azure-maps-event-grid-integration/azure-event-grid-functional-model.png)
@@ -38,7 +38,7 @@ Griglia di eventi usa le [sottoscrizioni di eventi](https://docs.microsoft.com/a
 
 ## <a name="event-schema"></a>Schema di eventi
 
-L'esempio seguente illustra lo schema di GeofenceResult
+Nell'esempio seguente viene illustrato lo schema per GeofenceResult:
 
 ```JSON
 {   
@@ -81,7 +81,7 @@ L'esempio seguente illustra lo schema di GeofenceResult
 Per le applicazioni che gestiscono gli eventi di un recinto virtuale di Mappe di Azure è consigliabile seguire alcune procedure:
 
 * È possibile configurare più sottoscrizioni per instradare gli eventi allo stesso gestore dell'evento. È importante non presupporre che gli eventi provengano da un'origine in particolare. Controllare sempre l'argomento del messaggio per assicurarsi che provengano dall'origine prevista.
-* I messaggi possono arrivare senza ordine o dopo un ritardo. Usare il campo `X-Correlation-id` nell'intestazione della risposta per determinare se le informazioni sugli oggetti sono aggiornate.
+* I messaggi possono arrivare senza ordine o dopo un ritardo. Usare il campo `X-Correlation-id` nell'intestazione della risposta per capire se le informazioni sugli oggetti sono aggiornate.
 * Quando vengono chiamate le API Geofence Get e POST con il parametro di modalità impostato su `EnterAndExit`, viene generato un evento di invio o di uscita per ogni geometria nel recinto virtuale per il quale lo stato è cambiato rispetto alla precedente chiamata API Geofence.
 
 ## <a name="next-steps"></a>Passaggi successivi

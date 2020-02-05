@@ -4,12 +4,12 @@ description: Monitorare i carichi di lavoro di backup di Azure e creare avvisi p
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 983939a905c6c096f2e8e3007bd40cbbe9088395
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 4ff51080d675c53e53397a070c1f6f1766aa9e85
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611697"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989587"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitorare su larga scala tramite monitoraggio di Azure
 
@@ -21,54 +21,6 @@ Backup di Azure offre [funzionalità di monitoraggio e avviso predefinite](backu
 - Per visualizzare le informazioni di un componente locale, ad esempio System Center Data Protection Manager in Azure, che il portale non visualizza nei [**processi di backup**](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault) o negli [**avvisi di backup**](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault)
 
 ## <a name="using-log-analytics-workspace"></a>Uso di Log Analytics area di lavoro
-
-> [!NOTE]
-> I dati dei backup delle macchine virtuali di Azure, dell'agente di backup di Azure, di System Center Data Protection Manager, dei backup SQL in macchine virtuali di Azure e dei backup di condivisione File di Azure vengono pompati nell'area di lavoro Log Analytics tramite le impostazioni di diagnostica. Il supporto per Backup di Microsoft Azure Server (MAB) verrà aggiunto a breve
-
-Per monitorare/creare report su larga scala, è necessario disporre delle funzionalità di due servizi di Azure. *Le impostazioni di diagnostica* inviano dati da più risorse Azure Resource Manager a un'altra risorsa. *Log Analytics* genera avvisi personalizzati in cui è possibile usare i gruppi di azioni per definire altri canali di notifica.
-
-Le sezioni seguenti illustrano in dettaglio come usare Log Analytics per monitorare backup di Azure su larga scala.
-
-### <a name="configure-diagnostic-settings"></a>Configurare le impostazioni di diagnostica
-
-Azure Resource Manager risorse, ad esempio l'insieme di credenziali di servizi di ripristino, registrare le informazioni sulle operazioni pianificate e le operazioni attivate dall'utente come dati di diagnostica.
-
-Nella sezione monitoraggio selezionare impostazioni di **diagnostica** e specificare la destinazione per i dati di diagnostica dell'insieme di credenziali di servizi di ripristino.
-
-![Impostazione di diagnostica dell'insieme di credenziali di servizi di ripristino, destinazione Log Analytics](media/backup-azure-monitoring-laworkspace/rs-vault-diagnostic-setting.png)
-
-È possibile scegliere come destinazione un'area di lavoro Log Analytics da un'altra sottoscrizione. Per monitorare gli insiemi di credenziali tra le sottoscrizioni in un'unica posizione, selezionare la stessa area di lavoro Log Analytics per più insiemi di credenziali dei servizi di ripristino. Per eseguire il channeling di tutte le informazioni correlate a backup di Azure nell'area di lavoro Log Analytics, scegliere **AzureDiagnostics** nell'interruttore visualizzato e selezionare l'evento **AzureBackupReport** .
-
-> [!IMPORTANT]
-> Al termine della configurazione, è necessario attendere 24 ore per il completamento del push di dati iniziale. Dopo il push iniziale dei dati, viene eseguito il push di tutti gli eventi, come descritto più avanti in questo articolo, nella [sezione frequenza](#diagnostic-data-update-frequency).
-
-### <a name="deploy-a-solution-to-the-log-analytics-workspace"></a>Distribuire una soluzione nell'area di lavoro Log Analytics
-
-> [!IMPORTANT]
-> In backup di Azure è stato rilasciato un [modello](https://azure.microsoft.com/resources/templates/101-backup-la-reporting/) aggiornato a più visualizzazioni per il monitoraggio e la creazione di report basati su. Si noti che gli utenti che usavano la [soluzione precedente](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) continueranno a visualizzarlo nelle aree di lavoro anche dopo aver distribuito la nuova soluzione. Tuttavia, la soluzione precedente può fornire risultati non accurati a causa di alcune modifiche minime dello schema. Gli utenti devono quindi distribuire il nuovo modello.
-
-Quando i dati si trova all'interno dell'area di lavoro Log Analytics, [distribuire un modello GitHub](https://azure.microsoft.com/resources/templates/101-backup-la-reporting/) in log Analytics per visualizzare i dati. Per identificare correttamente l'area di lavoro, assicurarsi di assegnarle lo stesso gruppo di risorse, il nome dell'area di lavoro e il percorso dell'area di lavoro. Installare quindi questo modello nell'area di lavoro.
-
-### <a name="view-azure-backup-data-by-using-log-analytics"></a>Visualizzare i dati di backup di Azure tramite Log Analytics
-
-- **Monitoraggio di Azure**: nella sezione **Insights** Selezionare **altro** e quindi scegliere l'area di lavoro pertinente.
-- **Aree**di lavoro log Analytics: selezionare l'area di lavoro pertinente e quindi in **generale**Selezionare **Riepilogo area**di lavoro.
-
-![I riquadri di monitoraggio e report Log Analytics](media/backup-azure-monitoring-laworkspace/la-azurebackup-overview-dashboard.png)
-
-Quando si seleziona uno dei riquadri panoramica, è possibile visualizzare altre informazioni. Ecco alcuni dei report che verranno visualizzati:
-
-- Processi di backup non log
-
-   ![Log Analytics grafici per i processi di backup](media/backup-azure-monitoring-laworkspace/la-azurebackup-backupjobsnonlog.png)
-
-- Avvisi dal backup delle risorse di Azure
-
-   ![Grafico Log Analytics per i processi di ripristino](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertsazure.png)
-
-Analogamente, facendo clic sugli altri riquadri, sarà possibile visualizzare i report su processi di ripristino, archiviazione cloud, elementi di backup, avvisi da risorse locali backup e processi di backup del log.
-
-Questi grafici sono forniti con il modello. Se necessario, è possibile modificare i grafici o aggiungere altri grafici.
 
 ### <a name="create-alerts-by-using-log-analytics"></a>Creazione di avvisi tramite Log Analytics
 
@@ -110,90 +62,65 @@ I grafici predefiniti forniscono query kusto per gli scenari di base in cui è p
 - Tutti i processi di backup riusciti
 
     ````Kusto
-    AzureDiagnostics
-    | where Category == "AzureBackupReport"
-    | where SchemaVersion_s == "V2"
-    | where OperationName == "Job" and JobOperation_s == "Backup"
-    | where JobStatus_s == "Completed"
+    AddonAzureBackupJobs
+| where JobOperation=="Backup"
+| where JobStatus=="Completed"
     ````
 
 - Tutti i processi di backup non riusciti
 
     ````Kusto
-    AzureDiagnostics
-    | where Category == "AzureBackupReport"
-    | where SchemaVersion_s == "V2"
-    | where OperationName == "Job" and JobOperation_s == "Backup"
-    | where JobStatus_s == "Failed"
+    AddonAzureBackupJobs
+| where JobOperation=="Backup"
+| where JobStatus=="Failed"
     ````
 
 - Tutti i processi di backup delle VM di Azure riusciti
 
     ````Kusto
-    AzureDiagnostics
-    | where Category == "AzureBackupReport"
-    | where SchemaVersion_s == "V2"
-    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
-    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s != "Log" and JobOperationSubType_s != "Recovery point_Log"
-    | join kind=inner
-    (
-        AzureDiagnostics
-        | where Category == "AzureBackupReport"
-        | where OperationName == "BackupItem"
-        | where SchemaVersion_s == "V2"
-        | where BackupItemType_s == "VM" and BackupManagementType_s == "IaaSVM"
-        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
-        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
-    )
-    on BackupItemUniqueId_s
-    | extend Vault= Resource
-    | project-away Resource
+    AddonAzureBackupJobs
+| where JobOperation=="Backup"
+| where JobStatus=="Completed"
+| join kind=inner
+(
+    CoreAzureBackup
+    | where OperationName == "BackupItem"
+    | where BackupItemType=="VM" and BackupManagementType=="IaaSVM"
+    | distinct BackupItemUniqueId, BackupItemFriendlyName
+)
+on BackupItemUniqueId
     ````
 
 - Tutti i processi di backup del log SQL riusciti
 
     ````Kusto
-    AzureDiagnostics
-    | where Category == "AzureBackupReport"
-    | where SchemaVersion_s == "V2"
-    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
-    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s == "Log"
-    | join kind=inner
-    (
-        AzureDiagnostics
-        | where Category == "AzureBackupReport"
-        | where OperationName == "BackupItem"
-        | where SchemaVersion_s == "V2"
-        | where BackupItemType_s == "SQLDataBase" and BackupManagementType_s == "AzureWorkload"
-        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
-        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
-    )
-    on BackupItemUniqueId_s
-    | extend Vault= Resource
-    | project-away Resource
+    AddonAzureBackupJobs
+| where JobOperation=="Backup" and JobOperationSubType=="Log"
+| where JobStatus=="Completed"
+| join kind=inner
+(
+    CoreAzureBackup
+    | where OperationName == "BackupItem"
+    | where BackupItemType=="SQLDataBase" and BackupManagementType=="AzureWorkload"
+    | distinct BackupItemUniqueId, BackupItemFriendlyName
+)
+on BackupItemUniqueId
     ````
 
 - Tutti i processi dell'agente di backup di Azure riusciti
 
     ````Kusto
-    AzureDiagnostics
-    | where Category == "AzureBackupReport"
-    | where SchemaVersion_s == "V2"
-    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
-    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s != "Log" and JobOperationSubType_s != "Recovery point_Log"
-    | join kind=inner
-    (
-        AzureDiagnostics
-        | where Category == "AzureBackupReport"
-        | where OperationName == "BackupItem"
-        | where SchemaVersion_s == "V2"
-        | where BackupItemType_s == "FileFolder" and BackupManagementType_s == "MAB"
-        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
-        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
-    )
-    on BackupItemUniqueId_s
-    | extend Vault= Resource
-    | project-away Resource
+    AddonAzureBackupJobs
+| where JobOperation=="Backup"
+| where JobStatus=="Completed"
+| join kind=inner
+(
+    CoreAzureBackup
+    | where OperationName == "BackupItem"
+    | where BackupItemType=="FileFolder" and BackupManagementType=="MAB"
+    | distinct BackupItemUniqueId, BackupItemFriendlyName
+)
+on BackupItemUniqueId
     ````
 
 ### <a name="diagnostic-data-update-frequency"></a>Frequenza di aggiornamento dei dati di diagnostica
@@ -236,7 +163,7 @@ Qui la risorsa è l'insieme di credenziali dei servizi di ripristino. Ripetere g
 
 È possibile visualizzare tutti gli avvisi creati dai log attività e dalle aree di lavoro Log Analytics in monitoraggio di Azure. È sufficiente aprire il riquadro **avvisi** a sinistra.
 
-Sebbene sia possibile ottenere le notifiche tramite i log attività, è consigliabile usare Log Analytics anziché i log attività per il monitoraggio su larga scala. Questo per le ragioni seguenti:
+Sebbene sia possibile ottenere le notifiche tramite i log attività, è consigliabile usare Log Analytics anziché i log attività per il monitoraggio su larga scala. Ecco perché:
 
 - **Scenari limitati**: le notifiche tramite i log attività si applicano solo ai backup di macchine virtuali di Azure. Le notifiche devono essere impostate per ogni insieme di credenziali di servizi di ripristino.
 - **Adattamento**per la definizione: l'attività di backup pianificata non rientra nella definizione più recente dei log attività. Viene invece allineato con i [log delle risorse](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-platform-logs-in-a-workspace). Questo allineamento provoca effetti imprevisti quando vengono modificati i dati che passano attraverso il canale del log attività.

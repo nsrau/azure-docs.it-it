@@ -10,19 +10,19 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 10/25/2019
-ms.openlocfilehash: 45f9f9d1c9c8414f7d3c97aab05b012a16079f40
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c07e880ea9b3c382d3c6ecde51dfe8f4ab5c24fc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843532"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988431"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Distribuire un modello per Azure Machine Learning istanze di calcolo
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 > [!NOTE]
-> Le istanze di calcolo (anteprima) sono disponibili solo per le aree di lavoro con **Stati Uniti centro-settentrionali**, * * Stati Uniti orientali 2 * *, **europa settentrionale** o **Regno Unito meridionale**.
+> Le istanze di calcolo (anteprima) sono disponibili solo per le aree di lavoro con un'area geografica **Stati Uniti centro-settentrionali**, **Stati Uniti orientali 2**, **Europa settentrionale** o **Regno Unito meridionale**e il supporto per altre aree sarà presto disponibile.
 >Se l'area di lavoro si trova in qualsiasi altra area geografica, è possibile continuare a creare e usare una [macchina virtuale notebook](concept-compute-instance.md#notebookvm) in alternativa.  È possibile distribuire un modello in un'istanza di calcolo o in una VM notebook usando la procedura descritta in questo articolo.
 
 Informazioni su come usare Azure Machine Learning per distribuire un modello come servizio Web nell'istanza di calcolo Azure Machine Learning. Usare le istanze di calcolo se si verifica una delle condizioni seguenti:

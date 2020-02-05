@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 7f7e0c3eef96970c1820783225a4ff59be8113b3
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: f6d2da49e2659cfa69d25e3fe71351547706fd42
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769105"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984847"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Che cos'è un'istanza di calcolo Azure Machine Learning?
 
@@ -27,7 +27,7 @@ Usare un'istanza di calcolo come ambiente di sviluppo completamente configurato 
 Le istanze di calcolo vengono in genere usate come ambienti di sviluppo.  Possono anche essere usati come destinazione di calcolo per il training e l'inferenza per lo sviluppo e il test.  Per le attività di grandi dimensioni, un [cluster di calcolo Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) con funzionalità di scalabilità a più nodi rappresenta una scelta migliore per la destinazione di calcolo.
 
 > [!NOTE]
-> Le istanze di calcolo sono attualmente disponibili solo per le aree di lavoro con un'area degli **Stati Uniti centro-settentrionali** o **Regno Unito meridionale**, con supporto per altre aree presto disponibili.
+> Le istanze di calcolo sono attualmente disponibili solo per le aree di lavoro con un'area **Stati Uniti centro-settentrionali**, **Stati Uniti orientali 2**, **Europa settentrionale** o **Regno Unito meridionale**e il supporto per altre aree sarà presto disponibile.
 >Se l'area di lavoro si trova in qualsiasi altra area geografica, è possibile continuare a creare e usare una [macchina virtuale notebook](concept-compute-instance.md#notebookvm) in alternativa. 
 
 ## <a name="why-use-a-compute-instance"></a>Perché usare un'istanza di calcolo?

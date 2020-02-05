@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dcebcc3e2021938f3fd3bde236ef08e4f26b8a97
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: f0d6d74271cc4ff0be4a653b389cc70ad5c56ef9
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949892"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983079"
 ---
 # <a name="boolean-claims-transformations"></a>Trasformazioni delle attestazioni booleane
 
@@ -63,7 +63,7 @@ Verifica che i valori booleani di due attestazioni siano uguali e genera un'ecce
 
 | Elemento | TransformationClaimType  | Tipo di dati  | Note |
 | ---- | ------------------------ | ---------- | ----- |
-| InputClaim | InputClaim | boolean | Il ClaimType da confermare. |
+| inputClaim | inputClaim | boolean | Il ClaimType da confermare. |
 | InputParameter |valueToCompareTo | boolean | Il valore da confrontare (true o false). |
 
 La trasformazione delle attestazioni **AssertBooleanClaimIsEqualToValue** viene sempre eseguita da un [profilo tecnico di convalida](validation-technical-profile.md) che viene chiamato da un [profilo tecnico autocertificato](self-asserted-technical-profile.md). I metadati del profilo tecnico autocertificato **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** controllano il messaggio di errore che il profilo tecnico presenta all'utente.
@@ -114,13 +114,51 @@ Il profilo tecnico autocertificato chiama il profilo tecnico **login-NonInteract
     - **valueToCompareTo**: true
 - Risultato: errore generato
 
+## <a name="comparebooleanclaimtovalue"></a>CompareBooleanClaimToValue
+
+Verifica che il valore booleano di un'attestazione sia uguale a `true` o `false`e restituisce il risultato della compressione. 
+
+| Elemento | TransformationClaimType  | Tipo di dati  | Note |
+| ---- | ------------------------ | ---------- | ----- |
+| inputClaim | inputClaim | boolean | Il ClaimType da confermare. |
+| InputParameter |valueToCompareTo | boolean | Il valore da confrontare (true o false). |
+| OutputClaim | inputClaim | boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
+
+
+La trasformazione delle attestazioni seguente mostra come controllare il valore di un ClaimType booleano con un valore `true`. Se il valore della `IsAgeOver21Years` ClaimType è uguale `true`, la trasformazione delle attestazioni restituisce `true`, in caso contrario `false`.
+
+```XML
+<ClaimsTransformation Id="AssertAccountEnabled" TransformationMethod="CompareBooleanClaimToValue">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="IsAgeOver21Years" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="valueToCompareTo" DataType="boolean" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+      <OutputClaim  ClaimTypeReferenceId="accountEnabled" TransformationClaimType="compareResult"/>
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Esempio
+
+- Attestazioni di input:
+    - **inputClaim**: false
+- Parametri di input:
+    - **valueToCompareTo**: true
+- Attestazioni di output:
+    - **CompareResult**: false 
+
+
+
 ## <a name="notclaims"></a>NotClaims
 
 Esegue un'operazione Not dell'inputClaim booleano e imposta l'outputClaim con il risultato dell'operazione.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | boolean | L'attestazione da usare. |
+| InputClaim | inputClaim | boolean | L'attestazione da usare. |
 | OutputClaim | outputClaim | boolean | I ClaimType generati dopo che ClaimsTransformation è stato richiamato (true o false). |
 
 Usare questa trasformazione delle attestazioni per eseguire la negazione logica su un'attestazione.
@@ -174,4 +212,3 @@ La trasformazione delle attestazioni seguente mostra come usare `Or` due ClaimTy
     - **inputClaim2**: false
 - Attestazioni di output:
     - **outputClaim**: true
-

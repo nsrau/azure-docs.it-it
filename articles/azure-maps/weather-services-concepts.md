@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4bf13477bfee39b5be39715374592811e8f8cc89
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: bcf100236d4a2a707a007a24e9e51105cc9ca0ac
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911035"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76991392"
 ---
 # <a name="weather-services-in-azure-maps"></a>Servizi Meteo in mappe di Azure
 
@@ -21,13 +21,13 @@ Questo articolo presenta i concetti che si applicano ai [Servizi Meteo di Azure 
 
 ## <a name="unit-types"></a>Tipi di unità
 
-Alcune API del servizio meteorologico consentono all'utente di specificare se i dati vengono restituiti in formato metrica o in unità imperiali. La risposta restituita per queste API includerà anche unitType, un valore numerico che può essere usato per le traduzioni di unità. Per interpretare questi valori, vedere la tabella seguente.
+Alcune API del servizio meteorologico consentono all'utente di specificare se i dati vengono restituiti in formato metrica o in unità imperiali. Le risposte restituite per queste API includono unitType e un valore numerico che può essere usato per le traduzioni di unità. Vedere la tabella seguente per interpretare questi valori.
 
 |UnitType|Description         |
 |--------|--------------------|
 |0       |piedi                |
 |1       |pollici              |
-|2       |miles               |
+|2       |chilometri               |
 |3       |millimetro          |
 |4       |centimetro          |
 |5       |Metro               |
@@ -45,14 +45,14 @@ Alcune API del servizio meteorologico consentono all'utente di specificare se i 
 |17      |celsius             |
 |18      |fahrenheit          |
 |19      |kelvin              |
-|20      |percent             |
+|20      |%             |
 |21      |float               |
 |22      |integer             |
 
 
 ## <a name="weather-icons"></a>Icone Meteo
 
-Alcune delle API del servizio meteo restituiscono i codici icona (iconCode) nella risposta, un valore numerico che può essere usato per definire l'icona. Non collegarsi direttamente a queste immagini dalle applicazioni, gli URL possono e cambieranno.
+Alcune API del servizio meteorologico restituiscono il `iconCode` nella risposta. Il `iconCode` è un valore numerico utilizzato per definire l'icona. Non eseguire direttamente il collegamento a queste immagini dalle applicazioni, gli URL possono essere modificati e sostituiti.
 
 | Numero icona |Icona| Giorno | Notte | Testo |
 |-------------|:----:|-----|-------|------|
@@ -62,7 +62,7 @@ Alcune delle API del servizio meteo restituiscono i codici icona (iconCode) nell
 | 4           |![](./media/weather-services-concepts/intermittent-clouds.png)         | Sì |  No    | Cloud intermittenti|
 | 5           |![](./media/weather-services-concepts/hazy-sunshine.png)               | Sì |  No    | Sole nebbioso |
 | 6           |![](./media/weather-services-concepts/mostly-cloudy.png)               | Sì |  No    | Per la maggior parte cloud|
-| 7           |![](./media/weather-services-concepts/cloudy-i.png)                     | Sì |  Sì   | che aria tira? |
+| 7           |![](./media/weather-services-concepts/cloudy-i.png)                     | Sì |  Sì   | Nuvoloso |
 | 8           |![](./media/weather-services-concepts/dreary-overcast.png)             | Sì |  Sì   | Tetro (nuvoloso)|
 | 11           |![](./media/weather-services-concepts/fog-i.png)                       | Sì |  Sì   | Nebbia|
 | 12           |![](./media/weather-services-concepts/showers-i.png)                   | Sì |  Sì   | Docce|
@@ -100,7 +100,7 @@ Alcune delle API del servizio meteo restituiscono i codici icona (iconCode) nell
 
 ## <a name="radar-and-satellite-imagery-color-scale"></a>Scala del colore per immagini radar e satellite
 
-Tramite [Get mappa Tile V2](https://aka.ms/AzureMapsWeatherTiles) gli utenti dell'API possono richiedere le immagini satellite e radar più recenti. Per interpretare i colori usati per i riquadri radar e satellite, vedere la guida seguente.
+Tramite [Get mappa Tile V2](https://aka.ms/AzureMapsWeatherTiles) gli utenti dell'API possono richiedere le immagini satellite e radar più recenti. Vedere la guida seguente per interpretare i colori usati per i riquadri radar e satellite.
 
 ### <a name="radar-images"></a>Immagini radar
 
@@ -220,7 +220,7 @@ Di seguito è riportata la tavolozza colori dettagliata per i riquadri satellite
 |198     |#fe050505     |
 |198,43  |#fe120505     |
 |198,87  |#fc1f0505     |
-|199.3   |#fc2c0606     |
+|199,3   |#fc2c0606     |
 |199,74  |#fa390606     |
 |200,17  |#fa460606     |
 |200,61  |#f8530606     |

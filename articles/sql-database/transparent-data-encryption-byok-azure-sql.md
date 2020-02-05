@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 11/19/2019
-ms.openlocfilehash: 4f1fe1ea031cd7831ffb24ee4302d6834a8d9976
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 02/03/2019
+ms.openlocfilehash: 305af8e8acd7e7a54fae8c831d36bee0aad4ad6b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981895"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990981"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption SQL di Azure con chiave gestita dal cliente
 
@@ -124,7 +124,7 @@ Dopo il ripristino dell'accesso alla chiave, per riportare online il database so
 
 - Se l'accesso alla chiave viene ripristinato entro 8 ore, il database verrà risanato automaticamente entro l'ora successiva.
 
-- Se l'accesso alla chiave viene ripristinato dopo più di 8 ore, la correzione automatica non è possibile e la restituzione del database può richiedere una quantità di tempo significativa a seconda delle dimensioni del database e richiede l'apertura di un ticket di supporto. Quando il database è di nuovo online, le impostazioni a livello di server configurate in precedenza, ad esempio la configurazione del [gruppo di failover](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group) , la cronologia di ripristino temporizzato e i tag andranno perse. Si consiglia pertanto di implementare un sistema di notifica che consente di identificare e risolvere i problemi di accesso alle chiavi sottostanti entro 8 ore.
+- Se l'accesso alla chiave viene ripristinato dopo più di 8 ore, la correzione automatica non è possibile e la restituzione del database richiede passaggi aggiuntivi nel portale e può richiedere una quantità di tempo significativa a seconda delle dimensioni del database. Quando il database è di nuovo online, le impostazioni a livello di server configurate in precedenza, ad esempio la configurazione del [gruppo di failover](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group) , la cronologia di ripristino temporizzato e i tag **andranno perse**. Si consiglia pertanto di implementare un sistema di notifica che consente di identificare e risolvere i problemi di accesso alle chiavi sottostanti entro 8 ore.
 
 ### <a name="accidental-tde-protector-access-revocation"></a>Revoca accidentale per la protezione Transparent Transparent
 

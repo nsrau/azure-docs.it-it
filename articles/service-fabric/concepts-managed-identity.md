@@ -4,12 +4,12 @@ description: Informazioni sull'uso delle identità gestite per Azure con Service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: f477acab332cf39de2504c675b04abb5b14a305f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 06ebcfdf3d6a3815908752153acb09437d745d15
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934973"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986751"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric-preview"></a>Uso delle identità gestite per Azure con Service Fabric (anteprima)
 
@@ -30,7 +30,7 @@ Le identità gestite per Azure sono basate su diversi concetti chiave:
 
 - **Entità servizio** : oggetto Azure Active Directory, che rappresenta la proiezione di un'applicazione AAD in un determinato tenant. vedere anche [entità servizio](../active-directory/develop/developer-glossary.md#service-principal-object).
 
-Sono due tipi di identità gestite:
+Sono disponibili due tipi di identità gestite:
 
 - Un' **identità gestita assegnata dal sistema** è abilitata direttamente in un'istanza del servizio di Azure.  Il ciclo di vita di un'identità assegnata dal sistema è univoco per l'istanza del servizio di Azure in cui è abilitata.
 - Un'**identità gestita assegnata dall'utente** viene creata come risorsa di Azure autonoma. L'identità può essere assegnata a una o più istanze del servizio di Azure ed è gestita separatamente dai cicli di vita di tali istanze.
@@ -39,7 +39,7 @@ Per comprendere meglio la differenza tra i tipi di identità gestiti, vedere [co
 
 ## <a name="supported-scenarios-for-service-fabric-applications"></a>Scenari supportati per applicazioni Service Fabric
 
-Le identità gestite per Service Fabric sono supportate solo nei cluster Service Fabric distribuiti da Azure e solo per le applicazioni distribuite come risorse di Azure. non è possibile assegnare un'identità a un'applicazione non distribuita come risorsa di Azure. In teoria, il supporto per le identità gestite in Azure Service Fabric cluster è costituito da due fasi:
+Le identità gestite per Service Fabric sono supportate solo nei cluster Service Fabric distribuiti da Azure e solo per le applicazioni distribuite come risorse di Azure. non è possibile assegnare un'identità a un'applicazione non distribuita come risorsa di Azure. In teoria, il supporto per le identità gestite in un cluster di Service Fabric di Azure è costituito da due fasi:
 
 1. Assegnare una o più identità gestite alla risorsa dell'applicazione; a un'applicazione può essere assegnata una sola identità assegnata dal sistema e/o fino a 32 identità assegnate dall'utente, rispettivamente.
 

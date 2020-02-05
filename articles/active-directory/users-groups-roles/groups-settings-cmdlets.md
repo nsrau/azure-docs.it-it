@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7547608e227ca6b8d57bc1d4384ccdee181d9970
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7b5d74c7c599f31694a68e7582a6447af8471508
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430845"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984949"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo
 
@@ -178,9 +178,9 @@ Di seguito sono riportate le impostazioni definite in SettingsTemplate di Group.
    ```powershell
    $Setting = $template.CreateDirectorySetting()
    ```  
-4. Aggiornare l'impostazione di AllowAddGuests
+4. Aggiornare l'impostazione di AllowToAddGuests
    ```powershell
-   $Setting["AllowAddGuests"] = $False
+   $Setting["AllowToAddGuests"] = $False
    ```  
 5. Applicare quindi l'impostazione:
   
@@ -234,7 +234,7 @@ Quelli che seguono sono i passaggi necessari per leggere le impostazioni a livel
    AllowGuestsToAccessGroups     True
    GuestUsageGuidelinesUrl
    GroupCreationAllowedGroupId
-   AllowAddGuests              True
+   AllowToAddGuests              True
    UsageGuidelinesUrl            https://guideline.example.com
    ClassificationList
    EnableGroupCreation           True
@@ -271,7 +271,7 @@ Questo passaggio consente di rimuovere le impostazioni a livello di directory, c
 
 4. Impostare il valore richiesto:
    ```powershell
-   $SettingCopy["AllowAddGuests"]=$False
+   $SettingCopy["AllowToAddGuests"]=$False
    ```
 5. Ottenere l'ID del gruppo a cui si vuole applicare questa impostazione:
    ```powershell
@@ -297,7 +297,7 @@ Questo passaggio consente di rimuovere le impostazioni a livello di directory, c
    ```
 3. Aggiornare l'impostazione del gruppo in modo che sia necessario, ad esempio
    ```powershell
-   $Setting["AllowAddGuests"] = $True
+   $Setting["AllowToAddGuests"] = $True
    ```
 4. Ottenere quindi l'ID dell'impostazione per il gruppo specifico:
    ```powershell

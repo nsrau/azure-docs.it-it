@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 5c22e29e51d9f2fc58720c555b8ad3b03d791db6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 39d99b8b6167411fc75677878b7f82a27deab958
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435043"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987629"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Estendi IoT Central di Azure con analisi personalizzate con Azure Databricks
 
@@ -39,7 +39,7 @@ Creare un'applicazione IoT Central nel sito Web di [Azure IOT Central Applicatio
 
 | Impostazione | Valore |
 | ------- | ----- |
-| Piano di pagamento | Pagamento in base al consumo |
+| Piano tariffario | Standard |
 | Modello di applicazione | Applicazione legacy |
 | Nome applicazione | Accetta il nome predefinito o scegli il tuo nome |
 | URL | Accettare l'impostazione predefinita o scegliere il prefisso URL univoco |
@@ -131,14 +131,14 @@ Usare le informazioni nella tabella seguente per creare il cluster:
 | Impostazione | Valore |
 | ------- | ----- |
 | Cluster Name | centralanalysis |
-| Cluster Mode | Standard |
-| Databricks Runtime Version | 5.3 (Scala 2.11, Spark 2.4.0) |
+| Modalità cluster | Standard |
+| Versione Databricks Runtime | 5.3 (Scala 2.11, Spark 2.4.0) |
 | Versione di Python | 3 |
 | Abilita la scalabilità automatica | No |
 | Termina dopo minuti di inattività | 30 |
-| Worker Type | Standard_DS3_v2 |
+| Tipo di lavoro | Standard_DS3_v2 |
 | Ruoli di lavoro | 1 |
-| Driver Type | Same as worker |
+| Tipo di driver | Uguale al ruolo di lavoro |
 
 La creazione di un cluster può richiedere alcuni minuti, attendere il completamento della creazione del cluster prima di continuare.
 

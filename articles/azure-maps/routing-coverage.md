@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: f6e16ed6646340a5c623ecd027e8b0fe323bf7f9
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: b19c23c7adb8dce84530b8f3f8d994f4e32869cc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910621"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988941"
 ---
 # <a name="azure-maps-routing-coverage"></a>Copertura per gli itinerari in Mappe di Azure
 
-Questo articolo contiene informazioni sulla copertura per gli itinerari in Mappe di Azure. Quando si esegue la ricerca di una route ottimale dalla posizione A alla B, Azure Maps può fornire tempi di viaggio altamente accurati, informazioni di viaggio aggiornate in tempo reale e istruzioni per la route. La route prende in considerazione i termini di ricerca aggiuntivi, ad esempio il traffico corrente, il tipo di veicolo e le condizioni da evitare. La possibilità di ottimizzare la route dipende dall'area in cui Azure Maps offre diversi livelli di informazioni e accuratezza per aree diverse. Nella tabella seguente sono elencate le aree e il tipo di informazioni che è possibile richiedere.
+Questo articolo contiene informazioni sulla copertura per gli itinerari in Mappe di Azure. Su una query di ricerca, Azure maps restituisce una route ottimale dalla posizione A alla posizione B. Vengono forniti tempi di viaggio accurati, aggiornamenti in tempo reale delle informazioni di viaggio e istruzioni sulla route. È anche possibile aggiungere altri parametri di ricerca, ad esempio il traffico corrente, il tipo di veicolo e le condizioni da evitare. L'ottimizzazione della route dipende dall'area. Questo perché Azure Maps offre diversi livelli di informazioni e accuratezza per aree diverse. Nella tabella seguente sono elencate le aree e il tipo di informazioni che è possibile richiedere.
  
 Vedere le informazioni sulla copertura per la [**geocodifica**](geocoding-coverage.md).       
 Vedere le informazioni sulla copertura per il [**traffico**](traffic-coverage.md).  
@@ -112,7 +112,7 @@ La tabella seguente riporta informazioni sulla copertura per gli itinerari in Ma
 | Paraguay                       |        ✓       |                      |             |
 | Perù                           |        ✓       |         ✓            |             |
 | Saint Kitts e Nevis            |        ✓       |                      |             |
-| Saint Lucia                      |        ✓       |                      |             |
+| St. Lucia                      |        ✓       |                      |             |
 | Saint Vincent & Grenadine       |        ✓       |                      |             |
 | Suriname                       |        ✓       |                      |             |
 | Trinidad & Tobago              |        ✓       |                      |             |

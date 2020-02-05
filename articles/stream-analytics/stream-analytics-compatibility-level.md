@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.openlocfilehash: 888c1f0bb38a5317cc27790ea47917c182d49593
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 02/03/2020
+ms.openlocfilehash: e1eb852b7cf7aea887dea429e19b0a3b1ac5805a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925632"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989859"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Livello di compatibilità per i processi di Analisi di flusso di Azure
 
@@ -27,7 +27,7 @@ Analisi di flusso di Azure supporta attualmente tre livelli di compatibilità:
 
 * 1,0-comportamento precedente
 * 1,1-comportamento predefinito
-* 1,2 (anteprima): comportamento più recente con i miglioramenti più recenti della valutazione
+* 1,2-comportamento più recente con i miglioramenti più recenti
 
 Il livello di compatibilità 1,0 originale è stato introdotto durante la disponibilità generale di analisi di flusso di Azure diversi anni fa.
 
@@ -47,9 +47,9 @@ Per aggiornare il livello di compatibilità del processo nel portale di Azure:
 
 ![Livello di compatibilità di Analisi di flusso nel portale di Azure](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
 
-Quando si aggiorna il livello di compatibilità, il servizio di compilazione Transact-SQL convalida il processo con la sintassi corrispondente al livello di compatibilità selezionato.
+Quando si aggiorna il livello di compatibilità, il compilatore T convalida il processo con la sintassi che corrisponde al livello di compatibilità selezionato.
 
-## <a name="compatibility-level-12-preview"></a>Livello di compatibilità 1,2 (anteprima)
+## <a name="compatibility-level-12"></a>Livello di compatibilità 1.2
 
 Nel livello di compatibilità 1,2 sono state introdotte le modifiche principali seguenti:
 
@@ -119,7 +119,7 @@ Nel livello di compatibilità 1.1 sono state introdotte le modifiche sostanziali
 
 ### <a name="service-bus-xml-format"></a>Formato XML del bus di servizio
 
-**livello 1,0:** Analisi di flusso di Azure usava DataContractSerializer, quindi il contenuto del messaggio includeva tag XML. ad esempio:
+**livello 1,0:** Analisi di flusso di Azure usava DataContractSerializer, quindi il contenuto del messaggio includeva tag XML. Ad esempio:
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 

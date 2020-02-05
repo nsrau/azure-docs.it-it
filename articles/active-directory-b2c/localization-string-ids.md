@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/31/2020
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 349932073394a967da58bf521449d22a48c1f91d
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: cd5e543a6d5dc2b59847a78bd925be68f8cdde25
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931727"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982858"
 ---
 # <a name="localization-string-ids"></a>ID della stringa di localizzazione
 
@@ -216,7 +216,8 @@ Di seguito sono riportati gli ID per un [controllo di visualizzazione Verifica](
 |verification_control_but_send_new_code |Invia nuovo codice |
 |verification_control_but_verify_code |Verificare il codice |
 
-### <a name="verification-display-control-error-messages"></a>Verifica visualizzazione messaggi di errore controllo
+## <a name="one-time-password-error-messages"></a>Messaggi di errore password una volta
+Di seguito sono riportati gli ID per i messaggi di errore di un [profilo tecnico una volta password](one-time-password-technical-profile.md)
 
 | ID | Valore predefinito |
 | -- | ------------- |

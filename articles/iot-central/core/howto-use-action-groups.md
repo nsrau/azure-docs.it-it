@@ -8,12 +8,12 @@ ms.date: 07/10/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: philmea
-ms.openlocfilehash: cc89033cedcdf185ce7e18c3981045e2a20569f5
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 1992b8925d5d9ba59c36452187f5b6eb510e72dc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952173"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990811"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Raggruppare più azioni da eseguire da una o più regole
 
@@ -25,7 +25,7 @@ In IoT Central di Azure è possibile creare regole per eseguire azioni quando vi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un'applicazione con pagamento in base al consumo
+- Applicazione creata utilizzando un piano tariffario standard
 - Un account e una sottoscrizione di Azure per creare e gestire gruppi di azioni di monitoraggio di Azure
 
 ## <a name="create-action-groups"></a>Creare gruppi di azioni
@@ -61,9 +61,9 @@ Nella tabella seguente sono riepilogate le informazioni inviate ai tipi di azion
 
 | Tipo di azione | Formato di output |
 | ----------- | -------------- |
-| Email       | Modello di posta elettronica standard IoT Central |
-| sms         | Avviso IoT Central di Azure: $ {ApplicationName}-"$ {RuleName}" attivata in "$ {DeviceName}" in $ {triggerDate} $ {triggerTime} |
-| Chiamata vocale       | Avviso centrale Azure I. O. T: regola "$ {RuleName}" attivata sul dispositivo "$ {DeviceName}" in $ {triggerDate} $ {triggerTime}, nell'applicazione $ {applicationName} |
+| Indirizzo di posta elettronica       | Modello di posta elettronica standard IoT Central |
+| SMS         | Avviso IoT Central di Azure: $ {ApplicationName}-"$ {RuleName}" attivata in "$ {DeviceName}" in $ {triggerDate} $ {triggerTime} |
+| Voce       | Avviso centrale Azure I. O. T: regola "$ {RuleName}" attivata sul dispositivo "$ {DeviceName}" in $ {triggerDate} $ {triggerTime}, nell'applicazione $ {applicationName} |
 | webhook     | {"schemaId": "AzureIoTCentralRuleWebhook", "data": {[payload del webhook normale](#payload)}} |
 
 Il testo seguente è un esempio di messaggio SMS da un gruppo di azione:

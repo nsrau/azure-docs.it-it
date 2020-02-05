@@ -3,18 +3,18 @@ title: Informazioni di riferimento su host.json per Funzioni di Azure 2.x
 description: Documentazione di riferimento per il file host.json di Funzioni di Azure con il runtime v2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 782998e49b9af3bf4d2ae5a561faaca399c6809f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 6c4cfbb40c0337a6141d3b1f9844a33227a4963f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978806"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988703"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>informazioni di riferimento su host. JSON per funzioni di Azure 2. x e versioni successive 
 
 > [!div class="op_single_selector" title1="Selezionare la versione del runtime di funzioni di Azure in uso: "]
 > * [Versione 1](functions-host-json-v1.md)
-> * [Versione 2](functions-host-json.md)
+> * [Versione 2 +](functions-host-json.md)
 
 Il file di metadati *host.json* contiene le opzioni di configurazione globali che interessano tutte le funzioni dell’app per le funzioni. Questo articolo elenca le impostazioni disponibili a partire dalla versione 2. x del runtime di funzioni di Azure.  
 
@@ -27,7 +27,7 @@ Alcune impostazioni host.json vengono usate solo l'esecuzione in locale nel file
 
 ## <a name="sample-hostjson-file"></a>File di esempio host.json
 
-Nel file *host. JSON* di esempio seguente sono state specificate tutte le opzioni possibili, escluse quelle che sono solo per uso interno.
+Nel file *host. JSON* di esempio seguente per la versione 2. x + sono state specificate tutte le opzioni possibili, escluse quelle che sono solo per uso interno.
 
 ```json
 {
@@ -377,7 +377,7 @@ Impostazioni di configurazione per il comportamento di blocco Singleton. Per ult
 
 ## <a name="version"></a>version
 
-Per un app per le funzioni che ha come destinazione il runtime v2, è necessaria la stringa di versione `"version": "2.0"`.
+Questo valore indica la versione dello schema di host. JSON. La stringa di versione `"version": "2.0"` è necessaria per un'app per le funzioni destinata al runtime v2 o a una versione successiva. Nessuna modifica dello schema host. JSON tra V2 e V3.
 
 ## <a name="watchdirectories"></a>watchDirectories
 

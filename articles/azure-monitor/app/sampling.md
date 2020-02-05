@@ -9,12 +9,12 @@ ms.author: mbullwin
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c851978ea1b5af3006f1835f022c30aa7e7128f7
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9fda3bb0188a2030572ee686ff5a942aca61ea36
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899070"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989978"
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -347,12 +347,13 @@ I tipi di dati di telemetria che possono essere inclusi o esclusi dal campioname
 
 ### <a name="configuring-fixed-rate-sampling-for-opencensus-python-applications"></a>Configurazione del campionamento a frequenza fissa per le applicazioni Python OpenCensus
 
-1. Instrumentare l'applicazione con le più recenti utilità di [esportazione di monitoraggio di Azure OpenCensus](../../azure-monitor/app/opencensus-python.md).
+Instrumentare l'applicazione con le più recenti utilità di [esportazione di monitoraggio di Azure OpenCensus](../../azure-monitor/app/opencensus-python.md).
 
 > [!NOTE]
-> Il campionamento a frequenza fissa è disponibile solo tramite l'utilità di esportazione della traccia. Ciò significa che le richieste in ingresso e in uscita sono gli unici tipi di dati di telemetria in cui è possibile configurare il campionamento.
+> Il campionamento a frequenza fissa non è disponibile per l'esportatore di metriche. Ciò significa che le metriche personalizzate sono gli unici tipi di dati di telemetria in cui non è possibile configurare il campionamento. L'esportatore di metriche invierà tutti i dati di telemetria che tiene traccia.
 
-2. È possibile specificare un `sampler` come parte della configurazione `Tracer`. Se non viene fornito alcun campionatore esplicito, il `ProbabilitySampler` verrà usato per impostazione predefinita. Per impostazione predefinita, il `ProbabilitySampler` utilizzerebbe una frequenza di 1/10000, ovvero una di ogni 10000 richieste verrà inviata al Application Insights. Se si desidera specificare una frequenza di campionamento, vedere di seguito.
+#### <a name="fixed-rate-sampling-for-tracing"></a>Campionamento a frequenza fissa per la traccia ####
+È possibile specificare un `sampler` come parte della configurazione `Tracer`. Se non viene fornito alcun campionatore esplicito, il `ProbabilitySampler` verrà usato per impostazione predefinita. Per impostazione predefinita, il `ProbabilitySampler` utilizzerebbe una frequenza di 1/10000, ovvero una di ogni 10000 richieste verrà inviata al Application Insights. Se si desidera specificare una frequenza di campionamento, vedere di seguito.
 
 Per specificare la frequenza di campionamento, verificare che il `Tracer` specifichi un campionatore con una frequenza di campionamento compresa tra 0,0 e 1,0 inclusi. Una frequenza di campionamento di 1,0 rappresenta il 100%, vale a dire che tutte le richieste verranno inviate come dati di telemetria a Application Insights.
 
@@ -362,6 +363,16 @@ tracer = Tracer(
         instrumentation_key='00000000-0000-0000-0000-000000000000',
     ),
     sampler=ProbabilitySampler(1.0),
+)
+```
+
+#### <a name="fixed-rate-sampling-for-logs"></a>Campionamento a frequenza fissa per i log ####
+È possibile configurare il campionamento a frequenza fissa per `AzureLogHandler` modificando il `logging_sampling_rate` argomento facoltativo. Se non viene fornito alcun argomento, verrà usata una frequenza di campionamento pari a 1,0. Una frequenza di campionamento di 1,0 rappresenta il 100%, vale a dire che tutte le richieste verranno inviate come dati di telemetria a Application Insights.
+
+```python
+exporter = metrics_exporter.new_metrics_exporter(
+    instrumentation_key='00000000-0000-0000-0000-000000000000',
+    logging_sampling_rate=0.5,
 )
 ```
 

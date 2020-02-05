@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 3f3604205d4aedffdda128ec4a6b895786245e56
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: e8d0f446442db6eeb0aec38efcc69bdf09c9b56f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772023"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990709"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Risolvere i problemi relativi a Azure Migrate Appliance e all'individuazione
 
@@ -39,14 +39,7 @@ Se viene visualizzato l'errore "il file manifesto specificato non è valido: voc
 Questo problema può verificarsi se il computer dell'appliance si trova dietro un proxy.
 
 - Assicurarsi di specificare le credenziali di autorizzazione se sono necessarie per il proxy.
-- Se si usa un proxy firewall basato su URL per controllare la connettività in uscita, aggiungere questi URL a un elenco Consenti:
-
-    - [URL per la valutazione VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
-    - [URL per la valutazione di Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)
-    - [URL per la migrazione senza agenti VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
-    - [URL per la migrazione basata su agenti VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
-    - [URL per la migrazione di Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)
-
+- Se si usa un proxy firewall basato su URL per controllare la connettività in uscita, aggiungere [questi URL](migrate-appliance.md#url-access) a un elenco Consenti.
 - Se si usa un proxy di intercettazione per connettersi a Internet, importare il certificato proxy nella macchina virtuale dell'appliance seguendo [questa procedura](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 ##  <a name="datetime-synchronization-error"></a>Errore di sincronizzazione di data/ora

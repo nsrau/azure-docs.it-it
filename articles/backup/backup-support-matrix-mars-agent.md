@@ -3,12 +3,12 @@ title: Matrice di supporto per l'agente MARS
 description: Questo articolo riepiloga il supporto di backup di Azure quando si esegue il backup dei computer che eseguono l'agente di Servizi di ripristino di Microsoft Azure (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 27ad81c42a079485d8eab95bb1250cba41e8fb5b
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: a87d778bff5a52f4251d83e401028c9949713e33
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281275"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988074"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matrice di supporto per il backup con l'agente di Servizi di ripristino di Microsoft Azure
 
@@ -95,8 +95,6 @@ Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Sì | No | 
 Windows Server 2016 (Standard, Datacenter, Essentials) | Sì | Sì | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
 Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Sì | Sì | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
 Windows Server 2012 (Standard, Datacenter, Foundation) | Sì | Sì |-.NET 4,5 <br> \- Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0 <br> -Gestione e manutenzione immagini distribuzione (DISM. exe)
-Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Sì | Sì | -.NET 3,5, .NET 4,5 <br> \- Windows PowerShell <br> -Compatibile con Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0 <br> -Gestione e manutenzione immagini distribuzione (DISM. exe)
-Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Sì | No | -.NET 3,5, .NET 4,5 <br> -Windows PowerShell <br> -Compatibile con Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0 <br> -Gestione e manutenzione immagini distribuzione (DISM. exe) <br> -Server virtuale 2005 base + KB KB948515
 Windows Storage Server 2016/2012 R2/2012 (standard, Workgroup) | Sì | No | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
 Windows Server 2019 (Standard, Datacenter, Essentials) | Sì | Sì | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
 

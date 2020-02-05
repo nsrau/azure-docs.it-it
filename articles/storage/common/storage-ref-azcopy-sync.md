@@ -8,18 +8,18 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 6ecba85a859e902922dfa2b7563a3ceb96a9ef4d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1bff46c8584934ab8bcffce74763edc8363533d6
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457468"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988244"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
 Replica il percorso di origine nel percorso di destinazione.
 
-## <a name="synopsis"></a>Riepilogo
+## <a name="synopsis"></a>Sinossi
 
 Per il confronto vengono usate le ore dell'Ultima modifica. Il file viene ignorato se l'ora dell'Ultima modifica della destinazione è più recente.
 
@@ -141,13 +141,13 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--Exclude-Path** String escludere questi percorsi durante la copia. Questa opzione non supporta i caratteri jolly (*). Verifica il prefisso del percorso relativo (ad esempio: cartella, cartella/subDirName/file. pdf). Se usato in combinazione con l'attraversamento dell'account, i percorsi non includono il nome del contenitore.
 
-**--Exclude-pattern** String esclude i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: *. jpg;* . PDF; exactname
+**--Exclude-pattern** String esclude i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: \*. jpg;\*. pdf; exactname
 
 **-h,--** Guida alla sincronizzazione
 
 **--include-gli attributi** stringa (solo Windows) includono solo i file i cui attributi corrispondono all'elenco di attributi. Ad esempio: A; S R
 
-**--include-pattern** String include solo i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: *. jpg;* . PDF; exactname
+**--include-pattern** String include solo i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: \*. jpg;\*. pdf; exactname
 
 **--** la stringa a livello di log definisce il livello di dettaglio del log per il file di log, i livelli disponibili: info (tutte le richieste e risposte), avviso (risposte lente), errore (solo richieste non riuscite) e nessuno (nessun log di output). (informazioni predefinite). (impostazione predefinita "INFO")
 

@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 10/02/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 60c1109d0f540c8301cc536c2079537dca5115f4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1e206d9a1b14fc8ff1b92e4eb7217824d81212cf
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435017"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990155"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gestire IoT Central dal portale di Azure
 
@@ -50,7 +50,6 @@ La **località** è l'[area geografica](https://azure.microsoft.com/global-infra
 > [!NOTE]
 > I modelli di applicazione di anteprima sono attualmente disponibili solo nelle località **Europa** e **Stati Uniti** .
 
-![Portale di gestione: creare la risorsa IoT Central](media/howto-manage-iot-central-from-portal/image1a.png)  
 
 Dopo aver compilato tutti i campi, selezionare **Crea**.
 
@@ -59,7 +58,7 @@ Dopo aver compilato tutti i campi, selezionare **Crea**.
 Se si dispone già di un'applicazione Azure IoT Central è possibile eliminarla, spostarla in una sottoscrizione diversa o in un altro gruppo di risorse nel portale di Azure.
 
 > [!NOTE]
-> Non è possibile visualizzare le applicazioni della versione di valutazione nel portale di Azure perché non sono associate alla sottoscrizione.
+> Non è possibile visualizzare le applicazioni create nel piano tariffario gratuito nell'portale di Azure perché non sono associate alla sottoscrizione.
 
 Per iniziare, selezionare **tutte le risorse** nel riquadro principale a sinistra. Digitare il nome dell'applicazione nella casella di ricerca per individuarla nel proprio elenco di risorse. Quindi selezionare l'applicazione IoT Central che si vuole gestire.
 

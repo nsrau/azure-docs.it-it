@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: cd06d4cbf62078c2c7a5def4a0032ddce97d67f0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 27b430ca6e90eba933662bd35d8d97b08234c84e
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842453"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989026"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Che cos'è l'endpoint privato di Azure?
 
@@ -130,9 +130,7 @@ La tabella seguente include un elenco di limitazioni note quando si usano gli en
 
 |Limitazione |Description |Strategia di riduzione del rischio  |
 |---------|---------|---------|
-|Le regole del gruppo di sicurezza di rete (NSG) e le route definite dall'utente non si applicano all'endpoint privato    |NSG non è supportato in endpoint privati. Mentre le subnet contenenti l'endpoint privato possono avere NSG associate, le regole non saranno valide per il traffico elaborato dall'endpoint privato. Per distribuire endpoint privati in una subnet, è necessario che l' [applicazione di criteri di rete sia disabilitata](disable-private-endpoint-network-policy.md) . NSG viene ancora applicato ad altri carichi di lavoro ospitati nella stessa subnet. Le route in qualsiasi subnet client utilizzeranno un prefisso/32. la modifica del comportamento di routing predefinito richiede un UDR simile  | Controllare il traffico usando le regole NSG per il traffico in uscita nei client di origine. Distribuire le singole route con prefisso/32 per eseguire l'override delle route di endpoint privato        |
-|  La rete virtuale con peering con endpoint privati non è supportata   |   Quando ci si connette a endpoint privati in una rete virtuale con peering senza altri carichi di lavoro non è supportato       | Distribuire una singola VM nella rete virtuale con peering per abilitare la connettività |
-|Carichi di lavoro specializzati non possono accedere agli endpoint privati    |   I servizi seguenti distribuiti nella rete virtuale non possono accedere a una risorsa di collegamento privato tramite endpoint privati:<br>Piano di servizio app</br>Istanza di contenitore di Azure</br>Azure NetApp Files</br>HSM dedicato di Azure<br>       |   Nessuna attenuazione durante l'anteprima.       |
+|Le regole del gruppo di sicurezza di rete (NSG) e le route definite dall'utente non si applicano all'endpoint privato    |NSG non è supportato in endpoint privati. Mentre le subnet contenenti l'endpoint privato possono avere NSG associate, le regole non saranno valide per il traffico elaborato dall'endpoint privato. Per distribuire endpoint privati in una subnet, è necessario che l' [applicazione di criteri di rete sia disabilitata](disable-private-endpoint-network-policy.md) . NSG viene ancora applicato ad altri carichi di lavoro ospitati nella stessa subnet. Le route in qualsiasi subnet client utilizzeranno un prefisso/32. la modifica del comportamento di routing predefinito richiede un UDR simile  | Controllare il traffico usando le regole NSG per il traffico in uscita nei client di origine. Distribuire le singole route con prefisso/32 per eseguire l'override delle route degli endpoint privati. I log di flusso e le informazioni di monitoraggio NSG per le connessioni in uscita sono ancora supportati e possono essere usati        |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

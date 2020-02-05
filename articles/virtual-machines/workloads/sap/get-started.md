@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/28/2020
+ms.date: 02/03/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c609c659d99ce6eca0326a5a14cbbb67099e686
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 42df2d24aad1465a200203e648feb97d4e96fd18
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840469"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989825"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usare Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -121,6 +121,7 @@ Per informazioni sull'integrazione dei servizi di Azure nei componenti SAP, vede
 
 ## <a name="change-log"></a>Registro modifiche
 
+- 02/03/2020: modificare la [disponibilità elevata per SAP NW in macchine virtuali di Azure in SLES per le applicazioni SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse) e [disponibilità elevata per SAP NW in macchine virtuali di Azure in SLES con e per le applicazioni SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) per rimuovere l'avviso sull'uso di Dash nei nomi host dei nodi del cluster in SLES
 - 01/28/2020: modificare la [disponibilità elevata delle SAP Hana nelle macchine virtuali di Azure in RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel) per allineare i timeout delle risorse del cluster SAP Hana alle raccomandazioni per il timeout di Red Hat
 - 01/17/2020: modificare i [gruppi di posizionamento di prossimità di Azure per una latenza di rete ottimale con le applicazioni SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) per modificare la sezione dello stato di trasferimento di macchine virtuali esistenti in un gruppo di posizionamento vicino
 - 01/17/2020: modificare [le configurazioni del carico di lavoro SAP con zone di disponibilità di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) per puntare alla procedura che consente di automatizzare le misurazioni della latenza tra zone di disponibilità

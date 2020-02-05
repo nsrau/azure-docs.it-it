@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 07/29/2019
+ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: b9fb15fc9f3dc51a0df40a4ccb738a97d4558dff
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: ed3e2cf9830e3776886e662fd27f43f76728d6b2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76545892"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988720"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>Incorporare Widget Video Indexer nelle applicazioni
 
@@ -86,9 +86,9 @@ Per incorporare un video privato, è necessario passare un token di accesso nell
     
 Per ottenere il contenuto del widget cognitive Insights, usare uno dei seguenti elementi:<br/>
 - API [widget ottenere informazioni dettagliate](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) .<br/>
-- [Token di accesso Get video](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?). Aggiungerlo come parametro di query all'URL. Specificare questo URL come valore **src** per l'iframe, come illustrato in precedenza.
+- [Token di accesso Get video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?). Aggiungerlo come parametro di query all'URL. Specificare questo URL come valore **src** per l'iframe, come illustrato in precedenza.
 
-Per fornire funzionalità di modifica di Insights nel widget incorporato, è necessario passare un token di accesso che include le autorizzazioni di modifica. Usare il [widget Get Insights](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) o [ottenere il token di accesso video](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) con `&allowEdit=true`. 
+Per fornire funzionalità di modifica di Insights nel widget incorporato, è necessario passare un token di accesso che include le autorizzazioni di modifica. Usare il [widget Get Insights](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) o [ottenere il token di accesso video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) con `&allowEdit=true`. 
 
 ## <a name="widgets-interaction"></a>Interazione dei widget
 
@@ -264,6 +264,23 @@ Se si desidera disabilitare le didascalie, è possibile passare il valore del pa
 
 #### <a name="autoplay"></a>AutoPlay
 Per impostazione predefinita, il lettore inizierà a riprodurre il video. è possibile scegliere di non passare `&autoplay=false` all'URL di incorporamento precedente.
+
+## <a name="code-samples"></a>Esempi di codice
+
+Vedere il repository di [esempi di codice](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Widgets) che contiene esempi per video Indexer API e widget:
+
+| File/cartella                       | Description                                |
+|-----------------------------------|--------------------------------------------|
+| `azure-media-player`              | Caricare video dell'indicizzatore video in un Azure Media Player personalizzato                        |
+| `azure-media-player-vi-insights`  | Incorporare VI Insights con un Azure Media Player personalizzato                             |
+| `control-vi-embedded-player`      | Incorporare VI Player e controllarlo dall'esterno                                    |
+| `custom-index-location`           | Incorporare VI Insights da una posizione esterna personalizzata (può essere un BLOB del cliente)     |
+| `embed-both-insights`             | Utilizzo di base di VI Insights sia Player che Insights                            |
+| `embed-insights-with-AMP`         | Incorpora il widget informazioni dettagliate con un Azure Media Player personalizzato                      |
+| `customize-the-widgets`           | Incorporare i widget con opzioni personalizzate                                     |
+| `embed-both-widgets`              | Incorpora VI Player e Insights e comunica tra di essi                      |
+| `url-generator`                   | Genera l'URL di incorporamento personalizzato widget in base alle opzioni specificate dall'utente             |
+| `html5-player`                    | Incorporare VI Insights con un lettore video HTML5 predefinito                            |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

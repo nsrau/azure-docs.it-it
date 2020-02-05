@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b5875d0672fc187920883abe208ad30c4d2b1051
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 77b95806c2040e7950e1133fcc4c7bc5e0e2ab53
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898546"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989604"
 ---
 # <a name="azure-maps-weather-coverage"></a>Copertura Meteo di Azure Maps
 
-Questo articolo fornisce informazioni sulla copertura per i [Servizi Meteo](https://aka.ms/AzureMapsWeatherService)di Azure maps. Azure Maps Weather Data Services può restituire dettagli quali riquadri radar, condizioni meteo correnti, previsioni meteorologiche e meteo lungo una route.
+Questo articolo fornisce informazioni sulla copertura per i [Servizi Meteo](https://aka.ms/AzureMapsWeatherService)di Azure maps. Azure Maps Weather Data Services restituisce dettagli quali riquadri radar, condizioni meteo correnti, previsioni meteorologiche e meteo lungo una route.
 
 Le mappe di Azure non hanno lo stesso livello di informazioni e accuratezza per tutti i paesi e le aree geografiche.
 

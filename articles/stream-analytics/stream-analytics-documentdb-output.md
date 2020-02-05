@@ -6,14 +6,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: cf6b94418516f681bf6c782fe02f3434faa5374e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e58e36b3caa5a5ecd137cb9cb61dad7ddb95ff3a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426287"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986989"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Output di Analisi di flusso di Azure in Azure Cosmos DB  
 Analisi di flusso di Azure può avere come destinazione [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) per l'output JSON, abilitando l'archiviazione dei dati e le query a bassa latenza su dati JSON non strutturati. Questo documento descrive alcune procedure consigliate per l'implementazione di questa configurazione.
@@ -97,7 +97,7 @@ La frequenza degli eventi in ingresso negli hub eventi è due volte superiore a 
 
 Con 1,2, l'analisi di flusso è più intelligente nell'utilizzo del 100% della velocità effettiva disponibile in Azure Cosmos DB con pochissimi invii di richieste di limitazione o limitazione della frequenza. Ciò offre un'esperienza migliore per gli altri carichi di lavoro, ad esempio le query in esecuzione nel contenitore allo stesso tempo. Per informazioni sull'aumento delle dimensioni di analisi di flusso con Azure Cosmos DB come sink per 1.000 a 10.000 messaggi al secondo, provare [questo progetto di esempio di Azure](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb).
 
-La velocità effettiva dell'output Azure Cosmos DB è identica a 1,0 e 1,1. Poiché 1,2 attualmente non è il valore predefinito, è possibile [impostare il livello di compatibilità](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) per un processo di analisi di flusso usando il portale o la [chiamata all'API REST crea processo di analisi di flusso](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job). Si *consiglia vivamente* di usare il livello di compatibilità 1,2 in analisi di flusso con Azure Cosmos DB.
+La velocità effettiva dell'output Azure Cosmos DB è identica a 1,0 e 1,1. Si *consiglia vivamente* di usare il livello di compatibilità 1,2 in analisi di flusso con Azure Cosmos DB.
 
 ## <a name="azure-cosmos-db-settings-for-json-output"></a>Impostazioni Azure Cosmos DB per l'output JSON
 

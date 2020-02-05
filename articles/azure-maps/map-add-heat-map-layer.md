@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 98c8db4e4b866879a437d1ffad6668cbae42fcdf
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: d52d808813078c2aca7de59aa626e83f96221720
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933597"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986241"
 ---
 # <a name="add-a-heat-map-layer"></a>Aggiungere un livello per le mappe termiche
 
@@ -49,7 +49,7 @@ map.sources.add(datasource);
 //Load a dataset of points, in this case earthquake data from the USGS.
 datasource.importDataFromUrl('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson');
 
-//Create a heatmap and add it to the map.
+//Create a heat map and add it to the map.
 map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
   radius: 10,
   opacity: 0.8
@@ -108,14 +108,12 @@ Vedi la <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>mappa termica con zoo
 
 > [!TIP]
 > Quando si Abilita il clustering nell'origine dati, i punti vicini tra loro vengono raggruppati come punto cluster. È possibile utilizzare il conteggio punti di ogni cluster come espressione di ponderazione per la mappa termica. Questo può ridurre significativamente il numero di punti di cui eseguire il rendering. Il numero di punti di un cluster viene archiviato in una proprietà `point_count` della funzionalità punto: 
-
 > ```JavaScript
 > var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 >    weight: ['get', 'point_count']
 > });
 > ```
-
-> Se il raggio di clustering è solo pochi pixel, il rendering potrebbe avere una piccola differenza visiva. Un raggio più grande raggruppa più punti in ogni cluster e migliora le prestazioni di mappa termica.
+> Se il raggio di clustering è solo pochi pixel, il rendering comporterebbe una piccola differenza visiva. Un raggio più grande raggruppa più punti in ogni cluster e migliora le prestazioni di mappa termica.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

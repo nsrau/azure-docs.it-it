@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/31/2019
-ms.openlocfilehash: 40660c0397f8b7fd7c370e2e0f697cae26b9bb48
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 01/28/2020
+ms.openlocfilehash: 194bc7983019a616d534a4146f86fff59f9719dc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927158"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990522"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Runtime di integrazione in Azure Data Factory
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le seguenti funzionalità di integrazione di dati in diversi ambienti di rete:
@@ -42,7 +42,7 @@ Tipo di runtime di integrazione | Rete pubblica | Rete privata
 ------- | -------------- | ---------------
 Azure | Flusso di dati<br/>Spostamento dati<br/>Invio di attività | &nbsp;
 Self-hosted | Spostamento dati<br/>Invio di attività | Spostamento dati<br/>Invio di attività
-Azure-SSIS | Esecuzione di pacchetti SSIS | Esecuzione di pacchetti SSIS
+Azure-SSIS | Esecuzione pacchetti SSIS | Esecuzione pacchetti SSIS
 
 Il diagramma seguente mostra come è possibile usare runtime di integrazione diversi in combinazione per offrire funzionalità avanzate di integrazione dei dati e supporto di rete:
 
@@ -141,9 +141,9 @@ Quando viene usato per eseguire lo spostamento di dati, il runtime di integrazio
 ### <a name="azure-ssis-ir-location"></a>Località del runtime di integrazione Azure-SSIS
 Selezionando la località corretta per il runtime di integrazione Azure-SSIS è fondamentale ottenere prestazioni elevate per ei flussi di lavoro di estrazione, trasformazione e caricamento (ETL).
 
-- La posizione di Azure-SSIS IR non deve essere necessariamente uguale a quella della data factory, ma deve essere uguale a quella del server di database SQL di Azure/Istanza gestita di Azure in cui verrà ospitato SSISDB. In questo modo il runtime di integrazione Azure-SSIS può accedere facilmente a SSISDB senza incorrere in traffico eccessivo tra le diverse località.
-- Se per ospitare SSISDB non è disponibile un server di database SQL di Azure/Istanza gestita di Azure, ma sono disponibili origini/destinazioni locali per i dati, è opportuno creare un nuovo server di database SQL di Azure/Istanza gestita di Azure nella stessa posizione di una rete virtuale connessa alla rete locale.  In questo modo è possibile creare Azure-SSIS IR usando il nuovo server di database SQL di Azure/Istanza gestita di Azure e aggiungendo tale rete virtuale, il tutto nella stessa posizione, riducendo al minimo gli spostamenti di dati in posizioni diverse.
-- Se la posizione del server di database SQL di Azure/Istanza gestita di Azure esistente in cui è ospitato SSISDB non corrisponde alla posizione della rete virtuale connessa alla rete locale, creare prima Azure-SSIS IR usando un server di database SQL di Azure/Istanza gestita di Azure e aggiungendo un'altra rete virtuale nella stessa posizione, e quindi configurare una connessione da rete virtuale a rete virtuale tra posizioni diverse.
+- Il percorso del Azure-SSIS IR non deve corrispondere a quello della data factory, ma deve essere uguale a quello del database SQL di Azure o del server Istanza gestita in cui deve essere ospitato SSISDB. In questo modo il runtime di integrazione Azure-SSIS può accedere facilmente a SSISDB senza incorrere in traffico eccessivo tra le diverse località.
+- Se non si dispone di un database SQL di Azure esistente o di un server di Istanza gestita per ospitare SSISDB, ma si dispone di origini dati/destinazioni locali, è necessario creare un nuovo database SQL di Azure o un server di Istanza gestita nella stessa posizione di una rete virtuale connessa alla rete locale.  In questo modo, è possibile creare il Azure-SSIS IR usando il nuovo database SQL di Azure o il server di Istanza gestita e aggiungendo la rete virtuale, il tutto nella stessa posizione, riducendo in modo efficace i movimenti dei dati in posizioni diverse.
+- Se il percorso del database SQL di Azure esistente o di Istanza gestita server in cui è ospitato SSISDB non corrisponde al percorso di una rete virtuale connessa alla rete locale, creare prima di tutto la Azure-SSIS IR usando un database SQL di Azure esistente o Istanza gestita server e aggiunta a un'altra rete virtuale nella stessa posizione, quindi configurare una rete virtuale per la connessione di rete virtuale tra percorsi diversi.
 
 Il diagramma seguente mostra le impostazioni relative alla località di Data Factory e dei relativi runtime di integrazione:
 
@@ -163,13 +163,13 @@ Per l'attività di copia sono necessari i servizi collegati di origine e sink pe
 
 L'attività Lookup e GetMetadata viene eseguita sul runtime di integrazione associato al servizio collegato dell'archivio dati.
 
-### <a name="transformation-activity"></a>Attività di trasformazione
+### <a name="external-transformation-activity"></a>Attività di trasformazione esterna
 
-Ogni attività di trasformazione ha un servizio collegato di calcolo di destinazione che punta a un runtime di integrazione. Questa istanza del runtime di integrazione è la posizione da cui viene inviata l'attività di trasformazione.
+Ogni attività di trasformazione esterna che usa un motore di calcolo esterno ha un servizio collegato di calcolo di destinazione, che punta a un runtime di integrazione. Questa istanza di Integration Runtime determina la posizione in cui viene inviata l'attività di trasformazione codificata da mano esterna.
 
 ### <a name="data-flow-activity"></a>Attività flusso di dati
 
-L'attività flusso di dati viene eseguita sul runtime di integrazione associato. 
+Le attività del flusso di dati vengono eseguite nel runtime di integrazione di Azure associato. Il calcolo Spark utilizzato dai flussi di dati è determinato dalle proprietà del flusso di dati nel Azure Integration Runtime e sono completamente gestite da ADF.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti:

@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 3b5b11b148910e9bd1348b20a25fa8383fc2ec9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 21d59f6543df7fe9d1fad47a006260bff9c93e2b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812742"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988057"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Gestire Azure Data Lake Analytics tramite Azure SDK per Node.js
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -22,12 +22,12 @@ ms.locfileid: "60812742"
 Questo articolo descrive come gestire account, origini dati, processi e utenti di Azure Data Lake Analytics usando un'app scritta con Azure SDK per Node.js. 
 
 Sono supportate le versioni seguenti:
-* **Versione di Node.js: 0.10.0 o superiore**
+* **Versione di Node.js: 0.10.0 o successiva**
 * **Versione dell'API REST per l'account: 2015-10-01-preview**
 * **Versione dell'API REST per il catalogo: 2015-10-01-preview**
 * **Versione dell'API REST per il processo: 2016-03-20-preview**
 
-## <a name="features"></a>Funzionalità
+## <a name="features"></a>database elastico
 * Gestione account: creare, ottenere, elencare, aggiornare ed eliminare.
 * Gestione dei processi: inviare, ottenere, elencare, annullare.
 * Gestione del catalogo: ottenere ed elencare.
@@ -129,7 +129,5 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 });
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 * [Microsoft Azure SDK per Node.js](https://github.com/azure/azure-sdk-for-node)
-* [Microsoft Azure SDK per Node. js - Gestione dell'Archivio Data Lake](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
-

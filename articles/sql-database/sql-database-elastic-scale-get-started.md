@@ -11,12 +11,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: b5c323bf3d5ff55c2c30961003e8c456cbe39c82
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4577f611287a27366b1168e07565861c16fe0e38
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823667"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987023"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Iniziare a usare gli strumenti di database elastico
 
@@ -56,7 +56,7 @@ Per compilare i file JAR e iniziare a usare il progetto di esempio, eseguire i p
 
     ![Progress-java][5]
     
-Congratulazioni. È stata creata ed eseguita la prima applicazione partizionata usando gli strumenti di database elastico nel database SQL di Azure. Usare Visual Studio o SQL Server Management Studio per connettersi al database SQL e osservare rapidamente le partizioni create dall'esempio. Si noteranno nuovi database con partizionamento e un database di gestione delle mappe con partizionamento creati dall'applicazione di esempio. 
+Congratulazioni! È stata creata ed eseguita la prima applicazione partizionata usando gli strumenti di database elastico nel database SQL di Azure. Usare Visual Studio o SQL Server Management Studio per connettersi al database SQL e osservare rapidamente le partizioni create dall'esempio. Si noteranno nuovi database con partizionamento e un database di gestione delle mappe con partizionamento creati dall'applicazione di esempio. 
 
 Per aggiungere la libreria client al progetto Maven, aggiungere la dipendenza seguente al file POM:
 
@@ -81,7 +81,7 @@ Per installare la libreria, visitare [Microsoft.Azure.SqlDatabase.ElasticScale.C
 
 Per scaricare ed eseguire l'applicazione di esempio, seguire questa procedura: 
 
-1. Scaricare l'esempio [Elastic DB Tools for Azure SQL - Getting Started](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-a80d8dc6) (Strumenti di database elastici per SQL Azure - Guida introduttiva) da MSDN. Decomprimere l'esempio nel percorso desiderato.
+1. Scaricare l' [esempio di strumenti di database elastici per SQL di Azure-Introduzione](https://github.com/Azure/elastic-db-tools). Decomprimere l'esempio nel percorso desiderato.
 
 2. Per creare un progetto, aprire la soluzione *ElasticScaleStarterKit.sln* dalla directory *C#* .
 
@@ -91,9 +91,9 @@ Per scaricare ed eseguire l'applicazione di esempio, seguire questa procedura:
 
 5. Provare a usare le varie opzioni per scoprire di più sulle funzionalità della libreria client. Annotare i passaggi eseguiti dall'applicazione nell'output della console ed esplorare liberamente il codice sottostante.
    
-    ![Avanzamento][4]
+    ![Progress][4]
 
-Congratulazioni. È stata creata ed eseguita la prima applicazione partizionata usando gli strumenti di database elastico nel database SQL. Usare Visual Studio o SQL Server Management Studio per connettersi al database SQL e osservare rapidamente le partizioni create dall'esempio. Si noteranno nuovi database con partizionamento e un database di gestione delle mappe con partizionamento creati dall'applicazione di esempio.
+Congratulazioni! È stata creata ed eseguita la prima applicazione partizionata usando gli strumenti di database elastico nel database SQL. Usare Visual Studio o SQL Server Management Studio per connettersi al database SQL e osservare rapidamente le partizioni create dall'esempio. Si noteranno nuovi database con partizionamento e un database di gestione delle mappe con partizionamento creati dall'applicazione di esempio.
 
 > [!IMPORTANT]
 > È consigliabile usare sempre la versione più aggiornata di Management Studio per restare sincronizzati con gli aggiornamenti per Azure e per il database SQL. [Aggiornare SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -114,7 +114,7 @@ Congratulazioni. È stata creata ed eseguita la prima applicazione partizionata 
 
 * **Unione di partizioni esistenti**: le unioni di partizioni vengono eseguite anche tramite lo strumento di divisione-unione. Per altre informazioni, vedere [Spostamento di dati tra database cloud con scalabilità orizzontale](sql-database-elastic-scale-overview-split-and-merge.md).   
 
-## <a name="cost"></a>Costi
+## <a name="cost"></a>Costo
 
 La libreria di strumenti di database elastico è gratuita. L'uso di strumenti di database elastico non comporta costi aggiuntivi oltre a quelli applicati per l'uso di Azure. 
 
@@ -127,7 +127,7 @@ Per informazioni sui prezzi, vedere [Prezzi del database SQL](https://azure.micr
 Per altre informazioni sugli strumenti di database elastico, vedere gli articoli seguenti:
 
 * Esempi di codice: 
-  * Strumenti di database elastici ([.NET](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
+  * Strumenti di database elastici ([.NET](https://github.com/Azure/elastic-db-tools), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
   * [Elastic DB Tools for Azure SQL - Entity Framework Integration](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE) (Strumenti di database elastico per SQL di Azure - Integrazione con Entity Framework)
   * [Elasticità di partizionamento in Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [Elastic Scale announcement](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/) (Annuncio della scalabilità elastica)

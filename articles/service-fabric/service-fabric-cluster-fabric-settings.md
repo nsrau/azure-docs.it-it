@@ -3,12 +3,12 @@ title: Modificare le impostazioni del cluster di Service Fabric di Azure
 description: Questo articolo descrive le impostazioni dell'infrastruttura e i criteri di aggiornamento dell'infrastruttura che è possibile personalizzare.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 284e8ad566192f027d466ad08d66c2fc5265381d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f42cfd1b41ab463c3c3042987b5d0a0b3b00f67e
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905196"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986190"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizzare le impostazioni di un cluster di Service Fabric
 Questo articolo illustra le varie impostazioni dell'infrastruttura per il cluster di Service Fabric che è possibile personalizzare. Per i cluster ospitati in Azure, è possibile personalizzare le impostazioni tramite il [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager. Per altre informazioni, vedere [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md) (Aggiornare la configurazione di un cluster Azure). Per i cluster autonomi è possibile personalizzare le impostazioni aggiornando il file *ClusterConfig.json* ed eseguendo un aggiornamento della configurazione nel cluster. Per altre informazioni, vedere [Aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -831,7 +831,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
 |ContainerNetworkName|stringa, il valore predefinito è ""| Statica |Nome di rete da usare quando si configura una rete di contenitori.|
-|ContainerNetworkSetup|bool, valore predefinito: FALSE| Statica |Se configurare una rete di contenitori.|
+|ContainerNetworkSetup|bool, valore predefinito: FALSE (Linux) e il valore predefinito è TRUE (Windows)| Statica |Se configurare una rete di contenitori.|
 |FabricDataRoot |string | Non consentito |La directory radice dei dati di Service Fabric. L'impostazione predefinita per Azure è d:\svcfab |
 |FabricLogRoot |string | Non consentito |La directory radice dei log di Service Fabric. Si tratta della posizione in cui vengono collocate le tracce e i log di Service Fabric. |
 |NodesToBeRemoved|stringa, il valore predefinito è ""| Dinamica |Nodi che devono essere rimossi come parte dell'aggiornamento della configurazione. (Solo per le distribuzioni autonome)|
