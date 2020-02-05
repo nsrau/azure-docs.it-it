@@ -2,21 +2,21 @@
 title: Evento di completamento ridimensionamento pool di Azure Batch
 description: Riferimento per l’evento di completamento ridimensionamento del pool di batch. Vedere un esempio di un pool che ha aumentato le dimensioni e completato correttamente.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: jushiman
-ms.openlocfilehash: 0d4d07fe5762905633487cfd541b1c039ee1c841
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: e2c66471ad9fe8d917d1ffddceb6e01c339d62dd
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026653"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022223"
 ---
 # <a name="pool-resize-complete-event"></a>Evento di completamento ridimensionamento pool
 

@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: b6516b07f24c40fcb95d47e05b22dd7672c10f2a
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ef5ce9cc1cda7f1ff6b1985771e20cb20123e264
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531202"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025640"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossario dei termini per la Plug and Play di anteprima
 
@@ -117,7 +117,7 @@ Uno [sviluppatore di dispositivi](#device-developer) usa il [linguaggio di defin
 
 ## <a name="device-provisioning-service"></a>Servizio di provisioning di dispositivi
 
-[Azure IOT Central](#azure-iot-central) usa il servizio Device provisioning per gestire la registrazione e la connessione dei dispositivi. Per altre informazioni, vedere [connettività dei dispositivi in Azure IOT Central](../iot-central/preview/overview-iot-central-get-connected.md). È anche possibile usare il servizio Device provisioning per gestire la registrazione e la connessione dei dispositivi alla soluzione Internet delle cose in base all'hub. Per altre informazioni, vedere [provisioning di dispositivi con il servizio Device provisioning in hub Azure](../iot-dps/about-iot-dps.md).
+[Azure IOT Central](#azure-iot-central) usa il servizio Device provisioning per gestire la registrazione e la connessione dei dispositivi. Per altre informazioni, vedere [connettività dei dispositivi in Azure IOT Central](../iot-central/core/concepts-get-connected.md). È anche possibile usare il servizio Device provisioning per gestire la registrazione e la connessione dei dispositivi alla soluzione Internet delle cose in base all'hub. Per altre informazioni, vedere [provisioning di dispositivi con il servizio Device provisioning in hub Azure](../iot-dps/about-iot-dps.md).
 
 ## <a name="device-registration"></a>Registrazione del dispositivo
 
@@ -155,7 +155,7 @@ Il linguaggio di query dell'hub Internet viene usato per diversi scopi. Ad esemp
 
 Un dispositivo Plug and Play è in genere un dispositivo di elaborazione autonomo di piccole dimensioni che raccoglie dati o controlla altri dispositivi e che esegue software o firmware che implementa un [modello di funzionalità del dispositivo](#device-capability-model).  Ad esempio, un dispositivo Plug and Play potrebbe essere un dispositivo di monitoraggio ambientale o un controller per un sistema di irrigazione con Smart Agriculture. È possibile scrivere una soluzione Internet delle cose ospitata nel cloud per i comandi, il controllo e la ricezione di dati da dispositivi Plug and Play. Il [Catalogo dei dispositivi Azure Certified per](#certified-for-iot-device-catalog) Internet è elencato plug and Play dispositivi. Ogni sacco Plug and Play dispositivo nel catalogo è stato convalidato e ha un [modello di capacità del dispositivo](#device-capability-model).
 
-## <a name="microsoft-partner-center"></a>Microsoft Partner Center
+## <a name="microsoft-partner-center"></a>Centro per i partner Microsoft
 
 Il centro per i [partner Microsoft](https://docs.microsoft.com/partner-center/) è il punto in cui l'organizzazione gestisce la relazione end-to-end con Microsoft. È necessario un account del centro per i partner Microsoft prima di poter certificare le cose [plug and Play dispositivo](#iot-plug-and-play-device) nel [portale di Azure Certified per](#azure-certified-for-iot-portal)Internet.
 

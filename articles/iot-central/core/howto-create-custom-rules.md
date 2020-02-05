@@ -3,20 +3,22 @@ title: Estendere IoT Central di Azure con regole e notifiche personalizzate | Mi
 description: Per gli sviluppatori di soluzioni, configurare un'applicazione IoT Central per inviare notifiche tramite posta elettronica quando un dispositivo smette di inviare dati di telemetria. Questa soluzione USA analisi di flusso di Azure, funzioni di Azure e SendGrid.
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/23/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 9042f3d34ee550af50e043167db6339f36b71bd0
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 541cbc0c34a691f51c1a3a53f71920379c447f5d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76987595"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022444"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Estendi IoT Central di Azure con regole personalizzate usando analisi di flusso, funzioni di Azure e SendGrid
+
+
 
 Questa guida illustra come uno sviluppatore di soluzioni, come estendere l'applicazione IoT Central con regole e notifiche personalizzate. Nell'esempio viene illustrato l'invio di una notifica a un operatore quando un dispositivo interrompe l'invio di dati di telemetria. La soluzione USA una query di [analisi di flusso di Azure](https://docs.microsoft.com/azure/stream-analytics/) per rilevare quando un dispositivo ha interrotto l'invio della telemetria. Il processo di analisi di flusso usa [funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/) per inviare messaggi di posta elettronica di notifica usando [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
 
@@ -41,14 +43,16 @@ Creare un'applicazione IoT Central nel sito Web di [Azure IOT Central Applicatio
 | Impostazione | Valore |
 | ------- | ----- |
 | Piano tariffario | Standard |
-| Modello di applicazione | Applicazione legacy |
+| Modello di applicazione | Analisi in-Store-monitoraggio delle condizioni |
 | Nome applicazione | Accetta il nome predefinito o scegli il tuo nome |
 | URL | Accettare l'impostazione predefinita o scegliere il prefisso URL univoco |
 | Directory | Tenant di Azure Active Directory |
 | Sottoscrizione di Azure | Sottoscrizione di Azure |
-| Area | Stati Uniti |
+| Area | Area geografica più vicina |
 
 Gli esempi e le schermate in questo articolo usano l'area **Stati Uniti** . Scegliere una località vicina e assicurarsi di creare tutte le risorse nella stessa area.
+
+Questo modello di applicazione include due dispositivi termotermostati simulati che inviano dati di telemetria.
 
 ### <a name="resource-group"></a>Gruppo di risorse
 
@@ -307,7 +311,7 @@ Questa soluzione USA una query di analisi di flusso per rilevare quando un dispo
 
 Nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentral) passare all'applicazione IoT Central creata dal modello contoso. In questa sezione l'applicazione viene configurata in modo da trasmettere i dati di telemetria dai dispositivi simulati all'hub eventi. Per configurare l'esportazione:
 
-1. Passare alla pagina **esportazione dati continui** , selezionare **+ nuovo**, quindi **Hub eventi di Azure**.
+1. Passare alla pagina **esportazione dati** , selezionare **+ nuovo**, quindi **Hub eventi di Azure**.
 1. Usare le impostazioni seguenti per configurare l'esportazione, quindi selezionare **Salva**:
 
     | Impostazione | Valore |
@@ -328,15 +332,15 @@ Prima di continuare, attendere che lo stato di esportazione sia **in esecuzione*
 
 Per testare la soluzione, è possibile disabilitare l'esportazione dei dati continui da IoT Central a dispositivi arrestati simulati:
 
-1. Nell'applicazione IoT Central passare alla pagina **esportazione dati continui** e selezionare la configurazione Esporta **in hub eventi** .
+1. Nell'applicazione IoT Central passare alla pagina **esportazione dati** e selezionare la configurazione Esporta **in hub eventi** .
 1. Impostare **abilitato** su **disattivato** e scegliere **Salva**.
 1. Dopo almeno due minuti, l'indirizzo **di** posta elettronica a riceve uno o più messaggi di posta elettronica simili al contenuto di esempio seguente:
 
     ```txt
     The following device(s) have stopped sending telemetry:
 
-    Device ID   Time
-    7b169aee-c843-4d41-9f25-7a02671ee659    2019-05-09T14:28:59.954Z
+    Device ID         Time
+    Thermostat-Zone1  2019-11-01T12:45:14.686Z
     ```
 
 ## <a name="tidy-up"></a>Operazioni finali

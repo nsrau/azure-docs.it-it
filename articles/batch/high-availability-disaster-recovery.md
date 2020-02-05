@@ -3,8 +3,8 @@ title: Disponibilità elevata e ripristino di emergenza-Azure Batch
 description: Informazioni su come progettare un'applicazione batch per un'interruzione a livello di area. I carichi di lavoro devono eseguire il failover in un'altra area o essere suddivisi tra due o più aree.
 services: batch
 documentationcenter: ''
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -12,13 +12,13 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: jushiman
-ms.openlocfilehash: 11546a6a664e6fb185a32d8e6cd593a850803fe8
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.author: labrenne
+ms.openlocfilehash: 84b0cce9557b4ae05586579f175cd0f5db14fdfc
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76930108"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026082"
 ---
 # <a name="design-your-application-for-high-availability"></a>Progettare l'applicazione per la disponibilità elevata
 
@@ -49,5 +49,5 @@ Quando si progetta una soluzione di cui poter eseguire il failover, tenere prese
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sulla creazione di account Batch con il [portale di Azure](batch-account-create-portal.md), l'[interfaccia della riga di comando di Azure](cli-samples.md), [Powershell](batch-powershell-cmdlets-get-started.md) o l'[API di gestione Batch](batch-management-dotnet.md).
+- Altre informazioni sulla creazione di account batch con il [portale di Azure](batch-account-create-portal.md), l' [interfaccia](cli-samples.md)della riga di comando di Azure, [PowerShell](batch-powershell-cmdlets-get-started.md)o l'API di [gestione di batch](batch-management-dotnet.md).
 - A un account Batch sono associate quote predefinite. [Questo articolo](batch-quota-limit.md) illustra i valori delle quote predefinite e descrive come poter aumentare le quote.

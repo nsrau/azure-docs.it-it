@@ -284,7 +284,7 @@
         - name: Registrare le metriche per le esecuzioni di training
           href: how-to-track-experiments.md
         - name: Tenere traccia di esperimenti con MLflow
-          displayName: 'log, monitor, metrics'
+          displayName: 'log, monitor, metrics, Databricks'
           href: how-to-use-mlflow.md
         - name: Visualizzare le esecuzioni con TensorBoard
           displayName: 'log, monitor, metrics'

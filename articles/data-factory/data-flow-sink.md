@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 1c65a456270cdca345504c07b927a7ef7e1f725b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3b631c068d1a444691345e054219208c4c8b0b8c
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440285"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020047"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Trasformazione sink nel flusso di dati di mapping
 
@@ -52,6 +52,12 @@ Una volta aggiunto un sink, configurare tramite la scheda **sink** . Qui è poss
 Analogamente a una trasformazione Select, nella scheda **mapping** del sink è possibile decidere quali colonne in entrata verranno scritte. Per impostazione predefinita, viene eseguito il mapping di tutte le colonne di input, incluse le colonne trascinate. Questa operazione è nota come **mapping automatico**.
 
 Quando si disattiva il mapping automatico, sarà possibile aggiungere mapping basati su colonne fisse o mapping basati su regole. I mapping basati su regole consentono di scrivere espressioni con criteri di ricerca, mentre il mapping fisso eseguirà il mapping dei nomi delle colonne logiche e fisiche. Per ulteriori informazioni sul mapping basato su regole, vedere la pagina relativa ai [modelli di colonna nel flusso di dati di mapping](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink).
+
+## <a name="custom-sink-ordering"></a>Ordinamento di sink personalizzato
+
+Per impostazione predefinita, i dati vengono scritti in più sink in un ordine non deterministico. Il motore di esecuzione scriverà i dati in parallelo quando la logica di trasformazione viene completata e l'ordinamento del sink può variare a seconda dell'esecuzione. Per specificare l'ordinamento del sink esatto, abilitare l' **ordinamento del sink personalizzato** nella scheda generale del flusso di dati. Se abilitati, i sink verranno scritti in sequenza in ordine crescente.
+
+![Ordinamento di sink personalizzato](media/data-flow/custom-sink-ordering.png "Ordinamento di sink personalizzato")
 
 ## <a name="data-preview-in-sink"></a>Anteprima dati in sink
 

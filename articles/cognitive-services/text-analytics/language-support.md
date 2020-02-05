@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: fcf7051a631e74f2f6db918c7c861e32295ae9e8
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 3e7402be79f7b57a426543c35f08524e0da9d283
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732638"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024535"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Supporto lingua e area geografica per l'API Analisi del testo
 
@@ -63,7 +63,7 @@ Il supporto di una lingua viene inizialmente implementato in anteprima e quindi 
 | Ungherese             |     `hu`      |           |             |           ✔ \*           |                |                    |
 | Italiano               |     `it`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
 | Giapponese              |     `ja`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
-| Coreano                |     `ko`      |           |      ✔      |           ✔ \*           |                |                    |
+| Coreano                |     `ko`      |   ✔ \*\*  |      ✔      |           ✔ \*           |                |                    |
 | Norvegese (Bokmål)   |     `no`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Polacco                |     `pl`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Portoghese (Portogallo) |    `pt-PT`    |   ✔\**    |      ✔      |           ✔ \*           |                | Accettato anche `pt` |

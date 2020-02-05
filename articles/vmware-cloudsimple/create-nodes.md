@@ -1,6 +1,6 @@
 ---
-title: Eseguire il provisioning di nodi per la soluzione VMware con CloudSimple-Azure
-description: Informazioni su come aggiungere nodi a VMWare con la distribuzione di CloudSimple
+title: Eseguire il provisioning di nodi per le soluzioni VMware (AVS)-Azure
+description: Informazioni su come aggiungere nodi a VMWare con la distribuzione AVS
 author: dikamath
 ms.author: dikamath
 ms.date: 08/14/2019
@@ -8,34 +8,34 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: eb033425d18b472c9da1a2d6a1bb6f166702905e
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 94ca681153f1e3ccd9ff628b41a9d0e547be5802
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828173"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024807"
 ---
-# <a name="provision-nodes-for-azure-vmware-solution-by-cloudsimple"></a>Eseguire il provisioning di nodi per la soluzione VMware di Azure per
+# <a name="provision-nodes-for-azure-vmware-solutions-avs"></a>Eseguire il provisioning di nodi per le soluzioni VMware di Azure (AVS)
 
-Eseguire il provisioning dei nodi nel portale di Azure. Puoi quindi configurare la capacità con pagamento in base al consumo per l'ambiente cloud privato CloudSimple.
+Eseguire il provisioning dei nodi nel portale di Azure. Puoi quindi configurare la capacità con pagamento in base al consumo per l'ambiente di cloud privato AVS.
 
-## <a name="sign-in-to-azure"></a>Accedi ad Azure
+## <a name="sign-in-to-azure"></a>Accedere a Azure
 
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="add-a-node-to-your-cloudsimple-private-cloud"></a>Aggiungere un nodo al cloud privato CloudSimple
+## <a name="add-a-node-to-your-avs-private-cloud"></a>Aggiungere un nodo al cloud privato AVS
 
 1. Selezionare **Tutti i servizi**.
-2. Cercare i **nodi CloudSimple**.
+2. Cercare i **nodi AVS**.
 
-   ![Cerca nodi CloudSimple](media/create-cloudsimple-node-search.png)
+   ![Cerca nodi AVS](media/create-cloudsimple-node-search.png)
 
-3. Selezionare i **nodi CloudSimple**.
+3. Selezionare **AVS nodes**.
 4. Fare clic su **Aggiungi** per creare i nodi.
 
-    ![Aggiungi nodi CloudSimple](media/create-cloudsimple-node-add.png)
+    ![Aggiungi nodi AVS](media/create-cloudsimple-node-add.png)
 
-5. Selezionare la sottoscrizione in cui si vuole eseguire il provisioning dei nodi CloudSimple.
+5. Selezionare la sottoscrizione in cui si vuole eseguire il provisioning di nodi AVS.
 6. Selezionare il gruppo di risorse per i nodi. Per aggiungere un nuovo gruppo di risorse, fare clic su **Crea nuovo**.
 7. Immettere il prefisso per identificare i nodi.
 8. Selezionare il percorso per le risorse del nodo.
@@ -44,8 +44,8 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 11. Selezionare il numero di nodi di cui eseguire il provisioning.
 12. Selezionare **Rivedi e crea**.
 13. Esaminare le impostazioni. Per modificare le impostazioni, fare clic su **indietro**.
-14. Selezionare **Create**.
+14. Selezionare **Create** (Crea).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creazione di un cloud privato](create-private-cloud.md)
+* [Creare un cloud privato AVS](create-private-cloud.md)

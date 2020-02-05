@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/11/2019
-ms.openlocfilehash: 52bec8bba7bb3ddf545e3bd1866775f0964c6ad3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 6e9e1d54599ab88092638762ccd7974e44c82cbf
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893147"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025810"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copiare e trasformare i dati in Azure Cosmos DB (API SQL) utilizzando Azure Data Factory
 
@@ -24,7 +24,7 @@ ms.locfileid: "75893147"
 > * [Versione 1](v1/data-factory-azure-documentdb-connector.md)
 > * [Versione corrente](connector-azure-cosmos-db.md)
 
-Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e in Azure Cosmos DB (API SQL) e usare il flusso di dati per trasformare i dati in Azure Cosmos DB (API SQL). Per altre informazioni su Azure Data Factory, vedere l'[articolo introduttivo](introduction.md).
+In questo articolo viene illustrato come usare l'attività di copia in Azure Data Factory per copiare dati da e verso Azure Cosmos DB (API SQL) e usare Flusso di dati per trasformare i dati in Azure Cosmos DB (API SQL). Per altre informazioni su Azure Data Factory, vedere l'[articolo introduttivo](introduction.md).
 
 >[!NOTE]
 >Questo connettore supporta solo Cosmos DB API SQL. Per l'API MongoDB, fare riferimento al [connettore per l'API di Azure Cosmos DB per MongoDB](connector-azure-cosmos-db-mongodb-api.md). Al momento non sono supportati altri tipi di API.
@@ -268,6 +268,18 @@ Le impostazioni specifiche per Azure Cosmos DB sono disponibili nella scheda **O
 **Velocità effettiva:** Impostare un valore facoltativo per il numero di ur da applicare alla raccolta CosmosDB per ogni esecuzione di questo flusso di dati durante l'operazione di lettura. Il valore minimo è 400.
 
 **Aree preferite:** Scegliere le aree di lettura preferite per questo processo.
+
+#### <a name="json-settings"></a>Impostazioni JSON
+
+**Documento singolo:** Selezionare questa opzione se ADF deve trattare l'intero file come singolo documento JSON.
+
+**Nomi di colonna non racchiusi tra virgolette:** Selezionare questa opzione se i nomi di colonna in JSON non sono racchiusi tra virgolette.
+
+**Contiene commenti:** Usare questa opzione se i documenti JSON includono commenti nei dati.
+
+**Singolo racchiuso tra virgolette:** Questa opzione deve essere selezionata se le colonne e i valori del documento sono racchiusi tra virgolette singole.
+
+**Barra rovesciata con Escape:** Se si usano le barre rovesciate per eseguire il escape dei caratteri nel file JSON, scegliere questa opzione.
 
 ### <a name="sink-transformation"></a>Sink-trasformazione
 

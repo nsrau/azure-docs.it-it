@@ -3,20 +3,20 @@ title: Montare un file system virtuale in un pool-Azure Batch | Microsoft Docs
 description: Informazioni su come montare un file system virtuale in un pool di batch.
 services: batch
 documentationcenter: ''
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: jushiman
-ms.openlocfilehash: eab8e509e4978de50968bc1d960ee34d46bc73b0
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: a22117505dff35f9b92e3dd3c91dc8540557b218
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029150"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023039"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Montare un file system virtuale in un pool di batch
 
@@ -114,7 +114,7 @@ new PoolAddParameter
 }
 ```
 
-### <a name="network-file-system"></a>NFS (Network File System)
+### <a name="network-file-system"></a>File System di rete
 
 È anche possibile montare i file System di rete (NFS) nei nodi del pool, in modo da consentire l'accesso ai file System tradizionali tramite nodi Azure Batch. Potrebbe trattarsi di un singolo server NFS distribuito nel cloud o di un server NFS locale a cui si accede tramite una rete virtuale. In alternativa, è possibile sfruttare la soluzione per la cache in memoria distribuita [vFXT](../avere-vfxt/avere-vfxt-overview.md) , che offre una connettività senza problemi all'archiviazione locale, alla lettura dei dati su richiesta nella propria cache e offre prestazioni elevate e scalabilità ai nodi di calcolo basati sul cloud.
 

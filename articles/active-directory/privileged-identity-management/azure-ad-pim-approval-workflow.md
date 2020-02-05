@@ -16,12 +16,12 @@ ms.date: 11/12/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bc4b518cd2400cf3826b31a590d499c1ad031e7
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3261e30d024cedba5885019a62cba1e296c1c00d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896525"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025555"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Approva o rifiuta le richieste per i ruoli di Azure AD in Privileged Identity Management
 
@@ -37,54 +37,6 @@ A partire da novembre 2019, la parte Azure AD ruoli di Privileged Identity Manag
     ![Nuova versione dei ruoli Azure AD](./media/pim-how-to-add-role-to-user/pim-new-version.png)
 
 Attenersi alla procedura descritta in questo articolo per approvare o negare le richieste di Azure AD ruoli.
-
-# <a name="previous-versiontabprevious"></a>[Versione precedente](#tab/previous)
-
-## <a name="view-pending-requests"></a>Visualizzare le richieste in sospeso
-
-In qualità di responsabile approvazione delegata, si riceverà una notifica di posta elettronica quando una richiesta di ruolo Azure AD è in attesa dell'approvazione. È possibile visualizzare le richieste in sospeso in Privileged Identity Management.
-
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-
-1. Aprire **Azure AD Privileged Identity Management**.
-
-1. Fare clic su **Ruoli di Azure AD**.
-
-1. Fare clic su **Approva richieste**.
-
-    ![Ruoli di Azure AD-approva le richieste](./media/azure-ad-pim-approval-workflow/approve-requests.png)
-
-    È possibile visualizzare un elenco delle richieste in attesa di approvazione.
-
-## <a name="approve-requests"></a>Approvare le richieste
-
-1. Selezionare le richieste da approvare e quindi fare clic su **Approva** per aprire il riquadro Approva le richieste selezionate.
-
-    ![Approva l'elenco di richieste con l'opzione approva evidenziata](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
-
-1. Digitare un motivo nella casella **Motivo dell'approvazione**.
-
-    ![Approva il riquadro delle richieste selezionate con un motivo dell'approvazione](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
-
-1. Fare clic su **Approve** (Approva).
-
-    L'icona di stato verrà aggiornata per indicare l'approvazione.
-
-    ![Approva il riquadro delle richieste selezionate dopo aver fatto clic sul pulsante approva](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
-
-## <a name="deny-requests"></a>Rifiutare le richieste
-
-1. Selezionare le richieste da rifiutare e quindi fare clic su **Nega** per aprire il riquadro Rifiuta le richieste selezionate.
-
-    ![Approva elenco richieste con l'opzione Nega evidenziata](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
-
-1. Digitare un motivo nella casella **Motivo del rifiuto**.
-
-    ![Nega il riquadro delle richieste selezionate con un motivo di negazione](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
-
-1. Fare clic su **Nega**.
-
-    L'icona di stato verrà aggiornata per indicare il rifiuto.
 
 # <a name="new-versiontabnew"></a>[Nuova versione](#tab/new)
 
@@ -135,6 +87,54 @@ Ecco alcune informazioni sulle notifiche del flusso di lavoro:
 
 >[!NOTE]
 >Un amministratore di risorse che ritiene che un utente approvato non sia attivo può rimuovere l'assegnazione di ruolo attiva in Privileged Identity Management. Sebbene gli amministratori delle risorse non ricevano notifiche di richieste in sospeso a meno che non siano un responsabile approvazione, possono visualizzare e annullare le richieste in sospeso per tutti gli utenti visualizzando richieste in sospeso in Privileged Identity Management.
+
+# <a name="previous-versiontabprevious"></a>[Versione precedente](#tab/previous)
+
+## <a name="view-pending-requests"></a>Visualizzare le richieste in sospeso
+
+In qualità di responsabile approvazione delegata, si riceverà una notifica di posta elettronica quando una richiesta di ruolo Azure AD è in attesa dell'approvazione. È possibile visualizzare le richieste in sospeso in Privileged Identity Management.
+
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+
+1. Aprire **Azure AD Privileged Identity Management**.
+
+1. Fare clic su **Ruoli di Azure AD**.
+
+1. Fare clic su **Approva richieste**.
+
+    ![Ruoli di Azure AD-approva le richieste](./media/azure-ad-pim-approval-workflow/approve-requests.png)
+
+    È possibile visualizzare un elenco delle richieste in attesa di approvazione.
+
+## <a name="approve-requests"></a>Approvare le richieste
+
+1. Selezionare le richieste da approvare e quindi fare clic su **Approva** per aprire il riquadro Approva le richieste selezionate.
+
+    ![Approva l'elenco di richieste con l'opzione approva evidenziata](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
+
+1. Digitare un motivo nella casella **Motivo dell'approvazione**.
+
+    ![Approva il riquadro delle richieste selezionate con un motivo dell'approvazione](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
+
+1. Fare clic su **Approve** (Approva).
+
+    L'icona di stato verrà aggiornata per indicare l'approvazione.
+
+    ![Approva il riquadro delle richieste selezionate dopo aver fatto clic sul pulsante approva](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
+
+## <a name="deny-requests"></a>Rifiutare le richieste
+
+1. Selezionare le richieste da rifiutare e quindi fare clic su **Nega** per aprire il riquadro Rifiuta le richieste selezionate.
+
+    ![Approva elenco richieste con l'opzione Nega evidenziata](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
+
+1. Digitare un motivo nella casella **Motivo del rifiuto**.
+
+    ![Nega il riquadro delle richieste selezionate con un motivo di negazione](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
+
+1. Fare clic su **Nega**.
+
+    L'icona di stato verrà aggiornata per indicare il rifiuto.
 
 ---
 

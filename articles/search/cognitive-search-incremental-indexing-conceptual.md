@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: f0e7c3bbbdcd1edad24422163fde38e3fdce7e27
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 09003c26ead9108d07ae339fcf64235c246474a4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988652"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024144"
 ---
 # <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Introduzione all'arricchimento e alla memorizzazione nella cache incrementali in Azure ricerca cognitiva
 
@@ -26,7 +26,7 @@ L'arricchimento incrementale aggiunge la memorizzazione nella cache e informazio
 
 L'arricchimento incrementale aggiunge una cache alla pipeline di arricchimento. L'indicizzatore memorizza nella cache i risultati di cracking del documento più gli output di ogni competenza per ogni documento. Quando un set di competenze viene aggiornato, vengono rieseguite solo le competenze modificate, o a valle. I risultati aggiornati vengono scritti nella cache e il documento viene aggiornato nell'indice di ricerca o nell'archivio delle informazioni.
 
-Fisicamente, la cache è archiviata in un contenitore BLOB nell'account di archiviazione di Azure. Tutti gli indici in un servizio di ricerca possono condividere lo stesso account di archiviazione per la cache dell'indicizzatore. A ogni indicizzatore viene assegnato un identificatore univoco e non modificabile della cache al contenitore utilizzato.
+Fisicamente, la cache è archiviata in un contenitore BLOB nell'account di archiviazione di Azure. La cache usa anche l'archiviazione tabelle per un record interno di elaborazione degli aggiornamenti. Tutti gli indici in un servizio di ricerca possono condividere lo stesso account di archiviazione per la cache dell'indicizzatore. A ogni indicizzatore viene assegnato un identificatore univoco e non modificabile della cache al contenitore utilizzato.
 
 ## <a name="cache-configuration"></a>Configurazione della cache
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 589d8219681304242585c9fed33a4e3d364909ec
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: fbb6170aa54c286a5a2d8353c1dd951859fdf8a0
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978895"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024586"
 ---
 # <a name="what-are-security-defaults"></a>Che cosa sono le impostazioni predefinite della sicurezza?
 
@@ -94,6 +94,8 @@ L'uso di Azure Resource Manager per gestire i servizi è un'azione con privilegi
 Dopo aver abilitato le impostazioni predefinite di sicurezza nel tenant, gli utenti che accedono al portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure dovranno completare l'autenticazione aggiuntiva. Questo criterio si applica a tutti gli utenti che accedono a Azure Resource Manager, sia che si tratti di un amministratore o di un utente. 
 
 Se l'utente non è registrato per Multi-Factor Authentication, l'utente dovrà eseguire la registrazione usando l'app Microsoft Authenticator per continuare. Non verrà fornito alcun periodo di registrazione di 14 giorni Multi-Factor Authentication.
+
+Per i tenant di Exchange Online pre-2017 l'autenticazione moderna è disabilitata per impostazione predefinita. Per evitare la possibilità di un ciclo di accesso durante l'autenticazione tramite questi tenant, è necessario [abilitare l'autenticazione moderna](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 > [!NOTE]
 > L'account di sincronizzazione Azure AD Connect viene escluso dalle impostazioni predefinite di sicurezza e non verrà richiesto di eseguire la registrazione o l'esecuzione di autenticazione a più fattori. Le organizzazioni non devono usare questo account per altri scopi.

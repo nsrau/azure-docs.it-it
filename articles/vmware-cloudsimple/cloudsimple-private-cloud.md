@@ -1,6 +1,6 @@
 ---
-title: Soluzione VMware di Azure di CloudSimple-cloud privati
-description: Informazioni sui cloud privati e i concetti relativi a CloudSimple.
+title: Azure VMware Solutions (AVS)-AVS private cloud
+description: Informazioni sui cloud privati e i concetti relativi a AVS.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,56 +8,56 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4fb930603455ed1a5df5d357fcab669f41a0c28c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 2688edf281a6d8bc3d61e8e294c920f115f0f3f6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877956"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024950"
 ---
-# <a name="cloudsimple-private-cloud-overview"></a>Panoramica del cloud privato CloudSimple
+# <a name="avs-private-cloud-overview"></a>Panoramica di AVS private cloud
 
-CloudSimple trasforma ed estende i carichi di lavoro VMware in cloud pubblici in pochi minuti. Con il servizio CloudSimple è possibile distribuire VMware in modo nativo nell'infrastruttura bare metal di Azure. La distribuzione si trova in località di Azure e si integra completamente con il resto del cloud di Azure.
+AVS trasforma ed estende i carichi di lavoro VMware in cloud pubblici in pochi minuti. Con il servizio AVS è possibile distribuire VMware in modo nativo nell'infrastruttura bare metal di Azure. La distribuzione si trova in località di Azure e si integra completamente con il resto del cloud di Azure.
 
-La soluzione CloudSimple fornisce la continuità operativa VMware completa. Questa soluzione offre i vantaggi del cloud pubblico di:
+La soluzione AVS offre una continuità operativa VMware completa. Questa soluzione offre i vantaggi del cloud pubblico di:
 
 * Elasticità
 * Innovazione
 * Efficienza
 
-Con CloudSimple è possibile trarre vantaggio da un modello di consumo cloud che riduce il costo totale di proprietà. Offre anche il provisioning su richiesta, il pagamento in base al consumo e l'ottimizzazione della capacità.
+Con AVS è possibile trarre vantaggio da un modello di consumo cloud che riduce il costo totale di proprietà. Offre anche il provisioning su richiesta, il pagamento in base al consumo e l'ottimizzazione della capacità.
 
-CloudSimple è completamente compatibile con:
+AVS è completamente compatibile con:
 
 * Strumenti esistenti
 * Competenze
-* Processi
+* Procedure
 
 Questa compatibilità consente ai team di gestire i carichi di lavoro nel cloud di Azure, senza compromettere i tipi di criteri seguenti:
 
 * Rete
-* Security  
-* Protezione dati  
+* Sicurezza  
+* Protezione dei dati  
 * Audit
 
-CloudSimple gestisce l'infrastruttura e tutti i servizi di rete e gestione necessari. Il servizio CloudSimple consente al team di concentrarsi su:
+AVS gestisce l'infrastruttura e tutti i servizi di rete e gestione necessari. Il servizio AVS consente al team di concentrarsi su:
 
 * Valore di business
 * Provisioning delle applicazioni
-* Continuità aziendale
+* Business continuity
 * Supporto
-* Applicazione dei criteri
+* Imposizione dei criteri
 
-## <a name="private-cloud-environment-overview"></a>Panoramica dell'ambiente del cloud privato
+## <a name="avs-private-cloud-environment-overview"></a>Panoramica dell'ambiente del cloud privato AVS
 
-Un cloud privato è uno stack VMware isolato che supporta:
+Un cloud privato AVS è uno stack VMware isolato che supporta:
 
 * Host ESXi
 * vCenter
 * vSAN
 * NSX
 
-I cloud privati vengono gestiti tramite il portale CloudSimple. Hanno il proprio server vCenter nel proprio dominio di gestione.
+I cloud privati AVS vengono gestiti tramite il portale AVS. Hanno il proprio server vCenter nel proprio dominio di gestione.
 
 Lo stack viene eseguito in:
 
@@ -69,25 +69,25 @@ Gli utenti utilizzano lo stack tramite strumenti VMware nativi, tra cui:
 * vCenter
 * Gestione NSX
 
-È possibile distribuire nodi dedicati in località di Azure. È quindi possibile gestirli con Azure e CloudSimple. Un cloud privato è costituito da uno o più cluster vSphere e ogni cluster contiene da 3 a 16 nodi.
+È possibile distribuire nodi dedicati in località di Azure. È quindi possibile gestirli con Azure e AVS. Un cloud privato AVS è costituito da uno o più cluster vSphere e ogni cluster contiene da 3 a 16 nodi.
 
-È possibile creare un cloud privato usando i nodi acquistati, con pagamento in base al consumo o i nodi dedicati riservati.
+È possibile creare un cloud privato AVS usando i nodi acquistati, con pagamento in base al consumo o i nodi dedicati riservati.
 
-È possibile connettere il cloud privato all'ambiente locale e alla rete di Azure usando le connessioni seguenti:
+È possibile connettere il cloud privato AVS all'ambiente locale e alla rete di Azure usando le connessioni seguenti:
 
-* Proteggere
+* Sicuro
 * VPN privata
-* Azure ExpressRoute
+* ExpressRoute di Azure
 
-L'ambiente cloud privato è progettato per eliminare singoli punti di errore:
+L'ambiente di cloud privato AVS è progettato per eliminare singoli punti di errore:
 
 * I cluster ESXi sono configurati con la disponibilità elevata di vSphere e sono dimensionati per avere almeno un nodo di riserva per la resilienza.
 * Rete VSAN fornisce archiviazione primaria ridondante. Rete VSAN richiede almeno tre nodi per garantire la protezione da un singolo errore. È possibile configurare rete VSAN per fornire una resilienza maggiore per i cluster più grandi.
 * È possibile configurare le VM vCenter, PSC e NSX Manager con i criteri di archiviazione RAID-10 per proteggersi da errori di archiviazione. vSphere HA protegge da errori di nodo e di rete.
 
-## <a name="scenarios-for-deploying-a-private-cloud"></a>Scenari per la distribuzione di un cloud privato
+## <a name="scenarios-for-deploying-an-avs-private-cloud"></a>Scenari per la distribuzione di un cloud privato AVS
 
-Di seguito sono riportati alcuni casi d'uso di esempio per la distribuzione di cloud privati.
+Di seguito sono riportati alcuni casi d'uso di esempio per la distribuzione del cloud privato AVS.
 
 ### <a name="data-center-retirement-or-migration"></a>Ritiro o migrazione del Data Center
 
@@ -106,11 +106,11 @@ Di seguito sono riportati alcuni casi d'uso di esempio per la distribuzione di c
 
 * Consente di stabilire l'accesso remoto ai dati, alle app e ai desktop nel cloud di Azure. Con le connessioni a larghezza di banda elevata, i dati vengono caricati o scaricati velocemente per il ripristino dagli eventi imprevisti. Le reti a bassa latenza offrono tempi di risposta rapidi che gli utenti si aspettano da un'app desktop.
 
-* Replicare tutti i criteri e le funzionalità di rete nel cloud usando il portale di CloudSimple e gli strumenti di VMware noti. La replica riduce l'impegno e il rischio di creare e gestire le implementazioni di ripristino di emergenza e di ripristino di emergenza
+* Replicare tutti i criteri e le funzionalità di rete nel cloud usando il portale AVS e gli strumenti di VMware noti. La replica riduce l'impegno e il rischio di creare e gestire le implementazioni di ripristino di emergenza e di ripristino di emergenza
 
 ### <a name="high-performance-applications-and-databases"></a>Applicazioni e database ad alte prestazioni
 
-* Esegui i tuoi carichi di lavoro più complessi con l'architettura iperconvergente fornita da CloudSimple.
+* Esegui i tuoi carichi di lavoro più complessi con l'architettura iperconvergente fornita da AVS.
 * Eseguire Oracle, Microsoft SQL Server, i sistemi middleware e i database no-SQL ad alte prestazioni.
 * Scopri il cloud come data center con connessioni di rete a 25 Gbps ad alta velocità. Le connessioni ad alta velocità consentono di eseguire app ibride che si estendono in locale, VMware in Azure e carichi di lavoro privati di Azure, senza compromettere le prestazioni.
 
@@ -123,16 +123,16 @@ Di seguito sono riportati alcuni casi d'uso di esempio per la distribuzione di c
 
 ## <a name="limits"></a>Limiti
 
-La tabella seguente elenca i limiti dei nodi per le risorse di un cloud privato.
+La tabella seguente elenca i limiti dei nodi per le risorse di un cloud privato AVS.
 
-| Risorsa | Limite |
+| Gruppi | Limite |
 |----------|-------|
-| Numero minimo di nodi per la creazione di un cloud privato | 3 |
-| Numero massimo di nodi in un cluster in un cloud privato | 16 |
-| Numero massimo di nodi in un cloud privato | 64 |
+| Numero minimo di nodi per la creazione di un cloud privato AVS | 3 |
+| Numero massimo di nodi in un cluster in un cloud privato AVS | 16 |
+| Numero massimo di nodi in un cloud privato AVS | 64 |
 | Numero minimo di nodi in un nuovo cluster | 3 |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su come [creare un cloud privato](create-private-cloud.md)
-* Informazioni su come [configurare un ambiente cloud privato](quickstart-create-private-cloud.md)
+* Informazioni su come [creare un cloud privato AVS](create-private-cloud.md)
+* Informazioni su come [configurare un ambiente cloud privato AVS](quickstart-create-private-cloud.md)

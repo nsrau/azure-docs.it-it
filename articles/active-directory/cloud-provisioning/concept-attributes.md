@@ -15,12 +15,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fc68626959daaccb5ddc05ce6148c5948052d41
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: cd013b44454cc0283ef84d6a978b15400eca8786
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549381"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022495"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Informazioni sullo schema di Azure AD
 Un oggetto in Azure Active Directory (Azure AD), come qualsiasi directory, è un costrutto di dati di alto livello programmatico che rappresenta elementi come utenti, gruppi e contatti. Quando si crea un nuovo utente o un contatto in Azure AD, si sta creando una nuova istanza di tale oggetto. Queste istanze possono essere differenziate in base alle relative proprietà.
@@ -72,7 +72,7 @@ Per visualizzare lo schema e verificarlo, attenersi alla seguente procedura.
 1.  Passare a [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 1.  Accedere con l'account amministratore globale.
 1.  A sinistra selezionare **modifica autorizzazioni** e assicurarsi che la **Directory. ReadWrite. All** sia *consentita*.
-1.  Eseguire la query https://graph.microsoft.com/beta/serviceprincipals/. Questa query restituisce un elenco di entità servizio.
+1.  Eseguire la query https://graph.microsoft.com/beta/serviceprincipals/? $filter = StartsWith (DisplayName,' Active '). Questa query restituisce un elenco filtrato di entità servizio.
 1.  Individuare `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` e prendere nota del valore per `"id"`.
     ```
     "value": [
