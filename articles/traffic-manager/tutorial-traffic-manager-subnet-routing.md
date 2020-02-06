@@ -3,28 +3,28 @@ title: 'Esercitazione: Configurare il routing del traffico delle subnet con Gest
 description: Questo articolo descrive come configurare Gestione traffico per instradare il traffico dalle subnet utente ad endpoint specifici.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
-ms.author: allensu
-ms.openlocfilehash: 00bc453ebb0e467f48bd886fc7c6b6c422693864
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.author: rohink
+ms.openlocfilehash: b00bc1c95e2f593523c584c4abfe9381e5697f79
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420264"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939466"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Esercitazione: Indirizzare il traffico a endpoint specifici basati sulla subnet dell'utente usando Gestione traffico
 
-Questo articolo descrive come configurare il metodo di routing del traffico della subnet. Il metodo di routing del traffico**Subnet** consente di eseguire il mapping di un set di intervalli di indirizzi IP a endpoint specifici e quando si riceve una richiesta da Gestione traffico, controlla l'indirizzo IP di origine della richiesta e restituisce l'endpoint associato.
+Questo articolo descrive come configurare il metodo di routing del traffico della subnet. Il metodo di routing del traffico **Subnet** consente di eseguire il mapping di un set di intervalli di indirizzi IP a endpoint specifici e quando riceve una richiesta, Gestione traffico controlla l'indirizzo IP di origine della richiesta e restituisce l'endpoint associato.
 
 In questa esercitazione, usando il routing di subnet, a seconda dell'indirizzo IP della query dell'utente, il traffico viene indirizzato a un sito Web interno o a un sito Web di produzione.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare due macchine virtuali che eseguono un sito Web di base in IIS
@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per visualizzare Gestione traffico in azione, è necessario implementare quanto segue:
 
@@ -152,9 +152,9 @@ Creare un profilo di Gestione traffico che consente di restituire specifici endp
 1. In alto a sinistra nello schermo selezionare **Crea una risorsa** > **Rete** > **Profilo di Gestione traffico** > **Crea**.
 2. In **Crea profilo di Gestione traffico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le impostazioni rimanenti e quindi selezionare **Crea**:
 
-    | Impostazione                 | Valore                                              |
+    | Impostazione                 | valore                                              |
     | ---                     | ---                                                |
-    | NOME                   | Questo nome deve essere univoco all'interno della zona trafficmanager.net e determina il nome DNS, trafficmanager.net, che viene usato per accedere al profilo di Gestione traffico.                                   |
+    | Nome                   | Questo nome deve essere univoco all'interno della zona trafficmanager.net e determina il nome DNS, trafficmanager.net, che viene usato per accedere al profilo di Gestione traffico.                                   |
     | Metodo di routing          | Selezionare il metodo di routing **Subnet**.                                       |
     | Subscription            | Selezionare la propria sottoscrizione.                          |
     | Resource group          | Selezionare **Esistente** e immettere *myResourceGroupTM1*. |
@@ -171,15 +171,15 @@ Aggiungere le due macchine virtuali in esecuzione sui server IIS, *myIISVMEastUS
 2. In **Profilo di Gestione traffico**, nella sezione **Impostazioni**, fare clic su **Endpoint** e quindi su **Aggiungi**.
 3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi scegliere **OK**:
 
-    | Impostazione                 | Valore                                              |
+    | Impostazione                 | valore                                              |
     | ---                     | ---                                                |
     | Type                    | Endpoint di Azure                                   |
-    | NOME           | myInternalWebSiteEndpoint                                        |
+    | Nome           | myInternalWebSiteEndpoint                                        |
     | Tipo di risorsa di destinazione           | Indirizzo IP pubblico                          |
     | Risorsa di destinazione          | **Scegliere un indirizzo IP pubblico** per visualizzare l'elenco delle risorse con gli indirizzi IP pubblici inclusi nella stessa sottoscrizione. In **Risorsa** selezionare l'indirizzo IP pubblico denominato *myIISVMEastUS-ip*. Questo è l'indirizzo IP pubblico della VM del server IIS nell'area Stati Uniti orientali.|
     |  Impostazioni del routing della subnet    |   Aggiungere l'indirizzo IP della VM di test *myVMEastUS*. Tutte le query dell'utente provenienti da questa macchina virtuale vengono indirizzate a *myInternalWebSiteEndpoint*.    |
 
-4. Ripetere i passaggi 2 e 3 per aggiungere un altro endpoint denominato *myProdWebsiteEndpoint* per l'indirizzo IP pubblico *myIISVMWestEurope-ip* associato alla macchina virtuale del server IIS denominata *myIISVMWestEurope*. Per le **Impostazioni di routing della subnet** aggiungere l'indirizzo IP della VM di test: *myVMWestEurope*. Qualsiasi query dell'utente di questo test verrà instradata all'endpoint - *myProdWebsiteEndpoint*.
+4. Ripetere i passaggi 2 e 3 per aggiungere un altro endpoint denominato *myProdWebsiteEndpoint* per l'indirizzo IP pubblico *myIISVMWestEurope-ip* associato alla macchina virtuale del server IIS denominata *myIISVMWestEurope*. Per le **Impostazioni di routing della subnet** aggiungere l'indirizzo IP della VM di test: *myVMWestEuropa*. Qualsiasi query dell'utente di questo test verrà instradata all'endpoint - *myProdWebsiteEndpoint*.
 5. Una volta completata l'aggiunta di entrambi gli endpoint, essi vengono visualizzati in **Profilo di Gestione traffico** insieme al relativo stato di monitoraggio **Online**.
 
 ## <a name="test-traffic-manager-profile"></a>Testare il profilo di Gestione traffico

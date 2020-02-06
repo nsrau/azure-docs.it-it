@@ -3,12 +3,12 @@ title: Panoramica di Azure Resource Graph
 description: Informazioni sul servizio Azure Resource Graph, che consente di eseguire query complesse sulle risorse su vasta scala, in diverse sottoscrizioni e diversi tenant.
 ms.date: 10/21/2019
 ms.topic: overview
-ms.openlocfilehash: 301543075d587079af0f53b6200890a75bfbb768
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 1e84de19d35f0c5f5d7975c8a94d5164100013e4
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965968"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936525"
 ---
 # <a name="what-is-azure-resource-graph"></a>Che cos'è Azure Resource Graph?
 
@@ -25,7 +25,7 @@ In questa documentazione verrà esaminata ogni funzionalità in modo dettagliato
 > Azure Resource Graph è usato dalla barra di ricerca e dalla nuova esperienza di navigazione "Tutte le risorse" del portale di Azure e dal _diff visivo_ di [Cronologia modifiche](../policy/how-to/determine-non-compliance.md#change-history-preview)
 >  di Criteri di Azure. Il suo scopo è aiutare i clienti a gestire ambienti su larga scala.
 
-[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
+[!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>In che modo Resource Graph integra Azure Resource Manager
 

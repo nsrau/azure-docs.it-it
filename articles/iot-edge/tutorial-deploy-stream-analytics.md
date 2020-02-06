@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 648eb6cdb1787e1cbdf82bd8e5c8499b0dbaf02c
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: d8c3bde0f32c1df6c98f6a71f6ab830c21256903
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772266"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906282"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Esercitazione: Distribuire Analisi di flusso di Azure come modulo IoT Edge
 
@@ -197,8 +197,8 @@ Per questa esercitazione, si distribuiscono due moduli. Il primo è **SimulatedT
     | --- | --- |
     | `telemetryToCloud` | `FROM /messages/modules/SimulatedTemperatureSensor/* INTO $upstream` |
     | `alertsToCloud` | `FROM /messages/modules/{moduleName}/* INTO $upstream` |
-    | `alertsToReset` | `FROM /messages/modules/{moduleName}/* INTO BrokeredEndpoint(\"/modules/SimulatedTemperatureSensor/inputs/control\")` |
-    | `telemetryToAsa` | `FROM /messages/modules/SimulatedTemperatureSensor/* INTO BrokeredEndpoint(\"/modules/{moduleName}/inputs/temperature\")`|
+    | `alertsToReset` | `FROM /messages/modules/{moduleName}/* INTO BrokeredEndpoint("/modules/SimulatedTemperatureSensor/inputs/control")` |
+    | `telemetryToAsa` | `FROM /messages/modules/SimulatedTemperatureSensor/* INTO BrokeredEndpoint("/modules/{moduleName}/inputs/temperature")`|
 
     Le route dichiarate qui definiscono il flusso di dati attraverso il dispositivo IoT Edge. I dati di telemetria vengono inviati dal modulo SimulatedTemperatureSensor all'hub IoT e all'input **temperature** configurato nel processo di Analisi di flusso. I messaggi di output **alert** vengono inviati all'hub IoT e al modulo SimulatedTemperatureSensor per attivare il comando reset.
 

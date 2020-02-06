@@ -1,14 +1,14 @@
 ---
 title: Distribuire l'esempio di progetto PCI-DSS v3.2.1
 description: Procedura di distribuzione per l'esempio di progetto Payment Card Industry Data Security Standard v3.2.1, inclusi i dettagli dei parametri degli artefatti del progetto.
-ms.date: 06/24/2019
+ms.date: 01/29/2020
 ms.topic: sample
-ms.openlocfilehash: aa641b35f1a7533a13803e7984c83df2f3268de6
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 9df9392430fd0496ffb5e635a6fc3e31ba708208
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546559"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905550"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Distribuire l'esempio di progetto PCI-DSS v3.2.1
 
@@ -64,7 +64,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
    - Nozioni di base
 
-     - **Sottoscrizioni**: selezionare una o più sottoscrizioni presenti nel gruppo di gestione in cui è stata salvata la copia dell'esempio di progetto. Se si selezionano più sottoscrizioni, viene creata un'assegnazione per ciascuna usando i parametri immessi.
+     - **Sottoscrizioni**: selezionare una o più sottoscrizioni presenti nel gruppo di gestione in cui è stata salvata la copia dell'esempio di progetto. Se si selezionano più sottoscrizioni, viene creata un'assegnazione per ognuna usando i parametri immessi.
      - **Nome dell'assegnazione**: il nome viene prepopolato in base al nome del progetto.
        Cambiarlo, se necessario, o lasciarlo inalterato.
      - **Località**: selezionare un'area in cui creare l'identità gestita. Azure Blueprint usa questa identità gestita per distribuire tutti gli elementi nel progetto assegnato. Per altre informazioni, vedere [Managed identities for Azure resources](../../../../active-directory/managed-identities-azure-resources/overview.md) (Identità gestite per risorse di Azure).
@@ -91,7 +91,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
 La tabella seguente contiene un elenco dei parametri degli artefatti del progetto:
 
-|Nome dell'artefatto|Tipo di artefatto|Nome parametro|DESCRIZIONE|
+|Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |-|-|-|-|
 |\[Anteprima\]: Verifica controlli PCI v3.2.1:2018 e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo|Assegnazione dei criteri|Elenco dei tipi di risorse | Controlla l'impostazione di diagnostica per i tipi di risorse selezionati. Per impostazione predefinita, sono selezionate tutte le risorse.| 
 |Percorsi consentiti|Assegnazione dei criteri|Elenco di località consentite|Elenco di località di data center consentite in cui distribuire qualsiasi risorsa. Questo elenco è personalizzabile in base alle località di Azure a livello globale. Selezionare le località da consentire.| 
