@@ -164,8 +164,6 @@
               href: concepts-data-flow-overview.md
             - name: Modalità di debug
               href: concepts-data-flow-debug-mode.md
-            - name: Gestione di JSON
-              href: concepts-data-flow-json.md
             - name: Deviazione schema
               href: concepts-data-flow-schema-drift.md
             - name: Criteri delle colonne
@@ -665,7 +663,7 @@
           href: scenario-ssis-migration-overview.md
         - name: Migrazione SSISDB a un'istanza gestita di database SQL di Azure
           href: scenario-ssis-migration-ssisdb-mi.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Script del flusso di dati
       href: data-flow-script.md

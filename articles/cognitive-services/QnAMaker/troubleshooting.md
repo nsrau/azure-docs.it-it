@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 01/28/2020
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 159b00f9417f4a572655f1f93208dbc755012922
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
-ms.translationtype: HT
+ms.openlocfilehash: 18d7e02689cc9c5fe9282a6a2456b8b1574ec85e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844854"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901648"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Risoluzione dei problemi per QnA Maker
 
@@ -39,13 +39,6 @@ L'endpoint del servizio QnAMaker è utile a scopo di debug quando si contatta il
 1. L'URL dell'endpoint è disponibile nella sezione Panoramica
 
     ![Endpoint QnAMaker](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
-
-
-## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>Usare il bot della guida nel portale di QnA Maker
-
-QnA Maker fornisce un bot della **Guida** all'interno del portale QnA Maker per aiutarti. Il bot della guida è disponibile in ogni pagina Web. Il bot USA QnA Maker per fornire risposte e fornisce il [ C# progetto di codice di bot Framework](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support) al bot, in modo che sia possibile iniziare subito a usare il proprio bot di risposta.
-
-![! [QnA Maker fornisce un bot * * Help * * all'interno del portale di QnA Maker.] (./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png)](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png#lightbox)
 
 ## <a name="manage-the-knowledge-base"></a>Gestione della knowledge base
 
@@ -121,7 +114,7 @@ Se sono presenti contenuti in più lingue, assicurati di creare un servizio sepa
 
 ### <a name="when-should-i-restart-my-app-service"></a>Quando è consigliabile riavviare un servizio app?
 
-[Aggiornare](https://www.qnamaker.ai/UserSettings) il servizio app quando l'icona di attenzione è accanto al valore della versione per la Knowledge base nella tabella **chiavi endpoint** nella pagina **impostazioni utente** .
+Aggiornare il servizio app quando l'icona di attenzione è accanto al valore della versione per la Knowledge base nella tabella **chiavi endpoint** nella [pagina](https://www.qnamaker.ai/UserSettings) **impostazioni utente**.
 
 ### <a name="i-deleted-my-existing-search-service-how-can-i-fix-this"></a>Il servizio di ricerca esistente è stato eliminato. Come si risolve questo problema?
 

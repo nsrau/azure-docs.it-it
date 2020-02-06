@@ -4,12 +4,12 @@ description: Questo articolo illustra come eseguire il backup di database di SQL
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 8125f6d98151f91faaccef512e4bcfd2946fcdd0
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 10f55bb4c5c488975f075aa0382296f808a9a5b1
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773127"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029572"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Eseguire il backup di database SQL Server in macchine virtuali di Azure
 
@@ -17,7 +17,7 @@ SQL Server database sono carichi di lavoro di importanza critica che richiedono 
 
 Questo articolo illustra come eseguire il backup di un database di SQL Server in esecuzione in una macchina virtuale di Azure in un insieme di credenziali di servizi di ripristino di backup di Azure.
 
-In questo articolo si apprenderà come:
+L'articolo spiega come:
 
 > [!div class="checklist"]
 >
@@ -59,7 +59,7 @@ Per creare una regola tramite il portale:
 
   1. In **Tutti i servizi**, passare a **Gruppi di sicurezza di rete** e selezionare il gruppo di sicurezza di rete.
   2. In **Impostazioni** selezionare **Regole di sicurezza in uscita**.
-  3. Selezionare **Aggiungi**. Immettere tutti i dettagli necessari per la creazione di una nuova regola, come descritto nelle [impostazioni delle regole di sicurezza](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Assicurarsi che l'opzione **Destinazione** sia impostata su **Tag del servizio** e che l'opzione **Tag del servizio di destinazione** sia impostata su **AzureBackup**.
+  3. Fare clic su **Aggiungi**. Immettere tutti i dettagli necessari per la creazione di una nuova regola, come descritto nelle [impostazioni delle regole di sicurezza](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Assicurarsi che l'opzione **Destinazione** sia impostata su **Tag del servizio** e che l'opzione **Tag del servizio di destinazione** sia impostata su **AzureBackup**.
   4. Fare clic su **Aggiungi** per salvare la regola di sicurezza in uscita appena creata.
 
 Per creare una regola tramite PowerShell:
@@ -109,6 +109,9 @@ Evitare di utilizzare i seguenti elementi nei nomi di database:
 * Barra '/'
 
 L'aliasing è disponibile per i caratteri non supportati, ma è consigliabile evitarli. Per altre informazioni, vedere [Informazioni sul modello di dati del servizio tabelle](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
+
+>[!NOTE]
+>L'operazione di **configurazione della protezione** per i database con caratteri speciali come "+" o "&" nel nome non è supportata. È possibile modificare il nome del database o abilitare la **protezione automatica**, che può proteggere correttamente questi database.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -195,7 +198,7 @@ Come individuare i database in esecuzione in una macchina virtuale:
 
     ![Area delle notifiche](./media/backup-azure-sql-database/notifications-area.png)
 
-### <a name="create-a-backup-policy"></a>Creare un criterio di backup
+### <a name="create-a-backup-policy"></a>Creazione dei criteri di backup
 
 Un criterio di backup definisce quando vengono acquisiti i backup e per quanto tempo vengono conservati.
 
@@ -281,7 +284,7 @@ Se è necessario disabilitare la protezione automatica, selezionare il nome dell
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri come:
+È possibile passare agli argomenti seguenti:
 
 * [Ripristinare i database SQL Server sottoposti a backup](restore-sql-database-azure-vm.md)
 * [Gestire i database SQL Server sottoposti a backup](manage-monitor-sql-database-backup.md)
