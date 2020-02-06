@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
-ms.openlocfilehash: fc38dce3deaa601c9ed36f60439a08bb89cc7630
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 1cc5932eca520b0bbc0c592b54d36ea8b5942b08
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646898"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031630"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controllo del codice sorgente in Azure Data Factory
 
@@ -70,7 +70,7 @@ Entrambi i metodi aprono il riquadro di configurazione delle impostazioni del re
 
 Il riquadro Configurazione Mostra le seguenti impostazioni del repository di codice Azure Repos:
 
-| Impostazione | Description | Valore |
+| Impostazione | Descrizione | Valore |
 |:--- |:--- |:--- |
 | **Tipo di repository** | Tipo del repository di codice Azure Repos.<br/> | Azure DevOps git o GitHub |
 | **Azure Active Directory** | Nome del tenant di Azure AD. | `<your tenant name>` |
@@ -157,13 +157,13 @@ Il riquadro Configurazione Mostra le impostazioni del repository GitHub seguenti
 
 - L'integrazione di GitHub con gli strumenti di creazione visiva Data Factory funziona solo nella versione disponibile a livello generale di Data Factory.
 
-- È possibile recuperare un massimo di 1.000 entità per tipo di risorsa, ad esempio pipeline e set di impostazioni, da un singolo ramo GitHub. Se viene raggiunto questo limite, è consigliabile suddividere le risorse in stabilimenti distinti.
+- È possibile recuperare un massimo di 1.000 entità per tipo di risorsa, ad esempio pipeline e set di impostazioni, da un singolo ramo GitHub. Se viene raggiunto questo limite, è consigliabile suddividere le risorse in stabilimenti distinti. Azure DevOps Git non presenta questa limitazione.
 
 ## <a name="switch-to-a-different-git-repo"></a>Cambiare repository Git
 
 Per passare a un repository git diverso, fare clic sull'icona **delle impostazioni del repository git** nell'angolo superiore destro della pagina Panoramica data factory. Se l'icona non è visibile, cancellare la cache del browser locale. Selezionare l'icona per rimuovere l'associazione al repository corrente.
 
-![Icona Git](media/author-visually/remove-repo.png)
+![Icona GIT](media/author-visually/remove-repo.png)
 
 Quando viene visualizzato il riquadro Impostazioni repository, selezionare **Rimuovi git**. Immettere il nome del data factory e fare clic su **conferma** per rimuovere il repository git associato al data factory.
 
@@ -187,7 +187,7 @@ Quando si è pronti per eseguire il merge delle modifiche dal ramo funzionalità
 
 ### <a name="configure-publishing-settings"></a>Configurare le impostazioni di pubblicazione
 
-Per configurare il ramo di pubblicazione, vale a dire, il ramo in cui vengono salvati i modelli di Resource Manager, aggiungere un file `publish_config.json` nella cartella radice nel ramo di collaborazione. Data Factory legge questo file, cerca il campo `publishBranch` e crea un nuovo ramo (se non esiste già) con il valore specificato. Quindi salva tutti i modelli di Resource Manager nel percorso specificato. Ad esempio:
+Per configurare il ramo di pubblicazione, vale a dire, il ramo in cui vengono salvati i modelli di Resource Manager, aggiungere un file `publish_config.json` nella cartella radice nel ramo di collaborazione. Data Factory legge questo file, cerca il campo `publishBranch` e crea un nuovo ramo (se non esiste già) con il valore specificato. Quindi salva tutti i modelli di Resource Manager nel percorso specificato. Ad esempio,
 
 ```json
 {
@@ -249,13 +249,18 @@ Se il ramo di pubblicazione non è sincronizzato con il ramo master e contiene r
 
 1. Rimuovere il repository git corrente
 1. Riconfigurare git con le stesse impostazioni, ma assicurarsi che **Importa le risorse di data factory esistenti nel repository** sia selezionato e scegliere **nuovo ramo**
-1. Elimina tutte le risorse dal ramo di collaborazione
 1. Creare una richiesta pull per unire le modifiche al ramo di collaborazione 
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+Di seguito sono riportati alcuni esempi di situazioni che possono causare un ramo di pubblicazione non aggiornato:
+- Un utente dispone di più rami. In un ramo della funzionalità è stato eliminato un servizio collegato che non è associato a AKV (i servizi collegati non AKV vengono pubblicati immediatamente indipendentemente dal fatto che si trovino in Git o meno) e non uniscono mai il ramo della funzionalità al brnach di collaborazione.
+- Un utente ha modificato il data factory usando l'SDK o PowerShell
+- Un utente ha spostato tutte le risorse in un nuovo ramo e ha tentato di eseguire la pubblicazione per la prima volta. I servizi collegati devono essere creati manualmente durante l'importazione delle risorse.
+- Un utente carica manualmente un servizio collegato non AKV o un Integration Runtime JSON. Fanno riferimento a tale risorsa da un'altra risorsa, ad esempio un set di dati, un servizio collegato o una pipeline. Un servizio collegato non AKV creato tramite la UX viene pubblicato immediatamente perché le credenziali devono essere crittografate. Se si carica un set di dati che fa riferimento a tale servizio collegato e si tenta di eseguire la pubblicazione, l'esperienza utente lo consentirà perché esiste nell'ambiente git. Verrà rifiutato in fase di pubblicazione perché non esiste nel servizio data factory.
+
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 Selezionare **Commenti e suggerimenti** per lasciare un commento sulle funzionalità o per notificare a Microsoft i problemi con gli strumenti:
 
-![Commenti](media/author-visually/provide-feedback.png)
+![Commenti e suggerimenti](media/author-visually/provide-feedback.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

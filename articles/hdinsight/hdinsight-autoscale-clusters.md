@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/22/2019
-ms.openlocfilehash: 45804bd3e81e7363010979b7a6e028356b3a5080
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: ace9794bd72aa124137a6b543c79979e8f5ca7c0
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780063"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031262"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Ridimensionare automaticamente i cluster Azure HDInsight
 
@@ -35,7 +35,7 @@ La tabella seguente descrive i tipi di cluster e le versioni compatibili con la 
 
 \* cluster HBase possono essere configurati solo per la scalabilità basata su pianificazione, non per il caricamento.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 È possibile scegliere il ridimensionamento basato sul carico o la scalabilità basata sulla pianificazione per il cluster HDInsight. Il ridimensionamento basato sul carico modifica il numero di nodi nel cluster, all'interno di un intervallo impostato, per garantire un utilizzo ottimale della CPU e ridurre al minimo i costi di esecuzione.
 
@@ -72,7 +72,7 @@ Quando vengono rilevate le condizioni seguenti, la scalabilità automatica emett
 
 In base al numero di contenitori AM per nodo e ai requisiti di memoria e CPU correnti, la scalabilità automatica emette una richiesta di rimozione di un determinato numero di nodi. Il servizio rileva anche quali nodi sono candidati per la rimozione in base all'esecuzione del processo corrente. L'operazione di riduzione delle prestazioni consente innanzitutto di rimuovere le autorizzazioni dei nodi e quindi di rimuoverli dal cluster.
 
-## <a name="get-started"></a>Inizia oggi stesso
+## <a name="get-started"></a>Attività iniziali
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Creare un cluster con scalabilità automatica basata sul carico
 
@@ -192,7 +192,7 @@ Per altre informazioni sulla creazione di cluster con modelli di Resource Manage
 
 Per abilitare la scalabilità automatica in un cluster in esecuzione, selezionare **dimensioni del cluster** in **Impostazioni**. Fare quindi clic su **Abilita scalabilità**automatica. Selezionare il tipo di scalabilità automatica desiderata e immettere le opzioni per la scalabilità basata sul carico o sulla pianificazione. Infine, fare clic su **Salva**.
 
-![Abilitare la scalabilità automatica basata sulla pianificazione del nodo di lavoro in esecuzione nel cluster](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
+![Abilitare la scalabilità automatica basata sulla pianificazione del nodo di lavoro in esecuzione nel cluster](./media/hdinsight-autoscale-clusters/azure-portal-settings-autoscale.png)
 
 #### <a name="using-the-rest-api"></a>Utilizzo dell'API REST
 
@@ -235,7 +235,7 @@ I processi in esecuzione continueranno a essere eseguiti e completati. I process
 
 Non ridimensionare il cluster fino a un massimo di tre nodi. Il ridimensionamento del cluster a meno di tre nodi può comportare il blocco in modalità provvisoria a causa di una replica di file insufficiente. Per ulteriori informazioni, vedere la pagina relativa [alla modalità provvisoria]( https://docs.microsoft.com/ azure/hdinsight/hdinsight-scaling-best-practices#getting-stuck-in-safe-mode) .
 
-## <a name="monitoring"></a>Monitorare
+## <a name="monitoring"></a>Monitoraggio
 
 ### <a name="cluster-status"></a>Stato del cluster
 

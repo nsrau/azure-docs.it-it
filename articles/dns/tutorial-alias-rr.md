@@ -3,23 +3,23 @@ title: 'Esercitazione: Creare un record alias per fare riferimento a un record d
 titleSuffix: Azure DNS
 description: Questa esercitazione illustra come configurare un record alias servizio DNS di Azure per fare riferimento a un record di risorsa nella zona.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: allensu
-ms.openlocfilehash: 59ffe9781d97880044da5eedbdf84181bf1b2fa1
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.author: rohink
+ms.openlocfilehash: 2b122a34cfd382a58f7680743d3a1cb1ae598fd1
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082884"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939261"
 ---
 # <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>Esercitazione: Creare un record alias per fare riferimento a un record di risorse della zona
 
 I record alias possono fare riferimento ad altri set di record dello stesso tipo. È ad esempio possibile avere un set di record CNAME DNS come alias per un altro set di record CNAME dello stesso tipo. Questa funzionalità è utile se si intende definire alcuni set di record come alias e altri come non alias dal punto di vista del comportamento.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un record alias per un record di risorsa nella zona.
@@ -28,7 +28,7 @@ In questa esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 È necessario disporre di un nome di dominio che si possa ospitare in DNS di Azure per il test. È necessario disporre del controllo completo di questo dominio, inclusa la possibilità di impostare i record di nome server (NS) per il dominio.
 
 Per istruzioni su come ospitare il dominio in DNS di Azure, vedere [Esercitazione: Ospitare un dominio in DNS di Azure](dns-delegate-domain-azure-dns.md).
@@ -57,7 +57,7 @@ Creare un record alias che rimandi a un record di risorsa nella zona.
 
 ## <a name="test-the-alias-record"></a>Testare il record alias
 
-1. Avviare lo strumento nslookup preferito. Una possibilità consiste nel passare a [ https://network-tools.com/nslook ](https://network-tools.com/nslook).
+1. Avviare lo strumento nslookup preferito. Una possibilità consiste nel passare a [https://network-tools.com/nslook](https://network-tools.com/nslook).
 2. Impostare il tipo di query per i record A e cercare **test.\<nome di dominio\>** . La risposta è **10.10.10.10**.
 3. Nel portale di Azure, modificare il record A **server** in **10.11.11.11**.
 4. Attendere qualche minuto e quindi usare nuovamente nslookup per il record **test**. La risposta è **10.11.11.11**.

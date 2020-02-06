@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/13/2019
+ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 26a353251bd85a30ab26c86f3d6b363b0a84e074
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 59839df1e67c5ea7f18df373ad0530a2ea740209
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889536"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030898"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (VNET) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -108,22 +108,22 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
 
 <a name="required-ports"></a> Quando un'istanza del servizio gestione API è ospitata in una VNET, vengono usate le porte nella tabella seguente.
 
-| Porte di origine/destinazione | Direction          | Protocollo di trasporto |   [Tag di servizio](../virtual-network/security-overview.md#service-tags) <br> Origine/Destinazione   | Scopo (*)                                                 | Tipo di rete virtuale |
+| Porte di origine/destinazione | Direzione          | Protocollo di trasporto |   [Tag di servizio](../virtual-network/security-overview.md#service-tags) <br> Origine/Destinazione   | Scopo (*)                                                 | Tipo di rete virtuale |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
-| * / 80, 443                  | In ingresso            | TCP                | INTERNET / VIRTUAL_NETWORK            | Comunicazione tra client e Gestione API                      | Esterni             |
-| */3443                     | In ingresso            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Endpoint di gestione per il portale di Azure e PowerShell         | Esterno e interno  |
-| * / 80, 443                  | In uscita           | TCP                | VIRTUAL_NETWORK / Storage             | **Dipendenza da Archiviazione di Azure**                             | Esterno e interno  |
-| * / 80, 443                  | In uscita           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Azure Active Directory (dove applicabile)                   | Esterno e interno  |
-| * / 1433                     | In uscita           | TCP                | VIRTUAL_NETWORK/SQL                 | **Accesso agli endpoint SQL di Azure**                           | Esterno e interno  |
-| */5671, 5672, 443          | In uscita           | TCP                | VIRTUAL_NETWORK / EventHub            | Dipendenza per il criterio Registra a Hub eventi | Esterno e interno  |
-| * / 445                      | In uscita           | TCP                | VIRTUAL_NETWORK / Storage             | Dipendenza dalla condivisione file di Azure per GIT                      | Esterno e interno  |
-| * / 1886                     | In uscita           | TCP                | VIRTUAL_NETWORK / INTERNET            | Necessaria per la pubblicazione dello stato di integrità in Integrità risorse          | Esterno e interno  |
-| * / 443                     | In uscita           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Pubblicare log e metriche di diagnostica                        | Esterno e interno  |
-| * / 25                       | In uscita           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connessione al server di inoltro SMTP per l'invio di messaggi di posta elettronica                    | Esterno e interno  |
-| * / 587                      | In uscita           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connessione al server di inoltro SMTP per l'invio di messaggi di posta elettronica                    | Esterno e interno  |
-| * / 25028                    | In uscita           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connessione al server di inoltro SMTP per l'invio di messaggi di posta elettronica                    | Esterno e interno  |
+| * / 80, 443                  | Inserimento in            | TCP                | INTERNET / VIRTUAL_NETWORK            | Comunicazione tra client e Gestione API                      | Esterno             |
+| */3443                     | Inserimento in            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Endpoint di gestione per il portale di Azure e PowerShell         | Esterno e interno  |
+| * / 80, 443                  | Inserimento in           | TCP                | VIRTUAL_NETWORK / Storage             | **Dipendenza da Archiviazione di Azure**                             | Esterno e interno  |
+| * / 80, 443                  | Inserimento in           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Azure Active Directory (dove applicabile)                   | Esterno e interno  |
+| * / 1433                     | Inserimento in           | TCP                | VIRTUAL_NETWORK/SQL                 | **Accesso agli endpoint SQL di Azure**                           | Esterno e interno  |
+| */5671, 5672, 443          | Inserimento in           | TCP                | VIRTUAL_NETWORK / EventHub            | Dipendenza per il criterio Registra a Hub eventi | Esterno e interno  |
+| * / 445                      | Inserimento in           | TCP                | VIRTUAL_NETWORK / Storage             | Dipendenza dalla condivisione file di Azure per GIT                      | Esterno e interno  |
+| * / 1886                     | Inserimento in           | TCP                | VIRTUAL_NETWORK / INTERNET            | Necessaria per la pubblicazione dello stato di integrità in Integrità risorse          | Esterno e interno  |
+| * / 443                     | Inserimento in           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Pubblicare log e metriche di diagnostica                        | Esterno e interno  |
+| * / 25                       | Inserimento in           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connessione al server di inoltro SMTP per l'invio di messaggi di posta elettronica                    | Esterno e interno  |
+| * / 587                      | Inserimento in           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connessione al server di inoltro SMTP per l'invio di messaggi di posta elettronica                    | Esterno e interno  |
+| * / 25028                    | Inserimento in           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connessione al server di inoltro SMTP per l'invio di messaggi di posta elettronica                    | Esterno e interno  |
 | * / 6381 - 6383              | In ingresso e in uscita | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Istanze di accesso Cache Azure per Redis tra RoleInstances          | Esterno e interno  |
-| * / *                        | In ingresso            | TCP                | VIRTUAL_NETWORK/AZURE_LOADBALANCER | Bilanciamento del carico di infrastruttura di Azure                          | Esterno e interno  |
+| * / *                        | Inserimento in            | TCP                | VIRTUAL_NETWORK/AZURE_LOADBALANCER | Bilanciamento del carico di infrastruttura di Azure                          | Esterno e interno  |
 
 >[!IMPORTANT]
 > Le porte per cui *Scopo* è **grassetto** sono necessarie per la corretta distribuzione del servizio Gestione API. Se si bloccano le altre porte, si verifica una riduzione delle prestazioni nella capacità di usare e monitorare il servizio in esecuzione.
@@ -137,8 +137,8 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
     | Ambiente Azure | Endpoint                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Azure Public      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com dove `East US 2` è eastus2.warm.ingestion.msftcloudes.com</li></ul> |
-    | Azure per enti pubblici  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
-    | Azure Cina       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
+    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
+    | 21Vianet per Azure Cina     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 
 + **Inoltro SMTP**: connettività di rete in uscita per l'inoltro SMTP, che viene risolto sotto l'host `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` e `ies.global.microsoft.com`
 
@@ -150,15 +150,9 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
 
   * Abilitare gli endpoint di servizio nella subnet in cui è distribuito il servizio gestione API. È necessario abilitare gli [endpoint di servizio][ServiceEndpoints] per SQL di Azure, archiviazione di Azure, Azure EventHub e Azure ServiceBus. L'abilitazione di endpoint direttamente dalla subnet delegata di gestione API a questi servizi consente loro di usare la rete backbone Microsoft Azure che fornisce il routing ottimale per il traffico del servizio. Se si usano gli endpoint di servizio con una gestione API con tunneling forzato, il traffico dei servizi di Azure sopra non è forzato tramite tunneling. Il traffico delle dipendenze del servizio gestione API è forzato e non può essere perso oppure il servizio gestione API non funzionerà correttamente.
     
-  * Tutto il traffico del piano di controllo da Internet all'endpoint di gestione del servizio gestione API viene instradato attraverso un set specifico di indirizzi IP in ingresso ospitati da gestione API. Quando viene eseguito il tunneling forzato del traffico, le risposte non eseguiranno il mapping simmetrico a questi indirizzi IP di origine in ingresso. Per ovviare alla limitazione, è necessario aggiungere le route definite dall'utente ([UdR][UDRs]) seguenti per indirizzare il traffico ad Azure impostando la destinazione di queste route host su "Internet". Il set di indirizzi IP in ingresso per il traffico del piano di controllo è il seguente:
-    
-     | Ambiente Azure | Indirizzi IP di gestione                                                                                                                                                                                                                                                                                                                                                              |
-    |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure Public      | 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 52.159.16.255/32, 40.82.157.167/32, 51.137.136.0/32, 40.81.185.8/32, 40.81.47.216/32, 51.145.56.125/32, 40.81.89.24/32, 52.224.186.99/32, 51.145.179.78/32, 52.140.238.179/32, 40.66.60.111/32, 52.139.80.117/32, 20.46.144.85/32, 191.233.24.179/32, 40.90.185.46/32, 102.133.130.197/32, 52.139.20.34/32, 40.80.232.185/32, 13.71.49.1/32, 13.64.39.16/32, 20.40.160.107/32, 20.37.52.67/32, 20.44.33.246/32, 13.86.102.66/32, 20.40.125.155/32, 51.143.127.203/32, 52.253.225.124/32, 52.253.159.160/32, 20.188.77.119/32, 20.44.72.3/32, 52.142.95.35/32, 52.139.152.27/32, 20.39.80.2/32, 51.107.96.8/32, 20.39.99.81/32, 20.37.81.41/32, 51.107.0.91/32, 102.133.0.79/32, 51.116.96.0/32, 51.116.0.0/32 |
-    | Azure per enti pubblici  | 52.127.42.160/32, 52.127.34.192/32 |
-    | Azure Cina       | 139.217.51.16/32, 139.217.171.176/32 |
+  * Tutto il traffico del piano di controllo da Internet all'endpoint di gestione del servizio gestione API viene instradato attraverso un set specifico di indirizzi IP in ingresso ospitati da gestione API. Quando viene eseguito il tunneling forzato del traffico, le risposte non eseguiranno il mapping simmetrico a questi indirizzi IP di origine in ingresso. Per ovviare alla limitazione, è necessario aggiungere le route definite dall'utente ([UdR][UDRs]) seguenti per indirizzare il traffico ad Azure impostando la destinazione di queste route host su "Internet". Il set di indirizzi IP in ingresso per il traffico del piano di controllo è documentato [indirizzi IP del piano di controllo](#control-plane-ips)
 
-  * Per le altre dipendenze del servizio gestione API con tunneling forzato, è necessario un modo per risolvere il nome host e raggiungere l'endpoint. Segue un elenco di tali elementi.
+  * Per le altre dipendenze del servizio gestione API con tunneling forzato, è necessario un modo per risolvere il nome host e raggiungere l'endpoint. Sono incluse
       - Metriche e monitoraggio dell'integrità
       - Diagnostica portale di Azure
       - Inoltro SMTP
@@ -182,7 +176,7 @@ Azure riserva alcuni indirizzi IP all'interno di ogni subnet e questi indirizzi 
 
 Oltre agli indirizzi IP usati dall'infrastruttura di rete virtuale di Azure, ogni istanza di Gestione API nella subnet usa due indirizzi IP per ogni unità dello SKU Premium o un indirizzo IP per lo SKU Developer. Ogni istanza riserva un indirizzo IP aggiuntivo per il bilanciamento del carico esterno. Quando si esegue la distribuzione in una rete virtuale interna, è necessario un indirizzo IP aggiuntivo per il bilanciamento del carico interno.
 
-Dato il calcolo sopra le dimensioni minime della subnet, in cui è possibile distribuire Gestione API è/29, che fornisce tre indirizzi IP.
+Dato il calcolo sopra le dimensioni minime della subnet, in cui è possibile distribuire Gestione API è/29 che fornisce tre indirizzi IP utilizzabili.
 
 ## <a name="routing"></a> Routing
 + Un indirizzo IP pubblico con bilanciamento del carico (VIP) viene riservato per consentire l'accesso a tutti gli endpoint di servizio.
@@ -196,6 +190,70 @@ Dato il calcolo sopra le dimensioni minime della subnet, in cui è possibile dis
 * Per le distribuzioni di Gestione API su più aree in modalità rete virtuale interna configurata, gli utenti sono responsabili della gestione del bilanciamento del carico poiché sono titolari del routing.
 * La connettività da una risorsa in una rete virtuale con peering a livello globale in un'altra area al servizio Gestione API in modalità interna non funzionerà a causa delle limitazioni della piattaforma. Per altre informazioni, vedere [Le risorse in una rete virtuale non possono comunicare con il servizio di bilanciamento del carico interno di Azure nella rete virtuale con peering](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)
 
+## <a name="control-plane-ips"></a> Indirizzi IP del piano di controllo
+
+Gli indirizzi IP sono divisi in base all' **ambiente di Azure**. Quando si abilitano le richieste in ingresso, l'indirizzo IP contrassegnato con **globale** deve essere inserito nell'elenco elementi consentiti insieme all'indirizzo IP specifico dell' **area** .
+
+| **Ambiente Azure**|   **Area**|  **Indirizzo IP**|
+|-----------------|-------------------------|---------------|
+| Azure Public| Stati Uniti centro-meridionali (globale)| 104.214.19.224|
+| Azure Public| Stati Uniti centro-settentrionali (globale)| 52.162.110.80|
+| Azure Public| Stati Uniti centro-occidentali| 52.253.135.58|
+| Azure Public| Corea centrale| 40.82.157.167|
+| Azure Public| Regno Unito occidentale| 51.137.136.0|
+| Azure Public| Giappone occidentale| 40.81.185.8|
+| Azure Public| Stati Uniti centro-settentrionali| 40.81.47.216|
+| Azure Public| Regno Unito meridionale| 51.145.56.125|
+| Azure Public| India occidentale| 40.81.89.24|
+| Azure Public| Stati Uniti orientali| 52.224.186.99|
+| Azure Public| Europa occidentale| 51.145.179.78|
+| Azure Public| Giappone orientale| 52.140.238.179|
+| Azure Public| Francia centrale| 40.66.60.111|
+| Azure Public| Canada orientale| 52.139.80.117|
+| Azure Public| Emirati Arabi Uniti settentrionali| 20.46.144.85|
+| Azure Public| Brasile meridionale| 191.233.24.179|
+| Azure Public| Asia sud-orientale| 40.90.185.46|
+| Azure Public| Sudafrica settentrionale| 102.133.130.197|
+| Azure Public| Canada centrale| 52.139.20.34|
+| Azure Public| Corea meridionale| 40.80.232.185|
+| Azure Public| India centrale| 13.71.49.1|
+| Azure Public| Stati Uniti occidentali| 13.64.39.16|
+| Azure Public| Australia sud-orientale| 20.40.160.107|
+| Azure Public| Australia centrale| 20.37.52.67|
+| Azure Public| India meridionale| 20.44.33.246|
+| Azure Public| Stati Uniti centrali| 13.86.102.66|
+| Azure Public| Australia orientale| 20.40.125.155|
+| Azure Public| Stati Uniti occidentali 2| 51.143.127.203|
+| Azure Public| Stati Uniti orientali 2 EUAP| 52.253.229.253|
+| Azure Public| Stati Uniti centrali EUAP| 52.253.159.160|
+| Azure Public| Stati Uniti centro-meridionali| 20.188.77.119|
+| Azure Public| Stati Uniti orientali 2| 20.44.72.3|
+| Azure Public| Europa settentrionale| 52.142.95.35|
+| Azure Public| Asia orientale| 52.139.152.27|
+| Azure Public| Francia meridionale| 20.39.80.2|
+| Azure Public| Svizzera occidentale| 51.107.96.8|
+| Azure Public| Australia centrale 2| 20.39.99.81|
+| Azure Public| Emirati Arabi Uniti centrali| 20.37.81.41|
+| Azure Public| Svizzera settentrionale| 51.107.0.91|
+| Azure Public| Sudafrica occidentale| 102.133.0.79|
+| Azure Public| Germania centro-occidentale| 51.116.96.0|
+| Azure Public| Germania settentrionale| 51.116.0.0|
+| Azure Public| Norvegia orientale| 51.120.2.185|
+| Azure Public| Norvegia occidentale| 51.120.130.134|
+| 21Vianet per Azure Cina| Cina settentrionale (globale)| 139.217.51.16|
+| 21Vianet per Azure Cina| Cina orientale (globale)| 139.217.171.176|
+| 21Vianet per Azure Cina| Cina settentrionale| 40.125.137.220|
+| 21Vianet per Azure Cina| Cina orientale| 40.126.120.30|
+| 21Vianet per Azure Cina| Cina settentrionale 2| 40.73.41.178|
+| 21Vianet per Azure Cina| Cina orientale 2| 40.73.104.4|
+| Azure Government| US gov Virginia (globale)| 52.127.42.160|
+| Azure Government| US gov Texas (globale)| 52.127.34.192|
+| Azure Government| USGov Virginia| 52.227.222.92|
+| Azure Government| USGov Iowa| 13.73.72.21|
+| Azure Government| USGov Arizona| 52.244.32.39|
+| Azure Government| USGov Texas| 52.243.154.118|
+| Azure Government| DOD Central| 52.182.32.132|
+| Azure Government| DOD est| 52.181.32.192|
 
 ## <a name="related-content"> </a>Contenuto correlato
 * [Connessione di una rete virtuale al back-end tramite Gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)

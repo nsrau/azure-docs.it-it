@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: e51e96c0c553bcf37284878cab11f3ec592ddd05
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c8879884cf3d882e6a6b441244ed139072bedeeb
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72753388"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029470"
 ---
 # <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>Indicizzazione con l'API di Azure Cosmos DB per MongoDB
 
@@ -25,13 +25,96 @@ Gli account che dispongono del protocollo wire versione 3,6 forniscono criteri d
 
 ### <a name="dropping-the-default-indexes-36"></a>Eliminazione degli indici predefiniti (3,6)
 
-Per gli account che dispongono del protocollo wire Version 3,6, l'unico indice predefinito è _id, che non può essere eliminato.
+Per gli account che dispongono del protocollo wire versione 3,6, l'unico indice predefinito è _id, che non può essere eliminato.
 
 ### <a name="creating-a-compound-index-36"></a>Creazione di un indice composto (3,6)
 
 Gli indici composti reali sono supportati per gli account che usano il protocollo Wire 3,6. Con il comando seguente viene creato un indice composto sui campi "a" e "b": `db.coll.createIndex({a:1,b:1})`
 
 Gli indici composti possono essere usati per eseguire l'ordinamento in modo efficiente su più campi contemporaneamente, ad esempio: `db.coll.find().sort({a:1,b:1})`
+
+### <a name="track-the-index-progress"></a>Tenere traccia dello stato di avanzamento dell'indice
+
+La versione 3,6 dell'API Azure Cosmos DB per gli account MongoDB supporta il comando `currentOp()` per tenere traccia dello stato di avanzamento dell'indice in un'istanza del database. Questo comando restituisce un documento che contiene informazioni sulle operazioni in corso su un'istanza del database. Il comando `currentOp` viene usato per tenere traccia di tutte le operazioni in corso in MongoDB nativo, mentre nell'API Azure Cosmos DB per MongoDB, questo comando supporta solo il rilevamento dell'operazione sull'indice.
+
+Di seguito sono riportati alcuni esempi che illustrano come usare il comando `currentOp` per tenere traccia dello stato di avanzamento dell'indice:
+
+• Ottenere lo stato di avanzamento dell'indice per una raccolta:
+
+   ```shell
+   db.currentOp({"command.createIndexes": <collectionName>, "command.$db": <databaseName>})
+   ```
+
+• Ottenere lo stato di avanzamento dell'indice per tutte le raccolte in un database:
+
+  ```shell
+  db.currentOp({"command.$db": <databaseName>})
+  ```
+
+• Ottenere lo stato di avanzamento dell'indice per tutti i database e le raccolte in un account Azure Cosmos:
+
+  ```shell
+  db.currentOp({"command.createIndexes": { $exists : true } })
+  ```
+
+I dettagli sullo stato dell'indice contengono la percentuale di avanzamento per l'operazione sull'indice corrente. Nell'esempio seguente viene illustrato il formato del documento di output per diverse fasi di avanzamento dell'indice:
+
+1. Se l'operazione sull'indice in una raccolta ' foo ' e nel database ' barra ' con l'indicizzazione del 60% è stata completata, avrà il seguente documento di output. `Inprog[0].progress.total` Visualizza 100 come completamento della destinazione.
+
+   ```json
+   {
+        "inprog" : [
+        {
+                ………………...
+                "command" : {
+                        "createIndexes" : foo
+                        "indexes" :[ ],
+                        "$db" : bar
+                },
+                "msg" : "Index Build (background) Index Build (background): 60 %",
+                "progress" : {
+                        "done" : 60,
+                        "total" : 100
+                },
+                …………..…..
+        }
+        ],
+        "ok" : 1
+   }
+   ```
+
+2. Per un'operazione sugli indici appena iniziata in una raccolta ' foo ' e in un database ' bar ', il documento di output può mostrare lo stato dello 0% fino a raggiungere un livello misurabile.
+
+   ```json
+   {
+        "inprog" : [
+        {
+                ………………...
+                "command" : {
+                        "createIndexes" : foo
+                        "indexes" :[ ],
+                        "$db" : bar
+                },
+                "msg" : "Index Build (background) Index Build (background): 0 %",
+                "progress" : {
+                        "done" : 0,
+                        "total" : 100
+                },
+                …………..…..
+        }
+        ],
+       "ok" : 1
+   }
+   ```
+
+3. Quando l'operazione sull'indice in corso viene completata, il documento di output Mostra le operazioni inprog vuote.
+
+   ```json
+   {
+      "inprog" : [],
+      "ok" : 1
+   }
+   ```
 
 ## <a name="indexing-for-version-32"></a>Indicizzazione per la versione 3,2
 

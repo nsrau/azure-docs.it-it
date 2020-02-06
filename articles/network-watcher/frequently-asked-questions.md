@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: 1cc3664ff8472a6b5a73fa89588611f59ac27e6a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: de644e49d998ad260532078de5c93c482cbc6fbc
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720268"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029492"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Domande frequenti su Azure Network Watcher
 Il servizio [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) offre una suite di strumenti per monitorare, diagnosticare, visualizzare le metriche e abilitare o disabilitare i log per le risorse in una rete virtuale di Azure. Questo articolo risponde a domande comuni sul servizio.
@@ -54,17 +54,29 @@ Visitare la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/netw
 ### <a name="which-regions-is-network-watcher-supportedavailable-in"></a>Quali aree sono Network Watcher supportate/disponibili in?
 È possibile visualizzare l'ultima disponibilità a livello di area nella [pagina disponibilità dei servizi di Azure](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
 
-### <a name="what-are-resource-limits-on-network-watcher"></a>Che cosa sono i limiti delle risorse per Network Watcher?
-Per tutti i limiti, vedere la pagina relativa ai [limiti del servizio](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#network-watcher-limits) .  
+### <a name="which-permissions-are-needed-to-use-network-watcher"></a>Quali autorizzazioni sono necessarie per usare Network Watcher?
+Vedere l'elenco delle [autorizzazioni RBAC necessarie per usare Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions). Per la distribuzione delle risorse, sono necessarie le autorizzazioni di collaboratore per NetworkWatcherRG (vedere di seguito).
 
-### <a name="why-is-only-one-instance-of-network-watcher-allowed-per-region"></a>Perché è consentita una sola istanza di Network Watcher per area?
-Network Watcher deve essere abilitata una sola volta per una sottoscrizione per il funzionamento delle funzionalità, non si tratta di un limite di servizio.
+### <a name="how-do-i-enable-network-watcher"></a>Come si abilita Network Watcher?
+Il servizio Network Watcher viene [abilitato automaticamente](https://azure.microsoft.com/updates/azure-network-watcher-will-be-enabled-by-default-for-subscriptions-containing-virtual-networks/) per ogni sottoscrizione.
+
+### <a name="what-is-the-network-watcher-deployment-model"></a>Che cos'è il modello di distribuzione Network Watcher?
+La risorsa padre Network Watcher viene distribuita con un'istanza univoca in ogni area. Formato di denominazione: NetworkWatcher_RegionName. Esempio: NetworkWatcher_centralus è la risorsa Network Watcher per l'area "Stati Uniti centrali".
+
+### <a name="what-is-the-networkwatcherrg"></a>Che cos'è NetworkWatcherRG?
+Network Watcher risorse si trovano nel gruppo di risorse **NetworkWatcherRG** nascoste creato automaticamente. Ad esempio, la risorsa log dei flussi NSG è una risorsa figlio di Network Watcher ed è abilitata in NetworkWatcherRG.
 
 ### <a name="why-do-i-need-to-install-the-network-watcher-extension"></a>Perché è necessario installare l'estensione Network Watcher? 
 L'estensione Network Watcher è obbligatoria per qualsiasi funzionalità che deve generare o intercettare il traffico da una macchina virtuale. 
 
 ### <a name="which-features-require-the-network-watcher-extension"></a>Quali funzionalità richiedono l'estensione Network Watcher?
-Solo l'acquisizione di pacchetti, la risoluzione dei problemi di connessione e il monitoraggio della connessione richiedono che sia presente l'estensione Network Watcher.
+L'acquisizione di pacchetti, la risoluzione dei problemi di connessione e le funzionalità di monitoraggio della connessione richiedono che sia presente l'estensione Network Watcher.
+
+### <a name="what-are-resource-limits-on-network-watcher"></a>Che cosa sono i limiti delle risorse per Network Watcher?
+Per tutti i limiti, vedere la pagina relativa ai [limiti del servizio](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#network-watcher-limits) .  
+
+### <a name="why-is-only-one-instance-of-network-watcher-allowed-per-region"></a>Perché è consentita una sola istanza di Network Watcher per area?
+Network Watcher deve essere abilitata una sola volta per una sottoscrizione per il funzionamento delle funzionalità, non si tratta di un limite di servizio.
 
 ## <a name="nsg-flow-logs"></a>Log di flusso NSG
 
@@ -85,7 +97,7 @@ Per usare un account di archiviazione dietro un firewall, è necessario fornire 
 
 ### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-service-endpoint"></a>Ricerca per categorie usare i log di flusso NSG con un account di archiviazione dietro a un endpoint di servizio?
 
-I log di flusso NSG sono compantible con gli endpoint di servizio senza richiedere alcuna configurazione aggiuntiva. Vedere l' [esercitazione sull'abilitazione degli endpoint di servizio](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) nella rete virtuale.
+I log di flusso NSG sono compatibili con gli endpoint di servizio senza richiedere alcuna configurazione aggiuntiva. Vedere l' [esercitazione sull'abilitazione degli endpoint di servizio](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) nella rete virtuale.
 
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>Qual è la differenza tra i log dei flussi versioni 1 & 2?

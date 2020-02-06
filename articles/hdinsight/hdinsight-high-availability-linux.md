@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 68f4eb4fbad2a571e078cb9aedcfd56c80ffe054
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 8c3e377faef4e18bff01fd7001751d1f1e347b8d
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747866"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030872"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilità e affidabilità dei cluster Apache Hadoop in HDInsight
 
@@ -64,7 +64,7 @@ L'accesso al cluster tramite Internet avviene mediante un gateway pubblico. L'ac
 
 L'accesso tramite il gateway pubblico è limitato alle porte 443 (HTTPS), 22 e 23.
 
-|Porta |Description |
+|Porta |Descrizione |
 |---|---|
 |443|Usato per accedere a Ambari e ad altre interfacce utente Web o API REST ospitate nei nodi head.|
 |22|Usato per accedere al nodo head primario o al nodo perimetrale con SSH.|
@@ -97,7 +97,7 @@ Per altre informazioni sull'uso dell'API REST Ambari, vedere [Gestire i cluster 
 
 È possibile connettersi a nodi che non sono direttamente accessibili tramite Internet usando i metodi seguenti:
 
-|Metodo |Description |
+|Metodo |Descrizione |
 |---|---|
 |SSH|Dopo avere stabilito la connessione a un nodo head usando SSH, è possibile usare SSH dal nodo head per connettersi ad altri nodi del cluster. Per altre informazioni, vedere il documento [Connettersi a HDInsight (Hadoop) con SSH](hdinsight-hadoop-linux-use-ssh-unix.md).|
 |Tunnel SSH|Se è necessario accedere a un servizio Web ospitato in uno dei nodi non esposti a Internet, è necessario usare un tunnel SSH. Per altre informazioni, vedere il documento [Usare il tunneling SSH per accedere all'interfaccia Web di Ambari, JobHistory, NameNode, Oozie e altre interfacce Web](hdinsight-linux-ambari-ssh-tunnel.md).|
@@ -119,7 +119,7 @@ Esistono molte icone che possono essere visualizzate accanto a un servizio per i
 
 Gli avvisi seguenti consentono di monitorare la disponibilità di un cluster:
 
-| Nome avviso                               | Description                                                                                                                                                                                  |
+| Nome dell'avviso                               | Descrizione                                                                                                                                                                                  |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Stato monitoraggio metrica                    | Questo avviso indica lo stato del processo di monitoraggio delle metriche in base a quanto determinato dallo script di stato del monitoraggio.                                                                                   |
 | Heartbeat agente Ambari                   | Questo avviso viene generato se il server ha perso il contatto con un agente.                                                                                                                        |
@@ -270,7 +270,7 @@ Quando si crea un cluster, è possibile specificare le dimensioni dei nodi. Le i
 
 * **Portale di Azure**: quando si crea un cluster, è possibile impostare le dimensioni dei nodi usati dal cluster:
 
-    ![Immagine della creazione guidata di cluster con la selezione delle dimensioni del nodo](./media/hdinsight-high-availability-linux/hdinsight-headnodesize.png)
+    ![Immagine della creazione guidata di cluster con la selezione delle dimensioni del nodo](./media/hdinsight-high-availability-linux/azure-portal-cluster-configuration-pricing-hadoop.png)
 
 * **Interfaccia**della riga di comando di Azure: quando si usa il comando [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) , è possibile impostare le dimensioni dei nodi head, Worker e ZooKeeper usando i parametri `--headnode-size`, `--workernode-size`e `--zookeepernode-size`.
 

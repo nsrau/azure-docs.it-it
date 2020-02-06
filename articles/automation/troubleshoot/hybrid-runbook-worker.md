@@ -9,18 +9,18 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d5adc94061cd656b0654fba6609d36ecfd38c75d
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 4d804499116631be6f922f67f8b8f6c7063a6d5c
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988040"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030728"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Risolvere i problemi di ruoli di lavoro ibridi per runbook
 
 Questo articolo contiene informazioni sulla risoluzione di problemi relativi ai ruoli di lavoro ibridi per runbook.
 
-## <a name="general"></a>Informazioni di carattere generale
+## <a name="general"></a>Generale
 
 Il ruolo di lavoro ibrido per runbook dipende da un agente per comunicare con l'account di Automazione di Azure per registrare il ruolo di lavoro, ricevere i processi del runbook e segnalare lo stato. Per Windows, questo agente è l'agente Log Analytics per Windows, noto anche come Microsoft Monitoring Agent (MMA). Per Linux, si tratta dell'agente Log Analytics per Linux.
 
@@ -28,41 +28,39 @@ Il ruolo di lavoro ibrido per runbook dipende da un agente per comunicare con l'
 
 #### <a name="issue"></a>Problema
 
-L'esecuzione del runbook ha esito negativo e viene visualizzato l'errore seguente:
+L'esecuzione di Runbook non riesce e viene visualizzato l'errore seguente.
 
 ```error
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 
-Il Runbook viene sospeso poco dopo il tentativo di esecuzione tre volte. Sono presenti condizioni che potrebbero interrompere il completamento del Runbook. Il messaggio di errore correlato non può includere informazioni aggiuntive.
+Il Runbook viene sospeso poco dopo il tentativo di esecuzione tre volte. Sono presenti condizioni che possono interrompere il completamento del Runbook. Il messaggio di errore correlato potrebbe non includere informazioni aggiuntive.
 
 #### <a name="cause"></a>Causa
 
-Di seguito sono riportate le possibili cause:
+Le possibili cause sono le seguenti:
 
-* I runbook non possono autenticarsi con le risorse locali
+* Manuali operativi non è in grado di eseguire l'autenticazione con le risorse locali.
 
-* Il ruolo di lavoro ibrido è protetto da proxy o firewall
-
-* I runbook non possono autenticarsi con le risorse locali
+* Il ruolo di lavoro ibrido è protetto da proxy o firewall.
 
 * Il computer configurato per eseguire la funzionalità di ruolo di lavoro ibrido per Runbook non soddisfa i requisiti hardware minimi.
 
 #### <a name="resolution"></a>Risoluzione
 
-Verificare che il computer abbia accesso in uscita a *.azure-automation.net sulla porta 443.
+Verificare che il computer abbia accesso in uscita a *. azure-automation.net sulla porta 443.
 
-I computer che eseguono il ruolo di lavoro ibrido per Runbook devono soddisfare i requisiti hardware minimi prima che il thread di lavoro sia configurato per ospitare questa funzionalità. Manuali operativi e il processo in background che usano possono causare il sovrautilizzo del sistema e causare ritardi o timeout del processo Runbook.
+I computer che eseguono il ruolo di lavoro ibrido per Runbook devono soddisfare i requisiti hardware minimi prima che il thread di lavoro sia configurato per ospitare questa funzionalità. Manuali operativi e il processo in background che usano potrebbero causare il sovrautilizzo del sistema e causare ritardi o timeout del processo Runbook.
 
-Verificare che il computer designato per svolgere il ruolo di lavoro ibrido per runbook soddisfi i requisiti hardware minimi. In caso affermativo, monitorare l'utilizzo di CPU e memoria per determinare eventuali correlazioni tra le prestazioni dei processi del ruolo di lavoro ibrido per runbook e Windows. Qualsiasi pressione della memoria o della CPU potrebbe indicare la necessità di aggiornare le risorse. In alternativa, selezionare una risorsa di calcolo diversa in grado di supportare i requisiti minimi e di ridimensionare quando le esigenze del carico di lavoro indicano la necessità di un aumento.
+Verificare che il computer in cui è in esecuzione la funzionalità Hybrid Runbook Workers soddisfi i requisiti hardware minimi. In caso affermativo, monitorare l'utilizzo di CPU e memoria per determinare eventuali correlazioni tra le prestazioni dei processi del ruolo di lavoro ibrido per runbook e Windows. Qualsiasi pressione della memoria o della CPU può indicare la necessità di aggiornare le risorse. È anche possibile selezionare una risorsa di calcolo diversa che supporti i requisiti minimi e la scalabilità quando le richieste di carico di lavoro indicano che è necessario un aumento.
 
-Controllare il registro eventi **Microsoft-SMA** per un evento corrispondente con la descrizione *Processo Win32 terminato con codice [4294967295]* . La causa dell'errore è che l'autenticazione non è stata configurata nei runbook oppure le credenziali Esegui come non sono state specificate per il gruppo del ruolo di lavoro ibrido. Per verificare di aver configurato correttamente l'autenticazione per i runbook, vedere [Autorizzazioni per i runbook](../automation-hrw-run-runbooks.md#runbook-permissions).
+Controllare il registro eventi **Microsoft-SMA** per un evento corrispondente con la descrizione *Processo Win32 terminato con codice [4294967295]* . La ragione di questo errore è che non è stata configurata l'autenticazione nella manuali operativi o sono state specificate le credenziali RunAs per il gruppo di lavoro ibrido. Verificare le [autorizzazioni di Runbook](../automation-hrw-run-runbooks.md#runbook-permissions) per verificare di avere configurato correttamente l'autenticazione per il manuali operativi.
 
 ### <a name="no-cert-found"></a>Scenario: non è stato trovato alcun certificato nell'archivio certificati del ruolo di lavoro ibrido per Runbook
 
 #### <a name="issue"></a>Problema
 
-Un runbook in esecuzione nel ruolo di lavoro ibrido per runbook ha esito negativo con il messaggio di errore seguente:
+Un Runbook in esecuzione in un ruolo di lavoro ibrido per Runbook non riesce con il messaggio di errore seguente.
 
 ```error
 Connect-AzureRmAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
@@ -74,11 +72,11 @@ At line:3 char:1
 ```
 #### <a name="cause"></a>Causa
 
-Questo errore si verifica quando si prova a usare un [Account RunAs](../manage-runas-account.md) in un runbook che viene eseguito nel ruolo di lavoro ibrido per runbook in cui non è presente il certificato dell'account RunAs. Il ruolo di lavoro ibrido per runbook non dispone dell'asset del certificato in locale per impostazione predefinita, necessario all'account RunAs per funzionare correttamente.
+Questo errore si verifica quando si tenta di usare un [account RunAs](../manage-runas-account.md) in un Runbook in esecuzione in un ruolo di lavoro ibrido per Runbook in cui il certificato dell'account RunAs non è presente. Per impostazione predefinita, i ruoli di lavoro ibridi per Runbook non hanno l'asset di certificato, che è necessario per il corretto funzionamento dell'account RunAs.
 
 #### <a name="resolution"></a>Risoluzione
 
-Se il ruolo di lavoro ibrido per Runbook è una macchina virtuale di Azure, è invece possibile usare [identità gestite per le risorse di Azure](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) . Questo scenario semplifica l'autenticazione consentendo di eseguire l'autenticazione alle risorse di Azure usando l'identità gestita della macchina virtuale di Azure anziché l'account RunAs. Quando il ruolo di lavoro ibrido per runbook è un computer locale, è necessario installare sul computer il certificato dell'account RunAs. Per informazioni su come installare il certificato, vedere la procedura per eseguire il Runbook Export-RunAsCertificateToHybridWorker di PowerShell in esecuzione di manuali operativi in un ruolo di [lavoro ibrido per Runbook](../automation-hrw-run-runbooks.md).
+Se il ruolo di lavoro ibrido per Runbook è una macchina virtuale di Azure, è invece possibile usare [identità gestite per le risorse di Azure](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) . Questo scenario semplifica l'autenticazione consentendo di eseguire l'autenticazione alle risorse di Azure usando l'identità gestita della macchina virtuale di Azure anziché l'account RunAs. Quando il ruolo di lavoro ibrido per Runbook è un computer locale, è necessario installare il certificato dell'account RunAs nel computer. Per informazioni su come installare il certificato, vedere la procedura per eseguire il Runbook Export-RunAsCertificateToHybridWorker di PowerShell in esecuzione di manuali operativi in un ruolo di [lavoro ibrido per Runbook](../automation-hrw-run-runbooks.md).
 
 ### <a name="error-403-on-registration"></a>Scenario: errore 403 durante la registrazione del ruolo di lavoro ibrido per Runbook
 
@@ -92,7 +90,7 @@ La fase di registrazione iniziale del processo di lavoro ha esito negativo e vie
 
 #### <a name="cause"></a>Causa
 
-Di seguito sono riportate le possibili cause:
+Le possibili cause sono le seguenti:
 * È presente un ID dell'area di lavoro o una chiave dell'area di lavoro (primaria) non tipizzata nelle impostazioni dell'agente. 
 * Il ruolo di lavoro ibrido per Runbook non può scaricare la configurazione, causando un errore di collegamento dell'account. Quando Azure Abilita soluzioni, supporta solo determinate aree per collegare un'area di lavoro Log Analytics e un account di automazione. È anche possibile che nel computer sia impostata una data e/o un'ora errate. Se l'ora è +/-15 minuti dall'ora corrente, il caricamento ha esito negativo.
 
@@ -133,10 +131,9 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 L'elenco seguente mostra i processi avviati per un ruolo di lavoro ibrido per runbook di Linux. Si trovano tutti nella directory `/var/opt/microsoft/omsagent/state/automationworker/`.
 
-
 * **OMS. conf** : processo di gestione del ruolo di lavoro. Viene avviato direttamente da DSC.
 
-* **Worker. conf** : il processo di lavoro ibrido registrato automaticamente viene avviato dal responsabile del ruolo di lavoro. Questo processo viene usato da Gestione aggiornamenti ed è trasparente all'utente. Questo processo non è presente se la soluzione Gestione aggiornamenti non è abilitata nel computer.
+* **Worker. conf** : processo di lavoro ibrido registrato automaticamente. Viene avviato dal gestore del ruolo di lavoro. Questo processo viene usato da Gestione aggiornamenti ed è trasparente all'utente. Questo processo non è presente se la soluzione Gestione aggiornamenti non è abilitata nel computer.
 
 * **DIY/Worker. conf** : il processo di lavoro ibrido DIY. Il processo del ruolo di lavoro ibrido registrato manualmente viene usato per eseguire i runbook dell'utente nel ruolo di lavoro ibrido per runbook. Si differenzia solo dal processo di lavoro ibrido registrato automaticamente nei dettagli chiave che usa una configurazione diversa. Questo processo non è presente se la soluzione automazione di Azure è disabilitata e il ruolo di lavoro ibrido per Linux DIY non è registrato.
 
@@ -150,7 +147,7 @@ Se viene visualizzato l'errore **, la classe specificata non esiste.** nel `/var
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
 ```
 
-## <a name="windows"></a>Windows
+## <a name="windows"></a>WINDOWS
 
 Il ruolo di lavoro ibrido per Runbook di Windows dipende dall' [agente di log Analytics per Windows](../../azure-monitor/platform/log-analytics-agent.md) per comunicare con l'account di automazione per registrare il ruolo di lavoro, ricevere i processi Runbook e segnalare lo stato. Se la registrazione del ruolo di lavoro non riesce, ecco alcune possibili cause dell'errore:
 

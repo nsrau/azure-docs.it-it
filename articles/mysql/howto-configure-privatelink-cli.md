@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 3ab02f0522ab52870d24f667ff91665e8aa0a4eb
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 59c38423f771685dc79a8be12a383cfdec6a0266
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281326"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031527"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-cli"></a>Creare e gestire un collegamento privato per database di Azure per MySQL (anteprima) con l'interfaccia della riga di comando
 
@@ -34,7 +34,7 @@ Per poter creare le risorse, è prima necessario creare un gruppo di risorse in 
 az group create --name myResourceGroup --location westeurope
 ```
 
-## <a name="create-a-virtual-network"></a>Creare una rete virtuale
+## <a name="create-a-virtual-network"></a>Creazione di una rete virtuale
 Creare una rete virtuale con il comando [az network vnet create](/cli/azure/network/vnet). Questo esempio crea una rete virtuale predefinita denominata *myVirtualNetwork* con una subnet denominata *mySubnet*:
 
 ```azurecli-interactive
@@ -54,7 +54,7 @@ az network vnet subnet update \
  --vnet-name myVirtualNetwork \
  --disable-private-endpoint-network-policies true
 ```
-## <a name="create-the-vm"></a>Creare la VM 
+## <a name="create-the-vm"></a>Creazione della VM 
 Creare una macchina virtuale con il comando az vm create. Quando richiesto, specificare la password da usare come credenziali di accesso per la macchina virtuale. Questo esempio crea una macchina virtuale denominata *myVM*: 
 ```azurecli-interactive
 az vm create \
@@ -114,7 +114,7 @@ az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json
  
 #Create DNS records 
 az network private-dns record-set a create --name myserver --zone-name privatelink.mysql.database.azure.com --resource-group myResourceGroup  
-az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.mysql.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
+az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.mysql.database.azure.com --resource-group myResourceGroup -a <Private IP Address>
 ```
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Connettersi a una VM da Internet
@@ -136,7 +136,7 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
         > [!NOTE]
         > Potrebbe essere necessario selezionare **Altre opzioni** > **Usa un altro account** per specificare le credenziali immesse al momento della creazione della macchina virtuale.
 
-1. Selezionare **OK**.
+1. Scegliere **OK**.
 
 1. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se si riceve un avviso relativo al certificato, selezionare **Sì** oppure **Continua**.
 

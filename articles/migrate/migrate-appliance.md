@@ -3,12 +3,12 @@ title: Appliance Azure Migrate
 description: Viene fornita una panoramica dell'appliance Azure Migrate utilizzata per la valutazione e la migrazione dei server.
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 6311f24a9c977b5f8b34384f0754f041a0c57ce7
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 652fe9d379d6e2ba50e9e282f384905e154368d8
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990743"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031664"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -63,12 +63,12 @@ Computer fisico |  Azure Migrate: valutazione del server |  Individuare i server
 
 **Requisito** | **Fisico** 
 --- | ---
-**Formato di download** | Cartella compressa (con script del programma di installazione di PowerShell)
+**Formato di download** | Cartella compressa (con script del programma di installazione basato su PowerShell)
 **Collegamento di download** | [Collegamento di download](https://go.microsoft.com/fwlink/?linkid=2105112)
 **Dimensioni del download** | 59,7 MB
-**Hardware** | Computer fisico dedicato o macchina virtuale. Il computer che esegue l'appliance necessita di 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione e un commute esterno.<br/> Per l'appliance sono necessari un indirizzo IP statico o dinamico e l'accesso a Internet.
+**Hardware** | Computer fisico dedicato oppure utilizzare una macchina virtuale. Il computer che esegue l'appliance necessita di 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione e un commute esterno.<br/> Per l'appliance sono necessari un indirizzo IP statico o dinamico e l'accesso a Internet.
 **Valore hash** | MD5:1e92ede3e87c03bd148e56a708cdd33f<br/><br/> SHA256: a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
-**Software** | Il computer appliance deve eseguire Windows Server 2016. 
+**Sistema operativo** | Il computer del dispositivo deve eseguire Windows Server 2016. 
 **Distribuzione dell'appliance**   |  Lo script del programma di installazione dell'Appliance viene scaricato dal portale (in una cartella compressa). <br/> È possibile decomprimere la cartella ed eseguire lo script di PowerShell (AzureMigrateInstaller. ps1).
 **Individuazione** | Un'appliance può individuare fino a 250 di server fisici.
 **Componenti del dispositivo** | App di gestione: app Web in appliance per l'input dell'utente durante la distribuzione.<br/> Agente di individuazione: raccoglie i dati di configurazione del computer.<br/> Agente di valutazione: raccolta dei dati sulle prestazioni.<br/>  Aggiornamento automatico del servizio: Aggiorna componenti (eseguito ogni 24 ore).
@@ -84,16 +84,17 @@ Il dispositivo Azure Migrate richiede la connettività a Internet.
 **URL** | **Dettagli**  
 --- | --- |
 *.portal.azure.com  | Passare al portale di Azure.
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com | Accedere alla sottoscrizione di Azure.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Accedere alla sottoscrizione di Azure.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Creare app Active Directory per l'appliance per comunicare con Azure Migrate.
 management.azure.com | Creare app Active Directory per l'appliance per comunicare con il servizio Azure Migrate.
 dc.services.visualstudio.com | Caricare i log delle app usati per il monitoraggio interno.
 *.vault.azure.net | Gestisci i segreti nel Azure Key Vault.
 aka.ms/* | Consente l'accesso a collegamenti aka. Usato per gli aggiornamenti di Azure Migrate Appliance.
 download.microsoft.com/download | Consenti i download dal Download Microsoft.
-*.servicebus.windows.net | **Usato per la migrazione senza agenti VMware**<br/><br/> Comunicazione tra l'appliance e il servizio Azure Migrate.
-*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | **Usato per la migrazione senza agenti VMware**<br/><br/> Connettersi agli URL del servizio Azure Migrate.
-*.blob.core.windows.net |  **Usato per la migrazione senza agenti VMware**<br/><br/>Caricare i dati nella risorsa di archiviazione.
+*.servicebus.windows.net | Comunicazione tra l'appliance e il servizio Azure Migrate.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com | Connettersi agli URL del servizio Azure Migrate.
+*.hypervrecoverymanager.windowsazure.com | **Usato per la migrazione senza agenti VMware**<br/><br/> Connettersi agli URL del servizio Azure Migrate.
+*.blob.core.windows.net |  **Usato per la migrazione senza agenti VMware**<br/><br/>Caricare i dati nella risorsa di archiviazione per la migrazione.
 
 
 
@@ -106,8 +107,8 @@ Ecco i dati sulle prestazioni delle macchine virtuali VMware che l'appliance rac
 
 **Dati** | **Contatore** | **Impatto valutazione**
 --- | --- | ---
-Uso della CPU | cpu.usage.average | Costo/dimensioni VM consigliate
-Utilizzo della memoria | mem.usage.average | Costo/dimensioni VM consigliate
+Utilizzo CPU | cpu.usage.average | Costo/dimensioni VM consigliate
+Utilizzo memoria | mem.usage.average | Costo/dimensioni VM consigliate
 Velocità effettiva lettura disco (MB al secondo) | virtualDisk.read.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
 Velocità effettiva scritture disco (MB al secondo) | virtualDisk.write.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
 Operazioni di lettura disco al secondo | virtualDisk.numberReadAveraged.average | Calcolo delle dimensioni del disco, dei costi di archiviazione e delle dimensioni della macchina virtuale
@@ -138,8 +139,8 @@ Memoria (MB) | vm.Config.Hardware.MemoryMB
 Numero di dischi | VM. Config. hardware. Device. ToList (). FindAll (x = > è VirtualDisk). Count
 Elenco dimensioni disco | VM. Config. hardware. Device. ToList (). FindAll (x = > è VirtualDisk)
 Elenco schede di rete | VM. Config. hardware. Device. ToList (). FindAll (x = > è VirtualEthernet). Count
-Uso della CPU | cpu.usage.average
-Utilizzo della memoria |mem.usage.average
+Utilizzo CPU | cpu.usage.average
+Utilizzo memoria |mem.usage.average
 **Dettagli per disco** | 
 Valore chiave disco | disk.Key
 Numero Dikunit | disk.UnitNumber
@@ -158,7 +159,7 @@ Indirizzi IPv6 | vm.Guest.Net
 Velocità effettiva lettura (MB al secondo) | net.received.average
 Velocità effettiva scrittura (MB al secondo) | net.transmitted.average
 **Dettagli percorso inventario** | 
-Nome | container.GetType().Name
+Name | container.GetType().Name
 Tipo di oggetto figlio | container.ChildType
 Informazioni di riferimento | container.MoRef
 Dettagli elemento padre | Container.Parent
@@ -208,7 +209,7 @@ Nome/versione/FQDN del sistema operativo | Msvm_KvpExchangeComponent | GuestIntr
 Stato di alimentazione della macchina virtuale | Msvm_ComputerSystem | EnabledState
 **Dettagli per disco** | 
 Identificatore disco | Msvm_VirtualHardDiskSettingData | VirtualDiskId
-Tipo di disco rigido virtuale | Msvm_VirtualHardDiskSettingData | Tipo
+Tipo di disco rigido virtuale | Msvm_VirtualHardDiskSettingData | Type
 Dimensioni del disco rigido virtuale | Msvm_VirtualHardDiskSettingData | MaxInternalSize
 Padre del disco rigido virtuale | Msvm_VirtualHardDiskSettingData | ParentPath
 **Dettagli per NIC** | 

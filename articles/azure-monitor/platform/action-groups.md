@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 8/19/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: cc01145423d2961e32bf17313a2873633399d21a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 01d3edb3de9e57fa7fa8db2ede863c2aa3e100ed
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901478"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030746"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creare e gestire gruppi di azione nel portale di Azure
 Un gruppo di azioni è una raccolta delle preferenze di notifica definite dal proprietario di una sottoscrizione di Azure. Gli avvisi di Monitoraggio di Azure e di integrità dei servizi usano gruppi di azioni per notificare agli utenti l'attivazione di un avviso. I vari avvisi possono usare lo stesso gruppo di azioni o gruppi di azioni diversi, a seconda delle esigenze dell'utente. In una sottoscrizione è possibile configurare fino a 2000 gruppi di azioni.
@@ -62,7 +62,7 @@ Per informazioni sull'uso dei modelli di Azure Resource Manager per configurare 
 
 ## <a name="manage-your-action-groups"></a>Gestire i gruppi di azione
 
-Dopo aver creato un gruppo di azione, questo sarà visibile nella sezione **gruppi di azioni** del riquadro **monitoraggio** . Selezionare il gruppo di azione da gestire per:
+Dopo aver creato un gruppo di azione, è possibile visualizzare i **gruppi di azioni** selezionando **Gestisci azioni** dalla pagina di destinazione **avvisi** nel riquadro **monitoraggio** . Selezionare il gruppo di azione da gestire per:
 
 * Aggiungere, modificare o rimuovere azioni.
 * Eliminare il gruppo di azione.
@@ -80,7 +80,7 @@ Un gruppo di azioni può contenere un numero limitato di azioni Runbook.
 ### <a name="azure-app-push-notifications"></a>Notifiche push dell'app Azure
 Un gruppo di azioni può contenere un numero limitato di azioni dell'app di Azure.
 
-### <a name="email"></a>Indirizzo di posta elettronica
+### <a name="email"></a>Email
 I messaggi di posta elettronica verranno inviati dagli indirizzi di posta elettronica seguenti. Verificare che il filtro della posta elettronica sia configurato correttamente
 - azure-noreply@microsoft.com
 - azureemail-noreply@microsoft.com
@@ -111,7 +111,7 @@ Un gruppo di azioni può contenere un numero limitato di azioni dell'app per la 
 
 L'azione webhook dei gruppi di azione consente di sfruttare Azure Active Directory per proteggere la connessione tra il gruppo di azioni e l'API Web protetta (endpoint webhook). Il flusso di lavoro generale per sfruttare questa funzionalità è descritto di seguito. Per una panoramica delle applicazioni Azure AD e delle entità servizio, vedere [Panoramica di Microsoft Identity Platform (v 2.0)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
 
-1. Creare un'applicazione Azure AD per l'API Web protetta. Vedi https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
+1. Creare un'applicazione Azure AD per l'API Web protetta. Vedere https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
     - Configurare l'API protetta affinché venga chiamata da un'app daemon.
     
 1. Abilitare i gruppi di azioni per l'uso dell'applicazione Azure AD.
@@ -197,12 +197,12 @@ Write-Host "My Azure AD Application's Roles"
 Write-Host $myApp.AppRoles
 ```
 
-### <a name="sms"></a>SMS
+### <a name="sms"></a>sms
 Per ulteriori informazioni importanti, vedere le [informazioni sulla limitazione della frequenza](./../../azure-monitor/platform/alerts-rate-limiting.md) e il comportamento degli [avvisi SMS](../../azure-monitor/platform/alerts-sms-behavior.md) .
 
 Un gruppo di azioni può contenere un numero limitato di azioni SMS.  
 
-### <a name="voice"></a>Voce
+### <a name="voice"></a>Chiamata vocale
 Vedere l'articolo relativo alle [informazioni sulla limitazione della frequenza](./../../azure-monitor/platform/alerts-rate-limiting.md) .
 
 Un gruppo di azioni può contenere un numero limitato di azioni vocali.

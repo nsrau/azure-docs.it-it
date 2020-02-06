@@ -2,24 +2,24 @@
 title: 'Esercitazione: Instradare il traffico agli endpoint ponderati - Gestione traffico di Azure'
 description: Questa esercitazione spiega come instradare il traffico agli endpoint ponderati con Gestione traffico.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 Customer intent: As an IT Admin, I want to distribute traffic based on the weight assigned to a website endpoint so that I can control the user traffic to a given website.
 ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
-ms.author: allensu
-ms.openlocfilehash: 45ece08599722e04c4e6799fa5c3589cba1fca42
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.author: rohink
+ms.openlocfilehash: a4738b2e36786cd627f53af3e36bd8f1e3fbc375
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037922"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939472"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Esercitazione: Controllare il routing del traffico agli endpoint ponderati con Gestione traffico
 
 Questa esercitazione spiega come usare Gestione traffico per controllare il routing del traffico utente tra gli endpoint usando il metodo di routing ponderato. In questo metodo di routing viene assegnato un peso a ogni endpoint come parte della configurazione del profilo di Gestione traffico. Il traffico utente viene quindi instradato in base al peso assegnato a ogni endpoint. Il peso è un numero intero compreso tra 1 e 1.000. Maggiore sarà il valore del peso assegnato a un endpoint, più elevata sarà la relativa priorità.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare due macchine virtuali che eseguono un sito Web di base in IIS.
@@ -31,7 +31,7 @@ In questa esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per vedere in azione Gestione traffico, distribuire quanto segue per questa esercitazione:
 
@@ -137,9 +137,9 @@ Creare un profilo di Gestione traffico basato sul metodo di routing **Ponderato*
 1. In alto a sinistra nella schermata selezionare **Crea una risorsa** > **Rete** > **Profilo di Gestione traffico** > **Crea**.
 2. In **Crea profilo di Gestione traffico** immettere o selezionare le informazioni seguenti. Accettare i valori predefiniti delle altre impostazioni e quindi selezionare **Crea**.
 
-    | Impostazione                 | Valore                                              |
+    | Impostazione                 | valore                                              |
     | ---                     | ---                                                |
-    | NOME                   | Immettere un nome univoco all'interno della zona trafficmanager.net. Tale nome determinerà il nome DNS trafficmanager.net, che viene usato per accedere al profilo di Gestione traffico.                                   |
+    | Nome                   | Immettere un nome univoco all'interno della zona trafficmanager.net. Tale nome determinerà il nome DNS trafficmanager.net, che viene usato per accedere al profilo di Gestione traffico.                                   |
     | Metodo di routing          | Selezionare il metodo di routing **Ponderato**.                                       |
     | Subscription            | Selezionare la propria sottoscrizione.                          |
     | Resource group          | Selezionare **Usa esistente** e quindi **myResourceGroupTM1**. |
@@ -149,22 +149,22 @@ Creare un profilo di Gestione traffico basato sul metodo di routing **Ponderato*
 
 ## <a name="add-traffic-manager-endpoints"></a>Aggiungere endpoint di Gestione traffico
 
-Aggiungere le due macchine virtuali che eseguono i server IIS, ovvero myIISVMEastUS e myIISVMWestEurope, per instradare il traffico degli utenti verso di esse.
+Aggiungere le due macchine virtuali che eseguono i server IIS, ovvero myIISVMEastUS e myIISVMWestEuropa, per instradare il traffico degli utenti verso di esse.
 
 1. Nella barra di ricerca del portale cercare il nome del profilo di Gestione traffico creato nella sezione precedente. Selezionare il profilo nei risultati visualizzati.
 2. In **Profilo di Gestione traffico** selezionare **Endpoint** > **Aggiungi** nella sezione **Impostazioni**.
 3. Immettere o selezionare le informazioni seguenti. Accettare i valori predefiniti delle altre impostazioni e quindi fare clic su **OK**.
 
-    | Impostazione                 | Valore                                              |
+    | Impostazione                 | valore                                              |
     | ---                     | ---                                                |
     | Type                    | Immettere l'endpoint di Azure.                                   |
-    | NOME           | Immettere **myEastUSEndpoint**.                                        |
+    | Nome           | Immettere **myEastUSEndpoint**.                                        |
     | Tipo di risorsa di destinazione           | Selezionare **Indirizzo IP pubblico**.                          |
     | Risorsa di destinazione          | Scegliere un indirizzo IP pubblico per visualizzare l'elenco delle risorse con gli indirizzi IP pubblici inclusi nella stessa sottoscrizione. In **Risorsa** selezionare l'indirizzo IP pubblico denominato **myIISVMEastUS-ip**. Questo è l'indirizzo IP pubblico della VM del server IIS nell'area Stati Uniti orientali.|
     |  Peso      | Immettere **100**.        |
     |        |           |
 
-4. Ripetere i passaggi 2 e 3 per aggiungere un altro endpoint denominato **myWestEuropeEndpoint** per l'indirizzo IP pubblico **myIISVMWestEurope-ip**. Questo indirizzo è associato alla macchina virtuale del server IIS denominata myIISVMWestEurope. In **Peso** immettere **25**.
+4. Ripetere i passaggi 2 e 3 per aggiungere un altro endpoint denominato **myWestEuropaEndpoint** per l'indirizzo IP pubblico **myIISVMWestEurope-ip**. Questo indirizzo è associato alla macchina virtuale del server IIS denominata myIISVMWestEurope. In **Peso** immettere **25**.
 5. Dopo aver aggiunto entrambi gli endpoint, questi vengono visualizzati nel profilo di Gestione traffico unitamente allo stato di monitoraggio **Online**.
 
 ## <a name="test-the-traffic-manager-profile"></a>Testare il profilo di Gestione traffico

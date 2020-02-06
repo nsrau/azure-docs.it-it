@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 02/02/2019
 ms.author: mlearned
-ms.openlocfilehash: 26f1544cab5cf5be2edd52f97c758d46eb835514
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 9a82b51083a7d31bc39c4556712c1489bad8bca0
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103780"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031476"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrare Azure Active Directory con il servizio Azure Kubernetes
 
@@ -50,13 +50,13 @@ Per fornire l'autenticazione Azure AD per un cluster AKS, vengono create due app
 
 Viene applicata la prima applicazione Azure AD per ottenere l'appartenenza a un gruppo di Azure AD dell'utente. Per creare l'applicazione nel portale di Azure:
 
-1. Selezionare **Azure Active Directory** > registrazioni appnuova > **registrazione**.
+1. Selezionare **Azure Active Directory** > **registrazioni app** > **nuova registrazione**.
 
     a. Assegnare un nome all'applicazione, ad esempio *AKSAzureADServer*.
 
     b. Per i **tipi di account supportati**, selezionare **account solo in questa directory aziendale**.
     
-    c. Scegliere **Web** per il tipo di URI di reindirizzamento, quindi immettere qualsiasi valore in *https://aksazureadserver* formato URI, ad esempio.
+    c. Scegliere **Web** per il tipo di URI di reindirizzamento, quindi immettere qualsiasi valore in formato URI, ad esempio *https://aksazureadserver* .
 
     d. Al termine, selezionare **Register (registra** ).
 
@@ -110,13 +110,20 @@ Viene applicata la prima applicazione Azure AD per ottenere l'appartenenza a un 
 
 La seconda applicazione Azure AD viene usata quando si accede con l'interfaccia della riga di comando di Kubernetes (kubectl).
 
-1. Selezionare **Azure Active Directory** > registrazioni appnuova > **registrazione**.
+1. Selezionare **Azure Active Directory** > **registrazioni app** > **nuova registrazione**.
 
     a. Assegnare un nome all'applicazione, ad esempio *AKSAzureADClient*.
 
     b. Per i **tipi di account supportati**, selezionare **account solo in questa directory aziendale**.
 
-    c. Selezionare **Web** per il tipo di URI di reindirizzamento, quindi immettere qualsiasi valore in *https://aksazureadclient* formato URI, ad esempio.
+    c. Selezionare **Web** per il tipo di URI di reindirizzamento, quindi immettere qualsiasi valore in formato URI, ad esempio *https://aksazureadclient* .
+
+    >[!NOTE]
+    >Se si sta creando un nuovo cluster abilitato per il controllo degli accessi in base al ruolo per supportare il monitoraggio di Azure per i contenitori, aggiungere i due URL di reindirizzamento aggiuntivi seguenti a questo elenco come tipi di applicazione **Web** . Il primo valore dell'URL di base deve essere `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` e il secondo valore dell'URL di base deve essere `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
+    >
+    >Se si usa questa funzionalità in Azure Cina, il primo valore dell'URL di base deve essere `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` e il secondo valore dell'URL di base deve essere `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
+    >
+    >Per ulteriori informazioni, vedere [come configurare la funzionalità dati in tempo reale (anteprima)](../azure-monitor/insights/container-insights-livedata-setup.md) per monitoraggio di Azure per i contenitori e i passaggi per la configurazione dell'autenticazione nella sezione [configurare l'autenticazione integrata ad](../azure-monitor/insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication) .
 
     d. Al termine, selezionare **Register (registra** ).
 
@@ -180,7 +187,7 @@ Per la creazione di un cluster AKS sono necessari alcuni minuti.
 
 Prima di usare un account di Azure Active Directory con un cluster AKS, è necessario creare un'associazione di ruoli o un'associazione di ruoli del cluster. I ruoli definiscono le autorizzazioni da concedere e le associazioni le applicano agli utenti desiderati. Queste assegnazioni possono essere applicate a uno spazio dei nomi specifico o all'intero cluster. Per ulteriori informazioni, vedere [utilizzo dell'autorizzazione RBAC][rbac-authorization].
 
-Usare prima di tutto il comando [AZ AKS Get-credentials][az-aks-get-credentials] con l' `--admin` argomento per accedere al cluster con accesso amministrativo.
+Usare prima di tutto il comando [AZ AKS Get-credentials][az-aks-get-credentials] con l'argomento `--admin` per accedere al cluster con accesso amministrativo.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
@@ -254,7 +261,7 @@ Estrarre il contesto per l'utente non amministratore usando il comando [AZ AKS G
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Dopo aver eseguito il `kubectl` comando, verrà richiesto di eseguire l'autenticazione tramite Azure. Seguire le istruzioni visualizzate per completare il processo, come illustrato nell'esempio seguente:
+Dopo aver eseguito il comando `kubectl`, verrà richiesto di eseguire l'autenticazione tramite Azure. Seguire le istruzioni visualizzate per completare il processo, come illustrato nell'esempio seguente:
 
 ```console
 $ kubectl get nodes

@@ -7,114 +7,64 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.custom: seo-lt-2019
-ms.date: 12/19/2019
-ms.openlocfilehash: 06746cfc3b39a242c16a6b4f4c95b3c212a9abd5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/04/2020
+ms.openlocfilehash: 901868da8ed859a846a507557d383db760f297c9
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443938"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029521"
 ---
-# <a name="troubleshoot-azure-data-factory-data-flows"></a>Risolvere i problemi di Azure Data Factory flussi di dati
+# <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Risolvere i problemi relativi ai flussi di dati in Azure Data Factory
 
 Questo articolo illustra i metodi comuni per la risoluzione dei problemi per i flussi di dati in Azure Data Factory.
 
 ## <a name="common-errors-and-messages"></a>Messaggi e errori comuni
 
-### <a name="error-message-df-sys-01-shadeddatabricksorgapachehadoopfsazureazureexception-commicrosoftazurestoragestorageexception-the-specified-container-does-not-exist"></a>Messaggio di errore: DF-SYS-01: shader. databricks. org. Apache. Hadoop. FS. Azure. Azureexception: com. Microsoft. Azure. storage. StorageException: il contenitore specificato non esiste.
+### <a name="error-code-df-executor-sourceinvalidpayload"></a>Codice di errore: DF-Executor-SourceInvalidPayload
+- **Messaggio**: esecuzione dell'anteprima dei dati, del debug e del flusso di dati della pipeline non riuscita. il contenitore non esiste
+- **Cause**: quando il set di dati contiene un contenitore che non esiste nello spazio di archiviazione
+- **Raccomandazione**: assicurarsi che il contenitore a cui si fa riferimento nel set di dati esista o accessibile.
 
-- **Sintomi**: l'esecuzione dell'anteprima dei dati, del debug e del flusso di dati della pipeline non riesce perché il contenitore non esiste
+### <a name="error-code-df-executor-systemimplicitcartesian"></a>Codice di errore: DF-Executor-SystemImplicitCartesian
 
-- **Motivo**: quando il set di dati contiene un contenitore che non esiste nello spazio di archiviazione
+- **Messaggio**: il prodotto cartesiano implicito per Inner join non è supportato. usare cross join. Le colonne utilizzate nel join devono creare una chiave univoca per le righe.
+- **Cause**: il prodotto cartesiano implicito per Inner join tra piani logici non è supportato. Se le colonne utilizzate nel join creano la chiave univoca
+- **Raccomandazione**: per i join non basati sull'uguaglianza è necessario optare per cross join.
 
-- **Soluzione**: assicurarsi che il contenitore a cui si fa riferimento nel set di dati esista
+### <a name="error-code-df-executor-systeminvalidjson"></a>Codice di errore: DF-Executor-SystemInvalidJson
 
-### <a name="error-message-df-sys-01-javalangassertionerror-assertion-failed-conflicting-directory-structures-detected-suspicious-paths"></a>Messaggio di errore: DF-SYS-01: Java. lang. AssertionError: Assertion Failed: sono state rilevate strutture di directory in conflitto. Percorsi sospetti
+- **Messaggio**: errore di analisi JSON, codifica non supportata o su più righe
+- **Cause**: possibili problemi con il file JSON: codifica non supportata, byte danneggiati o uso dell'origine JSON come documento singolo su molte righe annidate
+- **Raccomandazione**: verificare che la codifica del file JSON sia supportata. Nella trasformazione di origine che usa un set di dati JSON, espandere ' JSON Settings ' e attivare ' Single Document '.
+ 
+### <a name="error-code-df-executor-broadcasttimeout"></a>Codice di errore: DF-Executor-BroadcastTimeout
 
-- **Sintomi**: quando si usano i caratteri jolly nella trasformazione origine con i file parquet
+- **Messaggio**: errore di timeout di broadcast join, assicurarsi che flusso broadcast produca dati entro 60 secondi nelle esecuzioni di debug e 300 secondi nelle esecuzioni dei processi
+- **Cause**: la trasmissione ha un timeout predefinito di 60 secondi nelle esecuzioni di debug e di 300 secondi nelle esecuzioni del processo. Il flusso scelto per la trasmissione sembra grande per produrre dati entro questo limite.
+- **Raccomandazione**: evitare di trasmettere flussi di dati di grandi dimensioni in cui l'elaborazione può richiedere più di 60 secondi. Scegliere invece un flusso più piccolo da trasmettere. Le tabelle SQL/DW di grandi dimensioni e i file di origine sono in genere candidati non validi.
 
-- **Cause**: sintassi con caratteri jolly non corretta o non valida
+### <a name="error-code-df-executor-conversion"></a>Codice di errore: DF-Executor-Conversion
 
-- **Soluzione**: controllare la sintassi con caratteri jolly utilizzata nelle opzioni di trasformazione di origine
+- **Messaggio**: conversione in una data o ora non riuscita a causa di un carattere non valido
+- **Cause**: i dati non sono nel formato previsto
+- **Raccomandazione**: usare il tipo di dati corretto
 
-### <a name="error-message-df-src-002-container-container-name-is-required"></a>Messaggio di errore: DF-SRC-002:' container ' (nome contenitore) obbligatorio
+### <a name="error-code-df-executor-invalidcolumn"></a>Codice di errore: DF-Executor-InvalidColumn
 
-- **Sintomi**: l'esecuzione dell'anteprima dei dati, del debug e del flusso di dati della pipeline non riesce perché il contenitore non esiste
-
-- **Motivo**: quando il set di dati contiene un contenitore che non esiste nello spazio di archiviazione
-
-- **Soluzione**: assicurarsi che il contenitore a cui si fa riferimento nel set di dati esista
-
-### <a name="error-message-df-uni-001-primarykeyvalue-has-incompatible-types-integertype-and-stringtype"></a>Messaggio di errore: DF-UNI-001: i tipi di PrimaryKeyValue sono incompatibili IntegerType e StringType
-
-- **Sintomi**: l'esecuzione dell'anteprima dei dati, del debug e del flusso di dati della pipeline non riesce perché il contenitore non esiste
-
-- **Cause**: si verifica quando si tenta di inserire un tipo di chiave primaria errato nei sink di database
-
-- **Soluzione**: utilizzare una colonna derivata per eseguire il cast della colonna utilizzata per la chiave primaria nel flusso di dati in modo che corrisponda al tipo di dati del database di destinazione
-
-### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-the-tcpip-connection-to-the-host-xxxxxdatabasewindowsnet-port-1433-has-failed-error-xxxxdatabasewindowsnet-verify-the-connection-properties-make-sure-that-an-instance-of-sql-server-is-running-on-the-host-and-accepting-tcpip-connections-at-the-port-make-sure-that-tcp-connections-to-the-port-are-not-blocked-by-a-firewall"></a>Messaggio di errore: DF-SYS-01: com. Microsoft. SqlServer. JDBC. SQLServerException: la connessione TCP/IP alla porta xxxxx.database.windows.net host 1433 non è riuscita. Errore: "xxxx.database.windows.net. Verificare le proprietà di connessione. Assicurarsi che un'istanza di SQL Server sia in esecuzione nell'host e accetti le connessioni TCP/IP sulla porta. Verificare che le connessioni TCP alla porta non siano bloccate da un firewall ".
-
-- **Sintomi**: non è possibile visualizzare in anteprima i dati o eseguire la pipeline con l'origine o il sink del database
-
-- **Motivo**: il database è protetto da firewall
-
-- **Soluzione**: aprire il firewall accesso al database
-
-### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-there-is-already-an-object-named-xxxxxx-in-the-database"></a>Messaggio di errore: DF-SYS-01: com. Microsoft. SqlServer. JDBC. SQLServerException: esiste già un oggetto denominato ' XXXXXX ' nel database.
-
-- **Sintomi**: il sink non riesce a creare la tabella
-
-- **Causa**: nel database di destinazione è già presente un nome di tabella con lo stesso nome definito nell'origine o nel set di dati
-
-- **Soluzione**: modificare il nome della tabella che si sta tentando di creare
-
-### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-string-or-binary-data-would-be-truncated"></a>Messaggio di errore: DF-SYS-01: com. Microsoft. SqlServer. JDBC. SQLServerException: i dati di tipo String o binary verrebbero troncati. 
-
-- **Sintomi**: durante la scrittura di dati in un sink SQL, il flusso di dati non riesce nell'esecuzione della pipeline con possibile errore di troncamento.
-
-- **Causa**: un campo del flusso di dati mappato a una colonna nel database SQL non è sufficientemente ampio per archiviare il valore, causando la generazione di questo errore da parte del driver SQL
-
-- **Soluzione**: è possibile ridurre la lunghezza dei dati per le colonne stringa usando ```left()``` in una colonna derivata o implementare il [modello "riga di errore".](how-to-data-flow-error-rows.md)
-
-### <a name="error-message-since-spark-23-the-queries-from-raw-jsoncsv-files-are-disallowed-when-the-referenced-columns-only-include-the-internal-corrupt-record-column"></a>Messaggio di errore: a partire da Spark 2,3, le query da file JSON/CSV non elaborati non sono consentite quando le colonne a cui si fa riferimento includono solo la colonna del record danneggiato interna. 
-
-- **Sintomi**: la lettura da un'origine JSON non riesce
-
-- **Causa**: durante la lettura da un'origine JSON con un singolo documento su molte righe annidate, ADF, tramite Spark, non è in grado di determinare la posizione in cui inizia un nuovo documento e il documento precedente termina.
-
-- **Soluzione**: nella trasformazione di origine che usa un set di dati JSON, espandere "impostazioni JSON" e attivare "documento singolo".
-
-### <a name="error-message-duplicate-columns-found-in-join"></a>Messaggio di errore: colonne duplicate trovate in join
-
-- **Sintomi**: la trasformazione join ha generato colonne dal lato sinistro e destro che includono nomi di colonna duplicati
-
-- **Motivo**: i flussi da unire in join hanno nomi di colonna comuni
-
-- **Soluzione**: aggiungere una trasformazione seleziona dopo il join e selezionare "Rimuovi colonne duplicate" per l'input e l'output.
-
-### <a name="error-message-possible-cartesian-product"></a>Messaggio di errore: possibile prodotto cartesiano
-
-- **Sintomi**: la trasformazione join o Lookup ha rilevato il prodotto cartesiano possibile al momento dell'esecuzione del flusso di dati
-
-- **Motivo**: se ADF non è stato indirizzato in modo esplicito all'utilizzo di un cross join, il flusso di dati potrebbe non riuscire
-
-- **Soluzione**: modificare la trasformazione ricerca o join in un join usando il cross join personalizzato e immettere la condizione di ricerca o di join nell'editor espressioni. Se si desidera produrre in modo esplicito un prodotto cartesiano completo, utilizzare la trasformazione colonna derivata in ognuno dei due flussi indipendenti prima del join per creare una chiave sintetica per la corrispondenza. Ad esempio, creare una nuova colonna nella colonna derivata in ogni flusso denominato ```SyntheticKey``` e impostarla su ```1```. Usare quindi ```a.SyntheticKey == b.SyntheticKey``` come espressione di join personalizzata.
-
-> [!NOTE]
-> Assicurarsi di includere almeno una colonna da ogni lato della relazione sinistra e destra in un cross join personalizzato. L'esecuzione di cross join con valori statici anziché colonne da ogni lato genera analisi complete dell'intero set di dati, causando scarse prestazioni del flusso di dati.
+- **Message**: è necessario specificare il nome della colonna nella query, impostare un alias se si usa una funzione SQL
+- **Cause**: non è stato specificato alcun nome di colonna
+- **Raccomandazione**: impostare un alias se si usa una funzione SQL, ad esempio min ()/Max () e così via.
 
 ## <a name="general-troubleshooting-guidance"></a>Indicazioni generali per la risoluzione dei problemi
 
 1. Verificare lo stato delle connessioni del set di dati. In ogni trasformazione di origine e sink visitare il servizio collegato per ogni set di dati in uso e testare le connessioni.
-2. Verificare lo stato delle connessioni di file e tabelle dalla finestra di progettazione del flusso di dati. Attivare il debug e fare clic su Anteprima dati nelle trasformazioni di origine per assicurarsi di poter accedere ai dati.
-3. Se tutto sembra corretto dall'anteprima dei dati, passare alla finestra di progettazione della pipeline e inserire il flusso di dati in un'attività della pipeline. Eseguire il debug della pipeline per un test end-to-end.
+1. Verificare lo stato delle connessioni di file e tabelle dalla finestra di progettazione del flusso di dati. Attivare il debug e fare clic su Anteprima dati nelle trasformazioni di origine per assicurarsi di poter accedere ai dati.
+1. Se tutto sembra corretto dall'anteprima dei dati, passare alla finestra di progettazione della pipeline e inserire il flusso di dati in un'attività della pipeline. Eseguire il debug della pipeline per un test end-to-end.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per ulteriori informazioni sulla risoluzione dei problemi, provare a usare le risorse seguenti:
-
 *  [Blog di Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Richieste di funzionalità Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 *  [Video su Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)

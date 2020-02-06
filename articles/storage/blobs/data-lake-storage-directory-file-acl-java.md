@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 575f3ed1a692087cc99881798f7f0ca74c5d3a66
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 0f9489cd702eab6038689f6ac710c32427665093
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024450"
+ms.locfileid: "77031119"
 ---
 # <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Usare Java per gestire directory, file e ACL in Azure Data Lake Storage Gen2 (anteprima)
 
@@ -259,8 +259,6 @@ static public void ManageFileACLs(DataLakeFileSystemClient fileSystemClient){
 
 Per prima cosa, creare un'istanza di **DataLakeFileClient** che rappresenti il file che si desidera scaricare. Usare il metodo **DataLakeFileClient. Read** per leggere il file. Usare qualsiasi API di elaborazione di file .NET per salvare i byte dal flusso a un file. 
 
-Assicurarsi di completare il download chiamando il metodo **DataLakeFileClient. Flush** .
-
 ```java
 static public void DownloadFile(DataLakeFileSystemClient fileSystemClient)
     throws FileNotFoundException, java.io.IOException{
@@ -316,7 +314,7 @@ static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClien
 }
 ```
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Documentazione di riferimento per le API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html)
 * [Pacchetto (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake/12.0.0-preview.6/jar)

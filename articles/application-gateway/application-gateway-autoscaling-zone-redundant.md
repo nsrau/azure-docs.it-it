@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/09/2019
 ms.author: victorh
-ms.openlocfilehash: 66978f313f5cb3881f8befc61289d7de0f4214cb
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 8fe38870f593dd57d8e4dad5601ea404e99c3d10
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668156"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031561"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway applicazione con scalabilità automatica e ridondanza della zona versione 2 
 
@@ -37,12 +37,12 @@ Il nuovo SKU v2 include i miglioramenti seguenti:
 
 Lo SKU Standard_v2 e WAF_v2 è disponibile nelle aree geografiche seguenti: Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Europa settentrionale, Europa occidentale, Asia sudorientale, Francia centrale, Regno Unito occidentale, Giappone orientale, Giappone occidentale, Australia orientale , Australia sudorientale, Brasile meridionale, Canada centrale, Canada orientale, Asia orientale, Corea centrale, Corea meridionale, Regno Unito meridionale, India centrale, India occidentale, India meridionale.
 
-## <a name="pricing"></a>Prezzi
+## <a name="pricing"></a>Pricing
 
 Con lo SKU V2, il modello di determinazione dei prezzi è determinato dal consumo e non è più associato ai conteggi o alle dimensioni delle istanze. I prezzi dello SKU V2 hanno due componenti:
 
 - **Prezzo fisso** : prezzo orario (o ora parziale) per il provisioning di un Standard_v2 o WAF_v2 gateway. Si noti che 0 istanze aggiuntive minime garantiscono comunque una disponibilità elevata del servizio sempre incluso con prezzo fisso.
-- **Prezzo unitario di capacità** : costo in base al consumo addebitato in aggiunta al costo fisso. Gli addebiti relativi alle unità di capacità vengono calcolati anche su base oraria o parzialmente oraria. Sono disponibili tre dimensioni per le unità di capacità, ovvero unità di calcolo, connessioni persistenti e unità elaborate. L'unità di calcolo è una misura relativa alla capacità di processore utilizzata. I fattori che influiscono sull'unità di calcolo sono connessioni TLS/sec, calcoli di riscrittura URL e elaborazione di regole WAF. La connessione persistente è una misura delle connessioni TCP stabilite al gateway applicazione in un determinato intervallo di fatturazione. La velocità effettiva è media megabit/sec elaborati dal sistema in un determinato intervallo di fatturazione.  La fatturazione viene effettuata a livello di unità di capacità per qualsiasi valore superiore al numero di istanze riservate.
+- **Prezzo unitario di capacità** : costo in base al consumo addebitato in aggiunta al costo fisso. L'addebito per le unità di capacità viene calcolato anche ogni ora o parzialmente. Sono disponibili tre dimensioni per la capacità: unità di calcolo, connessioni permanenti e velocità effettiva. Unità di calcolo è una misura della capacità del processore utilizzata. I fattori che influiscono sull'unità di calcolo sono connessioni TLS/sec, calcoli di riscrittura URL e elaborazione di regole WAF. La connessione persistente è una misura delle connessioni TCP stabilite al gateway applicazione in un determinato intervallo di fatturazione. La velocità effettiva è media megabit/sec elaborati dal sistema in un determinato intervallo di fatturazione.  La fatturazione viene effettuata a livello di unità di capacità per qualsiasi valore superiore al numero di istanze riservate.
 
 Ogni unità di capacità è composta al massimo: 1 unità di calcolo o 2500 connessioni permanenti o velocità effettiva di 2,22 Mbps.
 
@@ -61,10 +61,10 @@ Nella tabella seguente vengono illustrati i prezzi di esempio e sono solo a scop
 
 |              Nome SKU                             | Prezzo fisso ($/ora)  | Prezzo unitario di capacità ($/CU-hr)   |
 | ------------------------------------------------- | ------------------- | ------------------------------- |
-| Standard_v2                                       |    0,20             | 0,0080                          |
+| Standard_v2                                       |    0.20             | 0,0080                          |
 | WAF_v2                                            |    0,36             | 0,0144                          |
 
-Per ulteriori informazioni sui prezzi, vedere la pagina relativa ai [prezzi](https://azure.microsoft.com/pricing/details/application-gateway/). La fatturazione è prevista per l'inizio il 1 ° luglio 2019.
+Per ulteriori informazioni sui prezzi, vedere la pagina relativa ai [prezzi](https://azure.microsoft.com/pricing/details/application-gateway/). 
 
 **Esempio 1**
 
@@ -141,7 +141,7 @@ Nella tabella seguente vengono confrontate le funzionalità disponibili in ogni 
 
 |                                                   | SKU V1   | SKU V2   |
 | ------------------------------------------------- | -------- | -------- |
-| Scalabilità automatica                                       |          | &#x2713; |
+| Ridimensionamento automatico                                       |          | &#x2713; |
 | Ridondanza della zona                                   |          | &#x2713; |
 | Indirizzo VIP statico                                        |          | &#x2713; |
 | Controller di ingresso del servizio Azure Kubernetes (AKS) |          | &#x2713; |
@@ -150,7 +150,7 @@ Nella tabella seguente vengono confrontate le funzionalità disponibili in ogni 
 | Routing basato su URL                                 | &#x2713; | &#x2713; |
 | Hosting di più siti                             | &#x2713; | &#x2713; |
 | Reindirizzamento del traffico                               | &#x2713; | &#x2713; |
-| Web application firewall (WAF)                    | &#x2713; | &#x2713; |
+| WAF (Web application firewall)                    | &#x2713; | &#x2713; |
 | Regole personalizzate di WAF                                  |          | &#x2713; |
 | Terminazione di Secure Sockets Layer (SSL)            | &#x2713; | &#x2713; |
 | Crittografia SSL end-to-end                         | &#x2713; | &#x2713; |
@@ -167,15 +167,15 @@ Nella tabella seguente vengono confrontate le funzionalità disponibili in ogni 
 
 |Differenza|Dettagli|
 |--|--|
-|Autenticazione del certificato|Non supportati.<br>Per altre informazioni, vedere [Panoramica di SSL end-to-end con il gateway applicazione](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
-|Combinazione di versione 2 Standard e gateway applicazione standard nella stessa subnet|Supporto non disponibile|
-|Applicazione di una route definita dall'utente alla subnet del gateway applicazione|Supporto non disponibile|
+|Autenticazione del certificato|Non supportato.<br>Per altre informazioni, vedere [Panoramica di SSL end-to-end con il gateway applicazione](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
+|Combinazione di versione 2 Standard e gateway applicazione standard nella stessa subnet|Non supportate|
+|Applicazione di una route definita dall'utente alla subnet del gateway applicazione|Non supportate|
 |Gruppo di sicurezza di rete per intervallo di porte in ingresso| - Da 65200 a 65535 per SKU versione 2 Standard<br>- Da 65503 a 65534 per SKU Standard.<br>Per altre informazioni, vedere la sezione [Domande frequenti](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
-|Contatori delle prestazioni in Diagnostica di Azure|Non supportati.<br>Usare le metriche di Azure.|
+|Contatori delle prestazioni in Diagnostica di Azure|Non supportato.<br>Usare le metriche di Azure.|
 |Fatturazione|Fatturazione pianificata per l'avvio il 1 ° luglio 2019.|
 |Modalità FIPS|Attualmente non supportati.|
 |Modalità solo bilanciamento del carico interno|Non supportato attualmente. Le modalità pubblica e con bilanciamento del carico interno insieme non sono supportate.|
-|Integrazione di Netwatcher|Non supportati.|
+|Integrazione di Netwatcher|Non supportato.|
 |Integrazione del Centro sicurezza di Azure|Non ancora disponibile.
 
 ## <a name="migrate-from-v1-to-v2"></a>Eseguire la migrazione dalla versione 1 alla versione 2

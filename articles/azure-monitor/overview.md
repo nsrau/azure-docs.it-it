@@ -7,12 +7,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 58dd53d9380448f177da48659b4f48c261bcfc14
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: f5d98ecdac3acacda2b592f88e7db45dc181e8da
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745430"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934467"
 ---
 # <a name="azure-monitor-overview"></a>Panoramica di Monitoraggio di Azure
 
@@ -26,14 +26,16 @@ Ecco alcuni esempi di cosa è possibile fare con Monitoraggio di Azure:
 - Supportare operazioni su larga scala con gli [avvisi intelligenti](platform/alerts-smartgroups-overview.md) e le [azioni automatizzate](platform/alerts-action-rules.md).
 - Creare visualizzazioni con i [dashboard](learn/tutorial-logs-dashboards.md) e le [cartelle di lavoro](app/usage-workbooks.md) di Azure.
 
-## <a name="overview"></a>Panoramica
-Il diagramma seguente offre una panoramica di Monitoraggio di Azure. Al centro del diagramma si trovano gli archivi dati per le metriche e i log, i due tipi fondamentali di dati usati da Monitoraggio di Azure. A sinistra si trovano le [origini dei dati di monitoraggio](platform/data-sources.md) che popolano tali [archivi dati](platform/data-platform.md). A destra ci sono le diverse funzioni svolte da Monitoraggio di Azure con i dati raccolti, come analisi, avviso e streaming a sistemi esterni.
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
+## <a name="overview"></a>Panoramica
+
+Il diagramma seguente offre una panoramica di Monitoraggio di Azure. Al centro del diagramma si trovano gli archivi dati per le metriche e i log, i due tipi fondamentali di dati usati da Monitoraggio di Azure. A sinistra si trovano le [origini dei dati di monitoraggio](platform/data-sources.md) che popolano tali [archivi dati](platform/data-platform.md). A destra ci sono le diverse funzioni svolte da Monitoraggio di Azure con i dati raccolti, come analisi, avviso e streaming a sistemi esterni.
 
 ![Panoramica di Monitoraggio di Azure](media/overview/overview.png)
 
-
 ## <a name="monitoring-data-platform"></a>Piattaforma di monitoraggio dei dati
+
 Tutti i dati raccolti da Monitoraggio di Azure rientrano in uno di due tipi fondamentali, [metriche e log](platform/data-platform.md). Le [metriche](platform/data-platform-metrics.md) sono valori numerici che descrivono alcuni aspetti di un sistema in un particolare momento. Sono elementi leggeri in grado di supportare scenari praticamente in tempo reale. I [log](platform/data-platform-logs.md) contengono diversi tipi di dati organizzati in record con diversi set di proprietà per ogni tipo. I dati di telemetria, come eventi e tracce, vengono archiviati come log insieme ai dati sulle prestazioni in modo da poter essere combinati per l'analisi.
 
 Per molte risorse di Azure, i dati raccolti da Monitoraggio di Azure sono visualizzati a destra nella pagina Panoramica nel portale di Azure. Osservando una qualsiasi macchina virtuale, ad esempio, si vedono diversi grafici che mostrano le metriche delle prestazioni. Fare clic su uno dei grafici per aprire i dati in [Esplora metriche](platform/metrics-charts.md) nel portale di Azure, che consente di rappresentare in un grafico i valori di più metriche nel tempo.  È possibile visualizzare i grafici in modo interattivo o aggiungerli a un dashboard per visualizzarli con altre visualizzazioni.
@@ -47,6 +49,7 @@ Monitoraggio di Azure usa una versione del [linguaggio di query Kusto](/azure/ku
 ![Log](media/overview/logs.png)
 
 ## <a name="what-data-does-azure-monitor-collect"></a>Quali dati vengono raccolti da Monitoraggio di Azure?
+
 Monitoraggio di Azure può raccogliere dati da diverse origini. Il monitoraggio dei dati per le applicazioni avviene mediante livelli che vanno dall'applicazione, al sistema operativo e ai servizi su cui si basa, fino alla piattaforma stessa. Monitoraggio di Azure raccoglie i dati da ciascuno dei livelli seguenti:
 
 - **Dati di monitoraggio dell'applicazione**: dati relativi alle prestazioni e alle funzionalità del codice scritto indipendentemente dalla piattaforma.
@@ -62,9 +65,8 @@ Per estendere i dati raccolti all'impiego effettivo delle risorse [abilitare la 
 Abilitare il monitoraggio per l'[applicazione dei servizi app](app/azure-web-apps.md) o l'[applicazione del set di scalabilità di macchine virtuali](app/azure-vm-vmss-apps.md) per consentire ad Application Insights di raccogliere informazioni dettagliate sull'applicazione, incluse visualizzazioni pagina, richieste di applicazioni ed eccezioni. Verificare ulteriormente la disponibilità dell'applicazione configurando un [test di disponibilità](app/monitor-web-app-availability.md) per simulare il traffico utente.
 
 ### <a name="custom-sources"></a>Origini personalizzate
+
 Monitoraggio di Azure può raccogliere dati di log da qualsiasi client REST tramite l'[API dell'agente di raccolta dati](platform/data-collector-api.md). In questo modo è possibile creare scenari di monitoraggio personalizzati ed estendere il monitoraggio alle risorse che non espongono dati di telemetria tramite altre origini.
-
-
 
 ## <a name="insights"></a>Informazioni dettagliate
 I dati di monitoraggio sono utili solo se possono aumentare la visibilità del funzionamento dell'ambiente di elaborazione. Monitoraggio di Azure include diverse funzionalità e vari strumenti che offrono preziose informazioni dettagliate sulle applicazioni e su altre risorse da cui dipendono. Le [soluzioni di monitoraggio](insights/solutions.md) e le funzionalità quali [Application Insights](app/app-insights-overview.md) e [Monitoraggio di Azure per contenitori](insights/container-insights-overview.md) offrono informazioni approfondite su diversi aspetti dell'applicazione e su specifici servizi di Azure. 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.openlocfilehash: 33b000d0ca5cdd4af2ed57c5db6e71ae5a1e4c58
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 144d51d08a61526ec0f183a63e1fdf5658136293
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74215818"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030965"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Ottimizzare le query Apache Hive in Azure HDInsight
 
@@ -29,11 +29,11 @@ Se si aumenta il numero di nodi del ruolo di lavoro in un cluster HDInsight, si 
 
 * Durante la creazione del cluster, è possibile specificare il numero di nodi del ruolo di lavoro usando il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando.  Per altre informazioni, vedere [Creare cluster Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). La schermata seguente mostra la configurazione dei nodi del ruolo di lavoro nel portale di Azure:
   
-    ![Nodi dimensioni del cluster portale di Azure](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration-pricing-hadoop.png "scaleout_1")
+    ![Nodi dimensioni del cluster portale di Azure](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration.png "scaleout_1")
 
 * Dopo avere creato il cluster, è possibile anche modificare il numero di nodi del ruolo di lavoro per scalare orizzontalmente il cluster senza ricrearne uno:
 
-    ![Dimensioni del cluster portale di Azure scala](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-2.png "scaleout_2")
+    ![Dimensioni del cluster portale di Azure scala](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-settings-nodes.png "scaleout_2")
 
 Per altre informazioni sulla scalabilità di HDInsight, vedere [Scale HDInsight clusters](hdinsight-scaling-best-practices.md) (Scalare i cluster HDInsight)
 
@@ -122,7 +122,7 @@ Per altre informazioni, vedere [Partitioned Tables](https://cwiki.apache.org/con
 
 ## <a name="use-the-orcfile-format"></a>Utilizzare il formato ORCFile
 
-Hive supporta diversi formati di file. Ad esempio:
+Hive supporta diversi formati di file. Ad esempio,
 
 * **Testo**: è il formato di file predefinito e funziona con la maggior parte degli scenari.
 * **Avro**: funziona bene per scenari di interoperabilità.
@@ -148,7 +148,7 @@ PARTITIONED BY(L_SHIPDATE STRING)
 STORED AS ORC;
 ```
 
-Inserire quindi i dati nella tabella ORC dalla tabella di gestione temporanea. Ad esempio:
+Inserire quindi i dati nella tabella ORC dalla tabella di gestione temporanea. Ad esempio,
 
 ```sql
 INSERT INTO TABLE lineitem_orc

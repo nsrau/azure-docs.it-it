@@ -17,12 +17,12 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 567df85fa634570b0ac04fe6da906776a74c0550
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e673c2dfd9b3bef6d443498fc96a8c71e0737851
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76833347"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030762"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform
 
@@ -49,7 +49,7 @@ Lo stesso vale per le risorse di terze parti integrate con Microsoft Identity Pl
 
 * Lettura del calendario dell'utente
 * Scrittura nel calendario dell'utente
-* Invio di messaggi di posta elettronica come utente
+* Invio di posta come utente
 
 Con la definizione di questi tipi di autorizzazioni, la risorsa può avere un controllo accurato dei dati e dell'esposizione delle funzionalità API. Un'app di terze parti può richiedere queste autorizzazioni da utenti e amministratori, che devono approvare la richiesta prima che l'app possa accedere ai dati o agire per conto di un utente. Suddividendo le funzionalità della risorsa in set di autorizzazioni più piccoli, è possibile creare le app di terze parti affinché richiedano solo le autorizzazioni specifiche necessarie per il relativo funzionamento. Gli utenti e gli amministratori possono conoscere esattamente i dati a cui l'app ha accesso e possono essere più sicuri che non si comportano con finalità dannose. Gli sviluppatori devono sempre rispettare il concetto di privilegio minimo, richiedendo solo le autorizzazioni necessarie per il funzionamento delle loro applicazioni.
 
@@ -59,7 +59,7 @@ In OAuth 2.0 questi tipi di autorizzazioni vengono definiti *ambiti* o Sono anch
 * Scrittura del calendario dell'utente tramite `Calendars.ReadWrite`
 * Invio di messaggi di posta elettronica come utente tramite `Mail.Send`
 
-Un'app richiede in genere queste autorizzazioni specificando gli ambiti nelle richieste all'endpoint di autorizzazione della piattaforma di identità Microsoft. Tuttavia, alcune autorizzazioni con privilegi elevati possono essere concesse solo tramite il consenso dell'amministratore e richieste/concesse tramite l' [endpoint di consenso dell'amministratore](v2-permissions-and-consent.md#admin-restricted-permissions). Continua a leggere per scoprire di più.
+Un'app richiede in genere queste autorizzazioni specificando gli ambiti nelle richieste all'endpoint di autorizzazione della piattaforma di identità Microsoft. Tuttavia, alcune autorizzazioni con privilegi elevati possono essere concesse solo tramite il consenso dell'amministratore e richieste/concesse tramite l' [endpoint di consenso dell'amministratore](v2-permissions-and-consent.md#admin-restricted-permissions). Per altre informazioni, continuare la lettura.
 
 ## <a name="permission-types"></a>Tipi di autorizzazioni
 
@@ -85,11 +85,11 @@ L'implementazione della piattaforma di identità Microsoft di OpenID Connect pre
 
 Se un'app esegue l'accesso usando [OpenID Connect](active-directory-v2-protocols.md), deve richiedere l'ambito `openid`. L'ambito `openid` viene visualizzato nella pagina di consenso dell'account aziendale come autorizzazione di accesso e nella pagina di consenso dell'account personale Microsoft come autorizzazione per la visualizzazione del profilo e la connessione ad app e servizi tramite l'account Microsoft. Questa autorizzazione consente a un'app di ricevere un identificatore univoco per l'utente sotto forma di attestazione `sub` e concede all'app l'accesso all'endpoint delle informazioni utente. L'ambito `openid` può essere usato nell'endpoint token della piattaforma di identità Microsoft per acquisire i token ID, che possono essere usati dall'app per l'autenticazione.
 
-### <a name="email"></a>email
+### <a name="email"></a>Posta elettronica
 
 L'ambito `email` può essere usato con l'ambito `openid` e con tutti gli altri. Consente all'applicazione di accedere all'indirizzo di posta elettronica primario dell'utente sotto forma di attestazione `email`. L'attestazione `email` è inclusa in un token solo se l'indirizzo di posta elettronica è associato all'account utente, che non è sempre il caso. Se si usa l'ambito `email`, l'applicazione deve essere pronta per gestire il caso in cui l'attestazione `email` non esiste nel token.
 
-### <a name="profile"></a>Profilo
+### <a name="profile"></a>profilo
 
 L'ambito `profile` può essere usato con l'ambito `openid` e con tutti gli altri. Consente all'applicazione di accedere a numerose informazioni sull'utente, Le informazioni a cui può accedere includono, a titolo esemplificativo, il nome, il cognome, il nome utente preferito e l'ID oggetto specificati dall'utente. Per un elenco completo delle attestazioni profilo disponibili nel parametro id_tokens per un determinato utente, vedere le [informazioni di riferimento su `id_tokens`](id-tokens.md).
 
@@ -202,13 +202,13 @@ Quando si è pronti per richiedere le autorizzazioni all'amministratore dell'org
 ```
 
 
-| Parametro     | Condizione     | Description                                                                               |
+| Parametro     | Condizione     | Descrizione                                                                               |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
-| `tenant` | Obbligatorio | Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere specificato in formato di GUID o nome descrittivo OPPURE con il riferimento generico `common` come illustrato nell'esempio. |
-| `client_id` | Obbligatorio | **ID dell'applicazione (client)** che la [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) l'esperienza assegnata all'app. |
-| `redirect_uri` | Obbligatorio |URI di reindirizzamento in cui si desidera che venga inviata la risposta per la gestione da parte dell'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale di registrazione delle applicazioni. |
+| `tenant` | Obbligatoria | Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere specificato in formato GUID o nome descrittivo o a cui si fa riferimento in modo generico con le organizzazioni come illustrato nell'esempio. Non usare ' Common ', perché gli account personali non possono fornire il consenso dell'amministratore tranne nel contesto di un tenant. Per garantire la massima compatibilità con gli account personali per la gestione dei tenant, usare l'ID tenant quando possibile. |
+| `client_id` | Obbligatoria | **ID dell'applicazione (client)** che la [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) l'esperienza assegnata all'app. |
+| `redirect_uri` | Obbligatoria |URI di reindirizzamento in cui si desidera che venga inviata la risposta per la gestione da parte dell'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale di registrazione delle applicazioni. |
 | `state` | Consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Usare questo stato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
-|`scope`        | Obbligatorio      | Definisce il set di autorizzazioni richieste dall'applicazione. Può essere statico (usando [`/.default`](#the-default-scope)) o ambiti dinamici.  Possono essere inclusi gli ambiti OIDC (`openid`, `profile``email`). Se sono necessarie autorizzazioni per l'applicazione, è necessario usare `/.default` per richiedere l'elenco di autorizzazioni configurate in modo statico.  | 
+|`scope`        | Obbligatoria      | Definisce il set di autorizzazioni richieste dall'applicazione. Può essere statico (usando [`/.default`](#the-default-scope)) o ambiti dinamici.  Possono essere inclusi gli ambiti OIDC (`openid`, `profile``email`). Se sono necessarie autorizzazioni per l'applicazione, è necessario usare `/.default` per richiedere l'elenco di autorizzazioni configurate in modo statico.  | 
 
 
 A questo punto, Azure AD richiede che solo un amministratore tenant possa accedere per completare la richiesta. All'amministratore viene chiesto di approvare tutte le autorizzazioni richieste nel parametro `scope`.  Se è stato usato un valore statico (`/.default`), funzionerà come l'endpoint di consenso dell'amministratore della versione 1.0 e richiederà il consenso per tutti gli ambiti presenti nelle autorizzazioni necessarie per l'app.
@@ -221,7 +221,7 @@ Se l'amministratore approva le autorizzazioni per l'app, la risposta con esito p
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| Parametro | Description |
+| Parametro | Descrizione |
 | --- | --- |
 | `tenant` | Tenant della directory che ha concesso all'applicazione le autorizzazioni richieste, in formato GUID. |
 | `state` | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Lo stato viene usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
@@ -235,7 +235,7 @@ Se l'amministratore non approva le autorizzazioni per l'app, la risposta di erro
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| Parametro | Description |
+| Parametro | Descrizione |
 | --- | --- |
 | `error` | Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e correggerli. |
 | `error_description` | Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore. |

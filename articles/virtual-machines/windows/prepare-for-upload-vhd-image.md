@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 6a9385a49e85806464e8f9ccf11d9232fae42435
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 933f0c52cf0d65c7dca480971589c0d0f2ebabf0
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461122"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906764"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure
 
@@ -33,6 +33,22 @@ Per informazioni sui criteri di supporto per le macchine virtuali di Azure, vede
 > Le istruzioni riportate in questo articolo si applicano a:
 >1. Versione a 64 bit dei sistemi operativi Windows Server 2008 R2 e versioni successive. Per informazioni sull'esecuzione di un sistema operativo a 32 bit in Azure, vedere [supporto per i sistemi operativi a 32 bit nelle VM di Azure](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines).
 >2. Se si usa uno strumento di ripristino di emergenza per eseguire la migrazione del carico di lavoro, ad esempio Azure Site Recovery o Azure Migrate, questo processo è ancora necessario e seguito nel sistema operativo guest per preparare l'immagine prima della migrazione.
+
+## <a name="system-file-checker-sfc-command"></a>Comando controllo file di sistema (SFC)
+
+### <a name="run-windows-system-file-checker-utility-run-sfc-scannow-on-os-prior-to-generalization-step-of-creating-customer-os-image"></a>Eseguire l'utilità controllo file di sistema Windows (eseguire SFC/scannow) nel sistema operativo prima di procedere alla generalizzazione della creazione dell'immagine del sistema operativo del cliente
+
+Il comando del controllo file di sistema (SFC) viene utilizzato per verificare e sostituire i file di sistema di Windows.
+
+Per eseguire il comando SFC:
+
+1. Aprire un prompt dei comandi con privilegi elevati come amministratore.
+1. Digitare `sfc /scannow` e premere **invio**.
+
+    ![Controllo file di sistema](media/prepare-for-upload-vhd-image/system-file-checker.png)
+
+
+Al termine dell'analisi SFC, provare a installare gli aggiornamenti di Windows e riavviare il computer.
 
 ## <a name="convert-the-virtual-disk-to-a-fixed-size-and-to-vhd"></a>Convertire il disco virtuale in una dimensione fissa e in un disco rigido virtuale
 
@@ -156,7 +172,7 @@ Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' }
 Verificare che le impostazioni seguenti siano configurate correttamente per l'accesso remoto:
 
 >[!NOTE] 
->È possibile che venga visualizzato un messaggio di errore quando si esegue `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <object name> -Value <value>`. È possibile ignorare questo messaggio. Significa solo che il dominio non esegue il push della configurazione tramite un oggetto Criteri di gruppo.
+>È possibile che venga visualizzato un messaggio di errore quando si esegue `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <object name> -Value <value>`. Questo messaggio può essere ignorato in modo sicuro. Significa solo che il dominio non esegue il push della configurazione tramite un oggetto Criteri di gruppo.
 
 1. Remote Desktop Protocol (RDP) è abilitato:
    
@@ -358,7 +374,7 @@ Assicurarsi che la macchina virtuale sia integra, sicura e accessibile tramite R
 
 12. Disinstallare qualsiasi altro software o driver di terze parti correlato a componenti fisici o qualsiasi altra tecnologia di virtualizzazione.
 
-### <a name="install-windows-updates"></a>Installare aggiornamenti di Windows
+### <a name="install-windows-updates"></a>Installare gli aggiornamenti di Windows
 Idealmente, è consigliabile lasciare il computer aggiornato a *livello di patch*. Se ciò non è possibile, verificare che siano installati i seguenti aggiornamenti. Per ottenere gli aggiornamenti più recenti, vedere le pagine relative alla cronologia di Windows Update: [Windows 10 e Windows server 2019](https://support.microsoft.com/help/4000825), [Windows 8.1 e Windows Server 2012 R2](https://support.microsoft.com/help/4009470) e [Windows 7 SP1 e Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
 
 | Componente               | Binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/29/2019
-ms.openlocfilehash: b4550f55d160a77c2fb149dd509ca1cfad784f79
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: ba8a76cd4d3804bcb062ae0554e3fe7002804ed2
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513457"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031681"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Raccolta, conservazione e archiviazione dei dati in Application Insights
 
@@ -28,7 +28,7 @@ Innanzitutto, chiariamo alcuni aspetti:
 
 Nella parte restante di questo articolo verranno elaborate ulteriormente queste risposte. Questa parte è progettata per essere indipendente dal resto, pertanto è possibile mostrarla ai colleghi che non fanno parte del proprio team.
 
-## <a name="what-is-application-insights"></a>Che cos'è Application Insights?
+## <a name="what-is-application-insights"></a>Informazioni su Azure Application Insights
 [Applicazione Azure Insights][start] è un servizio fornito da Microsoft che consente di migliorare le prestazioni e l'usabilità dell'applicazione Live. Esegue il monitoraggio dell'applicazione per tutto il tempo che è in esecuzione, sia durante il test che dopo la pubblicazione o la distribuzione. Application Insights crea grafici e tabelle che illustrano, ad esempio, in quali ore del giorno si ottengono più utenti, i tempi di risposta dell'app e come funzionano i servizi esterni da cui dipende. Se sono presenti arresti anomali del sistema, errori o problemi di prestazioni, è possibile cercare i dati di telemetria in dettaglio per diagnosticare la causa. Inoltre, il servizio invierà messaggi di posta elettronica in caso di modifiche della disponibilità e delle prestazioni dell'app.
 
 Per ottenere questa funzionalità, installare Application Insights SDK nell'applicazione, che diventa parte del codice. Quando l'app è in esecuzione, l’SDK monitora il funzionamento e invia i dati di telemetria al servizio Application Insights. Si tratta di un servizio cloud ospitato da [Microsoft Azure](https://azure.com). Ma Application Insights funziona per qualsiasi applicazione, non solo per le applicazioni ospitate in Azure.
@@ -53,7 +53,7 @@ Esistono tre origini dati:
 Le categorie principali sono:
 
 * [Dati di telemetria del server Web](../../azure-monitor/app/asp-net.md): richieste HTTP,  URI, tempo impiegato per elaborare la richiesta, codice di risposta, indirizzo IP del client, `Session id`.
-* [Pagine Web](../../azure-monitor/app/javascript.md): numero di pagine, utenti e sessioni, tempo di caricamento della pagina, eccezioni, chiamate AJAX.
+* [Pagine Web](../../azure-monitor/app/javascript.md): numero di pagine, utenti e sessioni, tempo di caricamento della pagina, Eccezioni. chiamate AJAX.
 * Contatori delle prestazioni: memoria, CPU, IO, occupazione della rete.
 * Contesto client e server: sistema operativo, impostazioni locali, tipo di dispositivo, browser, risoluzione dello schermo.
 * [Eccezioni](../../azure-monitor/app/asp-net-exceptions.md) e arresti anomali: **dump dello stack**, `build id`, tipo di CPU. 
@@ -134,7 +134,7 @@ Se un cliente deve configurare questa directory con specifici requisiti di sicur
 
 `C:\Users\username\AppData\Local\Temp` viene usato per i dati persistenti. Questo percorso non è configurabile dalla directory di configurazione e le autorizzazioni per accedere a questa cartella sono limitate all'utente specifico con le credenziali richieste. Per ulteriori informazioni, vedere [implementazione](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72).
 
-###  <a name="net"></a>.NET
+###  <a name="net"></a>.Net
 
 Per impostazione predefinita `ServerTelemetryChannel` usa la cartella dei dati dell'app locale `%localAppData%\Microsoft\ApplicationInsights` o la cartella temp `%TMP%` dell'utente corrente. (Vedere [Implementazione](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84).)
 
@@ -175,7 +175,18 @@ Per impostazione predefinita, `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` vie
 
 Il prefisso della cartella `appInsights-node` può essere sostituito modificando il valore di runtime della variabile statica `Sender.TEMPDIR_PREFIX` presente in [Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
 
+### <a name="opencensus-python"></a>Python OpenCensus
 
+Per impostazione predefinita, OpenCensus Python SDK usa la cartella dell'utente corrente `%username%/.opencensus/.azure/`. Le autorizzazioni per accedere a questa cartella sono limitate all'utente corrente e agli amministratori. (Vedere [implementazione](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) qui). La cartella con i dati salvati in permanenza verrà denominata dopo il file Python che ha generato i dati di telemetria.
+
+È possibile modificare il percorso del file di archiviazione passando il `storage_path` parametro nel costruttore dell'utilità di esportazione in uso.
+
+```python
+AzureLogHandler(
+  connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000',
+  storage_path='<your-path-here>',
+)
+```
 
 ## <a name="how-do-i-send-data-to-application-insights-using-tls-12"></a>Come inviare i dati ad Application Insights con TLS 1.2
 
@@ -234,15 +245,15 @@ Gli SDK sono diversi a seconda delle piattaforme e sono disponibili vari compone
 
 | Azione | Classi di dati raccolte (vedere la tabella seguente) |
 | --- | --- |
-| [Aggiungere Application Insights SDK a un progetto Web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Richieste<br/>**Eccezioni**<br/>Session<br/>utenti |
+| [Aggiungere Application Insights SDK a un progetto Web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Richieste<br/>**Eccezioni**<br/>Sessione<br/>utenti |
 | [Installare Status Monitor in IIS][redfield] |Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters |
-| [Aggiungere Application Insights SDK a un'app Web Java][java] |ServerContext<br/>Inferred<br/>Richiesta<br/>Session<br/>utenti |
+| [Aggiungere Application Insights SDK a un'app Web Java][java] |ServerContext<br/>Inferred<br/>Richiesta<br/>Sessione<br/>utenti |
 | [Aggiungere JavaScript SDK a una pagina Web][client] |ClientContext <br/>Inferred<br/>Pagina<br/>ClientPerf<br/>Ajax |
 | [Definire le proprietà predefinite][apiproperties] |**Properties** in tutti gli eventi standard e personalizzati |
 | [Chiama TrackMetric][api] |Valori numerici<br/>**Proprietà** |
 | [Traccia di chiamata *][api] |Nome evento<br/>**Proprietà** |
 | [Chiama Trackexception][api] |**Eccezioni**<br/>Dump dello stack<br/>**Proprietà** |
-| SDK non riesce a raccogliere dati. Ad esempio: <br/> - non riesce ad accedere ai contatori delle prestazioni<br/> - si è verificata un'eccezione nell'inizializzatore della telemetria |Diagnostica di SDK |
+| SDK non riesce a raccogliere dati. Ad esempio, <br/> - non riesce ad accedere ai contatori delle prestazioni<br/> - si è verificata un'eccezione nell'inizializzatore della telemetria |Diagnostica di SDK |
 
 Per gli [SDK per altre piattaforme][platforms], vedere i relativi documenti.
 
@@ -253,10 +264,10 @@ Per gli [SDK per altre piattaforme][platforms], vedere i relativi documenti.
 | **Proprietà** |**Qualsiasi dato, in base al codice** |
 | DeviceContext |`Id`, IP, impostazioni locali, modello di dispositivo, rete, tipo di rete, nome OEM, risoluzione dello schermo, istanza del ruolo, nome del ruolo, tipo di dispositivo |
 | ClientContext |Sistema operativo, impostazioni locali, lingua, rete, risoluzione della finestra. |
-| Session |`session id` |
+| Sessione |`session id` |
 | ServerContext |Nome computer, impostazioni locali, sistema operativo, dispositivo, sessione utente, contesto utente, operazione. |
 | Inferred |Area geografica in base a indirizzo IP, timestamp, sistema operativo, browser. |
-| Metriche |Nome e valore della metrica. |
+| metrics |Nome e valore della metrica. |
 | Eventi |Nome e valore dell'evento. |
 | PageViews |URL e nome della pagina o della schermata. |
 | Client perf |URL/nome pagina, tempo di caricamento del browser. |
@@ -265,7 +276,7 @@ Per gli [SDK per altre piattaforme][platforms], vedere i relativi documenti.
 | Dependencies |Tipo (SQL, HTTP,...), stringa di connessione o URI, Sync/async, Duration, Success, istruzione SQL (con Status Monitor) |
 | **Eccezioni** |Tipo, **messaggio**, stack di chiamate, file di origine, numero di riga, `thread id` |
 | Crashes |`Process id`, `parent process id`, `crash thread id`; patch applicazione, `id`, compilazione;  tipo di eccezione, indirizzo, motivo; simboli e registri offuscati, indirizzi di inizio e fine binari, nome e percorso binario, tipo di CPU |
-| Trace |**Messaggio** e livello di gravità. |
+| Traccia |**Messaggio** e livello di gravità. |
 | Perf counters |Tempo processore, memoria disponibile, frequenza di richieste, frequenza di eccezioni, byte privati del processo, velocità di I/O, durata richiesta, lunghezza coda richiesta. |
 | Disponibilità |Codice di risposta del test Web, durata di ogni passo del test, nome del test, timestamp, esito positivo, tempo di risposta, posizione del test |
 | Diagnostica di SDK |Messaggio di traccia o eccezione |
@@ -275,7 +286,7 @@ Per gli [SDK per altre piattaforme][platforms], vedere i relativi documenti.
 > [!NOTE]
 > Il client IP viene utilizzato per dedurre la posizione geografica, tuttavia per impostazione predefinita i dati IP non vengono più memorizzati e tutti gli zeri vengono scritti nel campo associato. Per comprendere meglio la gestione dei dati personali si consiglia questo [articolo](../../azure-monitor/platform/personal-data-mgmt.md#application-data). Se è necessario archiviare i dati degli indirizzi IP, l' [articolo raccolta indirizzi IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection) illustra le opzioni disponibili.
 
-## <a name="credits"></a>Riconoscimenti
+## <a name="credits"></a>Credits
 Questo prodotto include dati GeoLite2 creati da MaxMind, disponibile nel sito [https://www.maxmind.com](https://www.maxmind.com).
 
 

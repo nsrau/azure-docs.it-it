@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: a64d03ebe7c8bbb4cfa9c7bd63a678892250373d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b53fc3af71ce872c9ca9f513139c8179fd4165ed
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75482868"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031399"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interagire con i cluster di Apache Kafka in Azure HDInsight usando un proxy REST
 
@@ -45,17 +45,17 @@ Quando l'applicazione client ha il token OAuth, deve passare il token nella rich
 
 1. Durante il flusso di lavoro di creazione del cluster Kafka, nella scheda "sicurezza e rete" selezionare l'opzione "Abilita proxy REST Kafka".
 
-     ![Abilitare il proxy REST Kafka e selezionare il gruppo di sicurezza](./media/apache-kafka-rest-proxy/apache-kafka-rest-proxy-enable.png)
+     ![Abilitare il proxy REST Kafka e selezionare il gruppo di sicurezza](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
 
 1. Fare clic su **Seleziona gruppo di sicurezza**. Dall'elenco dei gruppi di sicurezza selezionare il gruppo di sicurezza a cui si vuole accedere al proxy REST. È possibile utilizzare la casella di ricerca per trovare il gruppo di sicurezza appropriato. Fare clic sul pulsante **Seleziona** nella parte inferiore.
 
-     ![Abilitare il proxy REST Kafka e selezionare il gruppo di sicurezza](./media/apache-kafka-rest-proxy/apache-kafka-rest-proxy-select-security-group.png)
+     ![Abilitare il proxy REST Kafka e selezionare il gruppo di sicurezza](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png)
 
 1. Completare i passaggi rimanenti per creare il cluster come descritto in [creare Apache Kafka cluster in Azure HDInsight usando portale di Azure](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started).
 
 1. Una volta creato il cluster, passare alle proprietà del cluster per registrare l'URL del proxy REST Kafka.
 
-     ![Visualizza URL proxy REST](./media/apache-kafka-rest-proxy/apache-kafka-rest-proxy-view-proxy-url.png)
+     ![Visualizza URL proxy REST](./media/rest-proxy/apache-kafka-rest-proxy-view-proxy-url.png)
 
 ## <a name="client-application-sample"></a>Esempio di applicazione client
 

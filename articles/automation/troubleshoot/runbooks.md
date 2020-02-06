@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 71344f954990952856f031829f13273e062b62c5
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 65006b8357db44c3e1b8f8d9e819615b5dd9db6e
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933160"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031749"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Risoluzione dei problemi relativi ai runbook
 
@@ -552,6 +552,22 @@ Questo errore può verificarsi quando si avvia un processo di PowerShell in un R
 * Se il Runbook presenta questo messaggio di errore, eseguirlo in un ruolo di lavoro ibrido per Runbook
 
 Per altre informazioni su questo comportamento e altri comportamenti dei manuali operativi di automazione di Azure, vedere [comportamento di Runbook](../automation-runbook-execution.md#runbook-behavior).
+
+## <a name="scenario-linux-hybrid-runbook-worker-receives-a-prompt-for-a-password-when-signing-a-runbook"></a>Scenario: il ruolo di lavoro ibrido per Runbook di Linux riceve una richiesta di password quando firma un Runbook
+
+### <a name="issue"></a>Problema
+
+L'esecuzione del comando **sudo** per un ruolo di lavoro ibrido per Runbook di Linux recupera una richiesta di password imprevista.
+
+### <a name="cause"></a>Causa
+
+L'account nxautomationuser per l'agente di Log Analytics per Linux non è configurato correttamente nel file sudoers. Il ruolo di lavoro ibrido per Runbook richiede la configurazione appropriata delle autorizzazioni dell'account e di altri dati, in modo che possa firmare manuali operativi nel ruolo di lavoro Runbook di Linux.
+
+### <a name="resolution"></a>Risoluzione
+
+* Verificare che il ruolo di lavoro ibrido per Runbook includa il file eseguibile di GnuPG (GPG) nel computer.
+
+* Verificare la configurazione dell'account nxautomationuser nel file sudoers. Vedere [esecuzione di manuali operativi in un ruolo di lavoro ibrido per Runbook](../automation-hrw-run-runbooks.md)
 
 ## <a name="other"></a>Il problema non è elencato sopra
 

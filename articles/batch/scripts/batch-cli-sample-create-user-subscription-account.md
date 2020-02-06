@@ -3,8 +3,8 @@ title: Esempio di script dell'interfaccia della riga di comando di Azure - Crear
 description: Questo script crea un account Azure Batch in modalità sottoscrizione utente. Questo account alloca i nodi di calcolo nella sottoscrizione.
 services: batch
 documentationcenter: ''
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -13,13 +13,13 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
-ms.author: jushiman
-ms.openlocfilehash: 38c908e1e490d1b852abc64ba0e3f695307d5341
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: 5cab96c148d52597ee024f1ddb0b683db8d52dd7
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029316"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024518"
 ---
 # <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>Esempio di interfaccia della riga di comando: Creare un account Batch in modalità sottoscrizione utente
 

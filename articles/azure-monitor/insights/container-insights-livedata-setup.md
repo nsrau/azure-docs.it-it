@@ -3,12 +3,12 @@ title: Configurare monitoraggio di Azure per i contenitori in tempo reale (antep
 description: Questo articolo descrive come configurare la visualizzazione in tempo reale dei log del contenitore (stdout/stderr) ed eventi senza usare kubectl con monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 5a3d020132e3c93eab7fec46d1ffe45d00b5ed43
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1ca52384e5ce657e4fedeb42e3304449a2d6be11
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404710"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030684"
 ---
 # <a name="how-to-setup-the-live-data-preview-feature"></a>Come configurare la funzionalità dati in tempo reale (anteprima)
 
@@ -101,7 +101,7 @@ Azure AD la registrazione del client deve essere riconfigurata per consentire al
 Per altre informazioni sulla configurazione della sicurezza avanzata in Kubernetes, vedere la [documentazione di Kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/rbac/). 
 
 >[!NOTE]
->Se si sta creando un nuovo cluster abilitato per il controllo degli accessi in base al ruolo, vedere [integrare Azure Active Directory con il servizio Azure Kubernetes](../../aks/azure-ad-integration.md) e seguire i passaggi per configurare l'autenticazione Azure ad. Durante i passaggi per creare l'applicazione client, una nota in questa sezione evidenzia i due URL di reindirizzamento che è necessario creare per il monitoraggio di Azure per i contenitori. 
+>Se si sta creando un nuovo cluster abilitato per il controllo degli accessi in base al ruolo, vedere [integrare Azure Active Directory con il servizio Azure Kubernetes](../../aks/azure-ad-integration.md) e seguire i passaggi per configurare l'autenticazione Azure ad. Durante i passaggi per creare l'applicazione client, una nota nella sezione evidenzia i due URL di reindirizzamento che è necessario creare per il monitoraggio di Azure per i contenitori corrispondenti a quelli specificati nel passaggio 3 riportato di seguito.
 
 ### <a name="client-registration-reconfiguration"></a>Riconfigurazione della registrazione client
 

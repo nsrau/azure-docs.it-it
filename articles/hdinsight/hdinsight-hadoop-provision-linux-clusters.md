@@ -6,15 +6,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 09/27/2019
-ms.openlocfilehash: 382205a958030d2a6d1c199627a591978ef8708a
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.custom: hdinsightactive,hdiseo17may2017,seodec18
+ms.date: 02/03/2020
+ms.openlocfilehash: 2c9c5b35110be8f9e51d2205f9fe63dfa4ef8e10
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934593"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031040"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurare i cluster di HDInsight con Apache Hadoop, Apache Spark, Apache Kafka e altro ancora
 
@@ -25,7 +25,7 @@ Informazioni su come installare e configurare i cluster di HDInsight con Apache 
 Un cluster Hadoop è costituito da alcune macchine virtuali (nodi) che vengono usate per l'elaborazione distribuita di attività. Azure HDInsight gestisce i dettagli di implementazione dell'installazione e della configurazione dei singoli nodi. È quindi necessario specificare solo le informazioni di configurazione generali.
 
 > [!IMPORTANT]  
-> La fatturazione del cluster HDInsight inizia dopo la creazione del cluster e si interrompe solo quando questo viene eliminato. La fatturazione è ripartita in base ai minuti, quindi è sempre consigliabile eliminare il cluster quando non lo usi più. Informazioni su come [eliminare un cluster](hdinsight-delete-cluster.md)
+> La fatturazione del cluster HDInsight inizia dopo la creazione del cluster e si interrompe solo quando questo viene eliminato. La fatturazione avviene con tariffa oraria, perciò si deve sempre eliminare il cluster in uso quando non lo si usa più. Informazioni su come [eliminare un cluster](hdinsight-delete-cluster.md)
 
 ## <a name="cluster-setup-methods"></a>Metodi di installazione del cluster
 
@@ -122,7 +122,7 @@ Sebbene l'installazione locale di Hadoop usi Hadoop Distributed File System (HDF
 I cluster HDInsight possono usare le seguenti opzioni di archiviazione:
 
 * Azure Data Lake Storage Gen2
-* Archiviazione Azure Data Lake di prima generazione
+* Azure Data Lake Storage Gen1
 * Archiviazione di Azure per utilizzo generico V2
 * Archiviazione di Azure per utilizzo generico V1
 * BLOB in blocchi di archiviazione**di Azure (supportato solo come archiviazione secondaria**)
@@ -134,7 +134,7 @@ Per altre informazioni sulle opzioni di archiviazione con HDInsight, vedere [con
 
 Durante la configurazione, per l'endpoint di archiviazione predefinito si specifica un contenitore BLOB di un account di archiviazione di Azure o Data Lake Storage. L'archiviazione predefinita include log di sistema e applicazioni. Facoltativamente, è possibile specificare degli account di archiviazione di Azure aggiuntivi e degli account di Data Lake Storage a cui il cluster può accedere. Il cluster HDInsight e l'account di archiviazione da esso dipendente devono trovarsi nella stessa posizione di Azure.
 
-![Impostazioni di archiviazione del cluster: endpoint di archiviazione compatibili con HDFS](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage-blank.png)
+![Impostazioni di archiviazione del cluster: endpoint di archiviazione compatibili con HDFS](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage.png)
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
@@ -184,7 +184,7 @@ Verrà addebitato l'uso del nodo, purché il cluster esista. La fatturazione ini
 
 Ogni tipo di cluster ha il proprio numero di nodi, una terminologia specifica per i nodi e dimensioni predefinite delle macchine virtuali. Nella tabella seguente, il numero di nodi per ogni tipo di nodo è indicato tra parentesi.
 
-| Tipo | Nodi | Diagramma |
+| Type | Nodi | Diagramma |
 | --- | --- | --- |
 | Hadoop |Nodo Head (2), nodo Worker (1 +) |![Nodi del cluster HDInsight Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |Server head (2), server di area (1+), nodo master/ZooKeeper (3) |![Installazione del tipo di cluster HDInsight HBase](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
@@ -211,7 +211,7 @@ Se si sta provando solo HDInsight, è consigliabile usare un solo nodo di lavoro
 
 Quando si usa il portale di Azure per configurare il cluster, le dimensioni del nodo sono disponibili tramite la scheda **configurazione e prezzi** . Nel portale è anche possibile visualizzare il costo associato alle diverse dimensioni dei nodi.
 
-![HDInsight scegliere le dimensioni del nodo](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration-pricing-hadoop.png)
+![HDInsight scegliere le dimensioni del nodo](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration.png)
 
 ### <a name="virtual-machine-sizes"></a>Dimensioni delle macchine virtuali
 
@@ -227,22 +227,19 @@ Per scoprire quale valore usare per specificare le dimensioni di macchina virtua
 
 Per altre informazioni, vedere [Dimensioni delle macchine virtuali in Azure](../virtual-machines/windows/sizes.md). Per informazioni sui prezzi delle varie dimensioni, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).
 
-## <a name="classic-cluster-setup"></a>Configurazione del cluster classico
-
-La configurazione del cluster classica si basa sulle impostazioni predefinite di creazione e aggiunge le opzioni seguenti:
-
-* [Applicazioni HDInsight](#install-hdinsight-applications-on-clusters)
-* [Azioni script](#advanced-settings-script-actions)
-
 ## <a name="install-hdinsight-applications-on-clusters"></a>Installare applicazioni HDInsight in cluster
 
 Un'applicazione HDInsight è un'applicazione che gli utenti possono installare in un cluster HDInsight basato su Linux. È possibile usare applicazioni fornite da Microsoft o terze parti o sviluppate in modo indipendente. Per altre informazioni, vedere [Installare applicazioni Apache Hadoop di terze parti in Azure HDInsight](hdinsight-apps-install-applications.md).
 
 La maggior parte delle applicazioni HDInsight viene installata in un nodo perimetrale vuoto.  Un nodo perimetrale vuoto è una macchina virtuale Linux in cui sono installati e configurati gli stessi strumenti client del nodo head. Il nodo perimetrale può essere usato per accedere al cluster e per testare e ospitare le applicazioni client. Per altre informazioni, vedere [Usare nodi perimetrali vuoti in HDInsight](hdinsight-apps-use-edge-node.md).
 
-## <a name="advanced-settings-script-actions"></a>Impostazioni avanzate: azioni Script
+![Applicazioni di configurazione del cluster portale di Azure](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration-applications.png)
+
+## <a name="script-actions"></a>Azioni script
 
 L'uso di script durante la creazione consente di installare componenti aggiuntivi o personalizzare la configurazione di un cluster. Gli script vengono chiamati tramite un' **azione script**, ovvero un'opzione di configurazione che può essere usata da portale di Azure, dai cmdlet di Windows PowerShell per HDInsight o da .NET SDK per HDInsight. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante le azioni script](hdinsight-hadoop-customize-cluster-linux.md).
+
+![portale di Azure le azioni script di configurazione cluster](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration-scriptaction.png)
 
 Nel cluster è possibile eseguire alcuni componenti Java nativi, come Apache Mahout e Cascading, sotto forma di file JAR (Java Archive). Questi file JAR possono essere distribuiti in Archiviazione di Azure e inviati ai cluster HDInsight usando i meccanismi di invio dei processi Hadoop. Per altre informazioni, vedere [Inviare processi Apache Hadoop a livello di codice](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 

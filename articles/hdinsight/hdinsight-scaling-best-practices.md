@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 2d26cbce3398b9a44530553fbff0413c631b7579
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 0649908e4767e48d23306c72b8db92dea9f26284
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75744780"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030924"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Ridimensionare i cluster HDInsight di Azure
 
@@ -29,15 +29,15 @@ Se si dispone di un'elaborazione batch periodica, il cluster HDInsight può esse
 
 Microsoft fornisce le utilità seguenti per la scalabilità dei cluster:
 
-|Utilità | Description|
+|Utilità | Descrizione|
 |---|---|
 |[PowerShell AZ](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -clustername \<nome cluster >-TargetInstanceCount \<NewSize >|
 |[AzureRM di PowerShell](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -clustername \<nome cluster >-TargetInstanceCount \<NewSize >|
 |[Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [AZ HDInsight Resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --Resource-Group \<gruppo di risorse >--Name \<nome cluster >--Target-Instance-count \<NewSize >|
-|[Interfaccia della riga di comando di Azure](hdinsight-administer-use-command-line.md)|ridimensionamento del cluster di Azure HDInsight \<clustername > il numero di istanze di destinazione \< |
+|[Interfaccia della riga di comando di Azure](hdinsight-administer-use-command-line.md)|ridimensionamento del cluster di Azure HDInsight \<clustername > il numero di istanze di destinazione \<> |
 |[Azure portal](https://portal.azure.com)|Aprire il riquadro del cluster HDInsight, selezionare **dimensioni del cluster** nel menu a sinistra, quindi nel riquadro Dimensioni del cluster digitare il numero di nodi del ruolo di lavoro e selezionare Salva.|  
 
-![Opzione del cluster portale di Azure scale](./media/hdinsight-scaling-best-practices/scale-cluster-blade1.png)
+![Opzione del cluster portale di Azure scale](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
 
 Usando uno di questi metodi, è possibile aumentare o ridurre il cluster HDInsight in pochi minuti.
 
@@ -126,7 +126,7 @@ Per terminare manualmente l'applicazione in esecuzione, eseguire il comando segu
 yarn application -kill <application_id>
 ```
 
-Ad esempio:
+Ad esempio,
 
 ```bash
 yarn application -kill "application_1499348398273_0003"
