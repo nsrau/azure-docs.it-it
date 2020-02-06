@@ -3,24 +3,24 @@ title: 'Esercitazione: Creare un record alias per supportare i nomi della radice
 titleSuffix: Azure DNS
 description: Questa esercitazione illustra come configurare un record alias DNS di Azure per supportare l'uso dei nomi della radice del dominio con Gestione traffico.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: allensu
-ms.openlocfilehash: 3834b782be054611de67b782b7fcd0c46cbf3a19
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.author: rohink
+ms.openlocfilehash: 749e5eae64aa0d33c90ef8694da9a093647b8a8b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082261"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937930"
 ---
 # <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Esercitazione: Configurare un record alias per supportare nomi di dominio radice con Gestione traffico 
 
-È possibile creare un record alias per la radice del nome di dominio per fare riferimento a un profilo di Gestione traffico di Azure. Un esempio è contoso.com. Invece di usare un servizio di reindirizzamento, configurare DNS di Azure in modo che faccia riferimento a un profilo di Gestione traffico direttamente dalla zona. 
+È possibile creare un record alias per la radice del nome di dominio per fare riferimento a un profilo di Gestione traffico di Azure. ad esempio contoso.com. Invece di usare un servizio di reindirizzamento, configurare DNS di Azure in modo che faccia riferimento a un profilo di Gestione traffico direttamente dalla zona. 
 
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare una macchina virtuale host e un'infrastruttura di rete.
@@ -31,7 +31,7 @@ In questa esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 È necessario disporre di un nome di dominio che si possa ospitare in DNS di Azure per il test. È necessario disporre del controllo completo di questo dominio, inclusa la possibilità di impostare i record di nome server (NS) per il dominio.
 
 Per istruzioni su come ospitare il dominio in DNS di Azure, vedere [Esercitazione: Ospitare un dominio in DNS di Azure](dns-delegate-domain-azure-dns.md).
@@ -108,7 +108,7 @@ Creare un record alias che punta al profilo di Gestione traffico.
 
 ## <a name="test-the-alias-record"></a>Testare il record alias
 
-1. Da un Web browser passare alla radice del nome di dominio. Un esempio è contoso.com. Viene visualizzata la pagina Web predefinita di IIS. Chiudere il Web browser.
+1. Da un Web browser passare alla radice del nome di dominio. ad esempio contoso.com. Viene visualizzata la pagina Web predefinita di IIS. Chiudere il Web browser.
 2. Arrestare la macchina virtuale **Web-01**. Attendere qualche minuto che venga completato l'arresto.
 3. Aprire un nuovo Web browser e passare di nuovo alla radice del nome di dominio.
 4. Viene visualizzata di nuovo la pagina Web predefinita di IIS, perché Gestione traffico ha gestito la situazione e indirizzato il traffico a **Web-02**.

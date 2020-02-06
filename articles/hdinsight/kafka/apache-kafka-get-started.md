@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Configurare Apache Kafka in HDInsight usando il portale di Azure'
+title: 'Avvio rapido: Configurare Apache Kafka in HDInsight usando il portale di Azure'
 description: Questa guida di avvio rapido illustra come creare un cluster Apache Kafka in Azure HDInsight tramite il portale di Azure. Illustra inoltre gli argomenti, i sottoscrittori e i consumer di Kafka.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/01/2019
-ms.openlocfilehash: e253d168fadd5aff46e70ba00a4021415c0ea6f7
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 76360ec8de645d926daec0db878906c73d0da948
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242044"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030021"
 ---
-# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Guida introduttiva: Creare cluster Apache Kafka in HDInsight di Azure usando il portale di Azure
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Avvio rapido: Creare cluster Apache Kafka in HDInsight di Azure usando il portale di Azure
 
 Apache Kafka è una piattaforma di streaming open source distribuita. Viene spesso usata come broker di messaggi perché offre funzionalità simili a una coda messaggi di pubblicazione/sottoscrizione.
 
@@ -27,7 +27,7 @@ Possono accedere all'API Apache Kafka solo risorse interne alla stessa rete virt
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -43,7 +43,7 @@ Per creare un cluster Apache Kafka in HDInsight seguire questa procedura:
 
 1. In **Generale** immettere o selezionare i valori seguenti:
 
-    |Proprietà  |DESCRIZIONE  |
+    |Proprietà  |Descrizione  |
     |---------|---------|
     |Subscription    |  Selezionare la sottoscrizione di Azure. |
     |Resource group     | Creare un gruppo di risorse o selezionarne uno esistente.  Un gruppo di risorse è un contenitore di componenti di Azure.  In questo caso, il gruppo di risorse contiene il cluster HDInsight e l'account di Archiviazione di Azure dipendente. |
@@ -65,14 +65,14 @@ Per creare un cluster Apache Kafka in HDInsight seguire questa procedura:
 
 1. Nella scheda **Archiviazione** specificare i valori seguenti:
 
-    |Proprietà  |DESCRIZIONE  |
+    |Proprietà  |Descrizione  |
     |---------|---------|
     |Tipo di archiviazione primario|Usare il valore predefinito **Archiviazione di Azure**.|
     |Metodo di selezione|Usare il valore predefinito **Selezionare dall'elenco**.|
     |Account di archiviazione primario|Usare l'elenco a discesa per scegliere un account di archiviazione esistente oppure selezionare **Crea nuovo**. Se si crea un nuovo account, il nome deve avere una lunghezza compresa tra 3 e 24 caratteri e può contenere solo numeri e lettere minuscole|
     |Contenitore|Usare il valore inserito automaticamente.|
 
-    ![Introduzione alla creazione di un cluster HDInsight Linux - Specifica dei valori di archiviazione](./media/apache-kafka-get-started/azure-portal-cluster-storage-blank.png "Specifica dei valori di archiviazione per la creazione di un cluster HDInsight")
+    ![Introduzione alla creazione di un cluster HDInsight Linux - Specifica dei valori di archiviazione](./media/apache-kafka-get-started/azure-portal-cluster-storage.png "Specifica dei valori di archiviazione per la creazione di un cluster HDInsight")
 
     Selezionare la scheda **Sicurezza + rete**.
 
@@ -80,7 +80,7 @@ Per creare un cluster Apache Kafka in HDInsight seguire questa procedura:
 
    Se si vuole connettere il cluster a una rete virtuale, selezionare una rete virtuale nell'elenco a discesa **Rete virtuale**.
 
-   ![Aggiungere il cluster a una rete virtuale](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vn.png)
+   ![Aggiungere il cluster a una rete virtuale](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vnet.png)
 
     Scegliere la scheda **Configurazione + prezzi**.
 
@@ -98,7 +98,7 @@ Per creare un cluster Apache Kafka in HDInsight seguire questa procedura:
 
     La creazione del cluster può richiedere fino a 20 minuti.
 
-## <a name="connect-to-the-cluster"></a>Connettersi al cluster
+## <a name="connect-to-the-cluster"></a>Stabilire la connessione al cluster
 
 1. Per connettersi al nodo head primario del cluster Apache Kafka, usare il comando seguente. Sostituire `sshuser` con il nome utente SSH. Sostituire `mykafka` con il nome del cluster Apache Kafka.
 

@@ -2,19 +2,19 @@
 title: Avvio rapido - Creare una zona DNS privato di Azure con Azure PowerShell
 description: In questo articolo verranno creati e testati una zona DNS privato e un record DNS in DNS di Azure. Questa guida dettagliata illustra come creare e gestire la prima zona DNS privata e il primo record usando Azure PowerShell.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
 ms.date: 10/05/2019
-ms.author: allensu
-ms.openlocfilehash: 5532eb9897de2f746b194fb6bd496548e989b994
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 0db53bcd6516bd52e2796deaa49fe0dd582e0588
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210828"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939382"
 ---
-# <a name="quickstart-create-an-azure-private-dns-zone-using-azure-powershell"></a>Guida introduttiva: Creare una zona DNS privato di Azure con Azure PowerShell
+# <a name="quickstart-create-an-azure-private-dns-zone-using-azure-powershell"></a>Avvio rapido: Creare una zona DNS privato di Azure con Azure PowerShell
 
 Questo articolo illustra i passaggi per creare la prima zona DNS privata e il primo record con Azure PowerShell.
 
@@ -22,7 +22,7 @@ Questo articolo illustra i passaggi per creare la prima zona DNS privata e il pr
 
 Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. Per iniziare a ospitare il dominio in DNS di Azure, è necessario creare una zona DNS per il nome di dominio. Ogni record DNS per il dominio viene quindi creato all'interno di questa zona DNS. Per pubblicare una zona DNS privata nella rete virtuale, specificare l'elenco di reti virtuali autorizzate a risolvere i record nella zona.  Tali reti vengono definite reti virtuali *collegate*. Se è abilitata la registrazione automatica, DNS di Azure aggiorna anche i record di zona ogni volta che una macchina virtuale viene creata o eliminata o quando cambia il relativo indirizzo IP.
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Creare una zona DNS privato

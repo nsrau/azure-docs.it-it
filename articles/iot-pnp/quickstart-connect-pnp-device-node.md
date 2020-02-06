@@ -1,19 +1,19 @@
 ---
 title: Connettere il codice del dispositivo di esempio Plug and Play IoT (anteprima) all'hub IoT | Microsoft Docs
 description: Con Node.js è possibile compilare ed eseguire il codice del dispositivo di esempio Plug and Play IoT (anteprima) che si connette a un hub IoT. Usare lo strumento Azure IoT Explorer per visualizzare le informazioni inviate dal dispositivo all'hub.
-author: baanders
-ms.author: baanders
+author: dominicbetts
+ms.author: dobett
 ms.date: 12/26/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 64f478d9d5c3330167df81de9766ff02eb943c98
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: c5d69ae21cd240b0c68b9694a55de2cf879a1966
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531248"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964788"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-nodejs"></a>Avvio rapido: Connettere un'applicazione dispositivo Plug and Play IoT (anteprima) di esempio all'hub IoT (Node.js)
 

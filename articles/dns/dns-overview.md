@@ -1,17 +1,17 @@
 ---
 title: Che cos'è DNS di Azure?
 description: Panoramica del servizio di hosting DNS in Microsoft Azure. Ospitare il dominio in Microsoft Azure.
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: overview
 ms.date: 3/21/2019
-ms.author: allensu
-ms.openlocfilehash: 6abdc48187950d9605bdc47b1c5d4f00e4e181f0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 1543c0daae7d637730a5f8f9da2305423ba7f84e
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211333"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932410"
 ---
 # <a name="what-is-azure-dns"></a>Che cos'è DNS di Azure?
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Apache Hadoop, Apache Hive e il portale di Azure in HDInsight'
+title: 'Avvio rapido: Apache Hadoop, Apache Hive e il portale di Azure in HDInsight'
 description: In questo argomento di avvio rapido si userà il portale di Azure per creare un cluster Hadoop in HDInsight.
 keywords: introduzione a Hadoop, Hadoop basato su Linux, guida introduttiva a Hadoop, introduzione a Hive, guida introduttiva a Hive
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 09/25/2019
-ms.openlocfilehash: cab46c4fe2ff0bd1f86c6d98a3b37efb3547a3ce
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 35dc4938760ca83a6781d5791c746ee2f74310ab
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044578"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031588"
 ---
-# <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Guida introduttiva: Creare cluster Apache Hadoop in Azure HDInsight usando il portale di Azure
+# <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Avvio rapido: Creare cluster Apache Hadoop in Azure HDInsight usando il portale di Azure
 
 Questo articolo illustra come creare cluster [Apache Hadoop](https://hadoop.apache.org/) in HDInsight con il portale di Azure e quindi eseguire processi Apache Hive in HDInsight. La maggior parte dei processi Hadoop è costituita da processi batch. Viene creato un cluster, si eseguono alcuni processi e quindi si elimina il cluster. In questo articolo vengono eseguite tutte e tre le attività.
 
@@ -38,7 +38,7 @@ In questa sezione viene creato un cluster Hadoop in HDInsight usando il portale 
 
 1. In **Generale** immettere o selezionare i valori seguenti:
 
-    |Proprietà  |DESCRIZIONE  |
+    |Proprietà  |Descrizione  |
     |---------|---------|
     |Subscription    |  Selezionare la sottoscrizione di Azure. |
     |Resource group     | Creare un gruppo di risorse o selezionarne uno esistente.  Un gruppo di risorse è un contenitore di componenti di Azure.  In questo caso, il gruppo di risorse contiene il cluster HDInsight e l'account di Archiviazione di Azure dipendente. |
@@ -56,14 +56,14 @@ In questa sezione viene creato un cluster Hadoop in HDInsight usando il portale 
 
 1. Nella scheda **Archiviazione** specificare i valori seguenti:
 
-    |Proprietà  |DESCRIZIONE  |
+    |Proprietà  |Descrizione  |
     |---------|---------|
     |Tipo di archiviazione primario|Usare il valore predefinito **Archiviazione di Azure**.|
     |Metodo di selezione|Usare il valore predefinito **Selezionare dall'elenco**.|
     |Account di archiviazione primario|Usare l'elenco a discesa per scegliere un account di archiviazione esistente oppure selezionare **Crea nuovo**. Se si crea un nuovo account, il nome deve avere una lunghezza compresa tra 3 e 24 caratteri e può contenere solo numeri e lettere minuscole|
     |Contenitore|Usare il valore inserito automaticamente.|
 
-    ![Introduzione alla creazione di un cluster HDInsight Linux - Specifica dei valori di archiviazione](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-storage-blank.png "Specifica dei valori di archiviazione per la creazione di un cluster HDInsight")
+    ![Introduzione alla creazione di un cluster HDInsight Linux - Specifica dei valori di archiviazione](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-storage.png "Specifica dei valori di archiviazione per la creazione di un cluster HDInsight")
 
     Selezionare la scheda **Rivedi e crea**.
 

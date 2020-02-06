@@ -4,7 +4,7 @@ description: Informazioni sull'uso del servizio Azure Batch per carichi di lavor
 services: batch
 documentationcenter: ''
 author: mscurrell
-manager: gwallace
+manager: evansma
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: markscu
 ms.custom: mvc
-ms.openlocfilehash: ee61f0f550a09640469914d29bde175028b59142
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7ca2a5e91a0ec0d765e106baca20f135996bc26e
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094334"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022801"
 ---
 # <a name="what-is-azure-batch"></a>Informazioni su Azure Batch
 
@@ -71,7 +71,7 @@ Il diagramma seguente mostra i passaggi di un normale flusso di lavoro di Batch 
 ![Procedura dettagliata della soluzione Batch](./media/batch-technical-overview/tech_overview_03.png)
 
 
-|Passaggio  |DESCRIZIONE  |
+|Passaggio  |Descrizione  |
 |---------|---------|
 |1.  Caricare i **file di input** e le **applicazioni** per l'elaborazione dei file nell'account di archiviazione di Azure.     |I file di input possono essere tutti i dati elaborati dall'applicazione, ad esempio dati di modellazione finanziaria o file video da transcodificare. I file dell'applicazione possono includere script o applicazioni che elaborano i dati, ad esempio un transcodificatore di file multimediali.|
 |2.  Creare un **pool** Batch di nodi di calcolo nell'account Batch, un **processo** per eseguire il carico di lavoro nel pool e **attività** nel processo.     | I nodi del pool sono le macchine virtuali che eseguono le attività. Specificare le proprietà, ad esempio il numero e le dimensioni dei nodi, un'immagine di macchina virtuale Windows o Linux e l'applicazione da installare quando i nodi vengono aggiunti al pool. Gestire il costo e le dimensioni del pool usando [macchine virtuali con priorità bassa](batch-low-pri-vms.md) oppure [ridimensionando automaticamente](batch-automatic-scaling.md) il numero di nodi in funzione del carico di lavoro. <br/><br/>Quando si aggiungono attività a un processo, il servizio Batch pianifica automaticamente le attività per l'esecuzione nei nodi di calcolo del pool. Ogni attività usa l'applicazione caricata per elaborare i file di input. |

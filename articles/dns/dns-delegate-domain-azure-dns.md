@@ -2,17 +2,17 @@
 title: 'Esercitazione: Ospitare il dominio e il sottodominio - DNS di Azure'
 description: Questo articolo illustra come configurare DNS di Azure per ospitare le zone DNS.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
-ms.author: allensu
-ms.openlocfilehash: 062a5beaec30d510d37af436e00f4d57785245cd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 8f29a2bbe0eb392927dd111b13e2260111ddd18e
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212221"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937312"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Esercitazione: Ospitare il dominio in DNS di Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "74212221"
 Si supponga di acquistare il dominio "contoso.net" da un registrar di nomi di dominio e di creare una zona con il nome "contoso.net" nel servizio DNS di Azure. Il registrar offre al proprietario del dominio la possibilità di configurare i record del server dei nomi (NS) per il dominio. Il registrar archivia i record NS nel dominio padre ".net". Gli utenti di Internet di tutto il mondo vengono quindi reindirizzati al dominio nella zona DNS di Azure quando provano a risolvere i record DNS in contoso.net.
 
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare una zona DNS.
@@ -32,7 +32,7 @@ In questa esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per il test deve essere disponibile un nome di dominio che possa essere ospitato in DNS di Azure. È necessario disporre del controllo completo di questo dominio, inclusa la possibilità di impostare i record di nome server (NS) per il dominio.
 

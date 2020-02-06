@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: 378ad4fde94e8bccfbdad9765545675822d202ff
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 759cc3f22d8b57036bad48326ffec1d6fca42696
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558626"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939442"
 ---
 # <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 
@@ -43,7 +43,9 @@ Per garantire la protezione da questi problemi, Centro sicurezza offre gli strum
 
 -   **Protezione più rapida**: In Centro sicurezza, tutto viene eseguito con la velocità del cloud. Poiché è integrato in modo nativo, la distribuzione di Centro sicurezza è facile e consente di utilizzare il provisioning automatico e la protezione dei servizi di Azure.
 
-## <a name="architecture"></a>Architettura
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+
+## <a name="architecture"></a>Architecture
 
 Poiché Centro sicurezza è nativo in Azure, i servizi PaaS di Azure, come Service Fabric, i database SQL e gli account di archiviazione, vengono monitorati e protetti da Centro sicurezza senza necessità di distribuzione.
 

@@ -2,7 +2,7 @@
 title: 'Avvio rapido: Creare un profilo per la disponibilità elevata delle applicazioni - Portale di Azure - Gestione traffico di Azure'
 description: Questa guida introduttiva descrive come creare un profilo di Gestione traffico per creare applicazioni Web a disponibilità elevata.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 manager: twooley
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
@@ -11,15 +11,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
-ms.author: allensu
-ms.openlocfilehash: b2163b76dc3a301359cf3474789c5b473f9e4552
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.author: rohink
+ms.openlocfilehash: 559ed0a134bb6db78d1e89634138b4025e04152b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483665"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934776"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Guida introduttiva: Creare un profilo di Gestione traffico usando il portale di Azure
+# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Avvio rapido: Creare un profilo di Gestione traffico usando il portale di Azure
 
 Questo argomento di avvio rapido descrive come creare un profilo di Gestione traffico che fornisce disponibilità elevata per l'applicazione Web.
 
@@ -31,7 +31,7 @@ Se non si ha una sottoscrizione di Azure, creare ora un [account gratuito](https
 
 Accedere al [portale di Azure](https://portal.azure.com).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per questo avvio rapido, saranno necessarie due istanze di un'applicazione Web distribuita in due aree di Azure diverse (*Stati Uniti orientali* ed *Europa occidentale*). Ognuna verrà usata come endpoint primario e di failover per Gestione traffico.
 
@@ -63,9 +63,9 @@ Creare un profilo di Gestione traffico che indirizza il traffico utente in base 
 1. In alto a sinistra nella schermata selezionare **Crea una risorsa** > **Rete** > **Profilo di Gestione traffico**.
 2. In **Crea profilo di Gestione traffico** immettere o selezionare queste impostazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | --------| ----- |
-    | NOME | Immettere un nome univoco per il profilo di Gestione traffico.|
+    | Nome | Immettere un nome univoco per il profilo di Gestione traffico.|
     | Metodo di routing | Selezionare **Priorità**.|
     | Subscription | Selezionare la sottoscrizione a cui si vuole applicare il profilo di Gestione traffico. |
     | Resource group | Selezionare *myResourceGroupTM1*.|
@@ -82,10 +82,10 @@ Aggiungere il sito Web nell'area *Stati Uniti orientali* come endpoint primario 
 3. In **Profilo di Gestione traffico** selezionare **Endpoint** e quindi **Aggiungi** nella sezione **Impostazioni**.
 4. Immettere o selezionare queste impostazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ------|
     | Type | Selezionare **Endpoint Azure**. |
-    | NOME | Immettere *myPrimaryEndpoint*. |
+    | Nome | Immettere *myPrimaryEndpoint*. |
     | Tipo di risorsa di destinazione | Selezionare **Servizio app**. |
     | Risorsa di destinazione | Selezionare **Scegliere un servizio app** > **Stati Uniti orientali**. |
     | Priorità | Selezionare **1**. Tutto il traffico passa a questo endpoint quando è integro. |
@@ -95,10 +95,10 @@ Aggiungere il sito Web nell'area *Stati Uniti orientali* come endpoint primario 
 5. Selezionare **OK**.
 6. Per creare un endpoint di failover per la seconda area di Azure, ripetere i passaggi 3 e 4 con queste impostazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ------|
     | Type | Selezionare **Endpoint Azure**. |
-    | NOME | Immettere *myFailoverEndpoint*. |
+    | Nome | Immettere *myFailoverEndpoint*. |
     | Tipo di risorsa di destinazione | Selezionare **Servizio app**. |
     | Risorsa di destinazione | Selezionare **Scegliere un servizio app** > **Europa occidentale**. |
     | Priorità | Selezionare **2**. Tutto il traffico passa a questo endpoint di failover, se l'endpoint primario non è integro. |

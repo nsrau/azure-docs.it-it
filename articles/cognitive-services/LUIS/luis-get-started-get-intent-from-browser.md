@@ -9,44 +9,44 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/17/2019
+ms.date: 02/03/2020
 ms.author: diberry
-ms.openlocfilehash: 2ca0f9faf1623df9212072abbc960cba41a6414b
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: e06bb4c09b3ebab25c0c0ef8ac5c51f6842f34cd
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76165755"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987955"
 ---
 # <a name="quickstart-get-intent-with-a-browser"></a>Avvio rapido: Ottenere la finalità tramite un browser
 
-Per comprendere ciò che restituisce un endpoint di stima LUIS, visualizzare un risultato di stima in un Web browser. 
+Per comprendere ciò che restituisce un endpoint di stima LUIS, visualizzare un risultato di stima in un Web browser.
 
 ## <a name="prerequisites"></a>Prerequisites
 
 Per eseguire query su un'app pubblica, sono necessari gli elementi seguenti:
 
-* La chiave di creazione o di previsioni di LUIS (Language Understanding) che si può ottenere nel [portale LUIS (anteprima)](https://preview.luis.ai/). Se non si ha già una sottoscrizione per creare una chiave, è possibile registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/). 
-* L'ID dell'app pubblica: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. 
+* La chiave di creazione o di previsioni di LUIS (Language Understanding) che si può ottenere nel [portale LUIS (anteprima)](https://preview.luis.ai/). Se non si ha già una sottoscrizione per creare una chiave, è possibile registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/).
+* L'ID dell'app pubblica: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`.
 
 ## <a name="use-the-browser-to-see-predictions"></a>Usare il browser per visualizzare le previsioni
 
-1. Aprire un Web browser. 
+1. Aprire un Web browser.
 1. Usare gli URL completi seguenti, sostituendo `YOUR-KEY` con la propria chiave di creazione o di previsioni LUIS. Le richieste sono richieste GET e includono l'autorizzazione, con la chiave di creazione o di previsioni LUIS, come parametro della stringa di query.
 
     #### <a name="v3-prediction-requesttabv3-1-1"></a>[Richiesta di previsione V3](#tab/V3-1-1)
-    
-    
+
+
     Il formato dell'URL V3 per una richiesta dell'endpoint **GET** (per slot) è:
-    
+
     `
     https://westus.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-KEY
     `
 
     #### <a name="v2-prediction-requesttabv2-1-2"></a>[Richiesta di previsione V2](#tab/V2-1-2)
-    
+
     Il formato dell'URL V2 per una richiesta dell'endpoint **GET** è:
-    
+
     `
     https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=YOUR-KEY&q=turn on all lights
     `
@@ -97,7 +97,7 @@ Per eseguire query su un'app pubblica, sono necessari gli elementi seguenti:
 
     * * *
 
-1. Per visualizzare tutte le finalità, aggiungere il parametro della stringa di query appropriato. 
+1. Per visualizzare tutte le finalità, aggiungere il parametro della stringa di query appropriato.
 
     #### <a name="v3-prediction-endpointtabv3-3-1"></a>[Endpoint di previsione V3](#tab/V3-3-1)
 
@@ -174,7 +174,7 @@ Per eseguire query su un'app pubblica, sono necessari gli elementi seguenti:
     ```
 
 
-<!-- FIX - is the public app getting updated for the new prebuilt domain with entities? -->   
+<!-- FIX - is the public app getting updated for the new prebuilt domain with entities? -->
 
 ## <a name="next-steps"></a>Passaggi successivi
 

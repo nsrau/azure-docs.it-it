@@ -9,21 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 14b902014305899260ba7d7d9eb0f13afaf64733
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: d5dd1c1271c2b7100b40f6cd0f6410b3c151adc0
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774159"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900209"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Avvio rapido: Eseguire il training di un modello di riconoscimento modulo ed estrarre dati dai moduli usando l'API REST con Python
 
 In questo argomento di avvio rapido si userà l'API REST di riconoscimento modulo di Azure con Python per eseguire il training e assegnare punteggi ai moduli in modo da estrarre coppie chiave-valore e tabelle.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-
-> [!IMPORTANT]
-> Questo argomento di avvio rapido usa l'API Riconoscimento modulo v2.0. Se la sottoscrizione non si trova nell'area `West US 2` o `West Europe`, è necessario usare l'API v1.0. Seguire invece l'[argomento di avvio rapido sulla versione 1.0](./python-train-extract-v1.md).
 
 ## <a name="prerequisites"></a>Prerequisites
 

@@ -4,12 +4,12 @@ description: Informazioni su come eseguire una migrazione senza agente di macchi
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.custom: mvc
-ms.openlocfilehash: fa77b9d730c28c21569064d05ca3a600dfb71071
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 79ba3f17b225357267cbd114659851614279bb7f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028704"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989366"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Eseguire la migrazione di VM VMware ad Azure (senza agente)
 
@@ -184,7 +184,7 @@ Per la prima VM replicata nel progetto di Azure Migrate, lo strumento Migrazione
 - **Bus di servizio**: lo strumento Migrazione server di Azure Migrate usa il bus di servizio per inviare messaggi di orchestrazione della replica all'appliance.
 - **Account di archiviazione del gateway**: lo strumento Migrazione server usa l'account di archiviazione del gateway per archiviare le informazioni sullo stato delle VM da replicare.
 - **Account di archiviazione di log**: l'appliance di Azure Migrate carica i log di replica per le VM in un account di archiviazione di log. Azure Migrate applica le informazioni di replica ai dischi gestiti di replica.
-- **Insieme di credenziali delle chiavi**: l'appliance di Azure Migrate usa l'insieme di credenziali delle chiavi per gestire le stringhe di connessione per il bus di servizio e le chiavi di accesso per gli account di archiviazione usati nella replica. Le autorizzazioni necessarie all'insieme di credenziali delle chiavi per accedere all'account di archiviazione dovrebbero essere state configurate durante la preparazione. [Esaminare le autorizzazioni](tutorial-prepare-vmware.md#assign-role-assignment-permissions).   
+- **Insieme di credenziali delle chiavi**: l'appliance di Azure Migrate usa l'insieme di credenziali delle chiavi per gestire le stringhe di connessione per il bus di servizio e le chiavi di accesso per gli account di archiviazione usati nella replica. Le autorizzazioni necessarie all'insieme di credenziali delle chiavi per accedere all'account di archiviazione dovrebbero essere state configurate durante la preparazione. [Esaminare le autorizzazioni](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault).   
 
 
 ## <a name="track-and-monitor"></a>Tenere traccia e monitorare

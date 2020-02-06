@@ -5,17 +5,18 @@ services: active-directory
 author: msaburnley
 manager: daveba
 ms.service: active-directory
+ms.subservice: fundamentals
 ms.topic: overview
 ms.date: 07/31/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e0e028be6b4a507ba97f9126c791ee77c764c70
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: c4d32522ef88504b96d262c654dac7c08c292761
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72880503"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897467"
 ---
 # <a name="what-is-azure-active-directory"></a>Informazioni su Azure Active Directory
 
@@ -62,7 +63,7 @@ Per altre informazioni sull'associazione di una sottoscrizione di Azure ad Azure
 
 Per una migliore comprensione di Azure AD e della rispettiva documentazione, è consigliabile esaminare la terminologia seguente.
 
-|Termine o concetto|DESCRIZIONE|
+|Termine o concetto|Descrizione|
 |---------------|-----------|
 |Identità| Una cosa che può essere autenticata. Un'identità può essere un utente con un nome utente e password. Le identità includono anche le applicazioni o altri server che potrebbero richiedere l'autenticazione tramite certificati o chiavi private.|
 |Account| Un'identità che contiene dati associati. Non è possibile avere un account senza un'identità.|
@@ -83,7 +84,7 @@ Per una migliore comprensione di Azure AD e della rispettiva documentazione, è 
 
 Dopo la scelta della licenza di Azure AD, sarà possibile accedere ad alcune o a tutte le funzionalità seguenti per l'organizzazione:
 
-|Categoria|DESCRIZIONE|
+|Category|Descrizione|
 |-------|-----------|
 |Gestione delle applicazioni|Consente di gestire le app cloud e locali con Application Proxy, accesso Single Sign-On, portale App personali (definito anche pannello di accesso) e app SaaS (Software as a Service). Per altre informazioni, vedere [Come fornire l'accesso remoto sicuro alle applicazioni locali](../manage-apps/application-proxy.md) e la [Documentazione della gestione delle applicazioni](../manage-apps/index.yml).|
 |Authentication|Consente di gestire la reimpostazione della password self-service di Azure Active Directory, Multi-Factor Authentication, l'elenco personalizzato di password escluse e il blocco intelligente. Per altre informazioni, vedere la [Documentazione di Autenticazione di Azure AD](../authentication/index.yml).|

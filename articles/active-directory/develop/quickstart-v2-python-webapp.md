@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 8a6e8dad7549b3656d4387cfad1d0c3a44b13975
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b219b507ac14b2a66b23f93d9fb1035f56cb8164
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965977"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018687"
 ---
-# <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Guida introduttiva: Aggiungere l'accesso con Microsoft a un'app Web Python
+# <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web Python
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
@@ -28,12 +28,12 @@ Al termine della guida, l'applicazione accetterà accessi di account Microsoft p
 
 ![Mostra come funziona l'app di esempio generata da questo avvio rapido](media/quickstart-v2-python-webapp/python-quickstart.svg)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Ecco i prerequisiti per eseguire questo esempio:
 
 - [Python 2.7+](https://www.python.org/downloads/release/python-2713) o [Python 3+](https://www.python.org/downloads/release/python-364/)
-- [Flask](http://flask.pocoo.org/), [Flask-Session](https://pythonhosted.org/Flask-Session/), [requests](https://requests.kennethreitz.org//en/master/)
+- [Flask](http://flask.pocoo.org/), [Flask-Session](https://pythonhosted.org/Flask-Session/), [requests](https://requests.kennethreitz.org/en/master/)
 - [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
 
 > [!div renderon="docs"]
@@ -132,7 +132,7 @@ AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
    > [!IMPORTANT]
    > Questa applicazione della guida introduttiva usa un segreto client per identificarsi come client riservato. Poiché il segreto client viene aggiunto come testo normale ai file di progetto, per motivi di sicurezza è consigliabile usare un certificato anziché un segreto client prima di considerare l'applicazione come applicazione di produzione. Per altre informazioni sull'uso di un certificato, vedere [queste istruzioni](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
 
-## <a name="more-information"></a>Altre informazioni
+## <a name="more-information"></a>Ulteriori informazioni
 
 ### <a name="getting-msal"></a>Recupero di MSAL
 MSAL è la libreria usata per l'accesso degli utenti e per richiedere i token usati per accedere a un'API protetta da Microsoft Identity Platform.

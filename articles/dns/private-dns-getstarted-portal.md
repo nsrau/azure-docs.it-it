@@ -2,19 +2,19 @@
 title: Avvio rapido - Creare una zona DNS privato di Azure con il portale di Azure
 description: In questo avvio rapido verranno creati e testati una zona DNS privato e un record DNS in DNS di Azure. Guida dettagliata che descrive come creare e gestire la prima zona DNS privata e il primo record DNS usando il portale di Azure.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
 ms.date: 10/11/2019
-ms.author: allensu
-ms.openlocfilehash: 48c5684dd491a91b6da212f78c535433ac2aecf7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 8391d92a2e2970378c11c043ca9f5d4f6dc44696
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210761"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939377"
 ---
-# <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Guida introduttiva: Creare una zona DNS privato di Azure con il portale di Azure
+# <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Avvio rapido: Creare una zona DNS privato di Azure con il portale di Azure
 
 Questo avvio rapido descrive i passaggi necessari per creare la prima zona DNS privato e il primo record DNS con il portale di Azure.
 
@@ -49,7 +49,7 @@ Una zona DNS contiene le voci DNS per un dominio. Per iniziare a ospitare il dom
 1. Nella pagina **Crea zona DNS privato** digitare o selezionare i valori seguenti:
 
    - **Gruppo di risorse**: Selezionare **Crea nuovo**, immettere *MyAzureResourceGroup* e selezionare **OK**. Il nome del gruppo di risorse deve essere univoco all'interno della sottoscrizione di Azure. 
-   -  **Nome**: Digitare *private.contoso.com* per questo esempio.
+   -  **Name**: Digitare *private.contoso.com* per questo esempio.
 1. Per **Località del gruppo di risorse** selezionare **Stati Uniti centro-occidentali**.
 
 1. Selezionare **Rivedi e crea**.

@@ -2,19 +2,19 @@
 title: Avvio rapido - Creare una zona DNS privato di Azure con l'interfaccia della riga di comando di Azure
 description: In questo avvio rapido verranno creati e testati una zona DNS privato e un record DNS in DNS di Azure. Questa guida dettagliata illustra come creare e gestire la prima zona DNS privata e il primo record usando l'interfaccia della riga di comando di Azure.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
 ms.date: 10/05/2019
-ms.author: allensu
-ms.openlocfilehash: 3c580eebd19eb2f2028768059140731fa24f4664
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 34a9858ffbec2360a347b8c765d53551fd2d9fc0
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210913"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935436"
 ---
-# <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-cli"></a>Guida introduttiva: Creare una zona DNS privato di Azure con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-cli"></a>Avvio rapido: Creare una zona DNS privato di Azure con l'interfaccia della riga di comando di Azure
 
 Questo avvio rapido descrive i passaggi necessari per creare la prima zona DNS privato e il primo record DNS con l'interfaccia della riga di comando di Azure.
 

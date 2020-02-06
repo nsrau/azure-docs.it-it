@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: pafarley
-ms.openlocfilehash: f00702326cf6fe2efd8d4abbfce7174815ea0b1d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 158faaba1525e162c40c44179f30f7c3cea83b38
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770289"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025912"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Eseguire il training di un modello di Riconoscimento modulo con le etichette usando lo strumento di etichettatura campioni
 
@@ -26,7 +26,6 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per completare questo argomento di avvio rapido è necessario disporre di quanto segue:
 - Accesso all'anteprima dell'API di riconoscimento modulo ad accesso limitato. Per avere accesso all'anteprima, compilare e inviare il [modulo di richiesta di accesso a Riconoscimento modulo](https://aka.ms/FormRecognizerRequestAccess). Si riceverà un messaggio di posta elettronica con un collegamento per creare una risorsa di Riconoscimento modulo.
-- Accesso allo strumento di etichettatura campioni di Riconoscimento modulo. Per ottenere l'accesso, compilare e inviare il [modulo di richiesta dello strumento di etichettatura di Riconoscimento modulo](https://aka.ms/LabelToolRequestAccess). Si riceverà un messaggio di posta elettronica con le istruzioni per ottenere le credenziali e accedere al registro contenitori privato. 
 - Un set di almeno sei moduli dello stesso tipo. Questi dati verranno usati per eseguire il training del modello e testare un modulo. Per questa guida di avvio rapido, è possibile usare un [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451). Caricare i file di training nella radice di un contenitore di archiviazione BLOB in un account di archiviazione di Azure.
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurare lo strumento di etichettatura campioni
@@ -38,18 +37,13 @@ Per eseguire lo strumento di etichettatura campioni, verrà usato il motore Dock
     |:--|:--|:--|
     |Strumento di etichettatura campioni|2 core, 4 GB di memoria|4 core, 8 GB di memoria|
     
-1. È inoltre necessario avere l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Installarla nel computer se non è già stato fatto.
-1. Immettere quindi il comando seguente al prompt dei comandi. I valori di `<username>` e `<password>` sono indicati nel messaggio di posta elettronica di benvenuto in Riconoscimento modulo.
-    ```
-    docker login containerpreview.azurecr.io -u <username> -p <password>
-    ```
 1. Ottenere il contenitore dello strumento di etichettatura campioni con il comando `docker pull`.
     ```
-    docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool:latest
+    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
     ```
 1. Ora è possibile eseguire il contenitore con `docker run`.
     ```
-    docker run -it -p 3000:80 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool eula=accept
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
 
    Questo comando rende disponibile lo strumento di etichettatura campioni tramite un Web browser. Passare a [http://localhost:3000](http://localhost:3000).

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 11/26/2019
+ms.date: 02/03/2020
 ms.author: spelluru
-ms.openlocfilehash: 4258bec3ceacd52f9679f48d8357be558ee0e27f
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: ef296035ee8f0c80b4ee078303639d7aedf5a91d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561638"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986632"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Introduzione ad Azure Lab Services
 In Azure sono disponibili due servizi che consentono di configurare gli ambienti lab nel cloud. 
@@ -35,9 +35,6 @@ Questi servizi (Azure DevTest Labs e Azure Lab Services) supportano le caratteri
 - **Analisi e ottimizzazione dei costi**. Il proprietario del lab può impostare pianificazioni del lab per arrestare e avviare automaticamente le macchine virtuali. Il proprietario del lab può impostare una pianificazione per specificare le fasce orarie in cui le macchine virtuali del lab sono accessibili agli utenti, impostare i criteri di utilizzo per ciascun utente o lab per ottimizzare i costi, nonché analizzare le tendenze di utilizzo e attività in un lab. Per i tipi di lab gestiti, ad esempio i lab per le classi, è attualmente disponibile un subset ridotto di opzioni per l'analisi e l'ottimizzazione dei costi.
 - **Sicurezza incorporata**. Il proprietario di un lab può configurare una subnet e una rete virtuale privata per il lab e abilitare un indirizzo IP pubblico condiviso. Gli utenti del lab possono accedere in modo sicuro alle risorse tramite la rete virtuale configurata con ExpressRoute o con VPN da sito a sito. (attualmente disponibile solo in DevTest Labs)
 - **Integrazione con gli strumenti e i flussi di lavoro**. Azure Lab Services consente di integrare i lab nei sistemi di gestione e nel sito Web dell'organizzazione. È possibile eseguire automaticamente il provisioning di ambienti dagli strumenti di integrazione continua e distribuzione continua (CI/CD). (attualmente disponibile solo in DevTest Labs)
-
-> [!NOTE]
-> Attualmente Azure Lab Services supporta solo le macchine virtuali create da immagini del Marketplace di Azure. Se si vogliono usare immagini personalizzate o creare altre risorse PaaS in un ambiente lab, usare DevTest Labs. Per altre informazioni, vedere [Creare un'immagine personalizzata in DevTest Labs](devtest-lab-create-custom-image-from-vm-using-portal.md) e [Creare ambienti con più macchine virtuali e risorse PaaS con i modelli di Azure Resource Manager](devtest-lab-create-environment-from-arm.md).
 
 ## <a name="scenarios"></a>Scenari
 

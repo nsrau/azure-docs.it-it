@@ -4,12 +4,12 @@ description: Criteri di Azure è un servizio disponibile in Azure che consente d
 ms.date: 11/25/2019
 ms.topic: overview
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9babfd52071ed7d033761802f696c3b6021287af
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e886f37a8d7f1395b5c831e81e600ecc6e2dd20f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846026"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937827"
 ---
 # <a name="what-is-azure-policy"></a>Informazioni su Criteri di Azure
 
@@ -24,7 +24,7 @@ Si possono avere, ad esempio, criteri che consentono solo determinate dimensioni
 > [!IMPORTANT]
 > La valutazione della conformità di Criteri di Azure è ora disponibile per tutte le assegnazioni indipendentemente dal piano tariffario. Se le assegnazioni non mostrano i dati di conformità, assicurarsi che la sottoscrizione sia registrata con il provider di risorse Microsoft.PolicyInsights.
 
-[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
+[!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="how-is-it-different-from-rbac"></a>Quali sono le differenze rispetto al controllo degli accessi in base al ruolo?
 

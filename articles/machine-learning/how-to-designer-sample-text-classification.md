@@ -1,35 +1,35 @@
 ---
-title: 'Finestra di progettazione: esempio di classificazione delle recensioni Book'
+title: 'Finestra di progettazione: esempio di classificazione di recensioni di libri'
 titleSuffix: Azure Machine Learning
-description: Compilare un classificatore di regressione logistica multiclasse per stimare la categoria aziendale con il set di dati di Wikipedia SP 500 usando Azure Machine Learning Designer.
+description: Creare un classificatore di regressione logistica per prevedere la categoria aziendale con il set di dati SP 500 di Wikipedia usando la finestra di progettazione di Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 73861456edbb7493038fbf2adbf12300d170cab2
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
-ms.translationtype: MT
+ms.openlocfilehash: 4d22fd39eae5d5cf207d6d44819f0ce7ab2eceb5
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311037"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963242"
 ---
-# <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Compilare un classificatore per stimare la categoria aziendale usando Azure Machine Learning Designer.
+# <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Creare un classificatore per prevedere la categoria aziendale usando la finestra di progettazione di Azure Machine Learning.
 
-**Esempio di finestra di progettazione 7**
+**Finestra di progettazione (anteprima) - Esempio 7**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Questo esempio illustra come usare i moduli di analisi del testo per compilare una pipeline di classificazione del testo in Azure Machine Learning Designer.
+Questo esempio illustra come usare i moduli di analisi del testo per creare una pipeline di classificazione del testo nella finestra di progettazione di Azure Machine Learning (anteprima).
 
-L'obiettivo della classificazione del testo è quello di assegnare parte del testo a una o più classi o categorie predefinite. Il testo può essere un documento, un articolo di notizie, una query di ricerca, un messaggio di posta elettronica, un tweet, ticket di supporto, commenti dei clienti, revisione del prodotto utente e così via. Le applicazioni di classificazione del testo includono la categorizzazione di articoli di giornali e contenuti Wire di notizie in argomenti, l'organizzazione di pagine Web in categorie gerarchiche, il filtraggio della posta indesiderata, l'analisi dei sentimenti, la stima degli obiettivi utente dalle query di ricerca ticket di supporto e analisi dei commenti dei clienti. 
+L'obiettivo della classificazione del testo è di assegnare un testo a una o più classi o categorie predefinite. Il testo può essere un documento, un articolo di notizie, una query di ricerca, un messaggio di posta elettronica, un tweet, un ticket di supporto, il feedback dei clienti, una recensione di prodotti e così via. Le applicazioni di classificazione del testo includono la categorizzazione in argomenti di articoli di giornali e contenuti di newswire, l'organizzazione di pagine Web in categorie gerarchiche, l'applicazione di filtri alla posta indesiderata, l'analisi del sentiment, la previsione di finalità utente da query di ricerca, l'instradamento dei ticket di supporto e l'analisi del feedback dei clienti. 
 
-Questa pipeline addestra un **classificatore di regressione logistica multiclasse** per stimare la categoria aziendale con il **set di dati di Wikipedia SP 500 derivato da Wikipedia**.  
+Questa pipeline esegue il training di un **classificatore di regressione logistica multiclasse** per prevedere la categoria aziendale con il **set di dati SP 500 di Wikipedia derivato da Wikipedia**.  
 
-I passaggi fondamentali di un modello di apprendimento automatico del training con dati di testo sono:
+I passaggi fondamentali di un modello di Machine Learning di training con dati di testo sono:
 
 1. Ottenere i dati
 
@@ -37,21 +37,21 @@ I passaggi fondamentali di un modello di apprendimento automatico del training c
 
 1. Progettazione delle caratteristiche
 
-   Convertire la funzionalità di testo nella funzionalità numerica con il modulo di estrazione delle funzionalità, ad esempio feature hashing, estrarre la funzionalità n-Gram dai dati di testo.
+   Convertire la caratteristica di testo nella caratteristica numerica con il modulo di estrazione di caratteristiche, ad esempio hashing, ed estrarre la caratteristica n-gramma dai dati di testo.
 
-1. Training del modello
+1. Eseguire il training del modello
 
-1. Set di dati Score
+1. Assegnare un punteggio al set di dati
 
-1. Valutazione del modello
+1. Valutare il modello
 
-Ecco il grafico finale e completato della pipeline su cui lavoreremo. Verranno fornite le logiche per tutti i moduli, in modo da poter prendere decisioni simili.
+Ecco il grafo finale completato della pipeline creata. Questo articolo fornisce i fondamenti logici per tutti i moduli, in modo da poter prendere decisioni simili in autonomia.
 
-[Grafico ![della pipeline](./media/how-to-designer-sample-text-classification/nlp-modules-overall.png)](./media/how-to-designer-sample-text-classification/nlp-modules-overall.png#lightbox)
+[![Grafo della pipeline](./media/how-to-designer-sample-text-classification/nlp-modules-overall.png)](./media/how-to-designer-sample-text-classification/nlp-modules-overall.png#lightbox)
 
-## <a name="data"></a>Dati
+## <a name="data"></a>Data
 
-In questa pipeline viene usato il set di dati di **Wikipedia SP 500** . Il set di dati è derivato da Wikipedia (https://www.wikipedia.org/) in base agli articoli di ogni società & P 500. Prima di caricare in Azure Machine Learning Designer, il set di dati è stato elaborato come segue:
+In questa pipeline viene usato il set di dati **SP 500 di Wikipedia**. Il set di dati deriva da Wikipedia (https://www.wikipedia.org/) ) in base agli articoli di ogni azienda S&P 500. Prima di caricarlo nella finestra di progettazione di Azure Machine Learning, il set di dati è stato elaborato come segue:
 
 - Estrazione del contenuto di testo per ogni specifica società
 - Rimozione della formattazione wiki
@@ -59,49 +59,49 @@ In questa pipeline viene usato il set di dati di **Wikipedia SP 500** . Il set d
 - Conversione di tutto il testo in minuscolo
 - Aggiunta delle categorie di società note
 
-Non è stato possibile trovare articoli per alcune società, quindi il numero di record è inferiore a 500.
+Per alcune aziende non sono stati trovati articoli, quindi il numero di record è inferiore a 500.
 
 ## <a name="pre-process-the-text-data"></a>Pre-elaborare i dati di testo
 
-Il modulo di **testo pre-elaborazione** viene usato per pre-elaborare i dati di testo, tra cui rilevare le frasi, tokenize frasi e così via. Sono state trovate tutte le opzioni supportate nell'articolo [**pre-elaborazione del testo**](algorithm-module-reference/preprocess-text.md) . Dopo aver pre-elaborato i dati Tex, viene usato il modulo **Split data** per dividere in modo casuale i dati di input in modo che il set di dati di training contenga il 50% dei dati originali e il set di dati di testing contenga il 50% dei dati originali.
+Per pre-elaborare i dati di testo viene usato il modulo **Preprocess Text** (Preelabora il testo), che include il rilevamento e la divisione in token delle frasi. Tutte le opzioni supportate sono disponibili nell'articolo [**Preprocess Text**](algorithm-module-reference/preprocess-text.md). Dopo la pre-elaborazione dei dati, si usa il modulo **Split data** (Dividi dati) per dividere in modo casuale i dati di input in modo che il set di dati di training contenga il 50% dei dati originali e il set di dati di test il 50% dei dati originali.
 
 ## <a name="feature-engineering"></a>Progettazione delle caratteristiche
-In questo esempio, si utilizzeranno due metodi che eseguono la progettazione delle funzionalità.
+In questo esempio si useranno due metodi per eseguire la progettazione delle caratteristiche.
 
 ### <a name="feature-hashing"></a>Feature Hashing
-È stato usato il modulo [**feature hashing**](algorithm-module-reference/feature-hashing.md) per convertire il testo normale degli articoli in numeri interi e sono stati usati i valori integer come funzionalità di input per il modello. 
+È stato usato il modulo [**Feature Hashing**](algorithm-module-reference/feature-hashing.md) (Hashing delle caratteristiche) per convertire il testo normale degli articoli in valori interi, che sono stati usati come caratteristiche di input per il modello. 
 
-Il modulo **feature hashing** può essere usato per convertire documenti di testo a lunghezza variabile in vettori di funzioni numeriche di lunghezza uguale, usando il metodo di hashing murmurhash v3 a 32 bit fornito dalla libreria Wabbit Vowpal. L'obiettivo dell'utilizzo dell'hashing delle funzioni è la riduzione della dimensionalità. Inoltre, l'hashing delle funzionalità rende più veloce la ricerca dei pesi delle funzionalità al momento della classificazione, perché usa il confronto dei valori hash anziché il confronto tra stringhe.
+Il modulo **Feature Hashing** (Hashing delle caratteristiche) può essere usato per convertire documenti di testo di lunghezza variabile in vettori di caratteristiche numeriche di lunghezza uguale, usando il metodo di hashing murmurhash v3 a 32 bit fornito dalla libreria Vowpal Wabbit. L'obiettivo dell'hashing di caratteristiche è la riduzione delle caratteristiche. Inoltre, questo metodo velocizza la ricerca di pesi delle caratteristiche in fase di classificazione perché usa il confronto di valori hash invece che di stringhe.
 
-Nella pipeline di esempio, si imposta il numero di bit di hashing su 14 e si imposta il numero di n-grammi su 2. Con queste impostazioni, la tabella hash può conservare 2 ^ 14 voci, in cui ogni funzionalità di hashing rappresenta una o più funzionalità n-Gram e il relativo valore rappresenta la frequenza di occorrenza di tale n-Gram nell'istanza di testo. Per molti problemi, una tabella hash di queste dimensioni è più che adeguata, ma in alcuni casi potrebbe essere necessario più spazio per evitare conflitti. Valutare le prestazioni della soluzione di apprendimento automatico usando un numero diverso di bit. 
+Nella pipeline di esempio si imposta il numero di bit di hashing su 14 e il numero di n-grammi su 2. Con queste impostazioni, la tabella hash può contenere 2^14 voci, in cui ogni caratteristica di hashing rappresenta una o più caratteristiche n-gramma e il relativo valore rappresenta la frequenza di occorrenza di tale n-gramma nell'istanza di testo. Per molti problemi, una tabella hash di queste dimensioni è più che adeguata, ma in alcuni casi potrebbe essere necessario più spazio per evitare conflitti. Valutare le prestazioni della soluzione di Machine Learning usando un numero diverso di bit. 
 
-### <a name="extract-n-gram-feature-from-text"></a>Estrai la funzionalità N-Gram dal testo
+### <a name="extract-n-gram-feature-from-text"></a>Estrarre le caratteristiche n-gramma dal testo
 
-Un n-Gram è una sequenza contigua di n termini da una sequenza di testo specificata. Un n-grammo di dimensioni 1 viene definito unigramma; un n-grammo di dimensioni 2 è un bigramma; un n-grammo di dimensioni 3 è un trigramma. Ai n-grammi di dimensioni maggiori viene talvolta fatto riferimento dal valore di n, ad esempio "quattro grammi", "cinque grammi" e così via.
+Un n-gramma è una sequenza contigua di n termini prelevati da una sequenza di testo specificata. Un n-gramma di dimensioni 1 viene definito unigramma; un n-gramma di dimensioni 2 è un bigramma; un n-gramma di dimensioni 3 è un trigramma. Gli n-grammi di dimensioni più grandi vengono identificati dal valore n, ad esempio 4-gramma, 5-gramma e così via.
 
-È stata usata l' [**estrazione della funzionalità N-Gram dal**](algorithm-module-reference/extract-n-gram-features-from-text.md)modulo di testo come altra soluzione per la progettazione delle funzionalità. Questo modulo estrae prima di tutto il set di n-grammi, oltre ai n-grammi, il numero di documenti in cui ogni n-gramma viene visualizzato nel testo viene conteggiato (DF). In questo esempio viene usata la metrica TF-IDF per calcolare i valori delle funzionalità. Quindi converte i dati di testo non strutturati in vettori di funzioni numeriche di lunghezza uguale, in cui ogni funzionalità rappresenta il TF-IDF di un n-Gram in un'istanza di testo.
+È stato usato il modulo [**Extract N-Gram Feature from Text**](algorithm-module-reference/extract-n-gram-features-from-text.md)(Estrai la caratteristica n-gramma dal testo) come altra soluzione per la progettazione delle caratteristiche. Questo modulo estrae prima di tutto il set di n-grammi. In aggiunta agli n-grammi, viene conteggiato il numero di documenti in cui ognuno compare nel testo (DF). In questo esempio viene usata la metrica TF-IDF per calcolare i valori delle caratteristiche. Quindi i dati di testo non strutturati vengono convertiti in vettori di caratteristiche numeriche di lunghezza uguale, in cui ogni caratteristica rappresenta l'algoritmo TF-IDF di un n-gramma in un'istanza di testo.
 
-Dopo la conversione dei dati di testo in vettori di funzioni numeriche, viene usato un modulo **Select Column** per rimuovere i dati di testo dal set di dati. 
+Dopo la conversione dei dati di testo in vettori di caratteristiche numeriche, viene usato il modulo **Select Column** (Seleziona colonna) per rimuovere i dati di testo dal set di dati. 
 
-## <a name="train-the-model"></a>Training del modello
+## <a name="train-the-model"></a>Eseguire il training del modello
 
-La scelta dell'algoritmo dipende spesso dai requisiti del caso d'uso. Poiché l'obiettivo di questa pipeline è stimare la categoria della società, un modello di classificazione multiclasse rappresenta una scelta ottimale. Poiché il numero di funzionalità è elevato e queste funzionalità sono di tipo sparse, viene usato il modello di **regressione logistica multiclasse** per questa pipeline.
+La scelta dell'algoritmo dipende spesso dai requisiti del caso d'uso. Poiché l'obiettivo di questa pipeline è prevedere la categoria dell'azienda, un modello di classificazione multiclasse rappresenta una scelta valida. Considerando che il numero di caratteristiche è elevato e che tali caratteristiche sono sparse, per questa pipeline viene usato il modello di **regressione logistica multiclasse**.
 
-## <a name="test-evaluate-and-compare"></a>Test, valutazione e confronto
+## <a name="test-evaluate-and-compare"></a>Testare, valutare e confrontare
 
- Il set di dati viene suddiviso e vengono utilizzati set di dati diversi per eseguire il training e il test del modello, in modo da rendere più obiettivo la valutazione del modello.
+ Il set di dati viene diviso e vengono usati set di dati diversi per eseguire il training e il test del modello in modo da renderne più oggettiva la valutazione.
 
-Dopo aver eseguito il training del modello, si utilizzeranno i moduli **Score Model** e **Evaluate Model** per generare risultati stimati e valutare i modelli. Tuttavia, prima di usare il modulo **Score Model** , è necessario eseguire la progettazione di funzioni come quello che è stato fatto durante il training. 
+Una volta eseguito il training del modello, verranno usati i moduli **Score Model** (Assegna un punteggio al modello) e **Evaluate Model** (Valuta modello) per generare i risultati previsti e valutare i modelli. Tuttavia, prima di usare il modulo **Score Model** (Assegna un punteggio al modello), è necessario eseguire la progettazione delle caratteristiche come è stato fatto durante il training. 
 
-Per il modulo **feature hashing** , è facile eseguire la funzionalità di assegnazione dei punteggi come flusso di training. Usare direttamente il modulo **feature hashing** per elaborare i dati di testo di input.
+Per il modulo **Feature Hashing** (Hashing delle caratteristiche), è facile eseguire la progettazione delle caratteristiche con il flusso di assegnazione di punteggi come flusso di training. Per elaborare i dati di testo di input, usare direttamente il modulo **Feature Hashing** (Hashing delle caratteristiche).
 
-Per la **funzionalità Estrai N-Gram dal** modulo di testo, si connette l' **output del vocabolario dei risultati** dal flusso di dati di training al **vocabolario di input** nel flusso di dati di assegnazione dei punteggi e si imposta il parametro della **modalità vocabolario** su **ReadOnly**.
-[Grafico ![del punteggio n-Gram](./media/how-to-designer-sample-text-classification/n-gram.png)](./media/how-to-designer-sample-text-classification/n-gram.png)
+Per il modulo **Extract N-Gram Feature from Text** (Estrai la caratteristica n-gramma dal testo), è necessario connettere l'output di **Result Vocabulary** (Vocabolario dei risultati) del flusso di dati di training alla porta di **Input Vocabulary** (Vocabolario di input) nel flusso di dati di assegnazione dei punteggi e impostare il parametro **Vocabulary mode** (Modalità vocabolario) su **ReadOnly**.
+[![Grafo del punteggio di n-grammi](./media/how-to-designer-sample-text-classification/n-gram.png)](./media/how-to-designer-sample-text-classification/n-gram.png)
 
-Al termine della fase di progettazione, è possibile utilizzare **Score Model** per generare stime per il set di dati di test utilizzando il modello sottoposto a training. Per controllare il risultato, selezionare la porta di output di **Score Model** e quindi selezionare **Visualize (Visualizza**).
+Al termine della fase di progettazione, è possibile usare il modulo **Score Model** (Assegna un punteggio al modello) per generare previsioni per il set di dati usando il modello sottoposto a training. Per controllare il risultato, selezionare la porta di output di **Score Model** (Assegna un punteggio al modello) e quindi selezionare **Visualize** (Visualizza).
 
-Vengono quindi passati i punteggi al modulo **Evaluate Model** per generare le metriche di valutazione. Il **modello Evaluate** include due porte di input, in modo che sia possibile valutare e confrontare i set di dati con punteggio generati con metodi diversi. In questo esempio vengono confrontate le prestazioni del risultato generato con il metodo di hashing delle funzionalità e il metodo n-Gram.
-Per controllare il risultato, selezionare la porta di output del **modello Evaluate** e quindi selezionare **Visualize (Visualizza**).
+Passare quindi i punteggi al modulo **Evaluate Model** (Valuta modello) per generare le metriche di valutazione. **Evaluate Model** (Valuta modello) ha due porte di input, quindi è possibile valutare e confrontare i set di dati con punteggio generati con metodi diversi. In questo esempio vengono confrontate le prestazioni del risultato generato con il metodo di hashing delle caratteristiche e il metodo degli n-grammi.
+Per controllare il risultato, selezionare la porta di output di **Evaluate Model** (Valuta modello) e quindi selezionare **Visualize** (Visualizza).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -110,9 +110,9 @@ Per controllare il risultato, selezionare la porta di output del **modello Evalu
 ## <a name="next-steps"></a>Passaggi successivi
 
 Esplorare gli altri esempi disponibili per la finestra di progettazione:
-- [Esempio 1: regressione: stimare il prezzo di un'automobile](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Esempio 2: regressione: confrontare gli algoritmi per la stima del prezzo dell'automobile](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Esempio 3: classificazione con selezione delle caratteristiche: stima del reddito](how-to-designer-sample-classification-predict-income.md)
-- [Esempio 4-Classificazione: stimare il rischio di credito (costo sensibile)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Esempio 5-classificazione: varianza di stima](how-to-designer-sample-classification-churn.md)
-- [Esempio 6-Classificazione: stima dei ritardi dei voli](how-to-designer-sample-classification-flight-delay.md)
+- [Esempio 1 - Regressione: Prevedere il prezzo di un'automobile](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Esempio 2 - Regressione: Confrontare gli algoritmi per la previsione del prezzo delle automobili](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Esempio 3 - Classificazione con selezione delle caratteristiche: Previsione del reddito](how-to-designer-sample-classification-predict-income.md)
+- [Esempio 4 - Classificazione: Prevedere il rischio di credito (sensibile al costo)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Esempio 5 - Classificazione: Prevedere la varianza](how-to-designer-sample-classification-churn.md)
+- [Esempio 6 - Classificazione: Prevedere i ritardi dei voli](how-to-designer-sample-classification-flight-delay.md)

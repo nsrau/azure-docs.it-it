@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 186e8ee232fc8e0500f55404b65e00d7af696230
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 376741005f0755d01c95baad8d3a3d33e9952933
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760930"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023906"
 ---
 # <a name="what-is-azure-load-balancer"></a>Informazioni su Azure Load Balancer
 
-Il *bilanciamento del carico* si riferisce alla distribuzione uniforme del carico o del traffico di rete in ingresso tra un gruppo di risorse o server back-end. Azure offre un'[ampia gamma di opzioni di bilanciamento del carico](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) che è possibile scegliere in base alle esigenze. Questo documento illustra Azure Load Balancer.
+Il *bilanciamento del carico* si riferisce alla distribuzione uniforme del carico o del traffico di rete in ingresso tra un gruppo di risorse o server back-end. 
 
 Azure Load Balancer funziona a livello 4 del modello OSI (Open Systems Interconnection). Rappresenta l'unico punto di contatto per i client. Load Balancer distribuisce i flussi in ingresso che arrivano nel relativo front-end alle istanze del pool back-end. Questi flussi sono conformi alle regole di bilanciamento del carico e ai probe di integrità configurati. Le istanze del pool back-end possono essere macchine virtuali o istanze di Azure in un set di scalabilità di macchine virtuali.
 
@@ -38,6 +38,11 @@ Un **[servizio Load Balancer interno (o privato)](./concepts-limitations.md#inte
 *Figura: bilanciamento del carico di applicazioni multilivello tramite il servizio Load Balancer sia pubblico che interno*
 
 Per altre informazioni sui singoli componenti del servizio Load Balancer, vedere [Componenti e limiti di Azure Load Balancer](./concepts-limitations.md)
+
+>[!NOTE]
+> Azure offre una suite di soluzioni di bilanciamento del carico completamente gestite per tutti gli scenari. Se è necessario un bilanciamento del carico di livello 4 a elevate prestazioni e bassa latenza, vedere [Informazioni su Azure Load Balancer](../load-balancer/load-balancer-overview.md). Per il bilanciamento del carico DNS globale, vedere [Informazioni su Gestione traffico](../traffic-manager/traffic-manager-overview.md). Gli scenari end-to-end possono trarre vantaggio dalla combinazione di queste soluzioni in base alle esigenze.
+>
+> Per un confronto tra le opzioni di bilanciamento del carico di Azure, vedere [Panoramica delle opzioni di bilanciamento del carico in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ## <a name="why-use-azure-load-balancer"></a>Perché usare Azure Load Balancer?
 Load Balancer Standard consente di ridimensionare le applicazioni e di creare servizi a disponibilità elevata. Load Balancer supporta scenari in ingresso e in uscita. Load Balancer offre bassa latenza e velocità effettiva elevata, oltre a una scalabilità fino a milioni di flussi per tutte le applicazioni TCP e UDP.

@@ -1,73 +1,73 @@
 ---
-title: 'Finestra di progettazione: esempio di classificazione, stima del reddito'
+title: 'Progettazione: Esempio di classificazione e previsione del reddito'
 titleSuffix: Azure Machine Learning
-description: Seguire questo esempio per creare un classificatore senza codice per stimare il reddito con Azure Machine Learning Designer.
+description: Seguire questo esempio per creare un classificatore senza codice per prevedere il reddito con la finestra di progettazione di Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: bfae0d8eed80a88475c447a141097022fed9adff
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
-ms.translationtype: MT
+ms.openlocfilehash: 560339fb04e3bbbe42c4370655e74e8536a7c015
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311135"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963369"
 ---
-# <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Compilare un classificatore & usare la selezione delle funzioni per stimare il reddito con Azure Machine Learning Designer
+# <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Creare un classificatore e usare la selezione delle caratteristiche per prevedere il reddito con la finestra di progettazione di Azure Machine Learning
 
-**Esempio di finestra di progettazione 3**
+**Finestra di progettazione (anteprima) - Esempio 3**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Informazioni su come creare un classificatore di Machine Learning senza scrivere una singola riga di codice usando la finestra di progettazione. Questo esempio consente di eseguire il training di un **albero delle decisioni con boosting a due classi** per stimare il reddito del censimento adulto (> = 50.000 o < = 50.000).
+Informazioni su come creare un classificatore di Machine Learning senza scrivere una sola riga di codice usando la finestra di progettazione (anteprima). Questo esempio esegue il training di un **albero delle decisioni con boosting a due classi** per prevedere il reddito della popolazione adulta (>=50.000 o <=50.000).
 
-Poiché la domanda risponde a "quale?" si tratta di un problema di classificazione. Tuttavia, è possibile applicare lo stesso processo fondamentale per risolvere qualsiasi tipo di problema di Machine Learning: regressione, classificazione, clustering e così via.
+Poiché si prova a rispondere alla domanda "Quale?", si tratta di un problema di classificazione. Tuttavia, è possibile applicare lo stesso processo fondamentale per risolvere qualsiasi tipo di problema di Machine Learning, indipendentemente dal fatto che si tratti di regressione, classificazione, clustering e così via.
 
-Ecco il grafico della pipeline finale per questo esempio:
+Ecco il grafo della pipeline finale per questo esempio:
 
-![Grafico della pipeline](./media/how-to-designer-sample-classification-predict-income/overall-graph.png)
+![Grafo della pipeline](./media/how-to-designer-sample-classification-predict-income/overall-graph.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [aml-ui-prereq](../../includes/aml-ui-prereq.md)]
 
-4. Fare clic sul campione 3 per aprirlo.
+4. Fare clic su Sample 3 per aprirlo.
 
 
 
-## <a name="data"></a>Dati
+## <a name="data"></a>Data
 
-Il set di dati contiene 14 funzionalità e una colonna etichetta. Sono disponibili più tipi di funzionalità, inclusi numerici e categorici. Il diagramma seguente mostra un estratto del set di dati: ![dati](media/how-to-designer-sample-classification-predict-income/sample3-dataset-1225.png)
+Il set di dati contiene 14 caratteristiche e una colonna di etichetta. Sono disponibili più tipi di caratteristiche, numeriche e categoriche. Il diagramma seguente mostra un estratto del set di dati: ![data](media/how-to-designer-sample-classification-predict-income/sample3-dataset-1225.png)
 
 
 
 ## <a name="pipeline-summary"></a>Riepilogo della pipeline
 
-Per creare la pipeline, attenersi alla procedura seguente:
+Per creare la pipeline, seguire questa procedura:
 
-1. Trascinare il modulo DataSet Adult Census income Binary DataSet nel Canvas della pipeline.
-1. Aggiungere un modulo **Split data** per creare i set di training e di test. Impostare la frazione di righe nel primo set di dati di output su 0,7. Questa impostazione specifica che il 70% dei dati verrà restituito alla porta sinistra del modulo e il resto sulla porta destra. Il set di dati a sinistra viene usato per il training e quello giusto per i test.
-1. Aggiungere il modulo di selezione delle caratteristiche **basato su filtro** per selezionare 5 funzionalità per PearsonCorreclation. 
-1. Aggiungere un modulo a **albero delle decisioni con boosting a due classi** per inizializzare un classificatore di albero delle decisioni con boosting.
-1. Aggiungere un modulo **Train Model** . Connettere il classificatore dal passaggio precedente alla porta di input sinistra del modello di **Training**. Connettere il set di dati filtrato dal modulo di selezione delle caratteristiche basato su filtro come set di dati di training  Il training **Model** eseguirà il training del classificatore.
-1. Aggiungere la trasformazione Seleziona colonne e applicare il modulo di trasformazione per applicare la stessa trasformazione (selezione funzionalità basata su filtro) al set di dati di test.
-![Apply-Transformation](./media/how-to-designer-sample-classification-predict-income/transformation.png)
-1. Aggiungere il modulo **Score Model** e connettervi il modulo **Train Model** . Aggiungere quindi il set di test (l'output del modulo Apply Transformation che applica la selezione delle caratteristiche anche al set di test) al **modello di Punteggio**. Il **modello di Punteggio** effettuerà le stime. È possibile selezionare la relativa porta di output per visualizzare le stime e le probabilità della classe positiva.
+1. Trascinare il modulo Adult Census Income Binary DataSet nell'area di disegno della pipeline.
+1. Aggiungere un modulo **Split Data** (Dividi dati) per creare i set di training e di test. Impostare la frazione di righe nel primo set di dati di output su 0,7. Questa impostazione specifica che l'output del 70% dei dati verrà effettuato sulla porta sinistra del modulo e il resto sulla porta destra. Il set di dati a sinistra verrà usato per il training e quello a destra per il test.
+1. Aggiungere il modulo **Filter Based Feature Selection** (Selezione caratteristiche basata su filtro) per selezionare 5 caratteristiche per PearsonCorrelation. 
+1. Aggiungere un modulo **Two-Class Boosted Decision Tree** (Albero delle decisioni con boosting a due classi) per inizializzare un classificatore di albero delle decisioni con boosting.
+1. Aggiungere un modulo **Train Model** (Esegui training modello). Connettere il classificatore dal passaggio precedente alla porta di input sinistra del modulo **Train Model** (Esegui training modello). Connettere il set di dati filtrato dal modulo Filter Based Feature Selection (Selezione caratteristiche basata su filtro) come set di dati di training.  Il modulo **Train Model** (Esegui training modello) eseguirà il training del classificatore.
+1. Aggiungere il modulo Select Columns Transformation and Apply Transformation (Seleziona trasformazione colonne e applica trasformazione) per applicare la stessa trasformazione (selezione caratteristiche basata su filtro) al set di dati di test.
+![apply-transformation](./media/how-to-designer-sample-classification-predict-income/transformation.png)
+1. Aggiungere il modulo **Score Model** (Assegna un punteggio al modello) e connettere il modulo **Train Model** (Esegui training modello). Aggiungere quindi il set di test, ovvero l'output del modulo Apply Transformation (Applica trasformazione) che applica la selezione delle caratteristiche anche al set di test, al modulo **Score Model** (Assegna un punteggio al modello). Il modulo **Score Model** (Assegna un punteggio al modello) genererà le previsioni. È possibile selezionare la relativa porta di output per visualizzare le previsioni e le probabilità della classe positiva.
 
 
-    Questa pipeline ha due moduli score, uno a destra ha esclusa la colonna Label prima di eseguire la stima. Questa operazione è preparata per la distribuzione di un endpoint in tempo reale, perché l'input del servizio Web prevede che non vengano etichettate solo le funzionalità. 
+    Questa pipeline contiene due moduli per l'assegnazione dei punteggi e in quello di destra è stata esclusa la colonna label prima di eseguire la previsione, al fine di procedere alla preparazione per la distribuzione di un endpoint in tempo reale, perché l'input del servizio Web prevede solo caratteristiche e non etichette. 
 
-1. Aggiungere un modulo **Evaluate Model** e connettere il set di dati con punteggio alla relativa porta di input sinistra. Per visualizzare i risultati della valutazione, selezionare la porta di output del modulo **Evaluate Model** e selezionare **Visualize (Visualizza**).
+1. Aggiungere un modulo **Evaluate Model** (Valuta modello) e connettere il set di dati con punteggio alla relativa porta di input sinistra. Per visualizzare i risultati della valutazione, selezionare la porta di output del modulo **Evaluate Model** (Valuta modello) e quindi **Visualize** (Visualizza).
 
 ## <a name="results"></a>Risultati
 
 ![Valutare i risultati](media/how-to-designer-sample-classification-predict-income/sample3-evaluate-1225.png)
 
-Nei risultati della valutazione è possibile osservare che le curve, ad esempio ROC, Precision-Recall e confusione, sono metriche. 
+Nei risultati della valutazione è possibile osservare le curve, ad esempio ROC e Precision-Recall, e la matrice di confusione. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -77,9 +77,9 @@ Nei risultati della valutazione è possibile osservare che le curve, ad esempio 
 
 Esplorare gli altri esempi disponibili per la finestra di progettazione:
 
-- [Esempio 1: regressione: stimare il prezzo di un'automobile](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Esempio 2: regressione: confrontare gli algoritmi per la stima del prezzo dell'automobile](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Esempio 4-Classificazione: stimare il rischio di credito (costo sensibile)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Esempio 5-classificazione: varianza di stima](how-to-designer-sample-classification-churn.md)
-- [Esempio 6-Classificazione: stima dei ritardi dei voli](how-to-designer-sample-classification-flight-delay.md)
-- [Esempio 7-classificazione di testo: set di dati di Wikipedia SP 500](how-to-designer-sample-text-classification.md)
+- [Esempio 1 - Regressione: Prevedere il prezzo di un'automobile](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Esempio 2 - Regressione: Confrontare gli algoritmi per la previsione del prezzo delle automobili](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Esempio 4 - Classificazione: Prevedere il rischio di credito (sensibile al costo)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Esempio 5 - Classificazione: Prevedere la varianza](how-to-designer-sample-classification-churn.md)
+- [Esempio 6 - Classificazione: Prevedere i ritardi dei voli](how-to-designer-sample-classification-flight-delay.md)
+- [Esempio 7 - Classificazione: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)

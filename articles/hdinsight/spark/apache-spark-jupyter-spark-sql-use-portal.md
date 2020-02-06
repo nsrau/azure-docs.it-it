@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un cluster Spark in HDInsight usando il portale di Azure'
+title: 'Avvio rapido: Creare un cluster Spark in HDInsight usando il portale di Azure'
 description: Questa guida introduttiva illustra come usare il portale di Azure per creare un cluster Apache Spark in HDInsight di Azure ed eseguire Spark SQL.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 09/27/2019
 ms.custom: mvc
-ms.openlocfilehash: 214a88ad8b0f5dd0352004edc125705ad2f04fc7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c2751f30bdea46a30aa12bd458a12d7640cba404
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494135"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029547"
 ---
-# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-portal"></a>Guida introduttiva: Creare cluster Apache Spark in Azure HDInsight usando il portale di Azure
+# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-portal"></a>Avvio rapido: Creare cluster Apache Spark in Azure HDInsight usando il portale di Azure
 
 Informazioni su come creare un cluster Apache Spark in Azure HDInsight ed eseguire query Spark SQL sulle tabelle Hive. Apache Spark consente cluster computing e analisi dei dati veloci grazie all'elaborazione in memoria. Per informazioni su Spark in HDInsight, vedere [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md).
 
@@ -34,7 +34,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 1. In **Informazioni di base** specificare i valori seguenti:
 
-    |Proprietà  |DESCRIZIONE  |
+    |Proprietà  |Descrizione  |
     |---------|---------|
     |Subscription  | Nell'elenco a discesa selezionare la sottoscrizione di Azure usata per questo cluster. La sottoscrizione di Azure usata in questa guida introduttiva è **Azure**. |
     |Resource group | Specificare se si vuole creare un nuovo gruppo di risorse o usarne uno esistente. Un gruppo di risorse è un contenitore con risorse correlate per una soluzione Azure. Il nome del gruppo di risorse usato per questa guida introduttiva è **myResourceGroup**. |
@@ -52,14 +52,14 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 1. In **Archiviazione** specificare i valori seguenti:
 
-    |Proprietà  |DESCRIZIONE  |
+    |Proprietà  |Descrizione  |
     |---------|---------|
     |Tipo di archiviazione primario|Usare il valore predefinito **Archiviazione di Azure**.|
     |Metodo di selezione|Usare il valore predefinito **Selezionare dall'elenco**.|
     |Account di archiviazione primario|Usare il valore inserito automaticamente.|
     |Contenitore|Usare il valore inserito automaticamente.|
 
-    ![Creare configurazioni di base del cluster HDInsight Spark](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage-spark.png "Creare configurazioni di base del cluster HDInsight Spark")
+    ![Creare configurazioni di base del cluster HDInsight Spark](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage.png "Creare configurazioni di base del cluster HDInsight Spark")
 
     Selezionare **Rivedi e crea** per continuare.
 

@@ -9,21 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 8b0e7d717ed5c06600adf261f7ce5b44f572adf9
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 6e9eddbec3cdc46c04f9c9ae78f937e20bfa8270
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774266"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901988"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Avvio rapido: Estrarre i dati delle ricevute usando l'API REST di Riconoscimento modulo con cURL
 
 In questo argomento di avvio rapido si userà l'API REST Riconoscimento modulo di Azure con cURL per estrarre e identificare informazioni pertinenti nelle ricevute di vendita USA.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-
-> [!IMPORTANT]
-> Questo argomento di avvio rapido usa l'API Riconoscimento modulo v2.0. Se la sottoscrizione non si trova nell'area `West US 2` o `West Europe`, è necessario usare l'API v1.0. Seguire invece l'[argomento di avvio rapido sulla versione 1.0](./curl-train-extract-v1.md).
 
 ## <a name="prerequisites"></a>Prerequisites
 

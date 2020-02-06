@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 12/09/2019
 ms.author: swmachan
-ms.openlocfilehash: 5e19e4247e58135c6a9bb7c6cc327cb566d294df
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0075862e198ce67cc7367efe94d624ad18e6eb3b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978459"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984168"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Esercitazione: Creare un'app Flask con Servizi cognitivi di Azure
 
@@ -44,7 +44,7 @@ Per chi vuole approfondire l'argomento dopo questa esercitazione, ecco alcuni co
 * [Documentazione di Flask](http://flask.pocoo.org/)
 * [Flask for Dummies - A Beginner's Guide to Flask](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1) (Guida per principianti di Flask)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Ecco il software e le chiavi di sottoscrizione che è necessario avere per questa esercitazione.
 
@@ -128,7 +128,7 @@ Requests è un modulo ampiamente diffuso usato per inviare richieste HTTP 1.1. N
    ```
 
 > [!NOTE]
-> Per altre informazioni su Requests, vedere [Requests: HTTP for Humans](http://docs.python-requests.org/en/master/).
+> Per altre informazioni su Requests, vedere [Requests: HTTP for Humans](https://2.python-requests.org/en/master/).
 
 ### <a name="install-and-configure-flask"></a>Installare e configurare Flask
 
@@ -182,7 +182,7 @@ Questo codice assicura che quando un utente passa a `http://your-web-app.com/abo
 
 Questi esempi illustrano come visualizzare le pagine HTML per un utente, ma le route possono essere usate anche per chiamare le API quando viene premuto un pulsante oppure per eseguire un numero qualsiasi di azioni senza la necessità di uscire dalla home page. Questo comportamento verrà visto quando si creeranno route per la traduzione, il sentiment e la sintesi vocale.
 
-### <a name="get-started"></a>Attività iniziali
+### <a name="get-started"></a>Introduzione
 
 1. Aprire il progetto nell'IDE, quindi creare un file denominato `app.py` nella radice della directory di lavoro. Copiare quindi questo codice in `app.py` e salvare:
 

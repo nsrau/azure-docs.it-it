@@ -1,83 +1,83 @@
 ---
-title: 'Finestra di progettazione: stima prezzi auto (base)'
+title: 'Progettazione: Esempio di previsione dei prezzi delle automobili (base)'
 titleSuffix: Azure Machine Learning
-description: Creare un modello di regressione ML per stimare il prezzo di un'automobile senza scrivere una singola riga di codice con Azure Machine Learning Designer.
+description: Creare un modello di regressione di Machine Learning per prevedere il prezzo di un'automobile senza scrivere una sola riga di codice con la finestra di progettazione di Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: 18a9f9d49dce96b037f10a95a458e52d020fe6c7
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
-ms.translationtype: MT
+ms.openlocfilehash: 6f4fe941cc44211f9f5d5e77b11043257b43a8ea
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311071"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963292"
 ---
-# <a name="use-regression-to-predict-car-prices-with-azure-machine-learning-designer"></a>Usare la regressione per stimare i prezzi delle automobili con Azure Machine Learning Designer
+# <a name="use-regression-to-predict-car-prices-with-azure-machine-learning-designer"></a>Usare la regressione per prevedere i prezzi delle automobili con la finestra di progettazione di Azure Machine Learning
 
-**Esempio di finestra di progettazione 1**
+**Finestra di progettazione (anteprima) - Esempio 1**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Informazioni su come creare un modello di regressione di Machine Learning senza scrivere una sola riga di codice usando la finestra di progettazione.
+Informazioni su come creare un modello di regressione di Machine Learning senza scrivere una sola riga di codice usando la finestra di progettazione (anteprima).
 
-Questa pipeline consente di eseguire il training di un **regressore lineare** per stimare il prezzo di un'automobile in base a funzionalità tecniche quali marca, modello, potenza e dimensioni. Poiché si sta provando a rispondere alla domanda "Qual è?" si tratta di un problema di regressione. Tuttavia, in questo esempio è possibile applicare gli stessi passaggi fondamentali per risolvere qualsiasi tipo di problema di Machine Learning, indipendentemente dal fatto che si tratti di regressione, classificazione, clustering e così via.
+Questa pipeline consente di eseguire il training di un **regressore lineare** per prevedere il prezzo di un'automobile in base a caratteristiche tecniche quali marca, modello, potenza e dimensioni. Poiché si sta provando a rispondere alla domanda "Quanto costa?", si tratta di un problema di regressione. Tuttavia, in questo esempio è possibile applicare gli stessi passaggi fondamentali per risolvere qualsiasi tipo di problema di Machine Learning, indipendentemente dal fatto che si tratti di regressione, classificazione, clustering e così via.
 
-I passaggi fondamentali di un modello di apprendimento automatico del training sono:
+I passaggi fondamentali di un modello di Machine Learning di training sono:
 
 1. Ottenere i dati
 1. Pre-elaborare i dati
-1. Training del modello
-1. Valutazione del modello
+1. Eseguire il training del modello
+1. Valutare il modello
 
-Ecco il grafico finale completato della pipeline. Questo articolo fornisce la spiegazione razionale per tutti i moduli, in modo da poter prendere decisioni simili.
+Ecco il grafo finale completato della pipeline. Questo articolo fornisce i fondamenti logici per tutti i moduli, in modo da poter prendere decisioni simili in autonomia.
 
-![Grafico della pipeline](./media/how-to-designer-sample-regression-automobile-price-basic/overall-graph.png)
+![Grafo della pipeline](./media/how-to-designer-sample-regression-automobile-price-basic/overall-graph.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [aml-ui-prereq](../../includes/aml-ui-prereq.md)]
 
-4. Fare clic sul campione 1 per aprirlo.
+4. Fare clic su Sample 1 per aprirlo.
 
 
 ## <a name="get-the-data"></a>Ottenere i dati
 
-Questo esempio usa il set di **dati automobile price data (RAW)** , che fa parte del Repository UCI Machine Learning. Il set di dati contiene 26 colonne contenenti informazioni sulle automobili, incluse le funzionalità marca, modello, prezzo, veicolo (ad esempio il numero di cilindri), MPG e un punteggio di rischio assicurativo. Lo scopo di questo esempio è stimare il prezzo dell'auto.
+Questo esempio usa il set di dati **Automobile price data (Raw)** , che fa parte di UCI Machine Learning Repository. Il set di dati contiene 26 colonne che includono informazioni sulle automobili, ad esempio marca, modello, prezzo, caratteristiche del veicolo (come il numero di cilindri), consumo e un punteggio di rischio assicurativo. Lo scopo di questo esempio è prevedere il prezzo dell'auto.
 
 ## <a name="pre-process-the-data"></a>Pre-elaborare i dati
 
-Le attività di preparazione dei dati principali includono la pulizia, l'integrazione, la trasformazione, la riduzione e la discretizzazione o la quantizzazione dei dati. Nella finestra di progettazione è possibile trovare moduli per eseguire queste operazioni e altre attività di pre-elaborazione dei dati nel gruppo **trasformazione dati** nel riquadro sinistro.
+Le attività di preparazione dei dati principali includono la pulizia, l'integrazione, la trasformazione, la riduzione e la discretizzazione o quantizzazione dei dati. Nella finestra di progettazione sono disponibili i moduli per eseguire queste operazioni e altre attività di pre-elaborazione dei dati nel gruppo **Data Transformation** (Trasformazione dati) nel pannello sinistro.
 
-Usare il modulo **Select Columns in DataSet** per escludere le perdite normalizzate con molti valori mancanti. Usare quindi **Clean Missing data** per rimuovere le righe con valori mancanti. Questo consente di creare un set di dati di training puliti.
+Usare il modulo **Select Columns in Dataset** (Seleziona colonne nel set di dati) per escludere le perdite normalizzate con molti valori mancanti. Usare quindi **Clean Missing Data** (Pulisci dati mancanti) per rimuovere le righe con valori mancanti. Questo consente di creare un set di dati di training pulito.
 
 ![Pre-elaborazione dei dati](./media/how-to-designer-sample-regression-automobile-price-basic/data-processing.png)
 
-## <a name="train-the-model"></a>Training del modello
+## <a name="train-the-model"></a>Eseguire il training del modello
 
-I problemi di Machine Learning variano. Le attività comuni di Machine Learning includono sistemi di classificazione, clustering, regressione e raccomandazione, ciascuno dei quali potrebbe richiedere un algoritmo diverso. La scelta dell'algoritmo dipende spesso dai requisiti del caso d'uso. Dopo aver selezionato un algoritmo, è necessario ottimizzarne i parametri per eseguire il training di un modello più accurato. È quindi necessario valutare tutti i modelli in base alle metriche come accuratezza, intelligibilità ed efficienza.
+I problemi di Machine Learning possono variare. Le attività comuni di Machine Learning includono sistemi di classificazione, clustering, regressione e raccomandazione, ognuno dei quali può richiedere un algoritmo diverso. La scelta dell'algoritmo dipende spesso dai requisiti del caso d'uso. Dopo aver selezionato un algoritmo, è necessario ottimizzarne i parametri per eseguire il training di un modello più accurato. È quindi necessario valutare tutti i modelli in base a metriche come accuratezza, intelligibilità ed efficienza.
 
-Poiché lo scopo di questo esempio è stimare i prezzi delle automobili e perché la colonna Label (price) contiene numeri reali, un modello di regressione è una scelta ottimale. Poiché il numero di funzionalità è relativamente ridotto (inferiore a 100) e queste funzionalità non sono di tipo sparse, è probabile che il limite della decisione sia non lineare. Quindi usiamo la **regressione della foresta delle decisioni** per questa pipeline.
+Poiché lo scopo di questo esempio è prevedere i prezzi delle automobili e la colonna label (prezzo) contiene numeri reali, un modello di regressione è una scelta ottimale. Dal momento che il numero di caratteristiche è relativamente ridotto (inferiore a 100) e tali caratteristiche non sono di tipo sparse, è probabile che il limite della decisione sia non lineare. Per questa pipeline si userà quindi la **regressione della foresta delle decisioni**.
 
-Usare il modulo **Split data** per dividere in modo casuale i dati di input in modo che il set di dati di training contenga il 70% dei dati originali e il set di dati di testing contenga il 30% dei dati originali.
+Usare il modulo **Split data** (Dividi dati) per dividere in modo casuale i dati di input in modo che il set di dati di training contenga il 70% dei dati originali e il set di dati di test contenga il 30% dei dati originali.
 
-## <a name="test-evaluate-and-compare"></a>Test, valutazione e confronto
+## <a name="test-evaluate-and-compare"></a>Testare, valutare e confrontare
 
-Suddividere il set di dati e utilizzare set di dati diversi per eseguire il training e il test del modello in modo da rendere la valutazione del modello più obiettivo.
+Dividere il set di dati e usare set di dati diversi per eseguire il training e il test del modello in modo da rendere la valutazione del modello più obiettiva.
 
-Dopo aver eseguito il training del modello, è possibile utilizzare i moduli **Score Model** e **Evaluate Model** per generare risultati stimati e valutare i modelli.
+Una volta eseguito il training del modello, è possibile usare i moduli **Score Model** (Assegna un punteggio al modello) e **Evaluate Model** (Valuta modello) per generare risultati previsti e valutare i modelli.
 
-**Score Model** genera stime per il set di dati di test usando il modello sottoposto a training. Per controllare il risultato, selezionare la porta di output di **Score Model** e quindi selezionare **Visualize (Visualizza**).
+**Score Model** (Assegna un punteggio al modello) genera previsioni per il set di dati di test usando il modello con training. Per controllare il risultato, selezionare la porta di output di **Score Model** (Assegna un punteggio al modello) e quindi selezionare **Visualize** (Visualizza).
 
-![Risultato del Punteggio](./media/how-to-designer-sample-regression-automobile-price-basic/sample1-score-1225.png)
+![Assegnare un punteggio al risultato](./media/how-to-designer-sample-regression-automobile-price-basic/sample1-score-1225.png)
 
-Passare i punteggi al modulo **Evaluate Model** per generare le metriche di valutazione. Per controllare il risultato, selezionare la porta di output del **modello Evaluate** e quindi selezionare **Visualize (Visualizza**).
+Passare i punteggi al modulo **Evaluate Model** (Valuta modello) per generare le metriche di valutazione. Per controllare il risultato, selezionare la porta di output di **Evaluate Model** (Valuta modello) e quindi selezionare **Visualize** (Visualizza).
 
-![Risultato della valutazione](./media/how-to-designer-sample-regression-automobile-price-basic/sample1-evaluate-1225.png)
+![Valutare il risultato](./media/how-to-designer-sample-regression-automobile-price-basic/sample1-evaluate-1225.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -87,9 +87,9 @@ Passare i punteggi al modulo **Evaluate Model** per generare le metriche di valu
 
 Esplorare gli altri esempi disponibili per la finestra di progettazione:
 
-- [Esempio 2: regressione: confrontare gli algoritmi per la stima del prezzo dell'automobile](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Esempio 3: classificazione con selezione delle caratteristiche: stima del reddito](how-to-designer-sample-classification-predict-income.md)
-- [Esempio 4-Classificazione: stimare il rischio di credito (costo sensibile)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Esempio 5-classificazione: varianza di stima](how-to-designer-sample-classification-churn.md)
-- [Esempio 6-Classificazione: stima dei ritardi dei voli](how-to-designer-sample-classification-flight-delay.md)
-- [Esempio 7-classificazione di testo: set di dati di Wikipedia SP 500](how-to-designer-sample-text-classification.md)
+- [Esempio 2 - Regressione: Confrontare gli algoritmi per la previsione del prezzo delle automobili](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Esempio 3 - Classificazione con selezione delle caratteristiche: Previsione del reddito](how-to-designer-sample-classification-predict-income.md)
+- [Esempio 4 - Classificazione: Prevedere il rischio di credito (sensibile al costo)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Esempio 5 - Classificazione: Prevedere la varianza](how-to-designer-sample-classification-churn.md)
+- [Esempio 6 - Classificazione: Prevedere i ritardi dei voli](how-to-designer-sample-classification-flight-delay.md)
+- [Esempio 7 - Classificazione: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)

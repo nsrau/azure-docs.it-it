@@ -8,22 +8,24 @@ ms.topic: overview
 ms.date: 05/06/2019
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 5515951a9bde596935f4c603ffd9e088f74dee45
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: c98e67d174c3c8b7fc426e1dd2c5ebafd6760969
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67615171"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932602"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Servizio Azure Kubernetes
 
-Il servizio Azure Kubernetes semplifica la distribuzione di un cluster Kubernetes gestito in Azure. servizio Azure Kubernetes riduce la complessità e i costi operativi di gestione di Kubernetes, affidando la maggior parte di queste attività ad Azure. Come servizio Kubernetes ospitato, Azure gestisce attività critiche quali il monitoraggio dell'integrità e la manutenzione per l'utente. I master di Kubernetes sono gestiti da Azure. È necessario solo gestire e mantenere i nodi agente. servizio Azure Kubernetes è gratuito in quanto servizio Kubernetes gestito: si paga solo per i nodi dell'agente all'interno dei cluster e non per i master.
+Il servizio Azure Kubernetes semplifica la distribuzione di un cluster Kubernetes gestito in Azure. servizio Azure Kubernetes riduce la complessità e i costi operativi di gestione di Kubernetes, affidando la maggior parte di queste attività ad Azure. Come servizio Kubernetes ospitato, Azure gestisce attività critiche quali il monitoraggio dell'integrità e la manutenzione per l'utente. I master di Kubernetes sono gestiti da Azure. È possibile gestire solo i nodi agente. servizio Azure Kubernetes è gratuito in quanto servizio Kubernetes gestito: si paga solo per i nodi dell'agente all'interno dei cluster e non per i master.
 
 È possibile creare un cluster servizio Azure Kubernetes nel portale di Azure, con l'interfaccia della riga di comando di Azure o mediante opzioni di distribuzione basate su modello come i modelli di Gestione risorse e Terraform. Quando si distribuisce un cluster servizio Azure Kubernetes, il master Kubernetes e tutti i nodi vengono distribuiti e configurati automaticamente. Durante il processo di distribuzione è anche possibile configurare caratteristiche aggiuntive come funzionalità di rete avanzate, integrazione di Azure Active Directory e monitoraggio. Il supporto per i contenitori Windows Server nel servizio Azure Kubernetes è attualmente in anteprima.
 
 Per altre informazioni sulle nozioni di base di Kubernetes, vedere [Concetti di base di Kubernetes per il servizio Azure Kubernetes][concepts-clusters-workloads].
 
 Per iniziare, completare l'avvio rapido del servizio Azure Kubernetes [nel portale di Azure][aks-portal] o [usando l'interfaccia della riga di comando di Azure][aks-cli].
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="access-security-and-monitoring"></a>Accesso, sicurezza e monitoraggio
 

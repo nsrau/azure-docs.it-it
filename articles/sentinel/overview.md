@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: 964ba16fb7421c58f43d8b7d0d0d96f5cd377579
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 5f3a8fa7b9619958db1d7213236e27d00b417c54
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261873"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939125"
 ---
 # <a name="what-is-azure-sentinel"></a>Che cos'è Azure Sentinel?
 
@@ -37,17 +37,17 @@ Azure Sentinel offre una vista a colpo d'occhio sull'azienda, alleviando il cari
 
 - **Risponde rapidamente agli eventi imprevisti** con orchestrazione e automazione integrate delle attività comuni.
 
-
 ![Funzionalità principali di Azure Sentinel](./media/overview/core-capabilities.png)
 
 Basato sull'intera gamma di servizi di Azure esistenti, Azure Sentinel incorpora in modo nativo servizi collaudati come Log Analytics e App per la logica. Azure Sentinel arricchisce l'indagine e il rilevamento con l'intelligenza artificiale e fornisce il flusso di Threat Intelligence di Microsoft, consentendo di aggiungere anche la propria intelligence sulle minacce. 
 
- 
 ## <a name="connect-to-all-your-data"></a>Connessione a tutte le origini dati
 
 Per eseguire l'onboarding Azure Sentinel, è necessario innanzitutto [connettersi alle origini di sicurezza](connect-data-sources.md). Azure Sentinel include numerosi connettori predefiniti per l'integrazione in tempo reale con le soluzioni Microsoft, comprese le soluzioni Microsoft Threat Protection e origini Microsoft 365, tra cui Office 365, Azure AD, Azure ATP, Microsoft Cloud App Security e altre ancora. Inoltre, sono presenti connettori predefiniti a soluzioni non Microsoft, per l'ecosistema di sicurezza allargato. Per connettere le origini dati con Azure Sentinel è anche possibile usare Common Event Format, Syslog o API REST.  
 
 ![Agenti di raccolta dati](./media/collect-data/collect-data-page.png)
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="workbooks"></a>Workbooks
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 52791719e518f6a6b1a4178d8b9a010f1db14fc4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 4078f2a005dcd324fa9c1d31cdca4b1f8337eecd
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003856"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988380"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>Esercitazione: Usare Azure Key Vault con una macchina virtuale Windows in Python
 
@@ -36,7 +36,7 @@ Prima di iniziare, leggere i [concetti di base di Key Vault](basic-concepts.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per Windows, Mac e Linux:
   * [Git](https://git-scm.com/downloads)
@@ -92,7 +92,7 @@ A questo punto, l'account Azure è l'unico autorizzato a eseguire operazioni su 
 
 Verrà aggiunto un segreto per illustrare il funzionamento di questa operazione. Può trattarsi di una stringa di connessione SQL o di qualsiasi altra informazione che è necessario conservare in modo sicuro e rendere allo stesso tempo disponibile per l'applicazione.
 
-Per creare un segreto nell'insieme di credenziali delle chiavi denominato **AppSecret**, immettere il comando seguente:
+Per creare un segreto denominato **AppSecret** nell'insieme di credenziali delle chiavi, immettere il comando seguente:
 
 ```azurecli
 az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
@@ -136,7 +136,7 @@ Per accedere alla macchina virtuale, seguire le istruzioni riportate in [Come co
 
 ## <a name="create-and-run-a-sample-python-app"></a>Creare ed eseguire un'app Python di esempio
 
-Nella prossima sezione è riportato un file di esempio denominato *Sample.py*. Usa la libreria [requests](http://docs.python-requests.org/en/master/) per effettuare chiamate HTTP GET.
+Nella prossima sezione è riportato un file di esempio denominato *Sample.py*. Usa la libreria [requests](https://2.python-requests.org/en/master/) per effettuare chiamate HTTP GET.
 
 ## <a name="edit-samplepy"></a>Modificare Sample.py
 

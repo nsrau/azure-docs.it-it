@@ -3,7 +3,7 @@ title: 'Esercitazione: Configurare il routing del traffico Priorità tramite Ges
 description: Questa esercitazione spiega come configurare il metodo di routing del traffico Priorità in Gestione traffico
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: allensu
-ms.openlocfilehash: d5d58ec39841274b78ababf9f73f00a262cc37be
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.author: rohink
+ms.openlocfilehash: ca223a19ff7ddeae95878f941f3cf295664e62b4
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420295"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938719"
 ---
 # <a name="tutorial-configure-priority-traffic-routing-method-in-traffic-manager"></a>Esercitazione: Configurare il metodo di routing del traffico Priorità di Gestione traffico
 
@@ -41,10 +41,10 @@ Un modello comune per il failover del servizio consiste nell'invio di traffico a
 7. Per modificare l'ordine di priorità dell'endpoint, fare clic sull'endpoint e nel pannello **Endpoint** visualizzato fare clic su **Modifica** e cambiare il valore di **Priorità** in base alle esigenze. 
 8. Fare clic su **Salva** per salvare e modificare le impostazioni dell'endpoint.
 9. Dopo aver completato le modifiche di configurazione, fare clic su **Salva** nella parte inferiore della pagina.
-10. Verificare le modifiche apportate alla configurazione come riportato di seguito:
+10. Verificare le modifiche apportate alla configurazione come indicato di seguito:
     1.  Nella barra di ricerca del portale cercare il nome del profilo di Gestione traffico e fare clic su tale profilo nei risultati visualizzati.
     2.  Nel pannello **Profilo di Gestione traffico** fare clic su **Informazioni generali**.
-    3.  Nel pannello **Profilo di Gestione traffico** viene visualizzato il nome DNS del profilo di Gestione traffico creato. Questo nome può essere usato da qualsiasi client (ad esempio raggiungendolo tramite un Web browser) per essere indirizzato all'endpoint corretto in base al tipo di routing. In questo caso, tutte le richieste vengono instradate al primo endpoint e, se Gestione traffico rileva che tale endpoint non è integro, viene eseguito automaticamente il failover del traffico sull'endpoint successivo.
+    3.  Il pannello **Profilo di Gestione traffico** visualizza il nome DNS del profilo di Gestione traffico appena creato. Questo nome può essere usato da qualsiasi client (ad esempio raggiungendolo tramite un Web browser) che deve essere indirizzato all'endpoint corretto in base al tipo di routing. In questo caso, tutte le richieste vengono instradate al primo endpoint e, se Gestione traffico rileva che tale endpoint non è integro, viene eseguito automaticamente il failover del traffico sull'endpoint successivo.
 11. Dopo aver verificato il funzionamento del profilo di Gestione traffico, modificare il record DNS sul server DNS autorevole per fare in modo che il nome del dominio aziendale punti al nome di dominio di Gestione traffico.
 
 ![Configurare il metodo di routing del traffico Priorità in Gestione traffico][1]

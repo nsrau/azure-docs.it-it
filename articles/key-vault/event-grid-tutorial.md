@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 77bc092c7d44e559562699d9177c2bd168f7dea0
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 5c959dc7fa36fb41307d286b1e7d0b475d5b56c6
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981604"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988465"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Ricevere e rispondere alle notifiche di Key Vault con Griglia di eventi di Azure (anteprima)
 
@@ -119,8 +119,6 @@ Creare un webhook per attivare il runbook appena creato.
 ## <a name="create-an-event-grid-subscription"></a>Creare una sottoscrizione di Griglia di eventi
 
 Creare una sottoscrizione di Griglia di eventi tramite il [portale di Azure](https://portal.azure.com).
-
-1.  Aprire il [portale di Azure](https://portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
 
 1.  Passare all'insieme di credenziali delle chiavi e selezionare la scheda **Eventi**. Se la scheda non è visibile, assicurarsi di usare la [versione di anteprima del portale](https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
 

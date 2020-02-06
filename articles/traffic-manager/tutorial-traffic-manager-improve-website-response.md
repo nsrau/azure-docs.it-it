@@ -2,7 +2,7 @@
 title: 'Esercitazione: Migliorare la risposta del sito Web tramite Gestione traffico di Azure'
 description: Questa esercitazione descrive come creare un profilo di Gestione traffico per creare un sito Web altamente reattivo.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,19 +10,19 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
-ms.author: allensu
-ms.openlocfilehash: 3686e9a7d82f8134b44cd40468c5e430eb2e72f3
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.author: rohink
+ms.openlocfilehash: 9027b1574144e2addbc84fceb16deba9014826fe
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422852"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938405"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Esercitazione: Migliorare la risposta di un sito Web tramite Gestione traffico
 
 Questa esercitazione descrive come usare Gestione traffico per creare un sito Web altamente reattivo indirizzando il traffico degli utenti al sito Web con una latenza minima. In genere, il data center con la latenza più bassa è quello più vicino in termini di distanza geografica.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare due macchine virtuali che eseguono un sito Web di base in IIS
@@ -34,7 +34,7 @@ In questa esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per visualizzare Gestione traffico in azione, è necessario implementare quanto segue:
 
@@ -139,9 +139,9 @@ Creare un profilo di Gestione traffico che indirizza il traffico degli utenti ve
 1. In alto a sinistra nello schermo selezionare **Crea una risorsa** > **Rete** > **Profilo di Gestione traffico** > **Crea**.
 2. In **Crea profilo di Gestione traffico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le impostazioni rimanenti e quindi selezionare **Crea**:
 
-    | Impostazione                 | Valore                                              |
+    | Impostazione                 | valore                                              |
     | ---                     | ---                                                |
-    | NOME                   | Questo nome deve essere univoco all'interno della zona trafficmanager.net e determina il nome DNS, trafficmanager.net, che viene usato per accedere al profilo di Gestione traffico.                                   |
+    | Nome                   | Questo nome deve essere univoco all'interno della zona trafficmanager.net e determina il nome DNS, trafficmanager.net, che viene usato per accedere al profilo di Gestione traffico.                                   |
     | Metodo di routing          | Selezionare il metodo di routing **Performance** (prestazioni).                                       |
     | Subscription            | Selezionare la propria sottoscrizione.                          |
     | Resource group          | Selezionare il gruppo di risorse *myResourceGroupTM1*. |
@@ -158,10 +158,10 @@ Aggiungere le due macchine virtuali che eseguono i server IIS, *myIISVMEastUS* &
 2. In **Profilo di Gestione traffico**, nella sezione **Impostazioni**, fare clic su **Endpoint** e quindi su **Aggiungi**.
 3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi scegliere **OK**:
 
-    | Impostazione                 | Valore                                              |
+    | Impostazione                 | valore                                              |
     | ---                     | ---                                                |
     | Type                    | Endpoint di Azure                                   |
-    | NOME           | myEastUSEndpoint                                        |
+    | Nome           | myEastUSEndpoint                                        |
     | Tipo di risorsa di destinazione           | Indirizzo IP pubblico                          |
     | Risorsa di destinazione          | **Scegliere un indirizzo IP pubblico** per visualizzare l'elenco delle risorse con gli indirizzi IP pubblici inclusi nella stessa sottoscrizione. In **Risorsa** selezionare l'indirizzo IP pubblico denominato *myIISVMEastUS-ip*. Questo è l'indirizzo IP pubblico della VM del server IIS nell'area Stati Uniti orientali.|
     |        |           |

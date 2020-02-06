@@ -3,12 +3,12 @@ title: Creare un'app per le funzioni in Linux dal portale di Azure
 description: Informazioni su come creare la prima funzione di Azure per l'esecuzione senza server tramite il portale di Azure.
 ms.topic: quickstart
 ms.date: 02/28/2019
-ms.openlocfilehash: 7689b24a4f9bf17d495917bbf4078d6e5fe4fcff
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 1492188f72eb4a691ddceb78aa269601f192e467
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971453"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963836"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Creare un'app per le funzioni in Linux in un piano di servizio app di Azure
 
@@ -44,7 +44,7 @@ Per ospitare l'esecuzione delle funzioni in Linux, è necessaria un'app per le f
     | **[Piano di hosting](functions-scale.md)** | Piano di servizio app | Piano di hosting che definisce come vengono allocate le risorse all'app per le funzioni. In caso di esecuzione in un piano di servizio app, è possibile controllare il [ridimensionamento dell'app per le funzioni](functions-scale.md).  |
     | **Piano di servizio app/Località** | Crea piano | Scegliere **Crea nuovo** e specificare un nome in **Piano di servizio app**. Scegliere una **località** in un'[area](https://azure.microsoft.com/regions/) nelle vicinanze o vicino ad altri servizi a cui accedono le funzioni. Scegliere il **[piano tariffario](https://azure.microsoft.com/pricing/details/app-service/linux/)** preferito. <br/>Non è possibile eseguire app per le funzioni sia Linux che Windows nello stesso piano di servizio app. |
     | **Stack di runtime** | Lingua preferita | Scegliere un runtime che supporti il linguaggio di programmazione della funzione preferito. Scegliere **.NET** per le funzioni C# e F #. |
-    | **[Archiviazione](../storage/common/storage-account-create.md)** |  Nome globalmente univoco |  Creare un account di archiviazione usato dall'app per le funzioni. I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. È anche possibile usare un account esistente, che dovrà soddisfare i [requisiti dell'account di archiviazione](functions-scale.md#storage-account-requirements). |
+    | **[Archiviazione](../storage/common/storage-account-create.md)** |  Nome globalmente univoco |  Creare un account di archiviazione usato dall'app per le funzioni. I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. È anche possibile usare un account esistente, che dovrà soddisfare i [requisiti dell'account di archiviazione](storage-considerations.md#storage-account-requirements). |
     | **[Application Insights](functions-monitoring.md)** | Attivato | Application Insights è disabilitato per impostazione predefinita. È consigliabile abilitare l'integrazione di Application Insights ora e scegliere una località vicina a quella del piano di servizio app. Se si vuole farlo successivamente, vedere [Monitorare Funzioni di Azure](functions-monitoring.md).  |
 
 3. Selezionare **Crea** per effettuare il provisioning dell'app per le funzioni e distribuirla.
