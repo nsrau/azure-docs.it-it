@@ -3,12 +3,12 @@ title: Configurare monitoraggio di Azure per i contenitori in tempo reale (antep
 description: Questo articolo descrive come configurare la visualizzazione in tempo reale dei log del contenitore (stdout/stderr) ed eventi senza usare kubectl con monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 1ca52384e5ce657e4fedeb42e3304449a2d6be11
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: cf42eea99e437a76bb437b23f6eaffae1f1f3bc6
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030684"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063765"
 ---
 # <a name="how-to-setup-the-live-data-preview-feature"></a>Come configurare la funzionalità dati in tempo reale (anteprima)
 
@@ -114,7 +114,7 @@ Per altre informazioni sulla configurazione della sicurezza avanzata in Kubernet
     >[!NOTE]
     >Se si usa questa funzionalità in Azure Cina, il primo valore dell'URL di base deve essere `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` e il secondo valore dell'URL di base deve essere `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`. 
     
-4. Dopo la registrazione degli URL di reindirizzamento, in **Impostazioni avanzate**selezionare le opzioni **token di accesso** e **token ID** , quindi salvare le modifiche.
+4. Dopo la registrazione degli URL di reindirizzamento, in **concessione implicita**selezionare le opzioni **token di accesso** e **token ID** , quindi salvare le modifiche.
 
 >[!NOTE]
 >La configurazione dell'autenticazione con Azure Active Directory per l'accesso Single Sign-on può essere eseguita solo durante la distribuzione iniziale di un nuovo cluster AKS. Non è possibile configurare l'accesso Single Sign-On per un cluster del servizio Azure Kubernetes già distribuito.

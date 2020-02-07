@@ -3,18 +3,18 @@ title: Supporto per la valutazione VMware in Azure Migrate
 description: Informazioni sul supporto per la valutazione di VMware in Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 8ed20ecd37eacdcb771db7c166ff8fc22b96cb89
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2fab94b66e09d3923e481326b3650f1beb621dc4
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846182"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048756"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matrice di supporto per VMware Assessment 
 
 Questo articolo riepiloga le impostazioni di supporto e le limitazioni per la valutazione delle macchine virtuali VMware con [Azure migrate: server Assessment](migrate-services-overview.md#azure-migrate-server-migration-tool). Per informazioni sulla migrazione di macchine virtuali VMware in Azure, vedere la matrice di [supporto](migrate-support-matrix-vmware-migration.md)per la migrazione.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Per valutare i computer locali per la migrazione ad Azure con questo articolo, è necessario aggiungere lo strumento Azure Migrate: server Assessment a un progetto Azure Migrate. Si distribuisce il [dispositivo Azure migrate](migrate-appliance.md). L'appliance individua continuamente i computer locali e invia i dati di configurazione e delle prestazioni in Azure. Dopo l'individuazione del computer, si raccolgono i computer individuati in gruppi ed è stata eseguita una valutazione per un gruppo.
 
@@ -86,9 +86,9 @@ La [visualizzazione](concepts-dependency-visualization.md) delle dipendenze cons
 **Connettività Internet** | Se i computer non sono connessi a Internet, è necessario installare il gateway Log Analytics.
 
 
-## <a name="agentless-dependency-visualization"></a>Visualizzazione delle dipendenze senza agente
+## <a name="agentless-dependency-visualization"></a>Visualizzazione delle dipendenze senza agenti
 
-Questa opzione è attualmente in fase di anteprima. [Altre informazioni](how-to-create-group-machine-dependencies-agentless.md) I requisiti sono riepilogati nella tabella seguente.
+Questa opzione è attualmente in fase di anteprima. [Altre informazioni](how-to-create-group-machine-dependencies-agentless.md). I requisiti sono riepilogati nella tabella seguente.
 
 **Requisito** | **Dettagli**
 --- | ---
@@ -96,7 +96,7 @@ Questa opzione è attualmente in fase di anteprima. [Altre informazioni](how-to-
 **Supporto per VM** | Attualmente supportato solo per le macchine virtuali VMware.
 **Macchine virtuali di Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bit)
 **Macchine virtuali di Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14,04, 16,04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
-**Account Windows** |  Per la visualizzazione è necessario un account utente con accesso guest.
+**Account Windows** |  Per la visualizzazione è necessario un account di amministratore locale o di dominio.
 **Account Linux** | Per la visualizzazione è necessario un account utente con privilegi radice.<br/><br/> In alternativa, l'account utente deve disporre di queste autorizzazioni per i file/bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.
 **Agenti VM** | Non è necessario alcun agente nelle VM.
 **Strumenti VMware** | Gli strumenti VMware devono essere installati e in esecuzione nelle macchine virtuali che si desidera analizzare.

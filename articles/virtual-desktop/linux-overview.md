@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
-ms.openlocfilehash: f7d62487605c26a68e7c71b6d95d7814da0a07c9
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 47e38d79e8aa4656b8164c94b4ef439bf431e01d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776391"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049658"
 ---
-# <a name="linux-support"></a>Supporto Linux
+# <a name="linux-support"></a>Supporto di Linux
 
 Per creare un client desktop virtuale Windows autonomo, è possibile usare Linux SDK per desktop virtuale di Windows. È anche possibile usarlo per abilitare il supporto per desktop virtuali Windows nell'applicazione client. Questa guida rapida spiega cosa è Linux SDK e come iniziare a usarlo.
 
@@ -55,7 +55,7 @@ Prima di poter sviluppare un client Linux per desktop virtuale Windows, è neces
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile richiedere l'accesso a Linux SDK nel [Forum della community tecnica](https://go.microsoft.com/fwlink/?linkid=2116541).
+L'SDK è attualmente in fase di sviluppo. Questo documento verrà aggiornato con le istruzioni per accedere all'SDK quando è disponibile.
 
 Consultare la documentazione per i client seguenti:
 

@@ -1,5 +1,5 @@
 ---
-title: Aggiornare o rimuovere un'assegnazione di ruolo personalizzato di Azure AD in Privileged Identity Management (PIM) | Microsoft Docs
+title: Aggiornare o rimuovere Azure AD Privileged Identity Management di ruoli personalizzati (PIM)
 description: Come aggiornare o rimuovere un'assegnazione di ruolo personalizzato di Azure AD in Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ace189db569941371026b76c4438515f4c53e77b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 33bd8554abc7566496cacaa943f0b1fdc15d8507
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896518"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048093"
 ---
 # <a name="update-or-remove-an-assigned-azure-ad-custom-role-in-privileged-identity-management"></a>Aggiornare o rimuovere un ruolo personalizzato di Azure AD assegnato in Privileged Identity Management
 

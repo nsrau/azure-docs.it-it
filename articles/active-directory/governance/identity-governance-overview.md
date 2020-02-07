@@ -16,12 +16,12 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c90052d1d75ba65a8e0b0e7a2cd26a279019a82d
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: bd319dd6a83a392f6df26d07a58be22a9c8bdb61
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173148"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063680"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Cos'è Azure AD Identity Governance?
 
@@ -29,7 +29,7 @@ La governance delle identità Azure Active Directory (Azure AD) consente di bila
 
 La governance delle identità consente alle organizzazioni di eseguire le attività seguenti tra dipendenti, partner aziendali e fornitori e tra servizi e applicazioni sia in locale che in cloud:
 
-- Controlla il ciclo di vita delle identità
+- Governance del ciclo di vita delle identità
 - Governance del ciclo di vita degli accessi
 - Accesso con privilegi protetti per l'amministrazione
 
@@ -58,7 +58,7 @@ Le organizzazioni hanno bisogno di un processo per gestire l'accesso oltre il pr
 
 In genere, l'IT delega le decisioni in merito all'approvazione dell'accesso ai decision maker aziendali.  Inoltre, l'IT può comprendere gli utenti stessi.  Ad esempio, gli utenti che accedono a dati riservati dei clienti nell'applicazione di marketing di un'azienda in Europa devono conoscere i criteri dell'azienda. Gli utenti guest potrebbero non essere a conoscenza dei requisiti di gestione dei dati in un'organizzazione in cui sono stati invitati.
 
-Le organizzazioni possono automatizzare il processo di gestione del ciclo di vita degli accessi grazie a tecnologie come i [gruppi dinamici](../users-groups-roles/groups-dynamic-membership.md), associati al provisioning degli utenti in [app SaaS](../saas-apps/tutorial-list.md) o [app integrate con SCIM](../manage-apps/use-scim-to-provision-users-and-groups.md).  Possono anche controllare quali [utenti guest hanno accesso alle applicazioni locali](../b2b/hybrid-cloud-to-on-premises.md).  I diritti di accesso possono quindi essere riesaminati regolarmente usando le [verifiche di accesso ricorrenti di Azure AD](access-reviews-overview.md).   [Azure ad gestione dei diritti](entitlement-management-overview.md) consente inoltre di definire il modo in cui gli utenti richiedono l'accesso tra i pacchetti di appartenenza a gruppi e team, i ruoli applicazione e i ruoli di SharePoint Online.
+Le organizzazioni possono automatizzare il processo di gestione del ciclo di vita degli accessi grazie a tecnologie come i [gruppi dinamici](../users-groups-roles/groups-dynamic-membership.md), associati al provisioning degli utenti in [app SaaS](../saas-apps/tutorial-list.md) o [app integrate con SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md).  Possono anche controllare quali [utenti guest hanno accesso alle applicazioni locali](../b2b/hybrid-cloud-to-on-premises.md).  I diritti di accesso possono quindi essere riesaminati regolarmente usando le [verifiche di accesso ricorrenti di Azure AD](access-reviews-overview.md).   [Azure ad gestione dei diritti](entitlement-management-overview.md) consente inoltre di definire il modo in cui gli utenti richiedono l'accesso tra i pacchetti di appartenenza a gruppi e team, i ruoli applicazione e i ruoli di SharePoint Online.
 
 Quando un utente tenta di accedere alle applicazioni, Azure AD applica i criteri di [accesso condizionale](/azure/active-directory/conditional-access/) . Ad esempio, i criteri di accesso condizionale possono includere la visualizzazione di condizioni per l' [utilizzo](../conditional-access/terms-of-use.md) e [la garanzia che l'utente abbia accettato tali termini](../conditional-access/require-tou.md) prima di poter accedere a un'applicazione.
 
@@ -70,7 +70,7 @@ In passato, l'accesso con privilegi è stato descritto da altri fornitori come f
 
 [Azure ad Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) fornisce controlli aggiuntivi personalizzati per la protezione dei diritti di accesso per le risorse, tra Azure ad, Azure e altri Microsoft Online Services.  Le funzionalità di accesso just-in-time e di avviso di modifica dei ruoli fornite da Azure AD PIM, oltre all'autenticazione a più fattori e all'accesso condizionale, offrono un set completo di controlli di governance per proteggere le risorse aziendali (directory, Office 365 e ruoli delle risorse di Azure. Come con altre forme di accesso, le organizzazioni possono usare le verifiche di accesso per configurare la ricertificazione ricorrente dell'accesso per tutti gli utenti con ruoli di amministratore.
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 
 Per iniziare a usare la gestione dei diritti, le verifiche di accesso, Privileged Identity Management e Condizioni per l'utilizzo, vedere la scheda Introduzione della **governance delle identità** nel portale di Azure.
 

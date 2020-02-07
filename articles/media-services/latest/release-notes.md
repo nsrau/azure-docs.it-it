@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: 52d8dda8b543e5bdf3ca88ae3784df65be3a2ba1
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: b3d5e1f814a8eb083ab01623051f1b5b3723a9f1
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76962944"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049634"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -90,7 +90,7 @@ Media Services V3 annuncia l'anteprima di 24 ore x 365 giorni di Live Linear enc
 
 #### <a name="deprecation-of-media-processors"></a>Deprecazione dei processori di contenuti multimediali
 
-È stata annunciata la deprecazione di *Azure Media Indexer* e *Azure Media Indexer 2 Preview*. Per le date di ritiro, vedere l'argomento relativo ai [componenti legacy](../previous/legacy-components.md) . [Servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) sostituisce questi processori di contenuti multimediali legacy.
+È stata annunciata la deprecazione di *Azure Media Indexer* e *Azure Media Indexer 2 Preview*. Per le date di ritiro, vedere l'argomento [componenti legacy](../previous/legacy-components.md) . [Servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) sostituisce questi processori di contenuti multimediali legacy.
 
 Per altre informazioni, vedere [eseguire la migrazione da Azure Media Indexer e Azure Media Indexer 2 a servizi multimediali di Azure video Indexer](../previous/migrate-indexer-v1-v2.md).
 
@@ -180,7 +180,7 @@ Media Services V3 è ora supportato nei cloud nazionali di Azure. Non tutte le f
 
 L'evento [Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) è stato aggiunto agli schemi di Griglia di eventi di Azure per Servizi multimediali.
 
-## <a name="january-2019"></a>gennaio 2019
+## <a name="january-2019"></a>Gennaio 2019
 
 ### <a name="media-encoder-standard-and-mpi-files"></a>Media Encoder Standard e file MPI 
 
@@ -302,7 +302,7 @@ Sono stati introdotti gli aggiornamenti della codifica live seguenti:
 
 Supporto della crittografia CMAF e 'cbcs' per lettori Apple HLS (iOS 11 +) e MPEG-DASH che supportano CMAF.
 
-### <a name="video-indexer"></a>Indicizzatore video
+### <a name="video-indexer"></a>Video Indexer
 
 La versione di disponibilità generale di Video Indexer era stata annunciata nel mese di agosto. Per informazioni aggiornate sulle funzionalità attualmente supportate, vedere [Informazioni su Video Indexer](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json). 
 

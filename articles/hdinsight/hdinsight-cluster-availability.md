@@ -1,20 +1,19 @@
 ---
 title: 'Monitoraggio: Apache Ambari & log di monitoraggio di Azure-Azure HDInsight'
 description: Informazioni su come usare Ambari e i log di monitoraggio di Azure per monitorare l'integrità e la disponibilità del cluster.
-keywords: monitoraggio, Ambari, monitoraggio, log Analytics, avviso, disponibilità, integrità
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 11/25/2019
-ms.openlocfilehash: a21610fefcfe1632dffbfd8e055497476f7e59c1
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.date: 02/06/2020
+ms.openlocfilehash: 383366fa3e436c79bed28a7c47f1e9daa5f0d9de
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687842"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77060176"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-and-azure-monitor-logs"></a>Come monitorare la disponibilità dei cluster con Apache Ambari e i log di monitoraggio di Azure
 
@@ -24,7 +23,7 @@ Questo documento illustra come usare questi strumenti per monitorare il cluster 
 
 ## <a name="ambari"></a>Ambari
 
-### <a name="dashboard"></a>dashboard
+### <a name="dashboard"></a>Dashboard
 
 È possibile accedere al dashboard di Ambari selezionando il collegamento **Ambari Home** nella sezione **Dashboard del cluster** della panoramica di HDInsight in portale di Azure come illustrato di seguito. In alternativa, è possibile accedervi passando a `https://CLUSTERNAME.azurehdinsight.net` in un browser in cui CLUSTERname è il nome del cluster.
 
@@ -58,7 +57,7 @@ Per visualizzare un elenco di definizioni di avviso e i relativi stati, selezion
 
 Ambari offre molti avvisi predefiniti relativi alla disponibilità, tra cui:
 
-| Nome avviso                        | Description   |
+| Nome avviso                        | Descrizione   |
 |---|---|
 | Riepilogo integrità dataNode           | Questo avviso a livello di servizio viene attivato se sono presenti nodi di tipo non integro|
 | Stato disponibilità elevata NameNode | Questo avviso a livello di servizio viene attivato se il NameNode attivo o NameNode standby non sono in esecuzione.|
@@ -77,7 +76,7 @@ Qui è possibile modificare la descrizione e, ancora più importante, l'interval
 
 In questo esempio, è possibile fare in modo che 2 nodi di tipo non integro attivino un avviso critico e 1 dataNode non integro attivi solo un avviso. Al termine della modifica, selezionare **Salva** .
 
-### <a name="email-notifications"></a>Notifiche tramite posta elettronica
+### <a name="email-notifications"></a>Notifiche di posta elettronica
 
 Facoltativamente, è anche possibile configurare le notifiche di posta elettronica per gli avvisi Ambari. A tale scopo, nella scheda **avvisi** fare clic sul pulsante **azioni** in alto a sinistra, quindi su **Gestisci notifiche.**
 
@@ -96,9 +95,9 @@ Come prerequisito, è necessario disporre di un'area di lavoro Log Analytics per
 
 ### <a name="enable-hdinsight-azure-monitor-logs-integration"></a>Abilitare l'integrazione dei log di monitoraggio di Azure HDInsight
 
-Dalla pagina delle risorse cluster HDInsight nel portale selezionare **Operations Management Suite**. Selezionare quindi **Abilita** e selezionare l'area di lavoro log Analytics dall'elenco a discesa.
+Dalla pagina delle risorse cluster HDInsight nel portale selezionare monitoraggio di **Azure**. Selezionare quindi **Abilita** e selezionare l'area di lavoro log Analytics dall'elenco a discesa.
 
-![HDInsight Operations Management Suite](media/hdinsight-cluster-availability/hdi-portal-oms-enable.png)
+![HDInsight Operations Management Suite](media/hdinsight-cluster-availability/azure-portal-monitoring.png)
 
 ### <a name="query-metrics-and-logs-tables"></a>Tabelle di metriche e log di query
 
@@ -108,7 +107,7 @@ Una volta abilitata l'integrazione dei log di monitoraggio di Azure (l'operazion
 
 Log elenca una serie di query di esempio, ad esempio:
 
-| Nome query                      | Description                                                               |
+| Nome query                      | Descrizione                                                               |
 |---------------------------------|---------------------------------------------------------------------------|
 | Disponibilità di computer oggi    | Grafico numero di computer che inviano log, ogni ora                     |
 | Elenca heartbeat                 | Elencare tutti gli heartbeat del computer nell'ultima ora                           |

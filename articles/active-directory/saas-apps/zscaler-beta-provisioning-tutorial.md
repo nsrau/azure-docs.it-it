@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Configurare zScaler beta per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+title: 'Esercitazione: configurare zScaler beta per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in zScaler beta.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: d5ca1efb607160447bdbca59522c8ac72bc7eeb3
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 505cd7a3350c937885f0f03268ef326a4f784258
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515525"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062730"
 ---
-# <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>Esercitazione: Configurare zScaler beta per il provisioning utenti automatico
+# <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>Esercitazione: configurare zScaler beta per il provisioning utenti automatico
 
 Questa esercitazione descrive i passaggi da eseguire in zScaler beta e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in zScaler beta.
 
@@ -31,7 +31,7 @@ Questa esercitazione descrive i passaggi da eseguire in zScaler beta e Azure Act
 >
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -83,7 +83,7 @@ Prima di configurare e abilitare il provisioning utenti automatico, è necessari
 Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in zScaler beta in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare l'accesso Single Sign-on basato su SAML per zScaler beta, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di zScaler beta](zscaler-beta-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per zScaler beta, seguendo le istruzioni fornite nell' [esercitazione Single Sign-on zScaler beta](zscaler-beta-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-beta-in-azure-ad"></a>Per configurare il provisioning utenti automatico per zScaler beta nel Azure AD:
 
@@ -123,7 +123,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Provisioning di zScaler beta](./media/zscaler-beta-provisioning-tutorial/notification.png)
 
-9. Fare clic su **Save**.
+9. Fare clic su **Salva**.
 
 10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory Users to zScaler beta**.
 
@@ -143,7 +143,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 14. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](./../active-directory-saas-scoping-filters.md).
 
-15. Per abilitare il servizio di provisioning Azure AD per zScaler beta, impostare **stato** del provisioning **su** attivato nella sezione **Impostazioni** .
+15. Per abilitare il servizio di provisioning Azure AD per zScaler beta, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
 
     ![Provisioning di zScaler beta](./media/zscaler-beta-provisioning-tutorial/provisioning-status.png)
 
@@ -161,7 +161,7 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -2,7 +2,7 @@
 title: Configurare il numero di telefono come metodo di verifica Azure AD
 description: Come configurare la pagina delle informazioni di sicurezza (anteprima) per verificare la propria identità usando il numero di telefono e il dispositivo mobile come metodo di verifica.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2019
-ms.author: lizross
-ms.openlocfilehash: 93302388813f09a37628d16b4ede3f7d6cc08752
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: e85be9140aabe5b66e63d3ccdd4a3ea907a1d6fc
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704936"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062405"
 ---
 # <a name="set-up-a-phone-number-as-your-verification-method"></a>Configurare un numero di telefono come metodo di verifica
 
@@ -31,9 +31,9 @@ Se viene chiesto di configurarle subito dopo aver effettuato l'accesso all'accou
 >
 > Se non viene visualizzata un'opzione per il telefono, è possibile che l'organizzazione non consenta di usare questa opzione per la verifica. In questo caso, è necessario scegliere un altro metodo o contattare l'help desk dell'organizzazione per ottenere assistenza.
 
-## <a name="security-verification-versus-password-reset-authentication"></a>Verifica della sicurezza rispetto all'autenticazione per la reimpostazione della password
+## <a name="security-verification-versus-password-reset-authentication"></a>Confronto tra verifica di sicurezza e autenticazione per la reimpostazione della password
 
-I metodi delle informazioni di sicurezza vengono usati per la verifica della sicurezza a due fattori e per la reimpostazione della password. Non tutti i metodi possono tuttavia essere usati per entrambe.
+I metodi di gestione delle informazioni di sicurezza vengono usati sia per la verifica di sicurezza a due fattori sia per la reimpostazione della password. Non tutti i metodi possono tuttavia essere usati per entrambe.
 
 | Metodo | Utilizzo |
 | ------ | -------- |

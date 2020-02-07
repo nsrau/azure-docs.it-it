@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: c993a08a4163d50a9632055da355e39b5bdde004
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 5dc705fbd17a12ee001e1e8de15b49e841f08b81
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026887"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049295"
 ---
-# <a name="overview"></a>Overview
+# <a name="unified-connectivity-monitoring-with-connection-monitor-preview"></a>Monitoraggio della connettività unificata con monitoraggio connessione (anteprima)
 
 Il monitoraggio connessione (anteprima) offre funzionalità unificate di monitoraggio della connessione end-to-end in Azure Network Watcher per distribuzioni ibride e cloud di Azure. Azure Network Watcher offre strumenti per monitorare, diagnosticare e visualizzare le metriche relative alla connettività per le distribuzioni di Azure.
 
@@ -78,8 +78,8 @@ Il _monitoraggio della connessione_ monitora la comunicazione a intervalli regol
 
 ### <a name="accessing-connection-monitor-preview"></a>Accesso a monitoraggio connessione (anteprima)
 
-1. Accedere Network Watcher usando il collegamento seguente:[https://ms.portal.azure.com/?Microsoft\_Azure\_Network\_connectionmonitorpreview=true#blade/Microsoft\_Azure\_Network/NetworkWatcherMenuBlade/connectionMonitorPreview](https://ms.portal.azure.com/?Microsoft_Azure_Network_connectionmonitorpreview=true#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/connectionMonitorPreview)
-2. Fare clic sulla scheda "monitoraggio connessione (anteprima)" nella sezione monitoraggio nel riquadro sinistro di Network Watcher. Questa scheda sarà visibile solo se è possibile accedere a Network Watcher usando il collegamento specificato nel passaggio 1.
+1. Dal home page portale di Azure visitare Network Watcher
+2. Fare clic sulla scheda "monitoraggio connessione (anteprima)" nella sezione monitoraggio nel riquadro sinistro di Network Watcher.
 3. È possibile visualizzare tutti i monitoraggi connessione creati con l'esperienza di monitoraggio connessione (anteprima). Tutti i monitoraggi connessioni creati utilizzando la scheda monitoraggio connessione classica saranno visibili nella scheda monitoraggio connessione.
 
     ![Creazione di un monitoraggio della connessione](./media/connection-monitor-2-preview/cm-resource-view.png)
@@ -433,14 +433,14 @@ Tutte le origini e le destinazioni aggiunte a un gruppo di test con la configura
 
 | **Numero di test** | **Origine** | **Destinazione** | **Nome della configurazione di test** |
 | --- | --- | --- | --- |
-| 1 | A | D | Configurazione 1 |
-| 2 | A | D | Configurazione 2 |
-| 3 | A | E | Configurazione 1 |
-| 4 | A | E | Configurazione 2 |
-| 5 | B | D | Configurazione 1 |
-| 6 | B | D | Configurazione 2 |
-| 7 | B | E | Configurazione 1 |
-| 8 | B | E | Configurazione 2 |
+| 1 | Una | D | Configurazione 1 |
+| 2 | Una | D | Configurazione 2 |
+| 3 | Una | E | Configurazione 1 |
+| 4 | Una | E | Configurazione 2 |
+| 5 | b | D | Configurazione 1 |
+| 6 | b | D | Configurazione 2 |
+| 7 | b | E | Configurazione 1 |
+| 8 | b | E | Configurazione 2 |
 | 9 | C | D | Configurazione 1 |
 | 10 | C | D | Configurazione 2 |
 | 11 | C | E | Configurazione 1 |
@@ -574,12 +574,12 @@ Per il monitoraggio della connessione creato prima dell'esperienza di monitoragg
 
 Tipo di risorsa: Microsoft. Network/networkWatchers/connectionMonitors
 
-| Metrica | Nome visualizzato per la metrica | Unità | Tipo di aggregazione | Description | Dimensioni |
+| Metrica | Nome visualizzato per la metrica | Unità | Tipo di aggregazione | Descrizione | Dimensioni |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | % di probe non riusciti | Percentuale | Media | % di probe di monitoraggio connettività non riusciti | Nessuna dimensione |
 | AverageRoundtripMs | Tempo medio di round trip (MS) | Millisecondi | Media | Tempo medio di round trip della rete (in ms) per i probe di monitoraggio della connettività inviati tra origine e destinazione |             Nessuna dimensione |
-| ChecksFailedPercent (anteprima) | % Controlli non riusciti (anteprima) | Percentuale | Media | % di controlli non riusciti per un test |Elenco:-ConnectionMonitorResourceId-SourceAddress-SourceName-SourceResourceId-SourceType-Protocol-DestinationAddress-Destination-DestinationResourceId-DestinationType-DestinationPort-TestGroupName-TestConfigurationName- Area |
-| RoundTripTimeMs (anteprima) | Tempo di round trip (MS) (anteprima) | Millisecondi | Media | Tempo di round trip (MS) per i controlli inviati tra l'origine e la destinazione. Questo valore non è medio | Elenco:-ConnectionMonitorResourceId-SourceAddress-SourceName-SourceResourceId-SourceType-Protocol-DestinationAddress-Destination-DestinationResourceId-DestinationType-DestinationPort-TestGroupName-TestConfigurationName- Area |
+| ChecksFailedPercent (anteprima) | % Controlli non riusciti (anteprima) | Percentuale | Media | % di controlli non riusciti per un test | * ConnectionMonitorResourceId <br> * SourceAddress <br> * SourceName <br> * SourceResourceId <br> * SourceType <br> * Protocollo <br> * DestinationAddress <br> * Destination <br> * DestinationResourceId <br> * DestinationType <br> * DestinationPort <br> * TestGroupName <br> * TestConfigurationName <br> * Area |
+| RoundTripTimeMs (anteprima) | Tempo di round trip (MS) (anteprima) | Millisecondi | Media | Tempo di round trip (MS) per i controlli inviati tra l'origine e la destinazione. Questo valore non è medio | * ConnectionMonitorResourceId <br> * SourceAddress <br> * SourceName <br> * SourceResourceId <br> * SourceType <br> * Protocollo <br> * DestinationAddress <br> * Destination <br> * DestinationResourceId <br> * DestinationType <br> * DestinationPort <br> * TestGroupName <br> * TestConfigurationName <br> * Area |
 
  ![Monitorare le metriche](./media/connection-monitor-2-preview/monitor-metrics.png)
 

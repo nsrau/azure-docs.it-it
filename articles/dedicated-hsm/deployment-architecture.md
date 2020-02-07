@@ -10,14 +10,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ff86c25de006495e3536f2ff907e1cf40a216f8e
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 89e3bf95a6b048e5e97cfb151ef9302b70eac1c9
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927853"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048562"
 ---
 # <a name="azure-dedicated-hsm-deployment-architecture"></a>Architettura di distribuzione del servizio HSM dedicato di Azure
 
@@ -29,13 +29,16 @@ HSM dedicato di Azure offre l'archiviazione di chiavi crittografiche in Azure. S
 
 I moduli di protezione hardware vengono distribuiti nei data center di Microsoft e il provisioning può essere facilmente effettuato come coppia di dispositivi, come base per una soluzione a disponibilità elevata. Possono inoltre essere distribuiti in più aree, per una soluzione resiliente alle emergenze. Le aree in cui è attualmente disponibile HSM dedicato sono:
 
-* Stati Uniti Orientali
+* Stati Uniti orientali
 * Stati Uniti orientali 2
 * Stati Uniti occidentali
-* Stati Uniti occidentali 2
 * Stati Uniti centro-meridionali
-* Asia sudorientale
+* Asia sud-orientale
 * Asia orientale
+* India centrale
+* India meridionale
+* Giappone orientale
+* Giappone occidentale
 * Europa settentrionale
 * Europa occidentale
 * Regno Unito meridionale
@@ -43,7 +46,7 @@ I moduli di protezione hardware vengono distribuiti nei data center di Microsoft
 * Canada centrale
 * Canada orientale
 * Australia orientale
-* Australia sudorientale
+* Australia sud-orientale
 
 In ognuna di queste aree, i rack di moduli di protezione hardware sono distribuiti all'interno di due data center indipendenti o in almeno due zone di disponibilità indipendenti. L'Asia sud-orientale ha tre zone di disponibilità, l'area Stati Uniti orientali 2 ne ha tre. Il servizio HSM dedicato è offerto in un totale di otto aree in Europa, Asia orientale e Stati Uniti. Per altre informazioni sulle aree di Azure, vedere le [informazioni ufficiali sulle aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/).
 Alcuni fattori di progettazione per qualsiasi soluzione basata su HSM dedicato sono posizione/latenza, disponibilità elevata e supporto per altre applicazioni distribuite.
@@ -52,7 +55,7 @@ Alcuni fattori di progettazione per qualsiasi soluzione basata su HSM dedicato s
 
 La posizione ottimale per un dispositivo HSM è l'area più vicina alle applicazioni che eseguono le operazioni di crittografia. La latenza prevista all'interno dell'area è di meno di 10 millisecondi. La latenza tra più aree può essere da 5 a 10 volte superiore.
 
-## <a name="high-availability"></a>disponibilità elevata
+## <a name="high-availability"></a>Disponibilità elevata
 
 Per ottenere la disponibilità elevata, il cliente deve usare due dispositivi HSM all'interno di un'area configurati mediante il software Gemalto come coppia a disponibilità elevata. Questo tipo di distribuzione assicura la disponibilità delle chiavi se in un singolo dispositivo si verifica un problema che impedisce l'elaborazione di operazioni relative alle chiavi. Riduce inoltre notevolmente il rischio quando si eseguono interventi di manutenzione in garanzia, come la sostituzione dell'alimentatore. È importante che la progettazione tenga conto di qualsiasi tipo di errore a livello di area. Possono verificarsi errori a livello di area in caso di calamità naturali, come terremoti, uragani o inondazioni. Gli eventi di questo tipo devono essere attenuati effettuando il provisioning di dispositivi HSM in un'altra area. I dispositivi distribuiti in un'altra area possono essere associati tra loro tramite la configurazione del software Gemalto. Ciò significa che la distribuzione minima per una soluzione a disponibilità elevata e resiliente alle emergenze è composta da quattro dispositivi HSM in due aree. È possibile usare la ridondanza locale e la ridondanza tra aree come baseline a cui aggiungere altre distribuzioni di dispositivi HSM per supportare la latenza, la capacità o per soddisfare altri requisiti specifici dell'applicazione.
 
@@ -70,4 +73,4 @@ Altri argomenti sui concetti:
 * [Sicurezza fisica](physical-security.md)
 * [Rete](networking.md)
 * [Supporto](supportability.md)
-* [Monitoraggio](monitoring.md)
+* [Monitoring](monitoring.md)

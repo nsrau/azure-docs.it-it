@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 02/05/2020
 ms.author: jingwang
-ms.openlocfilehash: e7a6e819676752aac679a36221eb60f9ad767071
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 7dac8d21e3b45307284ece15ca5ddbcc69db909b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830157"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049854"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON in Azure Data Factory
 
@@ -26,7 +26,7 @@ Il formato JSON è supportato per i connettori seguenti [: Amazon S3](connector-
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati JSON.
 
-| Proprietà         | Description                                                  | Obbligatorio |
+| Proprietà         | Descrizione                                                  | Obbligatoria |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | La proprietà Type del set di dati deve essere impostata su **JSON**. | Sì      |
 | posizione         | Impostazioni del percorso dei file. Ogni connettore basato su file ha un tipo di percorso e proprietà supportate in `location`. **Per informazioni dettagliate, vedere l'articolo connettore-> sezione Proprietà set di dati**. | Sì      |
@@ -67,7 +67,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà seguenti sono supportate nella sezione ***\*origine\**** dell'attività di copia.
 
-| Proprietà      | Description                                                  | Obbligatorio |
+| Proprietà      | Descrizione                                                  | Obbligatoria |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **JSONSource**. | Sì      |
 | storeSettings | Un gruppo di proprietà su come leggere i dati da un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di lettura supportate in `storeSettings`. **Per informazioni dettagliate, vedere l'articolo connettore > sezione proprietà dell'attività di copia**. | No       |
@@ -76,7 +76,7 @@ Le proprietà seguenti sono supportate nella sezione ***\*origine\**** dell'atti
 
 Le proprietà seguenti sono supportate nella sezione ***\*sink\**** dell'attività di copia.
 
-| Proprietà      | Description                                                  | Obbligatorio |
+| Proprietà      | Descrizione                                                  | Obbligatoria |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **JSONSink**. | Sì      |
 | formatSettings | Gruppo di proprietà. Vedere la tabella **delle impostazioni di scrittura JSON** riportata di seguito. | No       |
@@ -84,7 +84,7 @@ Le proprietà seguenti sono supportate nella sezione ***\*sink\**** dell'attivit
 
 **Impostazioni di scrittura JSON** supportate in `formatSettings`:
 
-| Proprietà      | Description                                                  | Obbligatorio                                              |
+| Proprietà      | Descrizione                                                  | Obbligatoria                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | Il tipo di formatSettings deve essere impostato su **JsonWriteSettings**. | Sì                                                   |
 | filePattern |Indicare il modello dei dati archiviati in ogni file JSON. I valori consentiti sono: **setOfObjects** e **arrayOfObjects**. Il valore **predefinito** è **setOfObjects**. Vedere la sezione [Modelli di file JSON](#json-file-patterns) per i dettagli su questi modelli. |No |
@@ -183,7 +183,148 @@ L'attività di copia può rilevare e analizzare automaticamente i modelli di fil
 
 ## <a name="mapping-data-flow-properties"></a>Mapping delle proprietà del flusso di dati
 
-Per informazioni dettagliate, vedere [trasformazione origine](data-flow-source.md) e [trasformazione sink](data-flow-sink.md) nel flusso di dati del mapping.
+I tipi di file JSON possono essere usati sia come sink che come origine nel flusso di dati di mapping.
+
+### <a name="creating-json-structures-in-a-derived-column"></a>Creazione di strutture JSON in una colonna derivata
+
+È possibile aggiungere una colonna complessa al flusso di dati tramite il generatore di espressioni della colonna derivata. Nella trasformazione colonna derivata aggiungere una nuova colonna e aprire il generatore di espressioni facendo clic sulla casella blu. Per rendere complessa una colonna, è possibile immettere la struttura JSON manualmente o usare l'esperienza utente per aggiungere le sottocolonne in modo interattivo.
+
+#### <a name="using-the-expression-builder-ux"></a>Uso del generatore di espressioni UX
+
+Nel riquadro lato schema di output posizionare il puntatore del mouse su una colonna e fare clic sull'icona con il segno più. Selezionare **Aggiungi sottocolonna** per rendere la colonna un tipo complesso.
+
+![Aggiungi sottocolonna](media/data-flow/addsubcolumn.png "Aggiungi sottocolonna")
+
+È possibile aggiungere colonne e sottocolonne aggiuntive nello stesso modo. Per ogni campo non complesso, è possibile aggiungere un'espressione nell'editor di espressioni a destra.
+
+![Colonna complessa](media/data-flow/complexcolumn.png "Colonna complessa")
+
+#### <a name="entering-the-json-structure-manually"></a>Immissione manuale della struttura JSON
+
+Per aggiungere manualmente una struttura JSON, aggiungere una nuova colonna e immettere l'espressione nell'editor. L'espressione segue il formato generale seguente:
+
+```
+@(
+    field1=0,
+    field2=@(
+        field1=0
+    )
+)
+```
+
+Se questa espressione è stata immessa per una colonna denominata "complexColumn", viene scritta nel sink come il JSON seguente:
+
+```
+{
+    "complexColumn": {
+        "field1": 0,
+        "field2": {
+            "field1": 0
+        }
+    }
+}
+```
+
+#### <a name="sample-manual-script-for-complete-hierarchical-definition"></a>Script manuale di esempio per la definizione gerarchica completa
+```
+@(
+    title=Title,
+    firstName=FirstName,
+    middleName=MiddleName,
+    lastName=LastName,
+    suffix=Suffix,
+    contactDetails=@(
+        email=EmailAddress,
+        phone=Phone
+    ),
+    address=@(
+        line1=AddressLine1,
+        line2=AddressLine2,
+        city=City,
+        state=StateProvince,
+        country=CountryRegion,
+        postCode=PostalCode
+    ),
+    ids=[
+        toString(CustomerID), toString(AddressID), rowguid
+    ]
+)
+```
+
+### <a name="source-format-options"></a>Opzioni del formato di origine
+
+L'uso di un set di dati JSON come origine nel flusso di dati consente di impostare cinque impostazioni aggiuntive. Queste impostazioni sono disponibili nella scheda **Opzioni di origine** del file **JSON Settings** Accordion.  
+
+![Impostazioni JSON](media/data-flow/json-settings.png "Impostazioni JSON")
+
+#### <a name="default"></a>Predefinito
+
+Per impostazione predefinita, i dati JSON vengono letti nel formato seguente.
+
+```
+{ "json": "record 1" }
+{ "json": "record 2" }
+{ "json": "record 3" }
+```
+
+#### <a name="single-document"></a>Documento singolo
+
+Se è selezionato un **singolo documento** , il mapping dei flussi di dati legge un documento JSON da ogni file. 
+
+``` json
+File1.json
+{
+    "json": "record 1"
+}
+File2.json
+{
+    "json": "record 2"
+}
+File3.json
+{
+    "json": "record 3"
+}
+```
+
+#### <a name="unquoted-column-names"></a>Nomi di colonna non racchiusi tra virgolette
+
+Se è selezionato **nomi di colonna non racchiusi tra virgolette** , il mapping dei flussi di dati legge le colonne JSON che non sono racchiuse tra virgolette 
+
+```
+{ json: "record 1" }
+{ json: "record 2" }
+{ json: "record 3" }
+```
+
+#### <a name="has-comments"></a>Con commenti
+
+Select **ha commenti** se i dati JSON sono di tipo C++ C o con commenti di stile.
+
+``` json
+{ "json": /** comment **/ "record 1" }
+{ "json": "record 2" }
+{ /** comment **/ "json": "record 3" }
+```
+
+#### <a name="single-quoted"></a>Virgoletta singola
+
+Selezionare **singolo racchiuso tra** virgolette se i campi e i valori JSON usano virgolette singole anziché virgolette doppie.
+
+```
+{ 'json': 'record 1' }
+{ 'json': 'record 2' }
+{ 'json': 'record 3' }
+```
+
+#### <a name="backslash-escaped"></a>Barra rovesciata con escape
+
+Selezionare **singolo racchiuso tra virgolette** se le barre rovesciate vengono usate per usare caratteri di escape nei dati JSON.
+
+```
+{ "json": "record 1" }
+{ "json": "\} \" \' \\ \n \\n record 2" }
+{ "json": "record 3" }
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

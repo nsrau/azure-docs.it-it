@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Configurare il provisioning utenti automatico di Figma con Azure Active Directory | Microsoft Docs'
+title: 'Esercitazione: configurare il provisioning utenti automatico di Figma con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in Figma.
 services: active-directory
 documentationcenter: ''
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: 38ebba8803e584e9b5d1179281fcff3a3f98d5a4
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: a50f1c81f5eda78ee6834aba3085f685c197b4dc
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67848148"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057958"
 ---
-# <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Esercitazione: Configurare Figma per il provisioning utenti automatico
+# <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Esercitazione: configurare Figma per il provisioning utenti automatico
 
 Questa esercitazione descrive i passaggi da eseguire in Figma e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in Figma.
 
 > [!NOTE]
-> L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
+> L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> Questo connettore è attualmente disponibile in anteprima pubblica. Per ulteriori informazioni sulle condizioni per l'utilizzo di Microsoft Azure generali per le funzionalità di anteprima, vedere le [condizioni per l'utilizzo supplementari per](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)le anteprime di Microsoft Azure.
+> Questo connettore è attualmente disponibile in anteprima pubblica. Per altre informazioni sulle condizioni per l'utilizzo di Microsoft Azure relative alle funzionalità di anteprima, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
@@ -100,7 +100,7 @@ Per configurare Figma per il provisioning utenti automatico con Azure AD, è nec
 Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in Figma in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare l'accesso Single Sign-on basato su SAML per Figma, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di Figma](figma-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per Figma, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di Figma](figma-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
 ### <a name="to-configure-automatic-user-provisioning-for-figma--in-azure-ad"></a>Per configurare il provisioning utenti automatico per Figma in Azure AD:
 
@@ -120,15 +120,15 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere `https://www.figma.com/scim/v2/<TenantID>` l'URL del **tenant** dove **TenantId** è il valore recuperato da Figma in precedenza. Immettere il valore del **token API** in **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a Figma. Se la connessione non riesce, verificare che l'account Figma disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **credenziali amministratore** immettere `https://www.figma.com/scim/v2/<TenantID>` in **URL tenant** dove **TenantId** è il valore recuperato da Figma in precedenza. Immettere il valore del **token API** in **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a Figma. Se la connessione non riesce, verificare che l'account Figma disponga delle autorizzazioni di amministratore e riprovare.
 
-    ![URL tenant + token](common/provisioning-testconnection-tenanturltoken.png)
+    ![URL del tenant e token](common/provisioning-testconnection-tenanturltoken.png)
 
 8. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 
-    ![Posta elettronica di notifica](common/provisioning-notification-email.png)
+    ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-9. Fare clic su **Save**.
+9. Fare clic su **Salva**.
 
 10. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a Figma**.
 
@@ -138,15 +138,15 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Attributi utente di Figma](media/Figma-provisioning-tutorial/figma06.png)
 
-12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Per abilitare il servizio di provisioning Azure AD per Figma, impostare **stato** del provisioning **su** attivato nella sezione **Impostazioni** .
+13. Per abilitare il servizio di provisioning Azure AD per Figma, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
 14. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in Figma selezionando i valori desiderati in **ambito** nella sezione **Impostazioni** .
 
-    ![Ambito del provisioning](common/provisioning-scope.png)
+    ![Ambito di provisioning](common/provisioning-scope.png)
 
 15. Quando si è pronti per eseguire il provisioning, fare clic su **Salva**.
 
@@ -154,13 +154,13 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio Azure ad provisioning su Figma.
 
-Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
+Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../manage-apps/check-status-user-account-provisioning.md)
+* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)

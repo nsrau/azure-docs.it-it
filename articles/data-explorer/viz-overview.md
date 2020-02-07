@@ -1,62 +1,66 @@
 ---
-title: Visualizzazione dei dati di Esplora dati Azure
-description: Scopri i diversi modi, che è possibile visualizzare i dati di Esplora dati di Azure
+title: Visualizzazione dei dati di Azure Esplora dati
+description: Informazioni sui diversi modi in cui è possibile visualizzare i dati di Azure Esplora dati
 services: data-explorer
 author: orspod
 ms.author: orspodek
-ms.reviewer: rkarlin
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/30/2019
-ms.openlocfilehash: d1c73d8eb65ed5d67d5250b4a3bca3b80450001e
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.date: 01/30/2020
+ms.openlocfilehash: 32ccc5ad236c87d3609798a8432db14ee440d067
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536718"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064564"
 ---
 # <a name="data-visualization-with-azure-data-explorer"></a>Visualizzazione dei dati con Esplora dati di Azure 
 
-Esplora dati di Azure è un servizio di esplorazione dei dati rapido e a scalabilità elevata per i dati di log e dati di telemetria che consente di creare soluzioni complesse analitica per grandi quantità di dati. Esplora i dati di Azure si integra con vari strumenti di visualizzazione, in modo da poter visualizzare i dati e condividere i risultati all'interno dell'organizzazione. Questi dati possono essere trasformati in analisi approfondite per avere un impatto sull'azienda.
+Azure Esplora dati è un servizio di esplorazione dei dati veloce ed estremamente scalabile per i dati di log e di telemetria usati per creare soluzioni di analisi complesse per grandi quantità di dati. Azure Esplora dati si integra con diversi strumenti di visualizzazione, in modo che sia possibile visualizzare i dati e condividere i risultati nell'organizzazione. Questi dati possono essere trasformati in informazioni dettagliate di utilità pratica per avere un effetto sull'azienda.
 
-Visualizzazione dei dati e creazione di report è un passaggio critico del processo di analitica dei dati. Esplora i dati di Azure supporta molti servizi di BI in modo che è possibile usare quello che meglio si adatta lo scenario e budget.
+La visualizzazione dei dati e la creazione di report sono un passaggio fondamentale del processo di analisi dei dati. Azure Esplora dati supporta molti servizi di Business Intelligence per poter usare quello più adatto allo scenario e al budget.
 
-## <a name="kusto-query-language-visualizations"></a>Visualizzazioni del linguaggio di query Kusto
+## <a name="kusto-query-language-visualizations"></a>Visualizzazioni del linguaggio di query kusto
 
-Il linguaggio di query Kusto [ `render operator` ](/azure/kusto/query/renderoperator) offre visualizzazioni diverse, ad esempio tabelle, grafici a torta e istogrammi per rappresentare i risultati della query. Le visualizzazioni di query sono utili per il rilevamento delle anomalie e previsione, machine learning e altro ancora.
+Il linguaggio di query kusto [`render operator`](/azure/kusto/query/renderoperator) offre diverse visualizzazioni, ad esempio tabelle, grafici a torta e grafici a barre, per rappresentare i risultati della query. Le visualizzazioni di query sono utili per il rilevamento e la previsione di anomalie, l'apprendimento automatico e altro ancora.
 
 ## <a name="power-bi"></a>Power BI
 
-Esplora i dati di Azure offre la possibilità di connettersi al [Power BI](https://powerbi.microsoft.com) usando vari metodi: 
+Azure Esplora dati offre la possibilità di connettersi ai [Power bi](https://powerbi.microsoft.com) con diversi metodi: 
 
-  * [Connettore di Power BI nativo incorporato](/azure/data-explorer/power-bi-connector)
+  * [Connettore Power BI nativo incorporato](/azure/data-explorer/power-bi-connector)
 
-  * [Importa query da Esplora dati di Azure in Power BI](/azure/data-explorer/power-bi-imported-query)
+  * [Eseguire query sull'importazione da Azure Esplora dati in Power BI](/azure/data-explorer/power-bi-imported-query)
  
   * [SQL query](/azure/data-explorer/power-bi-sql-query)
 
 ## <a name="microsoft-excel"></a>Microsoft Excel
 
-Esplora i dati di Azure offre la possibilità di connettersi al [Microsoft Excel](https://products.office.com/excel) usando l'oggetto nativo incorporato connettore Excel oppure importare una query da Esplora dati di Azure in Excel.
+Azure Esplora dati offre la possibilità di connettersi a [Microsoft Excel](https://products.office.com/excel) usando il [connettore nativo Excel incorporato](excel-connector.md)o di [importare una query](excel-blank-query.md) da Azure Esplora dati in Excel.
 
 ## <a name="grafana"></a>Grafana
 
-[Grafana](https://grafana.com) offre un plug-in Esplora dati di Azure che consente di visualizzare i dati da Esplora dati di Azure. Si [impostati Esplora dati di Azure come un'origine dati di Grafana e quindi visualizzare i dati](/azure/data-explorer/grafana). 
+[Grafana](https://grafana.com) fornisce un plug-in di Azure Esplora dati che consente di visualizzare i dati da Esplora dati di Azure. [Configurare Esplora dati di Azure come origine dati per Grafana e quindi visualizzare i dati](/azure/data-explorer/grafana). 
 
 ## <a name="odbc-connector"></a>Connettore ODBC
 
-Esplora dati Azure offre un' [connettore Open Database Connectivity (ODBC)](connect-odbc.md) in modo che qualsiasi applicazione che supporti ODBC possa connettersi a Esplora dati di Azure.
+Azure Esplora dati fornisce un [connettore Open Database Connectivity (ODBC)](connect-odbc.md) , in modo che tutte le applicazioni che supportano ODBC possano connettersi ad Azure Esplora dati.
 
 ## <a name="tableau"></a>Tableau
 
-Esplora i dati di Azure offre la possibilità di connettersi al [Tableau](https://www.tableau.com) usando la [connettore ODBC](/azure/data-explorer/connect-odbc) e quindi [visualizzare i dati in Tableau](tableau.md).
+Azure Esplora dati offre la possibilità di connettersi a [Tableau](https://www.tableau.com) usando il [connettore ODBC](/azure/data-explorer/connect-odbc) e quindi di [visualizzare i dati in Tableau](tableau.md).
 
 ## <a name="qlik"></a>Qlik
 
-Esplora i dati di Azure offre la possibilità di connettersi al [Qlik](https://www.qlik.com) usando la [connettore ODBC](/azure/data-explorer/connect-odbc) Qlik Sense possibile creare dashboard e visualizzare i dati. Usa il video seguente, è possibile imparare a visualizzare i dati di Esplora dati di Azure con Qlik. 
+Azure Esplora dati offre la possibilità di connettersi a [Qlik](https://www.qlik.com) usando [ODBC Connector](/azure/data-explorer/connect-odbc) e quindi di creare dashboard Qlik Sense e visualizzare i dati. Usando il video seguente, è possibile imparare a visualizzare i dati di Azure Esplora dati con Qlik. 
 
 > [!VIDEO https://www.youtube.com/embed/nhWIiBwxjjU]  
 
 ## <a name="sisense"></a>Sisense
 
-Esplora i dati di Azure offre la possibilità di connettersi al [Sisense](https://www.sisense.com) usando il connettore JDBC. Si [configurare Esplora dati di Azure come origine dati per Sisense e quindi visualizzare i dati](/azure/data-explorer/sisense).
+Azure Esplora dati offre la possibilità di connettersi a [SiSense](https://www.sisense.com) tramite il connettore JDBC. [Configurare Esplora dati di Azure come origine dati per SiSense e quindi visualizzare i dati](/azure/data-explorer/sisense).
+
+## <a name="redash"></a>Redash
+
+È possibile usare [redash](https://redash.io/) per creare dashboard e visualizzare i dati. [Configurare Esplora dati di Azure come origine dati per il Ritrattino e quindi visualizzare i dati](/azure/data-explorer/redash).

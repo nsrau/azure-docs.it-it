@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: fccb9dfe88d39849fb87bdce4b81ac9ee22fada5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8f748764d0f61e4932b2d4710f5a6805a5eddf0e
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430705"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047478"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
 
@@ -72,11 +72,10 @@ Tutte le attività che è possibile eseguire sulle risorse tramite Azure Resourc
 
 ### <a name="add-an-application"></a>Aggiungere un'applicazione
 
-1. Dopo aver creato l'applicazione, fare clic su **Impostazioni**.
-2. Fare clic su **Autorizzazioni necessarie**.
-3. Fare clic su **+Aggiungi**.
-4. Fare clic su **Selezionare un'API**.
-5. Scegliere API Gestione dei servizi di **Windows** **Azure**.
+1. Una volta creata l'applicazione, fare clic su **autorizzazioni API**.
+2. Fare clic su **+ Aggiungi un'autorizzazione**.
+4. Premere **Seleziona API Microsoft**.
+5. Scegliere **Gestione servizi di Azure**.
 6. Fare clic su **Seleziona**.
 
     ![Aggiungere autorizzazioni](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
@@ -170,17 +169,20 @@ Impostare il valore dell'intestazione della richiesta `Content-Type` su `applica
 
 Il backup è un'operazione a lunga esecuzione che potrebbe richiedere più minuti per essere completata. Se la richiesta viene eseguita correttamente e il processo di backup è iniziato, si riceverà un codice di stato risposta `202 Accepted` con un'intestazione `Location`. Effettuare richieste "GET" all'URL nell'intestazione `Location` per conoscere lo stato dell'operazione. Durante l'esecuzione del backup si continuerà a ricevere il codice di stato "202 - Accettato". Il codice risposta `200 OK` indicherà il completamento dell'operazione di backup.
 
-Quando si crea una richiesta di backup, occorre attenersi ai vincoli seguenti:
+Quando si esegue una richiesta di backup o ripristino, tenere presenti i vincoli seguenti:
 
 -   Il **contenitore** specificato nel corpo della richiesta **deve esistere**.
--   Mentre è in corso il backup, **evitare modifiche nella gestione dei servizi**, ad esempio l'aggiornamento SKU o il downgrade, modificare il nome di dominio e così via.
+-   Mentre è in corso il backup, **evitare le modifiche di gestione nel servizio** , ad esempio l'aggiornamento o il downgrade dello SKU, la modifica del nome di dominio e altro ancora.
 -   Il ripristino di un **backup è garantito solo per 30 giorni** dal momento della sua creazione.
 -   I **dati di utilizzo** usati per creare report analitici **non sono inclusi** nel backup. Usare l' [API REST di Gestione API di Azure][azure api management rest api] per recuperare periodicamente i report analitici e custodirli al sicuro.
 -   Inoltre, gli elementi seguenti non fanno parte dei dati di backup: certificati SSL del dominio personalizzato e qualsiasi certificato intermedio o radice caricato dal cliente, dal contenuto del portale per sviluppatori e dalle impostazioni di integrazione della rete virtuale.
 -   La frequenza con cui si eseguono i backup dei servizi influenzerà i propri obiettivi relativi ai punti di ripristino. Per ridurla al minimo, si consiglia di implementare backup regolari e di eseguire backup su richiesta dopo aver apportato modifiche al servizio di Gestione API.
 -   Le **modifiche** apportate alla configurazione del servizio (ad esempio alle API, ai criteri e all'aspetto del portale per sviluppatori) durante l'esecuzione del processo di backup **potrebbero essere escluse dal backup e potrebbero andare perse**.
--   **Consentire** l'accesso dal piano di controllo all'account di archiviazione di Azure. Il cliente deve aprire il seguente set di indirizzi IP in ingresso nell'account di archiviazione per il backup. 
-    > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
+-   **Consentire** l'accesso dal piano di controllo all'account di archiviazione di Azure, se è abilitato il [Firewall][azure-storage-ip-firewall] . Il cliente deve aprire il set di [indirizzi IP del piano di controllo di gestione API di Azure][control-plane-ip-address] nell'account di archiviazione per il backup o il ripristino da. 
+
+> [!NOTE]
+> Se si tenta di eseguire il backup o il ripristino da/verso un servizio gestione API usando un account di archiviazione con un [Firewall][azure-storage-ip-firewall] abilitato, nella stessa area di Azure, questa operazione non funzionerà. Ciò è dovuto al fatto che le richieste ad archiviazione di Azure non sono inviato tramite SNAT a un indirizzo IP pubblico dal > di calcolo (piano di controllo di gestione API di Azure). La richiesta di archiviazione tra aree sarà inviato tramite SNAT.
+
 ### <a name="step2"> </a>Ripristinare un servizio gestione API
 
 Per ripristinare un servizio di Gestione API da un backup creato in precedenza, creare la seguente richiesta HTTP:
@@ -241,3 +243,5 @@ Vedere le risorse seguenti per procedure dettagliate diverse del processo di bac
 [api-management-aad-resources]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-aad-resources.png
 [api-management-arm-token]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-arm-token.png
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
+[control-plane-ip-address]: api-management-using-with-vnet.md#control-plane-ips
+[azure-storage-ip-firewall]: ../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range

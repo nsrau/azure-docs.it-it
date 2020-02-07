@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: rezas
-ms.openlocfilehash: ce8ef987adc0cec4fcd8acef4cc075d50c92d62a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 244a71d400493a2029e831b729c63bc0b0dfe559
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722889"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049641"
 ---
 # <a name="tls-support-in-iot-hub"></a>Supporto di TLS nell'hub Internet
 
@@ -78,13 +78,13 @@ Gli hub Internet delle cose configurati per accettare solo TLS 1,2 applicheranno
 
 Usare i collegamenti seguenti per configurare TLS 1,2 e le crittografie consentite negli SDK client dell'hub Internet.
 
-| Lingua: | TLS 1,2 supportato | Documentazione |
-|----------|-------------------|---------------|
-| C        | Sì               | [Collegamento](https://aka.ms/Tls_C_SDK_IoT) |
-| Python   | Sì               | [Collegamento](https://aka.ms/Tls_Python_SDK_IoT) |
-| C#       | Sì               | [Collegamento](https://aka.ms/Tls_CSharp_SDK_IoT) |
-| Java     | Sì               | [Collegamento](https://aka.ms/Tls_Java_SDK_IoT) |
-| NodeJS   | Sì               | [Collegamento](https://aka.ms/Tls_Node_SDK_IoT) |
+| Linguaggio | Versioni che supportano TLS 1,2 | Documentazione |
+|----------|------------------------------------|---------------|
+| C        | Tag 2019-12-11 o versione successiva            | [Collegamento](https://aka.ms/Tls_C_SDK_IoT) |
+| Python   | Versione 2.0.0 o successiva             | [Collegamento](https://aka.ms/Tls_Python_SDK_IoT) |
+| C#       | Versione 1.21.4 o successiva            | [Collegamento](https://aka.ms/Tls_CSharp_SDK_IoT) |
+| Java     | Versione 1.19.0 o successiva            | [Collegamento](https://aka.ms/Tls_Java_SDK_IoT) |
+| NodeJS   | Versione 1.12.2 o successiva            | [Collegamento](https://aka.ms/Tls_Node_SDK_IoT) |
 
 
 ### <a name="use-tls-12-in-your-iot-edge-setup"></a>Usare TLS 1,2 nell'installazione di IoT Edge

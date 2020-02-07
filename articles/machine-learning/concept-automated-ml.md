@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: 778b369e08ff6b0c6e4075c5a8d3d2a234bde70e
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 012300c95fd1edd135b97f52ed3702ce3e7ef0bd
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894892"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048965"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
@@ -83,7 +83,7 @@ In ogni esperimento di Machine Learning automatizzato, i dati vengono pre-elabor
 
 In ogni esperimento di Machine Learning automatizzato, i dati vengono ridimensionati o normalizzati automaticamente per consentire agli algoritmi di ottenere risultati ottimali.  Durante il training del modello, viene applicata una delle tecniche di ridimensionamento o di normalizzazione seguenti a ogni modello.
 
-|Ridimensionamento di&nbsp;&la normalizzazione &nbsp;| Description |
+|Ridimensionamento di&nbsp;&la normalizzazione &nbsp;| Descrizione |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Standardizzare le funzionalità rimuovendo la media e il ridimensionamento in varianza unità  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Trasforma le funzionalità ridimensionando ogni funzionalità in base al valore minimo e massimo della colonna  |
@@ -95,11 +95,11 @@ In ogni esperimento di Machine Learning automatizzato, i dati vengono ridimensio
 
 ### <a name="advanced-preprocessing-optional-featurization"></a>Pre-elaborazione avanzata: conteggi facoltativo
 
-Sono disponibili anche funzionalità avanzate di pre-elaborazione e conteggi, ad esempio Guardrails dati, codifica e trasformazioni. [Scopri di più su cosa è incluso conteggi](how-to-create-portal-experiments.md#preprocess). Abilitare questa impostazione con:
+Sono disponibili anche funzionalità avanzate di pre-elaborazione e conteggi, ad esempio Guardrails dati, codifica e trasformazioni. [Scopri di più su cosa è incluso conteggi](how-to-create-portal-experiments.md#featurization). Abilitare questa impostazione con:
 
-+ Azure Machine Learning Studio: selezionare le **Impostazioni Visualizza conteggi** nella sezione **esecuzione configurazione** [con questi passaggi](how-to-create-portal-experiments.md).
++ Azure Machine Learning Studio: abilitare **conteggi automatici** nella sezione **Visualizza configurazione aggiuntiva** [con questi passaggi](how-to-create-portal-experiments.md#create-and-run-experiment).
 
-+ Python SDK: specifica `"feauturization": auto' / 'off' / FeaturizationConfig` per la [classe`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
++ Python SDK: specifica `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` per la [classe`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
 ## <a name="prevent-over-fitting"></a>Impedisci l'overfitting
 
@@ -141,8 +141,8 @@ Considerare i modelli sottoposti a training seguenti e le relative precisioni di
 
 | Modello | Accuratezza del training | Accuratezza test |
 |-------|----------------|---------------|
-| A | 99,9% | 95% |
-| B | 87% | 87% |
+| Una | 99,9% | 95% |
+| b | 87% | 87% |
 | C | 99,9% | 45% |
 
 Considerando il modello **a**, si verifica un malinteso comune che se l'accuratezza dei test sui dati non visualizzati è inferiore alla precisione di training, il modello viene sovramontato. Tuttavia, l'accuratezza dei test deve essere sempre inferiore alla precisione del training e la distinzione tra adattamento e adattamento rispetto a quello appropriato è *molto* meno accurata. 
@@ -151,7 +151,7 @@ Quando si confrontano i modelli **a** e **B**, Model **a** è un modello miglior
 
 Il modello **C** rappresenta un caso chiaro di overfitting; l'accuratezza del training è molto elevata, ma l'accuratezza dei test non è quasi così elevata. Questa distinzione è soggettiva, ma deriva dalla conoscenza del problema e dei dati e dalle grandezze di errore accettabili. 
 
-## <a name="time-series-forecasting"></a>Previsione di serie temporali
+## <a name="time-series-forecasting"></a>Previsione delle serie temporali
 
 La compilazione di previsioni è parte integrante di qualsiasi azienda, sia che si tratti di ricavi, scorte, vendite o richieste dei clienti. È possibile utilizzare Machine Learning Machine Learning per combinare tecniche e approcci e ottenere una previsione della serie temporale consigliata e di alta qualità.
 
@@ -193,7 +193,7 @@ Poiché gli algoritmi di classificazione vengono in genere valutati in base all'
 
 Inoltre, le esecuzioni automatiche di ML generano automaticamente i grafici seguenti, che consentono di comprendere la correttezza delle classificazioni del modello e di identificare i modelli potenzialmente interessati da dati sbilanciati.
 
-Grafico| Description
+Grafico| Descrizione
 ---|---
 [Matrice di confusione](how-to-understand-automated-ml.md#confusion-matrix)| Valuta le etichette classificate correttamente rispetto alle etichette effettive dei dati. 
 [Precisione-richiamo](how-to-understand-automated-ml.md#precision-recall-chart)| Valuta il rapporto tra le etichette corrette e il rapporto tra le istanze di etichette trovate dei dati 
@@ -215,7 +215,7 @@ Con Azure Machine Learning, è possibile usare il Machine Learning automatico pe
 
 Il Machine Learning automatico è disponibile anche in altre soluzioni Microsoft, ad esempio:
 
-|Integrazioni|Description|
+|Integrazioni|Descrizione|
 |------------|-----------|
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Selezione e training automatici dei modelli nelle app .NET con Visual Studio e Visual Studio Code con ML.NET Automatic Machine Learning (anteprima).|
 |[HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Ridimensionare i processi di training di Machine Learning automatici in Spark nei cluster HDInsight in parallelo.|

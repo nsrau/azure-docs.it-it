@@ -2,7 +2,7 @@
 title: Modificare la password dell'account aziendale o dell'Istituto di istruzione-Azure AD
 description: Informazioni su come modificare la password dell'account aziendale o dell'Istituto di istruzione dalla pagina Cambia password del portale account personale.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: jpettere
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.author: lizross
-ms.openlocfilehash: f92df704047e1d36e69e40ce5299b8d01e48e9eb
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: 06e5abe04ed1ec75dcbf1b216bfaab1a7458ce72
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705174"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064054"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Modificare la password dell'account aziendale o dell'Istituto di istruzione dalla pagina Cambia password
 

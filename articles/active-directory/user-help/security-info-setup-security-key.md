@@ -2,7 +2,7 @@
 title: 'Configurare una chiave di sicurezza come metodo di verifica: Azure AD'
 description: Come configurare la pagina delle informazioni di sicurezza (anteprima) per verificare l'identità per l'uso di una chiave di sicurezza FIDO2 (Fast Identity online) come metodo di verifica.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: librown
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.author: lizross
-ms.openlocfilehash: 3e16602128a70077d0a7962522ad3898421c8997
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: ee868ded0dc3a46f2ec20d0141aa2576cbf71f45
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704919"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062337"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>Configurare una chiave di sicurezza come metodo di verifica
 
@@ -27,9 +27,9 @@ ms.locfileid: "76704919"
 >[!Note]
 > Se l'opzione chiave di sicurezza non è visibile, è possibile che l'organizzazione non consenta di usare questa opzione per la verifica. In questo caso, è necessario scegliere un altro metodo o contattare l'help desk dell'organizzazione per ottenere assistenza.
 
-## <a name="security-verification-versus-password-reset-authentication"></a>Verifica della sicurezza rispetto all'autenticazione per la reimpostazione della password
+## <a name="security-verification-versus-password-reset-authentication"></a>Confronto tra verifica di sicurezza e autenticazione per la reimpostazione della password
 
-I metodi delle informazioni di sicurezza vengono usati per la verifica della sicurezza a due fattori e per la reimpostazione della password. Non tutti i metodi possono tuttavia essere usati per entrambe.
+I metodi di gestione delle informazioni di sicurezza vengono usati sia per la verifica di sicurezza a due fattori sia per la reimpostazione della password. Non tutti i metodi possono tuttavia essere usati per entrambe.
 
 | Metodo | Utilizzo |
 | ------ | -------- |

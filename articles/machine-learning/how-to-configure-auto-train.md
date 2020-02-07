@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: b4396c82851969b39841ba77fb8aba9679363474
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 00ab3e9c7902e253d39a38eb0e98ee166244bca2
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986496"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048572"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di Machine Learning automatici in Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,7 +43,7 @@ Prima di iniziare l'esperimento, è necessario determinare il tipo di problema d
 
 Durante il processo di automazione e ottimizzazione, il processo di Machine Learning automatizzato supporta gli algoritmi seguenti. Come utente, non è necessario specificare l'algoritmo.
 
-Classificazione | Regressione | Previsione delle serie temporali
+Classificazione | Regressione | Previsione di una serie temporale
 |-- |-- |--
 [Regressione logistica](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Rete elastica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [Rete elastica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
 [Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
@@ -177,7 +177,7 @@ I tre valori di parametro `task` diversi (il terzo tipo di attività è `forecas
 ### <a name="primary-metric"></a>Metrica primaria
 La metrica primaria determina la metrica da utilizzare durante il training del modello per l'ottimizzazione. La metrica disponibile che è possibile selezionare è determinata dal tipo di attività scelto e la tabella seguente mostra le metriche primarie valide per ogni tipo di attività.
 
-|Classificazione | Regressione | Previsione delle serie temporali
+|Classificazione | Regressione | Previsione di una serie temporale
 |-- |-- |--
 |precisione| spearman_correlation | spearman_correlation
 |AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
@@ -189,14 +189,20 @@ Informazioni sulle definizioni specifiche di queste metriche per [comprendere i 
 
 ### <a name="data-featurization"></a>Conteggi dati
 
-In ogni esperimento di Machine Learning automatizzato, i dati vengono [ridimensionati e normalizzati automaticamente](concept-automated-ml.md#preprocess) per aiutare *determinati* algoritmi sensibili alle funzionalità con diverse scale.  Tuttavia, è anche possibile abilitare conteggi aggiuntivi, ad esempio l'imputazione, la codifica e la trasformazione dei valori mancanti. [Scopri di più su cosa è incluso conteggi](how-to-create-portal-experiments.md#preprocess).
+In ogni esperimento di Machine Learning automatizzato, i dati vengono [ridimensionati e normalizzati automaticamente](concept-automated-ml.md#preprocess) per aiutare *determinati* algoritmi sensibili alle funzionalità con diverse scale.  Tuttavia, è anche possibile abilitare conteggi aggiuntivi, ad esempio l'imputazione, la codifica e la trasformazione dei valori mancanti. [Scopri di più su cosa è incluso conteggi](how-to-create-portal-experiments.md#featurization).
 
-Per abilitare questo conteggi, specificare `"featurization": 'auto'` per la [classe`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+Quando si configurano gli esperimenti, è possibile abilitare l'impostazione avanzata `featurization`. Nella tabella seguente vengono illustrate le impostazioni accettate per conteggi nella [classe`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+
+|Configurazione di conteggi | Descrizione |
+| ------------- | ------------- |
+|`"featurization":`&nbsp;`'FeaturizationConfig'`| Indica che deve essere utilizzato il passaggio conteggi personalizzato. [Informazioni su come personalizzare conteggi](how-to-configure-auto-train.md#customize-feature-engineering).|
+|`"featurization": 'off'`| Indica che il passaggio conteggi non deve essere eseguito automaticamente.|
+|`"featurization": 'auto'`| Indica che come parte della pre-elaborazione, [i passaggi di dati Guardrails e conteggi](how-to-create-portal-experiments.md#advanced-featurization-options) vengono eseguiti automaticamente.|
 
 > [!NOTE]
-> I passaggi di pre-elaborazione di Machine Learning automatizzati (normalizzazione delle funzionalità, gestione dei dati mancanti, conversione di valori di testo nel formato numerico e così via) diventano parte del modello sottostante. Quando si usa il modello per le previsioni, gli stessi passaggi di pre-elaborazione applicati durante il training vengono automaticamente applicati ai dati di input.
+> I passaggi automatici di conteggi Machine Learning, ovvero la normalizzazione delle funzionalità, la gestione dei dati mancanti, la conversione di testo in numeri e così via, diventano parte del modello sottostante. Quando si usa il modello per le stime, gli stessi passaggi conteggi applicati durante il training vengono applicati automaticamente ai dati di input.
 
-### <a name="time-series-forecasting"></a>Previsione delle serie temporali
+### <a name="time-series-forecasting"></a>Previsione di una serie temporale
 L'attività `forecasting` della serie temporale richiede parametri aggiuntivi nell'oggetto di configurazione:
 
 1. `time_column_name`: parametro obbligatorio che definisce il nome della colonna nei dati di training contenenti una serie temporale valida.
@@ -403,12 +409,12 @@ Usare queste 2 API nel primo passaggio del modello montato per comprendere megli
    |----|--------|
    |RawFeatureName|Nome della funzionalità o della colonna di input dal set di dati specificato.|
    |TypeDetected|Tipo di dati rilevato della funzionalità di input.|
-   |Eliminato|Indica se la funzionalità di input è stata eliminata o utilizzata.|
+   |Dropped|Indica se la funzionalità di input è stata eliminata o utilizzata.|
    |EngineeringFeatureCount|Numero di funzionalità generate tramite trasformazioni automatiche di progettazione delle funzionalità.|
    |Trasformazioni|Elenco di trasformazioni applicate alle funzionalità di input per generare funzionalità progettate.|
    
 ### <a name="customize-feature-engineering"></a>Personalizzare la progettazione delle funzionalità
-Per personalizzare la progettazione delle funzionalità, specificare `"feauturization":FeaturizationConfig`.
+Per personalizzare la progettazione delle funzionalità, specificare `"featurization": FeaturizationConfig`.
 
 La personalizzazione supportata include:
 

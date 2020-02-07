@@ -11,20 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumi
-ms.openlocfilehash: 86726eefb53638036a4e9207c648bf5ffe6c866e
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 1aa4328a6d5367ef356ce33807289a873c93d90f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595379"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77056700"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Criteri degli endpoint servizio di rete virtuale (anteprima)
 
 I criteri degli endpoint di servizio di rete virtuale permettono di filtrare il traffico di rete virtuale per i servizi di Azure, consentendo l'accesso solo a risorse specifiche dei servizi di Azure sugli endpoint di servizio. I criteri degli endpoint forniscono il controllo granulare dell'accesso per il traffico di rete virtuale per i servizi di Azure.
 
-Questa funzionalità è disponibile in __anteprima__ per i servizi e le aree di Azure seguenti:
-
-__Archiviazione di Azure__: WestCentralUS, WestUS2, NorthCentralUS, SouthCentralUS, CentralUS, EastUS2.
+Questa funzionalità è disponibile in __Anteprima__ in tutte le aree di Azure pubbliche per archiviazione di Azure.
 
 Per le notifiche più aggiornate per l'anteprima, vedere la pagina [Aggiornamenti di Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -119,7 +117,7 @@ I criteri degli endpoint servizio di rete virtuale offrono i vantaggi seguenti:
      - Gateway applicazione di Azure (versione classica)
      - Gateway VPN di Azure (versione classica)
 
-- Archiviazione di Azure. Gli account di archiviazione della versione classica non sono supportati nei criteri degli endpoint. Per impostazione predefinita, i criteri negano l'accesso a tutti gli account di archiviazione della versione classica. Se l'applicazione deve accedere ad Azure Resource Manager e agli account di archiviazione della versione classica, i criteri degli endpoint non devono essere usati per il traffico. 
+- Archiviazione di Azure: gli account di archiviazione della versione classica non sono supportati nei criteri degli endpoint. Per impostazione predefinita, i criteri negano l'accesso a tutti gli account di archiviazione della versione classica. Se l'applicazione deve accedere ad Azure Resource Manager e agli account di archiviazione della versione classica, i criteri degli endpoint non devono essere usati per il traffico. 
 
 ## <a name="nsgs-with-service-endpoint-policies"></a>Gruppi di sicurezza di rete con criteri degli endpoint di servizio
 - Per impostazione predefinita, i gruppi di sicurezza di rete consentono il traffico Internet in uscita, incluso il traffico di rete virtuale per i servizi di Azure.
@@ -142,7 +140,7 @@ I criteri degli endpoint servizio di rete virtuale offrono i vantaggi seguenti:
 
 ## <a name="scenarios"></a>Scenari
 
-- **Reti virtuali multiple, connesse o con peering**: per filtrare il traffico nelle reti virtuali con peering, i criteri degli endpoint devono essere applicati individualmente a tali reti virtuali.
+- **Reti virtuali con peering, connesse o multiple**: per filtrare il traffico nelle reti virtuali con peering, i criteri degli endpoint devono essere applicati individualmente a tali reti virtuali.
 - **Filtro del traffico Internet con appliance di rete o Firewall di Azure**: filtrare il traffico dei servizi di Azure con i criteri sugli endpoint e filtrare il resto del traffico Internet o di Azure tramite appliance o Firewall di Azure. 
 - **Filtro del traffico nei servizi di Azure distribuiti nelle reti virtuali**: durante l'anteprima, i criteri degli endpoint di servizio non sono supportati per i servizi di Azure gestiti distribuiti nella rete virtuale. 
  Per i servizi specifici, vedere [Limitazioni](#limitations).
@@ -188,7 +186,7 @@ Per i criteri degli endpoint di servizio vengono applicati i limiti seguenti:
  |ServiceEndpintPoliciesPerSubnet|100 |
  |ServiceResourcesPerServiceEndpointPolicyDefinition|200 |
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 - Leggere [come configurare i criteri degli endpoint servizio di rete virtuale](virtual-network-service-endpoint-policies-portal.md)
 - Leggere altre informazioni sugli [endpoint servizio di rete virtuale](virtual-network-service-endpoints-overview.md)

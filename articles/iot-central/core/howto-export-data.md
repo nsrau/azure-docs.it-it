@@ -8,12 +8,12 @@ ms.date: 01/30/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 058fe9aea87879fe85dcbc6dcb864fd841fcb049
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a3d60bf38c4a9dad13dacf8ba9798c4078c1df1a
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026796"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049724"
 ---
 # <a name="export-your-azure-iot-central-data"></a>Esporta i dati di Azure IoT Central
 
@@ -29,7 +29,7 @@ Questo articolo descrive come usare la funzionalità di esportazione continua de
 > [!Note]
 > Quando si attiva l'esportazione continua dei dati, si recuperano solo i dati a partire dal momento dell'attivazione. Attualmente non è possibile recuperare i dati relativi a un periodo in cui l'esportazione continua era disattivata. Per conservare una maggiore quantità di dati cronologici, attivare presto l'esportazione continua dei dati.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 È necessario essere un amministratore dell'applicazione IoT Central o disporre delle autorizzazioni di esportazione dei dati.
 
@@ -62,10 +62,14 @@ Quando si sceglie bus di servizio come destinazione di esportazione, per le code
 
 Se non si ha un account di archiviazione di Azure esistente da esportare, seguire questa procedura:
 
-1. Creare un [nuovo account di archiviazione nel portale di Azure](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). È possibile ottenere altre informazioni sulla creazione di nuovi [account di archiviazione BLOB di Azure](https://aka.ms/blobdocscreatestorageaccount) o [Azure Data Lake storage V2](../../storage/blobs/data-lake-storage-quickstart-create-account.md).
+1. Creare un [nuovo account di archiviazione nel portale di Azure](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). È possibile ottenere altre informazioni sulla creazione di nuovi [account di archiviazione BLOB di Azure](https://aka.ms/blobdocscreatestorageaccount) o [Azure Data Lake storage V2](../../storage/blobs/data-lake-storage-quickstart-create-account.md). L'esportazione dei dati può scrivere solo i dati negli account di archiviazione che supportano i BLOB in blocchi. Di seguito è riportato un elenco di tipi compatibili noti di account di archiviazione: 
 
-    - Se si sceglie di esportare i dati in un account di archiviazione Azure Data Lake Storage V2, è necessario scegliere **BlobStorage** come **tipo di account**.
-    - È possibile esportare i dati negli account di archiviazione in sottoscrizioni diverse da quella per l'applicazione IoT Central. In questo caso ci si connetterà con una stringa di connessione.
+    |Livello di prestazioni|Tipo di account|
+    |-|-|
+    |Standard|per utilizzo generico V2|
+    |Standard|per utilizzo generico V1|
+    |Standard|Archiviazione BLOB|
+    |Premium|Archiviazione BLOB in blocchi|
 
 2. Creare un contenitore nell'account di archiviazione. Passare all'account di archiviazione. In **Servizio BLOB** selezionare **Esplora BLOB**. Selezionare **+ Contenitore** in alto per creare un nuovo contenitore.
 

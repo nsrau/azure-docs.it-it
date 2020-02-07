@@ -2,7 +2,7 @@
 title: Reimpostare le password usando le informazioni di sicurezza - Azure Active Directory | Microsoft Docs
 description: Come reimpostare la password se la si dimentica, usando la verifica in due passaggi e le informazioni di sicurezza.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.author: lizross
-ms.openlocfilehash: ad4831cfb5b09083b4ee76b6badf3936b2256138
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.author: curtand
+ms.openlocfilehash: 3ed79be318319009aabb1b1ef0c42c4021bbbabe
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263490"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062660"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Reimposta la password aziendale o dell'Istituto di istruzione usando le info di sicurezza
 
@@ -155,7 +155,7 @@ Se l'amministratore ha attivato la funzionalità, è possibile visualizzare un c
 
 Di seguito sono riportati alcuni degli errori più comuni e le relative soluzioni:
 
-|Problema|Description|Soluzione|
+|Problema|Descrizione|Soluzione|
 | --- | --- | --- |
 |Quando si tenta di modificare la password, viene visualizzato un errore. |La password contiene una parola o una frase o segue uno schema che la rende facile da indovinare.| Riprovare con una password più complessa.|
 |Dopo avere immesso l'ID utente, viene visualizzata una pagina in cui è indicato "Contattare l'amministratore".|Microsoft ha stabilito che la password dell'account utente è gestita dall'amministratore in un ambiente locale. Di conseguenza, non è possibile reimpostare la password dal collegamento "Problemi di accesso all'account?". |Contattare l'amministratore per ulteriore assistenza.|

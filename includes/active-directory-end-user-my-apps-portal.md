@@ -5,17 +5,17 @@ services: active-directory
 author: eross-msft
 ms.service: active-directory
 ms.topic: include
-ms.date: 03/06/2019
+ms.date: 02/03/2020
 ms.author: lizross
 ms.custom: include file
-ms.openlocfilehash: c7f3fec478067a9b321d8c7bc5e371f5a6a330cb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: df529de23b5d964dd80dd9fa5dd17c460a2c4f28
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75466866"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77062379"
 ---
 | |
 |--|
-|Se l'amministratore ha attivato la nuova esperienza in anteprima di **App personali** per l'organizzazione, nella parte superiore della pagina **App personali** verrà visualizzato il banner **È disponibile un'esperienza aggiornata per App personali**. Selezionando **Prova** si passerà immediatamente al nuovo URL (myapplications.microsoft.com) e all'esperienza aggiornata. Successivamente, a ogni accesso alla pagina **App personali** si andrà automaticamente alla nuova esperienza.<br><br>Per non usare più la nuova esperienza, è possibile selezionare **Sì** nel banner **Leave new experience** (Esci dalla nuova esperienza) nella parte superiore della pagina **App personali**. Si tornerà immediatamente all'URL (myapps.microsoft.com) e all'esperienza precedenti. Successivamente, a ogni accesso alla pagina **App personali** si andrà automaticamente all'esperienza precedente.|
+|Se l'amministratore ha attivato la nuova esperienza di anteprima delle **app personali** per l'organizzazione, ora viene visualizzato un collegamento quando si seleziona l'icona dell'account per visualizzare le informazioni sull'account nella parte superiore della pagina **app personali** . Se si seleziona **prova la nuova esperienza app personali!** , si passerà immediatamente al nuovo URL (https://myapplications.microsoft.com) e l'esperienza aggiornata. Successivamente, quando si torna alla pagina **My Apps (app personali** ), si passerà automaticamente alla nuova esperienza.<br><br>Per interrompere l'uso della nuova esperienza, è possibile selezionare **lascia esperienza anteprima** quando si seleziona l'icona dell'account per visualizzare le informazioni sull'account nella parte superiore della pagina **app personali** . Si tornerà immediatamente all'URL (myapps.microsoft.com) e all'esperienza precedenti. Successivamente, a ogni accesso alla pagina **App personali** si andrà automaticamente all'esperienza precedente.|
 |

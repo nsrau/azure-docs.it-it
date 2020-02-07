@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5f36e82c2ff95800a058f56f9cc6b80ddf02dbf
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 1c46facb2d43137175730bf04fea0efec9c1ecbd
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967702"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063850"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD
 
@@ -298,7 +298,7 @@ Il servizio Integrazione log di Azure consente di integrare i log non elaborati 
 
 #### <a name="implement-user-provisioning-for-connected-apps"></a>Implementare il provisioning degli utenti per le app connesse
 
-Azure AD consente di automatizzare la creazione, la manutenzione e la rimozione delle identità utente in applicazioni cloud (SaaS), ad esempio Dropbox, Salesforce, ServiceNow e così via. Per altre informazioni, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
+Azure AD consente di automatizzare la creazione, la manutenzione e la rimozione delle identità utente in applicazioni cloud (SaaS), ad esempio Dropbox, Salesforce, ServiceNow e così via. Per altre informazioni, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 #### <a name="integrate-information-protection"></a>Integrare la protezione delle informazioni
 

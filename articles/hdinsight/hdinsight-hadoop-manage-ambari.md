@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/11/2019
-ms.openlocfilehash: 81b57191a02dd3214928ac90e2761f5f8dfb2cfc
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive
+ms.date: 02/05/2020
+ms.openlocfilehash: d8cb8bfa32db958b6dfdda0df23429669ce2a439
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311668"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063799"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gestire i cluster HDInsight usando l'interfaccia utente Web di Apache Ambari
 
@@ -29,10 +29,10 @@ Questo documento spiega come usare l'interfaccia utente Web Ambari con un cluste
 
 ## <a name="connectivity"></a>Connettività
 
-L'interfaccia utente Web di Ambariri è disponibile nel cluster HDInsight all'`https://CLUSTERNAME.azurehdinsight.net`, dove `CLUSTERNAME` è il nome del cluster.
+L'interfaccia utente Web di Ambariri è disponibile nel cluster HDInsight in `https://CLUSTERNAME.azurehdinsight.net`, dove `CLUSTERNAME` è il nome del cluster.
 
 > [!IMPORTANT]  
-> La connessione ad Ambari su HDInsight richiede HTTPS. Quando viene richiesta l'autenticazione, usare il nome e la password dell'account amministratore specificati quando è stato creato il cluster.
+> La connessione ad Ambari su HDInsight richiede HTTPS. Quando viene richiesta l'autenticazione, usare il nome e la password dell'account amministratore specificati quando è stato creato il cluster. Se non vengono richieste le credenziali, verificare le impostazioni di rete per verificare che non sia presente alcun problema di connettività tra il client e i cluster HDInsight di Azure.
 
 ## <a name="ssh-tunnel-proxy"></a>Tunnel SSH (proxy)
 
@@ -54,11 +54,11 @@ Quando si apre la pagina, si noti la barra in alto, che contiene le informazioni
 |Logo di Ambari|Apre il dashboard, che può essere usato per monitorare il cluster.|
 |Nome cluster # Ops|Visualizza il numero di operazioni Ambari in corso. Selezionando il nome del cluster o **# ops**, viene visualizzato un elenco delle operazioni in background.|
 |n. avvisi|Visualizza gli avvisi o gli avvisi critici, se presenti, per il cluster.|
-|dashboard|Visualizza il dashboard.|
+|Dashboard|Visualizza il dashboard.|
 |Servizi|Informazioni e impostazioni di configurazione per i servizi nel cluster.|
 |Hosts|Impostazioni di configurazione e informazioni per i nodi nel cluster.|
 |Avvisi|Log di informazioni, avvisi e avvisi critici.|
-|Admin|Stack di software/servizi installati nel cluster, informazioni sull'account del servizio e sicurezza Kerberos.|
+|Amministrativi|Stack di software/servizi installati nel cluster, informazioni sull'account del servizio e sicurezza Kerberos.|
 |Pulsante amministratore|Gestione Ambari, impostazioni utente e disconnessione.|
 
 ## <a name="monitoring"></a>Monitoraggio
@@ -88,7 +88,7 @@ Gli avvisi sono organizzati in diversi gruppi predefiniti, che possono essere vi
 
 Selezionare infine __Manage Alert Settings__ (Gestire impostazioni di avviso) dal menu __Actions__ (Azioni) per stabilire il numero di volte in cui deve verificarsi un avviso prima che venga inviata una notifica. Questa impostazione può essere usata per evitare notifiche relative ad errori temporanei.
 
-### <a name="cluster"></a>HDInsight
+### <a name="cluster"></a>Cluster
 
 La scheda **Metrics** del dashboard contiene una serie di widget che consentono di monitorare lo stato del cluster in modo immediato. Widget diversi, ad esempio **CPU Usage**, forniscono informazioni aggiuntive quando vengono selezionati.
 
@@ -156,12 +156,12 @@ La pagina **Hosts** elenca tutti gli host del cluster. Per gestire gli host, seg
     |Avvia tutti i componenti|Avviare tutti i componenti nell'host.|
     |Arresta tutti i componenti|Arrestare tutti i componenti nell'host.|
     |Riavvia tutti i componenti|Arrestare e avviare tutti i componenti nell'host.|
-    |Attiva modalità manutenzione|Disattiva gli avvisi per l'host. Questa modalità deve essere abilitata se si eseguono azioni che generano avvisi, come l'arresto e l'avvio di un servizio.|
+    |Attiva modalità manutenzione|Disattiva gli avvisi per l'host. Questa modalità deve essere abilitata se si eseguono azioni che generano avvisi. come l'arresto e l'avvio di un servizio.|
     |Disattivare la modalità di manutenzione|Restituisce l'host agli avvisi normali.|
     |Arresto|Arresta dataNode o NodeManagers nell'host.|
-    |Start|Avvia dataNode o NodeManagers nell'host.|
+    |Inizia|Avvia dataNode o NodeManagers nell'host.|
     |Riavvio|Arresta e avvia dataNode o NodeManagers nell'host.|
-    |Rimuovere le autorizzazioni|Rimuove un host dal cluster. **Non usare questa azione nei cluster HDInsight.**|
+    |Rimozione delle autorizzazioni|Rimuove un host dal cluster. **Non usare questa azione nei cluster HDInsight.**|
     |Ripristinare|Aggiunge un host precedentemente rimosso al cluster. **Non usare questa azione nei cluster HDInsight.**|
 
 ### <a id="service"></a>Services
@@ -193,7 +193,7 @@ Per configurare un servizio, seguire questa procedura:
 
 1. Nella pagina **Dashboard** (Dashboard) o **Services** (Servizi) selezionare un servizio.
 
-2. Selezionare la scheda **Configs** (Configurazioni). Verrà visualizzata la configurazione corrente, insieme a un elenco delle configurazioni precedenti.
+2. Selezionare la scheda **configs (configurazioni** ). Verrà visualizzata la configurazione corrente. insieme a un elenco delle configurazioni precedenti.
 
     ![Configurazione del servizio Apache Ambari](./media/hdinsight-hadoop-manage-ambari/ambari-service-configs.png)
 
@@ -203,9 +203,9 @@ Per configurare un servizio, seguire questa procedura:
 
 Le viste di Ambari consentono agli sviluppatori di collegare gli elementi dell'interfaccia utente all'interfaccia utente Web di Ambari usando il [framework delle viste di Apache Ambari](https://cwiki.apache.org/confluence/display/AMBARI/Views). HDInsight fornisce le viste seguenti i con tipi di cluster Hadoop:
 
-* Vista di Hive: Le viste di Hive consentono di eseguire query Hive direttamente dal Web browser. È possibile salvare query, visualizzare i risultati, salvare i risultati nell'archiviazione cluster o scaricare i risultati nel sistema locale. Per altre informazioni sull'uso delle viste di Hive, vedere l'argomento relativo all'[uso delle viste Apache Hive con HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
+* Viste di Hive: le viste di Hive consentono di eseguire query Hive direttamente dal Web browser. È possibile salvare query, visualizzare i risultati, salvare i risultati nell'archiviazione cluster o scaricare i risultati nel sistema locale. Per altre informazioni sull'uso delle viste di Hive, vedere l'argomento relativo all'[uso delle viste Apache Hive con HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
 
-* Vista Tez: La vista Tez consente di comprendere meglio e ottimizzare i processi. È possibile visualizzare informazioni sulle modalità di esecuzione dei processi Tez e sulle risorse usate.
+* Vista Tez: la vista Tez consente di comprendere meglio e ottimizzare i processi. È possibile visualizzare informazioni sulle modalità di esecuzione dei processi Tez e sulle risorse usate.
 
 ## <a name="unsupported-operations"></a>Operazioni non supportate
 

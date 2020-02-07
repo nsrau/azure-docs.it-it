@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 9a2237c0cea5fcc67e093709a0b42193b7326d1d
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 498cbd982b565f498ddade2dbc9afafe17a2c4ab
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045997"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048711"
 ---
 # <a name="create-a-new-dynamics-365-for-customer-engagement--powerapps-offer"></a>Crea una nuova offerta di Dynamics 365 per Customer Engagement & PowerApps
 
@@ -57,7 +57,7 @@ Elencare l'offerta ai clienti con un collegamento a una versione di valutazione 
 > [!NOTE]
 > I token che l'applicazione riceverà tramite il collegamento alla versione di valutazione può essere usato solo per ottenere informazioni sugli utenti tramite Azure Active Directory (Azure AD) per automatizzare la creazione di account nell'app. Gli account Microsoft non sono supportati per l'autenticazione con questo token.
 
-#### <a name="contact-me"></a>Contattami
+#### <a name="contact-me"></a>Contact me (Contattami)
 
 Raccogliere le informazioni di contatto del cliente connettendosi al sistema CRM (Customer Relationship Management). Al cliente verrà richiesta l'autorizzazione a condividere le informazioni. Queste informazioni sui clienti, insieme al nome dell'offerta, all'ID e all'origine del Marketplace in cui è stata trovata l'offerta, verranno inviate al sistema CRM configurato. Per ulteriori informazioni sulla configurazione del CRM, vedere [Connect Lead Management](#connect-lead-management). 
 
@@ -96,7 +96,7 @@ Ricordarsi di **salvare** prima di procedere alla sezione successiva.
 
 La pagina delle **Proprietà** consente di definire le categorie e i settori usati per raggruppare l'offerta nel Marketplace, la versione dell'app e i contratti legali che supportano l'offerta. Selezionare **Salva** dopo aver completato questa pagina.
 
-### <a name="category"></a>Categoria
+### <a name="category"></a>Category
 
 Selezionare un minimo di uno e un massimo di tre categorie. La **categoria** verrà usata per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di richiamare il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta.
 
@@ -112,19 +112,9 @@ Selezionare tutti i prodotti Dynamics 365 a cui si applica questa offerta.
 
 Immettere il numero di versione dell'offerta. I clienti visualizzeranno questa versione nella pagina dei dettagli dell'offerta. Se si aggiorna il numero di versione solo a causa di modifiche di marketing/descrittive, selezionare la casella di **modifica solo marketing** . Questa opzione consente all'offerta di ignorare le fasi di certificazione e provisioning.
 
-### <a name="standard-contract"></a>Contratto standard
+### <a name="terms-and-conditions"></a>Termini e condizioni
 
-Per semplificare il processo di approvvigionamento per i clienti e ridurre la complessità giuridica per i fornitori di software, Microsoft offre un modello di contratto standard per facilitare una transazione nel Marketplace.
-
-Anziché creare termini e condizioni personalizzati, è possibile scegliere di offrire il software nel contratto standard, che i clienti devono solo controllare e accettare una sola volta.
-
-Il contratto standard è disponibile qui: https://go.microsoft.com/fwlink/?linkid=2041178
-
-Per usare il contratto standard, selezionare la casella **USA contratto standard?** .
-
-#### <a name="terms-of-use"></a>Condizioni per l'utilizzo
-
-Se non si seleziona la casella **USA contratto standard** , sarà necessario fornire le proprie condizioni legali per l'utilizzo nel campo **condizioni per l'utilizzo** . Immettere un massimo di 10.000 caratteri di testo o, se le condizioni per l'utilizzo richiedono una descrizione più lunga, fornire l'URL in cui è possibile trovare le condizioni di licenza aggiuntive. Per poter provare l'app, ai clienti verrà richiesto di accettare le presenti condizioni.
+Fornire i termini e le condizioni legali nel campo **termini e condizioni** . È anche possibile specificare l'URL in cui è possibile trovare i termini e le condizioni. Ai clienti verrà richiesto di accettare le presenti condizioni per poter provare l'offerta.
 
 ## <a name="offer-listing"></a>Elenco offerte
 
@@ -153,7 +143,7 @@ Fornire una breve descrizione dell'offerta (fino a 100 caratteri). Questa descri
 
 
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrizione
 
 Fornire una descrizione più lunga dell'offerta (fino a 3.000 caratteri). Questa descrizione verrà visualizzata ai clienti nella panoramica dell'inserzione sul Marketplace. Includere la proposta di valore dell'offerta, i vantaggi principali, le associazioni di categoria e/o di settore, le opportunità di acquisto in-app ed eventuali divulgazioni necessarie.
 
@@ -192,7 +182,7 @@ Utilizzare le istruzioni seguenti per utilizzare l'editor di testo RTF:
 
 
 
-### <a name="search-keywords"></a>Parole chiave di ricerca
+### <a name="search-keywords"></a>Search Keywords (Parole chiave di ricerca)
 
 Facoltativamente, è possibile immettere fino a tre parole chiave di ricerca per aiutare i clienti a trovare l'offerta nel Marketplace. Per ottenere risultati ottimali, provare a usare queste parole chiave anche nella descrizione.
 
@@ -208,7 +198,7 @@ Questa sezione consente di fornire i collegamenti per aiutare i clienti a compre
 
 Immettere l'URL in cui i clienti possono ottenere ulteriori informazioni sull'offerta.
 
-#### <a name="privacy-policy-url"></a>URL Informativa sulla privacy
+#### <a name="privacy-policy-url"></a>URL informativa sulla privacy
 
 Immettere l'URL dell'informativa sulla privacy dell'organizzazione. L'utente è responsabile di garantire che l'applicazione sia conforme alle leggi e alle normative sulla privacy e per fornire un'informativa sulla privacy valida.
 

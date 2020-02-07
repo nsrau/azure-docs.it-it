@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 790a948611c6cfa336964397282a38d2b9c00e11
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 9e1cc9dde6bb2b6ae47affaed4c557f3746a681b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848783"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061455"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Domande frequenti sulla gestione delle password
 
@@ -80,7 +80,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
   >
 
-## <a name="password-reset"></a>Reimpostazione delle password
+## <a name="password-reset"></a>Reimpostazione della password
 
 * **D: Agli utenti viene impedito di effettuare più tentativi di reimpostazione di una password in un breve periodo di tempo?**
 
@@ -114,7 +114,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
 * **D: In che modo è possibile spiegare agli utenti come fare per reimpostare le proprie password?**
 
-  > **R:** Provare alcuni dei suggerimenti contenuti nell'articolo relativo alla [distribuzione della reimpostazione password self-service](howto-sspr-deployment.md#communications-plan).
+  > **R:** Provare alcuni dei suggerimenti contenuti nell'articolo relativo alla [distribuzione della reimpostazione password self-service](howto-sspr-deployment.md#plan-communications).
   >
   >
 * **D: Questa pagina può essere usata da un dispositivo mobile?**
@@ -174,7 +174,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
 * **D: Se un utente ha registrato un numero di domande superiore al numero massimo delle domande necessarie per la reimpostazione, come vengono selezionate le domande di sicurezza durante la reimpostazione?**
 
-  > **R:** Dal numero totale di domande di sicurezza per cui un utente ha eseguito la registrazione viene selezionato in modo casuale un numero *N* di domande, dove *N* è il valore impostato per l'opzione **Numero di domande necessarie per la reimpostazione**. Se un utente ha registrato cinque domande di sicurezza ma per reimpostare una password ne sono necessarie solo tre, ad esempio, al momento della reimpostazione vengono selezionate in modo casuale e presentate solo tre delle cinque domande. Per evitare attacchi hammering sulle domande, se l'utente sbaglia le risposte alle domande, il processo di selezione ricomincia.
+  > **R:** *n* numero di domande di sicurezza selezionate casualmente dal numero totale di domande per cui un utente si è registrato, dove *n* è il valore impostato per il **numero di domande necessarie per la reimpostazione** dell'opzione. Se un utente ha registrato cinque domande di sicurezza ma per reimpostare una password ne sono necessarie solo tre, ad esempio, al momento della reimpostazione vengono selezionate in modo casuale e presentate solo tre delle cinque domande. Per evitare attacchi hammering sulle domande, se l'utente sbaglia le risposte alle domande, il processo di selezione ricomincia.
   >
   >
 * **D: Per quanto tempo sono validi i passcode monouso inviati per posta elettronica o SMS?**

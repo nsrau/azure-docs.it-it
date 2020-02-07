@@ -2,7 +2,7 @@
 title: 'Gestire le organizzazioni dal portale per gli account personali: Azure AD'
 description: Come visualizzare e lasciare le organizzazioni connesse all'account aziendale o dell'Istituto di istruzione dalla pagina organizzazioni del portale account personale.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: jpettere
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.author: lizross
-ms.openlocfilehash: e8bea2c8eed210278b52b7ce6095a77c41fdd6ab
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: fbaca387dd8062f50bb7555c7be6e7f65ce346bf
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705140"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062473"
 ---
 # <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Gestire le organizzazioni connesse dalla pagina delle organizzazioni
 

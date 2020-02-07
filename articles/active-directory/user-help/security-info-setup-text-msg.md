@@ -2,7 +2,7 @@
 title: Configurare la messaggistica di testo come metodo di verifica-Azure AD
 description: Come configurare la pagina delle informazioni di sicurezza (anteprima) per verificare l'identità usando i messaggi di testo come metodo di verifica.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2019
-ms.author: lizross
-ms.openlocfilehash: 1d21445d12ea8ae7040627c6f9bdae7c744953c3
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: 0525ee6d0ac5df61113e5a97c9812394323ffb3d
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704817"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062354"
 ---
 # <a name="set-up-text-messaging-as-your-verification-method"></a>Configurare la messaggistica di testo come metodo di verifica
 

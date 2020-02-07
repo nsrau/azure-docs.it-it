@@ -4,21 +4,21 @@ description: Scaricare in blocco i record utente nell'interfaccia di amministraz
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 07/15/2019
+manager: daveba
+ms.date: 02/06/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
-ms.reviewer: jeffsta
+ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d106e803fdef4f054b7e4717ba59a43359d1d68a
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 4716ff9547f64dc6551b4d4adb0a8578da9fa83e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720294"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063833"
 ---
 # <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Scaricare un elenco di utenti (anteprima) nel portale di Azure Active Directory
 
@@ -39,7 +39,7 @@ Per scaricare l'elenco di utenti dall'interfaccia di amministrazione di Azure AD
 
    Il file di download conterrà l'elenco filtrato di utenti.
 
-   Verranno inclusi gli attributi utente seguenti: 
+   Sono inclusi gli attributi utente seguenti:
 
    - userPrincipalName
    - displayName
@@ -50,7 +50,6 @@ Per scaricare l'elenco di utenti dall'interfaccia di amministrazione di Azure AD
    - userType
    - jobTitle
    - department
-   - manager
    - accountEnabled
    - usageLocation
    - streetAddress

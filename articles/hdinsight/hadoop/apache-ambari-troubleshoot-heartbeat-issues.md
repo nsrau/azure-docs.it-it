@@ -1,18 +1,18 @@
 ---
 title: Problemi di heartbeat di Apache Ambari in Azure HDInsight
 description: Revisione dei vari motivi per i problemi di heartbeat di Apache Ambari in Azure HDInsight
-ms.service: hdinsight
-ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.date: 09/11/2019
-ms.openlocfilehash: ae05a0d0866c38c2414bacb638fa90936bb6dc15
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.date: 02/06/2020
+ms.openlocfilehash: ab88f65d535be2aef5f0b26fa1171c03276466e8
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964618"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057074"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Problemi di heartbeat di Apache Ambari in Azure HDInsight
 
@@ -22,7 +22,7 @@ Questo articolo descrive le procedure di risoluzione dei problemi e le possibili
 
 ### <a name="issue"></a>Problema
 
-L'agente Ambari ha un utilizzo elevato della CPU, che genera avvisi dall'interfaccia utente di Ambari che per alcuni nodi viene perso l'heartbeat dell'agente Ambari. L'avviso di heartbeat perso è in genere temporaneo. 
+L'agente Ambari ha un utilizzo elevato della CPU, che genera avvisi dall'interfaccia utente di Ambari che per alcuni nodi viene perso l'heartbeat dell'agente Ambari. L'avviso di heartbeat perso è in genere temporaneo.
 
 ### <a name="cause"></a>Causa
 
@@ -81,7 +81,7 @@ Gli avvisi sono causati dall'agente Ambari non in esecuzione.
     ps -ef | grep failover
     ```
 
-    Se i servizi del controller di failover non sono in esecuzione, è probabile che a causa di un problema si impedisca a HDInsight-Agent di avviare il controller di failover. Controllare HDInsight-Agent log da `/var/log/hdinsight-agent/hdinsight-agent.out` file.
+    Se i servizi del controller di failover non sono in esecuzione, probabilmente a causa di un problema impedire a HDInsight-Agent di avviare il controller di failover. Controllare HDInsight-Agent log da `/var/log/hdinsight-agent/hdinsight-agent.out` file.
 
 ## <a name="scenario-heartbeat-lost-for-ambari"></a>Scenario: heartbeat perso per Ambari
 
@@ -95,7 +95,7 @@ I log di OMS causano un utilizzo elevato della CPU.
 
 ### <a name="resolution"></a>Risoluzione
 
-* Disabilitare la registrazione di OMS usando il modulo [di PowerShell Disable-AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightoperationsmanagementsuite?view=azps-2.8.0) . 
+* Disabilitare la registrazione di monitoraggio di Azure usando il cmdlet di PowerShell [Disable-AzHDInsightMonitoring](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightmonitoring) .
 * Eliminare il file di log `mdsd.warn`
 
 ---

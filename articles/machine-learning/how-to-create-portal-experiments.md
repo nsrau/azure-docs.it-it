@@ -10,13 +10,13 @@ ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
-ms.openlocfilehash: 808d7ac7ded9b250e0835da51b6b547c05c622a9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/04/2020
+ms.openlocfilehash: 620aab2d2104c9e08de6e7ea47511ff45a482ec4
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720402"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046108"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Crea, Esplora e Distribuisci esperimenti di Machine Learning automatici con Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -25,13 +25,13 @@ ms.locfileid: "76720402"
 
  Se si preferisce un'esperienza più basata sul codice, è anche possibile [configurare gli esperimenti di Machine Learning automatici in Python](how-to-configure-auto-train.md) con l' [SDK di Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Un'area di lavoro di Azure Machine Learning con un tipo di **Enterprise Edition**. Vedere [Creare un'area di lavoro di Azure Machine Learning](how-to-manage-workspace.md).  Per aggiornare un'area di lavoro esistente a Enterprise Edition, vedere [eseguire l'aggiornamento a Enterprise Edition](how-to-manage-workspace.md#upgrade).
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 
 1. Accedere ad [Azure Machine Learning Studio](https://ml.azure.com). 
 
@@ -47,7 +47,7 @@ In caso contrario, verrà visualizzato un elenco dei recenti esperimenti automat
 
 ## <a name="create-and-run-experiment"></a>Creazione ed esecuzione dell'esperimento
 
-1. Selezionare **+ Crea esperimento** e popolare il modulo.
+1. Selezionare **+ nuovo automatizzato ml Run** e popolare il modulo.
 
 1. Selezionare un set di dati dal contenitore di archiviazione o creare un nuovo set di dati. I set di dati possono essere creati da file locali, URL Web, archivi dati o set di dati aperti di Azure. 
 
@@ -67,12 +67,12 @@ In caso contrario, verrà visualizzato un elenco dei recenti esperimenti automat
         Campo| Descrizione
         ----|----
         Formato file| Definisce il layout e il tipo di dati archiviati in un file.
-        Delimiter| Uno o più caratteri per specificare il limite tra aree separate indipendenti in testo normale o altri flussi di dati.
+        Delimitatore| Uno o più caratteri per specificare il limite tra aree separate indipendenti in testo normale o altri flussi di dati.
         Codifica| Identifica la tabella dello schema bit-carattere da usare per leggere il set di dati.
         Intestazioni di colonna| Indica come verranno considerate le intestazioni del set di dati, se presenti.
         Ignora righe | Indica quante righe vengono eventualmente ignorate nel set di dati.
     
-        Fare clic su **Avanti**.
+        Selezionare **Avanti**.
 
     1. Il form **dello schema** viene popolato in modo intelligente in base alle selezioni nelle **Impostazioni e** nel modulo di anteprima. Qui configurare il tipo di dati per ogni colonna, rivedere i nomi delle colonne e selezionare le colonne da **non includere** per l'esperimento. 
             
@@ -80,7 +80,7 @@ In caso contrario, verrà visualizzato un elenco dei recenti esperimenti automat
 
     1. Il modulo **Confirm Details** è un riepilogo delle informazioni popolate in precedenza nelle **informazioni di base** e nelle **Impostazioni e** nei moduli di anteprima. È anche possibile profilare il set di dati usando un calcolo abilitato per la profilatura. Altre informazioni sulla [profilatura dei dati](#profile).
 
-        Fare clic su **Avanti**.
+        Selezionare **Avanti**.
 1. Selezionare il set di dati appena creato dopo che è stato visualizzato. È anche possibile visualizzare un'anteprima del set di dati e delle statistiche di esempio. 
 
 1. Nel modulo **Configura esecuzione** , immettere un nome di esperimento univoco.
@@ -97,12 +97,12 @@ In caso contrario, verrà visualizzato un elenco dei recenti esperimenti automat
     Dimensioni della macchina virtuale| Selezionare le dimensioni della macchina virtuale per il contesto di calcolo.
     Numero minimo/massimo di nodi (in Impostazioni avanzate)| Per profilare i dati, è necessario specificare almeno un nodo. Immettere il numero massimo di nodi per il calcolo. Il valore predefinito è 6 nodi per un calcolo AML.
     
-    Selezionare **Crea**. La creazione di un nuovo calcolo può richiedere alcuni minuti.
+    Selezionare **Create** (Crea). La creazione di un nuovo calcolo può richiedere alcuni minuti.
 
     >[!NOTE]
     > Il nome di calcolo indicherà se la *profilatura*del calcolo selezionato/creato è abilitata. Per altri dettagli, vedere la sezione [profiling dei dati](#profile) .
 
-    Fare clic su **Avanti**.
+    Selezionare **Avanti**.
 
 1. Nel modulo **tipo di attività e impostazioni** selezionare il tipo di attività, ovvero classificazione, regressione o previsione. Per ulteriori informazioni [, vedere come definire i tipi di attività](how-to-define-task-type.md) .
 
@@ -113,16 +113,19 @@ In caso contrario, verrà visualizzato un elenco dei recenti esperimenti automat
 
         1. Select Forecast Horizon: indica il numero di unità di tempo (minuti/ore/giorni/settimane/mesi/anni) che il modello sarà in grado di stimare in futuro. Maggiore è il modello necessario per prevedere il futuro, minore sarà il livello di precisione. [Altre informazioni sulla previsione e sull'orizzonte di previsione](how-to-auto-train-forecast.md).
 
-1. Opzionale Configurazioni di aggiunta: impostazioni aggiuntive che è possibile usare per controllare meglio il processo di training. Altrimenti, vengono applicate le impostazioni predefinite in base alla selezione dell'esperimento e ai dati. 
+1. Opzionale Visualizzare le impostazioni di configurazione aggiuntive: altre impostazioni che è possibile usare per controllare meglio il processo di training. Altrimenti, vengono applicate le impostazioni predefinite in base alla selezione dell'esperimento e ai dati. 
 
     Configurazioni aggiuntive|Descrizione
     ------|------
     Primary metric (Metrica principale)| Metrica principale usata per assegnare un punteggio al modello. [Altre informazioni sulle metriche del modello](how-to-configure-auto-train.md#explore-model-metrics).
-    Automatic featurization (Definizione automatica funzionalità)| Selezionare questa impostazione per abilitare o disabilitare la pre-elaborazione eseguita da Automatic Machine Learning. La pre-elaborazione include la pulizia automatica dei dati, la preparazione e la trasformazione per generare funzionalità sintetiche. [Altre informazioni sulla pre-elaborazione](#preprocess).
+    Automatic featurization (Definizione automatica funzionalità)| Selezionare questa impostazione per abilitare o disabilitare la pre-elaborazione eseguita da Automatic Machine Learning. La pre-elaborazione include la pulizia automatica dei dati, la preparazione e la trasformazione per generare funzionalità sintetiche. Non supportato per il tipo di attività di previsione delle serie temporali. [Altre informazioni sulla pre-elaborazione](#featurization). 
+    Descrizione del modello migliore | Selezionare questa opzione per abilitare o disabilitare per mostrare la spiegazione del modello migliore consigliato
     Algoritmo bloccato| Selezionare gli algoritmi che si desidera escludere dal processo di training.
     Exit criterion (Esci da criterio)| Quando uno di questi criteri viene soddisfatto, il processo di training viene arrestato. <br> *Tempo del processo di training (ore)* : per quanto tempo consentire l'esecuzione del processo di training. <br> *Soglia Punteggio metrica*: Punteggio metrica minimo per tutte le pipeline. In questo modo si garantisce che, se si dispone di una metrica di destinazione definita che si desidera raggiungere, non si dedica più tempo al processo di training del necessario.
-    Validation| Selezionare una delle opzioni di convalida incrociata da usare nel processo di training. [Altre informazioni sulla convalida incrociata](how-to-configure-auto-train.md).
-    Concorrenza| Numero massimo di *iterazioni simultanee*: numero massimo di pipeline (iterazioni) da testare nel processo di training. Il processo non viene eseguito più del numero specificato di iterazioni. <br> *Numero massimo di core per iterazione*: selezionare i limiti multicore da usare quando si usa il calcolo multicore.
+    Convalida| Selezionare una delle opzioni di convalida incrociata da usare nel processo di training. [Altre informazioni sulla convalida incrociata](how-to-configure-auto-train.md).
+    Concorrenza| Numero massimo di *iterazioni simultanee*: numero massimo di pipeline (iterazioni) da testare nel processo di training. Il processo non viene eseguito più del numero specificato di iterazioni.
+
+1. Opzionale Visualizza impostazioni conteggi: se si sceglie di abilitare **conteggi automatici** nel modulo **impostazioni di configurazione aggiuntive** , questo modulo consente di specificare le colonne in cui eseguire tali featurizations e di selezionare il valore statistico da usare per le imputazioni di valori mancanti.
 
 <a name="profile"></a>
 
@@ -133,9 +136,9 @@ In caso contrario, verrà visualizzato un elenco dei recenti esperimenti automat
 >[!NOTE]
 > Vengono visualizzate voci vuote per le funzionalità con tipi irrilevanti.
 
-Statistic|Descrizione
+Statistiche|Descrizione
 ------|------
-Caratteristica| Nome della colonna riepilogata.
+Funzionalità| Nome della colonna riepilogata.
 Profilo| Visualizzazione inline basata sul tipo dedotto. Ad esempio, le stringhe, i valori booleani e le date avranno conteggi dei valori, mentre i decimali (numerici) hanno istogrammi approssimati. In questo modo è possibile acquisire una rapida conoscenza della distribuzione dei dati.
 Distribuzione del tipo| Conteggio dei valori in linea di tipi all'interno di una colonna. I valori null sono di tipo, quindi questa visualizzazione è utile per rilevare valori dispari o mancanti.
 Type|Tipo dedotto della colonna. I valori possibili sono: stringhe, valori booleani, date e decimali.
@@ -144,24 +147,20 @@ Max| Valore massimo della colonna.
 Conteggio| Numero totale di voci mancanti e non mancanti nella colonna.
 Totale non mancanti| Numero di voci nella colonna mancanti. Le stringhe e gli errori vuoti vengono considerati come valori, quindi non contribuiscono al "conteggio mancante".
 Quantiles| Valori approssimati in ogni quantile per fornire un senso della distribuzione dei dati.
-Valore medio| Media aritmetica o media della colonna.
+Media| Media aritmetica o media della colonna.
 Deviazione standard| Misura della quantità di dispersione o variazione dei dati di questa colonna.
 Variance| Misura della diffusione dei dati di questa colonna dal relativo valore medio. 
 Asimmetria| Misura del modo in cui i dati della colonna sono diversi da una distribuzione normale.
 Curtosi| Misura della quantità di dati di questa colonna rispetto a una distribuzione normale.
 
 
-<a name="preprocess"></a>
+<a name="featurization"></a>
 
 ## <a name="advanced-featurization-options"></a>Opzioni avanzate di conteggi
 
-Quando si configurano gli esperimenti, è possibile abilitare l'impostazione avanzata `feauturization`. 
+Automatizzato Machine Learning offre automaticamente la pre-elaborazione e i dati Guardrails, per consentire di identificare e gestire potenziali problemi con i dati. 
 
-|Configurazione di conteggi | Descrizione |
-| ------------- | ------------- |
-|"feauturization" =' FeaturizationConfig '| Indica che deve essere utilizzato il passaggio conteggi personalizzato. [Informazioni su come personalizzare conteggi](how-to-configure-auto-train.md#customize-feature-engineering).|
-|"feauturization" =' off '| Indica che il passaggio conteggi non deve essere eseguito automaticamente.|
-|"feauturization" =' auto '| Indica che nell'ambito della pre-elaborazione dei dati seguenti vengono eseguiti automaticamente i passaggi di Guardrails e conteggi.|
+### <a name="preprocessing"></a>Pre-elaborazione
 
 |Pre-elaborazione di&nbsp;passaggi| Descrizione |
 | ------------- | ------------- |
@@ -177,7 +176,7 @@ Quando si configurano gli esperimenti, è possibile abilitare l'impostazione ava
 
 ### <a name="data-guardrails"></a>Guardrails dati
 
-Automatizzato Machine Learning offre Guardrails di dati che consentono di identificare i potenziali problemi relativi ai dati (ad esempio, valori mancanti, squilibrio della classe) e di intraprendere azioni correttive per ottenere risultati migliori. Sono disponibili numerose procedure consigliate che è possibile applicare per ottenere risultati affidabili. 
+I dati Guardrails vengono applicati automaticamente per identificare i potenziali problemi relativi ai dati (ad esempio, valori mancanti, squilibrio della classe) e agevolare le azioni correttive per ottenere risultati migliori. Sono disponibili numerose procedure consigliate che è possibile applicare per ottenere risultati affidabili. 
 
 La tabella seguente descrive i Guardrails di dati attualmente supportati e gli Stati associati che gli utenti possono incontrare durante l'invio dell'esperimento.
 
@@ -191,14 +190,11 @@ Coerenza dei dati delle serie temporali|**Passato** <br><br><br><br> **Fissa** |
 
 ## <a name="run-experiment-and-view-results"></a>Eseguire l'esperimento e visualizzare i risultati
 
-Selezionare **Start (avvia** ) per eseguire l'esperimento. L'esperimento di preparazione del processo può richiedere fino a 10 minuti. Per completare l'esecuzione di ogni pipeline, i processi di training possono richiedere altri 2-3 minuti.
+Selezionare **Finish (fine** ) per eseguire l'esperimento. L'esperimento di preparazione del processo può richiedere fino a 10 minuti. Per completare l'esecuzione di ogni pipeline, i processi di training possono richiedere altri 2-3 minuti.
 
 ### <a name="view-experiment-details"></a>Visualizzare i dettagli sull'esperimento
 
->[!NOTE]
-> Selezionare **Aggiorna** periodicamente per visualizzare lo stato dell'esecuzione. 
-
-Verrà visualizzata la schermata **Esegui dettagli** nella scheda **Dettagli** . Questa schermata mostra un riepilogo dell'esecuzione dell'esperimento, incluso lo **stato dell'esecuzione**. 
+Verrà visualizzata la schermata **Esegui dettagli** nella scheda **Dettagli** . Questa schermata mostra un riepilogo dell'esecuzione dell'esperimento, inclusa una barra di stato nella parte superiore accanto al numero di esecuzione. 
 
 La scheda **modelli** contiene un elenco dei modelli creati in base al punteggio della metrica. Per impostazione predefinita, il modello che assegna un punteggio al più alto in base alla metrica scelta si trova nella parte superiore dell'elenco. Quando il processo di training tenta un maggior numero di modelli, questi vengono aggiunti all'elenco. Usare questa procedura per ottenere un rapido confronto delle metriche per i modelli prodotti finora.
 
@@ -218,18 +214,18 @@ Automatizzato ML semplifica la distribuzione del modello senza scrivere codice:
 
 1. Sono disponibili due opzioni per la distribuzione. 
 
-    + Opzione 1: per distribuire il modello migliore (in base ai criteri della metrica definiti), selezionare Distribuisci modello migliore dalla scheda Dettagli.
+    + Opzione 1: per distribuire il modello migliore (in base ai criteri della metrica definiti), selezionare il pulsante **Distribuisci modello migliore** nella scheda **Dettagli** .
 
-    + Opzione 2: per distribuire un'iterazione del modello specifica da questo esperimento, eseguire il drill-down sul modello per aprire la scheda Dettagli modello e selezionare Distribuisci modello.
+    + Opzione 2: per distribuire un'iterazione del modello specifica da questo esperimento, eseguire il drill-down sul modello per aprire la scheda **Dettagli modello** e selezionare **Distribuisci modello**.
 
 1. Popolare il riquadro **Distribuisci modello** .
 
-    Campo| Valore
+    Campo| valore
     ----|----
-    Name| Immettere un nome univoco per la distribuzione.
+    Nome| Immettere un nome univoco per la distribuzione.
     Descrizione| Immettere una descrizione per identificare meglio le finalità della distribuzione.
     Tipo di calcolo| Selezionare il tipo di endpoint che si vuole distribuire: *Azure Kubernetes Service (AKS)* o *Azure container instance (ACI)* .
-    Name| *Si applica solo a AKS:* Selezionare il nome del cluster AKS in cui si vuole eseguire la distribuzione.
+    Nome del calcolo| *Si applica solo a AKS:* Selezionare il nome del cluster AKS in cui si vuole eseguire la distribuzione.
     Abilita autenticazione | Selezionare questa impostazione per consentire l'autenticazione basata su token o basata su chiave.
     Usare asset di distribuzione personalizzati| Abilitare questa funzionalità se si desidera caricare lo script di assegnazione dei punteggi e il file dell'ambiente. [Altre informazioni sugli script per il Punteggio](how-to-deploy-and-where.md#script).
 
@@ -244,7 +240,7 @@ A questo punto si dispone di un servizio Web operativo per generare stime. È po
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Provare l'esercitazione end-to-end [per creare il primo esperimento di Machine Learning automatizzato con Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
+* Provare l'esercitazione end-to-end [per creare il primo esperimento di Machine Learning automatizzato con Azure Machine Learning Studio](tutorial-first-experiment-automated-ml.md). 
 * [Scopri di più su Machine Learning e Azure Machine Learning automatizzati](concept-automated-ml.md) .
 * [Informazioni sui risultati automatici di Machine Learning](how-to-understand-automated-ml.md).
 * [Informazioni su come utilizzare un servizio Web](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service).

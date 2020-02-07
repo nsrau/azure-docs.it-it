@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b77d6fe03a051c019519f195d55cdeb00fb9afb2
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 5a9e5e014740302c439036bd3889761f4750344f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906262"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062864"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "76906262"
 
  Il diagramma seguente illustra i costrutti di gestione di File di Azure:
 
-![Struttura file](./media/storage-files-introduction/files-concepts.png)
+![Struttura di Archiviazione file](./media/storage-files-introduction/files-concepts.png)
 
 * **Account di archiviazione:** tutti gli accessi ad Archiviazione di Azure vengono eseguiti tramite un account di archiviazione. Per informazioni dettagliate sulla capacità dell'account di archiviazione, vedere [obiettivi di scalabilità e prestazioni per gli account di archiviazione standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) .
 
@@ -129,7 +129,7 @@ La tabella seguente illustra alcuni esempi di queste formule per le dimensioni d
 |10.240      | 10.240  | Fino a 30.720  | 675 | 450   |
 |33.792      | 33.792  | Fino a 100.000 | 2\.088 | 1\.392   |
 |51.200      | 51.200  | Fino a 100.000 | 3\.132 | 2\.088   |
-|102.400     | 100.000 | Fino a 100.000 | 6\.204 | 4\.136   |
+|102.400     | 100,000 | Fino a 100.000 | 6\.204 | 4\.136   |
 
 > [!NOTE]
 > Le prestazioni delle condivisioni file sono soggette a limiti di rete del computer, larghezza di banda di rete disponibile, dimensioni i/o, parallelismo, tra molti altri fattori. Ad esempio, in base a test interni con 8 dimensioni di i/o in lettura/scrittura, una singola macchina virtuale Windows, una *F16s_v2 standard*, connessa alla condivisione file Premium tramite SMB, potrebbe raggiungere 20.000 IOPS di lettura e 15.000 di operazioni di i/o in scrittura. Con le dimensioni di i/o in lettura/scrittura di 512 MiB, la stessa VM potrebbe ottenere 1,1 GiB/s in uscita e 370 MiB/s di velocità effettiva in ingresso. Per ottenere la massima scalabilità delle prestazioni, suddividere il carico tra più macchine virtuali. Consultare la [Guida alla risoluzione dei](storage-troubleshooting-files-performance.md) problemi relativi a problemi di prestazioni e soluzioni alternative comuni.
@@ -199,13 +199,12 @@ Questa sezione si applica solo alle condivisioni file standard. Tutte le condivi
 
 - CON ridondanza locale/ZRS alla conversione dell'account GRS/GZRS non sarà possibile per qualsiasi account di archiviazione con condivisioni file di grandi dimensioni abilitate.
 
-### <a name="regional-availability"></a>Disponibilità a livello di area
+### <a name="regional-availability"></a>Disponibilità internazionale
 
 Le condivisioni file standard con limite di capacità di 100 TiB sono disponibili a livello globale in tutte le aree di Azure-
 
 - CON ridondanza locale: tutte le aree, ad eccezione dell'area Sud Africa settentrionale e Sud Africa occidentale.
-   - I cloud nazionali (Government, Germania, Cina) sono supportati tramite PowerShell e l'interfaccia della riga di comando di Azure. Nessun supporto per il portale. 
-   - Stati Uniti orientali, Stati Uniti orientali, Europa occidentale: tutti i nuovi account sono supportati. Un numero ridotto di account esistenti non ha completato il processo di aggiornamento. È possibile verificare se gli account di archiviazione esistenti hanno completato il processo di aggiornamento tentando di [abilitare condivisioni file di grandi dimensioni](storage-files-how-to-create-large-file-share.md).
+   - Stati Uniti orientali ed Europa occidentale: tutti i nuovi account sono supportati. Un numero ridotto di account esistenti non ha completato il processo di aggiornamento. È possibile verificare se gli account di archiviazione esistenti hanno completato il processo di aggiornamento tentando di [abilitare condivisioni file di grandi dimensioni](storage-files-how-to-create-large-file-share.md).
 
 - ZRS: tutte le aree, ad eccezione di Giappone orientale, Europa settentrionale, Sudafrica settentrionale.
 - GRS/GZRS: non supportato.

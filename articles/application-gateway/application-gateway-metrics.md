@@ -5,14 +5,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/29/2019
+ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: 695507b0d6997870dbea392e73e4f4470248d26c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 1fa9c72f7ca305a03cdc90ea02cefe973932792b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985884"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046308"
 ---
 # <a name="metrics-for-application-gateway"></a>Metriche per il gateway applicazione
 
@@ -132,6 +132,9 @@ Per il gateway applicazione sono disponibili le metriche seguenti:
 - **Numero host non integro**
 
   Il numero di backend determinati da un probe di integrità non integro. È possibile filtrare in base al pool back-end per visualizzare il numero di host non integri in un pool back-end specifico.
+  
+- **Richieste al minuto per host integro** Numero medio di richieste ricevute da ogni membro integro in un pool back-end in un minuto. È necessario specificare il pool back-end usando la dimensione *end di integri* .  
+  
 
 ## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Metriche supportate dallo SKU del gateway applicazione V1
 

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: 84ab5da993541012fd2199a30d03f5c69e88bf2c
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 2de0cdd32428884170f549afacdbd52c3a10c93f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530035"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77060049"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-sap-successfactors-preview"></a>Esercitazione: configurare il writeback degli attributi da Azure AD a SAP SuccessFactors (anteprima)
 L'obiettivo di questa esercitazione è mostrare i passaggi da eseguire per gli attributi di writeback da Azure AD a SuccessFactors Employee Central. L'unico attributo attualmente supportato per il writeback è l'attributo email. 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Dopo aver configurato l'integrazione del provisioning in ingresso usando SuccessFactors per l'app di provisioning di [ad locale](sap-successfactors-inbound-provisioning-tutorial.md) o [SuccessFactors per Azure ad](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) app di provisioning, è possibile configurare facoltativamente l'app writeback di SuccessFactors per scrivere l'indirizzo di posta elettronica in SuccessFactors. 
 
@@ -106,7 +106,7 @@ In questa sezione vengono illustrati i passaggi per
 
 **Per configurare il writeback SuccessFactors:**
 
-1. Vai a <https://portal.azure.com>
+1. Passare a <https://portal.azure.com>.
 
 2. Sulla barra di spostamento a sinistra selezionare **Azure Active Directory**
 
@@ -183,8 +183,8 @@ Una volta completate le configurazioni dell'app di provisioning di SuccessFactor
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../manage-apps/check-status-user-account-provisioning.md)
+* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)
 * [Informazioni su come configurare Single Sign-On tra SuccessFactors e Azure Active Directory](successfactors-tutorial.md)
 * [Informazioni sull'integrazione di altre applicazioni SaaS con Azure Active Directory](tutorial-list.md)
-* [Informazioni su come esportare e importare le configurazioni di provisioning](../manage-apps/export-import-provisioning-configuration.md)
+* [Informazioni su come esportare e importare le configurazioni di provisioning](../app-provisioning/export-import-provisioning-configuration.md)
 

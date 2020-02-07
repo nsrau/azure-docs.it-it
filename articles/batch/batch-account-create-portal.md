@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0c6fab0c9e26630bd54830044da56dba20564b3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 3723631609a04f6d12abcaac1f9d7733bf3caa01
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025897"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048640"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creare un account Batch nel portale di Azure
 
@@ -27,7 +27,7 @@ Informazioni su come creare un account Azure Batch nel [portale di Azure][azure_
 
 Per informazioni sugli account e gli scenari Batch, vedere la [panoramica della funzionalità](batch-api-basics.md).
 
-## <a name="create-a-batch-account"></a>Crea un account Batch
+## <a name="create-a-batch-account"></a>Creare un account Batch
 
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
@@ -39,7 +39,7 @@ Per informazioni sugli account e gli scenari Batch, vedere la [panoramica della 
 
 1. Immettere le impostazioni di **Nuovo account Batch**. Vedere i dettagli seguenti.
 
-    ![Crea un account Batch][account_portal]
+    ![Creare un account Batch][account_portal]
 
     a. **Sottoscrizione**: sottoscrizione in cui creare l'account Batch. Se è presente solo una sottoscrizione, è selezionata per impostazione predefinita.
 
@@ -53,7 +53,7 @@ Per informazioni sugli account e gli scenari Batch, vedere la [panoramica della 
 
       ![Creare un account di archiviazione][storage_account]
 
-    f. **Modalità di allocazione pool**: nella scheda Impostazioni **Avanzate** è possibile specificare la modalità di allocazione pool come **servizio batch** o **sottoscrizione utente**. Per la maggior parte degli scenari, accettare il **servizio batch**predefinito.
+    f. **Modalità di allocazione pool**: nella scheda Impostazioni **Avanzate** è possibile specificare la modalità di allocazione pool come **servizio batch** o **sottoscrizione utente**. per la maggior parte degli scenari accettare il valore predefinito **Servizio Batch**.
 
       ![Modalità di allocazione del pool][pool_allocation]
 
@@ -117,6 +117,14 @@ Quando si crea l'account batch in modalità di sottoscrizione utente, usare il g
 Se si preferisce concedere l'accesso a Key Vault manualmente, passare alla sezione **criteri di accesso** dell'insieme di credenziali delle chiavi e selezionare **Aggiungi criteri di accesso** e cercare **Microsoft Azure batch**. Una volta selezionata, sarà necessario configurare le **autorizzazioni segrete** usando il menu a discesa. Azure Batch necessario assegnare almeno le autorizzazioni **Get**, **List**, **set**e **Delete** .
 
 ![Autorizzazioni segrete per Azure Batch](./media/batch-account-create-portal/secret-permissions.png)
+
+
+> [!NOTE]
+> Verificare che le caselle di controllo **macchine virtuali di Azure per la distribuzione** e **Azure Resource Manager per distribuzione modello** siano selezionate in **criteri di accesso** per la risorsa **Key Vault** collegata.
+> 
+> ![i criteri di accesso Key Vault obbligatori](./media/batch-account-create-portal/key-vault-access-policy.png) questa operazione non è obbligatoria quando si crea un account batch nel portale di Azure. Per impostazione predefinita, l'opzione è selezionata.
+
+
 
 ### <a name="configure-subscription-quotas"></a>Configurare le quote di sottoscrizione
 

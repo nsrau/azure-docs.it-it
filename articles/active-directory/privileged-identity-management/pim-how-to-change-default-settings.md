@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/13/2019
+ms.date: 02/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60a480327efacee2d1eb74353b2d0ef7885a6194
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a409d71ff3eae3bc62527a0669a74696246a50cd
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024212"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048079"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurare le impostazioni del ruolo Azure AD in Privileged Identity Management
 
@@ -43,12 +43,8 @@ Attenersi alla procedura descritta in questo articolo per approvare o negare le 
 Per aprire le impostazioni per un ruolo di Azure AD seguire questa procedura.
 
 1. Accedere a [portale di Azure](https://portal.azure.com/) con un utente nel ruolo di [amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
-
-1. Aprire **Azure AD Privileged Identity Management**.
-
-1. Selezionare **Azure ad ruoli**.
-
-1. Selezionare **impostazioni ruolo**.
+gt
+1. Aprire **Azure AD Privileged Identity Management** &gt; **Azure ad ruoli** &gt; **impostazioni del ruolo**.
 
     ![Pagina impostazioni ruolo che elenca i ruoli delle risorse di Azure](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
@@ -89,7 +85,7 @@ Privileged Identity Management offre inoltre l'imposizione facoltativa di Azure 
 
 ### <a name="require-multi-factor-authentication-on-active-assignment"></a>Richiedi Multi-Factor Authentication in caso di assegnazione attiva
 
-In alcuni casi, potrebbe essere necessario assegnare un utente o un gruppo a un ruolo per una breve durata (ad esempio, un giorno). In questo caso, gli utenti assegnati non devono richiedere l'attivazione. In questo scenario, Privileged Identity Management non può applicare l'autenticazione a più fattori quando l'utente usa l'assegnazione di ruolo perché è già attiva nel ruolo dal momento in cui viene assegnata.
+In alcuni casi, potrebbe essere necessario assegnare un utente a un ruolo per un breve periodo di tempo (ad esempio, un giorno). In questo caso, gli utenti assegnati non devono richiedere l'attivazione. In questo scenario, Privileged Identity Management non può applicare l'autenticazione a più fattori quando l'utente usa l'assegnazione di ruolo perché è già attiva nel ruolo dal momento in cui viene assegnata.
 
 Per assicurarsi che l'amministratore delle risorse che soddisfi l'assegnazione sia chi dichiara di essere, è possibile applicare l'autenticazione a più fattori nell'assegnazione attiva selezionando la casella di controllo **richiedi multi-factor authentication su assegnazione attiva** .
 
@@ -115,11 +111,11 @@ Se si vuole richiedere l'approvazione per attivare un ruolo, seguire questa proc
 
 1. Selezionare la casella di controllo **Richiedi l'approvazione per l'attivazione**.
 
-1. Selezionare **Seleziona responsabili approvazione** per aprire la pagina **selezionare un membro o un gruppo** .
+1. Selezionare **Seleziona responsabili approvazione**.
 
     ![Selezionare un riquadro utente o gruppo per selezionare i responsabili approvazione](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-1. Selezionare almeno un utente o un gruppo e quindi fare clic su **Seleziona**. È possibile aggiungere qualsiasi combinazione di utenti e gruppi. È necessario selezionare almeno un responsabile approvazione. Non esistono responsabili approvazione predefiniti.
+1. Selezionare almeno un utente e quindi fare clic su **Seleziona**. È necessario selezionare almeno un responsabile approvazione. Non esistono responsabili approvazione predefiniti.
 
     I responsabili dell'approvazione selezionati vengono visualizzati in un apposito elenco.
 
@@ -167,7 +163,7 @@ Per ulteriori informazioni, vedere [notifiche tramite posta elettronica in Privi
 
 Usare l' **opzione** per richiedere agli amministratori idonei di includere un numero di ticket quando attivano il proprio ruolo. Questa procedura può rendere più efficienti i controlli di accesso ai ruoli.
 
-## <a name="multi-factor-authentication"></a>Autenticazione a più fattori
+## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
 Usare l'opzione **Multi-Factor Authentication** per specificare se richiedere agli utenti di verificare la propria identità con MFA prima di attivare i ruoli. È necessario verificarne l'identità una sola volta per ogni sessione, non ogni volta che viene attivato un ruolo. Tenere presente due suggerimenti quando si abilita l'autenticazione MFA:
 
@@ -208,7 +204,7 @@ Se si desidera delegare l'approvazione richiesta per attivare un ruolo, atteners
 
     ![Ruoli Azure AD-impostazioni-Richiedi approvazione](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
 
-1. Selezionare uno o più responsabili approvazione oltre all'amministratore dei ruoli con privilegi, quindi fare clic su **Seleziona**. È possibile selezionare utenti o gruppi. È consigliabile aggiungere almeno due responsabili approvazione. Anche se si aggiunge se stessi come responsabile approvazione, non è possibile approvare autonomamente l'attivazione di un ruolo. I responsabili dell'approvazione selezionati vengono visualizzati in un apposito elenco.
+1. Selezionare uno o più responsabili approvazione oltre all'amministratore dei ruoli con privilegi, quindi fare clic su **Seleziona**. È consigliabile aggiungere almeno due responsabili approvazione. Anche se si aggiunge se stessi come responsabile approvazione, non è possibile approvare autonomamente l'attivazione di un ruolo. I responsabili dell'approvazione selezionati vengono visualizzati in un apposito elenco.
 
 1. Dopo aver specificato le impostazioni di tutti i ruoli, selezionare **Salva** per salvare le modifiche.
 

@@ -2,7 +2,7 @@
 title: Registrare le informazioni di autenticazione per reimpostare la password Azure AD
 description: Registrare le informazioni sul metodo di verifica per Azure AD la reimpostazione della password self-service, in modo che sia possibile reimpostare la password senza la guida dell'amministratore.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 ms.assetid: ''
@@ -11,13 +11,13 @@ ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.author: lizross
-ms.openlocfilehash: d27b0b7aadf5cffc2a362843ab5373ee0dc5b170
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.author: curtand
+ms.openlocfilehash: 397e1fd7695fd7e74e1f22959d0f9f24af7d1ea3
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261841"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062643"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registrare le informazioni sul metodo di verifica per reimpostare la password
 

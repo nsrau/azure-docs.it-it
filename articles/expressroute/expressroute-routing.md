@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
-ms.openlocfilehash: 75a9e3e8422c0c59e00c290f1f360d61fce1eceb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3eafb8aff5525f668e6fe0bddb261b1117b5e38b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901572"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048172"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -189,7 +189,7 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 | Giappone occidentale | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 |
 | **Australia** | |
 | Australia orientale | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 |
-| Australia sudorientale | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 |
+| Australia sud-orientale | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 |
 | **Australia Government** | |
 | Australia centrale | 12076:51032 | 12076:52032 | 12076:53032 | 12076:54032 |
 | Australia centrale 2 | 12076:51033 | 12076:52033 | 12076:53033 | 12076:54033 |
@@ -223,13 +223,14 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 | Exchange Online * * | 12076:5010 |
 | SharePoint Online * * | 12076:5020 |
 | Skype for business online * * | 12076:5030 |
-| CRM Online |12076:5040 |
+| CRM Online * * * |12076:5040 |
 | Servizi globali di Azure* | 12076:5050 |
 | Azure Active Directory |12076:5060 |
 | Altri servizi online di Office 365 * * | 12076:5100 |
 
-*Servizi globali di Azure include solo Azure DevOps al momento.
-\* * Autorizzazione richiesta da Microsoft, vedere [configurare i filtri di route per il peering Microsoft](how-to-routefilter-portal.md) 
+\* I servizi globali di Azure includono al momento solo Azure DevOps. \
+\* * Autorizzazione richiesta da Microsoft, vedere [configurare i filtri di route per il peering Microsoft](how-to-routefilter-portal.md)\
+CRM Online supporta Dynamics v 8.2 e versioni precedenti. Per le versioni successive, selezionare la community regionale per le distribuzioni di Dynamics.
 
 > [!NOTE]
 > Microsoft non riconosce eventuali valori di BGP Community impostati sulle route pubblicate su Microsoft.
@@ -242,8 +243,8 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 | --- | --- |
 | **US Government** |  |
 | US Gov Arizona | 12076:51106 |
-| Governo degli US Gov - Iowa | 12076:51109 |
-| Governo degli Stati Uniti - Virginia | 12076:51105 |
+| US Gov Iowa | 12076:51109 |
+| US Gov Virginia | 12076:51105 |
 | US Gov Texas | 12076:51108 |
 | US DoD (area centrale) | 12076:51209 |
 | US DoD (area orientale) | 12076:51205 |

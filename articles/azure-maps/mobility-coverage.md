@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9519aaf7b57f5f4fbafa7248d3d524aea5d22c46
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 8dcbfe7a47dba5a1783d6010d41e33073bc0bb20
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922411"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048910"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Copertura della mobilità di Maps di Azure
 
-Il [servizio Mobility](https://aka.ms/AzureMapsMobilityService) di Azure Maps consente la funzionalità per il trasporto pubblico, la condivisione di biciclette e il routing della condivisione scooter con opzioni di pianificazione dei viaggi multimodali Per il transito pubblico, il servizio offre la ricerca di stazioni, arresti e linee nelle vicinanze e fornisce informazioni come gli arrivi di transito pubblici pianificati e in tempo reale, l'elenco degli arresti e le guide di route, oltre a itinerari dettagliati e multimodali e avvisi del servizio. Il servizio Mobility restituisce anche informazioni sulla disponibilità in tempo reale e statica per la condivisione di veicoli e biciclette condivise e scooter.
+Azure Maps offre un [servizio di mobilità](https://aka.ms/AzureMapsMobilityService). Il servizio Mobility migliora il tempo di sviluppo per le applicazioni con funzionalità di trasporto pubblico, bike Share e scooter. Offre un'opzione per l'instradamento con le opzioni di pianificazione dei viaggi multimodale. Le funzionalità per il trasporto pubblico includono la ricerca di stazioni adiacenti, la ricerca di arresti, la ricerca di linee di transito, il recupero delle informazioni sulla pianificazione, il recupero di arrivi in tempo reale in transito e l'elenco delle guide. Il servizio restituisce informazioni sulla disponibilità statica e in tempo reale ai veicoli condivisi, ad esempio automobili, biciclette e scooter. L'API restituisce gli itinerari dettagliati e multimodali e gli avvisi del servizio.
 
-Le mappe di Azure non hanno lo stesso livello di informazioni e accuratezza per tutte le città e i paesi o le aree geografiche. La possibilità di chiamare i dati di transito dipende dalla città e i dati potrebbero non includere tutte le opzioni di transito pubblico e le agenzie che svolgono la città.
+Le mappe di Azure non hanno lo stesso livello di informazioni e accuratezza per tutte le città e i paesi o le aree geografiche. La possibilità di chiamare i dati di transito dipende dalla città. I dati potrebbero non includere tutte le opzioni di transito pubblico e le agenzie che svolgono la città.
 
 La tabella seguente contiene informazioni sulla copertura per il servizio Mobility di Azure maps.
 
@@ -30,7 +30,7 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 
 ## <a name="americas"></a>Americhe
 
-| Paese/Area |  Città (area metro) |
+| Paese/Area geografica |  Città (area metro) |
 |----------------|---------|
 | Argentina       | <p>Bahía Blanca, Buenos Aires, Caleta Olivia, Chivilcoy, Comodoro Rivadavia, Cordova, Corrientes, generale Pico, la Rioja, Mar del Plata, Mendoza, Miramar, Neuquén, Oberá, Olavarría, Paraná, Posadas, Rio Tercero, Rosario, salta, San Carlos de Bariloche, San Luis, San Pedro, Santa Fe, Tandil, Ushuaia, Victoria, Villa María</p>|
 | Barbados       |  Barbados |
@@ -52,7 +52,7 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 
 ## <a name="asia-pacific"></a>Asia Pacifico
 
-| Paese/Area |  Città (area metro) |
+| Paese/Area geografica |  Città (area metro) |
 |--------|---------|
 | Australia      | <p>Adelaide, Alice Springs, Bowen, Brisbane, Bundaberg QLD, Burnie, Cairns, Canberra, Darwin, Gladstone, Hobart, Innisfail, Launceston, Mackay, Magnetic Island, Maryborough-Hervey Bay, Melbourne, New South Wales, Perth, RockHampton, South East Queensland, Sydney, Toowoomba, Townsville, Victoria, Warwick, Yeppoon</p> |
 | Cina | <p> Changchun, Changsha, Chengdu, Chongqing, Dalian, Datong, Dongguan, Hangzhou, Jiangyin, Jinan, Nanjing, Nantong, Ningbo, Pingdingshan, Qingdao, Shenyang, Suzhou, Tangshan, Tianjin, Weifang, Wuhan, Wuxi, Yantai, Yixing, Zhuhai, Shanghai, Pechino, Guangzhou, Shenzhen, Zhengzhou</P>| 
@@ -67,13 +67,13 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 | Singapore | Singapore |
 | Corea del Sud | Busan, Seoul |
 | Taiwan | Changhua County, Taipei | 
-| Tailandia | Bangkok, Chiang mai | 
+| Thailandia | Bangkok, Chiang mai | 
 | Vietnam | Hanoi, città di Ho Chi Minh | 
 
 
 ## <a name="europe"></a>Europa
 
-| Paese/Area |  Città (area metro) |
+| Paese/Area geografica |  Città (area metro) |
 |----------------|---------|
 | Andorra        | Andorra la Vella |
 | Atene         | Chios | 
@@ -85,7 +85,7 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 | Bulgaria       | <p>Balchik, Blagoevgrad, Burgas, Dobrich, Gabrovo, Haskovo, Kardzhali, Lovech, Nessebar, Pazardzhik, Pleven, Plovdiv, Ruse, Shumen, Sliven, Stara Zagora, Vratsa, Yambol, Varna, Veliko, Sofia</P> |
 | Croazia | Crikvenica, Dubrovnik, Rijeka, Slovanski Brod, Zagabria | 
 | Cipro | Larnaca, Limassol, Nicosia | 
-| Repubblica Ceca | Brno, Jablonec, Karlovy Vary, Liberec, Ostrava, Praga | 
+| Repubblica ceca | Brno, Jablonec, Karlovy Vary, Liberec, Ostrava, Praga | 
 | Danimarca   | Danimarca |
 | Estonia   | Estonia |   
 | Finlandia   | Hämeenlinna, Helsinki, Joensuu, Jyväskylä, Kajaani, Kouvola-Kotka, Kuopio, Lappeenranta, Mikkeli, Oulu, Seinäjoki, Tampere, Turku, Vaasa|
@@ -124,7 +124,7 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 
 ## <a name="middle-east-and-africa"></a>Medio Oriente e Africa
 
-| Paese/Area |  Città (area metro) |
+| Paese/Area geografica |  Città (area metro) |
 |---------|---------|
 | Bahrain | Bahrain |
 | Egitto | Cairo    |
@@ -134,7 +134,7 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 | Marocco | Casablanca, Khouribga, Tétouan|
 | Qatar| Doha|
 | Arabia Saudita | Thuwal |
-| Sudafrica | Città del Capo |
+| Sud Africa | Città del capo |
 | Tunisia | Kairouan |
 | Emirati Arabi Uniti  | Abu Dhabi, Dubai |
 

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b49b10acb7f2deaed217bb28478d2c98a033eab9
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 83133fed401dac51a8dd6a653ccfd86117e956ed
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768682"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046451"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurare i criteri di scadenza per i gruppi di Office 365
 
@@ -28,12 +28,12 @@ Questo articolo descrive come gestire il ciclo di vita dei gruppi di Office 365 
 
 Dopo l'impostazione della scadenza di un gruppo:
 
-- I gruppi con attività utente vengono rinnovati automaticamente in prossimità della scadenza
-- I proprietari del gruppo ricevono una notifica per rinnovare il gruppo, se il gruppo non viene rinnovato automaticamente
-- I gruppi che non vengono rinnovati vengono eliminati
-- I gruppi di Office 365 eliminati possono essere ripristinati entro 30 giorni dai proprietari o dall'amministratore.
+- I gruppi con attività utente vengono rinnovati automaticamente in prossimità della scadenza.
+- I proprietari del gruppo ricevono una notifica per rinnovare il gruppo, se il gruppo non viene rinnovato automaticamente.
+- Qualsiasi gruppo non rinnovato viene eliminato.
+- Tutti i gruppi di Office 365 eliminati possono essere ripristinati entro 30 giorni dai proprietari del gruppo o dall'amministratore.
 
-Attualmente è possibile configurare solo un criterio di scadenza per tutti i gruppi di Office 365 in un'organizzazione Azure AD.
+Attualmente, è possibile configurare un solo criterio di scadenza per tutti i gruppi di Office 365 in un'organizzazione Azure AD.
 
 > [!NOTE]
 > Per la configurazione e l'uso dei criteri di scadenza per i gruppi di Office 365 è necessario disporre delle licenze Azure AD Premium per i membri di tutti i gruppi a cui vengono applicati i criteri di scadenza.
@@ -42,7 +42,7 @@ Per informazioni su come scaricare e installare i cmdlet di Azure AD PowerShell,
 
 ## <a name="activity-based-automatic-renewal"></a>Rinnovo automatico basato sulle attività
 
-Con Azure AD Intelligence, i gruppi vengono ora rinnovati automaticamente a seconda che siano stati usati più di recente. Questa funzionalità Elimina la necessità di azioni manuali da parte dei proprietari del gruppo, perché si basa sull'attività dell'utente in gruppi tra i servizi di Office 365 come Outlook, SharePoint, teams o Yammer. Se, ad esempio, un proprietario o un membro del gruppo esegue un'operazione come caricare un documento in SharePoint, visitare un canale teams o inviare un messaggio di posta elettronica al gruppo in Outlook, il gruppo viene rinnovato automaticamente e il proprietario non riceve alcuna notifica di rinnovo.
+Con Azure AD Intelligence, i gruppi vengono ora rinnovati automaticamente a seconda che siano stati usati di recente. Questa funzionalità Elimina la necessità di azioni manuali da parte dei proprietari del gruppo, perché si basa sull'attività dell'utente in gruppi tra i servizi di Office 365 come Outlook, SharePoint, teams o Yammer. Se, ad esempio, un proprietario o un membro del gruppo esegue un'operazione come caricare un documento in SharePoint, visitare un canale teams o inviare un messaggio di posta elettronica al gruppo in Outlook, il gruppo viene rinnovato automaticamente e il proprietario non riceve alcuna notifica di rinnovo.
 
 ### <a name="activities-that-automatically-renew-group-expiration"></a>Attività che rinnovano automaticamente la scadenza del gruppo
 
@@ -55,6 +55,8 @@ Le azioni dell'utente seguenti provocano il rinnovo automatico del gruppo:
 ### <a name="auditing-and-reporting"></a>Controllo e creazione di report
 
 Gli amministratori possono ottenere un elenco di gruppi rinnovati automaticamente dai log di controllo delle attività in Azure AD.
+
+![Rinnovo automatico dei gruppi in base all'attività](./media/groups-lifecycle/audit-logs-autorenew-group.png)
 
 ## <a name="roles-and-permissions"></a>Ruoli e autorizzazioni
 

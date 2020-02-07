@@ -3,12 +3,12 @@ title: 'Domande comuni: individuazione, valutazione e analisi delle dipendenze i
 description: Risposte alle domande più comuni sull'individuazione, la valutazione e l'analisi delle dipendenze in Azure Migrate.
 ms.topic: conceptual
 ms.date: 12/29/2019
-ms.openlocfilehash: 0132563072ed04a52e4937da7a8df69196f1a91f
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 201d67c38e9583de16cb6075cc1c4bf826c204fd
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513287"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77059488"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>Domande comuni sull'individuazione, la valutazione e l'analisi delle dipendenze
 
@@ -16,6 +16,8 @@ Questo articolo risponde alle domande più comuni sull'individuazione, la valuta
 
 - [Domande generali](resources-faq.md) su Azure migrate.
 - [Domande](common-questions-appliance.md) sull'appliance Azure migrate.
+- [Domande](common-questions-server-migration.md) sulla migrazione del server.
+
 
 
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Quante VM è possibile individuare con un'appliance?
@@ -89,7 +91,7 @@ Questi agenti non sono necessari a meno che non si usi la visualizzazione delle 
 
 ## <a name="can-i-use-an-existing-workspace"></a>È possibile usare un'area di lavoro esistente?
 
-Sì, è possibile aggiungere un'area di lavoro esistente al progetto di migrazione e usarla per la visualizzazione delle dipendenze. [Altre informazioni](concepts-dependency-visualization.md#how-does-it-work)
+Sì, è possibile aggiungere un'area di lavoro esistente al progetto di migrazione e usarla per la visualizzazione delle dipendenze. [Altre informazioni](concepts-dependency-visualization.md#how-does-it-work).
 
 ## <a name="can-i-export-the-dependency-visualization-report"></a>È possibile esportare il report di visualizzazione delle dipendenze?
 

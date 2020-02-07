@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: snehaa
-ms.openlocfilehash: a9d008406e59c66a8b742194e2e2d388c778ac9e
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: baf01c0a0d5c6154305f7137c24deb0365b5e812
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989349"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062099"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: domande comuni
 
@@ -23,7 +23,7 @@ Questo articolo risponde alle domande più comuni su Azure Migrate. Se si hanno 
 
 ## <a name="what-is-azure-migrate"></a>Cos'è Azure Migrate?
 
-Azure Migrate offre un hub centrale per tenere traccia dell'individuazione, della valutazione e della migrazione delle app e dei carichi di lavoro locali e delle macchine virtuali del cloud privato/pubblico in Azure. L'hub fornisce gli strumenti di Azure Migrate per la valutazione e la migrazione, nonché offerte di ISV terzi. [Altre informazioni](migrate-services-overview.md)
+Azure Migrate offre un hub centrale per tenere traccia dell'individuazione, della valutazione e della migrazione delle app e dei carichi di lavoro locali e delle macchine virtuali del cloud privato/pubblico in Azure. L'hub fornisce gli strumenti di Azure Migrate per la valutazione e la migrazione, nonché offerte di ISV terzi. [Altre informazioni](migrate-services-overview.md).
 
 
 ## <a name="what-can-i-do-with-azure-migrate"></a>Che cosa è possibile fare con Azure Migrate?
@@ -55,7 +55,7 @@ Server assessment è uno strumento di pianificazione della migrazione. Il Site R
 
 Esaminare le aree geografiche supportate Azure Migrate per le macchine virtuali [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) e [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v).
 
-## <a name="how-do-i-get-started"></a>Come posso iniziare a usare la soluzione?
+## <a name="how-do-i-get-started"></a>Come iniziare?
 
 È sufficiente individuare lo strumento necessario e aggiungerlo a un progetto di Azure Migrate. Se si aggiunge uno strumento ISV o Movere:
 - Per iniziare, ottenere una licenza o iscriversi per ricevere una versione di valutazione gratuita, in base ai requisiti dello strumento. Le licenze per gli strumenti sono conformi al modello di licenza dell'ISV o dello strumento.
@@ -67,9 +67,7 @@ Esaminare le aree geografiche supportate Azure Migrate per le macchine virtuali 
 [Informazioni su come](how-to-delete-project.md) eliminare un progetto. 
 
 
-## <a name="do-machines-retain-domain-identity-after-migration"></a>I computer conservano l'identità di dominio dopo la migrazione?
 
-Supponendo che i servizi di dominio siano [integrati in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/), l'appartenenza al dominio e l'identità del computer nel dominio, vengono conservati dopo la migrazione. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Leggere la [Panoramica di Azure migrate](migrate-services-overview.md).

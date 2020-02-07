@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 5aa75de694d05ce31becc6996aca419dff256a3f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 5517b6434d8d654e8aa7e28bec8f6d2a3d9ca73b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023549"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77056683"
 ---
 # <a name="load-balancer-health-probes"></a>Probe di integrità di Load Balancer
 
@@ -128,7 +128,7 @@ Se si usano servizi cloud e ruoli Web che usano w3wp.exe, si ottiene anche il mo
 
 Un probe HTTP/HTTPS ha esito negativo quando:
 * L'endpoint del probe restituisce un codice di risposta HTTP diverso da 200, ad esempio 403, 404 o 500. In questo caso, il probe di integrità verrà contrassegnato immediatamente come inattivo. 
-* L'endpoint del probe non invia alcuna risposta durante il periodo di timeout di 31 secondi. Più richieste di probe potrebbero non ricevere risposta prima che il probe venga contrassegnato come non in esecuzione e fino a quando non viene raggiunta la somma di tutti gli intervalli di timeout.
+* L'endpoint probe non risponde affatto durante il periodo di timeout minimo dell'intervallo di probe e di 30 secondi. Più richieste di probe potrebbero non ricevere risposta prima che il probe venga contrassegnato come non in esecuzione e fino a quando non viene raggiunta la somma di tutti gli intervalli di timeout.
 * L'endpoint del probe chiude la connessione tramite l'invio di un TCP Reset.
 
 Di seguito viene illustrato come è possibile esprimere questo tipo di configurazione di probe in un modello di Gestione risorse:
@@ -243,7 +243,7 @@ Se si dispone di più interfacce nella macchina virtuale, è necessario assicura
 
 Non abilitare i [timestamp TCP](https://tools.ietf.org/html/rfc1323).  L'abilitazione dei timestamp TCP può causare l'esito negativo dei probe di integrità a causa dell'eliminazione dei pacchetti TCP dallo stack TCP del sistema operativo guest della macchina virtuale, il che determina Load Balancer contrassegnare il rispettivo endpoint.  I timestamp TCP sono abilitati periodicamente per impostazione predefinita sulle immagini delle macchine virtuali con sicurezza elevata e devono essere disattivati.
 
-## <a name="monitoring"></a>Monitorare
+## <a name="monitoring"></a>Monitoraggio
 
 Sia public che Internal [Load Balancer standard](load-balancer-standard-overview.md) espongono lo stato del probe di integrità per endpoint e endpoint back-end come metriche multidimensionali tramite monitoraggio di Azure. Queste metriche possono essere utilizzate da altri servizi di Azure o da applicazioni partner. 
 
@@ -252,7 +252,7 @@ Il Load Balancer pubblico di base espone lo stato del probe di integrità per og
 ## <a name="limitations"></a>Limitazioni
 
 - I probe HTTPS non supportano l'autenticazione reciproca con un certificato client.
-- Se i timestamp TCP sono abilitati, i probe assumehHealth non riusciranno.
+- È necessario presupporre che i probe di integrità avranno esito negativo quando i timestamp TCP sono abilitati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

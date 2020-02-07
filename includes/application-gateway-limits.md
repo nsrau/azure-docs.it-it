@@ -4,14 +4,14 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 0ba21fe3789fba03cd4814d19fb103c3a2559c13
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 6ab6c4c2051ccd2fbb22c383b9ca0af53ceb13d3
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75662935"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77054904"
 ---
-| Gruppi | Limite predefinito/massimo | Note |
+| Risorsa | Limite predefinito/massimo | Note |
 | --- | --- | --- |
 | Gateway applicazione di Azure |1\.000 per sottoscrizione | |
 | Configurazioni IP front-end |2 |1 pubblica e 1 privata |
@@ -21,7 +21,7 @@ ms.locfileid: "75662935"
 | Listener HTTP |100<sup>1</sup> | |
 | Regole di bilanciamento del carico HTTP |100<sup>1</sup> | |
 | Back-end impostazioni HTTP |100<sup>1</sup> | |
-| Istanze per gateway |32 | |
+| Istanze per gateway |SKU V1-32<br>SKU V2-125 | |
 | Certificati SSL |100<sup>1</sup> |1 per listener HTTP |
 | Dimensioni massime del certificato SSL |SKU V1-10 KB<br>SKU V2-16 KB| |
 | Certificati di autenticazione |100 | |

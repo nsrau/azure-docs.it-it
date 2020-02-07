@@ -3,12 +3,12 @@ title: Criteri autore per le proprietà delle matrici sulle risorse
 description: Informazioni su come usare i parametri di matrice e le espressioni del linguaggio di matrici, valutare l'alias [*] e aggiungere elementi con le regole di definizione dei criteri di Azure.
 ms.date: 11/26/2019
 ms.topic: how-to
-ms.openlocfilehash: 462d9acbda37bbbd007af6d6d1267e9b0e7d3e0a
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 991d159f6444133d902382bc9ca43bc2acd201e2
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023192"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77050076"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Modificare i criteri per le proprietà delle matrici nelle risorse di Azure
 
@@ -140,8 +140,7 @@ Il **tipo** di condizione previsto `equals` è _String_. Poiché **allowedLocati
 
 ### <a name="evaluating-the--alias"></a>Valutazione dell'alias [*]
 
-Gli alias con **\[\*\]** allegati al nome indicano che il **tipo** è una _matrice_. Anziché valutare il valore dell'intera matrice, **\[\*\]** rende possibile valutare ogni elemento della matrice singolarmente, con l'operatore logico and between. Esistono tre scenari standard in cui questa valutazione per elemento è utile in: nessuno _, nessuno_o _tutti_ gli elementi corrispondono.
-Per gli scenari complessi, usare [count](../concepts/definition-structure.md#count).
+Gli alias con **\[\*\]** allegati al nome indicano che il **tipo** è una _matrice_. Anziché valutare il valore dell'intera matrice, **\[\*\]** rende possibile valutare ogni elemento della matrice singolarmente, con l'operatore logico and between. Esistono tre scenari standard in cui questa valutazione per elemento è utile in: nessuno _, nessuno_o _tutti_ gli elementi corrispondono. Per gli scenari complessi, usare [count](../concepts/definition-structure.md#count).
 
 Il motore dei criteri attiva l' **effetto** in **quindi** solo quando la regola **if** restituisce true.
 Questo aspetto è importante per comprendere nel contesto del modo in cui **\[\*\]** valuta ogni singolo elemento della matrice.

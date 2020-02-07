@@ -7,20 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
-ms.openlocfilehash: cc2d6df952b2e0aa9b9f4d4e1dcb4859a5bb3790
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 62fcdf01250728cf84726db7e9b39452a4d4e5ff
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74130539"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046358"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>Azioni di GitHub per la distribuzione nel servizio Kubernetes
 
 [Azioni di GitHub](https://help.github.com/en/articles/about-github-actions) offre la flessibilità necessaria per creare un flusso di lavoro automatizzato del ciclo di vita di sviluppo software. L'azione Kubernetes [azure/aks-set-context@v1](https://github.com/Azure/aks-set-context) facilita le distribuzioni nei cluster di servizi Kubernetes di Azure. L'azione imposta il contesto del cluster AKS di destinazione, che può essere usato da altre azioni come [Azure/K8S-deploy](https://github.com/Azure/k8s-deploy/tree/master), [Azure/K8S-create-Secret](https://github.com/Azure/k8s-create-secret/tree/master) e così via oppure eseguire qualsiasi comando kubectl.
-
-> [!IMPORTANT]
-> Le azioni di GitHub sono attualmente in versione beta. È prima di tutto necessario [iscriversi per partecipare all'anteprima](https://github.com/features/actions) usando il proprio account github.
-> 
 
 Un flusso di lavoro viene definito da un file YAML (. yml) nel percorso `/.github/workflows/` nel repository. Questa definizione contiene i vari passaggi e parametri che costituiscono il flusso di lavoro.
 
@@ -28,13 +24,13 @@ Per un flusso di lavoro che ha come destinazione AKS, il file è costituito da t
 
 |Sezione  |Attività  |
 |---------|---------|
-|**Autenticazione** | Accedere a un registro contenitori privato (ACR) |
+|**autenticazione** | Accedere a un registro contenitori privato (ACR) |
 |**Build** | Compilare & eseguire il push dell'immagine del contenitore  |
-|**Distribuzione** | 1. impostare il cluster AKS di destinazione |
+|**Distribuire** | 1. impostare il cluster AKS di destinazione |
 | |2. creare un segreto del registro di sistema generico/Docker nel cluster Kubernetes  |
 ||3. eseguire la distribuzione nel cluster Kubernetes|
 
-## <a name="create-a-service-principal"></a>Creare un’entità servizio
+## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
 È possibile creare un' [entità servizio](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) usando il comando [AZ ad SP create-for-RBAC](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) nell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/). È possibile eseguire questo comando usando [Azure cloud Shell](https://shell.azure.com/) nel portale di Azure o selezionando il pulsante **prova** .
 

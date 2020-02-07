@@ -7,14 +7,14 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 1052ef799949550ddaf492b8aa5b77ab9526d092
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 93c0b3e27156655acee24d424cd890b48bb8e4e7
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780284"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064989"
 ---
-# <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>Inserire i dati dall'hub Internet in Esplora dati di Azure (anteprima)
+# <a name="ingest-data-from-iot-hub-into-azure-data-explorer"></a>Inserire i dati dall'hub Internet in Azure Esplora dati 
 
 > [!div class="op_single_selector"]
 > * [Portale](ingest-data-iot-hub.md)
@@ -24,7 +24,7 @@ ms.locfileid: "75780284"
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Azure Esplora dati offre l'inserimento (caricamento dei dati) dall'hub Internet, una piattaforma di streaming Big Data e un servizio di inserimento di Internet.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * Creare [un cluster e un database di test con il](create-cluster-database-portal.md) nome del database *TestDB*.

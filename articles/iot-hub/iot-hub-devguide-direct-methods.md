@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: rezas
-ms.openlocfilehash: f4125aae954519beead99db45fc8a35264d5731e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dcbc03257b8bfeacda700f60f2724f2d02ec147d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429278"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048279"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Comprendere e richiamare metodi diretti dall'hub IoT
 
@@ -73,7 +73,10 @@ Le chiamate a metodi diretti in un dispositivo sono chiamate HTTPS composte dagl
     }
     ```
 
-Il timeout è espresso in secondi. Se il timeout non è impostato, il valore predefinito è 30 secondi.
+Il valore fornito come `responseTimeoutInSeconds` nella richiesta è la quantità di tempo per cui il servizio hub Internet deve attendere il completamento dell'esecuzione di un metodo diretto in un dispositivo. Impostare questo timeout almeno fino a quando il tempo di esecuzione previsto di un metodo diretto da parte di un dispositivo. Se il timeout non viene specificato, viene usato il valore predefinito di 30 secondi. I valori minimo e massimo per `responseTimeoutInSeconds` sono rispettivamente 5 e 300 secondi.
+
+Il valore fornito come `connectTimeoutInSeconds` nella richiesta è la quantità di tempo dopo la chiamata di un metodo diretto che il servizio hub Internet deve attendere per la connessione di un dispositivo disconnesso. Il valore predefinito è 0, ovvero i dispositivi devono essere già online al momento della chiamata a un metodo diretto. Il valore massimo per `connectTimeoutInSeconds` è 300 secondi.
+
 
 #### <a name="example"></a>Esempio
 
@@ -98,7 +101,10 @@ curl -X POST \
 
 L'app back-end riceve una risposta composta dagli elementi seguenti:
 
-* *Codice di stato HTTP*, usato per errori provenienti dall'hub IoT, incluso un errore 404 per i dispositivi attualmente non connessi.
+* *Codice di stato http*:
+  * 200 indica l'esecuzione corretta del metodo diretto;
+  * 404 indica che l'ID dispositivo non è valido o che il dispositivo non era online al momento della chiamata di un metodo diretto e per `connectTimeoutInSeconds` successivamente (usare un messaggio di errore accompagnato per comprendere la causa principale);
+  * 504 indica il timeout del gateway causato dal dispositivo che non risponde a una chiamata al metodo diretto entro `responseTimeoutInSeconds`.
 
 * *Intestazioni* contenenti l'ETag, l'ID richiesta, il tipo di contenuto e la codifica del contenuto.
 

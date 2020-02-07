@@ -1,97 +1,78 @@
 ---
-title: 'Esercitazione: Configurare Insight4GRC per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
-description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in Insight4GRC.
+title: 'Esercitazione: configurare Insight4GRC per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+description: Informazioni su come eseguire automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a Insight4GRC.
 services: active-directory
 documentationcenter: ''
-author: zchia
-writer: zchia
+author: Zhchia
+writer: Zhchia
 manager: beatrizd
-ms.assetid: 34718201-4f0e-4260-9af0-b3b70a1e8265
+ms.assetid: d0eab8a0-571b-4609-96b1-bdbc761a25de
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2019
-ms.author: zhchia
-ms.openlocfilehash: 7e8c6c2277f29fc114033aac24844e9e85816b78
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.date: 02/04/2020
+ms.author: Zhchia
+ms.openlocfilehash: 0ca9ed8781a13f9ab5e949e0e5f019a851dc75f4
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951036"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057482"
 ---
-# <a name="tutorial-configure-insight4grc--for-automatic-user-provisioning"></a>Esercitazione: Configurare Insight4GRC per il provisioning utenti automatico
+# <a name="tutorial-configure-insight4grc-for-automatic-user-provisioning"></a>Esercitazione: configurare Insight4GRC per il provisioning utenti automatico
 
-Questa esercitazione descrive i passaggi da eseguire in Insight4GRC e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in Insight4GRC.
+Questa esercitazione descrive i passaggi da eseguire sia in Insight4GRC che in Azure Active Directory (Azure AD) per configurare il provisioning utenti automatico. Se configurato, Azure AD esegue automaticamente il provisioning e il deprovisioning di utenti e gruppi in [Insight4GRC](https://www.rsmuk.com/) usando il servizio di provisioning Azure ad. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md). 
 
-> [!NOTE]
-> L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
->
-> Questo connettore è attualmente disponibile in anteprima pubblica. Per ulteriori informazioni sulle condizioni per l'utilizzo di Microsoft Azure generali per le funzionalità di anteprima, vedere le [condizioni per l'utilizzo supplementari per](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)le anteprime di Microsoft Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="capabilities-supported"></a>Funzionalità supportate
+> [!div class="checklist"]
+> * Creare utenti in Insight4GRC
+> * Rimuovere gli utenti in Insight4GRC quando non richiedono più l'accesso
+> * Mantieni gli attributi utente sincronizzati tra Azure AD e Insight4GRC
+> * Effettuare il provisioning di gruppi e appartenenze a gruppi in Insight4GRC
+> * [Single Sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/insight4grc-tutorial) per Insight4GRC (scelta consigliata)
+
+## <a name="prerequisites"></a>Prerequisites
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
-* Un tenant di Azure AD.
-* [Tenant di Insight4GRC](https://www.rsmuk.com/).
+* [Tenant di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
+* Un account utente in Azure AD con l' [autorizzazione](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) per la configurazione del provisioning, ad esempio amministratore dell'applicazione, amministratore di applicazioni cloud, proprietario dell'applicazione o amministratore globale. 
 * Un account utente in Insight4GRC con autorizzazioni di amministratore.
 
-## <a name="assigning-users-to-insight4grc"></a>Assegnazione di utenti a Insight4GRC 
+## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
+1. Informazioni sul [funzionamento del servizio di provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Determinare chi sarà nell' [ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Determinare quali dati eseguire il [mapping tra Azure ad e Insight4GRC](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-Azure Active Directory usa un concetto denominato *assegnazioni* per determinare gli utenti che devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
-
-Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD necessario accedere a Insight4GRC. Dopo aver stabilito questo, è possibile assegnare gli utenti e/o i gruppi a Insight4GRC seguendo le istruzioni riportate qui:
-
-* [Assegnare un utente o gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md)
-
-## <a name="important-tips-for-assigning-users-to-insight4grc"></a>Suggerimenti importanti per l'assegnazione di utenti a Insight4GRC 
-
-* È consigliabile assegnare un singolo Azure AD utente a Insight4GRC per testare la configurazione del provisioning utenti automatico. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
-
-* Quando si assegna un utente a Insight4GRC, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo **Accesso predefinito** vengono esclusi dal provisioning.
-
-## <a name="setup-insight4grc-for-provisioning"></a>Configurare Insight4GRC per il provisioning
+## <a name="step-2-configure-insight4grc-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare Insight4GRC per supportare il provisioning con Azure AD
 
 Prima di configurare Insight4GRC per il provisioning utenti automatico con Azure AD, sarà necessario abilitare il provisioning di SCIM in Insight4GRC.
 
-1. Per ottenere la bearer token, il cliente finale deve contattare il [team di supporto](mailto:support.ss@rsmuk.com) e fornirà i Bearer token ai clienti.
-
+1. Per ottenere la bearer token, il cliente finale deve contattare il [team di supporto](mailto:support.ss@rsmuk.com).
 2. Per ottenere l'URL dell'endpoint SCIM, è necessario che il nome di dominio Insight4GRC sia pronto perché verrà usato per costruire l'URL dell'endpoint SCIM. È possibile recuperare il nome di dominio Insight4GRC come parte dell'acquisto iniziale del software con Insight4GRC.
 
+## <a name="step-3-add-insight4grc-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere Insight4GRC dalla raccolta di applicazioni Azure AD
 
-## <a name="add-insight4grc--from-the-gallery"></a>Aggiungere Insight4GRC dalla raccolta
+Aggiungere Insight4GRC dalla raccolta di applicazioni Azure AD per iniziare a gestire il provisioning in Insight4GRC. Se in precedenza è stato configurato Insight4GRC per SSO, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'applicazione separata quando si testa inizialmente l'integrazione. Altre informazioni sull'aggiunta di un'applicazione dalla raccolta sono disponibili [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-Per configurare Insight4GRC per il provisioning utenti automatico con Azure AD, è necessario aggiungere Insight4GRC dalla raccolta di applicazioni Azure AD al proprio elenco di applicazioni SaaS gestite.
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passaggio 4. Definire chi sarà nell'ambito per il provisioning 
 
-**Per aggiungere Insight4GRC dalla raccolta di applicazioni Azure AD, seguire questa procedura:**
+Il servizio Azure AD provisioning consente di definire l'ambito di chi verrà eseguito il provisioning in base all'assegnazione all'applicazione e o in base agli attributi dell'utente o del gruppo. Se si sceglie di definire l'ambito di cui verrà eseguito il provisioning per l'app in base all'assegnazione, è possibile usare i [passaggi](../manage-apps/assign-user-or-group-access-portal.md) seguenti per assegnare utenti e gruppi all'applicazione. Se si sceglie di definire l'ambito di cui verrà eseguito il provisioning basato esclusivamente sugli attributi dell'utente o del gruppo, è possibile usare un filtro di ambito come descritto [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-1. Nel riquadro di spostamento a sinistra del **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory**.
+* Quando si assegnano utenti e gruppi a Insight4GRC, è necessario selezionare un ruolo diverso dall' **accesso predefinito**. Gli utenti con il ruolo di accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) per aggiungere altri ruoli. 
 
-    ![Pulsante Azure Active Directory](common/select-azuread.png)
+* Avviare Small. Eseguire il test con un piccolo set di utenti e gruppi prima di distribuirlo a tutti. Quando l'ambito per il provisioning è impostato su utenti e gruppi assegnati, è possibile controllarlo assegnando uno o due utenti o gruppi all'app. Quando l'ambito è impostato su tutti gli utenti e i gruppi, è possibile specificare un [filtro di ambito basato su attributi](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+## <a name="step-5-configure-automatic-user-provisioning-to-insight4grc"></a>Passaggio 5. Configurare il provisioning utenti automatico in Insight4GRC 
 
-3. Per aggiungere una nuova applicazione, selezionare il pulsante **nuova applicazione** nella parte superiore del riquadro.
+Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in TestApp in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
-    ![Pulsante Nuova applicazione](common/add-new-app.png)
-
-4. Nella casella di ricerca immettere **Insight4GRC**, selezionare **Insight4GRC** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
-
-    ![Insight4GRC nell'elenco risultati](common/search-new-app.png)
-
-## <a name="configuring-automatic-user-provisioning-to-insight4grc"></a>Configurazione del provisioning utenti automatico in Insight4GRC  
-
-Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in Insight4GRC in base alle assegnazioni di utenti e/o gruppi in Azure AD.
-
-> [!TIP]
-> È anche possibile scegliere di abilitare l'accesso Single Sign-on basato su SAML per Insight4GRC, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di Insight4GRC](insight4grc-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
-
-### <a name="to-configure-automatic-user-provisioning-for-insight4grc--in-azure-ad"></a>Per configurare il provisioning utenti automatico per Insight4GRC in Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-insight4grc-in-azure-ad"></a>Per configurare il provisioning utenti automatico per Insight4GRC in Azure AD:
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **applicazioni aziendali**e quindi selezionare **tutte le applicazioni**.
 
@@ -109,56 +90,69 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Scheda Provisioning](common/provisioning-automatic.png)
 
-5.  Nella sezione credenziali amministratore immettere `https://{Insight4GRC Domain Name}.insight4grc.com/public/api/scim/v2` l'URL del **tenant** usando il valore {Insight4GRC Domain Name} recuperato in precedenza. Immettere il **valore del token** recuperato in precedenza in **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a Insight4GRC. Se la connessione non riesce, verificare che l'account Insight4GRC disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **credenziali amministratore** immettere il nome utente e le credenziali di amministratore di Insight4GRC. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a Insight4GRC. Se la connessione non riesce, verificare che l'account Insight4GRC disponga delle autorizzazioni di amministratore e riprovare.
 
-    ![URL tenant + token](common/provisioning-testconnection-tenanturltoken.png)
+    ![provisioning](./media/insight4grc-provisioning-tutorial/provisioning.png)
 
-6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
+6. Nel campo **messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che deve ricevere le notifiche degli errori di provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica quando si verifica un errore** .
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Save**.
+7. Selezionare **Salva**.
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a Insight4GRC**.
 
-    ![Insight4GRC-mapping utente](media/insight4grc-provisioning-tutorial/usermapping.png)
+9. Esaminare gli attributi utente che vengono sincronizzati da Azure AD a Insight4GRC nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Insight4GRC per le operazioni di aggiornamento. Se si sceglie di modificare l' [attributo di destinazione corrispondente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), sarà necessario assicurarsi che l'API Insight4GRC supporti il filtraggio degli utenti in base a tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-9. Esaminare gli attributi utente sincronizzati da Azure AD a Insight4GRC nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Insight4GRC per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+   |Attributo|Type|
+   |---|---|
+   |userName|string|
+   |externalId|string|
+   |active|Boolean|
+   |title|string|
+   |name.givenName|string|
+   |name.familyName|string|
+   |emails[type eq "work"].value|string|
+   |phoneNumbers[type eq "work"].value|string|
 
-    ![Insight4GRC-mapping utente](media/insight4grc-provisioning-tutorial/userattribute.png)
+10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to Insight4GRC**.
 
-10. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory gruppo in Insight4GRC**
+11. Esaminare gli attributi di gruppo sincronizzati da Azure AD a Insight4GRC nella sezione **mapping** degli attributi. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in Insight4GRC per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Insight4GRC-mapping del gruppo](media/insight4grc-provisioning-tutorial/groupmapping.png)
+      |Attributo|Type|
+      |---|---|
+      |displayName|string|
+      |externalId|string|
+      |Membri di|Riferimento|
 
-11. Esaminare gli attributi di gruppo sincronizzati da Azure AD a Insight4GRC nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account di gruppo in Insight4GRC per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-    ![Insight4GRC-mapping del gruppo](media/insight4grc-provisioning-tutorial/groupattribute.png)
-
-10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
-
-11. Per abilitare il servizio di provisioning Azure AD per Insight4GRC, impostare **stato** del provisioning **su** attivato nella sezione **Impostazioni** .
+13. Per abilitare il servizio di provisioning Azure AD per Insight4GRC, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-12. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in Insight4GRC selezionando i valori desiderati in **ambito** nella sezione **Impostazioni** .
+14. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in Insight4GRC selezionando i valori desiderati in **ambito** nella sezione **Impostazioni** .
 
-    ![Ambito del provisioning](common/provisioning-scope.png)
+    ![Ambito di provisioning](common/provisioning-scope.png)
 
 15. Quando si è pronti per eseguire il provisioning, fare clic su **Salva**.
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
-L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio Azure ad provisioning su Insight4GRC.
+Questa operazione avvia il ciclo di sincronizzazione iniziale di tutti gli utenti e i gruppi definiti nell' **ambito** nella sezione **Impostazioni** . Il ciclo iniziale richiede più tempo rispetto ai cicli successivi, che si verificano approssimativamente ogni 40 minuti, a condizione che sia in esecuzione il servizio di provisioning Azure AD. 
 
-Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
+## <a name="step-6-monitor-your-deployment"></a>Passaggio 6. Monitorare la distribuzione
+Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare la distribuzione:
 
+* Usare i [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) per determinare gli utenti di cui è stato effettuato il provisioning con esito positivo o negativo.
+* Controllare l' [indicatore di stato per visualizzare](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) lo stato del ciclo di provisioning e il modo in cui terminarlo.
+* Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entra in quarantena. Altre informazioni sugli stati di quarantena sono disponibili [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per le app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md).
+* [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md).
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../manage-apps/check-status-user-account-provisioning.md).
+* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md).

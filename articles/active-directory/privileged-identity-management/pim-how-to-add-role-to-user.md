@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/17/2019
+ms.date: 01/05/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7cbb8c07b75509825795da45d8352140afd0864
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 3bec73ee7286ea831920fc20bd46cf43c2874081
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024229"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047096"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Assegnare ruoli di Azure AD in Privileged Identity Management
 
@@ -61,19 +61,9 @@ Seguire questa procedura per rendere un utente idoneo per un ruolo di amministra
 
 1. Selezionare un ruolo da assegnare e quindi fare clic su **Seleziona**.
 
-    Verrà visualizzata la pagina **selezionare un membro o un gruppo** .
+1. Selezionare un membro a cui si desidera assegnare il ruolo e quindi selezionare **Seleziona**.
 
-1. Selezionare un membro o un gruppo che si desidera assegnare al ruolo, quindi selezionare **Seleziona**.
-
-    ![Riquadro Selezionare un membro o un gruppo](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
-
-    Verrà aperto il riquadro Impostazioni di appartenenza.
-
-1. Nell'elenco **Tipo di assegnazione** selezionare **Idoneo** o **Attivo**.
-
-    ![Riquadro Impostazioni di appartenenza](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
-
-    Privileged Identity Management per le risorse di Azure fornisce due tipi di assegnazione distinti:
+1. Nell'elenco **tipo di assegnazione** nel riquadro **impostazioni di appartenenza** Selezionare **idoneo** o **attivo**.
 
     - Le assegnazioni di tipo **Idoneo** richiedono al membro del ruolo di eseguire un'azione per usare il ruolo. Le azioni possono includere il completamento di un controllo di autenticazione a più fattori (MFA), l'indicazione di una motivazione aziendale e la richiesta di approvazione da parte di responsabili dell'approvazione designati.
 
@@ -83,13 +73,9 @@ Seguire questa procedura per rendere un utente idoneo per un ruolo di amministra
 
     A seconda delle impostazioni dei ruoli, la casella di controllo potrebbero non essere visualizzata o potrebbe essere non modificabile.
 
-1. Per indicare una durata specifica per l'assegnazione, deselezionare la casella di controllo e modificare le caselle relative a data e ora di inizio e/o fine.
+1. Per indicare una durata specifica per l'assegnazione, deselezionare la casella di controllo e modificare le caselle relative a data e ora di inizio e/o fine. Al termine, selezionare **fine**.
 
     ![Impostazioni di appartenenza a - data e ora](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
-
-1. Al termine, selezionare **fine**.
-
-    ![Nuova assegnazione - Aggiungi](./media/pim-resource-roles-assign-roles/resources-new-assignment-add.png)
 
 1. Per creare la nuova assegnazione di ruolo, selezionare **Aggiungi**. Verrà visualizzata una notifica dello stato.
 

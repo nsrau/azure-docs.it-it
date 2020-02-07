@@ -16,18 +16,18 @@ ms.date: 12/03/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6da171db6535100342342571a5c1f6468abd0fc
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: b0cae5458a9b9456d26363802ee9b06aaa842e72
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712356"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063595"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemi noti e risolti con la conformità al protocollo SCIM 2.0 del servizio di provisioning utenti di Azure AD
 
 Azure Active Directory (Azure AD) può effettuare automaticamente il provisioning di utenti e gruppi in qualsiasi applicazione o sistema gestito da un servizio Web con interfaccia definita nella [specifica del protocollo System for Cross-Domain Identity Management (SCIM) 2.0](https://tools.ietf.org/html/draft-ietf-scim-api-19). 
 
-Il supporto del protocollo SCIM 2.0 da parte di Azure AD è descritto in [Uso di System for Cross-Domain Identity Management (SCIM) per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory ad applicazioni](use-scim-to-provision-users-and-groups.md), in cui sono indicate le parti specifiche del protocollo che vengono implementate per effettuare automaticamente il provisioning di utenti e gruppi da Azure AD alle applicazioni che supportano SCIM 2.0.
+Il supporto del protocollo SCIM 2.0 da parte di Azure AD è descritto in [Uso di System for Cross-Domain Identity Management (SCIM) per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory ad applicazioni](../app-provisioning/use-scim-to-provision-users-and-groups.md), in cui sono indicate le parti specifiche del protocollo che vengono implementate per effettuare automaticamente il provisioning di utenti e gruppi da Azure AD alle applicazioni che supportano SCIM 2.0.
 
 In questo articolo sono descritti i problemi correnti e passati relativi alla conformità del servizio di provisioning utenti di Azure AD con il protocollo SCIM 2.0 e sono fornite indicazioni su come risolverli.
 
@@ -113,5 +113,5 @@ Sì. Se si è codificata un'applicazione precedente alle correzioni con il compo
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Informazioni sul provisioning e il deprovisioning utenti in applicazioni SaaS](user-provisioning.md)
+[Informazioni sul provisioning e il deprovisioning utenti in applicazioni SaaS](../app-provisioning/user-provisioning.md)
 

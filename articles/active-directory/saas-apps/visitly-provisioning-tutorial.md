@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Configurare visitando il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+title: 'Esercitazione: configurare visitando il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente per visitare.
 services: active-directory
 documentationcenter: ''
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 942f0aa685ff7e2278aae159f7e97917a105f5fa
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 73cc1a58689db7902843f222aa4874a5e188be44
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840155"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063165"
 ---
-# <a name="tutorial-configure-visitly-for-automatic-user-provisioning"></a>Esercitazione: Configurare visitando il provisioning utenti automatico
+# <a name="tutorial-configure-visitly-for-automatic-user-provisioning"></a>Esercitazione: configurare visitando il provisioning utenti automatico
 
 L'obiettivo di questa esercitazione è illustrare i passaggi da eseguire in visita ed Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti o gruppi per visitare la pagina.
 
 > [!NOTE]
-> Questa esercitazione descrive un connettore basato sul servizio di provisioning utenti Azure AD. Per informazioni importanti sul funzionamento di questo servizio, sul suo funzionamento e sulle domande frequenti, vedere [automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS (software-as-a-Service) con Azure Active Directory](../manage-apps/user-provisioning.md).
+> Questa esercitazione descrive un connettore basato sul servizio di provisioning utenti Azure AD. Per informazioni importanti sul funzionamento di questo servizio, sul suo funzionamento e sulle domande frequenti, vedere [automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS (software-as-a-Service) con Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Questo connettore è attualmente disponibile in anteprima pubblica. Per ulteriori informazioni sulle condizioni per l'utilizzo di Microsoft Azure generali per le funzionalità di anteprima, vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
@@ -56,7 +56,7 @@ Prima di configurare e abilitare il provisioning utenti automatico, decidere qua
 
 Prima di configurare visitando il provisioning utenti automatico con Azure AD, è necessario abilitare il provisioning di sistema per la gestione delle identità tra domini (SCIM) in visita.
 
-1. Accedere a [visitare](https://app.visitly.io/login). Selezionare **integrations** > **Synchronization host**.
+1. Accedere a [visitare](https://app.visitly.io/login). Selezionare **integrations** > **sincronizzazione host**.
 
     ![Sincronizzazione host](media/Visitly-provisioning-tutorial/login.png)
 
@@ -66,7 +66,7 @@ Prima di configurare visitando il provisioning utenti automatico con Azure AD, �
 
 3. Copiare la **chiave API**. Questi valori vengono immessi nella casella **token segreto** nella scheda **provisioning** dell'applicazione visita nel portale di Azure.
 
-    ![Chiave API](media/Visitly-provisioning-tutorial/token.png)
+    ![API key](media/Visitly-provisioning-tutorial/token.png)
 
 
 ## <a name="add-visitly-from-the-gallery"></a>Aggiungi visita dalla raccolta
@@ -116,13 +116,13 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Modalità di provisioning impostata su automatica](common/provisioning-automatic.png)
 
-5. Nella sezione credenziali amministratore immettere i valori di `https://api.visitly.io/v1/usersync/SCIM` e delle **chiavi API** recuperati in precedenza rispettivamente in **URL tenant** e **token segreto**. Selezionare **Test connessione** per assicurarsi che Azure ad possa connettersi a visitare. Se la connessione non riesce, verificare che l'account visity disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione credenziali amministratore immettere i valori di `https://api.visitly.io/v1/usersync/SCIM` e **chiave API** recuperati in precedenza rispettivamente in **URL tenant** e **token segreto**. Selezionare **Test connessione** per assicurarsi che Azure ad possa connettersi a visitare. Se la connessione non riesce, verificare che l'account visity disponga delle autorizzazioni di amministratore e riprovare.
 
     ![URL tenant + token](common/provisioning-testconnection-tenanturltoken.png)
 
 6. Nella casella **posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche degli errori di provisioning. Selezionare la casella di controllo **Invia una notifica di posta elettronica quando si verifica un errore** .
 
-    ![Indirizzo di posta elettronica per le notifiche](common/provisioning-notification-email.png)
+    ![E-mail di notifica](common/provisioning-notification-email.png)
 
 7. Selezionare **Salva**.
 
@@ -134,7 +134,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Attributi utente visitabili](media/visitly-provisioning-tutorial/userattribute.png)
 
-10. Per configurare i filtri di ambito, seguire le istruzioni riportate nell'esercitazione relativa al [filtro di ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Per configurare i filtri di ambito, seguire le istruzioni riportate nell'esercitazione relativa al [filtro di ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. Per abilitare il servizio di provisioning Azure AD per la visita, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
 
@@ -142,15 +142,15 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 12. Definire gli utenti o i gruppi di cui si vuole eseguire il provisioning selezionando i valori desiderati in **ambito** nella sezione **Impostazioni** .
 
-    ![Ambito del provisioning](common/provisioning-scope.png)
+    ![Ambito di provisioning](common/provisioning-scope.png)
 
 13. Quando si è pronti per il provisioning, selezionare **Salva**.
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
-Questa operazione avvia la sincronizzazione iniziale di tutti gli utenti o gruppi definiti nell' **ambito** nella sezione **Impostazioni** . La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive. Per ulteriori informazioni sul tempo necessario per l'esecuzione del provisioning da parte di utenti o gruppi, vedere [quanto tempo sarà necessario per il provisioning degli utenti](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+Questa operazione avvia la sincronizzazione iniziale di tutti gli utenti o gruppi definiti nell' **ambito** nella sezione **Impostazioni** . La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive. Per ulteriori informazioni sul tempo necessario per l'esecuzione del provisioning da parte di utenti o gruppi, vedere [quanto tempo sarà necessario per il provisioning degli utenti](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-È possibile usare la sezione **stato corrente** per monitorare lo stato di avanzamento e selezionare i collegamenti al report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning Azure ad in visita. Per altre informazioni, vedere [controllare lo stato del provisioning dell'utente](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md). Per leggere i log di provisioning di Azure AD, vedere [creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
+È possibile usare la sezione **stato corrente** per monitorare lo stato di avanzamento e selezionare i collegamenti al report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning Azure ad in visita. Per altre informazioni, vedere [controllare lo stato del provisioning dell'utente](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Per leggere i log di provisioning di Azure AD, vedere [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Limitazioni dei connettori
 
@@ -158,9 +158,9 @@ Visitare non supporta le eliminazioni a livello di hardware. Tutto è solo l'eli
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per le app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../manage-apps/check-status-user-account-provisioning.md)
+* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)

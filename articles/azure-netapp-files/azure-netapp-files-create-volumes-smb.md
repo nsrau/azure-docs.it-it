@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 6b1946cdaebd01a0742f9ce2b2efb5054ac9d2a8
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: c65da771dd483b3a79785d4bec2b89cbeefca5c4
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867441"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049880"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creare un volume SMB per Azure NetApp Files
 
@@ -40,7 +40,7 @@ Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di 
 * Le porte appropriate devono essere aperte nel server di Windows Active Directory (AD) applicabile.  
     Le porte necessarie sono le seguenti: 
 
-    |     Servizio           |     Porta     |     Protocollo     |
+    |     Service           |     Porta     |     Protocollo     |
     |-----------------------|--------------|------------------|
     |    Servizi Web Active Directory    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
@@ -73,6 +73,8 @@ Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di 
     Se si dispone di controller di dominio irraggiungibili tramite la Azure NetApp Files subnet delegata, è possibile inviare una richiesta di supporto di Azure per modificare l'ambito da **globale** (impostazione predefinita) a **sito**.  Azure NetApp Files necessario comunicare solo con i controller di dominio nel sito in cui risiede lo spazio degli indirizzi della subnet delegata Azure NetApp Files.
 
     Vedere [progettazione della topologia del sito](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) sui siti e servizi di Active Directory. 
+    
+Vedere Azure NetApp Files [domande frequenti su SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs) sulle informazioni aggiuntive su Active Directory. 
 
 ## <a name="create-an-active-directory-connection"></a>Creare una connessione Active Directory
 

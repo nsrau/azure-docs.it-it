@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 56c2d96e6e4a5900770aaefcabb424eddb1cbde6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 8f91ed926c733b211443805722b6817b1ce005b6
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531387"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048351"
 ---
 # <a name="what-are-wrangling-data-flows"></a>Che cosa sono i flussi di dati?
 
@@ -34,7 +34,7 @@ Più data Engineers e gli integratori di dati Citizen possono esplorare e prepar
 
 Gli integratori di dati Citizen dedicano più del 60% del tempo alla ricerca e alla preparazione dei dati. Si sta cercando di eseguire questa operazione in un codice libero per migliorare la produttività operativa. Consentire agli integratori di dati dei cittadini di arricchire, modellare e pubblicare i dati usando strumenti noti come Power Query online in modo scalabile, migliora notevolmente la produttività. Il flusso di dati in Azure Data Factory consente all'editor di mashup familiare Power Query online di consentire agli integratori di dati Citizen di correggere rapidamente gli errori, standardizzare i dati e produrre dati di alta qualità per supportare le decisioni aziendali.
 
-### <a name="data-validation"></a>Convalida dei dati
+### <a name="data-validation"></a>Convalida dati
 
 Analizza visivamente i dati in modo senza codice per rimuovere eventuali outlier, anomalie e conformi a una forma per l'analisi veloce.
 
@@ -42,11 +42,11 @@ Analizza visivamente i dati in modo senza codice per rimuovere eventuali outlier
 
 | Connettore | Formato dati | Tipo di autenticazione |
 | -- | -- | --|
-| [Archivio BLOB di Azure](connector-azure-blob-storage.md) | CSV | Chiave account |
+| [Archiviazione BLOB di Azure](connector-azure-blob-storage.md) | CSV, parquet | Chiave account |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | Entità servizio |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV | Chiave dell'account, entità servizio |
-| [Database SQL di Azure](connector-azure-sql-database.md) | - | Autenticazione in SQL |
-| [Analisi delle sinapsi di Azure](connector-azure-sql-data-warehouse.md) | - | Autenticazione in SQL |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV, parquet | Chiave dell'account, entità servizio |
+| [Database SQL di Azure](connector-azure-sql-database.md) | - | Autenticazione SQL |
+| [Analisi delle sinapsi di Azure](connector-azure-sql-data-warehouse.md) | - | Autenticazione SQL |
 
 ## <a name="the-mashup-editor"></a>Editor mashup
 

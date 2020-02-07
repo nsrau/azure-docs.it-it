@@ -1,5 +1,6 @@
 ---
-title: Informazioni su un mondo senza password con Azure Active Directory | Microsoft Docs
+title: Autenticazione senza password con Azure AD
+titleSuffix: Active Directory
 description: Questa guida aiuta i CEO, cio, CISO, Chief Identity Architects, Enterprise Architects e Security and IT Decision Maker responsabili della scelta di un metodo di autenticazione con password per l'implementazione del Azure Active Directory.
 keywords: con password, azuread
 author: martincoetzer
@@ -9,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 39078e298093c2c2ab4835925a2ba8a70269f5f5
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 5fc6a4a23573995cf791a21ec7cf3a7d68d048e8
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945593"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064479"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Un mondo senza password con Azure Active Directory
 
@@ -24,7 +25,7 @@ Tre tipi di attacchi comunemente usati per compromettere gli account utente sono
 
 Questo articolo è l'inizio del viaggio per facilitare la comprensione e l'implementazione delle soluzioni di Microsoft per la password e consente di scegliere tra una o più delle opzioni seguenti:
 
-* **Windows Hello for business**. In Windows 10, su PC e dispositivi mobili Windows Hello for Business sostituisce l'autenticazione tramite password con l'autenticazione avanzata a due fattori. Questa autenticazione è costituita da un nuovo tipo di credenziale utente associato a un dispositivo e che usa un riconoscimento biometrico o un PIN.
+* **Windows Hello for business**. In Windows 10, Windows Hello for business sostituisce le password con l'autenticazione a due fattori avanzata nei PC e nei dispositivi mobili. Questa autenticazione è costituita da un nuovo tipo di credenziale utente associato a un dispositivo e che usa un riconoscimento biometrico o un PIN.
 
 * **Accesso senza password con Microsoft Authenticator**. L'app Microsoft Authenticator può essere usata per accedere a un account Azure AD senza usare una password. Analogamente alla tecnologia di Windows Hello for business, il Microsoft Authenticator usa l'autenticazione basata su chiavi per abilitare le credenziali utente associate a un dispositivo e usa una metrica o un PIN.
 
@@ -50,7 +51,7 @@ Windows Hello for business è ideale per gli Information Worker che dispongono d
 
 Windows Hello for business è un sistema distribuito che usa diversi componenti per eseguire la registrazione, il provisioning e l'autenticazione del dispositivo. Pertanto, la distribuzione richiede una pianificazione corretta tra più team all'interno dell'organizzazione. La [Guida alla pianificazione](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) di Windows Hello for business può essere usata per prendere decisioni sul tipo di distribuzione di Windows Hello for business e sulle opzioni che è necessario prendere in considerazione.
 
-Sono molte le opzioni che si possono scegliere quando distribuisci Windows Hello for Business. Fornire più opzioni garantisce che quasi tutte le organizzazioni possano distribuire Windows Hello for business. Considerare i seguenti tipi di distribuzioni supportate:
+Sono disponibili molte opzioni tra cui è possibile scegliere quando si distribuisce Windows Hello for business. Fornire più opzioni garantisce che quasi tutte le organizzazioni possano distribuire Windows Hello for business. Considerare i seguenti tipi di distribuzioni supportate:
 
 * [Distribuzione della chiave Azure AD ibrido unita in join](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-key-trust)
 
@@ -70,7 +71,7 @@ Si consiglia di leggere la [pianificazione di una distribuzione di Windows Hello
 
 #### <a name="user-sets-up-windows-hello-for-business"></a>L'utente configura Windows Hello for business
 
-Dopo una verifica iniziale in due passaggi dell'utente durante la registrazione, Windows Hello viene configurato sul dispositivo dell'utente e Windows chiede all'utente di impostare un movimento, che può essere una biometrica, ad esempio un'impronta digitale o un riconoscimento facciale, o un PIN. Una volta impostato, l'utente fornisce il gesto per verificarne l'identità. Windows quindi utilizza Windows Hello per autenticare gli utenti.
+Dopo una verifica iniziale in due passaggi dell'utente durante la registrazione, Windows Hello viene configurato sul dispositivo dell'utente e Windows chiede all'utente di impostare un movimento, che può essere una biometrica, ad esempio un'impronta digitale o un riconoscimento facciale, o un PIN. Una volta impostato, l'utente fornisce il gesto per verificarne l'identità. Windows usa quindi Windows Hello per autenticare gli utenti.
 
 In base alle funzionalità del dispositivo Windows 10, sarà disponibile un'enclave protetta incorporata, nota come TPM (hardware Trusted Platform Module) o TPM Software. Il TPM archivia la chiave privata, che richiede la faccia, l'impronta digitale o il PIN per sbloccarlo. I dati biometrici non vengono spostati e non vengono mai inviati a dispositivi o server esterni. Non esiste un singolo punto di raccolta che un utente malintenzionato può compromettere per sottrarre i dati biometrici, perché Windows Hello archivia solo i dati di identificazione biometrici nel dispositivo.
 
@@ -109,7 +110,7 @@ Per approfondire il processo di autenticazione in altri scenari che coinvolgono 
 
 Il [servizio di reimpostazione PIN Microsoft](/windows/security/identity-protection/hello-for-business/hello-feature-pin-reset) è una funzionalità di Azure ad che consente agli utenti di reimpostare il PIN, se necessario. Utilizzando criteri di gruppo, Microsoft Intune o una soluzione MDM compatibile, un amministratore può configurare i dispositivi Windows 10 per utilizzare in modo sicuro il servizio di reimpostazione PIN Microsoft che consente agli utenti di reimpostare il PIN dimenticato tramite le impostazioni o sopra la schermata di blocco senza richiedere Ripetere la registrazione.
 
-A volte gli utenti devono eseguire il fallback all'uso delle password. La [reimpostazione della password self-service](../../active-directory/authentication/howto-sspr-deployment.md) (SSPR) è un'altra Azure ad funzionalità che consente agli utenti di reimpostare le password senza dover contattare il personale it. Prima di usare il servizio, gli utenti devono essere registrati o registrarsi alla reimpostazione della password self-service. Durante la registrazione, l'utente sceglie uno o più metodi di autenticazione abilitati dall'organizzazione. SSPR consente agli utenti di essere sbloccati rapidamente e continuare a lavorare indipendentemente da dove si trovano o dall'ora del giorno. Consentendo agli utenti di sbloccare autonomamente, l'organizzazione può ridurre il tempo non produttivo e i costi di supporto elevati per la maggior parte dei problemi comuni relativi alle password.
+A volte gli utenti devono eseguire il fallback all'uso delle password. La [reimpostazione della password self-service](../../active-directory/authentication/howto-sspr-deployment.md) (SSPR) è un'altra Azure ad funzionalità che consente agli utenti di reimpostare le password senza dover contattare il personale it. Prima di usare il servizio, gli utenti devono registrarsi per la reimpostazione della password self-service o essere registrati. Durante la registrazione, l'utente sceglie uno o più metodi di autenticazione abilitati dall'organizzazione. SSPR consente agli utenti di essere sbloccati rapidamente e continuare a lavorare indipendentemente da dove si trovano o dall'ora del giorno. Consentendo agli utenti di sbloccare autonomamente, l'organizzazione può ridurre il tempo non produttivo e i costi di supporto elevati per la maggior parte dei problemi comuni relativi alle password.
 
 ## <a name="passwordless-sign-in-with-microsoft-authenticator"></a>Accesso senza password con Microsoft Authenticator
 
@@ -283,7 +284,7 @@ Di seguito sono riportati alcuni fattori da considerare quando si sceglie la tec
 
 ||**Windows Hello for Business** (Configurare Windows Hello for Business)|**Accesso senza password con l'app Microsoft Authenticator**|**Chiavi di sicurezza FIDO2**|
 |:-|:-|:-|:-|
-|**Prerequisiti**| Windows 10 versione 1809 o successiva<br>Azure Active Directory| App Microsoft Authenticator<br>Telefono (dispositivi iOS e Android che eseguono Android 6,0 o versione successiva).|Windows 10 versione 1809 o successiva<br>Azure Active Directory|
+|**Prerequisiti**| Windows 10, versione 1809 o successiva<br>Azure Active Directory| App Microsoft Authenticator<br>Telefono (dispositivi iOS e Android che eseguono Android 6,0 o versione successiva).|Windows 10, versione 1809 o successiva<br>Azure Active Directory|
 |**Modalità**|Piattaforma|Software|Hardware|
 |**Sistemi e dispositivi**|PC con un Trusted Platform Module incorporato (TPM)<br>Riconoscimento del PIN e della biometria |Riconoscimento del PIN e della biometria sul telefono|Dispositivi di sicurezza FIDO2 compatibili con Microsoft|
 |**Esperienza utente**|Accedere con un PIN o un riconoscimento biometrico (facciale, Iris o impronta digitale) con i dispositivi Windows.<br>L'autenticazione di Windows Hello è associata al dispositivo. per accedere alle risorse aziendali, l'utente deve disporre sia del dispositivo sia di un componente di accesso, ad esempio un PIN o un fattore biometrico.|Eseguire l'accesso con un telefono cellulare con impronta digitale, riconoscimento facciale o Iris oppure PIN.<br>Gli utenti possono accedere al proprio account di lavoro o personale dal PC o dal telefono cellulare.|Accedere con il dispositivo di sicurezza FIDO2 (biometria, PIN e NFC)<br>L'utente può accedere al dispositivo in base ai controlli dell'organizzazione ed eseguire l'autenticazione in base al PIN, alla biometria usando dispositivi quali chiavi di sicurezza USB e smart card, chiavi o indossabili abilitati per NFC.|
@@ -291,7 +292,7 @@ Di seguito sono riportati alcuni fattori da considerare quando si sceglie la tec
 
 Usare la tabella seguente per scegliere il metodo che supporterà i requisiti e gli utenti.
 
-|Utente tipo|Scenario|Ambiente|Tecnologia con password|
+|Utente tipo|Scenario|Environment|Tecnologia con password|
 |:-|:-|:-|:-|
 |**Admin**|Proteggere l'accesso a un dispositivo per le attività di gestione|Dispositivo Windows 10 assegnato|Chiave di sicurezza di Windows Hello for business e/o FIDO2|
 |**Admin**|Attività di gestione su dispositivi non Windows| Dispositivo mobile o non Windows|Accesso senza password con l'app Microsoft Authenticator|
@@ -299,7 +300,7 @@ Usare la tabella seguente per scegliere il metodo che supporterà i requisiti e 
 |**Information Worker**|Lavoro di produttività| Dispositivo mobile o non Windows|Accesso senza password con l'app Microsoft Authenticator|
 |**Ruolo di lavoro Frontline**|Chioschi in una fabbrica, impianto, vendita al dettaglio o immissione di dati|Dispositivi Windows 10 condivisi|Chiavi di sicurezza FIDO2|
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 
 L'autenticazione senza password è l'onda del futuro e il percorso di un ambiente più sicuro. È consigliabile che le organizzazioni inizino a pianificare questa modifica e ridurne le dipendenze sulle password. Per iniziare, considerare gli obiettivi seguenti:
 

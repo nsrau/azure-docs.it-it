@@ -2,7 +2,7 @@
 title: Accesso con le informazioni sull'autenticazione delle identità-Azure AD
 description: Informazioni su come eseguire l'accesso usando i vari metodi di verifica dell'identità nelle informazioni di sicurezza.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: librown
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.author: lizross
+ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: c7dea5acfce9ad964b050b6787f29e5d116a306b
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 7d1d27cede6c593150d3937bb3aa0ca59394eea9
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704596"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062167"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Eseguire l'accesso usando la verifica in due passaggi o le informazioni di sicurezza
 

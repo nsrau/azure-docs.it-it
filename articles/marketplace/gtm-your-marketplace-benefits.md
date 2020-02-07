@@ -6,14 +6,14 @@ author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 02/08/2020
 ms.author: evansma
-ms.openlocfilehash: 21bbd34520283620626aff27439e89058a534f4e
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 1ecb48751715d32e1e67f09e0e3d4bf9577c8eab
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121812"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064931"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vantaggi del Marketplace commerciale
 
@@ -88,7 +88,7 @@ Oltre ai vantaggi riconoscibili, i partner di applicazioni aziendali con le offe
 
 Tutte le attività descritte in questa pagina sono coperte dal contratto per la [pubblicazione nel Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) e sono conformi all'addendum del programma Commercial benefits.
 
-### <a name="cancellation-policy"></a>Criteri per l'annullamento
+### <a name="cancellation-policy"></a>Politica di annullamento
 
 Gli editori di [elenchi e di prova](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) possono acconsentire esplicitamente o rifiutare esplicitamente le attività per ogni pubblicazione dell'offerta. I partner possono rifiutare esplicitamente il coinvolgimento in qualsiasi momento. 
 
@@ -99,7 +99,7 @@ Microsoft si riserva il diritto di revocare e terminare i vantaggi dei premi del
 * usare l'offerta per visualizzare il marketing o altri contenuti che violano il copyright o le leggi sui marchi.
 * violare i criteri del [programma Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/), incluso, ma non limitato, l'uso del finanziamento di Azure Sponsorship per le proprie operazioni interne o il data mining Bitcoin. 
 
-### <a name="offer-availability"></a>Disponibilità dell'offerta
+### <a name="offer-availability"></a>Disponibilità offerta
 
 Questa offerta viene eseguita in inglese per tutti i partner con un'offerta Live in Azure Marketplace o in Microsoft AppSource.
 

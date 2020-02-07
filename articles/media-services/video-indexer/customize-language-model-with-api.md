@@ -8,14 +8,14 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 02/04/2020
 ms.author: anzaman
-ms.openlocfilehash: e8df7ffd285b0d49f5d4a87585e769b5b0bbafe9
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 01ea4d9ef943183f09baa86b729ec69344d4309e
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513151"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049038"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Personalizzare un modello linguistico con le API di Video Indexer
 
@@ -105,9 +105,8 @@ La risposta fornisce i metadati sul modello linguistico di cui è stato appena e
 }
 ```
 
-È necessario usare il valore **ID** restituito del modello di lingua per il parametro **linguisticModelId** quando si [carica un video in index](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) e per il parametro **languageModelId** durante la [reindicizzazione di un video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
+L' **ID** restituito è un ID univoco usato per distinguere i modelli di linguaggio, mentre **languageModelId** viene usato sia per il [caricamento di un video per](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) l'indicizzazione che per [la reindicizzazione di un'API video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) (nota anche come **linguisticModelId** in video Indexer le API di caricamento/reindicizzazione).
 
- 
 ## <a name="delete-a-language-model"></a>Eliminare un modello linguistico
 
 L'API [Elimina un modello di linguaggio](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete) Elimina un modello di lingua personalizzato dall'account specificato. Qualsiasi video che usava il modello linguistico eliminato manterrà lo stesso indice finché non si reindicizza il video. Se si reindicizza il video, è possibile assegnare un nuovo modello linguistico al video. In alternativa, verrà usato il modello predefinito per reindicizzare il video.

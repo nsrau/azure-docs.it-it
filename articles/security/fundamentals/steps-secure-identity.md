@@ -1,5 +1,6 @@
 ---
-title: Cinque passaggi per proteggere l'infrastruttura di identità in Azure Active Directory
+title: Proteggi la tua infrastruttura di identità Azure AD
+titleSuffix: Azure Active Directory
 description: Questo documento descrive un elenco di azioni importanti che gli amministratori devono implementare per proteggere meglio l'organizzazione con le funzionalità di Azure AD
 author: martincoetzer
 manager: manmeetb
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 870bb9720500b6eda5e7b9eb258b6764a94f01b6
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: d3afc784688a14e4d5d2fc6ae9dc5c1a9e45c4a0
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76903580"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057210"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinque passaggi per proteggere l'infrastruttura di identità
 
@@ -198,7 +199,7 @@ Azure AD offre agli amministratori non amministratori la possibilità di gestire
 
 Con le verifiche di [accesso di Azure ad](../../active-directory/governance/access-reviews-overview.md), è possibile gestire l'accesso ai pacchetti e alle appartenenze ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo con privilegi per garantire la manutenzione di uno standard di sicurezza.  Una supervisione regolare da parte degli utenti, dei proprietari delle risorse e di altri revisori garantisce che gli utenti non mantengano l'accesso per periodi di tempo prolungati quando non sono più necessari.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Sono molti gli aspetti che ruotano attorno a un'infrastruttura di identità sicura, ma questo elenco di controllo di cinque passaggi consente di crearne una più sicura e protetta:
 

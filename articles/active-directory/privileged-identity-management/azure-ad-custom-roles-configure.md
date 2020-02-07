@@ -1,5 +1,5 @@
 ---
-title: Configurare ruoli personalizzati di Azure AD in Privileged Identity Management (PIM) | Microsoft Docs
+title: Configurare Azure AD Privileged Identity Management ruolo personalizzato (PIM)
 description: Come configurare ruoli personalizzati di Azure AD in Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82d0c001ecea4c3afbcb800b68246b628c130ff2
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: d6251c1576d38b191ca1cba48075cc869c48d004
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896537"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048116"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Configurare ruoli personalizzati di Azure AD in Privileged Identity Management
 

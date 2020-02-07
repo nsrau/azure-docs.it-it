@@ -3,16 +3,18 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Viene descritto come vengono usate le definizioni dei criteri per stabilire le convenzioni per le risorse di Azure nell'organizzazione.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7502c1c9a2e125052abf71e50273fbd9bab15cd1
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: ba974228d63c542027ea5191d2c5877e7288b331
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989876"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77050027"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
-Le definizioni dei criteri delle risorse vengono usati da Criteri di Azure per stabilire le convenzioni delle risorse. Ogni definizione descrive la conformità della risorsa e le azioni da intraprendere quando una risorsa non è conforme.
+Criteri di Azure stabilisce le convenzioni per le risorse. Le definizioni dei criteri descrivono le [condizioni](#conditions) di conformità delle risorse e l'effetto da eseguire se viene soddisfatta una condizione. Una condizione Confronta un [campo](#fields) della proprietà della risorsa con un valore obbligatorio. È possibile accedere ai campi delle proprietà delle risorse tramite [alias](#aliases). Un campo della proprietà della risorsa è un campo a valore singolo o una [matrice](#understanding-the--alias) di più valori. La valutazione della condizione è diversa nelle matrici.
+Altre informazioni sulle [condizioni](#conditions).
+
 Definendo le convenzioni, è possibile controllare i costi e gestire più facilmente le risorse. È ad esempio possibile specificare che vengano consentiti solo determinati tipi di macchine virtuali. In alternativa, è possibile richiedere che tutte le risorse abbiano un tag specifico. I criteri vengono ereditati da tutte le risorse figlio. Se un criterio viene applicato a un gruppo di risorse, è applicabile a tutte le risorse in tale gruppo.
 
 Lo schema di definizione dei criteri è disponibile qui: [https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
@@ -73,6 +75,8 @@ Il parametro **mode** (modalità) determina quali tipi di risorse verranno valut
 
 - `all`: vengono valutati i gruppi di risorse e tutti i tipi di risorse
 - `indexed`: vengono valutati solo i tipi di risorse che supportano tag e il percorso
+
+Ad esempio, Resource `Microsoft.Network/routeTables` supporta i tag e il percorso e viene valutato in entrambe le modalità. Tuttavia, la `Microsoft.Network/routeTables/routes` di risorse non può essere contrassegnata come non valutata in modalità `Indexed`.
 
 Nella maggior parte dei casi, è consigliabile impostare il parametro **mode** su `all`. Tutte le definizioni di criteri create tramite il portale usano la modalità `all`. Se si usa PowerShell o l'interfaccia della riga di comando di Azure è necessario specificare il parametro **mode** manualmente. Se la definizione dei criteri non include un valore **mode**, assume il valore predefinito `all` in Azure PowerShell e `null` nell'interfaccia della riga di comando di Azure. Un valore mode `null` equivale all'utilizzo di `indexed` per supportare la compatibilità con le versioni precedenti.
 
@@ -253,6 +257,8 @@ Il valore non deve contenere più di un carattere jolly `*`.
 
 Quando si usano le condizioni **match** e **notMatch** , fornire `#` per trovare la corrispondenza con una cifra, `?` per una lettera, `.` in modo che corrisponda a qualsiasi carattere e qualsiasi altro carattere in modo che corrisponda al carattere effettivo. While, **match** e **notMatch** fanno distinzione tra maiuscole e minuscole e tutte le altre condizioni che valutano un _StringValue_ non fanno distinzione tra maiuscole e minuscole. Alternative senza distinzione tra maiuscole e minuscole sono disponibili in **matchInsensitively** e **notMatchInsensitively**. Ad esempio, vedere [Consentire modelli nome multipli](../samples/allow-multiple-name-patterns.md).
 
+In un **\[\*\]** valore del campo della matrice di alias, ogni elemento della matrice viene valutato singolarmente con gli elementi Logical **e** between. Per ulteriori informazioni, vedere [valutazione della \[\*\] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
+
 ### <a name="fields"></a>Campi
 
 Le condizioni vengono formate usando i campi. Un campo rappresenta le proprietà nel payload delle richieste di risorse e descrive lo stato della risorsa.
@@ -310,7 +316,7 @@ Nell'esempio seguente, `concat` viene usato per creare una ricerca nei campi di 
 }
 ```
 
-### <a name="value"></a>Valore
+### <a name="value"></a>valore
 
 Le condizioni possono essere formate anche usando **value**. **value** controlla le condizioni rispetto a [parametri](#parameters), [funzioni di modello supportate](#policy-functions) o valori letterali.
 **value** è associato a qualsiasi [condizione](#conditions) supportata.
@@ -606,7 +612,7 @@ L'elenco degli alias è in costante crescita. Per scoprire quali alias sono attu
 
   ![Estensione di criteri di Azure per Visual Studio Code](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
 
-- Diagramma risorse di Azure
+- Diagramma delle risorse di Azure
 
   Usare l'operatore `project` per visualizzare l' **alias** di una risorsa.
 

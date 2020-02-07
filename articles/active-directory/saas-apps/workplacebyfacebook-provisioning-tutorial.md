@@ -15,19 +15,41 @@ ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81c9d8582eb41d4a13799c42383ff22010c60577
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 11a5e92ccf1104f36b3f2b045f9922158b1f7330
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985170"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064143"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workplace by Facebook per il provisioning utenti automatico
 
 Questa esercitazione descrive i passaggi che è necessario eseguire in entrambe le area di lavoro di Facebook e Azure Active Directory (Azure AD) per configurare il provisioning utenti automatico. Se configurato, Azure AD esegue automaticamente il provisioning e il deprovisioning di utenti e gruppi nell' [area di lavoro di Facebook](https://work.workplace.com/) usando il servizio di provisioning Azure ad. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
 
-> [!NOTE]
-> L'applicazione Azure AD di terze parti nell'area di lavoro di Facebook è stata approvata. I clienti non avranno un'interruzione del servizio il 16 dicembre. Si noterà una nota nella console di amministrazione dell'area di lavoro di Facebook che indica una scadenza di 28 febbraio-2020 da quando sarà necessario passare alla nuova applicazione. Ci stiamo impegnando per rendere la transizione il più semplice possibile e forniremo un aggiornamento alla transizione entro la fine del mese.
+## <a name="migrating-to-the-new-workplace-by-facebook-application"></a>Migrazione alla nuova area di lavoro per applicazione Facebook
+Se si dispone di un'integrazione esistente con l'area di lavoro di Facebook, vedere la sezione seguente relativa alle modifiche in arrivo. Se si sta configurando l'area di lavoro di Facebook per la prima volta, è possibile ignorare questa sezione e passare alle funzionalità supportate. 
+
+#### <a name="whats-changing"></a>Modifiche introdotte
+* Modifiche al lato Azure AD: il metodo di autorizzazione per il provisioning degli utenti nell'area di lavoro è stato in passato un token segreto di lunga durata. A breve si noterà che il metodo di autorizzazione è stato modificato in concessione autorizzazione OAuth. 
+* Modifiche sul lato dell'area di lavoro: in precedenza l'app Azure AD era un'integrazione personalizzata nell'area di lavoro di Facebook. A questo punto verrà visualizzato Azure AD nella directory Integrations dell'area di lavoro come applicazione di terze parti. 
+
+ 
+
+#### <a name="what-do-i-need-to-do-to-migrate-my-existing-custom-integration-to-the-new-application"></a>Cosa è necessario fare per eseguire la migrazione dell'integrazione personalizzata esistente alla nuova applicazione?
+Se si dispone di un'integrazione aziendale esistente con un token valido, **non è necessaria alcuna azione**. La migrazione automatica dei clienti viene eseguita ogni settimana alla nuova applicazione. Questa operazione viene eseguita completamente dietro le quinte. Se non è possibile attendere e si desidera passare manualmente alla nuova applicazione, è possibile aggiungere una nuova istanza dell'area di lavoro dalla raccolta e configurare di nuovo il provisioning. Tutte le nuove istanze dell'area di lavoro utilizzeranno automaticamente la nuova versione dell'applicazione. 
+
+ 
+Se l'integrazione dell'area di lavoro è in quarantena, sarà necessario specificare nuovamente un token valido per eseguire la migrazione dell'utente. La sezione credenziali amministratore sarà disattivata, ma è possibile aggiungere quanto segue ( **? Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride = true**) all'URL per salvare di nuovo le credenziali. 
+
+https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true
+
+ 
+#### <a name="the-admin-credentials-section-is-greyed-out-on-my-application-and-i-cant-save-why"></a>La sezione credenziali amministratore è disattivata nell'applicazione e non è possibile salvare. Perché?
+È stata bloccata la sezione credenziali amministratore per i clienti esistenti dell'area di lavoro. Quando è stata eseguita la migrazione del tenant alla nuova applicazione aziendale, sarà possibile aggiornare di nuovo la sezione credenziali amministratore. Se non è possibile attendere, è possibile usare l'URL sopra riportato per modificare l'applicazione. 
+
+ 
+#### <a name="when-will-these-changes-happen"></a>Quando si verificano queste modifiche?
+Tutte le nuove istanze dell'area di lavoro utilizzeranno già il nuovo metodo di integrazione/autorizzazione. Le integrazioni esistenti verranno migrate gradualmente a febbraio. La migrazione verrà completata per tutti i tenant entro la fine del mese. 
 
 ## <a name="capabilities-supported"></a>Funzionalità supportate
 > [!div class="checklist"]
@@ -36,7 +58,7 @@ Questa esercitazione descrive i passaggi che è necessario eseguire in entrambe 
 > * Mantieni gli attributi utente sincronizzati tra Azure AD e l'area di lavoro di Facebook
 > * [Single Sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/workplacebyfacebook-tutorial) per l'area di lavoro di Facebook (scelta consigliata)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
@@ -109,7 +131,7 @@ Il servizio Azure AD provisioning consente di definire l'ambito di chi verrà es
 
 9. Esaminare gli attributi utente che vengono sincronizzati da Azure AD a area di lavoro da Facebook nella sezione **attributo-mapping** . Gli attributi selezionati come proprietà **Corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Workplace by Facebook per le operazioni di aggiornamento. Se si sceglie di modificare l' [attributo di destinazione corrispondente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), è necessario assicurarsi che l'API per l'area di lavoro di Facebook supporti il filtraggio degli utenti in base a tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-   |Attributo|Tipo|
+   |Attributo|Type|
    |---|---|
    |userName|string|
    |displayName|string|

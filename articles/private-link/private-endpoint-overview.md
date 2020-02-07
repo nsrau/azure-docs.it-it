@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: cbb5882950636e281d311bf0536acf5b92cf11ea
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: dd73f42aaa0d0bd1884892143d96446935a401a5
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77018602"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048449"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Che cos'è l'endpoint privato di Azure?
 
@@ -22,7 +22,7 @@ L'endpoint privato di Azure è un'interfaccia di rete che connette privatamente 
  Un endpoint privato specifica le proprietà seguenti: 
 
 
-|Proprietà  |Description |
+|Proprietà  |Descrizione |
 |---------|---------|
 |Nome    |    Nome univoco all'interno del gruppo di risorse.      |
 |Subnet    |  Subnet per la distribuzione e l'allocazione di indirizzi IP privati da una rete virtuale. Per i requisiti della subnet, vedere la sezione limitazioni di questo articolo.         |
@@ -54,7 +54,7 @@ Una risorsa di collegamento privato è la destinazione di un endpoint privato sp
 |---------|---------|---------|
 |**Servizio di collegamento privato** (servizio personalizzato)   |  Microsoft. Network/privateLinkServices       | empty |
 |**Database SQL di Azure** | Microsoft.Sql/servers    |  SQL Server (sqlServer)        |
-|**Azure SQL Data Warehouse** | Microsoft.Sql/servers    |  SQL Server (sqlServer)        |
+|**Analisi delle sinapsi di Azure** | Microsoft.Sql/servers    |  SQL Server (sqlServer)        |
 |**Archiviazione di Azure**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)<BR> Tabella (tabella, table_secondary)<BR> Coda (coda, queue_secondary)<BR> File (file, file_secondary)<BR> Web (Web, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  BLOB (BLOB, blob_secondary)<BR> Data Lake file System Gen2 (DFS, dfs_secondary)       |
 |**Azure Cosmos DB** | Microsoft. AzureCosmosDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, tabella|
@@ -130,7 +130,7 @@ Le applicazioni non devono modificare l'URL di connessione. Quando si tenta di r
 La tabella seguente include un elenco di limitazioni note quando si usano gli endpoint privati: 
 
 
-|Limitazione |Description |Strategia di riduzione del rischio  |
+|Limitazione |Descrizione |Strategia di riduzione del rischio  |
 |---------|---------|---------|
 |Le regole del gruppo di sicurezza di rete (NSG) e le route definite dall'utente non si applicano all'endpoint privato    |NSG non è supportato in endpoint privati. Mentre le subnet contenenti l'endpoint privato possono avere NSG associate, le regole non saranno valide per il traffico elaborato dall'endpoint privato. Per distribuire endpoint privati in una subnet, è necessario che l' [applicazione di criteri di rete sia disabilitata](disable-private-endpoint-network-policy.md) . NSG viene ancora applicato ad altri carichi di lavoro ospitati nella stessa subnet. Le route in qualsiasi subnet client utilizzeranno un prefisso/32. la modifica del comportamento di routing predefinito richiede un UDR simile  | Controllare il traffico usando le regole NSG per il traffico in uscita nei client di origine. Distribuire le singole route con prefisso/32 per eseguire l'override delle route degli endpoint privati. I log di flusso e le informazioni di monitoraggio NSG per le connessioni in uscita sono ancora supportati e possono essere usati        |
 

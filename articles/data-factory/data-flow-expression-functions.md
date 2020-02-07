@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 68771ee3d2ae2d43245bd217bedcf59b987786f1
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 5492850944b04ea4b4d30dd206e7b297b34c075c
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716728"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062847"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Espressioni di trasformazione dei dati nel flusso di dati di mapping 
 
@@ -934,8 +934,8 @@ La funzione CumeDist calcola la posizione di un valore rispetto a tutti i valori
 * ``cumeDist()``
 ___
 ### <code>denseRank</code>
-<code><b>denseRank(<i>&lt;value1&gt;</i> : any, ...) => integer</b></code><br/><br/>
-Calcola la classificazione di un valore in un gruppo di valori. Come risultato si ha uno più il numero di righe precedenti o uguali alla riga corrente nell'ordinamento della partizione. I valori non produrranno spazi nella sequenza. Il rango dense funziona anche quando i dati non sono ordinati e cerca le modifiche nei valori * ``denseRank(salesQtr, salesAmt)``
+<code><b>denseRank() => integer</b></code><br/><br/>
+Calcola il rango di un valore in un gruppo di valori specificato nella clausola ORDER BY di una finestra. Come risultato si ha uno più il numero di righe precedenti o uguali alla riga corrente nell'ordinamento della partizione. I valori non produrranno spazi nella sequenza. Il rango dense funziona anche quando i dati non sono ordinati e cerca le modifiche nei valori * ``denseRank()``
 ___
 ### <code>lag</code>
 <code><b>lag(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look before&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
@@ -954,8 +954,8 @@ La funzione NTile divide le righe per ogni partizione di finestra in `n` bucket 
 * ``nTile(numOfBuckets)``
 ___
 ### <code>rank</code>
-<code><b>rank(<i>&lt;value1&gt;</i> : any, ...) => integer</b></code><br/><br/>
-Calcola la classificazione di un valore in un gruppo di valori. Come risultato si ha uno più il numero di righe precedenti o uguali alla riga corrente nell'ordinamento della partizione. I valori produrranno spazi nella sequenza. Rango funziona anche quando i dati non sono ordinati e cerca le modifiche nei valori * ``rank(salesQtr, salesAmt)``
+<code><b>rank() => integer</b></code><br/><br/>
+Calcola il rango di un valore in un gruppo di valori specificato nella clausola ORDER BY di una finestra. Come risultato si ha uno più il numero di righe precedenti o uguali alla riga corrente nell'ordinamento della partizione. I valori produrranno spazi nella sequenza. Rango funziona anche quando i dati non sono ordinati e cerca le modifiche nei valori * ``rank()``
 ___
 ### <code>rowNumber</code>
 <code><b>rowNumber() => integer</b></code><br/><br/>

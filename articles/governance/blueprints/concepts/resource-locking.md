@@ -3,12 +3,12 @@ title: Informazioni sul blocco delle risorse
 description: Informazioni sulle opzioni di blocco nei progetti di Azure per proteggere le risorse quando si assegna un progetto.
 ms.date: 04/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 50f506cc57f67ca2ae2b07e342750d6c5099e739
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: e042a4d117e28a2fd2228ce36f1be98a1da31e91
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406398"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057346"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendere il blocco risorse di Azure Blueprint
 
@@ -21,7 +21,7 @@ Le modalità di blocco non possono tuttavia essere modificate al di fuori di Blu
 
 Le risorse create da elementi in un'assegnazione di progetto hanno quattro stati: **non bloccato**, di **sola lettura**, **non è possibile modificare/eliminare**o **eliminare**. Ciascun tipo di artefatto può essere in stato **Non bloccato**. La tabella seguente può essere usata per determinare lo stato di una risorsa:
 
-|Mode|Tipo di risorsa artefatto|Stato|DESCRIZIONE|
+|Mode|Tipo di risorsa artefatto|State|Descrizione|
 |-|-|-|-|
 |Non bloccare|*|Non bloccato|Le risorse non sono protette da Blueprints. Questo stato viene usato anche per le risorse aggiunte a un artefatto del gruppo di risorse **Sola lettura** o **Non eliminare** all'esterno dell'assegnazione di un progetto.|
 |Sola lettura|Resource group|Impossibile modificare/eliminare|Il gruppo di risorse è di sola lettura e i relativi tag non possono essere modificati. Le risorse con stato **Non bloccato** possono essere aggiunte, spostate, modificate o eliminate da questo gruppo.|
@@ -102,6 +102,26 @@ In alcuni scenari di progettazione o di sicurezza, potrebbe essere necessario es
   }
 }
 ```
+
+## <a name="exclude-an-action-from-a-deny-assignment"></a>Escludere un'azione da un'assegnazione di negazione
+
+Analogamente all' [esclusione di un'entità](#exclude-a-principal-from-a-deny-assignment) in un' [assegnazione Deny](../../../role-based-access-control/deny-assignments.md) in un'assegnazione di progetto, è possibile escludere [operazioni RBAC](../../../role-based-access-control/resource-provider-operations.md)specifiche. All'interno del blocco **Properties. Locks** , nella stessa posizione in cui si trova **excludedPrincipals** , è possibile aggiungere un **excludedActions** :
+
+```json
+"locks": {
+    "mode": "AllResourcesDoNotDelete",
+    "excludedPrincipals": [
+        "7be2f100-3af5-4c15-bcb7-27ee43784a1f",
+        "38833b56-194d-420b-90ce-cff578296714"
+    ],
+    "excludedActions": [
+        "Microsoft.ContainerRegistry/registries/push/write",
+        "Microsoft.Authorization/*/read"
+    ]
+},
+```
+
+Mentre **excludedPrincipals** deve essere esplicito, le voci di **excludedActions** possono usare `*` per la corrispondenza con caratteri jolly delle operazioni RBAC.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

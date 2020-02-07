@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 719686cb123355359391c5cb1e517ff9cfd88371
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9909c46015fffb3bea3eef094599312e28b935c5
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231737"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046204"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Eseguire la migrazione di applicazione Azure gateway e del Web Application Firewall da V1 a V2
 
@@ -102,7 +102,7 @@ Per eseguire lo script:
    * **appgwName: [String]: facoltativo**. Si tratta di una stringa specificata da usare come nome per il nuovo Standard_v2 o WAF_v2 gateway. Se questo parametro non viene specificato, il nome del gateway V1 esistente verrà usato con il suffisso *_v2* accodato.
    * **sslCertificates: [PSApplicationGatewaySslCertificate]: facoltativo**.  Un elenco delimitato da virgole di oggetti PSApplicationGatewaySslCertificate creati per rappresentare i certificati SSL dal gateway V1 deve essere caricato nel nuovo gateway V2. Per ognuno dei certificati SSL configurati per il gateway standard V1 o WAF V1, è possibile creare un nuovo oggetto PSApplicationGatewaySslCertificate tramite il comando `New-AzApplicationGatewaySslCertificate` riportato qui. È necessario il percorso del file del certificato SSL e la password.
 
-       Questo parametro è facoltativo solo se non sono stati configurati listener HTTPS per il gateway V1 o WAF. Se è presente almeno una configurazione del listener HTTPS, è necessario specificare questo parametro.
+     Questo parametro è facoltativo solo se non sono stati configurati listener HTTPS per il gateway V1 o WAF. Se è presente almeno una configurazione del listener HTTPS, è necessario specificare questo parametro.
 
       ```azurepowershell  
       $password = ConvertTo-SecureString <cert-password> -AsPlainText -Force
@@ -114,12 +114,17 @@ Per eseguire lo script:
         -Password $password
       ```
 
-      È possibile passare `$mySslCert1, $mySslCert2` (separate da virgola) nell'esempio precedente come valori per questo parametro nello script.
-   * **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: facoltativo**. Elenco delimitato da virgole di oggetti PSApplicationGatewayTrustedRootCertificate creati per rappresentare i [certificati radice attendibili](ssl-overview.md) per l'autenticazione delle istanze di back-end dal gateway V2.  
+     È possibile passare `$mySslCert1, $mySslCert2` (separate da virgola) nell'esempio precedente come valori per questo parametro nello script.
+   * **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: facoltativo**. Elenco delimitato da virgole di oggetti PSApplicationGatewayTrustedRootCertificate creati per rappresentare i [certificati radice attendibili](ssl-overview.md) per l'autenticazione delle istanze di back-end dal gateway V2.
+   
+      ```azurepowershell
+      $certFilePath = ".\rootCA.cer"
+      $trustedCert = New-AzApplicationGatewayTrustedRootCertificate -Name "trustedCert1" -CertificateFile $certFilePath
+      ```
 
       Per creare un elenco di oggetti PSApplicationGatewayTrustedRootCertificate, vedere [New-AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
    * **privateIpAddress: [String]: facoltativo**. Un indirizzo IP privato specifico che si vuole associare al nuovo gateway V2.  Deve provenire dallo stesso VNet allocato per il nuovo gateway V2. Se non è specificato, lo script alloca un indirizzo IP privato per il gateway V2.
-    * **publicIpResourceId: [String]: facoltativo**. ResourceId di una risorsa di indirizzo IP pubblico (SKU standard) nella sottoscrizione che si vuole allocare al nuovo gateway V2. Se non è specificato, lo script alloca un nuovo indirizzo IP pubblico nello stesso gruppo di risorse. Il nome è il nome del gateway V2 con *-IP* aggiunto.
+   * **publicIpResourceId: [String]: facoltativo**. ResourceId della risorsa dell'indirizzo IP pubblico (SKU standard) esistente nella sottoscrizione che si vuole allocare al nuovo gateway V2. Se non è specificato, lo script alloca un nuovo indirizzo IP pubblico nello stesso gruppo di risorse. Il nome è il nome del gateway V2 con *-IP* aggiunto.
    * **validateMigration: [switch]: facoltativo**. Usare questo parametro se si vuole che lo script esegua alcune convalide di confronto di configurazione di base dopo la creazione del gateway V2 e la copia di configurazione. Per impostazione predefinita, non viene eseguita alcuna convalida.
    * **enableAutoScale: [switch]: facoltativo**. Usare questo parametro se si vuole che lo script abiliti la scalabilità automatica sul nuovo gateway v2 dopo che è stato creato. Per impostazione predefinita, la scalabilità automatica è disabilitata. È sempre possibile abilitarlo manualmente in un secondo momento nel gateway V2 appena creato.
 
@@ -132,10 +137,10 @@ Per eseguire lo script:
       -resourceId /subscriptions/8b1d0fea-8d57-4975-adfb-308f1f4d12aa/resourceGroups/MyResourceGroup/providers/Microsoft.Network/applicationGateways/myv1appgateway `
       -subnetAddressRange 10.0.0.0/24 `
       -appgwname "MynewV2gw" `
-      -sslCertificates $Certs `
+      -sslCertificates $mySslCert1,$mySslCert2 `
       -trustedRootCertificates $trustedCert `
       -privateIpAddress "10.0.0.1" `
-      -publicIpResourceId "MyPublicIP" `
+      -publicIpResourceId "/subscriptions/8b1d0fea-8d57-4975-adfb-308f1f4d12aa/resourceGroups/MyResourceGroup/providers/Microsoft.Network/publicIPAddresses/MyPublicIP" `
       -validateMigration -enableAutoScale
    ```
 

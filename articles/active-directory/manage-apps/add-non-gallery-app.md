@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6656361fd4634c46cd5216b57eb8465536319f09
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: bd5a5f100dbe09c3b82f58183a118ee3bf455f70
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062793"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063612"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Aggiungere un'applicazione non in elenco (non di raccolta) all'organizzazione Azure AD
 
@@ -25,7 +25,7 @@ Oltre alle opzioni disponibili nella raccolta di [applicazioni di Azure ad](http
 
 - Integrazione self-service di qualsiasi applicazione che supporta i provider di identità di [Security Assertion Markup Language (SAML) 2,0](https://wikipedia.org/wiki/SAML_2.0) (avviata da SP o IDP)
 - Integrazione self-service di qualsiasi applicazione Web con una pagina di accesso basata su HTML con [SSO basato su password](what-is-single-sign-on.md#password-based-sso)
-- Connessione self-service di applicazioni che usano il [sistema per il protocollo di gestione delle identità tra domini (SCIM) per il provisioning degli utenti](use-scim-to-provision-users-and-groups.md)
+- Connessione self-service di applicazioni che usano il [sistema per il protocollo di gestione delle identità tra domini (SCIM) per il provisioning degli utenti](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 - Possibilità di aggiungere collegamenti a qualsiasi applicazione nell'[icona di avvio delle app di Office 365](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) o nel [riquadro di accesso di Azure AD](what-is-single-sign-on.md#linked-sign-on)
 
 Questo articolo descrive come aggiungere un'applicazione non della raccolta alle **applicazioni aziendali** nel portale di Azure senza scrivere codice. Se invece si sta cercando informazioni aggiuntive per gli sviluppatori su come integrare app personalizzate con Azure AD, vedere [scenari di autenticazione per Azure ad](../develop/authentication-scenarios.md). Quando si sviluppa un'app che usa un protocollo moderno come [OpenID Connect/OAuth](../develop/active-directory-v2-protocols.md) per autenticare gli utenti, è possibile registrarlo con la piattaforma di identità Microsoft usando l'esperienza [registrazioni app](../develop/quickstart-register-app.md) nel portale di Azure.
@@ -73,13 +73,13 @@ Questo articolo descrive come aggiungere un'applicazione non della raccolta alle
        | Impostazioni delle proprietà dell'applicazione | | | Esperienza degli utenti assegnati | |
        |---|---|---|---|---|
        | Abilitata per l'accesso degli utenti? | Assegnazione utenti obbligatoria | Visibile agli utenti? | Gli utenti assegnati possono eseguire l'accesso? | L'applicazione viene visualizzata agli utenti assegnati?* |
-       | Sì | Sì | Sì | Sì | Sì  |
-       | Sì | Sì | no  | Sì | no   |
-       | Sì | no  | Sì | Sì | Sì  |
-       | Sì | no  | no  | Sì | no   |
-       | no  | Sì | Sì | no  | no   |
-       | no  | Sì | no  | no  | no   |
-       | no  | no  | Sì | no  | no   |
+       | sì | sì | sì | sì | sì  |
+       | sì | sì | no  | sì | no   |
+       | sì | no  | sì | sì | sì  |
+       | sì | no  | no  | sì | no   |
+       | no  | sì | sì | no  | no   |
+       | no  | sì | no  | no  | no   |
+       | no  | no  | sì | no  | no   |
        | no  | no  | no  | no  | no   |
 
       Comportamento per gli utenti **non assegnati**:
@@ -87,13 +87,13 @@ Questo articolo descrive come aggiungere un'applicazione non della raccolta alle
        | Impostazioni delle proprietà dell'applicazione | | | Esperienza degli utenti non assegnati | |
        |---|---|---|---|---|
        | Abilitata per l'accesso degli utenti? | Assegnazione utenti obbligatoria | Visibile agli utenti? | Gli utenti non assegnati possono eseguire l'accesso? | L'applicazione viene visualizzata agli utenti non assegnati?* |
-       | Sì | Sì | Sì | no  | no   |
-       | Sì | Sì | no  | no  | no   |
-       | Sì | no  | Sì | Sì | no   |
-       | Sì | no  | no  | Sì | no   |
-       | no  | Sì | Sì | no  | no   |
-       | no  | Sì | no  | no  | no   |
-       | no  | no  | Sì | no  | no   |
+       | sì | sì | sì | no  | no   |
+       | sì | sì | no  | no  | no   |
+       | sì | no  | sì | sì | no   |
+       | sì | no  | no  | sì | no   |
+       | no  | sì | sì | no  | no   |
+       | no  | sì | no  | no  | no   |
+       | no  | no  | sì | no  | no   |
        | no  | no  | no  | no  | no   |
 
      *L'applicazione viene visualizzata agli utenti nel pannello di accesso e nell'icona di avvio delle app di Office 365?

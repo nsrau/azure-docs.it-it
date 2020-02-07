@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/05/2019
-ms.openlocfilehash: a693b14bb61eb52a09ab1f1ecd5d00b339357d5d
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.date: 02/06/2020
+ms.openlocfilehash: 980569edf8322c6c22a4357a5b946ded85f0ebe4
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240377"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063739"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Usare i log di monitoraggio di Azure per monitorare i cluster HDInsight
 
@@ -24,14 +24,14 @@ Informazioni su come abilitare i log di monitoraggio di Azure per monitorare le 
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-* **Un'area di lavoro Log Analytics**. Questa area di lavoro può essere considerata come un ambiente di log di monitoraggio di Azure univoco con il proprio archivio dati, le origini dati e le soluzioni. Per istruzioni, vedere [Creare un'area di lavoro Log Analytics](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
+* Un'area di lavoro Log Analytics. Questa area di lavoro può essere considerata come un ambiente di log di monitoraggio di Azure univoco con il proprio archivio dati, le origini dati e le soluzioni. Per istruzioni, vedere [Creare un'area di lavoro Log Analytics](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
 
-* **Un cluster HDInsight di Azure**. Attualmente, è possibile usare i log di monitoraggio di Azure con i tipi di cluster HDInsight seguenti:
+* Disporre di un cluster HDInsight di Azure. Attualmente, è possibile usare i log di monitoraggio di Azure con i tipi di cluster HDInsight seguenti:
 
   * Hadoop
-  * HBase
+  * hbase
   * Interactive Query
   * Kafka
   * Spark
@@ -39,7 +39,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
   Per istruzioni su come creare un cluster HDInsight, vedere [Introduzione ad Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
 
-* **Azure PowerShell AZ Module**.  Vedere [Introduzione al nuovo Azure PowerShell AZ Module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
+* Azure PowerShell AZ Module.  Vedere [Introduzione al nuovo Azure PowerShell AZ Module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
 
 > [!NOTE]  
 > È consigliabile posizionare sia il cluster HDInsight che l'area di lavoro Log Analytics nella stessa area per ottenere prestazioni migliori. I log di monitoraggio di Azure non sono disponibili in tutte le aree di Azure.
@@ -50,15 +50,15 @@ In questa sezione si configura un cluster Hadoop HDInsight esistente per usare u
 
 1. Dal [portale di Azure](https://portal.azure.com/)selezionare il cluster.  Per le istruzioni vedere la sezione su come [elencare e visualizzare i cluster](./hdinsight-administer-use-portal-linux.md#showClusters). Il cluster viene aperto in una nuova pagina del portale.
 
-1. A sinistra, sotto **Monitoraggio**, selezionare **Operations Management Suite**.
+1. A sinistra, in **monitoraggio**selezionare monitoraggio di **Azure**.
 
-1. Dalla vista principale, sotto **Monitoraggio di OMS**, selezionare **Abilita**.
+1. Nella visualizzazione principale, in **integrazione di monitoraggio di Azure**, selezionare **Abilita**.
 
 1. Nell'elenco a discesa **Selezionare un'area di lavoro**, selezionare un'area di lavoro Log Analytics esistente.
 
 1. Selezionare **Salva**.  Sono necessari alcuni minuti per salvare l'impostazione.
 
-    ![Abilitare il monitoraggio per i cluster HDInsight](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "Abilitare il monitoraggio per i cluster HDInsight")
+    ![Abilitare il monitoraggio per i cluster HDInsight](./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png "Abilitare il monitoraggio per i cluster HDInsight")
 
 ## <a name="enable-azure-monitor-logs-by-using-azure-powershell"></a>Abilitare i log di monitoraggio di Azure usando Azure PowerShell
 
@@ -93,14 +93,14 @@ HDInsight offre soluzioni di gestione specifiche per i cluster che è possibile 
 
 Queste sono le soluzioni HDInsight disponibili:
 
-* Monitoraggio per HDInsight Hadoop
-* Monitoraggio HBase in HDInsight
+* Monitoraggio di Hadoop HDInsight
+* Monitoraggio per HDInsight HBase
 * Monitoraggio per HDInsight InteractiveQuery
-* Monitoraggio per HDInsight Kafka
-* Monitoraggio per HDInsight Spark
-* Monitoraggio per HDInsight Storm
+* Monitoraggio Kafka in HDInsight
+* Monitoraggio Spark in HDInsight
+* Monitoraggio Storm in HDInsight
 
-Per installare una soluzione di gestione, vedere [Soluzioni di gestione in Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Per sperimentare, installare una soluzione di monitoraggio Hadoop di HDInsight. Al termine verrà visualizzato il riquadro **HDInsightHadoop** elencato sotto **Riepilogo**. Selezionare il riquadro **HDInsightHadoop**. La soluzione HDInsightHadoop appare come segue:
+Per installare una soluzione di gestione, vedere [Soluzioni di gestione in Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Per sperimentare, installare una soluzione di monitoraggio Hadoop di HDInsight. Al termine, verrà visualizzato un riquadro **HDInsightHadoop** elencato in Summary ( **Riepilogo**). Selezionare il riquadro **HDInsightHadoop**. La soluzione HDInsightHadoop appare come segue:
 
 ![Visualizzazione della soluzione di monitoraggio di HDInsight](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 
@@ -114,10 +114,10 @@ Monitoraggio di Azure supporta anche la raccolta e l'analisi delle metriche dell
 
 HDInsight supporta il controllo del cluster con i log di monitoraggio di Azure, importando i tipi di log seguenti:
 
-* `log_gateway_audit_CL`-Questa tabella fornisce i log di controllo dei nodi del gateway cluster che mostrano i tentativi di accesso riusciti e non riusciti.
-* `log_auth_CL`-Questa tabella fornisce i log SSH con tentativi di accesso riusciti e non riusciti.
-* `log_ambari_audit_CL`-Questa tabella fornisce i log di controllo di Ambari.
-* `log_ranger_audti_CL`-Questa tabella fornisce i log di controllo di Apache Ranger nei cluster ESP.
+* `log_gateway_audit_CL`: questa tabella fornisce i log di controllo dei nodi del gateway cluster che mostrano i tentativi di accesso riusciti e non riusciti.
+* `log_auth_CL`: questa tabella fornisce i log SSH con tentativi di accesso riusciti e non riusciti.
+* `log_ambari_audit_CL`: questa tabella fornisce i log di controllo di Ambari.
+* `log_ranger_audti_CL`: questa tabella fornisce i log di controllo di Apache Ranger nei cluster ESP.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

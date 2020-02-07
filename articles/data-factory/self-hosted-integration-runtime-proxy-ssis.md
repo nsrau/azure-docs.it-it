@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 12/23/2019
-ms.openlocfilehash: 48d4df5684c84e195810439912dd610f5af364d4
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.date: 02/06/2020
+ms.openlocfilehash: b20a615691d95c04574e2909f69b5a83a97f9d14
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964482"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048957"
 ---
 # <a name="configure-self-hosted-ir-as-a-proxy-for-azure-ssis-ir-in-adf"></a>Configurare il runtime di integrazione self-hosted come proxy per Azure-SSIS IR in ADF
 
@@ -149,7 +149,7 @@ Le seconde attività di gestione temporanea in esecuzione nel Azure-SSIS IR non 
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 
-- Attualmente sono supportate solo le attività flusso di dati con gestioni connessioni ODBC/OLEDB/flat file e origini file ODBC/OLEDB/flat. 
+- Attualmente sono supportate solo le attività del flusso di dati con gestioni connessioni di ODBC/OLEDB/file flat e ODBC/OLEDB/file flat o la destinazione OLEDB. 
 - Attualmente sono supportati solo i servizi collegati di archiviazione BLOB di Azure configurati con la **chiave dell'Account**/**URI SAS**/l'autenticazione dell' **entità servizio** .
 
 ## <a name="next-steps"></a>Passaggi successivi

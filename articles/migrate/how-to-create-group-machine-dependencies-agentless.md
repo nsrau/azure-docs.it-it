@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: ff267aabe2f9e4cec38c307fe4382a84ba6d62df
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: c8ddd343cd00b24506382521361ebad33ad112a7
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76288957"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049770"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Configurare la visualizzazione delle dipendenze senza agenti per la valutazione
 
@@ -53,7 +53,7 @@ La visualizzazione delle dipendenze senza agente non richiede l'installazione di
 - Assicurarsi di aver [creato](how-to-add-tool-first-time.md) un progetto Azure migrate.
 - L'analisi delle dipendenze senza agenti è attualmente disponibile solo per i computer VMware.
 - Se è già stato creato un progetto, verificare di aver [aggiunto](how-to-assess.md) lo strumento Azure migrate: server assessment.
-- Assicurarsi di aver individuato i computer VMware in Azure Migrate; a tale scopo, è possibile configurare un appliance Azure Migrate per [VMware](how-to-set-up-appliance-vmware.md). L'appliance individua i computer locali e invia i metadati e i dati sulle prestazioni a Azure Migrate: server assessment. [Altre informazioni](migrate-appliance.md)
+- Assicurarsi di aver individuato i computer VMware in Azure Migrate; a tale scopo, è possibile configurare un appliance Azure Migrate per [VMware](how-to-set-up-appliance-vmware.md). L'appliance individua i computer locali e invia i metadati e i dati sulle prestazioni a Azure Migrate: server assessment. [Altre informazioni](migrate-appliance.md).
 - [Esaminare i requisiti per la configurazione della visualizzazione delle](migrate-support-matrix-vmware.md#agentless-dependency-visualization) dipendenze senza agenti.
 
 
@@ -62,7 +62,7 @@ La visualizzazione delle dipendenze senza agente non richiede l'installazione di
 
 Configurare un account utente che disponga delle autorizzazioni necessarie in modo che server assessment possa accedere alla macchina virtuale per l'individuazione. È possibile specificare un account utente.
 
-- **Autorizzazione necessaria per le macchine virtuali Windows**: l'account utente richiede l'accesso "Guest".
+- **Autorizzazione necessaria per le macchine virtuali Windows**: l'account utente deve essere un amministratore locale o di dominio.
 - **Autorizzazione necessaria per le macchine virtuali Linux**: il privilegio radice è obbligatorio per l'account. In alternativa, l'account utente richiede queste due funzionalità nei file/bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.
 
 ## <a name="add-the-user-account-to-the-appliance"></a>Aggiungere l'account utente al dispositivo
@@ -96,7 +96,7 @@ Scegliere i computer in cui si desidera abilitare l'individuazione delle dipende
 
 Sarà possibile visualizzare le dipendenze 6 ore dopo l'avvio dell'individuazione delle dipendenze.
 
-## <a name="visualize-dependencies"></a>Visualizza le dipendenze
+## <a name="visualize-dependencies"></a>Visualizza dipendenze
 
 1. In **Azure migrate: server Assessment**fare clic su **server individuati**.
 2. Cercare il computer per il quale si desidera visualizzare la mappa delle dipendenze.

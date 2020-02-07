@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/24/2020
-ms.openlocfilehash: 3877632565c1ca2c9a16681e03f8931a94af0599
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 01/31/2020
+ms.openlocfilehash: ea7c695ddb92d441018503839b974c1f4bb33473
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765755"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047854"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Monitoraggio di Azure per le macchine virtuali domande frequenti disponibili a livello generale (GA)
 
@@ -37,7 +37,9 @@ In passato, la soluzione ServiceMap è stata abilitata nell'area di lavoro e i c
 
 
 ## <a name="how-do-i-upgrade"></a>Ricerca per categorie l'aggiornamento?
-Ogni macchina virtuale che richiede l'aggiornamento verrà identificata nella scheda attività **iniziali** Monitoraggio di Azure per le macchine virtuali nel portale di Azure. È possibile aggiornare una singola macchina virtuale o selezionare multiplo per eseguire l'aggiornamento insieme. Usare il comando seguente per eseguire l'aggiornamento usando PowerShell:
+Quando un'area di lavoro di Log Analytics viene aggiornata alla versione più recente di monitoraggio di Azure alle macchine virtuali, eseguirà l'aggiornamento dell'agente di dipendenza in ognuna delle macchine virtuali collegate a tale area di lavoro. Ogni macchina virtuale che richiede l'aggiornamento verrà identificata nella scheda attività **iniziali** Monitoraggio di Azure per le macchine virtuali nel portale di Azure. Quando si sceglie di aggiornare una macchina virtuale, l'area di lavoro per tale macchina virtuale verrà aggiornata insieme a qualsiasi altra VM collegata a tale area di lavoro. È possibile selezionare una singola VM o più macchine virtuali, gruppi di risorse o sottoscrizioni. 
+
+Usare il comando seguente per aggiornare un'area di lavoro usando PowerShell:
 
 ```PowerShell
 Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-group-name> -WorkspaceName <workspace-name> -IntelligencePackName "VMInsights" -Enabled $True
@@ -97,7 +99,7 @@ Si prevede di rilasciare l'aggiornamento per Monitoraggio di Azure per le macchi
 
 ## <a name="health-feature-is-in-limited-public-preview"></a>La funzionalità di integrità è in anteprima pubblica limitata
 
-Abbiamo ricevuto numerosi commenti e suggerimenti dai clienti sul set di funzionalità per l'integrità delle macchine virtuali. Questa funzionalità ha suscitato molto interesse e molte aspettative relative alla possibilità di supportare i flussi di lavoro di monitoraggio. Stiamo pianificando una serie di modifiche per aggiungere funzionalità e rispondere al feedback ricevuto. 
+Abbiamo ricevuto numerosi commenti e suggerimenti dai clienti sul set di funzionalità per l'integrità delle macchine virtuali. Questa funzionalità è molto interessante e può essere utile per supportare i flussi di lavoro di monitoraggio. Si prevede di apportare una serie di modifiche per aggiungere funzionalità e risolvere i commenti ricevuti. 
 
 Per ridurre al minimo l'effetto di queste modifiche apportate ai nuovi clienti, questa funzionalità è stata spostata in un' **anteprima pubblica limitata**. Questo aggiornamento è stato eseguito nel 2019 ottobre.
 

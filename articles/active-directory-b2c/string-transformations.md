@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/04/2020
+ms.date: 02/05/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 774d3325cff98ef01dc0b2e8d5c1db38e449d1b5
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 69091fbcc2b6789abc7825632a56197427d34e4c
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982758"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77045354"
 ---
 # <a name="string-claims-transformations"></a>Trasformazioni di attestazioni di stringa
 
@@ -81,7 +81,7 @@ Il profilo tecnico autocertificato chiama il profilo tecnico **login-NonInteract
 - Attestazioni di input:
   - **inputClaim1**: someone@contoso.com
   - **inputClaim2**: someone@outlook.com
-    - Parametri di input:
+- Parametri di input:
   - **stringComparison**:  ordinalIgnoreCase
 - Risultato: errore generato
 
@@ -91,7 +91,7 @@ Modifica le maiuscole/minuscole dell'attestazione specificata a seconda dell'ope
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | string | Elemento ClaimType modificato. |
+| InputClaim | inputClaim1 | string | ClaimType da modificare. |
 | InputParameter | toCase | string | Uno dei valori seguenti: `LOWER` o `UPPER`. |
 | OutputClaim | outputClaim | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
 
@@ -239,8 +239,8 @@ Crea una stringa casuale tramite il generatore di numeri casuali. Se il generato
 | InputParameter | randomGeneratorType | string | Specifica il valore casuale da generare `GUID` (ID univoco globale) o `INTEGER` (numero). |
 | InputParameter | stringFormat | string | [Facoltativo] Formatta il valore casuale. |
 | InputParameter | base64 | boolean | [Facoltativo] Converte il valore casuale in base 64. Se si applica il formato della stringa, il valore successivo è codificato in formato base64. |
-| InputParameter | maximumNumber | int | [Facoltativo] Solo per elementi randomGeneratorType di tipo `INTEGER`. Specificare il numero massimo. |
-| InputParameter | seed  | int | [Facoltativo] Solo per elementi randomGeneratorType di tipo `INTEGER`. Specifica il valore di inizializzazione per il valore casuale. Nota: uno stesso valore di inizializzazione genera la stessa sequenza di numeri casuali. |
+| InputParameter | maximumNumber | INT | [Facoltativo] Solo per elementi randomGeneratorType di tipo `INTEGER`. Specificare il numero massimo. |
+| InputParameter | seed  | INT | [Facoltativo] Solo per elementi randomGeneratorType di tipo `INTEGER`. Specifica il valore di inizializzazione per il valore casuale. Nota: uno stesso valore di inizializzazione genera la stessa sequenza di numeri casuali. |
 | OutputClaim | outputClaim | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. Valore casuale. |
 
 L'esempio seguente genera un ID univoco globale. Questa trasformazione di attestazioni viene usata per creare un nome UPN casuale (nome dell'entità utente).
@@ -326,7 +326,7 @@ Usare questa trasformazione di attestazioni per formattare qualsiasi stringa con
 
 ## <a name="formatstringmultipleclaims"></a>FormatStringMultipleClaims
 
-Formatta due attestazioni in base alla stringa di formato specificata. Questa trasformazione usa il metodo C# **String.Format**.
+Formatta due attestazioni in base alla stringa di formato specificata. Questa trasformazione usa il metodo C# `String.Format`.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
@@ -361,6 +361,76 @@ Usare questa trasformazione di attestazioni per formattare qualsiasi stringa con
     - **StringFormat**: {0} {1}
 - Attestazioni di output:
     - **outputClaim**: Joe Fernando
+
+## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation 
+
+Copia le stringhe localizzate in attestazioni.
+
+| Elemento | TransformationClaimType | Tipo di dati | Note |
+| ---- | ----------------------- | --------- | ----- |
+| OutputClaim | Nome della stringa localizzata. | string | Elenco dei tipi di attestazione generati dopo la chiamata di questa trasformazione delle attestazioni. |
+
+Per usare la trasformazione delle attestazioni GetLocalizedStringsTransformation:
+
+1. Definire una [stringa di localizzazione](localization.md) e associarla a un [profilo tecnico autocertificato](self-asserted-technical-profile.md).
+1. Il `ElementType` dell'elemento `LocalizedString` deve essere impostato su `GetLocalizedStringsTransformationClaimType`.
+1. Il `StringId` è un identificatore univoco che viene definito e utilizzato in un secondo momento nella trasformazione delle attestazioni.
+1. Nella trasformazione attestazioni specificare l'elenco di attestazioni da impostare con la stringa localizzata. Il `ClaimTypeReferenceId` è un riferimento a un ClaimType già definito nella sezione ClaimsSchema del criterio. Il `TransformationClaimType` è il nome della stringa localizzata come definito nella `StringId` dell'elemento `LocalizedString`.
+1. In un [profilo tecnico autocertificato](self-asserted-technical-profile.md)o una trasformazione di input o output del [controllo di visualizzazione](display-controls.md) , creare un riferimento alla trasformazione delle attestazioni.
+
+![GetLocalizedStringsTransformation](./media/string-transformations/get-localized-strings-transformation.png)
+
+Nell'esempio seguente vengono cercati l'oggetto, il corpo, il messaggio del codice e la firma del messaggio di posta elettronica dalle stringhe localizzate. Queste attestazioni vengono usate in seguito dal modello di verifica della posta elettronica personalizzato.
+
+Definire le stringhe localizzate per la lingua inglese (impostazione predefinita) e per lo spagnolo.
+
+```XML
+<Localization Enabled="true">
+  <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+    <SupportedLanguage>en</SupportedLanguage>
+    <SupportedLanguage>es</SupportedLanguage>
+   </SupportedLanguages>
+
+  <LocalizedResources Id="api.localaccountsignup.en">
+    <LocalizedStrings>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Thanks for verifying your account!</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Your code is</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sincerely</LocalizedString>
+     </LocalizedStrings>
+   </LocalizedResources>
+   <LocalizedResources Id="api.localaccountsignup.es">
+     <LocalizedStrings>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Código de verificación del correo electrónico de la cuenta de Contoso</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Gracias por comprobar la cuenta de </LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Su código es</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Atentamente</LocalizedString>
+    </LocalizedStrings>
+  </LocalizedResources>
+</Localization>
+```
+
+La trasformazione delle attestazioni imposta il valore dell' *oggetto* del tipo di attestazione con il valore della *email_subject*`StringId`.
+
+```XML
+<ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
+    <OutputClaim ClaimTypeReferenceId="message" TransformationClaimType="email_message" />
+    <OutputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="email_code" />
+    <OutputClaim ClaimTypeReferenceId="signature" TransformationClaimType="email_signature" />
+   </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Esempio
+
+- Attestazioni di output:
+  - **oggetto**: codice di verifica della posta elettronica dell'account contoso
+  - **messaggio**: Grazie per aver verificato l'account. 
+  - **codeintro**: il codice è 
+  - **firma**: cordiali saluti  
+
 
 ## <a name="getmappedvaluefromlocalizedcollection"></a>GetMappedValueFromLocalizedCollection
 
@@ -414,7 +484,7 @@ Esegue la ricerca di un valore di attestazione da un elenco di valori in base al
 | InputClaim | inputParameterId | string | Attestazione che contiene il valore di ricerca |
 | InputParameter | |string | Raccolta di elementi inputParameters. |
 | InputParameter | errorOnFailedLookup | boolean | Controlla se viene restituito un errore quando non esiste alcuna ricerca corrispondente. |
-| OutputClaim | inputParameterId | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. Valore dell'ID corrispondente. |
+| OutputClaim | inputParameterId | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. Valore della `Id`corrispondente. |
 
 L'esempio seguente cerca il nome di dominio in una delle raccolte inpuParameters. La trasformazione delle attestazioni esegue la ricerca del nome di dominio nell'identificatore e ne restituisce il valore (ID applicazione).
 
@@ -479,7 +549,7 @@ Ottiene la parte di dominio di un indirizzo di posta elettronica.
 | InputClaim | emailAddress | string | Elemento ClaimType che contiene l'indirizzo di posta elettronica. |
 | OutputClaim | dominio | string | Elemento ClaimType (dominio) generato dopo che è stata richiamata questa trasformazione di attestazioni. |
 
-Usare questa trasformazione di attestazioni per analizzare il nome di dominio dopo il simbolo @ dell'utente. Può essere utile per la rimozione delle informazioni personali dai dati di controllo. La trasformazione di attestazioni seguenti dimostra come analizzare il nome di dominio da un'attestazione **email**.
+Usare questa trasformazione di attestazioni per analizzare il nome di dominio dopo il simbolo @ dell'utente. La trasformazione di attestazioni seguenti dimostra come analizzare il nome di dominio da un'attestazione **email**.
 
 ```XML
 <ClaimsTransformation Id="SetDomainName" TransformationMethod="ParseDomain">
@@ -679,8 +749,8 @@ Estrae parti di un tipo di attestazione stringa, a partire dal carattere in corr
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string | Tipo di attestazione, che contiene la stringa. |
-| InputParameter | startIndex | int | Posizione iniziale in base zero del carattere di una sottostringa in questa istanza. |
-| InputParameter | length | int | Numero di caratteri nella sottostringa. |
+| InputParameter | startIndex | INT | Posizione iniziale in base zero del carattere di una sottostringa in questa istanza. |
+| InputParameter | length | INT | Numero di caratteri nella sottostringa. |
 | OutputClaim | outputClaim | boolean | Stringa equivalente alla sottostringa di lunghezza che inizia in corrispondenza di startIndex in questa istanza oppure Empty se startIndex è uguale alla lunghezza di questa istanza e la lunghezza è zero. |
 
 Ad esempio, ottenere il prefisso del paese del numero di telefono.  
@@ -758,7 +828,7 @@ Concatena gli elementi di un tipo di attestazione della raccolta di stringhe spe
 | InputParameter | delimiter | string | Stringa da utilizzare come separatore, ad esempio `,`virgola. |
 | OutputClaim | outputClaim | string | Stringa costituita dai membri della raccolta di stringhe `inputClaim`, delimitata dal parametro di input di `delimiter`. |
   
-Nell'esempio seguente viene accettata una raccolta di stringhe di ruoli utente e viene convertita in una stringa delimitatore virgola. Questo metodo può essere utilizzato per archiviare una raccolta di stringhe in Azure AD account utente. In seguito, quando l'account viene letto dalla directory, utilizzare il `StringSplit` per convertire la stringa delimitatore della virgola nella raccolta di stringhe.
+L'esempio seguente accetta una raccolta di stringhe di ruoli utente e la converte in una stringa delimitatore virgola. È possibile utilizzare questo metodo per archiviare una raccolta di stringhe in Azure AD account utente. In seguito, quando l'account viene letto dalla directory, utilizzare il `StringSplit` per convertire la stringa delimitatore della virgola nella raccolta di stringhe.
 
 ```XML
 <ClaimsTransformation Id="ConvertRolesStringCollectionToCommaDelimiterString" TransformationMethod="StringJoin">

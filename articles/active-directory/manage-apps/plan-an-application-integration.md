@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1291db8cd895a1104183ae2b5388eb6a23305874
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 89b16a8479f8975d101b8a4e26dcb1885d9730bd
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895927"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063381"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guida introduttiva all'integrazione di Azure Active Directory con le applicazioni
 
@@ -85,7 +85,7 @@ Per aggiungere un'applicazione personalizzata alla raccolta di applicazioni di A
 Gli articoli seguenti illustrano i modi in cui è possibile gestire l'accesso alle applicazioni dopo l'integrazione con Azure AD mediante i connettori di Azure AD e Azure AD.
 
 * [Gestione dell'accesso alle app tramite Azure AD](what-is-access-management.md)
-* [Automazione con i connettori di Azure AD](user-provisioning.md)
+* [Automazione con i connettori di Azure AD](../app-provisioning/user-provisioning.md)
 * [Assegnazione di utenti a un'applicazione](../active-directory-applications-guiding-developers-assigning-users.md)
 * [Assegnazione di gruppi a un'applicazione](../active-directory-applications-guiding-developers-assigning-groups.md)
 * [Condivisione di account](../active-directory-sharing-accounts.md)

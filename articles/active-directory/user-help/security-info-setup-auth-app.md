@@ -2,7 +2,7 @@
 title: Configurare l'app Microsoft Authenticator come metodo di verifica-Azure AD
 description: Come configurare la pagina delle informazioni di sicurezza (anteprima) per verificare l'identità usando l'app Microsoft Authenticator come metodo di verifica.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2019
-ms.author: lizross
-ms.openlocfilehash: 9a3efc6f6b1b7137e8e29e37edd968765712fef5
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: 16cb512d3f8f8afcc199cb52c13e09b12107576f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704970"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062422"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Configurare l'app Microsoft Authenticator come metodo di verifica
 
@@ -31,7 +31,7 @@ Se viene chiesto di configurarle subito dopo aver effettuato l'accesso all'accou
 
 ## <a name="security-vs-password-reset-verification"></a>Sicurezza e verifica della reimpostazione della password
 
-I metodi delle informazioni di sicurezza vengono usati per la verifica della sicurezza a due fattori e per la reimpostazione della password. Non tutti i metodi possono tuttavia essere usati per entrambe.
+I metodi di gestione delle informazioni di sicurezza vengono usati sia per la verifica di sicurezza a due fattori sia per la reimpostazione della password. Non tutti i metodi possono tuttavia essere usati per entrambe.
 
 | Metodo | Utilizzo |
 | ------ | -------- |
