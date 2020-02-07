@@ -2,7 +2,7 @@
 title: Scaricare e installare l'app Microsoft Authenticator-Azure AD
 description: Scaricare e installare l'app Microsoft Authenticator per verificare la propria identità durante l'uso della verifica a due fattori.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: ba6f4d8d7c8bae73d998ee09de3adba7601e25b8
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 9d8ea02c91dc6aec41a1b548eff148e85111fc32
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704715"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063901"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Scaricare e installare l'app Microsoft Authenticator
 
@@ -55,7 +55,7 @@ Installare la versione più recente dell'app Microsoft Authenticator, in base al
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver scaricato e installato l'app, è necessario aggiungere i diversi account. Per scoprire di più, vedi:
+Dopo aver scaricato e installato l'app, è necessario aggiungere i diversi account. Per altre informazioni, vedere:
 
 - **App di autenticazione.** Scaricare e usare un'app di autenticazione per ottenere una notifica di approvazione o un codice di approvazione generato in modo casuale per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come configurare e usare l'app Microsoft Authenticator, vedere [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione](security-info-setup-auth-app.md).
 

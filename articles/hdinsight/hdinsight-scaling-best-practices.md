@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/22/2019
-ms.openlocfilehash: 0649908e4767e48d23306c72b8db92dea9f26284
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.date: 02/05/2020
+ms.openlocfilehash: 035f819cfaad82373f7cb55a7bb2d14fc53bb49b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030924"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064632"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Ridimensionare i cluster HDInsight di Azure
 
@@ -126,7 +126,7 @@ Per terminare manualmente l'applicazione in esecuzione, eseguire il comando segu
 yarn application -kill <application_id>
 ```
 
-Ad esempio,
+Ad esempio:
 
 ```bash
 yarn application -kill "application_1499348398273_0003"
@@ -216,6 +216,10 @@ Se sono rimasti file temporanei di Hive, è possibile pulire questi file manualm
 Se i cluster si bloccano spesso in modalità provvisoria quando si esegue il ridimensionamento a meno di tre nodi di lavoro e i passaggi precedenti non funzionano, è possibile evitare che il cluster si trovi in modalità provvisoria mantenendo almeno tre nodi di lavoro.
 
 La conservazione di tre nodi di lavoro è più costosa rispetto alla scalabilità verticale di un solo nodo di lavoro, ma impedisce il blocco del cluster in modalità provvisoria.
+
+### <a name="scale-hdinsight-down-to-one-worker-node"></a>Ridimensionare HDInsight in un nodo di lavoro
+
+Anche quando il cluster viene ridimensionato fino a un nodo, il nodo del ruolo di lavoro 0 rimarrà ancora disponibile. Non è possibile rimuovere le autorizzazioni per il nodo del ruolo di lavoro 0.
 
 #### <a name="run-the-command-to-leave-safe-mode"></a>Eseguire il comando per disattivare la modalità sicura
 

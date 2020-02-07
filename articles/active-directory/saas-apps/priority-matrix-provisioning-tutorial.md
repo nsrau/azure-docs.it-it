@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: Zhchia
-ms.openlocfilehash: 15ec201851cf52f651e32959b30c1d8579eb1cea
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 80ffaba6713027d216958e0be2cd4ae35a8d2d70
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74152398"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063442"
 ---
 # <a name="tutorial-configure-priority-matrix-for-automatic-user-provisioning"></a>Esercitazione: configurare la matrice di priorità per il provisioning utenti automatico
 
 L'obiettivo di questa esercitazione è illustrare i passaggi da eseguire nella matrice di priorità e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in una matrice di priorità.
 
 > [!NOTE]
-> L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
+> L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Questo connettore è attualmente disponibile in anteprima pubblica. Per altre informazioni sulle condizioni per l'utilizzo di Microsoft Azure relative alle funzionalità di anteprima, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
@@ -132,7 +132,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 8. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory Users to Priority Matrix**.
 
@@ -142,7 +142,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Attributi utente matrice di priorità](media/priority-matrix-provisioning-tutorial/userattributes.png)
 
-10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. Per abilitare il servizio di provisioning Azure AD per la matrice di priorità, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
 
@@ -158,15 +158,15 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning Azure ad sulla matrice di priorità.
 
-Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere [Esercitazione: creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
+Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../manage-apps/check-status-user-account-provisioning.md)
+* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)
 
 

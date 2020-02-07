@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: e5abc9e75e11424b5d0dc4c260b412d0e414ad83
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.custom: hdinsightactive
+ms.date: 02/05/2020
+ms.openlocfilehash: 8c3cbf4c18b32a94abfe95e77be768020b44fda6
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837922"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064683"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gestire i log per un cluster HDInsight
 
@@ -37,7 +37,7 @@ Il primo passaggio per creare una strategia di gestione dei registri cluster di 
 
 I dettagli dei cluster seguenti sono utili per raccogliere informazioni nell'ambito della strategia di gestione dei log. Raccogliere queste informazioni da tutti i cluster HDInsight creati in un determinato account Azure.
 
-* Nome del cluster
+* Nome cluster
 * Area del cluster e zona di disponibilità di Azure
 * Stato del cluster, inclusi i dettagli dell'ultima modifica dello stato
 * Tipo e numero di istanze di HDInsight specificate per i nodi master, principali e attività
@@ -69,7 +69,7 @@ Per visualizzare queste informazioni, è anche possibile usare PowerShell.  Per 
 
 * Stabilire se una soluzione o un servizio di monitoraggio possa essere vantaggioso. In Microsoft System Center è disponibile un [Management Pack per HDInsight](https://www.microsoft.com/download/details.aspx?id=42521). Per raccogliere e centralizzare i log è anche possibile usare strumenti di terze parti, ad esempio Apache Chukwa e Ganglia. Molte aziende offrono servizi per il monitoraggio di soluzioni Big Data basate su Hadoop, ad esempio: Centerity, Compuware APM, Sematext SPM e agente di orchestrazione Zettaset.
 
-## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>Passaggio 2: Gestire le versioni dei servizi cluster e visualizzare i log delle azioni script
+## <a name="step-2-manage-cluster-service-versions-and-view-logs"></a>Passaggio 2: gestire le versioni dei servizi cluster e visualizzare i log
 
 Un tipico cluster HDInsight usa diversi servizi e pacchetti software open source (ad esempio, Apache HBase, Apache Spark e così via). Per alcuni carichi di lavoro, ad esempio quelli di bioinformatica, potrebbe essere necessario conservare la cronologia dei log di configurazione dei servizi oltre ai log di esecuzione dei processi.
 
@@ -89,15 +89,27 @@ Usando l'interfaccia utente di Ambari, è possibile scaricare la configurazione 
 
 Le [azioni script](hdinsight-hadoop-customize-cluster-linux.md) di HDInsight eseguono script in un cluster, manualmente o se specificato. Le azioni script, ad esempio, possono essere usate per installare software aggiuntivo nel cluster o modificare i valori predefiniti delle impostazioni di configurazione. I log delle azioni script forniscono informazioni sugli errori verificatisi durante la configurazione del cluster e anche sulle modifiche delle impostazioni di configurazione che possono avere effetto sulle prestazioni e sulla disponibilità del cluster.  Per visualizzare lo stato di un'azione script, selezionare il pulsante **ops** (operazioni) nell'interfaccia utente di Ambari o accedere ai log di stato nell'account di archiviazione predefinito. I log di archiviazione sono disponibili in `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`.
 
+### <a name="view-ambari-alerts-status-logs"></a>Visualizzare i log di stato degli avvisi di Ambari
+
+Apache Ambari scrive le modifiche dello stato dell'avviso in `ambari-alerts.log`. Il percorso completo è `/var/log/ambari-server/ambari-alerts.log`. Per abilitare il debug per il log, modificare una proprietà in `/etc/ambari-server/conf/log4j.properties.` modifica quindi voce in `# Log alert state changes` da:
+
+```
+log4j.logger.alerts=INFO,alerts
+
+to
+
+log4j.logger.alerts=DEBUG,alerts
+```
+
 ## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>Passaggio 3: Gestire i file di log di esecuzione dei processi cluster
 
-Il passaggio successivo prevede la revisione dei file di log di esecuzione dei processi per i diversi servizi.  I servizi possono includere Apache HBase, Apache Spark e molti altri. Un cluster Hadoop produce un numero elevato di log dettagliati, quindi determinare quali log sono utili (e quali non sono) può richiedere molto tempo.  Conoscere il sistema di registrazione è importante per la gestione mirata dei file di log.  Di seguito è riportato un esempio di file di log.
+Il passaggio successivo prevede la revisione dei file di log di esecuzione dei processi per i diversi servizi.  I servizi possono includere Apache HBase, Apache Spark e molti altri. Un cluster Hadoop produce un numero elevato di log dettagliati, quindi determinare quali log sono utili (e quali non sono) può richiedere molto tempo.  Conoscere il sistema di registrazione è importante per la gestione mirata dei file di log.  L'immagine seguente è un file di log di esempio.
 
 ![Esempio di output di esempio del file di log di HDInsight](./media/hdinsight-log-management/hdi-log-file-example.png)
 
 ### <a name="access-the-hadoop-log-files"></a>Accedere ai file di log di Hadoop
 
-HDInsight archivia i file di log sia nel file system del cluster che in Archiviazione di Azure. È possibile esaminare i file di log nel cluster aprendo una connessione [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) al cluster ed esplorando il file System oppure usando il portale di stato di Hadoop Yarn sul server del nodo head remoto. È possibile esaminare i file di log in Archiviazione di Azure usando uno degli strumenti che consentono di accedere ai dati e di scaricarli da Archiviazione di Azure, Esempi sono [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)e Visual Studio Esplora server. È anche possibile usare PowerShell e le librerie client di Archiviazione di Azure o gli SDK di Azure .NET per accedere ai dati nell'archivio BLOB di Azure.
+HDInsight archivia i file di log sia nel cluster file system che in archiviazione di Azure. È possibile esaminare i file di log nel cluster aprendo una connessione [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) al cluster ed esplorando il file System oppure usando il portale di stato di Hadoop Yarn sul server del nodo head remoto. È possibile esaminare i file di log in archiviazione di Azure usando uno degli strumenti che possono accedere ai dati e scaricarli da archiviazione di Azure. Esempi sono [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)e Visual Studio Esplora server. È anche possibile usare PowerShell e le librerie client di Archiviazione di Azure o gli SDK di Azure .NET per accedere ai dati nell'archivio BLOB di Azure.
 
 Hadoop esegue i processi come *tentativi di attività* in diversi nodi del cluster. HDInsight può avviare tentativi di attività speculativi, terminando eventuali altri tentativi di attività che non vengono completati per primi. Viene così generata una significativa attività che viene immediatamente registrata nei file di log del controller, di stderr e di syslog. Vengono inoltre eseguiti simultaneamente più tentativi di attività, ma un file di log può visualizzare i risultati solo in modo lineare.
 
@@ -140,7 +152,7 @@ Dopo avere completato i passaggi precedenti, si è a conoscenza dei tipi e dei v
 
 Analizzare ora il volume dei dati dei log nelle posizioni di archiviazione chiave per un periodo di tempo. È ad esempio possibile analizzare il volume e la crescita per periodi di 30, 60 e 90 giorni.  Registrare queste informazioni in un foglio di calcolo o usare altri strumenti, ad esempio Visual Studio, Azure Storage Explorer o Power Query per Excel. Per altre informazioni, vedere [Analizzare i log di HDInsight](hdinsight-debug-jobs.md).  
 
-Ora si hanno informazioni sufficienti per creare una strategia di gestione per i log chiave.  Usare il foglio di calcolo (o lo strumento scelto) per valutare sia la crescita delle dimensioni dei log che i costi dei servizi di Azure per l'archiviazione dei log in futuro.  Prendere in considerazione anche eventuali requisiti di conservazione dei log per il set di log che si sta esaminando.  È ora possibile effettuare una nuova previsione dei costi futuri di archiviazione dei log, dopo avere determinato gli eventuali file di log che possono essere eliminati e i log che devono essere conservati e archiviati in una risorsa di archiviazione di Azure meno costosa.
+Ora si hanno informazioni sufficienti per creare una strategia di gestione per i log chiave.  Usare il foglio di calcolo (o lo strumento scelto) per valutare sia la crescita delle dimensioni dei log che i costi dei servizi di Azure per l'archiviazione dei log in futuro.  Prendere in considerazione anche eventuali requisiti di conservazione dei log per il set di log che si sta esaminando.  È ora possibile riprevedere i costi di archiviazione dei log futuri, dopo aver determinato i file di registro che possono essere eliminati (se presenti) e quali log devono essere conservati e archiviati in archiviazione di Azure meno costosa.
 
 ## <a name="step-5-determine-log-archive-policies-and-processes"></a>Passaggio 5: Determinare i criteri e i processi di archiviazione dei log
 
@@ -154,8 +166,8 @@ In alternativa, è possibile generare uno script per archiviare i log con PowerS
 
 ### <a name="accessing-azure-storage-metrics"></a>Accesso alle metriche di archiviazione di Azure
 
-Si può configurare una risorsa di archiviazione di Azure per registrare le operazioni di archiviazione e l'accesso. È possibile usare questi log estremamente dettagliati per monitorare e pianificare la capacità e per controllare le richieste alla risorsa di archiviazione. Le informazioni registrate includono i dettagli sulla latenza, che consentono di monitorare e ottimizzare le prestazioni delle soluzioni.
-È possibile usare .NET SDK per Hadoop per esaminare i file di log generati per la risorsa di archiviazione di Azure che contiene i dati per un cluster HDInsight.
+Archiviazione di Azure può essere configurato per registrare le operazioni di archiviazione e l'accesso. È possibile usare questi log estremamente dettagliati per monitorare e pianificare la capacità e per controllare le richieste alla risorsa di archiviazione. Le informazioni registrate includono i dettagli sulla latenza, che consentono di monitorare e ottimizzare le prestazioni delle soluzioni.
+È possibile usare .NET SDK per Hadoop per esaminare i file di log generati per l'archiviazione di Azure che include i dati per un cluster HDInsight.
 
 ### <a name="control-the-size-and-number-of-backup-indexes-for-old-log-files"></a>Controllare le dimensioni e il numero di indici di backup per i file di log obsoleti
 

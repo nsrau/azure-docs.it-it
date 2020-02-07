@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 11/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: aba613911328b1272ebb07eeae633932cb4a442f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 5257d9f94f6304c2a8dbea3f1648a71d0ba65e94
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935363"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064751"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gestire l'accesso a un'area di lavoro Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -111,6 +111,62 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 Per altre informazioni sui ruoli personalizzati, vedere [ruoli personalizzati per le risorse di Azure](/azure/role-based-access-control/custom-roles).
 
 Per ulteriori informazioni sulle operazioni (azioni) utilizzabili con i ruoli personalizzati, vedere [operazioni del provider di risorse](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+
+
+## <a name="frequently-asked-questions"></a>Domande frequenti
+
+
+### <a name="q-what-are-the-permissions-needed-to-perform-various-actions-in-the-azure-machine-learning-service"></a>Q. Quali sono le autorizzazioni necessarie per eseguire varie azioni nel servizio Azure Machine Learning?
+
+La tabella seguente è un riepilogo delle attività Azure Machine Learning e delle autorizzazioni necessarie per eseguirle nel minor ambito. Se, ad esempio, un'attività può essere eseguita con un ambito dell'area di lavoro (colonna 4), anche tutti gli ambiti più elevati con tale autorizzazione funzioneranno automaticamente. Tutti i percorsi in questa tabella sono **percorsi relativi** per `Microsoft.MachineLearningServices/`.
+
+| Attività | Ambito a livello di sottoscrizione | Ambito a livello di gruppo di risorse | Ambito a livello di area di lavoro |
+|---|---|---|---|
+| Creare una nuova area di lavoro | Facoltativo | Proprietario o collaboratore | N/d (diventa proprietario o eredita un ruolo con ambito superiore dopo la creazione) |
+| Crea nuovo cluster di calcolo | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente: `workspaces/computes/write` |
+| Creare una nuova macchina virtuale notebook | Facoltativo | Proprietario o collaboratore | Non possibile |
+| Crea nuova istanza di calcolo | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente: `workspaces/computes/write` |
+| Attività del piano dati come l'invio dell'esecuzione, l'accesso ai dati, la distribuzione del modello o della pipeline di pubblicazione | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente: `workspaces/*/write` <br/> Si noti che è necessario anche un archivio dati registrato nell'area di lavoro per consentire l'accesso di MSI ai dati nell'account di archiviazione. |
+
+
+### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>Q. Ricerca per categorie elencare tutti i ruoli personalizzati nella sottoscrizione?
+
+Nell'interfaccia della riga di comando di Azure eseguire il comando seguente.
+
+```azurecli-interactive
+az role definition list --subscription <sub-id> --custom-role-only true
+```
+
+### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>Q. Ricerca per categorie trovare la definizione di ruolo per un ruolo nella sottoscrizione?
+
+Nell'interfaccia della riga di comando di Azure eseguire il comando seguente. Si noti che `<role-name>` deve essere nello stesso formato restituito dal comando precedente.
+
+```azurecli-interactive
+az role definition list -n <role-name> --subscription <sub-id>
+```
+
+### <a name="q-how-do-i-update-a-role-definition"></a>Q. Ricerca per categorie aggiornare una definizione di ruolo?
+
+Nell'interfaccia della riga di comando di Azure eseguire il comando seguente.
+
+```azurecli-interactive
+az role definition update --role-definition update_def.json --subscription <sub-id>
+```
+
+Si noti che è necessario disporre delle autorizzazioni per l'intero ambito della nuova definizione di ruolo. Se, ad esempio, il nuovo ruolo dispone di un ambito in tre sottoscrizioni, è necessario disporre delle autorizzazioni per tutte e tre le sottoscrizioni. 
+
+> [!NOTE]
+> Gli aggiornamenti dei ruoli possono richiedere da 15 minuti a un'ora per essere applicati a tutte le assegnazioni di ruolo in tale ambito.
+### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>Q. È possibile definire un ruolo che impedisce l'aggiornamento dell'edizione dell'area di lavoro? 
+
+Sì, è possibile definire un ruolo che impedisce l'aggiornamento dell'edizione dell'area di lavoro. Poiché l'aggiornamento dell'area di lavoro è una chiamata PATCH sull'oggetto dell'area di lavoro, è possibile eseguire questa operazione inserendo l'azione seguente nella matrice di `"NotActions"` nella definizione JSON: 
+
+`"Microsoft.MachineLearningServices/workspaces/write"`
+
+### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>Q. Quali autorizzazioni sono necessarie per eseguire operazioni di quota in un'area di lavoro? 
+
+È necessario disporre delle autorizzazioni a livello di sottoscrizione per eseguire qualsiasi operazione relativa alla quota nell'area di lavoro. Ciò significa che l'impostazione della quota a livello di sottoscrizione o della quota a livello di area di lavoro per le risorse di calcolo gestite può verificarsi solo se si dispone di autorizzazioni di scrittura nell'ambito della sottoscrizione. 
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Configurare zScaler One per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+title: 'Esercitazione: configurare zScaler One per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in zScaler One.
 services: active-directory
 documentationcenter: ''
@@ -15,22 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: de9dce04b6f27b6ae6f5c5caeed5728370359558
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 87413932acee576934ee50b59546371b03ceaf7e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515376"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064173"
 ---
-# <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Esercitazione: Configurare zScaler One per il provisioning utenti automatico
+# <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Esercitazione: configurare zScaler One per il provisioning utenti automatico
 
 Questa esercitazione illustra i passaggi da eseguire in zScaler One e Azure Active Directory (Azure AD) per configurare Azure AD per eseguire automaticamente il provisioning e il deprovisioning di utenti e gruppi in zScaler One.
 
 > [!NOTE]
-> Questa esercitazione descrive un connettore basato sul servizio di provisioning utenti Azure AD. Per informazioni sul funzionamento di questo servizio, sul suo funzionamento e sulle domande frequenti, vedere automatizzare il provisioning e il deprovisioning [utenti in applicazioni SaaS (software-as-a-Service) con Azure Active Directory](../active-directory-saas-app-provisioning.md).
+> Questa esercitazione descrive un connettore basato sul servizio di provisioning utenti Azure AD. Per informazioni sul funzionamento di questo servizio, sul suo funzionamento e sulle domande frequenti, vedere [automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS (software-as-a-Service) con Azure Active Directory](../active-directory-saas-app-provisioning.md).
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Lo scenario descritto in questa esercitazione presuppone che siano disponibili:
 
@@ -80,11 +80,11 @@ Prima di configurare e abilitare il provisioning utenti automatico, decidere qua
 Questa sezione illustra i passaggi per configurare il servizio di provisioning di Azure AD. Usarlo per creare, aggiornare e disabilitare utenti o gruppi in zScaler uno in base alle assegnazioni di utenti o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile abilitare l'accesso Single Sign-on basato su SAML per zScaler One. Seguire le istruzioni nell' [esercitazione sull'accesso Single Sign-on di zScaler One](zscaler-One-tutorial.md). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+> È anche possibile abilitare la Single Sign-On basata su SAML per zScaler One. Seguire le istruzioni riportate nell' [esercitazione zScaler One Single Sign-on](zscaler-One-tutorial.md). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
 ### <a name="configure-automatic-user-provisioning-for-zscaler-one-in-azure-ad"></a>Configurare il provisioning utenti automatico per zScaler One in Azure AD
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **applicazioni** > aziendali**tutte le applicazioni** > **zScaler una**.
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **applicazioni aziendali** > **tutte le applicazioni** > **zScaler uno**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -102,7 +102,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning d
 
 5. Nella sezione **credenziali amministratore** compilare le caselle **URL tenant** e **token segreto** con le impostazioni per l'account zScaler One come descritto nel passaggio 6.
 
-6. Per ottenere l'URL del tenant e il token segreto, passare ad **Amministrazione** > **impostazioni di autenticazione** nell'interfaccia utente del portale zScaler One. In **Authentication Type** (Tipo di autenticazione) selezionare **SAML**.
+6. Per ottenere l'URL del tenant e il token segreto, passare ad **amministrazione** > **impostazioni di autenticazione** nell'interfaccia utente del portale zScaler One. In **Authentication Type** (Tipo di autenticazione) selezionare **SAML**.
 
     ![ZScaler One Authentication Settings](./media/zscaler-one-provisioning-tutorial/secret-token-1.png)
 
@@ -140,7 +140,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning d
 
 14. Per configurare i filtri di ambito, seguire le istruzioni riportate nell'esercitazione relativa al [filtro di ambito](./../active-directory-saas-scoping-filters.md).
 
-15. Per abilitare il servizio di provisioning Azure AD per zScaler One, nella sezione **Settings** impostare **stato** del provisioning **su on**.
+15. Per abilitare il servizio di provisioning Azure AD per zScaler One, nella sezione **Settings** impostare **stato del provisioning** **su on**.
 
     ![ZScaler uno stato di provisioning](./media/zscaler-one-provisioning-tutorial/provisioning-status.png)
 
@@ -160,7 +160,7 @@ Per informazioni su come leggere i log di provisioning di Azure AD, vedere l'ese
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per le app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

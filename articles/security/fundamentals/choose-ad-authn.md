@@ -1,5 +1,6 @@
 ---
-title: Scegliere il metodo di autenticazione appropriato per la soluzione ibrida di gestione delle identità di Azure AD | Microsoft Docs
+title: Autenticazione per Azure AD soluzioni di identità ibride
+titleSuffix: Active Directory
 description: Questa guida ha lo scopo di aiutare CEO, CIO, CISO, Chief Identity Architect, Enterprise Architect e decisori dei settori IT e della sicurezza che hanno la responsabilità di scegliere un metodo di autenticazione per la soluzione ibrida di gestione delle identità di Azure AD in organizzazioni di medie e grandi dimensioni.
 keywords: ''
 author: martincoetzer
@@ -9,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 2865ce640389c0250f14a53088a94aff15ddf1c8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f32980b736232449d24de8721f354d9ca5dd03ab
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460679"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064428"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Scegliere il metodo di autenticazione appropriato per la soluzione ibrida di gestione delle identità di Azure AD
 
@@ -173,11 +174,11 @@ I diagrammi seguenti definiscono i componenti dell'architettura generale necessa
 
 |Considerazioni|Sincronizzazione dell'hash delle password + Seamless SSO|Autenticazione pass-through + Seamless SSO|Federazione con ADFS|
 |:-----|:-----|:-----|:-----|
-|Dove si verifica l'autenticazione?|Nel cloud|Nel cloud dopo la verifica della password di protezione con l'agente di autenticazione locale|Ambiente locale|
-|Quali sono i requisiti del server locale oltre il sistema di provisioning Azure AD Connect?|Nessuno|Un server per ogni agente di autenticazione aggiuntivo|Due o più server AD FS<br><br>Due o più server WAP nella rete perimetrale|
-|Quali sono i requisiti di rete e Internet locali oltre al sistema di provisioning?|Nessuno|[Accesso a Internet in uscita](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) dai server in cui sono in esecuzione gli agenti di autenticazione|[Accesso Internet in ingresso](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) ai server WAP nelle reti perimetrali<br><br>Accesso di rete in ingresso ai server AD FS dai server WAP nelle reti perimetrali<br><br>Bilanciamento del carico di rete|
+|Dove si verifica l'autenticazione?|Nel cloud|Nel cloud dopo la verifica della password di protezione con l'agente di autenticazione locale|Locale|
+|Quali sono i requisiti del server locale oltre il sistema di provisioning Azure AD Connect?|nessuno|Un server per ogni agente di autenticazione aggiuntivo|Due o più server AD FS<br><br>Due o più server WAP nella rete perimetrale|
+|Quali sono i requisiti di rete e Internet locali oltre al sistema di provisioning?|nessuno|[Accesso a Internet in uscita](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) dai server in cui sono in esecuzione gli agenti di autenticazione|[Accesso Internet in ingresso](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) ai server WAP nelle reti perimetrali<br><br>Accesso di rete in ingresso ai server AD FS dai server WAP nelle reti perimetrali<br><br>Bilanciamento del carico di rete|
 |Esiste un requisito per il certificato SSL?|No|No|Sì|
-|Esiste una soluzione di monitoraggio dello stato?|Non obbligatorio|Stato agente fornito dall'[interfaccia di amministrazione di Azure Active Directory](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
+|Esiste una soluzione di monitoraggio dello stato?|Facoltativo|Stato agente fornito dall'[interfaccia di amministrazione di Azure Active Directory](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
 |Gli utenti ottengono l'accesso Single Sign-On alle risorse cloud dai dispositivi aggiunti al dominio all'interno della rete aziendale?|Sì, con l'[accesso Single Sign-On facile](../../active-directory/hybrid/how-to-connect-sso.md)|Sì, con l'[accesso Single Sign-On facile](../../active-directory/hybrid/how-to-connect-sso.md)|Sì|
 |Quali tipi di accesso sono supportati?|UserPrincipalName + Password<br><br>Autenticazione integrata di Windows tramite l'accesso [SSO](../../active-directory/hybrid/how-to-connect-sso.md) facile<br><br>[ID di accesso alternativo](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + Password<br><br>Autenticazione integrata di Windows tramite l'accesso [SSO](../../active-directory/hybrid/how-to-connect-sso.md) facile<br><br>[ID di accesso alternativo](../../active-directory/hybrid/how-to-connect-pta-faq.md)|UserPrincipalName + Password<br><br>sAMAccountName + Password<br><br>Autenticazione integrata di Windows<br><br>[Autenticazione con certificato e smart card](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[ID di accesso alternativo](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |Windows Hello for Business è supportato?|[Modello di attendibilità chiavi](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)|[Modello di attendibilità chiavi](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br>*Richiede il livello di funzionalità del dominio di Windows Server 2016*|[Modello di attendibilità chiavi](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modello di attendibilità certificati](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|

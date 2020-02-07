@@ -1,6 +1,6 @@
 ---
-title: Come configurare l'accesso Single Sign-on basato su password per le app Azure AD | Microsoft Docs
-description: Come configurare l'accesso Single Sign-on (SSO) basato su password per le applicazioni aziendali Azure AD in Microsoft Identity Platform (Azure AD)
+title: Come configurare la Single Sign-On delle password per le app Azure AD | Microsoft Docs
+description: Come configurare la Single Sign-On delle password (SSO) per le applicazioni aziendali Azure AD nella piattaforma di identità Microsoft (Azure AD)
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d191abafbaad123ed47f8eaae6cdd4e48478da7a
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 563bda275b73f76b042b5e57a9909ca78c504bb3
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422618"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063527"
 ---
-# <a name="configure-password-single-sign-on"></a>Configurare l'accesso Single Sign-on basato su password
+# <a name="configure-password-single-sign-on"></a>Configurare Single Sign-On password
 
-Quando si [aggiunge un'app della raccolta](add-gallery-app.md) o un' [app Web non della raccolta](add-non-gallery-app.md) alle applicazioni aziendali Azure ad, una delle opzioni Single Sign-on disponibili è [Single Sign-on basato su password](what-is-single-sign-on.md#password-based-sso). Questa opzione è disponibile per qualsiasi Web con una pagina di accesso HTML. L'SSO basato su password, definito anche insieme di credenziali delle password, consente di gestire l'accesso degli utenti e le password per le applicazioni Web che non supportano la federazione delle identità. È utile anche per scenari in cui più utenti devono condividere un singolo account, ad esempio gli account di app di social media dell'organizzazione. 
+Quando si [aggiunge un'app della raccolta](add-gallery-app.md) o un' [app Web non della raccolta](add-non-gallery-app.md) alle applicazioni aziendali Azure ad, una delle opzioni Single Sign-on disponibili è [Single Sign-on basata su password](what-is-single-sign-on.md#password-based-sso). Questa opzione è disponibile per qualsiasi Web con una pagina di accesso HTML. L'SSO basato su password, definito anche insieme di credenziali delle password, consente di gestire l'accesso degli utenti e le password per le applicazioni Web che non supportano la federazione delle identità. È utile anche per scenari in cui più utenti devono condividere un singolo account, ad esempio gli account di app di social media dell'organizzazione. 
 
 SSO basato su password è un ottimo modo per iniziare a integrare rapidamente le applicazioni in Azure AD e consente di:
 
@@ -38,9 +38,9 @@ SSO basato su password è un ottimo modo per iniziare a integrare rapidamente le
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Se l'applicazione non è stata aggiunta al tenant di Azure AD, vedere [aggiungere un'app della raccolta](add-gallery-app.md) o [aggiungere un'app non della raccolta](add-non-gallery-app.md).
+Se l'applicazione non è stata aggiunta al tenant di Azure AD, vedere [Aggiungere un'app della raccolta](add-gallery-app.md) oppure [Aggiungere un'app non della raccolta](add-non-gallery-app.md).
 
-## <a name="open-the-app-and-select-password-single-sign-on"></a>Aprire l'app e selezionare password Single Sign-on
+## <a name="open-the-app-and-select-password-single-sign-on"></a>Aprire l'app e selezionare password Single Sign-On
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore dell’applicazione cloud o amministratore dell’applicazione per il proprio tenant di Azure AD.
 
@@ -48,7 +48,7 @@ Se l'applicazione non è stata aggiunta al tenant di Azure AD, vedere [aggiunger
 
 3. Nel menu **Tipo di applicazione** selezionare **Tutte le applicazioni** e quindi **Applica**.
 
-4. Immettere il nome dell'applicazione nella casella di ricerca e quindi selezionare l'applicazione dai risultati.
+4. Immettere il nome dell'applicazione nella casella di ricerca, quindi selezionarla nei risultati.
 
 5. Nella sezione **Gestisci** selezionare **Single Sign-On**. 
 
@@ -56,7 +56,7 @@ Se l'applicazione non è stata aggiunta al tenant di Azure AD, vedere [aggiunger
 
 7. Immettere l'URL della pagina di accesso basata sul Web dell'applicazione. Questa stringa deve essere la pagina che include il campo di input username.
 
-   ![Accesso Single Sign-On basato su password](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
+   ![Single Sign-On basato su password](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
 
 8. Selezionare **Salva**. Azure AD tenta di analizzare la pagina di accesso per un input di nome utente e un input di password. Se il tentativo ha esito positivo, l'operazione è completata. 
  
@@ -68,11 +68,11 @@ Se l'applicazione non è stata aggiunta al tenant di Azure AD, vedere [aggiunger
 
 Se il tentativo di analisi del Azure AD ha esito negativo, è possibile configurare l'accesso manualmente.
 
-1. **In\<nome applicazione > configurazione**selezionare **Configura \<nome applicazione > impostazioni di Single Sign-on password** per visualizzare la pagina **Configura accesso** . 
+1. In **\<nome applicazione > configurazione**selezionare **Configura \<nome applicazione > impostazioni password Single Sign-on** per visualizzare la pagina **Configura accesso** . 
 
 2. Selezionare **rileva manualmente i campi di accesso**. Verranno visualizzate altre istruzioni che descrivono il rilevamento manuale dei campi di accesso.
 
-   ![Configurazione manuale di Single Sign-on basato su password](./media/configure-password-single-sign-on/password-configure-sign-on.png)
+   ![Configurazione manuale delle Single Sign-On basate su password](./media/configure-password-single-sign-on/password-configure-sign-on.png)
 3. Selezionare **Acquisisci campi di accesso**. Viene visualizzata una pagina stato acquisizione in una nuova scheda, che mostra che l' **acquisizione dei metadati del messaggio è attualmente in corso**.
 
 4. Se la casella di controllo **estensione pannello di accesso** è visualizzata in una nuova scheda, selezionare **Installa ora** per installare l'estensione del browser dell'estensione per l'accesso **sicuro alle app personali** . Per l'estensione del browser è necessario Microsoft Edge, Chrome o Firefox. Quindi, installare, avviare e abilitare l'estensione e aggiornare la pagina stato acquisizione.
@@ -95,4 +95,4 @@ Dopo l'acquisizione della pagina di accesso, è possibile assegnare utenti e gru
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Assegnare utenti o gruppi all'applicazione](methods-for-assigning-users-and-groups.md)
-- [Configurare il provisioning automatico degli account utente](configure-automatic-user-provisioning-portal.md)
+- [Configurare il provisioning automatico degli account utente](../app-provisioning/configure-automatic-user-provisioning-portal.md)

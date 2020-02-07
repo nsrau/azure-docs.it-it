@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 9e9dd529edea23b27de2e3841079244558d6689a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: acdf268874b1dc1c24116ba36e2b4233a2702a5f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442108"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064496"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Autenticazione basata su certificato per un'identità Azure AD per accedere alle chiavi da un account Azure Cosmos DB
 
-L'autenticazione basata su certificati consente di autenticare l'applicazione client tramite Azure Active Directory (Azure AD) con un certificato client. È possibile eseguire l'autenticazione basata su certificati in un computer in cui è necessaria un'identità, ad esempio un computer locale o una macchina virtuale in Azure. L'applicazione può quindi leggere Azure Cosmos DB chiavi senza avere le chiavi direttamente nell'applicazione. Questo articolo descrive come creare un'applicazione Azure AD di esempio, configurarla per l'autenticazione basata su certificati, accedere ad Azure con la nuova identità dell'applicazione e quindi recuperare le chiavi dall'account Azure Cosmos. Questo articolo usa Azure PowerShell per configurare le identità e fornisce un' C# app di esempio per l'autenticazione e l'accesso alle chiavi dall'account Azure Cosmos.  
+L'autenticazione basata su certificati consente di autenticare l'applicazione client tramite Azure Active Directory (Azure AD) con un certificato client. È possibile eseguire l'autenticazione basata su certificato in un computer in cui è necessaria un'identità, ad esempio un computer locale o una macchina virtuale in Azure. L'applicazione può quindi leggere Azure Cosmos DB chiavi senza avere le chiavi direttamente nell'applicazione. Questo articolo descrive come creare un'applicazione Azure AD di esempio, configurarla per l'autenticazione basata su certificati, accedere ad Azure con la nuova identità dell'applicazione e quindi recuperare le chiavi dall'account Azure Cosmos. Questo articolo usa Azure PowerShell per configurare le identità e fornisce un' C# app di esempio per l'autenticazione e l'accesso alle chiavi dall'account Azure Cosmos.  
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Installare la [versione più recente](/powershell/azure/install-az-ps) di Azure PowerShell.
 
@@ -55,7 +55,6 @@ In questo passaggio verrà installato il modulo Azure AD PowerShell. Questo modu
 1. Aprire Windows PowerShell ISE con diritti di amministratore. Se non è già stato fatto, installare il modulo AZ PowerShell e connettersi alla sottoscrizione. Se si dispone di più sottoscrizioni, è possibile impostare il contesto della sottoscrizione corrente, come illustrato nei comandi seguenti:
 
    ```powershell
-
    Install-Module -Name Az -AllowClobber
    Connect-AzAccount
 

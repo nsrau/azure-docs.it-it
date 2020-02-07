@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8e9ab9dddad35708b58d32802452789adf84a19e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 5eeb1c25264c36909774ec689b7410765881c8e2
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759466"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064734"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Proteggere un database in SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ La sinapsi di Azure usa regole del firewall IP a livello di server. Non supporta
 
 Le connessioni a SQL Data Warehouse vengono crittografate per impostazione predefinita.  La modifica delle impostazioni di connessione per disabilitare la crittografia viene ignorata.
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 Per autenticazione si intende il modo in cui viene dimostrata la propria identità durante la connessione al database. SQL Data Warehouse attualmente supporta l'autenticazione di SQL Server con un nome utente e una password e con Azure Active Directory. 
 
 Durante la creazione del server logico per il database, è stato specificato un account di accesso "amministratore del server" con un nome utente e una password. Con queste credenziali è possibile eseguire l'autenticazione in qualsiasi database di tale server come proprietario del database, o "dbo", tramite l'autenticazione di SQL Server.

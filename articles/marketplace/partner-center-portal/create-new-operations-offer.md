@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 1ba7fca7576c6f015ad7bbcb47909b90c3065d58
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 7d897b9f85ce6565cbdc1a253a0e20b989539cae
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045952"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048670"
 ---
 # <a name="create-a-new-dynamics-365-for-operations-offer"></a>Crea una nuova offerta di Dynamics 365 per le operazioni
 
@@ -58,7 +58,7 @@ Elencare l'offerta ai clienti con un collegamento a una versione di valutazione 
 > [!NOTE]
 > I token che l'applicazione riceverà tramite il collegamento alla versione di valutazione può essere usato solo per ottenere informazioni sugli utenti tramite Azure Active Directory (Azure AD) per automatizzare la creazione di account nell'app. Gli account Microsoft non sono supportati per l'autenticazione con questo token.
 
-#### <a name="contact-me"></a>Contattami
+#### <a name="contact-me"></a>Contact me (Contattami)
 
 Raccogliere le informazioni di contatto del cliente connettendosi al sistema CRM (Customer Relationship Management). Al cliente verrà richiesta l'autorizzazione a condividere le informazioni. Queste informazioni sui clienti, insieme al nome dell'offerta, all'ID e all'origine del Marketplace in cui è stata trovata l'offerta, verranno inviate al sistema CRM configurato. Per ulteriori informazioni sulla configurazione del CRM, vedere [Connect Lead Management](#connect-lead-management). 
 
@@ -97,7 +97,7 @@ Ricordarsi di **salvare** prima di procedere alla sezione successiva.
 
 La pagina delle **Proprietà** consente di definire le categorie e i settori usati per raggruppare l'offerta nel Marketplace, la versione dell'app e i contratti legali che supportano l'offerta. Selezionare **Salva** dopo aver completato questa pagina.
 
-### <a name="category"></a>Categoria
+### <a name="category"></a>Category
 
 Selezionare un minimo di uno e un massimo di tre categorie. Queste categorie verranno usate per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di richiamare il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta.
 
@@ -109,19 +109,9 @@ Selezionare un minimo di uno e un massimo di tre categorie. Queste categorie ver
 
 Immettere il numero di versione dell'offerta. I clienti visualizzeranno questa versione nella pagina dei dettagli dell'offerta.
 
-### <a name="standard-contract"></a>Contratto standard
+### <a name="terms-and-conditions"></a>Termini e condizioni
 
-Per semplificare il processo di approvvigionamento per i clienti e ridurre la complessità giuridica per i fornitori di software, Microsoft offre un modello di contratto standard per facilitare una transazione nel Marketplace.
-
-Anziché creare termini e condizioni personalizzati, è possibile scegliere di offrire il software nel contratto standard, che i clienti devono solo controllare e accettare una sola volta.
-
-Il contratto standard è disponibile qui: https://go.microsoft.com/fwlink/?linkid=2041178
-
-Per usare il contratto standard, selezionare la casella **USA contratto standard?** .
-
-#### <a name="terms-of-use"></a>Condizioni per l'utilizzo
-
-Se non si seleziona la casella **USA contratto standard** , sarà necessario fornire le proprie condizioni legali per l'utilizzo nel campo **condizioni per l'utilizzo** . Immettere un massimo di 10.000 caratteri di testo o, se le condizioni per l'utilizzo richiedono una descrizione più lunga, fornire l'URL in cui è possibile trovare le condizioni di licenza aggiuntive. Per poter provare l'app, ai clienti verrà richiesto di accettare le presenti condizioni.
+Fornire i termini e le condizioni legali nel campo **termini e condizioni** . È anche possibile specificare l'URL in cui è possibile trovare i termini e le condizioni. Ai clienti verrà richiesto di accettare le presenti condizioni per poter provare l'offerta.
 
 ## <a name="offer-listing"></a>Elenco offerte
 
@@ -140,7 +130,7 @@ Il nome immesso qui verrà visualizzato ai clienti come titolo dell'elenco di of
 
 Fornire una breve descrizione dell'offerta (fino a 100 caratteri). Questa descrizione può essere usata nei risultati della ricerca nel Marketplace.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrizione
 
 Fornire una descrizione più lunga dell'offerta (fino a 3.000 caratteri). Questa descrizione verrà visualizzata ai clienti nella panoramica dell'inserzione sul Marketplace. Includere la proposta di valore dell'offerta, i vantaggi principali, le associazioni di categoria e/o di settore, le opportunità di acquisto in-app ed eventuali divulgazioni necessarie.
 
@@ -173,7 +163,7 @@ Utilizzare le istruzioni seguenti per utilizzare l'editor di testo RTF:
 
      ![Utilizzo dell'editor di testo RTF per rientrare](./media/text-editor5.png)
 
-### <a name="search-keywords"></a>Parole chiave di ricerca
+### <a name="search-keywords"></a>Search Keywords (Parole chiave di ricerca)
 
 Facoltativamente, è possibile immettere fino a tre parole chiave di ricerca per aiutare i clienti a trovare l'offerta nel Marketplace. Per ottenere risultati ottimali, provare a usare queste parole chiave anche nella descrizione.
 
@@ -189,7 +179,7 @@ Questa sezione consente di fornire i collegamenti per aiutare i clienti a compre
 
 Immettere l'URL in cui i clienti possono ottenere ulteriori informazioni sull'offerta.
 
-#### <a name="privacy-policy-url"></a>URL Informativa sulla privacy
+#### <a name="privacy-policy-url"></a>URL informativa sulla privacy
 
 Immettere l'URL dell'informativa sulla privacy dell'organizzazione. L'utente è responsabile di garantire che l'applicazione sia conforme alle leggi e alle normative sulla privacy e per fornire un'informativa sulla privacy valida.
 
@@ -293,51 +283,51 @@ Un modello di distribuzione che contiene tutte le risorse di Azure che costituis
 
 - **Test drive Azure Resource Manager modello**: caricare il file zip contenente il modello di Azure Resource Manager.  Per altre informazioni sulla creazione di un modello di Azure Resource Manager, vedere l'articolo introduttivo [creare e distribuire modelli di Azure Resource Manager tramite il portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
-- **Test drive duration** (required): Enter the length of time that the Test Drive will stay active, in # of hours. Il test drive termina automaticamente alla fine di questo periodo di tempo. Questa durata può essere impostata solo per un numero intero di ore (ad esempio, "2" ore; "1,5" non è valido).
+- **Durata test drive** (obbligatorio): immettere il periodo di tempo in cui il test drive resterà attivo, in ore. Il test drive termina automaticamente alla fine di questo periodo di tempo. Questa durata può essere impostata solo per un numero intero di ore (ad esempio, "2" ore; "1,5" non è valido).
 
 ### <a name="technical-configuration-for-dynamics-365-test-drive"></a>Configurazione tecnica per Dynamics 365 test drive
 
 Microsoft può rimuovere la complessità della configurazione di un test drive ospitando e gestendo il provisioning e la distribuzione del servizio usando questo tipo di test drive. La configurazione di questo tipo di test drive ospitata è la stessa, indipendentemente dal fatto che la test drive sia destinata a un gruppo di lavoro centrale, Customer Engagement o Operations.
 
-- **Max concurrent test drives** (required): Set the maximum number of customers that can use your test drive at one time. Ogni utente simultaneo utilizzerà una licenza Dynamics 365 mentre la test drive è attiva, pertanto sarà necessario assicurarsi che siano disponibili sufficienti licenze per supportare il limite massimo impostato. Valore consigliato da 3 a 5.
+- Numero massimo di **unità di test simultanee** (obbligatorio): impostare il numero massimo di clienti che possono usare la test drive alla volta. Ogni utente simultaneo utilizzerà una licenza Dynamics 365 mentre la test drive è attiva, pertanto sarà necessario assicurarsi che siano disponibili sufficienti licenze per supportare il limite massimo impostato. Valore consigliato da 3 a 5.
 
 - **Durata test drive** (obbligatorio): immettere il periodo di tempo per cui il test drive resterà attivo definendo il numero di ore. Dopo questo numero di ore, la sessione terminerà e non utilizzerà più una delle licenze. È consigliabile un valore di 2-24 ore a seconda della complessità dell'offerta. Questa durata può essere impostata solo per un numero intero di ore (ad esempio, "2" ore; "1,5" non è valido).  L'utente può richiedere una nuova sessione se esaurisce il tempo e desidera accedere nuovamente al test drive.
 
 - **URL istanza** (obbligatorio): URL da cui il cliente inizierà a test drive. In genere l'URL dell'istanza di Dynamics 365 che esegue l'app con i dati di esempio installati, ad esempio https://testdrive.crm.dynamics.com).
 
-- **Instance Web API URL** (required): Retrieve the Web API URL for your Dynamics 365 instance by logging into your Microsoft 365 account and navigating to **Settings** \&gt; **Customization** \&gt; **Developer Resources** \&gt; **Instance Web API (Service Root URL)** , copy the URL found here (for example, https://testdrive.crm.dynamics.com/api/data/v9.0).
+- **URL dell'API Web dell'istanza** (obbligatorio): recuperare l'URL dell'API Web per l'istanza di Dynamics 365 accedendo all'account Microsoft 365 e passando alle **Impostazioni** \&gt; **Personalizzazione** \&gt; **Risorse per sviluppatori** \&gt; **API Web dell'istanza (URL radice del servizio)** , copiare l'URL trovato qui, ad esempio https://testdrive.crm.dynamics.com/api/data/v9.0).
 
-- **Role name** (required): Provide the security role name you have defined in your custom Dynamics 365 test drive. This will be assigned to the user during their test drive (for example, test-drive-role).
+- **Nome ruolo** (obbligatorio): specificare il nome del ruolo di sicurezza definito nell'test drive Dynamics 365 personalizzato. Questa operazione verrà assegnata all'utente durante la relativa test drive (ad esempio, test-drive-Role).
 
-### <a name="technical-configuration-for-logic-app-test-drive"></a>Technical configuration for Logic app test drive
+### <a name="technical-configuration-for-logic-app-test-drive"></a>Configurazione tecnica per test drive app per la logica
 
-Any custom products should use this type of test drive deployment template, which encompasses a variety of complex solution architectures. For more information about setting up Logic App test drives, visit [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) and [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) on GitHub.
+Tutti i prodotti personalizzati devono usare questo tipo di modello di distribuzione test drive, che include un'ampia gamma di architetture di soluzioni complesse. Per altre informazioni sulla configurazione di unità di test per l'app per la logica, vedere [operazioni](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) e [coinvolgimento dei clienti](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) su GitHub.
 
-- **Region** (required, single-selection dropdown list): Currently there are 26 Azure-supported regions where your test drive can be made available. The resources for your Logic app will be deployed in the region you select. If your Logic App has any custom resources stored in a specific region, make sure that region is selected here. The best way to ensure you have custom resources for your region available is to fully deploy your Logic App locally on your Azure subscription in the portal and verify that it functions correctly before making this selection.
+- **Region** (obbligatorio, elenco a discesa a selezione singola): attualmente sono presenti 26 aree supportate da Azure in cui è possibile rendere disponibili le test drive. Le risorse per l'app per la logica verranno distribuite nell'area selezionata. Se l'app per la logica contiene risorse personalizzate archiviate in un'area specifica, assicurarsi che l'area sia selezionata qui. Il modo migliore per assicurarsi di disporre di risorse personalizzate per l'area disponibile consiste nel distribuire completamente l'app per la logica localmente nella sottoscrizione di Azure nel portale e verificare che funzioni correttamente prima di effettuare questa selezione.
 
-- **Max concurrent test drives** (required): Set the maximum number of customers that can use your test drive at one time. These test drives are already deployed, enabling customers to instantly access them without waiting for a deployment.
+- Numero massimo di **unità di test simultanee** (obbligatorio): impostare il numero massimo di clienti che possono usare la test drive alla volta. Queste unità di test sono già distribuite, consentendo ai clienti di accedervi immediatamente senza attendere una distribuzione.
 
-- **Test drive duration** (required): Enter the length of time that the Test Drive will stay active, in # of hours. The test drive terminates automatically after this time period ends.
+- **Durata test drive** (obbligatorio): immettere il periodo di tempo in cui il test drive resterà attivo, in ore. Il test drive termina automaticamente al termine di questo periodo di tempo.
 
-- **Azure resource group name** (required): Enter the [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) name where your Logic App test drive is saved.
+- **Nome del gruppo di risorse di Azure** (obbligatorio): immettere il nome del [gruppo di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) in cui viene salvata l'App per la logica test drive.
 
-- **Azure logic app name** (required): Enter the name of the Logic app that assigns the test drive to the user. This Logic app must be saved in the Azure resources group above.
+- **Nome dell'app** per la logica di Azure (obbligatorio): immettere il nome dell'app per la logica che assegna la test drive all'utente. Questa app per la logica deve essere salvata nel gruppo di risorse di Azure precedente.
 
-- **Deprovision logic app name** (required): Enter the name of the Logic app that deprovisions the test drive once the customer is finished. This Logic app must be saved in the Azure resources group above.
+- **Deprovisioning app per la logica nome** (obbligatorio): immettere il nome dell'app per la logica che annulla il provisioning del test drive al termine del cliente. Questa app per la logica deve essere salvata nel gruppo di risorse di Azure precedente.
 
-### <a name="technical-configuration-not-required-for-power-bi-test-drives"></a>Technical configuration not required for Power BI test drives
+### <a name="technical-configuration-not-required-for-power-bi-test-drives"></a>Configurazione tecnica non necessaria per Power BI test drive
 
-Products that want to demonstrate an interactive Power BI visual can use an embedded link to share a custom-built dashboard as their test drive, no further technical configuration required. Learn more about setting up[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview) template apps.
+I prodotti che vogliono dimostrare un oggetto visivo Power BI interattivo possono usare un collegamento incorporato per condividere un dashboard personalizzato come test drive, non sono necessarie altre configurazioni tecniche. Altre informazioni sulla configurazione di[Power bi](https://docs.microsoft.com/power-bi/service-template-apps-overview) app modello.
 
-### <a name="deployment-subscription-details"></a>Deployment subscription details
+### <a name="deployment-subscription-details"></a>Dettagli sottoscrizione della distribuzione
 
-In order to deploy the Test Drive on your behalf, create and provide a separate, unique Azure Subscription. (Not required for Power BI test drives).
+Per distribuire il test drive per conto dell'utente, creare e fornire una sottoscrizione di Azure separata e univoca. (Non necessario per Power BI test drive).
 
-- **Azure subscription ID** (required for Azure Resource Manager and Logic apps): Enter the subscription ID to grant access to your Azure account services for resource usage reporting and billing. We recommend that you consider [creating a separate Azure subscription](https://docs.microsoft.com/azure/billing/billing-create-subscription) to use for test drives if you don't have one already. You can find your Azure subscription ID by logging in to the [Azure portal](https://portal.azure.com/) and navigating to the **Subscriptions** tab of the left-side menu. Selecting the tab will display your subscription ID (for example, "a83645ac-1234-5ab6-6789-1h234g764ghty").
+- **ID sottoscrizione di Azure** (obbligatorio per Azure Resource Manager e app per la logica): immettere l'ID sottoscrizione per concedere l'accesso ai servizi dell'account di Azure per la fatturazione e la creazione di report sull'utilizzo delle risorse. È consigliabile [creare una sottoscrizione di Azure separata](https://docs.microsoft.com/azure/billing/billing-create-subscription) da usare per le unità di test se non ne è già presente uno. È possibile trovare l'ID sottoscrizione di Azure accedendo al [portale di Azure](https://portal.azure.com/) e passando alla scheda **sottoscrizioni** del menu a sinistra. Se si seleziona la scheda, viene visualizzato l'ID sottoscrizione, ad esempio "a83645ac-1234-5AB6-6789-1h234g764ghty".
 
-- **Azure AD tenant ID** (required): Enter your Azure Active Directory (AD) [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **Properties**, then look for the **Directory ID** number listed (for example, 50c464d3-4930-494c-963c-1e951d15360e). You can also look up your organization's tenant ID using your domain name URL at:  [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
+- **Azure ad ID tenant** (obbligatorio): immettere l' [id tenant](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)di Azure Active Directory (ad). Per trovare questo ID, accedere al [portale di Azure](https://portal.azure.com/), selezionare la scheda Active Directory nel menu a sinistra, selezionare **Proprietà**, quindi cercare il numero **ID directory** elencato (ad esempio, 50c464d3-4930-494c-963C-1e951d15360e). È anche possibile cercare l'ID tenant dell'organizzazione usando l'URL del nome di dominio all'indirizzo: [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 
-- **Azure AD tenant name** (required for Dynamic 365): Enter your Azure Active Directory (AD) name. To find this name, sign in to the [Azure portal](https://portal.azure.com/), in the upper right corner your tenant name will be listed under your account name.
+- **Azure ad nome del tenant** (obbligatorio per la 365 dinamica): immettere il nome del Azure Active Directory (ad). Per trovare questo nome, accedere al [portale di Azure](https://portal.azure.com/), nell'angolo in alto a destra il nome del tenant verrà elencato sotto il nome dell'account.
 
 - **Azure ad ID app** (obbligatorio): immettere l' [id applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)di Azure Active Directory (ad). Per trovare questo ID, accedere al [portale di Azure](https://portal.azure.com/), selezionare la scheda Active Directory nel menu a sinistra, selezionare **registrazioni app**, quindi cercare il numero **ID applicazione** elencato (ad esempio, 50c464d3-4930-494c-963C-1e951d15360e).
 
