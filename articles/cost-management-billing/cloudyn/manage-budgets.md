@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: vitavor
+ms.reviewer: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: 3572296da8e81602e905a3d9f515e7d49067cfa4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: 91a1027add615c71784b6be1261fab97aadd9f3a
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75990593"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769995"
 ---
 # <a name="manage-azure-budgets-with-cloudyn"></a>Gestire i budget di Azure con Cloudyn
 
@@ -35,7 +35,7 @@ Quando si crea un budget, lo si imposta per l'anno fiscale e lo sia applica a un
 
 Per creare un budget e assegnarlo a un'entità:
 
-1. Passa a **costi** &gt; **Gestione costi** &gt; **budget**.
+1. Passare a **Costi** &gt; **Gestione dei costi** &gt; **Budget**.
 2. Nella pagina di gestione del budget, in **Entità** selezionare l'entità per cui si vuole creare il budget.
 3. Nell'anno del budget selezionare l'anno per cui si vuole creare il budget.
 4. Impostare un valore di budget per ogni mese. Al termine, fare clic su **Salva**.
@@ -54,7 +54,7 @@ Per esportare il budget completato come file CSV, in **Azioni** selezionare **Es
 
 ## <a name="view-budget-in-reports"></a>Visualizzare il budget nei report
 
-Al termine, il budget viene mostrato nella maggior parte dei report sui costi in termini di **costi** &gt; **analisi** dei costi e nel rapporto costo e budget nel tempo. È inoltre possibile pianificare i report basati sulle soglie di budget usando **Azioni**.
+Dopo che è stato completato, il budget viene visualizzato nella maggior parte dei report sui costi in **Costi** &gt; **Analisi dei costi** e nel report di confronto tra costo e budget nel tempo. È inoltre possibile pianificare i report basati sulle soglie di budget usando **Azioni**.
 
 Ecco un esempio del report Analisi dei costi. Questo report mostra il budget e il costo totali in base al carico di lavoro e ai tipi di utilizzo partendo dall'inizio dell'anno.
 
@@ -64,7 +64,7 @@ In questo esempio si presuppone che la data corrente sia il 22 giugno. Il costo 
 
 Un altro modo per visualizzare il report consiste nell'esaminare il costo accumulato rispetto al budget. Per vedere i costi accumulati, in **Mostra/Nascondi campi** selezionare **Costo accumulato** e **Budget totale**. Ecco un esempio che mostra il costo accumulato dall'inizio dell'anno.
 
-![Esempio di costo accumulato e del budget totale indicato nel rapporto cost vs. budget nel tempo](./media/manage-budgets/accumulated-budget.png)
+![Esempio di costo accumulato e di budget totale visualizzato nel report Costi e budget nel tempo](./media/manage-budgets/accumulated-budget.png)
 
 È possibile che a un certo punto il costo accumulato superi il budget. Questa situazione è più facile da vedere se si imposta la visualizzazione del grafico sul tipo _a linee_.
 
@@ -79,7 +79,7 @@ Nell'esempio precedente si nota che il costo accumulato si è avvicinato al valo
 
 Ecco un esempio.
 
-Nel report cost vs. budget over time fare clic su **Actions** e quindi selezionare **Schedule report**. Nella scheda Soglia selezionare una metrica di soglia, ad esempio **Cost percentage vs budget** (Percentuale costo rispetto a budget). Selezionare un tipo di avviso e immettere un valore di percentuale del budget. Se si desidera ricevere la notifica una sola volta, selezionare **Number of consecutive alerts** (Numero di avvisi consecutivi) e quindi digitare _1_. Fare clic su **Salva**.
+Nel report di confronto tra costo e budget nel tempo fare clic su **Azioni** e quindi selezionare **Pianifica report**. Nella scheda Soglia selezionare una metrica di soglia, ad esempio **Cost percentage vs budget** (Percentuale costo rispetto a budget). Selezionare un tipo di avviso e immettere un valore di percentuale del budget. Se si desidera ricevere la notifica una sola volta, selezionare **Number of consecutive alerts** (Numero di avvisi consecutivi) e quindi digitare _1_. Fare clic su **Salva**.
 
 ![Creazione di un avviso del budget nella finestra Save or Schedule this report (Salva o pianifica questo report)](./media/manage-budgets/budget-alert.png)
 

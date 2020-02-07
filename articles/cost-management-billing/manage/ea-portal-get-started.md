@@ -1,46 +1,48 @@
 ---
-title: Introduzione ad Azure EA Portal
-description: Questo articolo illustra ai clienti con contratto Azure EA come usare Azure EA Portal.
+title: Introduzione ad Azure Enterprise Portal
+description: Questo articolo illustra come i clienti con un Contratto Enterprise di Azure (Azure EA, Azure Enterprise Agreement) usano Azure Enterprise Portal.
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/03/2020
+ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: ace3c251d979a67666d2aaf01dca01e257bed66b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: 1cc795a7d74790b8f3ef2b913bd1be3e6ee523ac
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75992231"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769582"
 ---
-# <a name="get-started-with-the-azure-ea-portal"></a>Introduzione ad Azure EA Portal
+# <a name="get-started-with-the-azure-enterprise-portal"></a>Introduzione ad Azure Enterprise Portal
 
-Questo articolo aiuta i clienti diretti e indiretti di Azure EA a iniziare a usare [Azure EA Portal](https://ea.azure.com) con queste informazioni di base:
+Questo articolo assiste i clienti diretti e indiretti del Contratto Enterprise di Azure (Azure EA) per iniziare a usare [Azure Enterprise Portal](https://ea.azure.com). Sono disponibili informazioni di base sui seguenti argomenti:
 
-- Come è strutturato Azure EA Portal.
-- Ruoli usati in Azure EA Portal.
-- Come iniziare a creare sottoscrizioni.
-- Analisi dei costi in Azure EA Portal e nel portale di Azure.
+- Struttura di Azure Enterprise Portal.
+- Ruoli usati in Azure Enterprise Portal.
+- Creazione della sottoscrizione.
+- Analisi dei costi in Azure Enterprise Portal e nel portale di Azure.
 
-Ecco un video che mostra una sessione completa di onboarding di Azure EA Portal:
+Questo video contiene una sessione completa di onboarding di Azure Enterprise Portal:
 
-[Video sull'onboarding di Azure EA Portal ](https://www.youtube.com/watch?v=OiZ1GdBpo-I)
+> [!VIDEO https://www.youtube.com/embed/OiZ1GdBpo-I]
 
->[!VIDEO https://www.youtube.com/embed/OiZ1GdBpo-I]
+## <a name="azure-enterprise-portal-hierarchy"></a>Gerarchia di Azure Enterprise Portal
 
-## <a name="azure-ea-portal-hierarchy"></a>Gerarchia di Azure EA Portal
+La gerarchia di Azure Enterprise Portal è costituita da:
 
-La gerarchia di Azure EA Portal è costituita da:
+- **Azure Enterprise Portal**: portale di gestione online che consente di gestire i costi dei servizi del Contratto Enterprise di Azure. È possibile:
 
-**Microsoft Azure EA Portal**: Azure EA Portal è un portale online che consente di gestire i costi per i servizi di Azure EA. Viene usato per creare una gerarchia di Azure EA, inclusi reparti, account e sottoscrizioni, oltre che per riconciliare i costi dei servizi utilizzati, scaricare i report sull'utilizzo e visualizzare i listini prezzi. Inoltre, consente di creare le chiavi API per la registrazione.
+  - Creare una gerarchia del Contratto Enterprise di Azure con reparti, account e sottoscrizioni.
+  - Riconciliare i costi dei servizi utilizzati, scaricare report di utilizzo e visualizzare i listini prezzi.
+  - Creare chiavi API per la registrazione.
 
-**Reparti**: è possibile creare reparti per segmentare i costi in raggruppamenti logici e quindi impostare un budget o una quota a livello di reparto.
+- **Reparti**: facilita la segmentazione dei costi in raggruppamenti logici. Tramite i reparti è possibile impostare un budget o una quota a livello di reparto.
 
-**Account**: gli account sono unità organizzative in Azure EA Portal e vengono usati per gestire le sottoscrizioni, oltre che per la creazione di report.
+- **Account**: sono le unità organizzative in Azure Enterprise Portal. È possibile usare gli account per gestire le sottoscrizioni e accedere ai report.
 
-**Sottoscrizioni**: le sottoscrizioni sono le unità più piccole in Azure EA Portal. Si tratta di contenitori per i servizi di Azure gestiti dall'amministratore del servizio.
+- **Sottoscrizioni**: sono le unità più piccole in Azure Enterprise Portal. Si tratta di contenitori per i servizi di Azure gestiti dall'amministratore del servizio.
 
 Il diagramma seguente illustra le semplici gerarchie di Azure EA.
 
@@ -48,7 +50,7 @@ Il diagramma seguente illustra le semplici gerarchie di Azure EA.
 
 ## <a name="enterprise-user-roles"></a>Ruoli utente dell'organizzazione
 
-Per amministrare i servizi di Azure nella registrazione, sono disponibili cinque ruoli utente amministrativi aziendali distinti:
+L'iscrizione Enterprise include i seguenti ruoli utente amministrativi:
 
 - Amministratore dell'organizzazione
 - Amministratore del reparto
@@ -56,22 +58,22 @@ Per amministrare i servizi di Azure nella registrazione, sono disponibili cinque
 - Amministratore del servizio
 - Contatto per le notifiche
 
-I ruoli vengono usati per completare le attività in due diversi portali di Microsoft Azure. Azure EA Portal (https://ea.azure.com) ) si usa per gestire fatturazione e costi. Il portale di Azure (https://portal.azure.com) ) si usa per gestire i servizi di Azure.
+I ruoli funzionano in due portali diversi per il completamento delle attività. [Azure Enterprise Portal](https://ea.azure.com) consente di gestire la fatturazione e i costi, mentre il [portale di Azure](https://portal.azure.com) consente di gestire i servizi di Azure.
 
-I ruoli utente sono associati a un account utente. Per convalidarne l'autenticità, è necessario che ogni utente abbia un account aziendale, dell'istituto di istruzione o Microsoft valido. Assicurarsi che ogni account sia associato a un indirizzo di posta elettronica monitorato attivamente. Le notifiche dell'account vengono inviate all'indirizzo di posta elettronica.
+I ruoli utente sono associati a un account utente. Per convalidarne l'autenticità, è necessario che ogni utente abbia un account Microsoft, dell'istituto di istruzione o aziendale valido. Assicurarsi che ogni account sia associato a un indirizzo di posta elettronica monitorato attivamente. Le notifiche dell'account vengono inviate all'indirizzo di posta elettronica.
 
-Quando si configurano gli utenti, è possibile assegnare più account aziendali, dell'istituto di istruzione o Microsoft al ruolo di amministratore dell'organizzazione. Al ruolo di proprietario dell'account è invece possibile assegnare un solo account aziendale, dell'istituto di istruzione o Microsoft. Inoltre, a un singolo account aziendale, dell'istituto di istruzione o Microsoft è possibile applicare sia il ruolo di amministratore dell'organizzazione che quello di proprietario dell'account.
+Quando si configurano gli utenti, è possibile assegnare più account al ruolo di amministratore dell'organizzazione. Tuttavia il ruolo di proprietario dell'account può essere assegnato a un solo account. È anche possibile assegnare sia il ruolo di amministratore dell'organizzazione sia ruoli di proprietario dell'account a un singolo account.
 
 ### <a name="enterprise-administrator"></a>Amministratore dell'organizzazione
 
-Il ruolo di amministratore dell'organizzazione ha il livello massimo di accesso. Gli utenti con questo ruolo possono:
+Gli utenti con questo ruolo hanno il livello di accesso più elevato. Possono eseguire le operazioni seguenti:
 
-- Gestire account e proprietari di account
-- Gestire altri amministratori dell'organizzazione
-- Gestire gli amministratori del reparto
-- Gestire i contatti per le notifiche
-- Visualizzare l'utilizzo in tutti gli account
-- Visualizzare gli addebiti non fatturati in tutti gli account
+- Gestire account e proprietari di account.
+- Gestire altri amministratori dell'organizzazione.
+- Gestire amministratori di reparto.
+- Gestire i contatti per le notifiche.
+- Visualizzare l'utilizzo in tutti gli account.
+- Visualizzare gli addebiti non fatturati in tutti gli account.
 
 In una registrazione Enterprise è possibile designare più amministratori dell'organizzazione. Agli amministratori dell'organizzazione è possibile concedere l'accesso in sola lettura. Ereditano tutti il ruolo di amministratore del reparto.
 
@@ -79,474 +81,533 @@ In una registrazione Enterprise è possibile designare più amministratori dell'
 
 Gli utenti con questo ruolo possono:
 
-- Creare e gestire i reparti
-- Creare nuovi proprietari di account
-- Visualizzare i dettagli di utilizzo per i reparti che gestiscono
-- Visualizzare i costi, se vengono concesse le autorizzazioni necessarie
+- Creare e gestire reparti.
+- Creare nuovi proprietari di account.
+- Visualizzare i dettagli d'uso per i reparti che gestiscono.
+- Visualizzare i costi, se dispongono delle autorizzazioni necessarie.
 
 In ogni registrazione Enterprise è possibile designare più amministratori del reparto.
 
-Agli amministratori del reparto è possibile concedere l'accesso in sola lettura. A questo scopo, modificare o creare un nuovo amministratore del reparto e impostare l'opzione per la sola lettura su **Sì**.
+È possibile concedere agli amministratori del reparto l'accesso in sola lettura quando si modifica o si crea un nuovo amministratore del reparto. Impostare l'opzione di sola lettura su **Sì**.
 
 ### <a name="account-owner"></a>Proprietario dell'account
 
 Gli utenti con questo ruolo possono:
 
-- Creare e gestire sottoscrizioni
-- Gestire gli amministratori del servizio
-- Visualizzare l'utilizzo delle sottoscrizioni
+- Creare e gestire sottoscrizioni.
+- Gestire gli amministratori del servizio.
+- Visualizzare l'utilizzo delle sottoscrizioni.
 
-Ogni account richiede un account aziendale, dell'istituto di istruzione o Microsoft univoco. Per altre informazioni, vedere [Informazioni sui ruoli amministrativi per il contratto Azure Enterprise Agreement](understand-ea-roles.md).
+Ogni account richiede un account Microsoft, dell'istituto di istruzione o aziendale univoco. Per altre informazioni sui ruoli amministrativi di Azure Enterprise Portal, vedere [Informazioni sui ruoli amministrativi per il Contratto Enterprise di Azure](understand-ea-roles.md).
 
 ### <a name="service-administrator"></a>Amministratore del servizio
 
-L'amministratore del servizio ha le autorizzazioni per gestire i servizi nel portale di Azure e per assegnare utenti al ruolo di coamministratore.
+Il ruolo di amministratore del servizio ha le autorizzazioni per gestire i servizi nel portale di Azure e per assegnare utenti al ruolo di coamministratore.
 
 ### <a name="notification-contact"></a>Contatto per le notifiche
 
-Il contatto di notifica riceve le notifiche di utilizzo correlate alla registrazione.
+Il contatto per le notifiche riceve le notifiche sull'utilizzo correlate alla registrazione.
 
 ## <a name="activate-your-enrollment"></a>Attivare la registrazione
 
-Per attivare il servizio, l'amministratore dell'organizzazione iniziale apre Azure EA Portal all'indirizzo [https://ea.azure.com](https://ea.azure.com) e accede usando l'indirizzo di posta elettronica incluso nel messaggio di invito.
+Per attivare il servizio l'amministratore dell'organizzazione iniziale apre [Azure Enterprise Portal](https://ea.azure.com) e accede usando l'indirizzo di posta elettronica incluso nel messaggio di invito.
 
-Se è stato configurato come amministratore EA, non è necessario ricevere il messaggio di posta elettronica di attivazione per accedere al portale di EA di Azure. È possibile passare a [https://ea.azure.com](https://ea.azure.com) e accedere con l'indirizzo di posta elettronica (lavoro, Istituto di istruzione o Live ID) e la password.
+Se si ha il ruolo di amministratore dell'organizzazione, non è necessario ricevere il messaggio di posta elettronica di attivazione. Aprire [Azure Enterprise Portal](https://ea.azure.com) e accedere con il proprio indirizzo di posta elettronica (account aziendale, dell'istituto di istruzione o account Microsoft) e la password corrispondente.
 
-Se si hanno più registrazioni, scegliere quale attivare. Per impostazione predefinita, vengono visualizzate solo le registrazioni attive. Per visualizzare la cronologia delle iscrizioni, deselezionare l'opzione **Attivo** nell'angolo in alto a destra di Azure EA Portal.
+Se si hanno più registrazioni, scegliere quale attivare. Per impostazione predefinita, vengono visualizzate solo le registrazioni attive. Per visualizzare la cronologia delle registrazioni, deselezionare l'opzione **Attivo** nell'angolo in alto a destra di Azure Enterprise Portal.
 
-In Registrazione lo stato visualizzato è **Attivo**.
+In **Registrazione** lo stato visualizzato è **Attivo**.
 
 ![Esempio di una registrazione attiva](./media/ea-portal-get-started/ea-enrollment-status.png)
 
 Solo gli attuali amministratori dell'organizzazione di Azure possono creare altri amministratori dell'organizzazione.
 
-### <a name="create-another-enterprise-admin"></a>Creare un altro amministratore dell'organizzazione
+### <a name="create-another-enterprise-administrator"></a>Creare un altro amministratore dell'organizzazione
 
-- Accedere a [Azure EA Portal](https://ea.azure.com) e passare a **Gestisci** > **Dettagli registrazione**, quindi fare clic su **+ Aggiungi amministratore** nell'angolo in alto a destra della pagina.
+Per aggiungere un altro amministratore dell'organizzazione:
 
-Assicurarsi di avere gli indirizzi di posta elettronica dell'utente e il metodo di autenticazione preferito, ad esempio tramite autenticazione aziendale o dell'istituto di istruzione oppure account Microsoft. Queste informazioni sono necessarie per aggiungere un utente.
+1. Accedere ad [Azure Enterprise Portal](https://ea.azure.com).
+1. Passare a **Gestisci** > **Dettagli della registrazione**.
+1. In alto a destra selezionare **+ Aggiungi amministratore**.
 
-Se non si è l'amministratore EA, contattare un amministratore EA per chiedere di essere aggiunti a una registrazione. Dopo l'aggiunta in una registrazione, si riceverà un messaggio di posta elettronica di attivazione.
+Assicurarsi di avere l'indirizzo di posta elettronica dell'utente e il metodo di autenticazione preferito, ad esempio un account aziendale o dell'istituto di istruzione oppure un account Microsoft.
 
-Se l'amministratore EA non è in grado di fornire assistenza, creare una [richiesta di supporto per Azure EA Portal](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Specificare le informazioni seguenti:
+Se non si è l'amministratore dell'organizzazione, contattare un amministratore dell’organizzazione per chiedere di essere aggiunti a una registrazione. Dopo l'aggiunta in una registrazione, si riceverà un messaggio di posta elettronica di attivazione.
 
-- Numero di iscrizione
-- Indirizzo di posta elettronica da aggiungere e tipo di autenticazione (aziendale, dell'istituto di istruzione o account Microsoft)
-- Approvazione tramite posta elettronica di un amministratore EA esistente
-  - Se l'amministratore EA esistente non è disponibile, contattare il partner o il software advisor per chiedergli di modificare le informazioni di contatto tramite lo strumento VLSC.
+Se l'amministratore dell'organizzazione non è in grado di offrire assistenza, creare una [richiesta di supporto per Azure Enterprise Portal](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Specificare le informazioni seguenti:
+
+- Numero di registrazione
+- Indirizzo di posta elettronica da aggiungere e tipo di autenticazione (account aziendale, dell'istituto di istruzione o Microsoft)
+- Approvazione tramite posta elettronica di un amministratore dell'organizzazione esistente
+  - Se l'amministratore dell'organizzazione esistente non è disponibile, contattare il partner o il software advisor per chiedere di modificare le informazioni di contatto tramite lo strumento Volume Licensing Service Center (VLSC).
 
 Per altre informazioni, vedere [Informazioni sui ruoli amministrativi per il contratto Azure Enterprise Agreement](understand-ea-roles.md).
 
-## <a name="create-an-azure-ea-department"></a>Creare un reparto di Azure EA
+## <a name="create-an-azure-enterprise-department"></a>Creare un reparto di Azure Enterprise
 
 Gli amministratori dell'organizzazione e gli amministratori del reparto usano i reparti per organizzare e creare report sui servizi di Azure dell'organizzazione e sull'utilizzo in base a reparto e a centro di costo. L'amministratore dell'organizzazione può:
 
-- Aggiungere o rimuovere reparti
-- Associare un account a un reparto
-- Creare amministratori del reparto
-- Consentire agli amministratori del reparto di visualizzare il prezzo e i costi
+- Aggiungere o rimuovere reparti.
+- Associare un account a un reparto.
+- Creare amministratori del reparto.
+- Consentire agli amministratori del reparto di visualizzare il prezzo e i costi.
 
 Un amministratore del reparto può aggiungere nuovi account ai propri reparti. Può rimuovere account dai reparti, ma non dalla registrazione.
 
 Per aggiungere un reparto:
 
-1. Nell'area di spostamento sinistra fare clic su **Gestisci**.
-2. Fare clic sulla scheda **Reparto**, quindi su **+ Aggiungi un nuovo reparto** e immettere le informazioni necessarie.
-3. Il nome del reparto è l'unico campo obbligatorio. Deve essere composto da almeno tre caratteri.
-4. Al termine fare clic su **Aggiungi**.
+1. Accedere ad Azure Enterprise Portal.
+1. Nel riquadro sinistro selezionare **Gestisci**.
+1. Selezionare la scheda **Reparto** e quindi selezionare **+ Aggiungi reparto**.
+1. Immettere le informazioni.
+   Il nome del reparto è l'unico campo obbligatorio. Deve essere composto da almeno tre caratteri.
+1. Al termine selezionare **Aggiungi**.
 
-## <a name="add-a-department-admin"></a>Aggiungere un amministratore del reparto
+## <a name="add-a-department-administrator"></a>Aggiungere un amministratore del reparto
 
-Dopo aver creato il reparto, l'amministratore dell'organizzazione di Azure può aggiungere amministratori del reparto e associare ognuno a un reparto. L'amministratore del reparto può:
+Dopo aver creato il reparto, l'amministratore dell'organizzazione di Azure può aggiungere amministratori del reparto e associare ogni amministratore a un reparto. Gli amministratori del reparto possono eseguire le azioni seguenti per i reparti:
 
 - Creare altri amministratori del reparto
-- Visualizzare e modificare le proprietà del reparto, come il nome o il centro di costo
-- Aggiungere un account per i propri reparti
-- Rimuovere account dai propri reparti
-- Scaricare i dettagli sull'utilizzo per i propri reparti
-- Visualizzare i dati di utilizzo e addebiti mensili per il reparto, se un amministratore dell'organizzazione gli ha concesso l'autorizzazione <sup>1</sup>
+- Visualizzare e modificare le proprietà del reparto, ad esempio il nome o il centro di costo
+- Aggiungere account
+- Rimuovere account
+- Scaricare dettagli dell'utilizzo
+- Visualizzare l'utilizzo mensile e gli addebiti <sup>1</sup>
 
-### <a name="to-add-a-department-admin"></a>Per aggiungere un amministratore del reparto
+> <sup>1</sup> Queste autorizzazioni devono essere concesse da un amministratore dell'organizzazione. Se è presente l'autorizzazione per visualizzare i dati sull'utilizzo e sugli addebiti mensili ma questi non sono visibili, contattare il partner.
+
+### <a name="to-add-a-department-administrator"></a>Per aggiungere un amministratore del reparto
 
 Un amministratore dell'organizzazione dovrà eseguire queste operazioni:
 
-1. Nell'area di spostamento sinistra fare clic su **Gestisci**.
-2. Fare clic sulla scheda **Reparto** e quindi sul reparto.
-3. Fare clic su **+ Aggiungi amministratore** e immettere le informazioni necessarie.
-4. Per l'accesso in sola lettura, impostare l'opzione **Sola lettura** su **Sì** e quindi fare clic su **Aggiungi**.
+1. Accedere ad Azure Enterprise Portal.
+1. Nel riquadro sinistro selezionare **Gestisci**.
+1. Selezionare la scheda **Reparto** e quindi selezionare il reparto.
+1. Selezionare **+ Aggiungi amministratore** e immettere le informazioni necessarie.
+1. Per l'accesso in sola lettura impostare l'opzione **Sola lettura** su **Sì** e quindi selezionare **Aggiungi**.
 
-![Esempio che mostra la finestra di dialogo per l'aggiunta dell'amministratore del reparto](./media/ea-portal-get-started/ea-create-add-department-admin.png)
+![Esempio con la finestra di dialogo per l'aggiunta dell'amministratore del reparto](./media/ea-portal-get-started/ea-create-add-department-admin.png)
 
 ### <a name="to-set-read-only-access"></a>Per impostare l'accesso in sola lettura
 
-Agli amministratori del reparto è possibile concedere l'accesso in sola lettura. Quando si crea un nuovo amministratore del reparto:
+Agli amministratori del reparto è possibile concedere l'accesso in sola lettura.
 
-- Impostare l'opzione di sola lettura su **Sì**.
+- Quando si crea un nuovo amministratore del reparto, impostare l'opzione per la sola lettura su **Sì**.
 
-Per modificare un amministratore del reparto esistente:
+- Per modificare un amministratore del reparto esistente:
+   1. Selezionare un reparto, quindi selezionare il simbolo della matita accanto all'opzione **Amministratore del reparto** da modificare.
+   1. Impostare l'apertura di sola lettura su **Sì** e quindi selezionare **Salva**.
 
-1. Selezionare un reparto, quindi fare clic sul simbolo della matita accanto all'opzione **Amministratore del reparto** da modificare.
-2. Impostare l'opzione di sola lettura su **Sì**. Quindi fare clic su **Salva**.
-
-Gli utenti con il ruolo di amministratore dell'organizzazione ottengono automaticamente le autorizzazioni di amministratore del reparto.
-
-<sup>1</sup> Se è stata concessa l'autorizzazione per visualizzare i dati sull'utilizzo e sugli addebiti mensili, ma non sono visibili, contattare il partner.
+Gli amministratori dell'organizzazione ottengono automaticamente le autorizzazioni di amministratore del reparto.
 
 ## <a name="add-an-account"></a>Aggiungi un account
 
-La struttura di account e sottoscrizioni influisce sul modo in cui vengono amministrati e visualizzati nelle fatture e nei report. Esempi di organizzazioni tipiche includono la strutturazione in base a divisioni aziendali, team funzionali e posizioni geografiche.
+La struttura di account e sottoscrizioni influisce sul modo in cui questi elementi vengono amministrati e visualizzati nelle fatture e nei report. Sono esempi tipici di strutture di organizzazione le divisioni aziendali, i team funzionali e le posizioni geografiche.
 
 Per aggiungere un account:
 
-1. In Azure EA Portal fare clic su **Gestisci** nell'area di spostamento sinistra.
-2. Fare clic sulla scheda **Account**, quindi nella pagina **Account** fare clic su **+Aggiungi account**.
-3. Selezionare un reparto oppure lasciarlo come non assegnato, quindi selezionare il tipo di autenticazione desiderato.
-4. Digitare un nome descrittivo da usare per identificare l'account nella creazione di report.
-5. Digitare **l'indirizzo di posta elettronica del proprietario dell'account** da associare al nuovo account.
-6. Confermare l'indirizzo di posta elettronica e quindi fare clic su **Aggiungi**.
+1. In Azure Enterprise Portal selezionare **Gestisci** nel riquadro di spostamento sinistro.
+1. Fare clic sulla scheda **Account**. Nella pagina **Account** fare clic su **+Aggiungi account**.
+1. Selezionare un reparto oppure lasciarlo come non assegnato, quindi selezionare il tipo di autenticazione desiderato.
+1. Digitare un nome descrittivo per identificare l'account nella creazione di report.
+1. Immettere **l'indirizzo di posta elettronica del proprietario dell'account** da associare al nuovo account.
+1. Confermare l'indirizzo di posta elettronica e quindi selezionare **Aggiungi**.
 
 ![Esempio che mostra l'elenco di account e l'opzione per aggiungere un account](./media/ea-portal-get-started/create-ea-add-an-account.png)
 
-È possibile aggiungere un altro account facendo clic su **Aggiungi un altro account** oppure su **Aggiungi** nell'angolo in basso a destra della barra degli strumenti sinistra.
+Per aggiungere un altro account selezionare **Aggiungi un altro account** oppure selezionare **Aggiungi** nell'angolo in basso a destra della barra degli strumenti sinistra.
 
 Per confermare la proprietà dell'account:
 
-1. Accedere ad Azure EA Portal.
-1. Verificare la proprietà dell'account visualizzando lo stato. Lo stato dovrebbe cambiare da **In sospeso** a **Data di inizio/fine**. La data di inizio/fine corrisponde alla data in cui l'utente ha eseguito per la prima volta l'accesso a alla data di termine del contratto.
-1. Quando viene visualizzato il messaggio di avviso, un proprietario di un account deve fare clic su **Continua** per attivare l'account la prima volta che accede ad Azure EA Portal.
+1. Accedere ad Azure Enterprise Portal.
+1. Visualizzare lo stato.
 
+   Lo stato dovrebbe cambiare da **In sospeso** a **Data di inizio/fine**. La data di inizio/fine corrisponde alla data in cui l'utente ha eseguito per la prima volta l'accesso a alla data di termine del contratto.
+1. Quando viene visualizzato il **messaggio di avviso**, il proprietario di un account deve selezionare **Continua** per attivare l'account quando accede per la prima volta ad Azure Enterprise Portal.
 
 ## <a name="change-account-owner"></a>Cambiare il proprietario dell'account
 
-Gli amministratori dell'organizzazione possono usare Azure EA Portal per trasferire la proprietà dell'account di sottoscrizione in una registrazione. L'azione sposta tutte le sottoscrizioni da un account utente di origine a uno di destinazione.
+Gli amministratori dell'organizzazione possono usare Azure Enterprise Portal per trasferire la proprietà dell'account di sottoscrizione in una registrazione. L'azione sposta tutte le sottoscrizioni da un account utente di origine a un account utente di destinazione.
 
-Note importanti sul trasferimento delle informazioni dell'account utente:
+Per il trasferimento degli account tenere a mente queste importanti informazioni:
 
-- I trasferimenti da un account aziendale o dell'istituto di istruzione a un altro account aziendale o dell'istituto di istruzione sono supportati.
-- I trasferimenti da un account Microsoft a un account aziendale o dell'istituto di istruzione sono supportati.
-- I trasferimenti da un account aziendale o dell'istituto di istruzione a un account Microsoft non sono supportati.
-- I trasferimenti da un account Microsoft a un altro account Microsoft sono supportati. L'account di destinazione deve essere un account Azure commerciale valido per essere idoneo per il trasferimento. Per i nuovi account, viene chiesto di creare un account Azure commerciale durante l'accesso ad Azure EA Portal. Per gli account esistenti, è necessario creare prima una nuova sottoscrizione di Azure perché l'account sia idoneo.
+- È possibile eseguire questi trasferimenti:
+  - Da un account aziendale o dell'istituto di istruzione a un altro account aziendale o dell'istituto di istruzione.
+  - Da un account Microsoft a un account aziendale o dell'istituto di istruzione.
+  - Da un account Microsoft a un altro account Microsoft.
+  
+    L'account di destinazione deve essere un account Azure commerciale valido per essere idoneo per il trasferimento. Per i nuovi account viene chiesto di creare un account Azure commerciale durante l'accesso ad Azure Enterprise Portal. Per gli account esistenti, è necessario creare prima una nuova sottoscrizione di Azure perché l'account sia idoneo.
+
+- Non è possibile eseguire un trasferimento da un account aziendale o dell'istituto di istruzione a un account Microsoft.
+
 - Al termine del trasferimento di una sottoscrizione, Microsoft aggiorna il proprietario dell'account.
 
-Criteri di Controllo degli accessi in base al ruolo:
+Informazioni sui criteri di controllo degli accessi in base al ruolo (RBAC):
 
-- Per conservare i criteri di Controllo degli accessi in base al ruolo di Azure e le assegnazioni di ruoli di amministratori e coamministratori esistenti, è necessario che le sottoscrizioni di Azure vengano trasferite tra due ID organizzativi dello stesso tenant. Altri trasferimenti di sottoscrizioni generano la perdita dei criteri di Controllo degli accessi in base al ruolo e delle assegnazioni di ruoli di amministratori e coamministratori. I criteri e i ruoli di amministratore non vengono trasferiti tra directory diverse. Gli amministratori del servizio vengono aggiornati nel proprietario dell'account di destinazione.
 - Quando si eseguono trasferimenti di sottoscrizioni tra due ID organizzativi dello stesso tenant, i criteri di Controllo degli accessi in base al ruolo e i ruoli di amministratore del servizio e coamministratore esistenti vengono mantenuti.
+- Altri trasferimenti di sottoscrizioni generano la perdita dei criteri di controllo degli accessi in base al ruolo e delle assegnazioni di ruoli.
+- I criteri e i ruoli di amministratore non vengono trasferiti tra directory diverse. Gli amministratori del servizio vengono aggiornati nel proprietario dell'account di destinazione.
 
 Prima di cambiare il proprietario di un account:
 
-1. Visualizzare la scheda **Account** e identificare l'account di origine. L'account di origine deve essere attivo.
-2. Identificare l'account di destinazione. Deve essere attivo.
+1. In Azure Enterprise Portal visualizzare la scheda **Account** e identificare l'account di origine. L'account di origine deve essere attivo.
+1. Identificare l'account di destinazione e verificare che sia attivo.
 
 Per trasferire la proprietà dell'account per tutte le sottoscrizioni:
 
-1. Nell'area di spostamento sinistra fare clic su **Gestisci**.
-2. Fare clic sulla scheda **Account** e passare il puntatore del mouse su un account.
-3. Fare clic sul simbolo modifica del proprietario dell'account a destra. Il simbolo raffigura una persona.
-4. Selezionare un account idoneo e quindi fare clic su **Avanti**.
-5. Confermare il trasferimento e fare clic su **Invia**.
+1. Accedere ad Azure Enterprise Portal.
+1. Nell'area di spostamento sinistra selezionare **Gestisci**.
+1. Selezionare la scheda **Account** e passare il puntatore del mouse su un account.
+1. Selezionare l'icona di modifica del proprietario dell'account sulla destra. L'icona raffigura una persona.
+1. Scegliere un account idoneo e selezionare **Avanti**.
+1. Confermare il trasferimento e selezionare **Invia**.
 
 ![Immagine che mostra il simbolo di modifica del proprietario dell'account](./media/ea-portal-get-started/create-ea-create-sub-transfer-account-ownership-of-sub.png)
 
 Per trasferire la proprietà dell'account per una sottoscrizione singola:
 
-1. Nell'area di spostamento sinistra fare clic su **Gestisci**.
-2. Fare clic sulla scheda **Account** e passare il puntatore del mouse su un account.
-3. Fare clic sul simbolo dei trasferimenti di sottoscrizioni a destra. Il simbolo raffigura una pagina.
-4. Selezionare una sottoscrizione idonea e quindi fare clic su **Avanti**.
-5. Confermare il trasferimento e quindi fare clic su **Invia**.
+1. Accedere ad Azure Enterprise Portal.
+1. Nell'area di spostamento sinistra selezionare **Gestisci**.
+1. Selezionare la scheda **Account** e passare il puntatore del mouse su un account.
+1. Selezionare l'icona di trasferimento sottoscrizioni a destra. L'icona raffigura una pagina.
+1. Scegliere una sottoscrizione idonea e selezionare **Avanti**.
+1. Confermare il trasferimento e selezionare **Invia**.
 
 ![Immagine che mostra il simbolo del trasferimento di sottoscrizioni](./media/ea-portal-get-started/ea-transfer-subscriptions.png)
 
-Ecco un video che illustra la gestione degli utenti in Azure EA Portal:
+Visualizzare in questo video la gestione utenti di Azure Enterprise Portal:
 
-[Video sulla gestione degli utenti in Azure EA Portal](https://www.youtube.com/watch?v=621jVkvmwm8)
-
->[!VIDEO https://www.youtube.com/embed/621jVkvmwm8]
+> [!VIDEO https://www.youtube.com/embed/621jVkvmwm8]
 
 ## <a name="create-a-subscription"></a>Creare una sottoscrizione
 
-I proprietari di account possono visualizzare e gestire le sottoscrizioni. È possibile usare le sottoscrizioni per consentire ai team dell'organizzazione di accedere ad ambienti di sviluppo e progetti, ad esempio test, produzione, sviluppo e staging. Se si creano sottoscrizioni diverse per ogni ambiente applicativo, si proteggono tutti gli ambienti. È anche possibile assegnare un account di amministratore del servizio diverso per ogni sottoscrizione. È possibile associare le sottoscrizioni a un numero qualsiasi di servizi. Il proprietario dell'account crea le sottoscrizioni e assegna un account amministratore del servizio a ogni sottoscrizione nel proprio account.
+I proprietari di account possono visualizzare e gestire le sottoscrizioni. È possibile usare le sottoscrizioni per consentire ai team dell'organizzazione di accedere ad ambienti di sviluppo e progetti, ad esempio test, produzione, sviluppo e staging.
+
+Se si creano sottoscrizioni diverse per ogni ambiente applicativo, si proteggono tutti gli ambienti.
+
+- È anche possibile assegnare un account di amministratore del servizio diverso per ogni sottoscrizione. 
+- È possibile associare le sottoscrizioni a un numero qualsiasi di servizi.
+- Il proprietario dell'account crea le sottoscrizioni e assegna un account amministratore del servizio a ogni sottoscrizione nel proprio account.
 
 ### <a name="add-a-subscription"></a>Aggiungere una sottoscrizione
 
 Usare le informazioni seguenti per aggiungere una sottoscrizione.
 
-La prima volta che si aggiunge una sottoscrizione all'account, viene chiesto di accettare il Contratto di Sottoscrizione Microsoft Online e un piano tariffario. Anche se non sono applicabili ai clienti del contratto Enterprise Agreement, questi elementi sono necessari per creare la sottoscrizione. L'emendamento della registrazione del contratto Microsoft Azure Enterprise prevale sui suddetti elementi e la relazione contrattuale non cambia. Quando richiesto, selezionare la casella per indicare di accettare le condizioni.
+Quando si aggiunge per la prima volta una sottoscrizione all'account viene chiesto di accettare il Contratto di Sottoscrizione Microsoft Online e un piano tariffario. Anche se non sono applicabili ai clienti del Contratto Enterprise, il Contratto di Sottoscrizione Microsoft Online e il piano tariffario sono necessari per creare la sottoscrizione. L'emendamento della registrazione del contratto Microsoft Azure Enterprise prevale sui suddetti elementi e la relazione contrattuale non cambia. Quando richiesto, selezionare la casella che indica che si accettano le condizioni.
 
-Tutte le nuove sottoscrizioni vengono create con il nome di sottoscrizione predefinito, _Microsoft Azure Enterprise_. È possibile aggiornare questo nome per differenziarlo dalle altre sottoscrizioni del tenant e per assicurarsi che sia riconoscibile nei report a livello aziendale.
+Quando si crea una sottoscrizione il nome predefinito è _Microsoft Azure Enterprise_. È possibile modificare il nome della sottoscrizione per distinguerla dalle altre sottoscrizioni della registrazione e per assicurarsi che sia riconoscibile nei report a livello aziendale.
 
 Per aggiungere una sottoscrizione:
 
-1. In Azure EA Portal accedere all'account.
-2. Fare clic sulla scheda **Amministrazione** e quindi su **Sottoscrizione** nella parte superiore della pagina.
-2. Verificare di aver eseguito l'accesso come proprietario dell'account.
-3. Fare clic su **+Aggiungi sottoscrizione** e quindi su **Acquista**.
-  La prima volta che si aggiunge una sottoscrizione a un account, è necessario fornire le informazioni di contatto. Quando si aggiungono altre sottoscrizioni, le informazioni di contatto vengono aggiunte automaticamente.
-4. Fare clic su **Sottoscrizioni**, quindi selezionare la sottoscrizione creata e fare clic su **Modifica i dettagli della sottoscrizione**.
-5. Aggiornare i valori per **Nome sottoscrizione** e **Amministratore del servizio**, quindi selezionare il segno di spunta.
-  Il nome della sottoscrizione viene visualizzato nei report e come nome del progetto associato alla sottoscrizione nel portale di sviluppo.
+1. In Azure Enterprise Portal accedere all'account.
+1. Selezionare la scheda **Amministrazione** e quindi selezionare **Sottoscrizione** nella parte superiore della pagina.
+1. Verificare di aver eseguito l'accesso come proprietario dell'account.
+1. Selezionare **+Aggiungi sottoscrizione** e quindi selezionare **Aggiorna**.
+
+   La prima volta che si aggiunge una sottoscrizione a un account, è necessario fornire le informazioni di contatto. Quando si aggiungono altre sottoscrizioni, le informazioni di contatto dell'utente vengono aggiunte automaticamente.
+
+1. Selezionare **Sottoscrizioni** e quindi selezionare la sottoscrizione creata.
+1. Selezionare **Modifica i dettagli della sottoscrizione**.
+1. Modificare i valori di **Nome sottoscrizione** e **Amministratore del servizio**, quindi selezionare il segno di spunta.
+  
+   Il nome della sottoscrizione viene visualizzato nei report. È il nome del progetto associato alla sottoscrizione nel portale di sviluppo.
 
 Per visualizzare le nuove sottoscrizioni nell'elenco, possono essere necessarie fino a 24 ore. Dopo aver creato una sottoscrizione, è possibile:
 
 - [Modificare i dettagli della sottoscrizione](https://account.azure.com/Subscriptions)
 - [Gestire i servizi della sottoscrizione](https://portal.azure.com/#home)
 
-## <a name="transfer-ea-subscription-to-pay-as-you-go-subscription"></a>Trasferire una sottoscrizione EA in una sottoscrizione con pagamento in base al consumo
+## <a name="transfer-an-enterprise-subscription-to-a-pay-as-you-go-subscription"></a>Trasferimento di una sottoscrizione Enterprise a una sottoscrizione con pagamento in base al consumo
 
-Per trasferire una sottoscrizione EA in una singola sottoscrizione con pagamento in base al consumo, è necessario creare una nuova richiesta di supporto in Azure EA Portal. Per creare una richiesta di supporto, fare clic su **+ Nuova richiesta di supporto** nell'area Guida e supporto tecnico.
+Per trasferire una sottoscrizione Enterprise a una sottoscrizione individuale con pagamento in base al consumo è necessario creare una nuova richiesta di supporto in Azure Enterprise Portal. Per creare una richiesta di supporto selezionare **+ Nuova richiesta di supporto** nell'area **Guida e supporto tecnico**.
 
 ## <a name="associate-an-existing-account-with-your-pay-as-you-go-subscription"></a>Associare un account esistente alla propria sottoscrizione con pagamento in base al consumo
 
-Se si dispone già di un account Microsoft Azure esistente nel portale di Microsoft Azure, immettere l'account Microsoft oppure l'account aziendale o dell'istituto di istruzione associato per associarlo alla registrazione Enterprise Agreement.
+Se è già presente un account Microsoft Azure nel portale di Azure, immettere l'account aziendale, dell'istituto di istruzione o l'account Microsoft associato per collegarlo alla registrazione del Contratto Enterprise.
 
 ### <a name="associate-an-existing-account"></a>Associare un account esistente
 
-1. In Enterprise Portal fare clic su **Gestisci**.
+1. In Azure Enterprise Portal selezionare **Gestisci**.
 1. Fare clic sulla scheda **Account**.
-1. Fare clic su **+Aggiungi account**.
-1. Immettere l'account Microsoft oppure l'account aziendale o dell'istituto di istruzione associato all'account esistente.
-1. Confermare l'account Microsoft oppure l'account aziendale o dell'istituto di istruzione associato all'account esistente.
+1. Selezionare **+Aggiungi account**.
+1. Immettere l'account aziendale, dell'istituto di istruzione o l'account Microsoft associato all'account Azure esistente.
+1. Confermare l'account associato all'account Azure esistente.
 1. Specificare un nome da usare per identificare l'account nei report.
-1. Scegliere **Aggiungi**.
-1. È possibile aggiungere un altro account selezionando di nuovo l'opzione **+Aggiungi un account** oppure tornare alla home page selezionando il pulsante **Amministrazione**.
-1. Se si fa clic per visualizzare la pagina **Account**, l'account appena aggiunto verrà visualizzato con stato **In sospeso**.
+1. Selezionare **Aggiungi**.
+1. Per aggiungere un altro account selezionare di nuovo l'opzione **+Aggiungi account** oppure tornare alla home page selezionando il pulsante **Amministrazione**.
+1. Se si visualizza la scheda **Account**, l'account appena aggiunto viene visualizzato con lo stato **In sospeso**.
 
 ### <a name="confirm-account-ownership"></a>Confermare la proprietà dell'account
 
-1. Accedere all'account di posta elettronica associato all'account Microsoft oppure all'account aziendale o dell'istituto di istruzione fornito.
+1. Accedere all'account di posta elettronica associato all'account aziendale, dell'istituto di istruzione o all'account Microsoft specificato.
 1. Aprire la notifica di posta elettronica con oggetto "_Invitation to Activate your Account on the Microsoft Azure Service from Microsoft Volume Licensing_" (Invito ad attivare l'account nel servizio Microsoft Azure dai contratti multilicenza Microsoft).
 1. Fare clic sul collegamento **Log into the Microsoft Azure Enterprise Portal** (Accedi a Microsoft Azure Enterprise Portal) nell'invito.
 1. Fare clic su **Accedi**.
-1. Immettere l'account Microsoft oppure l'account aziendale o dell'istituto di istruzione e la password per accedere e confermare la proprietà dell'account.
+1. Immettere l'account aziendale, dell'istituto di istruzione o l'account Microsoft e la password corrispondente per accedere e confermare la proprietà dell'account.
 
 ### <a name="azure-marketplace"></a>Azure Marketplace
 
-Sebbene la maggior parte delle sottoscrizioni esegua la conversione dall'ambiente con pagamento in base al consumo a Enterprise Azure, i servizi di Azure Marketplace non procedono in tal modo. Per visualizzare tutte le sottoscrizioni e tutti gli addebiti con un solo colpo d'occhio, è consigliabile aggiungere i servizi di Azure Marketplace a Enterprise Portal:
+È possibile convertire la maggior parte delle sottoscrizioni dall'ambiente con pagamento in base al consumo al Contratto Enterprise di Azure, ma questo non vale per i servizi Azure Marketplace. Per visualizzare tutte le sottoscrizioni e tutti gli addebiti in un'unica vista è consigliabile aggiungere i servizi Azure Marketplace ad Azure Enterprise Portal.
 
-1. Nel riquadro di spostamento sinistro fare clic su **Gestisci**.
-1. Fare clic sulla scheda **Registrazione**.
-1. Visualizzare la sezione relativa ai dettagli della registrazione.
-1. A destra del campo Azure Marketplace fare clic sull'icona della matita per abilitarlo e scegliere **Salva**.
+1. Accedere ad Azure Enterprise Portal.
+1. Nel riquadro di spostamento sinistro selezionare **Gestisci**.
+1. Selezionare la scheda **Registrazione**.
+1. Visualizzare la sezione **Dettagli della registrazione**.
+1. Sulla destra del campo Azure Marketplace selezionare l'icona della matita per abilitare il campo. Selezionare **Salva**.
 
-Il proprietario dell'account può ora acquistare le sottoscrizioni di Azure Marketplace precedentemente possedute con pagamento in base al consumo.
+Ora il proprietario dell'account può acquistare qualsiasi servizio Azure Marketplace che in precedenza usava con pagamento in base al consumo.
 
-Una volta attivate le nuove sottoscrizioni di Azure Marketplace nella registrazione, annullare le sottoscrizioni del Marketplace create nell'ambiente con pagamento in base al consumo. Questo passaggio è fondamentale per evitare problemi con le sottoscrizioni del Marketplace quando scade lo strumento di pagamento in base al consumo.
+Dopo che le nuove sottoscrizioni di Azure Marketplace sono attivate nella registrazione, annullare i servizi Azure Marketplace creati nell'ambiente con pagamento in base al consumo. Questo passaggio è fondamentale per evitare problemi con le sottoscrizioni di Azure Marketplace quando scade lo strumento per il pagamento in base al consumo.
 
 ### <a name="msdn"></a>MSDN
 
-Gli abbonamenti MSDN vengono convertiti automaticamente in Sviluppo/test MSDN e l'offerta EA perderà il credito monetario esistente.
+Le sottoscrizioni MSDN vengono convertite automaticamente in Sviluppo/test MSDN e l'offerta del Contratto Enterprise di Azure perde il credito monetario esistente.
 
-### <a name="azure-in-open"></a>Azure con licenza Open
+### <a name="azure-in-open"></a>Azure in Open
 
-L'associazione di una sottoscrizione Azure in Open a un contratto Enterprise comporta la perdita di qualsiasi credito Azure in Open inutilizzato. Per evitare la possibile perdita di crediti, consigliamo ai clienti di utilizzare tutti i crediti associati a una sottoscrizione Azure in Open prima di aggiungere l'account al proprio contratto Enterprise.  
+Se si associa una sottoscrizione Azure in Open a un Contratto Enterprise, qualsiasi credito Azure in Open non usato va perduto. Pertanto è consigliabile usare tutto il credito della sottoscrizione Azure in Open prima di aggiungere l'account al Contratto Enterprise.  
 
 ### <a name="accounts-with-support-subscriptions"></a>Account con sottoscrizioni al supporto
 
-Quando si aggiungono a Enterprise Portal account esistenti che dispongono di una sottoscrizione al supporto (e non dispongono già di una sottoscrizione al supporto EA), tenere presente che la sottoscrizione al supporto del Contratto di Sottoscrizione Microsoft Online non viene trasferita automaticamente e il supporto dovrà essere riacquistato in EA. Verrà fornito un periodo di tolleranza per la copertura del supporto fino alla fine del mese successivo per consentire di riordinare il supporto.
+Se il Contratto Enterprise non dispone di una sottoscrizione al supporto e si aggiunge ad Azure Enterprise Portal un account esistente con una sottoscrizione al supporto, la sottoscrizione al supporto del Contratto di Sottoscrizione Microsoft Online (MOSA) non viene trasferita automaticamente. È necessario tornare ad acquistare una sottoscrizione al supporto nel Contratto Enterprise di Azure durante il periodo di tolleranza, ovvero entro la fine del mese successivo.
 
 ## <a name="view-usage-summary-and-download-reports"></a>Visualizzare il riepilogo sull'utilizzo e scaricare i report
 
-In Azure EA Portal gli amministratori dell'organizzazione possono visualizzare un riepilogo dei dati di utilizzo, l'impegno monetario utilizzato e gli addebiti associati all'utilizzo aggiuntivo. Gli addebiti vengono presentati a livello di riepilogo in tutti gli account e le sottoscrizioni.
+Gli amministratori dell'organizzazione possono visualizzare un riepilogo dei dati di utilizzo, l'impegno monetario utilizzato e gli addebiti associati all'utilizzo aggiuntivo in Azure Enterprise Portal. Gli addebiti vengono presentati a livello di riepilogo in tutti gli account e le sottoscrizioni.
 
-Per visualizzare informazioni dettagliate sull'utilizzo per specifici account:
+Per visualizzare informazioni dettagliate sull'utilizzo per account specifici, scaricare il report relativo ai dettagli dell'utilizzo:
 
-Scaricare il report Dettagli utilizzo. Fare clic su **report** e quindi sulla scheda **download Usage** . Nell'elenco dei report, fare clic su **Scarica** per il report mensile che si desidera ottenere.
+1. Accedere ad Azure Enterprise Portal.
+1. Selezionare **Report**.
+1. Selezionare la scheda **Scarica utilizzo**.
+1. Nell'elenco dei report selezionare l'opzione **Scarica** associata al report mensile da recuperare.
 
-Il report non include imposte applicabili. Potrebbero verificarsi fino a otto ore di latenza tra l'ora dell'utilizzo e il momento in cui viene visualizzato nel report.
+   > [!NOTE]
+   > Il report relativo ai dettagli dell'utilizzo non include le imposte applicabili.
+   >
+   > Potrebbero verificarsi fino a otto ore di latenza tra l'ora dell'utilizzo e il momento in cui questo viene visualizzato nel report.
 
 Per visualizzare grafici e report di riepilogo sull'utilizzo:
 
-1. Nell'area di spostamento sinistra di Azure EA Portal fare clic su **Report** e visualizzare la scheda **Riepilogo utilizzo**.  
-  ![Creare e visualizzare il riepilogo sull'utilizzo e scaricare i report](./media/ea-portal-get-started/create-ea-view-usage-summary-and-download-reports.png)
-2. Selezionare un periodo di impegno.
-3. Alternare tra **M** (mensile) e **C** (personalizzato) nella parte superiore della pagina per visualizzare il report **Riepilogo utilizzo** con date di inizio e di fine personalizzate.  
-  ![Creare e visualizzare il riepilogo sull'utilizzo e scaricare i report in una visualizzazione personalizzata](./media/ea-portal-get-started/create-ea-view-usage-summary-and-download-reports-custom-view.png)
-4. Per visualizzare ulteriori dettagli, selezionare un periodo o un mese sul grafico.
-5. Il grafico mostra l'utilizzo mese dopo mese con una suddivisione tra utilizzo effettivo, sovraddebito del servizio, addebiti fatturati separatamente e addebiti del Marketplace.
-6. Per il mese selezionato, filtrare in base a reparti, account e sottoscrizioni al di sotto del grafico.
-7. Alternare tra **Charge by Services** (Addebito per servizi ) e **Charge by Hierarchy** (Addebito per gerarchia).
-8. Espandere e comprimere tra **Servizio di Azure**, **Addebiti fatturati separatamente** e **Azure Marketplace** per visualizzare i dettagli.
+1. Accedere ad Azure Enterprise Portal.
 
-Ecco un video che illustra come visualizzare i dati sull'utilizzo:
+1. Selezionare un periodo di impegno.
 
-[Video sull'utilizzo di Azure EA Portal](https://www.youtube.com/watch?v=Cv2IZ9QCn9E)
+   Per modificare l'intervallo di date per **Riepilogo utilizzo** è possibile spostare l'interruttore da **M** (Mensile) a **C** (Custom, Personalizzato) nell'angolo superiore destro della pagina, quindi immettere date di inizio e fine personalizzate.
 
->[!VIDEO https://www.youtube.com/embed/Cv2IZ9QCn9E]
+   ![Creare e visualizzare il riepilogo dell'utilizzo e scaricare i report in una visualizzazione personalizzata](./media/ea-portal-get-started/create-ea-view-usage-summary-and-download-reports-custom-view.png)
+1. Per visualizzare altri dettagli, selezionare un periodo o un mese sul grafico.
+
+   - Il grafico visualizza l'utilizzo mese per mese, con una suddivisione tra utilizzo effettivo, costi aggiuntivi del servizio, addebiti fatturati separatamente e addebiti di Azure Marketplace.
+   - Per il mese selezionato è possibile usare i campi sotto il grafico per applicare filtri in base a reparti, account e sottoscrizioni.
+   - È possibile alternare tra **Charge by Services** (Addebito per servizi ) e **Charge by Hierarchy** (Addebito per gerarchia).
+   - Per visualizzare i dettagli di **Servizio di Azure**, **Addebiti fatturati separatamente** e **Azure Marketplace** espandere le sezioni corrispondenti.
+
+Per informazioni su come visualizzare l'utilizzo, guardare questo video:
+
+> [!VIDEO https://www.youtube.com/embed/Cv2IZ9QCn9E]
 
 ### <a name="download-csv-reports"></a>Scaricare i report CSV
 
-Gli amministratori dell'organizzazione usano la pagina di download dei report mensili per scaricare diversi report come file CSV, Tali impostazioni includono:
+Gli amministratori dell'organizzazione usano la pagina di download dei report mensili per scaricare i seguenti report come file con estensione csv:
 
 - Saldo e addebito
 - Dettagli utilizzo
-- Addebiti per Marketplace
+- Addebiti per Azure Marketplace
 - Elenco prezzi
 
 Per scaricare i report:
 
-
-1. In Azure EA Portal fare clic su **Report**.
-2. Fare clic su **Scarica utilizzo** nella parte superiore della pagina.
+1. In Azure Enterprise Portal selezionare **Report**.
+2. Selezionare **Scarica utilizzo** nella parte superiore della pagina.
 3. Selezionare **Download** accanto al report del mese.
 
-Potrebbero verificarsi fino a cinque giorni di latenza tra la data di utilizzo e la data in cui viene visualizzato nei report.
-
-Gli utenti che scaricano i file CSV con Safari in Excel potrebbero riscontrare errori di formattazione. Per evitare errori, aprire il file in un editor di testo.
+   > [!NOTE]
+   > Potrebbero verificarsi fino a cinque giorni di latenza tra la data di utilizzo e la data in cui viene visualizzato nei report.
+   >
+   > Gli utenti che scaricano i file CSV con Safari in Excel potrebbero riscontrare errori di formattazione. Per evitare errori, aprire il file in un editor di testo.
 
 ![Esempio che mostra la pagina di download dei dati di utilizzo](./media/ea-portal-get-started/create-ea-download-csv-reports.png)
 
-Ecco un video che illustra come scaricare le informazioni sull'utilizzo:
+Guardare questo video per informazioni su come scaricare le informazioni sull'utilizzo:
 
-[Video sull'utilizzo di Azure EA Portal](https://www.youtube.com/watch?v=eY797htT1qg)
-
->[!VIDEO https://www.youtube.com/embed/eY797htT1qg]
+> [!VIDEO https://www.youtube.com/embed/eY797htT1qg]
 
 ### <a name="advanced-report-download"></a>Download dei report avanzati
 
-Per la creazione di report relativi a intervalli di date o ad account specifici, è possibile usare la funzionalità di download dei report avanzati. A partire dal 30 agosto 2016, il formato del file di output è passato da xlsx a csv per contenere set di record più grandi.
+È possibile usare il download dei report avanzati per ottenere report relativi a intervalli di date o account specifici. Il file di output è in formato CSV per il supporto di set di record di grandi dimensioni.
 
-1. Selezionare **Advanced Report Download** (Download report avanzati).
-1. Selezionare **Appropriate Date Range** (Intervallo di date appropriato).
-1. Selezionare **Appropriate Accounts** (Account appropriati).
+1. In Azure Enterprise Portal selezionare **Advanced Report Download** (Download dei report avanzati).
+1. Selezionare un intervallo di date appropriato e gli account appropriati.
 1. Selezionare **Request Usage Data** (Richiedi dati utilizzo).
-1. Fare clic sul pulsante **Aggiorna** finché lo stato del report non si imposta su **Download**.
+1. Fare clic sul pulsante **Aggiorna** fino a quando lo stato del report non diventa **Download**.
 1. Scaricare il report.
 
-## <a name="ea-term-glossary"></a>Glossario dei termini EA
+### <a name="download-usage-reports-and-billing-information-for-a-prior-enrollment"></a>Scaricare i report sull'utilizzo e le informazioni di fatturazione per una registrazione precedente
 
-- **Account**: unità organizzativa nel portale EA di Azure usata per amministrare le sottoscrizioni e utilizzate per la creazione di report.
-- **Proprietario dell'account**: l'utente identificato per gestire le sottoscrizioni e gli amministratori del servizio in Microsoft Azure. Questa persona può visualizzare i dati di utilizzo per l'account e le sottoscrizioni associate.
-- **Sottoscrizione dell'emendamento**: una sottoscrizione di un solo anno o coterminativa nella rettifica della registrazione.
-- **Impegno**: impegno di una quantità monetaria annua per i servizi di Microsoft Azure a una tariffa di impegno scontata per l'utilizzo rispetto a questo pagamento anticipato.
-- **Amministratore del reparto**: le persone identificate per gestire i reparti, creare nuovi account e proprietari dell'account, visualizzare i dettagli di utilizzo per i reparti che gestiscono e visualizzare i costi quando vengono concesse le autorizzazioni.
-- **Numero di registrazione**: un identificatore univoco fornito da Microsoft per identificare la registrazione specifica associata a un contratto Enterprise Agreement.
-- **Amministratore dell'organizzazione**: la persona o le persone identificate per gestire i reparti e i proprietari di reparto, account e proprietari dell'account in Microsoft Azure. Questa persona ha la possibilità di gestire gli amministratori dell'organizzazione, nonché di visualizzare i dati di utilizzo, le quantità fatturate e gli addebiti non fatturati per tutti gli account e per tutte le sottoscrizioni associati all'iscrizione Enterprise.
-- **Contratto Enterprise Agreement**: un contratto di licenza Microsoft per i clienti con acquisti centralizzati che desiderano standardizzare l'intera organizzazione sulla tecnologia Microsoft e mantenere un'infrastruttura di Information Technology su un software Microsoft standard.
-- **Iscrizione a Enterprise Agreement**: iscrizione al programma Enterprise Agreement che fornisce prodotti Microsoft in volume a tariffe scontate.
-- **Account Microsoft**: servizio basato sul Web che consente ai siti partecipanti di autenticare un utente con un unico set di credenziali.
-- **Microsoft Azure rettifica di registrazione Enterprise (rettifica di registrazione)** : una rettifica firmata da un'azienda, che fornisce l'accesso ai Microsoft Azure come parte della loro iscrizione Enterprise.
-- **Portale EA di Azure**: il portale usato dai clienti aziendali per gestire i propri account di Microsoft Azure e le relative sottoscrizioni.
-- **Quantità di risorse utilizzate**: quantità di un singolo servizio di Microsoft Azure utilizzato in un mese.
-- **Amministratore del servizio**: l'utente identificato per accedere e gestire le sottoscrizioni e i progetti di sviluppo nel portale EA di Azure.
-- **Sottoscrizione**: rappresenta una sottoscrizione del portale EA di Azure ed è un contenitore di servizi di Microsoft Azure gestiti dallo stesso amministratore del servizio.
-- **Account aziendale o dell'Istituto di istruzione**: per le organizzazioni che hanno configurato Active Directory con la Federazione sul cloud e tutti gli account si trovano in un singolo tenant.
+È possibile scaricare i report sull'utilizzo e le informazioni di fatturazione per una registrazione precedente dopo che è stato eseguito un trasferimento della registrazione. La creazione di report cronologici è disponibile sia in Azure Enterprise Portal sia nella gestione dei costi.
 
-### <a name="enrollment-statuses"></a>Stati della registrazione:
+Azure Enterprise Portal esclude con un filtro la visualizzazione delle registrazioni inattive. Per visualizzare le registrazioni trasferite inattive è necessario deselezionare la casella **Attivo**.  
 
-- **In sospeso**: l'amministratore della registrazione deve accedere al portale EA di Azure. Una volta effettuato l'accesso, la registrazione passerà a uno stato Attivo.
-- **Attivo**: la registrazione è attiva e gli account e le sottoscrizioni possono essere creati nel portale EA di Azure. La registrazione rimarrà attiva fino alla data di fine del Contratto Enterprise.
-- **Termine esteso indefinito**: un termine esteso indefinito si verifica dopo il superamento della data di fine del contratto Enterprise. Consente ai clienti EA inclusi nel periodo esteso di continuare a usare Azure a tempo indefinito alla fine del Contratto Enterprise. Prima che la registrazione EA raggiunga la data di fine del Contratto Enterprise, l'amministratore della registrazione deve decidere se rinnovare la registrazione aggiungendo ulteriore impegno monetario, passare a una nuova registrazione, eseguire la migrazione al programma Microsoft Online Subscription Program (MOSP) o confermare la disabilitazione di tutti i servizi associati alla registrazione.
-- **Scaduto**: il cliente EA è escluso dal termine esteso e la registrazione EA ha raggiunto la data di fine del contratto Enterprise, la registrazione scadrà e tutti i servizi associati saranno disabilitati.
-- **Trasferiti**: le registrazioni in cui tutti gli account e i servizi associati sono stati trasferiti a una nuova registrazione verranno visualizzati con lo stato trasferito. Si noti che le registrazioni non vengono trasferite automaticamente se viene generato un nuovo numero di registrazione durante il rinnovo. Per facilitare un trasferimento automatico, il numero di registrazione precedente deve essere incluso nel documento di rinnovo del cliente.
+![Deselezione della casella Attivo per visualizzare le registrazioni inattive](./media/ea-portal-get-started/unchecked-active-box.png)
 
-## <a name="get-started-on-azure-ea-faq"></a>Domande frequenti per iniziare a usare Azure EA
+## <a name="azure-ea-term-glossary"></a>Glossario dei termini del Contratto Enterprise di Azure
 
-Questo documento fornisce informazioni dettagliate sulle domande tipiche poste dai clienti durante il processo di onboarding.  
+- **Account**: unità organizzativa in Azure Enterprise Portal. Viene usato per l'amministrazione delle sottoscrizioni e la creazione di report.
+- **Proprietario dell'account**: persona che gestisce le sottoscrizioni e gli amministratori del servizio in Azure. Questa persona può visualizzare i dati di utilizzo per l'account e le sottoscrizioni associate.
+- **Sottoscrizione di rettifica**: sottoscrizione di un anno o contestuale nell'ambito della rettifica della registrazione.
+- **Impegno**: allocazione di un importo monetario annuale per i servizi Azure a una tariffa di impegno scontata per l'utilizzo a fronte di questo pagamento anticipato.
+- **Amministratore del reparto**: persona che gestisce i reparti, crea nuovi account e proprietari di account, visualizza i dettagli di utilizzo per i reparti che gestisce e visualizza i costi (se dispone delle autorizzazioni necessarie).
+- **Numero di registrazione**: identificatore univoco reso disponibile da Microsoft per identificare la registrazione specifica associata a un Contratto Enterprise.
+- **Amministratore dell'organizzazione**: persona che gestisce i reparti, i proprietari di reparti, gli account e i proprietari di account in Azure. Questa persona ha la possibilità di gestire gli amministratori dell'organizzazione, nonché di visualizzare i dati di utilizzo, le quantità fatturate e gli addebiti non fatturati per tutti gli account e per tutte le sottoscrizioni associati all'iscrizione Enterprise.
+- **Contratto Enterprise**: un contratto di licenza Microsoft per i clienti con acquisti centralizzati che intendono standardizzare l'intera organizzazione con la tecnologia Microsoft e mantenere un'infrastruttura IT su software Microsoft standard.
+- **Registrazione Enterprise Agreement**: registrazione nel programma Contratto Enterprise, che offre prodotti Microsoft con contratti multilicenza a tariffe scontate.
+- **Account Microsoft**: servizio basato sul Web che consente ai siti di appartenenza di autenticare un utente con un unico set di credenziali.
+- **Rettifica dell'iscrizione Microsoft Azure Enterprise (rettifica della registrazione)** : rettifica firmata da un'azienda, che consente di accedere a Microsoft Azure come parte dell'iscrizione Enterprise.
+- **Azure Enterprise Portal**: portale usato dai clienti aziendali per gestire i propri account Azure e le sottoscrizioni correlate.
+- **Quantità di risorse usata**: quantità di un singolo servizio Azure usata in un mese.
+- **Amministratore dei servizi**: persona che accede e gestisce le sottoscrizioni e i progetti di sviluppo in Azure Enterprise Portal.
+- **Sottoscrizione** Rappresenta una sottoscrizione di Azure Enterprise Portal ed è un contenitore dei servizi Azure gestiti dallo stesso amministratore dei servizi.
+- **Account aziendale o dell'istituto di istruzione**: per le organizzazioni che hanno configurato Active Directory con la federazione nel cloud e hanno tutti gli account in un singolo tenant.
 
-### <a name="can-i-associate-my-existing-azure-account-to-enterprise-enrollment"></a>È possibile associare un account Azure esistente all'iscrizione Enterprise?
+### <a name="enrollment-statuses"></a>Stati della registrazione
 
-Sì, puoi. è importante notare tuttavia che tutte le sottoscrizioni di Azure di cui si è proprietari dell'account verranno convertite nel Contratto Enterprise. Sono incluse le sottoscrizioni che usano il credito mensile (ad esempio Visual Studio, AzurePass, MPN, BizSpark e così via), pertanto procedendo in questo modo si perderà credito mensile.
+- **Pending**: l'amministratore della registrazione deve accedere ad Azure Enterprise Portal. Dopo l'accesso, la registrazione passa allo stato Attivo.
+- **Attivo**: la registrazione è attiva ed è possibile creare account e sottoscrizioni in Azure Enterprise Portal. La registrazione rimane attiva fino alla data di fine del Contratto Enterprise.
+- **Periodo di validità esteso a tempo indeterminato**: si attiva dopo la data di fine del Contratto Enterprise. Consente ai clienti del Contratto Enterprise di Azure inclusi nel periodo esteso di continuare a usare i servizi Azure a tempo indefinito dopo la scadenza del Contratto Enterprise.
 
-### <a name="i-accidentally-associated-my-existing-azure-account-with-enterprise-enrollment-as-a-result-i-lost-my-monthly-credit-is-it-possible-to-get-my-monthly-credit-back"></a>L'account Azure esistente è stato associato per errore all'iscrizione Enterprise e di conseguenza il credito mensile è andato perduto. È possibile riottenerlo?
+   Prima che la registrazione del Contratto Enterprise di Azure raggiunga la data di fine del Contratto Enterprise, l'amministratore della registrazione deve scegliere tra le opzioni seguenti:
 
-Per ripristinare i vantaggi di Azure per le singole sottoscrizioni di Visual Studio dopo aver eseguito l'autenticazione come proprietario dell'account EA, usare per EA le stesse informazioni di accesso della sottoscrizione di Visual Studio e quindi effettuare una delle operazioni seguenti:
-1. Eliminare questo proprietario dell'account da EA Portal dopo aver rimosso o spostato le sottoscrizioni di Azure di cui è proprietario e avergli fatto eseguire di nuovo l'iscrizione ai singoli vantaggi di Azure per Visual Studio.
- OPPURE
-1. Eliminare il sottoscrittore di Visual Studio dal sito di amministrazione in VLSC e riassegnare la sottoscrizione, facendo in modo che questa volta usi altre informazioni di accesso. Potrà quindi eseguire di nuovo l'iscrizione ai singoli vantaggi di Azure per Visual Studio.
+  - Rinnovare la registrazione aggiungendo impegno monetario aggiuntivo.
+  - Eseguire il trasferimento a una nuova registrazione.
+  - Eseguire la migrazione al programma Microsoft Online Subscription Program (MOSP).
+  - Confermare la disabilitazione di tutti i servizi associati alla registrazione.
+- **Scaduta**: il cliente del Contratto Enterprise di Azure è escluso dal periodo di validità esteso e la registrazione del Contratto Enterprise di Azure ha raggiunto la data di fine. La registrazione scade e tutti i servizi associati vengono disabilitati.
+- **Trasferita**: vengono visualizzate con questo stato le registrazioni i cui account e servizi associati sono stati trasferiti a una nuova registrazione.
+  >[!NOTE]
+  > Le registrazioni non vengono trasferite automaticamente se al momento del rinnovo viene generato un nuovo numero di registrazione. Per facilitare il trasferimento automatico, includere il numero di registrazione precedente nella documentazione per il rinnovo.
+
+## <a name="get-started-on-azure-ea---faq"></a>Domande frequenti per iniziare a usare il Contratto Enterprise di Azure
+
+Questa sezione offre informazioni dettagliate sulle domande tipiche poste dai clienti durante il processo di onboarding.  
+
+### <a name="can-i-associate-my-existing-azure-account-to-azure-ea-enrollment"></a>È possibile associare l'account Azure esistente all'iscrizione al Contratto Enterprise di Azure?
+
+Sì. Tutte le sottoscrizioni di Azure per le quali si è proprietari dell'account verranno convertite nel Contratto Enterprise. Sono incluse le sottoscrizioni che usano credito mensile, ad esempio Visual Studio, AzurePass, MPN, BizSpark e così via. Quando si convertono queste sottoscrizioni, si perde il credito mensile.
+
+### <a name="i-accidentally-associated-my-existing-azure-account-with-azure-ea-enrollment-as-a-result-i-lost-my-monthly-credit-can-i-get-my-monthly-credit-back"></a>L'account Azure esistente è stato associato per errore alla registrazione del Contratto Enterprise di Azure e di conseguenza il credito mensile è andato perduto. È possibile recuperare il credito mensile?
+
+Se è stato eseguito l'accesso come proprietario di un account Contratto Enterprise di Azure con le stesse credenziali usate per la sottoscrizione di Visual Studio, è possibile ripristinare i singoli vantaggi di Azure per la sottoscrizione di Visual Studio con una delle azioni seguenti:
+
+- Eliminare il proprietario dell'account da Azure Enterprise Portal dopo aver rimosso o spostato tutte le sottoscrizioni di Azure associate. Quindi registrarsi di nuovo per i singoli vantaggi Azure di Visual Studio.
+- Eliminare il sottoscrittore di Visual Studio dal sito di amministrazione in VLSC e riassegnare la sottoscrizione a un account con credenziali diverse. Quindi registrarsi di nuovo per i singoli vantaggi Azure di Visual Studio.
 
 ### <a name="what-type-of-subscription-should-i-create"></a>Quale tipo di sottoscrizione è necessario creare?
 
-EA Portal offre due tipi di sottoscrizioni per i clienti aziendali:
+Azure Enterprise Portal offre due tipi di sottoscrizioni per i clienti aziendali:
 
 - Microsoft Azure Enterprise, ideale per:
   - Tutti gli scopi di produzione
   - Prezzi migliori in base all'uso dell'infrastruttura
-  - Altri dettagli sono disponibili all'indirizzo https://azure.microsoft.com/pricing/enterprise-agreement/
+  
+  Per altre informazioni, [contattare un rappresentante di Azure](https://azure.microsoft.com/pricing/enterprise-agreement/).
+
 - Sviluppo/test Enterprise, ideale per:
-  - Tutti i carichi di lavoro di sviluppo e test per i team
-  - Singoli carichi di lavoro di sviluppo e test da medi a pesanti
+  - Tutti i carichi di lavoro di sviluppo/test per i team
+  - Singoli carichi di lavoro di sviluppo/test da medi a pesanti
   - Accesso a speciali immagini MSDN e tariffe per servizi preferenziali
-  - Altri dettagli sono disponibili all'indirizzo https://azure.microsoft.com/offers/ms-azr-0148p/
+  
+  Per altre informazioni, vedere l'[offerta Sviluppo/test Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/).
 
 ### <a name="is-it-possible-to-transfer-subscription-ownership-to-another-account"></a>È possibile trasferire la proprietà di una sottoscrizione a un altro account?
 
 Sì, la proprietà di una sottoscrizione può essere trasferita a un altro account. Se ad esempio un account A dispone di tre sottoscrizioni, l'amministratore dell'organizzazione può trasferirne una all'account B, una all'account C e una all'account D oppure può trasferirle tutte all'account E.
 
-È possibile passare a EA e fare clic su Gestisci > Account, passare il puntatore su **Account** (estrema destra) e verranno visualizzate le opzioni di trasferimento della proprietà (icona foto ritratto) e trasferimento della sottoscrizione (icona elenco).
+Per trasferire le sottoscrizioni:
 
-Questa opzione sarà visibile solo per gli account attivi.
+1. In Azure Enterprise Portal selezionare **Gestisci** > **Account**.
+1. Passare il puntatore del mouse su **Account** nell'angolo a destra per visualizzare le opzioni **Transfer Ownership** (Trasferisci proprietà, icona a forma di persona) e **Transfer Subscription** (Trasferisci sottoscrizione, icona a forma di elenco). Queste opzioni sono visibili solo per gli account attivi.
 
-### <a name="i-see-subscription-name-defaults-to-offer-name-should-i-change-the-subscription-name-to-something-meaningful-to-my-organization"></a>Come nome della sottoscrizione viene visualizzato per impostazione predefinita il nome dell'offerta. È necessario sostituirlo con un nome significativo per la propria organizzazione?
+### <a name="my-subscription-name-is-the-same-as-the-offer-name-should-i-change-the-subscription-name-to-something-meaningful-to-my-organization"></a>Il nome della sottoscrizione è uguale al nome dell'offerta. È necessario sostituirlo con un nome significativo per la propria organizzazione?
 
-Per le sottoscrizioni create verrà utilizzato per impostazione predefinita il tipo di offerta scelto. Si consiglia di cambiare il nome della sottoscrizione usando un nome significativo per facilitarne la ricerca.
+Quando si crea una sottoscrizione, il nome predefinito usato per la sottoscrizione è identico a quello del tipo di offerta scelto. Si consiglia di cambiare il nome della sottoscrizione usando un nome significativo per facilitarne la ricerca.
 
-**Per cambiare il nome:**
+Per modificare il nome:
+
 1. Accedere a [https://account.windowsazure.com](https://account.windowsazure.com).
-1. Fare clic sull'elenco delle sottoscrizioni.
-1. Selezionare la sottoscrizione.
-1. Fare clic sull'icona **Gestisci sottoscrizione**.
+1. Selezionare il nome della sottoscrizione.
+1. Selezionare la sottoscrizione da modificare.
+1. Selezionare l'icona **Gestisci sottoscrizione**.
 1. Modificare i dettagli della sottoscrizione.
 
-### <a name="how-can-i-track-cost-incurred-by-cost-center"></a>Come è possibile tenere traccia dei costi sostenuti in base al centro di costo?
+### <a name="how-can-i-track-costs-incurred-by-a-cost-center"></a>Come è possibile tenere traccia dei costi sostenuti per centro di costo?
 
 Per tenere traccia dei costi in base al centro di costo, è necessario definire il centro di costo a uno dei livelli seguenti:
+
 - department
 - Account
-- Sottoscrizione
+- Subscription
 
 A seconda delle esigenze, è possibile usare lo stesso centro di costo per tenere traccia dell'utilizzo e dei costi associati a un centro di costo specifico.
 
-Ad esempio, per tenere traccia dei costi di un progetto speciale in cui sono coinvolti più reparti, è consigliabile usare il centro di costo a livello di sottoscrizione per tenere traccia dell'utilizzo e dei costi.
+Ad esempio, per tenere traccia dei costi di un progetto speciale che coinvolge più reparti, può essere utile definire il centro di costo a livello di sottoscrizione per tenere traccia dell'utilizzo e dei costi.
 
-Non è possibile definire il centro di costo a livello di servizio. Se si intende tenere traccia dell'utilizzo a livello di servizio, è possibile usare la funzionalità "Tag" disponibile a livello di servizio.
+Non è possibile definire un centro di costo a livello di servizio. Se si vuole tenere traccia dell'utilizzo a livello di servizio è possibile usare la funzionalità _Tag_, disponibile a livello di servizio.
 
 ### <a name="how-do-i-track-usage-and-spend-by-different-departments-in-my-organization"></a>Come è possibile tenere traccia dell'utilizzo e della spesa in base a diversi reparti in un'organizzazione?
 
-È possibile creare tutti i reparti di cui si necessita nella registrazione EA. Per tenere traccia correttamente dell'utilizzo, è necessario assicurarsi che le sottoscrizioni non siano condivise tra i reparti.
+È possibile creare tutti i reparti necessari nella registrazione del Contratto Enterprise di Azure. Per tenere traccia correttamente dell'utilizzo, assicurarsi che le sottoscrizioni non siano condivise tra i reparti.
 
-Una volta completata la creazione del reparto e della sottoscrizione, è possibile visualizzare il flusso di informazioni nel report relativo all'utilizzo in modo da poter tenere traccia dell'utilizzo e gestire i costi e le spese a livello di reparto.
+Dopo aver creato reparti e sottoscrizioni, è possibile visualizzare i dati nel report sull'utilizzo. Queste informazioni consentono di tenere traccia dell'utilizzo e di gestire i costi e le spese a livello di reparto.
 
-È anche possibile accedere all'utilizzo tramite API. Informazioni dettagliate e codice di esempio sono disponibili all'indirizzo [https://ea.azure.com/helpdocs/reportingAPI](https://ea.azure.com/helpdocs/reportingAPI).
+È anche possibile accedere ai dati di utilizzo tramite l'API di creazione report. Per informazioni dettagliate e codice di esempio, vedere la [documentazione dell'API di creazione report](https://ea.azure.com/helpdocs/reportingAPI).
 
-### <a name="can-i-set-the-spending-quota-and-get-alerts-as-i-approach-my-limit"></a>È possibile impostare la quota di spesa e ricevere gli avvisi quando si avvicina il limite?
+### <a name="can-i-set-a-spending-quota-and-get-alerts-as-i-approach-my-limit"></a>È possibile impostare una quota di spesa e ricevere avvisi quando si avvicina il limite?
 
-È possibile impostare la quota di spesa a livello di reparto e il sistema invierà automaticamente una notifica quando i limiti di spesa raggiungono il 50%, il 75%, il 90% e il 100% della quota definita.
+È possibile impostare una quota di spesa a livello di reparto: il sistema invierà automaticamente una notifica quando i limiti di spesa raggiungono il 50%, il 75%, il 90% e il 100% della quota definita.
 
-Per definire la quota di spesa, fare clic sul reparto a cui si vuole aggiungere un limite di spesa e quindi sull'icona di modifica. Fare clic su **Salva** per salvare i dettagli.
+Per definire la quota di spesa, selezionare un reparto e quindi selezionare l'icona di modifica. Dopo aver modificato i dettagli relativi al limite di spesa selezionare **Salva**.
 
-### <a name="i-used-resource-groups-rgs-to-implement-rbac-and-track-usage-how-can-i-view-the-associated-usage-details"></a>Se si usano gruppi di risorse per implementare il controllo degli accessi in base al ruolo e tenere traccia dell'utilizzo, come è possibile visualizzare i dettagli sull'utilizzo associati?
+### <a name="i-used-resource-groups-to-implement-rbac-and-track-usage-how-can-i-view-the-associated-usage-details"></a>Sono stati usati gruppi di risorse per implementare il controllo degli accessi in base al ruolo e rilevare l'utilizzo. Come è possibile visualizzare i dettagli di utilizzo associati?
 
-Informazioni quali "Gruppi di risorse" e "Tag", se usate, vengono rilevate a livello di servizio e sono disponibili nel file di download dettagliato sull'utilizzo (CSV), che può essere scaricato da Azure EA Portal [https://ea.azure.com/report/downloadusage](https://ea.azure.com/report/downloadusage).
+Se si usano i _gruppi di risorse_ e i _tag_, queste informazioni vengono rilevate a livello di servizio ed è possibile accedervi nel file di utilizzo dettagliato scaricabile (con estensione csv). Vedere il [report sull'utilizzo](https://ea.azure.com/report/downloadusage) scaricabile in Azure Enterprise Portal.
 
-È anche possibile accedere all'utilizzo tramite API. Informazioni dettagliate e codice di esempio sono disponibili all'indirizzo [https://ea.azure.com/helpdocs/reportingAPI](https://ea.azure.com/helpdocs/reportingAPI).
+È anche possibile accedere all'utilizzo tramite API. Per informazioni dettagliate e codice di esempio, vedere [API di creazione report](https://ea.azure.com/helpdocs/reportingAPI) nella documentazione di Azure Enterprise Portal.
 
-Si noti che i tag possono essere applicati solo alle risorse che supportano le operazioni di Resource Manager. Se è stata creata una macchina virtuale, una rete virtuale o una risorsa di archiviazione tramite il modello di distribuzione classica, ad esempio tramite il portale classico, non è possibile applicare un tag a tale risorsa. Per supportare l'assegnazione di tag, distribuire nuovamente tali risorse tramite Resource Manager. Tutte le altre risorse supportano l'assegnazione di tag.
+> [!NOTE]
+> È possibile applicare tag solo alle risorse che supportano le operazioni di Azure Resource Manager. Se è stata creata una macchina virtuale, una rete virtuale o una risorsa di archiviazione tramite il modello di distribuzione classica, ad esempio tramite il portale classico, non è possibile applicare un tag a tale risorsa. Per supportare l'assegnazione di tag, distribuire nuovamente tali risorse tramite Resource Manager. Tutte le altre risorse supportano l'assegnazione di tag.
 
 ### <a name="can-i-perform-analyses-using-power-bi"></a>È possibile eseguire analisi tramite Power BI?
 
-Sì. Il pacchetto di contenuto di Microsoft Azure Enterprise per Power BI consente di importare e analizzare rapidamente il consumo di Azure per l'iscrizione Enterprise, di individuare il reparto, l'account o la sottoscrizione che ha consumato la maggiore quantità di quota di utilizzo e i servizi più usati dall'organizzazione o di tenere traccia della spesa e delle tendenze di utilizzo.
+Sì. Con il pacchetto di contenuto Microsoft Azure Enterprise per Power BI è possibile:
 
-**Passare al sito Web di Power BI:**
+- Importare e analizzare rapidamente il consumo di Azure per l'iscrizione Enterprise.
+- Trovare il reparto, l'account o la sottoscrizione che ha registrato il consumo più elevato.
+- Trovare il servizio più usato dall'organizzazione.
+- Tenere traccia delle tendenze di spesa e utilizzo.
 
- 1. Accedere con un account aziendale o dell'istituto di istruzione valido.
-    - L'account aziendale o dell'istituto di istruzione può essere uguale o diverso da quello usato per accedere alla registrazione tramite Azure EA Portal.
- 1. Nel dashboard dei servizi scegliere:
-    - Il riquadro di Microsoft Azure Enterprise.
-    - Fare clic su **Connetti**.
- 1. Nella schermata di connessione ad Azure Enterprise scegliere:
-    - Azure Environment URL (URL dell'ambiente di Azure): [https://ea.azure.com](https://ea.azure.com).
-    - Numero di mesi: scegliere un valore compreso tra 1 e 36.
-    - Numero di registrazione: immettere il numero di registrazione.
-    - Fare clic su **Avanti**.
- 1. Immettere la chiave API nella casella Chiave di autenticazione. È possibile ottenere la chiave API in Azure EA Portal nella scheda "Scarica utilizzo" facendo clic su **API Access Key** (Chiave di accesso API).
-    - Copiare e incollare la chiave nella casella "Chiave account".
-    - Il caricamento dei dati in Power BI richiederà circa 5-30 minuti, a seconda delle dimensioni del set di dati.
+Per usare Power BI:
 
-La creazione di report di Power BI è disponibile per i partner EA diretti e per i clienti EA indiretti che possono visualizzare le informazioni di fatturazione.
+1. Passare al sito Web Power BI.
+1. Accedere con un account aziendale o dell'istituto di istruzione valido.
+
+   L'account aziendale o dell'istituto di istruzione può essere uguale o diverso da quello usato per accedere alla registrazione tramite Azure Enterprise Portal.
+1. Nel dashboard dei servizi scegliere il riquadro Microsoft Azure Enterprise e selezionare **Connetti**.
+1. Nella **schermata di connessione ad Azure Enterprise** immettere quanto segue:
+    - Azure Environment URL (URL dell'ambiente di Azure): [https://ea.azure.com](https://ea.azure.com)
+    - Numero di mesi: scegliere un valore compreso tra 1 e 36
+    - Numero di registrazione: immettere il numero di registrazione
+1. Selezionare **Avanti**.
+1. Immettere la chiave API nella casella **Chiave account**.
+
+   La chiave API è disponibile in Azure Enterprise Portal. Sotto la scheda **Scarica utilizzo** selezionare **API Access Key** (Chiave di accesso API). Copiare la chiave e quindi incollarla nella casella **Chiave account** in Power BI.
+
+A seconda delle dimensioni del set di dati, il caricamento dei dati in Power BI può richiedere da cinque a 30 minuti.
+
+La creazione di report di Power BI è disponibile per i clienti diretti, indiretti e i partner del Contratto Enterprise che possono visualizzare le informazioni di fatturazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- È consigliabile che gli amministratori di Azure EA Portal leggano [Amministrazione di Azure EA Portal](ea-portal-administration.md) per informazioni sulle comuni attività amministrative.
-- Se serve assistenza per la risoluzione dei problemi relativi ad Azure EA Portal, vedere [Risolvere i problemi di accesso ad Azure EA Portal](ea-portal-troubleshoot.md).
-- Per una guida sull'onboarding di Azure EA, vedere [Guida all'onboarding di Azure EA](https://ea.azure.com/api/v3Help/v2AzureEAOnboardingGuide).
+- Si consiglia agli amministratori di Azure Enterprise Portal di leggere [Amministrazione di Azure Enterprise Portal](ea-portal-administration.md) per informazioni sulle attività amministrative comuni.
+- Per assistenza nella risoluzione dei problemi relativi ad Azure Enterprise Portal, vedere [Risolvere i problemi di accesso ad Azure Enterprise Portal](ea-portal-troubleshoot.md).
+- Per una guida all'onboarding nel Contratto Enterprise di Azure vedere [Guida all'onboarding per il Contratto Enterprise di Azure (PDF)](https://ea.azure.com/api/v3Help/v2AzureEAOnboardingGuide).

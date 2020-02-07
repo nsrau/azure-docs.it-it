@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: banders
 ms.openlocfilehash: 5dbf885848d9866a184caee1da6b9000a26f83a9
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "76314132"
 ---
 # <a name="azure-spending-limit"></a>Limite di spesa di Azure
@@ -40,20 +40,20 @@ Se si usa un account Azure gratuito e si raggiunge il limite di spesa, è possib
 
 È possibile rimuovere il limite di spesa in qualsiasi momento, purché alla sottoscrizione di Azure sia associato un metodo di pagamento valido. Per i tipi di sottoscrizioni con credito su più mesi, ad esempio Visual Studio Enterprise e Visual Studio Professional, è anche possibile abilitare il limite di spesa all'inizio del periodo di fatturazione successivo.
 
-Per rimuovere il limite di spesa, esegui questi passaggi:
+Per rimuovere il limite di spesa, seguire questi passaggi:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Passare a **sottoscrizioni**.
+1. Passare a **Sottoscrizioni**.
 1. Selezionare la propria sottoscrizione. Ad esempio, *Visual Studio Enterprise*.
-1. Nella parte superiore della pagina selezionare **Gestisci**. Si viene reindirizzati a https://account.azure.com/. Sul lato destro della pagina selezionare **Rimuovi limite di spesa**.  
-  ![esempio che mostra la rimozione del limite di spesa](./media/spending-limit/account-azure-com-spending-limit.png)
-1. Si viene reindirizzati di nuovo al portale di Azure. Selezionare un'opzione appropriata per l'utente e quindi selezionare un metodo di pagamento. Selezionare **Fine**.  
-  ![selezionare un'opzione per rimuovere il limite di spesa](./media/spending-limit/remove-spending-limit.png)
+1. Nella parte superiore della pagina selezionare **Gestisci**. Si verrà reindirizzati a https://account.azure.com/. Sul lato destro della pagina selezionare **Rimuovere il limite di spesa**.  
+  ![Esempio che mostra la rimozione del limite di spesa](./media/spending-limit/account-azure-com-spending-limit.png)
+1. Si verrà reindirizzati al portale di Azure. Selezionare un'opzione appropriata per l'utente e quindi selezionare un metodo di pagamento. Selezionare **Fine**.  
+  ![Selezionare un'opzione per rimuovere il limite di spesa](./media/spending-limit/remove-spending-limit.png)
 
 | Opzione | Effetto |
 | --- | --- |
 | Rimuovi il limite di spesa per un periodo illimitato | Rimuove il limite di spesa senza riattivarlo automaticamente all'inizio del periodo di fatturazione successivo. |
-| Rimuovi il limite di spesa per il periodo di fatturazione corrente | Rimuove il limite di spesa e lo riattiva automaticamente all'inizio del periodo di fatturazione successivo. |
+| Rimuovi il limite di spesa per il periodo di fatturazione corrente | Rimuove il limite di spesa in modo che si riattivi automaticamente all'inizio del periodo di fatturazione successivo. |
 
 ## <a name="why-you-might-want-to-remove-the-spending-limit"></a>Perché può essere necessario rimuovere il limite di spesa
 
@@ -61,14 +61,14 @@ Il limite di spesa può impedire all'utente di distribuire o usare determinati s
 
 -  Se si prevede di distribuire immagini proprietarie come Oracle o servizi come Azure DevOps Services. Questa situazione comporta il superamento quasi immediato del limite di spesa e la disabilitazione della sottoscrizione.
 - Se si usano servizi che non devono essere interrotti. Quando si raggiunge il limite di spesa, le risorse di Azure distribuite vengono rimosse dall'ambiente di produzione e le macchine virtuali di Azure vengono arrestate e deallocate. Per evitare che i servizi usati vengano interrotti, è necessario rimuovere il limite di spesa.
-- Usi servizi e risorse con impostazioni come indirizzi IP virtuali che non vuoi perdere. Queste impostazioni vanno perse quando si raggiunge il limite di spesa e le risorse e i servizi vengono deallocati.
+- Se si usano servizi e risorse con impostazioni come indirizzi IP virtuali che non si vuole perdere. Queste impostazioni vanno perse quando si raggiunge il limite di spesa e le risorse e i servizi vengono deallocati.
 
 ## <a name="turn-on-the-spending-limit-after-removing"></a>Attivare il limite di spesa dopo la rimozione
 
 Questa funzionalità è disponibile solo quando il limite di spesa è stato rimosso per un periodo illimitato per i tipi di sottoscrizioni che includono crediti su più mesi. È possibile usare questa funzionalità per attivare automaticamente il limite di spesa all'inizio del periodo di fatturazione successivo.
 
 1. Accedere al [Centro account](https://account.windowsazure.com/Subscriptions).
-1. Selezionare il banner giallo per modificare l'opzione limite di spesa.
+1. Selezionare il banner giallo per modificare l'opzione relativa al limite di spesa.
 1. Scegliere **Attiva limite di spesa per il prossimo periodo di fatturazione \<data di inizio del periodo di fatturazione\>** .
 
 ## <a name="custom-spending-limit"></a>Limite di spesa personalizzato
@@ -81,7 +81,7 @@ Non sono disponili limiti di spesa personalizzati.
 
 ![Avviso di acquisto di Marketplace](./media/spending-limit/marketplace-warning01.png)
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 

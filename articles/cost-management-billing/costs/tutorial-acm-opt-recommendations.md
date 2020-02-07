@@ -1,5 +1,5 @@
 ---
-title: Esercitazione-ridurre i costi di Azure con le raccomandazioni
+title: 'Esercitazione: Ridurre i costi di Azure con le raccomandazioni'
 description: Questa esercitazione consente di ridurre i costi di Azure quando si agisce seguendo gli elementi consigliati di ottimizzazione.
 services: cost-management
 keywords: ''
@@ -11,10 +11,10 @@ ms.service: cost-management-billing
 manager: dougeby
 ms.custom: seodec18
 ms.openlocfilehash: 37253bb4c6001afe436e22597e75e2bc869fbbc8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75990294"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Esercitazione: Ottimizzare i costi grazie agli elementi consigliati
@@ -28,22 +28,22 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Agire seguendo gli elementi consigliati di ridimensionare una macchina virtuale a un'opzione più conveniente
 > * Verificare l'azione per assicurarsi che la macchina virtuale sia stata ridimensionata correttamente
 
-## <a name="prerequisites"></a>Prerequisiti
-Sono disponibili raccomandazioni per diversi ambiti e tipi di account Azure. Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Understand Cost Management data](understand-cost-mgt-data.md) (Informazioni sui dati di Gestione costi). È necessario avere l'accesso in lettura ad almeno uno degli ambiti seguenti per visualizzare i dati dei costi. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
+## <a name="prerequisites"></a>Prerequisites
+Sono disponibili raccomandazioni per diversi ambiti e tipi di account di Azure. Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Understand Cost Management data](understand-cost-mgt-data.md) (Informazioni sui dati di Gestione costi). È necessario avere l'accesso in lettura ad almeno uno degli ambiti seguenti per visualizzare i dati dei costi. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
 
-- Sottoscrizione
-- Gruppo di risorse
+- Subscription
+- Resource group
 
 È necessario disporre di macchine virtuali attive con almeno 14 giorni di attività.
 
-## <a name="sign-in-to-azure"></a>Accedere a Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com/).
 
 ## <a name="view-cost-optimization-recommendations"></a>Visualizzare gli elementi consigliati per l'ottimizzazione dei costi
 
-Per visualizzare le raccomandazioni di ottimizzazione dei costi per una sottoscrizione, aprire l'ambito desiderato nel portale di Azure e selezionare **raccomandazioni di Advisor**.
+Per visualizzare le raccomandazioni relative all'ottimizzazione dei costi per una sottoscrizione, aprire l'ambito desiderato nel portale di Azure e selezionare **Raccomandazioni Advisor**.
 
-Per visualizzare le raccomandazioni per un gruppo di gestione, aprire l'ambito desiderato nel portale di Azure e selezionare **analisi dei costi** nel menu. Utilizzare la pillola **ambito** per passare a un ambito diverso, ad esempio un gruppo di gestione. Selezionare **raccomandazioni di Advisor** nel menu. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
+Per visualizzare le raccomandazioni per un gruppo di gestione, aprire l'ambito desiderato nel portale di Azure e selezionare **Analisi dei costi** nel menu. Usare l'etichetta **Ambito** per passare a un ambito diverso, ad esempio un gruppo di gestione. Selezionare **Raccomandazioni Advisor** nel menu. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
 
 ![Consigli di Advisor di Gestione costi visualizzati nel portale di Azure](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 
@@ -51,19 +51,19 @@ L'elenco degli elementi consigliati identifica inefficienze di utilizzo o mostra
 
 La categoria **Impatto**, insieme a **Risparmi annuali potenziali**, è progettata per consentire di identificare gli elementi consigliati con la possibilità di risparmiare quanto possibile.
 
-Le raccomandazioni ad alto effetto includono:
-- [Acquistare istanze di macchina virtuale riservate per risparmiare denaro rispetto ai costi con pagamento in base al consumo](../../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)
-- [Ottimizzare la spesa delle macchine virtuali ridimensionando o arrestando le istanze sottoutilizzate](../../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances)
-- [Usare l'archiviazione standard per archiviare Managed Disks snapshot](../../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
+Raccomandazioni con impatto elevato:
+- [Acquistare istanze di macchina virtuale riservate per risparmiare denaro rispetto ai costi dei piani con pagamento in base al consumo](../../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)
+- [Ottimizzare la spesa correlata alle macchine virtuali ridimensionando o arrestando le istanze sottoutilizzate](../../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances)
+- [Usare l'Archiviazione Standard per archiviare gli snapshot dei dischi gestiti](../../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
 
-Le raccomandazioni relative all'effetto medio includono:
-- [Elimina Azure Data Factory pipeline che non riescono](../../advisor/advisor-cost-recommendations.md#delete-azure-data-factory-pipelines-that-are-failing)
-- [Ridurre i costi eliminando circuiti ExpressRoute non sottoposti a provisioning](../../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits)
-- [Per ridurre i costi, eliminare o riconfigurare i gateway di rete virtuale inattivi](../../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways)
+Raccomandazioni con impatto medio:
+- [Eliminare le pipeline di Azure Data Factory con esito negativo](../../advisor/advisor-cost-recommendations.md#delete-azure-data-factory-pipelines-that-are-failing)
+- [Ridurre i costi eliminando i circuiti ExpressRoute il cui provisioning è stato annullato](../../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits)
+- [Ridurre i costi eliminando o riconfigurando i gateway di rete virtuale inattivi](../../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways)
 
 ## <a name="act-on-a-recommendation"></a>Implementare un elemento consigliato
 
-Azure Advisor monitora l'utilizzo della macchina virtuale per sette giorni e quindi identifica le macchine virtuali sottoutilizzate. Le macchine virtuali con un utilizzo della CPU pari o inferiore al 5% e un utilizzo di rete pari o inferiore 7 MB per quattro o più giorni sono considerate macchine virtuali a utilizzo ridotto.
+Azure Advisor monitora l'utilizzo delle macchine virtuali per sette giorni e identifica le macchine virtuali sottoutilizzate. Le macchine virtuali con un utilizzo della CPU pari o inferiore al 5% e un utilizzo di rete pari o inferiore 7 MB per quattro o più giorni sono considerate macchine virtuali a utilizzo ridotto.
 
 Per impostazione predefinita, l'utilizzo della CPU è pari o inferiore al 5%, ma è possibile modificare le impostazioni. Per altre informazioni sulla modifica dell'impostazione, vedere l'articolo [Configurare la regola di utilizzo della CPU medio per la raccomandazione sulle macchine virtuali a utilizzo ridotto](../../advisor/advisor-get-started.md#configure-low-usage-vm-recommendation).
 
@@ -79,14 +79,14 @@ Nei dettagli della macchina virtuale, controllare l'utilizzo della macchina virt
 
 Notare le dimensioni della macchina virtuale corrente. Dopo aver verificato che la macchina virtuale deve essere ridimensionata, chiudere i dettagli della macchina virtuale per visualizzare l'elenco delle macchine virtuali.
 
-Nell'elenco dei candidati da arrestare o ridimensionare selezionare * * Resize *&lt;FromVirtualMachineSKU&gt;* to *&lt;ToVirtualMachineSKU&gt;* * *.
+Nell'elenco dei candidati da arrestare o ridimensionare, selezionare **Ridimensiona *&lt;FromVirtualMachineSKU&gt;* a *&lt;ToVirtualMachineSKU&gt;***.
 ![Consiglio di esempio con la possibilità di ridimensionare la macchina virtuale](./media/tutorial-acm-opt-recommendations/resize-vm.png)
 
-Successivamente, viene visualizzato un elenco di opzioni di ridimensionamento disponibili. Scegliere quella in grado di offrire prestazioni ottimali e convenienza economica per il proprio scenario. Nell'esempio seguente, l'opzione scelta viene ridimensionata da **Standard_D8s_v3** a **Standard_D2s_v3**.
+Successivamente, viene visualizzato un elenco di opzioni di ridimensionamento disponibili. Scegliere quella in grado di offrire prestazioni ottimali e convenienza economica per il proprio scenario. Nell'esempio seguente l'opzione scelta consente di ridimensionare da **Standard_D8s_v3** a **Standard_D2s_v3**.
 
 ![Esempio di elenco di dimensioni di VM disponibili in cui è possibile scegliere una dimensione](./media/tutorial-acm-opt-recommendations/choose-size.png)
 
-Dopo aver scelto una dimensione adatta, fare clic su **Ridimensiona** per avviare l'azione di ridimensionamento.
+Dopo aver scelto dimensioni appropriate, fare clic su **Ridimensiona** per avviare l'azione di ridimensionamento.
 
 Il ridimensionamento richiede il riavvio di una macchina virtuale in esecuzione. Se la macchina virtuale è in ambiente di produzione, è consigliabile eseguire l'operazione di ridimensionamento dopo l'orario di ufficio. La pianificazione del riavvio può ridurre le interruzioni causate da mancata disponibilità temporanea.
 

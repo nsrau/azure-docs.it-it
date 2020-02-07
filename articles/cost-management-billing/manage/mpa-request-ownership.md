@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 10/13/2019
 ms.author: banders
 ms.openlocfilehash: 65b56511a3b454b192b5adb2a98fb3bb3510bb7e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75988201"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Ottenere la proprietà della fatturazione delle sottoscrizioni di Azure dall'account del contratto Microsoft Partner
@@ -29,7 +29,7 @@ Per richiedere la proprietà della fatturazione, è necessario disporre del ruol
 
 Le informazioni in questo articolo si applicano agli account di fatturazione per i contratti Microsoft Partner. Questi account vengono creati per i provider CSP e consentire loro di gestire la fatturazione per conto dei clienti nella nuova esperienza Commerce. La nuova esperienza è disponibile per i partner che hanno almeno un cliente che ha accettato un Contratto del cliente Microsoft con un piano di Azure. [Verificare di avere accesso a un Contratto Microsoft Partner](#check-access-to-a-microsoft-partner-agreement).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 1. Stabilire una [relazione come rivenditore](https://docs.microsoft.com/partner-center/request-a-relationship-with-a-customer) con il cliente. Controllare la [panoramica delle autorizzazioni a livello di area per CSP](https://docs.microsoft.com/partner-center/regional-authorization-overview) per assicurarsi che il tenant del cliente e il tenant del partner risiedano nelle stesse aree autorizzate.  
 
@@ -95,14 +95,14 @@ Le informazioni in questo articolo si applicano agli account di fatturazione per
    |Stato|Definizione|
    |---------|---------|
    |In corso|L'utente non ha accettato la richiesta di trasferimento|
-   |Elaborazione|L'utente ha approvato la richiesta di trasferimento. La fatturazione per le sottoscrizioni che l'utente ha selezionato verrà trasferita al proprio account|
+   |Elaborazione in corso|L'utente ha approvato la richiesta di trasferimento. La fatturazione per le sottoscrizioni che l'utente ha selezionato verrà trasferita al proprio account|
    |Completi| La fatturazione per le sottoscrizioni che l'utente ha selezionato verrà trasferita al proprio account|
    |Completato con errori|La richiesta è stata completata ma non è stato possibile trasferire la fatturazione per alcune sottoscrizioni selezionate dall'utente|
    |Scaduto|L'utente non ha accettato la richiesta in tempo e la richiesta è scaduta|
-   |Annullato|Un utente con accesso alla richiesta di trasferimento ha annullato la richiesta|
+   |Cancellati|Un utente con accesso alla richiesta di trasferimento ha annullato la richiesta|
    |Rifiutata|L'utente ha rifiutato la richiesta di trasferimento|
 
-6. Selezionare una richiesta di trasferimento per visualizzare i dettagli. La pagina Dettagli trasferimento Visualizza le informazioni seguenti: ![screenshot che mostra l'elenco delle sottoscrizioni trasferite](./media/mpa-request-ownership/mpa-transfer-completed.png)
+6. Selezionare una richiesta di trasferimento per visualizzare i dettagli. Nella pagina Dettagli del trasferimento vengono visualizzate le informazioni seguenti: ![Screenshot che mostra l'elenco delle sottoscrizioni trasferite](./media/mpa-request-ownership/mpa-transfer-completed.png)
 
    |Colonna  |Definizione|
    |---------|---------|
@@ -148,7 +148,7 @@ Le prenotazioni di Azure non vengono spostate automaticamente con le sottoscrizi
 
 ### <a name="access-to-azure-services"></a>Accesso ai servizi di Azure
 
-L'accesso per gli utenti, i gruppi o le entità servizio esistenti assegnati usando il [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md) non è influenzato durante la transizione. Il partner non otterrà alcun nuovo accesso RBAC alle sottoscrizioni.  
+La transizione non influisce sull'accesso per utenti, gruppi o entità servizio esistenti assegnati con il [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md). Il partner non otterrà alcun nuovo accesso con controllo degli accessi in base al ruolo alle sottoscrizioni.  
 
 I partner devono collaborare con il cliente per ottenere l'accesso alle sottoscrizioni.  I partner devono ottenere l'accesso [Amministra per conto terzi](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) o [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/cloud-solution-provider) per aprire ticket di supporto.
 
@@ -181,7 +181,7 @@ Se queste due directory non corrispondono, non è possibile trasferire le sottos
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Verificare l'accesso a un Contratto Microsoft Partner
 [!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]
 
-## <a name="need-help-contact-support"></a>Opzioni per Contattare il supporto tecnico
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 
 Se si necessita assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 

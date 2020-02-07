@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 222b0358f027e0a6687ca0710e3cf5b80f292c4e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75993466"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Esaminare i dati di fatturazione dell'Iscrizione Enterprise tramite le API REST
@@ -41,10 +41,10 @@ Il parametro `{billingAccountId}` è obbligatorio e deve contenere l'ID per l'ac
 
 Gli argomenti seguenti sono obbligatori: 
 
-|Intestazione della richiesta|Description|  
+|Intestazione della richiesta|Descrizione|  
 |--------------------|-----------------|  
 |*Content-Type:*|Obbligatorio. Impostare su `application/json`.|  
-|*Authorization:*|Obbligatorio. Impostare su una [chiave API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)`Bearer` valida. |  
+|*Authorization:*|Obbligatorio. Impostare un `Bearer` [valore per la chiave API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) che sia valido. |  
 
 In questo esempio viene illustrata una chiamata sincrona che restituisce i dettagli del ciclo di fatturazione corrente. Per motivi di prestazioni, le chiamate sincrone restituiscono i dati relativi all'ultimo mese.  È anche possibile chiamare l'[API in modo asincrono](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) per restituire i dati relativi a 36 mesi.
 
@@ -94,10 +94,10 @@ Il parametro `{departmentId}` è obbligatorio e deve contenere l'ID del reparto 
 
 Gli argomenti seguenti sono obbligatori: 
 
-|Intestazione della richiesta|Description|  
+|Intestazione della richiesta|Descrizione|  
 |--------------------|-----------------|  
 |*Content-Type:*|Obbligatorio. Impostare su `application/json`.|  
-|*Authorization:*|Obbligatorio. Impostare su una [chiave API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)`Bearer` valida. |  
+|*Authorization:*|Obbligatorio. Impostare un `Bearer` [valore per la chiave API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) che sia valido. |  
 
 In questo esempio viene illustrata una chiamata sincrona che restituisce i dettagli del ciclo di fatturazione corrente. Per motivi di prestazioni, le chiamate sincrone restituiscono i dati relativi all'ultimo mese.  È anche possibile chiamare l'[API in modo asincrono](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) per restituire i dati relativi a 36 mesi.
 
@@ -150,10 +150,10 @@ Il parametro `{enrollmentAccountId}` è obbligatorio e deve contenere l'ID dell'
 
 Gli argomenti seguenti sono obbligatori: 
 
-|Intestazione della richiesta|Description|  
+|Intestazione della richiesta|Descrizione|  
 |--------------------|-----------------|  
 |*Content-Type:*|Obbligatorio. Impostare su `application/json`.|  
-|*Authorization:*|Obbligatorio. Impostare su una [chiave API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)`Bearer` valida. |  
+|*Authorization:*|Obbligatorio. Impostare un `Bearer` [valore per la chiave API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) che sia valido. |  
 
 In questo esempio viene illustrata una chiamata sincrona che restituisce i dettagli del ciclo di fatturazione corrente. Per motivi di prestazioni, le chiamate sincrone restituiscono i dati relativi all'ultimo mese.  È anche possibile chiamare l'[API in modo asincrono](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) per restituire i dati relativi a 36 mesi.
 

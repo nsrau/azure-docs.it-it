@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: banders
 ms.openlocfilehash: 0f413d38565202d379c81570b5cb169c2ed8effe
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75987824"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Visualizzare e scaricare la fattura di Microsoft Azure
@@ -87,7 +87,7 @@ Per rifiutare esplicitamente di ricevere la fattura tramite posta elettronica, s
 <!-- Does following section apply to MPA too? -->
 ## <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Ricevere le fatture del Contratto del cliente Microsoft tramite posta elettronica
 
-Se si dispone di un account di fatturazione per il contratto cliente Microsoft, è possibile acconsentire esplicitamente a ricevere la fattura in un messaggio di posta elettronica. Tutti gli utenti con un ruolo di proprietario, collaboratore, lettore o responsabile delle fatture in un profilo di fatturazione riceveranno la fattura tramite posta elettronica. 
+Se si ha un account di fatturazione per il Contratto del cliente Microsoft, è possibile acconsentire esplicitamente a ricevere la fattura tramite posta elettronica. Tutti gli utenti con ruolo proprietario, collaboratore, lettore o responsabile delle fatture in un profilo di fatturazione riceveranno la fattura tramite posta elettronica. 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -95,25 +95,25 @@ Se si dispone di un account di fatturazione per il contratto cliente Microsoft, 
 
    ![Screenshot che mostra la ricerca di Sottoscrizioni nel portale](./media/download-azure-invoice/search-cmb.png)
 
-1. Selezionare **profili di fatturazione** dalla parte sinistra. Dall'elenco profili di fatturazione selezionare un profilo di fatturazione per ottenere le fatture nel messaggio di posta elettronica.
+1. Selezionare **Profili di fatturazione** sul lato sinistro. Nell'elenco dei profili di fatturazione selezionare un profilo di fatturazione per ricevere le fatture corrispondenti tramite posta elettronica.
 
-   [![screenshot che mostra l'elenco dei profili di fatturazione](./media/download-azure-invoice/mca-select-profile.png)](./media/download-azure-invoice/mca-select-profile-zoomed-in.png#lightbox)
+   [![Screenshot che visualizza l'elenco dei profili di fatturazione](./media/download-azure-invoice/mca-select-profile.png)](./media/download-azure-invoice/mca-select-profile-zoomed-in.png#lightbox)
 
-1. Selezionare **Proprietà** nella parte sinistra, quindi selezionare **Aggiorna preferenza fattura posta elettronica**.
+1. Selezionare **Proprietà** sul lato sinistro, quindi selezionare **Aggiorna le preferenze di fatturazione tramite posta elettronica**.
 
-   [![screenshot che mostra l'elenco dei profili di fatturazione](./media/download-azure-invoice/mca-select-update-email-preferences.png)](./media/download-azure-invoice/mca-select-update-email-preferences.png#lightbox)
+   [![Screenshot che visualizza l'elenco dei profili di fatturazione](./media/download-azure-invoice/mca-select-update-email-preferences.png)](./media/download-azure-invoice/mca-select-update-email-preferences.png#lightbox)
 
-1. Selezionare **acconsenti esplicitamente** , quindi fare clic su **Aggiorna**.
+1. Selezionare **Acconsenti esplicitamente** e quindi **Aggiorna**.
 
-   [![screenshot che mostra l'elenco dei profili di fatturazione](./media/download-azure-invoice/mca-select-email-opt-in.png)](./media/download-azure-invoice/mca-select-email-opt-in.png#lightbox)
+   [![Screenshot che visualizza l'elenco dei profili di fatturazione](./media/download-azure-invoice/mca-select-email-opt-in.png)](./media/download-azure-invoice/mca-select-email-opt-in.png#lightbox)
 
 ## <a name="opt-out-of-getting-your-microsoft-customer-agreement-invoices-in-email"></a>Rifiutare esplicitamente di ricevere le fatture del Contratto del cliente Microsoft tramite posta elettronica
 
-Per rifiutare esplicitamente di ottenere la fattura tramite posta elettronica, seguire i passaggi precedenti e fare clic su **rifiuta esplicitamente**. Tutti gli utenti con ruolo di proprietario, collaboratore, lettore o Invoice Manager non ricevono la fattura tramite posta elettronica. 
+Per rifiutare esplicitamente di ricevere la fattura tramite posta elettronica, seguire i passaggi precedenti e fare clic su **Rifiuta esplicitamente**. Tutti gli utenti con ruolo proprietario, collaboratore, lettore o responsabile delle fatture in un profilo di fatturazione vengono esclusi dalla ricezione della fattura tramite posta elettronica. 
 
-## <a name="give-others-access-to-your-microsoft-customer-agreement-invoices"></a>Concedere ad altri utenti l'accesso alle fatture del contratto clienti Microsoft
+## <a name="give-others-access-to-your-microsoft-customer-agreement-invoices"></a>Consentire ad altri utenti l'accesso alle fatture del Contratto del cliente Microsoft
 
-È possibile concedere ad altri utenti l'accesso per visualizzare, scaricare e pagare le fatture assegnando loro un ruolo di gestione delle fatture per un profilo di fatturazione. Se si è scelto di ottenere la fattura tramite posta elettronica, questi utenti ricevono anche le fatture nel messaggio di posta elettronica. 
+È possibile concedere ad altri utenti l'accesso per la visualizzazione, il download e il pagamento delle fatture, assegnando a tali utenti il ruolo di gestione fatture per un profilo di fatturazione. Se si è acconsentito esplicitamente ad ottenere la fattura tramite posta elettronica, anche questi utenti ricevono le fatture tramite posta elettronica. 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -121,22 +121,22 @@ Per rifiutare esplicitamente di ottenere la fattura tramite posta elettronica, s
 
    ![Screenshot che mostra la ricerca di Sottoscrizioni nel portale](./media/download-azure-invoice/search-cmb.png)
 
-1. Selezionare **profili di fatturazione** dalla parte sinistra. Dall'elenco profili di fatturazione selezionare un profilo di fatturazione per il quale si desidera assegnare un ruolo di gestione fattura.
+1. Selezionare **Profili di fatturazione** sul lato sinistro. Nell'elenco dei profili di fatturazione selezionare il profilo di fatturazione al quale si vuole assegnare un ruolo di gestione fatture.
 
-   [![screenshot che mostra l'elenco dei profili di fatturazione](./media/download-azure-invoice/mca-select-profile.png)](./media/download-azure-invoice/mca-select-profile-zoomed-in.png#lightbox)
+   [![Screenshot che visualizza l'elenco dei profili di fatturazione](./media/download-azure-invoice/mca-select-profile.png)](./media/download-azure-invoice/mca-select-profile-zoomed-in.png#lightbox)
 
-1. Selezionare **controllo di accesso (IAM)** dal lato sinistro, quindi selezionare **Aggiungi** nella parte superiore della pagina.
+1. Selezionare **Controllo di accesso (IAM)** sul lato sinistro e quindi selezionare **Aggiungi** nella parte superiore della pagina.
 
-   [![screenshot che mostra la pagina controllo di accesso](./media/download-azure-invoice/mca-select-access-control.png)](./media/download-azure-invoice/mca-select-access-control-zoomed-in.png#lightbox)
+   [![Screenshot che visualizza la pagina Controllo di accesso](./media/download-azure-invoice/mca-select-access-control.png)](./media/download-azure-invoice/mca-select-access-control-zoomed-in.png#lightbox)
 
-1. Nell'elenco a discesa ruolo selezionare **Gestione fattura**. Immettere l'indirizzo di posta elettronica dell'utente a cui si vuole concedere l'accesso. Selezionare **Salva** per assegnare il ruolo.
+1. Nell'elenco a discesa Ruolo selezionare **Gestione fatture**. Immettere l'indirizzo di posta elettronica dell'utente a cui si vuole concedere l'accesso. Selezionare **Salva** per assegnare il ruolo.
 
-   [![screenshot che Mostra come aggiungere un utente come responsabile delle fatture](./media/download-azure-invoice/mca-added-invoice-manager.png)](./media/download-azure-invoice/mca-added-invoice-manager.png#lightbox)
+   [![Screenshot che visualizza l'aggiunta di un utente con il ruolo Gestione fatture](./media/download-azure-invoice/mca-added-invoice-manager.png)](./media/download-azure-invoice/mca-added-invoice-manager.png#lightbox)
 
 ## <a name="check-your-billing-account-type"></a>Controllare il tipo di account di fatturazione
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 

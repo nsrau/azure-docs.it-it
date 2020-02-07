@@ -7,16 +7,16 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: banders
-ms.openlocfilehash: 2e8c477aea7a11eefa606ab9cd084ca3ed9f400f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: 10cf5b5a0ec4edda3d3c868cda34352e827604b0
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75995650"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76841881"
 ---
 # <a name="what-are-azure-reservations"></a>Informazioni sulle prenotazioni di Azure
 
-Le prenotazioni di Azure consentono di risparmiare aderendo a un piano di due o tre anni per macchine virtuali, BLOB del servizio di archiviazione di Azure o Azure Data Lake Storage Gen2, capacità di calcolo di database SQL, velocità effettiva di Azure Cosmos DB o altre risorse di Azure. L'impegno consente di ottenere uno sconto sulle risorse che si usano. Le prenotazioni possono ridurre in modo significativo i costi delle risorse fino al 72% sui prezzi con pagamento a consumo. Le prenotazioni offrono uno sconto a livello di fatturazione e non hanno alcuna ripercussione sullo stato di runtime delle risorse.
+Le prenotazioni di Azure consentono di risparmiare aderendo a un piano di due o tre anni per macchine virtuali, BLOB del servizio di archiviazione di Azure o Azure Data Lake Storage Gen2, capacità di calcolo di database SQL, archiviazione su disco di Azure, velocità effettiva di Azure Cosmos DB o altre risorse di Azure. L'impegno consente di ottenere uno sconto sulle risorse che si usano. Le prenotazioni possono ridurre in modo significativo i costi delle risorse fino al 72% sui prezzi con pagamento a consumo. Le prenotazioni offrono uno sconto a livello di fatturazione e non hanno alcuna ripercussione sullo stato di runtime delle risorse.
 
 Il pagamento per le prenotazioni può essere anticipato o mensile. Il costo totale delle prenotazioni con pagamento anticipato e mensile è lo stesso e non vengono addebitate spese aggiuntive quando si sceglie di pagare mensilmente. Il pagamento mensile è disponibile per le prenotazioni di Azure, non per prodotti di terze parti.
 
@@ -32,6 +32,7 @@ Piani di servizio:
 
 - **Istanza di macchina virtuale riservata**: una prenotazione copre solo i costi di calcolo della macchina virtuale. e non i costi aggiuntivi relativi a software, rete o archiviazione.
 - **Capacità riservata di Archiviazione di Azure**: una prenotazione copre la capacità di archiviazione per gli account di archiviazione standard per l'archiviazione BLOB o Azure Data Lake Gen2. La prenotazione non copre la velocità della larghezza di banda o delle transazioni.
+- **Prenotazioni di archiviazione su disco di Azure**: una prenotazione copre solo unità SSD Premium di dimensioni P30 o superiori. Non sono coperti altri tipi di disco o dimensioni inferiori a P30.
 - **Capacità riservata di Azure Cosmos DB**: una prenotazione copre le unità di elaborazione di cui è stato effettuato il provisioning per le risorse. Non copre i costi di archiviazione e rete.
 - **vCore riservato del database SQL**: in una prenotazione sono inclusi solo i costi di calcolo. I costi della licenza vengono fatturati separatamente.
 - **SQL data warehouse**: una prenotazione copre la capacità di DWU a elevato utilizzo di calcolo. Non copre invece i costi delle risorse di archiviazione o di rete associate all'utilizzo di SQL Data Warehouse.
@@ -40,7 +41,6 @@ Piani di servizio:
 - Database di Azure per PostgreSQL
 - Database di Azure per MariaDB
 - Esplora dati di Azure
-- Managed Disks - Premium SSD
 
 
 Per le macchine virtuali Windows e il database SQL, i costi delle licenze possono essere coperti con le offerte di [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).
@@ -105,9 +105,9 @@ L'ambito di una prenotazione non viene aggiornato automaticamente se il gruppo d
 
 Gli sconti Prenotazione si applicano alle sottoscrizioni idonee e ai tipi di offerte seguenti.
 
-- Enterprise Agreement (numeri dell'offerta: MS-AZR-0017P o MS-AZR-0148P)
+- Contratto Enterprise (numeri offerte: MS-AZR-0017P o MS-AZR-0148P)
 - Sottoscrizioni Contratto del cliente Microsoft.
-- Singoli piani con tariffe con pagamento in base al consumo (numeri dell'offerta: MS-AZR-0003P o MS-AZR-0023P)
+- Piani individuali con tariffe con pagamento in base al consumo (numeri offerte: MS-AZR-0003P o MS-AZR-0023P)
 - Sottoscrizioni provider di servizi cloud
 
 Le risorse eseguite in una sottoscrizione con altri tipi di offerta non prevedono questo tipo di sconto.
@@ -140,16 +140,16 @@ Quando si acquista una prenotazione, è possibile applicare lo sconto ad altre i
 
 Piani di servizio:
 
-- Istanze di VM riservate: quando si acquista la prenotazione e si seleziona **ottimizzato per la flessibilità delle dimensioni dell'istanza**, il code coverage degli sconti dipende dalle dimensioni della VM selezionate. La prenotazione può essere applicata alle dimensioni delle macchine virtuali (VM) nello stesso gruppo di serie di dimensioni. Per altre informazioni vedere [Flessibilità di dimensioni delle macchine virtuali con le istanze di macchina virtuale riservate](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
-- Capacità riservata di archiviazione di Azure: è possibile acquistare capacità riservata per gli account di archiviazione di Azure standard in unità di 100 TiB o 1 PiB al mese. La capacità riservata di Archiviazione di Azure è disponibile in tutte le aree per qualsiasi livello di accesso (ad accesso frequente, sporadico o Archivio) e per qualsiasi opzione di replica (archiviazione con ridondanza locale, con ridondanza geografica o con ridondanza della zona).
+- Istanze di macchina virtuale riservate: quando si acquista la prenotazione, se si seleziona **Ottimizzato per: Flessibilità delle dimensioni istanza**, la copertura dello sconto dipende dalle dimensioni delle VM selezionate. La prenotazione può essere applicata alle dimensioni delle macchine virtuali (VM) nello stesso gruppo di serie di dimensioni. Per altre informazioni vedere [Flessibilità di dimensioni delle macchine virtuali con le istanze di macchina virtuale riservate](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+- Capacità riservata di Archiviazione di Azure: è possibile acquistare capacità riservata per gli account di Archiviazione di Azure standard in unità di 100 TiB o 1 PiB al mese. La capacità riservata di Archiviazione di Azure è disponibile in tutte le aree per qualsiasi livello di accesso (ad accesso frequente, sporadico o Archivio) e per qualsiasi opzione di replica (archiviazione con ridondanza locale, con ridondanza geografica o con ridondanza della zona).
 - Capacità riservata del database SQL: la copertura degli sconti dipende dal livello di prestazioni selezionato. Per altre informazioni, vedere [Informazioni su come viene applicato ai database SQL lo sconto sulla prenotazione](understand-reservation-charges.md).
-- Capacità riservata di Azure Cosmos DB: la copertura degli sconti varia a seconda della velocità effettiva con provisioning. Per altre informazioni, vedere [Informazioni su come viene applicato lo sconto per la prenotazione ad Azure Cosmos DB](understand-cosmosdb-reservation-charges.md).
+- Capacità riservata di Azure Cosmos DB: la copertura degli sconti dipende dalla velocità effettiva di cui viene effettuato il provisioning. Per altre informazioni, vedere [Informazioni su come viene applicato lo sconto per la prenotazione ad Azure Cosmos DB](understand-cosmosdb-reservation-charges.md).
 
 ## <a name="reservation-notifications"></a>Notifiche per le prenotazioni
 
 A seconda del metodo di pagamento scelto per la sottoscrizione di Azure, gli utenti dell'organizzazione indicati di seguito riceveranno notifiche sulle prenotazioni tramite posta elettronica. Le notifiche vengono inviate per vari eventi, tra cui:
 
-- Acquisto
+- Purchase
 - Scadenza imminente della prenotazione
 - Expiry
 - Rinnovo
@@ -167,7 +167,7 @@ Per i clienti con sottoscrizioni singole:
 - Il proprietario dell'account riceve tutte le altre notifiche.
 
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 

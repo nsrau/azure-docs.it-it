@@ -1,21 +1,20 @@
 ---
 title: Domande frequenti su Cloudyn in Azure | Microsoft Docs
 description: Questo articolo risponde ad alcune domande comuni su Cloudyn.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/21/2019
+ms.date: 01/24/2020
 ms.topic: troubleshooting
 ms.service: cost-management-billing
-manager: benshy
+ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 70f5edfb186cb7a9c05fe8ee59533193cee4fcd4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: 5c770d83d59edf0a56184f8eea0bda6b0603893c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75990762"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76770070"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Domande frequenti su Cloudyn
 
@@ -74,9 +73,9 @@ Dopo aver completato i passaggi precedenti, sarà possibile visualizzare le racc
 
 Di seguito sono elencati gli scenari più comuni in cui gli account utente diventano *initiallySuspended*.
 
-> Admin1 potrebbe essere un provider di soluzioni Microsoft Cloud o un utente Enterprise Agreement. L'organizzazione è pronta per iniziare a usare Cloudyn.  Esegue la registrazione tramite il portale di Azure e accede al portale di Cloudyn. La persona che registra il servizio Cloudyn e accede al portale di Cloudyn, admin1 diventa l' *amministratore primario*. Admin1 non crea account utente. Tuttavia, tramite il portale di Cloudyn, vengono creati account Azure e viene configurata una gerarchia di entità. Admin1 informa Amministratore2, un amministratore tenant, che devono registrarsi con Cloudyn e accedere al portale di Cloudyn.
+> Admin1 potrebbe essere un utente di Microsoft Cloud Solution Provider o di Enterprise Agreement. L'organizzazione è pronta per iniziare a usare Cloudyn.  Esegue la registrazione tramite il portale di Azure e accede al portale di Cloudyn. Essendo la persona che registra il servizio Cloudyn e accede al portale di Cloudyn, Admin1 diventa l'*amministratore primario*. Admin1 non crea account utente. Tuttavia, usando il portale di Cloudyn, crea account Azure e configura una gerarchia di entità. Admin1 informa Admin2, un amministratore del tenant, che deve eseguire la registrazione con Cloudyn e accedere al portale di Cloudyn.
 >
-> Admin2 esegue la registrazione tramite il portale di Azure, Tuttavia, quando tentano di accedere al portale di Cloudyn, viene segnalato un errore che indica che l'account è **sospeso**. All'amministratore principale, Admin1, viene notificata la sospensione dell'account. Admin1 deve attivare l'account di Admin2 e concedere l'*accesso dell'entità amministratore* per le entità appropriate, consente l'accesso per la gestione utenti e attiva l'account utente.
+> Admin2 esegue la registrazione tramite il portale di Azure, ma, quando prova ad accedere al portale di Cloudyn, viene visualizzato un errore indicante che il suo account è **sospeso**. All'amministratore principale, Admin1, viene notificata la sospensione dell'account. Admin1 deve attivare l'account di Admin2 e concedere l'*accesso dell'entità amministratore* per le entità appropriate, consente l'accesso per la gestione utenti e attiva l'account utente.
 
 
 Se si riceve un avviso che richiede di consentire l'accesso a un utente, è necessario attivarne l'account.
@@ -90,7 +89,7 @@ Per attivare l'account utente:
 
 Gli account utente Cloudyn si connettono tramite Single Sign-On da Azure. Se un utente digita in modo non corretto la propria password, potrebbe essere bloccato da Cloudyn pur potendo ancora accedere ad Azure.
 
-Se si modifica l'indirizzo di posta elettronica in Cloudyn dall'indirizzo predefinito in Azure, l'account può essere bloccato. Potrebbe visualizzare "status initiallySuspended". Se l'account utente viene bloccato, contattare un altro amministratore per reimpostarlo.
+La modifica dell'indirizzo di posta elettronica in Cloudyn rispetto all'indirizzo predefinito in Azure può causare il blocco dell'account e la visualizzazione dell'errore "status initiallySuspended" (stato initiallySuspended). Se l'account utente viene bloccato, contattare un altro amministratore per reimpostarlo.
 
 È consigliabile creare almeno due account amministratore di Cloudyn nel caso in cui uno venga bloccato.
 
@@ -127,7 +126,7 @@ Cloudyn rileva automaticamente la valuta della sottoscrizione Enterprise Agreeme
 Cloudyn offre le tempistiche di aggiornamento dei dati riportate di seguito.
 
 - **Iniziale**: la visualizzazione dei dati sui costi in Cloudyn dopo la configurazione può richiedere fino a 24 ore. Possono inoltre trascorrere fino a 10 giorni prima che Cloudyn raccolga dati sufficienti per visualizzare consigli sul ridimensionamento.
-- **Giornaliero**: dal giorno 10 fino alla fine di ogni mese, Cloudyn visualizzerà i dati aggiornati del giorno precedente dopo le ore UTC+3 circa del giorno successivo.
+- **Giornaliera**: dal giorno 10 fino alla fine di ogni mese, Cloudyn visualizzerà i dati aggiornati del giorno precedente dopo le ore UTC+3 circa del giorno successivo.
 - **Mensile**: dal giorno 1 al 10 di ogni mese, Cloudyn potrebbe visualizzare solo i dati fino alla fine del mese precedente.
 
 Cloudyn elabora i dati per il giorno precedente quando sono tutti disponibili. I dati del giorno precedente sono in genere disponibili in Cloudyn entro le ore UTC+3 circa di ogni giorno. L'elaborazione di alcuni dati, come i tag, può richiedere altre 24 ore.

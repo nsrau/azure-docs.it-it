@@ -15,10 +15,10 @@ ms.workload: billing
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: e183a622910c7690b566537311661789253efbfb
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992725"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gestire i costi con i budget di Azure
@@ -135,7 +135,7 @@ Ogni app per la logica deve essere avviata con un trigger, che viene attivato qu
 3.  Selezionare **Nuovo passaggio** > **Aggiungi un'azione**.
 
     ![Azure - Nuovo passaggio - Aggiungere un'azione](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-05.png)
-4.  Cercare "parse JSON" nella casella di ricerca della **finestra di progettazione di app** per la logica per trovare e selezionare l' [azione](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts) **operazioni dati-analizza JSON** .
+4.  Nella casella di ricerca di **Progettazione app per la logica** cercare "analizza JSON" per trovare e selezionare l'[azione](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts)**Operazioni dati - Analizza JSON**.
 
     ![Azure - App per la logica - Aggiungere l'azione Analizza JSON](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png)
 5.  Inserire "Payload" come nome del **Contenuto** per il payload Analizza JSON o usare il tag "Body" dal contenuto dinamico.
@@ -276,8 +276,8 @@ Quando si crea il gruppo di azioni, è necessario definire un puntatore all'app 
 4.  Aggiungere e verificare quanto segue:
     - Nome gruppo di azione
     - Nome breve
-    - Sottoscrizione
-    - Gruppo di risorse
+    - Subscription
+    - Resource group
 
     ![Azure - App per la logica - Aggiungere un gruppo di azioni](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-26.png)
 
@@ -373,7 +373,7 @@ A questo punto sono state completate tutte le operazioni necessarie per chiamare
     - **filters**: i filtri consentono di limitare il budget a un set specifico di risorse all'interno dell'ambito selezionato. Un filtro può ad esempio essere costituito da una raccolta di gruppi di risorse per un budget definito a livello di sottoscrizione.
     - **notifications**: determina i dettagli e le soglie di notifica. È possibile impostare più soglie e specificare un indirizzo di posta elettronica o un gruppo di azioni per ricevere una notifica.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questa esercitazione si è appreso come:
 - Creare un runbook di Automazione di Azure per arrestare le macchine virtuali.

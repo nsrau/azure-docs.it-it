@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/21/2020
+ms.date: 01/24/2020
 ms.author: banders
-ms.openlocfilehash: ea545919436201524a1c77b27e9b187f3b1c3b64
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
-ms.translationtype: MT
+ms.openlocfilehash: 5f0c0c50ffd639109fdbb90c76e4ec036a8bc975
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314046"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76773888"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Scambi e rimborsi in modalità self-service per le prenotazioni di Azure
 
@@ -29,14 +29,14 @@ La funzionalità di scambio e annullamento self-service non è disponibile per i
 
 È possibile scambiare la prenotazione con tre passaggi rapidi nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
-1. Selezionare le prenotazioni di cui si vuole chiedere il rimborso e fare clic su **Scambia**.  
+1. Selezionare le prenotazioni di cui si vuole chiedere il rimborso e selezionare **Scambia**.  
     ![Immagine di esempio che mostra le prenotazioni da restituire](./media/exchange-and-refund-azure-reservations/exchange-refund-return.png)
 2. Selezionare il prodotto della macchina virtuale che si desidera acquistare e digitare una quantità. Assicurarsi che il nuovo totale di acquisto sia maggiore del totale restituito. [Determinare le dimensioni corrette prima di acquistare](../../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
     ![Immagine di esempio che mostra il prodotto VM da acquistare con uno scambio](./media/exchange-and-refund-azure-reservations/exchange-refund-select-purchase.png)
 3. Rivedere e completare la transazione.  
     ![Immagine di esempio che mostra il prodotto VM da acquistare con uno scambio, completando la restituzione](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png)
 
-Per rimborsare una prenotazione, aprire **Dettagli prenotazione e** fare clic su **Rimborsa**.
+Per rimborsare una prenotazione, aprire **Dettagli prenotazione** e selezionare **Rimborsa**.
 
 ## <a name="how-transactions-are-processed"></a>Modalità di elaborazione delle transazioni
 
@@ -66,7 +66,7 @@ Azure prevede i seguenti criteri per gli annullamenti, gli scambi e i rimborsi.
 - Solo i proprietari delle prenotazioni possono elaborare uno scambio. [Informazioni su come aggiungere o modificare gli utenti che possono gestire una prenotazione](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 - Uno scambio viene elaborato come rimborso e nuovo acquisto: vengono create transazioni diverse per l'annullamento e il nuovo acquisto. L'importo ripartito della prenotazione viene rimborsato per le prenotazioni scambiate. Viene addebitato il costo completo del nuovo acquisto. L'importo ripartito della prenotazione è il valore residuo ripartito giornaliero della prenotazione restituita.
 - È possibile scambiare o rimborsare prenotazioni anche se il contratto Enterprise usato per acquistare la prenotazione è scaduto ed è stato rinnovato come nuovo contratto.
-- È possibile modificare qualsiasi proprietà di prenotazione, ad esempio dimensioni, area, quantità e termine con uno scambio.
+- È possibile modificare qualsiasi proprietà di prenotazione, ad esempio famiglia, serie, versioni, SKU, area, quantità e termine con uno scambio.
 - Il nuovo totale di acquisto deve essere uguale o maggiore del valore restituito.
 - La nuova prenotazione acquistata come parte dello scambio ha un nuovo termine a partire dal momento del cambio.
 - Non sono previste penali né limiti annuali per gli scambi.
@@ -81,9 +81,9 @@ Azure prevede i seguenti criteri per gli annullamenti, gli scambi e i rimborsi.
 
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Archiviazione non Premium di Exchange per archiviazione Premium
 
-È possibile scambiare una prenotazione acquistata per dimensioni macchina virtuale che non supportano l'archiviazione Premium in dimensioni macchina virtuale che invece la supportano. Ad esempio, è possibile scambiare _F1_ con _F1s_. Per eseguire lo scambio, passare a Dettagli prenotazione e fare clic su **Scambia**. Lo scambio non reimposta il termine dell'istanza riservata né crea una nuova transazione.
+È possibile scambiare una prenotazione acquistata per dimensioni macchina virtuale che non supportano l'archiviazione Premium in dimensioni macchina virtuale che invece la supportano. Ad esempio, è possibile scambiare _F1_ con _F1s_. Per eseguire lo scambio, passare a Dettagli prenotazione e selezionare **Scambia**. Lo scambio non reimposta il termine dell'istanza riservata né crea una nuova transazione.
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 4dc7771862bc922702c5cc321fb3c566212d799a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75990567"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Esaminare la fatturazione della sottoscrizione con le API REST
@@ -45,10 +45,10 @@ Il parametri `${startDate}` e `${endDate}` sono necessari per questo esempio, ma
 
 Gli argomenti seguenti sono obbligatori:
 
-|Intestazione della richiesta|Description|
+|Intestazione della richiesta|Descrizione|
 |--------------------|-----------------|
 |*Content-Type:*|Obbligatorio. Impostare su `application/json`.|
-|*Authorization:*|Obbligatorio. Impostare su un token di [accesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)`Bearer` valido. |
+|*Authorization:*|Obbligatorio. Impostare un `Bearer` [token di accesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) valido. |
 
 ## <a name="response"></a>Risposta
 
@@ -81,7 +81,7 @@ Una risposta corretta prevede la restituzione del codice di stato 200 (OK), con 
 
 Ogni elemento in **value** rappresenta un dettaglio relativo all'uso di un servizio:
 
-|Proprietà Response|Description|
+|Proprietà Response|Descrizione|
 |----------------|----------|
 |**subscriptionGuid** | ID univoco globale per la sottoscrizione. |
 |**startDate** | Data di avvio dell'uso. |

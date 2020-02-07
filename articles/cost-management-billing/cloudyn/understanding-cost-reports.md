@@ -1,21 +1,20 @@
 ---
 title: Informazioni sui report di gestione dei costi Cloudyn in Azure | Microsoft Docs
 description: Questo articolo contiene informazioni utili per comprendere le funzioni e la struttura di base dei report di gestione dei costi Cloudyn.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: benshy
+ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: fff08bc30e0d1bae77a2aee641f6e211cea40beb
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: 89bcbf75396a1eda9de4a715739adb3a3696e137
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989111"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76773980"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Informazioni sui report di gestione dei costi Cloudyn
 
@@ -38,8 +37,8 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
 
       - Cost Analysis (Analisi dei costi)
       - Allocation (Allocazione)
-      - Gestione degli asset
-      - Ottimizzazione
+      - Asset Management (Gestione degli asset)
+      - Optimization
 
    Digitare un nome di filtro e quindi fare clic su **Save** (Salva).
 
@@ -74,8 +73,8 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
    Ecco alcuni esempi:
    - Centro di costo
    - department
-   - Richiesta
-   - Ambiente
+   - Applicazione
+   - Environment
    - Codice di costo
 
      Di seguito è riportato un elenco dei gruppi predefiniti disponibili nei report:
@@ -111,9 +110,9 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
        - All Upfront (Tutto anticipato)
        - No Upfront (Nessun anticipo)
        - Partial Upfront (Anticipo parziale)
-       - On demand
-       - Prenotazione
-       - Spot
+       - On Demand (Su richiesta)
+       - Reservation
+       - Spot (Contante)
      - **Charge Type** (Tipo di addebito)
        - Selezionare l'addebito di tipo Negative (Negativo), Positive (Positivo) o entrambi.
      - **Tenancy**
@@ -144,9 +143,9 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
 8. **Risoluzione**
 
     Usare questo elenco per selezionare la risoluzione dei dati temporali nell'intervallo di date selezionato. La risoluzione determina il numero di unità visualizzate nel report e può essere:
-    - Al giorno
+    - Giornaliera
     - Settimanale
-    - Impegno di spesa
+    - Mensile
     - Trimestrale
     - Annuale
 

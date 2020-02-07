@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: banders
-ms.openlocfilehash: 2fadd0b6eb0951031a9d577b2fd3a3d497076dd8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: dfee9218f1e65189117c3d37808a303cf7568cd7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75990112"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76846238"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Attività di amministratore account nel portale di Azure
 
@@ -29,13 +29,18 @@ Per eseguire una di queste attività, è necessario avere il ruolo di amministra
 
 ## <a name="navigate-to-your-subscriptions-payment-methods"></a>Passare ai metodi di pagamento della sottoscrizione
 
-1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore account.
+1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore account. 
+
 1. Cercare **Gestione dei costi e fatturazione**.
     
     ![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione ](./media/account-admin-tasks/search-bar.png)
 
-1. Nell'elenco **Sottoscrizioni personali** selezionare la sottoscrizione a cui si vuole aggiungere la carta di credito.
-    ![Screenshot che mostra la griglia delle sottoscrizioni personali in visualizzazione panoramica](./media/account-admin-tasks/cost-management-billing-overview-x.png)
+1. Nell'elenco **Sottoscrizioni personali** selezionare la sottoscrizione a cui si vuole aggiungere la carta di credito. 
+   
+   ![Screenshot che mostra la griglia delle sottoscrizioni personali in visualizzazione panoramica](./media/account-admin-tasks/cost-management-billing-overview-x.png)
+   
+   > [!NOTE]
+   > Se non vengono visualizzate alcune sottoscrizioni, è possibile che la directory della sottoscrizione sia stata modificata in un determinato momento. Per queste sottoscrizioni, è necessario passare alla directory originale (la directory in cui è stata effettuata l'iscrizione iniziale). Quindi, ripetere il passaggio 2. 
 
 1. Selezionare **Metodi di pagamento**.
 
@@ -119,10 +124,13 @@ Il limite di spesa non è disponibile per le sottoscrizioni con piani di impegno
 
     ![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione ](./media/account-admin-tasks/search-bar.png)
 
-1. Nell'elenco **Sottoscrizioni personali** selezionare la sottoscrizione di Visual Studio Enterprise.
-    
-    ![Screenshot che mostra la griglia delle sottoscrizioni personali in visualizzazione panoramica](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
+1. Nell'elenco **Sottoscrizioni personali** selezionare la sottoscrizione di Visual Studio Enterprise. 
 
+   ![Screenshot che mostra la griglia delle sottoscrizioni personali in visualizzazione panoramica](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
+
+    > [!NOTE]
+    > Se non vengono visualizzate alcune sottoscrizioni di Visual Studio, è possibile che la directory della sottoscrizione sia stata modificata in un determinato momento. Per queste sottoscrizioni, è necessario passare alla directory originale (la directory in cui è stata effettuata l'iscrizione iniziale). Quindi, ripetere il passaggio 2.
+    
 1. Nella visualizzazione panoramica della sottoscrizione fare clic sul banner arancione per rimuovere il limite di spesa.
     
     ![Screenshot che mostra il banner per la rimozione del limite di spesa](./media/account-admin-tasks/msdn-remove-spending-limit-banner-x.png)
@@ -144,10 +152,13 @@ Se si dispone di una sottoscrizione di Licenze Azure in Open, è possibile aggiu
 
     ![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione ](./media/account-admin-tasks/search-bar.png)
 
-1. Nell'elenco **Sottoscrizioni personali** selezionare la sottoscrizione di Azure in Open.
-   
+1. Nell'elenco **Sottoscrizioni personali** selezionare la sottoscrizione di Azure in Open. 
+
     ![Screenshot che mostra la griglia delle sottoscrizioni personali in visualizzazione panoramica](./media/account-admin-tasks/cost-management-overview-aio-x.png)
 
+   > [!NOTE]
+   > Se non vengono visualizzate le proprie sottoscrizioni, è possibile che la relativa directory sia stata modificata in un determinato momento. È necessario passare alla directory originale della sottoscrizione (la directory in cui è stata effettuata l'iscrizione iniziale). Quindi, ripetere il passaggio 2.
+    
 1. Selezionare **Cronologia crediti**.
     
     ![Screenshot che mostra la cronologia dei crediti](./media/account-admin-tasks/aio-credit-history-blade.png)

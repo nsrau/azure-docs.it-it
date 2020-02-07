@@ -14,10 +14,10 @@ ms.date: 01/17/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d2bbfd7f4ddc5fc34c0bec3612783dfef5074d83
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "76270866"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Trasferire la proprietà della fatturazione di una sottoscrizione di Azure in un altro account
@@ -86,7 +86,7 @@ Alle sottoscrizioni di Visual Studio e Microsoft Partner Network è associato un
 
 ## <a name="transfer-billing-ownership-of-enterprise-agreement-ea-subscriptions"></a>Trasferire la proprietà della fatturazione di sottoscrizioni del contratto Enterprise Agreement (EA)
 
-L'amministratore dell'organizzazione può trasferire la proprietà delle sottoscrizioni tra gli account all'interno di una registrazione. Per altre informazioni, vedere [cambiare il proprietario dell'account](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started#change-account-owner) nel portale EA.
+L'amministratore dell'organizzazione può trasferire la proprietà delle sottoscrizioni tra gli account all'interno di una registrazione. Per altre informazioni, vedere [Cambiare il proprietario dell'account](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started#change-account-owner).
 
 ## <a name="next-steps-after-accepting-billing-ownership"></a>Passaggi successivi all'accettazione della proprietà della fatturazione
 
@@ -222,7 +222,7 @@ Non tutti i tipi di sottoscrizione supportano il trasferimento della proprietà 
 Questo errore viene visualizzato se si prova a trasferire una sottoscrizione di un piano di Microsoft Azure e non si hanno le autorizzazioni necessarie. Per trasferire una sottoscrizione di un piano di Microsoft Azure, è necessario essere un proprietario o un collaboratore nella sezione della fattura in cui viene addebitata la sottoscrizione. Per altre informazioni, vedere la sezione [Gestire le sottoscrizioni per la sezione della fattura](understand-mca-roles.md#manage-subscriptions-for-invoice-section).
 
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 

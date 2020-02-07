@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: banders
 ms.openlocfilehash: aff5e1e707980c9a63988c22653fa5fba0fc236b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75996040"
 ---
 # <a name="open-banking-psd2-and-strong-customer-authentication-sca-for-azure-customers"></a>Open Banking (PSD2) e Strong Customer Authentication (SCA) per i clienti di Azure
 
-A partire dal 14 settembre 2019, le banche di 31 paesi dello [Spazio economico europeo](https://en.wikipedia.org/wiki/European_Economic_Area) sono tenute a verificare l'identità delle persone che effettuano acquisti online prima dell'elaborazione del pagamento. Questa verifica richiede l'autenticazione a più fattori per garantire la sicurezza e la protezione degli acquisti online. In alcuni paesi, la data di entrata in vigore di questo requisito di verifica verrà posticipata. Per altre informazioni, vedere [Domande frequenti di Microsoft sulla direttiva PSD2](https://support.microsoft.com/en-us/help/4517854?preview).
+A partire dal 14 settembre 2019, le banche di 31 paesi dello [Spazio economico Europao](https://en.wikipedia.org/wiki/European_Economic_Area) sono tenute a verificare l'identità delle persone che effettuano acquisti online prima dell'elaborazione del pagamento. Questa verifica richiede l'autenticazione a più fattori per garantire la sicurezza e la protezione degli acquisti online. In alcuni paesi, la data di entrata in vigore di questo requisito di verifica verrà posticipata. Per altre informazioni, vedere [Domande frequenti di Microsoft sulla direttiva PSD2](https://support.microsoft.com/en-us/help/4517854?preview).
 
 ## <a name="what-psd2-means-for-azure-customers"></a>Cosa implica la direttiva PSD2 per i clienti di Azure
 
-Se il pagamento di Azure viene effettuato tramite una carta di credito emessa da una banca operante nello [Spazio economico europeo](https://en.wikipedia.org/wiki/European_Economic_Area), può essere necessario completare l'autenticazione a più fattori per il metodo di pagamento dell'account. È possibile che venga chiesto di completare la richiesta di autenticazione a più fattori durante l'iscrizione o l'aggiornamento dell'account Azure, anche se in quel momento non si effettuano acquisti. È anche possibile che venga chiesto di eseguire l'autenticazione a più fattori quando si cambia il metodo di pagamento dell'account Azure, si rimuove il limite di spesa o si effettua un pagamento immediato dal portale di Azure, ad esempio per liquidare i saldi scoperti o acquistare crediti Azure.
+Se il pagamento di Azure viene effettuato tramite una carta di credito emessa da una banca operante nello [Spazio economico Europao](https://en.wikipedia.org/wiki/European_Economic_Area), può essere necessario completare l'autenticazione a più fattori per il metodo di pagamento dell'account. È possibile che venga chiesto di completare la richiesta di autenticazione a più fattori durante l'iscrizione o l'aggiornamento dell'account Azure, anche se in quel momento non si effettuano acquisti. È anche possibile che venga chiesto di eseguire l'autenticazione a più fattori quando si cambia il metodo di pagamento dell'account Azure, si rimuove il limite di spesa o si effettua un pagamento immediato dal portale di Azure, ad esempio per liquidare i saldi scoperti o acquistare crediti Azure.
 
 Se la banca rifiuta gli addebiti mensili di Azure, si riceve un messaggio di posta elettronica relativo a scadenza superata con le istruzioni su come risolvere il problema. È possibile completare la richiesta di autenticazione a più fattori e pagare gli addebiti in sospeso nel portale di Azure.
 
@@ -48,7 +48,7 @@ Se la banca rifiuta gli addebiti, lo stato dell'account di Azure diventerà **Sc
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore account.
 2. Eseguire una ricerca in **Gestione costi e fatturazione**.
-3. Nella pagina **Panoramica** **Gestione costi e fatturazione** esaminare la colonna stato nella griglia **sottoscrizioni personali** .
+3. Nella pagina **Panoramica** di **Gestione costi e fatturazione** esaminare la colonna dello stato nella griglia **Sottoscrizioni personali**.
 4. Se lo stato della sottoscrizione è **Scaduto**, fare clic sul collegamento **Liquidazione del saldo**. Viene chiesto di completare l'autenticazione a più fattori durante il processo.
 
 ### <a name="settle-outstanding-charges-for-marketplace-and-reservation-purchases"></a>Pagare gli addebiti in sospeso per gli acquisti di prenotazioni e nel Marketplace

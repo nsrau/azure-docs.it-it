@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
 ms.openlocfilehash: a68393b2852f8ddc758e2a47b9e1b5d94befb7b4
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "76290139"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Informazioni sui termini nel file dei dati di utilizzo e addebiti di Azure
@@ -40,71 +40,71 @@ Per le istruzioni di download, vedere [Come ottenere la fattura e i dati di util
 La tabella seguente descrive i termini importanti usati nella versione più recente del file dei dati di utilizzo e addebiti di Azure.
 L'elenco include gli account con pagamento in base al consumo, Contratto Enterprise e Contratto del cliente Microsoft.
 
-Durata | Tipo di account | Description
+Termine | Tipo di account | Descrizione
 --- | --- | ---
 AccountName | Contratto Enterprise, Con pagamento in base al consumo | Nome visualizzato dell'account di registrazione EA o dell'account di fatturazione con pagamento in base al consumo.
 AccountOwnerId<sup>1</sup> | Contratto Enterprise, Con pagamento in base al consumo | Identificatore univoco dell'account di registrazione EA o dell'account di fatturazione con pagamento in base al consumo.
-AdditionalInfo | Tutto | Metadati specifici del servizio. Ad esempio un tipo di immagine per una macchina virtuale.
-BillingAccountId<sup>1</sup> | Tutto | Identificatore univoco per l'account di fatturazione radice.
-BillingAccountName | Tutto | Nome dell'account di fatturazione.
-BillingCurrency | Tutto | Valuta associata all'account di fatturazione.
+AdditionalInfo | Tutti | Metadati specifici del servizio. Ad esempio un tipo di immagine per una macchina virtuale.
+BillingAccountId<sup>1</sup> | Tutti | Identificatore univoco per l'account di fatturazione radice.
+BillingAccountName | Tutti | Nome dell'account di fatturazione.
+BillingCurrency | Tutti | Valuta associata all'account di fatturazione.
 BillingPeriod | Contratto Enterprise, Con pagamento in base al consumo | Periodo di fatturazione dell'addebito.
-BillingPeriodEndDate | Tutto | Data di fine del periodo di fatturazione.
-BillingPeriodStartDate | Tutto | Data di inizio del periodo di fatturazione.
-BillingProfileId<sup>1</sup> | Tutto | Identificatore univoco della registrazione EA, della sottoscrizione con pagamento in base al consumo, del profilo di fatturazione del Contratto del cliente Microsoft o account AWS consolidato.
-BillingProfileName | Tutto | Nome della registrazione EA, della sottoscrizione con pagamento in base al consumo, del profilo di fatturazione del Contratto del cliente Microsoft o account AWS consolidato.
-ChargeType | Tutto | Indica se l'addebito rappresenta l'utilizzo (**Utilizzo**), un acquisto (**Acquisto**) o un rimborso (**Rimborso**).
-ConsumedService | Tutto | Nome del servizio a cui è associato l'addebito.
+BillingPeriodEndDate | Tutti | Data di fine del periodo di fatturazione.
+BillingPeriodStartDate | Tutti | Data di inizio del periodo di fatturazione.
+BillingProfileId<sup>1</sup> | Tutti | Identificatore univoco della registrazione EA, della sottoscrizione con pagamento in base al consumo, del profilo di fatturazione del Contratto del cliente Microsoft o account AWS consolidato.
+BillingProfileName | Tutti | Nome della registrazione EA, della sottoscrizione con pagamento in base al consumo, del profilo di fatturazione del Contratto del cliente Microsoft o account AWS consolidato.
+ChargeType | Tutti | Indica se l'addebito rappresenta l'utilizzo (**Utilizzo**), un acquisto (**Acquisto**) o un rimborso (**Rimborso**).
+ConsumedService | Tutti | Nome del servizio a cui è associato l'addebito.
 CostCenter<sup>1</sup> | EA, Contratto del cliente Microsoft | Centro di costo definito per la sottoscrizione per tenere traccia dei costi (disponibile solo nei periodi di fatturazione aperti per gli account del Contratto del cliente Microsoft).
-Costo | Contratto Enterprise, Con pagamento in base al consumo | Vedere CostInBillingCurrency.
+Costi | Contratto Enterprise, Con pagamento in base al consumo | Vedere CostInBillingCurrency.
 CostInBillingCurrency | Contratto del cliente Microsoft | Costo dell'addebito nella valuta di fatturazione al lordo di crediti o imposte.
 CostInPricingCurrency | Contratto del cliente Microsoft | Costo dell'addebito nella valuta dei prezzi al lordo di crediti o imposte.
 Valuta | Contratto Enterprise, Con pagamento in base al consumo | Vedere BillingCurrency.
-Date<sup>1</sup> | Tutto | Data di utilizzo o di acquisto dell'addebito.
-EffectivePrice | Tutto | Prezzo unitario combinato per il periodo. I prezzi combinati calcolano la media di eventuali fluttuazioni nel prezzo unitario, ad esempio la suddivisione in livelli graduale, che riduce il prezzo man mano che la quantità aumenta nel tempo.
+Date<sup>1</sup> | Tutti | Data di utilizzo o di acquisto dell'addebito.
+EffectivePrice | Tutti | Prezzo unitario combinato per il periodo. I prezzi combinati calcolano la media di eventuali fluttuazioni nel prezzo unitario, ad esempio la suddivisione in livelli graduale, che riduce il prezzo man mano che la quantità aumenta nel tempo.
 ExchangeRateDate | Contratto del cliente Microsoft | Data di determinazione del tasso di cambio.
 ExchangeRatePricingToBilling | Contratto del cliente Microsoft | Tasso di cambio usato per convertire il costo della valuta dei prezzi nella valuta di fatturazione.
-Frequenza | Tutto | Indica se è prevista la ripetizione di un addebito. Gli addebiti possono avvenire una sola volta (**OneTime**), ripetersi su base mensile o annuale (**Recurring**) o essere basati sull'utilizzo (**UsageBased**).
+Frequenza | Tutti | Indica se è prevista la ripetizione di un addebito. Gli addebiti possono avvenire una sola volta (**OneTime**), ripetersi su base mensile o annuale (**Recurring**) o essere basati sull'utilizzo (**UsageBased**).
 InvoiceId | Con pagamento in base al consumo, Contratto del cliente Microsoft | ID univoco del documento elencato nella fattura in formato PDF.
 InvoiceSection | Contratto del cliente Microsoft | Vedere InvoiceSectionName.
 InvoiceSectionId<sup>1</sup> | EA, Contratto del cliente Microsoft | Identificatore univoco per reparto EA o sezione della fattura del Contratto del cliente Microsoft.
 InvoiceSectionName | EA, Contratto del cliente Microsoft | Nome reparto EA o sezione della fattura del Contratto del cliente Microsoft.
-IsAzureCreditEligible | Tutto | Indica se l'addebito è idoneo a essere pagato per l'uso di crediti Azure (valori: true, false).
-Percorso | Contratto del cliente Microsoft | Località del data center in cui viene eseguita la risorsa.
-MeterCategory | Tutto | Nome della categoria di classificazione per il contatore. Ad esempio, *Servizi cloud* e *Rete*.
-MeterId<sup>1</sup> | Tutto | Identificatore univoco del contatore.
-MeterName | Tutto | Nome del contatore.
-MeterRegion | Tutto | Nome della località del data center per i servizi addebitati in base alla località. Vedere Location.
-MeterSubCategory | Tutto | Nome della categoria di sottoclassificazione del contatore.
-OfferId<sup>1</sup> | Tutto | Nome dell'offerta acquistata.
+IsAzureCreditEligible | Tutti | Indica se l'addebito è idoneo a essere pagato per l'uso di crediti Azure (valori: True, False).
+Location | Contratto del cliente Microsoft | Località del data center in cui viene eseguita la risorsa.
+MeterCategory | Tutti | Nome della categoria di classificazione per il contatore. Ad esempio, *Servizi cloud* e *Rete*.
+MeterId<sup>1</sup> | Tutti | Identificatore univoco del contatore.
+MeterName | Tutti | Nome del contatore.
+MeterRegion | Tutti | Nome della località del data center per i servizi addebitati in base alla località. Vedere Location.
+MeterSubCategory | Tutti | Nome della categoria di sottoclassificazione del contatore.
+OfferId<sup>1</sup> | Tutti | Nome dell'offerta acquistata.
 PartNumber<sup>1</sup> | Contratto Enterprise, Con pagamento in base al consumo | Identificatore usato per ottenere i prezzi specifici del contatore.
 PlanName | Contratto Enterprise, Con pagamento in base al consumo | Nome del piano del Marketplace.
 PreviousInvoiceId | Contratto del cliente Microsoft | Riferimento a una fattura originale se questa voce è un rimborso.
 PricingCurrency | Contratto del cliente Microsoft | Valuta usata per la classificazione in base ai prezzi negoziati.
-Prodotto | Tutto | Nome del prodotto.
+Prodotto | Tutti | Nome del prodotto.
 ProductId<sup>1</sup> | Contratto del cliente Microsoft | Identificatore univoco per il prodotto.
-ProductOrderId | Tutto | Identificatore univoco per l'ordine del prodotto.
-ProductOrderName | Tutto | Nome univoco per l'ordine del prodotto.
-PublisherName | Tutto | Server di pubblicazione per servizi del Marketplace.
-PublisherType | Tutto | Tipo di server di pubblicazione (valori: **Azure**, **AWS**, **Marketplace**).
-Quantità | Tutto | Numero di unità acquistate o utilizzate.
+ProductOrderId | Tutti | Identificatore univoco per l'ordine del prodotto.
+ProductOrderName | Tutti | Nome univoco per l'ordine del prodotto.
+PublisherName | Tutti | Server di pubblicazione per servizi del Marketplace.
+PublisherType | Tutti | Tipo di server di pubblicazione (valori: **Azure**, **AWS**, **Marketplace**).
+Quantità | Tutti | Numero di unità acquistate o utilizzate.
 ReservationId | EA, Contratto del cliente Microsoft | Identificatore univoco per l'istanza di prenotazione acquistata.
 ReservationName | EA, Contratto del cliente Microsoft | Nome dell'istanza di prenotazione acquistata.
-ResourceGroup | Tutto | Nome del [gruppo di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) in cui si trova la risorsa. Non tutti gli addebiti provengono dalle risorse distribuite ai gruppi di risorse. Gli addebiti che non dispongono di un gruppo di risorse verranno visualizzati come null/vuoti, **altri**o **non applicabili**.
-ResourceId<sup>1</sup> | Tutto | Identificatore univoco della risorsa di [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources).
-ResourceLocation | Tutto | Località del data center in cui viene eseguita la risorsa. Vedere Location.
-NomeRisorsa | Contratto Enterprise, Con pagamento in base al consumo | Nome della risorsa. Non tutti gli addebiti provengono dalle risorse distribuite. Gli addebiti che non dispongono di un tipo di risorsa verranno visualizzati come null/vuoti, **altri**o **non applicabili**.
-ResourceType | Contratto del cliente Microsoft | Tipo di istanza della risorsa. Non tutti gli addebiti provengono dalle risorse distribuite. Gli addebiti che non dispongono di un tipo di risorsa verranno visualizzati come null/vuoti, **altri**o **non applicabili**.
+ResourceGroup | Tutti | Nome del [gruppo di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) in cui si trova la risorsa. Non tutti gli addebiti provengono dalle risorse distribuite ai gruppi di risorse. Gli addebiti che non dispongono di un gruppo di risorse verranno visualizzati come null/vuoti, **Altri**o **Non applicabile**.
+ResourceId<sup>1</sup> | Tutti | Identificatore univoco della risorsa di [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources).
+ResourceLocation | Tutti | Località del data center in cui viene eseguita la risorsa. Vedere Location.
+NomeRisorsa | Contratto Enterprise, Con pagamento in base al consumo | Nome della risorsa. Non tutti gli addebiti provengono dalle risorse distribuite. Gli addebiti che non dispongono di un tipo di risorse verranno visualizzati come null/vuoti, **Altri**o **Non applicabile**.
+ResourceType | Contratto del cliente Microsoft | Tipo di istanza della risorsa. Non tutti gli addebiti provengono dalle risorse distribuite. Gli addebiti che non dispongono di un tipo di risorse verranno visualizzati come null/vuoti, **Altri**o **Non applicabile**.
 ServiceFamily | Contratto del cliente Microsoft | Famiglia di servizi a cui appartiene il servizio.
-ServiceInfo1 | Tutto | Metadati specifici del servizio.
-ServiceInfo2 | Tutto | Campo legacy con metadati specifici del servizio facoltativo.
+ServiceInfo1 | Tutti | Metadati specifici del servizio.
+ServiceInfo2 | Tutti | Campo legacy con metadati specifici del servizio facoltativo.
 ServicePeriodEndDate | Contratto del cliente Microsoft | Data di fine del periodo di valutazione che ha definito e bloccato i prezzi per il servizio utilizzato o acquistato.
 ServicePeriodStartDate | Contratto del cliente Microsoft | Data di inizio del periodo di valutazione che ha definito e bloccato i prezzi per il servizio utilizzato o acquistato.
-SubscriptionId<sup>1</sup> | Tutto | Identificatore univoco per la sottoscrizione di Azure.
-SubscriptionName | Tutto | Nome della sottoscrizione di Azure.
-Tags<sup>1</sup> | Tutto | Tag assegnati alla risorsa. Non include i tag del gruppo di risorse. Può essere usato per raggruppare o distribuire i costi per il chargeback interno. Per altre informazioni, vedere [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) (Organizzare le risorse di Azure con i tag).
-Durata | Tutto | Visualizza il termine della validità dell'offerta. Ad esempio, nel caso di istanze riservate, viene visualizzato 12 mesi come termine. Per gli acquisti una tantum o gli acquisti periodici, il termine è 1 mese (SaaS, supporto per il Marketplace). Non è applicabile per il consumo di Azure.
-UnitOfMeasure | Tutto | Unità di misura per la fatturazione del servizio. I servizi di calcolo, ad esempio, vengono fatturati all'ora.
+SubscriptionId<sup>1</sup> | Tutti | Identificatore univoco per la sottoscrizione di Azure.
+SubscriptionName | Tutti | Nome della sottoscrizione di Azure.
+Tags<sup>1</sup> | Tutti | Tag assegnati alla risorsa. Non include i tag del gruppo di risorse. Può essere usato per raggruppare o distribuire i costi per il chargeback interno. Per altre informazioni, vedere [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) (Organizzare le risorse di Azure con i tag).
+Termine | Tutti | Visualizza il termine della validità dell'offerta. Ad esempio: Nel caso di istanze riservate visualizza 12 mesi come termine. Per gli acquisti una tantum o gli acquisti periodici, il termine è 1 mese (SaaS, supporto per il Marketplace). Non è applicabile per il consumo di Azure.
+UnitOfMeasure | Tutti | Unità di misura per la fatturazione del servizio. I servizi di calcolo, ad esempio, vengono fatturati all'ora.
 UnitPrice | Contratto Enterprise, Con pagamento in base al consumo | Prezzo unitario per l'addebito.
 
 _<sup>**1**</sup> Campi usati per creare un ID univoco per un singolo record di costi._
@@ -131,7 +131,7 @@ UsageStart | Data
 
 Per altre informazioni sui dati di utilizzo dettagliati e sugli addebiti, vedere le informazioni sulla fattura [con pagamento in base al consumo](review-individual-bill.md) o sulla fattura del [contratto del cliente Microsoft](review-customer-agreement-bill.md).
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 

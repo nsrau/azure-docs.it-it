@@ -1,21 +1,20 @@
 ---
 title: Aggiungere metriche estese per le macchine virtuali di Azure | Microsoft Docs
 description: Questo articolo aiuta ad abilitare e configurare metriche di diagnostica estese per le macchine virtuali di Azure.
-services: cost-management
 keywords: ''
 author: bandersmsft
-manager: vitavor
+ms.reviewer: vitavor
 ms.author: banders
-ms.date: 05/21/2019
+ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.custom: seodec18
-ms.openlocfilehash: bd9089b868284902cdc33d87972d573dfbf0097b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: 9f1f60fd16aa830372bd0f5b19e22e7003de496b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989553"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76770310"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Aggiungere metriche estese per le macchine virtuali di Azure
 
@@ -28,10 +27,10 @@ Dopo aver abilitato la raccolta delle metriche, è possibile:
 - Controllare i costi in base all'utilizzo.
 - Ottenere consigli efficaci in termini di costi per l'ottimizzazione delle dimensioni da Cloudyn.
 
-Ad esempio, potrebbe essere necessario monitorare le percentuali di CPU e memoria delle macchine virtuali di Azure. Le metriche delle macchine virtuali di Azure corrispondono a _percentuale CPU_ e _\Memoria\% byte vincolati in uso_.
+Ad esempio, potrebbe essere necessario monitorare le percentuali di CPU e memoria delle macchine virtuali di Azure. Le metriche delle macchine virtuali di Azure corrispondono a _Percentuale CPU_ e _\Memoria\% di byte vincolati in uso_.
 
 > [!NOTE]
-> La raccolta di dati relativi alle metriche estese è supportata solo con il monitoraggio a livello di guest di Azure. Cloudyn non è compatibile con l' [agente di log Analytics](../../azure-monitor/platform/agents-overview.md). 
+> La raccolta di dati relativi alle metriche estese è supportata solo con il monitoraggio a livello di guest di Azure. Cloudyn non è compatibile con l'[agente di Log Analytics](../../azure-monitor/platform/agents-overview.md). 
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>Determinare se le metriche estese sono abilitate
 
@@ -44,7 +43,7 @@ Nell'esempio precedente è disponibile un set limitato di metriche standard per 
 
 ## <a name="enable-extended-metrics-in-the-azure-portal"></a>Abilitare le metriche estese nel portale di Azure
 
-Le metriche standard sono le metriche dei computer host. La metrica _percentuale CPU_ è un esempio. Sono disponibili anche le metriche di base per le macchine virtuali guest, chiamate metriche estese. Esempi di metriche estese includono _\memoria\% i byte vincolati in uso_ e _\Memoria\MByte byte_.
+Le metriche standard sono le metriche dei computer host. La metrica _Percentuale CPU_ ne è un esempio. Sono disponibili anche le metriche di base per le macchine virtuali guest, chiamate metriche estese. Esempi di metriche estese includono _\Memoria\% di byte vincolati in uso_ e _\Memoria\Byte disponibili_.
 
 L'abilitazione delle metriche estese è un processo semplice. Per ogni macchina virtuale abilitare il monitoraggio a livello di guest. Quando si abilita il monitoraggio a livello di guest, nella macchina virtuale viene installato l'agente di diagnostica di Azure. Per impostazione predefinita, viene aggiunto un set di base di metriche estese. Il processo seguente è lo stesso per macchine virtuali classiche e normali e macchine virtuali Windows e Linux.
 
