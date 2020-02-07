@@ -44,6 +44,8 @@
           href: ./ag/application-gateway-waf-configuration.md
         - name: Panoramica dei criteri WAF
           href: ./ag/policy-overview.md
+        - name: Panoramica sulla protezione dai bot
+          href: ./ag/bot-protection-overview.md
     - name: Frontdoor
       items:
         - name: Regole personalizzate

@@ -4,16 +4,13 @@
   items:
     - name: Informazioni sull'autenticazione
       href: overview-authentication.md
-- name: Guida introduttiva
-  items:
-    - name: Configurare la reimpostazione della password
-      href: quickstart-sspr.md
 - name: Esercitazioni
+  expanded: true
   items:
-    - name: 1 Abilitare Multi-Factor Authentication per le applicazioni
+    - name: Abilitare la reimpostazione self-service delle password
+      href: tutorial-enable-sspr.md
+    - name: Abilitare MFA per le applicazioni
       href: tutorial-mfa-applications.md
-    - name: 2 Abilitare un progetto pilota di reimpostazione della password self-service
-      href: tutorial-sspr-pilot.md
     - name: Abilitare l'integrazione locale della reimpostazione della password self-service
       href: tutorial-enable-writeback.md
     - name: Integrazione di Azure Identity Protection
@@ -212,7 +209,7 @@
           href: multi-factor-authentication-faq.md
         - name: Estensione del server dei criteri di rete
           href: howto-mfa-nps-extension-errors.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Manuale dell'utente di Multi-Factor Authentication
       href: ./end-user/current/multi-factor-authentication-end-user.md

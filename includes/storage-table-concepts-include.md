@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 83f66fb7e4d9b07cdcd72e47da1b397a85886e29
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 91a52e7eac40c0ac2ab682f251a2ae0013259b25
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75467669"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77013883"
 ---
 ## <a name="what-is-table-storage"></a>Informazioni sull'Archiviazione tabelle
 Il servizio Archiviazione tabelle di Azure consente di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali. Di seguito sono riportati gli usi più comuni per il servizio Archiviazione tabelle:
@@ -31,7 +31,7 @@ L'Archiviazione tabelle contiene i componenti seguenti:
   Gli account di API di tabella di Azure Cosmos DB usano questo formato: `http://<storage account>.table.cosmosdb.azure.com/<table>`  
 
   È possibile fare riferimento direttamente alle tabelle di Azure utilizzando questo indirizzo con il protocollo OData. Per altre informazioni, vedere [OData.org][OData.org].
-* **Account:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'account di archiviazione][../articles/storage/common/storage-account-overview.md].
+* **Account:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'account di archiviazione](../articles/storage/common/storage-account-overview.md).
 
     L'accesso ad Azure Cosmos DB avviene esclusivamente tramite un account di API di tabella. Per i dettagli sulla creazione di un account di API di tabella, vedere [Creare un account di API di tabella](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account).
 * **Tabella**: una tabella è una raccolta di entità. Le tabelle non impongono uno schema sulle entità, pertanto una singola tabella può contenere entità che presentano set di proprietà diversi.  

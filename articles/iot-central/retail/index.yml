@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 637da382af333d069161b25c6fcb5666f843a855
-  ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+  ms.openlocfilehash: 416d4a1eee6f3fe89fbe697bda896b30c8441756
+  ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 11/12/2019
-  ms.locfileid: "73957954"
+  ms.lasthandoff: 02/05/2020
+  ms.locfileid: "77020812"
 landingContent:
 - title: Creare soluzioni per la vendita al dettaglio
   linkLists:
@@ -40,19 +40,19 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Connettere un componente Rigado Cascade 500
-      url: ../preview/howto-connect-rigado-cascade-500.md
+      url: ../core/howto-connect-rigado-cascade-500.md
 - title: Connettersi
   linkLists:
   - linkListType: tutorial
     links:
     - text: Configurare un modello di dispositivo
-      url: ../preview/howto-set-up-template.md
-    - text: Connettere un dispositivo Plug and Play IoT
-      url: ../preview/tutorial-connect-pnp-device.md
+      url: ../core/howto-set-up-template.md
+    - text: Connettere un dispositivo Plug and Play IoT (anteprima)
+      url: ../core/tutorial-connect-pnp-device.md
   - linkListType: how-to-guide
     links:
     - text: Preparare e connettere un MXChip IoT DevKit
-      url: ../preview/howto-connect-devkit.md
+      url: ../core/howto-connect-devkit.md
     - text: Connettere altri cloud IoT
       url: ../core/howto-build-iotc-device-bridge.md
 - title: Rimanere connessi
@@ -60,46 +60,46 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Usare gruppi di dispositivi
-      url: ../preview/tutorial-use-device-groups.md
+      url: ../core/tutorial-use-device-groups.md
   - linkListType: how-to-guide
     links:
     - text: Gestire i dispositivi
-      url: ../preview/howto-manage-devices.md
+      url: ../core/howto-manage-devices.md
     - text: Eseguire un processo
       url: ../core/howto-run-a-job.md
     - text: Analizzare i dati del dispositivo
-      url: ../preview/howto-create-analytics.md
+      url: ../core/howto-create-analytics.md
 - title: Trasformare
   linkLists:
   - linkListType: tutorial
     links:
     - text: Creare una regola
-      url: ../preview/quick-configure-rules.md
+      url: ../core/quick-configure-rules.md
     - text: Creare regole di telemetria
-      url: ../preview/tutorial-create-telemetry-rules.md
+      url: ../core/tutorial-create-telemetry-rules.md
     - text: Eseguire l'esportazione nell'archiviazione BLOB
-      url: ../preview/howto-export-data.md
+      url: ../core/howto-export-data.md
   - linkListType: how-to-guide
     links:
     - text: Creare regole personalizzate
-      url: ../preview/howto-create-custom-rules.md
+      url: ../core/howto-create-custom-rules.md
     - text: Creare analisi personalizzate
-      url: ../preview/howto-create-custom-analytics.md
-- title: Administration
+      url: ../core/howto-create-custom-analytics.md
+- title: Amministrazione
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Gestire l'applicazione
-      url: ../preview/howto-administer.md
-    - text: Gestire utenti e ruoli
-      url: ../preview/howto-manage-users-roles.md
+      url: ../core/howto-administer.md
+    - text: Gestione di utenti e ruoli
+      url: ../core/howto-manage-users-roles.md
     - text: Visualizzare la fattura
-      url: ../preview/howto-view-bill.md
+      url: ../core/howto-view-bill.md
     - text: Personalizzare l'interfaccia utente dell'applicazione
-      url: ../preview/howto-customize-ui.md
+      url: ../core/howto-customize-ui.md
     - text: Configurare dashboard personali
       url: ../core/howto-create-personal-dashboards.md
     - text: Usare i riquadri del dashboard
       url: ../core/howto-add-tiles-to-your-dashboard.md
     - text: Usare i modelli di applicazione
-      url: ../preview/howto-use-app-templates.md
+      url: ../core/howto-use-app-templates.md

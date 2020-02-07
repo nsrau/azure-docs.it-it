@@ -6,7 +6,7 @@
       href: cloud-services-choose-me.md
     - name: File di configurazione e creazione dei pacchetti dei servizi cloud
       href: cloud-services-model-and-package.md
-- name: Attività iniziali
+- name: Introduzione
   items:
     - name: Servizio cloud .NET di esempio
       href: cloud-services-dotnet-get-started.md
@@ -14,7 +14,7 @@
       href: cloud-services-python-ptvs.md
 - name: Procedure
   items:
-    - name: Pianificazione
+    - name: Piano
       items:
         - name: Dimensioni delle macchine virtuali
           href: cloud-services-sizes-specs.md
@@ -137,6 +137,8 @@
               href: /visualstudio/azure/vs-azure-tools-intellitrace-debug-published-cloud-services?toc=/azure/cloud-services/toc.json
         - name: Errore di allocazione dei servizi cloud
           href: cloud-services-allocation-failures.md
+        - name: Le applicazioni non supportano TLS 1.2
+          href: applications-dont-support-TLS-1-2.md
         - name: Cause comuni del riciclo di ruoli dei servizi cloud
           href: cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md
         - name: Dimensioni della cartella TEMP predefinita insufficienti per un ruolo
@@ -159,7 +161,7 @@
               href: cloud-services-connectivity-and-networking-faq.md
             - name: Domande frequenti sullo sviluppo
               href: cloud-services-deployment-faq.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=cloud-services'

@@ -26,6 +26,10 @@
       items:
         - name: Creare un'applicazione per il centro distribuzione digitale
           href: tutorial-iot-central-digital-distribution-center-pnp.md
+    - name: Centro di micro-adempimenti
+      items:
+        - name: Creare un'applicazione per il centro di micro-adempimenti
+          href: tutorial-micro-fulfillment-center-pnp.md
 - name: Concetti
   items:
     - name: Architettura del modello di app per la logistica connessa
@@ -39,7 +43,7 @@
     - name: Architettura del modello di app per il centro di micro-adempimenti
       href: architecture-micro-fulfillment-center-pnp.md
     - name: Connettività
-      href: ../preview/overview-iot-central-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+      href: ../core/concepts-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: Che cosa i modelli di applicazione?
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
 - name: Guide pratiche
@@ -47,47 +51,47 @@
     - name: Connettere dispositivi
       items:
         - name: Preparare e connettere un MXChip IoT DevKit
-          href: ../preview/howto-connect-devkit.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+          href: ../core/howto-connect-devkit.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Preparare e connettere un componente Rigado Cascade 500
-          href: ../preview/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+          href: ../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Preparare e connettere un dispositivo RuuviTag
-          href: ../preview/howto-connect-ruuvi.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+          href: ../core/howto-connect-ruuvi.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Monitorare la connettività dei dispositivi con l'interfaccia della riga di comando di Azure
-          href: ../preview/howto-monitor-devices-azure-cli.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+          href: ../core/howto-monitor-devices-azure-cli.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: Gestire i dispositivi
       items:
         - name: Gestire i dispositivi
-          href: ../preview/howto-manage-devices.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+          href: ../core/howto-manage-devices.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Eseguire un processo
           href: ../core/howto-run-a-job.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Creare una versione del modello del dispositivo
-          href: ../preview/howto-version-device-template.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+          href: ../core/howto-version-device-template.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: Monitoraggio e analisi
       items:
         - name: Analizzare i dati del dispositivo
-          href: ../preview/howto-create-analytics.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+          href: ../core/howto-create-analytics.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Creare webhook per le regole
-          href: ../preview/howto-create-webhooks.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+          href: ../core/howto-create-webhooks.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: Azioni ed estendibilità
       items:
         - name: Configurare l'esportazione continua dei dati
-          href: ../preview/howto-export-data.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+          href: ../core/howto-export-data.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Creare regole personalizzate
-          href: ../preview/howto-create-custom-rules.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+          href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Creare analisi personalizzate con Databricks
-          href: ../preview/howto-create-custom-analytics.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: Amministrazione
       items:
         - name: Modificare le impostazioni dell'applicazione
-          href: ../preview/howto-administer.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+          href: ../core/howto-administer.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Esportare l'applicazione
-          href: ../preview/howto-use-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+          href: ../core/howto-use-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Gestione di utenti e ruoli
-          href: ../preview/howto-manage-users-roles.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+          href: ../core/howto-manage-users-roles.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Gestire la fattura
-          href: ../preview/howto-view-bill.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+          href: ../core/howto-view-bill.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Personalizzare l'interfaccia utente dell'applicazione
-          href: ../preview/howto-customize-ui.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
+          href: ../core/howto-customize-ui.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Aggiungere riquadri al dashboard
           href: ../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Gestire dal portale di Azure

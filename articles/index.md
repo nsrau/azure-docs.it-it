@@ -6,12 +6,12 @@ description: Informazioni su come compilare e gestire applicazioni avanzate usan
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 1b89c076f94750150b7fb57b2eb623b35f719f7b
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: f5a99e3d8d71e154073bc908a55cf893eb2d925c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "76294202"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "77026014"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -321,7 +321,7 @@ ms.locfileid: "76294202"
                             <li></li>
                             <li class="bottomRightItem">
                                 <a href="https://docs.microsoft.com/azure/index#pivot=products&panel=all">
-                                    <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">Visualizzare tutti i servizi di Azure<svg viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z" /></svg></button>
+                                    <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">Visualizzare tutti i servizi di Azure<svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z" /></svg></button>
                                 </a>
                             </li>
                         </ul>
@@ -705,8 +705,14 @@ ms.locfileid: "76294202"
                                         </li>
                                         <li>
                                             <a href="/azure/blockchain/workbench/">
-                                                <img src="media/index/blockchain-workbench.svg" alt="" />
+                                                <img src="media/index/blockchain-workbench-alt.svg" alt="" />
                                                 <p>Azure Blockchain Workbench</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/blockchain/tokens/">
+                                                <img src="media/index/blockchain-tokens.svg" alt="" />
+                                                <p>Token di blockchain di Azure</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1369,7 +1375,7 @@ ms.locfileid: "76294202"
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/managed-applications">
+                                            <a href="/azure/azure-resource-manager/managed-applications">
                                                 <img src="media/index/i_managed-application.svg" alt="" />
                                                 <p>Applicazioni gestite di Azure</p>
                                             </a>
@@ -1762,7 +1768,7 @@ ms.locfileid: "76294202"
                                         <li>
                                             <a href="/azure/azure-government/">
                                                 <img src="media/index/azure-government.svg" alt="" />
-                                                <p>Azure per enti pubblici statunitensi</p>
+                                                <p>Azure US Gov</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2665,7 +2671,7 @@ ms.locfileid: "76294202"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/blockchain-workbench.svg" alt="" />
+                                                        <img src="media/index/blockchain-workbench-alt.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2677,7 +2683,26 @@ ms.locfileid: "76294202"
                                     </div>
                                 </a>
                             </li>
-                        </ul>
+                            <li>
+                                <a href="/azure/blockchain/tokens/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/blockchain-tokens.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Token di blockchain di Azure</h3>
+                                                    <p>Definire, creare e gestire facilmente token basati su libro mastro</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>  
                     </li>
                     <li>
                         <a href="#Compute">Calcolo</a>
@@ -4859,7 +4884,7 @@ ms.locfileid: "76294202"
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/managed-applications">
+                                <a href="/azure/azure-resource-manager/managed-applications">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -6083,8 +6108,8 @@ ms.locfileid: "76294202"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Microsoft Azure per enti pubblici statunitensi</h3>
-                                                    <p>Compilare e ospitare applicazioni per le missioni del governo degli Stati Uniti in un'istanza dedicata di Azure</p>
+                                                    <h3>Microsoft Azure US Gov</h3>
+                                                    <p>Compilare e ospitare applicazioni per le missioni del US Gov in un'istanza dedicata di Azure</p>
                                                 </div>
                                             </div>
                                         </div>

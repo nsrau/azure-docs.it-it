@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 12/17/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c085ce4aba6760b09dcc3eaf2f6232c5cc904706
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 922e8a71a22db975685cb82bbd51a125c619ccf2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75469391"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989494"
 ---
 ### <a name="regions"></a>Quali aree sono disponibili?
 
@@ -21,7 +21,7 @@ ms.locfileid: "75469391"
 
 ### <a name="publicip"></a>È necessario un indirizzo IP pubblico nella macchina virtuale?
 
-NON è necessario un indirizzo IP pubblico nella macchina virtuale di Azure a cui ci si connette con il servizio Azure Bastion. Il servizio Bastion aprirà la sessione/connessione RDP/SSH con la macchina virtuale tramite l'indirizzo IP privato della macchina virtuale, all'interno della rete virtuale.
+Quando ci si connette a una macchina virtuale con Azure Bastion, NON è necessario un indirizzo IP pubblico nella macchina virtuale di Azure a cui ci si connette. Il servizio Bastion aprirà la sessione/connessione RDP/SSH con la macchina virtuale tramite l'indirizzo IP privato della macchina virtuale, all'interno della rete virtuale.
 
 ### <a name="is-ipv6-supported"></a>IPv6 è supportato?
 
@@ -62,7 +62,7 @@ Azure Bastion supporta attualmente il layout di tastiera QWERTY en-us nella macc
 ### <a name="udr"></a>Il routing definito dall'utente è supportato in una subnet Azure Bastion?
 
 No. Il routing definito dall'utente non è supportato in una subnet Azure Bastion.
-Per gli scenari che includono Azure Bastion e Firewall di Azure/appliance di rete virtuale nella stessa rete virtuale, non è necessario forzare il traffico da una subnet Azure Bastion a Firewall di Azure, perché la comunicazione tra Azure Bastion e le VM è privata. Per altre informazioni, vedere [Accesso alle VM dietro Firewall di Azure con Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
+Per gli scenari che includono Azure Bastion e Firewall di Azure/appliance di rete virtuale nella stessa rete virtuale, non è necessario forzare il traffico da una subnet Azure Bastion a Firewall di Azure, perché la comunicazione tra Azure Bastion e le VM è privata. Per altre informazioni, vedere [Accesso a macchine virtuali protette da Firewall di Azure con Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
 
 ### <a name="filetransfer"></a>Il trasferimento di file è supportato con la sessione RDP di Azure Bastion?
 
