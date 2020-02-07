@@ -5,10 +5,10 @@
   items:
     - name: Informazioni sulla gestione di app cloud e sull'accesso Single Sign-On
       href: what-is-application-management.md
-    - name: Che cos'è il provisioning di applicazioni?
-      href: user-provisioning.md
     - name: Informazioni sul proxy dell'applicazione per app locali
       href: what-is-application-proxy.md
+    - name: Che cos'è il provisioning di applicazioni?
+      href: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
 - name: Avvi rapidi
   items:
     - name: Aggiungere un'app cloud dalla raccolta
@@ -72,16 +72,6 @@
               href: howto-saml-token-encryption.md
             - name: Portali degli utenti finali
               href: end-user-experiences.md
-    - name: Provisioning di applicazioni (SCIM)
-      items:
-        - name: Come funziona il provisioning
-          href: how-provisioning-works.md
-        - name: Pianificare una distribuzione automatica del provisioning utenti
-          href: plan-auto-user-provisioning.md
-    - name: Provisioning HR nel cloud
-      items:
-        - name: Pianificare una distribuzione del provisioning HR nel cloud
-          href: plan-cloud-hr-provision.md
     - name: Proxy dell'applicazione per app locali
       items:
         - name: Proxy dell'applicazione
@@ -237,60 +227,6 @@
                   href: access-panel-extension-problem-installing.md
                 - name: Errore durante l'uso dell'accesso alle app self-service
                   href: access-panel-troubleshoot-self-service-access.md
-    - name: Provisioning di applicazioni (SCIM)
-      items:
-        - name: Configurare il provisioning per un'app della raccolta
-          href: configure-automatic-user-provisioning-portal.md
-        - name: Creare un endpoint SCIM e configurare il provisioning
-          href: use-scim-to-provision-users-and-groups.md
-        - name: Modificare i mapping degli attributi
-          items:
-            - name: Personalizzare i mapping degli attributi
-              href: Customize-application-attributes.md
-            - name: Scrivere espressioni per il mapping degli attributi
-              href: functions-for-customizing-application-data.md
-        - name: Includere o escludere utenti e gruppi dall'ambito
-          items:
-            - name: Definire l'ambito di utenti o gruppi di cui effettuare il provisioning
-              href: define-conditional-rules-for-provisioning-user-accounts.md
-            - name: Ignorare l'eliminazione per gli utenti fuori ambito
-              href: skip-out-of-scope-deletions.md
-        - name: Monitorare e creare report sul provisioning
-          items:
-            - name: Monitorare lo stato e le prestazioni del provisioning
-              href: application-provisioning-when-will-provisioning-finish-specific-user.md
-            - name: Report sul provisioning di app
-              href: check-status-user-account-provisioning.md
-            - name: Esportare e importare la configurazione
-              href: export-import-provisioning-configuration.md
-        - name: Automatizzare la configurazione con MS Graph
-          href: application-provisioning-configure-api.md
-        - name: Risolvere i problemi del provisioning utenti
-          items:
-            - name: Risolvere i problemi del provisioning di app
-              href: application-provisioning-config-problem.md
-            - name: Stato di quarantena
-              href: application-provisioning-quarantine-status.md
-            - name: Log di provisioning
-              href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
-            - name: Sincronizzare un attributo per il mapping - App della raccolta
-              href: user-provisioning-sync-attributes-for-mapping.md
-            - name: Tempo necessario eccessivo - App della raccolta
-              href: application-provisioning-when-will-provisioning-finish.md
-            - name: Problema di autorizzazione (non è possibile salvare le credenziali di amministratore)
-              href: application-provisioning-config-problem-storage-limit.md
-            - name: Utenti senza provisioning
-              href: application-provisioning-config-problem-no-users-provisioned.md
-            - name: Provisioning di utenti errati
-              href: application-provisioning-config-problem-wrong-users-provisioned.md
-            - name: Processo di provisioning in quarantena
-              href: application-provisioning-quarantine-status.md
-            - name: Attributo di origine mancante
-              href: user-provisioning-sync-attributes-for-mapping.md
-            - name: Processo di provisioning lento
-              href: application-provisioning-when-will-provisioning-finish.md
-            - name: Log di provisioning
-              href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
     - name: Proxy dell'applicazione per app locali
       items:
         - name: Configurare i connettori
@@ -391,28 +327,10 @@
           href: secure-hybrid-access.md
 - name: Informazioni di riferimento
   items:
-    - name: Provisioning di applicazioni (SCIM)
-      items:
-        - name: Scrivere espressioni per il mapping degli attributi
-          href: functions-for-customizing-application-data.md
-        - name: Scelta di un metodo di provisioning
-          href: isv-automatic-provisioning-multi-tenant-apps.md
-    - name: Provisioning HR nel cloud
-      items:
-        - name: Informazioni di riferimento sugli attributi di SuccessFactors
-          href: sap-successfactors-attribute-reference.md
-        - name: Informazioni di riferimento sugli attributi di Workday
-          href: workday-attribute-reference.md
-    - name: Agente provisioning di Microsoft Azure AD Connect
-      items:
-        - name: Cronologia delle versioni dell'agente di provisioning
-          href: provisioning-agent-release-version-history.md
-    - name: Proxy dell'applicazione per app locali
-      items:
-        - name: Domande frequenti sul proxy dell'applicazione
-          href: application-proxy-faq.md
-        - name: Cronologia delle versioni del proxy di applicazione
-          href: application-proxy-release-version-history.md
+    - name: Domande frequenti sul proxy dell'applicazione
+      href: application-proxy-faq.md
+    - name: Cronologia delle versioni del proxy di applicazione
+      href: application-proxy-release-version-history.md
 - name: Risorse
   items:
     - name: Opzioni di supporto tecnico e assistenza per gli sviluppatori

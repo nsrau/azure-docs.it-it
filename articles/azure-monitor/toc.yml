@@ -8,6 +8,8 @@
       href: terminology.md
     - name: Domande frequenti
       href: faq.md
+    - name: Novità
+      href: whats-new.md
 - name: Avvi rapidi
   items:
     - name: Monitorare la risorsa di Azure
