@@ -1,18 +1,19 @@
 ---
-title: Architettura della rete di transito globale WAN virtuale di Azure | Microsoft Docs
+title: 'Architettura: architettura di rete di transito globale'
+titleSuffix: Azure Virtual WAN
 description: Informazioni sull'architettura di rete di transito globale per la rete WAN virtuale
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 10/18/2019
+ms.date: 02/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9b736e897278c4656df83c30388efc812ac6193d
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 17d0e678008c76da32f20562aa795e83e49c80e4
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607374"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064972"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Architettura di rete di transito globale e rete WAN virtuale
 

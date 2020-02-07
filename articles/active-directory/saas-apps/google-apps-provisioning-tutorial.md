@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 01/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f11258457e60ea3458b0ede1fe00f042041bcb1a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 969a2fb5444ae8ece2aa302c04a5bbb85dcca917
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841251"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057720"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Esercitazione: Configurare G Suite per il provisioning utenti automatico
 
 Questa esercitazione descrive i passaggi da eseguire in G Suite e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in G Suite.
 
 > [!NOTE]
-> L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
+> L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 > [!NOTE]
 > Il connettore G Suite è stato aggiornato di recente il 2019 ottobre. Le modifiche apportate al connettore G Suite includono:
@@ -68,7 +68,7 @@ Prima di configurare G Suite per il provisioning utenti automatico con Azure AD,
 
     ![Selezionare API Reference (Riferimento API).][15]
 
-1. Selezionare **Enable API access**.
+1. Selezionare **Attiva accesso API**.
 
     ![Selezionare API Reference (Riferimento API).][16]
 
@@ -163,7 +163,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 1. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a G Suite**.
 
@@ -181,7 +181,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Attributi gruppo G Suite](media/google-apps-provisioning-tutorial/groupattributes.png)
 
-1. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. Per abilitare il servizio di provisioning Azure AD per G Suite, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
 
@@ -200,11 +200,11 @@ L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi
 > [!NOTE]
 > Se gli utenti dispongono già di un account personale/utente esistente che usa l'indirizzo di posta elettronica dell'utente Azure AD, potrebbe verificarsi un problema che potrebbe essere risolto usando lo strumento Google Transfer prima di eseguire la sincronizzazione della directory.
 
-Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
+Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="common-issues"></a>Problemi comuni
@@ -213,7 +213,7 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../manage-apps/check-status-user-account-provisioning.md)
+* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 

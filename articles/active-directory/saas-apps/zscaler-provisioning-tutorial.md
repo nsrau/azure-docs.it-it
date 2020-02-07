@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Configurare zScaler per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+title: 'Esercitazione: configurare zScaler per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in zScaler.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: d88aae8887cbfd872a8d3e82fb2166043c312e5a
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 8add1f57b566d746d464c1ca165938fc112a9784
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515404"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062711"
 ---
-# <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Esercitazione: Configurare zScaler per il provisioning utenti automatico
+# <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Esercitazione: configurare zScaler per il provisioning utenti automatico
 
 Questa esercitazione descrive i passaggi da eseguire in zScaler e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in zScaler.
 
@@ -82,7 +82,7 @@ Prima di configurare e abilitare il provisioning utenti automatico, è necessari
 Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in zScaler in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare l'accesso Single Sign-on basato su SAML per zScaler, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di zScaler](zscaler-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per zScaler, seguendo le istruzioni fornite nell' [esercitazione su Zscaler Single Sign-on](zscaler-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-in-azure-ad"></a>Per configurare il provisioning utenti automatico per zScaler in Azure AD:
 
@@ -142,7 +142,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 14. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](./../active-directory-saas-scoping-filters.md).
 
-15. Per abilitare il servizio di provisioning Azure AD per zScaler, impostare **stato** del provisioning **su** attivato nella sezione **Impostazioni** .
+15. Per abilitare il servizio di provisioning Azure AD per zScaler, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
 
     ![Provisioning di zScaler](./media/zscaler-provisioning-tutorial/provisioning-status.png)
 
@@ -160,7 +160,7 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

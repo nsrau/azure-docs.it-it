@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 607d538a2a2636e17265e95195000a777f162dc4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 602eed65745eea1fd9096508c442a27ea79bcba9
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60263386"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057735"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Esercitazione: Configurare Jive per il provisioning utenti automatico
 
@@ -48,7 +48,7 @@ Prima di configurare e abilitare il servizio di provisioning, è necessario stab
 
 *   Quando si assegna un utente a Jive, è necessario selezionare un ruolo utente valido. Il ruolo "Default Access" (Accesso predefinito) non è applicabile per il provisioning.
 
-## <a name="enable-user-provisioning"></a>Abilitare il provisioning utenti
+## <a name="enable-user-provisioning"></a>Abilitazione del provisioning utente
 
 Questa sezione illustra la connessione di Azure AD all'API per il provisioning degli account utente di Jive e la configurazione del servizio di provisioning per la creazione, l'aggiornamento e la disabilitazione degli account utente assegnati in Jive in base all'assegnazione di utenti e gruppi in Azure AD.
 
@@ -72,11 +72,11 @@ Come parte di questa procedura, specificare un token di sicurezza utente da rich
 
 1. Nella sezione **Credenziali di amministratore** specificare le impostazioni di configurazione seguenti:
    
-    a. Nella casella di testo **Jive Admin User Name** (Nome utente amministratore Jive) digitare un nome di account Jive che abbia il profilo **Amministratore di sistema** assegnato in Jive.com.
+    a. Nella casella di testo **Nome utente amministratore Jive** digitare un nome di account Jive che abbia il profilo **Amministratore di sistema** assegnato in Jive.com.
    
-    b. Nella casella di testo **Password amministratore Jive** digitare la password per questo account.
+    b. Nella casella di testo **Password amministratore Jive** digitare la password per l'account.
    
-    c. Nella casella di testo **URL tenant di Jive** digitare l'URL del tenant di Jive.
+    c. Nella casella di testo **URL tenant Jive** digitare l'URL del tenant Jive.
       
       > [!NOTE]
       > L'URL del tenant di Jive è l'URL usato dall'organizzazione per accedere a Jive.  
@@ -98,7 +98,7 @@ Come parte di questa procedura, specificare un token di sicurezza utente da rich
 
 Viene avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi assegnati a Jive nella sezione Utenti e gruppi. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti per tutto il tempo che il servizio è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai log delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning sull'app Jive.
 
-Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
+Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

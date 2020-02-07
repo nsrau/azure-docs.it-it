@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 9d00024351c18789e26120cc2af006b9aac4232d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 518d86fff04a23f1c1e63c44c53485b99f30637d
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75767841"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057839"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Esercitazione: configurare l'harness per il provisioning utenti automatico
 
 Questo articolo illustra come configurare Azure Active Directory (Azure AD) per effettuare automaticamente il provisioning e il deprovisioning di utenti o gruppi per l'harness.
 
 > [!NOTE]
-> Questo articolo descrive un connettore basato sul servizio di provisioning utenti Azure AD. Per informazioni importanti su questo servizio e sulle risposte alle domande frequenti, vedere [automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
+> Questo articolo descrive un connettore basato sul servizio di provisioning utenti Azure AD. Per informazioni importanti su questo servizio e sulle risposte alle domande frequenti, vedere [automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Questo connettore è attualmente disponibile in anteprima. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -72,7 +72,7 @@ Prima di configurare e abilitare il provisioning utenti automatico, decidere qua
    a. Nella casella **nome** specificare un nome per la chiave.  
    b. Selezionare un'opzione nell'elenco a discesa **autorizzazioni ereditate da** . 
    
-1. Selezionare **Submit** (Invia).
+1. Selezionare **Submit**.
 
 1. Copiare la **chiave** per usarla in seguito in questa esercitazione.
 
@@ -156,7 +156,7 @@ Per configurare il provisioning utenti automatico per harness in Azure AD, proce
 
     ![Riquadro "mapping degli attributi" del gruppo di harness](media/harness-provisioning-tutorial/groupattributes.png)
 
-1. Per configurare i filtri di ambito, vedere [provisioning di applicazioni basate su attributi con filtri di ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Per configurare i filtri di ambito, vedere [provisioning di applicazioni basate su attributi con filtri di ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. In **Impostazioni**, per abilitare il servizio di provisioning Azure ad per harness, impostare lo **stato del provisioning** **su**attivato.
 
@@ -172,13 +172,13 @@ Per configurare il provisioning utenti automatico per harness in Azure AD, proce
 
 Questa operazione avvia la sincronizzazione iniziale degli utenti o dei gruppi di cui si sta eseguendo il provisioning. La sincronizzazione iniziale richiede più tempo rispetto a quelle successive. Le sincronizzazioni si verificano approssimativamente ogni 40 minuti, purché il servizio di provisioning Azure AD sia in esecuzione. Per monitorare lo stato di avanzamento, passare alla sezione **Dettagli sincronizzazione** . È anche possibile seguire i collegamenti a un report dell'attività di provisioning, che descrive tutte le azioni eseguite dal servizio di provisioning Azure AD in harness.
 
-Per altre informazioni su come leggere i log di provisioning di Azure AD, vedere creare [report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
+Per altre informazioni su come leggere i log di provisioning di Azure AD, vedere creare [report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per le app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../manage-apps/check-status-user-account-provisioning.md)
+* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)

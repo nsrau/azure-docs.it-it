@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: configurare Zendesk per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+title: 'Esercitazione: Configurare Zendesk per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in Zendesk.
 services: active-directory
 documentationcenter: ''
@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f9d819533b97a126a324ab867b7185fd6415847
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a480119ee88521b920be88669f6d80e3754d24d3
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851976"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062745"
 ---
-# <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Esercitazione: configurare Zendesk per il provisioning utenti automatico
+# <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Esercitazione: Configurare Zendesk per il provisioning utenti automatico
 
 Questa esercitazione illustra i passaggi da eseguire in Zendesk e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e gruppi in Zendesk.
 
 > [!NOTE]
-> Questa esercitazione descrive un connettore basato sul servizio di provisioning utenti Azure AD. Per informazioni sul funzionamento di questo servizio, sul suo funzionamento e sulle domande frequenti, vedere automatizzare il provisioning e il deprovisioning [utenti in applicazioni SaaS (software-as-a-Service) con Azure Active Directory](../manage-apps/user-provisioning.md).
+> Questa esercitazione descrive un connettore basato sul servizio di provisioning utenti Azure AD. Per informazioni sul funzionamento di questo servizio, sul suo funzionamento e sulle domande frequenti, vedere [automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS (software-as-a-Service) con Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -79,11 +79,11 @@ Prima di configurare e abilitare il provisioning utenti automatico, decidere qua
 Questa sezione illustra i passaggi per configurare il servizio di provisioning di Azure AD. Usarlo per creare, aggiornare e disabilitare utenti o gruppi in Zendesk in base alle assegnazioni di utenti o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile abilitare l'accesso Single Sign-on basato su SAML per zendesk. Seguire le istruzioni riportate nell' [esercitazione sull'accesso Single Sign-on di Zendesk](zendesk-tutorial.md). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+> È anche possibile abilitare la Single Sign-On basata su SAML per zendesk. Seguire le istruzioni riportate nell' [esercitazione Zendesk Single Sign-on](zendesk-tutorial.md). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
 ### <a name="configure-automatic-user-provisioning-for-zendesk-in-azure-ad"></a>Configurare il provisioning utenti automatico per Zendesk in Azure AD
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **applicazioni** > aziendali**tutte le applicazioni** > **Zendesk**.
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **applicazioni aziendali** > **tutte le applicazioni** > **Zendesk**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -105,9 +105,9 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning d
 
    * Nella casella **token segreto** compilare il token Secret come descritto nel passaggio 6.
 
-   * Nella casella **dominio** compilare il sottodominio del tenant di zendesk. Per un account con URL `https://my-tenant.zendesk.com`tenant, ad esempio, il sottodominio è **My-tenant**.
+   * Nella casella **dominio** compilare il sottodominio del tenant di zendesk. Per un account con un URL tenant di `https://my-tenant.zendesk.com`, ad esempio, il sottodominio è **My-tenant**.
 
-6. Il token segreto per l'account Zendesk si trova in**Impostazioni** **API** > di **Amministrazione** > . Assicurarsi che **l'accesso ai token** sia impostato su **abilitato**.
+6. Il token segreto per l'account Zendesk si trova in **amministrazione** > **API** > **Impostazioni**. Assicurarsi che **l'accesso ai token** sia impostato su **abilitato**.
 
     ![Impostazioni amministratore di Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk4.png)
 
@@ -139,9 +139,9 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning d
 
     ![Attributi di gruppo corrispondenti Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk13.png)
 
-14. Per configurare i filtri di ambito, seguire le istruzioni riportate nell'esercitazione relativa al [filtro di ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+14. Per configurare i filtri di ambito, seguire le istruzioni riportate nell'esercitazione relativa al [filtro di ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-15. Per abilitare il servizio di provisioning Azure AD per Zendesk, nella sezione **Impostazioni** impostare **stato** del provisioning **su**attivato.
+15. Per abilitare il servizio di provisioning Azure AD per Zendesk, nella sezione **Impostazioni** impostare **stato del provisioning** **su**attivato.
 
     ![Stato del provisioning di Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk14.png)
 
@@ -157,7 +157,7 @@ Questa operazione avvia la sincronizzazione iniziale di tutti gli utenti o grupp
 
 È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti al report delle attività di provisioning. Il report descrive tutte le azioni eseguite dal servizio di provisioning Azure AD in Zendesk.
 
-Per informazioni su come leggere i log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
+Per informazioni su come leggere i log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Limitazioni dei connettori
 
@@ -167,12 +167,12 @@ Per informazioni su come leggere i log di provisioning di Azure AD, vedere l'ese
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per le app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../manage-apps/check-status-user-account-provisioning.md)
+* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/zendesk-tutorial/tutorial_general_01.png
