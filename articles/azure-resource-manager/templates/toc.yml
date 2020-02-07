@@ -161,6 +161,8 @@
         - name: Distribuire - API REST
           displayName: deployment
           href: deploy-rest.md
+        - name: Eseguire la distribuzione da GitHub
+          href: deploy-to-azure-button.md
         - name: Distribuzione di simulazione
           href: template-deploy-what-if.md
         - name: Ridistribuire in caso di errore

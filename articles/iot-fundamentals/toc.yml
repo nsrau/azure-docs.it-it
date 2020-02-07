@@ -4,6 +4,8 @@
   items:
     - name: Introduzione
       href: iot-introduction.md
+    - name: Scegliere la soluzione IoT appropriata
+      href: iot-solution-options.md
     - name: Servizi e tecnologie di Azure IoT
       href: iot-services-and-technologies.md
     - name: Opzioni di supporto tecnico e assistenza
