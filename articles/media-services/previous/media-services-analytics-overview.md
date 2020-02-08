@@ -15,25 +15,21 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
-ms.openlocfilehash: 4b0d360c11313e086f6ec26e5ee46b8d6f49869a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ab1eba3de474d9ff985e62f491c24fa63be0fa63
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844344"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069626"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Analisi Servizi multimediali nella piattaforma Servizi multimediali 
 
 ## <a name="retirement-plans"></a>Piani di ritiro
 
 > [!IMPORTANT]
-> Il processore di contenuti multimediali legacy seguente verrà ritirato in 2020, vedere i dettagli nella tabella seguente. 
+> Alcuni processori di contenuti multimediali sono in fase di ritiro. Per le date di ritiro e altre informazioni, vedere l'argomento [componenti legacy](legacy-components.md) . 
 
-|Nome processore di contenuti multimediali|Data di ritiro|Note aggiuntive|
-|---|---|
-|[Azure Media Indexer](media-services-index-content.md)|1 ° ottobre di 2020|Questo processore di contenuti multimediali verrà sostituito da [servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). Per altre informazioni, vedere [eseguire la migrazione da Azure Media Indexer a servizi multimediali di Azure video Indexer](migrate-indexer-v1-v2.md)
- 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Sempre più organizzazioni adottano i video come mezzo per formare i dipendenti, coinvolgere i clienti e documentare le funzioni aziendali. Il cloud computing consente di archiviare e riprodurre in streaming questi file multimediali di grandi dimensioni, nonché di accedervi. Tuttavia, man mano che la libreria aziendale di contenuti video aumenta, è necessario un mezzo altrettanto efficace per estrarre informazioni dal contenuto. 
 
@@ -65,7 +61,7 @@ Il riconoscimento ottico dei caratteri (OCR) di Analisi Servizi multimediali di 
 ### <a name="scalable-face-redaction"></a>Offuscamento dei volti scalabile
 Azure Media Redactor è un processore di contenuti multimediali di Analisi Servizi multimediali di Azure che offre funzionalità scalabili di offuscamento dei volti nel cloud. Usando l'offuscamento dei volti è possibile modificare un video per sfocare i volti di persone selezionate. Si potrebbe scegliere di usare tale servizio in scenari di notizie giornalistiche o pubblica sicurezza. Offuscare manualmente alcuni minuti di filmato contenenti più volti può richiedere ore, ma con questo servizio l'offuscamento dei volti richiederà pochi semplici passaggi. Per altre informazioni, vedere l'articolo [Offuscare i volti con Analisi Servizi multimediali di Azure](media-services-face-redaction.md).
 
-### <a name="content-moderation"></a>Servizio di moderazione dei contenuti
+### <a name="content-moderation"></a>Moderazione dei contenuti
 Azure Content Moderator consente di usare funzionalità di moderazione automatica per i video. Ad esempio, è possibile rilevare nei video contenuti pornografici e per adulti ed eseguire la revisione dei contenuti contrassegnati in modalità manuale. La moderazione manuale dei video per i contenuti indesiderati è un'attività costosa, che richiede molto tempo. Con questo servizio e gli strumenti di revisione associati, vengono combinate funzionalità di moderazione automatica e manuale allo scopo di ottenere risultati migliori in termini di efficacia ed efficienza. Per altre informazioni, vedere l'articolo [Process your videos with Azure Content Moderator](media-services-content-moderation.md) (Analizzare i video con Azure Content Moderator).
 
 ## <a name="common-scenarios"></a>Scenari comuni
@@ -139,7 +135,7 @@ Risposta:
 ## <a name="demos"></a>Demo
 Vedere le [demo di Analisi Servizi multimediali di Azure](https://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>Articoli correlati

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 42df2d24aad1465a200203e648feb97d4e96fd18
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8e5ea4bba693a6785dae4075da7b13154593bb4c
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989825"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087375"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usare Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -119,8 +119,9 @@ Per informazioni sull'integrazione dei servizi di Azure nei componenti SAP, vede
 - [Azure Data Factory offre l'integrazione di dati SAP HANA e Business Warehouse](https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration)
 
 
-## <a name="change-log"></a>Registro modifiche
+## <a name="change-log"></a>Registro delle modifiche
 
+- 02/07/2020: modificare [la connettività degli endpoint pubblici per le macchine virtuali con ILB standard di Azure negli scenari di disponibilità elevata di SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) per aggiornare la schermata di esempio NSG
 - 02/03/2020: modificare la [disponibilità elevata per SAP NW in macchine virtuali di Azure in SLES per le applicazioni SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse) e [disponibilità elevata per SAP NW in macchine virtuali di Azure in SLES con e per le applicazioni SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) per rimuovere l'avviso sull'uso di Dash nei nomi host dei nodi del cluster in SLES
 - 01/28/2020: modificare la [disponibilità elevata delle SAP Hana nelle macchine virtuali di Azure in RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel) per allineare i timeout delle risorse del cluster SAP Hana alle raccomandazioni per il timeout di Red Hat
 - 01/17/2020: modificare i [gruppi di posizionamento di prossimità di Azure per una latenza di rete ottimale con le applicazioni SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) per modificare la sezione dello stato di trasferimento di macchine virtuali esistenti in un gruppo di posizionamento vicino

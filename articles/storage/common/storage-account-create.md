@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/17/2020
+ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2ef90e1cb883a2d22b355ff4105ae0ce3c73ad6d
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 86aaebe652968a2ea33fd8e15f9de9c1dff31a30
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759851"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086957"
 ---
 # <a name="create-an-azure-storage-account"></a>Creare un account di Archiviazione di Azure
 
@@ -30,11 +30,19 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 # <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
-Nessuno.
+Nessuno
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Questo articolo sulle procedure richiede il modulo Azure PowerShell AZ versione 0,7 o successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione corrente. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/install-Az-ps).
+Per creare un account di archiviazione di Azure con PowerShell, verificare di aver installato Azure PowerShell modulo AZ versione 0,7 o successiva. Per ulteriori informazioni, vedere [Introduzione al Azure PowerShell AZ Module](/powershell/azure/new-azureps-module-az).
+
+Per trovare la versione corrente, eseguire il comando seguente:
+
+```powershell
+Get-InstalledModule -Name "Az"
+```
+
+Per installare o aggiornare Azure PowerShell, vedere [install Azure PowerShell Module](/powershell/azure/install-Az-ps).
 
 # <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -59,11 +67,11 @@ Il pulsante avvia una shell interattiva che è possibile usare per eseguire la p
 
 # <a name="templatetabtemplate"></a>[Modello](#tab/template)
 
-Nessuno.
+Nessuno
 
 ---
 
-## <a name="sign-in-to-azure"></a>Accedere a Azure
+## <a name="sign-in-to-azure"></a>Accedi ad Azure
 
 # <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
@@ -83,7 +91,7 @@ Per avviare Azure Cloud Shell, accedere al [portale di Azure](https://portal.azu
 
 Per accedere all'installazione locale dell'interfaccia della riga di comando, eseguire il comando [AZ login](/cli/azure/reference-index#az-login) :
 
-```cli
+```azurecli-interactive
 az login
 ```
 
@@ -113,6 +121,7 @@ Creare prima un nuovo gruppo di risorse con PowerShell usando il comando [New-Az
 # put resource group in a variable so you can use the same group name going forward,
 # without hard-coding it repeatedly
 $resourceGroup = "storage-resource-group"
+$location = "westus"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
@@ -120,7 +129,6 @@ In caso di dubbi su quale area specificare per il parametro `-Location`, è poss
 
 ```powershell
 Get-AzLocation | select Location
-$location = "westus"
 ```
 
 Creare quindi un account di archiviazione per utilizzo generico V2 con archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) usando il comando [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) . Tenere presente che il nome dell'account di archiviazione deve essere univoco in Azure, quindi sostituire il valore del segnaposto tra parentesi quadre con il proprio valore univoco:
@@ -134,7 +142,7 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
 ```
 
 > [!IMPORTANT]
-> Se si prevede di utilizzare [Azure Data Lake storage](https://azure.microsoft.com/services/storage/data-lake-storage/), includere `-EnableHierarchicalNamespace $True` in questo elenco di parametri. 
+> Se si prevede di utilizzare [Azure Data Lake storage](https://azure.microsoft.com/services/storage/data-lake-storage/), includere `-EnableHierarchicalNamespace $True` in questo elenco di parametri.
 
 Per creare un account di archiviazione per utilizzo generico V2 con un'opzione di replica diversa, sostituire il valore desiderato nella tabella seguente per il parametro **SkuName** .
 
@@ -142,7 +150,7 @@ Per creare un account di archiviazione per utilizzo generico V2 con un'opzione d
 |---------|---------|
 |Archiviazione con ridondanza locale (LRS)     |Standard_LRS         |
 |Archiviazione con ridondanza della zona (ZRS).     |Standard_ZRS         |
-|Archiviazione con ridondanza geografica     |Standard_GRS         |
+|Archiviazione con ridondanza geografica (GRS)     |Standard_GRS         |
 |Archiviazione con ridondanza geografica e accesso in lettura     |Standard_RAGRS         |
 |Archiviazione con ridondanza della zona geografica (GZRS) (anteprima)    |Standard_GZRS         |
 |Archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS) (anteprima)    |Standard_RAGZRS         |
@@ -185,7 +193,7 @@ Per creare un account di archiviazione per utilizzo generico V2 con un'opzione d
 |---------|---------|
 |Archiviazione con ridondanza locale (LRS)     |Standard_LRS         |
 |Archiviazione con ridondanza della zona (ZRS).     |Standard_ZRS         |
-|Archiviazione con ridondanza geografica     |Standard_GRS         |
+|Archiviazione con ridondanza geografica (GRS)     |Standard_GRS         |
 |Archiviazione con ridondanza geografica e accesso in lettura     |Standard_RAGRS         |
 |Archiviazione con ridondanza della zona geografica (GZRS) (anteprima)    |Standard_GZRS         |
 |Archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS) (anteprima)    |Standard_RAGZRS         |
@@ -228,7 +236,7 @@ L'eliminazione di un account di archiviazione consente di eliminare l'intero acc
 # <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
 
 1. Passare all'account di archiviazione nel [portale di Azure](https://portal.azure.com).
-1. Fare clic su **Elimina**.
+1. Scegliere **Elimina**.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 

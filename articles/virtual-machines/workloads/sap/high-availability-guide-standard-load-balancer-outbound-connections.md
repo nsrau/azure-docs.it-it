@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/28/2019
+ms.date: 02/07/2020
 ms.author: radeltch
-ms.openlocfilehash: 179df26eb0cc75899c9b509ebe00410ffa916dc8
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 52179f15829981d59ff060784a49eccef89bb186
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935188"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083729"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Connettività degli endpoint pubblici per le macchine virtuali con Load Balancer Standard di Azure in scenari a disponibilità elevata di SAP
 
@@ -29,7 +29,7 @@ Lo scopo di questo articolo è descrivere le configurazioni che consentiranno la
 Se si usa pacemaker con l'agente di recinzione di Azure nella soluzione a disponibilità elevata, le macchine virtuali devono avere connettività in uscita all'API di gestione di Azure.  
 L'articolo presenta diverse opzioni che consentono di selezionare l'opzione più adatta per lo scenario in uso.  
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Quando si implementa la disponibilità elevata per le soluzioni SAP tramite il clustering, è [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)uno dei componenti necessari. Azure offre due SKU del servizio di bilanciamento del carico: standard e Basic.
 
@@ -106,7 +106,7 @@ La configurazione avrà un aspetto simile al seguente:
     az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup
    ```
 
-4. Creare regole del gruppo di sicurezza di rete per limitare l'accesso a endpoint pubblici specifici. Se è presente un gruppo di sicurezza di rete esistente, è possibile modificarlo. Nell'esempio seguente viene illustrato come consentire l'accesso solo all'API di gestione di Azure: 
+4. Creare regole del gruppo di sicurezza di rete per limitare l'accesso a endpoint pubblici specifici. Se è presente un gruppo di sicurezza di rete esistente, è possibile modificarlo. L'esempio seguente illustra come abilitare l'accesso all'API di gestione di Azure: 
    1. Passare al gruppo di sicurezza di rete
    1. Fare clic su regole di sicurezza in uscita
    1. Aggiungere una regola per **negare** l'accesso in uscita a **Internet**.

@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 06d15d66df0b2ec0049d4b2fffae6a9909b05dca
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 35cded14977988c80455a9c28a0e01e7913d58f4
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549139"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069507"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Procedure consigliate per l'autenticazione e l'autorizzazione nel servizio Azure Kubernetes (AKS)
 
 Durante la distribuzione e la gestione dei cluster nel servizio Azure Kubernetes (AKS), è necessario implementare opportune modalità di gestione dell'accesso a risorse e servizi. Senza questi controlli, gli account possono avere accesso alle risorse e ai servizi di cui non hanno bisogno. Può essere inoltre difficile tenere traccia del set di credenziali usato per apportare le modifiche.
 
-Questo articolo sulle procedure consigliate è incentrato su come un operatore del cluster può gestire l'accesso e l'identità per i cluster servizio Azure Kubernetes. In questo articolo vengono illustrate le operazioni seguenti:
+Questo articolo sulle procedure consigliate è incentrato su come un operatore del cluster può gestire l'accesso e l'identità per i cluster servizio Azure Kubernetes. In questo articolo viene spiegato come:
 
 > [!div class="checklist"]
 > * Autenticare gli utenti del cluster servizio Azure Kubernetes con Azure Active Directory
@@ -122,7 +122,7 @@ Questo articolo sulle procedure consigliate ha illustrato l'autenticazione e l'a
 
 Per altre informazioni sulle operazioni cluster in servizio Azure Kubernetes, vedere le procedure consigliate seguenti:
 
-* [Multi-tenant e isolamento del cluster][aks-best-practices-scheduler]
+* [Multi-tenant e isolamento del cluster][aks-best-practices-cluster-isolation]
 * [Funzionalità dell'utilità di pianificazione di Kubernetes di base][aks-best-practices-scheduler]
 * [Funzionalità dell'utilità di pianificazione avanzata di Kubernetes][aks-best-practices-advanced-scheduler]
 

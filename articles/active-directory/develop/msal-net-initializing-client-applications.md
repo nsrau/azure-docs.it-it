@@ -3,22 +3,22 @@ title: Inizializzare applicazioni client MSAL.NET | Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni sull'inizializzazione di applicazioni client pubbliche e riservate con Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/12/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 31af3691e9f55eb4263b5976c2dc82c029cbc3a0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 57ce6ab31421cd4016f7e204eeabce82f2f7e6a7
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695552"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084004"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inizializzare applicazioni client usando MSAL.NET
 Questo articolo descrive l'inizializzazione di applicazioni client pubbliche e riservate con Microsoft Authentication Library per .NET (MSAL.NET).  Per altre informazioni sui tipi di applicazioni client e sulle opzioni di configurazione dell'applicazione, vedere la [Panoramica](msal-client-applications.md).
@@ -96,17 +96,17 @@ Nei frammenti di codice che usano i generatori di applicazioni è possibile appl
 
 I modificatori che è possibile impostare in un client pubblico o in un generatore di applicazioni client riservate sono:
 
-|Modificatore | Description|
+|Modificatore | Descrizione|
 |--------- | --------- |
 |override di `.WithAuthority()` 7 | Imposta l'autorità predefinita dell'applicazione su un'autorità di Azure AD, con la possibilità di scegliere il cloud di Azure, i destinatari, il tenant (ID tenant o nome di dominio) o fornire direttamente l'URI dell'autorità.|
 |`.WithAdfsAuthority(string)` | Imposta l'autorità predefinita dell'applicazione in modo che sia un'autorità ADFS.|
 |`.WithB2CAuthority(string)` | Imposta l'autorità predefinita dell'applicazione come Azure AD B2C autorità.|
 |`.WithClientId(string)` | Esegue l'override dell'ID client.|
 |`.WithComponent(string)` | Imposta il nome della libreria utilizzando MSAL.NET (per motivi di telemetria). |
-|`.WithDebugLoggingCallback()` | Se viene chiamato, l'applicazione chiamerà `Debug.Write` semplicemente abilitando le tracce di debug. Per altre informazioni, vedere [Registrazione](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging).|
+|`.WithDebugLoggingCallback()` | Se viene chiamato, l'applicazione chiamerà `Debug.Write` semplicemente abilitando le tracce di debug. Per ulteriori informazioni, vedere [registrazione](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) .|
 |`.WithExtraQueryParameters(IDictionary<string,string> eqp)` | Imposta i parametri di query aggiuntivi a livello di applicazione che verranno inviati in tutte le richieste di autenticazione. Questa operazione viene sottoponibile a override a ogni livello di metodo di acquisizione di token (con lo stesso `.WithExtraQueryParameters pattern`).|
 |`.WithHttpClientFactory(IMsalHttpClientFactory httpClientFactory)` | Abilita scenari avanzati, ad esempio la configurazione di un proxy HTTP, oppure per forzare l'uso di un determinato HttpClient (ad esempio in ASP.NET Core app/API Web).|
-|`.WithLogging()` | Se chiamato, l'applicazione chiamerà un callback con tracce di debug. Per altre informazioni, vedere [Registrazione](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging).|
+|`.WithLogging()` | Se chiamato, l'applicazione chiamerà un callback con tracce di debug. Per ulteriori informazioni, vedere [registrazione](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) .|
 |`.WithRedirectUri(string redirectUri)` | Esegue l'override dell'URI di reindirizzamento predefinito. Nel caso di applicazioni client pubbliche, questo sarà utile per gli scenari che coinvolgono il broker.|
 |`.WithTelemetry(TelemetryCallback telemetryCallback)` | Imposta il delegato usato per inviare i dati di telemetria.|
 |`.WithTenantId(string tenantId)` | Esegue l'override dell'ID tenant o della descrizione del tenant.|
@@ -115,7 +115,7 @@ I modificatori che è possibile impostare in un client pubblico o in un generato
 
 I modificatori che è possibile impostare in un generatore di applicazioni client pubbliche in Novell. iOS sono:
 
-|Modificatore | Description|
+|Modificatore | Descrizione|
 |--------- | --------- |
 |`.WithIosKeychainSecurityGroup()` | **Solo Novell. iOS**: imposta il gruppo di sicurezza della catena di chiavi iOS (per la persistenza della cache).|
 
@@ -123,7 +123,7 @@ I modificatori che è possibile impostare in un generatore di applicazioni clien
 
 I modificatori che è possibile impostare in un generatore di applicazioni client riservate sono:
 
-|Modificatore | Description|
+|Modificatore | Descrizione|
 |--------- | --------- |
 |`.WithCertificate(X509Certificate2 certificate)` | Imposta il certificato che identifica l'applicazione con Azure AD.|
 |`.WithClientSecret(string clientSecret)` | Imposta il segreto client (password dell'app) che identifica l'applicazione con Azure AD.|

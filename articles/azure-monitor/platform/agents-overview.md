@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/15/2019
-ms.openlocfilehash: a01258799efa81c8d3ddba398facaa90c24c2513
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: ae799e9a852b8700399ef695c54b3348174b560c
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150035"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069405"
 ---
 # <a name="overview-of-the-azure-monitor-agents"></a>Panoramica degli agenti di monitoraggio di Azure 
 Le risorse di calcolo, ad esempio le macchine virtuali, generano dati per monitorarne le prestazioni e la disponibilità esattamente come [le altre risorse cloud](../insights/monitor-azure-resource.md). Le risorse di calcolo dispongono anche di un sistema operativo guest e di carichi di lavoro che devono essere monitorati. La raccolta dei dati di monitoraggio dall'interno della risorsa richiede un agente. Questo articolo descrive gli agenti usati da monitoraggio di Azure e consente di determinare quale è necessario soddisfare i requisiti per un ambiente specifico.
@@ -34,9 +34,9 @@ Nella tabella seguente viene fornito un rapido confronto tra i diversi agenti. P
 | | Estensione di diagnostica di Azure | Agente di Log Analytics | Dependency Agent |
 |:---|:---|:---|:---|
 | Ambienti supportati | Azure | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale |
-| Sistemi operativi | Windows<br>Linux | Windows<br>Linux | Windows<br>Linux
-| Dipendenze agente  | nessuno | nessuno | Richiede Log Analytics Agent |
-| Dati raccolti | Log eventi<br>Eventi ETW<br>Syslog<br>Prestazioni<br>Log di IIS<br>Log di output di traccia dell'app .NET<br>Dump di arresto anomalo del sistema | Log eventi<br>Syslog<br>Prestazioni<br>Log di IIS<br>Log personalizzati<br>Dati dalle soluzioni | Dettagli e dipendenze del processo<br>Metriche della connessione di rete |
+| Sistemi operativi | WINDOWS<br>Linux | WINDOWS<br>Linux | WINDOWS<br>Linux
+| Dipendenze agente  | None | None | Richiede Log Analytics Agent |
+| Dati raccolti | Registri eventi<br>Eventi ETW<br>Syslog<br>Prestazioni<br>Log IIS<br>Log di output di traccia dell'app .NET<br>Dump di arresto anomalo | Registri eventi<br>Syslog<br>Prestazioni<br>Log IIS<br>Log personalizzati<br>Dati dalle soluzioni | Dettagli e dipendenze del processo<br>Metriche della connessione di rete |
 | Dati inviati a | Archiviazione di Azure<br>Metriche di monitoraggio di Azure<br>Hub eventi | Log di Monitoraggio di Azure | Log di Monitoraggio di Azure |
 
 
@@ -63,7 +63,7 @@ Gli scenari supportati dall'estensione Diagnostica di Azure includono i seguenti
 ## <a name="log-analytics-agent"></a>Agente di Log Analytics
 L' [agente di log Analytics](log-analytics-agent.md) raccoglie i dati di monitoraggio dal sistema operativo guest e i carichi di lavoro delle macchine virtuali in Azure, in altri provider di servizi cloud e in locale. Raccoglie i dati in un'area di lavoro Log Analytics.
 
-Il Log Analytics Agent è lo stesso agente usato da System Center Operations Manager e i computer multihome Agent sono in comunicazione con il gruppo di gestione e con monitoraggio di Azure simultaneamente. Questo agente è richiesto anche da alcune soluzioni in monitoraggio di Azure.
+Log Analytics Agent è lo stesso agente usato da System Center Operations Manager e computer multihome Agent per comunicare con il gruppo di gestione e con monitoraggio di Azure simultaneamente. Questo agente è richiesto anche da alcune soluzioni in monitoraggio di Azure.
 
 L'agente di Log Analytics per Windows è spesso definito Microsoft Management Agent (MMA). L'agente di Log Analytics per Linux è spesso definito agente OMS.
 

@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: 4bdf842ae24d90850280a5a19038dbd00168ff2c
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.date: 02/07/2020
+ms.openlocfilehash: c6c3e9462b26b44857eea6b53092baeeb5034364
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053358"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087076"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Ottimizzare il costo della velocità effettiva con provisioning in Azure Cosmos DB
 
@@ -53,13 +53,13 @@ Di seguito sono riportate alcune linee guida per scegliere una strategia di velo
 
 Come illustrato nella tabella seguente, a seconda della scelta dell'API, è possibile effettuare il provisioning della velocità effettiva con livelli diversi di granularità.
 
-|API SmartBear Ready!|Per la velocità effettiva **condivisa**, configurare |Per la velocità effettiva **dedicata**, configurare |
+|API|Per la velocità effettiva **condivisa**, configurare |Per la velocità effettiva **dedicata**, configurare |
 |----|----|----|
 |API SQL|Database|Contenitore|
 |API Azure Cosmos DB per MongoDB|Database|Raccolta|
-|API Cassandra|Keyspace|Table|
-|API Gremlin|Account di database|Grafo|
-|API di tabella|Account di database|Table|
+|API Cassandra|Keyspace|Tabella|
+|API Gremlin|Account di database|Grafico|
+|API di tabella|Account di database|Tabella|
 
 Con il provisioning della velocità effettiva a livelli diversi, è possibile ottimizzare i costi in base alle caratteristiche del carico di lavoro. Come accennato in precedenza, è possibile aumentare o ridurre la velocità effettiva con provisioning in modo programmatico e in qualsiasi momento per i singoli contenitori o in modo collettivo in un set di contenitori. Il ridimensionamento elastico della velocità effettiva con il cambiare del carico di lavoro consente di pagare solo la velocità effettiva che è stata configurata. Se il contenitore o un set di contenitori viene distribuito tra più aree, la velocità effettiva configurata nel contenitore o in un set di contenitori è garantita come disponibile in tutte le aree.
 
@@ -123,7 +123,7 @@ Per impostazione predefinita, Azure Cosmos DB indicizza automaticamente tutte le
 
 ## <a name="scale-your-throughput-elastically-and-on-demand"></a>Ridimensionare la velocità effettiva in modo elastico e su richiesta 
 
-Poiché si paga la velocità effettiva con provisioning, è possibile combinarla con le proprie esigenze per evitare di incorrere in costi per la velocità effettiva non utilizzata. È possibile aumentare o ridurre la velocità effettiva con provisioning in qualsiasi momento in base alle esigenze.  
+Poiché si paga la velocità effettiva con provisioning, è possibile combinarla con le proprie esigenze per evitare di incorrere in costi per la velocità effettiva non utilizzata. È possibile aumentare o ridurre la velocità effettiva con provisioning in qualsiasi momento in base alle esigenze. Se le esigenze di velocità effettiva sono molto prevedibili, è possibile usare funzioni di Azure e usare un trigger timer per [aumentare o ridurre la velocità effettiva in base a una pianificazione](scale-on-schedule.md). 
 
 * Il monitoraggio dell'utilizzo di UR e la proporzione di richieste soggette a limiti di velocità possono rivelare che non è necessario un provisioning costante della velocità effettiva per un intero giorno o un'intera settimana. Ad esempio, di notte o durante il fine settimana il traffico potrebbe essere inferiore. Usando il portale di Azure, gli SDK nativi di Azure Cosmos DB o l'API REST, è possibile ridimensionare la velocità effettiva con provisioning in qualsiasi momento. L'API REST di Azure Cosmos DB fornisce gli endpoint per aggiornare in modo programmatico il livello di prestazioni dei contenitori, semplificando la regolazione della velocità effettiva dal codice in base all'ora del giorno o al giorno della settimana. L'operazione viene eseguita senza alcun tempo di inattività e in genere ha effetto in meno di un minuto. 
 
@@ -177,10 +177,10 @@ La procedura seguente consente di rendere le soluzioni altamente scalabili ed ec
 
 È ora possibile passare ad altre informazioni sull'ottimizzazione dei costi in Azure Cosmos DB con gli articoli seguenti:
 
-* Altre informazioni sull'[ottimizzazione di sviluppo e test](optimize-dev-test.md)
+* Altre informazioni sull'[Ottimizzazione di sviluppo e test](optimize-dev-test.md)
 * Altre informazioni su [come comprendere la fatturazione di Azure Cosmos DB](understand-your-bill.md)
-* Altre informazioni sull'[Ottimizzazione dei costi di archiviazione](optimize-cost-storage.md)
+* Altre informazioni sull'[ottimizzazione dei costi di archiviazione](optimize-cost-storage.md)
 * Altre informazioni sull'[ottimizzazione del costo delle operazioni di lettura e scrittura](optimize-cost-reads-writes.md)
 * Altre informazioni sull'[ottimizzazione del costo delle query](optimize-cost-queries.md)
-* Altre informazioni sull'[ottimizzazione dei costi degli account Azure Cosmos multiarea](optimize-cost-regions.md)
+* Altre informazioni sull'[ottimizzazione dei costi degli account Azure Cosmos multi-area](optimize-cost-regions.md)
 

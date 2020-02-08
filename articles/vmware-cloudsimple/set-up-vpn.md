@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fbd2b227c9292593a7652044ef4c013bf0cfaf8e
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 8188fac270eadb6e09cc3561ddefb05aa59ba661
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77017004"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087135"
 ---
 # <a name="configure-a-vpn-connection-to-your-avs-private-cloud"></a>Configurare una connessione VPN al cloud privato AVS
 
@@ -32,7 +32,7 @@ Per creare un gateway VPN da punto a sito, vedere [creare un gateway VPN da punt
 
 ### <a name="connect-to-avs-using-point-to-site-vpn"></a>Connettersi a AVS usando la VPN da punto a sito
 
-Il client VPN è necessario per la connessione ad AVS dal computer. Scaricare il [client OpenVPN](https://openvpn.net/community-downloads/) per Windows o [la viscosità](https://www.sparklabs.com/viscosity/download/) per MacOS e OS X.
+Il client VPN è necessario per la connessione ad AVS dal computer. Scaricare il [client OpenVPN](https://openvpn.net/community-downloads/) per Windows o la [viscosità](https://www.sparklabs.com/viscosity/download/) per MacOS e OS X.
 
 1. Avviare AVS Portal e selezionare **rete**.
 2. Selezionare **gateway VPN**.
@@ -40,7 +40,7 @@ Il client VPN è necessario per la connessione ad AVS dal computer. Scaricare il
 4. Selezionare **Utenti**.
 5. Fare clic su **Scarica configurazione VPN**
 
-    ![Scaricare la configurazione della VPN](media/download-p2s-vpn-configuration.png)
+    ![Scarica configurazione VPN](media/download-p2s-vpn-configuration.png)
 
 6. Importare la configurazione nel client VPN
 
@@ -67,7 +67,7 @@ Nell'esempio seguente viene illustrata l'importazione della connessione tramite 
 
 La connessione viene ora visualizzata nel menu di viscosità.
 
-#### <a name="connect-to-the-vpn"></a>Connettersi alla VPN
+#### <a name="connect-to-the-vpn"></a>Connettersi alla rete VPN
 
 Per connettersi alla VPN usando il client di viscosità OpenVPN, selezionare la connessione dal menu. L'icona di menu viene aggiornata per indicare che la connessione è stata stabilita.
 
@@ -97,7 +97,7 @@ Una connessione VPN da punto a sito risolve i nomi DNS del primo cloud privato A
 
     ![Modifica connessione VPN](media/viscosity-edit-connection.png)
 
-7. Fare clic sulla scheda **rete** e immettere gli indirizzi IP del server DNS del cloud privato AVS separati da una virgola o uno spazio e il dominio come ```AVS.io```. Selezionare **Ignora impostazioni DNS inviate dal server VPN**.
+7. Fare clic sulla scheda **rete** e immettere gli indirizzi IP del server DNS del cloud privato AVS separati da una virgola o uno spazio e il dominio come ```az.cloudsimple.io```. Selezionare **Ignora impostazioni DNS inviate dal server VPN**.
 
     ![Rete VPN](media/viscosity-edit-connection-networking.png)
 
@@ -117,4 +117,4 @@ Per configurare il gateway VPN locale in modalità a disponibilità elevata, ved
 
 > [!IMPORTANT]
 >    1. Impostare la pressione TCP MSS su 1200 sul dispositivo VPN. In alternativa, se i dispositivi VPN non supportano il blocco MSS, è invece possibile impostare il MTU sull'interfaccia del tunnel su 1240 byte.
-> 2. Dopo aver configurato la VPN da sito a sito, inviare le richieste DNS per *. AVS.io ai server DNS del cloud privato AVS. Seguire le istruzioni in [configurazione DNS locale](on-premises-dns-setup.md).
+> 2. Dopo aver configurato la VPN da sito a sito, inviare le richieste DNS per *. cloudsimple.io ai server DNS del cloud privato AVS. Seguire le istruzioni in [configurazione DNS locale](on-premises-dns-setup.md).

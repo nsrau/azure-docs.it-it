@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/12/2019
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: be19de19dab92bc40ca5529ad578e033a98929cd
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: c18190ec5e5d079d51630a976681717a78a46e00
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023566"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087054"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Scegliere le dimensioni delle macchine virtuali per i nodi di calcolo in un pool di Azure Batch
 
@@ -36,38 +36,40 @@ Esistono alcune eccezioni e limitazioni nella scelta delle dimensioni delle macc
 
 I pool di batch nella configurazione della macchina virtuale supportano quasi tutte le dimensioni delle VM ([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md)). Per altre informazioni sulle dimensioni e sulle restrizioni supportate, vedere la tabella seguente.
 
-Eventuali dimensioni di VM promozionali o di anteprima non elencate non sono garantite per il supporto.
+| Serie VM  | Dimensioni supportate |
+|------------|---------|
+| Basic A | Tutte le dimensioni *eccetto* Basic_A0 (a0) |
+| A | Tutte le dimensioni *eccetto* Standard_A0 |
+| Av2 | Tutte le dimensioni |
+| B | None |
+| DC | None |
+| Dv2, DSv2 | Tutte le dimensioni |
+| Dv3, Dsv3 | Tutte le dimensioni |
+| Dav4, Dasv4 | Nessuno-non ancora disponibile |
+| EV3, Esv3 | Tutte le dimensioni, ad eccezione di E64is_v3 e E64i_v3 |
+| Eav4, Easv4 | Nessuno-non ancora disponibile |
+| F, FS | Tutte le dimensioni |
+| Fsv2 | Tutte le dimensioni |
+| G, GS | Tutte le dimensioni |
+| H | Tutte le dimensioni |
+| HB<sup>1</sup> | Tutte le dimensioni |
+| HBv2<sup>1</sup> | Tutte le dimensioni |
+| HC<sup>1</sup> | Tutte le dimensioni |
+| Ls | Tutte le dimensioni |
+| Lsv2 | Nessuno-non ancora disponibile |
+| M<sup>1</sup> | Tutte le dimensioni, ad eccezione di M64, M64m, M128, M128m |
+| Mv2 | Nessuno-non ancora disponibile |
+| NC | Tutte le dimensioni |
+| NCv2<sup>1</sup> | Tutte le dimensioni |
+| NCv3<sup>1</sup> | Tutte le dimensioni |
+| ND<sup>1</sup> | Tutte le dimensioni |
+| NDv2<sup>1</sup> | Nessuno-non ancora disponibile |
+| NV | Tutte le dimensioni |
+| NVv3<sup>1</sup> | Tutte le dimensioni |
+| NVv4 | None |
+| SAP HANA | None |
 
-| Serie VM  | Dimensioni supportate | Modalità di allocazione pool di account batch<sup>1</sup> |
-|------------|---------|-----------------|
-| Serie A Basic | Tutte le dimensioni *eccetto* Basic_A0 (a0) | Qualsiasi |
-| Serie A | Tutte le dimensioni *eccetto* Standard_A0 | Qualsiasi |
-| Serie Av2 | Tutte le dimensioni | Qualsiasi |
-| Serie B | Nessuno | Non disponibile |
-| Serie DC | Nessuno | Non disponibile |
-| Dv2, serie DSv2 | Tutte le dimensioni | Qualsiasi |
-| Dv3, serie Dsv3 | Tutte le dimensioni | Qualsiasi |
-| EV3, serie Esv3 | Tutte le dimensioni | Qualsiasi |
-| Serie Fsv2 | Tutte le dimensioni | Qualsiasi |
-| Serie H | Tutte le dimensioni | Qualsiasi |
-| Serie HB<sup>2</sup> | Tutte le dimensioni | Qualsiasi |
-| Serie HC<sup>2</sup> | Tutte le dimensioni | Qualsiasi |
-| Serie Ls | Tutte le dimensioni | Qualsiasi |
-| Serie Lsv2 | Nessuno | Non disponibile |
-| Serie M | Standard_M64ms (solo con priorità bassa), Standard_M128s (solo con priorità bassa) | Qualsiasi |
-| Serie Mv2 | Nessuno | Non disponibile |
-| Serie NC | Tutte le dimensioni | Qualsiasi |
-| Serie NCv2<sup>2</sup> | Tutte le dimensioni | Qualsiasi |
-| Serie NCv3<sup>2</sup> | Tutte le dimensioni | Qualsiasi |
-| Serie ND<sup>2</sup> | Tutte le dimensioni | Qualsiasi |
-| Serie NDv2 | Tutte le dimensioni | Modalità di sottoscrizione utente |
-| Serie NV | Tutte le dimensioni | Qualsiasi |
-| Serie NVv3 | Nessuno | Non disponibile |
-| SAP HANA | Nessuno | Non disponibile |
-
-<sup>1</sup> alcune serie di VM più recenti sono inizialmente supportate in parte. Queste serie di macchine virtuali possono essere allocate da account batch con la **modalità di allocazione pool** impostata su **sottoscrizione utente**. Per ulteriori informazioni sulla configurazione dell'account batch, vedere [gestire gli account batch](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) . Vedere [quote e limiti](batch-quota-limit.md) per informazioni su come richiedere una quota per queste serie di VM parzialmente supportate per gli account batch di **sottoscrizione utente** .  
-
-<sup>2</sup> queste dimensioni delle VM possono essere allocate nei pool di batch nella configurazione della macchina virtuale, ma è necessario richiedere un [aumento della quota](batch-quota-limit.md#increase-a-quota)specifico.
+<sup>1</sup> le dimensioni di queste VM possono essere allocate nei pool di batch nella configurazione della macchina virtuale, ma è necessario creare un nuovo account batch e richiedere un [aumento della quota](batch-quota-limit.md#increase-a-quota)specifico. Questa limitazione verrà rimossa quando la quota di vCPU per ogni serie di macchine virtuali è completamente supportata per gli account batch.
 
 ### <a name="pools-in-cloud-service-configuration"></a>Pool in configurazione di tipo servizio cloud
 

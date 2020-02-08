@@ -6,48 +6,130 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/21/2019
+ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: 3aa4da9a9cf3d1d4b664e81f1fd18f2b225d731d
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: d678a29de9dea8a5a2f6d0259a452ca4c69feb03
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799937"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086879"
 ---
 ## <a name="personal-information-entity-types"></a>Tipi di entità di informazioni personali:
 
-### <a name="phone-number"></a>Numero di telefono
+### <a name="person"></a>Persona
+Riconoscere i nomi di persona nel testo.
 
-Numeri di telefono. 
+Lingue:
+* Anteprima pubblica: `English`
 
-Linguaggi:
+| Nome sottotipo | Descrizione                                               | Disponibile a partire dalla versione del modello |
+|--------------|-----------------------------------------------------------|----------------------------------------|
+| N/D          | Nomi riconosciuti, ad esempio `Bill Gates`, `Marie Curie` | `2020-02-01`                           |
+
+### <a name="organization"></a>Organization  
+
+Riconosci organizzazioni, aziende, agenzie, aziende, Club e altri gruppi di persone.
+
+Lingue: 
 
 * Anteprima pubblica: `English`
 
-| Nome sottotipo           | Descrizione                                           |
-|------------------------|-------------------------------------------------------|
-| N/D                    | Numeri di telefono, ad esempio `+1 123-123-123`.          |
-| Numero di telefono dell'Unione europea        | Numeri di telefono specifici dell'Unione europea.         |
-| Numero di telefono cellulare dell'UE | Numeri di telefono cellulare specifici dell'Unione europea. |
+| Nome sottotipo | Descrizione                                                                                       | Disponibile a partire dalla versione del modello|
+|--------------|---------------------------------------------------------------------------------------------------|--------------|
+| N/D          | organizzazioni, ad esempio `Microsoft`, `NASA``National Oceanic and Atmospheric Administration` | `2020-02-01` |
+
+### <a name="phone-number"></a>Numero di telefono
+
+Numeri di telefono (solo numeri di telefono degli Stati Uniti). 
+
+Lingue:
+
+* Anteprima pubblica: `English`
+
+| Nome sottotipo | Descrizione                                    | Disponibile a partire dalla versione del modello |
+|--------------|------------------------------------------------|----------------------------------------|
+| N/D          | Numeri di telefono degli Stati Uniti, ad esempio `(312) 555-0176` | `2020-02-01`                           |
+
+### <a name="email"></a>Email
+
+Indirizzo di posta elettronica. 
+
+Lingue:
+
+* Anteprima pubblica: `English`
+
+| Nome sottotipo | Descrizione                                      | Disponibile a partire dalla versione del modello |
+|--------------|--------------------------------------------------|----------------------------------------|
+| N/D          | Indirizzo di posta elettronica, ad esempio `support@contoso.com` | `2020-02-01`                           |
+
+### <a name="url"></a>URL
+
+URL Internet.
+
+Lingue:
+
+* Anteprima pubblica: `English`
+
+| Nome sottotipo | Descrizione                                          | Disponibile a partire dalla versione del modello |
+|--------------|------------------------------------------------------|----------------------------------------|
+| N/D          | URL per siti Web, ad esempio `https://www.bing.com` | `2020-02-01`                           |
+
+### <a name="ip-address"></a>Indirizzo IP
+
+Indirizzo protocollo Internet
+
+Lingue:
+
+* Anteprima pubblica: `English`
+
+| Nome sottotipo | Descrizione                              | Disponibile a partire dalla versione del modello |
+|--------------|------------------------------------------|----------------------------------------|
+| N/D          | Indirizzo di rete, ad esempio `10.0.0.101` | `2020-02-01`                           |
+
+### <a name="quantity"></a>Quantità 
+
+Quantità numeriche
+
+Lingue:
+
+* Anteprima pubblica: `English`
+
+| Nome sottotipo | Descrizione                   | Disponibile a partire dalla versione del modello |
+|--------------|-------------------------------|----------------------------------------|
+| Tempo trascorso          | `90 days old`, `30 years old` | `2020-02-01`                           |
+
+### <a name="datetime"></a>DateTime
+
+Entità di data e ora
+
+Lingue:
+
+* Anteprima pubblica: `English`
+
+| Nome sottotipo | Descrizione                   | Disponibile a partire dalla versione del modello |
+|--------------|-------------------------------|----------------------------------------|
+| Data         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
 
 ### <a name="eu-gps-coordinates"></a>Coordinate GPS UE
 
  Coordinate GPS per le località all'interno dell'Unione europea. 
 
-Linguaggi:
+Lingue:
 
 * Anteprima pubblica: `English`
 
-| Nome sottotipo | Descrizione                               |
-|--------------|-------------------------------------------|
-| N/D          | Coordinate GPS all'interno dell'Unione europea |
+| Nome sottotipo | Descrizione                               | Disponibile a partire dalla versione del modello |
+|--------------|-------------------------------------------|----------------------------------------|
+| N/D          | Coordinate GPS all'interno dell'Unione europea | `2019-10-01`                           |
 
 ### <a name="azure-information"></a>Informazioni su Azure
 
 Informazioni su Azure identificabili, incluse le informazioni di autenticazione e le stringhe di connessione. 
 
-Linguaggi:
+* Disponibile a partire dalla versione del modello `2019-10-01`.
+
+Lingue:
 
 * Anteprima pubblica: `English`
 
@@ -67,7 +149,9 @@ Linguaggi:
 
 ### <a name="identification"></a>Identificazione
 
-Linguaggi:
+* Disponibile a partire dalla versione del modello `2019-10-01`.
+
+Lingue:
 
 * Anteprima pubblica: `English`
 
@@ -88,7 +172,7 @@ Argentina
 * Numero di identità nazionale (DNI)
 
 Australia
-* Codice fiscale 
+* Numero di file di imposta 
 * ID licenza del driver
 * ID Passport
 * Numero di account medico
@@ -121,7 +205,7 @@ Croazia
 * Numero di scheda ID
 * Numero ID personale (OIB)
 
-Repubblica ceca
+Repubblica Ceca
 * Numero di carta ID nazionale
 
 Danimarca
@@ -139,13 +223,13 @@ Finlandia
 * Numero ID nazionale
 * ID Passport
 
-Francia
+France
 * Scheda ID nazionale (CNI)
 * Numero di previdenza sociale (INSEE)
 * ID Passport
 * ID licenza del driver
 
-Germania
+Germany
 * Numero di scheda ID
 * ID Passport
 * ID licenza del driver
@@ -173,7 +257,7 @@ Israele
 Italia
 * ID licenza del driver
 
-Giappone
+Japan
 * Numero di registrazione residente
 * Numero di carta di residenza
 * ID licenza del driver
@@ -210,7 +294,7 @@ Arabia Saudita
 Singapore
 * Numero NRIC (National Registration ID card)
 
-Sud Africa
+Sudafrica
 * Numero ID
 * Numero di registrazione residente
 

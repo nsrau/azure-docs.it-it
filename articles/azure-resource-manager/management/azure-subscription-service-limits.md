@@ -4,14 +4,14 @@ description: Fornisce un elenco di limiti, quote e vincoli comuni relativi alle 
 tags: billing
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: c5714dd30be4d557086667a74fff2ff8117e2a2b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: b209bc3e60f50ac363d3426d6c87f206b016d711
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901409"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087443"
 ---
-# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione ad Azure e limiti, quote e vincoli del servizio
+# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 
 In questo documento sono elencati alcuni dei limiti più comuni di Microsoft Azure, che vengono definiti anche quote. Al momento nel documento non vengono trattati tutti i servizi di Azure. Nel corso del tempo, l'elenco verrà espanso e aggiornato per coprire più servizi.
 
@@ -71,6 +71,7 @@ Nel seguente elenco di limiti, una nuova tabella riflette eventuali differenze n
 * [Data Factory](#data-factory-limits)
 * [Analisi Data Lake](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
+* [Condivisione dati](#data-share-limits)
 * [Servizio Migrazione del database di Azure](#database-migration-service-limits)
 * [Griglia di eventi](#event-grid-limits)
 * [Hub eventi](#event-hubs-limits)
@@ -82,7 +83,7 @@ Nel seguente elenco di limiti, una nuova tabella riflette eventuali differenze n
 * [Insieme di credenziali di chiave](#key-vault-limits)
 * [Servizi multimediali](#media-services-limits)
 * [Servizi mobili](#mobile-services-limits)
-* [Autenticazione a più fattori](#multi-factor-authentication-limits)
+* [Multi-Factor Authentication](#multi-factor-authentication-limits)
 * [Rete](#networking-limits)
   * [Gateway applicazione](#application-gateway-limits)
   * [Bastion di Azure](#azure-bastion-limits)
@@ -193,7 +194,7 @@ Se non diversamente specificato, la tabella è valida per gli SKU v1, v2, Standa
 
 [!INCLUDE [network-watcher-limits](../../../includes/network-watcher-limits.md)]
 
-#### <a name="private-link-limits"></a>Limiti dei collegamenti privati
+#### <a name="private-link-limits"></a>Limiti del collegamento privato
 
 [!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
 
@@ -405,6 +406,10 @@ Per altre informazioni sui limiti a un livello più granulare, ad esempio le dim
 
 [!INCLUDE [azure-data-lake-store-limits](../../../includes/azure-data-lake-store-limits.md)]
 
+### <a name="data-share-limits"></a>Limiti della condivisione dati
+
+[!INCLUDE [azure-data-share-limits](../../../includes/azure-data-share-limits.md)]
+
 ### <a name="database-migration-service-limits"></a>Limiti relativi al Servizio Migrazione del database di Azure
 
 [!INCLUDE [database-migration-service-limits](../../../includes/database-migration-service-limits.md)]
@@ -413,7 +418,7 @@ Per altre informazioni sui limiti a un livello più granulare, ad esempio le dim
 
 [!INCLUDE [stream-analytics-limits-table](../../../includes/stream-analytics-limits-table.md)]
 
-### <a name="active-directory-limits"></a>Limiti relativi ad Active Directory
+### <a name="active-directory-limits"></a>Limiti di Active Directory
 
 [!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
 
@@ -481,7 +486,7 @@ Per i limiti del database SQL, vedere limiti [delle risorse del database SQL per
 
 Per SQL Data Warehouse limiti, vedere [limiti delle risorse SQL data warehouse](../../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Informazioni sui limiti e sugli aumenti di Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -3,22 +3,22 @@ title: Uso di Web browser (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Per informazioni su considerazioni specifiche, vedere l'articolo relativo all'uso di Novell Android con Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: b0b0ac05e54619af0b1dd4a68918a89681f845bd
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: ed1f47ae99f6346a932d0fe94be7586dc25a672f
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695076"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084607"
 ---
 # <a name="using-web-browsers-msalnet"></a>Uso di Web browser (MSAL.NET)
 
@@ -43,17 +43,17 @@ MSAL.NET è una libreria multiframework e contiene codice specifico del Framewor
 
 In genere, è consigliabile usare il valore predefinito della piattaforma, che in genere è il browser del sistema. Il browser di sistema è migliore per ricordare gli utenti che hanno eseguito l'accesso in precedenza. Se è necessario modificare questo comportamento, usare `WithUseEmbeddedWebView(bool)`
 
-### <a name="at-a-glance"></a>Panoramica
+### <a name="at-a-glance"></a>Riepilogo
 
-| Framework        | Origine dati | Sistema | Predefinito |
+| Framework        | Incorporata | System | Default |
 | ------------- |-------------| -----| ----- |
-| .NET classico     | Sì | Sì ^ | Origine dati |
-| .NET Core     | No | Sì ^ | Sistema |
-| .NET Standard | No | Sì ^ | Sistema |
-| UWP | Sì | No | Origine dati |
-| Xamarin.Android | Sì | Sì  | Sistema |
-| Xamarin.iOS | Sì | Sì  | Sistema |
-| Xamarin.Mac| Sì | No | Origine dati |
+| .NET classico     | Sì | Sì ^ | Incorporata |
+| .NET Core     | No | Sì ^ | System |
+| .NET Standard | No | Sì ^ | System |
+| UWP | Sì | No | Incorporata |
+| Xamarin.Android | Sì | Sì  | System |
+| Xamarin.iOS | Sì | Sì  | System |
+| Novell. Mac| Sì | No | Incorporata |
 
 ^ Richiede l'URI di reindirizzamento "http://localhost"
 

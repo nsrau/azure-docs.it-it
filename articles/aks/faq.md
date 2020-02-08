@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: mlearned
-ms.openlocfilehash: 58b372e1f80386c4e02339f67f4c5aeaa686a662
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: c2103952503a0a184fb970cd8d2326cc2764a223
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549224"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086480"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -97,8 +97,6 @@ AKS supporta i [controller di ammissione][admission-controllers]seguenti:
 - *MutatingAdmissionWebhook*
 - *ValidatingAdmissionWebhook*
 - *ResourceQuota*
-- *DenyEscalatingExec*
-- *AlwaysPullImages*
 
 Attualmente non è possibile modificare l'elenco dei controller di ammissione in AKS.
 
@@ -122,7 +120,7 @@ In un contratto di servizio (SLA), il provider accetta di rimborsare il costo de
 
 In AKS è possibile impostare il valore `maxPods` quando si crea il cluster usando l'interfaccia della riga di comando di Azure e i modelli di Azure Resource Manager. Tuttavia, sia Kubenet che Azure CNI richiedono un *valore minimo* (convalidato al momento della creazione):
 
-| Rete | Minima | Massimo |
+| Rete | Minimo | Massimo |
 | -- | :--: | :--: |
 | Azure CNI | 30 | 250 |
 | Kubenet | 30 | 110 |

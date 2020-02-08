@@ -3,22 +3,22 @@ title: Considerazioni sul browser del sistema Novell Android (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni sulle considerazioni specifiche quando si usano i browser di sistema in Novell Android con Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9346a4d5eaabb2af490afc13d5785a8f8233e53f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: c144c6dd090669ca16c03050cbb8b59ff0cc224f
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695050"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084582"
 ---
 #  <a name="xamarin-android-system-browser-considerations-with-msalnet"></a>Considerazioni sul browser di sistema Novell Android con MSAL.NET
 
@@ -51,18 +51,18 @@ Oltre ai browser con supporto per schede personalizzate, in base ai test, alcuni
 ## <a name="devices-and-browsers-tested"></a>Dispositivi e browser testati
 La tabella seguente elenca i dispositivi e i browser che sono stati testati.
 
-| | &ast; del browser     |  Risultato  | 
+| | Browser&ast;     |  Risultato  | 
 | ------------- |:-------------:|:-----:|
-| Huawei/uno + | &ast; di Chrome | Pass|
-| Huawei/uno + | &ast; Edge | Pass|
-| Huawei/uno + | Firefox&ast; | Pass|
-| Huawei/uno + | &ast; coraggioso | Pass|
-| Uno + | Ecosia&ast; | Pass|
-| Uno + | Kiwi&ast; | Pass|
-| Huawei/uno + | Opera | Pass|
-| Huawei | OperaMini | Pass|
-| Huawei/uno + | InBrowser | Pass|
-| Uno + | Maxthon | Pass|
+| Huawei/uno + | &ast; di Chrome | Test superato|
+| Huawei/uno + | &ast; Edge | Test superato|
+| Huawei/uno + | &ast; Firefox | Test superato|
+| Huawei/uno + | &ast; coraggioso | Test superato|
+| Uno + | &ast; Ecosia | Test superato|
+| Uno + | Kiwi&ast; | Test superato|
+| Huawei/uno + | Opera | Test superato|
+| Huawei | OperaMini | Test superato|
+| Huawei/uno + | InBrowser | Test superato|
+| Uno + | Maxthon | Test superato|
 | Huawei/uno + | DuckDuckGo | Autenticazione annullata dall'utente|
 | Huawei/uno + | Browser UC | Autenticazione annullata dall'utente|
 | Uno + | Delfino | Autenticazione annullata dall'utente|

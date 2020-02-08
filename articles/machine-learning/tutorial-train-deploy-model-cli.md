@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 70253e66903916bde05f9e6e55e3c0609cb4a146
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 1f609c33ea474508eb107c0df9993c2ba3483660
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841115"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087033"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Esercitazione: eseguire il training e distribuire un modello dall'interfaccia della riga di comando
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Si apprenderà a eseguire le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Installare l'estensione di Machine Learning
-> * Creare un'area di lavoro di Azure Machine Learning
+> * Creare un'area di lavoro di Machine Learning di Azure
 > * Creare la risorsa di calcolo utilizzata per eseguire il training del modello
 > * Definire e registrare il set di dati usato per il training del modello
 > * Avviare un'esecuzione di training
@@ -128,7 +128,7 @@ La risposta da questo comando è simile al codice JSON seguente:
 
 Per ulteriori informazioni sull'utilizzo dei gruppi di risorse, vedere [AZ Group](https://docs.microsoft.com//cli/azure/group?view=azure-cli-latest).
 
-## <a name="create-a-workspace"></a>Creare un'area di lavoro
+## <a name="create-a-workspace"></a>Crea area di lavoro
 
 Per creare una nuova area di lavoro, usare il comando seguente. Sostituire `<workspace-name>` con il nome che si desidera utilizzare per questa area di lavoro. Sostituire `<resource-group-name>` con il nome del gruppo di risorse:
 
@@ -381,7 +381,7 @@ Questo comando distribuisce un nuovo servizio denominato `myservice`, usando la 
 
 Nel file `inferenceConfig.yml` vengono fornite informazioni su come utilizzare il modello per l'inferenza. Ad esempio, fa riferimento alla voce script (`score.py`) e alle dipendenze software. 
 
-Per ulteriori informazioni sulla struttura di questo file, vedere lo [schema di configurazione dell'inferenza](reference-azure-machine-learning-cli.md#inference-configuration-schema). Per ulteriori informazioni sugli script di immissione, vedere [distribuire modelli con il Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
+Per ulteriori informazioni sulla struttura di questo file, vedere lo [schema di configurazione dell'inferenza](reference-azure-machine-learning-cli.md#inference-configuration-schema). Per ulteriori informazioni sugli script di immissione, vedere [distribuire modelli con il Azure Machine Learning](how-to-deploy-and-where.md#prepare-deployment-artifacts).
 
 Nella `aciDeploymentConfig.yml` viene descritto l'ambiente di distribuzione utilizzato per ospitare il servizio. La configurazione della distribuzione è specifica del tipo di calcolo usato per la distribuzione. In questo caso, viene usata un'istanza di contenitore di Azure. Per ulteriori informazioni, vedere lo [schema di configurazione della distribuzione](reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 
@@ -475,7 +475,7 @@ In questa esercitazione Azure Machine Learning è stata usata l'interfaccia dell
 
 > [!div class="checklist"]
 > * Installare l'estensione di Machine Learning
-> * Creare un'area di lavoro di Azure Machine Learning
+> * Creare un'area di lavoro di Machine Learning di Azure
 > * Creare la risorsa di calcolo utilizzata per eseguire il training del modello
 > * Definire e registrare il set di dati usato per il training del modello
 > * Avviare un'esecuzione di training

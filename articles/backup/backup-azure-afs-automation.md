@@ -3,12 +3,12 @@ title: Eseguire il backup di File di Azure con PowerShell
 description: Questo articolo illustra come eseguire il backup di File di Azure usando il servizio backup di Azure e PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 5147ab893d4ebad395d7dbd8cc25872177ec10a2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a80589fb45937949b3612e12139ab1615bc1620d
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773097"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086953"
 ---
 # <a name="back-up-azure-files-with-powershell"></a>Eseguire il backup di File di Azure con PowerShell
 
@@ -44,6 +44,13 @@ Esaminare il riferimento al [cmdlet](/powershell/module/az.recoveryservices) **A
 Configurare PowerShell nel modo seguente:
 
 1. [Scaricare la versione più recente di Az PowerShell](/powershell/azure/install-az-ps). La versione 1.0.0 è la versione minima necessaria.
+
+> [!WARNING]
+> La versione minima di PS necessaria per l'anteprima è "AZ 1.0.0". A causa delle modifiche imminenti per GA, la versione minima di PS richiesta sarà' AZ. RecoveryServices 2.6.0'. È molto importante aggiornare tutte le versioni di PS esistenti a questa versione. In caso contrario, gli script esistenti si interrompono dopo GA. Installare la versione minima con i comandi PS seguenti
+
+```powershell
+Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
+```
 
 2. Trovare i cmdlet di PowerShell per backup di Azure con questo comando:
 
@@ -241,19 +248,32 @@ WorkloadName       Operation            Status                 StartTime        
 testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 PM     11/12/2018 2:16:11 PM     ec7d4f1d-40bd-46a4-9edb-3193c41f6bf6
 ```
 
+## <a name="important-notice---backup-item-identification-for-afs-backups"></a>Avviso importante: identificazione dell'elemento di backup per i backup AFS
+
+Questa sezione descrive le modifiche apportate al recupero degli elementi di backup per i backup AFS dall'anteprima alla versione GA.
+
+Quando si Abilita il backup per AFS, l'utente fornisce il nome della condivisione file descrittiva del cliente come nome dell'entità e viene creato un elemento di backup. Il nome dell'elemento di backup è un identificatore univoco creato dal servizio backup di Azure. In genere l'identificatore include il nome descrittivo dell'utente. Tuttavia è stata apportata una modifica nel modo in cui i servizi di Azure identificano internamente una condivisione file di Azure in modo univoco. Ciò significa che il nome univoco dell'elemento di backup per il backup AFS sarà un GUID e non avrà alcuna relazione con il nome descrittivo del cliente. Per individuare il nome univoco di ogni elemento, è sufficiente eseguire il comando ```Get-AzRecoveryServicesBackupItem``` con i filtri rilevanti per backupManagementType e WorkloadType per ottenere tutti gli elementi rilevanti, quindi osservare il campo nome nell'oggetto/risposta PS restituito. È sempre consigliabile elencare gli elementi e quindi recuperare il nome univoco dal campo ' name ' in risposta. Utilizzare questo valore per filtrare gli elementi con il parametro ' name '. In caso contrario, usare il parametro FriendlyName per recuperare l'elemento con il nome/identificatore descrittivo del cliente.
+
+> [!WARNING]
+> Verificare che la versione PS sia aggiornata alla versione minima per "AZ. RecoveryServices 2.6.0" per i backup AFS. Con questa versione, il filtro ' FriendlyName ' è disponibile per ```Get-AzRecoveryServicesBackupItem``` comando. Passare il nome della condivisione file di Azure al parametro FriendlyName. Se si passa il nome della condivisione file di Azure al parametro ' name ', questa versione genera un avviso per passare il nome descrittivo al parametro del nome descrittivo. Se non si installa questa versione minima, è possibile che si verifichino errori negli script esistenti. Installare la versione minima di PS con il comando seguente.
+
+```powershell
+Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
+```
+
 ## <a name="trigger-an-on-demand-backup"></a>Attivare un backup su richiesta
 
 Usare [backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) per eseguire un backup su richiesta per una condivisione file di Azure protetta.
 
-1. Recuperare l'account di archiviazione e la condivisione file dal contenitore nell'insieme di credenziali che include i dati di backup con [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
-2. Per avviare un processo di backup, ottenere le informazioni relative alla VM con [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
+1. Recuperare l'account di archiviazione dal contenitore nell'insieme di credenziali che include i dati di backup con [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
+2. Per avviare un processo di backup, è possibile ottenere informazioni sulla condivisione file di Azure con [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
 3. Eseguire un backup su richiesta con [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem).
 
 Eseguire il backup su richiesta nel modo seguente:
 
 ```powershell
 $afsContainer = Get-AzRecoveryServicesBackupContainer -FriendlyName "testStorageAcct" -ContainerType AzureStorage
-$afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -WorkloadType "AzureFiles" -Name "testAzureFS"
+$afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -WorkloadType "AzureFiles" -FriendlyName "testAzureFS"
 $job =  Backup-AzRecoveryServicesBackupItem -Item $afsBkpItem
 ```
 
@@ -272,6 +292,9 @@ Durante l'esecuzione dei backup vengono usati gli snapshot di condivisione file 
 È possibile usare i backup su richiesta per conservare gli snapshot per 10 anni. È possibile usare le utilità di pianificazione per eseguire script di PowerShell su richiesta con la conservazione scelta e quindi creare snapshot a intervalli regolari ogni settimana, mese o anno. Durante l'esecuzione di snapshot regolari, vedere le [limitazioni dei backup su richiesta](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share) con backup di Azure.
 
 Per gli script di esempio, è possibile fare riferimento allo script di esempio in GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup>) usando Runbook di automazione di Azure che consente di pianificare i backup periodicamente e mantenerli anche fino a 10 anni.
+
+> [!WARNING]
+> Verificare che la versione PS sia aggiornata alla versione minima per "AZ. RecoveryServices 2.6.0" per i backup AFS nel manuali operativi di automazione. Sarà necessario sostituire il vecchio modulo "AzureRM" con il modulo "AZ". Con questa versione, il filtro ' FriendlyName ' è disponibile per ```Get-AzRecoveryServicesBackupItem``` comando. Passare il nome della condivisione file di Azure al parametro FriendlyName. Se si passa il nome della condivisione file di Azure al parametro ' name ', questa versione genera un avviso per passare il nome descrittivo al parametro del nome descrittivo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

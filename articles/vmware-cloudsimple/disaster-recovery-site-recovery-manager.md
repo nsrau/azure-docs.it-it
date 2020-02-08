@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0bbd8a12820432ce2f131dda29af6740a2f04e18
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: ccdf385d2581923e1fad4fa5c42f351c4f0947ca
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024722"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083160"
 ---
 # <a name="set-up-avs-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>Configurare AVS private cloud come destinazione per il ripristino di emergenza con VMware Site Recovery Manager
 
@@ -101,7 +101,7 @@ Per configurare la connettività da sito a sito tra la rete locale e il cloud pr
 
 Per fornire servizi di ricerca di indirizzi IP, gestione indirizzi IP e risoluzione dei nomi per i carichi di lavoro nel cloud privato AVS, configurare un server DHCP e DNS come descritto in [configurare le applicazioni e i carichi di lavoro DNS e DHCP nel cloud privato AVS](dns-dhcp-setup.md).
 
-Il dominio *. avs.io viene usato dalle macchine virtuali e dagli host di gestione nel cloud privato AVS. Per risolvere le richieste a questo dominio, configurare l'invio DNS nel server DNS come descritto in [creare un](on-premises-dns-setup.md#create-a-conditional-forwarder)server d'istruzione condizionale.
+Il dominio *. cloudsimple.io viene usato dalle macchine virtuali e dagli host di gestione nel cloud privato AVS. Per risolvere le richieste a questo dominio, configurare l'invio DNS nel server DNS come descritto in [creare un](on-premises-dns-setup.md#create-a-conditional-forwarder)server d'istruzione condizionale.
 
 ### <a name="install-vsphere-replication-appliance-in-your-on-premises-environment"></a>Installare l'appliance di replica vSphere nell'ambiente locale
 

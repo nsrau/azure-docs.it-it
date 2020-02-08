@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1f34c4fb89d28a001a4af4d21879403a9ac5e860
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: e5ee43af97e79f1e835787d61bd79cfb256ef445
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024705"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083140"
 ---
 # <a name="set-up-avs-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>Configurare AVS private cloud come sito di ripristino di emergenza per i carichi di lavoro VMware locali
 
@@ -51,7 +51,7 @@ Le sezioni seguenti descrivono come distribuire una soluzione di ripristino di e
 Per abilitare la replica virtuale Zerto dall'ambiente locale al cloud privato AVS, completare i prerequisiti seguenti.
 
 1. [Configurare una connessione VPN da sito a sito tra la rete locale e il cloud privato AVS](set-up-vpn.md).
-2. [Configurare la ricerca DNS in modo che i componenti di gestione del cloud privato AVS vengano trasmessi ai server DNS del cloud privato AVS](on-premises-dns-setup.md). Per abilitare l'invio della ricerca DNS, creare una voce di area di invio nel server DNS locale per `*.AVS.io` ai server DNS AVS.
+2. [Configurare la ricerca DNS in modo che i componenti di gestione del cloud privato AVS vengano trasmessi ai server DNS del cloud privato AVS](on-premises-dns-setup.md). Per abilitare l'invio della ricerca DNS, creare una voce di area di invio nel server DNS locale per `*.cloudsimple.io` ai server DNS AVS.
 3. Configurare la ricerca DNS in modo che i componenti vCenter locali vengano trasmessi ai server DNS locali. I server DNS devono essere raggiungibili dal cloud privato AVS tramite VPN da sito a sito. Per assistenza, inviare una [richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest), fornendo le informazioni seguenti. 
 
     * Nome di dominio DNS locale
@@ -93,6 +93,6 @@ Per abilitare la replica virtuale Zerto dall'ambiente locale al cloud privato AV
 6. Personalizzare le impostazioni di rete per le singole macchine virtuali, se necessario, e creare il VPG.
 7. Test del failover dopo il completamento della replica.
 
-## <a name="reference"></a>Riferimenti
+## <a name="reference"></a>Riferimento
 
 [Documentazione di Zerto](https://www.zerto.com/myzerto/technical-documentation/)

@@ -7,33 +7,34 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: f6ba5c240a9ad74d9a2fab41496ce519f25fc4dc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 02/06/2020
+ms.openlocfilehash: 2e5ae90cf6ee8bccc9919c88bc695bf944f58a67
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812070"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069439"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Panoramica del portale del Marketplace commerciale nel centro per i partner
 
 Benvenuti nel portale del Marketplace commerciale nel centro per i partner Microsoft. Il [portale del Marketplace commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/) è progettato per aiutare a monetizzare i prodotti e i servizi, raggiungere i clienti e far crescere il proprio business.
 
-In questa documentazione verranno illustrate le nozioni di base per la creazione e l'uso dell'account del centro per i partner, la creazione di nuove offerte SaaS (software as a Service) che possono essere elencate in [Azure Marketplace](https://azuremarketplace.microsoft.com/) o [AppSource](https://appsource.microsoft.com/), la gestione delle offerte SaaS esistenti e fornire risorse che consentono di rispondere alle domande e raccogliere commenti e suggerimenti. 
+In questa documentazione verranno illustrate le nozioni di base per la creazione e l'uso dell'account del centro per i partner, la creazione di nuove offerte SaaS (software as a Service) che possono essere elencate in [Azure Marketplace](https://azuremarketplace.microsoft.com/) o [AppSource](https://appsource.microsoft.com/), la gestione delle offerte SaaS esistenti e la fornitura di risorse utili per le domande e per raccogliere commenti e suggerimenti. 
 
 ## <a name="about-microsofts-commercial-marketplace"></a>Informazioni sul Marketplace commerciale di Microsoft
 
-Aziende, governi e organizzazioni di tutte le dimensioni trovano soluzioni aziendali, tecnologia innovativa e servizi di abilitazione tramite [Azure Marketplace](https://azuremarketplace.microsoft.com/) e [AppSource](https://appsource.microsoft.com/) Web Store, l' [esperienza del prodotto portale di Azure](https://portal.azure.com), [Provider di soluzioni cloud](https://partner.microsoft.com/cloud-solution-provider)e team di vendita Microsoft. 
+Aziende, governi e organizzazioni di tutte le dimensioni trovano soluzioni aziendali, tecnologia innovativa e servizi di abilitazione tramite [Azure Marketplace](https://azuremarketplace.microsoft.com/) e [AppSource](https://appsource.microsoft.com/) Web Store, l' [esperienza del prodotto portale di Azure](https://portal.azure.com), i [provider di soluzioni cloud](https://partner.microsoft.com/cloud-solution-provider)e i team di vendita Microsoft. 
 
 Il centro per i partner è l'hub dell'esperienza di un partner Microsoft. Per le organizzazioni che accedono al mercato con Microsoft e sfruttano i vantaggi del Marketplace, il centro per i partner è il portale attraverso il quale i publisher possono creare e gestire le offerte, fornire test drive dimostrazioni e visualizzare le analisi sulle prestazioni dell'offerta. 
 
 ## <a name="migration-from-cloud-partner-portal"></a>Migrazione da portale Cloud Partner
 
-Il centro per i partner è in continua evoluzione per integrare meglio tutti gli aspetti della relazione di Microsoft con gli editori di software. Nell'ambito di questa evoluzione viene eseguita la migrazione delle funzioni del [portale cloud partner](https://cloudpartner.azure.com/) al centro per i partner. 
+Il centro per i partner è in continua evoluzione per integrare meglio tutti gli aspetti della relazione di Microsoft con gli editori di software. Nell'ambito di questa evoluzione viene eseguita la migrazione delle funzioni del [portale cloud partner](https://cloudpartner.azure.com/) al centro per i partner.
 
-**Attualmente, il centro per i partner supporta solo la creazione e la gestione di offerte SaaS (software-as-a-Service).**
+>[!NOTE]
+>Attualmente, il centro per i partner supporta la creazione e la gestione di offerte SaaS (software-as-a-Service), offerte per le applicazioni Azure, Dynamics 365 per le offerte dei clienti, Engagement & Offerte PowerApps, Dynamics 365 per le offerte per le operazioni e Dynamics 365 per Offerte centrali aziendali. Saranno presto supportate altre offerte.
 
-Gli editori del Marketplace esistenti troveranno un'esperienza utente familiare ma migliorata con un'interfaccia intuitiva. Le notifiche nel portale e tramite posta elettronica informano i publisher della migrazione. Gli utenti verranno indirizzati direttamente al percorso appropriato. I clienti non saranno interessati dall'aggiornamento dell'esperienza partner. 
+Gli editori del Marketplace esistenti troveranno un'esperienza utente familiare ma migliorata con un'interfaccia intuitiva. Le notifiche nel portale e tramite posta elettronica informano i publisher della migrazione. Gli utenti verranno indirizzati direttamente al percorso appropriato. I clienti non saranno interessati dall'aggiornamento dell'esperienza partner.
 
 ### <a name="improvements-on-user-experience-and-billing"></a>Miglioramenti dell'esperienza utente e della fatturazione
 

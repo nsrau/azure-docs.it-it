@@ -3,22 +3,22 @@ title: Evitare ricaricamenti di pagina (MSAL. js) | Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni su come evitare il ricaricamento delle pagine quando si acquisisce e si rinnovano i token in modo invisibile all'utente usando Microsoft Authentication Library per JavaScript (MSAL. js).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/29/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: e68798861d5799a4314bd9cd9b2eeeadb926a90f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 63944a5a9af34c2d4cf98eeb870a730df49654e5
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696147"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084949"
 ---
 # <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Evitare il ricaricamento delle pagine quando si acquisisce e si rinnovano i token in modo invisibile all'utente con MSAL. js
 Microsoft Authentication Library per JavaScript (MSAL. js) usa elementi `iframe` nascosti per acquisire e rinnovare i token in modo invisibile all'utente in background. Azure AD restituisce il token al redirect_uri registrato specificato nella richiesta di token (per impostazione predefinita, si tratta della pagina radice dell'app). Poiché la risposta è 302, il codice HTML corrispondente al `redirect_uri` viene caricato nel `iframe`. In genere, il `redirect_uri` dell'app è la pagina radice e questo ne comporta il ricaricamento.
@@ -35,7 +35,7 @@ Impostare la proprietà `redirect_uri` in config su una pagina semplice che non 
 
 ## <a name="initialization-in-your-main-app-file"></a>Inizializzazione nel file dell'app principale
 
-Se l'app è strutturata in modo che sia presente un file JavaScript centrale che definisce l'inizializzazione dell'app, il routing e altri elementi, è possibile caricare in modo condizionale i moduli dell'app a seconda che l'app venga caricata o meno in un `iframe`. Ad esempio:
+Se l'app è strutturata in modo che sia presente un file JavaScript centrale che definisce l'inizializzazione dell'app, il routing e altri elementi, è possibile caricare in modo condizionale i moduli dell'app a seconda che l'app venga caricata o meno in un `iframe`. Ad esempio,
 
 In AngularJS: app. js
 

@@ -3,22 +3,22 @@ title: Inizializzare le app client MSAL. js | Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni sull'inizializzazione di applicazioni client tramite Microsoft Authentication Library per JavaScript (MSAL. js).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/12/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: e350f4fc3d40b45a1308e1edd9331dc7f71399c5
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: a0a2c5fc971c3f1f3283d95c5617bdf1e88a6a58
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696130"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084034"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inizializzare le applicazioni client usando MSAL. js
 Questo articolo descrive l'inizializzazione di Microsoft Authentication Library per JavaScript (MSAL. js) con un'istanza di un'applicazione agente utente. L'applicazione agente utente è una forma di applicazione client pubblica in cui il codice client viene eseguito in un agente utente, ad esempio un Web browser. Questi client non archiviano i segreti, perché il contesto del browser è accessibile apertamente. Per altre informazioni sui tipi di applicazioni client e sulle opzioni di configurazione dell'applicazione, vedere la [Panoramica](msal-client-applications.md).
@@ -141,4 +141,4 @@ Di seguito è riportato il set totale di opzioni configurabili attualmente suppo
 Questi sono applicabili solo per essere passati dalla libreria di wrapper angolare MSAL:
 - **unprotectedResources**: facoltativo.  Matrice di URI che sono risorse non protette. MSAL non collegherà un token alle richieste in uscita con questi URI. L'impostazione predefinita è `null`.
 
-- **protectedResourceMap**: facoltativo.  Si tratta di un mapping delle risorse agli ambiti usati da MSAL per il collegamento automatico dei token di accesso nelle chiamate API Web. Per la risorsa viene ottenuto un singolo token di accesso. È quindi possibile eseguire il mapping di un percorso di risorsa specifico come "https://graph.microsoft.com/v1.0/me" segue: {"", ["User. Read"]} o l'URL dell'app della risorsa come "https://graph.microsoft.com/" : {"", ["User. Read", "mail. Send"]}. Questa operazione è necessaria per le chiamate CORS. L'impostazione predefinita è `null`.
+- **protectedResourceMap**: facoltativo.  Si tratta di un mapping delle risorse agli ambiti usati da MSAL per il collegamento automatico dei token di accesso nelle chiamate API Web. Per la risorsa viene ottenuto un singolo token di accesso. È quindi possibile eseguire il mapping di un percorso di risorsa specifico come segue: {"https://graph.microsoft.com/v1.0/me", ["User. Read"]} o l'URL dell'app della risorsa come: {"https://graph.microsoft.com/", ["User. Read", "mail. Send"]}. Questa operazione è necessaria per le chiamate CORS. L'impostazione predefinita è `null`.

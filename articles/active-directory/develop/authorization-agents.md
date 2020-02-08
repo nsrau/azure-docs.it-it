@@ -2,22 +2,22 @@
 title: Agenti di autorizzazione e modalità di abilitazione | Azure
 description: Informazioni sui diversi agenti di autorizzazione che Microsoft Authentication Library (MSAL) consente all'app Android di usare e come abilitarli.
 services: active-directory
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/05/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: shoatman, brianmel, hahamil
 ms.custom: aaddev
-ms.openlocfilehash: c2d0c8a877ba856aa7a93bfc960c44b63cbe8f9c
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 4f1b3fc5b60069cfa47d437e4341ded141204418
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698000"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085327"
 ---
 # <a name="authorization-agents-android"></a>Agenti di autorizzazione (Android)
 

@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/22/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7f903ca541582dfa0f3980bb65a3fef3c4b774a7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 75893a85f975d5d1454f1b93535a1df7a45e8731
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916775"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084029"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Gestisci eccezioni ed errori di MSAL
 
@@ -48,7 +48,7 @@ Se viene generata l'eccezione [MsalServiceException](/dotnet/api/microsoft.ident
 
 Ecco le eccezioni comuni che potrebbero essere generate e alcune possibili mitigazioni:  
 
-| Eccezione | Codice di errore | Mitigazione|
+| Eccezione | Codice di errore | Strategia di riduzione del rischio|
 | --- | --- | --- |
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: l'utente o l'amministratore non ha acconsentito all'uso dell'applicazione con ID ' {appId}' con nome ' {appName}'. Inviare una richiesta di autorizzazione interattiva per questo utente e questa risorsa.| È prima necessario ottenere il consenso dell'utente. Se non si usa .NET Core, che non dispone di un'interfaccia utente Web, chiamare (solo una volta) `AcquireTokeninteractive`. Se si usa .NET Core o non si vuole eseguire una `AcquireTokenInteractive`, l'utente può passare a un URL per concedere il consenso: https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read. per chiamare `AcquireTokenInteractive`: `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079: l'utente è obbligato a usare multi-factor authentication.| Non esiste alcuna mitigazione. Se l'autenticazione a più fattori è configurata per il tenant e Azure Active Directory (AAD) decide di applicarla, è necessario eseguire il fallback a un flusso interattivo, ad esempio `AcquireTokenInteractive` o `AcquireTokenByDeviceCode`.|
@@ -69,7 +69,7 @@ L'interazione è finalizzata all'esecuzione di un'azione da parte dell'utente. A
 
 MSAL espone un campo `Classification`, che è possibile leggere per offrire un'esperienza utente migliore, ad esempio per indicare all'utente che la password è scaduta o che è necessario fornire il consenso per l'uso di alcune risorse. I valori supportati fanno parte dell'enumerazione `UiRequiredExceptionClassification`:
 
-| Classificazione    | Significato           | Gestione consigliata |
+| classificazione    | Significato           | Gestione consigliata |
 |-------------------|-------------------|----------------------|
 | BasicAction | La condizione può essere risolta dall'interazione dell'utente durante il flusso di autenticazione interattiva. | Chiamare AcquireTokenInteractively (). |
 | AdditionalAction | La condizione può essere risolta da un'interazione correttiva aggiuntiva con il sistema, all'esterno del flusso di autenticazione interattivo. | Chiamare AcquireTokenInteractively () per visualizzare un messaggio in cui viene illustrata l'azione correttiva. L'applicazione chiamante può scegliere di nascondere i flussi che richiedono additional_action se è improbabile che l'utente completi l'azione correttiva. |
@@ -78,7 +78,7 @@ MSAL espone un campo `Classification`, che è possibile leggere per offrire un'e
 | UserPasswordExpired | La password dell'utente è scaduta. | Chiamare AcquireTokenInteractively () in modo che l'utente possa reimpostare la password. |
 | PromptNeverFailed| È stata chiamata l'autenticazione interattiva con il prompt dei parametri = Never, forzando MSAL a basarsi sui cookie del browser e non visualizzare il browser. Questa operazione non è riuscita. | Chiamare AcquireTokenInteractively () senza prompt. None |
 | AcquireTokenSilentFailed | MSAL SDK non dispone di informazioni sufficienti per recuperare un token dalla cache. Questo può essere dovuto al fatto che non sono presenti token nella cache o che non è stato trovato alcun account. Il messaggio di errore contiene maggiori dettagli.  | Chiamare AcquireTokenInteractively (). |
-| Nessuno    | Non vengono forniti altri dettagli. La condizione può essere risolta dall'interazione dell'utente durante il flusso di autenticazione interattiva. | Chiamare AcquireTokenInteractively (). |
+| None    | Non vengono forniti altri dettagli. La condizione può essere risolta dall'interazione dell'utente durante il flusso di autenticazione interattiva. | Chiamare AcquireTokenInteractively (). |
 
 ## <a name="net-code-example"></a>Esempio di codice .NET
 
@@ -142,7 +142,7 @@ catch (MsalUiRequiredException ex) when (ex.ErrorCode == MsalError.InvalidGrantE
 
 MSAL. js fornisce oggetti di errore che astraggono e classificano i diversi tipi di errori comuni. Fornisce inoltre l'interfaccia per accedere a dettagli specifici degli errori, ad esempio i messaggi di errore per gestirli in modo appropriato.
 
-### <a name="error-object"></a>Oggetto Error
+### <a name="error-object"></a>Error (oggetto)
 
 ```javascript
 export class AuthError extends Error {
@@ -264,7 +264,7 @@ Alcune condizioni che generano questo errore sono semplici da risolvere per gli 
 
 MSAL espone un campo `reason`, che può essere usato per offrire un'esperienza utente migliore. Ad esempio, il campo `reason` può portare a indicare all'utente che la password è scaduta o che è necessario fornire il consenso per l'uso di alcune risorse. I valori supportati fanno parte dell'enumerazione `InteractionRequiredExceptionReason`:
 
-| Motivo | Significato | Gestione consigliata |
+| `Reason` | Significato | Gestione consigliata |
 |---------|-----------|-----------------------------|
 | `BasicAction` | La condizione può essere risolta dall'interazione dell'utente durante il flusso di autenticazione interattiva | Chiama `acquireToken` con parametri interattivi |
 | `AdditionalAction` | La condizione può essere risolta da ulteriori interazioni correttive con il sistema esterno al flusso di autenticazione interattivo. | Chiamare `acquireToken` con i parametri interattivi per visualizzare un messaggio in cui viene illustrata l'azione correttiva da intraprendere. L'app chiamante può scegliere di nascondere i flussi che richiedono un'azione aggiuntiva se è improbabile che l'utente completi l'azione correttiva. |

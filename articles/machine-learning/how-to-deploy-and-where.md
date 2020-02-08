@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 3b3b83719da4c1c19706845fa4cb1dc75712d145
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: bbb0992eaeef7892e5940130131ac139a339b47d
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76932385"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083246"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuire modelli con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -172,22 +172,22 @@ Gli endpoint multimodello usano un contenitore condiviso per ospitare più model
 
 Per un esempio E2E che illustra come usare più modelli dietro un singolo endpoint in contenitori, vedere [questo esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-multi-model)
 
-## <a name="prepare-to-deploy"></a>Preparare la distribuzione
+## <a name="prepare-deployment-artifacts"></a>Preparare gli artefatti di distribuzione
 
-Per distribuire il modello, sono necessari gli elementi seguenti:
+Per distribuire il modello, è necessario quanto segue:
 
-* **Uno script di immissione**. Questo script accetta le richieste, assegna un punteggio alle richieste usando il modello e restituisce i risultati.
+* **Script di immissione & dipendenze del codice sorgente**. Questo script accetta le richieste, assegna un punteggio alle richieste usando il modello e restituisce i risultati.
 
     > [!IMPORTANT]
     > * Lo script di immissione è specifico del modello. Deve comprendere il formato dei dati della richiesta in ingresso, il formato dei dati previsti dal modello e il formato dei dati restituiti ai client.
     >
     >   Se i dati della richiesta sono in un formato non utilizzabile dal modello, lo script può trasformarlo in un formato accettabile. Può anche trasformare la risposta prima di restituirla al client.
     >
-    > * Il Azure Machine Learning SDK non fornisce un modo per i servizi Web o le distribuzioni IoT Edge per accedere all'archivio dati o ai set di dati. Se il modello distribuito deve accedere ai dati archiviati all'esterno della distribuzione, ad esempio i dati in un account di archiviazione di Azure, è necessario sviluppare una soluzione di codice personalizzata usando l'SDK pertinente. Ad esempio, [Azure Storage SDK per Python](https://github.com/Azure/azure-storage-python).
+    > * I servizi Web e le distribuzioni di IoT Edge non sono in grado di accedere ad archivi dati o set di dati dell'area di lavoro. Se il servizio distribuito deve accedere ai dati archiviati al di fuori della distribuzione, ad esempio i dati in un account di archiviazione di Azure, è necessario sviluppare una soluzione di codice personalizzata usando l'SDK pertinente. Ad esempio, [Azure Storage SDK per Python](https://github.com/Azure/azure-storage-python).
     >
     >   Un'alternativa che può funzionare per lo scenario è la [stima in batch](how-to-use-parallel-run-step.md), che fornisce l'accesso agli archivi dati durante il punteggio.
 
-* **Dipendenze**, ad esempio gli script helper o i pacchetti Python/conda necessari per eseguire lo script di immissione o il modello.
+* **Ambiente di inferenza**. L'immagine di base con le dipendenze del pacchetto installate necessarie per eseguire il modello.
 
 * **Configurazione della distribuzione** per la destinazione di calcolo che ospita il modello distribuito. Questa configurazione descrive elementi quali i requisiti di memoria e CPU necessari per eseguire il modello.
 
@@ -485,7 +485,7 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
-### <a name="2-define-your-inferenceconfig"></a>2. definire il InferenceConfig
+### <a name="2-define-your-inference-environment"></a>2. definire l'ambiente di inferenza
 
 Nella configurazione dell'inferenza viene descritto come configurare il modello per eseguire stime. Questa configurazione non fa parte dello script di immissione. Fa riferimento allo script di immissione e viene usato per individuare tutte le risorse richieste dalla distribuzione. Viene usato in un secondo momento, quando si distribuisce il modello.
 
@@ -538,7 +538,7 @@ La tabella seguente fornisce un esempio di creazione di una configurazione di di
 
 | Destinazione del calcolo | Esempio di configurazione della distribuzione |
 | ----- | ----- |
-| Locale | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
+| Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Istanze di Azure Container | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Servizio Azure Kubernetes | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
@@ -547,41 +547,6 @@ Le classi per local, istanze di contenitore di Azure e i servizi Web AKS possono
 ```python
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
-
-#### <a name="profiling"></a>Profilatura
-
-Prima di distribuire il modello come servizio, è consigliabile profilarlo per determinare i requisiti di CPU e memoria ottimali. Per profilare il modello, è possibile usare l'SDK o l'interfaccia della riga di comando. Negli esempi seguenti viene illustrato come profilare un modello utilizzando SDK.
-
-> [!IMPORTANT]
-> Quando si usa la profilatura, la configurazione di inferenza fornita non può fare riferimento a un ambiente Azure Machine Learning. Definire invece le dipendenze del software utilizzando il parametro `conda_file` dell'oggetto `InferenceConfig`.
-
-```python
-import json
-test_data = json.dumps({'data': [
-    [1,2,3,4,5,6,7,8,9,10]
-]})
-
-profile = Model.profile(ws, "profilemymodel", [model], inference_config, test_data)
-profile.wait_for_profiling(True)
-profiling_results = profile.get_results()
-print(profiling_results)
-```
-
-Questo codice visualizza un risultato simile all'output seguente:
-
-```python
-{'cpu': 1.0, 'memoryInGB': 0.5}
-```
-
-I risultati della profilatura del modello vengono emessi come oggetto `Run`.
-
-Per informazioni sull'uso della profilatura dall'interfaccia della riga di comando, vedere [AZ ml Model Profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
-
-Per ulteriori informazioni, vedere i documenti seguenti:
-
-* [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
-* [profilo ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
-* [Schema del file di configurazione dell'inferenza](reference-azure-machine-learning-cli.md#inference-configuration-schema)
 
 ## <a name="deploy-to-target"></a>Distribuisci nella destinazione
 
@@ -977,7 +942,7 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-Dopo aver creato un pacchetto, è possibile usare `package.pull()` per eseguire il pull dell'immagine nell'ambiente Docker locale. L'output di questo comando visualizzerà il nome dell'immagine. Ad esempio: 
+Dopo aver creato un pacchetto, è possibile usare `package.pull()` per eseguire il pull dell'immagine nell'ambiente Docker locale. L'output di questo comando visualizzerà il nome dell'immagine. Ad esempio, 
 
 `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
 

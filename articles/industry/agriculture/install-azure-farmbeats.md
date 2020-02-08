@@ -5,12 +5,12 @@ author: usha-rathnavel
 ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
-ms.openlocfilehash: 0702b302af1c964014a6649f5f3e86ce47b4600a
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
-ms.translationtype: HT
+ms.openlocfilehash: 7d3c70695000ae62f374bc558d4b408733968b83
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048386"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069286"
 ---
 # <a name="install-azure-farmbeats"></a>Installare Azure FarmBeats
 
@@ -38,7 +38,7 @@ Quando si installa Azure FarmBeats, viene eseguito il provisioning delle risorse
 | Azure Cosmos DB   |  Datahub       |
 | Azure Data Factory V2       |     Acceleratore & datahub      |
 | Account Azure Batch    | Datahub   |
-| Insieme di credenziali chiave di Azure |  Acceleratore & datahub        |
+| Azure Key Vault |  Acceleratore & datahub        |
 | Account Azure Maps       |     Acceleratore    |
 | Spazio dei nomi dell'hub eventi    |     Datahub      |
 | App per la logica      |  Datahub       |
@@ -71,13 +71,13 @@ Azure FarmBeats è attualmente supportato in ambienti cloud pubblici nelle aree 
 
 L'intera configurazione di Azure FarmBeats, inclusa la preparazione e l'installazione, importerà meno di un'ora.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di avviare l'installazione effettiva di Azure FarmBeats, è necessario completare i passaggi seguenti:
 
 ### <a name="verify-permissions"></a>Verificare le autorizzazioni
 
-Sono necessarie le seguenti autorizzazioni nel tenant di Azure che si sta cercando di installare Azure FarmBeats:
+Per installare Azure FarmBeats, è necessario disporre delle autorizzazioni seguenti nel tenant di Azure:
 
 - Tenant-creatore app AAD
 - Sottoscrizione-proprietario
@@ -85,7 +85,7 @@ Sono necessarie le seguenti autorizzazioni nel tenant di Azure che si sta cercan
 
 Le prime due autorizzazioni sono necessarie per [creare il passaggio dell'applicazione AAD](#create-an-aad-application) . Se necessario, è possibile ottenere un utente con le autorizzazioni appropriate per creare l'applicazione di AAD. La persona che esegue l'installazione di FarmBeats deve essere un proprietario del gruppo di risorse in cui viene installato FarmBeats.
 
-È possibile verificare le autorizzazioni di accesso nel portale di Azure seguendo le istruzioni sul [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/check-access)
+È possibile verificare le autorizzazioni di accesso nel portale di Azure seguendo le istruzioni sul [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
 ### <a name="decide-subscription-and-region"></a>Decidere la sottoscrizione e l'area geografica
 
@@ -120,7 +120,7 @@ Eseguire i passaggi seguenti in un'istanza di Cloud Shell usando l'ambiente di P
         ./create_aad_script.ps1
     ```
 
-4. Lo script di AAD richiede circa 2 minuti per l'esecuzione e restituisce i valori allo schermo, oltre a un file JSON nella stessa directory. Se un altro utente eseguisse lo script, chiedere loro di condividere questo output.
+4. Lo script di AAD richiede circa 2 minuti per l'esecuzione e restituisce i valori sullo schermo, oltre a un file JSON nella stessa directory. Se un altro utente eseguisse lo script, chiedere loro di condividere questo output.
 
 ### <a name="create-sentinel-account"></a>Crea account Sentinel
 
@@ -130,29 +130,33 @@ Per creare un account gratuito con Sentinel, seguire questa procedura:
 
 1. Passare alla pagina di [iscrizione](https://aka.ms/SentinelRegistration) ufficiale.
 2. Specificare i dettagli richiesti (nome, cognome, nome utente, password e ID di posta elettronica) e completare il modulo.
-3. Verrà inviato un collegamento di verifica all'ID di posta elettronica registrato. Selezionare il collegamento fornito nel messaggio di posta elettronica e completare la verifica.
+3. Un collegamento di verifica viene inviato all'ID di posta elettronica registrato. Selezionare il collegamento fornito nel messaggio di posta elettronica e completare la verifica.
 
-Il processo di registrazione è stato completato dopo aver completato la verifica. Prendere nota del **nome utente** e della **password**Sentinel.
+Il processo di registrazione è stato completato. Prendere nota del **nome utente** e della **password**Sentinel, dopo aver completato la verifica.
 
-## <a name="install"></a>Installazione
+## <a name="install"></a>Installa
 
-A questo punto è possibile installare FarmBeats. Per avviare l'installazione, attenersi alla procedura seguente:
+A questo punto è possibile installare FarmBeats. Attenersi alla procedura seguente per avviare l'installazione:
 
 1. Accedere al portale di Azure. Selezionare il proprio account nell'angolo in alto a destra e passare al tenant Azure AD in cui si vuole installare Azure FarmBeats.
 
 2. Passare ad Azure Marketplace nel portale e cercare **Azure FarmBeats** nel Marketplace.
 
-3. Viene visualizzata una nuova finestra con una panoramica di Azure FarmBeats. Selezionare **Create** (Crea).
+3. Viene visualizzata una nuova finestra con una panoramica di Azure FarmBeats. Selezionare **Crea**.
 
 4. Viene visualizzata una nuova finestra. Completare il processo di iscrizione scegliendo la sottoscrizione, il gruppo di risorse e la posizione corretti in cui si vuole installare Azure FarmBeats.
 
-5. Fornire l'indirizzo di posta elettronica che dovrebbe ricevere tutti gli avvisi del servizio correlati ad Azure FarmBeats nella sezione **avvisi servizio FarmBeats** . Nella parte inferiore della pagina fare clic su Avanti per passare alla scheda **dipendenze** . ![scheda nozioni di base](./media/install-azure-farmbeats/create-azure-farmbeats-basics.png)
+5. Fornire l'indirizzo di posta elettronica che dovrebbe ricevere tutti gli avvisi del servizio correlati ad Azure FarmBeats nella sezione **avvisi servizio FarmBeats** . Nella parte inferiore della pagina selezionare **Avanti** per passare alla scheda **dipendenze** .
+
+    ![Scheda nozioni di base](./media/install-azure-farmbeats/create-azure-farmbeats-basics.png)
 
 6. Copiare le singole voci dall'output dello [script AAD](#create-an-aad-application) agli input nella sezione dell'applicazione AAD.
 
-7. Immettere il nome utente e la password dell' [account Sentinel](#create-sentinel-account) nella sezione account Sentinel. Fare clic su Avanti per passare alla scheda **Verifica + crea** ![dipendenze](./media/install-azure-farmbeats/create-azure-farmbeats-dependencies.png)
+7. Immettere il nome utente e la password dell' [account Sentinel](#create-sentinel-account) nella sezione account Sentinel. Selezionare **Avanti** per passare alla scheda **Verifica + crea** .
 
-8. Una volta convalidati i dettagli immessi, fare clic su **OK**. Viene visualizzata la pagina Condizioni per l'utilizzo. Esaminare i termini e selezionare **Crea** per avviare l'installazione. Si verrà reindirizzati automaticamente a una pagina in cui è possibile seguire lo stato di avanzamento dell'installazione.
+    ![scheda Dipendenze](./media/install-azure-farmbeats/create-azure-farmbeats-dependencies.png)
+
+8. Una volta convalidati i dettagli immessi, fare clic su **OK**. Viene visualizzata la pagina Condizioni per l'utilizzo. Esaminare i termini e selezionare **Crea** per avviare l'installazione. Si verrà reindirizzati alla pagina in cui è possibile seguire lo stato di avanzamento dell'installazione.
 
 Al termine dell'installazione, è possibile verificare l'installazione e iniziare a usare il portale di FarmBeats passando al nome del sito Web specificato durante l'installazione: https://\<FarmBeats-website-name >. azurewebsites. NET. Verrà visualizzata l'interfaccia utente di FarmBeats con un'opzione per la creazione di farm.
 
@@ -161,6 +165,7 @@ Al termine dell'installazione, è possibile verificare l'installazione e iniziar
 ## <a name="upgrade"></a>Aggiornamento
 
 Per aggiornare FarmBeats alla versione più recente, eseguire i passaggi seguenti in un'istanza di Cloud Shell usando l'ambiente di PowerShell. L'utente deve essere il proprietario della sottoscrizione in cui è installato FarmBeats.
+
 Per la prima volta agli utenti verrà richiesto di selezionare una sottoscrizione e creare un account di archiviazione. Completare l'installazione come indicato.
 
 1. Scaricare lo [script di aggiornamento](https://aka.ms/FarmBeatsUpgradeScript)

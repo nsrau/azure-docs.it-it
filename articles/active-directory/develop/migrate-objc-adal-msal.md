@@ -3,22 +3,22 @@ title: Guida alla migrazione da ADAL a MSAL (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni sulle differenze tra MSAL per iOS/macOS e la libreria Autenticazione di Azure AD per ObjectiveC (ADAL. ObjC) e come eseguire la migrazione a MSAL per iOS/macOS.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/28/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 311d6ed988777e94f5dd3fde8ac6e9aff1fb39fe
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 6050bdc8c2600998b9804b04b62102e74612719f
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696674"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085169"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Eseguire la migrazione di applicazioni a MSAL per iOS e macOS
 
@@ -65,7 +65,7 @@ In MSAL, invece di un singolo identificatore di risorsa, le app forniscono un se
 
 Esistono due modi per specificare gli ambiti in MSAL:
 
-* Fornire un elenco di tutte le autorizzazioni necessarie per le app. Ad esempio: 
+* Fornire un elenco di tutte le autorizzazioni necessarie per le app. Ad esempio, 
 
     `@[@"https://graph.microsoft.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
 
@@ -146,7 +146,7 @@ Per abilitare Service Broker per l'applicazione:
 
 1. Registrare un formato URI di reindirizzamento compatibile con Service Broker per l'applicazione. Il formato dell'URI di reindirizzamento compatibile con Service Broker è `msauth.<app.bundle.id>://auth`. Sostituire `<app.bundle.id>` con l'ID bundle dell'applicazione. Se si esegue la migrazione da ADAL e l'applicazione è già in grado di supportare il broker, non è necessario eseguire alcuna operazione aggiuntiva. L'URI di reindirizzamento precedente è completamente compatibile con MSAL, pertanto è possibile procedere al passaggio 3.
 
-2. Aggiungere lo schema URI di reindirizzamento dell'applicazione al file INFO. plist. Per l'URI di reindirizzamento MSAL predefinito, il formato è `msauth.<app.bundle.id>`. Ad esempio:
+2. Aggiungere lo schema URI di reindirizzamento dell'applicazione al file INFO. plist. Per l'URI di reindirizzamento MSAL predefinito, il formato è `msauth.<app.bundle.id>`. Ad esempio,
 
     ```xml
     <key>CFBundleURLSchemes</key>

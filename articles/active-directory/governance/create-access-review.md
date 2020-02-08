@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/21/2019
+ms.date: 02/06/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e65eb08873da71c7683fe3347484831dfff58793
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: fcb2198ea3f01e923022c205e478167240a01894
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932632"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084439"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Creare una verifica di accesso dei gruppi e delle applicazioni nelle verifiche di accesso Azure AD
 
@@ -93,7 +93,7 @@ Per altre informazioni, vedere [Requisiti relativi alle licenze](access-reviews-
 
     ![Creare una verifica di accesso-dopo le impostazioni di completamento](./media/create-access-review/upon-completion-settings.png)
 
-1. Se si vuole rimuovere automaticamente l'accesso per gli utenti rifiutati, impostare l'opzione **Applica automaticamente i risultati alla risorsa** su **Abilita**. Per applicare manualmente i risultati al termine della verifica, impostare l'opzione su **Disabilita**.
+1. Se si vuole rimuovere automaticamente l'accesso per gli utenti che sono stati negati, impostare **auto Apply results to Resource** to **Enable**. Per applicare manualmente i risultati al termine della verifica, impostare l'opzione su **Disabilita**.
 
 1. Usare l'elenco **In caso di mancata risposta del revisore** per specificare cosa accade per gli utenti non sottoposti a verifica dal revisore entro il periodo di verifica. Questa impostazione non ha alcun impatto sugli utenti che sono stati sottoposti a verifica manualmente dai revisori. Se la decisione finale del revisore è il rifiuto, l'accesso dell'utente verrà rimosso.
 
@@ -127,6 +127,20 @@ Una volta specificate le impostazioni per una verifica di accesso, fare clic su 
 Per impostazione predefinita, Azure AD invia un messaggio di posta elettronica ai revisori poco tempo dopo l'inizio della verifica. Se si imposta Azure AD in modo che non invii un messaggio di posta elettronica, assicurarsi di informare i revisori che vi è una verifica di accesso in attesa di completamento. È possibile visualizzare le istruzioni su come [verificare l'accesso ai gruppi o alle applicazioni](perform-access-review.md). Se la verifica è destinata ai guest per verificare il proprio accesso, visualizzare le istruzioni su come [verificare l'accesso da soli a gruppi o applicazioni](review-your-access.md).
 
 Se sono stati assegnati Guest come revisori che non hanno accettato l'invito, non riceveranno un messaggio di posta elettronica dalle verifiche di accesso perché devono prima accettare l'invito prima di esaminarlo.
+
+## <a name="access-review-status-table"></a>Tabella dello stato della verifica di accesso
+
+| Stato | Definizione |
+|--------|------------|
+|NotStarted | La revisione è stata creata, l'individuazione utente è in attesa di essere avviata. |
+|Inizializzazione in corso   | È in corso l'individuazione utente per identificare tutti gli utenti che fanno parte della revisione. |
+|Avvio in corso | È in corso l'avvio della verifica. Se sono abilitate le notifiche tramite posta elettronica, i messaggi di posta elettronica vengono inviati ai revisori. |
+|InProgress | Verifica avviata. Se sono state inviate notifiche tramite posta elettronica ai revisori. I revisori possono inviare decisioni fino alla data di scadenza. |
+|Completamento | La verifica è stata completata e i messaggi di posta elettronica vengono inviati al proprietario della verifica. |
+|Revisione dell'autovisione | La revisione si trova in una fase di verifica del sistema. Il sistema sta registrando le decisioni per gli utenti che non sono stati esaminati in base a raccomandazioni o decisioni preconfigurate. |
+|Revisione autoesaminata | Le decisioni sono state registrate dal sistema per tutti gli utenti che non sono stati rivisti. Verifica è pronto per procedere con l' **applicazione** se l'applicazione automatica è abilitata. |
+|Applicazione | Non verrà apportata alcuna modifica all'accesso per gli utenti che sono stati approvati. |
+|Applicato | Gli utenti negati, se presenti, sono stati rimossi dalla risorsa o dalla directory. |
 
 ## <a name="create-reviews-via-apis"></a>Creare verifiche tramite API
 

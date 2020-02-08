@@ -8,12 +8,12 @@ ms.date: 01/09/2020
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 79b223de7a0a0cfdaf799b1f80e585a2a55f7e82
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ce7c92f121fb458d528d63d0af0aad025b377386
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849734"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086668"
 ---
 # <a name="monitor-topics-and-event-subscriptions"></a>Monitorare gli argomenti e le sottoscrizioni di eventi
 
@@ -40,7 +40,7 @@ Configurare il modulo per emettere le metriche impostando la variabile di ambien
         }
  ```    
 
-Le metriche saranno disponibili in `5888/metrics` del modulo per http e `4438/metrics` per HTTPS. Ad esempio, `http://<modulename>:4438/metrics?api-version=2019-01-01-preview` per http. A questo punto, un modulo metrica può eseguire il polling dell'endpoint per raccogliere le metriche come in questa [architettura di esempio](https://github.com/veyalla/ehm).
+Le metriche saranno disponibili in `5888/metrics` del modulo per http e `4438/metrics` per HTTPS. Ad esempio, `http://<modulename>:5888/metrics?api-version=2019-01-01-preview` per http. A questo punto, un modulo metrica può eseguire il polling dell'endpoint per raccogliere le metriche come in questa [architettura di esempio](https://github.com/veyalla/ehm).
 
 ## <a name="available-metrics"></a>Metriche disponibili
 
@@ -48,7 +48,7 @@ Gli argomenti e le sottoscrizioni di eventi emettono metriche per fornire inform
 
 ### <a name="topic-metrics"></a>Metriche dell'argomento
 
-| Metrica | Description |
+| Metrica | Descrizione |
 | ------ | ----------- |
 | EventsReceived | Numero di eventi pubblicati nell'argomento
 | UnmatchedEvents | Numero di eventi pubblicati nell'argomento che non corrispondono a una sottoscrizione di eventi e che vengono eliminati
@@ -60,12 +60,12 @@ Gli argomenti e le sottoscrizioni di eventi emettono metriche per fornire inform
 
 ### <a name="event-subscription-metrics"></a>Metriche della sottoscrizione di eventi
 
-| Metrica | Description |
+| Metrica | Descrizione |
 | ------ | ----------- |
 | deliverySuccessCounts | Numero di eventi recapitati correttamente all'endpoint configurato
-| deliveryFailureCounts | Numero di tentativi di recapito eventi non riusciti all'endpoint configurato
+| deliveryFailureCounts | Numero di eventi che non sono stati recapitati all'endpoint configurato
 | deliverySuccessLatencyMs | Latenza degli eventi recapitati in millisecondi
 | deliveryFailureLatencyMs | Latenza degli errori di recapito degli eventi in millisecondi
 | systemDelayForFirstAttemptMs | Ritardo di sistema degli eventi prima del primo tentativo di recapito in millisecondi
 | deliveryAttemptsCount | Numero di tentativi di recapito eventi-esito positivo e negativo
-| expiredCounts | Numero di eventi non recapitabili 
+| expiredCounts | Numero di eventi scaduti e non recapitati all'endpoint configurato

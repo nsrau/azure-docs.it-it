@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 0f836553c3c3bb324d76d022af189f154b5b1972
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 36a492f6a3e86cfb2fc9505550cc2d9f4746e070
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964465"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087167"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Ruoli e requisiti per Condivisione dati di Azure 
 
@@ -35,8 +35,8 @@ Di seguito è riportato un riepilogo dei ruoli assegnati all'identità gestita d
 |Archiviazione BLOB di Azure| Lettore dati BLOB di archiviazione | Collaboratore dati BLOB di archiviazione
 |Azure Data Lake Gen1 | Proprietario | Non supportato
 |Azure Data Lake Gen2 | Lettore dati BLOB di archiviazione | Collaboratore dati BLOB di archiviazione
-|Server di Azure SQL | Collaboratore database SQL | Collaboratore database SQL
-|Cluster di Azure Esplora dati | Collaboratore | Collaboratore
+|Azure SQL Server | Collaboratore database SQL | Collaboratore database SQL
+|Cluster di Azure Esplora dati | Contributor | Contributor
 |
 
 Per la condivisione basata su SQL, è necessario creare un utente SQL da un provider esterno nel database SQL con lo stesso nome della risorsa di condivisione dati di Azure. Di seguito è riportato un riepilogo dell'autorizzazione richiesta dall'utente SQL.
@@ -63,7 +63,7 @@ Per creare un'assegnazione di ruolo per l'identità gestita della risorsa di con
 1. Selezionare **Aggiungi un'assegnazione di ruolo**.
 1. In *ruolo*selezionare il ruolo nella tabella di assegnazione ruolo precedente (ad esempio, per account di archiviazione selezionare *lettore dati BLOB di archiviazione*).
 1. In *Seleziona*Digitare il nome della risorsa di condivisione dati di Azure.
-1. Fare clic su *Salva*.
+1. Fare clic su *Save*.
 
 Per le origini basate su SQL, oltre ai passaggi precedenti, è necessario creare un utente SQL da un provider esterno nel database SQL con lo stesso nome della risorsa di condivisione dati di Azure. A questo utente deve essere concessa l'autorizzazione *db_datareader* . Uno script di esempio insieme ad altri prerequisiti per la condivisione basata su SQL è disponibile nell'esercitazione [condividere i dati](share-your-data.md) . 
 
@@ -81,7 +81,7 @@ Per creare manualmente un'assegnazione di ruolo per l'identità gestita della ri
 1. Selezionare **Aggiungi un'assegnazione di ruolo**.
 1. In *ruolo*selezionare il ruolo nella tabella di assegnazione ruolo precedente (ad esempio, per account di archiviazione selezionare *lettore dati BLOB di archiviazione*).
 1. In *Seleziona*Digitare il nome della risorsa di condivisione dati di Azure.
-1. Fare clic su *Salva*.
+1. Fare clic su *Save*.
 
 Per la destinazione basata su SQL, oltre ai passaggi precedenti, è necessario creare un utente SQL da un provider esterno nel database SQL con lo stesso nome della risorsa di condivisione dati di Azure. A questo utente deve essere concessa l'autorizzazione *db_datareader, db_datawriter db_ddladmin* . Uno script di esempio insieme ad altri prerequisiti per la condivisione basata su SQL è disponibile nell'esercitazione [accettare e ricevere dati](subscribe-to-data-share.md) . 
 
@@ -91,13 +91,13 @@ Per ulteriori informazioni su come aggiungere un'assegnazione di ruolo, fare rif
 
 ## <a name="resource-provider-registration"></a>Registrazione del provider di risorse 
 
-Per visualizzare l'invito di condivisione dati di Azure per la prima volta nel tenant di Azure, potrebbe essere necessario registrare manualmente il provider di risorse Microsoft. DataShare nella sottoscrizione di Azure. Seguire questa procedura per registrare il provider di risorse Microsoft. DataShare nella sottoscrizione di Azure. 
+Per visualizzare l'invito di condivisione dati di Azure per la prima volta nel tenant di Azure, potrebbe essere necessario registrare manualmente il provider di risorse Microsoft. DataShare nella sottoscrizione di Azure. Seguire questa procedura per registrare il provider di risorse Microsoft. DataShare nella sottoscrizione di Azure. Per registrare il provider di risorse, è necessario l'accesso come *collaboratore* alla sottoscrizione di Azure.
 
 1. Nella portale di Azure passare a **sottoscrizioni**.
 1. Selezionare la sottoscrizione che si sta usando per la condivisione di dati di Azure.
 1. Fare clic su **provider di risorse**.
 1. Cercare Microsoft. DataShare.
-1. Fare clic su **Register**.
+1. Fare clic su **Registra**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

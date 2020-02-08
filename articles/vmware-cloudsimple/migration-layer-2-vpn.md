@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 975ffcd7142aac24363c2235db3742c155c1007b
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: d4e25074203ddcc016f54842f25f52017c6137f0
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77019826"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083220"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Eseguire la migrazione di carichi di lavoro usando reti estese di livello 2
 
@@ -48,7 +48,7 @@ Prima di distribuire e configurare la soluzione, verificare che siano presenti g
 * La versione del dispositivo autonomo NSX-T Edge è compatibile con la versione NSX-T Manager (NSX-t 2.3.0) usata nell'ambiente di cloud privato AVS.
 * In vCenter locale è stato creato un gruppo di porte trunk con trasmissioni falsificate abilitate.
 * Un indirizzo IP pubblico è stato riservato da usare per l'indirizzo IP del client autonomo NSX-T e 1:1 NAT per la conversione tra i due indirizzi.
-* L'invio DNS viene impostato nei server DNS locali per AZ. Dominio AVS.io per puntare ai server DNS del cloud privato AVS.
+* L'invio DNS viene impostato nei server DNS locali per il dominio az.cloudsimple.io in modo che punti ai server DNS del cloud privato AVS.
 * La latenza RTT è inferiore o uguale a 150 ms, come richiesto per vMotion per lavorare nei due siti.
 
 ## <a name="limitations-and-considerations"></a>Limitazioni e considerazioni
@@ -57,10 +57,10 @@ La tabella seguente elenca le versioni di vSphere supportate e i tipi di adattat
 
 | versione di vSphere | Tipo di vSwitch di origine | Driver NIC virtuale | Tipo di vSwitch di destinazione | Supportato? |
 ------------ | ------------- | ------------ | ------------- | ------------- 
-| Tutto | DVS | Tutto | DVS | Sì |
+| Tutte | DVS | Tutte | DVS | Sì |
 | vSphere 6.7 UI o versione successiva, 6.5 P03 o versione successiva | DVS | VMXNET3 | N-VDS | Sì |
 | vSphere 6.7 UI o versione successiva, 6.5 P03 o versione successiva | DVS | E1000 | N-VDS | [Non supportato per VWware](https://kb.vmware.com/s/article/56991) |
-| interfaccia utente vSphere 6.7 o 6.5 P03, NSX-V o versioni inferiori a NSX-T 2.2, 6.5 P03 o versione successiva | Tutto | Tutto | N-VDS | [Non supportato per VWware](https://kb.vmware.com/s/article/56991) |
+| interfaccia utente vSphere 6.7 o 6.5 P03, NSX-V o versioni inferiori a NSX-T 2.2, 6.5 P03 o versione successiva | Tutte | Tutte | N-VDS | [Non supportato per VWware](https://kb.vmware.com/s/article/56991) |
 
 A partire dalla versione VMware NSX-T 2,3:
 
@@ -75,7 +75,7 @@ Per ulteriori informazioni, vedere [reti private virtuali](https://docs.vmware.c
 
 | **Elemento** | **Valore** |
 |------------|-----------------|
-| Nome della rete | MGMT_NET_VLAN469 |
+| Nome rete | MGMT_NET_VLAN469 |
 | VLAN | 469 |
 | CIDR| 10.250.0.0/24 |
 | Indirizzo IP dell'appliance Edge autonomo | 10.250.0.111 |
@@ -154,16 +154,16 @@ Per stabilire una VPN basata su Route IPsec tra il router NSX-T tier0 e il clien
 
 ### <a name="advertise-the-loopback-interface-ip-to-the-underlay-network"></a>Annunciare l'IP dell'interfaccia loopback alla rete sottostante
 
-1. Creare una route null per la rete dell'interfaccia di loopback. Accedere a NSX-T Manager e selezionare **rete** > **routing** > **router** > **provider-LR** > **routing** > **Route statiche**. Scegliere **Aggiungi**. Per **rete**, immettere l'indirizzo IP dell'interfaccia di loopback. Per gli hop **successivi**, fare clic su **Aggiungi**, specificare ' null ' per l'hop successivo e il valore predefinito è 1 per distanza amministratore.
+1. Creare una route null per la rete dell'interfaccia di loopback. Accedere a NSX-T Manager e selezionare **rete** > **routing** > **router** > **provider-LR** > **routing** > **Route statiche**. Fare clic su **Add**. Per **rete**, immettere l'indirizzo IP dell'interfaccia di loopback. Per gli hop **successivi**, fare clic su **Aggiungi**, specificare ' null ' per l'hop successivo e il valore predefinito è 1 per distanza amministratore.
 
     ![Aggiungi route statica](media/l2vpn-routing-security01.png)
 
-2. Creare un elenco di prefisso IP. Accedere a NSX-T Manager e selezionare **rete** > **routing** > **router** > **provider-LR** > **routing** > elenchi di **prefisso IP**. Scegliere **Aggiungi**. Immettere un nome per identificare l'elenco. Per i **prefissi**, fare clic su **Aggiungi** due volte. Nella prima riga immettere ' 0.0.0.0/0' per la **rete** è Deny ' per l' **azione**. Nella seconda riga selezionare **any** per **rete** e **Consenti** **azione**.
+2. Creare un elenco di prefisso IP. Accedere a NSX-T Manager e selezionare **rete** > **routing** > **router** > **provider-LR** > **routing** > elenchi di **prefisso IP**. Fare clic su **Add**. Immettere un nome per identificare l'elenco. Per i **prefissi**, fare clic su **Aggiungi** due volte. Nella prima riga immettere ' 0.0.0.0/0' per la **rete** è Deny ' per l' **azione**. Nella seconda riga selezionare **any** per **rete** e **Consenti** **azione**.
 3. Alleghi l'elenco di prefisso IP a entrambi i router BGP (TOR). Il collegamento dell'elenco di prefisso IP al router adiacente BGP impedisce che la route predefinita venga annunciata in BGP ai commutatori TOR. Tuttavia, qualsiasi altra route che includa la route null annuncia l'indirizzo IP dell'interfaccia loopback ai commutatori TOR.
 
     ![Crea elenco di prefisso IP](media/l2vpn-routing-security02.png)
 
-4. Accedere a NSX-T Manager e selezionare **rete** > **routing** > **router** > **Provider-LR** > **routing** > **BGP** > **adiacenti**. Selezionare il primo elemento adiacente. Fare clic su **Edit** > **Address families**. Per la famiglia IPv4, modificare la colonna **filtro di uscita** e selezionare l'elenco di prefisso IP creato. Fare clic su **Salva**. Ripetere questo passaggio per il secondo router adiacente.
+4. Accedere a NSX-T Manager e selezionare **rete** > **routing** > **router** > **Provider-LR** > **routing** > **BGP** > **adiacenti**. Selezionare il primo elemento adiacente. Fare clic su **Edit** > **Address families**. Per la famiglia IPv4, modificare la colonna **filtro di uscita** e selezionare l'elenco di prefisso IP creato. Fare clic su **Save**. Ripetere questo passaggio per il secondo router adiacente.
 
     ![alleghi l'elenco di prefisso IP 1](media/l2vpn-routing-security03.png) ![alleghino l'elenco di prefisso IP 2](media/l2vpn-routing-security04.png)
 

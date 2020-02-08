@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: e403d690470f3c4f1d0c8e565e90641d9c114a80
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ba82b1bea4753cd51e275a78b248247032d79a01
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844547"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086647"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Esercitazione: pubblicare, sottoscrivere gli eventi in locale
 
@@ -24,7 +24,7 @@ Questo articolo illustra tutti i passaggi necessari per pubblicare e sottoscrive
 > Per informazioni sugli argomenti e sulle sottoscrizioni di griglia di eventi di Azure, vedere [concetti relativi a griglia di eventi](concepts.md).
 
 ## <a name="prerequisites"></a>Prerequisiti 
-Per completare questa esercitazione, è necessario:
+Per completare questa esercitazione è necessario disporre degli elementi seguenti:
 
 * **Sottoscrizione di Azure** : creare un [account gratuito](https://azure.microsoft.com/free) se non ne è già disponibile uno. 
 * **Hub Azure e dispositivo IOT Edge** : seguire la procedura descritta nella Guida introduttiva per i [dispositivi](../../iot-edge/quickstart.md) [Linux](../../iot-edge/quickstart-linux.md) o Windows se non ne è già presente uno.
@@ -64,8 +64,7 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
     ```json
         {
           "Env": [
-            "inbound__clientAuth__clientCert__enabled=false",
-            "outbound__webhook__httpsOnly=false"
+            "inbound__clientAuth__clientCert__enabled=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -78,22 +77,18 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
           }
         }
     ```    
- 1. Fare clic su **Save** (Salva).
- 1. Passare alla sezione successiva per aggiungere il modulo funzioni di Azure prima di distribuirli insieme.
+ 1. Fare clic su **Save**.
+ 1. Passare alla sezione successiva per aggiungere il modulo del Sottoscrittore di griglia di eventi di Azure prima di distribuirli insieme.
 
     >[!IMPORTANT]
-    > In questa esercitazione verrà distribuito il modulo di griglia di eventi con autenticazione client disabilitata e Consenti Sottoscrittori HTTP. Per i carichi di lavoro di produzione, è consigliabile abilitare l'autenticazione client e consentire solo i sottoscrittori HTTPs. Per altre informazioni su come configurare il modulo di griglia di eventi in modo sicuro, vedere [sicurezza e autenticazione](security-authentication.md).
+    > In questa esercitazione verrà distribuito il modulo di griglia di eventi con l'autenticazione client disabilitata. Per i carichi di lavoro di produzione, è consigliabile abilitare l'autenticazione client. Per altre informazioni su come configurare il modulo di griglia di eventi in modo sicuro, vedere [sicurezza e autenticazione](security-authentication.md).
     > 
     > Se si usa una macchina virtuale di Azure come dispositivo perimetrale, aggiungere una regola per la porta in ingresso per consentire il traffico in ingresso sulla porta 4438. Per istruzioni sull'aggiunta della regola, vedere [How to open ports to a VM](../../virtual-machines/windows/nsg-quickstart-portal.md).
     
 
-## <a name="deploy-azure-function-iot-edge-module"></a>Distribuire il modulo IoT Edge di funzioni di Azure
+## <a name="deploy-event-grid-subscriber-iot-edge-module"></a>Modulo di distribuzione IoT Edge Sottoscrittore griglia di eventi
 
-Questa sezione illustra come distribuire il modulo di Azure Functions, che funge da Sottoscrittore di griglia di eventi a cui è possibile recapitare gli eventi.
-
->[!IMPORTANT]
->In questa sezione verrà distribuito un modulo di sottoscrizione di esempio basato su funzioni di Azure. Ovviamente è possibile che si tratta di un qualsiasi modulo di Internet delle cose personalizzato in grado di restare in ascolto delle richieste HTTP POST.
-
+Questa sezione illustra come distribuire un altro modulo Internet che funge da gestore eventi a cui è possibile recapitare gli eventi.
 
 ### <a name="add-modules"></a>Aggiungere moduli
 
@@ -102,24 +97,9 @@ Questa sezione illustra come distribuire il modulo di Azure Functions, che funge
 1. Fornire il nome, l'immagine e le opzioni di creazione del contenitore:
 
    * **Nome**: Sottoscrittore
-   * **URI immagine**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber-azfunc:latest`
-   * **Opzioni di creazione del contenitore**:
-
-       ```json
-            {
-              "HostConfig": {
-                "PortBindings": {
-                  "80/tcp": [
-                    {
-                      "HostPort": "8080"
-                    }
-                  ]
-                }
-              }
-            }
-       ```
-
-1. Fare clic su **Save** (Salva).
+   * **URI immagine**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
+   * **Opzioni di creazione del contenitore**: nessuna
+1. Fare clic su **Save**.
 1. Fare clic su **Avanti** per passare alla sezione Route
 
  ### <a name="setup-routes"></a>Route di installazione
@@ -134,7 +114,7 @@ Mantenere le route predefinite e fare clic su **Avanti** per passare alla sezion
 
     Per l'avvio del modulo e per il rilevamento da parte dell'hub IoT può essere richiesto un po' di tempo. Aggiornare la pagina per visualizzare lo stato aggiornato.
 
-## <a name="create-a-topic"></a>Creare un argomento
+## <a name="create-a-topic"></a>Crea un argomento
 
 Come server di pubblicazione di un evento, è necessario creare un argomento di griglia di eventi. In griglia di eventi di Azure un argomento si riferisce a un endpoint in cui i publisher possono inviare eventi a.
 
@@ -161,7 +141,7 @@ Come server di pubblicazione di un evento, è necessario creare un argomento di 
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
     ```
 
-   Output di esempio:
+   Esempio di output:
 
    ```json
         [
@@ -191,7 +171,7 @@ I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. 
             "destination": {
               "endpointType": "WebHook",
               "properties": {
-                "endpointUrl": "http://subscriber:80/api/subscriber"
+                "endpointUrl": "https://subscriber:4430"
               }
             }
           }
@@ -199,7 +179,7 @@ I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. 
     ```
 
     >[!NOTE]
-    > La proprietà **EndpointType** specifica che il Sottoscrittore è un **webhook**.  **EndpointUrl** specifica l'URL in cui il Sottoscrittore è in ascolto di eventi. Questo URL corrisponde all'esempio di funzione di Azure distribuito in precedenza.
+    > La proprietà **EndpointType** specifica che il Sottoscrittore è un **webhook**.  **EndpointUrl** specifica l'URL in cui il Sottoscrittore è in ascolto di eventi. Questo URL corrisponde all'esempio di Sottoscrittore di Azure distribuito in precedenza.
 2. Eseguire il comando seguente per creare una sottoscrizione per l'argomento. Verificare che venga visualizzato il codice di stato HTTP `200 OK`.
 
     ```sh
@@ -211,7 +191,7 @@ I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. 
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/eventSubscriptions/sampleSubscription1?api-version=2019-01-01-preview
     ```
 
-    Output di esempio:
+    Esempio di output:
 
    ```json
         {
@@ -223,7 +203,7 @@ I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. 
             "destination": {
               "endpointType": "WebHook",
               "properties": {
-                "endpointUrl": "http://subscriber:80/api/subscriber"
+                "endpointUrl": "https://subscriber:4430"
               }
             }
           }
@@ -272,10 +252,10 @@ I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. 
     sudo docker logs subscriber
     ```
 
-    Output di esempio:
+    Esempio di output:
 
     ```sh
-        Received event data [
+        Received Event:
             {
               "id": "eventId-func-0",
               "topic": "sampleTopic1",
@@ -289,7 +269,6 @@ I sottoscrittori possono registrarsi per gli eventi pubblicati in un argomento. 
                 "model": "Monster"
               }
             }
-          ]
     ```
 
 ## <a name="cleanup-resources"></a>Risorse di pulizia

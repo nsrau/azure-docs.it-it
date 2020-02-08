@@ -4,7 +4,7 @@ titleSuffix: Microsoft identity platform
 description: Informazioni su come configurare l'accesso Single Sign-on (SSO) in macOS e iOS.
 services: active-directory
 documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/03/2020
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: bfc656911abf3349e03543e6bb668db977422738
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 91a55520b37c549c8f1d94ba6cf08ecd24db85b5
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022631"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085515"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Procedura: configurare l'accesso SSO in macOS e iOS
 
@@ -69,7 +69,7 @@ Per abilitare l'accesso SSO tra le applicazioni, è necessario eseguire i passag
 
 Per individuare le applicazioni che possono condividere i token da parte della piattaforma Microsoft Identity, è necessario che le applicazioni condividano lo stesso ID client o ID applicazione. Si tratta dell'identificatore univoco fornito al momento della registrazione della prima applicazione nel portale.
 
-Il modo in cui la piattaforma di identità Microsoft comunica alle app che usano lo stesso ID applicazione a parte gli **URI di reindirizzamento**. Ogni applicazione può avere più URI di reindirizzamento registrati nel portale di caricamento. Ogni app della suite avrà un URI di reindirizzamento diverso. Ad esempio:
+Il modo in cui la piattaforma di identità Microsoft comunica alle app che usano lo stesso ID applicazione a parte gli **URI di reindirizzamento**. Ogni applicazione può avere più URI di reindirizzamento registrati nel portale di caricamento. Ogni app della suite avrà un URI di reindirizzamento diverso. Ad esempio,
 
 URI di reindirizzamento dell'app 1: `msauth.com.contoso.mytestapp1://auth`  
 URI di reindirizzamento dell'app 2: `msauth.com.contoso.mytestapp2://auth`  
@@ -141,7 +141,7 @@ do {
 > Questa operazione è particolarmente utile se sono presenti applicazioni che si basano su token per eseguire operazioni in background.
 > La condivisione di un keychain significa che è necessario prestare molta attenzione quando l'app usa le operazioni di rimozione di Microsoft Identity SDK.
 
-L'operazione è terminata. Microsoft Identity SDK ora condividerà le credenziali tra tutte le applicazioni. L'elenco di account verrà inoltre condiviso tra le istanze dell'applicazione.
+La procedura è terminata. Microsoft Identity SDK ora condividerà le credenziali tra tutte le applicazioni. L'elenco di account verrà inoltre condiviso tra le istanze dell'applicazione.
 
 ## <a name="sso-through-authentication-broker-on-ios"></a>SSO tramite il broker di autenticazione in iOS
 
@@ -149,7 +149,7 @@ MSAL fornisce il supporto per l'autenticazione negoziata con Microsoft Authentic
 
 La procedura seguente illustra come abilitare SSO usando un broker di autenticazione per l'app:
 
-1. Registrare un formato URI di reindirizzamento compatibile con Service Broker per l'applicazione nel file INFO. plist dell'app. Il formato dell'URI di reindirizzamento compatibile con Service Broker è `msauth.<app.bundle.id>://auth`. Sostituire ' < app. bundle. ID >'' con l'ID bundle dell'applicazione. Ad esempio:
+1. Registrare un formato URI di reindirizzamento compatibile con Service Broker per l'applicazione nel file INFO. plist dell'app. Il formato dell'URI di reindirizzamento compatibile con Service Broker è `msauth.<app.bundle.id>://auth`. Sostituire ' < app. bundle. ID >'' con l'ID bundle dell'applicazione. Ad esempio,
 
     ```xml
     <key>CFBundleURLSchemes</key>

@@ -3,12 +3,12 @@ title: Supporto per la valutazione VMware in Azure Migrate
 description: Informazioni sul supporto per la valutazione di VMware in Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 2fab94b66e09d3923e481326b3650f1beb621dc4
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 1b3e81653ba934b209755391f08e60ef603e645a
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048756"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086768"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matrice di supporto per VMware Assessment 
 
@@ -88,18 +88,18 @@ La [visualizzazione](concepts-dependency-visualization.md) delle dipendenze cons
 
 ## <a name="agentless-dependency-visualization"></a>Visualizzazione delle dipendenze senza agenti
 
-Questa opzione è attualmente in fase di anteprima. [Altre informazioni](how-to-create-group-machine-dependencies-agentless.md). I requisiti sono riepilogati nella tabella seguente.
+Questa opzione è attualmente disponibile in anteprima. [Altre informazioni](how-to-create-group-machine-dependencies-agentless.md). I requisiti sono riepilogati nella tabella seguente.
 
 **Requisito** | **Dettagli**
 --- | ---
 **Distribuzione** | Prima di distribuire la visualizzazione delle dipendenze, è necessario disporre di un progetto Azure Migrate, con lo strumento Azure Migrate: server Assessment aggiunto al progetto. La visualizzazione delle dipendenze viene distribuita dopo aver configurato un'appliance Azure Migrate per individuare i computer locali.
 **Supporto per VM** | Attualmente supportato solo per le macchine virtuali VMware.
-**Macchine virtuali di Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bit)
+**Macchine virtuali di Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bit)
 **Macchine virtuali di Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14,04, 16,04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
 **Account Windows** |  Per la visualizzazione è necessario un account di amministratore locale o di dominio.
 **Account Linux** | Per la visualizzazione è necessario un account utente con privilegi radice.<br/><br/> In alternativa, l'account utente deve disporre di queste autorizzazioni per i file/bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.
 **Agenti VM** | Non è necessario alcun agente nelle VM.
-**Strumenti VMware** | Gli strumenti VMware devono essere installati e in esecuzione nelle macchine virtuali che si desidera analizzare.
+**Strumenti VMware** | Gli strumenti VMware devono essere installati e in esecuzione nelle macchine virtuali che si desidera analizzare. <br/> Se la versione degli strumenti VMware è compresa tra 9,10-10.2.0, assicurarsi di aggiornarla a oltre 10.2.0.
 **credenziali vCenter** | Un account server vCenter con accesso in sola lettura e i privilegi abilitati per le macchine virtuali > operazioni Guest.
 **Accesso alla porta** | Negli host ESXi che eseguono macchine virtuali che si vuole analizzare, il Azure Migrate appliance deve essere in grado di connettersi alla porta TCP 443.
 

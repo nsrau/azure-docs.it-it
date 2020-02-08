@@ -9,12 +9,12 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 42f7b5315cecd75e2aaf67145c57982872f43550
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c2bae3bd268dba8efdf23ae314671b17a2c89420
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844616"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086619"
 ---
 # <a name="persist-state-in-windows"></a>Mantieni stato in Windows
 
@@ -212,13 +212,13 @@ Anziché montare un volume, è possibile creare una directory nel sistema host e
     ```
 ## <a name="persist-events"></a>Mantieni eventi
 
-Per abilitare la persistenza degli eventi, è necessario abilitare prima la persistenza dei metadati tramite il montaggio del volume o il montaggio della directory host usando le sezioni precedenti.
+Per abilitare la persistenza degli eventi, è necessario abilitare prima la persistenza degli eventi tramite il montaggio del volume o il montaggio della directory host usando le sezioni precedenti.
 
 Aspetti importanti da notare sugli eventi di salvataggio permanente:
 
 * Gli eventi di salvataggio permanente sono abilitati per ogni sottoscrizione di evento ed è il consenso esplicito dopo che è stato montato un volume o una directory.
 * La persistenza degli eventi è configurata in una sottoscrizione di eventi in fase di creazione e non può essere modificata dopo la creazione della sottoscrizione di eventi. Per abilitare o disabilitare la persistenza degli eventi, è necessario eliminare e ricreare la sottoscrizione di eventi.
-* Il mantenimento degli eventi è quasi sempre più lento rispetto alle operazioni di memoria, ma la differenza di velocità dipende in modo estremamente dalle caratteristiche dell'unità. Il compromesso tra velocità e affidabilità è inerente a tutti i sistemi di messaggistica, ma diventa un evidente su larga scala.
+* Il mantenimento degli eventi è quasi sempre più lento rispetto alle operazioni di memoria, ma la differenza di velocità dipende in modo estremamente dalle caratteristiche dell'unità. Il compromesso tra velocità e affidabilità è inerente a tutti i sistemi di messaggistica, ma diventa notevolmente evidente su larga scala.
 
 Per abilitare la persistenza degli eventi in una sottoscrizione di eventi, impostare `persistencePolicy` su `true`:
 

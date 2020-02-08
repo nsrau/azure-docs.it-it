@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c99f4491af8fe3e5f0f0ed7a264995ae3ec5911f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d706e9b3351b0693a1f352e15b6b9b0cc5c7a65d
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60749445"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086166"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guida al protocollo AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 
@@ -53,7 +53,7 @@ Il protocollo AMQP 1.0 è progettato in modo da essere estensibile e da supporta
 
 Questa sezione illustra l'uso di base di AMQP 1.0 con il bus di servizio di Azure, che include la creazione di connessioni, sessioni e collegamenti e il trasferimento di messaggi a e da entità del bus di servizio quali code, argomenti e sottoscrizioni.
 
-La fonte più autorevole per informazioni sul funzionamento di AMQP è costituita dalla specifica relativa ad AMQP 1.0, ma questa specifica è stata scritta in modo da illustrare l'implementazione, non per fornire istruzioni relative al protocollo. Questa sezione è incentrata sull'introduzione della terminologia necessaria per descrivere l'uso di AMQP 1.0 da parte del bus di servizio. Per un'introduzione più completa ad AMQP e per una discussione più ampia su AMQP 1.0, vedere [questa esercitazione video][this video course].
+La fonte più autorevole per informazioni sul funzionamento di AMQP è costituita dalla specifica relativa ad AMQP 1.0, ma questa specifica è stata scritta in modo da illustrare l'implementazione, non per fornire istruzioni relative al protocollo. Questa sezione è incentrata sull'introduzione della terminologia necessaria per descrivere l'uso di AMQP 1.0 da parte del bus di servizio. Per un'introduzione più completa ad AMQP e per una discussione più ampia su AMQP 1.0, vedere [questo video][this video course].
 
 ### <a name="connections-and-sessions"></a>Connessioni e sessioni
 
@@ -81,6 +81,15 @@ Il modello basato su finestra è quasi equivalente al concetto TCP del controllo
 Il bus di servizio di Azure usa attualmente esattamente una sessione per ogni connessione. La dimensione massima di frame per il bus di servizio è di 262.144 byte (256 KB) per il bus di servizio Standard e gli Hub eventi. È pari a 1.048.576 (1 MB) per il bus di servizio Premium. Il bus di servizio non impone alcuna finestra di limitazione specifica a livello di sessione, ma reimposta regolarmente la finestra come parte del controllo di flusso a livello di collegamento. Vedere la [sezione successiva](#links).
 
 Le connessioni, le sessioni e i canali sono temporanei. In caso di interruzione della connessione sottostante, è necessario ristabilire le connessioni, il tunnel TLS, il contesto di autorizzazione SASL e le sessioni.
+
+### <a name="amqp-outbound-port-requirements"></a>Requisiti delle porte in uscita AMQP
+
+I client che usano connessioni AMQP su TCP richiedono che le porte 5671 e 5672 siano aperte nel firewall locale. Insieme a queste porte, potrebbe essere necessario aprire porte aggiuntive se la funzionalità [EnableLinkRedirect](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) è abilitata. `EnableLinkRedirect` è una nuova funzionalità di messaggistica che consente di ignorare un hop durante la ricezione dei messaggi, contribuendo così a migliorare la velocità effettiva. Il client inizierà a comunicare direttamente con il servizio back-end sull'intervallo di porte 104XX, come illustrato nella figura seguente. 
+
+![Elenco di porte di destinazione][4]
+
+Un client .NET avrà esito negativo con SocketException ("è stato effettuato un tentativo di accesso a un socket in modo non consentito dalle relative autorizzazioni di accesso") se queste porte sono bloccate dal firewall. La funzionalità può essere disabilitata impostando `EnableAmqpLinkRedirect=false` nella stringa connectiong, che impone ai client di comunicare con il servizio remoto sulla porta 5671.
+
 
 ### <a name="links"></a>Collegamenti
 
@@ -202,7 +211,7 @@ Le frecce della seguente tabella visualizzano la direzione del flusso performati
 | Nessuna azione |< transfer(<br/>delivery-id={handle numerico+2},<br/>delivery-tag={handle binario},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
 | --> disposition(<br/>role=receiver,<br/>first={ID consegna},<br/>last={ID consegna+2},<br/>settled=**true**,<br/>state=**accepted**<br/>) |Nessuna azione |
 
-### <a name="messages"></a>Messaggi
+### <a name="messages"></a>Messages
 
 Le sezioni seguenti spiegano quali proprietà delle sessioni di messaggi AMQP standard vengono usate dal bus di servizio e ne illustrano il mapping al set di API del bus di servizio.
 
@@ -210,7 +219,7 @@ Eventuali proprietà che l’applicazione deve definire dovranno essere mappate 
 
 #### <a name="header"></a>intestazione
 
-| Nome campo | Uso | Nome API |
+| Nome del campo | Utilizzo | Nome API |
 | --- | --- | --- |
 | durable |- |- |
 | priority |- |- |
@@ -218,13 +227,13 @@ Eventuali proprietà che l’applicazione deve definire dovranno essere mappate 
 | first-acquirer |- |- |
 | delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
-#### <a name="properties"></a>properties
+#### <a name="properties"></a>connessione
 
-| Nome campo | Uso | Nome API |
+| Nome del campo | Utilizzo | Nome API |
 | --- | --- | --- |
 | message-id |Identificatore freeform definito dall'applicazione per questo messaggio. Usato per il rilevamento dei duplicati. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Identificatore dell'utente definito dall'applicazione, non interpretato dal bus di servizio. |Non è accessibile tramite l'API del bus di servizio. |
-| to |Identificatore della destinazione definito dall'applicazione, non interpretato dal bus di servizio. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| a |Identificatore della destinazione definito dall'applicazione, non interpretato dal bus di servizio. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | subject |Identificatore dello scopo del messaggio definito dall'applicazione, non interpretato dal bus di servizio. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | reply-to |Indicatore del percorso di risposta definito dall'applicazione, non interpretato dal bus di servizio. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |Identificatore della correlazione definito dall'applicazione, non interpretato dal bus di servizio. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -240,7 +249,7 @@ Eventuali proprietà che l’applicazione deve definire dovranno essere mappate 
 
 Esistono alcune altre proprietà del messaggio del bus di servizio che non fanno parte delle proprietà del messaggio AMQP e vengono trasmesse come `MessageAnnotations` sul messaggio.
 
-| Mappatura della chiave di annotazione | Uso | Nome API |
+| Mappatura della chiave di annotazione | Utilizzo | Nome API |
 | --- | --- | --- |
 | x-opt-scheduled-enqueue-time | Dichiara in quale momento dovrà essere visualizzato il messaggio nell'entità |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
 | x-opt-partition-key | Chiave definite dall'applicazione che stabilisce in quale partizione dovrà essere recapitato il messaggio. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
@@ -289,7 +298,7 @@ Il controller conclude l'attività transazionale inviando un `discharge` messagg
 
 #### <a name="sending-a-message-in-a-transaction"></a>Invio di un messaggio in una transazione
 
-Tutte le attività transazionali vengono eseguite con lo stato di recapito transazionale `transactional-state` che trasmette l'id txn. In caso di invio dei messaggi, lo stato transazionale viene eseguito dal frame di trasferimento del messaggio. 
+Tutte le operazioni transazionali vengono eseguite con lo stato di recapito transazionale `transactional-state` che contiene transazione-ID. Nel caso di invio di messaggi, lo stato transazionale viene portato dal frame di trasferimento del messaggio. 
 
 | Client (controller) | | Bus di servizio (coordinatore) |
 | --- | --- | --- |
@@ -351,7 +360,7 @@ L'integrazione di AMQP con SASL presenta due svantaggi:
 * Tutte le credenziali e i token hanno come ambito la connessione. È possibile che in un'infrastruttura di messaggistica si desideri specificare un controllo di accesso differenziato in base alle singole entità. Ad esempio è possibile consentire al titolare di un token di inviare messaggi alla coda A ma non alla coda B. Se il contesto di autorizzazione è ancorato alla connessione, non è possibile usare una singola connessione e al tempo stesso usare token di accesso diversi per la coda A e la coda B.
 * I token di accesso sono in genere validi solo per un periodo limitato di tempo. L'utente dovrà quindi riacquisire periodicamente i token e l'autorità emittente dei token potrà rifiutare l'emissione di un nuovo token se le autorizzazioni di accesso dell'utente sono state modificate. Le connessioni AMQP possono durare per periodi di tempo lunghi. Il modello SASL consente solo di impostare un token in fase di connessione, ovvero l'infrastruttura di messaggistica deve disconnettere il client alla scadenza del token oppure deve accettare il rischio derivante dalla comunicazione continua con un client i cui diritti di accesso potrebbero essere stati revocati nel frattempo.
 
-La specifica CBS per AMQP, implementata dal bus di servizio, offre una soluzione ideale per entrambi i problemi: Consente al client di associare token di accesso a ogni nodo e di aggiornare questi token prima della scadenza, senza interrompere il flusso di messaggi.
+La specifica CBS per AMQP, implementata dal bus di servizio, offre una soluzione ideale entrambi i problemi: consente al client di associare token di accesso a ogni nodo e di aggiornare questi token prima della scadenza, senza interrompere il flusso di messaggi.
 
 CBS definisce un nodo di gestione virtuale, denominato *$cbs*, che deve essere specificato dall'infrastruttura di messaggistica. Il nodo di gestione accetta i token per conto di qualsiasi altro nodo nell'infrastruttura di messaggistica.
 
@@ -359,16 +368,16 @@ Il gesto del protocollo è uno scambio di tipo richiesta/risposta, in base a qua
 
 Ecco le proprietà dell'applicazione per il messaggio di richiesta:
 
-| Chiave | Facoltativo | Tipo di valore | Contenuti del valore |
+| Chiave | Facoltativa | Tipo valore | Contenuti del valore |
 | --- | --- | --- | --- |
-| operation |No |string |**put-token** |
+| operazione |No |string |**put-token** |
 | type |No |string |Tipo di token inserito. |
 | name |No |string |"Destinatari" a cui è applicabile il token. |
-| expiration |Yes |timestamp |Ora di scadenza del token. |
+| expiration |Sì |timestamp |Ora di scadenza del token. |
 
 La proprietà *name* identifica l'entità a cui deve essere associato il token. Nel bus di servizio corrisponde al percorso della coda o dell'argomento/sottoscrizione. La proprietà *type* identifica il tipo di token:
 
-| Tipo di token | Descrizione del token | Tipo di corpo | Note |
+| Tipo di token | Descrizione del token | Tipo corpo | Note |
 | --- | --- | --- | --- |
 | amqp:jwt |Token Web JSON (JWT) |Valore AMQP (stringa) |Non ancora disponibile. |
 | amqp:swt |Token Web semplice (SWT) |Valore AMQP (stringa) |Supportato solo per token Web semplici emessi da AAD/ACS |
@@ -378,10 +387,10 @@ I token conferiscono diritti. Il bus di servizio riconosce tre diritti fondament
 
 Il messaggio di risposta ha i valori *application-properties* seguenti:
 
-| Chiave | Facoltativo | Tipo di valore | Contenuti del valore |
+| Chiave | Facoltativa | Tipo valore | Contenuti del valore |
 | --- | --- | --- | --- |
 | status-code |No |int |Codice di risposta HTTP **[RFC2616]** . |
-| status-description |Yes |string |Descrizione dello stato. |
+| status-description |Sì |string |Descrizione dello stato. |
 
 Il client può chiamare *put-token* ripetutamente e per qualsiasi entità nell'infrastruttura di messaggistica. I token hanno come ambito il client corrente e sono ancorati alla connessione corrente, quindi il server elimina eventuali token conservati al termine della connessione.
 
@@ -399,7 +408,7 @@ Il client è successivamente responsabile della verifica della scadenza del toke
 
 Con questa funzionalità, si crea un mittente e si stabilisce il collegamento a `via-entity`. Durante il tentativo di stabilire il collegamento, vengono trasmesse informazioni aggiuntive per stabilire la destinazione reale dei messaggi/trasferimenti a questo collegamento. Dopo che il collegamento è stato eseguito correttamente, tutti i messaggi inviati su questo collegamento vengono inoltrati automaticamente all'*entità di destinazione* mediante *tramite entità*. 
 
-> Note: l'autenticazione server deve essere eseguita sia per *Entità tramite* e *Entità di destinazione* prima di stabilire il collegamento.
+> Nota: l'autenticazione server deve essere eseguita sia per *Entità tramite* e *Entità di destinazione* prima di stabilire il collegamento.
 
 | Client | | Bus di servizio |
 | --- | --- | --- |

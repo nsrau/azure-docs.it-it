@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: 9d47986df9b9cbc6b8519aa0466b3434d6216e72
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: f2f2e02cdb5698d7569e5be177d54ca4dcb0ae02
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986003"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086543"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -20,9 +20,9 @@ ms.locfileid: "76986003"
 
 Di seguito sono riportate le domande frequenti su applicazione Azure gateway.
 
-## <a name="general"></a>Informazioni di carattere generale
+## <a name="general"></a>Generale
 
-### <a name="what-is-application-gateway"></a>Che cos'è il gateway applicazione?
+### <a name="what-is-application-gateway"></a>Informazioni sul servizio Gateway applicazione
 
 Applicazione Azure gateway fornisce un servizio di controller per la distribuzione di applicazioni (ADC) come servizio. Offre diverse funzionalità di bilanciamento del carico di livello 7 per le applicazioni. Questo servizio è altamente disponibile, scalabile e completamente gestito da Azure.
 
@@ -108,7 +108,7 @@ Per la maggior parte delle distribuzioni che usano lo SKU V2 sono necessari circ
 
 No. Il gateway applicazione non supporta i protocolli di posta elettronica, ad esempio SMTP, IMAP e POP3. 
 
-## <a name="performance"></a>Performance
+## <a name="performance"></a>Prestazioni
 
 ### <a name="how-does-application-gateway-support-high-availability-and-scalability"></a>In che modo il gateway applicazione supporta la disponibilità elevata e la scalabilità?
 
@@ -134,7 +134,7 @@ Sì. È possibile impostare lo svuotamento della connessione per modificare i me
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>È possibile modificare le dimensioni di un'istanza da medie a grandi senza interruzioni?
 
-Sì. Azure distribuisce le istanze tra i domini di aggiornamento e di errore per assicurarsi che le istanze non abbiano esito negativo nello stesso momento. Il gateway applicazione supporta la scalabilità con l'aggiunta di più istanze dello stesso gateway per la condivisione del carico.
+Sì.
 
 ## <a name="configuration"></a>Configurazione
 
@@ -322,7 +322,7 @@ Per altre informazioni, vedere [OWASP Top-10 vulnerabilità](https://www.owasp.o
 
 ### <a name="does-waf-support-ddos-protection"></a>WAF supporta la protezione DDoS?
 
-Sì. Puoi abilitare la protezione DDoS sulla rete virtuale in cui è distribuito il gateway applicazione. Questa impostazione assicura che il servizio Protezione DDoS di Azure protegga anche l'IP virtuale del gateway applicazione.
+Sì. È possibile abilitare la protezione DDoS nella rete virtuale in cui è distribuito il gateway applicazione. Questa impostazione garantisce che il servizio protezione DDoS di Azure protegga anche l'indirizzo IP virtuale (VIP) del gateway applicazione.
 
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Sono disponibili linee guida per la migrazione dallo SKU V1 allo SKU V2?
 

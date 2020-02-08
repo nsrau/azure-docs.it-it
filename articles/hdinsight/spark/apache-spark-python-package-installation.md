@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 109ac20d8a3d3dc87b4a83165c0e6c24808c1340
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 6342e6a75c8397712e028874b4d727bf3d6f5ff4
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529644"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087115"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Gestire in modo sicuro l'ambiente Python in Azure HDInsight con azione script
 
@@ -51,7 +51,7 @@ Il cluster HDInsight Spark viene creato con l'installazione di Anaconda. Nel clu
 
 | |Python 2.7|Python 3.5|
 |----|----|----|
-|Path|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
+|Percorso|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
 |Spark|Impostazione predefinita su 2,7|N/D|
 |Livy|Impostazione predefinita su 2,7|N/D|
 |Jupyter|Kernel PySpark|Kernel PySpark3|
@@ -122,7 +122,7 @@ Il cluster HDInsight dipende dall'ambiente Python incorporato, sia Python 2,7 ch
 
 ## <a name="known-issue"></a>Problema noto
 
-Esiste un bug noto per la versione Anaconda 4.7.11 e 4.7.12. Se le azioni script si bloccano a `"Collecting package metadata (repodata.json): ...working..."` e si verificano errori con `"Python script has been killed due to timeout after waiting 3600 secs"`. È possibile scaricare [questo script](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) ed eseguirlo come azioni script su tutti i nodi per risolvere il problema.
+Esiste un bug noto per la versione Anaconda 4.7.11, 4.7.12 e 4.8.0. Se le azioni script si bloccano a `"Collecting package metadata (repodata.json): ...working..."` e si verificano errori con `"Python script has been killed due to timeout after waiting 3600 secs"`. È possibile scaricare [questo script](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) ed eseguirlo come azioni script su tutti i nodi per risolvere il problema.
 
 Per controllare la versione di Anaconda, è possibile usare SSH per il nodo dell'intestazione del cluster ed eseguire `/usr/bin/anaconda/bin/conda --v`.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: eadedcea7e6010cf93d118b3781630053609d29f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 12c4362ae1b075af132d5971f4fe0461c9d91733
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77019605"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083093"
 ---
 # <a name="configure-dns-for-name-resolution-for-avs-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configurare DNS per la risoluzione dei nomi per AVS private cloud vCenter Access da workstation locali
 
@@ -32,10 +32,10 @@ Per accedere al server vCenter in un cloud privato AVS da workstation locali, è
 
 Usare una di queste opzioni per la configurazione DNS.
 
-* [Creare una zona nel server DNS per *. AVS.io](#create-a-zone-on-a-microsoft-windows-dns-server)
-* [Per risolvere *, creare un server di trasmissione condizionale nel server DNS locale. AVS.io](#create-a-conditional-forwarder)
+* [Creare una zona nel server DNS per *. cloudsimple.io](#create-a-zone-on-a-microsoft-windows-dns-server)
+* [Creare un server d'istruzione locale nel server DNS locale per risolvere *. cloudsimple.io](#create-a-conditional-forwarder)
 
-## <a name="create-a-zone-on-the-dns-server-for-avsio"></a>Creare una zona nel server DNS per *. AVS.io
+## <a name="create-a-zone-on-the-dns-server-for-cloudsimpleio"></a>Creare una zona nel server DNS per *. cloudsimple.io
 
 È possibile configurare un'area come area di stub e puntare ai server DNS nel cloud privato per la risoluzione dei nomi. In questa sezione vengono fornite informazioni sull'utilizzo di un server DNS di binding o di un server DNS di Microsoft Windows.
 
@@ -78,7 +78,7 @@ zone "az.cloudsimple.io"
 
 ## <a name="create-a-conditional-forwarder"></a>Creazione di un server d'avanzamento condizionale
 
-Un server d'avanzamento condizionale Invia tutte le richieste di risoluzione dei nomi DNS al server designato. Con questa configurazione, qualsiasi richiesta a *. AVS.io viene inviato ai server DNS che si trovano nel cloud privato AVS. Gli esempi seguenti illustrano come configurare i server d'avanzamento su diversi tipi di server DNS.
+Un server d'avanzamento condizionale Invia tutte le richieste di risoluzione dei nomi DNS al server designato. Con questa configurazione, qualsiasi richiesta a *. cloudsimple.io viene trasmessa ai server DNS che si trovano nel cloud privato AVS. Gli esempi seguenti illustrano come configurare i server d'avanzamento su diversi tipi di server DNS.
 
 ### <a name="create-a-conditional-forwarder-on-a-bind-dns-server"></a>Creazione di un server d'avanzamento condizionale in un server DNS di binding
 
