@@ -463,6 +463,8 @@
                       href: saas-multitenantdb-schema-management.md
                     - name: ETL per l'analisi
                       href: saas-multitenantdb-tenant-analytics.md
+        - name: Richiedere aumenti di quota
+          href: quota-increase-request.md
 - name: Database SQL
   items:
     - name: Documentazione dei database SQL

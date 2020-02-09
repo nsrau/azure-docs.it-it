@@ -4,8 +4,6 @@
   items:
     - name: Informazioni su Monitoraggio di Azure
       href: overview.md
-    - name: Modifiche della terminologia
-      href: terminology.md
     - name: Domande frequenti
       href: faq.md
     - name: Novità
@@ -1141,6 +1139,8 @@
       items:
         - name: SCHEMA
           href: platform/diagnostics-extension-schema-1dot3.md
+    - name: Modifiche della terminologia
+      href: terminology.md
     - name: Application Insights
       items:
         - name: Raccolta automatica delle dipendenze
