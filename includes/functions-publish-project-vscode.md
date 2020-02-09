@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/12/2020
 ms.author: glenga
-ms.openlocfilehash: f1553a5c9d55366b2764877b48d0606ff8e0b370
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 256510f855256e648ae9203f46eb9f66c9ffaed6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842194"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029152"
 ---
 ## <a name="publish-the-project-to-azure"></a>Pubblicare il progetto in Azure
 
@@ -21,29 +21,24 @@ In questa sezione verrà creata un'app per le funzioni con le risorse correlate 
 
 1. Quando richiesto, immettere le informazioni seguenti:
 
-    ::: zone pivot="programming-language-csharp,programming-language-powershell"
+    + **Selezionare la sottoscrizione**: scegliere la sottoscrizione da usare. Questa opzione non è visibile se è disponibile una sola sottoscrizione.
 
-    | Prompt | valore | Descrizione |
-    | ------ | ----- | ----- |
-    | Seleziona sottoscrizione | Sottoscrizione in uso | Opzione visualizzata quando sono presenti più sottoscrizioni. |
-    | Selezionare l'app per le funzioni in Azure | + Crea nuova app per le funzioni | La pubblicazione in un'app per le funzioni esistente sovrascrive il contenuto di tale app in Azure. |
-    | Immettere un nome univoco a livello globale per l'app per le funzioni | Nome univoco | I caratteri validi per un nome di app per le funzioni sono `a-z`, `0-9` e `-`. |
-    | Selezionare una località per le nuove risorse | Region | Scegliere [un'area](https://azure.microsoft.com/regions/) nelle vicinanze. | 
-
+    + **Selezionare l'app per le funzioni in Azure**: scegliere `+ Create new Function App` (non `Advanced`). Questo articolo non supporta il [flusso di pubblicazione avanzata](../articles/azure-functions/functions-develop-vs-code.md#enable-publishing-with-advanced-create-options). 
+    
+    >[!IMPORTANT]
+    > La pubblicazione in un'app per le funzioni esistente sovrascrive il contenuto di tale app in Azure. 
+    
+    + **Immettere un nome univoco a livello globale per l'app per le funzioni**: digitare un nome valido in un percorso URL. Il nome digitato viene convalidato per assicurarsi che sia univoco in Funzioni di Azure. 
+    
+    ::: zone pivot="programming-language-python"
+    + **Selezionare un runtime**: scegliere la versione di Python in esecuzione in locale. Per verificare la versione in uso, eseguire il comando `python --version`.
     ::: zone-end
 
-    ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python"
-
-    | Prompt | valore | Descrizione |
-    | ------ | ----- | ----- |
-    | Seleziona sottoscrizione | Sottoscrizione in uso | Opzione visualizzata quando sono presenti più sottoscrizioni. |
-    | Selezionare l'app per le funzioni in Azure | + Crea nuova app per le funzioni | La pubblicazione in un'app per le funzioni esistente sovrascrive il contenuto di tale app in Azure. |
-    | Immettere un nome univoco a livello globale per l'app per le funzioni | Nome univoco | I caratteri validi per un nome di app per le funzioni sono `a-z`, `0-9` e `-`. |
-    | Selezionare un runtime | Versione in uso | Scegliere la versione del linguaggio in esecuzione in locale. |
-    | Selezionare una località per le nuove risorse | Region | Scegliere [un'area](https://azure.microsoft.com/regions/) nelle vicinanze. | 
-
+    ::: zone pivot="programming-language-javascript,programming-language-typescript"
+    + **Selezionare un runtime**: scegliere la versione di Node.js in esecuzione in locale. Per verificare la versione in uso, eseguire il comando `node --version`.
     ::: zone-end
 
+    + **Selezionare una località per le nuove risorse**:  per prestazioni ottimali, scegliere un'[area](https://azure.microsoft.com/regions/) vicina. 
     
 1.  Al termine, nella sottoscrizione vengono create le risorse di Azure seguenti:
 
@@ -51,14 +46,10 @@ In questa sezione verrà creata un'app per le funzioni con le risorse correlate 
     + **[Account di archiviazione](../articles//storage/common/storage-introduction.md#types-of-storage-accounts)** : viene creato un account di archiviazione standard con un nome univoco basato sul nome dell'app per le funzioni.
     + **[Piano di hosting](../articles/azure-functions/functions-scale.md)** : nell'area Stati Uniti occidentali viene creato un piano a consumo per l'hosting dell'app per le funzioni.
     + **App per le funzioni**: il progetto viene distribuito ed eseguito nella nuova app per le funzioni.
-    + **[Application Insights]()** : viene creata un'istanza connessa all'app per le funzioni in base al nome della funzione.
+    + **Application Insights**: viene creata un'istanza connessa all'app per le funzioni in base al nome della funzione.
 
     Dopo la creazione dell'app per le funzioni e dopo l'applicazione del pacchetto di distribuzione viene visualizzata una notifica. 
     
-1. Selezionare **Visualizza output** nelle notifiche per visualizzare i risultati della creazione e della distribuzione, incluse le risorse di Azure create.
+1. Selezionare **Visualizza output** nelle notifiche per visualizzare i risultati della creazione e della distribuzione, incluse le risorse di Azure create. Se non si riesce a visualizzare la notifica, selezionare l'icona della campana nell'angolo in basso a destra per visualizzarla di nuovo.
 
     ![Notifica di creazione completata](media/functions-publish-project-vscode/function-create-notifications.png)
-
-1. Nell'area **Azure: Funzioni** nella barra laterale espandere la nuova app per le funzioni nella sottoscrizione. Espandere **Funzioni**, fare clic con il pulsante destro del mouse su (Windows) o premere CTRL + clic (MacOS) in **HttpExample**, quindi scegliere **Copy function URL** (Copia URL funzione).
-
-    ![Copiare l'URL della funzione per il nuovo trigger HTTP](./media/functions-publish-project-vscode/function-copy-endpoint-url.png)

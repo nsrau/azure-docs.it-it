@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/20/2019
-ms.openlocfilehash: 5ada5db0d9f3ea72eab93796d20023d89b7dd1ed
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 01/29/2020
+ms.openlocfilehash: a505145eeba47eda9950c5a4c8221e4c9ae4b3a4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889260"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024076"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Esercitazione: Estrarre, trasformare e caricare dati con Azure Databricks
 
@@ -63,7 +63,7 @@ Completare queste attività prima di iniziare questa esercitazione:
 
       Se si preferisce usare un elenco di controllo di accesso (ACL) per associare l'entità servizio a una directory o a un file specifico, vedere [Controllo di accesso in Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 
-   * Quando si esegue la procedura descritta nella sezione [Ottenere i valori per l'accesso](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) dell'articolo, incollare i valori di ID tenant, ID app e password in un file di testo. Saranno necessari a breve.
+   * Quando si esegue la procedura descritta nella sezione [Ottenere i valori per l'accesso](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) dell'articolo, incollare i valori di ID tenant, ID app e segreto in un file di testo. Saranno necessari a breve.
 
 * Accedere al [portale di Azure](https://portal.azure.com/).
 
@@ -171,23 +171,23 @@ In questa sezione viene creato un notebook nell'area di lavoro di Azure Databric
    ```scala
    val storageAccountName = "<storage-account-name>"
    val appID = "<app-id>"
-   val password = "<password>"
+   val secret = "<secret>"
    val fileSystemName = "<file-system-name>"
    val tenantID = "<tenant-id>"
 
    spark.conf.set("fs.azure.account.auth.type." + storageAccountName + ".dfs.core.windows.net", "OAuth")
    spark.conf.set("fs.azure.account.oauth.provider.type." + storageAccountName + ".dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
    spark.conf.set("fs.azure.account.oauth2.client.id." + storageAccountName + ".dfs.core.windows.net", "" + appID + "")
-   spark.conf.set("fs.azure.account.oauth2.client.secret." + storageAccountName + ".dfs.core.windows.net", "" + password + "")
+   spark.conf.set("fs.azure.account.oauth2.client.secret." + storageAccountName + ".dfs.core.windows.net", "" + secret + "")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint." + storageAccountName + ".dfs.core.windows.net", "https://login.microsoftonline.com/" + tenantID + "/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
    dbutils.fs.ls("abfss://" + fileSystemName  + "@" + storageAccountName + ".dfs.core.windows.net/")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
    ```
 
-6. In questo blocco di codice sostituire i valori segnaposto `<app-id>`, `<password>`, `<tenant-id>` e `<storage-account-name>` con i valori raccolti completando i prerequisiti di questa esercitazione. Sostituire il valore segnaposto `<file-system-name>` con il nome che si vuole assegnare al file system.
+6. In questo blocco di codice sostituire i valori segnaposto `<app-id>`, `<secret>`, `<tenant-id>` e `<storage-account-name>` con i valori raccolti completando i prerequisiti di questa esercitazione. Sostituire il valore segnaposto `<file-system-name>` con il nome che si vuole assegnare al file system.
 
-   * `<app-id>` e `<password>` provengono dall'app che è stata registrata con Active Directory durante la creazione di un'entità servizio.
+   * `<app-id>` e `<secret>` provengono dall'app che è stata registrata con Active Directory durante la creazione di un'entità servizio.
 
    * `<tenant-id>` proviene dalla sottoscrizione.
 
@@ -216,7 +216,7 @@ Nella cella, premere **MAIUSC+INVIO** per eseguire il codice.
 1. È ora possibile caricare il file JSON di esempio come dataframe in Azure Databricks. Incollare il codice seguente in una nuova cella. Sostituire i segnaposto tra parentesi quadre con i valori.
 
    ```scala
-   val df = spark.read.json("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json")
+   val df = spark.read.json("abfss://" + fileSystemName + "@" + storageAccountName + ".dfs.core.windows.net/small_radio_json.json")
    ```
 2. Premere **MAIUSC + INVIO** per eseguire il codice in questo blocco.
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83e5790a036a93c947a79bc2848e7be6febf30b6
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 1aa2d58a40c623cc451ca30aaa9d75a4a6b3d4c0
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122032"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983878"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Azure AD SAML Toolkit
 
@@ -76,17 +76,17 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella pagina di integrazione dell'applicazione **Azure AD SAML Toolkit** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni. È possibile recuperare le impostazioni nella pagina di configurazione SAML del toolkit SAML. 
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
 1. Nella pagina **Configurazione SAML di base** immettere i valori per i campi seguenti:
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL `https://samltoolkit.azurewebsites.net/`
+    a. Nella casella di testo **URL di accesso** digitare l'URL `https://samltoolkit.azurewebsites.net/SAML/Login/<3digitnumber>`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL: `https://samltoolkit.azurewebsites.net`
 
-    c. Nella casella di testo **URL di risposta** digitare un URL: `https://samltoolkit.azurewebsites.net/SAML/Consume`
+    c. Nella casella di testo **URL di risposta** digitare un URL: `https://samltoolkit.azurewebsites.net/SAML/Consume/<3digitnumber>`
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (base)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -136,7 +136,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![Configurazione SAML in Azure AD SAML Toolkit](./media/saml-toolkit-tutorial/saml-configure.png)
 
-1. Fare clic su **Create**(Crea).
+1. Fare clic su **Crea**.
 
     ![Creazione dell'accesso SSO in Azure AD SAML Toolkit](./media/saml-toolkit-tutorial/createsso.png)
 
@@ -152,7 +152,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     1. Fare clic su **Choose File** (Scegli file) e caricare il file del **certificato (base)** scaricato dal portale di Azure.
 
-    1. Fare clic su **Create**(Crea).
+    1. Fare clic su **Crea**.
 
 ### <a name="create-azure-ad-saml-toolkit-test-user"></a>Creare l'utente di test di Azure AD SAML Toolkit
 

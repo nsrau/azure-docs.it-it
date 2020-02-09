@@ -11,79 +11,66 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/05/2019
+ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 5e405dc4ea323a6869207de53b7577ee960924eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 187600edb599f5a5775e1b847ed1cb3a49f3b827
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089224"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985578"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Esercitazione: Integrazione di Azure Active Directory con Tableau Online
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-online"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Tableau Online
 
-Questa esercitazione descrive come integrare Tableau Online con Azure Active Directory (Azure AD).
-L'integrazione di Tableau Online con Azure AD offre i vantaggi seguenti:
+Questa esercitazione descrive come integrare Tableau Online con Azure Active Directory (Azure AD). Integrando Tableau Online with Azure AD, è possibile:
 
-* È possibile controllare in Azure AD chi può accedere a Tableau Online.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Tableau Online con gli account Azure AD personali.
-* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
+* Controllare in Azure AD chi può accedere a Tableau Online.
+* Abilitare gli utenti per l'accesso automatico a Tableau Online con gli account Azure AD personali.
+* Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare l'integrazione di Azure AD con Tableau Online, sono necessari gli elementi seguenti:
+Per iniziare, sono necessari gli elementi seguenti:
 
-* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente di Azure AD, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
-* Sottoscrizione di Tableau Online abilitata per l'accesso Single Sign-On
+* Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
+* Sottoscrizione di Tableau Online abilitata per l'accesso Single Sign-On (SSO).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 * Tableau Online supporta l'accesso SSO avviato da **SP**
+* Dopo aver configurato Tableau Online, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-tableau-online-from-the-gallery"></a>Aggiunta di Tableau Online dalla raccolta
 
-Per configurare l'integrazione di Tableau Online in Azure AD, è necessario aggiungere Tableau Online dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Tableau Online in Azure AD, è necessario aggiungere Tableau Online dalla raccolta all'elenco di app SaaS gestite.
 
-**Per aggiungere Tableau Online dalla raccolta, seguire questa procedura:**
-
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
-
-    ![Pulsante Azure Active Directory](common/select-azuread.png)
-
-2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
-
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
-
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
-
-    ![Pulsante Nuova applicazione](common/add-new-app.png)
-
-4. Nella casella di ricerca digitare **Tableau Online** selezionare **Tableau Online** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
-
-     ![Tableau Online nell'elenco risultati](common/search-new-app.png)
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
+1. Nella sezione **Aggiungi dalla raccolta** digitare **Tableau Online** nella casella di ricerca.
+1. Selezionare **Tableau Online** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Tableau Online usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Tableau Online.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Tableau Online, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso SSO di Azure AD con Tableau Online, completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Tableau Online](#configure-tableau-online-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Tableau Online](#create-tableau-online-test-user)** : per avere una controparte di Britta Simon in Tableau Online collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Tableau Online](#configure-tableau-online-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+    1. **[Creare l'utente di test di Tableau Online](#create-tableau-online-test-user)** : per avere una controparte di B.Simon in Tableau Online collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
+### <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
@@ -126,53 +113,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Tableau Online, seguire
 
     c. URL di chiusura sessione
 
-### <a name="configure-tableau-online-single-sign-on"></a>Configurare l'accesso Single Sign-On di Tableau Online
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-1. In una finestra del browser diversa accedere all'applicazione Tableau Online. Fare clic su **Settings** (Impostazioni) e quindi su **Authentication** (Autenticazione).
-
-    ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_09.png)
-
-2. Per abilitare SAML, nella sezione **Authentication types** (Tipi di autenticazione): Selezionare **Enable an additional authentication method** (Abilita un metodo di autenticazione aggiuntivo) e quindi selezionare la casella di controllo **SAML**.
-
-    ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_12.png)
-
-3. Scorrere fino alla sezione **Import metadata file into Tableau Online** (Importa file di metadati in Tableau Online).  Fare clic su Browse (Sfoglia) e importare il file di metadati scaricato da Azure AD. Fare quindi clic su **Apply**(Applica).
-
-   ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_13.png)
-
-4. Nella sezione **Match assertions** (Corrispondenza asserzioni) inserire il nome di asserzione del provider di identità corrispondente per l'**indirizzo e-mail**, il **nome** e il **cognome**. Per ottenere queste informazioni da Azure AD: 
-  
-    a. Nel portale di Azure, aprire la pagina di integrazione dell'applicazione **Tableau Online**.
-
-    b. Nella sezione **User Attributes & Claims** (Attributi e attestazioni utente) fare clic sull'icona di modifica.
-
-   ![Configure Single Sign-On](./media/tableauonline-tutorial/attributesection.png)
-
-    c. Copiare il valore dello spazio dei nomi per i seguenti attributi: givenname, e-mail e cognome utilizzando la procedura seguente:
-
-   ![Single Sign-On di Microsoft Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_10.png)
-
-    d. Fare clic sul valore **user.givenname**
-
-    e. Copiare il valore dalla casella di testo **Spazio dei nomi**.
-
-    ![Configure Single Sign-On](./media/tableauonline-tutorial/attributesection2.png)
-
-    f. Per copiare i valori dello spazio dei nomi per l'indirizzo di posta elettronica e il cognome, ripetere i passaggi precedenti.
-
-    g. Passare all'applicazione Tableau Online e quindi impostare la sezione **User Attributes & Claims** (Attributi e attestazioni utente) nel modo seguente:
-
-    * Indirizzo di posta elettronica: **mail** o **userprincipalname**
-
-    * Nome: **givenname**
-
-    * Cognome: **surname**
-
-    ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_14.png)
-
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
-
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -193,11 +136,11 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Tableau Online.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Tableau Online.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Tableau Online**.
 
@@ -221,25 +164,69 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
+## <a name="configure-tableau-online-sso"></a>Configurare l'accesso Single Sign-On di Tableau Online
+
+1. In una finestra del browser diversa accedere all'applicazione Tableau Online. Fare clic su **Settings** (Impostazioni) e quindi su **Authentication** (Autenticazione).
+
+    ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_09.png)
+
+2. Per abilitare SAML, nella sezione **Authentication types** (Tipi di autenticazione): Selezionare **Enable an additional authentication method** (Abilita un metodo di autenticazione aggiuntivo) e quindi selezionare la casella di controllo **SAML**.
+
+    ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_12.png)
+
+3. Scorrere fino alla sezione **Import metadata file into Tableau Online** (Importa file di metadati in Tableau Online).  Fare clic su Browse (Sfoglia) e importare il file di metadati scaricato da Azure AD. Fare quindi clic su **Apply**(Applica).
+
+   ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_13.png)
+
+4. Nella sezione **Match assertions** (Corrispondenza asserzioni) inserire il nome di asserzione del provider di identità corrispondente per l'**indirizzo e-mail**, il **nome** e il **cognome**. Per ottenere queste informazioni da Azure AD: 
+  
+    a. Nel portale di Azure, aprire la pagina di integrazione dell'applicazione **Tableau Online**.
+
+    b. Nella sezione **User Attributes & Claims** (Attributi e attestazioni utente) fare clic sull'icona di modifica.
+
+   ![Configure Single Sign-On](./media/tableauonline-tutorial/attributesection.png)
+
+    c. Copiare il valore dello spazio dei nomi per gli attributi givenname, email e surname seguendo questa procedura:
+
+   ![Single Sign-On di Microsoft Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_10.png)
+
+    d. Fare clic sul valore **user.givenname**
+
+    e. Copiare il valore dalla casella di testo **Spazio dei nomi**.
+
+    ![Configure Single Sign-On](./media/tableauonline-tutorial/attributesection2.png)
+
+    f. Per copiare i valori dello spazio dei nomi per l'indirizzo di posta elettronica e il cognome, ripetere i passaggi precedenti.
+
+    g. Passare all'applicazione Tableau Online e quindi impostare la sezione **User Attributes & Claims** (Attributi e attestazioni utente) nel modo seguente:
+
+    * Indirizzo di posta elettronica: **mail** o **userprincipalname**
+
+    * Nome: **givenname**
+
+    * Cognome: **surname**
+
+    ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_14.png)
+
 ### <a name="create-tableau-online-test-user"></a>Creare l'utente di test di Tableau Online
 
 In questa sezione viene creato un utente chiamato Britta Simon in Tableau Online.
 
 1. In **Tableau Online** fare clic su **Settings** (Impostazioni) e quindi sulla sezione **Authentication** (Autenticazione). Scorrere fino alla sezione **Manage Users** (Gestisci utenti). Fare clic su **Add Users** (Aggiungi utenti) e quindi su **Enter Email Addresses** (Immetti indirizzi di posta elettronica).
   
-    ![Creazione di un utente test di Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
+    ![Creazione di un utente di test di Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
 
 2. Selezionare **Add users for (SAML) authentication** (Aggiungi utenti per autenticazione - SAML). Nella casella di testo **Enter email addresses** (Immetti indirizzi di posta elettronica) aggiungere britta.simon\@contoso.com
   
-    ![Creazione di un utente test di Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
+    ![Creazione di un utente di test di Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
 
 3. Fare clic su **Aggiungi utenti**.
 
-### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
+### <a name="test-sso"></a>Testare l'accesso SSO
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro Tableau Online nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Tableau Online per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro Tableau Online nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Tableau Online per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -248,3 +235,5 @@ Quando si fa clic sul riquadro Tableau Online nel pannello di accesso, si dovreb
 - [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

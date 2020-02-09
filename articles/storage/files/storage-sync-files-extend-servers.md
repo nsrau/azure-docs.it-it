@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f71a27ea4da6bce5832287e948e0731672280196
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: e3154b9635da889ed7f0484fc04c565c27e9241b
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699496"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031510"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Esercitazione: Estendere i file server Windows con Sincronizzazione file di Azure
 
@@ -136,7 +136,7 @@ A questo punto, è stata creata una nuova macchina virtuale e collegato un disco
 
 Per il Windows Server 2016 Datacenter disabilitare Configurazione sicurezza avanzata IE. Questo passaggio è necessario solo per la registrazione iniziale del server e l'opzione può essere riabilitata dopo che il server è stato registrato.
 
-Nella macchina virtuale Windows Server 2016 Datacenter, Server Manager si apre automaticamente.  Se Server Manager non si apre per impostazione predefinita, cercarlo in Explorer.
+Nella macchina virtuale Windows Server 2016 Datacenter, Server Manager si apre automaticamente.  Se Server Manager non si apre per impostazione predefinita, cercarlo nel menu Start.
 
 1. In **Server Manager** selezionare **Server locale**.
 
@@ -217,7 +217,7 @@ Per distribuire Sincronizzazione file di Azure, inserire prima di tutto una riso
 
    Nel pannello che viene visualizzato immettere le informazioni seguenti:
 
-   | Valore | DESCRIZIONE |
+   | valore | Descrizione |
    | ----- | ----- |
    | **Nome** | Un nome univoco (per ogni sottoscrizione) per il servizio di sincronizzazione archiviazione.<br><br>Usare _afssyncservice02_ per questa esercitazione. |
    | **Sottoscrizione** | Sottoscrizione di Azure usata per questa esercitazione. |
@@ -263,7 +263,7 @@ L'interfaccia utente di Registrazione Server viene visualizzata automaticamente 
 
    | | |
    | ----- | ----- |
-   | Valore | DESCRIZIONE |
+   | valore | Descrizione |
    | **Sottoscrizione di Azure** | La sottoscrizione contenente il servizio di sincronizzazione archiviazione per questa esercitazione. |
    | **Gruppo di risorse** | il gruppo di risorse che contiene il servizio di sincronizzazione archiviazione. Usare _afsresgroup101918_ per questa esercitazione. |
    | **Servizio di sincronizzazione archiviazione** | Nome del Servizio di sincronizzazione archiviazione. Usare _afssyncservice02_ per questa esercitazione. |
@@ -282,7 +282,7 @@ Un gruppo di sincronizzazione definisce la topologia di sincronizzazione per un 
 
 1. Immettere le informazioni seguenti per creare un gruppo di sincronizzazione con un endpoint cloud:
 
-   | Valore | DESCRIZIONE |
+   | valore | Descrizione |
    | ----- | ----- |
    | **Nome gruppo di sincronizzazione** | Questo nome deve essere univoco all'interno del servizio di sincronizzazione archiviazione, ma può essere qualsiasi nome logico per l'utente. Usare *afssyncgroup* per questa esercitazione.|
    | **Sottoscrizione** | La sottoscrizione in cui è stato distribuito il servizio di sincronizzazione archiviazione per questa esercitazione. |
@@ -305,7 +305,7 @@ Un endpoint server rappresenta una posizione specifica in un server registrato. 
 
    | | |
    | ----- | ----- |
-   | Valore | DESCRIZIONE |
+   | valore | Descrizione |
    | **Server registrato** | Il nome del server creato. Usare *afsvm101918* per questa esercitazione. |
    | **Percorso** | Il nome del percorso di Windows Server all'unità creato. Usare *f:\filestosync* in questa esercitazione. |
    | **Suddivisione in livelli nel cloud** | Lasciare disattivato per questa esercitazione. |

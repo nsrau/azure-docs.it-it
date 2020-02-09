@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 12c2f1bd2a3185d26eae02b5cd756392b5b87c16
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: e7717cdeec33a32f926cb5ef4c1f6d28c25f9d93
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533220"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989086"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Creare un runtime di integrazione self-hosted
 
@@ -83,7 +83,8 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
 
 5. Copiare una delle chiavi (escluse le virgolette) usate per la registrazione del runtime di integrazione self-hosted che si installerà nel computer nei passaggi successivi.  
 
-## <a name="install-the-integration-runtime"></a>Installare il runtime di integrazione
+## <a name="install-the-integration-runtime-tool"></a>Installare lo strumento del runtime di integrazione
+
 1. Se il runtime di integrazione è già installato nel computer, disinstallarlo tramite **Installazione applicazioni**. 
 
 2. [Scaricare](https://www.microsoft.com/download/details.aspx?id=39717) il runtime di integrazione self-hosted in un computer Windows locale. Eseguire l'installazione.
@@ -135,5 +136,4 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
     h. Selezionare **Test** per verificare che il runtime di integrazione possa connettersi a SQL Server. Se la connessione ha esito positivo, viene visualizzato un segno di spunta verde. Se la connessione non ha esito positivo, viene visualizzato un messaggio di errore. Risolvere eventuali problemi e assicurarsi che il runtime di integrazione possa connettesi a SQL Server.    
 
     > [!NOTE]
-    > Prendere nota di questi valori per tipo di autenticazione, server, database, utente e password, perché saranno usati più avanti in questa esercitazione. 
-    
+    > Prendere nota di questi valori per tipo di autenticazione, server, database, utente e password, perché saranno usati più avanti in questa esercitazione.

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: e5be2490ebf756c030e6a53b226f91c49c7bccaf
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 25dd4810cf8cccab8bcbf211da4f6abbcd147056
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605578"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020030"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Esercitazione: Creare un pool di host con Azure Marketplace
 
@@ -55,7 +55,7 @@ Nel pannello **Generale** procedere come segue:
 3. Immettere un elenco di voci delimitate da virgole corrispondenti agli utenti che possono accedere ai client di Desktop virtuale Windows e a un desktop quando l'offerta di Azure Marketplace termina. Se ad esempio si vuole assegnare l'accesso a user1@contoso.com e a user2@contoso.com, immettere "user1@contoso.com,user2@contoso.com".
 4. Selezionare **Crea nuovo** e specificare il nome del nuovo gruppo di risorse.
 5. Per **Località** selezionare la stessa località della macchina virtuale che ha connettività con il server Active Directory.
-6. Selezionare **OK**.
+6. Selezionare **Avanti: Configurare le macchine virtuali >** .
 
 >[!IMPORTANT]
 >Se si usa una soluzione Azure Active Directory Domain Services e Azure Active Directory pura, assicurarsi di distribuire il pool host nella stessa area di Azure Active Directory Domain Services per evitare errori di aggiunta al dominio e credenziali.
@@ -66,7 +66,7 @@ Per il pannello **Configura le VM**:
 
 1. Accettare i valori predefiniti oppure personalizzare il numero e le dimensioni delle VM.
 2. Immettere un prefisso per i nomi delle macchine virtuali. Ad esempio, se si immette il nome "prefisso", le macchine virtuali saranno denominate "prefisso-0", "prefisso-1" e così via.
-3. Selezionare **OK**.
+3. Selezionare **Avanti: Impostazioni della macchina virtuale**.
 
 ### <a name="virtual-machine-settings"></a>Impostazioni della macchina virtuale
 
@@ -80,7 +80,7 @@ Per il pannello **Virtual machine settings** (Impostazioni macchina virtuale):
 1. Per **Origine immagine** selezionare l'origine e immettere le informazioni appropriate per trovarla e archiviarla. Se si è scelto di non usare dischi gestiti, selezionare l'account di archiviazione contenente il file con estensione vhd.
 2. Immettere il nome dell'entità utente e la password per l'account di dominio che aggiungerà le VM al dominio di Active Directory. Gli stessi valori di nome utente e password verranno creati come account locali nelle macchine virtuali. È possibile reimpostare questi account locali in seguito.
 3. Selezionare la rete virtuale che ha connettività con il server Active Directory e quindi scegliere una subnet in cui ospitare le macchine virtuali.
-4. Selezionare **OK**.
+4. Selezionare **Avanti: Informazioni sul tenant di Desktop virtuale Windows**.
 
 ### <a name="windows-virtual-desktop-tenant-information"></a>Informazioni sul tenant di Desktop virtuale Windows
 
@@ -90,15 +90,14 @@ Per il pannello **Windows Virtual Desktop tenant information** (Informazioni ten
 2. Per **Windows Virtual Desktop tenant name** (Nome tenant Desktop virtuale Windows) immettere il nome del tenant in cui verrà creato il pool di host.
 3. Specificare il tipo di credenziali da usare per l'autenticazione come proprietario di Servizi Desktop remoto del tenant di Desktop virtuale Windows. Se è stata completata l'esercitazione [Creare entità servizio e assegnazioni di ruolo con PowerShell](./create-service-principal-role-powershell.md), selezionare **Entità servizio**. Quando viene visualizzato il campo **ID tenant di Azure AD**, immettere l'ID dell'istanza di Azure Active Directory che contiene l'entità servizio.
 4. Immettere le credenziali per l'account amministratore del tenant. Sono supportate solo entità servizio con una credenziale password.
-5. Selezionare **OK**.
+5. Selezionare **Avanti: Rivedi e crea**.
 
 ## <a name="complete-setup-and-create-the-virtual-machine"></a>Completare la configurazione e creare la macchina virtuale
 
 Per gli ultimi due pannelli:
 
-1. Nel pannello **Riepilogo** rivedere le informazioni di configurazione. Se è necessario cambiare qualcosa, tornare nel pannello appropriato e apportare le modifiche prima di continuare. Se le informazioni sono corrette, selezionare **OK**.
-2. Nel pannello **Acquista** rivedere le informazioni aggiuntive sull'acquisto in Azure Marketplace.
-3. Selezionare **Crea** per distribuire il pool di host.
+1. Nel pannello **Rivedi e crea** esaminare le informazioni di configurazione. Se è necessario cambiare qualcosa, tornare nel pannello appropriato e apportare le modifiche prima di continuare. Se le informazioni sono corrette, selezionare **OK**.
+2. Selezionare **Crea** per distribuire il pool di host.
 
 A seconda del numero di VM create, questo processo può richiedere almeno 30 minuti.
 

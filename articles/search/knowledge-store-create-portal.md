@@ -7,13 +7,13 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 12/30/2019
-ms.openlocfilehash: cffd94459e3a18567f2ff2f6b8fca35598cb5eed
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.date: 01/29/2020
+ms.openlocfilehash: b75b760704511627c74301ae3fff82c24a262e17
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563462"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904896"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Avvio rapido: Creare un archivio conoscenze di Ricerca cognitiva di Azure nel portale di Azure
 
@@ -81,7 +81,7 @@ Nella pagina Panoramica del servizio di ricerca fare clic su **Importa dati** su
 In questo passaggio della procedura guidata si creerà un set di competenze con arricchimenti delle competenze cognitive. I dati di origine sono costituiti dalle recensioni dei clienti in diverse lingue. Le competenze pertinenti per questo set di dati includono l'estrazione di frasi chiave, il rilevamento del sentiment e la traduzione del testo. In un passaggio successivo questi arricchimenti verranno "proiettati" in un archivio conoscenze come tabelle di Azure.
 
 1. Espandere **Collega Servizi cognitivi**. **Gratuito (miglioramenti limitati)** è l'impostazione predefinita. È possibile usare questa risorsa perché il numero di record in HotelReviews-Free.csv è 19 e questa risorsa gratuita consente fino a 20 transazioni al giorno.
-1. Espandere **Aggiungi competenze cognitive**.
+1. Espandere **Aggiungi arricchimenti**.
 1. In **Nome set di competenze** immettere `hotel-reviews-ss`.
 1. In **Campo dei dati di origine** selezionare **reviews_text**.
 1. In **Livello di granularità dell'arricchimento** selezionare **Pagine (5000 blocchi di caratteri)** .
@@ -93,11 +93,11 @@ In questo passaggio della procedura guidata si creerà un set di competenze con 
       ![Creare un set di competenze](media/knowledge-store-create-portal/hotel-reviews-ss.png "Creare un set di competenze")
 
 1. Espandere **Salva arricchimenti in un archivio conoscenze (anteprima)** .
-1. Immettere la **stringa di connessione dell'account di archiviazione** salvata in un passaggio precedente.
 1. Selezionare le **proiezioni di tabelle di Azure** seguenti:
     + **Documents** (Documenti)
     + **Pagine**
     + **Frasi chiave**
+1. Immettere la **stringa di connessione dell'account di archiviazione** salvata in un passaggio precedente.
 
     ![Configurazione dell'archivio conoscenze](media/knowledge-store-create-portal/hotel-reviews-ks.png "Configurazione dell'archivio conoscenze")
 

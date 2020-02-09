@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 8ad542a3614253e11331e9b49513a887aff65890
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 130cb973f2de1de0d4c4636a4752a06e22edf65b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512924"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932552"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Esercitazione: Distribuire un cluster del servizio Azure Kubernetes
 
@@ -70,7 +70,7 @@ Per configurare `kubectl` per la connessione al cluster Kubernetes, usare il com
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Per verificare la connessione al cluster, eseguire il comando [kubectl get nodes][kubectl-get]:
+Per verificare la connessione al cluster, usare il comando [kubectl get nodes][kubectl-get] per restituire un elenco di nodi del cluster:
 
 ```
 $ kubectl get nodes
