@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/06/2020
+ms.date: 02/10/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2f7bf9fea1b1e15d1ca24686a84e272dd60ceaf5
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 9d8d13ec955867eb574b5f0d782727d6ff8d063a
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77061591"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111554"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso per Azure Active Directory multi-tenant usando criteri personalizzati in Azure Active Directory B2C
 
@@ -50,6 +50,19 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
 1. Selezionare **certificati & segreti**, quindi selezionare **nuovo segreto client**.
 1. Immettere una **Descrizione** per il segreto, selezionare una scadenza e quindi selezionare **Aggiungi**. Registrare il **valore** del segreto da usare in un passaggio successivo.
 
+## <a name="configuring-optional-claims"></a>Configurazione di attestazioni facoltative
+
+Se si desidera ottenere le attestazioni `family_name` e `given_name` da Azure AD, è possibile configurare attestazioni facoltative per l'applicazione nell'interfaccia utente del portale di Azure o nel manifesto dell'applicazione. Per altre informazioni, vedere [How to provide optional Claims to your Azure ad app](../active-directory/develop/active-directory-optional-claims.md).
+
+1. Accedere al [portale di Azure](https://portal.azure.com). Cercare e selezionare **Azure Active Directory**.
+1. Nella sezione **Gestisci** selezionare **registrazioni app**.
+1. Selezionare nell'elenco l'applicazione per la quale si desidera configurare attestazioni facoltative.
+1. Nella sezione **Gestisci** selezionare **configurazione token (anteprima)** .
+1. Selezionare **Aggiungi attestazione facoltativa**.
+1. Selezionare il tipo di token che si desidera configurare.
+1. Selezionare le attestazioni facoltative da aggiungere.
+1. Fare clic su **Aggiungi**.
+
 ## <a name="create-a-policy-key"></a>Creare una chiave dei criteri
 
 È necessario archiviare la chiave dell'applicazione creata nel tenant di Azure AD B2C.
@@ -63,19 +76,6 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
 1. In **Secret**immettere il segreto client registrato in precedenza.
 1. In **Uso chiave** selezionare `Signature`.
 1. Selezionare **Create** (Crea).
-
-## <a name="configuring-optional-claims"></a>Configurazione di attestazioni facoltative
-
-Se si desidera ottenere le attestazioni `family_name` e `given_name` da Azure AD, è possibile configurare attestazioni facoltative per l'applicazione nell'interfaccia utente del portale di Azure o nel manifesto dell'applicazione. Per altre informazioni, vedere [How to provide optional Claims to your Azure ad app](../active-directory/develop/active-directory-optional-claims.md).
-
-1. Accedere al [portale di Azure](https://portal.azure.com). Cercare e selezionare **Azure Active Directory**.
-1. Nella sezione **Gestisci** selezionare **registrazioni app**.
-1. Selezionare nell'elenco l'applicazione per la quale si desidera configurare attestazioni facoltative.
-1. Nella sezione **Gestisci** selezionare **configurazione token (anteprima)** .
-1. Selezionare **Aggiungi attestazione facoltativa**.
-1. Selezionare il tipo di token che si desidera configurare.
-1. Selezionare le attestazioni facoltative da aggiungere.
-1. Fare clic su **Aggiungi**.
 
 ## <a name="add-a-claims-provider"></a>Aggiungere un provider di attestazioni
 

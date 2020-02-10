@@ -3,12 +3,12 @@ title: Matrice di supporto di Mab & System Center DPM
 description: Questo articolo riepiloga il supporto di backup di Azure quando si usa Backup di Microsoft Azure Server (MAB) o System Center DPM per eseguire il backup delle risorse locali e delle macchine virtuali di Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: f9ee31525f2ee5a19aebe0a9258dff3ecfdcbb92
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 211a7e39dc9cda9e4bd96e3a66924b2195524be7
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841168"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111457"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matrice di supporto per il backup con Backup di Microsoft Azure server o System Center DPM
 
@@ -24,7 +24,7 @@ MAB si basa su System Center DPM e fornisce funzionalità simili con alcune diff
 
 - Per eseguire il server di Backup di Microsoft Azure non è necessaria alcuna licenza System Center.
 - Per gli oggetti MAB e DPM, Azure offre un'archiviazione di backup a lungo termine. DPM inoltre consente di eseguire il backup dei dati per l'archiviazione a lungo termine su nastro. Questa funzionalità non è disponibile con il server di Backup di Microsoft Azure.
-- È possibile eseguire il backup di un server DPM primario con un server DPM secondario. Il server secondario proteggerà il database del server primario e le repliche delle origini dati archiviate sul server primario. In caso di guasto del server primario, il server secondario può continuare a proteggere i carichi di lavoro protetti dal server primario, finché il server primario non sarà nuovamente disponibile.  Questa funzionalità non è disponibile con il server di Backup di Microsoft Azure.
+- È possibile eseguire il backup di un server DPM primario con un server DPM secondario. Il server secondario proteggerà il database del server primario e le repliche delle origini dati archiviate nel server primario. Se si verifica un errore nel server primario, il server secondario può continuare a proteggere i carichi di lavoro protetti dal server primario, finché il server primario non sarà nuovamente disponibile.  Questa funzionalità non è disponibile con il server di Backup di Microsoft Azure.
 
 È possibile scaricare MAB dall' [area download Microsoft](https://www.microsoft.com/download/details.aspx?id=57520). Può essere eseguito in locale o in una macchina virtuale di Azure.
 
@@ -50,7 +50,7 @@ Per altre informazioni:
 
 ## <a name="supported-scenarios"></a>Scenari supportati
 
-**Scenario** | **Agent** | **Località**
+**Scenario** | **Agent** | **Posizione**
 --- | --- | ---
 **Backup di carichi di lavoro e computer locali** | L'agente protezione DPM/MAB viene eseguito nei computer di cui si vuole eseguire il backup.<br/><br/> Agente MARS nel server DPM/MAB.<br/> La versione minima dell'agente di Servizi di ripristino di Microsoft Azure o dell'agente di Backup di Azure richiesta per l'abilitazione di questa funzionalità è la 2.0.8719.0.  | DPM/MAB deve essere eseguito in locale.
 
@@ -68,12 +68,15 @@ DPM/MAB può essere distribuito come riepilogato nella tabella seguente.
 
 Backup di Azure può eseguire il backup di istanze di DPM/MAB che eseguono uno dei sistemi operativi seguenti. Devono essere in uso gli ultimi Service Pack e aggiornamenti dei sistemi operativi.
 
-**Scenario** | **DPM/MABS**
+**Scenario** | **DPM/MAB**
 --- | ---
 **Server di Backup di Microsoft Azure in una macchina virtuale di Azure** | Windows Server 2012 R2.<br/><br/> Windows 2016 datacenter.<br/><br/> Windows 2019 datacenter.<br/><br/> Si consiglia di iniziare con un'immagine del Marketplace.<br/><br/> Standard a2 minimo con due core e 3,5 GB di RAM.
 **DPM in una macchina virtuale di Azure** | System Center 2012 R2 con Update 3 o versioni successive.<br/><br/> Sistema operativo Windows [richiesto da System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Si consiglia di iniziare con un'immagine del Marketplace.<br/><br/> Standard a2 minimo con due core e 3,5 GB di RAM.
 **Server di Backup di Microsoft Azure in locale** | Sistemi operativi a 64 bit supportati:<br/><br/> MAB V3 e versioni successive: Windows Server 2019 (standard, Datacenter, Essentials). <br/><br/> MAB V2 e versioni successive: Windows Server 2016 (standard, Datacenter, Essentials).<br/><br/> Tutte le versioni di MAB: Windows Server 2012 R2.<br/><br/>Tutte le versioni di MAB: Windows Storage Server 2012 R2.
 **DPM in locale** | Server fisico/macchina virtuale Hyper-V: System Center 2012 SP1 o versione successiva.<br/><br/> VM VMware: System Center 2012 R2 con aggiornamento 5 o versione successiva.
+
+>[!NOTE]
+>L'installazione di server di Backup di Azure non è supportata in Windows Server Core o Microsoft Hyper-V Server.
 
 ## <a name="management-support"></a>Supporto della gestione
 
@@ -81,7 +84,7 @@ Backup di Azure può eseguire il backup di istanze di DPM/MAB che eseguono uno d
 --- | ---
 **Installazione** | Installare DPM/MAB in un computer con un solo scopo.<br/><br/> Non installare DPM/MAB in un controller di dominio, in un computer con l'installazione del ruolo server applicazioni, in un computer che esegue Microsoft Exchange Server o System Center Operations Manager o in un nodo del cluster.<br/><br/> [Esaminare tutti i requisiti di sistema di DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).
 **Dominio** | DPM/MAB deve essere aggiunto a un dominio. Installare e quindi aggiungere DPM o il server di Backup di Microsoft Azure a un dominio. Lo spostamento di DPM o del server di Backup di Microsoft Azure in un nuovo dominio dopo la distribuzione non è supportato.
-**Archiviazione** | Modern backup storage (MBS) è supportato da DPM 2016/MAB V2 e versioni successive. Non è disponibile per il server di Backup di Microsoft Azure v1.
+**Storage** | Modern backup storage (MBS) è supportato da DPM 2016/MAB V2 e versioni successive. Non è disponibile per il server di Backup di Microsoft Azure v1.
 **Aggiornamento del server di Backup di Microsoft Azure** | È possibile installare direttamente il server di Backup di Microsoft Azure v3 oppure eseguire l'aggiornamento dal server di Backup di Microsoft Azure v2 al server di Backup di Microsoft Azure v3. [Altre informazioni](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
 **Spostamento del server di Backup di Microsoft Azure** | Se si usa MBS, è possibile spostare il server di Backup di Microsoft Azure in un nuovo server conservando l'archivio.<br/><br/> Il server deve avere lo stesso nome dell'originale. Non è possibile cambiare il nome se si intende mantenere lo stesso pool di archiviazione e usare lo stesso database del server di Backup di Microsoft Azure per archiviare i punti di ripristino dei dati.<br/><br/> Si dovrà disporre di un backup del database del server di Backup di Microsoft Azure perché sarà necessario ripristinarlo.
 
@@ -106,7 +109,7 @@ Se si distribuisce il server di Backup di Microsoft Azure in una macchina virtua
 
 ## <a name="dpmmabs-networking-support"></a>Supporto delle funzionalità di rete per DPM o il server di Backup di Microsoft Azure
 
-### <a name="url-access"></a>Accesso a URL
+### <a name="url-access"></a>accesso con URL
 
 Il server DPM o il server di Backup di Microsoft Azure deve poter accedere agli URL seguenti:
 
@@ -131,7 +134,7 @@ Nessuna connettività per più di 15 giorni | Scaduta/sottoposta a deprovisionin
 
 I dati di cui viene eseguito il backup in DPM/MAB vengono archiviati nell'archiviazione su disco locale.
 
-**Archiviazione** | **Dettagli**
+**Storage** | **Dettagli**
 --- | ---
 **MBS** | Modern backup storage (MBS) è supportato da DPM 2016/MAB V2 e versioni successive. Non è disponibile per il server di Backup di Microsoft Azure v1.
 **Archiviazione del server di Backup di Microsoft Azure in una macchina virtuale di Azure** | I dati vengono archiviati nei dischi di Azure collegati alla macchina virtuale DPM/MAB e gestiti in DPM/MAB. Il numero di dischi che è possibile usare per il pool di archiviazione DPM/MAB è limitato dalle dimensioni della macchina virtuale.<br/><br/> VM a2:4 dischi; VM A3:8 dischi; VM A4:16 dischi, con una dimensione massima di 1 TB per ogni disco. Ciò determina il pool di archiviazione di backup totale disponibile.<br/><br/> La quantità di dati di cui è possibile eseguire il backup dipende dal numero e dalle dimensioni dei dischi collegati.

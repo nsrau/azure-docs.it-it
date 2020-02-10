@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9fa84b5e87581fad4a7ada5fda074429409d2f8f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: bbc9048452c5361306dd05e712090543bb1066ce
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850347"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111520"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Inviare i dati dei report di configurazione stato di automazione di Azure ai log di monitoraggio di Azure
 
@@ -31,7 +31,7 @@ Con i log di monitoraggio di Azure è possibile:
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per iniziare a inviare i report di configurazione dello stato di automazione ai log di monitoraggio di Azure, è necessario:
 
@@ -74,9 +74,9 @@ Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Workspa
 
 ## <a name="view-the-state-configuration-logs"></a>Visualizzare i log di configurazione dello stato
 
-Dopo aver configurato l'integrazione con i log di monitoraggio di Azure per i dati di configurazione dello stato di automazione, verrà visualizzato un pulsante **Ricerca log** nel pannello **nodi DSC** dell'account di automazione. Fare clic sul pulsante **Ricerca log** per visualizzare i log per i dati dei nodi DSC.
+Dopo aver configurato l'integrazione con i log di monitoraggio di Azure per i dati di configurazione dello stato di automazione, è possibile visualizzarli selezionando i **log** nella sezione **monitoraggio** nel riquadro sinistro della pagina configurazione stato (DSC).  
 
-![Pulsante Ricerca log](media/automation-dsc-diagnostics/log-search-button.png)
+![Log](media/automation-dsc-diagnostics/automation-dsc-logs-toc-item.png)
 
 Viene visualizzato il pannello **Ricerca log**, che include un'operazione **DscNodeStatusData** per ogni nodo di configurazione dello stato e un'operazione **DscResourceStatusData** per ogni [risorsa DSC](/powershell/scripting/dsc/resources/resources) chiamata nella configurazione del nodo applicata a tale nodo.
 
@@ -84,11 +84,14 @@ L'operazione **DscResourceStatusData** contiene informazioni sugli errori per qu
 
 Fare clic su ogni operazione nell'elenco per visualizzare i dati per tale operazione.
 
-È anche possibile visualizzare i log eseguendo una ricerca nei log di monitoraggio di Azure.
-Vedere [Trovare dati tramite ricerche nei log](../log-analytics/log-analytics-log-searches.md).
-Digitare la query seguente per trovare i log della configurazione dello stato: `Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus'`
+È anche possibile visualizzare i log eseguendo una ricerca nei log di monitoraggio di Azure. Vedere [Trovare dati tramite ricerche nei log](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview). Digitare la query seguente per trovare i log di configurazione dello stato.
 
-È anche possibile perfezionare la query in base al nome dell'operazione. Ad esempio: `Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus' OperationName='DscNodeStatusData'`
+```
+AzureDiagnostics
+| where Category == 'DscNodeStatus' 
+| where OperationName contains 'DSCNodeStatusData'
+| where ResultType != 'Compliant'
+```
 
 ### <a name="send-an-email-when-a-state-configuration-compliance-check-fails"></a>Inviare un messaggio di posta elettronica in caso di errore di un controllo della conformità alla configurazione dello stato
 
@@ -126,7 +129,7 @@ La diagnostica di automazione di Azure crea due categorie di record nei log di m
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | --- | --- |
 | TimeGenerated |Data e ora dell'esecuzione del controllo della conformità. |
 | OperationName |DscNodeStatusData |
@@ -137,8 +140,8 @@ La diagnostica di automazione di Azure crea due categorie di record nei log di m
 | ConfigurationMode | Indica la modalità di applicazione della configurazione al nodo. I valori possibili sono __"ApplyOnly"__ , __"ApplyandMonitior"__ e __"ApplyandAutoCorrect"__ . <ul><li>__ApplyOnly__: DSC applica la configurazione e non esegue altre operazioni, a meno che non venga eseguito il push di una nuova configurazione nel nodo di destinazione o in caso di pull di una nuova configurazione da un server. Dopo l'applicazione iniziale di una nuova configurazione, DSC non verifica la deviazione da uno stato configurato in precedenza. DSC prova ad applicare la configurazione fino a quando non viene raggiunto un esito positivo, prima che venga applicata la modalità __ApplyOnly__. </li><li> __ApplyAndMonitor__: valore predefinito. Gestione configurazione locale applica qualsiasi nuova configurazione. Dopo l'applicazione iniziale di una nuova configurazione, in caso di deviazione del nodo di destinazione rispetto allo stato desiderato, DSC segnala la discrepanza nei log. DSC prova ad applicare la configurazione fino a quando non viene raggiunto un esito positivo, prima che venga applicata la modalità __ApplyAndMonitor__.</li><li>__ApplyAndAutoCorrect__: DSC applica qualsiasi nuova configurazione. Dopo l'applicazione iniziale di una nuova configurazione, in caso di deviazione del nodo di destinazione rispetto allo stato desiderato, DSC segnala la discrepanza nei log e quindi applica di nuovo la configurazione corrente.</li></ul> |
 | HostName_s | Nome del nodo gestito. |
 | IPAddress | Indirizzo IPv4 del nodo gestito. |
-| Categoria | DscNodeStatus |
-| Gruppi | Nome dell'account di Automazione di Azure. |
+| Category | DscNodeStatus |
+| Risorsa | Nome dell'account di Automazione di Azure. |
 | Tenant_g | GUID che identifica il tenant del chiamante. |
 | NodeId_g |GUID che identifica il nodo gestito. |
 | DscReportId_g |GUID che identifica il report. |
@@ -149,7 +152,7 @@ La diagnostica di automazione di Azure crea due categorie di record nei log di m
 | SourceSystem | Modalità di registrazione dei dati raccolti da monitoraggio di Azure. È sempre *Azure* per la diagnostica di Azure. |
 | ResourceId |Specifica l'account di Automazione di Azure. |
 | ResultDescription | Descrizione per questa operazione. |
-| SubscriptionId | ID della sottoscrizione di Azure (GUID) per l'account di Automazione. |
+| SubscriptionId | ID sottoscrizione di Azure (GUID) per l'account di automazione. |
 | ResourceGroup | Nome del gruppo di risorse dell'account di Automazione. |
 | ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
@@ -157,14 +160,14 @@ La diagnostica di automazione di Azure crea due categorie di record nei log di m
 
 ### <a name="dscresourcestatusdata"></a>DscResourceStatusData
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | --- | --- |
 | TimeGenerated |Data e ora dell'esecuzione del controllo della conformità. |
 | OperationName |DscResourceStatusData|
 | ResultType |Indica se la risorsa è conforme. |
 | NodeName_s |Nome del nodo gestito. |
-| Categoria | DscNodeStatus |
-| Gruppi | Nome dell'account di Automazione di Azure. |
+| Category | DscNodeStatus |
+| Risorsa | Nome dell'account di Automazione di Azure. |
 | Tenant_g | GUID che identifica il tenant del chiamante. |
 | NodeId_g |GUID che identifica il nodo gestito. |
 | DscReportId_g |GUID che identifica il report. |
@@ -180,7 +183,7 @@ La diagnostica di automazione di Azure crea due categorie di record nei log di m
 | SourceSystem | Modalità di registrazione dei dati raccolti da monitoraggio di Azure. È sempre *Azure* per la diagnostica di Azure. |
 | ResourceId |Specifica l'account di Automazione di Azure. |
 | ResultDescription | Descrizione per questa operazione. |
-| SubscriptionId | ID della sottoscrizione di Azure (GUID) per l'account di Automazione. |
+| SubscriptionId | ID sottoscrizione di Azure (GUID) per l'account di automazione. |
 | ResourceGroup | Nome del gruppo di risorse dell'account di Automazione. |
 | ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
@@ -197,8 +200,8 @@ Log di monitoraggio di Azure offre una maggiore visibilità operativa per i dati
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica, vedere [Automation DSC di Azure](automation-dsc-overview.md)
-- Per iniziare, vedere [Introduzione alla configurazione dello stato di Automazione di Azure](automation-dsc-getting-started.md)
+- Per una panoramica, vedere [Configurazione dello stato di Automazione di Azure ](automation-dsc-overview.md)
+- Per iniziare, vedere [Introduzione a Configurazione stato di Automazione di Azure](automation-dsc-getting-started.md)
 - Per informazioni sulla compilazione di configurazioni DSC da assegnare ai nodi di destinazione, vedere [Compilazione di configurazioni in Configurazione stato di Automazione di Azure](automation-dsc-compile.md)
 - Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Azure Automation State Configuration cmdlets](/powershell/module/azurerm.automation/#automation) (Cmdlet per Configurazione stato di Automazione di Azure)
 - Per informazioni sui prezzi, vedere [Prezzi di Configurazione stato di Automazione di Azure](https://azure.microsoft.com/pricing/details/automation/)

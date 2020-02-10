@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/24/2020
 ms.author: raiye
-ms.openlocfilehash: 89fd16b6afadee75678b76381739c12a31dc1a07
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
-ms.translationtype: MT
+ms.openlocfilehash: a38685ba4cca4df2c2ae1a52e46626072135408d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765370"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049868"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamenti sono sempre disponibili per la [famiglia][family-explain] specifica in cui sono stati introdotti.
@@ -43,7 +43,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 |  Rel 20-01  |  [4532947]  |  Windows Security  | [6,15] | 14 gennaio 2020 |
 |  Rel 20-01  |  [4534273]  |  LCU  | [6,15] | 14 gennaio 2020 |
 |  Rel 20-01  |  [4530734]  |  Non-sicurezza  | [2,94] | 10 dicembre 2019 |
-|  Rel 20-01  |  [4530691]  |  Non-sicurezza   | [3,81] | 10 dicembre 2019 |
+|  Rel 20-01  |  [4530691]  |  Rollup mensile   | [3,81] | 10 dicembre 2019 |
 |  Rel 20-01  |  [4530702]  |  Non-sicurezza  | [4,74] | 10 dicembre 2019 |
 
 [4532960]: https://support.microsoft.com/kb/4532960

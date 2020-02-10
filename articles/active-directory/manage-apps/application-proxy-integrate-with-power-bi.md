@@ -16,18 +16,18 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9faa1fffde5553168c8b76ea40cebc001c1e27b2
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bc96c94152b39cc70cfc4553690faaa5b9cb8d20
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275518"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111582"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Abilitare l'accesso remoto a Power BI mobile con Azure AD proxy di applicazione
 
 Questo articolo illustra come usare Azure AD proxy di applicazione per abilitare l'app per dispositivi mobili Power BI a connettersi Server di report di Power BI (PBIRS) e SQL Server Reporting Services (SSRS) 2016 e versioni successive. Grazie a questa integrazione, gli utenti che si trovano fuori dalla rete aziendale possono accedere ai report Power BI dall'app Power BI per dispositivi mobili ed essere protetti da Azure AD l'autenticazione. Questa protezione include [vantaggi](application-proxy-security.md#security-benefits) per la sicurezza, ad esempio l'accesso condizionale e l'autenticazione a più fattori.  
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Questo articolo presuppone che siano già stati distribuiti i servizi di report e il [proxy di applicazione abilitato](application-proxy-add-on-premises-application.md).
 
@@ -95,7 +95,7 @@ A questo punto si è pronti per configurare Azure AD proxy di applicazione.
 
    b. Per **modalità Single Sign-on**, selezionare **autenticazione integrata di Windows**.
 
-   C. Impostare **Nome dell'entità servizio dell'applicazione interna** sul valore impostato in precedenza,  
+   c. Impostare **Nome dell'entità servizio dell'applicazione interna** sul valore impostato in precedenza,  
 
    d. Scegliere l'**identità di accesso delegato** che il connettore userà per conto degli utenti. Per altre informazioni, vedere [uso di diverse identità locali e cloud](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities).
 
@@ -133,14 +133,11 @@ Prima che l'app per dispositivi mobili Power BI possa connettersi e accedere a s
 
    ![Power BI app per dispositivi mobili con URL esterno](media/application-proxy-integrate-with-power-bi/app-proxy-power-bi-mobile-app.png)
 
-2. Selezionare **Connessione**. Si verrà indirizzati alla pagina di accesso Azure Active Directory.
+2. Selezionare **Connetti**. Si verrà indirizzati alla pagina di accesso Azure Active Directory.
 
 3. Immettere le credenziali valide per l'utente e selezionare **Accedi**. Gli elementi verranno visualizzati dal server Reporting Services.
 
 ## <a name="step-5-configure-intune-policy-for-managed-devices-optional"></a>Passaggio 5: configurare i criteri di Intune per i dispositivi gestiti (facoltativo)
-
-> [!NOTE]
-> Questa funzionalità è attualmente disponibile solo in iOS.
 
 È possibile usare Microsoft Intune per gestire le app client utilizzate dalla forza lavoro della società. Intune consente di usare funzionalità quali la crittografia dei dati e i requisiti di accesso aggiuntivi. Per altre informazioni sulla gestione delle app tramite Intune, vedere Gestione delle app di Intune. Per consentire all'applicazione Power BI per dispositivi mobili di usare i criteri di Intune, attenersi alla procedura seguente.
 

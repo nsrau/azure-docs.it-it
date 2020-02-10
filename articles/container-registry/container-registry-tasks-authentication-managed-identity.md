@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: danlep
-ms.openlocfilehash: b2f5a9bacf96eb098e307a6a8df3e13cb9d04bd0
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f3294698f6973437a23fab798e8daf5642cc9b49
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513417"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111775"
 ---
 # <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Usare un'identità gestita da Azure nelle attività ACR 
 
@@ -84,19 +84,19 @@ az acr task create \
 
 ### <a name="3-grant-the-identity-permissions-to-access-other-azure-resources"></a>3. concedere le autorizzazioni di identità per accedere ad altre risorse di Azure
 
-A seconda dei requisiti dell'attività, concedere le autorizzazioni di identità per accedere ad altre risorse di Azure. Ad esempio:
+A seconda dei requisiti dell'attività, concedere le autorizzazioni di identità per accedere ad altre risorse di Azure. Tra gli esempi sono inclusi:
 
 * Assegnare all'identità gestita un ruolo con pull, push e pull o altre autorizzazioni per un registro contenitori di destinazione in Azure. Per un elenco completo dei ruoli del registro di sistema, vedere [autorizzazioni e ruoli di container Registry di Azure](container-registry-roles.md). 
 * Assegnare un ruolo all'identità gestita per leggere i segreti in un insieme di credenziali delle chiavi di Azure.
 
 Usare l' [interfaccia](../role-based-access-control/role-assignments-cli.md) della riga di comando di Azure o altri strumenti di Azure per gestire l'accesso basato sui ruoli alle risorse. Ad esempio, eseguire il comando [AZ Role Assignment create][az-role-assignment-create] per assegnare l'identità a un ruolo alla risorsa. 
 
-Nell'esempio seguente viene assegnata un'identità gestita alle autorizzazioni per effettuare il pull da un registro contenitori. Il comando specifica l' *ID dell'entità servizio* dell'identità e l' *ID risorsa* del registro di sistema di destinazione.
+Nell'esempio seguente viene assegnata un'identità gestita alle autorizzazioni per effettuare il pull da un registro contenitori. Il comando specifica l' *ID entità* dell'identità dell'attività e l' *ID risorsa* del registro di sistema di destinazione.
 
 
 ```azurecli
 az role assignment create \
-  --assignee <servicePrincipalID> \
+  --assignee <principalID> \
   --scope <registryID> \
   --role acrpull
 ```

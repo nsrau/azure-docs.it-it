@@ -3,12 +3,12 @@ title: Usare server di Backup di Azure per eseguire il backup dei carichi di lav
 description: In questo articolo viene illustrato come preparare l'ambiente per la protezione e il backup dei carichi di lavoro utilizzando il server di Backup di Microsoft Azure (MAB).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: db2bac3464939edc5dec2ee2947faf7a05ad6812
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ff5df19d3e2d42af9a45fbc1b71980cee1cdb8a0
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979879"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111606"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installare e preparare il server di Backup di Azure
 
@@ -66,6 +66,8 @@ Se non si vuole eseguire il server di base in Azure, è possibile eseguire il se
 > * Un computer che sia un server di gestione di System Center Operations Manager
 > * Un computer su cui è in esecuzione Exchange Server
 > * Un computer che sia un nodo di un cluster
+>
+> L'installazione di server di Backup di Azure non è supportata in Windows Server Core o Microsoft Hyper-V Server.
 
 Aggiungere sempre il server di backup di Azure a un dominio. Se si prevede di spostare il server in un dominio diverso, per prima cosa installare il server di Backup di Azure, quindi aggiungere il server al nuovo dominio. Lo spostamento di un server di Backup di Azure esistente in un nuovo dominio dopo la distribuzione *non è supportato*.
 
@@ -215,7 +217,7 @@ Al termine del processo di estrazione, selezionare la casella per avviare il fil
     ![PreReq2 Server di Backup di Azure](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 9. Al termine della registrazione del server di Backup di Microsoft Azure, l'installazione guidata generale passa all'installazione e alla configurazione dei componenti di SQL Server e del server di Backup di Azure. Al termine dell'installazione dei componenti di SQL Server, vengono installati i componenti del server di Backup di Azure.
 
-    ![Server di Backup di Azure](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
+    ![Server di backup di Azure](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
 
 Al termine della fase di installazione, verranno create anche le icone sul desktop per il prodotto. È sufficiente fare doppio clic sull'icona per avviare il prodotto.
 
@@ -286,11 +288,11 @@ Dopo avere verificato lo stato della connettività di Azure e della sottoscrizio
 | Stato di connettività | Sottoscrizione di Azure | Eseguire il backup in Azure | Eseguire il backup su disco | Ripristino da Azure | Ripristino da disco |
 | --- | --- | --- | --- | --- | --- |
 | Connesso |Attivo |Consentito |Consentito |Consentito |Consentito |
-| Connesso |Scaduto |Arrestata |Arrestata |Consentito |Consentito |
-| Connesso |Deprovisioning eseguito |Arrestata |Arrestata |Arrestato e punti di ripristino di Azure eliminati |Arrestata |
-| Connettività persa > 15 giorni |Attivo |Arrestata |Arrestata |Consentito |Consentito |
-| Connettività persa > 15 giorni |Scaduto |Arrestata |Arrestata |Consentito |Consentito |
-| Connettività persa > 15 giorni |Deprovisioning eseguito |Arrestata |Arrestata |Arrestato e punti di ripristino di Azure eliminati |Arrestata |
+| Connesso |Scaduto |Arrestato |Arrestato |Consentito |Consentito |
+| Connesso |Deprovisioning eseguito |Arrestato |Arrestato |Arrestato e punti di ripristino di Azure eliminati |Arrestato |
+| Connettività persa > 15 giorni |Attivo |Arrestato |Arrestato |Consentito |Consentito |
+| Connettività persa > 15 giorni |Scaduto |Arrestato |Arrestato |Consentito |Consentito |
+| Connettività persa > 15 giorni |Deprovisioning eseguito |Arrestato |Arrestato |Arrestato e punti di ripristino di Azure eliminati |Arrestato |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recupero dalla perdita di connettività
 
@@ -339,7 +341,7 @@ Per aggiornare MABS, usare i passaggi seguenti:
 
 3. Aggiornare gli agenti protezione nei server protetti.
 4. I backup continueranno senza la necessità di riavviare i server di produzione.
-5. È ora possibile iniziare a proteggere i dati. Se si esegue l'aggiornamento a Modern Backup Storage, insieme alla protezione è anche possibile scegliere i volumi in cui archiviare i backup e verificare la presenza di spazio con provisioning. [Altre informazioni](backup-mabs-add-storage.md)
+5. È ora possibile iniziare a proteggere i dati. Se si esegue l'aggiornamento a Modern Backup Storage, insieme alla protezione è anche possibile scegliere i volumi in cui archiviare i backup e verificare la presenza di spazio con provisioning. [Altre informazioni](backup-mabs-add-storage.md).
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

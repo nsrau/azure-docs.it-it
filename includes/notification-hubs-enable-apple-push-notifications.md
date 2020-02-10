@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/21/2019
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: ef2b98821b28d8a49e5f16bf1c6ac176eb8b5793
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: b9f434f2d3c06d3db0bfda7c5853cc835ff64035
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74407186"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047757"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Generare il file della richiesta di firma del certificato
 
@@ -26,6 +26,10 @@ Generare il file della richiesta di firma del certificato usato da Apple per la 
 1. Selezionare **Accesso Portachiavi**, espandere **Certificate Assistant** (Assistente certificati) e quindi selezionare **Request a Certificate from a Certificate Authority** (Richiedi certificato da Autorità di certificazione).
 
     ![Usare lo strumento Accesso Portachiavi per richiedere un nuovo certificato](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
+    
+> [!NOTE]
+> Per impostazione predefinita, OS X seleziona il primo elemento della categoria selezionata nello strumento Accesso portachiavi. Questo comportamento potrebbe causare problemi se il primo elemento nell'elenco della sezione **Certificates** (Certificati) *non* è **Apple Worldwide Developer Relations Certification Authority** (Autorità di certificazione relazioni sviluppatori Apple a livello mondiale). Prima di richiedere un certificato, assicurarsi di trovarsi nella sezione **Certificates** (Certificati) e quindi selezionare **Apple Worldwide Developer Relations Certification Authority** (Autorità di certificazione relazioni sviluppatori Apple a livello mondiale).
+
 
 1. Selezionare **User Email Address** (Indirizzo di posta elettronica utente), immettere il valore **Common Name** (Nome comune), assicurarsi di specificare **Saved to disk** (Salvata su disco) e quindi selezionare **Continue** (Continua). Lasciare vuoto il campo **CA Email Address** (Indirizzo di posta elettronica CA), in quanto non è obbligatorio.
 
