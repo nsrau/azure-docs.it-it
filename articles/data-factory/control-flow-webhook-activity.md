@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: b2f7c35e6ddb3c6ed0a3032d7ea6d4c53043c17b
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 70c67a99274eaedc5592c7b90b1ef80a3a17acf8
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122902"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109996"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Attività webhook in Azure Data Factory
 È possibile usare un'attività webhook per controllare l'esecuzione delle pipeline tramite il codice personalizzato. Usando l'attività webhook, i clienti possono chiamare un endpoint e passare un URL di callback. L'esecuzione della pipeline attende che il callback venga richiamato prima di procedere all'attività successiva.
@@ -53,17 +53,63 @@ ms.locfileid: "74122902"
 
 
 
-Proprietà | DESCRIZIONE | Valori consentiti | obbligatori
+Proprietà | Descrizione | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
-Nome | Nome dell'attività Hook Web | String | Sì |
+name | Nome dell'attività Hook Web | String | Sì |
 type | Deve essere impostato su **webhook**. | String | Sì |
-statico | Metodo API REST per l'endpoint di destinazione. | Stringa. Tipi supportati:' POST ' | Sì |
-URL | Endpoint e percorso di destinazione | Stringa (o espressione con l'elemento resultType della stringa). | Sì |
-headers | Intestazioni che vengono inviate alla richiesta. Ad esempio, per impostare il linguaggio e il tipo in una richiesta: "headers": {"Accept-Language": "en-US", "Content-Type": "application/json"}. | Stringa (o un'espressione con l'elemento resultType della stringa) | Sì, l'intestazione Content-type è obbligatoria. "headers": {"Content-Type": "application/json"} |
+metodo | Metodo API REST per l'endpoint di destinazione. | Stringa. Tipi supportati:' POST ' | Sì |
+url | Endpoint e percorso di destinazione | Stringa (o espressione con l'elemento resultType della stringa). | Sì |
+intestazioni | Intestazioni che vengono inviate alla richiesta. Ad esempio, per impostare il linguaggio e il tipo in una richiesta: "headers": {"Accept-Language": "en-US", "Content-Type": "application/json"}. | Stringa (o un'espressione con l'elemento resultType della stringa) | Sì, l'intestazione Content-type è obbligatoria. "headers": {"Content-Type": "application/json"} |
 Corpo | Rappresenta il payload inviato all'endpoint. | JSON valido (o espressione con resultType JSON). Vedere lo schema del payload della richiesta nella sezione [Schema del payload della richiesta](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0). | Sì |
 autenticazione | Metodo di autenticazione usato per chiamare l'endpoint. I tipi supportati sono "Basic" o "ClientCertificate". Per altre informazioni, vedere la sezione [Autenticazione](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0). Se l'autenticazione non è necessaria, escludere questa proprietà. | Stringa (o un'espressione con l'elemento resultType della stringa) | No |
 timeout | Tempo di attesa dell'attività per la &#39;richiamata&#39; del callBackUri. Per quanto tempo l'attività attenderà che venga richiamato ' callBackUri '. Il valore predefinito è 10mins ("00:10:00"). Il formato è TimeSpan, ovvero d. hh: mm: SS | String | No |
-Segnala stato del callback | Consente all'utente di segnalare lo stato di errore dell'attività webhook che contrassegna l'attività come non riuscita | Booleano | No |
+Segnala stato del callback | Consente all'utente di segnalare lo stato di errore dell'attività webhook che contrassegna l'attività come non riuscita | Boolean | No |
+
+## <a name="authentication"></a>Autenticazione
+
+Di seguito sono riportati i tipi di autenticazione supportati nell'attività webhook.
+
+### <a name="none"></a>None
+
+Se l'autenticazione non è necessaria, non includere la proprietà "authentication".
+
+### <a name="basic"></a>Basic
+
+Specificare il nome utente e la password da usare per l'autenticazione di base.
+
+```json
+"authentication":{
+   "type":"Basic",
+   "username":"****",
+   "password":"****"
+}
+```
+
+### <a name="client-certificate"></a>Certificato client
+
+Specificare il contenuto con codifica Base64 di un file PFX e la password.
+
+```json
+"authentication":{
+   "type":"ClientCertificate",
+   "pfx":"****",
+   "password":"****"
+}
+```
+
+### <a name="managed-identity"></a>Identità gestita
+
+Specificare l'URI di risorsa per cui verrà richiesto il token di accesso usando l'identità gestita per la data factory. Per chiamare l'API di gestione delle risorse di Azure, usare `https://management.azure.com/`. Per altre informazioni sul funzionamento delle identità gestite, consultare la [pagina di panoramica sulle identità gestite per le risorse di Azure](/azure/active-directory/managed-identities-azure-resources/overview).
+
+```json
+"authentication": {
+    "type": "MSI",
+    "resource": "https://management.azure.com/"
+}
+```
+
+> [!NOTE]
+> Se la data factory è configurata con un repository git, è necessario archiviare le credenziali in Azure Key Vault per usare l'autenticazione di base o del certificato client. Azure Data Factory non archivia le password in git.
 
 ## <a name="additional-notes"></a>Note aggiuntive
 
@@ -97,7 +143,7 @@ Quando si usa l'opzione "segnala stato su callback", è necessario aggiungere il
 Vedere altre attività del flusso di controllo supportate da Data Factory:
 
 - [Attività della condizione If](control-flow-if-condition-activity.md)
-- [Attività di esecuzione pipeline](control-flow-execute-pipeline-activity.md)
+- [Attività ExecutePipeline](control-flow-execute-pipeline-activity.md)
 - [Attività ForEach](control-flow-for-each-activity.md)
 - [Attività Get Metadata](control-flow-get-metadata-activity.md)
 - [Attività Lookup](control-flow-lookup-activity.md)

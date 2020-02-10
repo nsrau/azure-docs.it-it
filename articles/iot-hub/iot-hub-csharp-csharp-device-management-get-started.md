@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 79e65671613364f5cc05153d90cfdcd5959a279f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 3b37d7e049e7daabbbb4fe1a7b49feb654e8accc
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939317"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110248"
 ---
 # <a name="get-started-with-device-management-net"></a>Introduzione alla gestione dei dispositivi (.NET)
 
@@ -40,6 +40,8 @@ Al termine di questa esercitazione si ottengono due app console .NET:
 
 * Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
+* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo in questo articolo usa il protocollo MQTT, che comunica sulla porta 8883. Questa porta può essere bloccata in alcuni ambienti aziendali e di rete scolastici. Per ulteriori informazioni e per risolvere questo problema, vedere la pagina relativa [alla connessione all'hub Internet (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
@@ -62,7 +64,7 @@ In questa sezione si crea un'app console .NET, usando C#, che avvia un riavvio r
 
 1. In **creare un nuovo progetto**individuare e selezionare il modello di progetto **App Console (.NET Framework)** , quindi fare clic su **Avanti**.
 
-1. In **configurare il nuovo progetto**assegnare al progetto il nome *TriggerReboot*e selezionare .NET Framework versione 4.5.1 o successiva. Selezionare **Create** (Crea).
+1. In **configurare il nuovo progetto**assegnare al progetto il nome *TriggerReboot*e selezionare .NET Framework versione 4.5.1 o successiva. Selezionare **Crea**.
 
     ![Nuovo progetto desktop di Windows classico in Visual C#](./media/iot-hub-csharp-csharp-device-management-get-started/create-trigger-reboot-configure.png)
 
@@ -145,7 +147,7 @@ Per creare l'app per dispositivo simulato, seguire questa procedura:
 
 1. In Visual Studio, nella soluzione TriggerReboot già creata, selezionare **File** > **nuovo** > **progetto**. In **creare un nuovo progetto**individuare e selezionare il modello di progetto **App Console (.NET Framework)** , quindi fare clic su **Avanti**.
 
-1. In **Configura il nuovo progetto**, denominare il progetto *SimulateManagedDevice*e per **soluzione**selezionare **Aggiungi a soluzione**. Selezionare **Create** (Crea).
+1. In **Configura il nuovo progetto**, denominare il progetto *SimulateManagedDevice*e per **soluzione**selezionare **Aggiungi a soluzione**. Selezionare **Crea**.
 
     ![Nome e aggiunta del progetto alla soluzione](./media/iot-hub-csharp-csharp-device-management-get-started/configure-device-app.png)
 

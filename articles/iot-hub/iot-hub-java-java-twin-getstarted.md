@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 4f9f4661a2c6c78438414029e803abc624a773ca
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: e0114c37b2204a7ad1d7b0cf9c7f336dcd85883a
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70161984"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110497"
 ---
 # <a name="get-started-with-device-twins-java"></a>Introduzione ai dispositivi gemelli (Java)
 
@@ -30,11 +30,13 @@ In questa esercitazione vengono create due app console Java:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Java se Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Assicurarsi di selezionare **Java 8** in **supporto a lungo termine** per ottenere i download per JDK 8.
+* [Java se Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Assicurarsi di selezionare **Java 8** in **Supporto a lungo termine** per passare ai download per JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
 * Un account Azure attivo. Se non si dispone di un account, è possibile crearne uno [gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
+
+* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo in questo articolo usa il protocollo MQTT, che comunica sulla porta 8883. Questa porta può essere bloccata in alcuni ambienti aziendali e di rete scolastici. Per ulteriori informazioni e per risolvere questo problema, vedere la pagina relativa [alla connessione all'hub Internet (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
@@ -54,9 +56,9 @@ In questa esercitazione vengono create due app console Java:
 
 In questa sezione si crea a un'app Java che aggiunge i metadati della posizione come tag al dispositivo gemello nell'hub IoT associato a **myDeviceId**. L'app esegue innanzitutto una query dell'hub IoT per i dispositivi che si trovano negli Stati Uniti, quindi per i dispositivi che segnalano una connessione di rete tramite cellulare.
 
-1. Nel computer di sviluppo creare una cartella vuota denominata ilnome dell'utente.
+1. Nel computer di sviluppo creare una cartella **vuota denominata il**nome dell'utente.
 
-2. Nella cartella cose **-Java-Twin-** getstarted creare un progetto Maven denominato **Add-Tags-query** usando il comando seguente al prompt dei comandi:
+2. Nella cartella cose **-Java-Twin-getstarted** creare un progetto Maven denominato **Add-Tags-query** usando il comando seguente al prompt dei comandi:
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=add-tags-query -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -217,7 +219,7 @@ In questa sezione si crea a un'app Java che aggiunge i metadati della posizione 
 
 In questa sezione si crea un'app console Java che imposta un valore di proprietà restituito che viene inviato all'IoT Hub.
 
-1. Nella cartella Internet delle cose **-Java-Twin-** getstarted creare un progetto Maven denominato **Simulated-Device** usando il comando seguente al prompt dei comandi:
+1. Nella cartella Internet delle cose **-Java-Twin-getstarted** creare un progetto Maven denominato **Simulated-Device** usando il comando seguente al prompt dei comandi:
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -306,7 +308,7 @@ In questa sezione si crea un'app console Java che imposta un valore di propriet�
 
     * Creare un client del dispositivo per comunicare con l'IoT Hub.
 
-    * Creare un **Device** oggetto per archiviare le proprietà dispositivi gemelli.
+    * Creare un oggetto **Device** per archiviare le proprietà dei dispositivi gemelli.
 
     ```java
     DeviceClient client = new DeviceClient(connString, protocol);

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 01/24/2019
+ms.date: 02/07/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 8f22e575b609b0dcd56bf9a1f49fffd41f14e898
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: b5f2b42728fd6f3d61695b4f88cc416015dd97cb
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77062201"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108268"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Accedere agli account con l'app Microsoft Authenticator
 
@@ -31,7 +31,7 @@ L'app Microsoft Authenticator consente di accedere ai propri account se si usa l
   >[!Important]
   >Questo metodo di accesso tramite telefono funziona solo con gli account Microsoft personali, aziendali o dell'istituto. Con gli account non Microsoft è necessario usare il processo di verifica a due fattori standard.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di poter usare l'app Microsoft Authenticator, è necessario:
 
@@ -116,7 +116,7 @@ Per i passaggi necessari per accedere all'account aziendale o dell'istituto di i
 | Se è stata attivata la verifica in due passaggi per l'account, è necessario approvare due notifiche? | No. L'accesso all'account Microsoft tramite il telefono viene considerato una verifica in due passaggi e di conseguenza non è necessaria una seconda approvazione. |
 | Che cosa succede se si perde il telefono o non lo si fa con me? Ricerca per categorie accedere al mio account? | È sempre possibile selezionare il collegamento Usa la tua password nella pagina di accesso per tornare a usare la password. Tuttavia, se si usa la verifica in due passaggi, sarà comunque necessario usare un secondo metodo per verificare l'identità.<br><br>**Importante**<br>È consigliabile assicurarsi di usare più di un metodo di verifica aggiornato associato all'account.<br><br>È possibile gestire i metodi di verifica per gli account personali dalla pagina [Impostazioni di sicurezza](https://account.live.com/proofs/manage). Per gli account aziendali o dell'istituto di istruzione, è possibile passare alla pagina [Verifica aggiuntiva di sicurezza](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) dell'organizzazione o alla pagina **Proteggi l'account** se l'amministratore ha attivato le informazioni di sicurezza. Per altre informazioni sulle informazioni di sicurezza, vedere [Panoramica delle informazioni di sicurezza (anteprima)](user-help-security-info-overview.md).<br><br>Se non si è in grado di gestire i metodi di verifica, è necessario contattare l'amministratore. |
 | Ricerca per categorie smettere di usare questa funzionalità e tornare a usare la password? | Per gli account personali, selezionare il collegamento **Usa la tua password** durante l'accesso. La scelta più recente viene memorizzata dal sistema e proposta per impostazione predefinita al successivo accesso. Se si vuole tornare all'accesso tramite telefono, selezionare il collegamento **Usa un'app** durante l'accesso.<br><br>Per gli account aziendali o dell'Istituto di istruzione, è necessario annullare la registrazione del dispositivo nella pagina delle **Impostazioni** dell'app Microsoft Authenticator o disabilitare il dispositivo dall'area di **attività & dei dispositivi** del profilo. Per altre informazioni sulla disabilitazione del dispositivo dal profilo, vedere [aggiornare il profilo e le informazioni sull'account dal portale app personali](my-apps-portal-end-user-update-profile.md#view-your-organization-related-profile-information). |
-| Perché non è possibile usare più di un account aziendale o dell'Istituto di istruzione per l'accesso tramite telefono? | Un telefono deve essere registrato in un solo account aziendale o dell'istituto di istruzione. Se si vuole attivare l'accesso tramite telefono per un account aziendale o dell'istituto di istruzione diverso, è innanzitutto necessario annullare la registrazione del dispositivo precedente tramite la pagina **Impostazioni**. |
+| Perché non è possibile usare più di un account aziendale o dell'Istituto di istruzione per l'accesso tramite telefono? | Un telefono deve essere registrato in un solo account aziendale o dell'istituto di istruzione. Se si vuole abilitare l'accesso tramite telefono per un account aziendale o dell'Istituto di istruzione diverso, è necessario annullare la registrazione dell'account da questo dispositivo tramite la pagina **Impostazioni** . |
 | È possibile accedere al computer utilizzando il telefono? | Per il computer, è consigliabile accedere con Windows Hello in Windows 10. Windows Hello permette di usare il viso, le impronte digitali o un PIN per accedere. |
 
 ## <a name="next-steps"></a>Passaggi successivi

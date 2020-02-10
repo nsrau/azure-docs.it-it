@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 2c2ac5d3de37a1a89ebd63b89666f164444e0a63
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: d16954760d1f2bf11ec5575f912ee32810696590
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773788"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108212"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Esercitazione: usare gli arricchimenti di messaggi dell'hub Azure.
 
@@ -39,6 +39,9 @@ Ecco le attività da eseguire per completare questa esercitazione:
 
 * È necessario disporre di una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 * Installare [Visual Studio](https://www.visualstudio.com/).
+
+* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo in questa esercitazione usa il protocollo MQTT, che comunica sulla porta 8883. Questa porta può essere bloccata in alcuni ambienti aziendali e di rete scolastici. Per ulteriori informazioni e per risolvere questo problema, vedere la pagina relativa [alla connessione all'hub Internet (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -73,7 +76,7 @@ Se non è già stato fatto, aprire una [finestra di cloud Shell](https://shell.a
 
 Di seguito sono riportate le risorse create dallo script. *Arricchito* significa che la risorsa è destinata ai messaggi con arricchimenti. *Originale* significa che la risorsa è per i messaggi che non sono arricchiti.
 
-| Nome | Valore |
+| Name | Valore |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | nome del contenitore | originale  |
@@ -293,7 +296,7 @@ A questo punto, tutte le risorse sono impostate e viene configurato il routing d
 
    Di seguito sono riportate le risorse create caricando il modello. **Arricchito** significa che la risorsa è destinata ai messaggi con arricchimenti. **Originale** significa che la risorsa è per i messaggi che non sono arricchiti. Questi sono gli stessi valori usati nello script dell'interfaccia della riga di comando di Azure.
 
-   | Nome | Valore |
+   | Name | Valore |
    |-----|-----|
    | resourceGroup | ContosoResourcesMsgEn |
    | nome del contenitore | originale  |

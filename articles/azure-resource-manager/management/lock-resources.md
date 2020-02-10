@@ -2,22 +2,20 @@
 title: Bloccare le risorse per impedire modifiche
 description: Impedire agli utenti di aggiornare o eliminare le risorse critiche di Azure applicando un blocco per tutti gli utenti e i ruoli.
 ms.topic: conceptual
-ms.date: 05/14/2019
-ms.openlocfilehash: b7c6c7980f12e7f9015f4504f461733100b14ea8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 02/07/2020
+ms.openlocfilehash: 70fb189adb634b7ac24afe7cc8b94738117da5ef
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644359"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109548"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloccare le risorse per impedire modifiche impreviste
 
 L'amministratore può avere la necessità di bloccare una sottoscrizione, una risorsa o un gruppo di risorse per impedire che altri utenti nell'organizzazione modifichino o eliminino accidentalmente risorse strategiche. È possibile impostare il livello di blocco **CanNotDelete** o **ReadOnly**. Nel portale i blocchi sono definiti rispettivamente **Elimina** e **Sola lettura**.
 
 * **CanNotDelete** significa che gli utenti autorizzati possono leggere e modificare una risorsa, ma non eliminarla. 
-* **ReadOnly** significa che gli utenti autorizzati possono leggere una risorsa, ma non eliminarla o aggiornarla. L'applicazione di questo blocco è simile alla concessione a tutti gli utenti autorizzati solo le autorizzazioni concesse dal ruolo **Lettore**. 
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+* **ReadOnly** significa che gli utenti autorizzati possono leggere una risorsa, ma non eliminarla o aggiornarla. L'applicazione di questo blocco è simile alla concessione a tutti gli utenti autorizzati solo le autorizzazioni concesse dal ruolo **Lettore**.
 
 ## <a name="how-locks-are-applied"></a>Come vengono applicati i blocchi
 
@@ -36,6 +34,7 @@ L'applicazione di **ReadOnly** può causare risultati imprevisti perché alcune 
 * Un blocco **ReadOnly** in un gruppo di risorse che contiene una macchina virtuale impedisce a tutti gli utenti di avviare o riavviare la macchina virtuale. Queste operazioni richiedono una richiesta POST.
 
 ## <a name="who-can-create-or-delete-locks"></a>Utenti che possono creare o eliminare blocchi
+
 Per creare o eliminare i blocchi di gestione, è necessario avere accesso alle azioni `Microsoft.Authorization/*` o `Microsoft.Authorization/locks/*`. Dei ruoli predefiniti, solo **Proprietario** e **Amministratore Accesso utenti** garantiscono tali azioni.
 
 ## <a name="managed-applications-and-locks"></a>Applicazioni e blocchi gestiti
@@ -58,7 +57,12 @@ Per eliminare tutti gli elementi per il servizio, incluso il gruppo di risorse d
 
 ![Delete service](./media/lock-resources/delete-service.png)
 
-## <a name="portal"></a>Portale
+## <a name="azure-backups-and-locks"></a>Backup e blocchi di Azure
+
+Se si blocca il gruppo di risorse creato dal servizio backup di Azure, i backup inizieranno ad avere esito negativo. Il servizio supporta un massimo di 18 punti di ripristino. Con un blocco **CanNotDelete** , il servizio di backup non è in grado di eseguire la pulizia dei punti di ripristino. Per altre informazioni, vedere [domande frequenti-eseguire il backup di macchine virtuali di Azure](../../backup/backup-azure-vm-backup-faq.md).
+
+## <a name="portal"></a>Portal
+
 [!INCLUDE [resource-manager-lock-resources](../../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>Modello

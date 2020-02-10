@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
-ms.openlocfilehash: c07b110f0d4c31713ab432b5b5e337f3b69dfc55
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 426430c075cfcb084cfe3238ebd83a19e909369b
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147721"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110762"
 ---
 # <a name="get-started-with-device-twins-net"></a>Introduzione ai dispositivi gemelli (.NET)
 
@@ -37,6 +37,8 @@ In questa esercitazione vengono create queste app console .NET:
 * Visual Studio.
 
 * Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
+
+* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo in questo articolo usa il protocollo MQTT, che comunica sulla porta 8883. Questa porta può essere bloccata in alcuni ambienti aziendali e di rete scolastici. Per ulteriori informazioni e per risolvere questo problema, vedere la pagina relativa [alla connessione all'hub Internet (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
@@ -83,7 +85,7 @@ In questa sezione si crea un'app console .NET usando C#, che aggiunge i metadati
     static string connectionString = "{iot hub connection string}";
     ```
 
-1. Aggiungere il metodo seguente alla classe **Program** :
+1. Aggiungere il seguente metodo alla classe **Program**:
 
     ```csharp  
     public static async Task AddTagsAndQuery()
@@ -163,7 +165,7 @@ In questa sezione si crea un'app console .NET che si connette all'hub come **myD
     static DeviceClient Client = null;
     ```
 
-1. Aggiungere il metodo seguente alla classe **Program** :
+1. Aggiungere il seguente metodo alla classe **Program**:
 
     ```csharp
     public static async void InitClient()
@@ -186,7 +188,7 @@ In questa sezione si crea un'app console .NET che si connette all'hub come **myD
 
     L'oggetto **Client** espone tutti i metodi necessari per interagire con i dispositivi gemelli dal dispositivo. Il codice illustrato sopra Inizializza l'oggetto **client** e quindi recupera il dispositivo gemello per **myDeviceId**.
 
-1. Aggiungere il metodo seguente alla classe **Program** :
+1. Aggiungere il seguente metodo alla classe **Program**:
 
     ```csharp  
     public static async void ReportConnectivity()
@@ -231,7 +233,7 @@ In questa sezione si crea un'app console .NET che si connette all'hub come **myD
 
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e selezionare **Imposta progetti di avvio**.
 
-1. In**progetto di avvio** **Proprietà** > comuni selezionare **progetti di avvio multipli**. Per **ReportConnectivity**selezionare **Avvia** come **azione**. Selezionare **OK** per salvare le modifiche.  
+1. In **Proprietà comuni** > **progetto di avvio**Selezionare **progetti di avvio multipli**. Per **ReportConnectivity**selezionare **Avvia** come **azione**. Selezionare **OK** per salvare le modifiche.  
 
 1. Eseguire l'app facendo clic con il pulsante destro del mouse sul progetto **ReportConnectivity** e selezionando **debug**, quindi **Avvia nuova istanza**. Si noterà che l'app recupera le informazioni sui dispositivi gemelli e quindi Invia la connettività come ***Proprietà segnalata***.
 
@@ -249,7 +251,7 @@ In questa esercitazione è stato configurato un nuovo hub IoT nel Portale di Azu
 
 È possibile ottenere altre informazioni dalle risorse seguenti:
 
-* Per informazioni su come inviare i dati di telemetria dai dispositivi, vedere l'esercitazione inviare dati di telemetria [da un dispositivo a un hub](quickstart-send-telemetry-dotnet.md) .
+* Per informazioni su come inviare i dati di telemetria dai dispositivi, vedere l'esercitazione inviare dati di [telemetria da un dispositivo a un hub](quickstart-send-telemetry-dotnet.md) .
 
 * Per informazioni su come configurare i dispositivi usando le proprietà desiderate del dispositivo gemello, vedere l'esercitazione [usare le proprietà desiderate per configurare i dispositivi](tutorial-device-twins.md) .
 

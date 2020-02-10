@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 4dd026377d5824853dd713a59a86ed742990bade
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a206ef6eb529fc396ec4ecb82d468c19f9e54b8a
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898840"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108248"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Panoramica del portale per sviluppatori di gestione API di Azure
 
@@ -39,7 +39,7 @@ Questo articolo descrive le differenze tra le versioni Self-Hosted e quelle gest
 È possibile creare il portale per sviluppatori in due modi:
 
 - **Versione gestita** : la modifica e la personalizzazione del portale, che è incorporata nell'istanza di gestione API ed è accessibile tramite l'URL `<your-api-management-instance-name>.developer.azure-api.net`. Per informazioni su come accedere e personalizzare il portale gestito, vedere [questo articolo della documentazione](api-management-howto-developer-portal-customize.md) .
-- **Versione self-hosted** : tramite la distribuzione e l'hosting automatico del portale all'esterno di un'istanza di gestione API. Questo approccio consente di modificare la codebase del portale ed estendere la funzionalità di base fornita. È anche necessario aggiornare il portale alla versione più recente. Per informazioni dettagliate e istruzioni, vedere il [repository GitHub con il codice sorgente del portale][1] e [l'esercitazione sull'implementazione di un widget][4]. L' [esercitazione per la versione gestita](api-management-howto-developer-portal-customize.md) scorre il pannello amministrativo del portale, disponibile anche nella versione self-hosted.
+- **Versione self-hosted** : tramite la distribuzione e l'hosting automatico del portale all'esterno di un'istanza di gestione API. Questo approccio consente di modificare la codebase del portale ed estendere la funzionalità di base fornita. È anche necessario aggiornare il portale alla versione più recente. Per informazioni dettagliate e istruzioni, vedere il [repository GitHub con il codice sorgente del portale][1] e [l'esercitazione sull'implementazione di un widget][3]. L' [esercitazione per la versione gestita](api-management-howto-developer-portal-customize.md) scorre il pannello amministrativo del portale, disponibile anche nella versione self-hosted.
 
 ## <a name="portal-architectural-concepts"></a>Concetti relativi all'architettura del portale
 
@@ -104,7 +104,7 @@ La deprecazione dei portali legacy verrà annunciata separatamente. In caso di d
 
 ### <a name="functionality-i-need-isnt-supported-in-the-portal"></a>La funzionalità richiesta non è supportata nel portale
 
-Usare la versione self-hosted e [implementare il proprio widget][4].
+Usare la versione self-hosted e [implementare il proprio widget][3].
 
 ### <a name="how-can-i-automate-portal-deployments"></a>Come è possibile automatizzare le distribuzioni del portale?
 
@@ -140,7 +140,7 @@ Per la maggior parte delle modifiche di configurazione, ad esempio VNet, accesso
 
 ### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a>Viene ricevuto un errore CORS quando si usa la console interattiva
 
-La console interattiva esegue una richiesta API sul lato client dal browser. È possibile risolvere il problema CORS aggiungendo [un criterio CORS](api-management-cross-domain-policies.md#CORS) sulle API. È possibile specificare tutti i parametri manualmente o usare i valori dei caratteri jolly `*`. Ad esempio:
+La console interattiva esegue una richiesta API sul lato client dal browser. È possibile risolvere il problema CORS aggiungendo [un criterio CORS](api-management-cross-domain-policies.md#CORS) sulle API. È possibile specificare tutti i parametri manualmente o usare i valori dei caratteri jolly `*`. Ad esempio,
 
 ```XML
 <cors>
@@ -216,7 +216,7 @@ L'errore di chiamata può anche essere causato da un certificato SSL, che viene 
 
 ### <a name="whats-the-browser-support-for-the-portal"></a>Qual è il supporto del browser per il portale?
 
-| Browser                     | Supportato       |
+| Browser.                     | Supportato       |
 |-----------------------------|-----------------|
 | Apple Safari                | Sì<sup>1</sup> |
 | Google Chrome               | Sì<sup>1</sup> |
@@ -232,14 +232,12 @@ Altre informazioni sul nuovo portale per sviluppatori:
 
 - [Accedere e personalizzare il portale per sviluppatori gestiti](api-management-howto-developer-portal-customize.md)
 - [Configurare la versione self-hosted del portale][2]
-- [Implementare il proprio widget][4]
+- [Implementare il proprio widget][3]
 
 Esplora altre risorse:
 
 - [Repository GitHub con il codice sorgente][1]
-- [Roadmap pubblica del progetto][3]
 
 [1]: https://aka.ms/apimdevportal
 [2]: https://github.com/Azure/api-management-developer-portal/wiki
-[3]: https://github.com/Azure/api-management-developer-portal/projects
-[4]: https://aka.ms/apimdevportal/extend
+[3]: https://aka.ms/apimdevportal/extend

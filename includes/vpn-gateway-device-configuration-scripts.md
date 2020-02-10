@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 01/09/2019
+ms.date: 02/07/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 78dfd57fba6365f9c8937b30b5cf96b840749c68
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e84a77629026bb8885a48b8ed928699825f07115
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180017"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77111219"
 ---
 | **Fornitore** | **Famiglia di dispositivi** | **Versione del firmware** |
 | --- | --- | --- |
@@ -28,5 +28,5 @@ ms.locfileid: "67180017"
 |Ubiquiti| EdgeRouter| BGP RouteBased EdgeOS versione 1.10.x|
 
 > [!NOTE]
-> (*) Obbligatori: NarrowAzureTrafficSelectors (abilitare l'opzione UsePolicyBasedTrafficSelectors) e CustomAzurePolicies (IKE/IPsec)
+> ( * ) Obbligatorio: NarrowAzureTrafficSelectors (opzione Abilita UsePolicyBasedTrafficSelectors) e CustomAzurePolicies (IKE/IPsec)
 >

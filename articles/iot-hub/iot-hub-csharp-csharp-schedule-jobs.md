@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: db4824203f63fa2fe0d4256a475d18a501b17e0e
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 7925ca5c69d01b098764ff744fb832eaa43118d6
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147744"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108965"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>Pianificare e trasmettere processi (.NET)
 
@@ -31,9 +31,9 @@ Un processo esegue il wrapping di una di queste azioni e tiene traccia dell'esec
 
 Per altre informazioni su queste funzionalità, vedere:
 
-* Dispositivo gemello e proprietà: [Introduzione ai dispositivi gemelli](iot-hub-csharp-csharp-twin-getstarted.md) ed [esercitazione: Come usare le proprietà dei dispositivi gemelli](tutorial-device-twins.md)
+* Dispositivi gemelli e proprietà: [Introduzione ai dispositivi gemelli](iot-hub-csharp-csharp-twin-getstarted.md) ed [Esercitazione: Come usare le proprietà dei dispositivi gemelli](tutorial-device-twins.md)
 
-* Metodi diretti: [Guida per gli sviluppatori dell'hub Internet-metodi diretti](iot-hub-devguide-direct-methods.md) ed [esercitazione: Usare metodi diretti](quickstart-control-device-dotnet.md)
+* Metodi diretti: [Guida per sviluppatori dell'hub IoT - Metodi diretti](iot-hub-devguide-direct-methods.md) ed [Esercitazione: Usare metodi diretti](quickstart-control-device-dotnet.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -54,6 +54,8 @@ Al termine di questa esercitazione si ottengono due app console .NET (C#):
 * Visual Studio.
 
 * Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
+
+* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo in questo articolo usa il protocollo MQTT, che comunica sulla porta 8883. Questa porta può essere bloccata in alcuni ambienti aziendali e di rete scolastici. Per ulteriori informazioni e per risolvere questo problema, vedere la pagina relativa [alla connessione all'hub Internet (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
@@ -198,7 +200,7 @@ In questa sezione si crea un'app console .NET (usando C#) che usa i processi per
     static string deviceId = "<yourDeviceId>";
     ```
 
-1. Aggiungere il metodo seguente alla classe **Program** :
+1. Aggiungere il seguente metodo alla classe **Program**:
 
     ```csharp
     public static async Task MonitorJob(string jobId)
@@ -214,7 +216,7 @@ In questa sezione si crea un'app console .NET (usando C#) che usa i processi per
     }
     ```
 
-1. Aggiungere il metodo seguente alla classe **Program** :
+1. Aggiungere il seguente metodo alla classe **Program**:
 
     ```csharp
     public static async Task StartMethodJob(string jobId)
@@ -292,7 +294,7 @@ A questo punto è possibile eseguire le app.
 
 1. Nella Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Imposta progetti di avvio**.
 
-1. Selezionare**progetto di avvio** **Proprietà** > comuni, quindi selezionare **progetti di avvio multipli**.
+1. Selezionare **Proprietà comuni** > **progetto di avvio**e quindi selezionare **progetti di avvio multipli**.
 
 1. Assicurarsi che `SimulateDeviceMethods` si trovi all'inizio dell'elenco, seguito da `ScheduleJob`. Impostare entrambe le azioni su **Avvia** e selezionare **OK**.
 
@@ -306,6 +308,6 @@ A questo punto è possibile eseguire le app.
 
 In questa esercitazione è stato usato un processo per pianificare un metodo diretto in un dispositivo e aggiornare le proprietà di un dispositivo gemello.
 
-* Per continuare a usare i modelli di gestione di hub e dispositivi, ad esempio Remote over the Air Firmware Update [, vedere l'esercitazione: Come eseguire un aggiornamento](tutorial-firmware-update.md)del firmware.
+* Per altre informazioni sull'hub IoT e sui modelli di gestione dei dispositivi, ad esempio in modalità remota tramite l'aggiornamento del firmware air, vedere [Esercitazione: Come eseguire un aggiornamento del firmware](tutorial-firmware-update.md).
 
 * Per altre informazioni sulla distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge, vedere la [Guida introduttiva di IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
