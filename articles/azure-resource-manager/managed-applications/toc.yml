@@ -61,7 +61,7 @@
           href: monitor-managed-application-portal.md
         - name: Approvare l'accesso just-in-time
           href: approve-just-in-time-access.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Artefatti dell'applicazione
       items:
@@ -110,6 +110,10 @@
               href: microsoft-compute-sizeselector.md
             - name: UserNameTextBox
               href: microsoft-compute-usernametextbox.md
+        - name: Identità gestita
+          items:
+            - name: IdentitySelector
+              href: microsoft-managedidentity-identityselector.md
         - name: Rete
           items:
             - name: PublicIPAddressCombo

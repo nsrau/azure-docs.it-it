@@ -1,0 +1,67 @@
+### YamlMime:Landing
+title: Documentazione sul provisioning di risorse umane e applicazioni
+summary: Il provisioning di app di Azure Active Directory consente di creare e gestire automaticamente le identità utente nelle app cloud (SaaS). Azure AD offre anche il provisioning con applicazioni per le risorse umane basate sul cloud. Di seguito sono riportati argomenti di avvio rapido, esercitazioni e indicazioni su come gestire e distribuire il provisioning di app cloud e risorse umane.
+metadata:
+  title: Documentazione sul provisioning di applicazioni
+  description: Il provisioning di app di Azure Active Directory consente di creare e gestire automaticamente le identità utente nelle app cloud (SaaS). Azure AD offre anche il provisioning con applicazioni per le risorse umane basate sul cloud. Di seguito sono riportati argomenti di avvio rapido, esercitazioni e indicazioni su come gestire e distribuire il provisioning di app cloud e risorse umane.
+  ms.service: active-directory
+  ms.subservice: app-mgmt
+  ms.workload: identity
+  ms.topic: landing-page
+  ms.date: 02/06/2020
+  author: msmimart
+  ms.author: mimart
+  manager: celested
+  ms.openlocfilehash: 02d9ee235de798e0c6095e0cbf60c08eabec53cd
+  ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 02/07/2020
+  ms.locfileid: "77065502"
+landingContent:
+- title: Effettuare il provisioning di utenti e gruppi in un'app cloud
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è il provisioning di applicazioni?
+      url: user-provisioning.md
+    - text: Come funziona il provisioning
+      url: how-provisioning-works.md
+  - linkListType: tutorial
+    links:
+    - text: Provisioning di SAP Cloud Platform Identity Authentication
+      url: /azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - text: Provisioning di Oracle Fusion ERP
+      url: /azure/active-directory/saas-apps/oracle-fusion-erp-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - text: Provisioning di Atlassian Cloud
+      url: /azure/active-directory/saas-apps/atlassian-cloud-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+  - linkListType: how-to-guide
+    links:
+    - text: Si vuole aggiungere un'app della raccolta? Configurare il provisioning per l'app
+      url: configure-automatic-user-provisioning-portal.md
+    - text: Personalizzare i mapping degli attributi
+      url: customize-application-attributes.md
+    - text: Usare i filtri per la definizione dell'ambito
+      url: define-conditional-rules-for-provisioning-user-accounts.md
+- title: Sviluppare un'app usando SCIM per il provisioning
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Provisioning con SCIM (Identity Standards Blog)
+      url: https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010
+  - linkListType: how-to-guide
+    links:
+    - text: Si sta sviluppando un'app? Usare SCIM per il provisioning automatico
+      url: use-scim-to-provision-users-and-groups.md
+- title: Gestire il provisioning in ingresso di risorse umane sul cloud
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Pianificare la distribuzione del provisioning utenti di risorse umane sul cloud
+      url: plan-cloud-hr-provision.md
+  - linkListType: tutorial
+    links:
+    - text: Provisioning di Workday
+      url: /azure/active-directory/saas-apps/workday-inbound-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - text: Provisioning di SAP SuccessFactors
+      url: /azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context

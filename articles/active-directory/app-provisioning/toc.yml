@@ -1,0 +1,107 @@
+- name: Documentazione sul provisioning di risorse umane e applicazioni
+  href: index.yml
+- name: Panoramica
+  expanded: true
+  items:
+    - name: Che cos'è il provisioning di applicazioni?
+      href: user-provisioning.md
+- name: Esercitazioni
+  items:
+    - name: G Suite
+      href: /azure/active-directory/saas-apps/google-apps-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - name: ServiceNow
+      href: /azure/active-directory/saas-apps/servicenow-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - name: Amazon Web Services (AWS) - Role Provisioning
+      href: '/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-ont?context=azure/active-directory/app-provisioning/context/app-provisioning-context'
+    - name: Workday
+      href: /azure/active-directory/saas-apps/workday-inbound-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - name: SAP SuccessFactors
+      href: /azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - name: Tutte le app della raccolta integrata
+      href: /azure/active-directory/saas-apps
+- name: Concetti
+  expanded: true
+  items:
+    - name: Come funziona il provisioning di applicazioni
+      href: how-provisioning-works.md
+    - name: Pianificare una distribuzione del provisioning di applicazioni
+      href: plan-auto-user-provisioning.md
+    - name: Pianificare la distribuzione del provisioning di risorse umane sul cloud
+      href: plan-cloud-hr-provision.md
+- name: Guide pratiche
+  expanded: true
+  items:
+    - name: Configurare il provisioning per un'app della raccolta
+      href: configure-automatic-user-provisioning-portal.md
+    - name: Modificare i mapping degli attributi
+      items:
+        - name: Personalizzare i mapping degli attributi
+          href: customize-application-attributes.md
+        - name: Scrivere espressioni per il mapping degli attributi
+          href: functions-for-customizing-application-data.md
+    - name: Includere o escludere utenti e gruppi dall'ambito
+      items:
+        - name: Definire l'ambito di utenti o gruppi di cui effettuare il provisioning
+          href: define-conditional-rules-for-provisioning-user-accounts.md
+        - name: Ignorare l'eliminazione per gli utenti fuori ambito
+          href: skip-out-of-scope-deletions.md
+    - name: Monitorare e creare report sul provisioning
+      items:
+        - name: Monitorare lo stato e le prestazioni del provisioning
+          href: application-provisioning-when-will-provisioning-finish-specific-user.md
+        - name: Report sul provisioning di app
+          href: check-status-user-account-provisioning.md
+        - name: Esportare e importare la configurazione
+          href: export-import-provisioning-configuration.md
+    - name: Risolvere i problemi del provisioning di applicazioni
+      items:
+        - name: Risolvere i problemi del provisioning di app
+          href: application-provisioning-config-problem.md
+        - name: Stato di quarantena
+          href: application-provisioning-quarantine-status.md
+        - name: Problema di autorizzazione (non è possibile salvare le credenziali di amministratore)
+          href: application-provisioning-config-problem-storage-limit.md
+        - name: Utenti senza provisioning
+          href: application-provisioning-config-problem-no-users-provisioned.md
+        - name: Provisioning di utenti errati
+          href: application-provisioning-config-problem-wrong-users-provisioned.md
+        - name: Attributo di origine mancante
+          href: user-provisioning-sync-attributes-for-mapping.md
+        - name: Processo di provisioning lento
+          href: application-provisioning-when-will-provisioning-finish.md
+        - name: Log di provisioning
+          href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - name: Creare un endpoint SCIM e configurare il provisioning
+      href: use-scim-to-provision-users-and-groups.md
+    - name: Automatizzare la configurazione con MS Graph
+      href: application-provisioning-configure-api.md
+- name: Informazioni di riferimento
+  items:
+    - name: Scelta di un metodo di provisioning
+      href: isv-automatic-provisioning-multi-tenant-apps.md
+    - name: Provisioning HR nel cloud
+      items:
+        - name: Informazioni di riferimento sugli attributi di SuccessFactors
+          href: sap-successfactors-attribute-reference.md
+        - name: Informazioni di riferimento sugli attributi di Workday
+          href: workday-attribute-reference.md
+    - name: Agente provisioning di Microsoft Azure AD Connect
+      items:
+        - name: Cronologia delle versioni dell'agente di provisioning
+          href: provisioning-agent-release-version-history.md
+- name: Risorse
+  items:
+    - name: Opzioni di supporto tecnico e assistenza per gli sviluppatori
+      href: /azure/active-directory/develop/developer-support-help-options
+    - name: Forum di commenti e suggerimenti su Azure
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: Forum MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/active-directory'
+    - name: Aggiornamenti del servizio
+      href: 'https://azure.microsoft.com/updates/?product=active-directory'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
+    - name: Video
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

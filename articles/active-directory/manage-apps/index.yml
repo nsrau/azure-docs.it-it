@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 7ebb44ec1f3483b9bf3f29ddb6dc7a73266b8cea
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.openlocfilehash: 3bea7dda1cf44548ea924ffa84fb922410242f27
+  ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75443370"
+  ms.lasthandoff: 02/07/2020
+  ms.locfileid: "77063473"
 landingContent:
 - title: Informazioni sulla gestione delle applicazioni
   linkLists:
@@ -51,24 +51,18 @@ landingContent:
   linkLists:
   - linkListType: overview
     links:
-    - text: Informazioni sul provisioning utenti automatico
-      url: user-provisioning.md
-    - text: Come funziona il provisioning
-      url: how-provisioning-works.md
+    - text: Che cos'è il provisioning di applicazioni?
+      url: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
   - linkListType: tutorial
     links:
     - text: Esercitazioni sul provisioning di app SaaS
       url: /azure/active-directory/saas-apps/
   - linkListType: how-to-guide
     links:
-    - text: Si vuole creare un'app? Usare SCIM per il provisioning automatico
-      url: use-scim-to-provision-users-and-groups.md
-    - text: Si vuole aggiungere un'app della raccolta? Configurare il provisioning per l'app
-      url: configure-automatic-user-provisioning-portal.md
-    - text: Personalizzare i mapping degli attributi
-      url: customize-application-attributes.md
-    - text: Usare i filtri per la definizione dell'ambito
-      url: define-conditional-rules-for-provisioning-user-accounts.md
+    - text: Si vuole creare un'app? Usare SCIM per il provisioning (documentazione sul provisioning di app)
+      url: /azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups
+    - text: Si vuole aggiungere un'app della raccolta? Configurare il provisioning (documentazione sul provisioning di app)
+      url: /azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal
 - title: Pubblicare app locali con Application Proxy
   linkLists:
   - linkListType: overview

@@ -25,6 +25,9 @@
         - name: Creare un esperimento automatizzato di Machine Learning
           displayName: 'automl, automated, auto ml, portal, ui'
           href: tutorial-first-experiment-automated-ml.md
+        - name: Prevedere la domanda con ML automatizzato (dati sul bike sharing)
+          displayName: 'automl, automated, auto ml, portal, ui'
+          href: tutorial-automated-ml-forecast.md
     - name: Python SDK
       items:
         - name: Creare il primo esperimento di Machine Learning

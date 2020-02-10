@@ -64,7 +64,7 @@
           href: set-up-customize-master-image.md
         - name: Installare Office in un'immagine master di disco rigido virtuale
           href: install-office-on-wvd-master-image.md
-    - name: Ridimensionare dinamicamente gli host della sessione
+    - name: Ridimensionare automaticamente gli host di sessione
       href: set-up-scaling-script.md
     - name: Personalizzare il feed
       href: customize-feed-for-virtual-desktop-users.md

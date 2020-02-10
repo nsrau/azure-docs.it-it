@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentazione di Azure Dev Spaces
-summary: Azure Dev Spaces consente di testare e sviluppare in modo iterativo l'intera applicazione di microservizi nel servizio Azure Kubernetes senza replicare o simulare dipendenze. Azure Dev Spaces riduce il carico di lavoro e la complessità della collaborazione con il team in un cluster del servizio Azure Kubernetes condiviso. Consente inoltre di eseguire i contenitori ed eseguirne il debug direttamente nel servizio Azure Kubernetes.
+summary: Azure Dev Spaces è un'estensione del servizio Azure Kubernetes che consente di eseguire e sottoporre a debug il codice nel contesto di un'applicazione più grande. È possibile testare il codice end-to-end, raggiungere i punti di interruzione nel codice in esecuzione nel cluster e condividere un cluster di sviluppo tra i membri del team senza interferenze.
 metadata:
   title: Documentazione di Azure Dev Spaces
-  description: Azure Dev Spaces consente di testare e sviluppare in modo iterativo l'intera applicazione di microservizi nel servizio Azure Kubernetes senza replicare o simulare dipendenze. Azure Dev Spaces riduce il carico di lavoro e la complessità della collaborazione con il team in un cluster del servizio Azure Kubernetes condiviso. Consente inoltre di eseguire i contenitori ed eseguirne il debug direttamente nel servizio Azure Kubernetes.
+  description: Azure Dev Spaces è un'estensione del servizio Azure Kubernetes che consente di eseguire e sottoporre a debug il codice nel contesto di un'applicazione più grande. È possibile testare il codice end-to-end, raggiungere i punti di interruzione nel codice in esecuzione nel cluster e condividere un cluster di sviluppo tra i membri del team senza interferenze.
   services: azure-dev-spaces
   ms.service: azure-dev-spaces
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   ms.author: zarhoads
   manager: gwallace
   ms.date: 09/30/2019
-  ms.openlocfilehash: 96fe99c5eb2ef8600ee9cca1e63f9fc3451919c2
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.openlocfilehash: 8871b713806b7c80520d4b52112f84056d20bc26
+  ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75438354"
+  ms.lasthandoff: 02/07/2020
+  ms.locfileid: "77057363"
 landingContent:
 - title: Informazioni su Azure Dev Spaces
   linkLists:

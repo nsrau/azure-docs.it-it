@@ -47,7 +47,9 @@
             - name: Disabilitare Monitoraggio di Azure per i contenitori
               href: ../azure-monitor/insights/container-insights-optout-openshift.md
               maintainContext: true
-- name: Riferimento
+    - name: Eseguire contenitori con privilegi in un cluster di Azure Red Hat OpenShift
+      href: howto-run-privileged-containers.md
+- name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure Red Hat OpenShift
       href: /cli/azure/openshift
@@ -57,11 +59,11 @@
   items:
     - name: Domande frequenti
       href: openshift-faq.md
-    - name: risoluzione dei problemi
+    - name: Risoluzione dei problemi
       href: troubleshoot.md
     - name: Risorse supportate
       href: supported-resources.md
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Documentazione di Red Hat OpenShift
       href: 'https://docs.openshift.com/aro/welcome/index.html'

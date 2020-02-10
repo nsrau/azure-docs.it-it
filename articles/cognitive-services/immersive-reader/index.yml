@@ -12,12 +12,12 @@ metadata:
   author: IEvangelist
   ms.author: dapine
   ms.date: 01/23/2020
-  ms.openlocfilehash: 4832f81a7891e360b0e8a195214930ddc2c2eb03
-  ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+  ms.openlocfilehash: 2ba262c7adf778099e47e636a9106f74314c2254
+  ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 01/24/2020
-  ms.locfileid: "76716790"
+  ms.lasthandoff: 02/09/2020
+  ms.locfileid: "77108698"
 landingContent:
 - title: Informazioni sullo strumento di lettura immersiva
   linkLists:
@@ -25,6 +25,10 @@ landingContent:
     links:
     - text: Cos'è lo strumento di lettura immersiva?
       url: overview.md
+  - linkListType: video
+    links:
+    - text: Brevi video introduttivi sulla progettazione
+      url: https://aka.ms/ImmersiveReaderSDKVideos
 - title: Introduzione
   linkLists:
   - linkListType: quickstart

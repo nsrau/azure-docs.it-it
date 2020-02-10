@@ -14,6 +14,8 @@
           href: common-questions-appliance.md
         - name: 'Domande su individuazione, valutazione e visualizzazione delle dipendenze'
           href: common-questions-discovery-assessment.md
+        - name: Domande su Migrazione del server
+          href: common-questions-server-migration.md
 - name: Esercitazioni
   items:
     - name: Valutare le VM VMware ed eseguirne la migrazione

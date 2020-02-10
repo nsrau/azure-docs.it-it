@@ -193,7 +193,7 @@
           href: expressroute-troubleshooting-arp-resource-manager.md
         - name: Recupero di tabelle ARP (versione classica)
           href: expressroute-troubleshooting-arp-classic.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Azure PowerShell
       href: '/powershell/module/az.network#expressroute'
@@ -228,6 +228,8 @@
       href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json
     - name: ExpressRoute per Cloud Solution Provider (CSP)
       href: expressroute-for-cloud-solution-providers.md
+    - name: Sviluppo di API CrossConnections per i partner
+      href: cross-connections-api-development.md
     - name: Video
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=expressroute'
       items:
