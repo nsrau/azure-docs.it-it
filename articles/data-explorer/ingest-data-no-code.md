@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Inserire dati di monitoraggio in Esplora dati di Azure senza una riga di codice'
+title: 'Esercitazione: Inserire dati di monitoraggio senza codice - Esplora dati di Azure'
 description: Questa esercitazione illustra come inserire dati di monitoraggio in Esplora dati di Azure senza una riga di codice e come eseguire query su tali dati.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: c160f04ef7120a6c90991d8e6ecdf98b2f0d348e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 24e09f6578431e6b7f2a83be13bae59bf2e707de
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836560"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986207"
 ---
 # <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>Esercitazione: Inserire ed eseguire query sui dati di monitoraggio in Esplora dati di Azure 
 

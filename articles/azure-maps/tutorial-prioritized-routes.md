@@ -3,22 +3,22 @@ title: 'Esercitazione: Trovare più itinerari per modalità di trasporto | Mappe
 description: In questa esercitazione si apprenderà come trovare itinerari per diverse modalità di trasporto usando Mappe di Microsoft Azure.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/12/2019
+ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 258572d4451be6d9a1090c032467e85889148d14
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 73cc2ff49653c91d635d52b79a92d1974bfd895b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910855"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989655"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Esercitazione: Trovare gli itinerari per diverse modalità di trasporto tramite Mappe di Azure
 
-Questa esercitazione illustra come usare l'account Mappe di Azure e il servizio di pianificazione itinerari per trovare gli itinerari più adatti per raggiungere un punto di interesse in base alla modalità di trasporto selezionata. Saranno visualizzati due itinerari diversi sulla mappa, uno per le automobili e uno per gli autocarri che potrebbero essere soggetti a limitazioni a causa di altezza, peso e pericolosità del carico. In questa esercitazione verranno illustrate le procedure per:
+Questa esercitazione illustra come usare l'account Mappe di Azure e il servizio di pianificazione percorso per trovare il percorso per raggiungere un determinato punto di interesse, classificato in ordine di priorità in base alla modalità di viaggio. È possibile visualizzare due percorsi diversi sulla mappa, uno per le automobili e uno per gli autocarri. Il servizio di pianificazione percorso considera le limitazioni previste per altezza e peso del veicolo o se il veicolo trasporta un carico pericoloso. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare una nuova pagina Web usando l'API del controllo mappa
@@ -27,7 +27,7 @@ Questa esercitazione illustra come usare l'account Mappe di Azure e il servizio 
 > * Visualizzare più itinerari sulla mappa
 
 ## <a name="prerequisites"></a>Prerequisites
-Prima di procedere, seguire le istruzioni in [Creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) per creare una sottoscrizione dell'account Mappe di Azure con il piano tariffario S1 ed eseguire la procedura descritta in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account) per ottenere la chiave primaria per l'account. Per informazioni dettagliate sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
+Prima di continuare, seguire le istruzioni riportate in [Creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) e selezionare il piano tariffario S1. Per ottenere la chiave primaria per l'account, seguire la procedura illustrata in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account). Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
 
 ## <a name="create-a-new-map"></a>Creare una nuova mappa
 
@@ -123,7 +123,7 @@ La procedura seguente illustra come creare una pagina HTML statica incorporata u
 
 ## <a name="define-how-the-route-will-be-rendered"></a>Definire il rendering dell'itinerario
 
-In questa esercitazione verranno calcolati due itinerari e ne verrà eseguito il rendering nella mappa. Un itinerario usa le strade accessibili alle auto e l'altro quelle accessibile agli autocarri. Quando viene eseguito il rendering verranno visualizzate icone di simbolo per l'inizio e la fine dell'itinerario e linee di colore diverso per ogni percorso dell'itinerario.
+In questa esercitazione verranno calcolati due itinerari e ne verrà eseguito il rendering nella mappa. Un itinerario usa le strade accessibili alle auto e l'altro quelle accessibile agli autocarri. Quando viene eseguito il rendering verranno visualizzate le icone dei simboli per il punto di partenza e di arrivo dell'itinerario e linee di colore diverso per ogni percorso dell'itinerario.
 
 1. Dopo aver inizializzato la mappa, aggiungere il codice JavaScript seguente nel gestore dell'evento `ready` delle mappe.
 
@@ -158,7 +158,7 @@ In questa esercitazione verranno calcolati due itinerari e ne verrà eseguito il
     });
     ```
     
-    Nel gestore dell'evento `ready` delle mappe viene creata un'origine dati per archiviare le linee relative all'itinerario e i punti di partenza e di arrivo. Viene creato un livello linea che viene allegato all'origine dati per definire il rendering della linea dell'itinerario. Le espressioni consentono di recuperare il colore e lo spessore della linea dalle proprietà della funzionalità delle linea dell'itinerario. Quando si aggiunge il livello alla mappa, viene passato un secondo parametro con valore `'labels'`, per indicare che il rendering di questo livello deve essere eseguito sotto le etichette della mappa. In questo modo la linea dell'itinerario non coprirà le etichette delle strade. Viene creato un livello simboli che viene allegato all'origine dati. Questo livello consente di specificare in che modo verrà eseguito il rendering dei punti di partenza e di arrivo. In questo caso sono state aggiunte espressioni per recuperare le informazioni sull'icona dell'immagine e il testo dell'etichetta dalle proprietà di ogni oggetto punto. 
+    Nel gestore dell'evento `ready` delle mappe viene creata un'origine dati per archiviare le linee relative all'itinerario e i punti di partenza e di arrivo. Viene creato un livello linea che viene allegato all'origine dati per definire il rendering della linea dell'itinerario. Le espressioni consentono di recuperare il colore e lo spessore della linea dalle proprietà della funzionalità delle linea dell'itinerario. Quando si aggiunge il livello alla mappa, viene passato un secondo parametro con valore `'labels'`, per indicare che il rendering di questo livello deve essere eseguito sotto le etichette della mappa. In questo modo la linea dell'itinerario non coprirà le etichette delle strade. Viene creato un livello simboli che viene allegato all'origine dati. Questo livello specifica la modalità di rendering del punto di partenza e del punto di arrivo. In questo caso sono state aggiunte espressioni per recuperare l'immagine dell'icona e le informazioni sull'etichetta di testo dalle proprietà di ogni oggetto punto. 
     
 2. Per questa esercitazione impostare come punto di partenza una società fittizia di Seattle denominata Fabrikam e come punto di arrivo un ufficio di Microsoft. Nel gestore dell'evento `ready` delle mappe aggiungere il codice seguente.
 
@@ -192,7 +192,7 @@ In questa esercitazione verranno calcolati due itinerari e ne verrà eseguito il
 
     I punti di partenza e di arrivo vengono aggiunti all'origine dati. Per il calcolo del rettangolo di selezione viene usata la funzione `atlas.data.BoundingBox.fromData`. Questo rettangolo di selezione viene usato per impostare la visualizzazione delle videocamere della mappa sull'intero percorso con la funzione `map.setCamera`. Per compensare le dimensioni in pixel delle icone di simbolo, viene aggiunta una spaziatura interna.
 
-4. Salvare il file e aggiornare il browser per visualizzare i punti sulla mappa. Ora la mappa è centrata su Seattle ed è possibile vedere il segnaposto blu rotondo che indica il punto di partenza e il segnaposto blu che indica il punto di arrivo.
+4. Salvare il file e aggiornare il browser per visualizzare i punti sulla mappa. La mappa è ora centrata sulla città di Seattle. È possibile vedere il segnaposto blu rotondo che indica il punto di partenza e il segnaposto blu che indica il punto di arrivo.
 
    ![Visualizzare la mappa con i punti di partenza e di arrivo](./media/tutorial-prioritized-routes/pins-map.png)
 
@@ -244,7 +244,7 @@ Questa sezione illustra come usare l'API del servizio di pianificazione itinerar
     });
     ```
 
-    Questo frammento di codice sopra indicato esegue query sul servizio di routing di Mappe di Azure tramite il metodo [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest). La linea dell'itinerario viene estratta dalla raccolta di funzionalità GeoJSON dalla risposta ottenuta usando il metodo `geojson.getFeatures()`. La linea di percorso viene quindi aggiunta all'origine dati. Aggiunge inoltre un indice pari a 0 per assicurarsi che ne venga eseguito il rendering prima di tutte le altre linee nell'origine dati. Il calcolo dell'itinerario per gli autocarri sarà infatti spesso più lento rispetto q quello dell'itinerario per le auto, di conseguenza se la linea dell'itinerario per gli autocarri viene aggiunto all'origine dati dopo quello per le auto, ne verrà eseguito il rendering su quest'ultimo. Alla linea dell'itinerario per gli autocarri vengono aggiunte due proprietà, un colore di tratto con sfumatura blu e uno spessore tratto di 9 pixel.
+    Questo frammento di codice sopra indicato esegue query sul servizio di routing di Mappe di Azure tramite il metodo [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest). La linea dell'itinerario viene estratta dalla raccolta di funzionalità GeoJSON dalla risposta ottenuta usando il metodo `geojson.getFeatures()`. La linea di percorso viene quindi aggiunta all'origine dati. Un indice pari a 0 garantisce che ne venga eseguito il rendering prima di tutte le altre linee nell'origine dati. Il calcolo dell'itinerario per gli autocarri sarà infatti spesso più lento rispetto q quello dell'itinerario per le auto, di conseguenza se la linea dell'itinerario per gli autocarri viene aggiunto all'origine dati dopo quello per le auto, ne verrà eseguito il rendering su quest'ultimo. Alla linea dell'itinerario per gli autocarri vengono aggiunte due proprietà, un colore di tratto con sfumatura blu e uno spessore tratto di 9 pixel.
 
 3. Aggiungere il codice JavaScript seguente per creare l'itinerario per un'auto e visualizzare i risultati.
 

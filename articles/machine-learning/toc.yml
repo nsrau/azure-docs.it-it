@@ -53,6 +53,9 @@
             - name: Assegnare un punteggio in batch a un modello di classificazione
               displayName: pipelines
               href: tutorial-pipeline-batch-scoring-classification.md
+        - name: Dall'esperimento alla produzione
+          displayName: 'mlops, mlopspython, production'
+          href: tutorial-convert-ml-experiment-to-production.md
     - name: R SDK
       items:
         - name: Creare il primo esperimento di Machine Learning (R)
@@ -125,6 +128,8 @@
               href: how-to-enable-virtual-network.md
             - name: Proteggere il servizio Web con SSL
               href: how-to-secure-web-service.md
+            - name: Usare l'identità di Azure AD nelle distribuzioni del servizio Azure Kubernetes
+              href: how-to-use-azure-ad-identity.md
             - name: Rigenerazione delle chiavi di accesso alle risorse di archiviazione
               href: how-to-change-storage-access-key.md
         - name: Configurare l'autenticazione
@@ -348,6 +353,8 @@
           href: how-to-create-your-first-pipeline.md
         - name: Pianificare una pipeline (Python)
           href: how-to-schedule-pipelines.md
+        - name: Attivare una pipeline
+          href: how-to-trigger-published-pipeline.md
         - name: Debug e risoluzione dei problemi delle pipeline
           href: how-to-debug-pipelines.md
         - name: Debug delle pipeline in Application Insights

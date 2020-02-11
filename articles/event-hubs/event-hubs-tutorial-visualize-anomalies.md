@@ -8,13 +8,13 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 12/20/2019
-ms.openlocfilehash: 1fc791519fd32b35bdbe3a69caec3c64e3ce3178
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/15/2020
+ms.openlocfilehash: 8fa123772ae380cd000c414c63bdf3908d279751
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437155"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906391"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Esercitazione: Visualizzare le anomalie dei dati in eventi in tempo reale inviati a Hub eventi di Azure
 
@@ -156,14 +156,14 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
 ## <a name="run-app-to-produce-test-event-data"></a>Eseguire l'app per produrre dati di evento di test
 
-Gli [esempi in GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) di Hub eventi includono un'[app di rilevamento delle anomalie](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/AnomalyDetector) che genera dati di test. Simula l'uso di carte di credito scrivendo transazioni con carta di credito nell'hub eventi, tra cui, in alcuni casi, transazioni diverse per la stessa carta di credito in diverse posizioni, in modo che vengano contrassegnate come anomalie. Per eseguire l'applicazione, seguire questa procedura: 
+Gli [esempi in GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) di Hub eventi includono un'app Rilevamento anomalie che genera automaticamente i dati di test. Simula l'uso di carte di credito scrivendo transazioni con carta di credito nell'hub eventi, tra cui, in alcuni casi, transazioni diverse per la stessa carta di credito in diverse posizioni, in modo che vengano contrassegnate come anomalie. Per eseguire l'applicazione, seguire questa procedura: 
 
 1. Scaricare gli [esempi di Hub eventi di Azure](https://github.com/Azure/azure-event-hubs/archive/master.zip) da GitHub e decomprimere il file in locale.
+2. Passare alla cartella **\azure-event-hubs-master\samples\DotNet\\** . 
+3. Passare alla cartella **Azure.Messaging.EventHubs\AnomalyDetector\\** e fare doppio clic su **AnomalyDetector.sln** per aprire la soluzione in Visual Studio. 
 
-2. Passare alla cartella \azure-event-hubs-master\samples\DotNet\AnomalyDetector\ e fare doppio clic su AnomalyDetector.sln per aprire la soluzione in Visual Studio. 
-
+    Per usare la versione precedente dell'esempio che usa il vecchio pacchetto Microsoft.Azure.EventHubs, aprire la soluzione dalla cartella **Microsoft.Azure.EventHubs\AnomalyDetector**. 
 3. Aprire Program.cs e sostituire **Event Hubs connection string** (Stringa di connessione hub eventi) con la stringa di connessione salvata durante l'esecuzione dello script. 
-
 4. Sostituire **Nome hub eventi** con il nome del proprio hub eventi. Fare clic su F5 per eseguire l'applicazione. L'app inizia a inviare gli eventi all'hub eventi e continua fino a quando non ne ha inviati 1000. Vi sono alcune istanze in cui è necessario che l'app sia in esecuzione perché possano essere recuperati dati. Questi casi sono descritti nelle istruzioni seguenti, dove necessario.
 
 ## <a name="set-up-azure-stream-analytics"></a>Configurare Analisi di flusso di Azure
@@ -320,7 +320,7 @@ Nel processo di Analisi di flusso fare clic su **Avvia**, poi su **Adesso** e su
 
    Fare clic su **Avanti**.
 
-10. Impostare il titolo su **Fraudulent uses** e il sottotitolo su **Sum in last few minutes**. Fare clic su **Apply**. Il riquadro viene salvato nel dashboard.
+10. Impostare il titolo su **Fraudulent uses** e il sottotitolo su **Sum in last few minutes**. Fare clic su **Applica**. Il riquadro viene salvato nel dashboard.
 
     ![Screenshot di specifica di titolo e sottotitolo per il riquadro del dashboard.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-tile-details.png)
 

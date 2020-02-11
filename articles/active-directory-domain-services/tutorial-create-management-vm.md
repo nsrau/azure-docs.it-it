@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: d8a5f4756f3a6799c7f1b08973e0a84603cb4571
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 73402420bdfee7fecbd7901deefe7f4314a76d51
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703639"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931590"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Esercitazione: Creare una VM di gestione per configurare e amministrare un dominio gestito di Azure Active Directory Domain Services
 
@@ -22,7 +22,7 @@ Azure Active Directory Domain Services (AD DS) offre servizi di dominio gestiti,
 
 Questa esercitazione illustra come creare una VM Windows Server in Azure e installare gli strumenti necessari per amministrare un dominio gestito di Azure AD DS.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Identificare le attività amministrative disponibili in un dominio gestito di Azure AD DS
@@ -31,7 +31,7 @@ In questa esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti:
 
@@ -42,7 +42,7 @@ Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti
 * Un dominio gestito di Azure Active Directory Domain Services abilitato e configurato nel tenant di Azure AD.
     * Se necessario, seguire la prima esercitazione per [creare e configurare un'istanza di Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Una VM Windows Server aggiunta al dominio gestito di Azure AD DS.
-    * Se necessario, seguire l'esercitazione precedente per [creare una VM Windows Server e aggiungerla a un dominio gestito][create-join-windows-vm].
+    * Se necessario, seguire l'esercitazione precedente per [creare una macchina virtuale Windows Server e aggiungerla a un dominio gestito][create-join-windows-vm].
 * Un account utente membro del gruppo di *amministratori dei controller di dominio di Azure AD* nel tenant di Azure AD.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
@@ -143,7 +143,7 @@ Sono disponibili azioni comuni del Centro di amministrazione di Active Directory
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Identificare le attività amministrative disponibili in un dominio gestito di Azure AD DS

@@ -7,14 +7,14 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 01/23/2020
+ms.date: 02/03/2020
 ms.custom: include file
-ms.openlocfilehash: a1576e4a97af5de0b936c662de636aae542a19b5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: cfe3eb4c0ac1378b7c519b3b34094945612d8508
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76748923"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029277"
 ---
 >[!NOTE]
 >Questa sezione fornisce istruzioni relative alla [registrazione app di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
@@ -27,24 +27,40 @@ ms.locfileid: "76748923"
 
     [![Selezionare il pulsante Nuova registrazione](./media/digital-twins-permissions/aad-app-register.png)](./media/digital-twins-permissions/aad-app-register.png#lightbox)
 
-1. Assegnare un nome descrittivo a questa registrazione app nella casella **Nome**. Nella sezione **URI di reindirizzamento (facoltativo)** scegliere **Client pubblico/nativo (per dispositivi mobili e desktop)** nel menu a discesa a sinistra e immettere `https://microsoft.com` nella casella di testo a destra. Selezionare **Registra**.
+1. Assegnare un nome descrittivo a questa registrazione app nella casella **Nome**. 
+
+    1. Nella sezione **URI di reindirizzamento (facoltativo)** immettere `https://microsoft.com` nella casella di testo.     
+
+    1. Verificare quali account e tenant sono supportati dall'app Azure Active Directory.
+
+    1. Selezionare **Registra**.
 
     [![Riquadro Crea](./media/digital-twins-permissions/aad-app-reg-create.png)](./media/digital-twins-permissions/aad-app-reg-create.png#lightbox)
 
-1. Per assicurarsi che [l'app sia registrata come **client pubblico**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), aprire il riquadro **Autenticazione** per la registrazione app e scorrere verso il basso. Nella sezione **Tipo di client predefinito** scegliere **Sì** per **Consente di gestire l'applicazione come un client pubblico**, quindi premere **Salva**.
+1. Il pannello **Autenticazione** specifica importanti impostazioni di configurazione dell'autenticazione. 
+
+    1. Aggiungere gli **URI di reindirizzamento** e configurare i **Token di accesso** selezionando **+ Aggiungi una piattaforma**.
+
+    1. Selezionare **Sì** per specificare che l'app è un **client pubblico**.
+
+    1. Verificare quali account e tenant sono supportati dall'app Azure Active Directory.
+
+    [![Impostazione di configurazione del client pubblico](./media/digital-twins-permissions/aad-configure-public-client.png)](./media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
+
+1. Dopo aver selezionato la piattaforma appropriata, configurare gli **URI di reindirizzamento** e i **Token di accesso** nel pannello laterale a destra dell'interfaccia utente.
 
     1. È necessario che quanto specificato per **URI di reindirizzamento** corrisponda all'indirizzo fornito dalla richiesta di autenticazione:
 
-        * Per le app ospitate in un ambiente di sviluppo locale, selezionare **Client pubblico (per dispositivi mobili e desktop)** . Assicurarsi di impostare **Tipo di client predefinito** su Sì.
+        * Per le app ospitate in un ambiente di sviluppo locale, selezionare **Client pubblico (per dispositivi mobili e desktop)** . Assicurarsi di impostare **client pubblico** su **Sì**.
         * Per le app a pagina singola ospitate nel servizio app di Azure, selezionare **Web**.
 
-        Selezionare **Client pubblico (per dispositivi mobili e desktop)** e immettere `http://localhost:8080/`.
+    1. Determinare se è appropriato impostare un **URL di disconnessione**.
 
-        [![Configurare gli URI di reindirizzamento](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png)](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png#lightbox)
+    1. Abilitare il flusso di concessione implicita selezionando **Token di accesso** o **Token ID**.
+                
+    [![Configurare gli URI di reindirizzamento](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png)](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png#lightbox)
 
-    1. Selezionare **Token di accesso** per configurare l'impostazione **oauth2AllowImplicitFlow** su `true` nel file JSON **Manifest** della risorsa.
-
-        [![Impostazione di configurazione del client pubblico](./media/digital-twins-permissions/aad-configure-public-client.png)](./media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
+    Fare clic su **Configura** e quindi su **Salva**.
 
 1.  Aprire il riquadro**Panoramica** dell'app registrata e copiare i valori delle entità seguenti in un file temporaneo. Questi valori verranno usati per configurare l'applicazione di esempio nelle sezioni seguenti.
 

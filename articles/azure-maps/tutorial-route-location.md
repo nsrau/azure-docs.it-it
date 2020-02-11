@@ -3,18 +3,18 @@ title: 'Esercitazione: Trovare il percorso per una località | Mappe di Microsof
 description: In questa esercitazione viene illustrato come eseguire il rendering del percorso verso una località (punto di interesse) su una mappa usando il servizio di pianificazione percorso di Mappe di Microsoft Azure.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/12/2019
+ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7f13e5342e880a9ed5e2cb35ebaf558a1641618b
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 3fedb045773cb975d37e2d866862e7863a6232e3
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910842"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989638"
 ---
 # <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Esercitazione: Trovare il percorso per raggiungere un punto di interesse usando Mappe di Azure
 
@@ -27,7 +27,7 @@ Questa esercitazione illustra come usare l'account Mappe di Azure e l'SDK del se
 
 ## <a name="prerequisites"></a>Prerequisites
 
-Prima di procedere, seguire le istruzioni in [Creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) per creare una sottoscrizione dell'account Mappe di Azure con il piano tariffario S1 ed eseguire la procedura descritta in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account) per ottenere la chiave primaria per l'account. Per informazioni dettagliate sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
+Prima di continuare, creare una sottoscrizione con il piano tariffario S1 seguendo le istruzioni riportate in [Creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps). Per ottenere la chiave primaria per l'account, seguire la procedura illustrata in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account). Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
 
 <a id="getcoordinates"></a>
 
@@ -139,7 +139,7 @@ In questa esercitazione verrà eseguito il rendering di un itinerario semplice u
     });
     ```
     
-    Nel gestore dell'evento `ready` delle mappe viene creata un'origine dati per archiviare la riga relativa all'itinerario e i punti di partenza e di arrivo. Viene creato un livello linea che viene allegato all'origine dati per definire il rendering della linea dell'itinerario. Il rendering del livello linea sarà caratterizzato da una sfumatura blu di larghezza pari a 5 pixel e giunzioni di linee ed estremità arrotondate. Quando si aggiunge il livello alla mappa, viene passato un secondo parametro con valore `'labels'`, per indicare che il rendering di questo livello deve essere eseguito sotto le etichette della mappa. In questo modo la linea dell'itinerario non coprirà le etichette delle strade. Viene creato un livello simboli che viene allegato all'origine dati. Questo livello consente di specificare in che modo verrà eseguito il rendering dei punti di partenza e di arrivo. In questo caso sono state aggiunte espressioni per recuperare le informazioni sull'icona dell'immagine e il testo dell'etichetta dalle proprietà di ogni oggetto punto. 
+    Nel gestore dell'evento `ready` delle mappe viene creata un'origine dati per archiviare la linea relativa all'itinerario e i punti di partenza e di arrivo. Viene creato un livello linea che viene allegato all'origine dati per definire il rendering della linea dell'itinerario. Il rendering della linea dell'itinerario verrà eseguito con una sfumatura di blu. Avrà una larghezza di cinque pixel, giunzioni di linee arrotondate e le estremità. Quando si aggiunge il livello alla mappa, viene passato un secondo parametro con valore `'labels'`, per indicare che il rendering di questo livello deve essere eseguito sotto le etichette della mappa. In questo modo la linea dell'itinerario non coprirà le etichette delle strade. Viene creato un livello simboli che viene allegato all'origine dati. Questo livello specifica la modalità di rendering del punto di partenza e del punto di arrivo. In questo caso sono state aggiunte espressioni per recuperare l'immagine dell'icona e le informazioni sull'etichetta di testo dalle proprietà di ogni oggetto punto. 
     
 2. Per questa esercitazione impostare Microsoft come punto di partenza e una stazione di rifornimento a Seattle come punto di destinazione. Nel gestore dell'evento `ready` delle mappe aggiungere il codice seguente.
 
@@ -164,7 +164,7 @@ In questa esercitazione verrà eseguito il rendering di un itinerario semplice u
     });
     ```
 
-    Questo codice crea due [oggetti punto GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) per rappresentare i punti di partenza e di arrivo dell'itinerario e aggiunge i punti all’origine dati. A ogni punto vengono aggiunge le proprietà `title` e `icon`. L'ultimo blocco imposta la visualizzazione della fotocamera tramite le informazioni di latitudine e longitudine dei punti iniziale e finale, utilizzando la proprietà [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) della mappa.
+    Questo codice crea due [oggetti punto GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) per rappresentare i punti di partenza e di arrivo dell'itinerario e aggiunge i punti all’origine dati. A ogni punto vengono aggiunge le proprietà `title` e `icon`. L'ultimo blocco imposta la visualizzazione della fotocamera tramite le informazioni di latitudine e longitudine del punto di partenza e di arrivo tramite la proprietà [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) della mappa.
 
 3. Salvare il file **MapRoute.html** e aggiornare il browser. Ora la mappa è centrata su Seattle ed è possibile vedere il segnaposto blu che indica il punto di partenza e il segnaposto blu che indica il punto di arrivo.
 
@@ -174,7 +174,7 @@ In questa esercitazione verrà eseguito il rendering di un itinerario semplice u
 
 ## <a name="get-directions"></a>Ottenere le indicazioni stradali
 
-Questa sezione illustra come usare l'API del servizio di pianificazione percorso di Mappe di Azure per trovare il percorso per raggiungere una destinazione da un determinato punto di partenza. Il servizio di pianificazione percorso fornisce le API per pianificare il percorso *più veloce*, *più breve*, *più ecologico* o *più interessante* tra due posizioni. Consente inoltre agli utenti di pianificare percorsi per il futuro usando il database dei dati storici sul traffico di Azure e fornendo stime della durata dei percorsi per qualsiasi giorno e ora. Per altre informazioni, vedere [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) (Ottenere le indicazioni stradali). Tutte le funzionalità seguenti devono essere aggiunte **all'interno del listener ready della mappa** per garantire che vengano caricate quando le risorse della mappa sono pronte per l'accesso.
+Questa sezione mostra come usare l'API del servizio di pianificazione percorso di Mappe di Azure. L'API del servizio di pianificazione percorso trova l'itinerario dal punto di partenza specificato al punto di arrivo. In questo servizio sono disponibili le API per pianificare il percorso *più veloce*, *più breve*, *più ecologico* o *più interessante* tra due posizioni. Consente inoltre agli utenti di pianificare percorsi per il futuro tramite il database dei dati storici sul traffico di Azure che fornisce previsioni della durata dei percorsi per qualsiasi giorno e ora. Per altre informazioni, vedere [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) (Ottenere le indicazioni stradali). Tutte le funzionalità seguenti devono essere aggiunte **all'interno del listener ready della mappa** per garantire che vengano caricate quando le risorse della mappa sono pronte per l'accesso.
 
 1. Nella funzione GetMap aggiungere il codice JavaScript seguente.
 

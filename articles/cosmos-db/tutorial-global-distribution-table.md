@@ -6,14 +6,14 @@ ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
-ms.date: 12/02/2019
+ms.date: 01/30/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 148e17edbb8be566db611216f444fedad514e638
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 627086bdb13acdd29821af399f90fee8deaae432
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76770603"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900190"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Configurare la distribuzione globale in Azure Cosmos DB usando l'API di tabella
 
@@ -28,19 +28,17 @@ Questo articolo illustra le attività seguenti:
 
 ## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Connessione a un'area preferita tramite l'API Table
 
-Per sfruttare la [distribuzione globale](distribute-data-globally.md), le applicazioni client possono specificare un elenco di aree, nell'ordine preferito, da usare per eseguire operazioni sui documenti. Per ottenere questo risultato, impostare la proprietà [TableConnectionPolicy.PreferredLocations](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet). Azure Cosmos DB Table API SDK seleziona l'endpoint che garantisce la comunicazione più agevole in base alla configurazione degli account, alla disponibilità di aree corrente e all'elenco delle preferenze specificato.
+Per sfruttare i vantaggi della [distribuzione globale](distribute-data-globally.md), le applicazioni client devono specificare la località corrente in cui è in esecuzione l'applicazione. Per eseguire questa operazione, è necessario impostare la proprietà `CosmosExecutorConfiguration.CurrentRegion`. La proprietà `CurrentRegion` deve contenere una sola località. Ogni istanza del client può indicare un'area specifica per le letture a bassa latenza. Le aree devono essere denominate usando i relativi [nomi visualizzati](https://msdn.microsoft.com/library/azure/gg441293.aspx) ad esempio "Stati Uniti occidentali". 
 
-PreferredLocations deve contenere un elenco delimitato da virgole di percorsi preferiti (multihoming) per le letture. Ogni istanza del client può specificare un sottoinsieme di queste aree nell'ordine preferito per le letture a bassa latenza. Le aree devono essere denominate usando i [nomi visualizzati](https://msdn.microsoft.com/library/azure/gg441293.aspx), ad esempio, `West US`.
+Azure Cosmos DB Table API SDK seleziona automaticamente l'endpoint che garantisce la comunicazione ottimale in base alla configurazione degli account e alla disponibilità corrente delle aree. Viene assegnata la priorità all'area più vicina per offrire ai client la latenza migliore. Dopo aver impostato la proprietà `CurrentRegion` corrente, le richieste di lettura e scrittura vengono indirizzate come indicato di seguito:
 
-Tutte le letture vengono inviate alla prima area disponibile nell'elenco PreferredLocations. Se la richiesta ha esito negativo, il client trasferisce l'elenco all'area successiva e così via.
+* **Richieste di lettura:** Tutte le richieste di lettura vengono inviate all'area `CurrentRegion` configurata. In base alla prossimità, l'SDK seleziona automaticamente un'area con replica geografica di fallback per la disponibilità elevata.
 
-L'SDK prova a leggere dalle aree specificate nell'elenco PreferredLocations. Quindi se l'Account di database è disponibile ad esempio in tre aree, ma il client specifica solo due delle aree di non scrittura per PreferredLocations, le letture non verranno distribuite fuori dall'area di scrittura, anche in caso di failover.
+* **Richieste di scrittura:** L'SDK invia automaticamente tutte le richieste di scrittura all'area di scrittura corrente. In un account multimaster, l'area corrente gestirà anche le richieste di scrittura. In base alla prossimità, l'SDK seleziona automaticamente un'area con replica geografica di fallback per la disponibilità elevata.
 
-L'SDK invia automaticamente tutte le scritture all'area di scrittura corrente.
+Se non si specifica la proprietà `CurrentRegion`, l'SDK userà l'area di scrittura corrente per tutte le operazioni.
 
-Se la proprietà PreferredLocations non è impostata, tutte le richieste verranno distribuite dall'area di scrittura corrente.
-
-L'esercitazione è terminata. Per informazioni su come gestire la coerenza dell'account con replica globale, vedere [Livelli di coerenza in Azure Cosmos DB](consistency-levels.md). Per informazioni sul funzionamento della replica di database globale in Azure Cosmos DB, vedere [Distribuire i dati a livello globale con Azure Cosmos DB](distribute-data-globally.md).
+Ad esempio, se un account Azure Cosmos risiede nelle aree "Stati Uniti occidentali" e "Stati Uniti orientali". Se "Stati Uniti occidentali" è l'area di scrittura e l'applicazione risiede nell'area "Stati Uniti orientali". Se la proprietà CurrentRegion non è configurata, tutte le richieste di lettura e scrittura vengono sempre indirizzate all'area "Stati Uniti occidentali". Se la proprietà CurrentRegion è configurata, tutte le richieste di lettura e scrittura vengono gestite dall'area "Stati Uniti orientali".
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,15 +5,15 @@ services: notification-hubs
 author: sethmanheim
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 11/21/2019
+ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: b9f434f2d3c06d3db0bfda7c5853cc835ff64035
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: bf2596f5a8e287799285f97f3d1be9f3fe10f644
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77047757"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77123217"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Generare il file della richiesta di firma del certificato
 
@@ -26,10 +26,9 @@ Generare il file della richiesta di firma del certificato usato da Apple per la 
 1. Selezionare **Accesso Portachiavi**, espandere **Certificate Assistant** (Assistente certificati) e quindi selezionare **Request a Certificate from a Certificate Authority** (Richiedi certificato da Autorità di certificazione).
 
     ![Usare lo strumento Accesso Portachiavi per richiedere un nuovo certificato](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
-    
-> [!NOTE]
-> Per impostazione predefinita, OS X seleziona il primo elemento della categoria selezionata nello strumento Accesso portachiavi. Questo comportamento potrebbe causare problemi se il primo elemento nell'elenco della sezione **Certificates** (Certificati) *non* è **Apple Worldwide Developer Relations Certification Authority** (Autorità di certificazione relazioni sviluppatori Apple a livello mondiale). Prima di richiedere un certificato, assicurarsi di trovarsi nella sezione **Certificates** (Certificati) e quindi selezionare **Apple Worldwide Developer Relations Certification Authority** (Autorità di certificazione relazioni sviluppatori Apple a livello mondiale).
 
+   > [!NOTE]
+   > Per impostazione predefinita, lo strumento seleziona la prima voce dell'elenco. Ciò potrebbe causare problemi se la prima voce dell'elenco nella sezione **Certificates** (Certificati) non è **Apple Worldwide Developer Relations Certification Authority** (Autorità di certificazione relazioni sviluppatori Apple a livello mondiale). Prima di generare la richiesta di firma del certificato, verificare che sia presente una voce non di chiave oppure che sia selezionata la chiave **Apple Worldwide Developer Relations Certification Authority**.
 
 1. Selezionare **User Email Address** (Indirizzo di posta elettronica utente), immettere il valore **Common Name** (Nome comune), assicurarsi di specificare **Saved to disk** (Salvata su disco) e quindi selezionare **Continue** (Continua). Lasciare vuoto il campo **CA Email Address** (Indirizzo di posta elettronica CA), in quanto non è obbligatorio.
 

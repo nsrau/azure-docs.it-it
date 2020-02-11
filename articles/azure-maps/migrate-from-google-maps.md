@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 0e841b1f386d45ddb4af8598855d8e739750307e
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 1f6f282406c6813b2b126c300f21bda21e8f9464
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910730"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988975"
 ---
 # <a name="migrate-from-google-maps-to-azure-maps"></a>Eseguire la migrazione da Google Maps a Mappe di Azure
 
@@ -22,11 +22,11 @@ Questa esercitazione fornisce informazioni dettagliate su come eseguire la migra
 
 ## <a name="azure-maps-platform-overview"></a>Panoramica della piattaforma Mappe di Azure
 
-Mappe di Azure offre agli sviluppatori di tutti i settori potenti funzionalità geospaziali che includono i dati di mappa aggiornati regolarmente per fornire contesto geografico per le applicazioni Web e per dispositivi mobili. Mappe di Azure offre un set di API REST conforme all'API Azure One per mappe, ricerca, pianificazione percorso, traffico, fusi orari, georilevazione, geofencing, dati mappa, mobilità, meteo e operazioni spaziali accompagnati da Web SDK e Android SDK per rendere lo sviluppo semplice, flessibile e portabile in più piattaforme.
+Mappe di Azure offre agli sviluppatori di tutti i settori potenti funzionalità geospaziali che includono i dati di mappa aggiornati regolarmente per fornire contesto geografico per le applicazioni Web e per dispositivi mobili. Mappe di Azure è un set di API REST conforme con Azure One API. Queste API REST offrono le funzionalità per Mappe, Ricerca, Pianificazione percorso, Informazioni sul traffico, Fusi orari, Georilevazione, Geofencing, Dati mappe, Meteo, Mobilità e operazioni spaziali e includono gli SDK per Android e il Web per lo sviluppo semplificato, flessibile e portabile tra più piattaforme.
 
 ## <a name="high-level-platform-comparison"></a>Confronto generale tra piattaforme
 
-La tabella seguente fornisce un elenco generale delle funzionalità di Google Maps e il relativo supporto per tali funzionalità in Mappe di Azure. L'elenco non include funzionalità di Mappe di Azure aggiuntive come accessibilità, API di geofencing, isocrone, operazioni spaziali, accesso diretto alle tessere mappa, servizi batch e confronti di copertura dei dati (ad esempio copertura delle immagini).
+La tabella seguente fornisce un elenco generale delle funzionalità di Mappe di Azure corrispondenti alle funzionalità di Google Maps. Questo elenco non mostra tutte le funzionalità di Mappe di Azure. Tra le funzionalità di Mappe di Azure aggiuntive sono incluse accessibilità, API di geofencing, isocrone, operazioni spaziali, accesso diretto alle tessere mappa, servizi batch e confronti di copertura dei dati (ovvero copertura delle immagini).
 
 | Funzionalità di Google Maps         | Supporto di Mappe di Azure                     |
 |-----------------------------|:--------------------------------------:|
@@ -56,7 +56,7 @@ Google Maps fornisce l'autenticazione basata su chiavi di base. Mappe di Azure f
 Quando si esegue la migrazione da Google Maps a Mappe di Azure, occorre tenere in considerazione i punti seguenti in relazione alla gestione delle licenze.
 
 - Mappe di Azure addebita i costi per l'utilizzo delle mappe interattive in base al numero di tessere mappa caricate, mentre Google Maps li addebita per il caricamento del controllo mappa. Negli Azure Maps SDK interattivi le tessere mappa vengono automaticamente memorizzate nella cache per ridurre i costi per lo sviluppatore. Viene generata una transazione di Mappe di Azure ogni 15 tessere mappa caricate. Gli Azure Maps SDK interattivi usano tessere da 512-pixel e generano in media una o meno transazioni per visualizzazione pagina.
-- Spesso è molto più conveniente sostituire le immagini di mappe statiche dei servizi Web di Google Maps con Azure Maps Web SDK, che usa le tessere mappa e, a meno che l'utente non faccia la panoramica e lo zoom della mappa, genera spesso solo una frazione di una transazione per ogni caricamento di mappa. Azure Maps Web SDK include opzioni per disabilitare la panoramica e lo zoom. Offre inoltre molte più opzioni di visualizzazione rispetto a un servizio Web di mappe statiche.
+- Spesso è molto più conveniente sostituire le immagini mappa statiche dai servizi Web di Google Maps con Azure Maps Web SDK. Azure Maps Web SDK usa le tessere mappa e, a meno che l'utente non esegua operazioni di panoramica e zoom sulla mappa, spesso genererà solo una frazione di una transazione per caricamento mappa. Azure Maps Web SDK include opzioni per disabilitare la panoramica e lo zoom. Offre inoltre molte più opzioni di visualizzazione rispetto a un servizio Web di mappe statiche.
 - Mappe di Azure consente di archiviare in Azure i dati della sua piattaforma. I dati possono anche essere memorizzati in una cache altrove per un massimo di sei mesi, in base alle [condizioni per l'utilizzo](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46).
 
 Ecco alcune risorse correlate per Mappe di Azure:

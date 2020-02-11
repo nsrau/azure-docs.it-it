@@ -6,15 +6,15 @@ author: ShubhaVijayasarathy
 manager: ''
 ms.author: shvija
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 01/15/2020
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 92c414afbb8121eb03353c79dfe3a51e0cfa7ec0
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a83d65e497688fa97fbb2bdb5a4a72c6d29d81ae
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718881"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905684"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Esercitazione: Eseguire la migrazione dei dati di Hub eventi acquisiti in SQL Data Warehouse con Griglia di eventi e Funzioni di Azure
 
@@ -35,14 +35,16 @@ In questa esercitazione vengono completate le azioni seguenti:
 > * Trasmettere in streaming dati di esempio in Hub eventi 
 > * Verificare i dati acquisiti in SQL Data Warehouse
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs/). Durante l'installazione, assicurarsi di installare i carichi di lavoro seguenti: Sviluppo per desktop .NET, Sviluppo di Azure, Sviluppo ASP.NET e Web, Sviluppo Node.js, Sviluppo Python
-- Scaricare l'[esempio Git](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo). La soluzione di esempio contiene i componenti seguenti:
+- Scaricare l'[esempio Git](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/EventHubsCaptureEventGridDemo). La soluzione di esempio contiene i componenti seguenti:
     - *WindTurbineDataGenerator*: un server di pubblicazione semplice che invia dati di turbine eoliche di esempio a un hub eventi con Acquisizione abilitata
     - *FunctionDWDumper*: una funzione di Azure che riceve una notifica da Griglia di eventi quando un file Avro viene acquisito nel BLOB di Archiviazione di Azure. La funzione riceve il percorso URI del BLOB, ne legge il contenuto ed esegue il push di questi dati in un SQL Data Warehouse.
+
+    In questo esempio viene usato il pacchetto Azure.Messaging.EventHubs più recente. L'esempio precedente che usa il pacchetto Microsoft.Azure.EventHubs è disponibile [qui](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo). 
 
 ### <a name="deploy-the-infrastructure"></a>Distribuire l'infrastruttura
 Usare Azure PowerShell o l'interfaccia della riga di comando di Azure per distribuire l'infrastruttura necessaria per questa esercitazione con questo [modello di Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json). Questo modello crea le risorse seguenti:
@@ -139,7 +141,7 @@ Dopo aver pubblicato la funzione, si è pronti per sottoscrivere l'evento di acq
 
 1. Selezionare **Aggiungi sottoscrizione di Griglia di eventi**.
 
-   ![Aggiungi sottoscrizione](./media/store-captured-data-data-warehouse/add-event-grid-subscription.png)
+   ![Aggiungere una sottoscrizione](./media/store-captured-data-data-warehouse/add-event-grid-subscription.png)
 
 1. Assegnare un nome alla sottoscrizione di Griglia di eventi. Usare **Spazi dei nomi di Hub eventi** come tipo di evento. Indicare i valori per selezionare l'istanza dello spazio dei nomi di Hub eventi. Lasciare l'endpoint del sottoscrittore come valore specificato. Selezionare **Create** (Crea).
 

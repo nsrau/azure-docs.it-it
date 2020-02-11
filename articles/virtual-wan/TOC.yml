@@ -42,9 +42,9 @@
       href: openvpn-azure-ad-tenant.md
     - name: Abilitare Multi-Factor Authentication (MFA) per la VPN utente
       href: openvpn-azure-ad-mfa.md
-    - name: Configurare l'autenticazione di Azure AD per la VPN utente (anteprima)
+    - name: Configurare l'autenticazione di Azure AD per la VPN utente
       href: virtual-wan-point-to-site-azure-ad.md
-    - name: Configurare l'autenticazione multi-applicazione di Azure AD per la VPN utente (anteprima)
+    - name: Configurare l'autenticazione multi-applicazione di Azure AD per la VPN utente
       href: openvpn-azure-ad-tenant-multi-app.md
     - name: Configurare l'automazione (partner della rete WAN virtuale)
       href: virtual-wan-configure-automation-providers.md

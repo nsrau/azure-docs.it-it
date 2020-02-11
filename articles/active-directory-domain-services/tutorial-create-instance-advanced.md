@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 46764fdae89d5af4c9dedf4037d07dc48d1cda83
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 5e969ed4f525d0b3d17339b9f9a6111ad81b0125
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703684"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931622"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Esercitazione: Creare e configurare un'istanza di Azure Active Directory Domain Services con opzioni di configurazione avanzate
 
@@ -22,7 +22,7 @@ Azure Active Directory Domain Services (Azure AD DS) offre servizi di dominio ge
 
 È possibile [creare un dominio gestito usando le opzioni di configurazione predefinite][tutorial-create-instance] per la connessione di rete e la sincronizzazione oppure definire manualmente queste impostazioni. Questa esercitazione illustra come definire queste opzioni di configurazione avanzate per creare e configurare un'istanza di Azure AD DS tramite il portale di Azure.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare le impostazioni di DNS e della rete virtuale per un dominio gestito
@@ -32,7 +32,7 @@ In questa esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti:
 
@@ -94,6 +94,9 @@ Completare i campi della finestra *Informazioni di base* del portale di Azure pe
 
     Non è necessario eseguire alcuna operazione di configurazione per distribuire Azure AD DS in più zone. La piattaforma Azure gestisce automaticamente la distribuzione delle risorse nelle zone. Per altre informazioni e per consultare la disponibilità delle zone, vedere [Informazioni sulle zone di disponibilità di Azure][availability-zones].
 
+1. Lo **SKU** determina le prestazioni, la frequenza di backup e il numero massimo di trust tra foreste che è possibile creare. È possibile modificare lo SKU dopo che è stato creato il dominio gestito se le esigenze aziendali o i requisiti cambiano. Per altre informazioni, vedere [Concetti di base dello SKU di Azure AD DS][concepts-sku].
+
+    Per questa esercitazione, selezionare lo SKU *Standard*.
 1. Una *foresta* è un costrutto logico usato da Active Directory Domain Services per raggruppare uno o più domini. Per impostazione predefinita, viene creato un dominio gestito di Azure AD DS come foresta *Utente*. Questo tipo di foresta sincronizza tutti gli oggetti di Azure AD, inclusi tutti gli account utente creati in un ambiente AD DS locale. Una foresta *Risorsa* sincronizza solo gli utenti e i gruppi creati direttamente in Azure AD. Le foreste Risorsa sono attualmente disponibili in anteprima. Per altre informazioni sulle foreste *Risorsa*, inclusi i motivi per cui usarle e come creare trust tra foreste con domini di AD DS locali, vedere [Panoramica delle foreste di risorse di Azure AD DS][resource-forests].
 
     Per questa esercitazione, scegliere di creare una foresta *Utente*.
@@ -102,9 +105,9 @@ Completare i campi della finestra *Informazioni di base* del portale di Azure pe
 
 1. Per configurare manualmente opzioni aggiuntive, scegliere **Avanti: Rete**. In caso contrario, selezionare **Rivedi e crea** per accettare le opzioni di configurazione predefinite e quindi passare alla sezione per [distribuire il dominio gestito](#deploy-the-managed-domain). Quando si sceglie questa opzione di creazione, vengono configurate le impostazioni predefinite seguenti:
 
-* Crea una rete virtuale denominata *aadds-vnet* che usa l'intervallo di indirizzi IP *10.0.1.0/24*.
-* Crea una subnet denominata *aadds-subnet* che usa l'intervallo di indirizzi IP *10.0.1.0/24*.
-* Sincronizza *tutti* gli utenti di Azure AD nel dominio gestito di Azure AD DS.
+    * Crea una rete virtuale denominata *aadds-vnet* che usa l'intervallo di indirizzi IP *10.0.1.0/24*.
+    * Crea una subnet denominata *aadds-subnet* che usa l'intervallo di indirizzi IP *10.0.1.0/24*.
+    * Sincronizza *tutti* gli utenti di Azure AD nel dominio gestito di Azure AD DS.
 
 ## <a name="create-and-configure-the-virtual-network"></a>Creare e configurare la rete virtuale
 
@@ -125,7 +128,7 @@ Completare i campi della finestra *Rete* come indicato di seguito:
     1. Se si sceglie di creare una rete virtuale, immettere un nome per la rete virtuale, ad esempio *myVnet*, quindi specificare un intervallo di indirizzi, ad esempio *10.0.1.0/24*.
     1. Creare una subnet dedicata con un nome chiaro, ad esempio *DomainServices*. Specificare un intervallo di indirizzi, ad esempio *10.0.1.0/24*.
 
-    ![Creare una rete virtuale e una subnet per l'uso con Azure AD Domain Services](./media/tutorial-create-instance-advanced/create-vnet.png)
+    [![](./media/tutorial-create-instance-advanced/create-vnet.png "Create a virtual network and subnet for use with Azure AD Domain Services")](./media/tutorial-create-instance-advanced/create-vnet-expanded.png#lightbox)
 
     Assicurarsi di scegliere un intervallo di indirizzi all'interno del proprio intervallo di indirizzi IP privato. Gli intervalli di indirizzi IP di cui non si è proprietari che si trovano nello spazio di indirizzi pubblici generano errori all'interno di Azure AD DS.
 
@@ -223,7 +226,7 @@ Dopo la modifica, sono necessari alcuni minuti prima che la nuova password sia u
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare le impostazioni di DNS e della rete virtuale per un dominio gestito
@@ -248,5 +251,6 @@ Per vedere il dominio gestito in azione, creare e aggiungere una macchina virtua
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
 [resource-forests]: concepts-resource-forest.md
 [availability-zones]: ../availability-zones/az-overview.md
+[concepts-sku]: administration-concepts.md#azure-ad-ds-skus
 
 <!-- EXTERNAL LINKS -->

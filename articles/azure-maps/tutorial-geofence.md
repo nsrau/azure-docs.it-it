@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a88f03adab3beaea75ec2fa9a1c6f59b09739025
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 932dfb9624177c299997c4f9f184dc5c973d0fa0
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76153141"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899206"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Esercitazione: Configurare un recinto virtuale con Mappe di Azure
 
@@ -194,7 +194,7 @@ Verranno creati due servizi di [App per la logica](https://docs.microsoft.com/az
 
 ## <a name="create-an-azure-maps-events-subscription"></a>Creare una sottoscrizione di Eventi di Mappe di Azure
 
-Mappe di Azure supporta tre tipi di eventi. I tipi di eventi supportati da Mappe di Azure sono disponibili [qui]. https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps Sono necessarie due sottoscrizioni di eventi diverse, una per gli eventi di ingresso e una per gli eventi di uscita.
+Mappe di Azure supporta tre tipi di eventi. I tipi di eventi supportati da Mappe di Azure sono disponibili [qui](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps). Sono necessarie due sottoscrizioni di eventi diverse, una per gli eventi di ingresso e una per gli eventi di uscita.
 
 Seguire questi passaggi per creare una sottoscrizione per gli eventi di ingresso del recinto virtuale. Allo stesso modo è possibile creare una sottoscrizione per gli eventi di uscita del recinto virtuale.
 

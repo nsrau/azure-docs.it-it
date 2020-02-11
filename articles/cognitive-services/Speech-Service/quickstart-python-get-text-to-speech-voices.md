@@ -1,31 +1,29 @@
 ---
-title: 'Guida introduttiva: Elencare le voci per la sintesi vocale, Python - Servizio Voce'
+title: Elencare le voci per la sintesi vocale, Python - Servizio Voce
 titleSuffix: Azure Cognitive Services
-description: In questa guida di avvio rapido si apprenderà come ottenere l'elenco completo delle voci standard e neurali per un'area/endpoint usando Python. L'elenco viene restituito in formato JSON e la disponibilità delle voci varia in base all'area.
+description: Questo articolo illustra come ottenere l'elenco completo di voci standard e neurali per un'area/endpoint usando Python. L'elenco viene restituito in formato JSON e la disponibilità delle voci varia in base all'area.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 12/09/2019
-ms.author: erhopf
-ms.openlocfilehash: c645d01dd37fd370911019446c99c76c9da6221c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
-ms.translationtype: HT
+ms.topic: how-to
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: 51fe6cea80e097f34432ab8dc7293c758bd8d720
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975976"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119802"
 ---
-# <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>Guida introduttiva: Ottenere l'elenco delle voci per la sintesi vocale usando Python
+# <a name="get-the-list-of-text-to-speech-voices-using-python"></a>Ottenere l'elenco delle voci per la sintesi vocale usando Python
 
-In questa guida di avvio rapido si apprenderà come ottenere l'elenco completo delle voci standard e neurali per un'area/endpoint usando Python. L'elenco viene restituito in formato JSON e la disponibilità delle voci varia in base all'area. Per un elenco delle aree supportate, vedere [Aree](regions.md).
+Questo articolo illustra come ottenere l'elenco completo di voci standard e neurali per un'area/endpoint usando Python. L'elenco viene restituito in formato JSON e la disponibilità delle voci varia in base all'area. Per un elenco delle aree supportate, vedere [Aree](regions.md).
 
-Per questo argomento di avvio rapido, è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa del servizio Voce. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](get-started.md) per ottenere una chiave di sottoscrizione.
+Per questo articolo è necessario un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa del servizio Voce. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](get-started.md) per ottenere una chiave di sottoscrizione.
 
-## <a name="prerequisites"></a>Prerequisiti
-
-Questa guida introduttiva richiede:
+## <a name="prerequisites"></a>Prerequisites
 
 * Python 2.7.x o 3.x
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) o l'editor di testo preferito

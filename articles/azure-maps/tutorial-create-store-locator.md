@@ -3,18 +3,18 @@ title: "Esercitazione: Creare un'applicazione di localizzazione di punti vendita
 description: In questa esercitazione si apprenderà come creare un'applicazione Web di localizzazione di punti vendita usando Microsoft Azure Maps Web SDK.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/12/2019
+ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 830641ae1421b799ab8e7d8b47a1c1a6e38419cf
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 063f085de875272a7b1ba4f52aeceb8f36114cca
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910960"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987006"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Esercitazione: Creare un localizzatore di punti vendita con Mappe di Azure
 
@@ -35,7 +35,7 @@ Passare all'[esempio attivo di localizzatore di punti vendita](https://azuremaps
 
 ## <a name="prerequisites"></a>Prerequisites
 
-Per completare i passaggi di questa esercitazione, è prima di tutto necessario creare un account di Mappe di Azure e ottenere la chiave primaria (chiave di sottoscrizione). Seguire le istruzioni in [Creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) per creare una sottoscrizione dell'account Mappe di Azure con il piano tariffario S1 ed eseguire la procedura descritta in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account) per ottenere la chiave primaria per l'account. Per informazioni dettagliate sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
+Per completare i passaggi di questa esercitazione, è prima di tutto necessario creare un account di Mappe di Azure e ottenere la chiave primaria (chiave di sottoscrizione). Seguire le istruzioni in [Creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) per creare una sottoscrizione dell'account Mappe di Azure con il piano tariffario S1 ed eseguire la procedura descritta in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account) per ottenere la chiave primaria per l'account. Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
 
 ## <a name="design"></a>Progettazione
 
@@ -51,7 +51,7 @@ Per massimizzare l'utilità di questo localizzatore di punti vendita, includerem
 
 ![Wireframe dell'applicazione di localizzazione di punti vendita di Contoso Coffee su un dispositivo mobile](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
-I wireframe mostrano un'applicazione abbastanza semplice. L'applicazione include una casella di ricerca, un elenco di punti vendita nelle vicinanze, una mappa con alcuni marcatori (simboli) e una finestra popup che mostra informazioni aggiuntive quando l'utente seleziona un marcatore. Ecco una descrizione più dettagliata delle funzionalità create nel localizzatore di punti vendita in questa esercitazione:
+I wireframe mostrano un'applicazione abbastanza semplice. L'applicazione include una casella di ricerca, un elenco di archivi nelle vicinanze e una mappa con alcuni indicatori, ad esempio i simboli. Dispone inoltre di una finestra popup che visualizza informazioni aggiuntive quando l'utente seleziona un indicatore. Ecco una descrizione più dettagliata delle funzionalità create nel localizzatore di punti vendita in questa esercitazione:
 
 * Tutte le posizioni dal file di dati importato con valori delimitati da tabulazioni vengono caricate nella mappa.
 * L'utente può visualizzare una panoramica o usare lo zoom sulla mappa, eseguire una ricerca e selezionare il pulsante GPS "My Location".
@@ -81,12 +81,12 @@ Esaminando lo screenshot dei dati è possibile fare le osservazioni seguenti:
     
 * Le informazioni sulla posizione sono archiviate mediante le colonne **AddressLine**, **City**, **Municipality** (comune), **AdminDivision** (stato/provincia), **PostCode** (codice postale) e **Country**.  
 * Le colonne **Latitude** e **Longitude** contengono le coordinate per ogni posizione dei bar Contoso Coffee. Se non sono disponibili informazioni sulle coordinate, è possibile usare i servizi di ricerca in Mappe di Azure per determinare le coordinate relative alle posizioni.
-* Alcune colonne aggiuntive contengono metadati correlati ai bar, ovvero numero di telefono, colonne booleane per hotspot Wi-Fi, accessibilità per disabili e orari di apertura e chiusura del bar in formato di 24 ore. È possibile creare colonne personalizzate contenenti i metadati più rilevanti per i dati di posizione specifici.
+* Alcune colonne aggiuntive contengono metadati correlati ai bar, ovvero numero di telefono, colonne booleane e orari di apertura e chiusura del bar nel formato 24 ore. Le colonne booleane contengono i dati per la disponibilità del Wi-Fi e l'accessibilità per disabili. È possibile creare colonne personalizzate contenenti i metadati più rilevanti per i dati di posizione specifici.
 
 > [!Note]
 > Mappe di Azure esegue il rendering dei dati nella proiezione sferica di Mercatore "EPSG:3857", ma legge i dati in "EPSG:4325" che usano il dato WGS84. 
 
-È possibile esporre in molti modi il set di dati all'applicazione. Un approccio consiste nel caricare i dati in un database ed esporre un servizio Web che esegue query sui dati e invia i risultati al browser dell'utente. Questa opzione è ideale per set di dati di grandi dimensioni o per set di dati che vengono aggiornati spesso. Questa opzione richiede tuttavia un numero significativamente superiore di attività di sviluppo e ha un costo maggiore. 
+È possibile esporre in molti modi il set di dati all'applicazione. Un approccio consiste nel caricare i dati in un database ed esporre un servizio Web che esegue query sui dati e invia i risultati al browser dell'utente. Questa opzione è ideale per set di dati di grandi dimensioni o per set di dati che vengono aggiornati spesso. Questa opzione richiede tuttavia un maggior numero di attività di sviluppo e prevede costi più elevati. 
 
 Un altro approccio consiste nel convertire questo set di dati in un file flat di testo che può essere analizzato con facilità dal browser. Il file stesso può essere ospitato insieme al resto dell'applicazione. Questa opzione consente di semplificare le procedure, ma è ideale solo per set di dati più piccoli perché l'utente scarica tutti i dati. Per questo set di dati viene usato il file flat di testo perché le dimensioni del file di dati sono inferiori a 1 MB.  
 
@@ -105,7 +105,7 @@ Se si apre il file di testo in Blocco note, avrà un aspetto simile alla figura 
 
 ## <a name="set-up-the-project"></a>Configurare il progetto
 
-Per creare un progetto, è possibile usare [Visual Studio](https://visualstudio.microsoft.com) o l'editor di codice che si preferisce. Nella cartella del progetto creare tre file: *index.html*, *index.css* e *index.js*. Questi file definiscono il layout, lo stile e la logica per l'applicazione. Creare una cartella denominata *data* e aggiungere il file *ContosoCoffee.txt* alla cartella. Creare un'altra cartella denominata *images*. In questa applicazione vengono usate dieci immagini per icone, pulsanti e marcatori sulla mappa. È possibile [scaricare queste immagini](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). La cartella del progetto dovrebbe avere ora un aspetto simile alla figura seguente:
+Per creare un progetto, è possibile usare [Visual Studio](https://visualstudio.microsoft.com) o l'editor di codice che si preferisce. Nella cartella del progetto creare tre file: *index.html*, *index.css* e *index.js*. Questi file definiscono il layout, lo stile e la logica per l'applicazione. Creare una cartella denominata *data* e aggiungere il file *ContosoCoffee.txt* alla cartella. Creare un'altra cartella denominata *images*. In questa applicazione vengono usate 10 immagini per icone, pulsanti e indicatori sulla mappa. È possibile [scaricare queste immagini](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). La cartella del progetto dovrebbe avere ora un aspetto simile alla figura seguente:
 
 <center>
 
@@ -115,7 +115,7 @@ Per creare un progetto, è possibile usare [Visual Studio](https://visualstudio.
 
 Per creare l'interfaccia utente, aggiungere codice a *index.html*:
 
-1. Aggiungere i tag `meta` seguenti a `head` di *index.html*. I tag definiscono il set di caratteri (UTF-8), richiedono a Internet Explorer e Microsoft Edge di usare la versione più recente del browser e specificano un viewport ideale per i layout reattivi.
+1. Aggiungere i tag `meta` seguenti a `head` di *index.html*. Il tag `charset` definisce il set di caratteri (UTF-8). Il valore di `http-equiv` indica a Internet Explorer e Microsoft Edge di usare le versioni più recenti del browser. Inoltre, l'ultimo tag `meta` specifica un riquadro di visualizzazione che funziona in modo ottimale per i layout reattivi.
 
     ```HTML
     <meta charset="utf-8">
@@ -375,13 +375,13 @@ Il passaggio successivo consiste nel definire gli stili CSS. Gli stili CSS conse
     }
    ```
 
-Se si esegue adesso l'applicazione, vengono visualizzati l'intestazione, la casella di ricerca e il pulsante di ricerca, ma la mappa non è visibile perché non è stata ancora caricata. Se si prova a eseguire una ricerca, non si ottiene alcun risultato. È necessario configurare la logica di JavaScript descritta nella sezione successiva per accedere a tutte le funzionalità del localizzatore di punti vendita.
+Eseguire l'applicazione adesso. Verranno visualizzati il pulsante di ricerca, l'intestazione e la casella di ricerca. Tuttavia, la mappa non è visibile perché non è stata ancora caricata. Se si prova a eseguire una ricerca, non si ottiene alcun risultato. È necessario configurare la logica JavaScript, descritta nella sezione successiva. Questa logica accede a tutte le funzionalità del localizzatore di punti vendita.
 
 ## <a name="wire-the-application-with-javascript"></a>Aggiungere JavaScript all'applicazione
 
-A questo punto l'interfaccia utente è stata configurata. Ora è necessario aggiungere JavaScript per caricare e analizzare i dati e quindi eseguire il rendering dei dati sulla mappa. Per iniziare, aprire il file *index.js* e aggiungere codice al file, come illustrato nella procedura seguente.
+A questo punto l'interfaccia utente è stata configurata. È ancora necessario aggiungere il codice JavaScript per caricare e analizzare i dati e quindi eseguire il rendering dei dati sulla mappa. Per iniziare, aprire il file *index.js* e aggiungere codice al file, come illustrato nella procedura seguente.
 
-1. Aggiungere opzioni globali per semplificare l'aggiornamento delle impostazioni. Definire inoltre le variabili per la mappa, una finestra popup, un'origine dati, un livello di icone, un marcatore HTML che mostra il centro di un'area di ricerca e un'istanza del client del servizio di ricerca di Mappe di Azure.
+1. Aggiungere opzioni globali per semplificare l'aggiornamento delle impostazioni. Definire inoltre le variabili per la mappa, la finestra popup, l'origine dati, un livello icona, un indicatore HTML che mostra il centro di un'area di ricerca e un'istanza del client del servizio di ricerca di Mappe di Azure.
 
     ```JavaScript
     //The maximum zoom level to cluster data point data on the map.
@@ -395,7 +395,7 @@ A questo punto l'interfaccia utente è stata configurata. Ora è necessario aggi
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. Aggiungere codice al file *index.js*. Il codice seguente consente di inizializzare la mappa, aggiungere un [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) che rimane in attesa fino al completamento del caricamento della pagina, aggiungere eventi per monitorare il caricamento della mappa e attivare il pulsante di ricerca e il pulsante My Location.
+1. Aggiungere codice al file *index.js*. Il codice seguente inizializza la mappa. È stato aggiunto un [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) per l'attesa del completamento del caricamento della pagina. Sono stati quindi associati gli eventi per monitorare il caricamento della mappa e sono state fornite le funzionalità al pulsante Cerca e al pulsante My Location.
 
    Quando l'utente seleziona il pulsante di ricerca o quando l'utente preme INVIO dopo avere immesso una posizione nella casella di ricerca, viene avviata una ricerca fuzzy rispetto alla query dell'utente. Passare una matrice di valori ISO 2 relativi ai paesi all'opzione `countrySet` per limitare i risultati della ricerca a tali paesi/aree geografiche. La limitazione dei paesi/aree geografiche in cui eseguire la ricerca consente di migliorare la precisione dei risultati restituiti. 
   
@@ -544,7 +544,7 @@ A questo punto l'interfaccia utente è stata configurata. Ora è necessario aggi
 
 1. Dopo il caricamento del set di dati nel listener di eventi `ready` della mappa, definire un set di livelli per il rendering dei dati. Un livello a bolle viene usato per il rendering dei punti dati in cluster. Un livello di simboli viene usato per il rendering del numero di punti in ogni cluster sopra il livello a bolle. Un secondo livello di simboli esegue il rendering di un'icona personalizzata per singole posizioni sulla mappa.
 
-   Aggiungere gli eventi `mouseover` e `mouseout` ai livelli a bolle e di icone per modificare il cursore del mouse quando l'utente lo posiziona sopra un cluster o un'icona sulla mappa. Aggiungere un evento `click` al livello a bolle del cluster. Questo evento `click` ingrandisce la mappa in due livelli e la centra rispetto a un cluster quando l'utente seleziona un cluster. Aggiungere un evento `click` al livello di icone. Questo evento `click` mostra una finestra popup che visualizza i dettagli di un bar quando un utente seleziona un'icona relativa a una singola posizione. Aggiungere un evento alla mappa per monitorare il momento in cui viene completato lo spostamento della mappa. Quando questo evento viene generato, aggiornare gli elementi nel pannello elenchi.  
+   Aggiungere gli eventi `mouseover` e `mouseout` ai livelli a bolle e di icone per modificare il cursore del mouse quando l'utente lo posiziona sopra un cluster o un'icona sulla mappa. Aggiungere un evento `click` al livello a bolle del cluster. Questo evento `click` ingrandisce la mappa di due livelli e la centra rispetto a un cluster quando l'utente seleziona un cluster. Aggiungere un evento `click` al livello di icone. Questo evento `click` mostra una finestra popup che visualizza i dettagli di un bar quando un utente seleziona un'icona relativa a una singola posizione. Aggiungere un evento alla mappa per monitorare il momento in cui viene completato lo spostamento della mappa. Quando questo evento viene generato, aggiornare gli elementi nel pannello elenchi.  
 
     ```JavaScript
     //Create a bubble layer to render clustered data points.
@@ -686,7 +686,7 @@ A questo punto l'interfaccia utente è stata configurata. Ora è necessario aggi
     }
     ```
 
-1. Quando il pannello elenchi viene aggiornato, viene calcolata la distanza dal centro della mappa a tutte le funzionalità punto nella visualizzazione corrente della mappa. Le funzionalità vengono quindi ordinate in base alla distanza. Viene generato codice HTML per visualizzare ogni posizione nel pannello elenchi.
+1. Quando viene aggiornato il pannello elenchi, viene calcolata la distanza. Si tratta della distanza dal centro della mappa a tutte le funzionalità punto della visualizzazione mappa corrente. Le funzionalità vengono quindi ordinate in base alla distanza. Viene generato codice HTML per visualizzare ogni posizione nel pannello elenchi.
 
     ```JavaScript
     var listItemTemplate = '<div class="listItem" onclick="itemSelected(\'{id}\')"><div class="listItem-title">{title}</div>{city}<br />Open until {closes}<br />{distance} miles away</div>';
