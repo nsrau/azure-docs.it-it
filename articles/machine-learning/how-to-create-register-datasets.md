@@ -10,13 +10,13 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
-ms.openlocfilehash: 99f4d8d854334b047caf36406f21890cde7eda16
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.date: 02/10/2020
+ms.openlocfilehash: 0bfaef72be23f148c01e02e910b11128cec1659e
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77082946"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116700"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Crea set di impostazioni Azure Machine Learning
 
@@ -172,7 +172,9 @@ Per creare un set di dati in studio:
 1. Selezionare **set di impostazioni** nella sezione **Asset** del riquadro sinistro. 
 1. Selezionare **Crea set di dati** per scegliere l'origine del set di dati. Questa origine può essere costituita da file locali, da un archivio dati o da URL pubblici.
 1. Selezionare **tabulare** o **file** per tipo di set di dati.
-1. Selezionare **Avanti** per esaminare i moduli **Impostazioni e anteprima**, **schema** e **Conferma dettagli** ; vengono popolate in modo intelligente in base al tipo di file. Usare questi moduli per verificare le selezioni e per configurare ulteriormente il set di dati prima della creazione.  
+1. Selezionare **Avanti** per aprire il modulo **archivio dati e selezione file** . In questo modulo è possibile selezionare la posizione in cui salvare il set di dati dopo la creazione, nonché selezionare i file di dati da usare per il set di dati. 
+1. Selezionare **Avanti** per popolare i moduli **Impostazioni e anteprima** e **schema** ; vengono popolate in modo intelligente in base al tipo di file ed è possibile configurare ulteriormente il set di dati prima della creazione in questi moduli. 
+1. Selezionare **Avanti** per esaminare il modulo **Conferma dettagli** . Controllare le selezioni e creare un profilo dati facoltativo per il set di dati. Altre informazioni sulla [profilatura dei dati](how-to-create-portal-experiments.md#profile). 
 1. Selezionare **Crea** per completare la creazione del set di dati.
 
 ## <a name="register-datasets"></a>Registrare i set di impostazioni

@@ -15,12 +15,12 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b24ad492f622fa9a3e494c7ead724fb3980f6668
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 1c3c0aea6ecaccc972702a8c87e4d127c71c75d6
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066850"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121360"
 ---
 # <a name="how-provisioning-works"></a>Come funziona il provisioning
 
@@ -44,7 +44,7 @@ Il servizio di provisioning Azure AD usa il [protocollo SCIM 2,0](https://techco
 
 Per richiedere un connettore di provisioning automatico Azure AD per un'app che attualmente non dispone di un connettore, compilare una [richiesta Azure Active Directory applicazione](https://aka.ms/aadapprequest).
 
-## <a name="authorization"></a>Autorizzazione
+## <a name="authorization"></a>Authorization
 
 Per Azure AD connettersi all'API di gestione degli utenti dell'applicazione, sono necessarie le credenziali. Durante la configurazione del provisioning utenti automatico per un'applicazione, è necessario immettere credenziali valide. È possibile trovare i tipi di credenziali e i requisiti per l'applicazione facendo riferimento all'esercitazione sull'app. Nel portale di Azure sarà possibile testare le credenziali con Azure AD tentativo di connessione all'app di provisioning dell'app con le credenziali fornite.
 
@@ -86,6 +86,8 @@ Per il provisioning in uscita da Azure AD a un'applicazione SaaS, basarsi sulle 
 ### <a name="b2b-guest-users"></a>Utenti B2B (Guest)
 
 È possibile usare il servizio di provisioning utenti Azure AD per effettuare il provisioning di utenti B2B (o Guest) in Azure AD alle applicazioni SaaS. Tuttavia, per consentire agli utenti B2B di accedere all'applicazione SaaS usando Azure AD, l'applicazione SaaS deve avere la funzionalità Single Sign-On basata su SAML configurata in modo specifico. Per altre informazioni su come configurare le applicazioni SaaS per supportare gli accessi dagli utenti B2B, vedere [Configurare app SaaS per Collaborazione B2B](../b2b/configure-saas-apps.md).
+
+Si noti che il valore di userPrincipalName per un utente guest viene spesso archiviato come "alias # EXT #@domain.com". Quando userPrincipalName viene incluso nei mapping degli attributi come un attributo di origine, il #EXT # viene rimosso dal userPrincipalName. Se è necessario che il #EXT # sia presente, sostituire userPrincipalName con originalUserPrincipalName come attributo di origine. 
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Cicli di provisioning: iniziale e incrementale
 

@@ -3,18 +3,18 @@ title: Connetti a IBM MQ Server
 description: Inviare e recuperare messaggi con un'istanza di Azure o un server IBM MQ locale e app per la logica di Azure
 services: logic-apps
 ms.suite: integration
-author: valrobb
-ms.author: valthom
-ms.reviewer: chrishou, logicappspm
+author: ChristopherHouser
+ms.author: chrishou
+ms.reviewer: valthom, logicappspm
 ms.topic: article
 ms.date: 06/19/2019
 tags: connectors
-ms.openlocfilehash: ef9e91b526055ece58ce283572deb98cff951653
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 489f53a4f4c1c0d5bd782f42a9daf73217234793
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789585"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118043"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Connettersi a un server IBM MQ da app per la logica di Azure
 
@@ -38,7 +38,7 @@ Il connettore IBM MQ include queste azioni, ma non fornisce trigger:
 
   * MQ 7.5
   * MQ 8.0
-  * MQ 9,0
+  * MQ 9.0
 
 * App per la logica in cui si vuole aggiungere l'azione MQ. Questa app per la logica deve usare lo stesso percorso della connessione gateway dati locale e deve avere già un trigger che avvia il flusso di lavoro. 
 

@@ -1,20 +1,19 @@
 ---
 title: Codici di errore per le istanze di macchine virtuali e set di scalabilità di Azure spot
 description: Informazioni sui codici di errore che potrebbero essere visualizzati quando si usano le VM e le istanze del set di scalabilità.
-services: virtual-machines-windows
 author: cynthn
 manager: gwallace
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/20/2019
 ms.author: cynthn
-ms.openlocfilehash: 97e68f4d0d671ffa0f697c484c502b9070a3f20f
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 1863c510967dcf80044d768aee1a37643a068ce4
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781943"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77115859"
 ---
 # <a name="preview-error-messages-for-spot-vms-and-scale-sets"></a>Anteprima: messaggi di errore per le VM spot e i set di scalabilità
 
@@ -27,7 +26,7 @@ ms.locfileid: "74781943"
 Di seguito sono riportati alcuni possibili codici di errore che è possibile ricevere quando si usano macchine virtuali e set di scalabilità.
 
 
-| Chiave | Message | Description |
+| Chiave | Message | Descrizione |
 |-----|---------|-------------|
 | SkuNotAvailable | Il livello richiesto per la risorsa '\<Resource\>' non è attualmente disponibile nel percorso '\<location\>' per la sottoscrizione '\<subscriptionID\>'. Provare un altro livello o eseguire la distribuzione in un percorso diverso. | La capacità di Azure spot in questo percorso non è sufficiente per creare la macchina virtuale o l'istanza del set di scalabilità. |
 | EvictionPolicyCanBeSetOnlyOnAzureSpotVirtualMachines  |  I criteri di rimozione possono essere impostati solo in macchine virtuali Azure spot. | Questa macchina virtuale non è una macchina virtuale spot, quindi non è possibile impostare i criteri di rimozione. |

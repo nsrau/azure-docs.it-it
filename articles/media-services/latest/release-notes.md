@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 12/13/2019
+ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: b3d5e1f814a8eb083ab01623051f1b5b3723a9f1
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: e5bf99e2ea84f41054ff57d08882bfa8ab4d6be5
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049634"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114218"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -35,14 +35,33 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 > Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-sdk), l'interfaccia della riga di comando o uno degli SDK supportati.
 
 Per altre informazioni, vedere [Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3](migrate-from-v2-to-v3.md#known-issues).
-
+ 
 ## <a name="january-2020"></a>Gennaio 2020
 
 ### <a name="improvements-in-media-processors"></a>Miglioramenti ai processori di contenuti multimediali
 
 - Supporto migliorato per le origini interlacciate nell'analisi dei video: il contenuto è ora deinterlacciato correttamente prima di essere inviato ai motori di inferenza.
 - Quando si generano anteprime con la modalità "migliore", il codificatore ora cerca oltre 30 secondi per selezionare un frame non monocromatico.
- 
+
+### <a name="azure-government-cloud-updates"></a>Aggiornamenti del cloud di Azure per enti pubblici
+
+Servizi multimediali GA'ed nelle seguenti aree di Azure per enti pubblici: *US gov Arizona* e *US gov Texas*.
+
+## <a name="december-2019"></a>Dicembre 2019
+
+Aggiunta del supporto della rete CDN per l'origine-supporto delle intestazioni di *prelettura* per lo streaming live e video on demand. disponibile per i clienti con contratto diretto con la rete CDN Akamai. Origine-supporto della rete CDN: la funzionalità di prelettura prevede gli scambi di intestazioni HTTP seguenti tra la rete CDN Akamai e l'origine di servizi multimediali di Azure:
+
+|Intestazione HTTP|Valori|Mittente|Ricevitore|Scopo|
+| ---- | ---- | ---- | ---- | ----- |
+|Rete CDN-origine-assistenza-prelettura-abilitata | 1 (valore predefinito) o 0 |RETE CDN|Origine|Per indicare che la rete CDN è abilitato per la prelettura|
+|Rete CDN-origine-assistenza-prelettura-percorso| Esempio: <br/>Frammenti (video = 1400000000, Format = MPD-Time-CMAF)|Origine|RETE CDN|Per fornire il percorso di prelettura alla rete CDN|
+|Rete CDN-origine-assistenza-prelettura-richiesta|1 (richiesta di prelettura) o 0 (richiesta normale)|RETE CDN|Origine|Per indicare che la richiesta dalla rete CDN è una prelettura|
+
+Per visualizzare parte dello scambio di intestazioni in azione, è possibile provare a eseguire la procedura seguente:
+
+1. Usare il post o il curl per inviare una richiesta all'origine di servizi multimediali per un segmento o un frammento audio o video. Assicurarsi di aggiungere l'intestazione CDN-Origin-Assist-prefetch-Enabled: 1 nella richiesta.
+2. Nella risposta dovrebbe essere visualizzata l'intestazione CDN-Origin-Assist-prefetch-Path con un percorso relativo come valore.
+
 ## <a name="november-2019"></a>Novembre 2019
 
 ### <a name="live-transcription-preview"></a>Anteprima della trascrizione in tempo reale

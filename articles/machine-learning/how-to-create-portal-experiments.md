@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/04/2020
-ms.openlocfilehash: 620aab2d2104c9e08de6e7ea47511ff45a482ec4
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: a2bf15c8778a6ff549284b1053cf0978d182b802
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77046108"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116893"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Crea, Esplora e Distribuisci esperimenti di Machine Learning automatici con Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -25,13 +25,13 @@ ms.locfileid: "77046108"
 
  Se si preferisce un'esperienza più basata sul codice, è anche possibile [configurare gli esperimenti di Machine Learning automatici in Python](how-to-configure-auto-train.md) con l' [SDK di Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Un'area di lavoro di Azure Machine Learning con un tipo di **Enterprise Edition**. Vedere [Creare un'area di lavoro di Azure Machine Learning](how-to-manage-workspace.md).  Per aggiornare un'area di lavoro esistente a Enterprise Edition, vedere [eseguire l'aggiornamento a Enterprise Edition](how-to-manage-workspace.md#upgrade).
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Attività iniziali
 
 1. Accedere ad [Azure Machine Learning Studio](https://ml.azure.com). 
 
@@ -60,27 +60,27 @@ In caso contrario, verrà visualizzato un elenco dei recenti esperimenti automat
 
     1. Assegnare un nome univoco al set di dati e specificare una descrizione facoltativa. 
 
-    1. Selezionare **Avanti**per caricarlo nel contenitore di archiviazione predefinito creato automaticamente con l'area di lavoro oppure scegliere un contenitore di archiviazione da usare per l'esperimento. 
+    1. Selezionare **Avanti** per aprire il **modulo archivio dati e selezione file**. In questo modulo è possibile selezionare la posizione in cui caricare il set di dati. il contenitore di archiviazione predefinito creato automaticamente con l'area di lavoro o scegliere un contenitore di archiviazione che si vuole usare per l'esperimento. 
 
     1. Esaminare le **Impostazioni e** il modulo di anteprima per verificarne l'accuratezza. Il modulo viene popolato in modo intelligente in base al tipo di file. 
 
         Campo| Descrizione
         ----|----
         Formato file| Definisce il layout e il tipo di dati archiviati in un file.
-        Delimitatore| Uno o più caratteri per specificare il limite tra aree separate indipendenti in testo normale o altri flussi di dati.
+        Delimiter| Uno o più caratteri per specificare il limite tra aree separate indipendenti in testo normale o altri flussi di dati.
         Codifica| Identifica la tabella dello schema bit-carattere da usare per leggere il set di dati.
         Intestazioni di colonna| Indica come verranno considerate le intestazioni del set di dati, se presenti.
         Ignora righe | Indica quante righe vengono eventualmente ignorate nel set di dati.
     
-        Selezionare **Avanti**.
+        Fare clic su **Avanti**.
 
     1. Il form **dello schema** viene popolato in modo intelligente in base alle selezioni nelle **Impostazioni e** nel modulo di anteprima. Qui configurare il tipo di dati per ogni colonna, rivedere i nomi delle colonne e selezionare le colonne da **non includere** per l'esperimento. 
             
         Selezionare **Avanti.**
 
-    1. Il modulo **Confirm Details** è un riepilogo delle informazioni popolate in precedenza nelle **informazioni di base** e nelle **Impostazioni e** nei moduli di anteprima. È anche possibile profilare il set di dati usando un calcolo abilitato per la profilatura. Altre informazioni sulla [profilatura dei dati](#profile).
+    1. Il modulo **Confirm Details** è un riepilogo delle informazioni popolate in precedenza nelle **informazioni di base** e nelle **Impostazioni e** nei moduli di anteprima. È anche possibile creare un profilo dati per il set di dati usando un calcolo abilitato per la profilatura. Altre informazioni sulla [profilatura dei dati](#profile).
 
-        Selezionare **Avanti**.
+        Fare clic su **Avanti**.
 1. Selezionare il set di dati appena creato dopo che è stato visualizzato. È anche possibile visualizzare un'anteprima del set di dati e delle statistiche di esempio. 
 
 1. Nel modulo **Configura esecuzione** , immettere un nome di esperimento univoco.
@@ -97,12 +97,12 @@ In caso contrario, verrà visualizzato un elenco dei recenti esperimenti automat
     Dimensioni della macchina virtuale| Selezionare le dimensioni della macchina virtuale per il contesto di calcolo.
     Numero minimo/massimo di nodi (in Impostazioni avanzate)| Per profilare i dati, è necessario specificare almeno un nodo. Immettere il numero massimo di nodi per il calcolo. Il valore predefinito è 6 nodi per un calcolo AML.
     
-    Selezionare **Create** (Crea). La creazione di un nuovo calcolo può richiedere alcuni minuti.
+    Selezionare **Crea**. La creazione di un nuovo calcolo può richiedere alcuni minuti.
 
     >[!NOTE]
     > Il nome di calcolo indicherà se la *profilatura*del calcolo selezionato/creato è abilitata. Per altri dettagli, vedere la sezione [profiling dei dati](#profile) .
 
-    Selezionare **Avanti**.
+    Fare clic su **Avanti**.
 
 1. Nel modulo **tipo di attività e impostazioni** selezionare il tipo di attività, ovvero classificazione, regressione o previsione. Per ulteriori informazioni [, vedere come definire i tipi di attività](how-to-define-task-type.md) .
 
@@ -122,7 +122,7 @@ In caso contrario, verrà visualizzato un elenco dei recenti esperimenti automat
     Descrizione del modello migliore | Selezionare questa opzione per abilitare o disabilitare per mostrare la spiegazione del modello migliore consigliato
     Algoritmo bloccato| Selezionare gli algoritmi che si desidera escludere dal processo di training.
     Exit criterion (Esci da criterio)| Quando uno di questi criteri viene soddisfatto, il processo di training viene arrestato. <br> *Tempo del processo di training (ore)* : per quanto tempo consentire l'esecuzione del processo di training. <br> *Soglia Punteggio metrica*: Punteggio metrica minimo per tutte le pipeline. In questo modo si garantisce che, se si dispone di una metrica di destinazione definita che si desidera raggiungere, non si dedica più tempo al processo di training del necessario.
-    Convalida| Selezionare una delle opzioni di convalida incrociata da usare nel processo di training. [Altre informazioni sulla convalida incrociata](how-to-configure-auto-train.md).
+    Validation| Selezionare una delle opzioni di convalida incrociata da usare nel processo di training. [Altre informazioni sulla convalida incrociata](how-to-configure-auto-train.md).
     Concorrenza| Numero massimo di *iterazioni simultanee*: numero massimo di pipeline (iterazioni) da testare nel processo di training. Il processo non viene eseguito più del numero specificato di iterazioni.
 
 1. Opzionale Visualizza impostazioni conteggi: se si sceglie di abilitare **conteggi automatici** nel modulo **impostazioni di configurazione aggiuntive** , questo modulo consente di specificare le colonne in cui eseguire tali featurizations e di selezionare il valore statistico da usare per le imputazioni di valori mancanti.
@@ -136,9 +136,9 @@ In caso contrario, verrà visualizzato un elenco dei recenti esperimenti automat
 >[!NOTE]
 > Vengono visualizzate voci vuote per le funzionalità con tipi irrilevanti.
 
-Statistiche|Descrizione
+Statistic|Descrizione
 ------|------
-Funzionalità| Nome della colonna riepilogata.
+Caratteristica| Nome della colonna riepilogata.
 Profilo| Visualizzazione inline basata sul tipo dedotto. Ad esempio, le stringhe, i valori booleani e le date avranno conteggi dei valori, mentre i decimali (numerici) hanno istogrammi approssimati. In questo modo è possibile acquisire una rapida conoscenza della distribuzione dei dati.
 Distribuzione del tipo| Conteggio dei valori in linea di tipi all'interno di una colonna. I valori null sono di tipo, quindi questa visualizzazione è utile per rilevare valori dispari o mancanti.
 Type|Tipo dedotto della colonna. I valori possibili sono: stringhe, valori booleani, date e decimali.
@@ -147,7 +147,7 @@ Max| Valore massimo della colonna.
 Conteggio| Numero totale di voci mancanti e non mancanti nella colonna.
 Totale non mancanti| Numero di voci nella colonna mancanti. Le stringhe e gli errori vuoti vengono considerati come valori, quindi non contribuiscono al "conteggio mancante".
 Quantiles| Valori approssimati in ogni quantile per fornire un senso della distribuzione dei dati.
-Media| Media aritmetica o media della colonna.
+Valore medio| Media aritmetica o media della colonna.
 Deviazione standard| Misura della quantità di dispersione o variazione dei dati di questa colonna.
 Variance| Misura della diffusione dei dati di questa colonna dal relativo valore medio. 
 Asimmetria| Misura del modo in cui i dati della colonna sono diversi da una distribuzione normale.
@@ -196,7 +196,7 @@ Selezionare **Finish (fine** ) per eseguire l'esperimento. L'esperimento di prep
 
 Verrà visualizzata la schermata **Esegui dettagli** nella scheda **Dettagli** . Questa schermata mostra un riepilogo dell'esecuzione dell'esperimento, inclusa una barra di stato nella parte superiore accanto al numero di esecuzione. 
 
-La scheda **modelli** contiene un elenco dei modelli creati in base al punteggio della metrica. Per impostazione predefinita, il modello che assegna un punteggio al più alto in base alla metrica scelta si trova nella parte superiore dell'elenco. Quando il processo di training tenta un maggior numero di modelli, questi vengono aggiunti all'elenco. Usare questa procedura per ottenere un rapido confronto delle metriche per i modelli prodotti finora.
+La scheda **Modelli** contiene un elenco dei modelli creati, ordinati in base al punteggio della metrica. Per impostazione predefinita, il modello che riceve il punteggio più alto in base alla metrica scelta si trova all'inizio dell'elenco. Man mano che il processo di training prova altri modelli, questi vengono aggiunti all'elenco. Usare questa procedura per ottenere un rapido confronto delle metriche per i modelli prodotti finora.
 
 [![Dashboard dei dettagli di esecuzione](media/how-to-create-portal-experiments/run-details.png)](media/how-to-create-portal-experiments/run-details-expanded.png#lightbox)
 
@@ -220,9 +220,9 @@ Automatizzato ML semplifica la distribuzione del modello senza scrivere codice:
 
 1. Popolare il riquadro **Distribuisci modello** .
 
-    Campo| valore
+    Campo| Valore
     ----|----
-    Nome| Immettere un nome univoco per la distribuzione.
+    Name| Immettere un nome univoco per la distribuzione.
     Descrizione| Immettere una descrizione per identificare meglio le finalità della distribuzione.
     Tipo di calcolo| Selezionare il tipo di endpoint che si vuole distribuire: *Azure Kubernetes Service (AKS)* o *Azure container instance (ACI)* .
     Nome del calcolo| *Si applica solo a AKS:* Selezionare il nome del cluster AKS in cui si vuole eseguire la distribuzione.

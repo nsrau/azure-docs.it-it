@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f16cb95a42bf201aa7d75a3393917c58f51fbb07
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 148ded0eba61221a2bdf0b8a50392da47a4c5f20
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122441"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122482"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrare una macchina virtuale SQL Server in Azure con il provider di risorse VM SQL
 
@@ -161,20 +161,20 @@ Registrare SQL Server VM in modalità Lightweight con PowerShell:
 
 Se l'estensione SQL IaaS è già stata installata manualmente nella macchina virtuale, è possibile registrare la macchina virtuale SQL Server in modalità completa senza riavviare il servizio SQL Server. **Tuttavia, se l'estensione SQL IaaS non è stata installata, la registrazione in modalità completa installerà l'estensione SQL IaaS in modalità completa e riavvierà il servizio SQL Server. Procedere con cautela.**
 
-Di seguito è riportato il frammento di codice da registrare con il provider di risorse VM SQL in modalità completa. Per eseguire la registrazione in modalità di gestione completa, usare il comando di PowerShell seguente:
+
+Per registrare la macchina virtuale SQL Server direttamente in modalità completa (ed eventualmente riavviare il servizio SQL Server), usare il comando PowerShell seguente: 
 
   ```powershell-interactive
   # Get the existing  Compute VM
   $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
         
   # Register with SQL VM resource provider in full mode
-  Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
+  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
   ```
-
 
 ### <a name="noagent-management-mode"></a>Modalità di gestione noagent 
 
-SQL Server 2008 e 2008 R2 installati in Windows Server 2008 possono essere registrati con il provider di risorse VM SQL in [modalità noagent](#management-modes). Questa opzione assicura la conformità e consente il monitoraggio della macchina virtuale SQL Server nel portale di Azure con funzionalità limitate.
+SQL Server 2008 e 2008 R2 installati in Windows Server 2008 (_non R2_) possono essere registrati con il provider di risorse VM SQL in [modalità noagent](#management-modes). Questa opzione assicura la conformità e consente il monitoraggio della macchina virtuale SQL Server nel portale di Azure con funzionalità limitate.
 
 Specificare `AHUB` o `PAYG` come **sqlLicenseType**e `SQL2008-WS2008` o `SQL2008R2-WS2008` come **sqlImageOffer**. 
 
@@ -183,17 +183,37 @@ Per registrare l'istanza di SQL Server 2008 o 2008 R2 nell'istanza di Windows Se
 
 # <a name="az-clitabbash"></a>[Interfaccia della riga di comando AZ](#tab/bash)
 
-Registrare SQL Server VM in modalità noagent con AZ CLI: 
+Registrare la macchina virtuale di SQL Server 2008 in modalità noagent con AZ CLI: 
 
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
    --license-type PAYG --sql-mgmt-type NoAgent 
    --image-sku Enterprise --image-offer SQL2008-WS2008R2
  ```
+ 
+ 
+Registrare la macchina virtuale SQL Server 2008 R2 in modalità noagent con AZ CLI: 
+
+  ```azurecli-interactive
+   az sql vm create -n sqlvm -g myresourcegroup -l eastus |
+   --license-type PAYG --sql-mgmt-type NoAgent 
+   --image-sku Enterprise --image-offer SQL2008R2-WS2008R2
+ ```
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Registrare SQL Server VM in modalità noagent con PowerShell: 
+Registrare SQL Server VM 2008 in modalità noagent con PowerShell: 
+
+
+  ```powershell-interactive
+  # Get the existing compute VM
+  $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+          
+  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+    -LicenseType PAYG -SqlManagementType NoAgent -Sku Standard -Offer SQL2008-WS2008
+  ```
+  
+  Registrare SQL Server VM 2008 R2 in modalità noagent con PowerShell: 
 
 
   ```powershell-interactive
@@ -252,10 +272,9 @@ Eseguire il frammento di codice PowerShell seguente:
   ```powershell-interactive
   # Get the existing  Compute VM
   $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-
-  # Update to full mode
-  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-     -LicenseType PAYG -SqlManagementType Full
+        
+  # Register with SQL VM resource provider in full mode
+  Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
   ```
 
 ---
@@ -434,7 +453,7 @@ Sì. SQL Server istanze del cluster di failover in una macchina virtuale di Azur
 Sì. Non sono previste restrizioni per la registrazione di un'istanza di SQL Server in una macchina virtuale di Azure con il provider di risorse VM SQL se si partecipa a una configurazione del gruppo di disponibilità Always On.
 
 **Qual è il costo per la registrazione con il provider di risorse VM SQL o con l'aggiornamento alla modalità di gestibilità completa?**
-Nessuno. Non sono previste tariffe associate alla registrazione con il provider di risorse VM SQL o con una delle tre modalità di gestibilità. La gestione della macchina virtuale SQL Server con il provider di risorse è completamente gratuita. 
+Nessuno Non sono previste tariffe associate alla registrazione con il provider di risorse VM SQL o con una delle tre modalità di gestibilità. La gestione della macchina virtuale SQL Server con il provider di risorse è completamente gratuita. 
 
 **Qual è l'effetto sulle prestazioni dell'utilizzo delle diverse modalità di gestibilità?**
 Non vi è alcun effetto quando si utilizzano le modalità *noagent* e la gestibilità *leggera* . Quando si usa la modalità di gestibilità *completa* di due servizi installati nel sistema operativo, l'effetto è minimo. Questi possono essere monitorati tramite Gestione attività e visualizzati nella console dei servizi Windows incorporata. 

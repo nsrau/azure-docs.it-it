@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 6d1dd8f749f6c3e991413628bd1e08baf76a02f8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 378b802602576c4cf50862149f5d31d16d721be0
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458685"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77115848"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Caricare e creare una VM Linux da un disco personalizzato usando l'interfaccia della riga di comando di Azure
 
@@ -79,7 +79,7 @@ az vm create --resource-group myResourceGroup --location westus \
     --use-unmanaged-disk
 ```
 
-L'account di archiviazione di destinazione deve essere lo stesso in cui è stato caricato il disco virtuale. È anche necessario specificare tutti i parametri aggiuntivi richiesti dal comando **az vm create**, ad esempio rete virtuale, indirizzo IP pubblico, nome utente e chiavi SSH, oppure rispondere ai messaggi inerenti. Sono disponibili altre informazioni sui [parametri di Resource Manager per l'interfaccia della riga di comando](../azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
+L'account di archiviazione di destinazione deve essere lo stesso in cui è stato caricato il disco virtuale. È anche necessario specificare tutti i parametri aggiuntivi richiesti dal comando **az vm create**, ad esempio rete virtuale, indirizzo IP pubblico, nome utente e chiavi SSH, oppure rispondere ai messaggi inerenti. Altre informazioni sui parametri di Gestione risorse dell'interfaccia della riga di comando [classici disponibili sono disponibili](../azure-cli-arm-commands.md#virtual-machines).
 
 ## <a name="requirements"></a>Requisiti
 Per completare la procedura seguente, è necessario:
@@ -185,7 +185,7 @@ az storage blob upload --account-name mystorageaccount \
     --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
 
-## <a name="create-the-vm"></a>Creare la VM
+## <a name="create-the-vm"></a>Creazione della VM
 Per creare una macchina virtuale con dischi non gestiti, specificare l'URI del disco (`--image`) con [az vm create](/cli/azure/vm). L'esempio seguente crea una VM denominata `myVM` usando il disco virtuale caricato in precedenza:
 
 Specificare il parametro `--image` con il comando [az vm create](/cli/azure/vm) in modo da puntare al disco personalizzato. Assicurarsi che `--storage-account` corrisponda all'account di archiviazione in cui è archiviato il disco personalizzato. Non è necessario utilizzare lo stesso contenitore come disco personalizzato per archiviare le VM. Assicurarsi di creare qualsiasi contenitore aggiuntivo seguendo la stessa procedura utilizzata in precedenza prima di caricare il disco personalizzato.

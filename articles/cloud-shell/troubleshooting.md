@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: db1e2d09c1a75401a8ca24859e9b2d5da9f54b72
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 1d244d7b62fcfefeec6f628f473274ae982bf4d8
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024280"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120221"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Risoluzione dei problemi e limitazioni di Azure Cloud Shell
 
@@ -28,6 +28,11 @@ Le soluzioni note per i problemi in Azure Cloud Shell includono:
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-troubleshooting"></a>Risoluzione dei problemi generali
+
+### <a name="error-running-azuread-cmdlets-in-powershell"></a>Errore durante l'esecuzione di cmdlet AzureAD in PowerShell
+
+- **Dettagli**: quando si eseguono cmdlet AzureAD come `Get-AzureADUser` in cloud Shell, è possibile che venga visualizzato un errore: `You must call the Connect-AzureAD cmdlet before calling any other cmdlets`. 
+- **Soluzione**: eseguire il cmdlet `Connect-AzureAD`. In precedenza Cloud Shell questo cmdlet veniva eseguito automaticamente durante l'avvio di PowerShell. Per velocizzare l'ora di avvio, il cmdlet non viene più eseguito automaticamente. È possibile scegliere di ripristinare il comportamento precedente aggiungendo `Connect-AzureAD` al file di $PROFILE in PowerShell.
 
 ### <a name="early-timeouts-in-firefox"></a>Timeout anticipati in FireFox
 
@@ -117,7 +122,7 @@ Cloud Shell supporta le versioni più recenti dei browser seguenti:
 
 [!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
-### <a name="usage-limits"></a>Limiti di utilizzo
+### <a name="usage-limits"></a>Limiti di consumo
 
 Cloud Shell è pensato per l'uso interattivo e qualsiasi sessione non interattiva in esecuzione prolungata viene quindi interrotta senza preavviso.
 
@@ -163,7 +168,7 @@ Azure Cloud Shell tratta i dati personali dell'utente con molta cautela: i dati 
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-### <a name="export"></a>Esporta
+### <a name="export"></a>Export
 Al fine di **esportare** le impostazioni dell'utente che Cloud Shell salva, ad esempio shell preferita, dimensione e tipo di carattere, eseguire i comandi seguenti.
 
 1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
@@ -183,7 +188,7 @@ PowerShell:
   ((Invoke-WebRequest -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}).Content | ConvertFrom-Json).properties | Format-List
 ```
 
-### <a name="delete"></a>Elimina
+### <a name="delete"></a>Delete
 Al fine di **eliminare** le impostazioni dell'utente che Cloud Shell salva, ad esempio shell preferita, dimensione e tipo di carattere, eseguire i comandi seguenti. Al successivo avvio di Cloud Shell verrà richiesto di caricare di nuovo una condivisione file. 
 
 >[!Note]

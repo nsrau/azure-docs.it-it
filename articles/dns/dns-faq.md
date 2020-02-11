@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/15/2019
 ms.author: rohink
-ms.openlocfilehash: 990adf73211e96370fd06f5e322301128321e81f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 76b19cfb3c00a26d81eab81f67d8e156a520f377
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76937301"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121730"
 ---
 # <a name="azure-dns-faq"></a>Domande frequenti su DNS di Azure
 
 ## <a name="about-azure-dns"></a>DNS di Azure
 
-### <a name="what-is-azure-dns"></a>Che cos'è il servizio DNS di Azure?
+### <a name="what-is-azure-dns"></a>Che cos'è DNS di Azure?
 
 Il sistema DNS (Domain Name System) esegue la conversione (o risoluzione) del nome di un sito Web o di un servizio nel relativo indirizzo IP. DNS di Azure è un servizio di hosting per i domini DNS che esegue la risoluzione dei nomi tramite l'infrastruttura di Microsoft Azure. L'hosting dei domini in Azure consente di gestire i record DNS usando gli stessi strumenti, credenziali, API e fatturazione usati per altri servizi Azure.
 
@@ -32,7 +32,7 @@ Il modello di fatturazione di DNS di Azure si basa sul numero di zone DNS ospita
 
 Per altre informazioni, vedere la pagina relativa ai [prezzi di DNS di Azure](https://azure.microsoft.com/pricing/details/dns/).
 
-### <a name="what-is-the-sla-for-azure-dns"></a>Che cos'è il Contratto di servizio per DNS di Azure?
+### <a name="what-is-the-sla-for-azure-dns"></a>Qual è il contratto di servizio per DNS di Azure?
 
 Azure garantisce che le richieste DNS valide ricevano una risposta da almeno uno dei server dei nomi DNS di Azure il 100% delle volte.
 
@@ -42,7 +42,7 @@ Per altre informazioni, vedere la pagina relativa al [contratto di Servizio per 
 
 Un dominio è un nome univoco nel Domain Name System, ad esempio contoso.com.
 
-Una zona DNS viene usata per ospitare i record DNS per un dominio specifico. Il dominio contoso.com può contenere, ad esempio, diversi record DNS. I record possono includere mail.contoso.com per un server di posta elettronica e www\.contoso.com per un sito Web. e sono ospitati nella zona DNS contoso.com.
+Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. Il dominio contoso.com può contenere, ad esempio, diversi record DNS. I record possono includere mail.contoso.com per un server di posta elettronica e www\.contoso.com per un sito Web. e sono ospitati nella zona DNS contoso.com.
 
 Un nome di dominio è *solo un nome*, mentre una zona DNS è una risorsa di dati contenente i record DNS per un nome di dominio. È possibile usare DNS di Azure per ospitare una zona DNS e gestire i record DNS per un dominio in Azure. Offre anche server dei nomi DNS per rispondere alle query DNS da Internet.
 
@@ -50,7 +50,7 @@ Un nome di dominio è *solo un nome*, mentre una zona DNS è una risorsa di dati
 
 Non necessariamente.
 
-Non è necessario acquistare un dominio per ospitare una zona DNS in DNS di Azure. Puoi creare una zona DNS in qualsiasi momento senza essere il proprietario del nome di dominio. Le query DNS per la zona vengono risolte solo se sono indirizzate ai server dei nomi DNS di Azure assegnati alla zona.
+Non è necessario acquistare un dominio per ospitare una zona DNS in DNS di Azure. È possibile creare una zona DNS in qualsiasi momento senza essere il proprietario del nome di dominio. Le query DNS per la zona vengono risolte solo se sono indirizzate ai server dei nomi DNS di Azure assegnati alla zona.
 
 Il nome di dominio deve essere acquistato se si vuole collegare la zona DNS alla gerarchia DNS globale. Questo collegamento consente alle query DNS eseguite da qualsiasi parte del mondo di trovare la zona DNS e di ottenere risposte con i record DNS.
 
@@ -149,7 +149,7 @@ Sì. DNS di Azure supporta i domini di hosting condiviso con altri servizi DNS.
 
 Per configurare il co-hosting, modificare i record NS per il dominio in modo che puntino ai server dei nomi di entrambi i provider. I record dei server dei nomi controllano quali provider ricevono le query DNS per il dominio. È possibile modificare tali record in DNS di Azure, nell'altro provider e nella zona padre, configurata in genere tramite il registrar di nomi di dominio. Per altre informazioni sulla delega DNS, vedere [Delega del dominio DNS](dns-domain-delegation.md).
 
-È anche necessario verificare che i record DNS per il dominio siano sincronizzati tra i due provider DNS. DNS di Azure attualmente non supporta i trasferimenti di zona DNS e i record DNS devono essere sincronizzati tramite il [portale di gestione di DNS di Azure](dns-operations-recordsets-portal.md), l'[API REST](https://docs.microsoft.com/powershell/module/az.dns), l'[SDK](dns-sdk.md), i [cmdlet di PowerShell](dns-operations-recordsets.md) o lo [strumento di interfaccia della riga di comando](dns-operations-recordsets-cli.md).
+È anche necessario verificare che i record DNS per il dominio siano sincronizzati tra i due provider DNS. DNS di Azure attualmente non supporta i trasferimenti di zona DNS e i record DNS devono essere sincronizzati tramite il [portale di gestione di DNS di Azure](dns-operations-recordsets-portal.md), l'[API REST](https://docs.microsoft.com/rest/api/dns/), l'[SDK](dns-sdk.md), i [cmdlet di PowerShell](dns-operations-recordsets.md) o lo [strumento di interfaccia della riga di comando](dns-operations-recordsets-cli.md).
 
 ### <a name="do-i-have-to-delegate-my-domain-to-all-four-azure-dns-name-servers"></a>È necessario delegare il dominio a tutti e quattro i server dei nomi DNS di Azure?
 

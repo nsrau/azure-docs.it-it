@@ -1,6 +1,6 @@
 ---
-title: Concetti di lab in aula - Azure Lab Services | Microsoft Docs
-description: Informazioni sui concetti di base di Lab Services e come può risultare facili da creare e gestire i lab.
+title: Concetti relativi ai Lab della classe-Azure Lab Services | Microsoft Docs
+description: Scopri i concetti di base di Lab Services e come può semplificare la creazione e la gestione dei Lab.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,52 +13,62 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: spelluru
-ms.openlocfilehash: 8bbb486b0dbf1a5e25f5ee4d1f8e5e01b999a8ba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 348340516f9332f5492c7ce60c3d164da44a008c
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067383"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120890"
 ---
 # <a name="classroom-labs-concepts"></a>Concetti sui lab per le classi
-Nell'elenco seguente contiene le definizioni e concetti di Lab Services:
+
+L'elenco seguente contiene i concetti e le definizioni principali dei servizi Lab:
 
 ## <a name="quota"></a>Quota
-La quota è il limite di tempo (in ore) che è possibile impostare un insegnante di uno studente a usare macchine virtuali. Si può essere impostato su 0 o un determinato numero di ore. Se la quota è impostata su 0, uno studente può usare solo la macchina virtuale durante l'esecuzione di una pianificazione o quando un insegnante accende manualmente la macchina virtuale per gli studenti.
- 
+
+Quota è il limite di tempo (in ore) che un insegnante può impostare affinché uno studente possa usare una macchina virtuale Lab. Può essere impostato su 0 o su un numero specifico di ore. Se la quota è impostata su 0, uno studente può utilizzare la macchina virtuale solo quando è in esecuzione una pianificazione o quando un insegnante accende manualmente la macchina virtuale per lo studente.  
+
+Le ore di quota vengono conteggiate quando lo studente avvia la macchina virtuale del Lab.  Se un insegnante avvia manualmente la macchina virtuale del Lab per uno studente, le ore di quota non vengono usate per tale studente.
+
 ## <a name="schedules"></a>Pianificazioni
-Le pianificazioni sono gli slot di tempo (una sola volta o ricorrente) che un insegnante può creare per la classe. Tutte le macchine virtuali nel lab vengono avviate automaticamente all'inizio alla pianificazione e vengono arrestati alla fine della pianificazione. Ore associate alle quote non vengono utilizzate durante l'esecuzione di una pianificazione.
 
-## <a name="template-virtual-machine"></a>Macchina virtuale di modello
-Una macchina virtuale di modello in un lab è un'immagine di macchina virtuale di base da cui vengono create le macchine virtuali di tutti gli utenti. Gli autori di formatori/lab configurare la macchina virtuale di modello e configurarlo con il software che si desidera fornire ai partecipanti di training per eseguire operazioni lab. Quando si pubblica un modello di macchina virtuale, Azure Lab Services crea o aggiorna le macchine virtuali lab basate sul modello di macchina virtuale. 
+Le pianificazioni sono gli intervalli di tempo (una volta o ricorrenti) che un insegnante può creare per la classe. Tutte le macchine virtuali nel Lab vengono avviate automaticamente all'inizio della pianificazione e arrestate alla fine della pianificazione. Le ore di quota non vengono utilizzate quando si esegue una pianificazione.
 
+## <a name="template-virtual-machine"></a>Macchina virtuale modello
+
+Una macchina virtuale modello in un Lab è un'immagine di macchina virtuale di base da cui vengono create tutte le macchine virtuali degli utenti. I docenti e i creatori di Lab configurano la macchina virtuale del modello e la configurano con il software che vogliono fornire ai partecipanti di formazione per eseguire laboratori. Quando si pubblica una macchina virtuale modello, Azure Lab Services crea o aggiorna le VM Lab basate sulla macchina virtuale modello.
 
 ## <a name="user-profiles"></a>Profili utente
-Questo articolo descrive i diversi profili utente in Azure Lab Services. 
+
+Questo articolo descrive i diversi profili utente in Azure Lab Services.
 
 ### <a name="lab-account-owner"></a>Proprietario dell'account del lab
-L'amministratore IT delle risorse cloud aziendali che possiede la sottoscrizione di Azure in genere funge da proprietario dell'account del lab ed esegue le attività seguenti:   
+
+L'amministratore IT delle risorse cloud aziendali che possiede la sottoscrizione di Azure in genere funge da proprietario dell'account del lab ed esegue le attività seguenti:
 
 - Configura un account del lab per l'organizzazione.
 - Gestisce e configura i criteri in tutti i lab.
 - Concede le autorizzazioni agli utenti dell'organizzazione per la creazione di un lab all'interno dell'account del lab.
 
 ### <a name="professor"></a>Professor
-In genere, gli utenti con il ruolo di docente o trainer online creano i lab per le classi con un account lab. Il docente esegue le attività seguenti: 
+
+In genere, gli utenti con il ruolo di docente o trainer online creano i lab per le classi con un account lab. Il docente esegue le attività seguenti:
 
 - Crea un lab per le classi.
-- Crea le macchine virtuali nel lab. 
+- Crea le macchine virtuali nel lab.
 - Installa il software appropriato nelle macchine virtuali.
 - Specifica chi può accedere al lab.
 - Fornisce il collegamento di registrazione per il lab agli studenti.
 
-### <a name="student"></a>Studente
+### <a name="student"></a>Student
+
 Uno studente esegue le attività seguenti:
 
-- Usa il collegamento di registrazione che l'utente del lab riceve da un creatore del lab per registrarsi nel lab. 
-- Si connette a una macchina virtuale nel lab e la usa per le attività di classe, i compiti e i progetti. 
+- Usa il collegamento di registrazione che l'utente del lab riceve da un creatore del lab per registrarsi nel lab.
+- Si connette a una macchina virtuale nel lab e la usa per le attività di classe, i compiti e i progetti.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Leggere informazioni introduttive sulla configurazione di un account lab necessario per creare un lab per le classi con Azure Lab Services:
 
 - [Configurare un account Lab](tutorial-setup-lab-account.md)

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/28/2020
+ms.date: 02/10/2020
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1ed80ad87d81c2ec1bdfe50e9cd4556f141507b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c91b9ffc9e3487e492c91cb0f5825d0b725f9410
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76907474"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120091"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Creare raccolte nel portale app personali
 
@@ -30,7 +30,7 @@ Gli utenti possono usare il portale app personali per visualizzare e avviare le 
 > [!NOTE]
 > Questo articolo illustra come un amministratore può abilitare e creare raccolte. Per informazioni sull'uso del portale e delle raccolte di app personali da parte dell'utente finale, vedere [Access and use Collections](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces).
 
-## <a name="enable-my-apps-preview-features"></a>Abilita le funzionalità di anteprima delle app personali
+## <a name="enable-the-latest-my-apps-features"></a>Abilita le funzionalità delle app personali più recenti
 
 1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come amministratore utente o amministratore globale.
 
@@ -39,8 +39,8 @@ Gli utenti possono usare il portale app personali per visualizzare e avviare le 
 3. In **anteprime funzionalità utente**selezionare **Gestisci impostazioni anteprima funzionalità utente**.
 
 4. In **utenti possono usare le funzionalità di anteprima per le app personali**, scegliere una delle opzioni seguenti:
-   * **Selezionato** : Abilita le funzionalità di anteprima per un gruppo specifico. Utilizzare l'opzione **Seleziona un gruppo** per selezionare il gruppo per il quale si desidera abilitare le funzionalità di anteprima.  
-   * **All** : Abilita le funzionalità di anteprima per tutti gli utenti.
+   * **Selezionato** : Abilita le funzionalità per un gruppo specifico. Utilizzare l'opzione **Seleziona un gruppo** per selezionare il gruppo per il quale si desidera abilitare le funzionalità.  
+   * **All** : Abilita le funzionalità per tutti gli utenti.
 
 > [!NOTE]
 > Per aprire il portale app personali, gli utenti possono usare il collegamento `https://myapps.microsoft.com` o il collegamento personalizzato per l'organizzazione, ad esempio `https://myapps.microsoft.com/contoso.com`. Dopo aver abilitato la nuova esperienza app personali, il banner **disponibile nell'esperienza applicazioni personali viene** visualizzato nella parte superiore della pagina App personali e gli utenti possono selezionare **prova** per visualizzare la nuova esperienza. Per interrompere l'uso della nuova esperienza, gli utenti possono selezionare **Sì** nel banner **lascia nuova esperienza** nella parte superiore della pagina.

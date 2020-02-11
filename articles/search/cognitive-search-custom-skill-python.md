@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: 06a247c9e65ce386034a50650e46994bbbe9074a
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: e4f27e582e6b920e9de068fe2c3270af19ad8a17
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152171"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122417"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Esempio: creare una competenza personalizzata usando Python
 
@@ -57,7 +57,7 @@ Il modello di progetto Funzioni di Azure in Visual Studio Code crea un progetto 
 
 Visual Studio Code crea il progetto di app per le funzioni in una nuova area di lavoro. Questo progetto contiene i file di configurazione [host.json](../azure-functions/functions-host-json.md) e [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file), oltre ad altri file di progetto specifici per il linguaggio. 
 
-Viene anche creata una nuova funzione attivata tramite HTTP nella cartella **Concatenator** del progetto di app per le funzioni. Al suo interno sarà presente un file denominato "\__init__. py" con il contenuto seguente:
+Viene anche creata una nuova funzione attivata tramite HTTP nella cartella **Concatenator** del progetto di app per le funzioni. Al suo interno sarà presente un file denominato "\_\_init__. py" con il contenuto seguente:
 
 ```py
 import logging
@@ -207,7 +207,7 @@ Ora che si dispone della chiave host predefinita, testare la funzione come segue
 POST [Function URL you copied above]
 ```
 
-### <a name="request-body"></a>Request Body
+### <a name="request-body"></a>Corpo richiesto
 ```json
 {
     "values": [
@@ -264,7 +264,7 @@ A questo punto è possibile aggiungere la competenza personalizzata al proprio s
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Congratulazioni! Sono state create le prime competenze personalizzate. Ora è possibile seguire lo stesso schema per aggiungere funzionalità personalizzate. Per ulteriori informazioni, fare clic sui collegamenti seguenti.
+La procedura è stata completata. Sono state create le prime competenze personalizzate. Ora è possibile seguire lo stesso schema per aggiungere funzionalità personalizzate. Per ulteriori informazioni, fare clic sui collegamenti seguenti.
 
 + [Power Skills: un repository di competenze personalizzate](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Aggiungere un'abilità personalizzata a una pipeline di arricchimento di intelligenza artificiale](cognitive-search-custom-skill-interface.md)

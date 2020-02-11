@@ -4,12 +4,12 @@ description: Modelli di scalabilità automatica in Azure per App Web, set di sca
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: d9f04e0af4349f6b149619f13dac8ca2f59b560e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a05cf87e660cc6c388ea2055bb174c47b99da4a3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75396990"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117122"
 ---
 # <a name="best-practices-for-autoscale"></a>Procedure consigliate per la scalabilità automatica
 La scalabilità automatica di Monitoraggio di Azure si applica solo a [set di scalabilità di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Servizi cloud](https://azure.microsoft.com/services/cloud-services/), [app Web del servizio app](https://azure.microsoft.com/services/app-service/web/) e [servizi di gestione API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
@@ -113,7 +113,7 @@ Allo stesso modo, quando la scalabilità automatica torna al profilo predefinito
 
 ### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Considerazioni sul ridimensionamento quando vengono configurate più regole in un profilo
 
-In alcuni casi potrebbe essere necessario impostare più regole in un profilo. Le seguenti regole di scalabilità automatica vengono usate dai servizi quando vengono impostate più regole.
+In alcuni casi potrebbe essere necessario impostare più regole in un profilo. Le seguenti regole di scalabilità automatica vengono usate dal motore di scalabilità automatica quando vengono impostate più regole.
 
 Nel caso di *scalabilità orizzontale*, la scalabilità automatica viene eseguita se viene soddisfatta una regola.
 In caso di *riduzione del numero di istanze*, la scalabilità automatica richiede che tutte le regole siano soddisfatte.
@@ -133,13 +133,13 @@ Si verifica quindi quanto segue:
 Ma, se la CPU è pari al 25% e la memoria è pari al 51%, la scalabilità automatica **non** riduce il numero di istanze. Per ridurre il numero di istanze, la CPU deve essere al 29% e la memoria al 49%.
 
 ### <a name="always-select-a-safe-default-instance-count"></a>Selezionare sempre un conteggio di istanze predefinito sicuro
-Il conteggio predefinito delle istanze è importante perché è in base a tale conteggio che la scalabilità automatica ridimensiona il servizio quando le metriche non sono disponibili. Selezionare quindi un conteggio di istanze predefinito sicuro per i carichi di lavoro.
+Il numero predefinito di istanze è importante perché la scalabilità automatica ridimensiona il servizio a tale conteggio quando le metriche non sono disponibili. Selezionare quindi un conteggio di istanze predefinito sicuro per i carichi di lavoro.
 
 ### <a name="configure-autoscale-notifications"></a>Configurare le notifiche relative alla scalabilità automatica
 La scalabilità automatica eseguirà la registrazione sul log attività se si verifica una delle condizioni seguenti:
 
-* La scalabilità automatica esegue un'operazione di scalabilità
-* Il servizio di scalabilità automatica esegue correttamente un'azione di scalabilità
+* La scalabilità automatica rilascia un'operazione di ridimensionamento.
+* Il servizio di scalabilità automatica completa correttamente un'azione di ridimensionamento.
 * Il servizio di scalabilità automatica non riesce a eseguire un'azione di scalabilità.
 * Non sono disponibili metriche che consentono al servizio di scalabilità automatica di prendere una decisione sulla scalabilità.
 * Sono di nuovo disponibili metriche (ripristino) che consentono di prendere una decisione sulla scalabilità.
@@ -148,7 +148,7 @@ Per monitorare l'integrità del motore di scalabilità automatica si può anche 
 
 Oltre a usare gli avvisi di log attività, è possibile configurare le notifiche tramite posta elettronica o webhook per ricevere una notifica delle azioni di scalabilità riuscite tramite la scheda delle notifiche dell'impostazione di scalabilità automatica.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 - [Creare un avviso di log attività per monitorare tutte le operazioni del motore di scalabilità automatica della sottoscrizione.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Creare un avviso di log attività per monitorare tutte le operazioni di scalabilità automatica in riduzione e in aumento non riuscite per la sottoscrizione.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 

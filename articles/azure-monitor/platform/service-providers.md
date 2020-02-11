@@ -1,25 +1,28 @@
 ---
-title: Monitoraggio di Azure per i provider di servizi | Microsoft Docs
-description: Monitoraggio di Azure può aiutare i provider di servizi gestiti (MSPs), le aziende di grandi dimensioni, i fornitori di software indipendenti (ISV) e i provider di servizi di hosting a gestire e monitorare i server nell'infrastruttura locale o cloud del cliente.
+title: Log di monitoraggio di Azure per i provider di servizi | Microsoft Docs
+description: I log di monitoraggio di Azure possono aiutare i provider di servizi gestiti (MSPs), le grandi aziende, i fornitori di software indipendenti (ISV) e i provider di servizi di hosting a gestire e monitorare i server nell'infrastruttura locale o cloud del cliente.
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
-ms.date: 08/06/2019
-ms.openlocfilehash: b0f25d01421edd329b03d8f2b7e1aafaa2ba67d5
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 02/03/2020
+ms.openlocfilehash: 1b5c181569ea569ecc4808284683501cb20f7bf5
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932069"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117052"
 ---
-# <a name="azure-monitor-for-service-providers"></a>Monitoraggio di Azure per i provider di servizi
-Log Analytics le aree di lavoro in monitoraggio di Azure possono aiutare i provider di servizi gestiti (MSPs), le grandi aziende, i fornitori di software indipendenti (ISV) e i provider di servizi di hosting a gestire e monitorare i server nell'infrastruttura locale o cloud del cliente. 
+# <a name="azure-monitor-logs-for-service-providers"></a>Log di monitoraggio di Azure per i provider di servizi
+
+Log Analytics le aree di lavoro in monitoraggio di Azure possono aiutare i provider di servizi gestiti (MSPs), le grandi aziende, i fornitori di software indipendenti (ISV) e i provider di servizi di hosting a gestire e monitorare i server nell'infrastruttura locale o cloud del cliente.
 
 Le aziende di grandi dimensioni hanno molti punti in comune con i provider di servizi, soprattutto quando c'è un team IT centralizzato che si occupa della gestione dell'IT per molte business unit diverse tra loro. Per semplicità, in questo documento si usa il termine *provider di servizi* ma la stessa funzionalità è disponibile anche per le aziende e gli altri clienti.
 
-Per i partner e i provider di servizi che fanno parte del programma [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) , log Analytics in monitoraggio di Azure è uno dei servizi di Azure disponibili nelle [sottoscrizioni di Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
+Per i partner e i provider di servizi che fanno parte del programma [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) , log Analytics in monitoraggio di Azure è uno dei servizi di Azure disponibili nelle sottoscrizioni di Azure CSP.
+
+Log Analytics in monitoraggio di Azure può essere usato anche da un provider di servizi che gestisce le risorse dei clienti tramite la funzionalità di gestione delle risorse delegate di Azure nel [Faro di Azure](https://docs.microsoft.com/azure/lighthouse/overview).
 
 ## <a name="architectures-for-service-providers"></a>Architetture per i provider di servizi
 
@@ -27,42 +30,44 @@ Log Analytics aree di lavoro forniscono un metodo che consente all'amministrator
 
 Esistono tre possibili architetture relative alle aree di lavoro di Log Analytics:
 
-### <a name="1-distributed---logs-are-stored-in-workspaces-located-in-the-customers-tenant"></a>1. i log distribuiti vengono archiviati nelle aree di lavoro situate nel tenant del cliente 
+### <a name="1-distributed---logs-are-stored-in-workspaces-located-in-the-customers-tenant"></a>1. i log distribuiti vengono archiviati nelle aree di lavoro situate nel tenant del cliente
 
-In questa architettura l'area di lavoro viene distribuita nel tenant del cliente usato per tutti i log del cliente stesso.In questa architettura l'area di lavoro viene distribuita nel tenant del cliente usato per tutti i log del cliente stesso. Agli amministratori del provider di servizi viene concesso l'accesso all'area di lavoro tramite le autorizzazioni di [utenti guest di Azure Active Directory (B2B)](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b). Per accedere a tali aree di lavoro, l'amministratore del provider di servizi deve passare alla directory del cliente nel portale di Azure.
+In questa architettura l'area di lavoro viene distribuita nel tenant del cliente usato per tutti i log del cliente stesso.In questa architettura l'area di lavoro viene distribuita nel tenant del cliente usato per tutti i log del cliente stesso.
 
-I vantaggi di questa architettura sono i seguenti:
-* Il cliente può gestire l'accesso ai log tramite il proprio [accesso basato sui ruoli](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Ci sono due modi in cui gli amministratori del provider di servizi possono accedere a un'area di lavoro Log Analytics in un tenant del cliente:
+
+- Un cliente può aggiungere singoli utenti dal provider di servizi come [Azure Active Directory utenti Guest (B2B)](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b). Gli amministratori del provider di servizi dovranno accedere alla directory di ogni cliente nel portale di Azure per poter accedere a queste aree di lavoro. Questa operazione richiede inoltre ai clienti di gestire l'accesso singolo per ogni amministratore del provider di servizi.
+- Per una maggiore scalabilità e flessibilità, i provider di servizi possono usare la funzionalità di [gestione delle risorse delegate di Azure](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management) di [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) per accedere al tenant del cliente. Con questo metodo, gli amministratori del provider di servizi sono inclusi in un gruppo di utenti Azure AD nel tenant del provider di servizi e a questo gruppo viene concesso l'accesso durante il processo di onboarding per ogni cliente. Questi amministratori possono quindi accedere alle aree di lavoro di ogni cliente dall'interno del proprio tenant del provider di servizi, anziché dover accedere singolarmente al tenant di ogni cliente. L'accesso alle risorse dell'area di lavoro Log Analytics dei clienti in questo modo riduce il lavoro necessario sul lato cliente e può semplificare la raccolta e l'analisi dei dati tra più clienti gestiti dallo stesso provider di servizi tramite strumenti come le [cartelle](https://docs.microsoft.com/azure//azure-monitor/platform/workbooks-overview)di lavoro di monitoraggio di Azure. Per altre informazioni, vedere [monitorare le risorse dei clienti su larga scala](https://docs.microsoft.com/azure/lighthouse/how-to/monitor-at-scale).
+
+I vantaggi dell'architettura distribuita sono:
+
+* Il cliente può verificare specifici livelli di autorizzazioni tramite la [gestione delle risorse delegate di Azure](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management)o può gestire l'accesso ai log usando il proprio [accesso basato sui ruoli](https://docs.microsoft.com/azure/role-based-access-control/overview).
+* I log possono essere raccolti da tutti i tipi di risorse, non solo dai dati della macchina virtuale basata su agenti. Ad esempio, log di controllo di Azure.
 * Ogni cliente può definire impostazioni diverse per la propria area di lavoro, ad esempio in termini di conservazione e di limitazione sull'uso dei dati.
 * Isolamento tra i clienti in termini di normative e conformità.
 * Il costo per ogni area di lavoro viene addebitato nella sottoscrizione del cliente.
-* I log possono essere raccolti da tutti i tipi di risorse, non solo in base all'agente. Ad esempio, log di controllo di Azure.
 
-Gli svantaggi di questa architettura sono i seguenti:
-* È più difficile per il provider di servizi gestire contemporaneamente un numero elevato di tenant dei clienti.
-* Gli amministratori del provider di servizi devono eseguire il provisioning per la directory dei clienti.
-* Il provider di servizi non può analizzare i dati dei clienti.
+Gli svantaggi dell'architettura distribuita sono:
+
+* La visualizzazione e l'analisi centralizzata dei dati nei tenant dei clienti con strumenti come le cartelle di lavoro di monitoraggio di Azure possono comportare esperienze più lente, specialmente quando si analizzano i dati tra più di 50 aree di lavoro.
+* Se i clienti non vengono caricati per la gestione delle risorse delegata di Azure, è necessario eseguire il provisioning degli amministratori del provider di servizi nella directory del cliente ed è più difficile per il provider di servizi gestire contemporaneamente un numero elevato di tenant del cliente.
 
 ### <a name="2-central---logs-are-stored-in-a-workspace-located-in-the-service-provider-tenant"></a>2. i log centrali vengono archiviati in un'area di lavoro situata nel tenant del provider di servizi
 
 In questa architettura i log non vengono archiviati nel tenant del cliente, ma solo in una posizione centrale nell'ambito di una sottoscrizione del provider di servizi. Gli agenti installati su macchine virtuali del cliente sono configurati per inviare i log all'area di lavoro tramite l'ID e la chiave privata dell'area di lavoro.
 
-I vantaggi di questa architettura sono i seguenti:
+I vantaggi dell'architettura centralizzata sono i seguenti:
+
 * Facilità di gestione di un numero elevato di clienti e di integrarli in diversi sistemi back-end.
-
 * Il provider di servizi dispone della proprietà completa dei log e dei diversi elementi, ad esempio funzioni e query salvate.
-
 * Il provider di servizio può eseguire funzioni di analisi su tutti i propri clienti.
 
-Gli svantaggi di questa architettura sono i seguenti:
+Gli svantaggi dell'architettura centralizzata sono:
+
 * Questa architettura è applicabile solo ai dati di macchine virtuale basati su agenti e non può essere usata con origini dati PaaS, SaaS e dell'infrastruttura di Microsoft Azure.
-
 * Potrebbe essere difficile separare i dati tra i clienti quando sono uniti in una singola area di lavoro. L'unico metodo per eseguire questa operazione è quello di usare il nome di dominio completo del computer (FQDN) o l'ID sottoscrizione di Azure. 
-
 * Tutti i dati di tutti i clienti verranno archiviati nella stessa area con un'unica fattura e con le stesse impostazioni di conservazione e di configurazione.
-
 * Per i servizi PaaS e di infrastruttura di Microsoft Azure, ad esempio Diagnostica di Azure e log di controllo di Azure, l'area di lavoro deve essere nello stesso tenant della risorsa in modo che i logo non vengano inviati all'area di lavoro centrale.
-
 * Tutti gli agenti di macchine virtuali di tutti i clienti vengono autenticati nell'area di lavoro centrale usando lo stesso ID e la stessa chiave dell'area di lavoro. Non esiste alcun metodo per bloccare i log di un cliente specifico senza interrompere l'attività di altri clienti.
 
 ### <a name="3-hybrid---logs-are-stored-in-workspace-located-in-the-customers-tenant-and-some-of-them-are-pulled-to-a-central-location"></a>3. i log ibridi vengono archiviati nell'area di lavoro che si trova nel tenant del cliente e ne viene effettuato il pull in una posizione centrale.
@@ -85,4 +90,4 @@ Sono disponibili due opzioni per implementare i log in una posizione centrale:
 
 * Generare report di riepilogo usando [Power BI](../../azure-monitor/platform/powerbi.md)
 
-* Esaminare il processo di [configurazione di Log Analytics e Power BI per monitorare più clienti CSP](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers)
+* Caricare i clienti nella [gestione delle risorse delegata di Azure](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management).

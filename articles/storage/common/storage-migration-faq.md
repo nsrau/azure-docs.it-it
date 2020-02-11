@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 0fa4c7fa42cbc0eceb9efd2f364a0fbcab1698e1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 1445d74e3050ffd6da7c45037df552f4bee9acf5
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975686"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116680"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Domande frequenti sulla migrazione di Archiviazione di Azure
 
 Questo articolo risponde alle domande comuni sulla migrazione di Archiviazione di Azure.
 
-## <a name="faq"></a>FAQ
+## <a name="copy-upload-or-download"></a>Copiare, caricare o scaricare
 
 **Come si crea uno script per copiare i file da un contenitore a un altro?**
 
@@ -40,36 +40,35 @@ Lo script di automazione è progettato per la distribuzione di Azure Resource Ma
 
 No. Per questo processo non vengono addebitati costi.
 
-**Come si esegue il backup dell'intero account di archiviazione in un altro account di archiviazione?**
+**Come è possibile scaricare 1-2 TB di dati dal portale di Azure?**
 
-Non è possibile eseguire il backup di un intero account di archiviazione direttamente. È però possibile spostare manualmente il contenitore nell'account di archiviazione in un altro account usando AzCopy o Storage Explorer. I passaggi seguenti illustrano come usare AzCopy per spostare il contenitore:  
+Usare AzCopy per scaricare i dati. Per altre informazioni, vedere [Trasferire dati con AzCopy in Windows](storage-use-azcopy.md) e [Trasferire dati con AzCopy in Linux](storage-use-azcopy-linux.md).
 
+**Come è possibile scaricare un disco rigido virtuale in un computer locale senza usare l'opzione di download nel portale?**
 
-1.  Installare lo strumento da riga di comando [AzCopy](storage-use-azcopy.md). Questo strumento consente di spostare il file del disco rigido virtuale (VHD) tra account di archiviazione.
+È possibile usare [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per scaricare un disco rigido virtuale.
 
-2.  Dopo l'installazione di AzCopy in Windows mediante il programma di installazione, aprire una finestra del prompt dei comandi e passare alla cartella di installazione di AzCopy nel computer. Per impostazione predefinita, AzCopy viene installato in **%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy** o in **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
+**Come è possibile scaricare i dati in un computer basato su Linux da un account di archiviazione di Azure oppure caricarli da un computer Linux?**
 
-3.  Eseguire il comando seguente per spostare il contenitore. È necessario sostituire il testo con il valore effettivo.   
+È possibile usare l'interfaccia della riga di comando di Azure.
 
-            AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
-            /Dest:https://destaccount.blob.core.windows.net/mycontainer2
-            /SourceKey:key1 /DestKey:key2 /S
+- Scaricare un singolo BLOB:
 
-    - `/Source`: specificare l'URI per l'account di archiviazione di origine (fino al contenitore).  
-    - `/Dest`: specificare l'URI per l'account di archiviazione di destinazione (fino al contenitore).  
-    - `/SourceKey`: specificare la chiave primaria per l'account di archiviazione di origine. È possibile copiare questa chiave dal portale di Azure, selezionando l'account di archiviazione.  
-    - `/DestKey`: specificare la chiave primaria per l'account di archiviazione di destinazione. È possibile copiare questa chiave dal portale selezionando l'account di archiviazione.
+      azure storage blob download -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -b "<Remote File Name>" -d "<Local path where the file will be downloaded to>"
 
-Dopo avere eseguito questo comando, i file contenitore vengono spostati nell'account di archiviazione di destinazione.
+- Caricare un singolo BLOB:
 
-> [!NOTE]
-> L'interfaccia della riga di comando di AzCopy non funziona con l'opzione **Pattern** quando si esegue la copia da un BLOB di Azure a un altro.
->
-> È possibile copiare e modificare direttamente il comando di AzCopy e verificare che l'opzione **Pattern** corrisponda all'origine. Assicurarsi anche che i caratteri jolly **/S** siano attivi. Per altre informazioni, vedere [Parametri di AzCopy](storage-use-azcopy.md).
+      azure storage blob upload -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -f "<Local File Name>"
+
+**Eseguire la migrazione di oggetti BLOB da un account di archiviazione all'altro**
+
+ È possibile eseguire questa operazione tramite lo [script di migrazione per oggetti BLOB](../scripts/storage-common-transfer-between-storage-accounts.md).
+ 
+## <a name="migration-or-backup"></a>Migrazione o backup
 
 **Come si spostano i dati da un contenitore di archiviazione a un altro?**
 
-A tale scopo, seguire questa procedura:
+Esegui questi passaggi:
 
 1.  Creare il contenitore (cartella) nel BLOB di destinazione.
 
@@ -103,25 +102,11 @@ Usare AzCopy per copiare i dati. Per altre informazioni, vedere [Trasferire dati
 
 Usare AzCopy per spostare i dati. Per altre informazioni, vedere [Trasferire dati con AzCopy in Windows](storage-use-azcopy.md) e [Trasferire dati con AzCopy in Linux](storage-use-azcopy-linux.md).
 
-**Come si esegue il mapping di una cartella di contenitori in una macchina virtuale?**
-
-Usare una condivisione file di Azure.
-
-**Come si esegue il backup dell'archiviazione file di Azure?**
-
-Non c'è una soluzione di backup. File di Azure supporta comunque anche la copia asincrona. È pertanto possibile copiare i file:
-
-- Da una condivisione a un'altra condivisione all'interno di un account di archiviazione o in un altro account di archiviazione.
-
-- Da una condivisione a un contenitore BLOB all'interno di un account di archiviazione o in un altro account di archiviazione.
-
-Per altre informazioni, vedere [Trasferire dati con AzCopy in Windows](storage-use-azcopy.md).
-
 **Come si spostano i dischi gestiti in un altro account di archiviazione?**
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-A tale scopo, seguire questa procedura:
+Esegui questi passaggi:
 
 1.  Arrestare la macchina virtuale a cui è collegato il disco gestito.
 
@@ -161,48 +146,13 @@ A tale scopo, seguire questa procedura:
 
 Per altre informazioni su come distribuire una macchina virtuale da un disco gestito, vedere [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
 
-**Come è possibile scaricare 1-2 TB di dati dal portale di Azure?**
-
-Usare AzCopy per scaricare i dati. Per altre informazioni, vedere [Trasferire dati con AzCopy in Windows](storage-use-azcopy.md) e [Trasferire dati con AzCopy in Linux](storage-use-azcopy-linux.md).
-
-**Come si modifica la località secondaria nell'area Europa per un account di archiviazione?**
-
-L'area primaria viene selezionata durante la creazione di un account di archiviazione. L'area secondaria viene determinata in base a quella primaria e non è possibile modificarla. Per altre informazioni, vedere [Archiviazione con ridondanza geografica: replica tra più aree per Archiviazione di Azure](storage-redundancy.md).
-
-**Dove è possibile ottenere altre informazioni su Crittografia del servizio di archiviazione di Azure?**  
-
-Vedere gli articoli seguenti:
-
--  [Guida alla sicurezza di Archiviazione di Azure](../blobs/security-recommendations.md)
-
--  [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md)
-
 **Come si spostano o si scaricano i dati da un account di archiviazione?**
 
 Usare AzCopy per scaricare i dati. Per altre informazioni, vedere [Trasferire dati con AzCopy in Windows](storage-use-azcopy.md) e [Trasferire dati con AzCopy in Linux](storage-use-azcopy-linux.md).
 
-
-**Come è possibile crittografare i dati in un account di archiviazione?**
-
-Dopo avere abilitato la crittografia in un account di archiviazione, i dati esistenti non vengono crittografati. Per crittografare i dati esistenti, è necessario caricarli di nuovo nell'account di archiviazione.
-
-Usare AzCopy per copiare i dati in un altro account di archiviazione e quindi spostarli di nuovo nell'account di archiviazione. È anche possibile usare la [crittografia per dati inattivi](storage-service-encryption.md).
-
-**Come è possibile scaricare un disco rigido virtuale in un computer locale senza usare l'opzione di download nel portale?**
-
-È possibile usare [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per scaricare un disco rigido virtuale.
-
-**Esistono prerequisiti per la modifica della replica di un account di archiviazione passando dall'archiviazione con ridondanza geografica all'archiviazione con ridondanza locale?**
-
-No.
-
-**Come si accede all'archiviazione ridondante di File di Azure?**
-
-Per accedere all'archiviazione ridondante, è necessaria l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS). File di Azure supporta tuttavia solo l'archiviazione con ridondanza locale e l'archiviazione con ridondanza geografica standard che non consente l'accesso in sola lettura.
-
 **Come si effettua il downgrade da un account di archiviazione Premium a un account di archiviazione Standard?**
 
-A tale scopo, seguire questa procedura:
+Esegui questi passaggi:
 
 1.  Creare un account di archiviazione standard. In alternativa, usare un account di archiviazione standard esistente nella sottoscrizione.
 
@@ -220,10 +170,74 @@ A tale scopo, seguire questa procedura:
         /Dest:https://destaccount.blob.core.windows.net/mycontainer2
         /SourceKey:key1 /DestKey:key2 /Pattern:abc.vhd
 
-
 L'operazione potrebbe richiedere diverse ore.
 
 Per verificare il corretto completamento del trasferimento, esaminare il contenitore dell'account di archiviazione di destinazione nel portale di Azure. Dopo che i dischi sono stati copiati nell'account di archiviazione Standard, è possibile collegarli alla macchina virtuale come un disco esistente. Per altre informazioni, vedere [Collegare un disco dati gestito a una macchina virtuale Windows nel portale di Azure](../../virtual-machines/windows/attach-managed-disk-portal.md).  
+
+**Come si passa da un account di archiviazione classico a un account di archiviazione di Azure Resource Manager?**
+
+È possibile usare il cmdlet **Move-AzureStorageAccount**. Questo cmdlet ha più passaggi (convalida, preparazione, commit). È possibile convalidare lo spostamento prima di eseguirlo.
+
+Se si dispone di macchine virtuali, è necessario completare alcuni passaggi aggiuntivi prima di migrare i dati dell'account di archiviazione. Per altre informazioni, vedere [Eseguire la migrazione di risorse IaaS dal modello classico al modello di Azure Resource Manager tramite Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
+
+**Come si esegue il backup dell'intero account di archiviazione in un altro account di archiviazione?**
+
+Non è possibile eseguire il backup di un intero account di archiviazione direttamente. È però possibile spostare manualmente il contenitore nell'account di archiviazione in un altro account usando AzCopy o Storage Explorer. I passaggi seguenti illustrano come usare AzCopy per spostare il contenitore:  
+
+1.  Installare lo strumento da riga di comando [AzCopy](storage-use-azcopy.md). Questo strumento consente di spostare il file del disco rigido virtuale (VHD) tra account di archiviazione.
+
+2.  Dopo l'installazione di AzCopy in Windows mediante il programma di installazione, aprire una finestra del prompt dei comandi e passare alla cartella di installazione di AzCopy nel computer. Per impostazione predefinita, AzCopy viene installato in **%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy** o in **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
+
+3.  Eseguire il comando seguente per spostare il contenitore. È necessario sostituire il testo con il valore effettivo.   
+
+            AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
+            /Dest:https://destaccount.blob.core.windows.net/mycontainer2
+            /SourceKey:key1 /DestKey:key2 /S
+
+    - `/Source`: specificare l'URI per l'account di archiviazione di origine (fino al contenitore).  
+    - `/Dest`: specificare l'URI per l'account di archiviazione di destinazione (fino al contenitore).  
+    - `/SourceKey`: specificare la chiave primaria per l'account di archiviazione di origine. È possibile copiare questa chiave dal portale di Azure, selezionando l'account di archiviazione.  
+    - `/DestKey`: specificare la chiave primaria per l'account di archiviazione di destinazione. È possibile copiare questa chiave dal portale selezionando l'account di archiviazione.
+
+Dopo avere eseguito questo comando, i file contenitore vengono spostati nell'account di archiviazione di destinazione.
+
+> [!NOTE]
+> L'interfaccia della riga di comando di AzCopy non funziona con l'opzione **Pattern** quando si esegue la copia da un BLOB di Azure a un altro.
+>
+> È possibile copiare e modificare direttamente il comando di AzCopy e verificare che l'opzione **Pattern** corrisponda all'origine. Assicurarsi anche che i caratteri jolly **/S** siano attivi. Per altre informazioni, vedere [Parametri di AzCopy](storage-use-azcopy.md).
+
+**Come si esegue il backup dell'archiviazione file di Azure?**
+
+Non c'è una soluzione di backup. File di Azure supporta comunque anche la copia asincrona. È pertanto possibile copiare i file:
+
+- Da una condivisione a un'altra condivisione all'interno di un account di archiviazione o in un altro account di archiviazione.
+
+- Da una condivisione a un contenitore BLOB all'interno di un account di archiviazione o in un altro account di archiviazione.
+
+Per altre informazioni, vedere [Trasferire dati con AzCopy in Windows](storage-use-azcopy.md).
+## <a name="configuration"></a>Configurazione
+
+**Come si modifica la località secondaria nell'area Europa per un account di archiviazione?**
+
+L'area primaria viene selezionata durante la creazione di un account di archiviazione. L'area secondaria viene determinata in base a quella primaria e non è possibile modificarla. Per altre informazioni, vedere [Archiviazione con ridondanza geografica: replica tra più aree per Archiviazione di Azure](storage-redundancy.md).
+
+**Dove è possibile ottenere altre informazioni su Crittografia del servizio di archiviazione di Azure?**  
+
+Vedere gli articoli seguenti:
+
+-  [Guida alla sicurezza di Archiviazione di Azure](../blobs/security-recommendations.md)
+
+-  [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md)
+
+**Come è possibile crittografare i dati in un account di archiviazione?**
+
+Dopo avere abilitato la crittografia in un account di archiviazione, i dati esistenti non vengono crittografati. Per crittografare i dati esistenti, è necessario caricarli di nuovo nell'account di archiviazione.
+
+Usare AzCopy per copiare i dati in un altro account di archiviazione e quindi spostarli di nuovo nell'account di archiviazione. È anche possibile usare la [crittografia per dati inattivi](storage-service-encryption.md).
+
+**Esistono prerequisiti per la modifica della replica di un account di archiviazione passando dall'archiviazione con ridondanza geografica all'archiviazione con ridondanza locale?**
+
+No.
 
 **Come è possibile passare ad Archiviazione Premium di Azure per una condivisione file?**
 
@@ -235,31 +249,13 @@ Non è consentito usare Archiviazione Premium in una condivisione file di Azure.
 
 Se si dispone di macchine virtuali, è necessario completare alcuni passaggi aggiuntivi prima di migrare i dati dell'account di archiviazione. Per altre informazioni, vedere [Migrazione in Archiviazione Premium di Azure (dischi non gestiti)](storage-migration-to-premium-storage.md).
 
-**Come si passa da un account di archiviazione classico a un account di archiviazione di Azure Resource Manager?**
-
-È possibile usare il cmdlet **Move-AzureStorageAccount**. Questo cmdlet ha più passaggi (convalida, preparazione, commit). È possibile convalidare lo spostamento prima di eseguirlo.
-
-Se si dispone di macchine virtuali, è necessario completare alcuni passaggi aggiuntivi prima di migrare i dati dell'account di archiviazione. Per altre informazioni, vedere [Eseguire la migrazione di risorse IaaS dal modello classico al modello di Azure Resource Manager tramite Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
-
-**Come è possibile scaricare i dati in un computer basato su Linux da un account di archiviazione di Azure oppure caricarli da un computer Linux?**
-
-È possibile usare l'interfaccia della riga di comando di Azure.
-
-- Scaricare un singolo BLOB:
-
-      azure storage blob download -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -b "<Remote File Name>" -d "<Local path where the file will be downloaded to>"
-
-- Caricare un singolo BLOB:
-
-      azure storage blob upload -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -f "<Local File Name>"
-
 **Come si concede ad altri utenti l'accesso alle risorse di archiviazione?**
 
 Per concedere ad altri utenti l'accesso alle risorse di archiviazione:
 
 -   Usare un token di firma di accesso condiviso (SAS) per consentire l'accesso a una risorsa.
 
--   Fornire a un utente la chiave primaria o secondaria per l'account di archiviazione. Per altre informazioni, vedere [gestire le chiavi di accesso all'account di archiviazione](storage-account-keys-manage.md).
+-   Fornire a un utente la chiave primaria o secondaria per l'account di archiviazione. Per altre informazioni, vedere [Gestire le chiavi di accesso dell'account di archiviazione](storage-account-keys-manage.md).
 
 -   Modificare i criteri di accesso per consentire l'accesso anonimo. Per altre informazioni, vedere [Concedere le autorizzazioni agli utenti anonimi per contenitori e BLOB](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 
@@ -271,22 +267,32 @@ Per concedere ad altri utenti l'accesso alle risorse di archiviazione:
 
 -   Se è stata installata la versione a 64 bit, sarà disponibile qui: **%ProgramFiles%\\Microsoft SDKs\\Azure\\AzCopy**.
 
-**Per un account di archiviazione replicato (ad esempio l'archiviazione con ridondanza della zona, l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura), come è possibile accedere ai dati archiviati nell'area secondaria?**
-
--   Se si usa l'archiviazione con ridondanza della zona o l'archiviazione con ridondanza geografica, non è possibile accedere ai dati nell'area secondaria a meno che non si avvii un failover in tale area. Per altre informazioni sul processo di failover, consultare [Disaster recovery and storage account failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md) (Ripristino di emergenza e failover dell'account di archiviazione (anteprima) in Archiviazione di Azure).
-
--   Se si usa l'archiviazione con ridondanza geografica e accesso in lettura, è possibile accedere ai dati dell'area secondaria in qualsiasi momento. Utilizzare una delle seguenti modalità:  
-
-    - **AzCopy**: aggiungere **-secondary** al nome dell'account di archiviazione nell'URL per accedere all'endpoint secondario. Ad esempio:  
-
-      https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
-
-    - **Token SAS**: usare un token di firma di accesso condiviso (SAS) per accedere ai dati dall'endpoint. Per altre informazioni, vedere [Uso delle firme di accesso condiviso](storage-sas-overview.md).
-
 **Ricerca per categorie usare un dominio personalizzato HTTPS con l'account di archiviazione? Ad esempio, come è possibile fare in modo che "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif" venga visualizzato come "https:\//www.contoso.com/images/image.gif"?**
 
 Gli account di archiviazione con domini personalizzati attualmente non supportano l'autenticazione SSL.
 È però possibile usare domini personalizzati non HTTPS. Per altre informazioni, vedere [Configurare un nome di dominio personalizzato per l'endpoint di archiviazione BLOB](../blobs/storage-custom-domain-name.md).
+
+## <a name="access-to-storage"></a>Accesso all'archiviazione
+
+**Come si esegue il mapping di una cartella di contenitori in una macchina virtuale?**
+
+Usare una condivisione file di Azure.
+
+**Come si accede all'archiviazione ridondante di File di Azure?**
+
+Per accedere all'archiviazione ridondante, è necessaria l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS). File di Azure supporta tuttavia solo l'archiviazione con ridondanza locale e l'archiviazione con ridondanza geografica standard che non consente l'accesso in sola lettura.
+
+**Per un account di archiviazione replicato (ad esempio l'archiviazione con ridondanza della zona, l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura), come è possibile accedere ai dati archiviati nell'area secondaria?**
+
+-   Se si usa l'archiviazione con ridondanza della zona o l'archiviazione con ridondanza geografica, non è possibile accedere ai dati nell'area secondaria a meno che non si avvii un failover in tale area. Per altre informazioni sul processo di failover, consultare [Disaster recovery and storage account failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md) (Ripristino di emergenza e failover dell'account di archiviazione (anteprima) in Archiviazione di Azure).
+
+-   Se si usa l'archiviazione con ridondanza geografica e accesso in lettura, è possibile accedere ai dati dell'area secondaria in qualsiasi momento. Utilizzare uno dei metodi seguenti:  
+
+    - **AzCopy**: aggiungere **-secondary** al nome dell'account di archiviazione nell'URL per accedere all'endpoint secondario. Ad esempio,  
+
+      https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
+
+    - **Token SAS**: usare un token di firma di accesso condiviso (SAS) per accedere ai dati dall'endpoint. Per altre informazioni, vedere [Uso delle firme di accesso condiviso](storage-sas-overview.md).
 
 **Come si usa il protocollo FTP per accedere ai dati che si trovano in un account di archiviazione?**
 
@@ -294,10 +300,6 @@ Non è possibile accedere direttamente a un account di archiviazione usando FTP.
 
 Se si vuole solo scaricare i dati senza dover usare Storage Explorer o un'applicazione simile, potrebbe essere necessario usare un token di firma di accesso condiviso (SAS). Per altre informazioni, vedere [Uso delle firme di accesso condiviso](storage-sas-overview.md).
 
-**Eseguire la migrazione di oggetti BLOB da un account di archiviazione all'altro**
-
- È possibile eseguire questa operazione tramite lo [script di migrazione per oggetti BLOB](../scripts/storage-common-transfer-between-storage-accounts.md).
-
-## <a name="need-help-contact-support"></a>Opzioni per Contattare il supporto tecnico.
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

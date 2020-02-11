@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: msangapu
-ms.openlocfilehash: 752c9dfd1ae67397713cdffce9ba530ad6a2c159
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: b2be84625035bb368784f3f423d63121c29255ad
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930006"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121408"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Rendere disponibile contenuto di Archiviazione di Azure nel servizio app in Linux
 
@@ -34,6 +34,7 @@ Questa guida illustra come aggiungere archiviazione di Azure al servizio app in 
 - Archiviazione di Azure con il servizio app supporta il montaggio di **contenitori di file di Azure** (lettura/scrittura) e **contenitori BLOB di Azure** (sola lettura)
 - Archiviazione di Azure con il servizio app **non supporta** l'uso della configurazione del **firewall di archiviazione** a causa di limitazioni dell'infrastruttura.
 - Archiviazione di Azure con il servizio app consente **di specificare fino a cinque punti di** montaggio per ogni app.
+- L'archiviazione di Azure montata in un'app non è accessibile tramite gli endpoint FTP/FTPs del servizio app. Usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 - Archiviazione di Azure **non è incluso** nell'app Web e fatturato separatamente. Scopri di più sui [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage).
 
 > [!WARNING]
@@ -69,7 +70,7 @@ az webapp config storage-account list --resource-group <resource_group> --name <
 
 Archiviazione di Azure può essere montata con app multicontenitore usando l'ID personalizzato. Per visualizzare il nome dell'ID personalizzato, eseguire [`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
 
-Nel file *Docker-compose. yml* mappare l'opzione `volumes` `custom-id`. Ad esempio:
+Nel file *Docker-compose. yml* mappare l'opzione `volumes` `custom-id`. Ad esempio,
 
 ```yaml
 wordpress:

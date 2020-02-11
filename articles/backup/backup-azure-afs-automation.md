@@ -3,12 +3,12 @@ title: Eseguire il backup di File di Azure con PowerShell
 description: Questo articolo illustra come eseguire il backup di File di Azure usando il servizio backup di Azure e PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: a80589fb45937949b3612e12139ab1615bc1620d
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: f85451e0da6458de34aea936836b46781f4c4a21
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086953"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120513"
 ---
 # <a name="back-up-azure-files-with-powershell"></a>Eseguire il backup di File di Azure con PowerShell
 
@@ -250,9 +250,9 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 
 ## <a name="important-notice---backup-item-identification-for-afs-backups"></a>Avviso importante: identificazione dell'elemento di backup per i backup AFS
 
-Questa sezione descrive le modifiche apportate al recupero degli elementi di backup per i backup AFS dall'anteprima alla versione GA.
+In questa sezione viene illustrata una modifica importante del backup di AFS in preparazione per GA.
 
-Quando si Abilita il backup per AFS, l'utente fornisce il nome della condivisione file descrittiva del cliente come nome dell'entità e viene creato un elemento di backup. Il nome dell'elemento di backup è un identificatore univoco creato dal servizio backup di Azure. In genere l'identificatore include il nome descrittivo dell'utente. Tuttavia è stata apportata una modifica nel modo in cui i servizi di Azure identificano internamente una condivisione file di Azure in modo univoco. Ciò significa che il nome univoco dell'elemento di backup per il backup AFS sarà un GUID e non avrà alcuna relazione con il nome descrittivo del cliente. Per individuare il nome univoco di ogni elemento, è sufficiente eseguire il comando ```Get-AzRecoveryServicesBackupItem``` con i filtri rilevanti per backupManagementType e WorkloadType per ottenere tutti gli elementi rilevanti, quindi osservare il campo nome nell'oggetto/risposta PS restituito. È sempre consigliabile elencare gli elementi e quindi recuperare il nome univoco dal campo ' name ' in risposta. Utilizzare questo valore per filtrare gli elementi con il parametro ' name '. In caso contrario, usare il parametro FriendlyName per recuperare l'elemento con il nome/identificatore descrittivo del cliente.
+Quando si Abilita il backup per AFS, l'utente fornisce il nome della condivisione file descrittiva del cliente come nome dell'entità e viene creato un elemento di backup. Il nome dell'elemento di backup è un identificatore univoco creato dal servizio backup di Azure. In genere l'identificatore include il nome descrittivo dell'utente. Tuttavia, per gestire lo scenario importante dell'eliminazione temporanea, in cui è possibile eliminare una condivisione file ed è possibile creare un'altra condivisione file con lo stesso nome, l'identità univoca della condivisione file di Azure ora sarà un ID anziché un nome descrittivo del cliente. Per conoscerne l'identità o il nome univoco, è sufficiente eseguire il comando ```Get-AzRecoveryServicesBackupItem``` con i filtri rilevanti per backupManagementType e WorkloadType per ottenere tutti gli elementi rilevanti, quindi osservare il campo nome nell'oggetto/risposta PS restituito. È sempre consigliabile elencare gli elementi e quindi recuperare il nome univoco dal campo ' name ' in risposta. Utilizzare questo valore per filtrare gli elementi con il parametro ' name '. In caso contrario, usare il parametro FriendlyName per recuperare l'elemento con il nome/identificatore descrittivo del cliente.
 
 > [!WARNING]
 > Verificare che la versione PS sia aggiornata alla versione minima per "AZ. RecoveryServices 2.6.0" per i backup AFS. Con questa versione, il filtro ' FriendlyName ' è disponibile per ```Get-AzRecoveryServicesBackupItem``` comando. Passare il nome della condivisione file di Azure al parametro FriendlyName. Se si passa il nome della condivisione file di Azure al parametro ' name ', questa versione genera un avviso per passare il nome descrittivo al parametro del nome descrittivo. Se non si installa questa versione minima, è possibile che si verifichino errori negli script esistenti. Installare la versione minima di PS con il comando seguente.

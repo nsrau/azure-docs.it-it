@@ -9,12 +9,12 @@ ms.date: 01/30/2017
 ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 88f713c5695e2453edc58d072899aa417f0514af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6554385a879b054153dcb808c3dff4b60c136458
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147049"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120851"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>Uso dell'interfaccia della riga di comando classica di Azure con Archiviazione di Azure
 
@@ -27,7 +27,7 @@ Questa guida illustra come usare l'[interfaccia della riga di comando classica d
 Questa guida si presuppone che si conoscano i concetti di base dell'archiviazione di Azure. La guida fornisce diversi script che mostrano come usare l'interfaccia della riga di comando classica di Azure con Archiviazione di Azure. Prima di eseguire gli script, è necessario aggiornarne le variabili in base alla configurazione.
 
 > [!NOTE]
-> La guida fornisce esempi di comandi e script dell'interfaccia della riga di comando classica di Azure per gli account di archiviazione della versione classica. Vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Management](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) per i comandi dell'interfaccia della riga di comando classica di Azure per gli account di archiviazione di Resource Manager.
+> La guida fornisce esempi di comandi e script dell'interfaccia della riga di comando classica di Azure per gli account di archiviazione della versione classica. Vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Management](../../virtual-machines/azure-cli-arm-commands.md#storage-objects) per i comandi dell'interfaccia della riga di comando classica di Azure per gli account di archiviazione di Resource Manager.
 >
 >
 
@@ -36,7 +36,7 @@ Questa guida si presuppone che si conoscano i concetti di base dell'archiviazion
 ## <a name="get-started-with-azure-storage-and-the-azure-classic-cli-in-5-minutes"></a>Iniziare a usare Archiviazione di Azure e l'interfaccia della riga di comando classica di Azure in 5 minuti
 In questa guida utilizza Ubuntu per gli esempi, ma altre piattaforme del sistema operativo devono eseguire in modo analogo.
 
-**Non si ha familiarità con Azure?** Come ottenere una sottoscrizione di Microsoft Azure e un account Microsoft associato alla sottoscrizione. Per informazioni sulle opzioni di acquisto di Azure, vedere la [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/), le [opzioni di acquisto](https://azure.microsoft.com/pricing/purchase-options/) e le [offerte per i membri](https://azure.microsoft.com/pricing/member-offers/) (per i membri di MSDN, Microsoft Partner Network, BizSpark e altri programmi Microsoft).
+**Novità in Azure:** ottenere una sottoscrizione di Microsoft Azure e un account Microsoft associato alla sottoscrizione. Per informazioni sulle opzioni di acquisto di Azure, vedere la [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/), le [opzioni di acquisto](https://azure.microsoft.com/pricing/purchase-options/) e le [offerte per i membri](https://azure.microsoft.com/pricing/member-offers/) (per i membri di MSDN, Microsoft Partner Network, BizSpark e altri programmi Microsoft).
 
 Per altre informazioni sulle sottoscrizioni di Azure, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) .
 
@@ -82,7 +82,7 @@ Per altre informazioni sulle sottoscrizioni di Azure, vedere [Assegnazione dei r
    * **&lt;storage_account_name&gt;** : usare il nome specificato nello script oppure immettere un nuovo nome per l'account di archiviazione. **Importante:** il nome dell'account di archiviazione deve essere univoco in Azure. Utilizzare caratteri minuscoli.
    * **<storage_account_key>** : la chiave di accesso dell'account di archiviazione.
    * **<container_name>** : usare il nome specificato nello script oppure immettere un nuovo nome per il contenitore.
-   * **<image_to_upload>** : immettere il percorso di un'immagine nel computer locale, ad esempio "~/images/HelloWorld.png".
+   * **&lt;image_to_upload&gt;** : immettere il percorso di un'immagine nel computer locale, ad esempio "~/images/HelloWorld.png".
    * **<destination_folder>** : immettere il percorso di una directory locale per archiviare i file scaricati da Archiviazione di Azure, ad esempio "~/downloadImages".
 7. Dopo avere aggiornato le variabili necessarie in vim, premere le combinazioni di tasti `ESC`, `:`, `wq!` per salvare lo script.
 8. Per eseguire questo script, è sufficiente digitare il nome del file script nella console di bash. Dopo l'esecuzione dello script è necessario disporre di una cartella di destinazione locale che includa il file di immagine scaricato. La schermata seguente mostra un output di esempio:
@@ -93,7 +93,7 @@ Dopo l'esecuzione dello script è necessario disporre di una cartella di destina
 ### <a name="connect-to-your-azure-subscription"></a>Connettersi alla sottoscrizione di Azure
 Anche se la maggior parte dei comandi di archiviazione funziona senza una sottoscrizione di Azure, è consigliabile connettersi alla sottoscrizione dall'interfaccia della riga di comando classica.
 
-### <a name="create-a-new-storage-account"></a>Creare un nuovo account di archiviazione.
+### <a name="create-a-new-storage-account"></a>Creazione di un nuovo account di archiviazione
 Per usare Archiviazione di Azure, è necessario un account di archiviazione. Dopo aver configurato il computer per connettersi alla sottoscrizione, è possibile creare un nuovo account di archiviazione di Azure.
 
 ```azurecli
@@ -133,7 +133,7 @@ azure storage container create mycontainer
 ```
 
 > [!NOTE]
-> Esistono tre livelli di accesso in lettura anonimo: **Disattivato**, **BLOB** e **Contenitore**. Per impedire l'accesso anonimo ai BLOB, impostare il parametro di autorizzazione su **Disattivato**. Per impostazione predefinita, il nuovo contenitore è privato ed è accessibile solo al proprietario dell'account. Per consentire l'accesso in lettura pubblico anonimo alle risorse BLOB, ma non ai metadati del contenitore o all'elenco dei BLOB nel contenitore, impostare il parametro di autorizzazione su **BLOB**. Per consentire l'accesso in lettura pubblico completo alle risorse BLOB, ai metadati del contenitore e all'elenco dei BLOB nel contenitore, impostare il parametro di autorizzazione **su Contenitore**. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../blobs/storage-manage-access-to-resources.md).
+> Esistono tre livelli di accesso in lettura anonimo: **Off**, **BLOB** e **contenitore**. Per impedire l'accesso anonimo ai BLOB, impostare il parametro di autorizzazione su **Disattivato**. Per impostazione predefinita, il nuovo contenitore è privato ed è accessibile solo al proprietario dell'account. Per consentire l'accesso in lettura pubblico anonimo alle risorse BLOB, ma non ai metadati del contenitore o all'elenco dei BLOB nel contenitore, impostare il parametro di autorizzazione su **BLOB**. Per consentire l'accesso in lettura pubblico completo alle risorse BLOB, ai metadati del contenitore e all'elenco dei BLOB nel contenitore, impostare il parametro di autorizzazione **su Contenitore**. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../blobs/storage-manage-access-to-resources.md).
 >
 >
 
@@ -229,11 +229,11 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
     --dest-path hellodir/hello2copy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
 ```
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 I comandi dell'interfaccia della riga di comando classica di Azure da usare con le risorse di archiviazione sono disponibili qui:
 
-* [Comandi dell'interfaccia della riga di comando classica di Azure in modalità Resource Manager](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
+* [Comandi dell'interfaccia della riga di comando classica di Azure in modalità Resource Manager](../../virtual-machines/azure-cli-arm-commands.md#storage-objects)
 * [Comandi dell'interfaccia della riga di comando classica di Azure in modalità Azure Service Management](../../cli-install-nodejs.md)
 
 È anche possibile provare la versione più recente dell'[interfaccia della riga di comando di Azure](../storage-azure-cli.md), da usare con il modello di distribuzione Resource Manager.

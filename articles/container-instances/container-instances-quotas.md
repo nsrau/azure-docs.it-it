@@ -3,18 +3,18 @@ title: Quote di servizio e disponibilità di aree
 description: Quote, limiti e aree disponibili per il servizio Istanze di Azure Container.
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 91681130e32cf8a76829b8bfc3e2a1e97a59ff6b
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: b3e7f2f67d806bd2fca74f58d446b0de9a4b8f44
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533501"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117892"
 ---
 # <a name="quotas-and-limits-for-azure-container-instances"></a>Quote e limiti per istanze di Azure Container
 
 Tutti i servizi di Azure prevedono determinati limiti predefiniti e quote per le risorse e le funzionalità. Questo articolo descrive le quote e i limiti predefiniti per le istanze di Azure Container.
 
-Per la disponibilità delle funzionalità e delle risorse delle istanze di Azure Container nelle aree Azure, vedere [Disponibilità delle risorse per le istanze di Azure Container](container-instances-region-availability.md).
+La disponibilità delle risorse di calcolo, memoria e archiviazione per istanze di contenitore di Azure varia in base all'area e al sistema operativo. Per informazioni dettagliate, vedere [disponibilità delle risorse per istanze di contenitore di Azure](container-instances-region-availability.md).
 
 ## <a name="service-quotas-and-limits"></a>Quote e limiti del servizio
 

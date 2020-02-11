@@ -1,20 +1,18 @@
 ---
-title: Usare il portale per le notifiche di manutenzione per le macchine virtuali di Azure
+title: Usare il portale per le notifiche di manutenzione
 description: Visualizzare le notifiche di manutenzione per le macchine virtuali in esecuzione in Azure e avviare la manutenzione Self-Service usando il portale.
-services: virtual-machines
 author: shants123
-tags: azure-service-management,azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 759fbc5ba3c5eaa78fec1045bcf41969108d39b1
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 46fcc825ac49f0181ac74e9c3e2deaea577f3329
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535821"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77115732"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-portal"></a>Gestione delle notifiche di manutenzione pianificata tramite il portale
 
@@ -22,7 +20,7 @@ ms.locfileid: "74535821"
 
 Una volta pianificata un'ondata di [manutenzione pianificata](maintenance-notifications.md) , è possibile verificare la presenza di un elenco di macchine virtuali interessate. 
 
-È possibile utilizzare il portale di Azure per cercare le macchine virtuali pianificate per la manutenzione.
+È possibile usare il portale di Azure per cercare le macchine virtuali pianificate per la manutenzione.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -34,9 +32,9 @@ Una volta pianificata un'ondata di [manutenzione pianificata](maintenance-notifi
 
    **Stato manutenzione**: Mostra lo stato di manutenzione della macchina virtuale. Ecco di seguito i valori possibili:
       
-      | Value | Description |
+      | Valore | Descrizione |
       |-------|-------------|
-      | Inizia subito | La macchina virtuale si trova nella finestra di manutenzione self-service, il che consente di avviare la manutenzione manualmente. Vedere di seguito per informazioni su come avviare la manutenzione della macchina virtuale. | 
+      | Avvia ora | La macchina virtuale si trova nella finestra di manutenzione self-service, il che consente di avviare la manutenzione manualmente. Vedere di seguito per informazioni su come avviare la manutenzione della macchina virtuale. | 
       | Pianificato | La macchina virtuale è pianificata per la manutenzione senza alcuna opzione per poter avviare manutenzione. Per informazioni relative alla finestra di manutenzione, è possibile selezionare la finestra di manutenzione pianificata in questa visualizzazione oppure fare clic sulla macchina virtuale. | 
       | Già aggiornato | La macchina virtuale è già aggiornata e in questo momento non è richiesta alcuna azione ulteriore. | 
       | Riprova più tardi | La manutenzione è stata avviata, ma senza successo. Sarà possibile usare l'usare di manutenzione self-service in un secondo momento. | 

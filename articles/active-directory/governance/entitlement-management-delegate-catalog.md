@@ -16,16 +16,18 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f71007b886d3cc25a7cf9dc23d784144ed4e1fbd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 51e37ad006da5042291614c773f242b5a1f3be97
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174372"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120187"
 ---
 # <a name="delegate-access-governance-to-catalog-creators-in-azure-ad-entitlement-management"></a>Delega della governance di accesso ai creatori di cataloghi in Azure AD gestione dei diritti
 
-Per delegare agli utenti che non sono amministratori, in modo che possano creare i propri cataloghi, è possibile aggiungere tali utenti al ruolo di autore del catalogo di Azure AD diritti di gestione. È possibile aggiungere singoli utenti o aggiungere un gruppo, i cui membri sono quindi in grado di creare cataloghi.
+Un catalogo è un contenitore di risorse e pacchetti di accesso. Si crea un catalogo quando si desidera raggruppare le risorse correlate e accedere ai pacchetti. Per impostazione predefinita, un amministratore globale o un amministratore utente può [creare un catalogo](entitlement-management-catalog-create.md)e può aggiungere altri utenti come proprietari del catalogo.
+
+Per delegare agli utenti che non sono amministratori, in modo che possano creare i propri cataloghi, è possibile aggiungere tali utenti al ruolo di autore del catalogo di Azure AD diritti di gestione. È possibile aggiungere singoli utenti o aggiungere un gruppo, i cui membri sono quindi in grado di creare cataloghi.  Dopo aver creato un catalogo, gli utenti possono aggiungere le risorse di cui sono proprietari nel catalogo.
 
 ## <a name="as-an-it-administrator-delegate-to-a-catalog-creator"></a>In qualità di amministratore IT, delegare a un creatore del catalogo
 
@@ -37,7 +39,7 @@ Attenersi alla procedura seguente per assegnare un utente al ruolo di autore del
 
 1. Nel menu a sinistra, nella sezione **gestione dei diritti** , fare clic su **Impostazioni**.
 
-1. Fare clic su **Modifica**.
+1. Fare clic su **Edit**.
 
     ![Impostazioni per aggiungere autori del catalogo](./media/entitlement-management-delegate-catalog/settings-delegate.png)
 
@@ -45,7 +47,7 @@ Attenersi alla procedura seguente per assegnare un utente al ruolo di autore del
 
 1. Fare clic su **Seleziona**.
 
-1. Fare clic su **Salva**
+1. Fare clic su **Save**.
 
 ## <a name="allow-delegated-roles-to-access-the-azure-portal"></a>Consenti ai ruoli delegati di accedere al portale di Azure
 

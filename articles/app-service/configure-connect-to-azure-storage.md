@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
-ms.openlocfilehash: c5543470f790d00158297cb7c3f0c06c5fc05e14
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 64ef4dfe81e6415f1285a74962e2123507715119
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75866991"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120678"
 ---
 # <a name="configure-azure-files-in-a-windows-container-on-app-service"></a>Configurare File di Azure in un contenitore di Windows nel servizio app
 
@@ -38,6 +38,7 @@ Questa guida illustra come accedere ad archiviazione di Azure nei contenitori di
 - Archiviazione di Azure nei contenitori di Windows **non** è attualmente supportata per gli scenari di Bring your own code nei piani di servizio app di Windows.
 - Archiviazione di Azure nei contenitori di Windows **non supporta** l'uso della configurazione del **firewall di archiviazione** a causa di limitazioni dell'infrastruttura.
 - Archiviazione di Azure nei contenitori di Windows consente **di specificare fino a cinque punti di** montaggio per ogni app.
+- L'archiviazione di Azure montata in un'app non è accessibile tramite gli endpoint FTP/FTPs del servizio app. Usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 - Archiviazione di Azure viene fatturato in modo indipendente e **non incluso** nell'app Web. Scopri di più sui [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage).
 
 ## <a name="link-storage-to-your-web-app-preview"></a>Collegare la risorsa di archiviazione all'app Web (anteprima)

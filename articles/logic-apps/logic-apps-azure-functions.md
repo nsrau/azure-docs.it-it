@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 2525ca681d805a3b6f086335531a4beaeb9c4e51
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 68975f21ab810398da969384db4d3bddd22f1bd9
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453461"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116913"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Chiamare funzioni di Azure da app per la logica di Azure
 
@@ -125,7 +125,7 @@ Prima di poter creare una funzione di Azure a partire dall'interno dell'app per 
 
    1. Nella casella **codice** aggiungere il codice al modello di funzione, incluse la risposta e il payload che si vuole restituire all'app per la logica al termine dell'esecuzione della funzione. Al termine, selezionare **Crea**.
 
-   Ad esempio:
+   Ad esempio,
 
    ![Definire la funzione](./media/logic-apps-azure-functions/add-code-function-definition.png)
 
@@ -200,11 +200,11 @@ Per attivare un'app per la logica dall'interno di una funzione di Azure, l'app p
 
 Per autenticare l'accesso alle risorse in altri tenant di Azure Active Directory (Azure AD) senza dover accedere e fornire credenziali o segreti, l'app per la logica può usare un' [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) (precedentemente nota come identità del servizio gestita o MSI). Azure gestisce questa identità per l'utente e consente di proteggere le proprie credenziali perché non è necessario fornire o ruotare i segreti. Scopri di più sui [servizi di Azure che supportano identità gestite per l'autenticazione Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-Se si configura l'app per la logica per l'uso dell'identità gestita assegnata dal sistema, le funzioni di Azure nell'app per la logica possono usare anche la stessa identità per l'autenticazione. Per altre informazioni sul supporto dell'autenticazione per funzioni di Azure nelle app per la logica, vedere [aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+Se si configura l'app per la logica in modo da usare l'identità assegnata dal sistema o un'identità assegnata manualmente dall'utente, le funzioni di Azure nell'app per la logica possono usare anche la stessa identità per l'autenticazione. Per altre informazioni sul supporto dell'autenticazione per funzioni di Azure nelle app per la logica, vedere [aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-Per configurare e usare l'identità assegnata dal sistema con la funzione, seguire questa procedura:
+Per configurare e usare l'identità gestita con la funzione, seguire questa procedura:
 
-1. Abilitare l'identità assegnata dal sistema nell'app per la logica e impostare l'accesso dell'identità sulla risorsa di destinazione. Vedere [autenticare l'accesso alle risorse di Azure usando identità gestite in app per la logica di Azure](../logic-apps/create-managed-service-identity.md).
+1. Abilitare l'identità gestita nell'app per la logica e impostare l'accesso dell'identità sulla risorsa di destinazione. Vedere [autenticare l'accesso alle risorse di Azure usando identità gestite in app per la logica di Azure](../logic-apps/create-managed-service-identity.md).
 
 1. Abilitare l'autenticazione nella funzione di Azure e nell'app per le funzioni attenendosi alla procedura seguente:
 
@@ -215,7 +215,7 @@ Per configurare e usare l'identità assegnata dal sistema con la funzione, segui
 
 ### <a name="set-up-anonymous-authentication-in-your-function"></a>Configurare l'autenticazione anonima nella funzione
 
-Per usare l'identità assegnata dal sistema dell'app per la logica nella funzione di Azure, il livello di autenticazione della funzione è stato impostato su anonimo. In caso contrario, l'app per la logica genera un errore "richiesta non valida".
+Per usare l'identità gestita dell'app per la logica nella funzione di Azure, il livello di autenticazione della funzione è stato impostato su anonimo. In caso contrario, l'app per la logica genera un errore "richiesta non valida".
 
 1. Nella [portale di Azure](https://portal.azure.com)trovare e selezionare l'app per le funzioni. Questa procedura USA "FabrikamFunctionApp" come app per le funzioni di esempio.
 

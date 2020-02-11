@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
-ms.openlocfilehash: 16a1f3b8f9ef036bcdc9af122243d313186f99f1
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 10ec07cab94184810e083c643e862cebe8e2431c
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885327"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121441"
 ---
 # <a name="preview---use-managed-identities-in-azure-kubernetes-service"></a>Anteprima: usare identità gestite in Azure Kubernetes Service
 
@@ -44,7 +44,7 @@ In questo periodo di anteprima, è ancora necessaria un'entità servizio. Viene 
 Per installare l'estensione AKS-Preview 0.4.14 o versione successiva, usare i seguenti comandi dell'interfaccia della riga di comando di Azure:
 
 ```azurecli
-az extension update --name aks-preview
+az extension add --name aks-preview
 az extension list
 ```
 

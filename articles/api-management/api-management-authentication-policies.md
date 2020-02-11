@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 572d8c4b59622156e8b3aca4565bbc206367f6d4
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 5ca153f0d52b65aa1ee56d5757381f1f31c7eeb5
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514847"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120813"
 ---
 # <a name="api-management-authentication-policies"></a>Criteri di autenticazione di Gestione API di Azure
-Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
+Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
 
 ##  <a name="AuthenticationPolicies"></a> Criteri di autenticazione
 
--   [Autenticazione con base](api-management-authentication-policies.md#Basic): consente di eseguire l'autenticazione con un servizio back-end tramite l'autenticazione di base.
+-   [authentication-basic](api-management-authentication-policies.md#Basic) : consente di eseguire l'autenticazione con un servizio back-end tramite l'autenticazione di base.
 
 -   [Autenticazione con certificato](api-management-authentication-policies.md#ClientCertificate): consente di eseguire l'autenticazione con un servizio back-end tramite certificati client.
 
@@ -48,21 +48,21 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
 
 ### <a name="elements"></a>Elementi
 
-|name|Description|Obbligatoria|
+|Name|Descrizione|Obbligatoria|
 |----------|-----------------|--------------|
-|authentication-basic|Elemento radice.|SÌ|
+|authentication-basic|Elemento radice.|Sì|
 
 ### <a name="attributes"></a>Attributi
 
-|name|Description|Obbligatoria|Predefinito|
+|Name|Descrizione|Obbligatoria|Default|
 |----------|-----------------|--------------|-------------|
-|Nome utente|Specifica il nome utente della credenziale di base.|SÌ|N/D|
-|password|Specifica la password della credenziale di base.|SÌ|N/D|
+|nomeutente|Specifica il nome utente della credenziale di base.|Sì|N/D|
+|password|Specifica la password della credenziale di base.|Sì|N/D|
 
 ### <a name="usage"></a>Utilizzo
  Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
--   **Sezioni del criterio:** in ingresso
+-   **Sezioni del criterio:** inbound
 
 -   **Ambiti del criterio:** tutti gli ambiti
 
@@ -75,7 +75,7 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
 <authentication-certificate thumbprint="thumbprint" certificate-id="resource name"/>
 ```
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
 In questo esempio il certificato client viene identificato dalla relativa identificazione personale.
 ```xml
@@ -88,21 +88,21 @@ In questo esempio il certificato client viene identificato in base al nome della
 
 ### <a name="elements"></a>Elementi  
   
-|name|Description|Obbligatoria|  
+|Name|Descrizione|Obbligatoria|  
 |----------|-----------------|--------------|  
-|authentication-certificate|Elemento radice.|SÌ|  
+|authentication-certificate|Elemento radice.|Sì|  
   
 ### <a name="attributes"></a>Attributi  
   
-|name|Description|Obbligatoria|Predefinito|  
+|Name|Descrizione|Obbligatoria|Default|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|Identificazione personale del certificato client.|È necessario che sia presente `thumbprint` o `certificate-id`.|N/D|  
+|Identificazione digitale|Identificazione personale del certificato client.|È necessario che sia presente `thumbprint` o `certificate-id`.|N/D|  
 |ID certificato|Nome della risorsa del certificato.|È necessario che sia presente `thumbprint` o `certificate-id`.|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
--   **Sezioni del criterio:** in ingresso  
+-   **Sezioni del criterio:** inbound  
   
 -   **Ambiti del criterio:** tutti gli ambiti  
 
@@ -147,22 +147,22 @@ In questo esempio il certificato client viene identificato in base al nome della
 
 ### <a name="elements"></a>Elementi  
   
-|name|Description|Obbligatoria|  
+|Name|Descrizione|Obbligatoria|  
 |----------|-----------------|--------------|  
-|autenticazione-gestita-identità |Elemento radice.|SÌ|  
+|autenticazione-gestita-identità |Elemento radice.|Sì|  
   
 ### <a name="attributes"></a>Attributi  
   
-|name|Description|Obbligatoria|Predefinito|  
+|Name|Descrizione|Obbligatoria|Default|  
 |----------|-----------------|--------------|-------------|  
-|resource|Stringa. URI ID app dell'API Web di destinazione (risorsa protetta) in Azure Active Directory.|SÌ|N/D|  
+|resource|Stringa. ID app dell'API Web di destinazione (risorsa protetta) in Azure Active Directory.|Sì|N/D|  
 |output-token-variabile-nome|Stringa. Nome della variabile di contesto che riceverà il valore del token come tipo di oggetto `string`. |No|N/D|  
-|ignore-error|Booleano. Se è impostato su `true`, la pipeline dei criteri continuerà a essere eseguita anche se non viene ottenuto un token di accesso.|No|false|  
+|ignore-error|Boolean. Se è impostato su `true`, la pipeline dei criteri continuerà a essere eseguita anche se non viene ottenuto un token di accesso.|No|false|  
   
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
--   **Sezioni del criterio:** in ingresso  
+-   **Sezioni del criterio:** inbound  
   
 -   **Ambiti del criterio:** tutti gli ambiti
 
@@ -170,6 +170,6 @@ In questo esempio il certificato client viene identificato in base al nome della
 Per altre informazioni sull'uso di questi criteri, vedere:
 
 + [Criteri di Gestione API](api-management-howto-policies.md)
-+ [API Transform](transform-api.md)
-+ [Informazioni di riferimento per i criteri](api-management-policy-reference.md) per un elenco completo di istruzioni dei criteri e delle relative impostazioni
++ [Trasformare le API](transform-api.md)
++ [Informazioni di riferimento sui criteri](api-management-policy-reference.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
 + [Esempi di criteri](policy-samples.md)

@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: a6a8b766efdc781df1fea29da81dc48090875ad7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 4612d15dd5d3ab6e814f09210d5ff3991fef0328
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036582"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121867"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Creare una copia di una macchina virtuale Linux di Azure usando l'interfaccia della riga di comando di Azure e i dischi gestiti
 
@@ -27,7 +27,7 @@ Questo articolo descrive come creare una copia di una macchina virtuale di Azure
 
 È anche possibile [caricare e creare una VM da un disco rigido virtuale](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 -   Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2).
 
@@ -133,4 +133,4 @@ az vm create --resource-group myResourceGroup \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come usare l'interfaccia della riga di comando di Azure per gestire la nuova VM, vedere [Comandi dell'interfaccia della riga di comando di Azure per Azure Resource Manager](../azure-cli-arm-commands.md).
+Per informazioni su come usare una [raccolta di immagini condivise](shared-images.md) per gestire le immagini di macchina virtuale.

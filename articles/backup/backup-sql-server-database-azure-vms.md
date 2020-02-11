@@ -4,12 +4,12 @@ description: Questo articolo illustra come eseguire il backup di database di SQL
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 10f55bb4c5c488975f075aa0382296f808a9a5b1
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 7a6bae3a850b5e67af8da80a06b862e7e2e7561d
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029572"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120843"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Eseguire il backup di database SQL Server in macchine virtuali di Azure
 
@@ -87,7 +87,7 @@ Per creare una regola tramite PowerShell:
 
 **Consentire l'accesso usando i tag di Firewall di Azure**. Se si usa Firewall di Azure, creare una regola dell'applicazione usando il [tag FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags) AzureBackup. In questo modo si consente l'accesso in uscita a Backup di Azure.
 
-**Distribuire un server proxy HTTP per instradare il traffico**. Quando si esegue il backup di un database di SQL Server in una macchina virtuale di Azure, l'estensione di backup nella VM usa le API HTTPS per inviare i comandi di gestione a backup e dati di Azure in archiviazione di Azure. L'estensione di backup usa anche Azure AD per l'autenticazione. Eseguire il routing del traffico di estensione per il backup di questi tre servizi attraverso il proxy HTTP. Le estensioni sono l'unico componente configurato per l'accesso a Internet pubblico.
+**Distribuire un server proxy HTTP per instradare il traffico**. Quando si esegue il backup di un database di SQL Server in una macchina virtuale di Azure, l'estensione di backup nella VM usa le API HTTPS per inviare i comandi di gestione a backup e dati di Azure in archiviazione di Azure. L'estensione di backup usa anche Azure AD per l'autenticazione. Eseguire il routing del traffico di estensione per il backup di questi tre servizi attraverso il proxy HTTP. Non sono presenti domini con caratteri jolly in uso con backup di Azure da aggiungere all'elenco Consenti per le regole del proxy. Sarà necessario usare gli intervalli di indirizzi IP pubblici per questi servizi forniti da Azure. Le estensioni sono l'unico componente configurato per l'accesso a Internet pubblico.
 
 Le opzioni di connettività presentano i vantaggi e gli svantaggi seguenti:
 
@@ -96,7 +96,7 @@ Le opzioni di connettività presentano i vantaggi e gli svantaggi seguenti:
 Consentire gli intervalli di indirizzi IP | Nessun costo aggiuntivo | Complessità di gestione a causa della variazione degli intervalli IP nel tempo <br/><br/> Accesso consentito a tutto l'ambiente di Azure, non solo ad Archiviazione di Azure
 Usare i tag del servizio del gruppo di sicurezza di rete | Gestione semplificata perché le modifiche degli intervalli vengono unite automaticamente <br/><br/> Nessun costo aggiuntivo <br/><br/> | Utilizzabile solo con i gruppi di sicurezza di rete <br/><br/> Accesso consentito all'intero servizio
 Usare i tag FQDN di Firewall di Azure | Gestione semplificata perché i FQDN necessari vengono gestiti automaticamente | Utilizzabile solo con Firewall di Azure
-Usare un proxy HTTP | Controllo granulare nel proxy URL di archiviazione <br/><br/> Singolo punto di accesso Internet alle VM <br/><br/> Nessun effetto in caso di modifiche degli indirizzi IP di Azure | Costi aggiuntivi per l'esecuzione di una VM con il software proxy
+Usare un proxy HTTP | Singolo punto di accesso Internet alle VM <br/> | Costi aggiuntivi per l'esecuzione di una VM con il software proxy <br/> Non sono presenti indirizzi FQDN pubblicati, le regole Consenti saranno soggette alle modifiche degli indirizzi IP di Azure
 
 ### <a name="database-naming-guidelines-for-azure-backup"></a>Linee guida per la denominazione di database per backup di Azure
 

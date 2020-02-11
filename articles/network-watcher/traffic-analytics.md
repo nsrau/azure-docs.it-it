@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 6cec7c813b0723ac770da6ebd04f4d2cf26a1409
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: eaa95906e20072e2914d1486568d7a6ebeb64f2c
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840588"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114398"
 ---
 # <a name="traffic-analytics"></a>Analisi del traffico
 
@@ -75,7 +75,7 @@ Analisi del traffico esamina i log dei flussi dei gruppi di sicurezza di rete e 
 * Regno Unito occidentale
 * Regno Unito meridionale
 * Australia orientale
-* Australia sudorientale
+* Australia sud-orientale
 * Asia orientale
 * Asia sud-orientale
 * Corea centrale
@@ -83,7 +83,7 @@ Analisi del traffico esamina i log dei flussi dei gruppi di sicurezza di rete e 
 * India meridionale
 * Giappone orientale 
 * Giappone occidentale
-* Governo degli Stati Uniti - Virginia
+* US Gov Virginia
 * Cina orientale 2
 
 ## <a name="supported-regions-log-analytics-workspaces"></a>Aree supportate: aree di lavoro Log Analytics
@@ -106,13 +106,13 @@ L'area di lavoro Log Analytics deve esistere nelle aree indicate di seguito:
 * Regno Unito occidentale
 * Regno Unito meridionale
 * Australia orientale
-* Australia sudorientale
+* Australia sud-orientale
 * Asia orientale
 * Asia sud-orientale
 * Corea centrale
 * India centrale
 * Giappone orientale
-* Governo degli Stati Uniti - Virginia
+* US Gov Virginia
 * Cina orientale 2
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -121,10 +121,10 @@ L'area di lavoro Log Analytics deve esistere nelle aree indicate di seguito:
 
 L'account deve essere un membro di uno de seguenti [ruoli predefiniti](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) di Azure:
 
-|Modello di distribuzione   | Ruolo                   |
+|Modello di distribuzione   | Role                   |
 |---------          |---------               |
-|Azure Resource Manager   | Proprietario                  |
-|                   | Collaboratore            |
+|Gestione risorse   | Proprietario                  |
+|                   | Contributor            |
 |                   | Reader                 |
 |                   | Collaboratore di rete    |
 
@@ -151,7 +151,7 @@ Per analizzare il traffico, è necessario avere un'istanza di Network Watcher es
 
 Prima di abilitare la registrazione dei flussi per i gruppi di sicurezza di rete, è necessario avere un gruppo di sicurezza di rete per cui registrare i flussi. Se non è disponibile un gruppo di sicurezza di rete, vedere [Creare un gruppo di sicurezza di rete](../virtual-network/manage-network-security-group.md#create-a-network-security-group) per crearne uno.
 
-Sul lato sinistro del portale di Azure selezionare **Monitoraggio**, quindi **Network Watcher** e infine selezionare **Log del flusso del NSG**. Selezionare il gruppo di sicurezza di rete per cui si vuole abilitare un log del flusso del gruppo di sicurezza di rete, come illustrato nell'immagine seguente:
+In portale di Azure passare a **Network Watcher**e quindi selezionare **NSG Flow logs**. Selezionare il gruppo di sicurezza di rete per cui si vuole abilitare un log del flusso del gruppo di sicurezza di rete, come illustrato nell'immagine seguente:
 
 ![Selezione di gruppi di sicurezza di rete che richiedono l'abilitazione del log del flusso del gruppo di sicurezza di rete](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 

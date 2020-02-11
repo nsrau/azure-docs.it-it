@@ -8,68 +8,82 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/31/2019
+ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: f00529d00312fd6acb045de698590047f991bec7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 0c7f2de0a454dceeff1946a93801c20ad81ab0ab
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714308"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122513"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Archiviazione e ingresso dei dati nella versione di anteprima di Azure Time Series Insights
 
-Questo articolo descrive gli aggiornamenti per l'archiviazione dei dati e il traffico in ingresso per Azure Time Series Insights anteprima. Esamina la struttura di archiviazione sottostante, il formato dei file e la proprietà Time Series ID. Viene inoltre illustrato il processo di ingresso sottostante, le procedure consigliate e le limitazioni dell'anteprima corrente.
+Questo articolo descrive gli aggiornamenti per l'archiviazione dei dati e il traffico in ingresso per Azure Time Series Insights anteprima. Descrive la struttura di archiviazione sottostante, il formato di file e la proprietà ID Time Series. Vengono descritti anche il processo di ingresso sottostante, le procedure consigliate e le limitazioni dell'anteprima corrente.
 
 ## <a name="data-ingress"></a>Dati in ingresso
 
-L'ambiente di Azure Time Series Insights contiene un motore di inserimento per la raccolta, l'elaborazione e l'archiviazione di dati di serie temporali. Quando si pianifica l'ambiente, è necessario tenere in considerazione alcune considerazioni per garantire che tutti i dati in ingresso vengano elaborati e per ottenere scalabilità in ingresso elevata e ridurre al minimo la latenza di inserimento (il tempo impiegato da TSI per leggere ed elaborare i dati dall'evento origine). 
+L'ambiente di Azure Time Series Insights contiene un *motore* di inserimento per la raccolta, l'elaborazione e l'archiviazione di dati di serie temporali. 
 
-In Time Series Insights anteprima i criteri di ingresso dei dati determinano la posizione in cui i dati possono essere originati e il formato dei dati.
+Ci sono alcune considerazioni da tenere presenti per assicurarsi che tutti i dati in ingresso vengano elaborati, per ottenere scalabilità in ingresso elevata e ridurre al minimo la *latenza* di inserimento (il tempo impiegato da Time Series Insights per leggere ed elaborare i dati dall'origine evento) durante [la pianificazione dell'ambiente](time-series-insights-update-plan.md).
+
+I criteri di ingresso dei dati di Time Series Insights Preview determinano la posizione in cui i dati possono essere originati e il formato dei dati.
 
 ### <a name="ingress-policies"></a>Criteri di ingresso
 
+L' *ingresso dei dati* implica la modalità di invio dei dati a un ambiente di Azure Time Series Insights anteprima. 
+
+La configurazione della chiave, la formattazione e le procedure consigliate sono riepilogate di seguito.
+
 #### <a name="event-sources"></a>Origini eventi
 
-Time Series Insights anteprima supporta le origini eventi seguenti:
+Azure Time Series Insights anteprima supporta le origini eventi seguenti:
 
 - [Hub IoT Azure](../iot-hub/about-iot-hub.md)
 - [Hub eventi di Azure](../event-hubs/event-hubs-about.md)
 
-Time Series Insights anteprima supporta un massimo di due origini evento per ogni istanza.
+Azure Time Series Insights anteprima supporta un massimo di due origini evento per ogni istanza.
 
-> [!WARNING] 
+> [!IMPORTANT] 
 > * È possibile che si verifichi una latenza iniziale elevata quando si connette un'origine evento all'ambiente di anteprima. 
 > La latenza dell'origine evento dipende dal numero di eventi attualmente presenti nell'hub o nell'hub eventi.
-> * Una latenza elevata sarà secondaria dopo l'inserimento iniziale dei dati dell'origine evento. Contattaci inviando un ticket di supporto tramite il portale di Azure se si verifica una latenza elevata continua.
+> * Una latenza elevata sarà secondaria dopo l'inserimento iniziale dei dati dell'origine evento. Inviare un ticket di supporto tramite il portale di Azure se si verifica una latenza elevata.
 
 #### <a name="supported-data-format-and-types"></a>Tipi e formati di dati supportati
 
-Azure Time Series Insights supporta il codice JSON codificato UTF8 inviato tramite hub eventi di Azure o hub eventi di Azure. 
+Azure Time Series Insights supporta JSON con codifica UTF-8 inviati dall'hub degli eventi di Azure o dagli hub eventi di Azure. 
 
-Di seguito è riportato l'elenco dei tipi di dati supportati.
+I tipi di dati supportati sono:
 
 | Tipo di dati | Descrizione |
-|-----------|------------------|-------------|
-| bool      |   Tipo di dati con uno dei due stati: true o false.       |
-| dateTime    |   Rappresenta un istante di tempo, in genere espresso come data e ora del giorno. Il formato di DateTime deve essere ISO 8601.      |
-| double    |   Un punto A virgola mobile IEEE 754 a precisione doppia a 64 bit
-| string    |   Valori di testo, costituiti da caratteri Unicode.          |
+|---|---|
+| **bool** | Tipo di dati con uno dei due stati seguenti: `true` o `false`. |
+| **dateTime** | Rappresenta un istante di tempo, in genere espresso come data e ora del giorno. Espressa in formato [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) . |
+| **double** | Un punto A virgola mobile [IEEE 754](https://ieeexplore.ieee.org/document/8766229) a precisione doppia a 64 bit. |
+| **string** | Valori di testo, costituiti da caratteri Unicode.          |
 
 #### <a name="objects-and-arrays"></a>Oggetti e matrici
 
-È possibile inviare tipi complessi come gli oggetti e le matrici come parte del payload dell'evento, ma i dati vengono sottoposti a un processo Flat quando vengono archiviati. Per altre informazioni su come modellare gli eventi JSON, nonché i dettagli sul tipo complesso e sulla Flat degli oggetti annidati, vedere la pagina relativa alla [modalità di esecuzione del formato JSON per l'ingresso e la query](./time-series-insights-update-how-to-shape-events.md).
+È possibile inviare tipi complessi, ad esempio oggetti e matrici come parte del payload dell'evento, ma i dati vengono sottoposti a un processo di Flat quando vengono archiviati. 
 
+Informazioni dettagliate che descrivono come definire gli eventi JSON, inviare il tipo complesso e la flat degli oggetti annidati sono disponibili nella pagina [relativa alla modalità di modellazione di JSON per l'ingresso e la query](./time-series-insights-update-how-to-shape-events.md) per semplificare la pianificazione e l'ottimizzazione.
 
 ### <a name="ingress-best-practices"></a>Procedure consigliate per il traffico in ingresso
 
 Si consiglia di utilizzare le seguenti procedure consigliate:
 
-* Configurare Time Series Insights e l'hub eventi o l'hub eventi nella stessa area per ridurre la latenza di inserimento incorrente nella rete.
-* Pianificare le esigenze di scalabilità calcolando la velocità di inserimento prevista e verificando che rientri nella tariffa supportata indicata di seguito
+* Configurare Azure Time Series Insights e qualsiasi hub eventi o hub eventi nella stessa area per ridurre la latenza potenziale.
+
+* [Pianificare le esigenze di scalabilità](time-series-insights-update-plan.md) calcolando la velocità di inserimento prevista e verificando che rientri nella tariffa supportata indicata di seguito.
+
 * Informazioni su come ottimizzare e modellare i dati JSON, nonché le limitazioni correnti in anteprima, leggendo [come definire il formato JSON per l'ingresso e la query](./time-series-insights-update-how-to-shape-events.md).
 
-### <a name="ingress-scale-and-limitations-in-preview"></a>Scalabilità in ingresso e limitazioni in anteprima
+### <a name="ingress-scale-and-preview-limitations"></a>Limitazioni di scalabilità e anteprima in ingresso 
+
+Di seguito sono descritte le limitazioni in ingresso Azure Time Series Insights Preview.
+
+> [!TIP]
+> Per un elenco completo di tutti i limiti di anteprima, vedere [pianificare l'ambiente di anteprima](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-plan#review-preview-limits) .
 
 #### <a name="per-environment-limitations"></a>Limitazioni per ambiente
 
@@ -77,39 +91,65 @@ In generale, le tariffe in ingresso vengono visualizzate come fattore del numero
 
 *  **Numero di dispositivi** × **frequenza di emissione eventi** × **dimensioni di ogni evento**.
 
-Per impostazione predefinita, Time Series Insights anteprima può inserire i dati in ingresso a una velocità di un massimo di 1 MB al secondo (MBps) **per ogni ambiente TSI**. Contattaci se non soddisfa i requisiti, possiamo supportare fino a 16 MBps per un ambiente inviando un ticket di supporto nella portale di Azure.
+Per impostazione predefinita, Time Series Insights anteprima può inserire i dati in ingresso a una velocità di un **massimo di 1 MB al secondo (Mbps) per ogni ambiente Time Series Insights**.
+
+> [!TIP] 
+> * Il supporto dell'ambiente per l'inserimento di velocità fino a 16 MBps può essere fornito dalla richiesta.
+> * Contattaci se è necessaria una velocità effettiva maggiore inviando un ticket di supporto tramite portale di Azure.
  
-Esempio 1: la distribuzione di Contoso ha 100.000 dispositivi che emettono un evento tre volte al minuto. Le dimensioni di un evento sono pari a 200 byte. Usano un hub eventi con 4 partizioni come origine evento TSI.
-La velocità di inserimento per l'ambiente TSI sarà: 100.000 dispositivi * 200 byte/evento * (3/60 evento/sec) = 1 MBps.
-La velocità di inserimento per partizione è 0,25 MBps.
-Il tasso di inserimento di Contoso Shipping sarà entro il limite di anteprima della scalabilità.
- 
-Esempio 2: contoso Fleet Analytics ha 60.000 dispositivi che emettono un evento ogni secondo. Si sta usando un numero di partizioni dell'hub Internet di 4 come l'origine evento TSI. Le dimensioni di un evento sono pari a 200 byte.
-La velocità di inserimento dell'ambiente è: 20.000 dispositivi * 200 byte/evento * 1 evento/sec = 4 MBps.
-Il tasso per partizione è 1 MBps.
-Contoso Fleet Analytics dovrà inviare una richiesta a TSI tramite il portale di Azure per un ambiente dedicato per ottenere questa scalabilità.
+* **Esempio 1:**
+
+    Contoso Shipping ha 100.000 dispositivi che emettono un evento tre volte al minuto. Le dimensioni di un evento sono pari a 200 byte. Usano un hub eventi con quattro partizioni come origine evento Time Series Insights.
+
+    * La velocità di inserimento per l'ambiente di Time Series Insights sarà: **100.000 dispositivi * 200 byte/evento * (3/60 evento/sec) = 1 Mbps**.
+    * La velocità di inserimento per partizione è 0,25 MBps.
+    * Il tasso di inserimento di Contoso Shipping sarà entro il limite di anteprima della scalabilità.
+
+* **Esempio 2:**
+
+    Contoso Fleet Analytics ha 60.000 dispositivi che emettono un evento ogni secondo. Si sta usando un numero di partizioni dell'hub Internet di 4 come Time Series Insights origine evento. Le dimensioni di un evento sono pari a 200 byte.
+
+    * La velocità di inserimento dell'ambiente è: **20.000 dispositivi * 200 byte/evento * 1 evento/sec = 4 Mbps**.
+    * Il tasso per partizione è 1 MBps.
+    * Contoso Fleet Analytics può inviare una richiesta di Time Series Insights tramite portale di Azure per aumentare la velocità di inserimento per il proprio ambiente.
 
 #### <a name="hub-partitions-and-per-partition-limits"></a>Partizioni dell'hub e limiti per partizione
 
-Quando si pianifica l'ambiente TSI, è importante prendere in considerazione la configurazione delle origini eventi che si connetteranno a sti. Sia l'hub eventi di Azure che hub eventi utilizzano le partizioni per abilitare la scalabilità orizzontale per l'elaborazione degli eventi.  Una partizione è una sequenza ordinata di eventi contenuta in un hub. Il numero di partizioni viene impostato durante la fase di creazione dell'hub eventi o dell'hub eventi e non può essere modificato. Per altre informazioni su come determinare il numero di partizioni, vedere Domande frequenti su Hub eventi in merito al numero di partizioni necessarie. Per gli ambienti TSI che usano l'hub Internet, generalmente la maggior parte degli hub è necessaria solo 4 partizioni. Indipendentemente dal fatto che si stia creando un nuovo hub per l'ambiente TSI o se ne usi uno esistente, sarà necessario calcolare la velocità di inserimento per partizione per determinare se è entro i limiti di anteprima. La versione di anteprima di TSI dispone attualmente di un limite **per partizione** di 0,5 MB/s. Usare gli esempi riportati di seguito come riferimento e tenere presente quanto segue, se si è un utente dell'hub Internet.
+Quando si pianifica l'ambiente di Time Series Insights, è importante prendere in considerazione la configurazione delle origini eventi a cui ci si connetterà Time Series Insights. Sia l'hub eventi di Azure che hub eventi utilizzano le partizioni per abilitare la scalabilità orizzontale per l'elaborazione degli eventi. 
+
+Una *partizione* è una sequenza ordinata di eventi contenuta in un hub. Il numero di partizioni viene impostato durante la fase di creazione dell'hub e non può essere modificato. 
+
+Per le procedure consigliate per il partizionamento di hub eventi, rivedere [il numero di partizioni necessarie?](https://docs.microsoft.com/azure/event-hubs/event-hubs-faq#how-many-partitions-do-i-need)
+
+> [!NOTE]
+> Per la maggior parte degli hub Internet usati con Azure Time Series Insights sono necessarie solo quattro partizioni.
+
+Sia che si stia creando un nuovo hub per l'ambiente Time Series Insights o usandone uno esistente, è necessario calcolare la velocità di inserimento per partizione per determinare se è entro i limiti di anteprima. 
+
+Azure Time Series Insights anteprima dispone attualmente di un **limite generale per partizione di 0,5 Mbps**.
 
 #### <a name="iot-hub-specific-considerations"></a>Considerazioni specifiche sull'hub
 
-Quando un dispositivo viene creato nell'hub Internet it viene assegnato a una partizione e l'assegnazione della partizione non viene modificata. In questo modo, l'hub Internet è in grado di garantire l'ordine degli eventi. Tuttavia, questo ha implicazioni per le STI come lettore downstream in determinati scenari. Quando i messaggi provenienti da più dispositivi vengono inviati all'hub usando lo stesso ID di dispositivo gateway, saranno presenti nella stessa partizione, causando potenzialmente il superamento del limite di scalabilità per partizione. 
+Quando un dispositivo viene creato nell'hub Internet, viene assegnato in modo permanente a una partizione. In questo modo, l'hub Internet è in grado di garantire l'ordine degli eventi (poiché l'assegnazione non cambia mai).
 
-**Impatto**: se una singola partizione sperimenta un tasso di inserimento prolungato rispetto al limite di anteprima, è possibile che il lettore di TSI non venga mai aggiornato prima del superamento del periodo di conservazione dei dati dell'hub Internet. Questo potrebbe causare una perdita di dati.
+Un'assegnazione di partizione fissa ha un effetto anche sulle istanze Time Series Insights che inseriscono dati inviati dall'hub Internet a valle. Quando i messaggi provenienti da più dispositivi vengono inviati all'hub con lo stesso ID dispositivo gateway, possono arrivare nella stessa partizione contemporaneamente al superamento dei limiti di scala per partizione. 
 
-È consigliabile attenersi alle linee guida seguenti: 
+**Effetto**:
 
-* Calcolare la velocità di inserimento per ogni ambiente e partizione prima di distribuire la soluzione
-* Assicurarsi che i dispositivi dell'hub Internet (e quindi le partizioni) siano sottoposti a bilanciamento del carico per l'estensione più lontana possibile
+* Se una singola partizione sperimenta un tasso di inserimento prolungato nel limite di anteprima, è possibile che Time Series Insights non sincronizza tutti i dati di telemetria del dispositivo prima del superamento del periodo di conservazione dei dati dell'hub. Di conseguenza, i dati inviati possono andare perduti se i limiti di inserimento vengono superati costantemente.
 
-> [!WARNING]
+Per attenuare questa circostanza, è consigliabile attenersi alle procedure consigliate seguenti:
+
+* Calcolare i tassi di inserimento per ambiente e per partizione prima di distribuire la soluzione.
+* Verificare che il carico dei dispositivi dell'hub Internet sia bilanciato fino alla misura più lontana possibile.
+
+> [!IMPORTANT]
 > Per gli ambienti che usano l'hub Internet come origine eventi, calcolare la velocità di inserimento usando il numero di dispositivi hub usati per assicurarsi che la velocità scende al di sotto del limite di 0,5 MBps per partizione nell'anteprima.
+> * Anche se più eventi arrivano simultaneamente, il limite di anteprima non verrà superato.
 
   ![Diagramma delle partizioni dell'hub Internet](media/concepts-ingress-overview/iot-hub-partiton-diagram.png)
 
-Per ulteriori informazioni sulle unità di velocità effettiva e sulle partizioni, vedere i collegamenti seguenti:
+Per altre informazioni sull'ottimizzazione della velocità effettiva e delle partizioni dell'hub, vedere le risorse seguenti:
 
 * [Scalabilità dell'hub Internet](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
 * [Scalabilità dell'hub eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
@@ -117,9 +157,9 @@ Per ulteriori informazioni sulle unità di velocità effettiva e sulle partizion
 
 ### <a name="data-storage"></a>Archiviazione dei dati
 
-Quando si crea un ambiente con SKU con pagamento in base al consumo Time Series Insights anteprima, si creano due risorse di Azure:
+Quando si crea un ambiente con SKU *con pagamento in base* al consumo (PAYG) di anteprima, si creano due risorse Time Series Insights di Azure:
 
-* Un ambiente Time Series Insights anteprima che può includere facoltativamente funzionalità di archiviazione A caldo.
+* Ambiente Azure Time Series Insights anteprima che può essere configurato per l'archiviazione a caldo.
 * Un account BLOB di archiviazione di Azure per utilizzo generico V1 per l'archiviazione di dati a freddo.
 
 I dati nell'archivio a caldo sono disponibili solo tramite [Query Time Series](./time-series-insights-update-tsq.md) e [Esplora Azure Time Series Insights Preview](./time-series-insights-update-explorer.md). 
@@ -131,7 +171,7 @@ Time Series Insights anteprima Salva i dati dell'archivio a freddo nell'archivio
 
 ### <a name="data-availability"></a>Disponibilità dei dati
 
-Time Series Insights Visualizza in anteprima le partizioni e indicizza i dati per ottenere prestazioni ottimali delle query. I dati diventano disponibili per eseguire una query dopo l'indicizzazione. La quantità di dati da inserire può influire sulla disponibilità.
+Azure Time Series Insights Visualizza in anteprima le partizioni e indicizza i dati per ottenere prestazioni ottimali delle query. I dati diventano disponibili per eseguire una query dopo l'indicizzazione. La quantità di dati da inserire può influire sulla disponibilità.
 
 > [!IMPORTANT]
 > Durante l'anteprima, è possibile che si verifichi un periodo di tempo massimo di 60 secondi prima che i dati diventino disponibili. Se si verifica una latenza significativa superiore a 60 secondi, inviare un ticket di supporto tramite la portale di Azure.
@@ -144,11 +184,14 @@ Per una descrizione completa dell'archiviazione BLOB di Azure, vedere [Introduzi
 
 ### <a name="your-storage-account"></a>L'account di archiviazione
 
-Quando si crea un ambiente con pagamento in base al consumo di Time Series Insights Preview, viene creato un account BLOB di archiviazione di Azure per utilizzo generico V1 come archivio a lungo termine.  
+Quando si crea un ambiente di Azure Time Series Insights anteprima PAYG, viene creato un account BLOB di archiviazione di Azure per utilizzo generico V1 come archivio a lungo termine.  
 
-Time Series Insights anteprima pubblica fino a due copie di ogni evento nell'account di archiviazione di Azure. La copia iniziale ha eventi ordinati in base al tempo di inserimento e viene sempre mantenuta, quindi è possibile usare altri servizi per accedervi. È possibile usare Spark, Hadoop e altri strumenti noti per elaborare i file parquet non elaborati. 
+Azure Time Series Insights anteprima pubblica fino a due copie di ogni evento nell'account di archiviazione di Azure. Per la copia iniziale sono stati ordinati eventi in base al tempo di inserimento. Tale ordine di evento viene **sempre mantenuto** in modo che altri servizi possano accedere agli eventi senza sequenziare problemi. 
 
-Time Series Insights anteprima consente di ripartizionare i file parquet per ottimizzare la query Time Series Insights. Viene salvata anche questa copia di dati ripartizionata.
+> [!NOTE]
+> È anche possibile usare Spark, Hadoop e altri strumenti familiari per elaborare i file parquet non elaborati. 
+
+Time Series Insights anteprima esegue anche il partizionamento dei file parquet da ottimizzare per la query Time Series Insights. Viene salvata anche questa copia di dati ripartizionata. 
 
 Durante l'anteprima pubblica, i dati vengono archiviati per un periodo illimitato nell'account di archiviazione di Azure.
 

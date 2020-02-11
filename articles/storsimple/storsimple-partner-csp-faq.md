@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti su Microsoft Azure StorSimple e Cloud Solutions Provider Program per i partner | Microsoft Docs
+title: 'Domande frequenti per i partner: StorSimple per Cloud Solutions Provider Program'
 description: Vengono illustrate le risposte ad alcune domande frequenti su StorSimple e CSP per i partner.
 services: storsimple
 documentationcenter: NA
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 893e8de5efc523df34e2c1e139082d2b471cb63e
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: eaf22773e581f0b7557a64917e183573039d1cef
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828537"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116159"
 ---
-# <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple per Cloud Solutions Provider Program: Domande frequenti
+# <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple per Cloud Solutions Provider Program: domande frequenti
 
 
 ## <a name="overview"></a>Panoramica

@@ -2,13 +2,13 @@
 title: Distribuire le risorse al gruppo di gestione
 description: Viene descritto come distribuire le risorse nell'ambito del gruppo di gestione in un modello di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: 4ba4f4d2e95c0b878e9f402fa84139ac5b351e3c
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 02/10/2020
+ms.openlocfilehash: 0419f3daca6845c6809c9f66e870fdf884a7193f
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121914"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117048"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Creazione di risorse a livello di gruppo di gestione
 
@@ -27,7 +27,7 @@ Attualmente, per distribuire i modelli a livello di gruppo di gestione, è neces
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 
-### <a name="schema"></a>SCHEMA
+### <a name="schema"></a>Schema
 
 Lo schema usato per le distribuzioni di gruppi di gestione è diverso dallo schema per le distribuzioni di gruppi di risorse.
 
@@ -63,8 +63,20 @@ Per le distribuzioni di gruppi di gestione, è necessario tenere presenti alcune
 
 * La funzione [resourceGroup()](template-functions-resource.md#resourcegroup)**non** è supportata.
 * La funzione [Subscription ()](template-functions-resource.md#subscription) **non** è supportata.
-* La funzione [resourceId()](template-functions-resource.md#resourceid) funzione è supportata. Usarlo per ottenere l'ID risorsa per le risorse usate nelle distribuzioni a livello di gruppo di gestione. Ottenere, ad esempio, l'ID risorsa per una definizione di criteri con `resourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))`. Restituisce l'ID risorsa nel formato `/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`.
 * Le funzioni [reference()](template-functions-resource.md#reference) e [list()](template-functions-resource.md#list) sono supportate.
+* La funzione [resourceId()](template-functions-resource.md#resourceid) funzione è supportata. Usarlo per ottenere l'ID risorsa per le risorse usate nelle distribuzioni a livello di gruppo di gestione. Non specificare un valore per il parametro del gruppo di risorse.
+
+  Ad esempio, per ottenere l'ID risorsa per una definizione dei criteri, usare:
+  
+  ```json
+  resourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
+  ```
+  
+  Il formato dell'ID risorsa restituito è il seguente:
+  
+  ```json
+  /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+  ```
 
 ## <a name="create-policies"></a>Creare criteri
 
@@ -136,9 +148,13 @@ Nell'esempio seguente viene assegnata una definizione dei criteri esistente al g
 }
 ```
 
+## <a name="template-sample"></a>Esempio di modello
+
+* Creare un gruppo di risorse, un criterio e un'assegnazione di criteri.  Vedere [qui](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sull'assegnazione dei ruoli, vedere [gestire l'accesso alle risorse di Azure usando i modelli RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Per un esempio di distribuzione delle impostazioni dell'area di lavoro per il Centro sicurezza di Azure, vedere [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* Per informazioni sulla creazione di modelli di Gestione risorse di Azure, vedere [Creazione di modelli](template-syntax.md). 
+* Per informazioni sulla creazione di modelli di Gestione risorse di Azure, vedere [Creazione di modelli](template-syntax.md).
 * Per un elenco delle funzioni disponibili in un modello, vedere [Funzioni di modelli](template-functions.md).

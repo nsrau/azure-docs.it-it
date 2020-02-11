@@ -2,18 +2,18 @@
 title: Disponibilità delle risorse per area
 description: Disponibilità delle risorse di calcolo e memoria per il servizio Istanze di Azure Container in aree di Azure differenti.
 ms.topic: article
-ms.date: 12/17/2019
+ms.date: 01/31/2020
 ms.author: danlep
-ms.openlocfilehash: 9de5b08eed3aa10015813cbb4724ef4e947005fb
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3f64a13331658c1360c9d54f6f57a68c2c91fc6f
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888006"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117810"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilità di risorse per Istanze di Azure Container nelle aree di Azure
 
-Questo articolo illustra in dettaglio la disponibilità di risorse di calcolo e memoria per Istanze di Azure Container nelle aree di Azure. 
+Questo articolo illustra in dettaglio la disponibilità delle risorse di calcolo, memoria e archiviazione delle istanze di contenitore di Azure nelle aree di Azure e in base al sistema operativo di destinazione. 
 
 I valori presentati sono le risorse massime disponibili per distribuzione di un [gruppo di contenitori](container-instances-container-groups.md). I valori sono aggiornati al momento della pubblicazione. 
 
@@ -26,23 +26,23 @@ Per informazioni su quote e altri limiti nelle distribuzioni, vedere [Quote e li
 
 Per i gruppi di contenitori con Linux e i contenitori basati su Windows Server 2016 [supportati](container-instances-faq.md#what-windows-base-os-images-are-supported) sono disponibili le aree geografiche e le risorse seguenti.
 
-| Aree | Sistema operativo | Max CPU (CPU max) | Memoria massima (GB) |
-| -------- | -- | :---: | :-----------: |
-| Brasile meridionale, Canada centrale, India centrale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, India meridionale, Regno Unito meridionale, Europa occidentale, Stati Uniti occidentali, Stati Uniti occidentali 2 | Linux | 4 | 16 |
-| Australia orientale, Giappone orientale | Linux | 2 | 8 |
-| Stati Uniti centro-settentrionali | Linux | 2 | 3,5 |
-| Brasile meridionale, Giappone orientale, Europa occidentale | Windows | 4 | 16 |
-| Stati Uniti orientali, Stati Uniti occidentali | Windows | 4 | 14 |
-| Australia orientale, Canada centrale, India centrale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali 2, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, India meridionale, Regno Unito meridionale, Stati Uniti occidentali 2 | Windows | 2 | 3,5 |
+| Regions | OS | Max CPU (CPU max) | Memoria massima (GB) | Archiviazione (GB) |
+| -------- | -- | :---: | :-----------: | :---: |
+| Brasile meridionale, Canada centrale, India centrale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, India meridionale, Regno Unito meridionale, Europa occidentale, Stati Uniti occidentali, Stati Uniti occidentali 2 | Linux | 4 | 16 | 50 |
+| Australia orientale, Giappone orientale | Linux | 2 | 8 | 50 |
+| Stati Uniti centro-settentrionali | Linux | 2 | 3.5 | 50 |
+| Brasile meridionale, Giappone orientale, Europa occidentale | WINDOWS | 4 | 16 | 20 |
+| Stati Uniti orientali, Stati Uniti occidentali | WINDOWS | 4 | 14 | 20 |
+| Australia orientale, Canada centrale, India centrale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali 2, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, India meridionale, Regno Unito meridionale, Stati Uniti occidentali 2 | WINDOWS | 2 | 3.5 | 20 |
 
 ## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>Disponibilità - Distribuzioni di Windows Server 2019 LTSC, 1809 (anteprima)
 
 Per i gruppi di contenitori con contenitori basati su Windows Server 2019 (anteprima) sono disponibili le aree geografiche e le risorse seguenti.
 
-| Aree | Sistema operativo | Max CPU (CPU max) | Memoria massima (GB) |
-| -------- | -- | :---: | :-----------: |
-| Australia orientale, Brasile meridionale, Canada centrale, India centrale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Giappone orientale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, India meridionale, Regno Unito meridionale, Europa occidentale | Windows | 4 | 16 |
-| Stati Uniti orientali 2, Stati Uniti occidentali 2 | Windows | 2 | 3,5 |
+| Regions | OS | Max CPU (CPU max) | Memoria massima (GB) | Archiviazione (GB) |
+| -------- | -- | :---: | :-----------: | :---: |
+| Australia orientale, Brasile meridionale, Canada centrale, India centrale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Giappone orientale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, India meridionale, Regno Unito meridionale, Europa occidentale | WINDOWS | 4 | 16 | 20 |
+| Stati Uniti orientali 2, Stati Uniti occidentali 2 | WINDOWS | 2 | 3.5 | 20 |
 
 
 ## <a name="availability---virtual-network-deployment"></a>Disponibilità-distribuzione rete virtuale

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11a5e92ccf1104f36b3f2b045f9922158b1f7330
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: d7d8a7881c00427023e5f174461b3d8b24d83444
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064143"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121457"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workplace by Facebook per il provisioning utenti automatico
 
@@ -43,7 +43,9 @@ Se l'integrazione dell'area di lavoro è in quarantena, sarà necessario specifi
 
 https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true
 
- 
+#### <a name="how-can-i-tell-if-my-application-has-been-migrated"></a>Come è possibile stabilire se è stata eseguita la migrazione dell'applicazione? 
+Quando si esegue la migrazione dell'applicazione, il banner nella sezione relativa all'autorizzazione relativa alle modifiche di comunicazione verrà rimosso e il campo token segreto verrà sostituito con un pulsante di autorizzazione blu. 
+
 #### <a name="the-admin-credentials-section-is-greyed-out-on-my-application-and-i-cant-save-why"></a>La sezione credenziali amministratore è disattivata nell'applicazione e non è possibile salvare. Perché?
 È stata bloccata la sezione credenziali amministratore per i clienti esistenti dell'area di lavoro. Quando è stata eseguita la migrazione del tenant alla nuova applicazione aziendale, sarà possibile aggiornare di nuovo la sezione credenziali amministratore. Se non è possibile attendere, è possibile usare l'URL sopra riportato per modificare l'applicazione. 
 
@@ -58,7 +60,7 @@ Tutte le nuove istanze dell'area di lavoro utilizzeranno già il nuovo metodo di
 > * Mantieni gli attributi utente sincronizzati tra Azure AD e l'area di lavoro di Facebook
 > * [Single Sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/workplacebyfacebook-tutorial) per l'area di lavoro di Facebook (scelta consigliata)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
@@ -133,28 +135,28 @@ Il servizio Azure AD provisioning consente di definire l'ambito di chi verrà es
 
    |Attributo|Type|
    |---|---|
-   |userName|string|
-   |displayName|string|
-   |active|Boolean|
+   |userName|String|
+   |displayName|String|
+   |attivo|Boolean|
    |title|Boolean|
-   |emails[type eq "work"].value|string|
-   |name.givenName|string|
-   |name.familyName|string|
-   |nome. formattato|string|
-   |indirizzi [tipo EQ "lavoro"]. formattato|string|
-   |addresses[type eq "work"].streetAddress|string|
-   |indirizzi [digitare EQ "Work"]. località|string|
-   |indirizzi [digitare EQ "Work"]. Region|string|
-   |indirizzi [digitare EQ "Work"]. Country|string|
-   |addresses[type eq "work"].postalCode|string|
-   |indirizzi [tipo EQ "other"]. formattato|string|
-   |phoneNumbers[type eq "work"].value|string|
-   |phoneNumbers[type eq "mobile"].value|string|
-   |phoneNumbers[type eq "fax"].value|string|
-   |externalId|string|
-   |preferredLanguage|string|
-   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Manager|string|
-   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Department|string|
+   |emails[type eq "work"].value|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |nome. formattato|String|
+   |indirizzi [tipo EQ "lavoro"]. formattato|String|
+   |addresses[type eq "work"].streetAddress|String|
+   |indirizzi [digitare EQ "Work"]. località|String|
+   |indirizzi [digitare EQ "Work"]. Region|String|
+   |indirizzi [digitare EQ "Work"]. Country|String|
+   |addresses[type eq "work"].postalCode|String|
+   |indirizzi [tipo EQ "other"]. formattato|String|
+   |phoneNumbers[type eq "work"].value|String|
+   |phoneNumbers[type eq "mobile"].value|String|
+   |phoneNumbers[type eq "fax"].value|String|
+   |externalId|String|
+   |preferredLanguage|String|
+   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Manager|String|
+   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Department|String|
 
 10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

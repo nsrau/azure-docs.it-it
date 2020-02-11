@@ -2,13 +2,13 @@
 title: Distribuire le risorse nella sottoscrizione
 description: Questo articolo descrive come creare un gruppo di risorse in un modello di Azure Resource Manager. Illustra anche come distribuire le risorse nell'ambito della sottoscrizione di Azure.
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: b11668466fe3954dc5bc90435d5dfd016ca9791c
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.date: 02/10/2020
+ms.openlocfilehash: c53d274303a203a427a36f8f729f6b43cee44e40
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086728"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120623"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creare gruppi di risorse e risorse a livello di sottoscrizione
 
@@ -86,8 +86,22 @@ Per ogni nome di distribuzione, il percorso non è modificabile. Non è possibil
 Per le distribuzioni a livello di sottoscrizione, esistono alcune considerazioni importanti quando si usano funzioni di modello:
 
 * La funzione [resourceGroup()](template-functions-resource.md#resourcegroup)**non** è supportata.
-* La funzione [resourceId()](template-functions-resource.md#resourceid) funzione è supportata. Usare la funzione per ottenere l'ID risorsa per le risorse che vengono usate in distribuzioni a livello di sottoscrizione. Ottenere, ad esempio, l'ID risorsa per una definizione di criteri con `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`. In alternativa, usare la funzione [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) per ottenere l'ID risorsa per una risorsa a livello di sottoscrizione.
 * Le funzioni [reference()](template-functions-resource.md#reference) e [list()](template-functions-resource.md#list) sono supportate.
+* La funzione [resourceId()](template-functions-resource.md#resourceid) funzione è supportata. Usare la funzione per ottenere l'ID risorsa per le risorse che vengono usate in distribuzioni a livello di sottoscrizione. Non specificare un valore per il parametro del gruppo di risorse.
+
+  Ad esempio, per ottenere l'ID risorsa per una definizione dei criteri, usare:
+  
+  ```json
+  resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
+  ```
+  
+  Il formato dell'ID risorsa restituito è il seguente:
+
+  ```json
+  /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+  ```
+
+  In alternativa, usare la funzione [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) per ottenere l'ID risorsa per una risorsa a livello di sottoscrizione.
 
 ## <a name="create-resource-groups"></a>Creare gruppi di risorse
 
@@ -98,7 +112,7 @@ Il modello seguente crea un gruppo di risorse vuoto.
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.1",
+  "contentVersion": "1.0.0.0",
   "parameters": {
     "rgName": {
       "type": "string"
@@ -126,7 +140,7 @@ Per creare più gruppi di risorse usare l'[elemento copy](create-multiple-instan
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.1",
+  "contentVersion": "1.0.0.0",
   "parameters": {
     "rgNamePrefix": {
       "type": "string"
@@ -167,7 +181,7 @@ L'esempio seguente crea un gruppo di risorse e distribuisce un account di archiv
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.1",
+  "contentVersion": "1.0.0.0",
   "parameters": {
     "rgName": {
       "type": "string"

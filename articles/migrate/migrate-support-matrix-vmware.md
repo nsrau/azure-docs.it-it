@@ -3,12 +3,12 @@ title: Supporto per la valutazione VMware in Azure Migrate
 description: Informazioni sul supporto per la valutazione di VMware in Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 1b3e81653ba934b209755391f08e60ef603e645a
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 19ed506228bac425ad05edee1586740e6c33f69e
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086768"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121332"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matrice di supporto per VMware Assessment 
 
@@ -42,7 +42,7 @@ Oltre a individuare i computer, Azure Migrate: server assessment può individuar
 **Sistema operativo del computer** | Tutte le versioni di Windows e Linux.
 **credenziali vCenter** | Un account server vCenter con accesso in sola lettura e i privilegi abilitati per le macchine virtuali > operazioni Guest.
 **Credenziali VM** | Attualmente supporta l'utilizzo di una credenziale per tutti i server Windows e una credenziale per tutti i server Linux.<br/><br/> Si crea un account utente Guest per macchine virtuali Windows e un account utente normale/normale (accesso non sudo) per tutte le macchine virtuali Linux.
-**Strumenti VMware** | Gli strumenti VMware devono essere installati e in esecuzione nelle macchine virtuali che si desidera individuare.
+**Strumenti VMware** | Gli strumenti VMware devono essere installati e in esecuzione nelle macchine virtuali che si desidera individuare. <br/> Se la versione degli strumenti VMware è compresa tra 9,10-10.2.0, assicurarsi di aggiornarla a oltre 10.2.0.
 **Accesso alla porta** | Negli host ESXi che eseguono macchine virtuali che si vuole individuare, l'appliance di Azure Migrate deve essere in grado di connettersi alla porta TCP 443.
 **Limiti** | Per l'individuazione di app è possibile individuare fino a 10000 per ogni appliance. 
 

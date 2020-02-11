@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 1/05/2020
-ms.openlocfilehash: 9b838edea4b5f47fe57305c593944ef5fa93a63c
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 2/10/2020
+ms.openlocfilehash: 6d87d3373711d12df3f2cced26ef35ae951ad41e
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76768671"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116184"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 
@@ -242,7 +242,7 @@ Poiché ogni istanza è isolata nella propria rete virtuale, è necessario conse
 È possibile creare un gruppo di failover tra istanze gestite in due sottoscrizioni diverse. Quando si usa l'API di PowerShell, è possibile eseguire questa operazione specificando il parametro `PartnerSubscriptionId` per l'istanza secondaria. Quando si usa l'API REST, ogni ID istanza incluso nel parametro `properties.managedInstancePairs` può avere il proprio subscriptionID.
   
 > [!IMPORTANT]
-> Il portale di Azure non supporta i gruppi di failover tra sottoscrizioni diverse.
+> Portale di Azure non supporta la creazione di gruppi di failover tra sottoscrizioni diverse. Inoltre, per i gruppi di failover esistenti in sottoscrizioni e/o gruppi di risorse diversi, il failover non può essere avviato manualmente tramite il portale dall'istanza primaria. In alternativa, avviarlo dall'istanza geografica secondaria.
 
 ### <a name="managing-failover-to-secondary-instance"></a>Gestione del failover nell'istanza secondaria
 
@@ -394,7 +394,7 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 
 ### <a name="manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>Gestire il failover del database SQL con database singoli e pool elastici
 
-| Cmdlet | Description |
+| Cmdlet | Descrizione |
 | --- | --- |
 | [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) |Questo comando crea un gruppo di failover e lo registra nei server primario e secondario|
 | [Remove-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Rimuove un gruppo di failover dal server |
@@ -405,7 +405,7 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 
 ### <a name="manage-sql-database-failover-groups-with-managed-instances"></a>Gestire i gruppi di failover del database SQL con istanze gestite
 
-| Cmdlet | Description |
+| Cmdlet | Descrizione |
 | --- | --- |
 | [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup) |Questo comando crea un gruppo di failover e lo registra nelle istanze primarie e secondarie|
 | [Set-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |Modifica la configurazione di un gruppo di failover|
@@ -417,7 +417,7 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 
 ### <a name="manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>Gestire il failover del database SQL con database singoli e pool elastici
 
-| Comando | Description |
+| Comando | Descrizione |
 | --- | --- |
 | [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) |Questo comando crea un gruppo di failover e lo registra nei server primario e secondario|
 | [AZ SQL failover-Group Delete](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | Rimuove un gruppo di failover dal server |
@@ -427,7 +427,7 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 
 ### <a name="manage-sql-database-failover-groups-with-managed-instances"></a>Gestire i gruppi di failover del database SQL con istanze gestite
 
-| Comando | Description |
+| Comando | Descrizione |
 | --- | --- |
 | [AZ SQL instance-failover-Group create](/cli/azure/sql/instance-failover-group#az-sql-instance-failover-group-create) | Questo comando crea un gruppo di failover e lo registra nelle istanze primarie e secondarie |
 | [AZ SQL instance-failover-Group Update](/cli/azure/sql/instance-failover-group#az-sql-instance-failover-group-update) | Modifica la configurazione di un gruppo di failover|
@@ -442,7 +442,7 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>API REST: gestire i gruppi di failover del database SQL con database singoli e in pool
 
-| API SmartBear Ready! | Description |
+| API | Descrizione |
 | --- | --- |
 | [Create or Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Crea o aggiorna un gruppo di failover. |
 | [Delete Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Rimuove un gruppo di failover dal server |
@@ -454,7 +454,7 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 
 ### <a name="rest-api-manage-failover-groups-with-managed-instances"></a>API REST: gestire i gruppi di failover con istanze gestite
 
-| API SmartBear Ready! | Description |
+| API | Descrizione |
 | --- | --- |
 | [Create or Update Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Crea o aggiorna la configurazione di un gruppo di failover |
 | [Delete Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Rimuove un gruppo di failover dall'istanza di. |

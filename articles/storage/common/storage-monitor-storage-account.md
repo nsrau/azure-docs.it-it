@@ -8,12 +8,12 @@ ms.date: 01/09/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e9ef700e45acc55f476d72883107b0c5c958fa7f
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 43955950b2fc0544b149c67e3f8df7ca905fafed
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75862833"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116262"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorare un account di archiviazione nel portale di Azure
 
@@ -25,6 +25,8 @@ ms.locfileid: "75862833"
 > All'esame dei dati di monitoraggio nel portale di Azure sono associati costi. Per altre informazioni, vedere [Analisi archiviazione](storage-analytics.md).
 >
 > File di Azure attualmente supporta la metrica di Analisi archiviazione, ma non supporta ancora la registrazione.
+>
+> Gli account di archiviazione BLOB in blocchi di prestazioni Premium non supportano le metriche di analisi dell'archiviazione ma supportano la registrazione. È possibile abilitare la registrazione a livello di codice tramite l'API REST o la libreria client. Se si vogliono visualizzare le metriche con gli account di archiviazione BLOB BLOB di prestazioni Premium, è consigliabile usare le [metriche di archiviazione di Azure in monitoraggio di Azure](storage-metrics-in-azure-monitor.md).
 >
 > Per una guida dettagliata sull'utilizzo di Analisi archiviazione e di altri strumenti per identificare, diagnosticare e risolvere i problemi relativi ad Archiviazione di Azure, vedere [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 >
@@ -53,7 +55,7 @@ Un set predefinito di metriche verrà visualizzato in grafici nel pannello dell'
 È possibile disabilitare la raccolta e la registrazione delle metriche impostando **Stato** su **Disattivato**.
 
 > [!NOTE]
-> Archiviazione di Azure usa l'[archivio tabelle](storage-introduction.md#table-storage) per archiviare le metriche per l'account di archiviazione e archivia le metriche in tabelle dell'account. Per altre informazioni, vedere [Come vengono archiviate le metriche](storage-analytics-metrics.md#how-metrics-are-stored).
+> Archiviazione di Azure usa l'[archivio tabelle](storage-introduction.md#table-storage) per archiviare le metriche per l'account di archiviazione e archivia le metriche in tabelle dell'account. Per altre informazioni, vedere . [Come vengono archiviate le metriche](storage-analytics-metrics.md#how-metrics-are-stored).
 >
 
 ## <a name="customize-metrics-charts"></a>Personalizzare i grafici delle metriche
@@ -136,7 +138,7 @@ Dopo che sono stati aggiunti al dashboard, i grafici possono essere ulteriorment
 1. Verificare che l'opzione **Stato** sia impostata su **Attivato** e selezionare i **servizi** per cui si vuole abilitare la registrazione.
 
     ![Configurare la registrazione nel portale di Azure.](./media/storage-monitor-storage-account/enable-diagnostics.png)
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 I log di diagnostica sono salvati in un contenitore blob denominato *$logs* nell'account di archiviazione. È possibile visualizzare i dati dei log con uno strumento di esplorazione di archiviazione come [Microsoft Azure Storage Explorer](https://storageexplorer.com) oppure a livello di codice usando la libreria client di archiviazione o PowerShell.
 

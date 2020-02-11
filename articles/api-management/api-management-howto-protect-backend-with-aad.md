@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 771257df12ee29c2bc8d32672c8e8b7d039a96ba
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: cbcd3d27da3aff66e1dc6758af8a573666c0bbbe
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120810"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121404"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Proteggere un'API usando OAuth 2.0 con Azure Active Directory e Gestione API
 
@@ -33,7 +33,7 @@ Per eseguire i passaggi in questo articolo è necessario avere quanto segue:
 * Un'API in corso di pubblicazione che usa l'istanza di Gestione API
 * Un tenant di Azure AD
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Ecco una rapida panoramica dei passaggi:
 
@@ -47,7 +47,7 @@ Ecco una rapida panoramica dei passaggi:
 
 Per proteggere un'API con Azure AD, il primo passaggio consiste nel registrare un'applicazione in Azure AD che rappresenta l'API. 
 
-1. Passare alla [portale di Azure](https://portal.azure.com) per registrare l'applicazione. Cercare e selezionare le **registrazioni dell'API**.
+1. Passare alla [portale di Azure](https://portal.azure.com) per registrare l'applicazione. Cercare e selezionare registrazioni per l' **app**.
 
 1. Selezionare **Nuova registrazione**. 
 
@@ -147,7 +147,7 @@ In questo esempio la console per sviluppatori è l'app client. La procedura segu
 
 1. Immediatamente dopo il segreto client è riportato il valore di **redirect_url** per il tipo di concessione con codice di autorizzazione. Prendere nota dell'URL.
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 1. Tornare all'app client e selezionare **Authentication (autenticazione**).
 
@@ -161,7 +161,7 @@ Il passaggio successivo consiste nell'abilitare l'autorizzazione utente OAuth 2.
 
 2. Selezionare l'API da proteggere. Ad esempio, è possibile usare la `Echo API`.
 
-3. Passare a **Impostazioni**.
+3. Passare a **Settings**.
 
 4. In **Sicurezza** scegliere **OAuth 2.0** e selezionare il server OAuth 2.0 configurato in precedenza. 
 

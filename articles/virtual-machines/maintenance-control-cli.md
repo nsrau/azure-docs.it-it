@@ -1,20 +1,18 @@
 ---
-title: Controllo di manutenzione per le macchine virtuali di Azure
-description: Informazioni su come controllare quando manutenzione viene applicato alle macchine virtuali di Azure usando il controllo di manutenzione.
-services: virtual-machines-linux
+title: Controllo della manutenzione
+description: Informazioni su come controllare quando viene applicata la manutenzione alle VM di Azure usando il controllo di manutenzione.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: cynthn
-ms.openlocfilehash: 13e4923bc5d49843710c9df4523992f541f1d343
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: cf4c8c57121a06a607770470c5aef69c5edc0c5f
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988023"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77115631"
 ---
 # <a name="preview-control-updates-with-maintenance-control-and-the-azure-cli"></a>Anteprima: controllare gli aggiornamenti con il controllo manutenzione e l'interfaccia della riga di comando di Azure
 
@@ -197,7 +195,7 @@ az maintenance update list \
    -o table
 ```
 
-## <a name="apply-updates"></a>Applicare gli aggiornamenti
+## <a name="apply-updates"></a>Applicazione degli aggiornamenti
 
 Usare `az maintenance apply update` per applicare gli aggiornamenti in sospeso. Al termine dell'operazione, questo comando restituirà JSON contenente i dettagli dell'aggiornamento.
 

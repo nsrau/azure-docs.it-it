@@ -4,12 +4,12 @@ description: Istruzioni su come spostare l'insieme di credenziali di servizi di 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 7d0a6c47fa08774161d3a2b7507cdfecaf8c7197
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: fed42c578da2e4f27f42e11d5ac67d698bbcd939
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172881"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120721"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Spostare un insieme di credenziali di servizi di ripristino tra sottoscrizioni e gruppi di risorse di Azure
 
@@ -18,6 +18,10 @@ Questo articolo illustra come spostare un insieme di credenziali di Servizi di r
 ## <a name="supported-regions"></a>Aree supportate
 
 Lo spostamento di risorse per l'insieme di credenziali di servizi di ripristino è supportato in Australia orientale, Australia sudorientale, Canada centrale, Canada orientale, Sud Asia orientale, Asia orientale, Stati Uniti centrali, Stati Uniti centro-settentrionali, Stati Uniti orientali, Stati Uniti orientali, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti centro-occidentali, Uniti India centrale, India meridionale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Europa settentrionale, Europa occidentale, Sudafrica settentrionale, Sudafrica occidentale, Regno Unito meridionale e Regno Unito occidentale.
+
+## <a name="unsupported-regions"></a>Aree non supportate
+
+Francia centrale, Francia meridionale, Germania nord-orientale, Germania centrale, US Gov Iowa, Cina settentrionale, Cina North2, Cina orientale, Cina orientali 2
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>Prerequisiti per lo stato di trasferimento dell'insieme di credenziali di servizi di ripristino
 

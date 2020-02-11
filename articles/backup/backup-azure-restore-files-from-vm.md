@@ -3,12 +3,12 @@ title: Ripristinare file e cartelle dal backup delle macchine virtuali di Azure
 description: Questo articolo illustra come ripristinare file e cartelle da un punto di ripristino della macchina virtuale di Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 86a46e606e9425cf4951817ca3afa23fe57dae52
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 4565929b5475e2348685fbec77b596b65ed73fd6
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294083"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114329"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -56,6 +56,8 @@ Per ripristinare file o cartelle dal punto di recupero, passare alla macchina vi
 7. Nel percorso di download (in genere la cartella Download) fare clic con il pulsante destro del mouse sul file eseguibile o sullo script ed eseguirlo con credenziali di amministratore. Quando richiesto, digitare la password o incollare la password dalla memoria e premere **invio**. Dopo l'immissione della password valida, lo script si connette al punto di ripristino.
 
     ![Menu Ripristino file](./media/backup-azure-restore-files-from-vm/executable-output.png)
+
+8. Per i computer Linux, viene generato uno script Python. Uno deve scaricare lo script e copiarlo nel server Linux pertinente/compatibile. Potrebbe essere necessario modificare le autorizzazioni per eseguirlo con ```chmod +x <python file name>```. Eseguire quindi il file Python con ```./<python file name>```.
 
 Per assicurarsi che lo script venga eseguito correttamente, vedere la sezione [requisiti di accesso](#access-requirements) .
 
@@ -159,11 +161,11 @@ Se nel disco RAID è stato configurato un altro LVM, usare la procedura preceden
 
 La tabella seguente illustra la compatibilità tra i sistemi operativi del server e del computer. Quando si esegue il ripristino di file, non è possibile ripristinare i file in una versione precedente o successiva del sistema operativo. Ad esempio, non è possibile ripristinare un file da una VM Windows Server 2016 a un computer Windows Server 2012 o Windows 8. È possibile ripristinare i file da una VM allo stesso sistema operativo server o al sistema operativo client compatibile.
 
-|Sistema operativo del server | Sistema operativo compatibile del client  |
+|Sistema operativo server | Sistema operativo compatibile del client  |
 | --------------- | ---- |
-| Windows Server 2019    | Windows 10 |
-| Windows Server 2016    | Windows 10 |
-| Windows Server 2012 R2 | Windows 8.1 |
+| Windows Server 2019    | Windows 10 |
+| Windows Server 2016    | Windows 10 |
+| Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
 
@@ -190,11 +192,11 @@ Per l'esecuzione e la connessione sicura al punto di ripristino, lo script richi
 
 |Componente | Versione  |
 | --------------- | ---- |
-| bash | 4 e versioni successive |
+| barra rovesciata | 4 e versioni successive |
 | python | 2.6.6 e versioni successive  |
 | TLS | 1.2 dovrebbe essere supportata  |
 
-## <a name="access-requirements"></a>Requisiti per l'accesso
+## <a name="access-requirements"></a>Requisiti di accesso
 
 Se si esegue lo script in un computer con accesso limitato, verificare che sia disponibile l'accesso a:
 
@@ -202,7 +204,7 @@ Se si esegue lo script in un computer con accesso limitato, verificare che sia d
 - URL di servizi di ripristino (il nome geografico si riferisce all'area in cui si trova l'insieme di credenziali di servizi di ripristino)
   - <https://pod01-rec2.geo-name.backup.windowsazure.com> (Per aree geografiche pubbliche di Azure)
   - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (per Azure Cina 21Vianet)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.us> (Per Azure per enti pubblici statunitensi)
+  - <https://pod01-rec2.geo-name.backup.windowsazure.us> (Per Azure US Gov)
   - <https://pod01-rec2.geo-name.backup.windowsazure.de> (Per Azure Germania)
 - porta in uscita 3260
 

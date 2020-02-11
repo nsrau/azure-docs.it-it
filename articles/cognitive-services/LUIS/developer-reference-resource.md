@@ -1,25 +1,18 @@
 ---
 title: Risorse per sviluppatori-Language Understanding
-titleSuffix: Azure Cognitive Services
-description: Gli sviluppatori hanno sia API REST che SDK per Language Understanding.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 01/22/2020
-ms.author: diberry
-ms.openlocfilehash: 2f351ac570080c83e78697bbca94340bb96cbcf7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+description: SDK, API REST, interfaccia della riga di comando, consentono di sviluppare app Language Understanding (LUIS) nel linguaggio di programmazione. Gestisci le tue risorse di Azure e le tue stime LUIS.
+ms.topic: reference
+ms.date: 02/09/2020
+ms.openlocfilehash: ed869b7022e43b8ecf8c1f05bb3c6f0919076818
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716143"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119968"
 ---
-# <a name="developer-resources-for-language-understanding"></a>Risorse per gli sviluppatori per Language Understanding
+# <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Risorse per sviluppatori SDK, REST e CLI per Language Understanding (LUIS)
 
-Gli sviluppatori possono usare sia API REST che SDK per Language Understanding.
+SDK, API REST, interfaccia della riga di comando, consentono di sviluppare app Language Understanding (LUIS) nel linguaggio di programmazione. Gestisci le tue risorse di Azure e le tue stime LUIS. 
 
 ## <a name="azure-resource-management"></a>Gestione risorse di Azure
 
@@ -31,11 +24,17 @@ Trovare la documentazione di riferimento basata sullo strumento:
 
 * [AzureRM PowerShell](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services)
 
+
 ## <a name="language-understanding-authoring-and-prediction-requests"></a>Language Understanding la creazione e la stima delle richieste
 
-È possibile accedere al servizio Language Understanding da una risorsa di Azure che è necessario creare. Sono disponibili due risorse: la creazione e la stima delle risorse degli endpoint. Entrambe queste risorse consentono di controllare le risorse LUIS.
+È possibile accedere al servizio Language Understanding da una risorsa di Azure che è necessario creare. Sono disponibili due risorse:
+
+* Usare la risorsa di **creazione** per il training per creare, modificare, eseguire il training e pubblicare.
+* Utilizzare la **stima** per Runtime per inviare il testo dell'utente e ricevere una stima.
 
 Informazioni sull' [endpoint di stima V3](luis-migration-api-v3.md).
+
+Usare il [codice di esempio di servizi cognitivi](https://github.com/Azure-Samples/cognitive-services-quickstart-code) per apprendere e usare le attività più comuni.
 
 ### <a name="rest-apis"></a>API REST
 
@@ -77,7 +76,7 @@ Bot Framework offre [diversi strumenti](https://github.com/microsoft/botbuilder-
 * [Interfaccia](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS) della riga di comando Luis: creare e gestire le applicazioni Luis.ai
 * Gestire le app padre e figlio tramite [Dispatch](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Dispatch)
 * [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) -genera automaticamente le classi C#/typescript di backup per gli Intent ed entità di Luis.
-* [Emulatore bot](https://github.com/Microsoft/BotFramework-Emulator/releases) : applicazione desktop che consente agli sviluppatori di bot di testare ed eseguire il debug di bot creati usando bot Framework SDK
+* [Emulatore di bot Framework](https://github.com/Microsoft/BotFramework-Emulator/releases) : applicazione desktop che consente agli sviluppatori di bot di testare ed eseguire il debug di bot creati usando bot Framework SDK
 
 
 ## <a name="next-steps"></a>Passaggi successivi

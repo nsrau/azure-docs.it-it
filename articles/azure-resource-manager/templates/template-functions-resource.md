@@ -2,13 +2,13 @@
 title: Funzioni modello-risorse
 description: Informazioni sulle funzioni da usare in un modello di Azure Resource Manager per recuperare i valori relativi alle risorse.
 ms.topic: conceptual
-ms.date: 01/20/2020
-ms.openlocfilehash: cfcc9ff3af33fe9de813d8a31b7d102f00725ce4
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.date: 02/10/2020
+ms.openlocfilehash: cc8976b714549f7442e22b341b34e81d717c8742
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048796"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120531"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funzioni delle risorse per i modelli di Azure Resource Manager
 
@@ -279,7 +279,7 @@ L'oggetto restituito varia a seconda della funzione list usata. La funzione list
 
 Altre funzioni list possono avere formati di restituzione diversi. Per visualizzare il formato di una funzione, includerlo nella sezione outputs, come mostrato nel modello di esempio.
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 Specificare la risorsa usando il nome della risorsa stessa o la [funzione resourceId](#resourceid). Quando si usa una funzione list nello stesso modello che distribuisce la risorsa di riferimento, usare il nome della risorsa.
 
@@ -451,7 +451,7 @@ Restituisce un oggetto che rappresenta lo stato di runtime di una risorsa.
 
 Ogni tipo di risorsa restituisce proprietà diverse per la funzione di riferimento. La funzione non restituisce un singolo formato predefinito. Il valore restituito, poi, è diverso a seconda del fatto che sia stato richiesto l'oggetto completo o meno. Per visualizzare le proprietà per un tipo di risorsa, restituire l'oggetto nella sezione output, come illustrato nell'esempio.
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 La funzione reference recupera lo stato di runtime di una risorsa distribuita in precedenza o di una risorsa distribuita nel modello corrente. Questo articolo contiene esempi relativi a entrambi gli scenari.
 
@@ -530,7 +530,7 @@ Quando si crea un riferimento completo a una risorsa, l'ordine di combinazione d
 
 **{Resource-Provider-Namespace}/{Parent-Resource-Type}/{parent-Resource-Name} [/{Child-Resource-Type}/{Child-Resource-Name}]**
 
-Ad esempio:
+Ad esempio,
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt` è corretto `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` non è corretto
 
@@ -695,7 +695,7 @@ L'oggetto restituito è nel formato seguente:
 
 La proprietà **ManagedBy** viene restituita solo per i gruppi di risorse che contengono risorse gestite da un altro servizio. Per le applicazioni gestite, databricks e AKS, il valore della proprietà è l'ID risorsa della risorsa di gestione.
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 La funzione `resourceGroup()` non può essere usata in un modello che viene [distribuito a livello di sottoscrizione](deploy-to-subscription.md). Può essere usata solo nei modelli distribuiti in un gruppo di risorse. È possibile usare la funzione `resourceGroup()` in un [modello collegato o annidato (con ambito interno)](linked-templates.md) destinato a un gruppo di risorse, anche quando il modello padre viene distribuito nella sottoscrizione. In questo scenario, il modello collegato o annidato viene distribuito a livello di gruppo di risorse. Per altre informazioni sulla destinazione di un gruppo di risorse in una distribuzione a livello di sottoscrizione, vedere [distribuire risorse di Azure in più di una sottoscrizione o un gruppo di risorse](cross-resource-group-deployment.md).
 
@@ -752,14 +752,14 @@ L'esempio precedente restituisce un oggetto nel formato seguente:
 resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)
 ```
 
-Restituisce l'identificatore univoco di una risorsa. Questa funzione viene usata quando il nome della risorsa è ambiguo o non è stato sottoposto a provisioning all'interno dello stesso modello.
+Restituisce l'identificatore univoco di una risorsa. Questa funzione viene usata quando il nome della risorsa è ambiguo o non è stato sottoposto a provisioning all'interno dello stesso modello. Il formato dell'identificatore restituito varia a seconda che la distribuzione venga eseguita nell'ambito di un gruppo di risorse, una sottoscrizione, un gruppo di gestione o un tenant.
 
 ### <a name="parameters"></a>Parametri
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |No |Stringa (in formato GUID) |Il valore predefinito è la sottoscrizione corrente. Specificare questo valore quando si vuole recuperare una risorsa in un'altra sottoscrizione. |
-| resourceGroupName |No |string |Il valore predefinito è il gruppo di risorse corrente. Specificare questo valore quando si vuole recuperare una risorsa in un altro gruppo di risorse. |
+| resourceGroupName |No |string |Il valore predefinito è il gruppo di risorse corrente. Specificare questo valore quando si vuole recuperare una risorsa in un altro gruppo di risorse. Fornire questo valore solo quando si esegue la distribuzione nell'ambito di un gruppo di risorse. |
 | resourceType |Sì |string |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
 | resourceName1 |Sì |string |Nome della risorsa. |
 | resourceName2 |No |string |Segmento del nome di risorsa successivo, se necessario. |
@@ -768,7 +768,7 @@ Continuare ad aggiungere i nomi di risorsa come parametri quando il tipo di riso
 
 ### <a name="return-value"></a>Valore restituito
 
-L'ID risorsa viene restituito nel formato seguente:
+Quando il modello viene distribuito nell'ambito di un gruppo di risorse, l'ID risorsa viene restituito nel formato seguente:
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -780,13 +780,19 @@ Quando viene usato in una [distribuzione a livello di sottoscrizione](deploy-to-
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
+Quando viene usato in una distribuzione a [livello di gruppo di gestione](deploy-to-management-group.md) o in una distribuzione a livello di tenant, l'ID risorsa viene restituito nel formato seguente:
+
+```json
+/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+```
+
 Per ottenere l'ID in altri formati, vedere:
 
 * [extensionResourceId](#extensionresourceid)
 * [subscriptionResourceId](#subscriptionresourceid)
 * [tenantResourceId](#tenantresourceid)
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 Il numero di parametri forniti varia a seconda che la risorsa sia una risorsa padre o figlio e che la risorsa si trovi nella stessa sottoscrizione o nel gruppo di risorse.
 
@@ -890,12 +896,12 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Type | valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
-| sameRGOutput | string | /subscriptions/{id-sott-corrente}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | string | /subscriptions/{id-sott-corrente}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | string | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | string | /subscriptions/{id-sott-corrente}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+| sameRGOutput | String | /subscriptions/{id-sott-corrente}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | String | /subscriptions/{id-sott-corrente}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | String | /subscriptions/{id-sott-corrente}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 ## <a name="subscription"></a>sottoscrizione
 
@@ -918,7 +924,7 @@ La funzione restituisce il formato seguente:
 }
 ```
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 Quando si utilizzano modelli annidati per la distribuzione in più sottoscrizioni, è possibile specificare l'ambito per la valutazione della funzione di sottoscrizione. Per altre informazioni, vedere [Distribuire le risorse di Azure in più gruppi di sottoscrizioni e risorse](cross-resource-group-deployment.md).
 
@@ -967,7 +973,7 @@ L'identificatore viene restituito nel formato seguente:
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 Usare questa funzione per ottenere l'ID risorsa per le risorse [distribuite nella sottoscrizione anziché in](deploy-to-subscription.md) un gruppo di risorse. L'ID restituito è diverso dal valore restituito dalla funzione [resourceId](#resourceid) , escluso il valore di un gruppo di risorse.
 
@@ -1050,7 +1056,7 @@ L'identificatore viene restituito nel formato seguente:
 /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 Usare questa funzione per ottenere l'ID risorsa per una risorsa distribuita nel tenant. L'ID restituito è diverso dai valori restituiti da altre funzioni ID di risorsa, esclusi i valori del gruppo di risorse o della sottoscrizione.
 

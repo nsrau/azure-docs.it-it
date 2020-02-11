@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/12/2019
-ms.openlocfilehash: 1766b536043d8c404addb1877aa3ef9b57344ef4
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: fed411ea171274513308ec3efa68da80e4d25f8a
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722255"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116752"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Pianificare le pipeline di Machine Learning con Azure Machine Learning SDK per Python
 
@@ -55,6 +55,13 @@ pipeline_id = "aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
 ## <a name="create-a-schedule"></a>Creare una pianificazione
 
 Per eseguire una pipeline in base a una pianificazione ricorrente, è necessario creare una pianificazione. Un `Schedule` associa una pipeline, un esperimento e un trigger. Il trigger può essere un`ScheduleRecurrence` che descrive l'attesa tra le esecuzioni o un percorso dell'archivio dati che specifica una directory in cui controllare le modifiche. In entrambi i casi sarà necessario l'identificatore della pipeline e il nome dell'esperimento in cui creare la pianificazione.
+
+Nella parte superiore del file Python importare le classi `Schedule` e `ScheduleRecurrence`:
+
+```python
+
+from azureml.pipeline.core.schedule import ScheduleRecurrence, Schedule
+```
 
 ### <a name="create-a-time-based-schedule"></a>Creare una pianificazione basata sul tempo
 
@@ -141,3 +148,4 @@ Per altre informazioni, vedere:
 
 * Altre informazioni sulle [pipeline](concept-ml-pipelines.md)
 * Scopri di più sull' [esplorazione Azure Machine Learning con Jupyter](samples-notebooks.md)
+

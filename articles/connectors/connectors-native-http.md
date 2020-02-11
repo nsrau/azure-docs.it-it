@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: 232b17852e89ebdfa6f81b5aadcdbcd9c83d4055
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 9c1b2af8d06c9466ed6c82308de941b43510238a
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888142"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117981"
 ---
 # <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Inviare chiamate in uscita agli endpoint HTTP o HTTPS usando app per la logica di Azure
 
@@ -50,9 +50,12 @@ Questo trigger incorporato esegue una chiamata HTTP all'URL specificato per un e
 
 1. Specificare i valori per i [parametri del trigger http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger) che si desidera includere nella chiamata all'endpoint di destinazione. Impostare la ricorrenza per la frequenza con cui si desidera che il trigger verifichi l'endpoint di destinazione.
 
-   Se si seleziona un tipo di autenticazione diverso da **None**, le impostazioni di autenticazione variano in base alla selezione effettuata. Per altre informazioni, vedere [aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
-
    ![Immettere i parametri del trigger HTTP](./media/connectors-native-http/http-trigger-parameters.png)
+
+   Se si seleziona un tipo di autenticazione diverso da **None**, le impostazioni di autenticazione variano in base alla selezione effettuata. Per ulteriori informazioni sui tipi di autenticazione disponibili per HTTP, vedere gli argomenti seguenti:
+
+   * [Aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+   * [Autenticare l'accesso alle risorse con identità gestite](../logic-apps/create-managed-service-identity.md)
 
 1. Per aggiungere altri parametri disponibili, aprire l'elenco **Aggiungi nuovo parametro** e selezionare i parametri desiderati.
 
@@ -80,9 +83,12 @@ Questa azione predefinita esegue una chiamata HTTP all'URL specificato per un en
 
 1. Specificare i valori per i [parametri dell'azione http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) che si desidera includere nella chiamata all'endpoint di destinazione.
 
-   Se si seleziona un tipo di autenticazione diverso da **None**, le impostazioni di autenticazione variano in base alla selezione effettuata. Per altre informazioni, vedere [aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
-
    ![Immettere i parametri dell'azione HTTP](./media/connectors-native-http/http-action-parameters.png)
+
+   Se si seleziona un tipo di autenticazione diverso da **None**, le impostazioni di autenticazione variano in base alla selezione effettuata. Per ulteriori informazioni sui tipi di autenticazione disponibili per HTTP, vedere gli argomenti seguenti:
+
+   * [Aggiungere l'autenticazione alle chiamate in uscita](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+   * [Autenticare l'accesso alle risorse con identità gestite](../logic-apps/create-managed-service-identity.md)
 
 1. Per aggiungere altri parametri disponibili, aprire l'elenco **Aggiungi nuovo parametro** e selezionare i parametri desiderati.
 
@@ -145,20 +151,20 @@ Per ulteriori informazioni sui parametri trigger e Action, vedere le sezioni seg
 
 Di seguito sono riportate altre informazioni sugli output di un trigger o un'azione HTTP, che restituisce queste informazioni:
 
-| Nome proprietà | Tipo | Description |
+| Nome proprietà | Type | Descrizione |
 |---------------|------|-------------|
-| headers | object | Intestazioni della richiesta |
-| Corpo | object | Oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
-| Codice di stato | int | Codice di stato della richiesta |
+| intestazioni | object | Intestazioni della richiesta |
+| body | object | oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
+| status code | int | Codice di stato della richiesta |
 |||
 
-| Codice di stato | Description |
+| Codice di stato | Descrizione |
 |-------------|-------------|
 | 200 | OK |
-| 202 | Accepted |
+| 202 | Accettato |
 | 400 | Richiesta non valida |
-| 401 | Non autorizzato |
-| 403 | Accesso negato |
+| 401 | Non autorizzata |
+| 403 | Non consentito |
 | 404 | Non trovato |
 | 500 | Errore interno del server. Si è verificato un errore sconosciuto. |
 |||

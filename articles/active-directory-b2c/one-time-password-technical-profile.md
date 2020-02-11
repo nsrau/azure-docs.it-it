@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
+ms.date: 02/10/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dab35fbcd221af9f4eb587b8c98a8ff85aeef59f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 9becb91cfffd4553b2b8aa1a2d616963eae92ab0
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982790"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114063"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definire un profilo tecnico monouso per la password in un Azure AD B2C criteri personalizzati
 
@@ -51,9 +51,9 @@ La prima modalità di questo profilo tecnico consiste nel generare un codice. Di
 
 L'elemento **InputClaims** contiene un elenco di attestazioni necessarie per l'invio al provider del protocollo password monouso. È anche possibile mappare il nome dell'attestazione al nome definito di seguito.
 
-| ClaimReferenceId | Obbligatorio | Description |
+| ClaimReferenceId | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| identificatore | Sì | Identificatore per identificare l'utente che deve verificare il codice in un secondo momento. Viene comunemente usato come identificatore della destinazione in cui viene recapitato il codice, ad esempio indirizzo di posta elettronica o numero di telefono. |
+| identifier | Sì | Identificatore per identificare l'utente che deve verificare il codice in un secondo momento. Viene comunemente usato come identificatore della destinazione in cui viene recapitato il codice, ad esempio indirizzo di posta elettronica o numero di telefono. |
 
 L'elemento **InputClaimsTransformations** può contenere una raccolta di elementi **InputClaimsTransformation** usati per modificare le attestazioni di input o generarne di nuovi prima dell'invio al provider del protocollo password monouso.
 
@@ -61,7 +61,7 @@ L'elemento **InputClaimsTransformations** può contenere una raccolta di element
 
 L'elemento **OutputClaims** contiene un elenco di attestazioni generate dal provider del protocollo password monouso. È anche possibile mappare il nome dell'attestazione al nome definito di seguito.
 
-| ClaimReferenceId | Obbligatorio | Description |
+| ClaimReferenceId | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | otpGenerated | Sì | Il codice generato la cui sessione viene gestita da Azure AD B2C. |
 
@@ -71,13 +71,13 @@ L'elemento **OutputClaimsTransformations** può contenere una raccolta di elemen
 
 Per configurare la generazione e la manutenzione del codice, è possibile usare le impostazioni seguenti:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | CodeExpirationInSeconds | No | Tempo in secondi per la scadenza del codice. Valore minimo: `60`; Massimo: `1200`; Impostazione predefinita: `600`. |
 | CodeLength | No | Lunghezza del codice. Il valore predefinito è `6`. |
 | CharacterSet | No | Set di caratteri per il codice, formattato per essere utilizzato in un'espressione regolare. Ad esempio: `a-z0-9A-Z`. Il valore predefinito è `0-9`. Il set di caratteri deve includere almeno 10 caratteri diversi nel set specificato. |
 | NumRetryAttempts | No | Il numero di tentativi di verifica prima che il codice venga considerato non valido. Il valore predefinito è `5`. |
-| Operazione | Sì | L'operazione da eseguire. Valori possibili: `GenerateCode`o `VerifyCode`. |
+| Operazione | Sì | Operazione da eseguire. Valori possibili: `GenerateCode`o `VerifyCode`. |
 | ReuseSameCode | No | Indica se deve essere fornito un codice duplicato anziché generare un nuovo codice quando il codice specificato non è scaduto ed è ancora valido. Il valore predefinito è `false`. |
 
 ### <a name="returning-error-message"></a>Restituzione messaggio di errore
@@ -117,9 +117,9 @@ La seconda modalità di questo profilo tecnico consiste nel verificare un codice
 
 L'elemento **InputClaims** contiene un elenco di attestazioni necessarie per l'invio al provider del protocollo password monouso. È anche possibile mappare il nome dell'attestazione al nome definito di seguito.
 
-| ClaimReferenceId | Obbligatorio | Description |
+| ClaimReferenceId | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| identificatore | Sì | Identificatore per identificare l'utente che ha generato in precedenza un codice. Viene comunemente usato come identificatore della destinazione in cui viene recapitato il codice, ad esempio indirizzo di posta elettronica o numero di telefono. |
+| identifier | Sì | Identificatore per identificare l'utente che ha generato in precedenza un codice. Viene comunemente usato come identificatore della destinazione in cui viene recapitato il codice, ad esempio indirizzo di posta elettronica o numero di telefono. |
 | otpToVerify | Sì | Codice di verifica fornito dall'utente. |
 
 L'elemento **InputClaimsTransformations** può contenere una raccolta di elementi **InputClaimsTransformation** usati per modificare le attestazioni di input o generarne di nuovi prima dell'invio al provider del protocollo password monouso.
@@ -134,7 +134,7 @@ L'elemento **OutputClaimsTransformations** può contenere una raccolta di elemen
 
 È possibile utilizzare le impostazioni seguenti per configurare il messaggio di errore visualizzato al momento dell'errore di verifica del codice:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | UserMessageIfSessionDoesNotExist | No | Messaggio da visualizzare all'utente se la sessione di verifica del codice è scaduta. Il codice è scaduto o il codice non è mai stato generato per un identificatore specificato. |
 | UserMessageIfMaxRetryAttempted | No | Messaggio da visualizzare all'utente se è stato superato il numero massimo di tentativi di verifica consentiti. |
@@ -168,3 +168,10 @@ Il `TechnicalProfile` di esempio seguente viene usato per la verifica di un codi
     </InputClaims>
 </TechnicalProfile>
 ```
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Vedere l'articolo seguente, ad esempio l'uso di un profilo tecnici monouso per la password con verifica della posta elettronica personalizzata:
+
+- [Verifica della posta elettronica personalizzata in Azure Active Directory B2C](custom-email.md)
+

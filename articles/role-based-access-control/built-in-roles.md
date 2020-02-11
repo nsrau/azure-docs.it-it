@@ -15,12 +15,12 @@ ms.date: 01/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: b2a49528ca3c2b55c02f3bda89b3722ee8fef535
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 04a3af7c85a361878e37cf3ee210e8a5c9f3cd30
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264255"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121984"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ruoli predefiniti per le risorse di Azure
 
@@ -34,7 +34,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 
 
 > [!div class="mx-tableFixed"]
-> | Ruolo predefinito | Description | ID |
+> | Ruolo predefinito | Descrizione | Id |
 > | --- | --- | --- |
 > | [Proprietario](#owner) | Consente di gestire tutto, incluso l'accesso alle risorse. | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
 > | [Collaboratore](#contributor) | Consente di gestire tutto tranne che per concedere l'accesso alle risorse. | b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -152,9 +152,9 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | [Proprietario dei dati del BLOB di archiviazione](#storage-blob-data-owner) | Fornisce accesso completo ai contenitori BLOB e ai dati di archiviazione di Azure, inclusa l'assegnazione del controllo di accesso POSIX. Per informazioni sulle azioni necessarie per una determinata operazione sui dati, vedere [autorizzazioni per la chiamata di operazioni di dati BLOB e di Accodamento](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | [Lettore dei dati del BLOB di archiviazione](#storage-blob-data-reader) | Leggere ed elencare i contenitori e i BLOB di archiviazione di Azure. Per informazioni sulle azioni necessarie per una determinata operazione sui dati, vedere [autorizzazioni per la chiamata di operazioni di dati BLOB e di Accodamento](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | [Delegatore BLOB di archiviazione](#storage-blob-delegator) | Ottenere una chiave di delega utente, che può quindi essere usata per creare una firma di accesso condiviso per un contenitore o un BLOB firmato con Azure AD credenziali. Per altre informazioni, vedere [creare una firma di](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas)accesso condiviso di delega utente. | db58b8e5-c6ad-4a2a-8342-4190687cbf4a |
-> | [Collaboratore condivisione SMB dati file di archiviazione](#storage-file-data-smb-share-contributor) | Consente l'accesso in lettura, scrittura ed eliminazione nelle condivisioni file di archiviazione di Azure tramite SMB | 0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb |
-> | [File di archiviazione dati condivisione SMB con privilegi elevati](#storage-file-data-smb-share-elevated-contributor) | Consente l'accesso in lettura, scrittura, eliminazione e modifica delle autorizzazioni NTFS nelle condivisioni file di archiviazione di Azure tramite SMB | a7264617-510b-434b-a828-9731dc254ea7 |
-> | [Lettore condivisione SMB dati file di archiviazione](#storage-file-data-smb-share-reader) | Consente l'accesso in lettura alla condivisione file di Azure tramite SMB | aba4ae5f-2193-4029-9191-0cb91df5e314 |
+> | [Collaboratore condivisione SMB dati file di archiviazione](#storage-file-data-smb-share-contributor) | Consente l'accesso in lettura, scrittura ed eliminazione su file/directory in condivisioni file di Azure. Questo ruolo non ha un equivalente incorporato nei file server Windows. | 0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb |
+> | [File di archiviazione dati condivisione SMB con privilegi elevati](#storage-file-data-smb-share-elevated-contributor) | Consente la lettura, la scrittura, l'eliminazione e la modifica degli ACL nei file e nelle directory delle condivisioni file di Azure. Questo ruolo è equivalente a un ACL di condivisione file delle modifiche nei file server Windows. | a7264617-510b-434b-a828-9731dc254ea7 |
+> | [Lettore condivisione SMB dati file di archiviazione](#storage-file-data-smb-share-reader) | Consente l'accesso in lettura a file/directory in condivisioni file di Azure. Questo ruolo è equivalente a un ACL di condivisione file di Read nei file server Windows. | aba4ae5f-2193-4029-9191-0cb91df5e314 |
 > | [Collaboratore dati coda di archiviazione](#storage-queue-data-contributor) | Lettura, scrittura ed eliminazione di code e messaggi di Accodamento di archiviazione di Azure. Per informazioni sulle azioni necessarie per una determinata operazione sui dati, vedere [autorizzazioni per la chiamata di operazioni di dati BLOB e di Accodamento](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
 > | [Processore dei messaggi dati della coda di archiviazione](#storage-queue-data-message-processor) | Visualizzazione, recupero ed eliminazione di un messaggio da una coda di archiviazione di Azure. Per informazioni sulle azioni necessarie per una determinata operazione sui dati, vedere [autorizzazioni per la chiamata di operazioni di dati BLOB e di Accodamento](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
 > | [Mittente messaggio dati coda di archiviazione](#storage-queue-data-message-sender) | Aggiungere messaggi a una coda di archiviazione di Azure. Per informazioni sulle azioni necessarie per una determinata operazione sui dati, vedere [autorizzazioni per la chiamata di operazioni di dati BLOB e di Accodamento](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
@@ -184,7 +184,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
-## <a name="contributor"></a>Collaboratore
+## <a name="contributor"></a>Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2915,7 +2915,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrizione** | Consente l'accesso in lettura, scrittura ed eliminazione nelle condivisioni file di archiviazione di Azure tramite SMB |
+> | **Descrizione** | Consente l'accesso in lettura, scrittura ed eliminazione su file/directory in condivisioni file di Azure. Questo ruolo non ha un equivalente incorporato nei file server Windows. |
 > | **Id** | 0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb |
 > | **Actions** |  |
 > | *nessuna* |  |
@@ -2932,7 +2932,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrizione** | Consente l'accesso in lettura, scrittura, eliminazione e modifica delle autorizzazioni NTFS nelle condivisioni file di archiviazione di Azure tramite SMB |
+> | **Descrizione** | Consente la lettura, la scrittura, l'eliminazione e la modifica degli ACL nei file e nelle directory delle condivisioni file di Azure. Questo ruolo è equivalente a un ACL di condivisione file delle modifiche nei file server Windows. |
 > | **Id** | a7264617-510b-434b-a828-9731dc254ea7 |
 > | **Actions** |  |
 > | *nessuna* |  |
@@ -2950,7 +2950,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrizione** | Consente l'accesso in lettura alla condivisione file di Azure tramite SMB |
+> | **Descrizione** | Consente l'accesso in lettura a file/directory in condivisioni file di Azure. Questo ruolo è equivalente a un ACL di condivisione file di Read nei file server Windows. |
 > | **Id** | aba4ae5f-2193-4029-9191-0cb91df5e314 |
 > | **Actions** |  |
 > | *nessuna* |  |

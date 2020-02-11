@@ -3,19 +3,19 @@ title: Come riconoscere gli Intent dalla voce vocale usando l'SDK di riconoscime
 titleSuffix: Azure Cognitive Services
 description: In questa guida si apprenderà come riconoscere gli Intent dal riconoscimento vocale usando l'SDK di C#riconoscimento vocale per.
 services: cognitive-services
-author: wolfma61
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/28/2019
-ms.author: wolfma
-ms.openlocfilehash: 554a7cbd79dbb6e1306686600474f727c99defed
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: 5d3c77c307739f9014010a592aa496a1cc83b333
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805893"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120034"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Come riconoscere gli Intent dalla voce vocale usando l'SDK di riconoscimento vocale perC#
 
@@ -48,9 +48,9 @@ LUIS si integra con il servizio di riconoscimento vocale per distinguere le fina
 
 LUIS usa tre tipi di chiave:
 
-| Tipo di chiave  | Finalità                                               |
+| Tipo di chiave  | Scopo                                               |
 | --------- | ----------------------------------------------------- |
-| Creazione | Consente di creare e modificare a livello di codice app LUIS |
+| Creazione e modifica | Consente di creare e modificare a livello di codice app LUIS |
 | Starter   | Testa l'applicazione LUIS usando solo testo   |
 | Endpoint  | Autorizza l'accesso a una particolare app LUIS            |
 
@@ -91,12 +91,15 @@ Aggiungere il codice al progetto.
 
    [!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#toplevel)]
 
-1. All'interno del metodo `Main()` fornito aggiungere il codice seguente:
+1. Sostituire il metodo `Main()` specificato, con l'equivalente asincrono seguente:
 
    ```csharp
-   RecognizeIntentAsync().Wait();
-   Console.WriteLine("Please press Enter to continue.");
-   Console.ReadLine();
+   public static async Task Main()
+   {
+       await RecognizeIntentAsync();
+       Console.WriteLine("Please press Enter to continue.");
+       Console.ReadLine();
+   }
    ```
 
 1. Creare un metodo asincrono vuoto `RecognizeIntentAsync()`, come illustrato di seguito:
@@ -113,7 +116,7 @@ Aggiungere il codice al progetto.
 
 1. Sostituire i segnaposto in questo metodo con la chiave di sottoscrizione LUIS, l'area e l'ID dell'app come indicato di seguito.
 
-   | Placeholder | Sostituire con |
+   | Segnaposto | Sostituisci con |
    | ----------- | ------------ |
    | `YourLanguageUnderstandingSubscriptionKey` | La propria chiave di endpoint LUIS. Anche in questo caso, è necessario ottenere questo elemento dal dashboard di Azure, non da una "chiave di avvio". È possibile trovarla nella pagina **Chiavi ed endpoint** dell'app (in **Gestione**) nel [portale LUIS](https://www.luis.ai/home). |
    | `YourLanguageUnderstandingServiceRegion` | L'identificatore breve indica la propria area di sottoscrizione LUIS, ad esempio `westus` per Stati Uniti occidentali. Vedere [Tutte le aree](regions.md). |
@@ -138,7 +141,7 @@ Ora importare il modello dalla app LUIS tramite `LanguageUnderstandingModel.From
 
 Per aggiungere le finalità, è necessario specificare tre argomenti: il modello LUIS (che è stato creato e denominato `model`), il nome della finalità e un ID finalità. La differenza tra l'ID e il nome è come indicato di seguito.
 
-| Argomento `AddIntent()`&nbsp; | Finalità |
+| Argomento `AddIntent()`&nbsp; | Scopo |
 | --------------------------- | ------- |
 | `intentName` | Il nome delle finalità va in base a quanto definito nell'app LUIS. Questo valore deve corrispondere esattamente al nome finalità LUIS. |
 | `intentID` | ID assegnato a una finalità riconosciuta da Speech SDK. Questo valore può essere un qualsiasi valore; non è necessario che corrisponda al nome finalità come definito nell'app LUIS. Se più finalità vengono gestite tramite lo stesso codice, ad esempio, è possibile usare per queste lo stesso ID. |
@@ -159,7 +162,7 @@ Con il riconoscimento creato e le finalità aggiunte, è possibile iniziare il r
 | Modalità di riconoscimento | Metodi di chiamata | Risultato |
 | ---------------- | --------------- | ------ |
 | Singolo | `RecognizeOnceAsync()` | Restituisce la finalità riconosciuta, se presente, dopo una singola espressione. |
-| Continuo | `StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()` | Riconosce più espressioni; genera eventi (ad esempio, `IntermediateResultReceived`) quando i risultati sono disponibili. |
+| Continui | `StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()` | Riconosce più espressioni; genera eventi (ad esempio, `IntermediateResultReceived`) quando i risultati sono disponibili. |
 
 L'applicazione usa la modalità a singolo colpo, quindi chiama `RecognizeOnceAsync()` per iniziare il riconoscimento. Il risultato è un oggetto `IntentRecognitionResult` contenente le informazioni sulla finalità riconosciuta. La risposta LUIS JSON viene estratta mediante l'espressione seguente:
 
@@ -173,7 +176,7 @@ L'applicazione non analizza il risultato JSON. Viene visualizzato solo il testo 
 
 ## <a name="specify-recognition-language"></a>Specificare lingua di riconoscimento
 
-Per impostazione predefinita, LUIS riconosce le finalità in inglese Americano (`en-us`). Tramite l'assegnazione di un codice impostazioni locali alla proprietà `SpeechRecognitionLanguage` della configurazione del riconoscimento vocale, questa è in grado di riconoscere le finalità in altre lingue. Ad esempio, aggiungere `config.SpeechRecognitionLanguage = "de-de";` nell'applicazione prima di creare il riconoscimento per riconoscere gli Intent in tedesco. Per altre informazioni, vedere [Linguaggi supportati](language-support.md#speech-to-text).
+Per impostazione predefinita, LUIS riconosce le finalità in inglese Americano (`en-us`). Tramite l'assegnazione di un codice impostazioni locali alla proprietà `SpeechRecognitionLanguage` della configurazione del riconoscimento vocale, questa è in grado di riconoscere le finalità in altre lingue. Ad esempio, aggiungere `config.SpeechRecognitionLanguage = "de-de";` nell'applicazione prima di creare il riconoscimento per riconoscere gli Intent in tedesco. Per ulteriori informazioni, vedere [supporto per le lingue Luis](../LUIS/luis-language-support.md#languages-supported).
 
 ## <a name="continuous-recognition-from-a-file"></a>Riconoscimento vocale continuo da un file
 

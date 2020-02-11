@@ -10,26 +10,46 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jhakulin
-ms.openlocfilehash: cadf31dede8ee81323076013d00b9431f597bda6
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: ff8772f7c3c3213c010b0bdbd0d0aa8897404bac
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156489"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119992"
 ---
 # <a name="configure-openssl-for-linux"></a>Configurare OpenSSL per Linux
 
 Quando si usa una versione di SDK vocale prima di 1.9.0, [openssl](https://www.openssl.org) viene configurato dinamicamente per la versione del sistema host. Nelle versioni successive di Speech SDK, OpenSSL (versione [1.1.1 b](https://mta.openssl.org/pipermail/openssl-announce/2019-February/000147.html)) è collegato in modo statico alla libreria principale dell'SDK di riconoscimento vocale.
 
-## <a name="troubleshoot-connectivity"></a>Risolvere i problemi di connettività
-
-Se si verificano errori di connessione quando si usa la versione 1.9.0 di Speech SDK, verificare che la directory `ssl/certs` esista nella directory `/usr/lib`, disponibile nella file system Linux. Se la directory `ssl/certs` *non esiste*, controllare la posizione in cui OpenSSL è installato nel sistema, usando il comando seguente:
-
+Per garantire la connettività, verificare che nel sistema siano stati installati i certificati OpenSSL. Eseguire un comando:
 ```bash
-which openssl
+openssl version -d
 ```
 
-Individuare quindi la directory OpenSSL `certs` e copiare il contenuto della directory nella directory `/usr/lib/ssl/certs`. Quindi, riprovare per verificare se sono stati risolti problemi di connettività.
+L'output nei sistemi basati su Ubuntu/Debian dovrebbe essere:
+```
+OPENSSLDIR: "/usr/lib/ssl"
+```
+
+Controllare se è presente `certs` sottodirectory in OPENSSLDIR. Nell'esempio precedente, verrebbe `/usr/lib/ssl/certs`.
+
+* Se è presente `/usr/lib/ssl/certs` e contiene molti singoli file di certificato (con `.crt` o `.pem` estensione), non è necessario eseguire ulteriori azioni.
+
+* Se OPENSSLDIR è diverso da `/usr/lib/ssl` e/o esiste un solo file di bundle del certificato anziché più file singoli, è necessario impostare una variabile di ambiente SSL appropriata per indicare dove sono disponibili i certificati.
+
+## <a name="examples"></a>Esempi
+
+- OPENSSLDIR è `/opt/ssl`. `certs` sottodirectory con molti file di `.crt` o di `.pem`.
+Impostare la variabile di ambiente `SSL_CERT_DIR` in modo che punti a `/opt/ssl/certs` prima di eseguire un programma che usa l'SDK di riconoscimento vocale. Ad esempio,
+```bash
+SSL_CERT_DIR=/opt/ssl/certs ./helloworld
+```
+
+- OPENSSLDIR è `/etc/pki/tls`. È disponibile un file di bundle di certificati, ad esempio `ca-bundle.pem` o `ca-bundle.crt`.
+Impostare la variabile di ambiente `SSL_CERT_FILE` in modo che punti a `/etc/pki/tls/ca-bundle.pem` prima di eseguire un programma che usa l'SDK di riconoscimento vocale. Ad esempio,
+```bash
+SSL_CERT_FILE=/etc/pki/tls/ca-bundle.pem ./helloworld
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

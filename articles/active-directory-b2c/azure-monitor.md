@@ -10,13 +10,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.author: marsma
 ms.subservice: B2C
-ms.date: 02/05/2020
-ms.openlocfilehash: b701449e8cfb7a379522ee6ccb93f5569bd703d8
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.date: 02/10/2020
+ms.openlocfilehash: 6f7f0252a6377397ccaccdc44c9c8561da7c9d29
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77045987"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121389"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitorare Azure AD B2C con monitoraggio di Azure
 
@@ -24,13 +24,13 @@ Usare monitoraggio di Azure per indirizzare l'accesso Azure Active Directory B2C
 
 È possibile instradare gli eventi del log a:
 
-* Un account di archiviazione di Azure.
-* Un hub eventi di Azure (e si integrano con le istanze della logica Splunk e Sumo).
-* Un'area di lavoro di Azure Log Analytics (per analizzare i dati, creare dashboard e avvisi per eventi specifici).
+* Un [account di archiviazione](../storage/blobs/storage-blobs-introduction.md)di Azure.
+* Un [Hub eventi](../event-hubs/event-hubs-about.md) di Azure (e si integrano con le istanze della logica Splunk e Sumo).
+* Un' [area di lavoro log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) (per analizzare i dati, creare dashboard e avvisi per eventi specifici).
 
 ![Monitoraggio di Azure](./media/azure-monitor/azure-monitor-flow.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare i passaggi descritti in questo articolo, è possibile distribuire un modello di Azure Resource Manager usando il modulo di Azure PowerShell.
 
@@ -42,15 +42,15 @@ Per completare i passaggi descritti in questo articolo, è possibile distribuire
 
 Azure AD B2C sfrutta [Azure Active Directory il monitoraggio](../active-directory/reports-monitoring/overview-monitoring.md). Per abilitare *le impostazioni di diagnostica* in Azure Active Directory all'interno del tenant di Azure ad B2C, si usa la [gestione delle risorse delegata](../lighthouse/concepts/azure-delegated-resource-management.md).
 
-Autorizzare un utente nella directory Azure AD B2C (provider di **Servizi**) per configurare l'istanza di monitoraggio di Azure all'interno del tenant che contiene la sottoscrizione di Azure (il **cliente**). Per creare l'autorizzazione, si distribuisce un modello di [Azure Resource Manager](../azure-resource-manager/index.yml) nel tenant di Azure ad che contiene la sottoscrizione. Le sezioni seguenti illustrano il processo.
+Autorizzare un utente o un gruppo nella directory Azure AD B2C ( **provider di servizi**) per configurare l'istanza di monitoraggio di Azure all'interno del tenant che contiene la sottoscrizione di Azure (il **cliente**). Per creare l'autorizzazione, si distribuisce un modello di [Azure Resource Manager](../azure-resource-manager/index.yml) nel tenant di Azure ad che contiene la sottoscrizione. Le sezioni seguenti illustrano il processo.
 
-## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
+## <a name="create-or-choose-resource-group"></a>Creare o scegliere un gruppo di risorse
 
-Nel tenant Azure Active Directory (Azure AD) che contiene la sottoscrizione di Azure (*non* la directory che contiene il tenant Azure ad B2C) [creare un gruppo di risorse](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). Usare i valori seguenti:
+Questo è il gruppo di risorse contenente l'account di archiviazione di Azure di destinazione, l'hub eventi o l'area di lavoro Log Analytics per ricevere i dati da monitoraggio di Azure. Quando si distribuisce il modello di Azure Resource Manager, è necessario specificare il nome del gruppo di risorse.
 
-* **Sottoscrizione**: selezionare una sottoscrizione di Azure.
-* **Gruppo di risorse**: immettere il nome per il gruppo di risorse. Ad esempio, *Azure-ad-B2C-monitor*.
-* **Area**: selezionare una località di Azure. Ad esempio *Stati Uniti centrali*.
+[Creare un gruppo di risorse](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) o sceglierne uno esistente nel tenant Azure Active Directory (Azure ad) che contiene la sottoscrizione di Azure e *non* la directory che contiene il tenant di Azure ad B2C.
+
+Questo esempio usa un gruppo di risorse denominato *Azure-ad-B2C-monitor* nell'area *Stati Uniti centrali* .
 
 ## <a name="delegate-resource-management"></a>Delegare la gestione delle risorse
 
@@ -209,7 +209,17 @@ Dopo aver distribuito il modello e aver atteso alcuni minuti per il completament
 
 ## <a name="configure-diagnostic-settings"></a>Configurare le impostazioni di diagnostica
 
-Dopo aver delegato la gestione delle risorse e aver selezionato la sottoscrizione, si è pronti per [creare le impostazioni di diagnostica](../active-directory/reports-monitoring/overview-monitoring.md) nel portale di Azure.
+Le impostazioni di diagnostica definiscono dove devono essere inviati i log e le metriche per una risorsa. Le destinazioni possibili sono:
+
+- [Account di archiviazione di Azure](../azure-monitor/platform/resource-logs-collect-storage.md)
+- Soluzioni di [Hub eventi](../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
+- [area di lavoro Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md)
+
+Se non è già stato fatto, creare un'istanza del tipo di destinazione scelto nel gruppo di risorse specificato nel [modello di Azure Resource Manager](#create-an-azure-resource-manager-template).
+
+### <a name="create-diagnostic-settings"></a>Crea impostazioni di diagnostica
+
+È ora possibile [creare le impostazioni di diagnostica](../active-directory/reports-monitoring/overview-monitoring.md) nel portale di Azure.
 
 Per configurare le impostazioni di monitoraggio per i log attività Azure AD B2C:
 
@@ -217,12 +227,24 @@ Per configurare le impostazioni di monitoraggio per i log attività Azure AD B2C
 1. Selezionare l'icona **directory + sottoscrizione** sulla barra degli strumenti del portale e quindi selezionare la directory che contiene il tenant Azure ad B2C.
 1. Selezionare **Azure Active Directory**
 1. Selezionare **Impostazioni di diagnostica** in **Monitoraggio**.
-1. Selezionare **+ Aggiungi impostazioni di diagnostica**.
+1. Se nella risorsa sono presenti impostazioni esistenti, verrà visualizzato un elenco di impostazioni già configurate. Selezionare **Aggiungi impostazioni di diagnostica** per aggiungere una nuova impostazione o **modificare** un'impostazione per modificarne una esistente. Ogni impostazione non può contenere più di uno dei tipi di destinazione.
 
     ![Riquadro impostazioni di diagnostica in portale di Azure](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)
 
+1. Assegnare un nome all'impostazione se non ne è già presente uno.
+1. Selezionare la casella per ogni destinazione per inviare i log. Selezionare **Configura** per specificare le impostazioni come descritto nella tabella seguente.
+
+    | Impostazione | Descrizione |
+    |:---|:---|
+    | Archivia in un account di archiviazione | Nome dell'account di archiviazione. |
+    | Streaming in un hub eventi | Lo spazio dei nomi in cui viene creato l'hub eventi, se è la prima volta che si esegue lo streaming dei log, o se sono già presenti risorse che eseguono il flusso di tale categoria di log a questo spazio dei nomi.
+    | Invia a Log Analytics | Nome dell'area di lavoro. |
+
+1. Selezionare **AuditLogs** e **SignInLogs**.
+1. Selezionare **Salva**.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'aggiunta e la configurazione delle impostazioni di diagnostica in monitoraggio di Azure, vedere questa esercitazione nella documentazione di monitoraggio di Azure:
+Per altre informazioni sull'aggiunta e la configurazione delle impostazioni di diagnostica in monitoraggio di Azure, vedere [esercitazione: raccogliere e analizzare i log delle risorse da una risorsa di Azure](../azure-monitor/insights/monitor-azure-resource.md).
 
-[Esercitazione: raccogliere e analizzare i log delle risorse da una risorsa di Azure](/azure-monitor/learn/tutorial-resource-logs.md)
+Per informazioni sul flusso di log Azure AD a un hub eventi, vedere [esercitazione: trasmettere i log di Azure Active Directory a un hub eventi di Azure](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).

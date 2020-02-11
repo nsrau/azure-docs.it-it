@@ -1,22 +1,18 @@
 ---
-title: Notifiche di manutenzione per le macchine virtuali di Azure | Microsoft Docs
+title: Notifiche di manutenzione
 description: Panoramica delle notifiche di manutenzione per le macchine virtuali in esecuzione in Azure.
-services: virtual-machines
-documentationcenter: ''
 author: shants123
-editor: ''
-tags: azure-service-management,azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 83a1f3921272f5ec15ae4d1f4220652f56679c96
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 68159577cb31145be5063bb19af6db71ca1727bd
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903208"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77115689"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Gestione delle notifiche di manutenzione pianificata
 
@@ -29,7 +25,7 @@ Azure esegue periodicamente aggiornamenti per migliorare l'affidabilità, le pre
 
 La manutenzione pianificata che richiede un riavvio viene pianificata in cicli. Ogni ondata ha un ambito diverso (aree),
 
-- e inizia con un avviso ai clienti. Per impostazione predefinita, la notifica viene inviata al servizio amministratore e ai coamministratori. È possibile aggiungere altri destinatari e opzioni di messaggistica, ad esempio posta elettronica, SMS e webhook, usando gli [avvisi del log attività](../service-health/alerts-activity-log-service-notifications.md).  
+- e inizia con un avviso ai clienti. Per impostazione predefinita, la notifica viene inviata all'amministratore e ai coamministratori del servizio. È possibile aggiungere altri destinatari e opzioni di messaggistica, ad esempio posta elettronica, SMS e webhook, usando gli [avvisi del log attività](../service-health/alerts-activity-log-service-notifications.md).  
 - Una volta inviata una notifica, viene resa disponibile una *finestra Self-Service* . Durante questa finestra è possibile eseguire una query sulle macchine virtuali interessate e avviare la manutenzione in base alle proprie esigenze di pianificazione. La finestra Self-Service è in genere di circa 35 giorni.
 - Dopo l'intervallo in modalità self-service, viene avviato un *intervallo di manutenzione pianificato*. In un determinato momento di questo intervallo Azure pianifica e applica la manutenzione necessaria alla macchina virtuale. 
 
@@ -69,7 +65,7 @@ La manutenzione Self-Service non è consigliata per le distribuzioni che usano i
 - Sono necessari più di 30 minuti di tempo per il ripristino delle macchine virtuali tra due domini di aggiornamento (UDs). Per controllare l'intervallo tra i domini di aggiornamento, è necessario attivare la manutenzione sulle macchine virtuali di un dominio di aggiornamento alla volta.
 
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Domande frequenti
 
 
 **D: Perché è necessario riavviare ora le macchine virtuali?**

@@ -1,14 +1,14 @@
 ---
 title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
-ms.date: 01/06/2020
+ms.date: 02/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 661ada4e5d620d4977290986f5649b91363202fe
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: f5d68be1226a026f8fdfd7595cb2812ce51dfdb6
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75706989"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122038"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -55,6 +55,7 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 [Backup di Azure](../../backup/index.yml):
 
 - Eseguire il backup e il ripristino dei dati dei clienti nei tenant dei clienti
+- Utilizzare [Esplora backup](../../backup/monitor-azure-backup-with-backup-explorer.md) per visualizzare le informazioni operative degli elementi di backup (incluse le risorse di Azure non ancora configurate per il backup) e le informazioni di monitoraggio (processi e avvisi) per le sottoscrizioni Delegate. Esplora backup è attualmente disponibile solo per i dati delle macchine virtuali di Azure.
 
 [Servizio Azure Kubernetes](../../aks/index.yml):
 

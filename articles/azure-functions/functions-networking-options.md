@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 79c27d252136281249c217f51019e53987922334
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7b47e7b0672716141f62e3f7df4b0d3ed95c663d
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846460"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114290"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di funzioni di Azure
 
@@ -90,7 +90,7 @@ Funzionalità di integrazione della rete virtuale:
 L'integrazione della rete virtuale non supporta alcune operazioni, tra cui:
 
 * Montaggio di un'unità
-* Integrazione in Active Directory
+* Integrazione Active Directory
 * NetBIOS
 
 L'integrazione della rete virtuale in funzioni di Azure usa l'infrastruttura condivisa con le app Web del servizio app. Per ulteriori informazioni sui due tipi di integrazione della rete virtuale, vedere:
@@ -111,7 +111,7 @@ Per garantire un livello di sicurezza più elevato, è possibile limitare un num
 
 ### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Limitazione dell'account di archiviazione a una rete virtuale
 
-Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure di uso generico che supporti l'archiviazione BLOB, di Accodamento e tabelle. Attualmente non è possibile usare alcuna restrizione di rete virtuale per questo account. Se si configura un endpoint del servizio di rete virtuale nell'account di archiviazione usato per l'app per le funzioni, l'app verrà interrotta.
+Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure di uso generico che supporti l'archiviazione BLOB, di Accodamento e tabelle. Attualmente non è possibile usare alcuna restrizione di rete virtuale per questo account. Se si configura un endpoint del servizio di rete virtuale nell'account di archiviazione usato per l'app per le funzioni, l'app verrà interrotta. Questa funzionalità è attualmente disponibile usando il piano Premium e l'integrazione con una rete virtuale.
 
 [Altre informazioni sui requisiti dell'account di archiviazione.](./functions-create-function-app-portal.md#storage-account-requirements)
 
@@ -158,7 +158,7 @@ Quando l'app per le funzioni viene eseguita in un piano di servizio app o in una
 
 Si supponga, ad esempio, di voler configurare Azure Cosmos DB per accettare il traffico solo da una rete virtuale. In questo caso, è necessario distribuire l'app per le funzioni in un piano di servizio app che fornisce l'integrazione della rete virtuale con tale rete virtuale. Ciò consente a una funzione di essere attivata da tale risorsa Azure Cosmos DB. 
 
-## <a name="hybrid-connections"></a>Connessioni ibride
+## <a name="hybrid-connections"></a>connessioni ibride
 
 [Connessioni ibride](../service-bus-relay/relay-hybrid-connections-protocol.md) è una funzionalità del servizio di inoltro di Azure che è possibile usare per accedere alle risorse dell'applicazione in altre reti. Fornisce l'accesso dalla propria app a un endpoint applicazione. Non è possibile usarlo per accedere all'applicazione. Connessioni ibride è disponibile per le funzioni in esecuzione in Windows in tutto tranne il piano a consumo.
 
