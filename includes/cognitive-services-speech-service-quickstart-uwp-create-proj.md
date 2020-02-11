@@ -2,14 +2,14 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/19/2019
+ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 64c93e5c8e139dbdcfd3faad3a9ac4328fb01972
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: d3e2fa082184ce8de7685d03803360045b89c911
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391675"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119787"
 ---
 Per creare un progetto di Visual Studio per lo sviluppo di app per la piattaforma UWP (Universal Windows Platform), è necessario configurare le opzioni di sviluppo di Visual Studio, creare il progetto, selezionare l'architettura di destinazione, configurare l'acquisizione audio e installare Speech SDK.
 
@@ -43,7 +43,7 @@ Creare quindi il progetto:
 
 1. Individuare e selezionare **App vuota (Windows universale)** . Assicurarsi di selezionare la versione C# (e non Visual Basic) di questo tipo di progetto.
 
-1. Fare clic su **Avanti** per visualizzare la schermata **Configura il nuovo progetto**. 
+1. Fare clic su **Avanti** per visualizzare la schermata **Configura il nuovo progetto**.
 
    ![Configura il nuovo progetto - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-configure-your-new-project.png)
 
@@ -88,7 +88,7 @@ Installare infine il [pacchetto NuGet Speech SDK](https://aka.ms/csspeech/nuget)
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Gestire pacchetti NuGet per la soluzione** per passare alla finestra **NuGet - Soluzione**.
 
-1. Selezionare **Esplora**.
+1. Selezionare **Sfoglia**.
 
    ![Screenshot della finestra di dialogo Gestisci pacchetti per la soluzione](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
 
@@ -104,4 +104,4 @@ Installare infine il [pacchetto NuGet Speech SDK](https://aka.ms/csspeech/nuget)
 
 1. Nella finestra di dialogo **Anteprima modifiche** fare clic su **OK**.
 
-1. Nella finestra di dialogo **Accettazione della licenza** visualizzare la licenza e quindi fare clic su **Accetto**. Inizierà l'installazione del pacchetto e, al termine, nel riquadro **Output** verrà visualizzato un messaggio simile al testo seguente: `Successfully installed 'Microsoft.CognitiveServices.Speech 1.7.0' to helloworld`.
+1. Nella finestra di dialogo **Accettazione della licenza** visualizzare la licenza e quindi fare clic su **Accetto**. Inizierà l'installazione del pacchetto e, al termine, nel riquadro **Output** verrà visualizzato un messaggio simile al testo seguente: `Successfully installed 'Microsoft.CognitiveServices.Speech 1.9.0' to helloworld`.

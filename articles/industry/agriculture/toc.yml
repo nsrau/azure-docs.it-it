@@ -37,6 +37,9 @@
   items:
     - name: Risoluzione dei problemi di Azure FarmBeats
       href: troubleshoot-azure-farmbeats.md
-- name: Riferimento
-  items: null
-  href: references-for-azure-farmbeats.md
+- name: Informazioni di riferimento
+  items:
+    - name: Informazioni di riferimento
+      href: references-for-azure-farmbeats.md
+    - name: API REST
+      href: rest-api-in-azure-farmbeats.md
