@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: bff6731e767fccb0800c30dfe3e75a800f54c59d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 171f06ad238f862adbd7071ee10d81133d7a6855
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773058"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022138"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Creazione di soluzioni per la vendita al dettaglio con Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Azure IoT Central è una piattaforma di app IoT che riduce il carico di lavoro e i costi associati allo sviluppo, alla gestione e alla manutenzione di soluzioni IoT di livello aziendale. La scelta di compilare con Azure IoT Central consente di concentrare tempo, denaro ed energie per trasformare il business con dati IoT, anziché semplicemente gestire e aggiornare un'infrastruttura IoT complessa e in continua evoluzione.
 
@@ -78,7 +78,7 @@ Per altre informazioni, vedere l'esercitazione [Distribuire ed esaminare un mode
 
 Per i rivenditori, le condizioni ambientali all'interno dei rispettivi punti vendita rappresentano un importante fattore di differenziazione rispetto alla concorrenza. È infatti fondamentale mantenere condizioni piacevoli nei negozi a vantaggio dei clienti.  
 
-Gli sviluppatori di soluzioni possono usare il modello di applicazione Analisi punti vendita - Monitoraggio delle condizioni di IoT Central per creare una soluzione end-to-end. Il modello di applicazione consente di connettersi digitalmente e monitorare un ambiente di negozio al dettaglio usando un'ampia varietà di dispositivi sensori. Questi dispositivi sensori generano dati di telemetria che è possibile convertire in informazioni aziendali per consentire al rivenditore di ridurre i costi operativi e offrire un'esperienza soddisfacente ai clienti.
+Gli sviluppatori di soluzioni possono usare il modello di applicazione Analisi punti vendita - Monitoraggio delle condizioni di IoT Central per creare una soluzione end-to-end. Il modello di applicazione consente di connettersi digitalmente e di monitorare un ambiente di punto vendita usando un'ampia varietà di dispositivi sensori. Questi dispositivi sensori generano dati di telemetria che è possibile convertire in informazioni aziendali per consentire al rivenditore di ridurre i costi operativi e offrire un'esperienza soddisfacente ai clienti.
 
 Usare il modello di applicazione per:
 
@@ -149,7 +149,7 @@ Il modello di applicazione Centro di micro-adempimenti di IoT Central consente a
 
 Il modello di applicazione consente di: 
 
-- Connettere facilmente un'ampia varietà di sensori IoT, ad esempio robot o sensori di monitoraggio delle condizioni, a un'istanza dell'applicazione IoT Central.
+- Connettere facilmente tipi diversi di sensori IoT, ad esempio robot o sensori di monitoraggio delle condizioni, a un'istanza dell'applicazione IoT Central.
 - Monitorare e gestire l'integrità della rete di sensori e i dispositivi gateway nell'ambiente.
 - Creare regole personalizzate in base alle condizioni ambientali all'interno di un centro di adempimenti per attivare avvisi appropriati.
 - Trasformare le condizioni ambientali all'interno del centro di adempimenti in informazioni dettagliate che possono essere sfruttate dal team del magazzino.

@@ -494,6 +494,8 @@
           href: javascript-query-api.md
     - name: Ottimizzare i costi di Azure Cosmos DB
       items:
+        - name: Pianificare e gestire i costi
+          href: plan-manage-costs.md
         - name: Modello di prezzi
           href: how-pricing-works.md
         - name: Costo totale di proprietà

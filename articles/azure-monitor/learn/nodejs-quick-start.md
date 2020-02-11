@@ -1,5 +1,5 @@
 ---
-title: Avvio rapido - Monitorare Node.js con Application Insights di Monitoraggio di Azure
+title: 'Avvio rapido: Monitorare Node.js con Application Insights di Monitoraggio di Azure'
 description: Istruzioni per configurare rapidamente un'app Web Node.js per il monitoraggio con Application Insights di Monitoraggio di Azure
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,38 +8,31 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 1f42dd50ee70d42b5209e186b8af63c820a9a85e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a6d6d70336badeaa86c9982dfa977ea389ed5402
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75398788"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963530"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Avvio rapido: Avviare il monitoraggio dell'applicazione Web Node.js con Azure Application Insights
 
-Questa guida introduttiva illustra l'aggiunta di Application Insights SDK per Node.js versione 0.22 a un'applicazione Node.js esistente.
+In questo argomento di avvio rapido si aggiunge la versione 0.22 di Application Insights SDK per Node.js a un'applicazione Web Node.js esistente.
 
 Con Azure Application Insights, è possibile monitorare facilmente la disponibilità, le prestazioni e l'uso dell'applicazione Web. È anche possibile identificare e diagnosticare rapidamente gli errori nell'applicazione senza attendere che vengano segnalati da un utente. A partire dall'SDK versione 0.20 è possibile monitorare i pacchetti di terze parti più diffusi, tra cui MongoDB, MySQL e Redis.
 
 ## <a name="prerequisites"></a>Prerequisites
 
-Per completare questa guida introduttiva:
-
-- Sono necessarie una sottoscrizione di Azure e un'applicazione Web Node.js esistente.
-
-Se non si ha un'applicazione Web Node.js è possibile crearne una seguendo le istruzioni in [Creare un'app Web Node.js in Azure](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs).
-
-Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-
-## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
-
-Accedere al [portale di Azure](https://portal.azure.com/).
+* Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Un'applicazione Node.js funzionante.
 
 ## <a name="enable-application-insights"></a>Abilitare Application Insights
 
-Application Insights può raccogliere dati di telemetria da un'applicazione connessa a Internet, indipendentemente dal fatto che sia in esecuzione in locale o nel cloud. Usare la procedura seguente per iniziare a visualizzare questi dati.
+Application Insights può raccogliere dati di telemetria da qualsiasi applicazione connessa a Internet, indipendentemente dal fatto che sia in esecuzione in locale o nel cloud. Usare la procedura seguente per iniziare a visualizzare questi dati.
 
-1. Selezionare **Crea una risorsa** > **Strumenti di sviluppo** > **Application Insights**.
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+
+2. Selezionare **Crea una risorsa** > **Strumenti di sviluppo** > **Application Insights**.
 
    ![Aggiungere una risorsa di Azure Application Insights](./media/nodejs-quick-start/azure-app-insights-create-resource.png)
 
@@ -51,12 +44,12 @@ Application Insights può raccogliere dati di telemetria da un'applicazione conn
     | Impostazioni        | valore           | Descrizione  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valore globalmente univoco | Nome che identifica l'app da monitorare |
-   | **Gruppo di risorse**     | myResourceGroup      | Nome del nuovo gruppo di risorse per l'hosting dei dati di Application Insights; è possibile creare un nuovo gruppo di risorse o selezionarne uno esistente. |
+   | **Gruppo di risorse**     | myResourceGroup      | Nome del nuovo gruppo di risorse in cui ospitare i dati di Application Insights; è possibile creare un nuovo gruppo di risorse o selezionarne uno esistente. |
    | **Posizione** | Stati Uniti orientali | Scegliere una località nelle vicinanze o vicina a quella in cui è ospitata l'app |
 
-2. Selezionare **Create** (Crea).
+3. Selezionare **Create** (Crea).
 
-## <a name="configure-app-insights-sdk"></a>Configurare Application Insights SDK
+## <a name="configure-appinsights-sdk"></a>Configurare AppInsights SDK
 
 1. Selezionare **Panoramica** e copiare la **chiave di strumentazione dell'applicazione**.
 
@@ -68,7 +61,7 @@ Application Insights può raccogliere dati di telemetria da un'applicazione conn
    npm install applicationinsights --save
    ```
 
-3. Modificare il primo file con estensione js e aggiungere le due righe seguenti alla parte superiore dello script. Se si usa l'[app introduttiva di Node.js](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs) è necessario modificare il file index.js. Sostituire &lt;instrumentation_key&gt; con la chiave di strumentazione dell'applicazione. 
+3. Modificare il primo file con estensione *js* dell'app e aggiungere le due righe seguenti nella parte superiore dello script. Se si usa l'[app dell'argomento di avvio rapido su Node.js](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs) è necessario modificare il file *index.js*. Sostituire `<instrumentation_key>` con la chiave di strumentazione dell'applicazione. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');
@@ -90,7 +83,7 @@ Application Insights può raccogliere dati di telemetria da un'applicazione conn
 
    ![Mappa delle applicazioni di Application Insights](./media/nodejs-quick-start/azure-app-insights-application-map.png)
 
-3. Selezionare l'icona per l'**analisi delle app**![Icona in Mappa delle applicazioni](./media/nodejs-quick-start/azure-app-insights-analytics-icon.png) **Visualizza in Analisi**.  Verrà aperta la finestra **Application Insights - Analisi**, che fornisce un linguaggio di query avanzato per l'analisi di tutti i dati raccolti da Application Insights. In questo caso viene generata una query che esegue il rendering del conteggio delle richieste sotto forma di grafico. È possibile scrivere query personalizzate per analizzare altri dati.
+3. Selezionare l'icona per l'**analisi delle app**![Icona in Mappa delle applicazioni](./media/nodejs-quick-start/azure-app-insights-analytics-icon.png) **Visualizza in Analisi**.  Questa azione apre la finestra **Application Insights - Analisi**, che fornisce un linguaggio di query avanzato per l'analisi di tutti i dati raccolti da Application Insights. In questo caso viene generata una query che esegue il rendering del conteggio delle richieste sotto forma di grafico. È possibile scrivere query personalizzate per analizzare altri dati.
 
    ![Grafici di analisi di Application Insights](./media/nodejs-quick-start/azure-app-insights-analytics-queries.png)
 
@@ -120,15 +113,15 @@ Application Insights può raccogliere dati di telemetria da un'applicazione conn
    </script>
    ```
 
-5. A sinistra selezionare **Metriche**. Usare Esplora metriche per esaminare l'integrità e l'utilizzo della risorsa. È possibile selezionare **Aggiungi nuovo grafico** per creare altre visualizzazioni personalizzate oppure **Modifica** per modificare tipi, altezza, tavolozza dei colori, raggruppamenti e metriche dei grafici esistenti. Si può ad esempio creare un grafico che visualizza il tempo medio di caricamento delle pagine del browser selezionando "Tempo di caricamento della pagina del browser" nell'elenco a discesa delle metriche e "Media" in Aggregazione. Per altre informazioni su Esplora metriche di Azure, vedere [Introduzione Esplora metriche di Azure](../../azure-monitor/platform/metrics-getting-started.md).
+5. A sinistra selezionare **Metriche**. Usare Esplora metriche per esaminare l'integrità e l'utilizzo della risorsa. È possibile selezionare **Aggiungi nuovo grafico** per creare altre visualizzazioni personalizzate oppure **Modifica** per modificare tipi, altezza, tavolozza dei colori, raggruppamenti e metriche dei grafici esistenti. Si può ad esempio creare un grafico che visualizza il tempo medio di caricamento delle pagine del browser selezionando "Tempo di caricamento della pagina del browser" nell'elenco a discesa delle metriche e "Media" in Aggregazione. Per altre informazioni su Esplora metriche di Azure, vedere [Introduzione a Esplora metriche di Azure](../../azure-monitor/platform/metrics-getting-started.md).
 
    ![Grafici delle metriche del server di Application Insights](./media/nodejs-quick-start/azure-app-insights-server-metrics.png)
 
-Per altre informazioni sul monitoraggio di Node.js, vedere la [documentazione aggiuntiva su Node.js in Application Insights](../../azure-monitor/app/nodejs.md).
+Per altre informazioni sul monitoraggio di Node.js, vedere la [documentazione aggiuntiva su Node.js in AppInsights](../../azure-monitor/app/nodejs.md).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Dopo aver completato i test, è possibile eliminare il gruppo di risorse e le risorse correlate. A tale scopo, seguire questa procedura.
+Dopo aver completato i test, è possibile eliminare il gruppo di risorse e tutte le risorse correlate. A tale scopo, seguire questa procedura.
 
 > [!NOTE]
 > Se si è usato un gruppo di risorse esistente, le istruzioni riportate di seguito non sono applicabili e sarà sufficiente eliminare la singola risorsa di Application Insights. Tenere presente che ogni volta che si elimina un gruppo di risorse vengono eliminate tutte le risorse sottostanti appartenenti a tale gruppo.

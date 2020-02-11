@@ -13,31 +13,38 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 62455b395e6cad3ccf7650534d92d94a6a0a2417
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 1f799c8f2e2b209e9939845047c61d50bc1a244d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977484"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898541"
 ---
-# <a name="quickstart-create-an-azure-data-factory-and-pipeline-using-python"></a>Avvio rapido: Creare un'istanza di Azure Data Factory e una pipeline con Python
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Avvio rapido: Creare una data factory e una pipeline con Python
 
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versione corrente](quickstart-create-data-factory-python.md)
 
-Questa guida introduttiva descrive come usare Python per creare una data factory di Azure. La pipeline in questa data factory copia dati da una cartella a un'altra cartella in un archivio BLOB di Azure.
+In questo argomento di avvio rapido viene creata una data factory con Python. La pipeline in questa data factory copia i dati da una cartella a un'altra in archiviazione BLOB di Azure.
 
-Azure Data Factory è un servizio di integrazione di dati basato sul cloud che consente di creare flussi di lavoro basati sui dati nel cloud per orchestrare e automatizzare lo spostamento e la trasformazione dei dati stessi. Usando Azure Data Factory è possibile creare e pianificare flussi di lavoro (denominati pipeline) basati sui dati che possono inserire dati da archivi diversi, elaborarli e trasformarli tramite servizi di calcolo come Hadoop di Azure HDInsight, Spark, Azure Data Lake Analytics e Azure Machine Learning e pubblicare l'output in archivi come Azure SQL Data Warehouse per l'uso da parte di applicazioni di business intelligence (BI).
+Azure Data Factory è un servizio di integrazione di dati basato sul cloud che consente di creare flussi di lavoro basati sui dati per orchestrare e automatizzare lo spostamento e la trasformazione dei dati stessi. Con Azure Data Factory è possibile creare e pianificare flussi di lavoro basati sui dati, detti pipeline,
 
-Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+che inseriscono dati provenienti da archivi diversi. Le pipeline elaborano o trasformano i dati usando servizi di calcolo, ad esempio Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics e Azure Machine Learning. Le pipeline pubblicano i dati di output in archivi dati, ad esempio Azure SQL Data Warehouse per le applicazioni business intelligence (BI).
 
 ## <a name="prerequisites"></a>Prerequisites
 
-* **Account di archiviazione di Azure**. Usare l'archivio BLOB come archivio dati di **origine** e **sink**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/common/storage-account-create.md) per informazioni su come crearne uno.
-* **Creare un'applicazione in Azure Active Directory** seguendo [queste istruzioni](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Annotare i valori seguenti, da usare nei passaggi successivi: **ID applicazione**, **chiave di autenticazione** e **ID tenant**. Assegnare l'applicazione al ruolo "**Collaboratore**" seguendo le istruzioni disponibili nello stesso articolo.
+* Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-### <a name="create-and-upload-an-input-file"></a>Creare e caricare un file di input
+* [Python 3.4+](https://www.python.org/downloads/).
+
+* [Un account di archiviazione di Azure](../storage/common/storage-account-create.md).
+
+* [Azure Storage Explorer](https://storageexplorer.com/) (facoltativo).
+
+* [Un'applicazione in Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Prendere nota dei valori seguenti da usare nei passaggi successivi: **ID applicazione**, **chiave di autenticazione** e **ID tenant**. Assegnare l'applicazione al ruolo **Collaboratore** seguendo le istruzioni riportate nello stesso articolo.
+
+## <a name="create-and-upload-an-input-file"></a>Creare e caricare un file di input
 
 1. Avviare il Blocco note. Copiare il testo seguente e salvarlo come file **input.txt** sul disco.
 

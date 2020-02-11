@@ -6,24 +6,37 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/20/2019
+ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: 4e2fb81b19694136896b1dee07c3bd74c63fc01b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 1bd7a2bb6d3393aca397686a2817f1dcd5f89a38
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74414523"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987783"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [JDK SE](https://aka.ms/azure-jdks) (Java Development Kit, Standard Edition)
 * [Visual Studio Code](https://code.visualstudio.com/) o un altro IDE
 * ID app pubblico: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
-## <a name="get-luis-key"></a>Ottenere la chiave di LUIS
+## <a name="create-luis-runtime-key-for-predictions"></a>creare la chiave di runtime di LUIS per le previsioni
 
-[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
+1. Accedere al [portale di Azure](https://portal.azure.com)
+1. Fare clic su [Crea **Language Understanding**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+1. Immettere tutte le impostazioni necessarie per la chiave di **runtime**:
+
+    |Impostazione|valore|
+    |--|--|
+    |Nome|Il nome desiderato (2-64 caratteri)|
+    |Subscription|Selezionare la sottoscrizione appropriata|
+    |Location|Selezionare una località vicina e disponibile|
+    |Piano tariffario|`F0`: il piano tariffario minimo|
+    |Gruppo di risorse|Selezionare un gruppo di risorse disponibile|
+
+1. Fare clic su **Crea** e attendere che venga creata la risorsa. Una volta creata, passare alla relativa pagina.
+1. Raccogliere i valori di `endpoint` e `key` configurati.
 
 ## <a name="get-intent-programmatically"></a>Ottenere la finalità a livello di codice
 
@@ -47,70 +60,72 @@ Usare Java per eseguire query sull'[endpoint di previsione](https://aka.ms/luis-
     import org.apache.http.client.utils.URIBuilder;
     import org.apache.http.impl.client.HttpClients;
     import org.apache.http.util.EntityUtils;
-    
+
     public class Predict {
-    
-        public static void main(String[] args) 
+
+        public static void main(String[] args)
         {
             HttpClient httpclient = HttpClients.createDefault();
-    
+
             try
             {
-    
+
                 // The ID of a public sample LUIS app that recognizes intents for turning on and off lights
                 String AppId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2";
-                
-                // Add your endpoint key 
+
+                // Add your prediction Runtime key
                 String Key = "YOUR-KEY";
-    
-                // Add your endpoint, example is westus.api.cognitive.microsoft.com
+
+                // Add your endpoint, example is your-resource-name.api.cognitive.microsoft.com
                 String Endpoint = "YOUR-ENDPOINT";
-    
+
                 String Utterance = "turn on all lights";
-    
+
                 // Begin endpoint URL string building
                 URIBuilder endpointURLbuilder = new URIBuilder("https://" + Endpoint + "/luis/prediction/v3.0/apps/" + AppId + "/slots/production/predict?");
-    
+
                 // query string params
                 endpointURLbuilder.setParameter("query", Utterance);
                 endpointURLbuilder.setParameter("subscription-key", Key);
                 endpointURLbuilder.setParameter("show-all-intents", "true");
                 endpointURLbuilder.setParameter("verbose", "true");
-    
+
                 // create URL from string
                 URI endpointURL = endpointURLbuilder.build();
-    
+
                 // create HTTP object from URL
                 HttpGet request = new HttpGet(endpointURL);
-    
+
                 // access LUIS endpoint - analyze text
                 HttpResponse response = httpclient.execute(request);
-    
+
                 // get response
                 HttpEntity entity = response.getEntity();
-    
-    
-                if (entity != null) 
+
+
+                if (entity != null)
                 {
                     System.out.println(EntityUtils.toString(entity));
                 }
             }
-    
+
             catch (Exception e)
             {
                 System.out.println(e.getMessage());
             }
-        }   
-    }    
+        }
+    }
     ```
 
-1. Sostituire i valori seguenti:
+1. Sostituire i valori `YOUR-KEY` e `YOUR-ENDPOINT` con la chiave di **runtime** e l'endpoint di previsione.
 
-    * `YOUR-KEY` con la chiave di avvio
-    * `YOUR-ENDPOINT` con l'endpoint. Ad esempio: `westus2.api.cognitive.microsoft.com`.
+    |Informazioni|Scopo|
+    |--|--|
+    |`YOUR-KEY`|La chiave di **runtime** di previsione di 32 caratteri.|
+    |`YOUR-ENDPOINT`| L'endpoint dell'URL di previsione. Ad esempio: `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
 
 
-1. Compilare il programma Java dalla riga di comando: 
+1. Compilare il programma Java dalla riga di comando:
 
     ```console
     javac -cp ":lib/*" Predict.java
@@ -128,7 +143,7 @@ Usare Java per eseguire query sull'[endpoint di previsione](https://aka.ms/luis-
     {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
     ```
 
-    La risposta JSON formattata per migliorare la leggibilità: 
+    La risposta JSON formattata per migliorare la leggibilità:
 
     ```JSON
     {
@@ -171,13 +186,9 @@ Usare Java per eseguire query sull'[endpoint di previsione](https://aka.ms/luis-
     }
     ```
 
-## <a name="luis-keys"></a>Chiavi di LUIS
-
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
-
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Al termine di questo argomento di avvio rapido, eliminare il file dal file system. 
+Al termine di questo argomento di avvio rapido, eliminare il file dal file system.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

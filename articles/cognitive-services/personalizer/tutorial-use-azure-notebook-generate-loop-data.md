@@ -8,96 +8,95 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 02/03/2020
 ms.author: diberry
-ms.openlocfilehash: 669ebbf595629e8093c51d76b0816edeb5f80f93
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 03e8b658f7edf4640d738e5ea3af84953185d0f5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007595"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986836"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Esercitazione: Usare Personalizza esperienze in Azure Notebooks
 
-Questa esercitazione esegue un ciclo di Personalizza esperienze in un notebook di Azure, illustrandone il ciclo di vita completo. 
+Questa esercitazione esegue un ciclo di Personalizza esperienze in un notebook di Azure, illustrandone il ciclo di vita completo.
 
 Il ciclo suggerisce quale tipo di caffè dovrebbe essere ordinato da un cliente. Gli utenti e le relative preferenze sono archiviati in un set di dati degli utenti. Le informazioni relative al caffè vengono archiviate in un apposito set di dati.
 
 ## <a name="users-and-coffee"></a>Utenti e caffè
 
-Il notebook seleziona a caso dal set di dati un utente, un'ora del giorno e un tipo di condizione meteo. Ecco un riepilogo delle informazioni utente:
+Il notebook, simulando l'interazione utente con un sito Web, seleziona a caso dal set di dati un utente, un'ora del giorno e un tipo di condizione meteo. Ecco un riepilogo delle informazioni utente:
 
 |Clienti - funzionalità di contesto|Ora del giorno|Tipo di condizione meteo|
 |--|--|--|
-|Alice<br>Bob<br>Cathy<br>Dave|Morning<br>Afternoon<br>Evening|Sunny<br>Rainy<br>Snowy| 
+|Alice<br>Bob<br>Cathy<br>Dave|Morning<br>Afternoon<br>Evening|Sunny<br>Rainy<br>Snowy|
 
-Per consentire a Personalizza esperienze di apprendere, nel tempo, la corretta selezione del caffè per ogni persona, il _sistema_ conosce anche i dettagli sul caffè.
+Per consentire a Personalizza esperienze di apprendere nel tempo, il _sistema_ conosce anche i dettagli sulla scelta di caffè per ogni persona.
 
-|Caffè - funzionalità di azione|Tipi di temperatura|Luogo di origine|Tipo di tostatura|Biologico|
+|Caffè - funzionalità di azione|Tipi di temperatura|Luogo di origine|Tipo di tostatura|Organic|
 |--|--|--|--|--|
 |Cappacino|Accesso frequente|Kenya|Dark (Scuro)|Organic|
 |Cold brew|Cold|Brasile|Light|Organic|
 |Iced mocha|Cold|Etiopia|Light|Not organic|
 |Latte|Accesso frequente|Brasile|Dark (Scuro)|Not organic|
 
-
-Lo **scopo** del ciclo di Personalizza esperienze è trovare la corrispondenza migliore tra gli utenti e il caffè il più spesso possibile. 
+Lo **scopo** del ciclo di Personalizza esperienze è trovare la corrispondenza migliore tra gli utenti e il caffè il più spesso possibile.
 
 Il codice di questa esercitazione è disponibile nel [repository GitHub di esempi di Personalizza esperienze](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook).
 
 ## <a name="how-the-simulation-works"></a>Funzionamento della simulazione
 
-All'inizio dell'esecuzione del sistema la percentuale di successo dei suggerimenti di Personalizza esperienze è compresa appena tra il 20% e il 30% (indicata dal punteggio di ricompensa 1). Dopo alcune richieste, il sistema migliora.
+All'inizio dell'esecuzione del sistema la percentuale di successo dei suggerimenti di Personalizza esperienze è compresa appena tra il 20% e il 30%. Questo successo è indicato dalla ricompensa restituita all'API Premio di Personalizza esperienze con il punteggio 1. Dopo alcune chiamate a Classificazione e Premio, il sistema migliora.
 
-Dopo le prime 10.000 richieste, eseguire una valutazione offline, per consentire a Personalizza esperienze di esaminare i dati e suggerire un criterio di apprendimento migliore. Applicare i nuovi criteri di apprendimento ed eseguire di nuovo il notebook con 2.000 richieste. Le prestazioni del ciclo miglioreranno.
+Dopo le richieste iniziali, eseguire una valutazione offline, per consentire a Personalizza esperienze di esaminare i dati e suggerire un criterio di apprendimento migliore. Applicare i nuovi criteri di apprendimento ed eseguire di nuovo il notebook con il 20% del numero di richieste precedenti. Il ciclo offrirà prestazioni migliori con i nuovi criteri di apprendimento.
 
 ## <a name="rank-and-reward-calls"></a>Chiamate di classificazione e ricompensa
 
 Per ognuna delle migliaia di chiamate al servizio Personalizza esperienze il notebook di Azure Invia la richiesta di **classificazione** all'API REST:
 
 * ID univoco per l'evento di classificazione/richiesta
-* Contesto - scelta casuale di utente, meteo e ora del giorno - simulazione di un utente in un sito Web o in un dispositivo mobile
-* Funzionalità - _tutti_ i dati sul caffè, da cui Personalizza esperienze trae un suggerimento
+* Caratteristiche del contesto: una scelta casuale di utente, meteo e ora del giorno, che simula un utente in un sito Web o un dispositivo mobile
+* Azioni con caratteristiche: _tutti_ i dati sul caffè, da cui Personalizza esperienze trae un suggerimento
 
-Il sistema riceve la classificazione delle scelte di caffè, quindi confronta la stima con la scelta nota dell'utente per la stessa ora del giorno e la stessa condizione meteo. Se la scelta nota è uguale a quella stimata, viene restituita a Personalizza esperienze la **ricompensa** 1. In caso contrario, la ricompensa è 0. 
+Il sistema riceve la richiesta, quindi confronta la previsione con la scelta nota dell'utente nella stessa ora del giorno e nelle stesse condizioni meteo. Se la scelta nota è uguale a quella stimata, viene restituita a Personalizza esperienze la **ricompensa** 1. In caso contrario, la ricompensa restituita è 0.
 
 > [!Note]
-> Questa è una simulazione, quindi l'algoritmo per la ricompensa è semplice. In uno scenario reale l'algoritmo dovrebbe usare la logica di business, possibilmente con pesi per diversi aspetti dell'esperienza del cliente, per determinare il punteggio di ricompensa. 
+> Questa è una simulazione, quindi l'algoritmo per la ricompensa è semplice. In uno scenario reale l'algoritmo dovrebbe usare la logica di business, possibilmente con pesi per diversi aspetti dell'esperienza del cliente, per determinare il punteggio di ricompensa.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-* Un account [Azure Notebooks](https://notebooks.azure.com/). 
-* Una [risorsa di Personalizza esperienze](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). 
-    * Se la risorsa di Personalizza esperienze è già stata usata, assicurarsi di [cancellare i dati](how-to-settings.md#clear-data-for-your-learning-loop) relativi alla risorsa nel portale di Azure. 
-* Caricare tutti i file per [questo esempio](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) in un progetto di Azure Notebooks. 
+* Un account [Azure Notebooks](https://notebooks.azure.com/).
+* Una [risorsa di Personalizza esperienze](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
+    * Se la risorsa di Personalizza esperienze è già stata usata, assicurarsi di [cancellare i dati](how-to-settings.md#clear-data-for-your-learning-loop) relativi alla risorsa nel portale di Azure.
+* Caricare tutti i file per [questo esempio](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) in un progetto di Azure Notebooks.
 
 Descrizioni dei file:
 
 * [Personalizer.ipynb](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/azurenotebook/Personalizer.ipynb) è il notebook Jupyter per questa esercitazione.
 * Il [set di dati per gli utenti](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/azurenotebook/users.json) è archiviato in un oggetto JSON.
-* Il [set di dati per il caffè](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/azurenotebook/coffee.json) è archiviato in un oggetto JSON. 
+* Il [set di dati per il caffè](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/azurenotebook/coffee.json) è archiviato in un oggetto JSON.
 * [JSON di richiesta di esempio](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/azurenotebook/example-rankrequest.json) è il formato previsto per una richiesta POST all'API di classificazione.
 
 ## <a name="configure-personalizer-resource"></a>Configurare la risorsa di Personalizza esperienze
 
-Nel portale di Azure configurare la [risorsa di Personalizza esperienze](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)con la **frequenza di aggiornamento del modello** impostata su 15 secondi e un **tempo di attesa per la ricompensa** di 15 secondi. Questi valori sono disponibili nella pagina **[Configurazione](how-to-settings.md#configure-service-settings-in-the-azure-portal)** . 
+Nel portale di Azure configurare la [risorsa di Personalizza esperienze](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)con la **frequenza di aggiornamento del modello** impostata su 15 secondi e un **tempo di attesa per la ricompensa** di 15 secondi. Questi valori sono disponibili nella pagina **[Configurazione](how-to-settings.md#configure-service-settings-in-the-azure-portal)** .
 
-|Impostazione|Valore|
+|Impostazione|valore|
 |--|--|
 |Frequenza di aggiornamento del modello|5 secondi|
 |Tempo di attesa per la ricompensa|5 secondi|
 
-Questi valori hanno una durata molto breve al fine di mostrare i cambiamenti in questa esercitazione. Non devono essere usati in uno scenario di produzione senza prima verificare che raggiungano l'obiettivo prefissato con il ciclo di Personalizza esperienze. 
+Questi valori hanno una durata molto breve al fine di mostrare i cambiamenti in questa esercitazione. Non devono essere usati in uno scenario di produzione senza prima verificare che raggiungano l'obiettivo prefissato con il ciclo di Personalizza esperienze.
 
 ## <a name="set-up-the-azure-notebook"></a>Configurare il notebook di Azure
 
-1. Cambiare il Kernel in `Python 3.6`. 
+1. Cambiare il Kernel in `Python 3.6`.
 1. Aprire il file `Personalizer.ipynb` .
 
 ## <a name="run-notebook-cells"></a>Eseguire le celle del notebook
 
-Eseguire ogni cella eseguibile e attendere che venga restituito un risultato. Questo avviene quando le parentesi quadre accanto alla cella visualizzano un numero al posto di un `*`. Le sezioni seguenti illustrano il funzionamento di ogni cella a livello di codice e cosa aspettarsi come output. 
+Eseguire ogni cella eseguibile e attendere che venga restituito un risultato. Questo avviene quando le parentesi quadre accanto alla cella visualizzano un numero al posto di un `*`. Le sezioni seguenti illustrano il funzionamento di ogni cella a livello di codice e cosa aspettarsi come output.
 
 ### <a name="include-the-python-modules"></a>Includere i moduli Python
 
@@ -106,7 +105,7 @@ Includere i moduli Python necessari. La cella non ha output.
 ```python
 import json
 import matplotlib.pyplot as plt
-import random 
+import random
 import requests
 import time
 import uuid
@@ -114,7 +113,7 @@ import uuid
 
 ### <a name="set-personalizer-resource-key-and-name"></a>Impostare la chiave e il nome della risorsa di Personalizza esperienze
 
-Nel portale di Azure trovare la chiave e l'endpoint nella pagina **Avvio rapido** della risorsa di Personalizza esperienze. Sostituire il valore di `<your-resource-name>` con il nome della risorsa di Personalizza esperienze. Sostituire il valore di `<your-resource-key>` con la chiave di Personalizza esperienze. 
+Nel portale di Azure trovare la chiave e l'endpoint nella pagina **Avvio rapido** della risorsa di Personalizza esperienze. Sostituire il valore di `<your-resource-name>` con il nome della risorsa di Personalizza esperienze. Sostituire il valore di `<your-resource-key>` con la chiave di Personalizza esperienze.
 
 ```python
 # Replace 'personalization_base_url' and 'resource_key' with your valid endpoint values.
@@ -136,11 +135,11 @@ def currentDateTime():
 
 ### <a name="get-the-last-model-update-time"></a>Ottenere l'ora dell'ultimo aggiornamento del modello
 
-Quando la funzione `get_last_updated` viene chiamata, visualizza l'ultima data e ora in cui il modello è stato aggiornato. 
+Quando la funzione `get_last_updated` viene chiamata, visualizza l'ultima data e ora in cui il modello è stato aggiornato.
 
 Queste celle non hanno output. Quando viene chiamata, la funzione restituisce la data dell'ultimo training del modello.
 
-La funzione usa un'API REST GET per [ottenere le proprietà del modello](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/GetModelProperties). 
+La funzione usa un'API REST GET per [ottenere le proprietà del modello](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/GetModelProperties).
 
 ```python
 # ititialize variable for model's last modified date
@@ -149,18 +148,18 @@ modelLastModified = ""
 
 ```python
 def get_last_updated(currentModifiedDate):
-    
+
     print('-----checking model')
-    
+
     # get model properties
     response = requests.get(personalization_model_properties_url, headers = headers, params = None)
-    
+
     print(response)
     print(response.json())
 
     # get lastModifiedTime
     lastModifiedTime = json.dumps(response.json()["lastModifiedTime"])
-    
+
     if (currentModifiedDate != lastModifiedTime):
         currentModifiedDate = lastModifiedTime
         print(f'-----model updated: {lastModifiedTime}')
@@ -174,28 +173,28 @@ Queste celle non hanno output. Quando viene chiamata, la funzione restituisce i 
 
 ```python
 def get_service_settings():
-    
+
     print('-----checking service settings')
-    
+
     # get learning policy
     response = requests.get(personalization_model_policy_url, headers = headers, params = None)
-    
+
     print(response)
     print(response.json())
-    
+
     # get service settings
     response = requests.get(personalization_service_configuration_url, headers = headers, params = None)
-    
+
     print(response)
     print(response.json())
 ```
 
 ### <a name="construct-urls-and-read-json-data-files"></a>Costruire gli URL e leggere i file di dati JSON
 
-Questa cella 
+Questa cella
 
-* crea gli URL usati nelle chiamate REST 
-* imposta l'intestazione di sicurezza usando la chiave della risorsa di Personalizza esperienze 
+* crea gli URL usati nelle chiamate REST
+* imposta l'intestazione di sicurezza usando la chiave della risorsa di Personalizza esperienze
 * imposta il valore di inizializzazione casuale per l'ID evento di classificazione
 * legge i file di dati JSON
 * chiama il metodo `get_last_updated` - i criteri di apprendimento sono stati rimossi nell'output dell'esempio
@@ -225,8 +224,8 @@ requestpath = "example-rankrequest.json"
 # initialize random
 random.seed(time.time())
 
-userpref = None 
-rankactionsjsonobj = None 
+userpref = None
+rankactionsjsonobj = None
 actionfeaturesobj = None
 
 with open(users) as handle:
@@ -234,10 +233,10 @@ with open(users) as handle:
 
 with open(coffee) as handle:
     actionfeaturesobj = json.loads(handle.read())
-    
+
 with open(requestpath) as handle:
-    rankactionsjsonobj = json.loads(handle.read())  
-    
+    rankactionsjsonobj = json.loads(handle.read())
+
 get_last_updated(modelLastModified)
 get_service_settings()
 
@@ -245,8 +244,8 @@ print(f'User count {len(userpref)}')
 print(f'Coffee count {len(actionfeaturesobj)}')
 ```
 
-Verificare che i valori `rewardWaitTime` e `modelExportFrequency` dell'output siano entrambi impostati su 15 secondi. 
-    
+Verificare che i valori `rewardWaitTime` e `modelExportFrequency` dell'output siano entrambi impostati su 15 secondi.
+
 ```console
 -----checking model
 <Response [200]>
@@ -265,21 +264,21 @@ Coffee count 4
 
 Questa cella precedente è la prima cella che effettua una chiamata a Personalizza esperienze. Verificare che il codice di stato REST nell'output sia `<Response [200]>`. Se si riceve un errore, ad esempio il 404, ma si è certi che la chiave e il nome della risorsa siano corretti, ricaricare il notebook.
 
-Verificare che il conteggio sia 4 sia per il caffè che per gli utenti. Se si verifica un errore, controllare di aver caricato tutti e 3 i file JSON. 
+Verificare che il conteggio sia 4 sia per il caffè che per gli utenti. Se si verifica un errore, controllare di aver caricato tutti e 3 i file JSON.
 
 ### <a name="set-up-metric-chart-in-azure-portal"></a>Configurare il grafico delle metriche nel portale di Azure
 
 Più avanti in questa esercitazione, il processo a esecuzione prolungata di 10.000 richieste è visibile dal browser con una casella di testo di aggiornamento. Può risultare più semplice da visualizzare in un grafico o come somma totale, al termine del processo a esecuzione prolungata. Per visualizzare queste informazioni, usare le metriche fornite con la risorsa. È possibile creare il grafico ora che è stata completata una richiesta al servizio, quindi aggiornare periodicamente il grafico mentre è in corso il processo a esecuzione prolungata.
 
 1. Nel portale di Azure selezionare la risorsa di Personalizza esperienze.
-1. Nel riquadro di spostamento della risorsa selezionare **Metriche** sotto Monitoraggio. 
+1. Nel riquadro di spostamento della risorsa selezionare **Metriche** sotto Monitoraggio.
 1. Nel grafico selezionare **Aggiungi metrica**.
 1. La risorsa e lo spazio dei nomi della metrica sono già impostati. È sufficiente selezionare la metrica **Chiamate riuscite** e l'aggregazione **Somma**.
 1. Cambiare il filtro temporale in Ultime 4 ore.
 
     ![Configurare il grafico delle metriche nel portale di Azure, aggiungendo la metrica per le chiamate riuscite nelle ultime 4 ore.](./media/tutorial-azure-notebook/metric-chart-setting.png)
 
-    Si dovrebbero vedere tre chiamate riuscite nel grafico. 
+    Si dovrebbero vedere tre chiamate riuscite nel grafico.
 
 ### <a name="generate-a-unique-event-id"></a>Generare un ID evento univoco
 
@@ -300,7 +299,7 @@ Questa funzione seleziona un utente, una condizione meteo e un'ora del giorno ca
 
 La cella non ha output. Quando la funzione viene chiamata, restituisce il nome dell'utente casuale, la condizione meteo casuale e l'ora del giorno casuale.
 
-Ecco l'elenco dei 4 utenti e delle loro preferenze (per brevità sono visualizzate solo alcune preferenze): 
+Ecco l'elenco dei 4 utenti e delle loro preferenze (per brevità sono visualizzate solo alcune preferenze):
 
 ```json
 {
@@ -336,7 +335,7 @@ Ecco l'elenco dei 4 utenti e delle loro preferenze (per brevità sono visualizza
 ```
 
 ```python
-def add_random_user_and_contextfeatures(namesoption, weatheropt, timeofdayopt, rankjsonobj):   
+def add_random_user_and_contextfeatures(namesoption, weatheropt, timeofdayopt, rankjsonobj):
     name = namesoption[random.randint(0,3)]
     weather = weatheropt[random.randint(0,2)]
     timeofday = timeofdayopt[random.randint(0,2)]
@@ -347,12 +346,12 @@ def add_random_user_and_contextfeatures(namesoption, weatheropt, timeofdayopt, r
 
 ### <a name="add-all-coffee-data"></a>Aggiungere tutti i dati relativi al caffè
 
-Questa funzione aggiunge l'intero elenco di caffè all'oggetto JSON da inviare alla richiesta di classificazione. 
+Questa funzione aggiunge l'intero elenco di caffè all'oggetto JSON da inviare alla richiesta di classificazione.
 
 La cella non ha output. La funzione cambia il valore di `rankjsonobj` quando viene chiamata.
 
 
-Ecco l'esempio delle caratteristiche di un singolo tipo di caffè: 
+Ecco l'esempio delle caratteristiche di un singolo tipo di caffè:
 
 ```json
 {
@@ -363,7 +362,7 @@ Ecco l'esempio delle caratteristiche di un singolo tipo di caffè:
         "origin": "kenya",
         "organic": "yes",
         "roast": "dark"
-        
+
     }
 }
 ```
@@ -382,34 +381,34 @@ Confronta la preferenza dell'utente per il caffè, in base alla condizione meteo
 ```python
 def get_reward_from_simulated_data(name, weather, timeofday, prediction):
     if(userpref[name][weather][timeofday] == str(prediction)):
-        return 1 
+        return 1
     return 0
-``` 
+```
 
 ### <a name="loop-through-calls-to-rank-and-reward"></a>Riprodurre a ciclo continuo le chiamate alle API di classificazione e ricompensa
 
-La cella successiva è il lavoro _principale_ del notebook: ottiene un utente casuale e l'elenco dei caffè e invia entrambi all'API di classificazione. Confronta la stima con le preferenze note dell'utente, quindi restituisce la ricompensa al servizio Personalizza esperienze. 
+La cella successiva è il lavoro _principale_ del notebook: ottiene un utente casuale e l'elenco dei caffè e invia entrambi all'API di classificazione. Confronta la stima con le preferenze note dell'utente, quindi restituisce la ricompensa al servizio Personalizza esperienze.
 
-Il ciclo viene eseguito per `num_requests` volte. Personalizza esperienze ha bisogno di qualche migliaia di chiamate per consentire alle API di classificazione e ricompensa di creare un modello. 
+Il ciclo viene eseguito per `num_requests` volte. Personalizza esperienze ha bisogno di qualche migliaia di chiamate per consentire alle API di classificazione e ricompensa di creare un modello.
 
 Di seguito è riportato un esempio di codice JSON inviato all'API di classificazione. Per brevità, l'elenco dei caffè non è completo. L'intero codice JSON per il caffè è disponibile in `coffee.json`.
 
 JSON inviato all'API di classificazione:
 
 ```json
-{ 
-   'contextFeatures':[ 
-      { 
+{
+   'contextFeatures':[
+      {
          'timeofday':'Evening',
          'weather':'Snowy',
          'name':'Alice'
       }
    ],
-   'actions':[ 
-      { 
+   'actions':[
+      {
          'id':'Cappucino',
-         'features':[ 
-            { 
+         'features':[
+            {
                'type':'hot',
                'origin':'kenya',
                'organic':'yes',
@@ -419,7 +418,7 @@ JSON inviato all'API di classificazione:
       }
         ...rest of coffee list
    ],
-   'excludedActions':[ 
+   'excludedActions':[
 
    ],
    'eventId':'b5c4ef3e8c434f358382b04be8963f62',
@@ -436,8 +435,8 @@ Risposta JSON dall'API di classificazione:
         {'id': 'Iced mocha', 'probability': 0.05 },
         {'id': 'Cappucino', 'probability': 0.05 },
         {'id': 'Cold brew', 'probability': 0.05 }
-    ], 
-    'eventId': '5001bcfe3bb542a1a238e6d18d57f2d2', 
+    ],
+    'eventId': '5001bcfe3bb542a1a238e6d18d57f2d2',
     'rewardActionId': 'Latte'
 }
 ```
@@ -450,14 +449,14 @@ Infine, ogni ciclo mostra la selezione casuale di utente, meteo e ora del giorno
 
 La funzione usa:
 
-* Classificazione: un'API REST POST per [ottenere la classificazione](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank). 
+* Classificazione: un'API REST POST per [ottenere la classificazione](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank).
 * Ricompensa: un'API REST POST per [segnalare la ricompensa](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward).
 
 ```python
 def iterations(n, modelCheck, jsonFormat):
 
     i = 1
-    
+
     # default reward value - assumes failed prediction
     reward = 0
 
@@ -473,8 +472,8 @@ def iterations(n, modelCheck, jsonFormat):
     namesopt = ['Alice', 'Bob', 'Cathy', 'Dave']
     weatheropt = ['Sunny', 'Rainy', 'Snowy']
     timeofdayopt = ['Morning', 'Afternoon', 'Evening']
-    
-    
+
+
     while(i <= n):
 
         # create unique id to associate with an event
@@ -484,16 +483,16 @@ def iterations(n, modelCheck, jsonFormat):
         [name, weather, timeofday] = add_random_user_and_contextfeatures(namesopt, weatheropt, timeofdayopt, jsonFormat)
 
         # add action features to rank
-        add_action_features(jsonFormat) 
+        add_action_features(jsonFormat)
 
         # show JSON to send to Rank
-        print('To: ', jsonFormat)    
+        print('To: ', jsonFormat)
 
         # choose an action - get prediction from Personalizer
         response = requests.post(personalization_rank_url, headers = headers, params = None, json = jsonFormat)
 
-        # show Rank prediction 
-        print ('From: ',response.json())    
+        # show Rank prediction
+        print ('From: ',response.json())
 
         # compare personalization service recommendation with the simulated data to generate a reward value
         prediction = json.dumps(response.json()["rewardActionId"]).replace('"','')
@@ -502,7 +501,7 @@ def iterations(n, modelCheck, jsonFormat):
         # show result for iteration
         print(f'   {i} {currentDateTime()} {name} {weather} {timeofday} {prediction} {reward}')
 
-        # send the reward to the service 
+        # send the reward to the service
         response = requests.post(personalization_reward_url + eventid + "/reward", headers = headers, params= None, json = { "value" : reward })
 
         # for every N rank requests, compute total correct  total
@@ -513,7 +512,7 @@ def iterations(n, modelCheck, jsonFormat):
 
             print("**** 10% of loop found")
 
-            get_last_updated(modelLastModified) 
+            get_last_updated(modelLastModified)
 
         # aggregate so chart is easier to read
         if(i % 10 == 0):
@@ -522,7 +521,7 @@ def iterations(n, modelCheck, jsonFormat):
              total = 0
 
         i = i + 1
-        
+
     # Print out dateTime
     currentDateTime()
 
@@ -530,7 +529,7 @@ def iterations(n, modelCheck, jsonFormat):
 ```
 
 ## <a name="run-for-10000-iterations"></a>Eseguire il ciclo per 10.000 iterazioni
-Eseguire il ciclo di Personalizza esperienze per 10.000 iterazioni. Si tratta di un evento a esecuzione prolungata. Non chiudere il browser in cui è in esecuzione il notebook. Aggiornare periodicamente il grafico delle metriche nel portale di Azure per visualizzare le chiamate totali al servizio. Quando si raggiungono circa 20.000 chiamate, una chiamata di classificazione e ricompensa per ogni iterazione del ciclo, le iterazioni sono terminate. 
+Eseguire il ciclo di Personalizza esperienze per 10.000 iterazioni. Si tratta di un evento a esecuzione prolungata. Non chiudere il browser in cui è in esecuzione il notebook. Aggiornare periodicamente il grafico delle metriche nel portale di Azure per visualizzare le chiamate totali al servizio. Quando si raggiungono circa 20.000 chiamate, una chiamata di classificazione e ricompensa per ogni iterazione del ciclo, le iterazioni sono terminate.
 
 ```python
 # max iterations
@@ -547,7 +546,7 @@ jsonTemplate = rankactionsjsonobj
 
 
 
-## <a name="chart-results-to-see-improvement"></a>Organizzare i risultati in un grafico per visualizzare i miglioramenti 
+## <a name="chart-results-to-see-improvement"></a>Organizzare i risultati in un grafico per visualizzare i miglioramenti
 
 Creare un grafico da `count` e `rewards`.
 
@@ -569,16 +568,16 @@ createChart(count,rewards)
 
 ## <a name="reading-the-chart"></a>Lettura del grafico
 
-Questo grafico mostra l'esito positivo del modello per i criteri di apprendimento predefiniti correnti. 
+Questo grafico mostra l'esito positivo del modello per i criteri di apprendimento predefiniti correnti.
 
 ![Questo grafico mostra l'esito positivo dei criteri di apprendimento correnti per la durata del test.](./media/tutorial-azure-notebook/azure-notebook-chart-results.png)
 
 
-L'obiettivo ideale è che entro la fine del test il ciclo abbia ottenuto in media una percentuale di successo vicina al 100% meno l'esplorazione. Il valore predefinito dell'esplorazione è 20%. 
+L'obiettivo ideale è che entro la fine del test il ciclo abbia ottenuto in media una percentuale di successo vicina al 100% meno l'esplorazione. Il valore predefinito dell'esplorazione è 20%.
 
 `100-20=80`
 
-Questo valore di esplorazione si trova nella pagina **Configurazione** della risorsa Personalizza esperienze nel portale di Azure. 
+Questo valore di esplorazione si trova nella pagina **Configurazione** della risorsa Personalizza esperienze nel portale di Azure.
 
 Per trovare un criterio di apprendimento migliore, in base ai dati dell'API di classificazione, eseguire una [valutazione offline](how-to-offline-evaluation.md) del ciclo di personalizzazione nel portale.
 
@@ -586,19 +585,19 @@ Per trovare un criterio di apprendimento migliore, in base ai dati dell'API di c
 
 1. Nel portale di Azure aprire la pagina **Valutazioni** della risorsa di Personalizza esperienze.
 1. Selezionare **Crea valutazione**.
-1. Immettere i dati necessari per il nome della valutazione e l'intervallo di date per la valutazione del ciclo. L'intervallo di date deve includere solo i giorni sui quali ci si vuole concentrare per la valutazione. 
+1. Immettere i dati necessari per il nome della valutazione e l'intervallo di date per la valutazione del ciclo. L'intervallo di date deve includere solo i giorni sui quali ci si vuole concentrare per la valutazione.
     ![Nel portale di Azure aprire la pagina Valutazioni della risorsa di Personalizza esperienze. Selezionare Crea valutazione. Immettere il nome e l'intervallo di date della valutazione.](./media/tutorial-azure-notebook/create-offline-evaluation.png)
 
     Lo scopo dell'esecuzione di questa valutazione offline è determinare se esistono criteri di apprendimento migliori per le funzionalità e le azioni usate in questo ciclo. Per trovare questi criteri di apprendimento migliori, assicurarsi che l'opzione **Individuazione ottimizzazione** sia attivata.
 
-1. Scegliere **OK** per iniziare la valutazione. 
-1. Questa pagina **Valutazioni** mostra la nuova valutazione e il suo stato corrente. Il tempo necessario per l'esecuzione della valutazione dipende dalla quantità di dati disponibili. È possibile tornare a questa pagina dopo alcuni minuti per visualizzare i risultati. 
-1. Al termine della valutazione, selezionare la valutazione e quindi **Confronto tra vari criteri di apprendimento**. Vengono visualizzati i criteri di apprendimento disponibili e il modo in cui si comporterebbero con i dati. 
-1. Selezionare il criterio di apprendimento elencato per primo nella tabella e quindi selezionare **Applica**. Viene così applicato il criterio di apprendimento _migliore_ al modello e viene ripetuto il training. 
+1. Scegliere **OK** per iniziare la valutazione.
+1. Questa pagina **Valutazioni** mostra la nuova valutazione e il suo stato corrente. Il tempo necessario per l'esecuzione della valutazione dipende dalla quantità di dati disponibili. È possibile tornare a questa pagina dopo alcuni minuti per visualizzare i risultati.
+1. Al termine della valutazione, selezionare la valutazione e quindi **Confronto tra vari criteri di apprendimento**. Vengono visualizzati i criteri di apprendimento disponibili e il modo in cui si comporterebbero con i dati.
+1. Selezionare il criterio di apprendimento elencato per primo nella tabella e quindi selezionare **Applica**. Viene così applicato il criterio di apprendimento _migliore_ al modello e viene ripetuto il training.
 
 ## <a name="change-update-model-frequency-to-5-minutes"></a>Impostare la frequenza di aggiornamento del modello su 5 minuti
 
-1. Nel portale di Azure, sempre nella risorsa Personalizza esperienze, selezionare la pagina **Configurazione**. 
+1. Nel portale di Azure, sempre nella risorsa Personalizza esperienze, selezionare la pagina **Configurazione**.
 1. Impostare **Frequenza di aggiornamento del modello**  e **Tempo di attesa per la ricompensa**  su 5 minuti e selezionare **Salva**.
 
 Altre informazioni sulle opzioni [Tempo di attesa per la ricompensa ](concept-rewards.md#reward-wait-time) e [Frequenza di aggiornamento del modello](how-to-settings.md#model-update-frequency).
@@ -608,7 +607,7 @@ Altre informazioni sulle opzioni [Tempo di attesa per la ricompensa ](concept-re
 get_service_settings()
 ```
 
-Verificare che i valori `rewardWaitTime` e `modelExportFrequency` dell'output siano entrambi impostati su 5 minuti. 
+Verificare che i valori `rewardWaitTime` e `modelExportFrequency` dell'output siano entrambi impostati su 5 minuti.
 ```console
 -----checking model
 <Response [200]>
@@ -623,9 +622,9 @@ User count 4
 Coffee count 4
 ```
 
-## <a name="validate-new-learning-policy"></a>Convalidare i nuovi criteri di apprendimento 
+## <a name="validate-new-learning-policy"></a>Convalidare i nuovi criteri di apprendimento
 
-Tornare al notebook di Azure ed eseguire lo stesso ciclo, ma solo per 2.000 iterazioni. Aggiornare periodicamente il grafico delle metriche nel portale di Azure per visualizzare le chiamate totali al servizio. Quando si raggiungono circa 4.000 chiamate, una chiamata di classificazione e ricompensa per ogni iterazione del ciclo, le iterazioni sono terminate. 
+Tornare al notebook di Azure ed eseguire lo stesso ciclo, ma solo per 2.000 iterazioni. Aggiornare periodicamente il grafico delle metriche nel portale di Azure per visualizzare le chiamate totali al servizio. Quando si raggiungono circa 4.000 chiamate, una chiamata di classificazione e ricompensa per ogni iterazione del ciclo, le iterazioni sono terminate.
 
 ```python
 # max iterations
@@ -650,7 +649,7 @@ createChart(count2,rewards2)
 
 ## <a name="review-the-second-chart"></a>Esaminare il secondo grafico
 
-Il secondo grafico dovrebbe mostrare un visibile aumento dell'allineamento delle stime di classificazione alle preferenze dell'utente. 
+Il secondo grafico dovrebbe mostrare un visibile aumento dell'allineamento delle stime di classificazione alle preferenze dell'utente.
 
 ![Il secondo grafico dovrebbe mostrare un visibile aumento dell'allineamento delle stime di classificazione alle preferenze dell'utente.](./media/tutorial-azure-notebook/azure-notebook-chart-results-happy-graph.png)
 
@@ -658,10 +657,10 @@ Il secondo grafico dovrebbe mostrare un visibile aumento dell'allineamento delle
 
 Se non si prevede di continuare la serie di esercitazioni, pulire le risorse seguenti:
 
-* Eliminare il progetto di Azure Notebooks. 
-* Eliminare la risorsa di Personalizza esperienze. 
+* Eliminare il progetto di Azure Notebooks.
+* Eliminare la risorsa di Personalizza esperienze.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Il [notebook Jupyter e i file di dati](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) usati in questo esempio sono disponibili nel repository GitHub per Personalizza esperienze. 
+Il [notebook Jupyter e i file di dati](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) usati in questo esempio sono disponibili nel repository GitHub per Personalizza esperienze.
 

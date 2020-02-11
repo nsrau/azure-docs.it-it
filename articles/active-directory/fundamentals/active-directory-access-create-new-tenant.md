@@ -10,14 +10,14 @@ ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: ajburnle
-ms.custom: it-pro, seodec18
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ef577f5d086b22779392cd6d8b5d43a340f7329
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: de205beaf9800c2061cc41343b4153bd0e2b5dc7
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423108"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024603"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Avvio rapido: Creare un nuovo tenant in Azure Active Directory
 Nel portale di Azure Active Directory (Azure AD) è possibile eseguire tutte le attività amministrative, inclusa la creazione di un nuovo tenant per l'organizzazione. 
@@ -31,7 +31,7 @@ Dopo aver eseguito l'accesso al portale di Azure, è possibile creare un nuovo t
 
 ### <a name="to-create-a-new-tenant"></a>Per creare un nuovo tenant
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) dell'organizzazione con un account Amministratore globale.
+1. Accedere al [portale di Azure](https://portal.azure.com/) dell'organizzazione.
 
 1. Nel menu del portale di Azure selezionare **Crea una risorsa**.  
 
@@ -58,6 +58,7 @@ Viene creato il nuovo tenant con il dominio contoso.onmicrosoft.com.
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Se non si intende continuare a usare questa applicazione, è possibile eliminare il tenant seguendo questa procedura:
 
+- Assicurarsi di aver eseguito l'accesso alla directory che si vuole eliminare tramite il filtro **Directory + sottoscrizione** nel portale di Azure e passare alla directory di destinazione, se necessario.
 - Selezionare **Azure Active Directory** e, nella pagina **Contoso - Panoramica**, selezionare **Elimina directory**.
 
     Viene eliminato il tenant, insieme alle informazioni associate.

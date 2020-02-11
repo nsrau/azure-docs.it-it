@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.date: 02/05/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 860577938eab0f7561e9b66d0f58c9fc0d077b26
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.custom: fasttrack-edit
+ms.openlocfilehash: e4a4e9d8d1d100fe2e8c35053cea31c55b0f030d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704154"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023158"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Avvio rapido: Configurare un tenant
 
@@ -57,7 +57,7 @@ Se all'account non è associato un tenant, verrà visualizzato un GUID sotto il 
 
 ### <a name="create-a-new-azure-ad-tenant"></a>Creare un nuovo tenant Azure AD
 
-Se non si dispone ancora di un tenant di Azure AD o se ne vuole creare uno nuovo per lo sviluppo, seguire l'[esperienza di creazione della directory](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). Per creare il nuovo tenant, sarà necessario specificare le informazioni seguenti:
+Se non si ha già un tenant di Azure AD o si vuole crearne uno nuovo per lo sviluppo, vedere l'[argomento di avvio rapido](../fundamentals/active-directory-access-create-new-tenant.md) o semplicemente seguire l'[esperienza di creazione della directory](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). Per creare il nuovo tenant, sarà necessario specificare le informazioni seguenti:
 
 - **Nome organizzazione**
 - **Dominio iniziale**: farà parte di *.onmicrosoft.com. È possibile personalizzare il dominio in un secondo momento.

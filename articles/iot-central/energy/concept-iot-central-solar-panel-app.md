@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: b2b0fff225eee52f8ffe308317f06793728e5d1f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 44171a08e69cfa058e0a9e75e3220fb996b7789d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585334"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018007"
 ---
 # <a name="azure-iot-central---solar-panel-app-architecture"></a>Azure IoT Central - Architettura dell'app per pannelli solari
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 
 Questo articolo contiene una panoramica dell'architettura del modello di applicazione per il monitoraggio dei pannelli solari. Il diagramma seguente mostra un'architettura di uso comune per l'app per pannelli solari in Azure che utilizza la piattaforma IoT Central.
@@ -29,7 +29,7 @@ L'architettura è costituita dai componenti seguenti. Alcune applicazioni potreb
 
 ## <a name="solar-panels-and-connectivity"></a>Pannelli solari e connettività 
 
-I pannelli solari rappresentano una delle fonti più significative di energia rinnovabile. A seconda del tipo e dell'installazione del pannello solare, è possibile connetterlo tramite gateway o tramite altri dispositivi intermedi e sistemi proprietari. Potrebbe essere necessario compilare un dispositivo bridge IoT Central per connettere i dispositivi che non possono essere connessi direttamente. Il dispositivo bridge IoT Central è una soluzione open-source i cui dettagli completi sono disponibili [qui](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
+I pannelli solari rappresentano una delle fonti più significative di energia rinnovabile. A seconda del tipo e dell'installazione, è possibile connettere il pannello solare tramite gateway o tramite altri dispositivi intermedi e sistemi proprietari. Potrebbe essere necessario creare un dispositivo bridge di IoT Central per connettere i dispositivi che non possono essere connessi direttamente. Il dispositivo bridge IoT Central è una soluzione open source i cui dettagli completi sono disponibili [qui](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
 
 
 

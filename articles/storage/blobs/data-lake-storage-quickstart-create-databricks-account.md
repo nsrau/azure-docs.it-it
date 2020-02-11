@@ -6,39 +6,29 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/15/2019
+ms.date: 01/28/2020
 ms.reviewer: jeking
-ms.openlocfilehash: 193fe96d3e98b2917d9228784b93a9335406283f
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 2a303070b7240bddfd4803ed3d4d796fa52fdef5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771752"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906636"
 ---
-# <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Avvio rapido: Analizzare i dati in Azure Data Lake Storage Gen2 con Azure Databricks
+# <a name="quickstart-analyze-data-with-databricks"></a>Avvio rapido: Analizzare i dati con Databricks
 
-Questa guida introduttiva illustra come eseguire un processo Apache Spark con Azure Databricks per effettuare analisi sui dati archiviati in un account di archiviazione per cui è abilitato Azure Data Lake Storage Gen2.
-
-Nell'ambito del processo Spark si analizzeranno i dati delle sottoscrizioni di un canale radio per ottenere informazioni dettagliate sull'utilizzo gratuito/a pagamento in base ai dati demografici.
-
-Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+In questo argomento di avvio rapido viene eseguito un processo di Apache Spark usando Azure Databricks per svolgere analisi sui dati archiviati in un account di archiviazione. Nell'ambito del processo Spark si analizzeranno i dati delle sottoscrizioni di un canale radio per ottenere informazioni dettagliate sull'utilizzo gratuito/a pagamento in base ai dati demografici.
 
 ## <a name="prerequisites"></a>Prerequisites
 
-* Creare un account di archiviazione Data Lake Gen2. Vedere [Avvio rapido: Creare un account di archiviazione di Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md)
+* Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-  Incollare il nome dell'account di archiviazione in un file di testo. Sarà presto necessario.
+* Il nome dell'account di archiviazione Azure Data Lake Gen2. [Creare un account di archiviazione di Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
 
-* Creare un'entità servizio. Vedere [Procedura: Usare il portale per creare un'entità servizio e applicazione di Azure AD che possano accedere alle risorse](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-
-  Mentre si completano le procedure descritte in tale articolo è necessario eseguire alcune operazioni specifiche.
-
-  :heavy_check_mark: Quando si esegue la procedura descritta nella sezione [Assegnare l'applicazione a un ruolo](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) dell'articolo, assicurarsi di assegnare il ruolo **Collaboratore ai dati del BLOB di archiviazione** all'entità servizio.
+* L'ID tenant, l'ID app e la password di un'entità servizio di Azure con un ruolo assegnato di **Collaboratore ai dati dei BLOB di archiviazione**. [Creare un'entità servizio](../../active-directory/develop/howto-create-service-principal-portal.md).
 
   > [!IMPORTANT]
-  > Assicurarsi di assegnare il ruolo nell'ambito dell'account di archiviazione Data Lake Storage Gen2. È possibile assegnare un ruolo al gruppo di risorse padre o alla sottoscrizione, ma si riceveranno errori relativi alle autorizzazioni fino a quando tali assegnazioni di ruolo non si propagheranno all'account di archiviazione.
-
-  :heavy_check_mark: Quando si esegue la procedura descritta nella sezione [Ottenere i valori per l'accesso](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) dell'articolo, incollare i valori di ID tenant, ID app e password in un file di testo. Saranno necessari a breve.
+  > Assegnare il ruolo nell'ambito dell'account di archiviazione Data Lake Storage Gen2. È possibile assegnare un ruolo al gruppo di risorse padre o alla sottoscrizione, ma si riceveranno errori relativi alle autorizzazioni fino a quando tali assegnazioni di ruolo non si propagheranno all'account di archiviazione.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Creare un'area di lavoro di Azure Databricks
 
@@ -190,7 +180,7 @@ Eseguire le attività seguenti per eseguire un processo Spark SQL sui dati.
     - Impostare **Values** (Valori) su **level**.
     - Impostare **Aggregation** (Aggregazione) su **COUNT** (CONTEGGIO).
 
-6. Fare clic su **Apply**.
+6. Fare clic su **Applica**.
 
 7. L'output mostra la rappresentazione visiva illustrata nello screenshot seguente:
 

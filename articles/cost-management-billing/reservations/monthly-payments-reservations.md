@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 11/01/2019
 ms.author: banders
-ms.openlocfilehash: cf9bb7f3b9661d5957ad569fce7112fe16659761
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 89ae15bb82db1e9e06ac2cb52146137161dac47d
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75995949"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031340"
 ---
 # <a name="purchase-reservations-with-monthly-payments"></a>Acquistare prenotazioni con pagamenti mensili
 
@@ -25,10 +25,15 @@ I pagamenti mensili sono disponibili per:
 
 - Macchine virtuali
 - Archiviazione di Azure
-- Database SQL
+- DATABASE SQL
 - SQL Data Warehouse
 - Cosmos DB
 - Tariffa stamp del servizio app
+- Managed Disks
+- Esplora dati di Azure
+- Database di Azure per MariaDB, MySQL e PostgreSQL
+- Soluzione Azure VMware di CloudSimple
+
 
 Acquistare le prenotazioni nel [portale di Azure](https://portal.azure.com/?Microsoft_Azure_Reservations_EnableMultiCart=true&amp;paymentPlan=true#blade/Microsoft_Azure_Reservations/CreateBlade).
 

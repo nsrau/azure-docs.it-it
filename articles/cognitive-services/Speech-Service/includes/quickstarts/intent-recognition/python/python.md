@@ -1,28 +1,24 @@
 ---
-title: 'Avvio rapido: Riconoscere la voce, le finalità e le entità, Python - Servizio Voce'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/02/2020
+ms.date: 01/27/2020
 ms.topic: include
-ms.author: erhopf
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: f2a46b8a0868aaa1097dd7f1ae738a2a3e06e3b8
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9bc514c32d97958d8ab154dc2c5533747f380e86
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772954"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900522"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare:
 
-* Se si tratta del primo progetto Python, usare questa guida per <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md" target="_blank">creare un progetto di esempio vuoto</a>.
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md" target="_blank">Installare Speech SDK per l'ambiente di sviluppo</a>.
+* Se si tratta del primo progetto Python, usare questa guida per <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md" target="_blank">creare un progetto di esempio vuoto<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md" target="_blank">Installare Speech SDK per l'ambiente di sviluppo <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Creare un'app LUIS per il riconoscimento delle finalità
 
@@ -65,7 +61,7 @@ Creare ora un oggetto `IntentRecognizer`. Inserire questo codice immediatamente 
 
 ## <a name="add-a-languageunderstandingmodel-and-intents"></a>Aggiungere un oggetto LanguageUnderstandingModel e le finalità
 
-È necessario associare un oggetto `LanguageUnderstandingModel` allo strumento di riconoscimento di finalità e aggiungere le finalità da riconoscere. Verranno usate le finalità del dominio predefinito per la domotica. 
+È necessario associare un oggetto `LanguageUnderstandingModel` allo strumento di riconoscimento di finalità e aggiungere le finalità da riconoscere. Verranno usate le finalità del dominio predefinito per la domotica.
 
 Inserire questo codice sotto `IntentRecognizer`. Assicurarsi di sostituire `"YourLanguageUnderstandingAppId"` con l'ID dell'app LUIS. 
 
@@ -90,7 +86,7 @@ Sotto la chiamata a `recognize_once()` aggiungere il codice seguente: [!code-pyt
 
 ## <a name="check-your-code"></a>Controllare il codice
 
-A questo punto il codice dovrà avere questo aspetto:  
+A questo punto il codice dovrà avere questo aspetto:
 
 > [!NOTE]
 > In questa versione sono stati aggiunti alcuni commenti.

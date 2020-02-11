@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: ec6c1ef31b6cf92629be600b3b139bb2e1a0d3ce
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1acc17f9c2fbeb53b992891174866433d14f128d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977251"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986662"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Esercitazione: Creare un'app a singola pagina con l'API Ricerca Web Bing
 
@@ -32,7 +32,7 @@ Questa app di esempio può:
 
 Per usare questa app è necessario un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con le API di ricerca Bing. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) per ottenere una chiave di sottoscrizione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per eseguire l'app occorre:
 
@@ -82,7 +82,7 @@ Questa esercitazione è incentrata su `scripts.js` e sulla logica necessaria per
 
 Il modulo HTML include opzioni che eseguono il mapping ai parametri di query nell'[API Ricerca Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters). La tabella seguente mostra in che modo gli utenti possono filtrare i risultati della ricerca usando l'app di esempio:
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 |-----------|-------------|
 | `query` | Campo di testo in cui immettere una stringa di query. |
 | `where` | Menu a discesa in cui selezionare il mercato (località e lingua). |
@@ -105,7 +105,7 @@ function bingSearchOptions(form) {
     // Where option.
     options.push("mkt=" + form.where.value);
     // SafeSearch option.
-    options.push("SafeSearch=" + (form.safe.checked ? "strict" : "off"));
+    options.push("SafeSearch=" + (form.safe.checked ? "strict" : "moderate"));
     // Freshness option.
     if (form.when.value.length) options.push("freshness=" + form.when.value);
     var what = [];
@@ -128,7 +128,7 @@ function bingSearchOptions(form) {
 }
 ```
 
-`SafeSearch`può essere impostato su `strict`, `moderate` o `off`. `moderate` è l'impostazione predefinita per Ricerca Web Bing. Questo modulo usa una casella di controllo che presenta due stati. In questo frammento di codice Ricerca sicura è impostata su `strict` o `off`. `moderate` non viene usato.
+`SafeSearch`può essere impostato su `strict`, `moderate` o `off`. `moderate` è l'impostazione predefinita per Ricerca Web Bing. Questo modulo usa una casella di controllo che presenta due stati: `strict` o `moderate`.
 
 Se una qualsiasi delle caselle di controllo **Alza di livello** è selezionata, il parametro `answerCount` viene aggiunto alla query. `answerCount` è necessario quando si usa il parametro `promote`. In questo frammento di codice il valore è impostato su `9` per restituire tutti i tipi di risultati disponibili.
 > [!NOTE]
@@ -386,7 +386,7 @@ Alcune delle funzioni di rendering accettano solo il parametro `item`. Altre acc
 
 Gli argomenti di contesto sono:
 
-| Parametro  | DESCRIZIONE |
+| Parametro  | Descrizione |
 |------------|-------------|
 | `section` | La sezione relativa ai risultati, ovvero `pole`, `mainline` o `sidebar`, in cui l'elemento compare. |
 | `index`<br>`count` | Disponibile quando l'elemento `RankingResponse` specifica che tutti i risultati di una determinata raccolta devono essere visualizzati; `undefined` in caso contrario. L'indice dell'elemento all'interno della raccolta e il numero totale di elementi della raccolta. È possibile usare queste informazioni per numerare i risultati, per generare codice HTML diverso per il primo o l'ultimo risultato e così via. |

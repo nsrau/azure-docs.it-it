@@ -6,32 +6,25 @@ ms.topic: quickstart
 description: Questa guida di avvio rapido illustra come usare Azure Dev Spaces e Visual Studio Code per eseguire il debug e l'iterazione rapida di un'applicazione Node.js nel servizio Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 557e5a541b175f1641142779de23bb83ab212831
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: cd784ed616b2938f4c57bad47045f0d44ad25a69
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290510"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022529"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-nodejs---azure-dev-spaces"></a>Avvio rapido: Eseguire il debug e l'iterazione in Kubernetes con Visual Studio Code e Node.js - Azure Dev Spaces
 
-In questa guida si apprenderà come:
-
-- Configurare Azure Dev Spaces con un cluster Kubernetes gestito in Azure.
-- Sviluppare codice in modo iterativo nei contenitori con Visual Studio Code.
-- Eseguire il debug del codice nello spazio di Dev Spaces da Visual Studio Code.
-
-Azure Dev Spaces consente anche di eseguire il debug e l'iterazione usando:
-- [Java e Visual Studio Code](quickstart-java.md)
-- [.NET Core e Visual Studio Code](quickstart-netcore.md)
-- [.NET Core e Visual Studio](quickstart-netcore-visualstudio.md)
+In questo argomento di avvio rapido si configura Azure Dev Spaces con un cluster Kubernetes gestito e si usa un'app Node.js in Visual Studio Code per sviluppare ed eseguire il debug in modo iterativo del codice nei contenitori. Azure Dev Spaces consente di eseguire il debug e i test di tutti i componenti dell'applicazione nel servizio Azure Kubernetes con una configurazione minima del computer di sviluppo. 
 
 ## <a name="prerequisites"></a>Prerequisites
 
-- Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/free).
-- [Visual Studio Code installato](https://code.visualstudio.com/download).
-- L'estensione [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) per Visual Studio Code installata.
-- [L'interfaccia della riga di comando di Azure installata](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- [La versione più recente di Node.js](https://nodejs.org/download/).
+- [Visual Studio Code](https://code.visualstudio.com/download).
+- L'estensione [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) per Visual Studio Code.
+- [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- [Git](https://www.git-scm.com/downloads).
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Creare un cluster del servizio Azure Kubernetes
 
@@ -44,10 +37,10 @@ az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --gen
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Abilitare Azure Dev Spaces nel cluster del servizio Azure Kubernetes
 
-Usare il comando `use-dev-spaces` per abilitare Dev Spaces nel cluster del servizio Azure Kubernetes e seguire i prompt. Il comando seguente abilita Dev Spaces nel cluster *MyAKS* all'interno del gruppo *MyResourceGroup* e crea uno spazio *predefinito*.
+Usare il comando `use-dev-spaces` per abilitare Dev Spaces nel cluster del servizio Azure Kubernetes e seguire i prompt. Il comando seguente abilita Dev Spaces nel cluster *MyAKS* all'interno del gruppo *MyResourceGroup* e crea uno spazio di Dev Spaces *predefinito*.
 
 > [!NOTE]
-> Il comando `use-dev-spaces` installerà anche l'interfaccia della riga di comando di Azure Dev Spaces se non è già installata. Non è possibile installare l'interfaccia della riga di comando Azure Dev Spaces in Azure Cloud Shell.
+> Il comando `use-dev-spaces` installerà anche l'interfaccia della riga di comando di Azure Dev Spaces se non è già installata. Non è possibile installare l'interfaccia della riga di comando di Azure Dev Spaces in Azure Cloud Shell.
 
 ```cmd
 $ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
@@ -79,11 +72,11 @@ git clone https://github.com/Azure/dev-spaces
 
 ## <a name="prepare-the-sample-application-in-visual-studio-code"></a>Preparare l'applicazione di esempio in Visual Studio Code
 
-Aprire Visual Studio Code, fare clic su *File*, quindi su *Apri*, passare alla directory *dev-spaces/samples/nodejs/getting-started/webfrontend* e fare clic su *Apri*.
+Aprire Visual Studio Code, selezionare **File**, quindi **Apri**, passare alla directory *dev-spaces/samples/nodejs/getting-started/webfrontend* e selezionare **Apri**.
 
 In Visual Studio Code è ora aperto il progetto *webfrontend*. Per eseguire l'applicazione nello spazio di sviluppo, generare gli asset per grafici Helm e Docker usando l'estensione Azure Dev Spaces nel riquadro comandi.
 
-Per aprire il riquadro comandi in Visual Studio Code, fare clic su *Visualizza* e quindi su *Riquadro comandi*. Iniziare a digitare `Azure Dev Spaces` e fare clic su `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
+Per aprire il riquadro comandi in Visual Studio Code, selezionare **Visualizza** e quindi **Riquadro comandi**. Iniziare a digitare `Azure Dev Spaces` e selezionare **Azure Dev Spaces: Preparare i file di configurazione per Azure Dev Spaces**.
 
 ![Preparare i file di configurazione per Azure Dev Spaces](./media/common/command-palette.png)
 
@@ -98,24 +91,24 @@ Questo comando consente di preparare il progetto per l'esecuzione in Azure Dev S
 
 ## <a name="build-and-run-code-in-kubernetes-from-visual-studio-code"></a>Compilare ed eseguire il codice in Kubernetes da Visual Studio Code
 
-Fare clic sull'icona *Debug* a sinistra e quindi su *Launch Server (AZDS)* (Avvia server AZDS) nella parte superiore.
+Selezionare l'icona **Debug** a sinistra e quindi **Launch Server (AZDS)** (Avvia server AZDS) nella parte superiore.
 
 ![Comando Launch Server](media/get-started-node/debug-configuration-nodejs.png)
 
-Questo comando compila ed esegue il servizio in Azure Dev Spaces. La finestra del *terminale* nella parte inferiore visualizza l'output della compilazione e gli URL per il servizio che esegue Azure Dev Spaces. La *Console di debug* visualizza l'output del log.
+Questo comando compila ed esegue il servizio in Azure Dev Spaces. La finestra del **terminale** nella parte inferiore visualizza l'output della compilazione e gli URL per il servizio che esegue Azure Dev Spaces. La **Console di debug** visualizza l'output del log.
 
 > [!Note]
-> Se nel *riquadro comandi* non vengono visualizzati comandi di Azure Dev Spaces, assicurarsi di aver installato l'[estensione Visual Studio Code per Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Verificare inoltre di aver aperto la directory *dev-spaces/samples/nodejs/getting-started/webfrontend* in Visual Studio Code.
+> Se nel **riquadro comandi** non vengono visualizzati comandi di Azure Dev Spaces, assicurarsi di aver installato l'[estensione Visual Studio Code per Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Verificare inoltre di aver aperto la directory *dev-spaces/samples/nodejs/getting-started/webfrontend* in Visual Studio Code.
 
 Per vedere il servizio in esecuzione, aprire l'URL pubblico.
 
-Fare clic su *Debug* e quindi su *Arresta debug* per arrestare il debugger.
+Selezionare **Debug** e quindi **Arresta debug** per arrestare il debugger.
 
 ## <a name="update-code"></a>Aggiornare il codice
 
-Per distribuire una versione aggiornata del servizio, è possibile aggiornare qualsiasi file del progetto ed eseguire di nuovo *Launch Server* (Avvia server). Ad esempio:
+Per distribuire una versione aggiornata del servizio, è possibile aggiornare qualsiasi file del progetto ed eseguire di nuovo **Launch Server** (Avvia server). Ad esempio:
 
-1. Se l'applicazione è ancora in esecuzione, fare clic su *Debug* e quindi su *Arresta debug* per arrestarla.
+1. Se l'applicazione è ancora in esecuzione, selezionare **Debug** e quindi **Arresta debug** per arrestarla.
 1. Aggiornare la [riga 13 di `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) in:
     
     ```javascript
@@ -123,27 +116,27 @@ Per distribuire una versione aggiornata del servizio, è possibile aggiornare qu
     ```
 
 1. Salvare le modifiche.
-1. Eseguire di nuovo *Launch Server* (Avvia server).
+1. Eseguire di nuovo **Launch Server** (Avvia server).
 1. Passare al servizio in esecuzione e osservare le modifiche.
-1. Fare clic su *Debug* e quindi su *Arresta debug* per arrestare l'applicazione.
+1. Selezionare **Debug** e quindi **Arresta debug** per arrestare l'applicazione.
 
 ## <a name="setting-and-using-breakpoints-for-debugging"></a>Impostazione e uso di punti di interruzione per il debug
 
-Avviare il servizio scegliendo *Launch Server (AZDS)* (Avvia server AZDS).
+Avviare il servizio scegliendo **Launch Server (AZDS)** (Avvia server AZDS).
 
-Tornare nella visualizzazione *Explorer* facendo clic su *Visualizza* e quindi su *Explorer*. Aprire `server.js` e fare clic in un punto della riga 13 per posizionarvi il cursore. Per impostare un punto di interruzione premere *F9* oppure fare clic su *Debug* e quindi su *Attiva/Disattiva punto di interruzione*.
+Tornare nella visualizzazione Explorer selezionando **Visualizza** e quindi **Explorer**. Aprire *server.js* e fare clic in un punto della riga 13 per posizionarvi il cursore. Per impostare un punto di interruzione premere **F9** oppure selezionare **Debug** e quindi **Attiva/Disattiva punto di interruzione**.
 
-Aprire il servizio in un browser e notare che non vengono visualizzati messaggi. Tornare in Visual Studio Code e notare che la riga 13 è evidenziata. Il punto di interruzione impostato ha sospeso il servizio in corrispondenza della riga 13. Per riprendere il servizio, premere *F5* oppure fare clic su *Debug* e quindi su *Continua*. Tornare nel browser e notare che ora il messaggio è visualizzato.
+Aprire il servizio in un browser e notare che non vengono visualizzati messaggi. Tornare in Visual Studio Code e notare che la riga 13 è evidenziata. Il punto di interruzione impostato ha sospeso il servizio in corrispondenza della riga 13. Per riprendere il servizio, premere **F5** oppure selezionare **Debug** e quindi **Continua**. Tornare nel browser e notare che ora il messaggio è visualizzato.
 
 Durante l'esecuzione del servizio in Kubernetes con un debugger collegato, si ha accesso completo alle informazioni di debug, ad esempio su stack di chiamate, variabili locali ed eccezioni.
 
-Rimuovere il punto di interruzione posizionando il cursore sulla riga 13 di `server.js` e premendo *F9*.
+Rimuovere il punto di interruzione posizionando il cursore sulla riga 13 di *server.js* e premendo **F9**.
 
-Fare clic su *Debug* e quindi su *Arresta debug* per arrestare il debugger.
+Selezionare **Debug** e quindi **Arresta debug** per arrestare il debugger.
 
 ## <a name="update-code-from-visual-studio-code"></a>Aggiornare il codice da Visual Studio Code
 
-Cambiare la modalità di debug in *Attach to a Server (AZDS)* (Collega a un server AZDS) e avviare il servizio:
+Cambiare la modalità di debug in **Attach to a Server (AZDS)** (Collega a un server AZDS) e avviare il servizio:
 
 ![](media/get-started-node/attach-nodejs.png)
 
@@ -151,7 +144,7 @@ Questo comando compila ed esegue il servizio in Azure Dev Spaces. Avvia inoltre 
 
 Dopo averlo avviato, accedere e interagire con il servizio nel browser.
 
-Mentre il servizio è in esecuzione, tornare in VS Code e aggiornare la riga 13 di `server.js`. Ad esempio:
+Mentre il servizio è in esecuzione, tornare in VS Code e aggiornare la riga 13 di *server.js*. Ad esempio:
 ```javascript
     res.send('Hello from webfrontend in Azure while debugging!');
 ```

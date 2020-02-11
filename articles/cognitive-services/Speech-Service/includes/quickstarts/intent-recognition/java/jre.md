@@ -1,28 +1,24 @@
 ---
-title: 'Avvio rapido: Riconoscere la voce, le finalità e le entità, Java - Servizio Voce'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/02/2020
+ms.date: 01/27/2020
 ms.topic: include
-ms.author: erhopf
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: c5d70bba32df5940d929482e37317d40bd496676
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: a6bf8bb558e82fefbbe6ff306f628a4b449a4e83
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76761471"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900458"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare:
 
-* Se si tratta del primo progetto Java (JRE), usare questa guida per <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=jre" target="_blank">creare un progetto di esempio vuoto</a>.
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre" target="_blank">Installare Speech SDK per l'ambiente di sviluppo</a>.
+* Se si tratta del primo progetto Java (JRE), usare questa guida per <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=jre" target="_blank">creare un progetto di esempio vuoto<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre" target="_blank">Installare Speech SDK per l'ambiente di sviluppo <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Creare un'app LUIS per il riconoscimento delle finalità
 
@@ -96,7 +92,7 @@ Inserire questo codice sotto la chiamata a `recognizeOnceAsync()`: [!code-java[]
 
 ## <a name="check-your-code"></a>Controllare il codice
 
-A questo punto il codice dovrà avere questo aspetto:  
+A questo punto il codice dovrà avere questo aspetto:
 
 > [!NOTE]
 > In questa versione sono stati aggiunti alcuni commenti.
@@ -105,7 +101,7 @@ A questo punto il codice dovrà avere questo aspetto:
 
 ## <a name="build-and-run-your-app"></a>Compilare ed eseguire l'app
 
-Premere F11 o selezionare **Esegui** > **Debug**.
+Premere <kbd>F11</kbd> o selezionare **Esegui** > **Debug**.
 I successivi 15 secondi di input vocale dal microfono verranno riconosciuti e registrati nella finestra della console.
 
 ## <a name="next-steps"></a>Passaggi successivi

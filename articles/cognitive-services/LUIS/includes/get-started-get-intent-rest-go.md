@@ -6,34 +6,47 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/20/2019
+ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: 5054ee9a23458944257a8010aaab6268d25042a7
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 02cb7738e20df6aba8690c9fe2ee718144bad114
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74414577"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987784"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-* Linguaggio di programmazione [Go](https://golang.org/)  
+* Linguaggio di programmazione [Go](https://golang.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * ID app pubblico: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
-## <a name="get-luis-key"></a>Ottenere la chiave di LUIS
+## <a name="create-luis-runtime-key-for-predictions"></a>creare la chiave di runtime di LUIS per le previsioni
 
-[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
+1. Accedere al [portale di Azure](https://portal.azure.com)
+1. Fare clic su [Crea **Language Understanding**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+1. Immettere tutte le impostazioni necessarie per la chiave di **runtime**:
+
+    |Impostazione|valore|
+    |--|--|
+    |Nome|Il nome desiderato (2-64 caratteri)|
+    |Subscription|Selezionare la sottoscrizione appropriata|
+    |Location|Selezionare una località vicina e disponibile|
+    |Piano tariffario|`F0`: il piano tariffario minimo|
+    |Gruppo di risorse|Selezionare un gruppo di risorse disponibile|
+
+1. Fare clic su **Crea** e attendere che venga creata la risorsa. Una volta creata, passare alla relativa pagina.
+1. Raccogliere i valori di `endpoint` e `key` configurati.
 
 ## <a name="get-intent-programmatically"></a>Ottenere la finalità a livello di codice
 
 Usare Go per eseguire query sull'[endpoint di previsione](https://aka.ms/luis-apim-v3-prediction) per ottenere un risultato della previsione.
 
 1. Creare un file denominato `predict.go`. Aggiungere il codice seguente:
-    
+
     ```go
     package main
-    
+
     /* Do dependencies */
     import (
         "fmt"
@@ -43,65 +56,67 @@ Usare Go per eseguire query sull'[endpoint di previsione](https://aka.ms/luis-ap
         "log"
     )
     func main() {
-        
+
         // public app
         var appID = "df67dcdb-c37d-46af-88e1-8b97951ca1c2"
-        
+
         // utterance for public app
         var utterance = "turn on all lights"
-        
-        // YOUR-KEY - your starter or prediction key
+
+        // YOUR-KEY - your **Runtime** key
         var endpointKey = "YOUR-KEY"
-        
-        // YOUR-ENDPOINT - example is westus2.api.cognitive.microsoft.com
+
+        // YOUR-ENDPOINT - example is your-resource-name.api.cognitive.microsoft.com
         var endpoint = "YOUR-ENDPOINT"
-    
+
         endpointPrediction(appID, endpointKey, endpoint, utterance)
     }
     func endpointPrediction(appID string, endpointKey string, endpoint string, utterance string) {
-    
+
         var endpointUrl = fmt.Sprintf("https://%s/luis/prediction/v3.0/apps/%s/slots/production/predict?subscription-key=%s&verbose=true&show-all-intents=true&query=%s", endpoint, appID, endpointKey, url.QueryEscape(utterance))
-        
+
         response, err := http.Get(endpointUrl)
-    
+
         if err!=nil {
             // handle error
             fmt.Println("error from Get")
             log.Fatal(err)
         }
-        
+
         response2, err2 := ioutil.ReadAll(response.Body)
-    
+
         if err2!=nil {
             // handle error
             fmt.Println("error from ReadAll")
             log.Fatal(err2)
         }
-    
+
         fmt.Println("response")
         fmt.Println(string(response2))
     }
     ```
 
-1. Sostituire i valori seguenti:
+1. Sostituire i valori `YOUR-KEY` e `YOUR-ENDPOINT` con la chiave di **runtime** e l'endpoint di previsione.
 
-    * `YOUR-KEY` con la chiave di avvio.
-    * `YOUR-ENDPOINT` con l'endpoint. Ad esempio: `westus2.api.cognitive.microsoft.com`.
+    |Informazioni|Scopo|
+    |--|--|
+    |`YOUR-KEY`|La chiave di **runtime** di previsione di 32 caratteri.|
+    |`YOUR-ENDPOINT`| L'endpoint dell'URL di previsione. Ad esempio: `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
 
 1. Da un prompt dei comandi nella stessa directory in cui è stato creato il file immettere il comando seguente per compilare il file Go:
 
     ```console
     go build predict.go
-    ```  
+    ```
 
-1. Eseguire l'applicazione Go alla riga di comando immettendo il testo seguente nel prompt dei comandi: 
+1. Eseguire l'applicazione Go alla riga di comando immettendo il testo seguente nel prompt dei comandi:
 
     ```console
     go run predict.go
     ```
-    
-    Al prompt dei comandi viene visualizzata la risposta seguente: 
-    
+
+    Al prompt dei comandi viene visualizzata la risposta seguente:
+
     ```console
     appID has value df67dcdb-c37d-46af-88e1-8b97951ca1c2
     endpointKey has value a7b206911f714e71a1ddae36928a61cc
@@ -155,13 +170,9 @@ Usare Go per eseguire query sull'[endpoint di previsione](https://aka.ms/luis-ap
     ```
 
 
-## <a name="luis-keys"></a>Chiavi di LUIS
-
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
-
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Al termine di questo argomento di avvio rapido, eliminare il file dal file system. 
+Al termine di questo argomento di avvio rapido, eliminare il file dal file system.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

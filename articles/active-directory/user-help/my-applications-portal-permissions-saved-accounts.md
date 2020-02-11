@@ -1,27 +1,27 @@
 ---
-title: Gestire le autorizzazioni dell'applicazione nel portale App personali (anteprima) - Azure Active Directory | Microsoft Docs
-description: Informazioni su come gestire le autorizzazioni dell'applicazione per le app basate sul cloud dell'organizzazione nel portale App personali (anteprima).
+title: Gestire le autorizzazioni delle applicazioni nel portale App personali - Azure Active Directory | Microsoft Docs
+description: Informazioni su come gestire le autorizzazioni per le app basate sul cloud dell'organizzazione nel portale App personali.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: kasimpso
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 10/30/2019
-ms.author: lizross
+ms.date: 02/03/2020
+ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 36abbee0bf25550425f4e476e6a4e7b75df815a6
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: bac33386371b13950163727497cabd0f262df135
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705055"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022410"
 ---
-# <a name="edit-or-revoke-application-permissions-in-the-my-apps-preview-portal"></a>Modificare o revocare le autorizzazioni dell'applicazione nel portale App personali (anteprima)
+# <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>Modificare o revocare le autorizzazioni delle applicazioni nel portale App personali
 
-Quando si usano applicazioni aziendali nel portale **App personali** (anteprima), spesso si concedono le autorizzazioni e si salvano le informazioni sull'account. Per garantire la sicurezza dei dati, è consigliabile rivedere e revocare le autorizzazioni o cancellare le credenziali dell'account salvato. La rimozione delle autorizzazioni o degli account può limitare le funzionalità dell'app. Se si verificano problemi dopo aver rimosso le autorizzazioni o gli account, contattare il supporto tecnico dell'organizzazione per ottenere assistenza aggiuntiva.
+Quando si usano applicazioni aziendali nel portale **App personali**, spesso si concedono le autorizzazioni e si salvano le informazioni sull'account. Per garantire la sicurezza dei dati, è consigliabile rivedere e revocare le autorizzazioni o cancellare le credenziali dell'account salvato. La rimozione delle autorizzazioni o degli account può limitare le funzionalità dell'app. Se si verificano problemi dopo aver rimosso le autorizzazioni o gli account, contattare il supporto tecnico dell'organizzazione per ottenere assistenza aggiuntiva.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
@@ -46,11 +46,11 @@ Nella parte inferiore della finestra delle autorizzazioni vengono visualizzati g
 
 Dopo aver gestito le autorizzazioni dell'app e gli account salvati nel portale **App personali**, è possibile:
 
-- Organizzare le app nelle diverse categorie create e fornite dall'organizzazione. Per altre informazioni, vedere [Accedere e usare le aree di lavoro nel portale App personali (anteprima)](my-applications-portal-workspaces.md).
+- Organizzare le app nelle diverse categorie create e fornite dall'organizzazione. Per altre informazioni, vedere [Accedere e usare le raccolte nel portale App personali](my-applications-portal-workspaces.md).
 
 ## <a name="related-articles"></a>Articoli correlati
 
-- [Aggiornare le informazioni su profilo e account](my-account-portal-overview.md). Istruzioni su come aggiornare le informazioni personali visualizzate nel portale **Profilo personale** (anteprima).
+- [Aggiornare le informazioni su profilo e account](my-account-portal-overview.md). Istruzioni su come aggiornare le informazioni personali visualizzate nel portale **Profilo personale**.
 
 - [Gestire le organizzazioni](my-account-portal-organizations-page.md). Istruzioni su come visualizzare e gestire le informazioni relative all'organizzazione nella pagina **Organizzazioni** del portale **Profilo personale**.
 

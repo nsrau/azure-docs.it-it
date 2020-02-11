@@ -7,16 +7,16 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: d72636265ff3ac654faba91d1420b502b35d3192
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 5632d98d9d853d9a4b0882c28cad1836bb6f3cef
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889022"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025470"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Esercitazione: Distribuire ed esaminare un modello di applicazione Gestione inventario intelligente
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Questa esercitazione illustra come iniziare a distribuire un modello di applicazione **Gestione inventario intelligente** di IoT Central. Si apprenderà come distribuire il modello e quali sono gli elementi inclusi per impostazione predefinita. Verranno inoltre fornite informazioni sulle possibili operazioni successive.
 
@@ -24,32 +24,38 @@ In questa esercitazione si apprenderà come:
 * Creare un'applicazione di gestione dell'inventario intelligente 
 * Esaminare l'applicazione 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
+
 * Non sono richiesti prerequisiti specifici per distribuire l'app
 * È consigliabile avere una sottoscrizione di Azure, ma è anche possibile provare senza
 
 ## <a name="create-smart-inventory-management-application-template"></a>Creare un modello di applicazione Gestione inventario intelligente
 
 È possibile creare un'applicazione seguendo questa procedura:
+
 1. Passare al sito Web di gestione applicazioni di Azure IoT Central. Selezionare **Compila** dalla barra di spostamento a sinistra e quindi fare clic sulla scheda **Retail**.
 
-> [!div class="mx-imgBorder"]
-> ![Dashboard di gestione dell'inventario intelligente](./media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png)
+    > [!div class="mx-imgBorder"]
+    > ![Dashboard di gestione dell'inventario intelligente](./media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png)
 
-2. Selezionare la scheda **Retail** e **Crea app** in ** Gestione inventario intelligente**
+2. Selezionare la scheda **Retail** e **Crea app** in **Gestione inventario intelligente**
 
 3. **Crea app** consente di aprire il modulo Nuova applicazione e di specificare i dettagli richiesti, come illustrato di seguito.
    **Nome applicazione**: è possibile usare il nome suggerito predefinito o immettere il nome descrittivo dell'applicazione.
-   **URL**: è possibile usare l'URL predefinito suggerito o immettere un URL univoco descrittivo facile da ricordare. L'impostazione predefinita è consigliata se si ha già una sottoscrizione di Azure. In caso contrario, è possibile iniziare con una versione di valutazione gratuita di sette giorni e scegliere di convertire il pagamento in base al consumo in qualsiasi momento prima della scadenza della versione di valutazione gratuita.
+   **URL**: è possibile usare l'URL predefinito suggerito o immettere un URL univoco descrittivo facile da ricordare. È consigliabile usare l'impostazione predefinita se si dispone già di una sottoscrizione di Azure. È possibile iniziare con il piano tariffario della versione di valutazione gratuita valida 7 giorni e scegliere di convertirlo in un piano tariffario standard in qualsiasi momento prima della scadenza.
    **Info di fatturazione**: Per effettuare il provisioning delle risorse sono necessari i dettagli relativi alla directory, alla sottoscrizione di Azure e all'area.
    **Creazione**: Selezionare Crea nella parte inferiore della pagina per distribuire l'applicazione.
 
-> [!div class="mx-imgBorder"]
-> ![Dashboard di gestione dell'inventario intelligente](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
+    > [!div class="mx-imgBorder"]
+    > ![Dashboard di gestione dell'inventario intelligente](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
+
+    > [!div class="mx-imgBorder"]
+    > ![Informazioni sulla fatturazione della gestione dell'inventario intelligente](./media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-app-create-billinginfo.png)
 
 ## <a name="walk-through-the-application"></a>Esaminare l'applicazione 
 
-### <a name="dashboard"></a>dashboard 
+### <a name="dashboard"></a>Dashboard 
+
 Dopo aver distribuito il modello di app, la dashboard predefinita sarà un portale incentrato sull'operatore di gestione dell'inventario intelligente. Northwind Trader è un provider di inventario intelligente fittizio che gestisce il magazzino con Bluetooth a basso consumo (BLE) e il punto vendita al dettaglio con la tecnologia RFID (Radio Frequency Identification). Nella dashboard verranno visualizzati due gateway diversi che forniscono dati di telemetria sull'inventario insieme ai comandi, ai processi e alle azioni associati che è possibile eseguire. La dashboard è preconfigurata per presentare l'attività critica delle operazioni del dispositivo di gestione dell'inventario intelligente.
 La dashboard è suddivisa logicamente tra due diverse operazioni di gestione dei dispositivi gateway, 
    * Il magazzino è dotato di un gateway BLE fisso e tag BLE sui pallet per reperire e rintracciare le merci in una struttura più ampia
@@ -83,7 +89,7 @@ Fare clic sulla scheda Modelli di dispositivo per visualizzare il modello di fun
 ## <a name="rules"></a>Regole
 Selezionare la scheda delle regole per visualizzare due regole diverse presenti in questo modello di applicazione. Queste regole sono configurate per inviare notifiche tramite posta elettronica agli operatori per altre indagini.
 
-**Gateway offline**: Questa regola verrà attivata se il gateway non comunica con il cloud per un periodo prolungato. Il gateway potrebbe non rispondere a causa della modalità di batteria scarica, della perdita di connettività, dell'integrità del dispositivo.
+**Gateway offline**: Questa regola verrà attivata se il gateway non comunica con il cloud per un periodo di tempo prolungato. Il gateway potrebbe non rispondere a causa della modalità di batteria scarica, della perdita di connettività o dell'integrità del dispositivo.
 
 **Unknown tags** (Tag sconosciuti): È fondamentale tenere traccia di ogni tag RFID e BLE associato a un asset. Se il gateway rileva troppi tag sconosciuti significa che sono presenti problemi di sincronizzazione con le applicazioni di generazione dei tag.
 
@@ -91,7 +97,7 @@ Selezionare la scheda delle regole per visualizzare due regole diverse presenti 
 > ![Dashboard di gestione dell'inventario intelligente](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_rules.png)
 
 ## <a name="jobs"></a>Processi
-Selezionare la scheda dei processi per visualizzare cinque diversi processi che fanno parte di questo modello di applicazione: È possibile usare la funzionalità dei processi per eseguire operazioni a livello di soluzione. I processi di gestione dell'inventario usano i comandi del dispositivo e funzionalità dei dispositivi gemelli per eseguire attività, ad esempio:
+Selezionare la scheda dei processi per visualizzare cinque diversi processi che fanno parte di questo modello di applicazione: È possibile usare la funzionalità dei processi per eseguire operazioni a livello di soluzione. I processi di gestione dell'inventario usano i comandi del dispositivo e funzionalità di dispositivo gemello per eseguire attività, ad esempio:
    * disabilitare i lettori in tutto il gateway
    * modificare la soglia di dei dati di telemetria 
    * eseguire un'analisi dell'inventario su richiesta nell'intera soluzione.
@@ -109,4 +115,4 @@ Se non si intende continuare a usare questa applicazione, eliminare il modello d
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sul [concetto di gestione dell'inventario intelligente](./architecture-smart-inventory-management-pnp.md)
 * Altre informazioni sui altri [modelli di vendita al dettaglio di IoT Central](./overview-iot-central-retail-pnp.md)
-* Per altre informazioni su IoT Central fare riferimento a [Panoramica di IoT Central](../preview/overview-iot-central.md)
+* Per altre informazioni su IoT Central fare riferimento a [Panoramica di IoT Central](../core/overview-iot-central.md)

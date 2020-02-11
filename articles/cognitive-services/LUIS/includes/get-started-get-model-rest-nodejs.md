@@ -6,22 +6,22 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/18/2019
+ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: a262db04e51015edb760a8b04952dfa24b2ad63a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 056b2d2b1951b6630b61bbd6fd8a8c38b272900a
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76748809"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76966626"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
-* Chiave di avvio.
+* Azure Language Understanding: chiave di creazione della risorsa di 32 caratteri e URL dell'endpoint di creazione. Usare il [portale di Azure](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) o l'[interfaccia della riga di comando di Azure](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
 * Importare l'app [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) dal repository GitHub cognitive-services-language-understanding.
 * L'ID applicazione di LUIS per l'app TravelAgent importata. L'ID applicazione viene visualizzato nel dashboard delle applicazioni.
 * L'ID della versione all'interno dell'applicazione che riceve le espressioni. L'ID predefinito è "0.1".
-* Linguaggio di programmazione [Node.js](https://nodejs.org/) 
+* Linguaggio di programmazione [Node.js](https://nodejs.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 
 ## <a name="example-utterances-json-file"></a>File JSON delle espressioni di esempio
@@ -29,27 +29,26 @@ ms.locfileid: "76748809"
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
 
-## <a name="get-luis-key"></a>Ottenere la chiave di LUIS
-
-[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
-
 ## <a name="change-model-programmatically"></a>Cambiare il modello a livello di codice
 
-Usare Go per aggiungere all'applicazione un'[API](https://aka.ms/luis-apim-v3-authoring) entità basata su Machine Learning. 
+Usare Go per aggiungere all'applicazione un'[API](https://aka.ms/luis-apim-v3-authoring) entità basata su Machine Learning.
 
 1. Creare un file denominato `model.js`. Aggiungere il codice seguente:
 
     ```javascript
     var request = require('request');
     var requestpromise = require('request-promise');
-    
+
+    // 32 character key value
     const LUIS_authoringKey = "YOUR-KEY";
+
+    // endpoint example: your-resource-name.api.cognitive.microsoft.com
     const LUIS_endpoint = "YOUR-ENDPOINT";
     const LUIS_appId = "YOUR-APP-ID";
     const LUIS_versionId = "0.1";
     const addUtterancesURI = `https://${LUIS_endpoint}/luis/authoring/v3.0-preview/apps/${LUIS_appId}/versions/${LUIS_versionId}/examples`;
     const addTrainURI = `https://${LUIS_endpoint}/luis/authoring/v3.0-preview/apps/${LUIS_appId}/versions/${LUIS_versionId}/train`;
-    
+
     const utterances = [
             {
               'text': 'go to Seattle today',
@@ -68,17 +67,17 @@ Usare Go per aggiungere all'applicazione un'[API](https://aka.ms/luis-apim-v3-au
                 'entityLabels': []
             }
           ];
-    
+
     const main = async() =>{
-    
-    
+
+
         await addUtterance();
         await train("POST");
         await trainStatus("GET");
-    
+
     }
     const addUtterance = async () => {
-    
+
         const options = {
             uri: addUtterancesURI,
             method: 'POST',
@@ -88,48 +87,49 @@ Usare Go per aggiungere all'applicazione un'[API](https://aka.ms/luis-apim-v3-au
             json: true,
             body: utterances
         };
-    
+
         const response = await requestpromise(options)
         console.log(response.body);
     }
     const train = async (verb) => {
-    
+
         const options = {
             uri: addTrainURI,
-            method: verb, 
+            method: verb,
             headers: {
                 'Ocp-Apim-Subscription-Key': LUIS_authoringKey
             },
             json: true,
             body: null // The body can be empty for a training request
         };
-    
+
         const response = await requestpromise(options)
         console.log(response.body);
     }
-    
+
     // MAIN
     main().then(() => console.log("done")).catch((err)=> console.log(err returned));
     ```
-1. Sostituire i valori seguenti:
 
-    * `YOUR-KEY` con la chiave di avvio
-    * `YOUR-ENDPOINT` con l'endpoint, ad esempio `westus2.api.cognitive.microsoft.com`
-    * `YOUR-APP-ID` con l'ID dell'app
+1. Sostituire i valori che iniziano con `YOUR-` con i propri valori.
+
+    |Informazioni|Scopo|
+    |--|--|
+    |`YOUR-KEY`|La chiave di creazione di 32 caratteri.|
+    |`YOUR-ENDPOINT`| L'endpoint dell'URL di creazione. Ad esempio: `replace-with-your-resource-name.api.cognitive.microsoft.com`. Il nome della risorsa è stato impostato quando è stata creata la risorsa.|
+    |`YOUR-APP-ID`| L'ID app di LUIS. |
+
+    Le chiavi e le risorse assegnate sono visibili nel portale LUIS nella sezione Gestisci della pagina **Risorse di Azure**. L'ID app è disponibile nella stessa sezione Gestisci della pagina **Impostazioni applicazione**.
 
 1. Da un prompt dei comandi nella stessa directory in cui è stato creato il file immettere il comando seguente per eseguire il file:
 
     ```console
     node model.js
-    ```  
-
-## <a name="luis-keys"></a>Chiavi di LUIS
-
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
+    ```
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Al termine di questo argomento di avvio rapido, eliminare il file dal file system. 
+Al termine di questo argomento di avvio rapido, eliminare il file dal file system.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

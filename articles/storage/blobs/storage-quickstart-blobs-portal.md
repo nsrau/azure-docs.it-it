@@ -9,18 +9,18 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 7336260d7565697b0559419ae502848bcff9424c
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1e5ccc9d427755ea4274e836e81e3e324fffa39d
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892856"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937797"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con il portale di Azure
+# <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Avvio rapido: Caricare, scaricare ed elencare BLOB con il portale di Azure
 
 In questa guida introduttiva si apprenderà come usare il [portale di Azure](https://portal.azure.com/) per creare un contenitore in Archiviazione di Azure e per caricare e scaricare BLOB in blocchi in tale contenitore.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -45,13 +45,14 @@ Per caricare un BLOB in blocchi nel nuovo contenitore nel portale di Azure, segu
 
 1. Nel portale di Azure passare al contenitore creato nella sezione precedente.
 2. Selezionare il contenitore per visualizzare un elenco dei BLOB contenuti. Poiché questo contenitore è nuovo, non conterrà ancora alcun BLOB.
-3. Selezionare il pulsante **Carica** per caricare un BLOB nel contenitore.
-4. Cercare nel file system locale un file da caricare come BLOB in blocchi e selezionare **Carica**.
+3. Selezionare il pulsante **Carica** per aprire il pannello Carica
+4. Cercare nel file system locale un file da caricare come BLOB in blocchi
      
     ![Screenshot che mostra come caricare un BLOB dall'unità locale](media/storage-quickstart-blobs-portal/upload-blob.png)
 
-5. Selezionare il **Tipo di autenticazione**. Il valore predefinito è **SAS**.
-6. Caricare tutti i BLOB desiderati in questo modo. Si noterà che i nuovi BLOB sono ora elencati all'interno del contenitore.
+5. Facoltativamente, espandere la sezione Avanzate per definire altre impostazioni quali il tipo di autenticazione, il livello di accesso o il percorso della cartella virtuale.
+6. Selezionare il pulsante **Carica** per eseguire il commit del caricamento
+7. Caricare tutti i BLOB desiderati in questo modo. Si noterà che i nuovi BLOB sono ora elencati all'interno del contenitore.
 
 ## <a name="download-a-block-blob"></a>Scaricare un BLOB in blocchi
 

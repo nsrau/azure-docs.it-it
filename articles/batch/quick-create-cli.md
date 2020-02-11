@@ -1,21 +1,21 @@
 ---
 title: 'Guida introduttiva di Azure: Eseguire un processo Batch - Interfaccia della riga di comando'
-description: Imparare rapidamente a eseguire un processo Batch con l'interfaccia della riga di comando di Azure.
+description: Imparare rapidamente a eseguire un processo Batch con l'interfaccia della riga di comando di Azure. Creare e gestire risorse di Azure dalla riga di comando o negli script.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 900bafd5b27fcb5021e9dae2a6bbc13d4e233a45
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 9106741e18354d39909fa84ce6e9f3a66ccf2014
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029486"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024501"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Avvio rapido: Eseguire il primo processo batch con l'interfaccia della riga di comando di Azure
 

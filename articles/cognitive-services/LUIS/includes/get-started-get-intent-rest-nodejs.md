@@ -6,24 +6,37 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/20/2019
+ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: b158f3738e5d5e33c831e7312c167e5185d19e95
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 9252fbbf0895bf821c119272ac37d3af1c91fc89
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74414554"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987782"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-* Linguaggio di programmazione [Node.js](https://nodejs.org/) 
+* Linguaggio di programmazione [Node.js](https://nodejs.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * ID app pubblico: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
-## <a name="get-luis-key"></a>Ottenere la chiave di LUIS
+## <a name="create-luis-runtime-key-for-predictions"></a>creare la chiave di runtime di LUIS per le previsioni
 
-[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
+1. Accedere al [portale di Azure](https://portal.azure.com)
+1. Fare clic su [Crea **Language Understanding**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+1. Immettere tutte le impostazioni necessarie per la chiave di **runtime**:
+
+    |Impostazione|valore|
+    |--|--|
+    |Nome|Il nome desiderato (2-64 caratteri)|
+    |Subscription|Selezionare la sottoscrizione appropriata|
+    |Location|Selezionare una località vicina e disponibile|
+    |Piano tariffario|`F0`: il piano tariffario minimo|
+    |Gruppo di risorse|Selezionare un gruppo di risorse disponibile|
+
+1. Fare clic su **Crea** e attendere che venga creata la risorsa. Una volta creata, passare alla relativa pagina.
+1. Raccogliere i valori di `endpoint` e `key` configurati.
 
 ## <a name="get-intent-programmatically"></a>Ottenere la finalità a livello di codice
 
@@ -35,53 +48,55 @@ Usare Node.js per eseguire query sull'[endpoint di previsione](https://aka.ms/lu
     var request = require('request');
     var requestpromise = require('request-promise');
     var querystring = require('querystring');
-    
+
     // Analyze text
     //
     getPrediction = async () => {
-    
-        // YOUR-KEY - Language Understanding starter key
+
+        // YOUR-KEY - Language Understanding runtime key
         var endpointKey = "YOUR-KEY";
-    
-        // YOUR-ENDPOINT Language Understanding endpoint URL, an example is westus2.api.cognitive.microsoft.com
+
+        // YOUR-ENDPOINT Language Understanding endpoint URL, an example is your-resource-name.api.cognitive.microsoft.com
         var endpoint = "YOUR-ENDPOINT";
-    
-        // Set the LUIS_APP_ID environment variable 
+
+        // Set the LUIS_APP_ID environment variable
         // to df67dcdb-c37d-46af-88e1-8b97951ca1c2, which is the ID
-        // of a public sample application.    
+        // of a public sample application.
         var appId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2";
-    
+
         var utterance = "turn on all lights";
-    
-        // Create query string 
+
+        // Create query string
         var queryParams = {
             "show-all-intents": true,
             "verbose":  true,
             "query": utterance,
             "subscription-key": endpointKey
         }
-    
+
         // append query string to endpoint URL
         var URI = `https://${endpoint}/luis/prediction/v3.0/apps/${appId}/slots/production/predict?${querystring.stringify(queryParams)}`
-    
+
         // HTTP Request
         const response = await requestpromise(URI);
-    
+
         // HTTP Response
         console.log(response);
-    
+
     }
-    
+
     // Pass an utterance to the sample LUIS app
     getPrediction().then(()=>console.log("done")).catch((err)=>console.log(err));
     ```
 
-1. Sostituire i valori seguenti:
+1. Sostituire i valori `YOUR-KEY` e `YOUR-ENDPOINT` con la chiave di **runtime** e l'endpoint di previsione.
 
-    * `YOUR-KEY` con la chiave di avvio.
-    * `YOUR-ENDPOINT` con l'URL dell'endpoint. Ad esempio: `westus2.api.cognitive.microsoft.com`.
+    |Informazioni|Scopo|
+    |--|--|
+    |`YOUR-KEY`|La chiave di **runtime** di previsione di 32 caratteri.|
+    |`YOUR-ENDPOINT`| L'endpoint dell'URL di previsione. Ad esempio: `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
 
-1. Installare le dipendenze `request`, `request-promise` e `querystring` con questo comando: 
+1. Installare le dipendenze `request`, `request-promise` e `querystring` con questo comando:
 
     ```console
     npm install request request-promise querystring
@@ -93,13 +108,13 @@ Usare Node.js per eseguire query sull'[endpoint di previsione](https://aka.ms/lu
     node predict.js
     ```
 
- 1. Esaminare la risposta di previsione restituita in formato JSON:   
-    
+ 1. Esaminare la risposta di previsione restituita in formato JSON:
+
     ```console
     {"query":"turn on all lights","prediction":{"topIntent":"HomeAutomation.TurnOn","intents":{"HomeAutomation.TurnOn":{"score":0.5375382},"None":{"score":0.08687421},"HomeAutomation.TurnOff":{"score":0.0207554}},"entities":{"HomeAutomation.Operation":["on"],"$instance":{"HomeAutomation.Operation":[{"type":"HomeAutomation.Operation","text":"on","startIndex":5,"length":2,"score":0.724984169,"modelTypeId":-1,"modelType":"Unknown","recognitionSources":["model"]}]}}}}
     ```
 
-    La risposta JSON formattata per migliorare la leggibilità: 
+    La risposta JSON formattata per migliorare la leggibilità:
 
     ```JSON
     {
@@ -142,13 +157,9 @@ Usare Node.js per eseguire query sull'[endpoint di previsione](https://aka.ms/lu
     }
     ```
 
-## <a name="luis-keys"></a>Chiavi di LUIS
-
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
-
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Al termine di questo argomento di avvio rapido, eliminare il file dal file system. 
+Al termine di questo argomento di avvio rapido, eliminare il file dal file system.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

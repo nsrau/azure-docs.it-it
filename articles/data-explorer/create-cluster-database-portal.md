@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure'
+title: 'Avvio rapido: Creare un database e un cluster di Esplora dati di Azure'
 description: Questa guida introduttiva descrive come creare un database e un cluster di Esplora dati di Azure e inserire (caricare) i dati.
 author: orspod
 ms.author: orspodek
@@ -7,14 +7,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.openlocfilehash: 10030cf69009c59fa607ad68c3b7ab19c7a22860
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 895b26fc7f35303cbef6c9df543c87ca435c2290
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326719"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984354"
 ---
-# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure
+# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Avvio rapido: Creare un database e un cluster di Esplora dati di Azure
 
 > [!div class="op_single_selector"]
 > * [Portale](create-cluster-database-portal.md)
@@ -65,7 +65,7 @@ Creare un cluster di Esplora dati di Azure in un gruppo di risorse di Azure con 
 
     ![Vai alla risorsa](media/create-cluster-database-portal/notification-resource.png)
 
-## <a name="create-a-database"></a>Creare un database
+## <a name="create-a-database"></a>Creazione di un database
 
 A questo punto si è pronti per il secondo passaggio del processo: la creazione del database.
 
@@ -80,7 +80,7 @@ A questo punto si è pronti per il secondo passaggio del processo: la creazione 
     **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
     | Nome database | *TestDatabase* | Il nome del database deve essere univoco all'interno del cluster.
-    | Periodo di conservazione | *3650* | Intervallo di tempo (in giorni) per cui è garantito che i dati rimangano disponibili per le query. L'intervallo di tempo viene misurato dal momento in cui i dati vengono inseriti.
+    | Periodo di memorizzazione | *3650* | Intervallo di tempo (in giorni) per cui è garantito che i dati rimangano disponibili per le query. L'intervallo di tempo viene misurato dal momento in cui i dati vengono inseriti.
     | Cache period (Periodo cache) | *31* | L'intervallo di tempo (in giorni) per cui mantenere i dati sottoposti frequentemente a query disponibili nell'archiviazione su unità SSD o nella RAM, invece che nell'archiviazione a lungo termine.
     | | | |
 
@@ -123,6 +123,6 @@ Se si prevede di seguire altre guide introduttive ed esercitazioni, non eliminar
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: Inserire dati dall'hub eventi in Esplora dati di Azure](ingest-data-event-hub.md)
+> [Avvio rapido: Inserire dati dall'hub eventi in Esplora dati di Azure](ingest-data-event-hub.md)
 
 

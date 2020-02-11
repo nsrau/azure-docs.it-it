@@ -1,28 +1,24 @@
 ---
-title: 'Avvio rapido: Riconoscere la voce, le finalità e le entità, C++ - Servizio Voce'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/02/2020
+ms.date: 01/27/2020
 ms.topic: include
-ms.author: erhopf
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: b141fcdb2aacc8654999d023c4174c7eb9bc177f
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: a7245d97c4043a5e4b4e1555e899d3301fc36f3c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76761400"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900353"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare:
 
-* Se si tratta del primo progetto C++, usare questa guida per <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=windows" target="_blank">creare un progetto di esempio vuoto</a>.
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=windows" target="_blank">Installare Speech SDK per l'ambiente di sviluppo</a>.
+* Se si tratta del primo progetto C++, usare questa guida per <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=windows" target="_blank">creare un progetto di esempio vuoto<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=windows" target="_blank">Installare Speech SDK per l'ambiente di sviluppo <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Creare un'app LUIS per il riconoscimento delle finalità
 
@@ -97,7 +93,7 @@ Inserire questo codice sotto `auto result = recognizer->RecognizeOnceAsync().get
 
 ## <a name="check-your-code"></a>Controllare il codice
 
-A questo punto il codice dovrà avere questo aspetto:  
+A questo punto il codice dovrà avere questo aspetto:
 
 > [!NOTE]
 > In questa versione sono stati aggiunti alcuni commenti.
@@ -109,7 +105,7 @@ A questo punto il codice dovrà avere questo aspetto:
 A questo punto è possibile compilare l'app e testare il riconoscimento vocale con il servizio Voce.
 
 1. **Compilare il codice**: dalla barra dei menu di Visual Studio scegliere **Compila** > **Compila soluzione**.
-2. **Avviare l'app**: dalla barra dei menu scegliere **Debug** > **Avvia debug** o premere **F5**.
+2. **Avviare l'app**: dalla barra dei menu scegliere **Debug** > **Avvia debug** o premere <kbd>F5</kbd>.
 3. **Avviare il riconoscimento**: verrà richiesto di pronunciare una frase in inglese. La voce viene inviata al servizio Voce, trascritta come testo e visualizzata nella console.
 
 ## <a name="next-steps"></a>Passaggi successivi

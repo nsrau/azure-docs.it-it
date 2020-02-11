@@ -1,16 +1,16 @@
 ---
 title: "Avvio rapido: Creare ed eseguire un'immagine del contenitore"
-description: Eseguire rapidamente attività con Registro Azure Container per compilare ed eseguire un'immagine del contenitore su richiesta, nel cloud.
+description: Eseguire rapidamente attività con Registro Azure Container per compilare ed eseguire un'immagine del contenitore Docker su richiesta, nel cloud.
 ms.topic: quickstart
-ms.date: 04/02/2019
-ms.openlocfilehash: f0b510607a4d0acf12e0b9caa43835c1cfe6a83d
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 01/31/2020
+ms.openlocfilehash: f08f10dd170acaa8594ad5a47f5ef58e27288b10
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454941"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986275"
 ---
-# <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Guida introduttiva: Compilare ed eseguire un'immagine del contenitore con Attività del Registro Azure Container
+# <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Avvio rapido: Compilare ed eseguire un'immagine del contenitore con Attività del Registro Azure Container
 
 In questa guida di avvio rapido si usano i comandi di Attività del Registro Azure Container per compilare, eseguire il push ed eseguire rapidamente un'immagine del contenitore Docker in modalità nativa all'interno di Azure, che illustra come eseguire l'offload del ciclo di sviluppo di tipo "ciclo interno" nel cloud. [Attività del Registro Azure Container][container-registry-tasks-overview] è un gruppo di funzionalità incluse in Registro Azure Container che consente di gestire e modificare le immagini del contenitore per tutto il ciclo di vita del contenitore. 
 
@@ -44,7 +44,7 @@ In questo esempio viene creato un registro *Basic*, ovvero un'opzione ottimizzat
 
 ## <a name="build-an-image-from-a-dockerfile"></a>Compilare un'immagine da un Dockerfile
 
-A questo punto usare Registro Azure Container per compilare un'immagine. Creare prima una directory di lavoro e quindi un Dockerfile denominato *Dockerfile* con il contenuto seguente. Questo è un semplice esempio relativo alla compilazione di un'immagine del contenitore Linux, ma è possibile creare il Dockerfile standard personalizzato e compilare immagini per le altre piattaforme.
+A questo punto usare Registro Azure Container per compilare un'immagine. Creare prima una directory di lavoro e quindi un Dockerfile denominato *Dockerfile* con il contenuto seguente. Questo è un semplice esempio relativo alla compilazione di un'immagine del contenitore Linux, ma è possibile creare il Dockerfile standard personalizzato e compilare immagini per le altre piattaforme. Gli esempi di comandi di questo articolo sono formattati per la shell Bash.
 
 ```bash
 echo FROM hello-world > Dockerfile
@@ -53,7 +53,9 @@ echo FROM hello-world > Dockerfile
 Eseguire il comando [az acr build][az-acr-build] per compilare l'immagine. Dopo la compilazione viene eseguito il push dell'immagine nel registro. Nell'esempio seguente viene eseguito il push dell'immagine `sample/hello-world:v1`. Il carattere `.` alla fine del comando consente di impostare il percorso del Dockerfile, in questo caso la directory corrente.
 
 ```azurecli-interactive
-az acr build --image sample/hello-world:v1 --registry myContainerRegistry008 --file Dockerfile . 
+az acr build --image sample/hello-world:v1 \
+  --registry myContainerRegistry008 \
+  --file Dockerfile . 
 ```
 
 L'output restituito in seguito a un'operazione di compilazione e push riuscita è simile al seguente:
@@ -110,22 +112,16 @@ Run ID: ca8 was successful after 10s
 
 ## <a name="run-the-image"></a>Eseguire l'immagine
 
-A questo punto è possibile eseguire rapidamente l'immagine compilata di cui è stato eseguito il push nel registro. Nel flusso di lavoro per lo sviluppo del contenitore, questa operazione potrebbe essere un passaggio di convalida prima della distribuzione dell'immagine.
+A questo punto è possibile eseguire rapidamente l'immagine compilata di cui è stato eseguito il push nel registro. Usare [az acr run][az-acr-run] per eseguire il comando del contenitore. Nel flusso di lavoro per lo sviluppo del contenitore, questa operazione potrebbe essere un passaggio di convalida prima della distribuzione dell'immagine oppure si potrebbe includere il comando in un file [YAML in più passaggi][container-registry-tasks-multi-step]. 
 
-Creare un file *quickrun.yaml* in una directory di lavoro locale con il contenuto seguente per un singolo passaggio. Sostituire *\<acrLoginServer\>* con il nome del server di accesso del registro. Il formato del nome del server di accesso è *\<nome-registro\>.azurecr.io* (tutto in minuscolo), ad esempio *mycontainerregistry008.azurecr.io*. Questo esempio si presuppone che compilazione e push dell'immagine `sample/hello-world:v1` siano già stati eseguiti nella sezione precedente:
-
-```yml
-steps:
-  - cmd: <acrLoginServer>/sample/hello-world:v1
-```
-
-Nel passaggio `cmd` di questo esempio il contenitore viene eseguito nella configurazione predefinita, ma `cmd` supporta parametri aggiuntivi di `docker run` o persino altri comandi di `docker`.
-
-Eseguire il contenitore con il comando seguente:
+Nell'esempio seguente viene usato `$Registry` per specificare il registro in cui eseguire il comando:
 
 ```azurecli-interactive
-az acr run --registry myContainerRegistry008 --file quickrun.yaml .
+az acr run --registry myContainerRegistry008 \
+  --cmd '$Registry/sample/hello-world:v1' /dev/null
 ```
+
+Il parametro `cmd` di questo esempio esegue il contenitore nella configurazione predefinita, ma `cmd` supporta parametri aggiuntivi di `docker run` o anche altri comandi di `docker`.
 
 L'output è simile al seguente:
 
@@ -182,10 +178,10 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido sono state usate le funzionalità di Attività del Registro Azure Container per compilare, eseguire il push ed eseguire un'immagine del contenitore Docker in modalità nativa in Azure. Passare alle esercitazioni su Registro Azure Container per informazioni su come usare Attività del Registro Azure Container per automatizzare compilazioni e aggiornamenti delle immagini.
+In questo argomento di avvio rapido sono state usate le funzionalità di Attività del Registro Azure Container per compilare, eseguire il push ed eseguire un'immagine del contenitore Docker in modalità nativa in Azure, senza un'installazione locale di Docker. Procedere con le esercitazioni su Attività del Registro Azure Container per informazioni su come usare queste funzionalità per automatizzare compilazioni e aggiornamenti delle immagini.
 
 > [!div class="nextstepaction"]
-> [Esercitazioni su Registro Azure Container][container-registry-tutorial-quick-task]
+> [Esercitazioni su Attività del Registro Azure Container][container-registry-tutorial-quick-task]
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
@@ -201,10 +197,12 @@ In questa guida di avvio rapido sono state usate le funzionalità di Attività d
 <!-- LINKS - internal -->
 [az-acr-create]: /cli/azure/acr#az-acr-create
 [az-acr-build]: /cli/azure/acr#az-acr-build
+[az-acr-run]: /cli/azure/acr#az-acr-run
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli]: /cli/azure/install-azure-cli
 [container-registry-tasks-overview]: container-registry-tasks-overview.md
+[container-registry-tasks-multi-step]: container-registry-tasks-multi-step.md
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
 [container-registry-skus]: container-registry-skus.md
 [azure-cli-install]: /cli/azure/install-azure-cli

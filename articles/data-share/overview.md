@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
-ms.openlocfilehash: d1665ef3e845491f116174cf1914c38e7cf5c691
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: d1bfad64175ad5b29e4ec158ebe8d8e982b8b100
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660801"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964448"
 ---
 # <a name="what-is-azure-data-share"></a>Che cos'è Condivisione dati di Azure?
 
@@ -37,7 +37,7 @@ Un altro caso d'uso di Condivisione dati di Azure riguarda l'instaurazione di un
 
 ## <a name="how-it-works"></a>Funzionamento
 
-Condivisione dati di Azure offre attualmente la condivisione basata su snapshot e la condivisione sul posto (in anteprima limitata). 
+Condivisione dati di Azure offre attualmente la condivisione basata su snapshot e la condivisione sul posto. 
 
 Con la condivisione basata su snapshot, i dati vengono spostati dalla sottoscrizione di Azure del provider a quella del consumer. Il provider di dati può effettuare il provisioning di una condivisione dati in cui invitare i destinatari. I consumer dei dati ricevono l'invito alla condivisione dati tramite posta elettronica. Dopo aver accettato l'invito, il consumer di dati può attivare uno snapshot completo dei dati ricevuti in condivisione. Questi dati vengono ricevuti nell'account di archiviazione del consumer. I consumer dei dati ricevono regolari aggiornamenti incrementali per i dati, in modo da avere sempre l'ultima versione. 
 
@@ -47,7 +47,7 @@ I provider di dati possono offrire ai consumer aggiornamenti incrementali per i 
 
 Dopo aver accettato una condivisione dati, il consumer potrà ricevere i dati in un archivio dati a propria scelta. Se ad esempio il provider condivide i dati tramite Archiviazione BLOB di Azure, il consumer può riceverli in Azure Data Lake Store. Analogamente, se il provider di dati condivide i dati da Azure SQL Data Warehouse, il consumer di dati può scegliere se ricevere i dati in Azure Data Lake Store, in un database SQL di Azure o in Azure SQL Data Warehouse. Nel caso di condivisione da origini basate su SQL, il consumer di dati può anche scegliere se ricevere i dati in formato PARQUET o CSV. 
 
-La condivisione sul posto è attualmente disponibile in anteprima limitata per Esplora dati di Azure. I provider di dati sono in grado di condividere i dati dalla posizione in cui si trovano, senza spostamento di dati tramite un collegamento simbolico. Iscriversi per la versione di anteprima limitata della condivisione sul posto per Esplora dati di Azure [qui](https://aka.ms/azuredatasharepreviewsignup). 
+Con la condivisione sul posto, i provider di dati possono condividere i dati nella posizione in cui risiedono, senza copiarli. Una volta stabilita la relazione di condivisione tramite il flusso di invito, viene creato un collegamento simbolico tra l'archivio dati di origine del provider di dati e l'archivio dati di destinazione del consumer di dati. Il consumer di dati può leggere ed eseguire query sui dati in tempo reale usando il proprio archivio dati. Le modifiche apportate all'archivio dati di origine diventano immediatamente disponibili per il consumer di dati. La condivisione sul posto è attualmente disponibile in anteprima per Esplora dati di Azure.
 
 ## <a name="key-capabilities"></a>Funzionalità principali
 
@@ -56,6 +56,8 @@ Condivisione dati di Azure consente ai provider di dati di:
 * Condividere dati dall'elenco di [archivi dati supportati](supported-data-stores.md) con clienti e partner esterni all'organizzazione
 
 * Tenere traccia delle persone con cui ha condiviso i dati
+
+* Scelta dello snapshot o della condivisione sul posto
 
 * Controllare la frequenza con cui i consumer ricevono aggiornamenti per i dati
 
@@ -69,13 +71,13 @@ Condivisione dati di Azure consente ai consumer di dati di:
 
 * Accettare o rifiutare un invito di Condivisione dati di Azure
 
-* Attivare uno snapshot completo o incrementale di una condivisione dati ricevuta da un'organizzazione
-
-* Sottoscrivere una condivisione dati per ricevere la copia più recente dei dati tramite copia di snapshot incrementale
-
 * Accettare i dati condivisi con l'utente in un [archivio dati supportato](supported-data-stores.md)
 
-Tutte le principali funzionalità descritte sopra sono supportate tramite Azure o API REST. Per altre informazioni sull'uso di Condivisione dati di Azure tramite API REST, vedere la documentazione di riferimento. 
+* Attivare uno snapshot completo o incrementale di una condivisione dati ricevuta da un'organizzazione
+
+* Sottoscrivere una condivisione dati per ricevere la copia più recente dei dati tramite snapshot incrementale
+
+Tutte le principali funzionalità descritte sopra sono supportate tramite il portale di Azure o le API REST. Per altre informazioni sull'uso di Condivisione dati di Azure tramite API REST, vedere la documentazione di riferimento. 
 
 ## <a name="security"></a>Security
 
@@ -88,9 +90,9 @@ Condivisione dati di Azure sfrutta le identità gestite per le risorse di Azure 
 
 ## <a name="supported-regions"></a>Aree supportate
 
-Per l'elenco delle aree di Azure in cui è disponibile Condivisione dati di Azure, visitare la pagina di [prodotti disponibili per area](https://azure.microsoft.com/global-infrastructure/services/?products=data-share/) e cercare Condivisione dati di Azure. 
+Per l'elenco delle aree di Azure in cui è disponibile Condivisione dati di Azure, visitare la pagina di [prodotti disponibili per area](https://azure.microsoft.com/global-infrastructure/services/?products=data-share) e cercare Condivisione dati di Azure. 
 
-Condivisione dati di Azure non archivia alcun dato. I dati vengono archiviati nell'archivio dati sottostante che viene condiviso. Se ad esempio un provider di dati archivia i propri dati in un account di Azure Data Lake Store situato negli Stati Uniti occidentali, i dati verranno archiviati in questa area. Se condivide i dati con un account di archiviazione di Azure situato in Europa occidentale, i dati vengono trasferiti direttamente all'account di archiviazione in Europa occidentale. 
+Condivisione dati di Azure non archivia una copia dei dati. I dati vengono archiviati nell'archivio dati sottostante che viene condiviso. Se ad esempio un provider di dati archivia i propri dati in un account di Azure Data Lake Store situato negli Stati Uniti occidentali, i dati verranno archiviati in questa area. Se condivide i dati con un account di archiviazione di Azure situato in Europa occidentale tramite snapshot, i dati vengono in genere trasferiti direttamente a tale account di archiviazione.
 
 Il servizio Condivisione dati di Azure non deve necessariamente essere disponibile nell'area in cui lo si vuole usare. Se ad esempio i dati sono archiviati in un account di archiviazione di Azure situato in un'area in cui Condivisione dati di Azure non è ancora disponibile, è comunque possibile usare il servizio per condividere i dati. 
 

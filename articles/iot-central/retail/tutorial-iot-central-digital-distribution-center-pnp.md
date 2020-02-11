@@ -7,16 +7,16 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 879e1911c715688c2fed4044e23f437b3bbef7b2
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 93a77d73b5cc249c39609f98f055a7b1927dd6ed
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890665"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025487"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Esercitazione: Distribuire ed esaminare un modello di applicazione del centro distribuzione digitale
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Questa esercitazione illustra come iniziare a distribuire un modello di applicazione del **centro distribuzione digitale** per IoT Central. Si apprenderà come distribuire il modello e quali sono gli elementi inclusi per impostazione predefinita. Verranno inoltre fornite informazioni sulle possibili operazioni successive.
 
@@ -24,29 +24,32 @@ In questa esercitazione si apprenderà come:
 * Creare un'applicazione per il centro distribuzione digitale 
 * Esaminare l'applicazione 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 * Non sono richiesti prerequisiti specifici per distribuire l'app
-* È consigliabile disporre di una sottoscrizione di Azure, ma è anche possibile provare senza
+* È consigliabile avere una sottoscrizione di Azure, ma è anche possibile provare senza
 
 ## <a name="create-digital-distribution-center-application-template"></a>Creare un modello di applicazione del centro distribuzione digitale
 
 È possibile creare un'applicazione seguendo questa procedura:
 
-1. Passare al sito Web di gestione applicazioni di Azure IoT Central. Selezionare **Compila** sulla barra di spostamento a sinistra e quindi fare clic sulla scheda **Retail**.
+1. Passare al sito Web di gestione applicazioni di Azure IoT Central. Selezionare **Compila** dalla barra di spostamento a sinistra e quindi fare clic sulla scheda **Retail**.
 
-> [!div class="mx-imgBorder"]
-> ![Centro di distribuzione digitale](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
+    > [!div class="mx-imgBorder"]
+    > ![Centro di distribuzione digitale](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
 
-2. Selezionare la scheda **Retail** e quindi **Crea app** in **applicazione centro distribuzione digitale**
+2. Selezionare la scheda **Retail** e quindi **Crea app** in **Centro di distribuzione digitale**
 
-3. **Crea app** consentirà di aprire il modulo Nuova applicazione e compilare i dettagli richiesti, come mostrato di seguito.
+3. **Crea app** consente di aprire il modulo Nuova applicazione e di specificare i dettagli richiesti, come illustrato di seguito.
    **Nome applicazione**: è possibile usare il nome suggerito predefinito o immettere il nome descrittivo dell'applicazione.
-   **URL**: è possibile usare l'URL predefinito suggerito o immettere un URL univoco descrittivo e facile da ricordare. È consigliabile usare l'impostazione predefinita se si dispone già di una sottoscrizione di Azure. In caso contrario, è possibile iniziare con una versione di valutazione gratuita di sette giorni e scegliere di passare al modello con pagamento in base al consumo in qualsiasi momento, prima della scadenza della versione di valutazione gratuita.
+   **URL**: è possibile usare l'URL predefinito suggerito o immettere un URL univoco descrittivo facile da ricordare. È consigliabile usare l'impostazione predefinita se si dispone già di una sottoscrizione di Azure. È possibile iniziare con il piano tariffario della versione di valutazione gratuita valida 7 giorni e scegliere di convertirlo in un piano tariffario standard in qualsiasi momento prima della scadenza.
    **Info di fatturazione**: Per effettuare il provisioning delle risorse sono necessari i dettagli relativi alla directory, alla sottoscrizione di Azure e all'area.
-   **Creazione**: per distribuire l'applicazione,selezionare Crea nella parte inferiore della pagina.
+   **Creazione**: Selezionare Crea nella parte inferiore della pagina per distribuire l'applicazione.
 
-> [!div class="mx-imgBorder"]
-> ![Centro di distribuzione digitale](./media/tutorial-iot-central-ddc/ddc-create.png)
+    > [!div class="mx-imgBorder"]
+    > ![Centro di distribuzione digitale](./media/tutorial-iot-central-ddc/ddc-create.png)
+
+    > [!div class="mx-imgBorder"]
+    > ![Informazioni sulla fatturazione del centro di distribuzione digitale](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
 
 ## <a name="walk-through-the-application-dashboard"></a>Esaminare il dashboard dell'applicazione 
 
@@ -105,12 +108,12 @@ Selezionare la scheda dei processi per visualizzare cinque diversi processi che 
 > ![Centro di distribuzione digitale](./media/tutorial-iot-central-ddc/ddc-jobs.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Se non si intende continuare a usare questa applicazione, eliminare il modello di applicazione visitando **Amministrazione** > **Impostazioni applicazione** e facendo clic su **Elimina**.
+Se non si intende continuare a usare questa applicazione, eliminare il modello di applicazione scegliendo **Amministrazione** > **Impostazioni applicazione** e facendo clic su **Elimina**.
 
 > [!div class="mx-imgBorder"]
 > ![Centro di distribuzione digitale](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sul [concetto di centro distribuzione digitale](./architecture-digital-distribution-center-pnp.md) dell'architettura della soluzione del centro distribuzione digitale
-* Altre informazioni sui [modelli di vendita al dettaglio di IoT Central](./overview-iot-central-retail-pnp.md)
-* Per altre informazioni su IoT Central fare riferimento a [Panoramica di IoT Central](../preview/overview-iot-central.md)
+* Altre informazioni sui altri [modelli di vendita al dettaglio di IoT Central](./overview-iot-central-retail-pnp.md)
+* Per altre informazioni su IoT Central fare riferimento a [Panoramica di IoT Central](../core/overview-iot-central.md)

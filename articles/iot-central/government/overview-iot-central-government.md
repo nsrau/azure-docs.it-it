@@ -7,22 +7,22 @@ ms.date: 10/23/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a862a221f9fe2db5448473bddcca2a9932716e0e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 159691ee101e586419d2fd8df314947af28219dd
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464090"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016511"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Creazione di soluzioni per enti pubblici con Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Iniziare a creare soluzioni Smart City usando i modelli di applicazione di Azure IoT Central. Iniziare subito con **monitoraggio qualità acqua**, **monitoraggio consumo idrico** e **gestione rifiuti connessa**.
 
 ## <a name="what-is-water-quality-monitoring-application-template"></a>Che cos'è il modello di applicazione Monitoraggio qualità acqua?   
 
-Il monitoraggio della qualità dell'acqua tradizionale si basa sulle tecniche di campionamento manuale e sulle analisi di laboratorio sul campo, che richiede molto tempo e costi elevati. Il monitoraggio remoto della qualità dell'acqua in tempo reale consente di gestire i problemi di qualità dell'acqua prima che si verifichi un impatto sui cittadini. Inoltre, con l'analisi avanzata, le società di servizi idrici e gli enti ambientali possono risolvere i potenziali problemi di qualità dell'acqua in base ad avvisi tempestivi e pianificare in anticipo il trattamento dell'acqua.  
+Il monitoraggio della qualità dell'acqua tradizionale si basa sulle tecniche di campionamento manuale e sulle analisi di laboratorio sul campo, che richiede molto tempo e costi elevati. Il monitoraggio remoto della qualità dell'acqua in tempo reale consente di gestire i problemi prima che si verifichi un impatto sui cittadini. Inoltre, con l'analisi avanzata, le società di servizi idrici e gli enti ambientali possono risolvere i potenziali problemi di qualità dell'acqua in base ad avvisi tempestivi e pianificare in anticipo il trattamento dell'acqua.  
 
 L'app Monitoraggio qualità acqua è un modello di app di IoT Central che permette di avviare lo sviluppo di soluzioni IoT per consentire alle società di servizi idrici di monitorare digitalmente la qualità dell'acqua nelle città intelligenti. 
 

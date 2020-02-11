@@ -8,24 +8,26 @@ ms.custom: seo-python-october2019
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/09/2020
-ms.openlocfilehash: 1550d8748d6c7c0e35796d2950d02d774fe52822
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 96296a4ecea8dd1d546adf2292291746bd37507d
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896262"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938925"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-with-azure-database-for-mysql"></a>Avvio rapido: usare Python per connettersi ed eseguire query sui dati con Database di Azure per MySQL
-Questa guida introduttiva illustra come usare [Python](https://python.org) per connettersi a un database di Azure per MySQL. È possibile usare istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database dalle piattaforme Mac OS, Ubuntu Linux e Windows. 
 
-Questo articolo presuppone che si abbia familiarità con lo sviluppo con Python, ma non con Database di Azure per MySQL.
+In questo argomento di avvio rapido ci si connette a un'istanza di Database di Azure per MySQL usando Python. È quindi possibile usare istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database dalle piattaforme Mac, Ubuntu Linux e Windows. 
 
-## <a name="create-an-azure-database-for-mysql"></a>Creare un database di Azure per MySQL 
-Creare un server e un database di Azure per MySQL seguendo le istruzioni riportate in 
-- [Creare un database di Azure per MySQL usando il portale di Azure](quickstart-create-mysql-server-database-using-azure-portal.md) oppure 
-- [Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure](quickstart-create-mysql-server-database-using-azure-cli.md) 
+Questo argomento presuppone che si abbia familiarità con lo sviluppo con Python, ma non con Database di Azure per MySQL.
+
+## <a name="prerequisites"></a>Prerequisites
+
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Un'istanza di Database di Azure per il server MySQL. [Creare un database di Azure per il server MySQL tramite il portale di Azure](quickstart-create-mysql-server-database-using-azure-portal.md) o [Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 ## <a name="install-python-and-the-mysql-connector"></a>Installare Python e il connettore MySQL
+
 Installare Python e il connettore MySQL per Python nel computer seguendo questa procedura: 
 
 > [!NOTE]
@@ -48,6 +50,7 @@ Installare Python e il connettore MySQL per Python nel computer seguendo questa 
    È anche possibile installare il connettore Python per MySQL da [mysql.com](https://dev.mysql.com/downloads/connector/python/). Per altre informazioni sul connettore MySQL per Python, vedere [Guida dello sviluppatore per il connettore MySQL/Python](https://dev.mysql.com/doc/connector-python/en/). 
 
 ## <a name="get-connection-information"></a>Ottenere informazioni di connessione
+
 Ottenere le informazioni di connessione necessarie per connettersi al database di Azure per MySQL dal portale di Azure. È necessario avere il nome del server, il nome del database e le credenziali di accesso.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
@@ -61,6 +64,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database d
    ![Nome del server del database di Azure per MySQL](./media/connect-python/azure-database-for-mysql-server-overview-name-login.png)
 
 ## <a name="run-the-python-examples"></a>Eseguire gli esempi di Python
+
 Per ogni esempio di codice in questo articolo, eseguire queste operazioni.
 
 1. Creare un nuovo file in un editor di testo.
@@ -72,6 +76,7 @@ Per ogni esempio di codice in questo articolo, eseguire queste operazioni.
    > In Windows, se *python.exe* non viene trovato, potrebbe essere necessario aggiungere il percorso di Python nella variabile di ambiente PATH oppure specificare il percorso completo di *python.exe*, ad esempio `C:\python27\python.exe createtable.py`.
 
 ## <a name="create-a-table-and-insert-data"></a>Creare una tabella e inserire i dati
+
 Usare il codice seguente per connettersi al server e al database, creare una tabella e caricare i dati usando un'istruzione SQL **INSERT**. 
 
 Il codice importa la libreria mysql.connector e usa la funzione [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) per connettersi al database di Azure per MySQL usando gli [argomenti](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) presenti nella raccolta di configurazione. Il codice usa un cursore per la connessione, mentre il metodo [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) esegue la query SQL sul database MySQL. 
@@ -126,6 +131,7 @@ else:
 ```
 
 ## <a name="read-data"></a>Leggere i dati
+
 Usare il codice seguente per connettersi e leggere i dati usando un'istruzione SQL **SELECT**. 
 
 Il codice importa la libreria mysql.connector e usa la funzione [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) per connettersi al database di Azure per MySQL usando gli [argomenti](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) presenti nella raccolta di configurazione. Il codice usa un cursore per la connessione, mentre il metodo [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) esegue la query SQL sul database MySQL. 
@@ -175,6 +181,7 @@ else:
 ```
 
 ## <a name="update-data"></a>Aggiornare i dati
+
 Usare il codice seguente per connettersi e aggiornare i dati usando un'istruzione SQL **UPDATE**. 
 
 Il codice importa la libreria mysql.connector e usa la funzione [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) per connettersi al database di Azure per MySQL usando gli [argomenti](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) presenti nella raccolta di configurazione. Il codice usa un cursore per la connessione, mentre il metodo [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) esegue la query SQL sul database MySQL. 
@@ -217,6 +224,7 @@ else:
 ```
 
 ## <a name="delete-data"></a>Eliminare i dati
+
 Usare il codice seguente per connettersi e rimuovere i dati usando un'istruzione SQL **DELETE**. 
 
 Il codice importa la libreria mysql.connector e usa la funzione [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) per connettersi al database di Azure per MySQL usando gli [argomenti](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) presenti nella raccolta di configurazione. Il codice usa un cursore per la connessione, mentre il metodo [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) esegue la query SQL sul database MySQL. 
@@ -259,5 +267,6 @@ else:
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 > [!div class="nextstepaction"]
 > [Eseguire la migrazione del database usando le funzionalità di esportazione e importazione](./concepts-migrate-import-export.md)

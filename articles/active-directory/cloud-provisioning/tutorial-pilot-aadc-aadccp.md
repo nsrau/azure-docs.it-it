@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b83f634e9f5954e7a465761b117b6ee32f843aa2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 47806fe9c5c97c1f5a9c26d4ca38fb46bdf4057c
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425089"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931393"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Creare un progetto pilota per il provisioning cloud di una foresta di AD sincronizzata esistente 
 
@@ -68,6 +68,7 @@ Il servizio di sincronizzazione di Azure AD Connect sincronizza le modifiche ril
 
     **Nome:** assegnare un nome significativo alla regola<br>
     **Descrizione:** aggiungere una descrizione significativa<br> 
+    
     **Connected System** (Sistema connesso): scegliere il connettore AD per cui si sta scrivendo la regola di sincronizzazione personalizzata<br>
     **Connected System Object Type** (Tipo di oggetto sistema connesso): Utente<br>
     **Metaverse Object Type** (Tipo di oggetto metaverse): Persona<br>

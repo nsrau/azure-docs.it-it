@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc3c4a943f24ba1f987aa1daf513b9e05ada65a7
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: e2067bea25dae05c496c81929ae65d00565bf4f1
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310000"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020761"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Domande frequenti su Azure Active Directory Connect
 
@@ -31,6 +31,10 @@ Il provisioning cloud è pianificato per l'esecuzione ogni 2 minuti. Ogni 2 minu
 **D: Alla prima esecuzione vengono visualizzati errori di sincronizzazione dell'hash della password. Perché?**
 
 Si tratta di un comportamento previsto. Gli errori sono dovuti all'oggetto utente non presente in Azure AD. Una volta effettuato il provisioning dell'utente in Azure AD, il provisioning degli hash delle password verrà effettuato nell'esecuzione successiva. Attendere che vengano completate un paio di esecuzioni e verificare che la sincronizzazione degli hash delle password non generi più errori.
+
+**D: Cosa succede se l'istanza di Active Directory include attributi non supportati dal provisioning cloud, ad esempio estensioni di directory?**
+
+Il provisioning cloud viene eseguito ed effettua il provisioning degli attributi supportati. Il provisioning degli attributi non supportati non verrà effettuato in Azure AD. Esaminare le estensioni di directory in Active Directory e assicurarsi che tali attributi non siano necessari per il flusso in Azure AD. Se uno o più attributi sono necessari, è consigliabile usare il servizio di sincronizzazione Azure AD Connect o spostare le informazioni richieste in uno degli attributi supportati, ad esempio gli attributi di estensioni 1-15.
 
 **D: Qual è la differenza tra il servizio di sincronizzazione di Azure AD Connect e il provisioning cloud?**
 

@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 8c7d2481fe3ef361386bacc652d87744c1c790bb
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 13b626945743c17bad8df58fba77e1c960e90ef3
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581510"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016563"
 ---
 # <a name="build-energy-solutions-with-iot-central"></a>Creare soluzioni per il settore energetico con IoT Central 
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 
 I contatori intelligenti e i pannelli solari svolgono un ruolo importante nella trasformazione del settore energetico. I contatori intelligenti forniscono più controlli e informazioni dettagliate in tempo reale sui consumi energetici e la crescita dei pannelli solari favorisce il progresso nella generazione di energie rinnovabili. Le app di monitoraggio di contatori intelligenti e pannelli solari sono modelli di esempio per illustrare le varie funzionalità. I partner possono sfruttare questi modelli per creare soluzioni energetiche con IoT Central, al fine di soddisfare esigenze specifiche. Per distribuire e usare queste applicazioni non è richiesta alcuna nuova attività di codifica né sono necessari costi aggiuntivi. Altre informazioni sui modelli di applicazione per il settore energetico e sulle relative funzionalità.

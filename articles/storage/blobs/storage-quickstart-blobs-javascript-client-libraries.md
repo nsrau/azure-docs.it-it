@@ -6,29 +6,29 @@ author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.author: mhopkins
-ms.date: 08/29/2019
+ms.date: 01/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 7d481b115650c72df95f7516bb3b39411201bf83
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 257af309ebdb9080c3cd60b8b89a2c992ecf5145
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75862901"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906515"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascripthtml-in-the-browser"></a>Avvio rapido: Caricare, elencare ed eliminare BLOB usando Azure Storage v10 SDK per JavaScript/HTML nel browser
+# <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-browser"></a>Avvio rapido: Gestire i BLOB con JavaScript v10 SDK nel browser
 
-In questa guida di avvio rapido si apprenderà come usare la libreria [Azure Storage SDK V10 for JavaScript - Blob](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob#readme) per gestire i BLOB di codice JavaScript eseguito interamente nel browser. L'approccio qui adottato mostra come usare le misure di sicurezza necessarie per garantire l'accesso protetto all'account di archiviazione BLOB.
+In questo argomento di avvio rapido viene illustrato come gestire i BLOB usando codice JavaScript eseguito interamente nel browser. I BLOB sono oggetti che possono contenere grandi quantità di dati di testo o binari, tra cui immagini, documenti, flussi multimediali e dati di archiviazione. Verranno usate le misure di sicurezza necessarie per garantire l'accesso protetto all'account di archiviazione BLOB.
 
 ## <a name="prerequisites"></a>Prerequisites
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
-
-Le librerie client JavaScript di Archiviazione di Azure non funzionano direttamente dal file system e devono essere messe a disposizione da un server Web. In questo argomento si usa [Node.js](https://nodejs.org) per avviare un server di base. Se si preferisce non installare Node.js, è possibile usare un qualsiasi altro modo per eseguire un server Web locale.
-
-Per seguire la procedura di debug, sono necessari [Visual Studio Code](https://code.visualstudio.com) e l'estensione [Debugger per Chrome](vscode:extension/msjsdiag.debugger-for-chrome) o [Debugger per Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge).
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Un account dell'Archiviazione di Azure. [Creare un account di archiviazione](../common/storage-account-create.md).
+- Server Web locale. Questo articolo usa [Node.js](https://nodejs.org) per aprire un server di base.
+- [Visual Studio Code](https://code.visualstudio.com).
+- Estensione di VS Code per il debug del browser, ad esempio [Debugger per Chrome](vscode:extension/msjsdiag.debugger-for-chrome) o [Debugger per Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge).
 
 ## <a name="setting-up-storage-account-cors-rules"></a>Configurazione delle regole CORS dell'account di archiviazione
 

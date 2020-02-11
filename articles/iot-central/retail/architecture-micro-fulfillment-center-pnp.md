@@ -9,18 +9,16 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 35f99abaf5e0142c29d6dd43c968b66b21a28a50
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f752c77a6a62b9b259a8bb1869ca03ff6a19b1f5
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75898526"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020880"
 ---
 # <a name="micro-fulfillment-center-architecture"></a>Architettura del centro di micro-adempimenti
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
-
-Le soluzioni per centri di micro-adempimenti consentono di connettere, monitorare e gestire digitalmente tutti gli aspetti di un centro di adempimenti completamente automatizzato per ridurre i costi eliminando i tempi di inattività e aumentando la sicurezza e l'efficienza generale. Queste soluzioni possono essere create usando uno dei modelli di applicazione disponibili in IoT Central e l'architettura riportata di seguito come materiale sussidiario.
+Le soluzioni per centri di micro-adempimenti consentono di connettere, monitorare e gestire digitalmente tutti gli aspetti di un centro di adempimenti completamente automatizzato per ridurre i costi eliminando i tempi di inattività e aumentando la sicurezza e l'efficienza generale. Queste soluzioni possono essere create usando uno dei modelli di applicazione disponibili in IoT Central e l'architettura riportata di seguito come linee guida.
 
 ![Analisi punti vendita di Azure IoT Central](./media/architecture/micro-fulfillment-center-architecture-frame.png)
 
@@ -34,11 +32,11 @@ Verranno ora esaminati i componenti chiave che in genere fanno parte di una solu
 
 ## <a name="robotic-carriers"></a>Operatori robotici
 
-Una soluzione per centro di micro-adempimenti includerà probabilmente un ampio set di operatori robotici che generano una vasta gamma di segnali di telemetria. Questi segnali possono essere inseriti da un dispositivo gateway, aggregati e quindi inviati a IoT Central come illustrato sul lato sinistro del diagramma dell'architettura.  
+Una soluzione per centro di micro-adempimenti includerà probabilmente un ampio set di operatori robotici che generano tipi diversi di segnali di telemetria. Questi segnali possono essere inseriti da un dispositivo gateway, aggregati e quindi inviati a IoT Central come illustrato sul lato sinistro del diagramma dell'architettura.  
 
 ## <a name="condition-monitoring-sensors"></a>Sensori di monitoraggio delle condizioni
 
-Una soluzione IoT inizia con un set di sensori che acquisiscono segnali significativi all'interno di un centro di adempimenti, come indicato dalla varietà di sensori nella parte sinistra del diagramma dell'architettura riportato sopra.
+Una soluzione IoT inizia con un set di sensori che acquisiscono segnali significativi all'interno di un centro di adempimenti, come indicato dai tipi diversi di sensori a sinistra del diagramma dell'architettura riportato sopra.
 
 ## <a name="gateway-devices"></a>Dispositivi gateway
 
@@ -46,7 +44,7 @@ Molti sensori IoT possono inviare segnali non elaborati direttamente al cloud o 
 
 ## <a name="iot-central-application"></a>Applicazione IoT Central
 
-L'applicazione Azure IoT Central inserisce i dati provenienti da una varietà di sensori IoT, robot e dispositivi gateway all'interno dell'ambiente del centro di adempimenti e genera un set di informazioni dettagliate significative.
+L'applicazione Azure IoT Central inserisce i dati provenienti da tipi diversi di sensori IoT, robot e dispositivi gateway all'interno dell'ambiente del centro di adempimenti e genera un set di informazioni dettagliate significative.
 
 Azure IoT Central offre all'esercente anche un'esperienza personalizzata consentendo di monitorare e gestire in remoto i dispositivi dell'infrastruttura.
 
@@ -54,8 +52,8 @@ Azure IoT Central offre all'esercente anche un'esperienza personalizzata consent
 L'applicazione Azure IoT Central all'interno di una soluzione può essere configurata per l'esportazione di informazioni aggregate o non elaborate in un set di servizi PaaS (Platform-as-a Service) di Azure che possono eseguire la manipolazione dei dati e arricchirli prima di inviarli a un'applicazione aziendale. 
 
 ## <a name="business-application"></a>Applicazione aziendale
-I dati IoT possono essere utili per supportare diverse applicazioni aziendali distribuite all'interno di un ambiente di vendita al dettaglio. Un responsabile o un dipendente del centro di adempimenti può usare queste applicazioni per visualizzare informazioni aziendali dettagliate e intraprendere azioni significative in tempo reale. Per informazioni su come creare un dashboard di Power BI in tempo reale per il team di vendita al dettaglio, seguire l'[esercitazione](./tutorial-in-store-analytics-create-app-pnp.md).
+I dati IoT possono essere utili per supportare diversi tipi di applicazioni aziendali distribuite all'interno di un ambiente retail. Un responsabile o un dipendente del centro di adempimenti può usare queste applicazioni per visualizzare informazioni aziendali dettagliate e intraprendere azioni significative in tempo reale. Per informazioni su come creare un dashboard di Power BI in tempo reale per il team di vendita al dettaglio, seguire l'[esercitazione](./tutorial-in-store-analytics-create-app-pnp.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Iniziare con il modello di applicazione [Centro di micro-adempimenti](https://aka.ms/checkouttemplate). 
-* Seguire l'[esercitazione](https://aka.ms/mfc-tutorial) che illustra come creare una soluzione sfruttando il modello di app Centro di micro-adempimenti.
+* Esaminare l'[esercitazione](https://aka.ms/mfc-tutorial) che illustra come creare una soluzione usando il modello di app Centro di micro-adempimenti.

@@ -1,41 +1,43 @@
 ---
-title: Usare Java per inviare dati da e verso hub eventi di Azure
-description: Questo articolo fornisce una procedura dettagliata per la creazione di un'applicazione Java che invia eventi a hub eventi di Azure.
+title: Inviare o ricevere eventi da Hub eventi di Azure tramite Java (legacy)
+description: Questo articolo illustra come creare un'applicazione Java che invia/riceve eventi a/da Hub eventi di Azure usando il pacchetto azure-eventhubs precedente.
 services: event-hubs
-author: ShubhaVijayasarathy
-manager: timlt
+author: spelluru
 ms.service: event-hubs
 ms.workload: core
-ms.topic: article
-ms.custom: seodec18, seo-java-august2019, seo-java-september2019
-ms.date: 04/15/2019
-ms.author: shvija
-ms.openlocfilehash: be9919950f24dbee7fb8a3f901767c298105bf53
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
-ms.translationtype: MT
+ms.topic: quickstart
+ms.date: 01/15/2020
+ms.author: spelluru
+ms.openlocfilehash: a2cce90b5aa28dac6ff945ac48f70bfd319683b9
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72325462"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029895"
 ---
-# <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs"></a>Usare Java per inviare o ricevere eventi da Hub eventi di Azure
+# <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-eventhubs"></a>Usare Java per inviare o ricevere eventi da Hub eventi di Azure (azure-eventhubs)
 
 Questa esercitazione illustra come creare applicazioni Java per inviare o ricevere eventi da Hub eventi di Azure.
 
-Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata degli hub eventi, vedere Panoramica di hub eventi e funzionalità di hub eventi.
+Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere Panoramica di Hub eventi e Funzionalità di Hub eventi.
 
-> [!NOTE]
-> È possibile scaricare questa guida introduttiva come esempio da [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), sostituire le stringhe `EventHubConnectionString` e `EventHubName` con i valori dell'hub eventi in uso ed eseguirla. In alternativa, è possibile seguire la procedura illustrata in questa esercitazione per creare una soluzione propria.
+> [!WARNING]
+> In questo argomento di avvio rapido si usano i pacchetti **azure-eventhubs** e **azure-eventhubs-eph** precedenti. È consigliabile [eseguire la migrazione](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md) del codice per usare il pacchetto [azure-messaging-eventhubs](get-started-java-send-v2.md) più recente. 
 
-## <a name="prerequisites"></a>Prerequisiti
+
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
 - Un account Azure attivo. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 - Ambiente di sviluppo in Java. Questa esercitazione usa [Eclipse](https://www.eclipse.org/).
-- **Creare uno spazio dei nomi di hub eventi e un hub eventi**. Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo Hub eventi e ottenere le credenziali di gestione necessarie all'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md). Ottenere quindi il valore della chiave di accesso per l'hub eventi seguendo le istruzioni dell'articolo: [ottenere la stringa di connessione](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Si userà la chiave di accesso nel codice scritto più avanti in questa esercitazione. Il nome della chiave predefinita è: **RootManageSharedAccessKey**.
+- **Creare uno spazio dei nomi di Hub eventi e un hub eventi**. Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo Hub eventi e ottenere le credenziali di gestione necessarie all'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md). Ottenere quindi il valore della chiave di accesso dell'hub eventi seguendo le istruzioni disponibili nell'articolo: [Ottenere una stringa di connessione](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Si userà la chiave di accesso nel codice scritto più avanti in questa esercitazione. Il nome della chiave predefinita è: **RootManageSharedAccessKey**.
 
 ## <a name="send-events"></a>Inviare eventi 
 Questa sezione illustra come creare un'applicazione Java per inviare eventi a un hub eventi. 
+
+> [!NOTE]
+> È possibile scaricare questa guida introduttiva come esempio da [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), sostituire le stringhe `EventHubConnectionString` e `EventHubName` con i valori dell'hub eventi in uso ed eseguirla. In alternativa, è possibile seguire la procedura illustrata in questa esercitazione per creare una soluzione propria.
 
 ### <a name="add-reference-to-azure-event-hubs-library"></a>Aggiungere il riferimento alla libreria di Hub eventi di Azure
 
@@ -94,7 +96,7 @@ Usare la classe ConnectionStringBuilder per costruire un valore di stringa di co
                 .setSasKey("SHARED ACCESS KEY");
 ```
 
-### <a name="write-code-to-send-events"></a>Scrivere codice per inviare eventi
+### <a name="write-code-to-send-events"></a>Scrivere il codice per l'invio di eventi
 
 Creare un evento singolare trasformando una stringa nella relativa codifica UTF-8. Creare quindi una nuova istanza del client di Hub eventi dalla stringa di connessione e inviare il messaggio:   
 
@@ -138,9 +140,9 @@ Creare un evento singolare trasformando una stringa nella relativa codifica UTF-
 
 Compilare ed eseguire il programma e verificare che non siano presenti errori.
 
-Congratulazioni. Sono stati inviati messaggi a un hub eventi.
+Congratulazioni! Sono stati inviati messaggi a un hub eventi.
 
-### <a name="appendix-how-messages-are-routed-to-eventhub-partitions"></a>Appendice: modalità di instradamento dei messaggi alle partizioni EventHub
+### <a name="appendix-how-messages-are-routed-to-eventhub-partitions"></a>Appendice: Modalità di indirizzamento dei messaggi alle partizioni di Hub eventi
 
 Prima che i messaggi vengano recuperati da parte dei consumatori, dovranno essere pubblicati nelle partizioni dagli editori. Quando vengono pubblicati i messaggi nell'Hub eventi in modo sincrono tramite il metodo sendSync() nell'oggetto com.microsoft.azure.eventhubs.EventHubClient, i messaggi possono essere inviati a una partizione specifica o distribuiti a tutte le partizioni disponibili in modalità round robin a seconda che la chiave di partizione sia specificata o meno.
 
@@ -176,16 +178,16 @@ Il codice in questa esercitazione si basa sul [codice EventProcessorSample in Gi
 
 ### <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Per usare EventProcessorHost, è necessario disporre di un [account di archiviazione di Azure] [account di archiviazione di Azure]:
+Per usare EventProcessorHost, è necessario avere un [account di archiviazione di Azure][account di archiviazione di Azure]:
 
-1. Accedere al [portale di Azure](https://portal.azure.com)e selezionare **Crea una risorsa** sul lato sinistro della schermata.
-2. Selezionare **archiviazione**e quindi **account di archiviazione**. Nella finestra **Crea account di archiviazione** digitare un nome per l'account di archiviazione. Completare il resto dei campi, selezionare l'area desiderata e quindi fare clic su **Crea**.
+1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **+ Crea una risorsa** a sinistra dello schermo.
+2. Selezionare **Archiviazione** e quindi **Account di archiviazione**. Nella finestra **Crea account di archiviazione** digitare un nome per l'account di archiviazione. Completare il resto dei campi, selezionare l'area geografica desiderata e quindi selezionare **Crea**.
    
-    ![Creare un account di archiviazione in portale di Azure](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-azure-storage-account.png)
+    ![Creare un account di archiviazione nel portale di Azure](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-azure-storage-account.png)
 
-3. Selezionare l'account di archiviazione appena creato e quindi selezionare **chiavi di accesso**:
+3. Selezionare l'account di archiviazione appena creato e quindi **Chiavi di accesso**:
    
-    ![Ottenere le chiavi di accesso in portale di Azure](./media/event-hubs-dotnet-framework-getstarted-receive-eph/select-azure-storage-access-keys.png)
+    ![Ottenere le chiavi di accesso nel portale di Azure](./media/event-hubs-dotnet-framework-getstarted-receive-eph/select-azure-storage-access-keys.png)
 
     Copiare il valore key1 in una posizione temporanea. perché sarà usato più avanti in questa esercitazione.
 
@@ -414,7 +416,7 @@ Creare una classe che implementi l'interfaccia com.microsoft.azure.eventprocesso
 
 Usare l'implementazione personalizzata di gestione del checkpoint (com.microsoft.azure.eventprocessorhost.ICheckpointManager)
 
-All'interno dell'implementazione, è possibile eseguire l'override del meccanismo di checkpoint predefinito e implementare i propri Checkpoint basati sul proprio archivio dati, ad esempio SQL Server, CosmosDB e cache di Azure per Redis. È consigliabile che l'archivio utilizzato per sostenere la realizzazione dell'implementazione del manager del checkpoint sia accessibile a tutte le istanze EPH che elaborano gli eventi per il gruppo di consumer.
+All'interno dell'implementazione è possibile ignorare il meccanismo di checkpoint predefinito e implementare checkpoint basati sul proprio archivio dati, come SQL Server, CosmosDB, Azure Cache for Redis e così via. È consigliabile che l'archivio utilizzato per sostenere la realizzazione dell'implementazione del manager del checkpoint sia accessibile a tutte le istanze EPH che elaborano gli eventi per il gruppo di consumer.
 
 È possibile usare qualsiasi archivio dati disponibile nell'ambiente in uso.
 

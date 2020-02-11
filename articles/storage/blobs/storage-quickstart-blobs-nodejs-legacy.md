@@ -3,24 +3,26 @@ title: 'Avvio rapido: Libreria client di archiviazione BLOB di Azure v10 per Jav
 description: Creare, caricare ed eliminare BLOB e contenitori in Node.js con la libreria client di archiviazione di Azure v10 per JavaScript
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/24/2019
+ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: dd59dec65f75a17c35750140349101c600a92636
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 6a530c96c99a9f22f1943a5b874656bcabd9594b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75862850"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906481"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v10-for-javascript"></a>Avvio rapido: Libreria client di archiviazione BLOB di Azure v10 per JavaScript
+# <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Avvio rapido: Gestire i BLOB con JavaScript v10 SDK in Node.js
 
-In questa guida introduttiva verrà illustrato l'uso di [Azure Storage v10 SDK per JavaScript](https://github.com/Azure/azure-sdk-for-js) in Node.js per caricare, scaricare, elencare ed eliminare i BLOB e gestire i contenitori.
+In questo argomento di avvio rapido viene illustrato come gestire i BLOB con Node.js. I BLOB sono oggetti che possono contenere grandi quantità di dati di testo o binari, tra cui immagini, documenti, flussi multimediali e dati di archiviazione. Verranno caricati, scaricati, elencati ed eliminati i BLOB e verranno gestiti i contenitori.
 
 ## <a name="prerequisites"></a>Prerequisites
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Un account dell'Archiviazione di Azure. [Creare un account di archiviazione](../common/storage-account-create.md).
+- [Node.js](https://nodejs.org/en/download/).
 
 ## <a name="download-the-sample-application"></a>Scaricare l'applicazione di esempio
 

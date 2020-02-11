@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: cab593990369bb8a4135e82534a2eb409b574e96
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8f3772c1d65780337c421cfaaa7b70d7ac7186cf
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582753"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024314"
 ---
 # <a name="azure-iot-central---smart-meter-app-architecture"></a>Azure IoT Central - architettura dell'app per contatori intelligenti
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Questo articolo contiene una panoramica dell'architettura del modello di app per il monitoraggio dei contatori intelligenti. Il diagramma seguente mostra un'architettura di uso comune dell'app per contatori intelligenti in Azure che utilizza la piattaforma IoT Central.
 
@@ -28,7 +28,7 @@ L'architettura è costituita dai componenti seguenti. Alcune soluzioni potrebber
 
 ## <a name="smart-meters-and-connectivity"></a>Contatori intelligenti e connettività 
 
-Un contatore intelligente è uno dei dispositivi più importanti tra tutte le risorse in ambito di energia. Registra e comunica i dati sul consumo di energia alle aziende di pubblica utilità per il monitoraggio e altri casi d'uso, ad esempio la fatturazione e la risposta alla domanda. In base al tipo, il contatore può connettersi a IoT Central tramite gateway o altri dispositivi o sistemi intermedi, ad esempio dispositivi perimetrali e sistemi head-end. Compilare un dispositivo bridge IoT Central per connettere i dispositivi che non possono essere connessi direttamente. Il dispositivo bridge IoT Central è una soluzione open source i cui dettagli completi sono disponibili [qui](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
+Un contatore intelligente è uno dei dispositivi più importanti tra tutte le risorse in ambito di energia. Registra e comunica i dati sul consumo di energia alle aziende di pubblica utilità per il monitoraggio e altri casi d'uso, ad esempio la fatturazione e la risposta alla domanda. In base al tipo, il contatore può connettersi a IoT Central tramite gateway o altri dispositivi o sistemi intermedi, ad esempio dispositivi perimetrali e sistemi head-end. Creare un dispositivo bridge di IoT Central per connettere i dispositivi che non possono essere connessi direttamente. Il dispositivo bridge IoT Central è una soluzione open source i cui dettagli completi sono disponibili [qui](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
 
 
 ## <a name="iot-central-platform"></a>Piattaforma IoT Central

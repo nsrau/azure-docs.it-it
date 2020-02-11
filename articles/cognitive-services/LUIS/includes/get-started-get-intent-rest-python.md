@@ -6,24 +6,37 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/20/2019
+ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: 37249cc560d4493c34dd4be6139de03f9c152a08
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 23ac98f91c989c9bedb6b91e6a7ce26dc164ac5a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74414559"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987780"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Python 3.6](https://www.python.org/downloads/) o versione successiva.
 * [Visual Studio Code](https://code.visualstudio.com/)
 * ID app pubblico: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
-## <a name="get-luis-key"></a>Ottenere la chiave di LUIS
+## <a name="create-luis-runtime-key-for-predictions"></a>creare la chiave di runtime di LUIS per le previsioni
 
-[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
+1. Accedere al [portale di Azure](https://portal.azure.com)
+1. Fare clic su [Crea **Language Understanding**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+1. Immettere tutte le impostazioni necessarie per la chiave di **runtime**:
+
+    |Impostazione|valore|
+    |--|--|
+    |Nome|Il nome desiderato (2-64 caratteri)|
+    |Subscription|Selezionare la sottoscrizione appropriata|
+    |Location|Selezionare una località vicina e disponibile|
+    |Piano tariffario|`F0`: il piano tariffario minimo|
+    |Gruppo di risorse|Selezionare un gruppo di risorse disponibile|
+
+1. Fare clic su **Crea** e attendere che venga creata la risorsa. Una volta creata, passare alla relativa pagina.
+1. Raccogliere i valori di `endpoint` e `key` configurati.
 
 ## <a name="get-intent-from-the-prediction-endpoint"></a>Ottenere una finalità dall'endpoint di previsione
 
@@ -34,17 +47,17 @@ Usare Python per eseguire query sull'[endpoint di previsione](https://aka.ms/lui
     ```python
     ########### Python 3.6 #############
     import requests
-    
+
     try:
-    
-        key = 'YOUR-KEY'
-        endpoint = 'YOUR-ENDPOINT' # such as 'westus2.api.cognitive.microsoft.com' 
+
+        key = 'YOUR-KEY' # your Runtime key
+        endpoint = 'YOUR-ENDPOINT' # such as 'your-resource-name.api.cognitive.microsoft.com'
         appId = 'df67dcdb-c37d-46af-88e1-8b97951ca1c2'
         utterance = 'turn on all lights'
-    
+
         headers = {
         }
-    
+
         params ={
             'query': utterance,
             'timezoneOffset': '0',
@@ -54,18 +67,20 @@ Usare Python per eseguire query sull'[endpoint di previsione](https://aka.ms/lui
             'staging': 'false',
             'subscription-key': key
         }
-    
+
         r = requests.get(f'https://{endpoint}/luis/prediction/v3.0/apps/{appId}/slots/production/predict',headers=headers, params=params)
         print(r.json())
-    
+
     except Exception as e:
         print(f'{e}')
     ```
 
-1. Sostituire i valori seguenti:
+1. Sostituire i valori `YOUR-KEY` e `YOUR-ENDPOINT` con la chiave di **runtime** e l'endpoint di previsione.
 
-    * `YOUR-KEY` con la chiave di avvio.
-    * `YOUR-ENDPOINT` con l'endpoint. Ad esempio: `westus2.api.cognitive.microsoft.com`.
+    |Informazioni|Scopo|
+    |--|--|
+    |`YOUR-KEY`|La chiave di **runtime** di previsione di 32 caratteri.|
+    |`YOUR-ENDPOINT`| L'endpoint dell'URL di previsione. Ad esempio: `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
 
 1. Installare la dipendenza `requests`. Viene usata per eseguire richieste HTTP:
 
@@ -77,7 +92,7 @@ Usare Python per eseguire query sull'[endpoint di previsione](https://aka.ms/lui
 
     ```console
     python predict.py
-    ``` 
+    ```
 
 1. Esaminare la risposta di previsione restituita in formato JSON:
 
@@ -85,7 +100,7 @@ Usare Python per eseguire query sull'[endpoint di previsione](https://aka.ms/lui
     {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
     ```
 
-    Di seguito è riportata la risposta JSON formattata per migliorare la leggibilità: 
+    Di seguito è riportata la risposta JSON formattata per migliorare la leggibilità:
 
     ```JSON
     {
@@ -128,13 +143,9 @@ Usare Python per eseguire query sull'[endpoint di previsione](https://aka.ms/lui
     }
     ```
 
-## <a name="luis-keys"></a>Chiavi di LUIS
-
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
-
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Al termine di questo argomento di avvio rapido, eliminare il file dal file system. 
+Al termine di questo argomento di avvio rapido, eliminare il file dal file system.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

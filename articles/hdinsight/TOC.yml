@@ -346,6 +346,8 @@
               href: ./spark/apache-azure-spark-history-server.md
             - name: Abilitare la memorizzazione nella cache con IO Cache
               href: ./spark/apache-spark-improve-performance-iocache.md
+            - name: Gestire le dipendenze da JAR
+              href: ./spark/manage-jar-dependency.md
             - name: Usare i notebook con Apache Spark
               items:
                 - name: Usare un Jupyter Notebook locale
