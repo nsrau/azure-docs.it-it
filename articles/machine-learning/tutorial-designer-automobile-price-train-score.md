@@ -8,18 +8,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 639a61cddde27b0d989e5a3dd4c599c353182a73
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 01/30/2020
+ms.openlocfilehash: de9ed700363bd6578ac49f0add0c48dc33356692
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720174"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982604"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-In questa esercitazione in due parti si apprenderà come usare la finestra di progettazione di Azure Machine Learning per sviluppare e distribuire una soluzione di analisi predittiva che stima il prezzo di qualsiasi automobile.
+In questa esercitazione in due parti si apprenderà come usare la finestra di progettazione di Azure Machine Learning per eseguire il training e la distribuzione di un modello di Machine Learning che stima il prezzo di qualsiasi automobile. La finestra di progettazione è uno strumento con trascinamento della selezione che consente di creare modelli di Machine Learning senza scrivere una sola riga di codice.
 
 Nella prima parte dell'esercitazione si è apprenderà come:
 
@@ -45,13 +45,15 @@ Per creare una pipeline di Azure Machine Learning, è necessaria un'area di lavo
 
 ### <a name="create-a-new-workspace"></a>Creazione di una nuova area di lavoro
 
+Per usare la finestra di progettazione, occorre innanzitutto un'area di lavoro di Azure Machine Learning. L'area di lavoro è la risorsa di primo livello per Azure Machine Learning e fornisce una posizione centralizzata da cui gestire tutti gli artefatti creati in Azure Machine Learning.
+
 Se è già disponibile un'area di lavoro di Azure Machine Learning con un'edizione Enterprise, [passare alla sezione successiva](#create-the-pipeline).
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
 ### <a name="create-the-pipeline"></a>Creare la pipeline
 
-1. Accedere a [ml.azure.com](https://ml.azure.com) e selezionare l'area di lavoro che si vuole usare.
+1. Accedere a <a href="https://ml.azure.com?tabs=jre" target="_blank">ml.azure.com</a> e selezionare l'area di lavoro che si vuole usare.
 
 1. Selezionare **Designer** (Finestra di progettazione).
 
@@ -60,6 +62,30 @@ Se è già disponibile un'area di lavoro di Azure Machine Learning con un'edizio
 1. Selezionare **Easy-to-use prebuilt modules** (Moduli predefiniti facili da usare).
 
 1. Nella parte superiore del canvas selezionare il nome predefinito della pipeline, **Pipeline-Created-on**. Ridenominarla in *Automobile price prediction*. Il nome non deve essere univoco.
+
+## <a name="set-the-default-compute-target"></a>Impostare la destinazione di calcolo predefinita
+
+Una pipeline viene eseguita in una destinazione di calcolo, ossia una risorsa di calcolo collegata all'area di lavoro. Dopo aver creato una destinazione di calcolo, è possibile riusarla per le esecuzioni future.
+
+È possibile impostare una **destinazione di calcolo predefinita** per l'intera pipeline, in modo da indicare a ogni modulo di usare la stessa destinazione di calcolo per impostazione predefinita. È però possibile specificare le destinazioni di calcolo solo per modulo.
+
+1. Accanto al nome della pipeline selezionare l'**icona a forma di ingranaggio** ![Screenshot dell'icona a forma di ingranaggio](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) nella parte superiore dell'area di disegno per aprire il riquadro **Impostazioni**.
+
+1. Nel riquadro **Impostazioni** a destra dell'area di disegno selezionare **Seleziona destinazione di calcolo**.
+
+    Se è già disponibile una destinazione di calcolo, è possibile selezionarla per eseguire questa pipeline.
+
+    > [!NOTE]
+    > La finestra di progettazione può eseguire esperimenti nelle destinazioni dell'ambiente di calcolo di Azure Machine Learning. Altre destinazioni di calcolo non vengono visualizzate.
+
+1. Immettere un nome per la risorsa di calcolo.
+
+1. Selezionare **Salva**.
+
+    > [!NOTE]
+    > La creazione di una risorsa di calcolo richiede circa cinque minuti. Dopo aver creato la risorsa, è possibile riusarla e saltare questo tempo di attesa per le esecuzioni future.
+    >
+    > La risorsa di calcolo si ridimensiona automaticamente a zero nodi quando è inattiva per risparmiare sui costi. Quando la si usa di nuovo dopo un breve intervallo di tempo, è possibile che si verifichi nuovamente un tempo di attesa di circa cinque minuti, mentre viene riaumentato il numero di nodi.
 
 ## <a name="import-data"></a>Importa dati
 
@@ -77,7 +103,7 @@ Nella finestra di progettazione sono disponibili diversi set di dati di esempio 
 
 1. Selezionare il modulo **Automobile price data (Raw)** .
 
-1. Nel riquadro delle proprietà a destra del canvas selezionare **Outputs**.
+1. Nel riquadro dei dettagli del modulo a destra dell'area di disegno selezionare **Output**.
 
 1. Selezionare l'icona del grafico per visualizzare i dati.
 
@@ -93,9 +119,9 @@ I set di dati in genere richiedono una pre-elaborazione prima dell'analisi. Dura
 
 ### <a name="remove-a-column"></a>Rimuovere una colonna
 
-Quando si esegue il training di un modello, occorre fare qualcosa in merito ai dati mancanti. In questo set di dati, la colonna **normalized-losses** ha molti valori mancanti, pertanto verrà esclusa completamente dal modello.
+Quando si esegue il training di un modello, occorre fare qualcosa in merito ai dati mancanti. In questo set di dati, nella colonna **normalized-losses** mancano molti valori, pertanto la si escluderà completamente dal modello.
 
-1. Immettere **Select** nella casella di ricerca nella parte superiore del pannello per trovare il modulo **Select Columns in Dataset** (Seleziona colonne nel set di dati).
+1. Nel pannello dei moduli a sinistra dell'area di disegno espandere la sezione **Trasformazione dati** e individuare il modulo **Select Columns in Dataset** (Seleziona colonne in set di dati).
 
 1. Trascinare il modulo **Select Columns in Dataset** (Seleziona colonne nel set di dati) nel canvas. Rilasciare il modulo sotto il modulo del set di dati.
 
@@ -109,11 +135,13 @@ Quando si esegue il training di un modello, occorre fare qualcosa in merito ai d
 
 1. Selezionare il modulo **Select Columns in Dataset** (Seleziona colonne nel set di dati).
 
-1. Nel riquadro delle proprietà a destra del canvas selezionare **Tutte le colonne**.
+1. Nel riquadro dei dettagli del modulo a destra dell'area di disegno selezionare **Modifica colonna**.
+
+1. Espandere l'elenco a discesa **Nomi colonne** accanto a **Includi** e selezionare **Tutte le colonne**.
 
 1. Selezionare il segno **+** per aggiungere una nuova regola.
 
-1. Nel menu a discesa selezionare **Exclude** (Escludi) e **Column names** (Nomi di colonna).
+1. Nel menu a discesa selezionare **Escludi** e **Nomi colonne**.
     
 1. Immettere *normalized-losses* nella casella di testo.
 
@@ -123,7 +151,7 @@ Quando si esegue il training di un modello, occorre fare qualcosa in merito ai d
 
 1. Selezionare il modulo **Select Columns in Dataset** (Seleziona colonne nel set di dati). 
 
-1. Nel riquadro delle proprietà selezionare la casella di testo **Commenti** e immettere *Exclude normalized losses*.
+1. Nel riquadro dei dettagli del modulo a destra dell'area di disegno selezionare la casella di testo **Commento** e immettere *Escludi perdite normalizzate*.
 
     I commenti verranno visualizzati nel grafo per facilitare l'organizzazione della pipeline.
 
@@ -134,13 +162,15 @@ Dopo la rimozione della colonna **normalized-losses**, il set di dati contiene a
 > [!TIP]
 > La pulizia dei valori mancanti dai dati di input è un prerequisito per l'uso della maggior parte dei moduli nella finestra di progettazione.
 
-1. Immettere **Clean** nella casella di ricerca per trovare il modulo **Clean Missing Data** (Pulisci dati mancanti).
+1. Nel pannello dei moduli a sinistra dell'area di disegno espandere la sezione **Trasformazione dati** e individuare il modulo **Clean Missing Data** (Pulisci dati mancanti).
 
 1. Trascinare il modulo **Clean Missing Data** (Pulisci dati mancanti) nel canvas della pipeline. Connetterlo al modulo **Select Columns in Dataset** (Seleziona colonne nel set di dati). 
 
-1. Nel riquadro delle proprietà selezionare **Remove entire row** (Rimuovi riga intera) in **Cleaning mode** (Modalità pulizia).
+1. Selezionare il modulo **Clean Missing Data** (Pulisci dati mancanti).
 
-1. Nella casella **Comment** (Commento) del riquadro delle proprietà immettere *Remove missing value rows* (Rimuovi righe con valori mancanti). 
+1. Nel riquadro dei dettagli del modulo a destra dell'area di disegno selezionare **Remove entire row** (Rimuovi riga intera) in **Cleaning mode** (Modalità pulizia).
+
+1. Nel riquadro dei dettagli del modulo a destra dell'area di disegno selezionare la casella **Commento** e immettere *Rimuovi righe valori mancanti*. 
 
     La pipeline avrà ora un aspetto analogo al seguente:
     
@@ -156,26 +186,28 @@ Poiché si vuole stimare il prezzo, ovvero un numero, è possibile usare un algo
 
 La divisione dei dati è un'attività comune in Machine Learning. I dati verranno divisi in due set di dati separati. Un set di dati eseguirà il training del modello e l'altro ne verificherà le prestazioni.
 
-1. Immettere **split data** nella casella di ricerca per trovare il modulo **Split data** (Dividi i dati). Connettere la porta sinistra del modulo **Clean Missing Data** (Pulisci dati mancanti) al modulo **Split Data** (Dividi i dati).
+1. Nel pannello del modulo espandere la sezione **Trasformazione dati** e individuare il modulo **Split Data** (Dividi i dati).
+
+1. Trascinare il modulo **Split Data** nell'area di disegno della pipeline.
+
+1. Connettere la porta sinistra del modulo **Clean Missing Data** (Pulisci dati mancanti) al modulo **Split Data** (Dividi i dati).
 
     > [!IMPORTANT]
     > Assicurarsi che la porte di output sinistra di **Clean Missing Data** (Pulisci dati mancanti) si connetta a **Split Data** (Dividi i dati). La porta sinistra contiene i dati puliti. La porta destra contiene i dati rimossi.
 
 1. Selezionare il modulo **Split Data**.
 
-1. Nel riquadro delle proprietà impostare **Fraction of rows in the first output dataset** (Frazione di righe nel primo set di dati di output) su 0,7.
+1. Nel riquadro dei dettagli del modulo a destra dell'area di disegno impostare l'opzione **Fraction of rows in the first output dataset** (Frazione di righe nel primo set di dati di output) su 0,7.
 
     Con questa opzione, per il training del modello verrà usato il 70% dei dati, mentre il restante 30% verrà usato per i test. Il set di dati del 70% sarà accessibile tramite la porta di output sinistra. I dati rimanenti saranno disponibili tramite la porta di output destra.
 
-1. Nella casella **Comment** (Commento) del riquadro delle proprietà immettere *Split the dataset into training set(0.7) and test set(0.3)* (Suddividi il set di dati in set per il training (0,7) e set per i test (0,3)).
+1. Nel riquadro dei dettagli del modulo a destra dell'area di disegno selezionare la casella **Commento** e immettere *Suddividi il set di dati in set per il training (0,7) e set per i test (0,3)* .
 
 ### <a name="train-the-model"></a>Eseguire il training del modello
 
 Eseguire il training del modello assegnando un set di dati che include il prezzo. L'algoritmo crea un modello che spiega la relazione tra le caratteristiche e il prezzo come presentato dai dati di training.
 
-1. Per selezionare l'algoritmo di apprendimento, cancellare la casella di ricerca della tavolozza dei moduli.
-
-1. Espandere **Machine Learning Algorithms** (Algoritmi di Machine Learning).
+1. Nel pannello del modulo espandere **Machine Learning Algorithms** (Algoritmi di Machine Learning).
     
     Questa opzione visualizza diverse categorie di moduli che è possibile usare per inizializzare gli algoritmi di Machine Learning.
 
@@ -192,9 +224,11 @@ Eseguire il training del modello assegnando un set di dati che include il prezzo
 
     ![Screenshot della configurazione corretta del modulo Train Model Il modulo Linear Regression si connette alla porta sinistra e il modulo Split Data alla porta destra del modulo Train Model](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
 
+1. Nel pannello del modulo espandere la sezione **Module training** (Training del modulo) e trascinare il modulo **Train Model** (Training modello) nell'area di disegno.
+
 1. Selezionare il modulo **Train Model**.
 
-1. Nel riquadro delle proprietà selezionare il selettore **Edit column** (Modifica colonna).
+1. Nel riquadro dei dettagli del modulo a destra dell'area di disegno selezionare il selettore **Modifica colonna**.
 
 1. Nella finestra di dialogo **Label column** (Colonna etichetta) espandere il menu a discesa e selezionare **Column names** (Nomi di colonna). 
 
@@ -204,7 +238,7 @@ Eseguire il training del modello assegnando un set di dati che include il prezzo
 
     ![Screenshot della configurazione corretta della pipeline dopo l'aggiunta del modulo Train Model.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png)
 
-## <a name="score-a-machine-learning-model"></a>Assegnare un punteggio al modello di Machine Learning
+### <a name="add-the-score-model-module"></a>Aggiungere il modulo Score Model (Punteggio modello)
 
 Dopo aver eseguito il training del modello usando il 70% dei dati, è possibile usarlo per assegnare punteggi al restante 30% e verificarne il funzionamento.
 
@@ -212,7 +246,7 @@ Dopo aver eseguito il training del modello usando il 70% dei dati, è possibile 
 
 1. Connettere l'output del modulo **Train Model** alla porta di input sinistra del modulo **Score Model**. Connettere l'output dei dati di test (porta destra) del modulo **Split Data** alla porta di input destra di **Score Model**.
 
-## <a name="evaluate-a-machine-learning-model"></a>Valutare un modello di Machine Learning
+### <a name="add-the-evaluate-model-module"></a>Aggiungere il modulo Evaluate Model (Modello di valutazione)
 
 Usare il modulo **Evaluate Model** (Valutazione modello) per valutare il punteggio assegnato al modello nel set di dati di test.
 
@@ -226,7 +260,20 @@ Usare il modulo **Evaluate Model** (Valutazione modello) per valutare il puntegg
 
 ## <a name="run-the-pipeline"></a>Eseguire la pipeline
 
-[!INCLUDE [aml-ui-create-training-compute](../../includes/aml-ui-create-training-compute.md)]
+Ora che la pipeline è completamente configurata, è possibile inviare un'esecuzione della pipeline.
+
+1. Nella parte superiore dell'area di disegno selezionare **Esegui**.
+
+1. Nella finestra di dialogo **Configura esecuzione della pipeline** selezionare **+ Nuovo esperimento** per **Esperimento**.
+
+    > [!NOTE]
+    > Gli esperimenti raggruppano esecuzioni di pipeline simili. Se una pipeline viene eseguita più volte, è possibile selezionare lo stesso esperimento per le esecuzioni successive.
+
+    1. Immettere un nome descrittivo per il **Nome esperimento**.
+
+    1. Selezionare **Run** (Esegui).
+    
+    È possibile visualizzare lo stato di esecuzione e i dettagli nella parte superiore destra dell'area di disegno.
 
 ### <a name="view-scored-labels"></a>Visualizzare le etichette dei punteggi
 
@@ -234,7 +281,7 @@ Al termine dell'esecuzione, è possibile visualizzare i risultati dell'esecuzion
 
 1. Selezionare il modulo **Score Model** (Punteggio modello) per visualizzare il relativo output.
 
-1. Nel riquadro delle proprietà selezionare **Output** > icona del grafo ![icona di visualizzazione](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) per visualizzare i risultati.
+1. Nel riquadro dei dettagli del modulo a destra dell'area di disegno selezionare **Output** > icona del grafo ![icona di visualizzazione](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) per visualizzare i risultati.
 
     Qui è possibile visualizzare i prezzi stimati e i prezzi effettivi dai dati di test.
 
@@ -246,7 +293,7 @@ Usare **Evaluate Model** (Valutazione modello) per verificare le prestazioni del
 
 1. Selezionare il modulo **Evaluate Model** (Valutazione modello) per visualizzare il relativo output.
 
-1. Nel riquadro delle proprietà selezionare **Output** > icona del grafo ![icona di visualizzazione](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) per visualizzare i risultati.
+1. Nel riquadro dei dettagli del modulo a destra dell'area di disegno selezionare **Output** > icona del grafo ![icona di visualizzazione](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) per visualizzare i risultati.
 
 Per il modello vengono visualizzate le seguenti statistiche:
 
@@ -260,16 +307,11 @@ Per ogni statistica di errore, sono preferibili i valori più piccoli. Un valore
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
+Saltare questa sezione se si vuole continuare con la parte 2 dell'esercitazione relativa alla [distribuzione di modelli](tutorial-designer-automobile-price-deploy.md).
+
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-Nella prima parte dell'esercitazione sono state completate queste attività:
-
-* Creare una pipeline
-* Preparare i dati
-* Eseguire il training del modello
-* Assegnare punteggi e valutare il modello
 
 Nella seconda parte si apprenderà come distribuire il modello come endpoint in tempo reale.
 

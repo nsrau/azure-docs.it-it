@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 06/19/2019
+ms.date: 02/02/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: f803bcafb1966e32e894b4caeaa8fafb5f73e8e7
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: abd4a3a3a3e8494ea325e65a78eea7fb56b78f94
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186274"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988363"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Esercitazione: Analizzare i video con Servizi multimediali v3
 
@@ -38,7 +38,11 @@ Questa esercitazione illustra come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="compliance-privacy-and-security"></a>Conformità, privacy e sicurezza
+ 
+È importante ricordare che è necessario usare Video Indexer in conformità con tutte le leggi applicabili e non è possibile usare Video Indexer né qualsiasi altro servizio di Azure in un modo che violi i diritti di altri utenti o possa arrecare danni ad altri utenti. Per poter caricare video, inclusi dati biometrici, nel servizio Video Indexer per elaborarli e archiviarli, è necessario disporre di tutti i diritti appropriati, inclusi tutti i consensi appropriati delle persone che compaiono nel video. Per informazioni su conformità, privacy e sicurezza in Video Indexer, vedere le [condizioni di Servizi cognitivi Microsoft](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). Per informazioni sugli obblighi relativi alla privacy e la gestione dei dati degli utenti da parte di Microsoft, vedere l'[informativa sulla privacy](https://privacy.microsoft.com/PrivacyStatement), le [condizioni per l'utilizzo dei servizi online](https://www.microsoft.com/licensing/product-licensing/products) e l'[addendum sull'elaborazione dati](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) Microsoft. Informazioni aggiuntive sulla privacy, tra cui la conservazione e l'eliminazione/distruzione dei dati, sono disponibili nelle condizioni per l'utilizzo dei servizi online e [qui](../video-indexer/faq.md). Usando Video Indexer, l'utente accetta di essere vincolato dalle condizioni di Servizi cognitivi, dalle condizioni per l'utilizzo dei servizi online, dall'addendum sull'elaborazione dati e dall'informativa sulla privacy.
+
+## <a name="prerequisites"></a>Prerequisites
 
 - Se Visual Studio non è installato, scaricare [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 - [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).<br/>Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account di Servizi multimediali.

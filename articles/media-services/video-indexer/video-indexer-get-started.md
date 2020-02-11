@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 01/13/2020
+ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: 3a5ddf5bd4614b68e97e7616173a3e0640007530
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 1f3d442ea7cf6d95427aaa9c072410119e2735af
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941546"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989808"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Avvio rapido: Come iscriversi e caricare il primo video
 
@@ -49,15 +49,17 @@ Per un elenco dei formati di file che è possibile usare con Video Indexer, vede
 
     Al termine dell'analisi si riceverà una notifica con un collegamento al video e una breve descrizione di ciò che è stato trovato nel video. Ad esempio: persone, argomenti, OCR.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="see-also"></a>Vedere anche
 
 Per altre informazioni, vedere [Caricare e indicizzare video](upload-index-videos.md).
 
 Dopo aver caricato e indicizzato un video, è possibile iniziare a usare il sito Web di [Video Indexer](video-indexer-use-apis.md) o il [portale per sviluppatori di Video Indexer](video-indexer-view-edit.md) per visualizzare le informazioni dettagliate del video. 
 
-## <a name="see-also"></a>Vedere anche
+[Iniziare a usare le API](video-indexer-use-apis.md)
 
-[Panoramica di Video Indexer](video-indexer-overview.md)
+## <a name="next-steps"></a>Passaggi successivi
 
-[Iniziare a usare le API](video-indexer-use-apis.md).
+Per un'introduzione dettagliata, vedere il [lab introduttivo](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md). 
+
+Al termine del workshop si avrà una buona conoscenza del tipo di informazioni che possono essere estratte da contenuti video e audio, si sarà più preparati a identificare le opportunità correlate all'intelligence dei contenuti, sfruttare le tecnologie di intelligenza artificiale video in Azure e valutare diversi scenari in Video Indexer.
 

@@ -7,19 +7,22 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/25/2019
+ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: 29850cb9cb40eae0829b5d8c2b58b5f9518f18d5
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 4cd8d0901ce23fb227bb6919dee18f5aa3d063ed
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021116"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77089071"
 ---
-La versione 3 dell'API Analisi del testo consente di scegliere il modello di Analisi del testo usato per i dati. Usare il parametro facoltativo `model-version` per selezionare una versione del modello nelle richieste. Se questo parametro non è specificato, l'API verrà impostato in modo predefinito su `latest`, ovvero la versione stabile più recente del modello.
+La versione 3 dell'API Analisi del testo consente di scegliere la versione del modello più aggiornata per i dati. Usare il parametro `model-version` facoltativo per selezionare la versione del modello appropriata per le richieste. Se questo parametro non viene specificato, per impostazione predefinita l'API verrà impostata su `latest`, ovvero la versione stabile più recente. Anche se è possibile usare la versione più recente del modello in qualsiasi richiesta, in ogni versione vengono aggiornate solo alcune funzionalità. La tabella seguente descrive le funzionalità che sono state aggiornate in ogni versione del modello:
 
-Versioni del modello disponibili:
-* `2019-10-01` (`latest`)
+| Versione del modello           | Funzionalità aggiornate         | Ultima versione per:           |
+|-------------------------|--------------------------|--------------------------|
+| `2020-02-01`            | Riconoscimento delle entità                      | Riconoscimento delle entità                      |
+| `2019-10-01`            | Riconoscimento delle entità, analisi del sentiment  | Rilevamento della lingua, estrazione di frasi chiave, analisi del sentiment|
+
 
 Ogni risposta dagli endpoint v3 include un campo `model-version` che specifica la versione del modello utilizzata.
 
@@ -30,3 +33,4 @@ Ogni risposta dagli endpoint v3 include un campo `model-version` che specifica l
     "model-version": "2019-10-01"
 }
 ```
+Per informazioni sugli aggiornamenti di queste versioni del modello, vedere [Novità](../whats-new.md).

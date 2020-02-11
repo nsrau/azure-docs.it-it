@@ -8,20 +8,20 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 97a215d8f111753c8fcc857fe4c48956c1236b3b
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 35ac39109bfcb4dc63b738c947d2ad8caf8ac0a6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027451"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77021288"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Esercitazione: Distribuire ed esplorare un modello di app di monitoraggio pazienti continuo
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Questa esercitazione illustra ai creatori di soluzioni come iniziare a distribuire un modello di applicazione di monitoraggio pazienti continuo IoT Central. Si apprenderà pertanto come distribuire il modello e quali sono gli elementi inclusi per impostazione predefinita. Verranno inoltre fornite informazioni sulle possibili operazioni successive.
 
-In questa esercitazione si apprenderà come:
+Questa esercitazione illustra ai creatori di soluzioni come iniziare a distribuire un modello di applicazione di monitoraggio pazienti continuo IoT Central. Si apprenderà come distribuire il modello, quali sono gli elementi inclusi per impostazione predefinita e quali operazioni è possibile eseguire successivamente.
+
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un modello di applicazione
@@ -34,16 +34,17 @@ Passare al [sito Web di gestione applicazioni Azure IoT Central](https://apps.az
 >[!div class="mx-imgBorder"] 
 >![Gestione app - Servizi sanitari](media/app-manager-health.png)
 
-Fare clic sul pulsante **Crea app** per iniziare a creare l'applicazione e quindi accedere con un account Microsoft personale oppure aziendale o dell'istituto di istruzione. Si aprirà la pagina **Nuova applicazione**.
+Fare clic sul pulsante **Crea app** per iniziare a creare l'applicazione e quindi accedere con un account Microsoft personale oppure aziendale o dell'istituto di istruzione. Verrà visualizzata la pagina **Nuova applicazione**.
 
->[!div class="mx-imgBorder"] 
->![Creare l'applicazione - Servizi sanitari](media/app-manager-health-create.png)
+![Creare l'applicazione - Servizi sanitari](media/app-manager-health-create.png)
+
+![Creare l'applicazione Servizi sanitari - Info di fatturazione](media/app-manager-health-create-billinginfo.png)
 
 Per creare l'applicazione, seguire questa procedura:
 
 1. Azure IoT Central suggerisce automaticamente un nome per l'applicazione in base al modello selezionato. È possibile accettare tale nome oppure immettere il nome descrittivo desiderato per l'applicazione, ad esempio **Continuous patient monitoring**. Azure IoT Central genera automaticamente anche un prefisso URL univoco in base al nome dell'applicazione. È possibile modificare questo prefisso URL in modo da renderlo più facile da ricordare.
 
-2. È possibile scegliere se si vuole creare un'applicazione di tipo **Versione di valutazione** o un'applicazione **Con pagamento in base al consumo**. Le applicazioni di tipo **Versione di valutazione** sono gratuite per sette giorni prima della scadenza e consentono l'uso di un massimo di cinque dispositivi gratuiti. Possono essere convertite in applicazioni con pagamento in base al consumo in qualsiasi momento prima della scadenza. Se si crea un'applicazione di tipo Versione di valutazione, è necessario immettere le proprie informazioni di contatto e scegliere se ricevere informazioni e suggerimenti da Microsoft. Le applicazioni **Con pagamento in base al consumo** supportano fino a due dispositivi gratuiti e richiedono l'immissione delle informazioni relative alla sottoscrizione di Azure.
+2. È possibile specificare se si vuole creare l'applicazione con il piano tariffario *gratuito* o con uno dei piani tariffari *standard*. Le applicazioni create con il piano tariffario gratuito sono gratuite per sette giorni prima della scadenza e consentono l'uso di un massimo di cinque dispositivi gratuiti. È possibile spostare un'applicazione dal piano gratuito a un piano tariffario standard in qualsiasi momento prima della scadenza. Se si sceglie il piano gratuito, è necessario immettere le informazioni di contatto e specificare se si vogliono ricevere informazioni e suggerimenti da Microsoft. Le applicazioni create con un piano standard supportano fino a due dispositivi gratuiti e richiedono l'immissione delle informazioni relative alla sottoscrizione di Azure ai fini della fatturazione.
 
 3. Fare clic su **Crea** nella parte inferiore della pagina per distribuire l'applicazione.
 
@@ -51,13 +52,13 @@ Per creare l'applicazione, seguire questa procedura:
 
 ### <a name="dashboards"></a>Dashboard
 
-Dopo aver distribuito il modello di app, prima di tutto si passerà a **Lamna in-patient monitoring dashboard** (Dashboard di monitoraggio dei pazienti degenti Lamna). Lamna Healthcare è un sistema ospedaliero fittizio che include due strutture: Woodgrove Hospital e Burkville Hospital. In questo dashboard dell'operatore relativo a Woodgrove Hospital verranno visualizzate le informazioni e i dati di telemetria sui dispositivi in tale modello insieme a un set di comandi, processi e azioni che è possibile eseguire. Dal dashboard è possibile:
+Dopo aver distribuito il modello di app, prima di tutto si passerà a **Lamna in-patient monitoring dashboard** (Dashboard di monitoraggio dei pazienti degenti Lamna). Lamna Healthcare è un sistema ospedaliero fittizio che include due strutture: Woodgrove Hospital e Burkville Hospital. In questo dashboard dell'operatore relativo a Woodgrove Hospital verranno visualizzate le informazioni e i dati di telemetria sui dispositivi in questo modello insieme a un set di comandi, processi e azioni che è possibile eseguire. Dal dashboard è possibile:
 
 * Visualizzare i dati di telemetria e le proprietà del dispositivo, ad esempio il **livello della batteria** o lo stato di **connettività**.
 
 * Visualizzare la **planimetria piano** e la posizione del dispositivo patch intelligente per i segni vitali.
 
-* **Effettuare nuovamente il provisioning** della patch intelligente per i segni vitali per un nuovo paziente.
+* **Effettuare di nuovo il provisioning** della patch intelligente per i segni vitali per un nuovo paziente.
 
 * Vedere un esempio di **dashboard del provider** che un team di assistenza ospedaliera potrebbe visualizzare per monitorare i pazienti.
 
@@ -77,7 +78,7 @@ In entrambi i dashboard è sempre possibile tornare a questa documentazione.
 
 Se si fa clic sulla scheda **Modelli di dispositivo**, si noterà che fanno parte del modello due tipi diversi di dispositivi:
 
-* **Smart Vitals Patch** (Patch intelligente per i segni vitali): questo dispositivo rappresenta una patch che misura diversi segni vitali utilizzabili per monitorare i pazienti all'interno e all'esterno dell'ospedale. Se si fa clic sul modello, si vedrà che la patch, oltre a inviare dati del dispositivo come il livello della batteria e la temperatura, invia dati relativi allo stato di salute del paziente, ad esempio la frequenza respiratoria e la pressione sanguigna.
+* **Smart Vitals Patch** (Patch intelligente per i segni vitali): Questo dispositivo rappresenta una patch che misura tipi diversi di segni vitali. Può essere usato per monitorare i pazienti degenti in ospedale e quelli esterni. Se si fa clic sul modello, si vedrà che la patch, oltre a inviare dati del dispositivo come il livello della batteria e la temperatura, invia dati relativi allo stato di salute del paziente, ad esempio la frequenza respiratoria e la pressione sanguigna.
 
 * **Smart Knee Brace** (Tutore intelligente per il ginocchio): questo dispositivo rappresenta un tutore per il ginocchio che i pazienti potrebbero usare durante il recupero da un intervento di protesi al ginocchio. Se si fa clic su questo modello, si visualizzeranno ad esempio informazioni relative al raggio di azione del movimento articolare e all'accelerazione, oltre ai dati del dispositivo.
 
@@ -101,7 +102,7 @@ Se si passa alla scheda Regole, si noterà che nel modello di applicazione sono 
 
 ### <a name="devices"></a>Dispositivi
 
-Fare clic sulla scheda **Dispositivi** e quindi selezionare un'istanza di **Smart Knee Brace** (Tutore intelligente per il ginocchio). Si noterà che sono disponibili tre viste che consentono di esplorare le informazioni relative allo specifico dispositivo selezionato. Tali viste vengono create e pubblicate durante la creazione del modello per il dispositivo. Ciò significa che saranno coerenti per tutti i dispositivi collegati o simulati.
+Fare clic sulla scheda **Dispositivi** e quindi selezionare un'istanza di **Smart Knee Brace** (Tutore intelligente per il ginocchio). Si noterà che sono disponibili tre viste per esplorare le informazioni relative allo specifico dispositivo selezionato. Queste viste vengono create e pubblicate al momento della compilazione del modello di dispositivo per il dispositivo, quindi saranno coerenti tra tutti i dispositivi connessi o simulati.
 
 La vista **Dashboard** offre una panoramica dei dati di telemetria e delle proprietà, inviati dal dispositivo, che sono destinati all'operatore.
 

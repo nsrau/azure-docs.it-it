@@ -11,26 +11,26 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: b85dd8d899a7e5d7d9f9d41ad7e2872249ee29c5
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 9dcb185ab8375d46c75a12e6adaeeae2358c13ac
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702008"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022087"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Esercitazione: Esportare i dati da Azure IoT Central e visualizzare le informazioni dettagliate in Power BI
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Nelle due esercitazioni precedenti è stata creata e personalizzata un'applicazione IoT Central usando il modello di applicazione **Analisi punti vendita - Pagamento**. In questa esercitazione si configurerà l'applicazione IoT Central per esportare i dati di telemetria raccolti dai dispositivi. Quindi con Power BI si creerà un dashboard personalizzato per la gestione del negozio per visualizzare le informazioni dettagliate derivate dai dati di telemetria.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Configurare un'applicazione IoT Central per esportare i dati di telemetria in un hub eventi.
 > * Usare le app per la logica per inviare dati da un hub eventi a un set di dati di streaming Power BI.
 > * Creare un dashboard Power BI per visualizzare i dati nel set di dati di streaming.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, sono necessari:
 
@@ -57,7 +57,7 @@ A questo punto è disponibile un gruppo di risorse denominato **retail-store-ana
 Prima di poter configurare l'applicazione per il monitoraggio delle vendite al dettaglio per esportare i dati di telemetria, è necessario creare un hub eventi per ricevere i dati esportati. I passaggi seguenti mostrano come creare un hub eventi:
 
 1. Nel portale di Azure selezionare **Crea una risorsa** nella parte superiore sinistra della schermata.
-1. In **Cerca nel marketplace**, immettere _Hub eventi_, quindi premere **Invio**.
+1. In **Cerca nel Marketplace** immettere _Hub eventi_, quindi premere **INVIO**.
 1. Nella pagina **Hub eventi** selezionare **Crea**.
 1. Nella pagina **Crea uno spazio dei nomi** seguire questa procedura:
     * Immettere un nome univoco per lo spazio dei nomi, ad esempio _yourname-retail-store-analysis_. Verrà eseguito un controllo sulla disponibilità del nome.
@@ -161,7 +161,7 @@ Per poter creare l'app per la logica sono necessari gli ID dispositivo dei due s
 La procedura seguente illustra come creare l'app per la logica nel portale di Azure:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Crea una risorsa** nella parte superiore sinistra della schermata.
-1. In **Cerca nel marketplace**, immettere _App per la logica_ e quindi premere **Invio**.
+1. In **Cerca nel Marketplace**, immettere _App per la logica_ e quindi premere **INVIO**.
 1. Nella pagina **App per la logica** selezionare **Crea**.
 1. Nella pagina per creare l'**App per la logica**:
     * Immettere un nome univoco per l'app per la logica, ad esempio _yourname-retail-store-analysis_.
@@ -445,7 +445,7 @@ Aggiungere quattro riquadri nel grafico a linee per mostrare la temperatura e l'
 | Asse | Timestamp | Timestamp | Timestamp | Timestamp |
 | Valori | Temperatura | Umidità | Temperatura | Umidità |
 | Intervallo di tempo | 60 minuti | 60 minuti | 60 minuti | 60 minuti |
-| Title | Temperatura (1 ora) | Umidità (1 ora) | Temperatura (1 ora) | Umidità (1 ora) |
+| Titolo | Temperatura (1 ora) | Umidità (1 ora) | Temperatura (1 ora) | Umidità (1 ora) |
 | Sottotitolo | Zona 1 | Zona 1 | Zona 2 | Zona 2 |
 
 La schermata seguente mostra le impostazioni del primo grafico:
@@ -461,7 +461,7 @@ Aggiungere quattro riquadri alla scheda per mostrare i valori di temperatura e u
 | Set di dati | Sensore Zona 1 | Sensore Zona 1 | Sensore Zona 2 | Sensore Zona 2 |
 | Tipo di visualizzazione | Card | Card | Card | Card |
 | Campi | Temperatura | Umidità | Temperatura | Umidità |
-| Title | Temperatura (F) | Umidità (%) | Temperatura (F) | Umidità (%) |
+| Titolo | Temperatura (F) | Umidità (%) | Temperatura (F) | Umidità (%) |
 | Sottotitolo | Zona 1 | Zona 1 | Zona 2 | Zona 2 |
 
 La schermata seguente mostra le impostazioni della prima scheda:
@@ -477,9 +477,9 @@ Aggiungere quattro riquadri alla scheda per mostrare la lunghezza della coda e i
 | Set di dati | Sensore di occupazione | Sensore di occupazione | Sensore di occupazione | Sensore di occupazione |
 | Tipo di visualizzazione | Istogramma a colonne raggruppate | Istogramma a colonne raggruppate | Misuratore | Misuratore |
 | Asse    | Timestamp | Timestamp | N/D | N/D |
-| Valore | Tempo di attesa 1 | Tempo di attesa 2 | Lunghezza coda 1 | Lunghezza coda 2 |
+| valore | Tempo di attesa 1 | Tempo di attesa 2 | Lunghezza coda 1 | Lunghezza coda 2 |
 | Intervallo di tempo | 60 minuti | 60 minuti |  N/D | N/D |
-| Title | Tempo di attesa | Tempo di attesa | Lunghezza coda | Lunghezza coda |
+| Titolo | Tempo di attesa | Tempo di attesa | Lunghezza coda | Lunghezza coda |
 | Sottotitolo | Completamento della transazione 1 | Completamento della transazione 2 | Completamento della transazione 1 | Completamento della transazione 2 |
 
 Ridimensionare e ridisporre i riquadri nel dashboard per ottenere un aspetto simile alla schermata seguente:

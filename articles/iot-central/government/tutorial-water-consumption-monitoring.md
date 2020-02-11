@@ -8,20 +8,20 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 0b100e0bebc7c5b26449e396650da5434334075d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 1bad4ab6320e757ac766776a95b8dbe6ebaa3259
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112628"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016426"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-in-iot-central"></a>Esercitazione: Creare un'applicazione di monitoraggio consumo idrico in IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Questa esercitazione illustra come creare un'applicazione di monitoraggio del consumo idrico di Azure IoT Central dal modello di applicazione Monitoraggio consumo idrico di IoT Central. 
 
-Nel corso dell'esercitazione si apprenderà come: 
+In questa esercitazione verranno illustrate le procedure per: 
 
 > [!div class="checklist"]
 > * Usare il modello **Monitoraggio consumo idrico** di Azure IoT Central per creare un'applicazione di monitoraggio del consumo idrico
@@ -32,14 +32,14 @@ Nel corso dell'esercitazione si apprenderà come:
 > * Configurare i processi
 > * Modificare la personalizzazione dell'applicazione tramite white-label
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Per completare questa esercitazione è necessario:
+Per completare questa esercitazione, sono necessari:
 -  Una sottoscrizione di Azure (consigliata). Se non si ha una sottoscrizione di Azure, è possibile crearne una nella [pagina di iscrizione ad Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="create-water-consumption-monitoring-app-in-iot-central"></a>Creare un'app di monitoraggio consumo idrico in IoT Central
 
-In questa sezione si userà il modello **Monitoraggio consumo idrico** di Azure IoT Central per creare un'applicazione di monitoraggio del consumo idrico in IoT Central.
+In questa sezione si usa il modello **Monitoraggio consumo idrico** di Azure IoT Central per creare un'applicazione di monitoraggio del consumo idrico in IoT Central.
 
 Per creare una nuova applicazione di monitoraggio consumo idrico:  
 
@@ -60,11 +60,13 @@ Per creare una nuova applicazione di monitoraggio consumo idrico:
     * **URL**: IoT Central genererà automaticamente un URL univoco in base al nome dell'applicazione. È possibile scegliere di aggiornare l'URL in base alle esigenze. Si può anche cambiare l'URL in un secondo momento. 
     * Se si ha una sottoscrizione di Azure, immettere i valori relativi a *directory, sottoscrizione di Azure e area*. Se non si ha una sottoscrizione, è possibile abilitare la **versione di valutazione gratuita di 7 giorni** e completare le informazioni di contatto richieste.  
 
-    Per altre informazioni su directory e sottoscrizioni, vedere la [guida introduttiva per la creazione di un'applicazione](../preview/quick-deploy-iot-central.md).
+    Per altre informazioni su directory e sottoscrizioni, vedere la [guida introduttiva per la creazione di un'applicazione](../core/quick-deploy-iot-central.md).
 
 5. Fare clic sul pulsante **Crea** nella parte inferiore della pagina. 
 
     ![Pagina Crea applicazione di Azure IoT Central](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring.png)
+
+    ![Pagina Crea applicazione di Azure IoT Central - Info di fatturazione](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring-billinginfo.png)
 
 6. È stata così creata un'applicazione di monitoraggio del consumo idrico usando il modello **Monitoraggio consumo idrico** di Azure IoT Central.
 
@@ -93,7 +95,7 @@ Il dashboard è costituito da diversi tipi di riquadri:
 
 * **Riquadro dei KPI medi dei flussi d'acqua**: il riquadro dei KPI è configurato in modo da visualizzare come esempio *la media negli ultimi 30 minuti*. È possibile personalizzare i riquadri dei KPI e impostarli su un tipo e un intervallo di tempo diversi.
 
-* I riquadri dei *comandi del dispositivo* nel dashboard contengono **Close valve** (Chiudi valvola), **Open valve** (Apro valvola) e **Set valve position** (Imposta posizione valvola). Facendo clic sui comandi verrà visualizzata la pagina dei comandi del dispositivo simulato. In IoT Central un *comando* è un tipo di *funzionalità di dispositivo* che verrà illustrata più avanti nella **sezione relativa ai modelli di dispositivo** di questa esercitazione.
+* I riquadri dei *comandi del dispositivo* nel dashboard contengono **Close valve** (Chiudi valvola), **Open valve** (Apro valvola) e **Set valve position** (Imposta posizione valvola). Facendo clic sui comandi verrà visualizzata la pagina dei comandi del dispositivo simulato. In IoT Central un *comando* è un tipo di *funzionalità di dispositivo*, che verrà illustrata più avanti nella **sezione relativa ai modelli di dispositivo** di questa esercitazione.
 
 *  **Mappa dell'area di distribuzione dell'acqua**: la mappa usa Mappe di Azure, che è possibile configurare direttamente in Azure IoT Central. Il riquadro della mappa visualizza la posizione del dispositivo. Passare il puntatore del mouse sulla mappa e provare i controlli sulla mappa, ad esempio *zoom avanti*, *zoom indietro* o *espansione*. 
 
@@ -105,7 +107,7 @@ Il dashboard è costituito da diversi tipi di riquadri:
 
 * **Riquadro di reimpostazione delle soglie di avviso**: è possibile includere riquadri di contenuti di invito all'azione con un collegamento incorporato a una pagina d'azione. In questo caso la reimpostazione della soglia di avviso indirizzerà alla pagina **Processi** dell'applicazione, in cui è possibile aggiornare le proprietà dei dispositivi e che verrà illustrata più avanti nella sezione **Configurare i processi** di questa esercitazione.
 
-* **Riquadri delle proprietà**: il dashboard visualizza le proprietà del dispositivo **Valve operational info** (Informazioni operative valvole), **Flow alert thresholds** (Soglie di avviso flusso) e **Maintenance info** (Informazioni di manutenzione).  
+* **Riquadri delle proprietà**: il dashboard visualizza le proprietà **Valve operational info** (Informazioni operative valvole), **Flow alert thresholds** (Soglie di avviso flusso) e **Maintenance info** (Informazioni di manutenzione). 
 
 
 ### <a name="customize-dashboard"></a>Personalizzare il dashboard 
@@ -146,10 +148,10 @@ Provare a personalizzare gli elementi seguenti:
 ### <a name="add-a-cloud-property"></a>Aggiungere una proprietà cloud 
 1. Passare a **Proprietà cloud** nel menu del modello di dispositivo
 2. Aggiungere una nuova proprietà cloud facendo clic su **+ Aggiungi proprietà cloud**. 
-    In IoT Central è possibile aggiungere una proprietà rilevante per il dispositivo. Un esempio di una proprietà cloud può essere una soglia di avviso specifica per l'area di installazione, informazioni sulle risorse, informazioni di manutenzione e così via. 
+    In IoT Central è possibile aggiungere una proprietà rilevante per il dispositivo. Un esempio di una proprietà cloud può essere una soglia di avviso specifica per l'area di installazione, informazioni sulle risorse o altre informazioni di manutenzione. 
 3. Selezionare **Salva** per salvare le modifiche 
  
-### <a name="views"></a>Visualizzazioni 
+### <a name="views"></a>Viste 
 Il modello di dispositivo di monitoraggio consumo idrico è dotato di visualizzazioni predefinite. Esplorare le visualizzazioni e, se necessario, aggiornarle. Le visualizzazioni definiscono il modo in cui gli operatori vedranno i dati del dispositivo, ma anche come immetteranno le proprietà cloud. 
 
   ![Visualizzazioni del modello di dispositivo](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate-views.png)

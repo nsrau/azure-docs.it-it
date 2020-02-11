@@ -255,8 +255,6 @@
         - name: Configurare codificatori locali per l'uso con il codificatore cloud
           href: media-services-live-encoders-overview.md
           items:
-            - name: Codificatore FMLE
-              href: media-services-configure-fmle-live-encoder.md
             - name: Codificatore Haivision KB
               href: media-services-configure-kb-live-encoder.md
             - name: Codificatore NewTek TriCaster
@@ -443,7 +441,7 @@
           href: media-services-error-codes.md
         - name: Logica di retry
           href: media-services-retry-logic-in-dotnet-sdk.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=media-services'

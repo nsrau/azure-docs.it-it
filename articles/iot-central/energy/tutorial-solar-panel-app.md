@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 5560cb31e31f7cf33ac8ae71d649e88be3dbb6e6
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d5ea3d3420cb598693ccaede7ee10d2f8c4fd839
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112499"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025776"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Esercitazione: Creare ed esaminare il modello di app per il monitoraggio dei pannelli solari 
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Questa esercitazione assiste l'utente durante il processo di creazione dell'applicazione di monitoraggio dei pannelli solari, che include un modello di dispositivo di esempio con dati simulati. In questa esercitazione si apprenderà come:
 
@@ -28,10 +28,10 @@ Questa esercitazione assiste l'utente durante il processo di creazione dell'appl
 > * Pulire le risorse
 
 
-Se non si dispone di una sottoscrizione, [creare un account di valutazione gratuito](https://azure.microsoft.com/free)
+Se non si ha una sottoscrizione, [creare un account di valutazione gratuito](https://azure.microsoft.com/free)
 
-## <a name="prerequisites"></a>Prerequisiti
-- Nessuna
+## <a name="prerequisites"></a>Prerequisites
+- nessuno
 - La sottoscrizione di Azure è consigliata, ma non è necessaria
 
 
@@ -49,11 +49,12 @@ Se non si dispone di una sottoscrizione, [creare un account di valutazione gratu
 3. Dopo la selezione di **Crea app** verrà aperto il modulo **Nuova applicazione**. Specificare i dettagli richiesti, come illustrato nella figura seguente:
     * **Nome applicazione**: Scegliere un nome per l'applicazione IoT Central. 
     * **URL**: Selezionare un URL di IoT Central. La piattaforma verificherà se è univoco o meno.
-    * **Versione di valutazione gratuita valida 7 giorni**: Se si dispone già di una sottoscrizione di Azure, è consigliabile usare l'impostazione predefinita. Se non si dispone di una sottoscrizione di Azure, iniziare con una versione di valutazione gratuita.
+    * **Versione di valutazione gratuita valida 7 giorni**: Se si dispone già di una sottoscrizione di Azure, è consigliabile usare l'impostazione predefinita. Se non si ha una sottoscrizione di Azure, iniziare con una versione di valutazione gratuita.
     * **Info di fatturazione**: L'applicazione stessa è gratuita. Per effettuare il provisioning delle risorse per l'app sono necessari i dettagli relativi alla directory, alla sottoscrizione di Azure e all'area.
     * Fare clic sul pulsante **Crea** nella parte inferiore della pagina. L'app verrà creata in un minuto circa.
-        > [!div class="mx-imgBorder"]
-        > ![Modulo Nuova applicazione](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
+        ![Modulo Nuova applicazione](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
+        
+        ![Modulo Nuova applicazione - Info di fatturazione](media/tutorial-iot-central-solar-panel/solar-panel-create-app-billinginfo.png)
 
 
 ### <a name="verify-the-application-and-simulated-data"></a>Verificare l'applicazione e i dati simulati

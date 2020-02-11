@@ -194,7 +194,7 @@ In questa sezione verrà aggiornato il codice di esempio per inviare la sequenza
     Press enter key to exit:
     ```
 
-9. Nel portale passare all'hub IoT a cui è stato assegnato il dispositivo simulato e selezionare la scheda **Dispositivi IoT**. Al termine del provisioning del dispositivo simulato nell'hub, il relativo ID dispositivo verrà visualizzato nel pannello **Dispositivi IoT** con *STATO***abilitato**. Potrebbe essere necessario premere il pulsante **Aggiorna** nella parte superiore. 
+9. Nel portale passare all'hub IoT a cui è stato assegnato il dispositivo simulato e selezionare la scheda **Dispositivi IoT**. Al termine del provisioning del dispositivo simulato nell'hub, il relativo ID dispositivo verrà visualizzato nel pannello **Dispositivi IoT** con *STATO* **abilitato**. Potrebbe essere necessario premere il pulsante **Aggiorna** nella parte superiore. 
 
     ![Il dispositivo viene registrato con l'hub IoT](./media/quick-create-simulated-device-symm-key/hub-registration.png) 
 

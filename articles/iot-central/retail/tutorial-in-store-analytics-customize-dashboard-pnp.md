@@ -11,20 +11,19 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: f9624f516d5f38f1db02c6a103c40d01f8dc26ca
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: fea3440dd7c017b85d6fffa2ec0fe5d26cd98b97
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702696"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022172"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Esercitazione:  Personalizzare il dashboard dell'operatore e gestire i dispositivi in Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 Questa esercitazione illustra agli sviluppatori come personalizzare il dashboard dell'operatore in un'applicazione di analisi dei punti vendita di Azure IoT Central. Gli operatori potranno usare il dashboard personalizzato per eseguire l'applicazione e gestire i dispositivi collegati.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Modificare il nome del dashboard
 > * Personalizzare i riquadri di immagine nel dashboard
@@ -33,14 +32,14 @@ In questa esercitazione si apprenderà come:
 > * Aggiungere riquadri di proprietà per visualizzare i dettagli dei dispositivi
 > * Aggiungere riquadri di comando per eseguire comandi
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Prima di iniziare questa esercitazione, lo sviluppatore deve completare la prima esercitazione che illustra come creare l'applicazione di analisi dei punti vendita in Azure IoT Central:
+Lo sviluppatore deve completare l'esercitazione che illustra come creare l'applicazione di analisi dei punti vendita in Azure IoT Central e aggiungere dispositivi:
 
 * [Creare un'applicazione di analisi dei punti vendita in Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) (esercitazione obbligatoria)
 
 ## <a name="change-the-dashboard-name"></a>Modificare il nome del dashboard
-Per personalizzare il dashboard dell'operatore, modificare il dashboard predefinito nell'applicazione. Facoltativamente, è possibile creare nuovi dashboard aggiuntivi. Il primo passaggio per personalizzare il dashboard nell'applicazione consiste nel modificarne il nome.
+Per personalizzare il dashboard dell'operatore, occorre modificare il dashboard predefinito nell'applicazione. È anche possibile creare nuovi dashboard aggiuntivi. Il primo passaggio per personalizzare il dashboard nell'applicazione consiste nel modificarne il nome.
 
 1. Passare al sito Web di [gestione applicazioni di Azure IoT Central](https://aka.ms/iotcentral).
 
@@ -54,7 +53,7 @@ Per personalizzare il dashboard dell'operatore, modificare il dashboard predefin
 
 1. Immettere un nome descrittivo per il dashboard in **Dashboard name** (Nome dashboard). In questa esercitazione viene usata una società fittizia denominata Contoso e il nome del dashboard di esempio è *Contoso dashboard*. 
 
-1. Selezionare **Salva**. Le modifiche apportate al dashboard verranno salvate e la modalità di modifica verrà disabilitata.
+1. Selezionare **Salva**. Le modifiche vengono salvate nel dashboard e la modalità di modifica viene disabilitata.
 
     ![Azure IoT Central - Modificare il nome del dashboard](./media/tutorial-in-store-analytics-customize-dashboard-pnp/dashboard-change-name.png)
 
@@ -163,15 +162,15 @@ Per aggiungere riquadri per visualizzare i dati delle condizioni ambientali rest
 
 1. Selezionare **Configure** (Configura) nel nuovo riquadro per il sensore RuuviTag. 
 
-1. Modificare il valore di **Title** (Titolo) in *Zone 1 environment*. 
+1. Modificare il valore di **Title** (Titolo) in *Zona 1 environment*. 
 
 1. Selezionare **Update configuration** (Aggiorna configurazione).
 
-1. Ripetere i passaggi precedenti per creare un riquadro per la seconda istanza del sensore. Impostare **Title** (Titolo) su *Zone 2 environment* e quindi selezionare **Update configuration** (Aggiorna configurazione).
+1. Ripetere i passaggi precedenti per creare un riquadro per la seconda istanza del sensore. Impostare **Title** (Titolo) su *Zona 2 environment* e quindi selezionare **Update configuration** (Aggiorna configurazione).
 
-1. Trascinare il riquadro con il titolo **Zone 2 environment** al di sotto del riquadro **Thermostat firmware**. 
+1. Trascinare il riquadro con il titolo **Zona 2 environment** al di sotto del riquadro **Thermostat firmware**. 
 
-1. Trascinare il riquadro con il titolo **Zone 1 environment** al di sotto del riquadro **People traffic**. 
+1. Trascinare il riquadro con il titolo **Zona 1 environment** al di sotto del riquadro **People traffic**. 
 
 1. Selezionare **Salva**. Il dashboard visualizzerà i dati di telemetria delle zone nei due nuovi riquadri.
 
@@ -218,7 +217,7 @@ Per aggiungere un riquadro di proprietà per ogni RuuviTag:
 
 1. Selezionare **Update configuration** (Aggiorna configurazione). 
 
-1. Trascinare il riquadro con il titolo **Ruuv 1 software version** al di sotto del riquadro **Zone 1 environment**.
+1. Trascinare il riquadro con il titolo **Ruuv 1 software version** al di sotto del riquadro **Zona 1 environment**.
 
 1. Ripetere i passaggi precedenti per creare un riquadro di proprietà della versione del software per il secondo sensore RuuviTag. 
 
@@ -233,7 +232,7 @@ Per aggiungere un riquadro di comando per riavviare il gateway:
 
 1. Selezionare **Modifica**. 
 
-1. Selezionare `C500` nell'elenco **Device template** (Modello di dispositivo). Questo è il modello per il gateway Rigado C500. 
+1. Selezionare `C500` nell'elenco **Device template** (Modello di dispositivo). È il modello per il gateway Rigado C500. 
 
 1. Selezionare l'istanza del gateway in **Device instance** (Istanza del dispositivo).
 
@@ -248,7 +247,7 @@ Per aggiungere un riquadro di comando per riavviare il gateway:
 1. Facoltativamente, selezionare il riquadro **Reboot** per eseguire il comando di riavvio sul gateway.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 * Modificare il nome del dashboard
 * Personalizzare i riquadri di immagine nel dashboard

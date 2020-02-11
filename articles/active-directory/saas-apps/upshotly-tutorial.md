@@ -134,7 +134,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![Configurazione di Upshotly](./media/upshotly-tutorial/config1.png)
 
-    a. Copiare il valore di **Company ID** (ID società) e usarlo ****  per sostituire il valore di **ID società** presente in **URL di accesso** nella sezione **Configurazione SAML di base** nel portale di Azure.
+    a. Copiare il valore di **Company ID** **(ID società)** e usarlo per sostituire il valore di **ID società** presente in **URL di accesso** nella sezione **Configurazione SAML di base** nel portale di Azure.
 
     b. Aprire nel Blocco note il file **XML dei metadati della federazione**, scaricato dal portale di Azure, quindi copiarne il contenuto e incollarlo nella casella di testo **XML metadata** (Metadati XML).
 

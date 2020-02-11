@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f81f47349610cd72489df305ccf544c8346cb9b3
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 42eb603be0152b9e8cfb36d02e8f0602c40afe54
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028662"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031204"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Effettuare la preparazione per la valutazione e la migrazione di server fisici ad Azure
 
@@ -41,10 +41,10 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 È necessario configurare le autorizzazioni per la distribuzione di Azure Migrate.
 
-- Autorizzazioni per l'account Azure per la creazione di un progetto Azure Migrate.
-- Autorizzazioni per l'account per la registrazione dell'appliance di Azure Migrate. L'appliance viene usato per l'individuazione e la migrazione di Hyper-V. Durante la registrazione dell'appliance, Azure Migrate crea due app Azure Active Directory (Azure AD) che la identificano in modo univoco:
-    - La prima app comunica con gli endpoint del servizio Azure Migrate.
-    - La seconda app accede a un'istanza di Azure Key Vault creata durante la registrazione per archiviare le informazioni delle app Azure AD e le impostazioni di configurazione dell'appliance.
+**Attività** | **Autorizzazioni**
+--- | ---
+**Creare un progetto di Azure Migrate** | L'account di Azure necessita di autorizzazioni per creare un progetto.
+**Registrare l'appliance Azure Migrate** | Azure Migrate usa un'appliance di Azure Migrate leggera per individuare e valutare i server fisici con lo strumento Valutazione server di Azure Migrate. L'appliance individua i server e ne invia i metadati e i dati sulle prestazioni ad Azure Migrate.<br/><br/>Durante la registrazione dell'appliance, i provider di risorse Microsoft.OffAzure, Microsoft.Migrate e Microsoft.KeyVault vengono registrati con la sottoscrizione scelta nell'appliance. La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse. Per registrare i provider di risorse, è necessario il ruolo di proprietario o collaboratore della sottoscrizione.<br/><br/> Nell'ambito dell'onboarding, Azure Migrate crea un'app Azure Active Directory (Azure AD):<br/> L'app Azure AD viene usata per la comunicazione (autenticazione e autorizzazione) tra gli agenti in esecuzione nell'appliance con i rispettivi servizi in esecuzione in Azure. Questa app non dispone dei privilegi necessari per effettuare chiamate ARM né dell'accesso basato sul controllo degli accessi in base al ruolo su alcuna risorsa.
 
 
 
@@ -61,15 +61,14 @@ Verificare di avere le autorizzazioni per creare un progetto di Azure Migrate.
 
 ### <a name="assign-permissions-to-register-the-appliance"></a>Assegnare le autorizzazioni per registrare l'appliance
 
-È possibile assegnare le autorizzazioni per consentire ad Azure Migrate di creare le app Azure AD create durante la registrazione dell'appliance usando uno dei metodi seguenti:
+È possibile assegnare le autorizzazioni per consentire ad Azure Migrate di creare l'app Azure AD durante la registrazione dell'appliance usando uno dei metodi seguenti:
 
 - Un amministratore tenant/globale può concedere agli utenti del tenant le autorizzazioni per creare e registrare app Azure AD.
 - Un amministratore tenant/globale può assegnare il ruolo Sviluppatore di applicazioni (che include le autorizzazioni) all'account.
 
-Vale la pena notare che:
-
-- Le app non hanno altre autorizzazioni di accesso per la sottoscrizione oltre a quelle descritte sopra.
-- Queste autorizzazioni sono necessarie solo quando si registra una nuova appliance. Dopo la configurazione dell'appliance è possibile rimuoverle.
+> [!NOTE]
+> - L'app non ha altre autorizzazioni di accesso per la sottoscrizione oltre a quelle descritte sopra.
+> - Queste autorizzazioni sono necessarie solo quando si registra una nuova appliance. Dopo la configurazione dell'appliance è possibile rimuoverle.
 
 
 #### <a name="grant-account-permissions"></a>Concedere le autorizzazioni all'account

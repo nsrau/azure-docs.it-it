@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/25/2019
-ms.openlocfilehash: 84fa6b1d7f48ac7aea44e693a7df8945ba180d29
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 125cde85d3caa6fd1a33045e85c5383f83a669bf
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658645"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982535"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Esercitazione: Introduzione alla creazione del primo esperimento di Machine Learning con Python SDK
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -101,7 +101,7 @@ Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento 
 Se sono presenti widget personalizzati o si preferisce usare Jupyter/JupyterLab, selezionare l'elenco a discesa **Jupyter** all'estrema destra, quindi selezionare **Jupyter** o **JupyterLab**. Verrà visualizzata una nuova finestra del browser.
 
 > [!NOTE]
-> Le istanze di calcolo (anteprima) sono attualmente disponibili solo per le aree di lavoro con un'area **Stati Uniti centro-settentrionali** o **Regno Unito meridionale**. Il supporto per altre aree sarà presto disponibile.
+> Le istanze di calcolo (anteprima) sono attualmente disponibili solo per le aree di lavoro con un'area **Stati Uniti centro-settentrionali**, **Stati Uniti orientali 2**, **Europa settentrionale** o **Regno Unito meridionale**. Il supporto per altre aree sarà presto disponibile.
 >Se l'area di lavoro si trova in qualsiasi altra area geografica, è possibile continuare a creare e usare una [macchina virtuale notebook](concept-compute-instance.md#notebookvm) in alternativa.  Per eseguire il notebook, è possibile usare una macchina virtuale notebook o un'istanza di calcolo. Una macchina virtuale rimarrà in esecuzione e continuerà a sostenere costi, a meno che non venga arrestata. È possibile arrestarla manualmente dalla scheda **Calcolo** nello studio oppure vedere il [post di blog](https://techcommunity.microsoft.com/t5/educator-developer-blog/azure-virtual-machine-auto-shutdown/ba-p/379342) su come abilitare lo spegnimento automatico pianificato per le macchine virtuali di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 40e850bcbd177b15c91e57ec369c6b04963ffb84
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 99b27ec53d955079b5f73986408e698955c0969b
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132274"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77021645"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Esercitazione: Creare un dashboard del provider Power BI
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Quando si crea la soluzione di monitoraggio pazienti continuo, può essere utile creare anche un dashboard che consenta a un team per l'assistenza ospedaliera di visualizzare i dati dei pazienti. Questa esercitazione illustra i passaggi da eseguire per poter creare un dashboard di streaming in tempo reale Power BI dal modello di applicazione di monitoraggio pazienti continuo di IoT Central.
+
+Quando si crea la soluzione di monitoraggio pazienti continuo, si può creare anche un dashboard che consenta a un team per l'assistenza ospedaliera di visualizzare i dati dei pazienti. In questa esercitazione si apprenderà come creare un dashboard di streaming in tempo reale Power BI dal modello di applicazione di monitoraggio pazienti continuo di IoT Central.
 
 >[!div class="mx-imgBorder"]
 >![GIF del dashboard](media/dashboard-gif-3.gif)
@@ -29,7 +29,7 @@ L'architettura di base seguirà questa struttura:
 >[!div class="mx-imgBorder"] 
 >![Dashboard di valutazione del provider](media/dashboard-architecture.png)
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Esportare dati da Azure IoT Central a Hub eventi di Azure
@@ -38,7 +38,7 @@ In questa esercitazione si apprenderà come:
 > * Trasmettere dati a Power BI dall'app per la logica
 > * Creare un dashboard in tempo reale per i segni vitali dei pazienti
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
@@ -51,7 +51,7 @@ In questa esercitazione si apprenderà come:
 * Un account del servizio Power BI. Se ancora non si dispone di un tale account, è possibile [creare un account in versione di valutazione gratuita per il servizio Power BI](https://app.powerbi.com/). Se non si è usato Power BI in precedenza, può essere utile leggere le informazioni contenute in [Introduzione a Power BI](https://docs.microsoft.com/power-bi/service-get-started).
 
 ## <a name="set-up-a-continuous-data-export-to-azure-event-hubs"></a>Configurare un'esportazione continua dei dati a Hub eventi di Azure
-Sarà prima di tutto necessario configurare un'esportazione continua dei dati dal modello di app di Azure IoT Central all'hub eventi di Azure nella propria sottoscrizione. A tale scopo, è possibile seguire la procedura descritta in questa esercitazione di Azure IoT Central per l'[esportazione a Hub eventi](https://docs.microsoft.com/azure/iot-central/preview/howto-export-data). Ai fini di tale esercitazione, sarà necessario eseguire l'esportazione solo per la telemetria.
+Sarà prima di tutto necessario configurare un'esportazione continua dei dati dal modello di app di Azure IoT Central all'hub eventi di Azure nella propria sottoscrizione. A tale scopo, è possibile seguire la procedura descritta in questa esercitazione di Azure IoT Central per l'[esportazione a Hub eventi](https://docs.microsoft.com/azure/iot-central/core/howto-export-data). Ai fini di tale esercitazione, sarà necessario eseguire l'esportazione solo per la telemetria.
 
 ## <a name="create-a-power-bi-streaming-dataset"></a>Creare un set di dati di streaming Power BI
 
@@ -77,7 +77,7 @@ Per altre informazioni sui set di dati di streaming in Power BI, è possibile le
 ## <a name="connect-your-logic-app-to-azure-event-hubs"></a>Connettere l'app per la logica a Hub eventi di Azure
 Per connettere l'app per la logica a Hub eventi di Azure, è possibile seguire le istruzioni riportate in questo documento sull'[invio di eventi con Hub eventi di Azure e App per la logica di Azure](https://docs.microsoft.com/azure/connectors/connectors-create-api-azure-event-hubs#add-event-hubs-action). Ecco alcuni parametri consigliati:
 
-|Parametro|Valore|
+|Parametro|valore|
 |---|---|
 |Tipo di contenuto|application/json|
 |Interval|3|
@@ -86,12 +86,12 @@ Per connettere l'app per la logica a Hub eventi di Azure, è possibile seguire l
 Alla fine di questo passaggio, la finestra di progettazione dell'app per la logica dovrebbe essere simile alla seguente:
 
 >[!div class="mx-imgBorder"] 
->![App per la logica in fase di connessione a Hub eventi](media/eh-logic-app.png)
+>![Connessione di app per la logica a Hub eventi](media/eh-logic-app.png)
 
 ## <a name="stream-data-to-power-bi-from-your-logic-app"></a>Trasmettere dati a Power BI dall'app per la logica
 Il passaggio successivo consiste nell'analizzare i dati provenienti dall'hub eventi per trasmetterli nei set di dati Power BI creati in precedenza.
 
-1. Prima di poter eseguire questa operazione, sarà necessario conoscere il payload JSON che deve essere inviato dal dispositivo all'hub eventi. A tale scopo, è possibile osservare questo [schema di esempio](https://docs.microsoft.com/azure/iot-central/preview/howto-export-data#telemetry) e modificarlo in modo che corrisponda al proprio schema oppure usare [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) per esaminare i messaggi. Se si usano le applicazioni di monitoraggio pazienti continuo, i messaggi saranno simili ai seguenti:
+1. Prima di poter eseguire questa operazione, sarà necessario conoscere il payload JSON che deve essere inviato dal dispositivo all'hub eventi. A tale scopo, è possibile osservare questo [schema di esempio](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#telemetry) e modificarlo in modo che corrisponda al proprio schema oppure usare [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) per esaminare i messaggi. Se si usano le applicazioni di monitoraggio pazienti continuo, i messaggi saranno simili ai seguenti:
 
 **Telemetria della patch intelligente per i segni vitali**
 
@@ -141,9 +141,9 @@ Il passaggio successivo consiste nell'analizzare i dati provenienti dall'hub eve
 
 2. Ora che i payload JSON sono stati esaminati, tornare alla finestra di progettazione dell'app per la logica e selezionare **+ Nuovo passaggio**. Cercare e aggiungere **Inizializza variabile** come passaggio successivo e immettere i parametri seguenti:
 
-    |Parametro|Valore|
+    |Parametro|valore|
     |---|---|
-    |NOME|Interface Name (Nome interfaccia)|
+    |Nome|Interface Name (Nome interfaccia)|
     |Type|string|
 
     Premere **Salva**. 

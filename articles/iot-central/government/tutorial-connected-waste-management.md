@@ -7,22 +7,23 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 38da444779a56f39d4119f3797ddb5bd2f31aeae
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 6b8458ce41a1bdacddc4102e8282bbc638d4c01c
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112649"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016494"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Esercitazione: Creare un'applicazione di gestione rifiuti connessa in IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Questa esercitazione illustra come creare un'applicazione di gestione rifiuti connessa di Azure IoT Central dal modello di applicazione IoT Central **Gestione rifiuti connessa**. 
 
-Nel corso dell'esercitazione si apprenderà come: 
+In questa esercitazione verranno illustrate le procedure per: 
 
 > [!div class="checklist"]
+
 > * Usare il modello **Gestione rifiuti connessa** di Azure IoT Central per creare un'applicazione di gestione rifiuti connessa
 > * Esplorare e personalizzare il dashboard dell'operatore 
 > * Esplorare il modello di dispositivo cassonetto connesso
@@ -31,9 +32,9 @@ Nel corso dell'esercitazione si apprenderà come:
 > * Configurare i processi
 > * Modificare la personalizzazione dell'applicazione tramite white-label
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Per completare questa esercitazione è necessario:
+Per completare questa esercitazione, sono necessari:
 -  Una sottoscrizione di Azure (consigliata). Facoltativamente, è possibile usare una versione di valutazione gratuita valida per 7 giorni. Se non si ha una sottoscrizione di Azure, è possibile crearne una nella [pagina di iscrizione ad Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="create-connected-waste-management-app-in-iot-central"></a>Creare l'app di gestione rifiuti connessa in IoT Central
@@ -59,12 +60,15 @@ Per creare una nuova applicazione di gestione dei rifiuti connessa in Azure IoT 
     * **URL**. Facoltativamente, è possibile scegliere l'URL desiderato. Si può anche cambiare l'URL in un secondo momento. 
     * Se si ha una sottoscrizione di Azure, immettere i valori relativi a *directory, sottoscrizione di Azure e area*. Se non si ha una sottoscrizione, è possibile abilitare la **versione di valutazione gratuita di 7 giorni** e completare le informazioni di contatto richieste.  
 
-    Per altre informazioni su directory e sottoscrizioni, vedere la [guida introduttiva per la creazione di un'applicazione](../preview/quick-deploy-iot-central.md).
+    Per altre informazioni su directory e sottoscrizioni, vedere la [guida introduttiva per la creazione di un'applicazione](../core/quick-deploy-iot-central.md).
 
 5. Fare clic sul pulsante **Crea** nella parte inferiore della pagina. 
 
     ![Pagina di creazione dell'applicazione Gestione rifiuti connessa di Azure IoT Central](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement.png)
+    
+    ![Pagina di creazione dell'applicazione Gestione rifiuti connessa - Info di fatturazione](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement-billinginfo.png)
 
+ 
 6. È stata così creata un'app di gestione rifiuti connessa con il modello **Gestione rifiuti connessa** di Azure IoT Central. 
 
 Congratulazioni! L'applicazione appena creata è preconfigurata con gli elementi seguenti:
@@ -149,10 +153,10 @@ Provare a personalizzare gli elementi seguenti:
 ### <a name="add-a-cloud-property"></a>Aggiungere una proprietà cloud 
 
 1. Passare a **Proprietà cloud** nel menu del modello di dispositivo
-2. Aggiungere una nuova proprietà cloud facendo clic su **+ Aggiungi proprietà cloud**. In IoT Central è possibile aggiungere una proprietà rilevante per il dispositivo, ma che non si prevede venga inviata da un dispositivo. Un esempio di una proprietà cloud può essere una soglia di avviso specifica per l'area di installazione, informazioni sulle risorse, informazioni di manutenzione e così via. 
+2. Aggiungere una nuova proprietà cloud facendo clic su **+ Aggiungi proprietà cloud**. In IoT Central è possibile aggiungere una proprietà rilevante per il dispositivo, ma che non si prevede venga inviata da un dispositivo. Un esempio di una proprietà cloud può essere una soglia di avviso specifica per l'area di installazione, informazioni sulle risorse, informazioni di manutenzione e altre informazioni. 
 3. Selezionare **Salva** per salvare le modifiche 
  
-### <a name="views"></a>Visualizzazioni 
+### <a name="views"></a>Viste 
 * Il modello di dispositivo cassonetto connesso include visualizzazioni predefinite. Esplorare le visualizzazioni e, se necessario, aggiornarle. Le visualizzazioni definiscono il modo in cui gli operatori vedranno i dati del dispositivo, ma anche come immetteranno le proprietà cloud. 
 
   ![Visualizzazioni del modello di dispositivo](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-views.png)
@@ -215,7 +219,7 @@ Si creerà ora un'azione di posta elettronica.
 ### <a name="create-an-email-action"></a>Creare un'azione di posta elettronica
 Per configurare un'azione di posta elettronica nell'elenco di azioni della regola:
 1. Selezionare **+ Posta elettronica**. 
-2. Nel campo *Nome visualizzato* immettere **Bin full alert** (Avviso cassonetto pieno) come nome visualizzato descrittivo dell'azione.
+2. Nel campo *Nome visualizzato* immettere **High water flow alert** (Avviso flusso acqua elevato) come nome visualizzato descrittivo dell'azione.
 3. In **A** immettere l'indirizzo di posta elettronica associato all'account di IoT Central. 
 4. Facoltativamente, immettere una nota da includere nel testo del messaggio di posta elettronica.
 5. Selezionare **Fine** per completare l'azione.

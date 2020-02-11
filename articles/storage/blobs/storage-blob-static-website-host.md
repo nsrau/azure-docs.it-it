@@ -5,29 +5,29 @@ author: normesta
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 10/22/2019
+ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: cd3db902d713910de5a8199df85089d62569f9d7
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 97679ec48ee9120005118b6cacaf37e45657db08
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757558"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906624"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
 # <a name="tutorial-host-a-static-website-on-blob-storage"></a>Esercitazione: Ospitare un sito Web statico nell'archiviazione BLOB
 
-Questa è la prima di una serie di esercitazioni. Qui si apprenderà come creare e distribuire un sito Web statico in Archiviazione di Azure. Al termine, sarà presente un sito Web statico cui gli utenti potranno accedere a livello pubblico. 
+In questa esercitazione si apprenderà come creare e distribuire un sito Web statico in Archiviazione di Azure. Al termine, sarà presente un sito Web statico cui gli utenti potranno accedere a livello pubblico. 
 
-Nella prima parte della serie si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare l'hosting di siti Web statici
 > * Distribuire un sito Web Hello World
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -57,7 +57,7 @@ Il primo passaggio consiste nel configurare l'account di archiviazione per ospit
 1. Selezionare **Abilitato** per abilitare l'hosting di siti Web statici per l'account di archiviazione.
 1. Nel campo **Nome del documento di indice** specificare una pagina di indice predefinita denominata *index.html*. La pagina di indice predefinita viene visualizzata quando un utente passa alla radice del sito Web statico.  
 1. Nel campo **Percorso del documento di errore** specificare una pagina di errore predefinita denominata *404.html*. La pagina di errore predefinita viene visualizzata quando un utente tenta di passare a una pagina inesistente nel sito Web statico.
-1. Fare clic su **Save**. Il portale di Azure visualizza ora l'endpoint del sito Web statico. 
+1. Fare clic su **Salva**. Il portale di Azure visualizza ora l'endpoint del sito Web statico. 
 
     ![Abilitare l'hosting di siti Web statici per un account di archiviazione](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
@@ -99,9 +99,9 @@ L'esercitazione è stata completata correttamente ed è stato distribuito un sit
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Nella prima parte di questa esercitazione si è appreso a configurare l'account di archiviazione di Azure per l'hosting di siti Web statici e come distribuire un sito Web statico in un endpoint di Azure.
+In questa esercitazione si è appreso come configurare l'account di Archiviazione di Azure per l'hosting di siti Web statici e come creare e distribuire un sito Web statico in un endpoint di Azure.
 
-Passare ora alla seconda parte, in cui si configurerà un dominio personalizzato con SSL per il sito Web statico con la rete CDN di Azure.
+Nell'esercitazione successiva si vedrà come configurare un dominio personalizzato con il sito Web statico.
 
 > [!div class="nextstepaction"]
-> [Usare la rete CDN di Azure per abilitare un dominio personalizzato con SSL per un sito Web statico](storage-blob-static-website-custom-domain.md)
+> [Eseguire il mapping di un dominio personalizzato a un endpoint di Archiviazione BLOB di Azure](storage-custom-domain-name.md)

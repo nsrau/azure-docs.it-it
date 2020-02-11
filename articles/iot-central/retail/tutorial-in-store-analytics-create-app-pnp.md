@@ -11,16 +11,16 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 145aa87841c6334f7fa12535103b5e97db9c6918
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 6b89b667855d827acfb7c181da014cd0d0b4bfc4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702032"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022104"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Esercitazione: Creare un'applicazione di analisi dei punti vendita in Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 L'esercitazione mostra agli autori di soluzioni come creare un'applicazione di analisi dei punti vendita in Azure IoT Central. L'applicazione di esempio è relativa a un punto vendita al dettaglio. Si tratta di una soluzione che tiene in considerazione le comuni esigenze aziendali in termini di monitoraggio e adattamento alle condizioni ambientali e di occupazione.
 
@@ -34,7 +34,7 @@ La soluzione di monitoraggio delle condizioni e del pagamento viene sviluppata i
 * Personalizzare il dashboard per consentire gli operatori di monitorare e gestire i dispositivi
 * Configurare l'esportazione dei dati per consentire ai responsabili del punto vendita di eseguire analisi e visualizzare informazioni dettagliate
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Usare il modello **Analisi punti vendita - Pagamento** di Azure IoT Central per creare un'applicazione per punti vendita al dettaglio
 > * Personalizzare le impostazioni dell'applicazione
@@ -42,7 +42,7 @@ In questa esercitazione si apprenderà come:
 > * Connettere i dispositivi all'applicazione
 > * Aggiungere regole e azioni per il monitoraggio delle condizioni
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa serie di esercitazioni, sono necessari gli elementi seguenti:
 * Una sottoscrizione di Azure (consigliata). Facoltativamente, è possibile usare una versione di valutazione gratuita valida per 7 giorni. Se non si ha una sottoscrizione di Azure, è possibile crearne una nella [pagina di iscrizione ad Azure](https://aka.ms/createazuresubscription).
@@ -64,7 +64,7 @@ Per creare una nuova applicazione Azure IoT Central:
 
 1. Selezionare **Vendita al dettaglio**.  Nella pagina relativa alla vendita al dettaglio sono visualizzati diversi modelli di applicazione di vendita al dettaglio.
 
-Per creare una nuova applicazione Analisi punti vendita - Pagamento che usa le funzionalità di anteprima:  
+Per creare una nuova applicazione di analisi punti vendita:  
 
 1. Selezionare il modello di applicazione **Analisi punti vendita - Pagamento**. Questo modello include modelli di dispositivo per tutti i dispositivi usati nell'esercitazione, ad eccezione dei sensori RuuviTag. Il modello fornisce anche un dashboard operatore per monitorare le condizioni ambientali e di pagamento oltre allo stato dei dispositivi. 
 
@@ -75,13 +75,16 @@ Per creare una nuova applicazione Analisi punti vendita - Pagamento che usa le f
 
 1. Se si ha una sottoscrizione di Azure, immettere i valori relativi a *directory, sottoscrizione di Azure e area*. Se non si ha una sottoscrizione, è possibile abilitare la **versione di valutazione gratuita di 7 giorni** e completare le informazioni di contatto richieste.  
 
-    Per altre informazioni su directory e sottoscrizioni, vedere la [guida introduttiva per la creazione di un'applicazione](../preview/quick-deploy-iot-central.md).
+    Per altre informazioni su directory e sottoscrizioni, vedere la [guida introduttiva per la creazione di un'applicazione](../core/quick-deploy-iot-central.md).
 
 1. Selezionare **Create** (Crea).
 
     ![Pagina Crea applicazione di Azure IoT Central](./media/tutorial-in-store-analytics-create-app-pnp/preview-application-template.png)
 
+    ![Pagina Crea applicazione di Azure IoT Central - Info di fatturazione](./media/tutorial-in-store-analytics-create-app-pnp/preview-application-template-billinginfo.png)
+
 ## <a name="customize-application-settings"></a>Personalizzare le impostazioni dell'applicazione
+
 In qualità di autore, è possibile modificare diverse impostazioni per personalizzare l'esperienza utente nell'applicazione. In questa sezione verrà selezionato un tema dell'applicazione predefinito. Facoltativamente, verrà illustrato come creare un tema personalizzato e aggiornare l'immagine dell'applicazione. Un tema personalizzato consente di impostare i colori del browser dell'applicazione, l'icona del browser e il logo dell'applicazione visualizzato nella testata.
 
 Per selezionare un tema dell'applicazione predefinito:
@@ -160,7 +163,7 @@ In secondo luogo, è possibile personalizzare i modelli di dispositivo aggiungen
 
 Infine, è possibile personalizzare i modelli di dispositivo creando visualizzazioni personalizzate. Le visualizzazioni consentono agli operatori di visualizzare i dati di telemetria e i metadati per i dispositivi, ad esempio le metriche e l'integrità dei dispositivi.
 
-In questo caso si useranno i primi due metodi per personalizzare il modello di dispositivo per i sensori RuuviTag. Per informazioni sulla creazione di visualizzazioni per i sensori, vedere la guida di avvio rapido [Aggiungere un dispositivo simulato all'applicazione IoT Central](../preview/quick-create-pnp-device.md).
+In questo caso si useranno i primi due metodi per personalizzare il modello di dispositivo per i sensori RuuviTag. Per informazioni sulla creazione di visualizzazioni per i sensori, vedere la guida di avvio rapido [Aggiungere un dispositivo simulato all'applicazione IoT Central](../core/quick-create-pnp-device.md).
 
 Per personalizzare le interfacce predefinite del modello di dispositivo RuuviTag:
 
@@ -174,7 +177,7 @@ Per personalizzare le interfacce predefinite del modello di dispositivo RuuviTag
 
 1. Selezionare **Personalizza** nel menu del modello di dispositivo RuuviTag. 
 
-1. Scorrere l'elenco delle funzionalità e individuare il tipo di dati di telemetria `humidity`. Si tratta della riga con il valore di **Nome visualizzato** *humidity* modificabile.
+1. Scorrere l'elenco delle funzionalità e individuare il tipo di dati di telemetria `humidity`. Si tratta della riga con il valore di **Nome visualizzato***humidity* modificabile.
 
 Nei passaggi seguenti si personalizzerà il tipo di dati di telemetria `humidity` per i sensori RuuviTag. Facoltativamente, personalizzare alcuni degli altri tipi di dati di telemetria.
 
@@ -223,12 +226,12 @@ Per questa esercitazione si userà il set seguente di dispositivi reali e simula
 - Un sensore di **occupazione** simulato. Il sensore simulato è incluso nel modello di applicazione, di conseguenza non è necessario crearlo. 
 
 > [!NOTE]
-> Se non si hanno dispositivi reali, è comunque possibile completare questa esercitazione creando sensori RuuviTag simulati. Le istruzioni seguenti includono i passaggi per creare un sensore RuuviTag simulato. Non è necessario creare un gateway simulato.
+> Se non si hanno dispositivi reali, si può comunque completare questa esercitazione creando sensori RuuviTag simulati. Le istruzioni seguenti includono i passaggi per creare un sensore RuuviTag simulato. Non è necessario creare un gateway simulato.
 
 Completare i passaggi nei due articoli seguenti per connettere un gateway Rigado reale e i sensori RuuviTag. Al termine, tornare a questa esercitazione. Poiché i modelli di dispositivo sono già stati creati in questa esercitazione, non è necessario crearli di nuovo nel set di istruzioni seguente.
 
-- Per connettere un gateway Rigado, vedere [Connettere un gateway Rigado Cascade 500 all'applicazione Azure IoT Central](../preview/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json).
-- Per connettere sensori RuuviTag, vedere [Connettere un sensore RuuviTag all'applicazione Azure IoT Central](../preview/howto-connect-ruuvi.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json). È anche possibile usare queste istruzioni per creare due sensori simulati, se necessario.
+- Per connettere un gateway Rigado, vedere [Connettere un gateway Rigado Cascade 500 all'applicazione Azure IoT Central](../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json).
+- Per connettere sensori RuuviTag, vedere [Connettere un sensore RuuviTag all'applicazione Azure IoT Central](../core/howto-connect-ruuvi.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json). È anche possibile usare queste istruzioni per creare due sensori simulati, se necessario.
 
 ## <a name="add-rules-and-actions"></a>Aggiungere regole e azioni
 Quando si usano sensori nell'applicazione Azure IoT Central per monitorare le condizioni, è possibile creare regole per eseguire azioni quando vengono soddisfatte determinate condizioni. Una regola viene associata a un modello di dispositivo e a uno o più dispositivi e contiene le condizioni che devono essere soddisfatte sulla base di dati di telemetria o eventi del dispositivo. Una regola prevede anche una o più azioni associate. Le azioni possono includere l'invio di notifiche di posta elettronica o l'attivazione di un'azione webhook per l'invio dei dati ad altri servizi. Il modello di applicazione **Analisi punti vendita - Pagamento** include alcune regole predefinite per i dispositivi nell'applicazione.
@@ -247,7 +250,7 @@ Per creare una regola:
 
 1. Scegliere il modello di dispositivo RuuviTag in **Ambiti**. La regola definita verrà applicata a tutti i sensori basati su tale modello. Facoltativamente, è possibile creare un filtro che applica la regola solo a un subset definito di sensori. 
 
-1. Scegliere `Relative humidity` come valore per **Telemetria**. Si tratta della funzionalità del dispositivo che è stata personalizzata in un passaggio precedente.
+1. Scegliere `Relative humidity` come valore per **Telemetria**. Si tratta della funzionalità di dispositivo che è stata personalizzata in un passaggio precedente.
 
 1. Scegliere `Is greater than` come valore di **Operatore**. 
 
@@ -274,7 +277,7 @@ Per aggiungere un'azione alla regola:
     Entro pochi minuti l'account di posta elettronica specificato inizierà a ricevere messaggi di posta elettronica. L'applicazione invia un messaggio di posta elettronica ogni volta che un sensore indica che il livello di umidità supera il valore impostato nella condizione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 * Usare il modello **Analisi punti vendita - Pagamento** di Azure IoT Central per creare un'applicazione per punti vendita al dettaglio
 * Personalizzare le impostazioni dell'applicazione

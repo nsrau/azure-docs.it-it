@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: c295e6c8ffea564e157545c4662cbe7e1841edae
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f3448765eecf4a586e13155903f1c093607781dc
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841013"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896440"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Esercitazione: Registrare il traffico di rete da e verso una macchina virtuale tramite il portale di Azure
 
@@ -97,10 +97,7 @@ La registrazione del flusso di NSG richiede il provider **Microsoft.Insights**. 
     | Location       | Selezionare **Stati Uniti orientali**.                                           |
     | Resource group | Selezionare **Usa esistente** e quindi **myResourceGroup** |
 
-    La creazione dell'account di archiviazione può richiedere all'incirca un minuto. Non proseguire con i passaggi rimanenti finché non è stato creato l'account di archiviazione. Se si usa un account di archiviazione esistente invece di crearne uno, assicurarsi di selezionarne uno con l'impostazione predefinita **Tutte le reti** selezionata in **Firewall e reti virtuali** nelle **IMPOSTAZIONI** dell'account di archiviazione. In tutti i casi, l'account di archiviazione deve trovarsi nella stessa area del gruppo di sicurezza di rete.
-
-    > [!NOTE]
-    > Mentre i provider di Microsoft.Insight e Microsoft.Network sono attualmente supportati come servizi Microsoft considerati attendibili per l'Archiviazione di Azure, non è ancora stato eseguito l'onboarding completo dei log dei flussi del gruppo di sicurezza di rete. Per abilitare la registrazione del flusso del gruppo di sicurezza di rete, selezionare **Tutte le reti** fino a quando verrà eseguito l'onboarding completo di questa funzionalità. 
+    La creazione dell'account di archiviazione può richiedere all'incirca un minuto. Non proseguire con i passaggi rimanenti finché non è stato creato l'account di archiviazione. In tutti i casi, l'account di archiviazione deve trovarsi nella stessa area del gruppo di sicurezza di rete.
 4. Nell'angolo in alto a sinistra del portale selezionare **Tutti i servizi**. Nella **casella del filtro** digitare *Network Watcher*. Selezionare **Network Watcher** quando viene visualizzato tra i risultati della ricerca.
 5. In **LOGS** (LOG) selezionare **Log del flusso del NSG**, come illustrato nell'immagine seguente:
 
@@ -114,9 +111,7 @@ La registrazione del flusso di NSG richiede il provider **Microsoft.Insights**. 
 
 9. Selezionare l'account di archiviazione creato al passaggio 3.
    > [!NOTE]
-   > I log del flusso del gruppo di sicurezza di rete non funzionano con gli account di archiviazione se:
-   > * Negli account di archiviazione è abilitato un firewall.
-   > * Negli account di archiviazione è abilitato lo [spazio dei nomi gerarchico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace).
+   > I log del flusso del gruppo di sicurezza di rete non funzionano con gli account di archiviazione in cui è abilitato lo [spazio dei nomi gerarchico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace).
 1. Nell'angolo in alto a sinistra del portale selezionare **Tutti i servizi**. Nella **casella del filtro** digitare *Network Watcher*. Selezionare **Network Watcher** quando viene visualizzato tra i risultati della ricerca.
 10. Impostare **Conservazione (giorni)** su 5 e poi selezionare **Salva**.
 

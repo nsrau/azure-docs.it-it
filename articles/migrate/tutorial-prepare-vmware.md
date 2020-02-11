@@ -1,18 +1,15 @@
 ---
 title: Preparare le macchine virtuali VMware per la valutazione e la migrazione con Azure Migrate
 description: Informazioni su come preparare la valutazione e la migrazione di macchine virtuali VMware con Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
-ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4dec76140f61c433561ccfea07b833d9821acfc5
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: f00d5ba4841427098b0ab79ad1930e357008b6e0
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028900"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030796"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparare le macchine virtuali VMware per la valutazione e la migrazione ad Azure
 
@@ -41,8 +38,12 @@ Sono necessarie queste autorizzazioni.
 **Attività** | **Autorizzazioni**
 --- | ---
 **Creare un progetto di Azure Migrate** | L'account di Azure necessita di autorizzazioni per creare un progetto.
-**Registrare l'appliance Azure Migrate** | Azure Migrate usa un'appliance leggera di Azure Migrate per valutare le macchine virtuali VMware con lo strumento Valutazione server di Azure Migrate e per eseguire [migrazioni senza agente](server-migrate-overview.md) di macchine virtuali VMware tramite il servizio Migrazione server di Azure Migrate. L'appliance individua le macchine virtuali, ne invia i metadati e i dati sulle prestazioni ad Azure Migrate.<br/><br/>Durante la registrazione, Azure Migrate crea due app Azure Active Directory (Azure AD) che identificano l'appliance in modo univoco. Per crearle, è necessario fornire le relative autorizzazioni.<br/> - La prima app comunica con gli endpoint del servizio Azure Migrate.<br/> - La seconda app accede a un'istanza di Azure Key Vault creata durante la registrazione per archiviare le informazioni delle app Azure AD e le impostazioni di configurazione dell'appliance.
+**Registrare l'appliance Azure Migrate** | Azure Migrate usa un'appliance leggera di Azure Migrate per valutare le macchine virtuali VMware con lo strumento Valutazione server di Azure Migrate e per eseguire [migrazioni senza agente](server-migrate-overview.md) di macchine virtuali VMware tramite il servizio Migrazione server di Azure Migrate. L'appliance individua le macchine virtuali, ne invia i metadati e i dati sulle prestazioni ad Azure Migrate.<br/><br/>Durante la registrazione dell'appliance, i provider di risorse Microsoft.OffAzure, Microsoft.Migrate e Microsoft.KeyVault vengono registrati con la sottoscrizione scelta nell'appliance. La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse. Per registrare i provider di risorse, è necessario il ruolo di proprietario o collaboratore della sottoscrizione.<br/><br/> Nell'ambito dell'onboarding, Azure Migrate crea due app Azure Active Directory (Azure AD):<br/> - La prima app viene usata per la comunicazione (autenticazione e autorizzazione) tra gli agenti in esecuzione nell'appliance con i rispettivi servizi in esecuzione in Azure. Questa app non dispone dei privilegi necessari per effettuare chiamate ARM né dell'accesso basato sul controllo degli accessi in base al ruolo su alcuna risorsa.<br/> - La seconda app viene usata esclusivamente per l'accesso all'insieme di credenziali delle chiavi creato nella sottoscrizione dell'utente per la migrazione senza agente. Viene fornita con accesso con controllo degli accessi in base al ruolo all'insieme di credenziali delle chiavi di Azure (creato nel tenant del cliente) quando l'individuazione viene avviata dall'appliance.
 **Creare un insieme di credenziali delle chiavi** | Per eseguire la migrazione delle macchine virtuali VMware con il servizio Migrazione server di Azure Migrate, Azure Migrate crea un insieme di credenziali delle chiavi per gestire le chiavi di accesso all'account di archiviazione di replica nella sottoscrizione. Per creare l'insieme di credenziali, sono necessarie autorizzazioni di assegnazione di ruolo per il gruppo di risorse in cui si trova il progetto di Azure Migrate.
+
+
+
+
 
 
 ### <a name="assign-permissions-to-create-project"></a>Assegnare le autorizzazioni per creare il progetto
@@ -80,9 +81,9 @@ L'amministratore tenant/globale può concedere le autorizzazioni nel modo seguen
 
 L'amministratore tenant/globale può assegnare il ruolo Sviluppatore di applicazioni a un account. [Altre informazioni](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
 
-### <a name="assign-role-assignment-permissions"></a>Assegnare le autorizzazioni di assegnazione di ruolo
+### <a name="assign-permissions-to-create-a-key-vault"></a>Assegnare le autorizzazioni per creare un insieme di credenziali delle chiavi
 
-Per abilitare Azure Migrate a creare un insieme di credenziali delle chiavi, assegnare le autorizzazioni di assegnazione di ruolo come segue:
+Per consentire ad Azure Migrate di creare un insieme di credenziali delle chiavi, assegnare le autorizzazioni come segue:
 
 1. Nel gruppo di risorse nel portale di Azure selezionare **Controllo di accesso (IAM)** .
 2. In **Verifica l'accesso** trovare l'account pertinente e fare clic su di esso per visualizzare le autorizzazioni.

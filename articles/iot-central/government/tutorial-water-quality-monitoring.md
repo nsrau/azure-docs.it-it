@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 7014882e7da9eb7ab7df65cd20403982a46018a3
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d738868e0e4ca7599f4aaf8d6e09d22f26a8db92
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112615"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016375"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Esercitazione: Creare un'applicazione di monitoraggio della qualità dell'acqua in Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Questa esercitazione illustra nel dettaglio la creazione di un'applicazione di monitoraggio della qualità dell'acqua in Azure IoT Central. L'applicazione viene creata dal modello di applicazione **Monitoraggio qualità acqua** di Azure IoT Central.
 
@@ -32,7 +32,7 @@ In questa esercitazione si apprenderà come:
 > * Configurare i processi.
 > * Modificare la personalizzazione dell'applicazione tramite white-label.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione è consigliabile avere una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile crearne una nella [pagina di iscrizione ad Azure](https://aka.ms/createazuresubscription).
 
@@ -63,6 +63,8 @@ In questa sezione si userà il modello **Monitoraggio qualità acqua** di Azure 
 1. Selezionare il pulsante **Crea** nella parte inferiore sinistra della pagina.
 
     ![Pagina Nuova applicazione di Azure IoT Central](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring1.png)
+
+    ![Pagina Nuova applicazione di Azure IoT Central - Info di fatturazione](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring1-billinginfo.png)
 
 È stata così creata un'applicazione di monitoraggio della qualità dell'acqua tramite il modello **Monitoraggio qualità acqua** di Azure IoT Central.
 
