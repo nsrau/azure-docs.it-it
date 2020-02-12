@@ -8,7 +8,7 @@
       items:
         - name: Informazioni su Registro Container
           href: container-registry-intro.md
-    - name: Guide introduttive
+    - name: Avvi rapidi
       expanded: true
       items:
         - name: Creare un registro contenitori - Interfaccia della riga di comando
@@ -47,7 +47,7 @@
           href: container-registry-geo-replication.md
         - name: Procedure consigliate per il registro contenitori
           href: container-registry-best-practices.md
-    - name: Guide alle procedure
+    - name: Guide pratiche
       expanded: false
       items:
         - name: Operazioni sui registri
@@ -84,12 +84,14 @@
               items:
                 - name: Panoramica dell'autenticazione
                   href: container-registry-authentication.md
-                - name: Autenticazione di un'entità servizio
+                - name: Eseguire l'autenticazione con l'entità servizio
                   href: container-registry-auth-service-principal.md
-                - name: Autenticazione identità gestita
+                - name: Eseguire l'autenticazione con un'identità gestita
                   href: container-registry-authentication-managed-identity.md
                 - name: Eseguire l'autenticazione da Istanze di Azure Container
                   href: container-registry-auth-aci.md
+                - name: Eseguire l'autenticazione da Kubernetes con un segreto per il pull
+                  href: container-registry-auth-kubernetes.md
                 - name: Eseguire l'autenticazione dal servizio Azure Kubernetes
                   href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
             - name: Controllo degli accessi in base al ruolo
@@ -129,7 +131,7 @@
       items:
         - name: Informazioni su Attività del Registro Azure Container
           href: container-registry-tasks-overview.md
-    - name: Guide introduttive
+    - name: Avvi rapidi
       expanded: true
       items:
         - name: 'Creare, effettuare il push ed eseguire un''immagine - Interfaccia della riga di comando'
@@ -158,7 +160,7 @@
       items:
         - name: Attività in più passaggi
           href: container-registry-tasks-multi-step.md
-    - name: Guide alle procedure
+    - name: Guide pratiche
       expanded: false
       items:
         - name: Accedere a risorse protette con identità gestite
@@ -171,7 +173,7 @@
               href: container-registry-tasks-authentication-key-vault.md
         - name: Creare un'immagine con Buildpacks (anteprima)
           href: container-registry-tasks-pack-build.md
-- name: riferimento
+- name: Informazioni di riferimento
   expanded: false
   items:
     - name: Interfaccia della riga di comando di Azure
@@ -205,7 +207,7 @@
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/container-registry/'
-    - name: Guida di orientamento
+    - name: Roadmap
       href: 'https://aka.ms/acr/roadmap'
     - name: Inviare commenti e suggerimenti per il prodotto
       href: 'https://feedback.azure.com/forums/903958-azure-container-registry'

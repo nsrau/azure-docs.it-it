@@ -152,9 +152,6 @@
     - name: Registro Container
       tocHref: /azure/container-registry/
       topicHref: /azure/container-registry/
-    - name: Gestione costi
-      tocHref: /azure/cost-management/
-      topicHref: /azure/cost-management/
     - name: Funzioni
       tocHref: /azure/azure-functions/
       topicHref: /azure/azure-functions/
@@ -261,9 +258,6 @@
     - name: Intelligenza artificiale per Batch
       tocHref: /azure/batch-ai/
       topicHref: /azure/batch-ai/
-    - name: Fatturazione e gestione dei costi
-      tocHref: /azure/billing/
-      topicHref: /azure/billing/
     - name: Servizi BizTalk
       tocHref: /azure/biztalk-services/
       topicHref: /azure/biztalk-services/
@@ -798,3 +792,19 @@
     - name: Desktop virtuale Windows
       tocHref: /azure/virtual-desktop/
       topicHref: /azure/virtual-desktop/
+    - name: Gestione dei costi e fatturazione
+      tocHref: /azure/cost-management-billing/
+      topicHref: /azure/cost-management-billing/
+      items:
+        - name: Introduzione
+          tocHref: /azure/cost-management-billing/understand/
+          topicHref: /azure/cost-management-billing/understand/
+        - name: Gestire costi e utilizzo
+          tocHref: /azure/cost-management-billing/costs/
+          topicHref: /azure/cost-management-billing/costs/
+        - name: Gestire account e sottoscrizioni
+          tocHref: /azure/cost-management-billing/manage/
+          topicHref: /azure/cost-management-billing/manage/
+        - name: Prenotazioni
+          tocHref: /azure/cost-management-billing/reservations/
+          topicHref: /azure/cost-management-billing/reservations/

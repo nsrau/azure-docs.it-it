@@ -3,7 +3,7 @@ title: Documentazione di Language Understanding (LUIS)
 summary: Informazioni su come Language Understanding consente alle applicazioni di riconoscere la finalità espressa da una persona usando il linguaggio naturale.
 metadata:
   ms.topic: landing-page
-  ms.date: 11/22/2019
+  ms.date: 02/11/2020
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -11,13 +11,13 @@ metadata:
   services: cognitive-services
   title: Documentazione di Language Understanding (LUIS)
   titleSuffix: Azure Cognitive Services
-  description: Il servizio Language Understanding (LUIS) consente all'applicazione di riconoscere la finalità espressa da una persona usando il linguaggio naturale. Language Understanding usa LUIS usa Machine Learning per consentire agli sviluppatori di compilare applicazioni in grado di ricevere input dall'utente in linguaggio naturale ed estrarne il significato.
-  ms.openlocfilehash: f45461b49b51d6d25464ffa7d2084b1bbb1f9e0e
-  ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+  description: Il servizio Language Understanding (LUIS) consente all'applicazione di riconoscere la finalità espressa da una persona usando il linguaggio naturale. LUIS usa Machine Learning per consentire agli sviluppatori di compilare applicazioni in grado di ricevere input dall'utente in linguaggio naturale ed estrarne il significato.
+  ms.openlocfilehash: 1d9b17bcf6817d3c94d191d54be26ce0ff1f14c2
+  ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 01/17/2020
-  ms.locfileid: "76169652"
+  ms.lasthandoff: 02/11/2020
+  ms.locfileid: "77137340"
 landingContent:
 - title: Informazioni su Language Understanding (LUIS)
   linkLists:
@@ -39,8 +39,8 @@ landingContent:
       url: whats-new.md
   - linkListType: video
     links:
-    - text: 'Roadshow di intelligenza artificiale: LUIS'
-      url: https://azure.microsoft.com/resources/videos/whats-new-with-language-understanding-service-luis
+    - text: 'Ignite 2019: Modelli avanzati di riconoscimento del linguaggio naturale con LUIS'
+      url: https://www.youtube.com/watch?v=JdJEV2jV0_Y
 - title: Creare finalità, entità e funzionalità
   linkLists:
   - linkListType: concept

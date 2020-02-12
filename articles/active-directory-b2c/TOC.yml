@@ -182,8 +182,6 @@
             - name: Posta elettronica personalizzata
               href: custom-email.md
               displayName: verification
-            - name: Layout di pagina
-              href: page-layout.md
             - name: Abilitare JavaScript
               href: javascript-samples.md
             - name: Complessità password
@@ -383,6 +381,8 @@
       href: custom-policy-developer-notes.md
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=active-directory-b2c'
+    - name: Versioni del layout di pagina
+      href: page-layout.md
     - name: Definizioni dei cookie
       href: cookie-definitions.md
       displayName: 'cookies, SameSite'
