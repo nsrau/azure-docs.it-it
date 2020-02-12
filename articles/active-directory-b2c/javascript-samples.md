@@ -1,5 +1,6 @@
 ---
-title: Esempi di JavaScript-Azure Active Directory B2C | Microsoft Docs
+title: Esempi JavaScript
+titleSuffix: Azure AD B2C
 description: Informazioni sull'uso di JavaScript in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,21 +8,29 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 02/10/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 42dc09ef4518bfda8c63ee183499b1b2e8c22991
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 1381ddb16697b1e892794604bbfafda815bd6182
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841932"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149075"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Esempi JavaScript da usare in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-È possibile aggiungere il proprio codice JavaScript lato client alle applicazioni di Azure Active Directory B2C (Azure AD B2C). Per abilitare JavaScript per le applicazioni, è necessario aggiungere un elemento ai [criteri personalizzati](custom-policy-overview.md), selezionare un [layout di pagina](page-layout.md)e usare [b2clogin.com](b2clogin.md) nelle richieste. Questo articolo descrive come è possibile modificare i criteri personalizzati per abilitare l'esecuzione di script.
+È possibile aggiungere il proprio codice JavaScript lato client alle applicazioni di Azure Active Directory B2C (Azure AD B2C).
+
+Per abilitare JavaScript per le applicazioni:
+
+* Aggiungere un elemento al [criterio personalizzato](custom-policy-overview.md)
+* Selezionare un [layout di pagina](page-layout.md)
+* Usare [b2clogin.com](b2clogin.md) nelle richieste
+
+Questo articolo descrive come è possibile modificare i criteri personalizzati per abilitare l'esecuzione di script.
 
 > [!NOTE]
 > Se si vuole abilitare JavaScript per i flussi utente, vedere la pagina relativa alle [versioni del layout di pagina e JavaScript in Azure Active Directory B2C](user-flow-javascript-overview.md).
@@ -30,9 +39,9 @@ ms.locfileid: "76841932"
 
 ### <a name="select-a-page-layout"></a>Selezionare un layout di pagina
 
-* [Selezionare un layout di pagina](page-layout.md) per gli elementi dell'interfaccia utente dell'applicazione.
+* Selezionare un [layout di pagina](contentdefinitions.md#select-a-page-layout) per gli elementi dell'interfaccia utente dell'applicazione.
 
-    Se si intende usare JavaScript, è necessario [definire una versione del layout di pagina](page-layout.md#replace-datauri-values) per *tutte* le definizioni di contenuto nel criterio personalizzato.
+    Se si intende usare JavaScript, è necessario [definire una versione del layout di pagina](contentdefinitions.md#migrating-to-page-layout) con la pagina `contract` versione per *tutte* le definizioni di contenuto nel criterio personalizzato.
 
 ## <a name="add-the-scriptexecution-element"></a>Aggiungere l'elemento ScriptExecution
 
@@ -52,25 +61,7 @@ Per abilitare l'esecuzione di script, aggiungere l'elemento **ScriptExecution** 
     ```
 3. Salvare e caricare il file.
 
-## <a name="guidelines-for-using-javascript"></a>Linee guida per l'uso di JavaScript
-
-Seguire queste linee guida per personalizzare l'interfaccia dell'applicazione tramite JavaScript:
-
-- Non associare un evento clic in elementi HTML `<a>`.
-- Non definire una dipendenza dal codice o da commenti di Azure AD B2C.
-- Non modificare l'ordine o la gerarchia di elementi HTML di Azure AD B2C. Usare un criterio di Azure AD B2C per controllare l'ordine degli elementi dell'interfaccia utente.
-- È possibile chiamare qualsiasi servizio RESTful tenendo presenti queste considerazioni:
-    - Potrebbe essere necessario impostare CORS del servizio RESTful in modo da consentire le chiamate HTTP lato client.
-    - Assicurarsi che il servizio RESTful sia sicuro e usi solo il protocollo HTTPS.
-    - Non usare JavaScript direttamente per chiamare endpoint di Azure AD B2C.
-- È possibile incorporare JavaScript o è possibile eseguire il collegamento a file JavaScript esterni. Quando si usa un file JavaScript esterno, assicurarsi di usare l'URL assoluto e non un URL relativo.
-- Framework JavaScript:
-    - Azure AD B2C usa una versione specifica di jQuery. Non includere un'altra versione di jQuery. L'uso di più versioni nella stessa pagina può provocare problemi.
-    - L'uso di RequireJS non è supportato.
-    - La maggior parte dei framework JavaScript non è supportata da Azure AD B2C.
-- Le impostazioni di Azure AD B2C possono essere lette chiamando oggetti `window.SETTINGS` e `window.CONTENT`, ad esempio la lingua dell'interfaccia utente corrente. Non modificare il valore di questi oggetti.
-- Per personalizzare il messaggio di errore di Azure AD B2C, usare la localizzazione in un criterio.
-- Se è possibile ottenere il risultato desiderato usando un criterio, questo è in genere l'approccio consigliato.
+[!INCLUDE [active-directory-b2c-javascript-guidelines](../../includes/active-directory-b2c-javascript-guidelines.md)]
 
 ## <a name="javascript-samples"></a>Esempi JavaScript
 

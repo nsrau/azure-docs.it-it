@@ -1,5 +1,6 @@
 ---
-title: ContentDefinitions - Azure Active Directory B2C | Microsoft Docs
+title: ContentDefinitions
+titleSuffix: Azure AD B2C
 description: Specificare l'elemento ContentDefinitions di un criterio personalizzato di Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/10/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3a940c7676a59ed85d5cf16c76f72a12ce0026d5
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 724736bedd81ea45d7472a615fa22cde6916f21c
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77136278"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148862"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -56,7 +57,6 @@ I metadati del profilo tecnico autocertificato **LocalAccountSignUpWithLogonEmai
   ...
 ```
 
-
 ## <a name="contentdefinition"></a>ContentDefinition
 
 L'elemento **ContentDefinition** contiene gli attributi seguenti:
@@ -72,22 +72,59 @@ L'elemento **ContentDefinition** contiene gli elementi seguenti:
 | LoadUri | 1:1 | Una stringa che contiene l'URL della pagina HTML5 per la definizione del contenuto. |
 | RecoveryUri | 0:1 | Una stringa che contiene l'URL della pagina HTML per la visualizzazione di un errore relativo alla definizione del contenuto. |
 | DataUri | 1:1 | Una stringa che contiene l'URL relativo di un file HTML che fornisce l'esperienza utente da richiamare per il passaggio. |
-| Metadati | 1:1 | Una raccolta di coppie chiave/valore che contiene i metadati usati per la definizione del contenuto. |
+| Metadati | 0:1 | Una raccolta di coppie chiave/valore che contiene i metadati usati per la definizione del contenuto. |
 | LocalizedResourcesReferences | 0:1 | Una raccolta di riferimenti di risorse localizzate. Usare questo elemento per personalizzare la localizzazione di un'interfaccia utente e di un attributo delle attestazioni. |
 
 ### <a name="datauri"></a>DataUri
 
-L'elemento **DataUri** viene usato per specificare l'identificatore della pagina. Azure AD B2C usa l'identificatore di pagina per caricare e avviare gli elementi dell'interfaccia utente e JavaScript lato client. Il formato del valore è `urn:com:microsoft:aad:b2c:elements:page-name:version`.  Nella tabella seguente sono elencati i valori e le descrizioni degli identificatori di pagina che è possibile utilizzare.
+L'elemento **DataUri** viene usato per specificare l'identificatore della pagina. Azure AD B2C usa l'identificatore di pagina per caricare e avviare gli elementi dell'interfaccia utente e JavaScript lato client. Il formato del valore è `urn:com:microsoft:aad:b2c:elements:page-name:version`. Nella tabella seguente sono elencati gli identificatori di pagina che è possibile utilizzare.
 
-| Valore |   Descrizione |
+| Identificatore di pagina | Descrizione |
 | ----- | ----------- |
-| `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | Viene visualizzata una pagina di errore quando viene rilevata un'eccezione o un errore. |
-| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | Elenca i provider di identità tra cui gli utenti possono scegliere durante la procedura di accesso. |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | Viene visualizzato un modulo per eseguire l'accesso con un account locale basato su un indirizzo di posta elettronica o un nome utente. Questo valore fornisce anche la funzionalità "mantieni l'accesso" e "Password dimenticata?" collegamento. |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | Viene visualizzato un modulo per eseguire l'accesso con un account locale basato su un indirizzo di posta elettronica o un nome utente. |
-| `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | Vengono verificati numeri di telefono usando SMS o chiamata vocale durante la procedura di iscrizione o di accesso. |
-| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | Visualizza un modulo che consente agli utenti di creare o aggiornare il profilo. |
+| `globalexception` | Viene visualizzata una pagina di errore quando viene rilevata un'eccezione o un errore. |
+| `providerselection` | Elenca i provider di identità tra cui gli utenti possono scegliere durante la procedura di accesso. |
+| `unifiedssp` | Viene visualizzato un modulo per eseguire l'accesso con un account locale basato su un indirizzo di posta elettronica o un nome utente. Questo valore fornisce anche la funzionalità "mantieni l'accesso" e "Password dimenticata?" collegamento. |
+| `unifiedssp` | Viene visualizzato un modulo per eseguire l'accesso con un account locale basato su un indirizzo di posta elettronica o un nome utente. |
+| `multifactor` | Vengono verificati numeri di telefono usando SMS o chiamata vocale durante la procedura di iscrizione o di accesso. |
+| `selfasserted` | Visualizza un modulo che consente agli utenti di creare o aggiornare il profilo. |
 
+## <a name="select-a-page-layout"></a>Selezionare un layout di pagina
+
+È possibile abilitare il [codice lato client JavaScript](javascript-samples.md) inserendo `contract` tra `elements` e il tipo di pagina. Ad esempio: `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
+
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
+
+La [versione](page-layout.md) della `DataUri` specifica il pacchetto di contenuto contenente HTML, CSS e JavaScript per gli elementi dell'interfaccia utente nei criteri. Se si intende abilitare il codice JavaScript lato client, gli elementi su cui si basa il codice JavaScript non devono essere modificabili. Se non sono immutabili, le eventuali modifiche potrebbero provocare comportamenti imprevisti nelle pagine utente. Per evitare questi problemi, imporre l'utilizzo di un layout di pagina e specificare una versione del layout di pagina. In questo modo si garantisce che tutte le definizioni di contenuto su cui si basa JavaScript siano non modificabili. Anche se non si intende abilitare JavaScript, è comunque necessario specificare la versione del layout di pagina per le pagine.
+
+Nell'esempio seguente viene illustrato il **DataUri** di `1.2.0``selfasserted` versione:
+
+```xml
+<ContentDefinition Id="api.localaccountpasswordreset">
+<LoadUri>~/tenant/templates/AzureBlue/selfAsserted.cshtml</LoadUri>
+<RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+<DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+<Metadata>
+    <Item Key="DisplayName">Local account change password page</Item>
+</Metadata>
+</ContentDefinition>
+```
+
+#### <a name="migrating-to-page-layout"></a>Migrazione al layout di pagina
+
+Il formato del valore deve contenere la parola `contract`: _urn: com: Microsoft: AAD: B2C: Elements:**Contract**:p Age-Name: Version_. Per specificare un layout di pagina nei criteri personalizzati che usano un valore **DataUri** precedente, usare la tabella seguente per eseguire la migrazione al nuovo formato.
+
+| Valore di DataUri precedente | Nuovo valore di DataUri |
+| ----------------- | ----------------- |
+| `urn:com:microsoft:aad:b2c:elements:globalexception:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:multifactor:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssd:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 
 ### <a name="localizedresourcesreferences"></a>LocalizedResourcesReferences
 
@@ -103,19 +140,6 @@ L'elemento **LocalizedResources** contiene gli attributi seguenti:
 | --------- | -------- | ----------- |
 | Lingua: | Sì | Una stringa che contiene una lingua supportata per i criteri per RFC 5646 - Tag per identificare le lingue. |
 | LocalizedResourcesReferenceId | Sì | L'identificatore dell'elemento **LocalizedResources**. |
-
-Nell'esempio seguente viene mostrata una definizione del contenuto di iscrizione o accesso:
-
-```XML
-<ContentDefinition Id="api.signuporsignin">
-  <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
-  <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
-  <DataUri>urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0</DataUri>
-  <Metadata>
-    <Item Key="DisplayName">Signin and Signup</Item>
-  </Metadata>
-</ContentDefinition>
-```
 
 Nell'esempio seguente viene illustrata una definizione del contenuto di iscrizione o accesso con un riferimento alla localizzazione per inglese, francese e spagnolo:
 
@@ -154,3 +178,8 @@ L'attributo ID dell'elemento **ContentDefinition** specifica il tipo di pagina c
 | **api.selfasserted.profileupdate** | [updateprofile in. cshtml](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Pagina di aggiornamento profilo**: mostra un modulo a cui gli utenti possono accedere per aggiornare il profilo. Questa pagina è simile alla pagina di iscrizione dell'account di social network, ad eccezione dei campi di immissione della password. |
 | **api.signuporsignin** | [Unified. cshtml](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Pagina unificata per l'iscrizione o accesso**: viene gestito il processo di iscrizione e accesso dell'utente. Gli utenti possono usare provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook o Google +, o account locali. |
 
+## <a name="next-steps"></a>Passaggi successivi
+
+Per un esempio di personalizzazione dell'interfaccia utente usando le definizioni di contenuto, vedere:
+
+[Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato](custom-policy-ui-customization.md)

@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 1b9a836491e989b676663d13b8eebb994c5145d8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 37968e968a0f9a1098dd5e90d463879bfa95ce1f
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454796"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153588"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Distribuire un servizio Web di Azure Machine Learning Studio (classico)
 
@@ -65,7 +65,7 @@ Nei passaggi seguenti è descritta la distribuzione di un esperimento predittivo
 
 Ora che l'esperimento predittivo è stato preparato, è possibile distribuirlo come nuovo servizio Web di Azure (basato su Resource Manager). Usando il servizio Web, gli utenti possono inviare dati al modello che poi restituirà le stime.
 
-Per distribuire l'esperimento predittivo, fare clic su **Esegui** nella parte inferiore dell'area di disegno dell'esperimento. Al termine dell'esecuzione dell'esperimento, fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare **Deploy Web Service New** (Distribuisci servizio Web [Nuovo]).  Verrà visualizzata la pagina distribuzione del portale del servizio Web Machine Learning Studio (classico).
+Per distribuire l'esperimento predittivo, fare clic su **Esegui** nella parte inferiore dell'area di disegno dell'esperimento. Al termine dell'esecuzione dell'esperimento, fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare **Deploy Web Service New[Nuovo]Nuovo**).  Verrà visualizzata la pagina distribuzione del portale del servizio Web Machine Learning Studio (classico).
 
 > [!NOTE] 
 > Per distribuire un nuovo servizio Web è necessario disporre delle autorizzazioni sufficienti nella sottoscrizione a cui si sta distribuendo il servizio Web. Per altre informazioni, vedere [Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning](manage-new-webservice.md). 
@@ -101,7 +101,7 @@ Per scaricare il set di dati, aprire Machine Learning Studio (classico). Aprire 
 
 ![Scaricare il set di dati dall'area di disegno di studio (classico)](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
-Fare clic su **Test**. Lo stato del processo di esecuzione del batch verrà visualizzato a destra sotto **Test Batch Jobs** (Test Processi batch).
+Fare clic su **Prova**. Lo stato del processo di esecuzione del batch verrà visualizzato a destra sotto **Test Batch Jobs** (Test Processi batch).
 
 ![Testare il processo di esecuzione batch con il portale dei servizi Web](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
 
@@ -145,7 +145,7 @@ I prezzi sono specifici per ogni area, quindi è necessario definire un piano di
 
 1. Nella pagina de servizi Web di Microsoft Azure Machine Learning fare clic sull'opzione di menu **Servizi Web**.
 2. Selezionare il servizio Web da distribuire in una nuova area.
-3. Fare clic su **Copia**.
+3. Fare clic su **Copy**
 4. In **Web Service Name**(Nome servizio Web) digitare un nuovo nome per il servizio Web.
 5. In **Web service description**(Descrizione servizio Web) immettere una descrizione per il servizio Web.
 6. Nell'elenco a discesa **Subscription** (Sottoscrizione) selezionare la sottoscrizione in cui risiederà il nuovo servizio Web.
@@ -153,7 +153,7 @@ I prezzi sono specifici per ogni area, quindi è necessario definire un piano di
 8. Nell'elenco a discesa **Region** (Area) selezionare l'area in cui si desidera distribuire il servizio Web.
 9. Nell'elenco a discesa **Storage account** (Account di archiviazione) selezionare un account di archiviazione in cui archiviare il servizio Web.
 10. Nell'elenco a discesa **Price Plan** (Piano tariffario) selezionare un piano nell'area scelta nel passaggio 8.
-11. Fare clic su **Copia**.
+11. Fare clic su **Copy**
 
 ## <a name="deploy-it-as-a-classic-web-service"></a>Eseguire la distribuzione come servizio Web classico
 

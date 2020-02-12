@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 3f2cc3dcc5c9e34590d1cb2d0d3747fd1255f0e7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a4385d88912e7c4d391baa8f5bc50be1e07f4fa7
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427475"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152789"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-classic-workspace"></a>Guida alla risoluzione dei problemi: creare e connettersi a un'area di lavoro di Azure Machine Learning Studio (classica)
 Questa guida fornisce soluzioni per alcune delle principali problemi riscontrati durante la configurazione delle aree di lavoro Azure Machine Learning Studio (classiche).
@@ -57,6 +57,6 @@ Dopo aver creato la nuova area di lavoro Machine Learning Studio (classica), è 
 
 Dopo l'eliminazione dei cookie, riavviare il browser e passare alla pagina [Microsoft Azure Machine Learning Studio (classica)](https://studio.azureml.net) . Quando vengono richiesti nome utente e password, immettere lo stesso account Microsoft usato per creare l'area di lavoro.
 
-## <a name="comments"></a>Commenti
+## <a name="comments"></a>Comments
 
 L'obiettivo consiste nel semplificare al massimo l'esperienza di Machine Learning. Inserire eventuali commenti e problemi nel [forum su Azure Machine Learning](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) per contribuire al miglioramento del prodotto.

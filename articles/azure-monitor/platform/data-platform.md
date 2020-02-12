@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: b5d35fc14d69da2246c0ef5d4ef6d19a9e0c8462
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 74ede523c9747de4746fe1854bd1e352eba2f7e3
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750989"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148896"
 ---
 # <a name="azure-monitor-data-platform"></a>Piattaforma dati di monitoraggio di Azure
 
@@ -38,11 +38,11 @@ Le [metriche](data-platform-metrics.md) sono valori numerici che descrivono alcu
 
 Le metriche in monitoraggio di Azure vengono archiviate in un database di serie temporali ottimizzato per l'analisi dei dati con timestamp. In questo modo le metriche sono particolarmente adatte per gli avvisi e il rilevamento rapido dei problemi. È possibile indicare le prestazioni del sistema, ma in genere devono essere combinate con i log per identificare la causa principale dei problemi.
 
-Le metriche sono disponibili per l'analisi interattiva nel portale di Azure con [Esplora metriche](../app/metrics-explorer.md). Possono essere aggiunti a un [dashboard di Azure](../learn/tutorial-app-dashboards.md) per la visualizzazione in combinazione con altri dati e usati per gli [avvisi](alerts-metric.md)in tempo quasi reale.
+Le metriche sono disponibili per l'analisi interattiva nel portale di Azure con [Esplora metriche di Azure](../platform/metrics-getting-started.md). Possono essere aggiunti a un [dashboard di Azure](../learn/tutorial-app-dashboards.md) per la visualizzazione in combinazione con altri dati e usati per gli [avvisi](alerts-metric.md)in tempo quasi reale.
 
 Scopri di più sulle metriche di monitoraggio di Azure, incluse le origini dei dati in [metriche in monitoraggio di Azure](data-platform-metrics.md).
 
-### <a name="logs"></a>Log
+### <a name="logs"></a>Registri
 I [log](data-platform-logs.md) sono eventi che si sono verificati nel sistema. Possono contenere tipi di dati diversi e possono essere strutturati o in formato libero con un timestamp. Possono essere creati sporadicamente mentre gli eventi nell'ambiente generano voci di log e un sistema con carico elevato genererà in genere un numero maggiore di volumi di log.
 
 I log in monitoraggio di Azure vengono archiviati in un'area di lavoro Log Analytics basata su [azure Esplora dati](/azure/data-explorer/) , che fornisce un potente motore di analisi e un [linguaggio di query avanzato](/azure/kusto/query/). I log forniscono in genere informazioni sufficienti per fornire il contesto completo del problema identificato e sono utili per identificare i casi principali dei problemi.
@@ -67,10 +67,10 @@ Per altre informazioni sull'analisi distribuita, vedere [che cos'è la traccia d
 
 La tabella seguente confronta le metriche e i log in monitoraggio di Azure.
 
-| Attributo  | Metriche | Log |
+| Attributo  | Metriche | Registri |
 |:---|:---|:---|
 | Vantaggi | Scenari semplici e in grado di essere in tempo quasi reale, ad esempio gli avvisi. Ideale per il rilevamento rapido dei problemi. | Analizzato con il linguaggio di query avanzato. Ideale per l'analisi approfondita e l'identificazione della causa radice. |
-| Dati | Solo valori numerici | Dati di testo o numerici |
+| Data | Solo valori numerici | Dati di testo o numerici |
 | Struttura | Set standard di proprietà, tra cui l'ora di esempio, la risorsa monitorata e un valore numerico. Alcune metriche includono più dimensioni per un'ulteriore definizione. | Set univoco di proprietà a seconda del tipo di log. |
 | Raccolta | Raccolta a intervalli regolari. | Può essere raccolto sporadicamente poiché gli eventi attivano un record da creare. |
 | Visualizzare nel portale di Azure | Esplora metriche | Log Analytics |

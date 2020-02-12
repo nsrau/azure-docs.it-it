@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9342a70e539c4a2717fe45426c26595285172681
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 18a9578cc454ea5259b9564d64dcd4308ee5ef87
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045764"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148981"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Creare e installare i file di configurazione del client VPN per le configurazioni da punto a sito con autenticazione del certificato nativa di Azure
 
@@ -46,7 +46,6 @@ Prima di iniziare, assicurarsi che tutti gli utenti che eseguono la connessione 
 
 ### <a name="zipps"></a>Generare file usando PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 1. Quando si generano file di configurazione del client VPN, il valore di '-AuthenticationMethod' è 'EapTls'. Generare i file di configurazione del client VPN con il comando seguente:
 
@@ -95,7 +94,7 @@ Usare questa procedura per configurare il client VPN nativo in Mac per l'autenti
 
    Il valore di **Interface** (Interfaccia) è "VPN" e quello di **Tipo VPN** è "IKEv2". Specificare un nome per il profilo nel campo **Nome servizio** e quindi fare clic su **Crea** per creare il profilo di connessione del client VPN.
 
-   ![Rete](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
+   ![rete](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
 4. Nella cartella **Generic** copiare il valore del tag **VpnServer** dal file **VpnSettings.xml**. Incollare tale valore nei campi **Server Address** (Indirizzo server) e **Remote ID** (ID remoto) del profilo.
 
    ![Informazioni sul server](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
@@ -112,7 +111,7 @@ Usare questa procedura per configurare il client VPN nativo in Mac per l'autenti
    ![certificato](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
 7. In **Choose An Identity** (Scegli identità) viene visualizzato un elenco dei certificati tra cui scegliere. Selezionare il certificato corretto e quindi **Continua**.
 
-   ![identità](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
+   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. Nel campo **Local ID** (ID locale) specificare il nome del certificato (dal passaggio 6). In questo esempio è "ikev2Client.com". Fare quindi clic sul pulsante **Applica** per salvare le modifiche.
 
    ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
@@ -150,7 +149,7 @@ In Ubuntu 18.0.4 sono state create le istruzioni seguenti. Ubuntu 16.0.10 non su
    ![Scegliere un tipo di connessione](./media/point-to-site-vpn-client-configuration-azure-cert/choosetype.png)
 5. Aprire il file **VpnSettings.xml** dalla cartella **Generic** (Generale) contenuta nei file di configurazione client scaricati. Trovare il tag denominato **VpnServer** e copiare il nome, che inizia con "azuregateway" e termina con ".cloudapp.net".
 
-   ![Copiare il nome](./media/point-to-site-vpn-client-configuration-azure-cert/vpnserver.png)
+   ![Copia nome](./media/point-to-site-vpn-client-configuration-azure-cert/vpnserver.png)
 6. Incollare il nome nel campo **Address** (Indirizzo) della nuova connessione VPN nella sezione **Gateway**. Successivamente, selezionare l'icona della cartella alla fine del campo **Certificate** (Certificato), passare alla cartella **Generic** e selezionare il file **VpnServerRoot**.
 7. Nella sezione **Client** della connessione, per **Authentication** (Autenticazione) selezionare **Certificate/private key** (Certificato/Chiave privata). Per **Certificate** (Certificato) e **Private key** (Chiave privata) scegliere il certificato e la chiave privata creati in precedenza. In **Options** (Opzioni) selezionare **Request an inner IP address** (Richiedi un indirizzo IP interno). Fare quindi clic su **Aggiungi**.
 
@@ -169,7 +168,7 @@ Se non sono ancora stati generati certificati, attenersi alla procedura seguente
 
 [!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
-### <a name="install-and-configure"></a>Installazione e configurazione
+### <a name="install-and-configure"></a>Installare e configurare
 
 1. Scaricare il pacchetto VPNClient dal portale di Azure.
 2. Estrarre il file.

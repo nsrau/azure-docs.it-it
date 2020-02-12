@@ -7,14 +7,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 03/28/2017
-ms.openlocfilehash: e397cfaa9ce521ebe3c2f46ef6cc015bff3112f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 82db8fb2d8b8fc38542e202cc9e590663dc8bbab
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454833"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150060"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio-classic"></a>Come preparare il modello per la distribuzione in Azure Machine Learning Studio (classico)
 
@@ -28,7 +28,7 @@ Questo articolo contiene informazioni approfondite su come convertire un esperim
 
 
 
-## <a name="overview"></a>Overview 
+## <a name="overview"></a>Panoramica 
 
 Il processo di conversione di un esperimento di training in un esperimento predittivo prevede tre passaggi:
 

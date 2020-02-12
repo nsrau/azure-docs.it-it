@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: 9ba4fe318db86760e0dbc326730d03ad09203a88
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 936008a074944c79b8b0bab3beaf3a5aaa5ecc12
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834216"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77151804"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gestire Log Analytics area di lavoro con modelli di Azure Resource Manager
 
@@ -38,12 +38,12 @@ Questo articolo presenta esempi di modelli che illustrano alcune configurazioni 
 
 La tabella seguente elenca la versione dell'API per le risorse usate in questo esempio.
 
-| Gruppi | Tipo di risorsa | Versione dell'API |
+| Resource | Tipo di risorsa | Versione dell'API |
 |:---|:---|:---|
 | Area di lavoro   | aree di lavoro    | 2017-03-15-preview |
-| Cerca      | savedSearches | 2015-03-20 |
+| Ricerca      | savedSearches | 2015-03-20 |
 | Origine dati | datasources   | 2015-11-01-preview |
-| Soluzione    | solutions     | 2015-11-01-preview |
+| Soluzione    | soluzioni     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>Creare un'area di lavoro Log Analytics
 
@@ -301,9 +301,7 @@ Il modello di esempio seguente illustra come:
           "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
         },
         "sku": {
-          "name": "[parameters('pricingTier')]",
-          "name": "CapacityReservation",
-          "capacityReservationLevel": 100
+          "name": "[parameters('pricingTier')]"
         }
       },
       "resources": [

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbb6170aa54c286a5a2d8353c1dd951859fdf8a0
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 023a52f373844e026de0e588e9cd46323abdcf34
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024586"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149831"
 ---
 # <a name="what-are-security-defaults"></a>Che cosa sono le impostazioni predefinite della sicurezza?
 
@@ -74,7 +74,7 @@ Per consentire agli utenti di accedere facilmente alle app Cloud, Azure AD suppo
 
 Attualmente, la maggior parte dei compromessi per i tentativi di accesso proviene dall'autenticazione legacy. L'autenticazione legacy non supporta Multi-Factor Authentication. Anche se nella directory è abilitato un criterio di Multi-Factor Authentication, un utente malintenzionato può eseguire l'autenticazione usando un protocollo precedente e ignorare Multi-Factor Authentication. 
 
-Una volta abilitate le impostazioni predefinite di sicurezza nel tenant, tutte le richieste di autenticazione effettuate da un protocollo precedente verranno bloccate. Le impostazioni predefinite di sicurezza non bloccano Exchange ActiveSync.
+Una volta abilitate le impostazioni predefinite di sicurezza nel tenant, tutte le richieste di autenticazione effettuate da un protocollo precedente verranno bloccate. I valori predefiniti di sicurezza bloccano Exchange Active Sync autenticazione di base.
 
 > [!WARNING]
 > Prima di abilitare le impostazioni predefinite di sicurezza, assicurarsi che gli amministratori non utilizzino protocolli di autenticazione meno recenti. Per ulteriori informazioni, vedere [come uscire dall'autenticazione legacy](concept-fundamentals-block-legacy-authentication.md).
@@ -114,7 +114,7 @@ Le impostazioni predefinite della sicurezza consentono la registrazione e l'uso 
 | Codice di verifica dall'app per dispositivi mobili o dal token hardware |   | X |
 | SMS al telefono |   | X |
 | Chiamata al telefono |   | X |
-| Password app |   | X * * |
+| Password dell'app |   | X * * |
 
 \* * Le password dell'app sono disponibili solo nell'autenticazione a più fattori per utente con scenari di autenticazione legacy solo se abilitati dagli amministratori.
 

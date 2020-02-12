@@ -1,5 +1,5 @@
 ---
-title: Risorse per lo sviluppo di un data warehouse in Azure
+title: Risorse per lo sviluppo di un data warehouse in Azure sinapsi Analytics
 description: Concetti di sviluppo, decisioni di progettazione, suggerimenti e tecniche di codifica per SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,67 +10,40 @@ ms.subservice: development
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a6cb7937bdd5dea9eb1a48b2b350db9077431fe0
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 0f8967eab1be8351c50035d8afa784aa7afd79e1
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73645606"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153316"
 ---
-# <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Decisioni di progettazione e tecniche di codifica per SQL Data Warehouse
-Esaminare questi articoli sullo sviluppo per capire meglio le decisioni chiave nella progettazione, i suggerimenti e le tecniche di codifica per SQL Data Warehouse.
+# <a name="design-decisions-and-coding-techniques-for-a-data-warehouse-in-azure-synapse-analytics"></a>Decisioni di progettazione e tecniche di codifica per un data warehouse in Azure sinapsi Analytics 
+ In questo articolo sono disponibili risorse aggiuntive che consentono di comprendere meglio le decisioni di progettazione principali, le raccomandazioni e le tecniche di codifica per un data warehouse in sinapsi di Azure.
 
 ## <a name="key-design-decisions"></a>Decisioni chiave nella progettazione
-Gli articoli seguenti illustrano concetti e decisioni di progettazione per lo sviluppo di un data warehouse distribuito con SQL Data Warehouse:
+Gli articoli seguenti illustrano i concetti e le decisioni di progettazione per lo sviluppo di un data warehouse distribuito usando la funzionalità di analisi SQL in sinapsi di Azure:
 
-* [connections][connections]
-* [Concorrenza][concurrency]
-* [Transazioni][transactions]
-* [Schemi definiti dall'utente][user-defined schemas]
-* [Distribuzione di tabelle in SQL Data Warehouse][table distribution]
-* [Indicizzazione di tabelle in SQL Data Warehouse][table indexes]
-* [Partizioni di tabella][table partitions]
-* [CTAS][CTAS]
-* [Statistiche][statistics]
+* [Connessioni](sql-data-warehouse-connect-overview.md)
+* [concurrency](resource-classes-for-workload-management.md)
+* [Transazioni](sql-data-warehouse-develop-transactions.md)
+* [Schemi definiti dall'utente](sql-data-warehouse-develop-user-defined-schemas.md)
+* [Distribuzione di tabelle in SQL Data Warehouse](sql-data-warehouse-tables-distribute.md)
+* [Indicizzazione di tabelle in SQL Data Warehouse](sql-data-warehouse-tables-index.md)
+* [Partizioni di tabella](sql-data-warehouse-tables-partition.md)
+* [CTAS](sql-data-warehouse-develop-ctas.md)
+* [Statistiche](sql-data-warehouse-tables-statistics.md)
 
 ## <a name="development-recommendations-and-coding-techniques"></a>Sviluppo dei suggerimenti e delle tecniche di codifica
-Questi articoli illustrano le tecniche di codifica, i consigli e i suggerimenti specifici per lo sviluppo di un SQL Data Warehouse:
+Negli articoli seguenti sono disponibili tecniche di codifica, suggerimenti e consigli specifici per lo sviluppo di un data warehouse con SQL Analytics:
 
-* [Stored procedure][stored procedures]
-* [Etichette][labels]
-* [Viste][views]
-* [Tabelle temporanee][temporary tables]
-* [SQL dinamico][dynamic SQL]
-* [Cicli][looping]
-* [Opzioni di raggruppamento][group by options]
-* [Assegnazione di variabili][variable assignment]
+* [Stored procedure](sql-data-warehouse-develop-stored-procedures.md)
+* [Etichette](sql-data-warehouse-develop-label.md)
+* [Viste](sql-data-warehouse-develop-views.md)
+* [Tabelle temporanee](sql-data-warehouse-tables-temporary.md)
+* [SQL dinamico](sql-data-warehouse-develop-dynamic-sql.md)
+* [Cicli](sql-data-warehouse-develop-loops.md)
+* [Opzioni di raggruppamento](sql-data-warehouse-develop-group-by-options.md)
+* [Assegnazione di variabili](sql-data-warehouse-develop-variable-assignment.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni di riferimento, vedere [Istruzioni T-SQL di SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md).
-
-<!--Image references-->
-
-<!--Article references-->
-[concurrency]: ./resource-classes-for-workload-management.md
-[connections]: ./sql-data-warehouse-connect-overview.md
-[CTAS]: ./sql-data-warehouse-develop-ctas.md
-[dynamic SQL]: ./sql-data-warehouse-develop-dynamic-sql.md
-[group by options]: ./sql-data-warehouse-develop-group-by-options.md
-[labels]: ./sql-data-warehouse-develop-label.md
-[looping]: ./sql-data-warehouse-develop-loops.md
-[statistics]: ./sql-data-warehouse-tables-statistics.md
-[stored procedures]: ./sql-data-warehouse-develop-stored-procedures.md
-[table distribution]: ./sql-data-warehouse-tables-distribute.md
-[table indexes]: ./sql-data-warehouse-tables-index.md
-[table partitions]: ./sql-data-warehouse-tables-partition.md
-[temporary tables]: ./sql-data-warehouse-tables-temporary.md
-[transactions]: ./sql-data-warehouse-develop-transactions.md
-[user-defined schemas]: ./sql-data-warehouse-develop-user-defined-schemas.md
-[variable assignment]: ./sql-data-warehouse-develop-variable-assignment.md
-[views]: ./sql-data-warehouse-develop-views.md
-
-
-<!--MSDN references-->
-[renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx
-
-<!--Other Web references-->
+Per altre informazioni di riferimento, vedere [istruzioni T-SQL](sql-data-warehouse-reference-tsql-statements.md).

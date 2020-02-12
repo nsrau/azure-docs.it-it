@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: 4f64ac9b276c71a037f96766b38a2574b89441c8
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: cae128505c61e7c640819041c6ffdae10a4947e7
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312227"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152279"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Informazioni di riferimento sul modulo di testo per estrarre le funzionalità di N-Gram
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer. Usare il modulo Extract N-Gram features from text per *trasforma* i dati di testo non strutturati. 
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima). Usare il modulo Extract N-Gram features from text per *trasforma* i dati di testo non strutturati. 
 
 ## <a name="configuration-of-the-extract-n-gram-features-from-text-module"></a>Configurazione delle funzionalità di estrazione di N-Gram dal modulo di testo
 
@@ -125,7 +125,7 @@ Il vocabolario contiene il dizionario n-Gram con i punteggi di frequenza dei ter
 + **DF**: il termine Punteggio di frequenza per l'n-grammo nel corpus originale.
 + **IDF**: Punteggio di frequenza del documento inverso per l'n-grammo nel corpus originale.
 
-È possibile aggiornare manualmente il set di dati, ma è possibile che si verifichino errori. Ad esempio:
+È possibile aggiornare manualmente il set di dati, ma è possibile che si verifichino errori. Ad esempio,
 
 * Viene generato un errore se il modulo trova righe duplicate con la stessa chiave nel vocabolario di input. Assicurarsi che nessuna delle due righe nel vocabolario abbia la stessa parola.
 * Lo schema di input dei set di dati del vocabolario deve corrispondere esattamente, inclusi i nomi di colonna e i tipi di colonna. 

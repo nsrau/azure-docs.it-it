@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 11ee8f52a8fd4db2d052eeaeef1387b011d23050
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
-ms.translationtype: HT
+ms.openlocfilehash: 7909fbb958a66d00616d4ed1b844d02bb47d997e
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77131560"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152500"
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Utilizzare il codificatore NewTek TriCaster per inviare un flusso live a velocità in bit singola.  
 > [!div class="op_single_selector"]
@@ -34,10 +34,10 @@ Questo articolo illustra come configurare il codificatore live [NewTek TriCaster
 
 In questa esercitazione viene illustrato come gestire Servizi multimediali di Azure (AMS) con lo strumento Azure Media Services Explorer (AMSE). Questo strumento può essere eseguito solo in PC Windows. Gli utenti di sistemi Mac o Linux possono usare il Portale di Azure per creare [canali](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programmi](media-services-portal-creating-live-encoder-enabled-channel.md).
 
+Quando si usa Tricaster per l'invio di un feed di contributo ai canali AMS abilitati per la codifica live, in particolare quando si usano alcune funzionalità di Tricaster, ad esempio tagli rapidi tra i feed o passaggi all'interno e all'esterno di slate, sono possibili anomalie audio/video nell'evento live. Il team di AMS sta lavorando per risolvere questi problemi. Fino a quel momento non si consiglia di usare queste funzionalità.
+
 > [!NOTE]
-> Quando si usa Tricaster per l'invio di un feed di contributo ai canali AMS abilitati per la codifica live, in particolare quando si usano alcune funzionalità di Tricaster, ad esempio tagli rapidi tra i feed o passaggi all'interno e all'esterno di slate, sono possibili anomalie audio/video nell'evento live. Il team di AMS sta lavorando per risolvere questi problemi. Fino a quel momento non si consiglia di usare queste funzionalità.
->
->
+>  Provare a eseguire il passaggio a TLS 1,2, la versione di prefferred TLS.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

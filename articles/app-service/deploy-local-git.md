@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 2ae8b71a7d48949cd82765112752192aba54521f
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: efe4c07a6231e0b2c95b049db056a4e5d055db98
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680954"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152993"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Distribuzione git locale al servizio app Azure
 
@@ -50,6 +50,9 @@ Per ottenere l'URL per abilitare la distribuzione git locale per un'app esistent
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
 ```
+> [!NOTE]
+> Se si usa un piano app-Service di Linux, è necessario aggiungere questo parametro:--Runtime Python | 3.7
+
 
 In alternativa, per creare una nuova app abilitata per git, eseguire [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) nel cloud Shell con il parametro `--deployment-local-git`. Sostituire \<nome app >, \<nome-gruppo > e \<nome piano > con i nomi per la nuova app git, il gruppo di risorse di Azure e il relativo piano di servizio app Azure.
 
@@ -114,7 +117,7 @@ Per abilitare la distribuzione git locale per l'app con Azure Pipelines (antepri
    > [!NOTE]
    > Se l'organizzazione DevOps di Azure esistente non è elencata, potrebbe essere necessario collegarla alla sottoscrizione di Azure. Per altre informazioni, vedere [definire la pipeline di rilascio del CD](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
    
-1. A seconda del [piano tariffario](https://azure.microsoft.com/pricing/details/app-service/plans/) del piano di servizio app, è possibile che venga visualizzata una pagina **Distribuisci in staging** . Scegliere se [abilitare gli slot di distribuzione](deploy-staging-slots.md), quindi selezionare **continua**.
+1. A seconda del piano [tariffario](https://azure.microsoft.com/pricing/details/app-service/plans/)del piano di servizio app, è possibile che venga visualizzata una pagina **Distribuisci in staging** . Scegliere se [abilitare gli slot di distribuzione](deploy-staging-slots.md), quindi selezionare **continua**.
    
 1. Nella pagina **Riepilogo** verificare le impostazioni e quindi fare clic su **fine**.
    
@@ -142,14 +145,14 @@ Per abilitare la distribuzione git locale per l'app con Azure Pipelines (antepri
 
 Quando si usa Git per la pubblicazione in un'app del servizio app in Azure, è possibile che vengano visualizzati i messaggi di errore comuni seguenti:
 
-|Messaggio|Causa|Risoluzione
+|Message|Causa|Risoluzione
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|L'app non è in esecuzione.|avviare l'app nel portale di Azure. La distribuzione Git non è disponibile quando l'app Web è arrestata.|
 |`Couldn't resolve host 'hostname'`|Le informazioni sull'indirizzo per il controllo remoto ' Azure ' non sono corrette.|usare il comando `git remote -v` per elencare tutti i repository remoti, insieme agli URL associati. Verificare che l'URL del repository remoto 'azure' sia corretto. Se necessario, rimuovere e ricreare questo repository remoto usando l'URL corretto.|
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|Non è stato specificato un ramo durante `git push`o non è stato impostato il valore di `push.default` in `.gitconfig`.|Eseguire di nuovo `git push`, specificando il ramo master: `git push azure master`.|
 |`src refspec [branchname] does not match any.`|Si è tentato di effettuare il push in un ramo diverso dal master nel computer remoto ' Azure '.|Eseguire di nuovo `git push`, specificando il ramo master: `git push azure master`.|
 |`RPC failed; result=22, HTTP code = 5xx.`|questo errore può verificarsi se si tenta di eseguire il push di un repository Git di grandi dimensioni tramite HTTPS.|Modificare la configurazione git nel computer locale per rendere il `postBuffer` più grande. Ad esempio: `git config --global http.postBuffer 524288000`.|
-|`Error - Changes committed to remote repository but your web app not updated.`|È stata distribuita un'app node. js con un file _Package. JSON_ che specifica altri moduli necessari.|Esaminare i messaggi di errore `npm ERR!` prima di questo errore per un maggiore contesto dell'errore. Di seguito sono riportate le cause note di questo errore e i messaggi di `npm ERR!` corrispondenti:<br /><br />**File Package. JSON non valido**: `npm ERR! Couldn't read dependencies.`<br /><br />**Il modulo nativo non dispone di una distribuzione binaria per Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />Oppure <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
+|`Error - Changes committed to remote repository but your web app not updated.`|È stata distribuita un'app node. js con un file _Package. JSON_ che specifica altri moduli necessari.|Esaminare i messaggi di errore `npm ERR!` prima di questo errore per un maggiore contesto dell'errore. Di seguito sono riportate le cause note di questo errore e i messaggi di `npm ERR!` corrispondenti:<br /><br />**File Package. JSON non valido**: `npm ERR! Couldn't read dependencies.`<br /><br />**Il modulo nativo non dispone di una distribuzione binaria per Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />o <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

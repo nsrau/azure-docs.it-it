@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 2e72c8a363ee7f58630b1c0d8d0f00434c2e2b7e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: f6c686151cbf22d375151268afb04a47bd1b8924
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838799"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153401"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning Studio (classico)
 Il portale dei servizi Web di Microsoft Azure Machine Learning consente di gestire i servizi Web classici e nuovi di Machine Learning. Poiché i servizi Web classici e nuovi sono basati su tecnologie diverse, sono disponibili funzionalità di gestione leggermente diverse.
@@ -33,7 +33,7 @@ Nel portale dei servizi Web di Azure Machine Learning è possibile:
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Autorizzazioni per gestire i nuovi servizi Web basati su Resource Manager
 
-I nuovi servizi Web vengono distribuiti come risorse di Azure. Di conseguenza, è necessario disporre delle autorizzazioni corrette per distribuire e gestire i nuovi servizi Web.  Per distribuire o gestire i nuovi servizi Web è necessario che all'utente sia assegnato un ruolo di collaboratore o di amministratore nella sottoscrizione in cui viene distribuito il servizio Web. Se si invita un altro utente a un'area di lavoro di Machine Learning, è necessario assegnargli un ruolo di collaboratore o amministratore della sottoscrizione prima di poter distribuire o gestire i servizi Web. 
+I nuovi servizi Web vengono distribuiti come risorse di Azure. Di conseguenza, è necessario disporre delle autorizzazioni corrette per distribuire e gestire i nuovi servizi Web.  Per distribuire o gestire nuovi servizi Web è necessario che all'utente sia assegnato un ruolo di collaboratore o di amministratore nella sottoscrizione in cui viene distribuito il servizio Web. Se si invita un altro utente in un'area di lavoro di Machine Learning, affinché possa distribuire o gestire servizi Web è prima necessario assegnargli un ruolo di collaboratore o di amministratore nella sottoscrizione. 
 
 Se l'utente non dispone delle autorizzazioni corrette per accedere alle risorse nel portale dei servizi Web di Azure Machine Learning, riceverà l'errore seguente quando cercherà di distribuire un servizio Web:
 

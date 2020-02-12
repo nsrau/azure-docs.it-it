@@ -5,20 +5,20 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.openlocfilehash: ace9794bd72aa124137a6b543c79979e8f5ca7c0
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
-ms.translationtype: MT
+ms.custom: hdinsightactive
+ms.date: 02/11/2020
+ms.openlocfilehash: 1073b9014c83ae5d52d0b1a740819c48c9622936
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031262"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152721"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Ridimensionare automaticamente i cluster Azure HDInsight
 
 > [!Important]
-> La funzionalità di scalabilità automatica funziona solo per i cluster Spark, hive, LLAP e HBase creati dopo l'8 maggio 2019. 
+> La funzionalità di scalabilità automatica funziona solo per i cluster Apache Spark, ApacheHive, LLAP e Apache HBase creati dopo l'8 maggio 2019.
 
 La funzionalità di scalabilità automatica del cluster di Azure HDInsight consente di ridimensionare automaticamente il numero di nodi del ruolo di lavoro in un cluster. Attualmente non è possibile ridimensionare altri tipi di nodi nel cluster.  Durante la creazione di un nuovo cluster HDInsight è possibile impostare un numero minimo e massimo di nodi del ruolo di lavoro. La scalabilità automatica monitora quindi i requisiti delle risorse del carico di analisi e ridimensiona il numero di nodi di lavoro verso l'alto o verso il basso. Non sono previsti costi aggiuntivi per questa funzionalità.
 
@@ -26,7 +26,7 @@ La funzionalità di scalabilità automatica del cluster di Azure HDInsight conse
 
 La tabella seguente descrive i tipi di cluster e le versioni compatibili con la funzionalità di scalabilità automatica.
 
-| Versione | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
+| Versione | Spark | Hive | LLAP | hbase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3,6 senza ESP | Sì | Sì | Sì | Sì* | No | No | No |
 | HDInsight 4,0 senza ESP | Sì | Sì | Sì | Sì* | No | No | No |
@@ -45,12 +45,14 @@ La scalabilità basata sulla pianificazione modifica il numero di nodi nel clust
 
 La funzionalità di scalabilità automatica monitora continuamente il cluster e raccoglie le metriche seguenti:
 
-* **CPU in sospeso totale**: numero totale di core necessari per avviare l'esecuzione di tutti i contenitori in sospeso.
-* **Memoria totale in sospeso**: memoria totale (in MB) necessaria per avviare l'esecuzione di tutti i contenitori in sospeso.
-* **Total Free CPU**: somma di tutti i core inutilizzati nei nodi di lavoro attivi.
-* **Total Free Memory**: somma della memoria inutilizzata (in MB) sui nodi di lavoro attivi.
-* **Memoria utilizzata per nodo**: il carico su un nodo del ruolo di lavoro. Un nodo del ruolo di lavoro in cui sono utilizzati 10 GB di memoria è considerato come sottoposto a un carico superiore rispetto a un nodo del ruolo di lavoro con 2 GB di memoria utilizzata.
-* **Numero di Master applicazioni per nodo**: numero di contenitori di Master applicazioni in esecuzione in un nodo di lavoro. Un nodo del ruolo di lavoro che ospita due contenitori AM è considerato più importante di un nodo del ruolo di lavoro che ospita zero contenitori.
+|Metrica|Descrizione|
+|---|---|
+|CPU totale in sospeso|numero totale di core necessari per avviare l'esecuzione di tutti i contenitori in sospeso.|
+|Memoria totale in sospeso|memoria totale (in MB) necessaria per avviare l'esecuzione di tutti i contenitori in sospeso.|
+|Totale CPU disponibile|somma di tutti i core inutilizzati nei nodi del ruolo di lavoro attivi.|
+|Memoria totale libera|somma della memoria inutilizzata (in MB) nei nodi del ruolo di lavoro attivi.|
+|Memoria usata per nodo|carico su un nodo del ruolo di lavoro. Un nodo del ruolo di lavoro in cui sono utilizzati 10 GB di memoria è considerato come sottoposto a un carico superiore rispetto a un nodo del ruolo di lavoro con 2 GB di memoria utilizzata.|
+|Numero di Master applicazioni per nodo|numero di contenitori di master applicazioni in esecuzione su un nodo del ruolo di lavoro. Un nodo del ruolo di lavoro che ospita due contenitori AM è considerato più importante di un nodo del ruolo di lavoro che ospita zero contenitori.|
 
 Le metriche riportate sopra vengono controllate ogni 60 secondi. La scalabilità automatica semplifica le decisioni di scalabilità verticale e verticale in base a queste metriche.
 
@@ -76,9 +78,7 @@ In base al numero di contenitori AM per nodo e ai requisiti di memoria e CPU cor
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Creare un cluster con scalabilità automatica basata sul carico
 
-Per usare la scalabilità automatica in un cluster, è necessario abilitare l'opzione **Abilita scalabilità** automatica quando viene creato il cluster. 
-
-Per abilitare la funzionalità di scalabilità automatica con il ridimensionamento basato sul carico, completare i passaggi seguenti come parte del normale processo di creazione del cluster:
+Per usare la scalabilità automatica in un cluster, è necessario abilitare l'opzione **Abilita scalabilità** automatica quando viene creato il cluster. Per abilitare la funzionalità di scalabilità automatica con il ridimensionamento basato sul carico, completare i passaggi seguenti come parte del normale processo di creazione del cluster:
 
 1. Nella scheda **configurazione e prezzi** selezionare la casella di controllo **Abilita scalabilità** automatica.
 1. Selezionare **Load-based** in **tipo di scalabilità**automatica.
@@ -90,7 +90,7 @@ Per abilitare la funzionalità di scalabilità automatica con il ridimensionamen
 
     ![Abilitare la scalabilità automatica basata sul carico del nodo di lavoro](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-autoscale.png)
 
-Il numero iniziale di nodi del ruolo di lavoro deve essere compreso tra il numero minimo e il numero massimo inclusi. Questo valore definisce la dimensione iniziale del cluster al momento della creazione. Il numero minimo di nodi del ruolo di lavoro deve essere impostato su tre o più. . Il ridimensionamento del cluster a meno di tre nodi può comportare il blocco in modalità provvisoria a causa di una replica di file insufficiente. Per ulteriori informazioni, vedere la pagina relativa [alla modalità provvisoria]( https://docs.microsoft.com/ azure/hdinsight/hdinsight-scaling-best-practices#getting-stuck-in-safe-mode) .
+Il numero iniziale di nodi del ruolo di lavoro deve essere compreso tra il numero minimo e il numero massimo inclusi. Questo valore definisce la dimensione iniziale del cluster al momento della creazione. Il numero minimo di nodi del ruolo di lavoro deve essere impostato su tre o più. Il ridimensionamento del cluster a meno di tre nodi può comportare il blocco in modalità provvisoria a causa di una replica di file insufficiente.  Per ulteriori informazioni, vedere la pagina relativa [all'inserimento in modalità provvisoria](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
 
 ### <a name="create-a-cluster-with-schedule-based-autoscaling"></a>Creare un cluster con scalabilità automatica basata sulla pianificazione
 
@@ -99,7 +99,7 @@ Per abilitare la funzionalità di scalabilità automatica con scalabilità basat
 1. Nella scheda **configurazione e prezzi** selezionare la casella di controllo **Abilita scalabilità** automatica.
 1. Immettere il **numero di nodi** per il nodo del ruolo di **lavoro**, che controlla il limite per la scalabilità verticale del cluster.
 1. Selezionare l'opzione **pianificazione-in base** al **tipo di scalabilità**automatica.
-1. Fare clic su **Configura** per aprire la finestra **configurazione ridimensionamento** automatico.
+1. Selezionare **Configure (Configura** ) per aprire la finestra di **configurazione della scalabilità automatica** .
 1. Selezionare il fuso orario e quindi fare clic su **+ Aggiungi condizione** .
 1. Consente di selezionare i giorni della settimana a cui deve essere applicata la nuova condizione.
 1. Modificare il tempo di effetto della condizione e il numero di nodi a cui il cluster deve essere ridimensionato.
@@ -190,7 +190,7 @@ Per altre informazioni sulla creazione di cluster con modelli di Resource Manage
 
 #### <a name="using-the-azure-portal"></a>Uso del portale di Azure
 
-Per abilitare la scalabilità automatica in un cluster in esecuzione, selezionare **dimensioni del cluster** in **Impostazioni**. Fare quindi clic su **Abilita scalabilità**automatica. Selezionare il tipo di scalabilità automatica desiderata e immettere le opzioni per la scalabilità basata sul carico o sulla pianificazione. Infine, fare clic su **Salva**.
+Per abilitare la scalabilità automatica in un cluster in esecuzione, selezionare **dimensioni del cluster** in **Impostazioni**. Selezionare quindi **Abilita scalabilità**automatica. Selezionare il tipo di scalabilità automatica desiderata e immettere le opzioni per la scalabilità basata sul carico o sulla pianificazione. Infine, selezionare **Salva**.
 
 ![Abilitare la scalabilità automatica basata sulla pianificazione del nodo di lavoro in esecuzione nel cluster](./media/hdinsight-autoscale-clusters/azure-portal-settings-autoscale.png)
 
@@ -233,7 +233,7 @@ I processi in esecuzione continueranno a essere eseguiti e completati. I process
 
 ### <a name="minimum-cluster-size"></a>Dimensioni minime del cluster
 
-Non ridimensionare il cluster fino a un massimo di tre nodi. Il ridimensionamento del cluster a meno di tre nodi può comportare il blocco in modalità provvisoria a causa di una replica di file insufficiente. Per ulteriori informazioni, vedere la pagina relativa [alla modalità provvisoria]( https://docs.microsoft.com/ azure/hdinsight/hdinsight-scaling-best-practices#getting-stuck-in-safe-mode) .
+Non ridimensionare il cluster fino a un massimo di tre nodi. Il ridimensionamento del cluster a meno di tre nodi può comportare il blocco in modalità provvisoria a causa di una replica di file insufficiente.  Per ulteriori informazioni, vedere la pagina relativa [all'inserimento in modalità provvisoria](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
 
 ## <a name="monitoring"></a>Monitoraggio
 
@@ -245,7 +245,7 @@ Lo stato del cluster elencato nell'portale di Azure consente di monitorare le at
 
 Tutti i messaggi di stato del cluster visualizzati potrebbero essere illustrati nell'elenco seguente.
 
-| Stato del cluster | Spiegazione |
+| Stato del cluster | Descrizione |
 |---|---|
 | In esecuzione | Il cluster funziona normalmente. Tutte le attività di ridimensionamento automatico precedenti sono state completate correttamente. |
 | Aggiornamento  | È in corso l'aggiornamento della configurazione di scalabilità automatica del cluster.  |
@@ -253,16 +253,16 @@ Tutti i messaggi di stato del cluster visualizzati potrebbero essere illustrati 
 | Errore di aggiornamento  | HDInsight ha rilevato problemi durante l'aggiornamento della configurazione di scalabilità automatica. I clienti possono scegliere di ritentare l'aggiornamento o disabilitare la scalabilità automatica.  |
 | Errore  | Si è verificato un errore nel cluster e non è utilizzabile. Eliminare questo cluster e crearne uno nuovo.  |
 
-Per visualizzare il numero corrente di nodi nel cluster, passare al grafico delle **dimensioni del cluster** nella pagina **Panoramica** del cluster oppure fare clic su **dimensioni del cluster** in **Impostazioni**.
+Per visualizzare il numero corrente di nodi nel cluster, passare al grafico delle **dimensioni del cluster** nella pagina **Panoramica** del cluster oppure selezionare **dimensioni del cluster** in **Impostazioni**.
 
 ### <a name="operation-history"></a>Cronologia delle operazioni
 
 È possibile visualizzare la cronologia di scalabilità orizzontale e verticale del cluster come parte della metrica del cluster. È anche possibile elencare tutte le azioni di scalabilità nel giorno precedente, settimana o altro periodo di tempo.
 
-Selezionare le **metriche** in **monitoraggio**. Quindi fare clic su **Aggiungi metrica** e **numero di thread di lavoro attivi** nella casella a discesa **metrica** . Fare clic sul pulsante in alto a destra per modificare l'intervallo di tempo.
+Selezionare le **metriche** in **monitoraggio**. Selezionare quindi **Aggiungi metrica** e **numero di thread di lavoro attivi** nella casella a discesa **metrica** . Selezionare il pulsante in alto a destra per modificare l'intervallo di tempo.
 
 ![Abilitare la metrica di scalabilità automatica basata sulla pianificazione del nodo di lavoro](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per le procedure consigliate relative al ridimensionamento manuale dei cluster, vedere [Ridimensionare i cluster HDInsight](hdinsight-scaling-best-practices.md)
+Per le procedure consigliate relative al ridimensionamento manuale dei cluster, vedere [Ridimensionare i cluster HDInsight](hdinsight-scaling-best-practices.md)

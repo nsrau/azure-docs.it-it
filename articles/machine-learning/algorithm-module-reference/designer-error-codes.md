@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 12/03/2019
-ms.openlocfilehash: a6aeb4022ee7cbce465f88a246303f80acfb883b
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: cf343773695275bc5600ab59e1cd719374d65700
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311666"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152364"
 ---
-# <a name="exceptions-and-error-codes-for-the-designer"></a>Eccezioni e codici di errore per la finestra di progettazione
+# <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Eccezioni e codici di errore per la finestra di progettazione (anteprima)
 
-Questo articolo descrive i messaggi di errore e i codici di eccezione in Azure Machine Learning Designer per semplificare la risoluzione dei problemi relativi alle pipeline di machine learning.
+Questo articolo descrive i messaggi di errore e i codici di eccezione in Azure Machine Learning Designer (anteprima) per semplificare la risoluzione dei problemi relativi alle pipeline di machine learning.
 
 Esistono due modi per ottenere il testo completo di un messaggio di errore nella finestra di progettazione:  
 
@@ -348,7 +348,7 @@ Per le colonne che si desidera utilizzare per il raggruppamento o la categorizza
 ## <a name="error-0018"></a>Errore 0018  
  Si verifica un'eccezione se il set di dati di input non è valido.  
 
-**Risoluzione:** Questo errore in Azure Machine Learning può essere visualizzato in molti contesti, quindi non esiste una singola risoluzione. In generale, l'errore indica che i dati forniti come input per un modulo hanno un numero errato di colonne oppure che il tipo di dati non corrisponde ai requisiti del modulo. Ad esempio:  
+**Risoluzione:** Questo errore in Azure Machine Learning può essere visualizzato in molti contesti, quindi non esiste una singola risoluzione. In generale, l'errore indica che i dati forniti come input per un modulo hanno un numero errato di colonne oppure che il tipo di dati non corrisponde ai requisiti del modulo. Ad esempio,  
 
 -   Il modulo richiede una colonna Label, ma nessuna colonna è contrassegnata come etichetta oppure non è ancora stata selezionata una colonna Label.  
   
@@ -356,7 +356,7 @@ Per le colonne che si desidera utilizzare per il raggruppamento o la categorizza
 
 <!---   The module requires a specific data type. For example, ratings provided to [Train Matchbox Recommender](train-matchbox-recommender.md) can be either numeric or categorical, but cannot be floating point numbers.  -->
 
--   I dati sono nel formato non corretto.  
+-   Il formato dei dati non è corretto.  
   
 -   I dati importati contengono caratteri non validi, valori non validi o valori non compresi nell'intervallo.  
 -   La colonna è vuota o contiene troppi valori mancanti.  
@@ -427,7 +427,7 @@ Per le colonne che si desidera utilizzare per il raggruppamento o la categorizza
 ## <a name="error-0022"></a>Errore 0022  
  Si verifica un'eccezione se il numero di colonne selezionate nel set di dati di input non corrisponde al numero previsto.  
 
- Questo errore in Azure Machine Learning può verificarsi quando il modulo o l'operazione downstream richiede un numero specifico di colonne o input e sono stati specificati troppi o troppi colonne o input. Ad esempio:  
+ Questo errore in Azure Machine Learning può verificarsi quando il modulo o l'operazione downstream richiede un numero specifico di colonne o input e sono stati specificati troppi o troppi colonne o input. Ad esempio,  
 
 -   È possibile specificare una singola colonna di etichetta o colonna chiave e selezionare accidentalmente più colonne.  
   
@@ -823,7 +823,7 @@ Un altro motivo per cui è possibile ottenere questo errore se si tenta di utili
 
 |Messaggi di eccezione|
 |------------------------|
-|Unable to open a file.|
+|Non è possibile aprire un file.|
 |Errore durante l'apertura del file: {0}.|
 |Errore durante l'apertura del file: {0}. Messaggio eccezione di archiviazione: {1}.|
 

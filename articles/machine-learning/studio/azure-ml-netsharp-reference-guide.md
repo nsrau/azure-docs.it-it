@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 295cac883e7c84158fd9d2a2b7e9780dfe6c64d6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6cf6e07e3bbad6b98fcce9cc0e39cdab97375a2a
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427678"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148573"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guida al linguaggio di specifica NET # per la rete neurale per Azure Machine Learning Studio (versione classica)
 
@@ -56,7 +56,7 @@ Net# supporta anche i quattro tipi seguenti di aggregazioni di connessioni avanz
 
 ## <a name="supported-customizations"></a>Personalizzazioni supportate
 
-L'architettura dei modelli di rete neurale creati in Azure Machine Learning Studio (classico) può essere ampiamente personalizzata usando NET #. Puoi:
+L'architettura dei modelli di rete neurale creati in Azure Machine Learning Studio (classico) può essere ampiamente personalizzata usando NET #. È possibile:
 
 + Creare livelli nascosti e controllare il numero di nodi in ogni livello.
 + Specificare la modalità di connessione reciproca dei livelli.
@@ -89,17 +89,17 @@ Ad esempio, l'istruzione seguente definisce una costante `x`:
 
 `Const X = 28;`
 
-Per definire contemporaneamente due o più costanti, racchiudere i nomi e i valori degli identificatori tra parentesi graffe e separarle da punti e virgola. Ad esempio:
+Per definire contemporaneamente due o più costanti, racchiudere i nomi e i valori degli identificatori tra parentesi graffe e separarle da punti e virgola. Ad esempio,
 
 `Const { X = 28; Y = 4; }`
 
-La parte destra di ogni espressione di assegnazione può essere costituita da un valore Integer, un numero reale, un valore booleano (true/false) o un'espressione matematica. Ad esempio:
+La parte destra di ogni espressione di assegnazione può essere costituita da un valore Integer, un numero reale, un valore booleano (true/false) o un'espressione matematica. Ad esempio,
 
 `Const { X = 17 * 2; Y = true; }`
 
 ## <a name="layer-declaration"></a>Dichiarazione dei livelli
 
-La dichiarazione di livello è obbligatoria. Definisce le dimensioni e l'origine del livello, inclusi il raggruppamento di connessione e gli attributi. L'istruzione della dichiarazione inizia con il nome del livello (di input, nascosto o di output), seguito dalle dimensioni del livello (una tupla di valori Integer positivi). Ad esempio:
+La dichiarazione di livello è obbligatoria. Definisce le dimensioni e l'origine del livello, inclusi il raggruppamento di connessione e gli attributi. L'istruzione della dichiarazione inizia con il nome del livello (di input, nascosto o di output), seguito dalle dimensioni del livello (una tupla di valori Integer positivi). Ad esempio,
 
 ```Net#
 input Data auto;
@@ -129,7 +129,7 @@ Una dichiarazione di livelli per un livello di cui è possibile eseguire il trai
 Sono supportate le funzioni di output seguenti:
 
 + sigmoid
-+ linear
++ lineari
 + softmax
 + rlinear
 + square

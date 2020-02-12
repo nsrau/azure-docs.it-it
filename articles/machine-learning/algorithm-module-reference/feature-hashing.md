@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: 60a9c6b237423337abb520b335c98d3c8c7549be
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 4340ee4ed1edda8590726151e07eec45c0751ed6
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312201"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152262"
 ---
 # <a name="feature-hashing-module-reference"></a>Riferimento al modulo feature hashing
 
-Questo articolo descrive un modulo incluso in Azure Machine Learning Designer.
+Questo articolo descrive un modulo incluso in Azure Machine Learning Designer (anteprima).
 
 Usare il modulo feature hashing per trasformare un flusso di testo in inglese in un set di funzionalità Integer. È quindi possibile passare questo set di funzionalità con hash a un algoritmo di machine learning per eseguire il training di un modello di analisi del testo.
 
@@ -30,7 +30,7 @@ L'hashing delle funzionalità funziona convertendo i token univoci in numeri int
 
 Si prenda, ad esempio, un set di frasi semplici come queste, seguite da un punteggio di valutazione. Si supponga di voler utilizzare questo testo per compilare un modello.
 
-|Testo utente|Sentiment|
+|Testo utente|Valutazione|
 |--------------|---------------|
 |Ho amato questo libro|3|
 |Ho odiato questo libro|1|
@@ -121,7 +121,7 @@ Le seguenti procedure consigliate consentono di sfruttare al meglio il modulo fe
     
 * Provare a usare queste opzioni di pre-elaborazione del testo per semplificare i risultati e migliorare la precisione:
 
-    * Separazione delle parole
+    * Word-interruzioni
     * Arresto della rimozione di Word
     * Normalizzazione maiuscole/minuscole
     * Rimozione di segni di punteggiatura e caratteri speciali

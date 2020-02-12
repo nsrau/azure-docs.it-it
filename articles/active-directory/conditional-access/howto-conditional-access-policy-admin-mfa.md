@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e972228923654ca73063aad370d087e550138dbf
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: fb396429c95dbed090283752c5a0d9ff5cc176af
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76043380"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148199"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Accesso condizionale: Richiedi autenticazione a più fattori per gli amministratori
 
@@ -24,14 +24,14 @@ Gli account a cui sono assegnati diritti amministrativi sono destinati da utenti
 
 Microsoft consiglia di richiedere l'autenticazione a più fattori sui seguenti ruoli:
 
-* Amministratore globale
-* Amministratore di SharePoint
-* Amministratore di Exchange
+* Amministratore fatturazione
 * Amministratore di accesso condizionale
-* Amministratore della sicurezza
+* Amministratore di Exchange
+* Amministratore globale
 * Amministratore helpdesk (password)
 * Amministratore password
-* Amministratore fatturazione
+* Amministratore della sicurezza
+* Amministratore di SharePoint
 * Amministratore utenti
 
 Le organizzazioni possono scegliere di includere o escludere i ruoli in base alle esigenze.
@@ -45,24 +45,24 @@ I criteri di accesso condizionale sono strumenti avanzati, quindi è consigliabi
 * Gli **account del servizio** e le **entità servizio**, ad esempio l'account Azure ad Connect Sync. Gli account del servizio sono account non interattivi che non sono collegati a un utente specifico. Vengono in genere usati dai servizi back-end e consentono l'accesso a livello di codice alle applicazioni. Gli account del servizio devono essere esclusi perché non è possibile completare l'autenticazione a livello di codice.
    * Se l'organizzazione dispone di questi account in uso negli script o nel codice, è consigliabile sostituirli con [identità gestite](../managed-identities-azure-resources/overview.md). Come soluzione temporanea, è possibile escludere questi account specifici dai criteri di base.
 
-## <a name="create-a-conditional-access-policy"></a>Creare criteri di accesso condizionale
+## <a name="create-a-conditional-access-policy"></a>Creare un criterio di accesso condizionale
 
 La procedura seguente consente di creare un criterio di accesso condizionale per richiedere che i ruoli amministrativi assegnati eseguano la funzionalità di autenticazione a più fattori.
 
 1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
-1. Passare a **Azure Active Directory** **sicurezza** >  > **l'accesso condizionale**.
+1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**.
 1. Selezionare **Nuovi criteri**.
 1. Assegnare un nome al criterio. È consigliabile che le organizzazioni creino uno standard significativo per i nomi dei propri criteri.
 1. In **assegnazioni**selezionare **utenti e gruppi** .
    1. In **Includi**selezionare **ruoli della directory (anteprima)** e scegliere almeno i ruoli seguenti:
-      * Amministratore globale
-      * Amministratore di SharePoint
-      * Amministratore di Exchange
+      * Amministratore fatturazione
       * Amministratore di accesso condizionale
-      * Amministratore della sicurezza
+      * Amministratore di Exchange
+      * Amministratore globale
       * Amministratore dell'help desk
       * Amministratore password
-      * Amministratore fatturazione
+      * Amministratore della sicurezza
+      * Amministratore di SharePoint
       * Amministratore utenti
    1. In **Escludi**selezionare **utenti e gruppi** e scegliere l'accesso di emergenza dell'organizzazione o gli account break-Glass. 
    1. Selezionare **Operazione completata**.

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 789af25cc37183e9eeae253e1e8529615abdd308
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4a117e7f69647af3ad82f9013bfa40556ccc0dbd
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849803"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152891"
 ---
 # <a name="durable-functions-versions-overview"></a>Panoramica sulle versioni di Durable Functions
 
@@ -60,6 +60,10 @@ Durable Functions 2. x usa un nuovo schema host. JSON. Di seguito sono riportate
 
 Per informazioni dettagliate, vedere la [documentazione di riferimento di Durable Functions host. JSON](durable-functions-bindings.md#durable-functions-2-0-host-json) .
 
+#### <a name="default-taskhub-name-changes"></a>Modifiche al nome predefinito di taskhub
+
+Nella versione 1. x, se non è stato specificato il nome di un hub attività in host. JSON, il valore predefinito è "DurableFunctionsHub". Nella versione 2. x, il nome predefinito dell'hub attività è ora derivato dal nome dell'app per le funzioni. Per questo motivo, se non è stato specificato un nome di hub attività quando si esegue l'aggiornamento a 2. x, il codice funzionerà con un nuovo hub attività e tutte le orchestrazioni in corso non avranno più l'elaborazione di un'applicazione. Per risolvere il problema, è possibile impostare in modo esplicito il nome dell'hub attività sul valore predefinito V1. x di "DurableFunctionsHub" oppure è possibile seguire le linee guida per la distribuzione con tempo di [inattività zero](durable-functions-zero-downtime-deployment.md) per informazioni dettagliate su come gestire le modifiche di rilievo per le orchestrazioni in corso.
+
 #### <a name="public-interface-changes-net-only"></a>Modifiche all'interfaccia pubblica (solo .NET)
 
 Nella versione 1. x, i vari oggetti di _contesto_ supportati da Durable Functions hanno classi di base astratte destinate all'uso nel testing unità. Come parte di Durable Functions 2. x, queste classi di base astratte vengono sostituite con le interfacce.
@@ -68,9 +72,9 @@ La tabella seguente rappresenta le modifiche principali:
 
 | 1.x | 2.x |
 |----------|----------|
-| `DurableOrchestrationClientBase` | `IDurableOrchestrationClient` oppure `IDurableClient` |
-| `DurableOrchestrationContext` oppure `DurableOrchestrationContextBase` | `IDurableOrchestrationContext` |
-| `DurableActivityContext` oppure `DurableActivityContextBase` | `IDurableActivityContext` |
+| `DurableOrchestrationClientBase` | `IDurableOrchestrationClient` o `IDurableClient` |
+| `DurableOrchestrationContext` o `DurableOrchestrationContextBase` | `IDurableOrchestrationContext` |
+| `DurableActivityContext` o `DurableActivityContextBase` | `IDurableActivityContext` |
 | `OrchestrationClientAttribute` | `DurableClientAttribute` |
 
 Nel caso in cui una classe base astratta contenesse metodi virtuali, questi metodi virtuali sono stati sostituiti dai metodi di estensione definiti in `DurableContextExtensions`.

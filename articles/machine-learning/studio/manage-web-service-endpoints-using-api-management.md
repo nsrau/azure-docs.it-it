@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 084f3a1ecc7e44dc404d63a75b4561f8d5cb57cb
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9123e1d8e63382c6b89c86f99935dd288bb1bf16
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839819"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153418"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Gestire i servizi Web di Azure Machine Learning Studio (classico) tramite gestione API
 ## <a name="overview"></a>Panoramica
@@ -38,12 +38,12 @@ Per completare questa guida, è necessario:
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **+ Crea una risorsa**.
 3. Nella casella di ricerca digitare "Gestione API" e quindi selezionare la risorsa "Gestione API".
-4. Fai clic su **Crea**.
+4. Fare clic su **Crea**.
 5. Il valore del campo **Nome** verrà usato per creare un URL univoco (in questo esempio viene usato "demoazureml").
 6. Scegliere un valore nei campi **Sottoscrizione**, **Gruppo di risorse** e **Area** per l'istanza del servizio.
 7. Specificare un valore per **Nome organizzazione** (in questo esempio viene usato "demoazureml").
 8. Immettere un valore nel campo **Indirizzo di posta elettronica dell'amministratore**. L'indirizzo specificato verrà usato per le notifiche del sistema Gestione API.
-9. Fai clic su **Crea**.
+9. Fare clic su **Crea**.
 
 La creazione del nuovo potrebbe richiedere fino a 30 minuti.
 
@@ -158,7 +158,7 @@ Creare prima un'operazione per il servizio RRS di AzureML:
 
 5. Fare clic su **Send**.
 
-   ![Send](./media/manage-web-service-endpoints-using-api-management/send.png)
+   ![send](./media/manage-web-service-endpoints-using-api-management/send.png)
 
 Una volta richiamata un'operazione, nel portale per sviluppatori vengono visualizzati l'**URL richiesto** restituito dal servizio back-end, lo **Stato della risposta**, le **Intestazioni della risposta** e l'eventuale **Contenuto della risposta**.
 
@@ -166,7 +166,7 @@ Una volta richiamata un'operazione, nel portale per sviluppatori vengono visuali
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>Appendice A - Creazione e test di un semplice servizio Web di AzureML
 ### <a name="creating-the-experiment"></a>Creazione di un esperimento
-Di seguito sono riportati i passaggi per creare un semplice esperimento di AzureML e distribuirlo come servizio Web. Il servizio Web accetta come input una colonna di testo arbitrario e restituisce un set di funzionalità rappresentate come valori Integer. Ad esempio:
+Di seguito sono riportati i passaggi per creare un semplice esperimento di AzureML e distribuirlo come servizio Web. Il servizio Web accetta come input una colonna di testo arbitrario e restituisce un set di funzionalità rappresentate come valori Integer. Ad esempio,
 
 | Text | Testo con hash |
 | --- | --- |
@@ -198,7 +198,7 @@ Digitare **3** in **Hashing bitsize**. Verranno create 8 (23) colonne.
 
 A questo punto, è possibile fare clic su **Run** per testare l'esperimento.
 
-![Run](./media/manage-web-service-endpoints-using-api-management/run.png)
+![run](./media/manage-web-service-endpoints-using-api-management/run.png)
 
 ### <a name="create-a-web-service"></a>Creare un servizio Web
 Ora creare un servizio Web. Espandere **Servizio Web** e trascinare **Input** sull'esperimento. Connettere **Input** a **Feature Hashing**. Trascinare anche **output** sull'esperimento. Connettere **Output** a **Feature Hashing**.

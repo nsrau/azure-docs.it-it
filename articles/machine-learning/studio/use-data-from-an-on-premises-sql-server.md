@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 97ab0bd275178a080af3491ba8219d4217e233aa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 499723ad18bab1ebe197eb7b9290946b216bfee6
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432216"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152806"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-an-on-premises-sql-server-database"></a>Eseguire analisi con Azure Machine Learning Studio (classico) usando un database SQL Server locale
 

@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: ce232fc9216166e94520203bb4afbf4c152aaf6f
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 772c16dc292d8bce4b927c9c2ce3ff6ee0ed399d
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314930"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152126"
 ---
 # <a name="partition-and-sample-module"></a>Modulo Partition and Sample
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer.
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
 Usare questo modulo per eseguire il campionamento in un set di dati o per creare partizioni dal set di dati.
 
@@ -45,13 +45,13 @@ Il campionamento è uno strumento importante di Machine Learning perché consent
 Questo modulo supporta più metodi per dividere i dati in partizioni o per il campionamento. Prima scegliere il metodo, quindi impostare le opzioni aggiuntive richieste dal metodo.
 
 - Head
-- Campionamento
+- campionamento
 - Assegna a riduzioni
 - Scegliere una sezione
 
 ### <a name="get-top-n-rows-from-a-dataset"></a>Ottenere le prime N righe da un set di dati
 
-Usare questa modalità per ottenere solo le prime *n* righe. Questa opzione è utile se si desidera testare una pipeline su un numero ridotto di righe e non è necessario che i dati siano bilanciati o campionati in alcun modo.
+Usare questa modalità per ottenere soltanto le prime *n* righe. Questa opzione è utile se si desidera testare una pipeline su un numero ridotto di righe e non è necessario che i dati siano bilanciati o campionati in alcun modo.
 
 1. Aggiungere il modulo **Partition and Sample** alla pipeline nell'interfaccia e connettere il set di dati.  
 

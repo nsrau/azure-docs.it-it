@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva a R
+title: Introduzione a R
 titleSuffix: ML Studio (classic) - Azure
 description: Usare questa esercitazione sulla programmazione R per iniziare a usare il linguaggio R con Azure Machine Learning Studio (classico) per creare una soluzione di previsione.
 services: machine-learning
@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 81e232e37e437c4fa9d23a49a720b88511423905
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3972fb3c0717069f84b177c54e8fc002ec52f469
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427567"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152874"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio-classic"></a>Introduzione al linguaggio di programmazione R in Azure Machine Learning Studio (versione classica)
 
@@ -37,7 +37,7 @@ In questa guida si lavorerà con i dati relativi alla produzione casearia in Cal
 
 I dati usati in questo articolo, insieme agli script R, possono essere scaricati da [MachineLearningSamples-Notebooks/Studio-Samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples). I dati nel file `cadairydata.csv` sono stati originariamente sintetizzati dalle informazioni disponibili presso la University of Wisconsin al [https://dairymarkets.com](https://dairymarkets.com).
 
-### <a name="organization"></a>Organizzazione
+### <a name="organization"></a>Organization
 
 In questo articolo verrà illustrato come creare, testare ed eseguire le analisi e la manipolazione dei dati codice R nell'ambiente Azure Machine Learning Studio (classico).  
 

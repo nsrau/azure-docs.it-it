@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 16689982156743f5dc4e2ed09a0f9bc097a51b9b
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 6e1b162d17e2369b579fc1210c57e0409b0546bc
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903026"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148471"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Creare e installare i file di configurazione del client VPN per l'autenticazione RADIUS da punto a sito
 
@@ -38,7 +38,6 @@ Di seguito è riportato il flusso di lavoro di configurazione per l'autenticazio
 
 Per seguire le istruzioni contenute nelle sezioni di questo articolo è necessario prima decidere il tipo di autenticazione da usare: nome utente/password, certificato o altri tipi di autenticazione. Per ogni sezione sono disponibili procedure per Windows, Mac OS X e Linux (sono attualmente disponibili procedure limitate).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="adeap"></a>Autenticazione con nome utente/password
 
@@ -131,7 +130,7 @@ Per configurare il client VPN Windows nativo per l'autenticazione del certificat
 6. Durante l'installazione del profilo, è possibile specificare il nome utente e la password usati per l'autenticazione VPN. Non è obbligatorio immettere queste informazioni. Se si esegue questa operazione, le informazioni vengono salvate e usate automaticamente quando si avvia una connessione. Selezionare **Installa** per continuare.
 
    ![Caselle per nome utente e password per la VPN](./media/point-to-site-vpn-client-configuration-radius/adsettings.png)
-7. Immettere un nome utente e una password per ottenere i privilegi richiesti per installare il profilo nel computer. Selezionare **OK**.
+7. Immettere un nome utente e una password per ottenere i privilegi richiesti per installare il profilo nel computer. Scegliere **OK**.
 
    ![Caselle per nome utente e password per l'installazione del profilo](./media/point-to-site-vpn-client-configuration-radius/adusername.png)
 8. Dopo che il profilo è stato installato, è visibile nella finestra di dialogo **Profili**. È anche possibile aprire questa finestra di dialogo in un secondo momento da **Preferenze di Sistema**.
@@ -259,7 +258,7 @@ Usare questa procedura per configurare il client VPN nativo in un Mac per l'aute
 7. In **Choose An Identity** (Scegli identità) viene visualizzato un elenco dei certificati tra cui scegliere. Selezionare il certificato corretto e quindi selezionare **Continua**.
 
    ![Elenco "Choose An Identity" (Scegli identità)](./media/point-to-site-vpn-client-configuration-radius/identity.png)
-8. Nella casella **ID locale** specificare il nome del certificato (dal passaggio 6). In questo esempio è **ikev2Client.com**. Quindi, selezionare il pulsante **applica** per salvare le modifiche.
+8. Nella casella **ID locale** specificare il nome del certificato (dal passaggio 6). In questo esempio è **ikev2Client.com**. Selezionare quindi il pulsante **Applica** per salvare le modifiche.
 
    ![Casella "ID locale"](./media/point-to-site-vpn-client-configuration-radius/applyconnect.png)
 9. Nella finestra di dialogo **Network** selezionare **Applica** per salvare tutte le modifiche. Selezionare quindi **Connetti** per avviare la connessione da punto a sito alla rete virtuale di Azure.

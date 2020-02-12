@@ -6,21 +6,23 @@ keywords: codifica; codificatori; media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 02/04/2020
+ms.date: 02/10/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: bccdb49c22bce983fe8cb2aba1387c4b1645b62c
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
-ms.translationtype: HT
+ms.openlocfilehash: c8cf8883c80dad7988793a898dcaf01dd8f860c3
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132716"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152636"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Codificatori di streaming live consigliati
 
 In Servizi multimediali di Azure, un [evento live](https://docs.microsoft.com/rest/api/media/liveevents) (canale) rappresenta una pipeline per l'elaborazione di contenuti in streaming live. L'evento live riceve i flussi di input live in uno dei due modi seguenti.
 
-* Un codificatore live locale invia un flusso RTMP o Smooth Streaming (MP4 frammentato) a bitrate multipli all'evento live che non è abilitato per eseguire la codifica live con Servizi multimediali. I flussi inseriti passano attraverso gli eventi live senza altri processi di elaborazione. Questo metodo viene chiamato **pass-through**. È consigliabile che il codificatore Live invii flussi a bitrate multipli anziché un flusso a bitrate singolo a un evento Live pass-through per consentire lo streaming a bitrate adattivo per il client.
+* Un codificatore live locale invia un flusso RTMP o Smooth Streaming (MP4 frammentato) a bitrate multipli all'evento live che non è abilitato per eseguire la codifica live con Servizi multimediali. I flussi inseriti passano attraverso gli eventi live senza altri processi di elaborazione. Questo metodo viene chiamato **pass-through**. È consigliabile che il codificatore Live invii flussi a bitrate multipli anziché un flusso a bitrate singolo a un evento Live pass-through per consentire lo streaming a bitrate adattivo per il client. 
+
+    Se si usano flussi a bitrate multipli per l'evento Live pass-through, le dimensioni del GOP video e i frammenti video in bitrate diverse devono essere sincronizzati per evitare comportamenti imprevisti sul lato riproduzione.
 
   > [!NOTE]
   > L'uso del metodo pass-through è il modo più economico per eseguire uno streaming live.

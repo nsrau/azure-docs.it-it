@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: ae9550e797ad13f78f222cb6120f040721914964
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9c1557efd87bf75ec59c9b65112b2bb3d0c678db
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454769"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153622"
 ---
 # <a name="use-powershell-to-create-studio-classic-models-and-web-service-endpoints-from-one-experiment"></a>Usare PowerShell per creare modelli studio (classiche) ed endpoint di servizio Web da un esperimento
 

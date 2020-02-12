@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 9a69ebaa9b7f6ffffdfc80e09fb2eec9495e2ce2
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 71a20f0de9907b04b9dcfd63c0003f2540a2e370
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838830"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153384"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio-classic"></a>Gestire le iterazioni dell'esperimento in Azure Machine Learning Studio (versione classica)
 Lo sviluppo di un modello di analisi predittive è un processo iterativo: man mano che si modificano le varie funzioni e i parametri dell'esperimento, i risultati convergono fino a quando l'utente non è soddisfatto del modello sottoposto a training. Per questo processo è fondamentale tenere traccia delle varie iterazioni dei parametri e delle configurazioni dell'esperimento.
@@ -42,9 +42,9 @@ Si supponga, ad esempio, di creare un esperimento con il modulo di [regressione 
 | Valore di Learning rate | Ora di inizio dell'esecuzione |
 | --- | --- |
 | 0,1 |11/9/2014 16:18:58 |
-| 0,2 |11/9/2014 16:24:33 |
-| 0,4 |11/9/2014 16:28:36 |
-| 0,5 |11/9/2014 16:33:31 |
+| 0.2 |11/9/2014 16:24:33 |
+| 0.4 |11/9/2014 16:28:36 |
+| 0.5 |11/9/2014 16:33:31 |
 
 Se si fa clic su **VIEW RUN HISTORY**, verrà visualizzato un elenco di tutte le esecuzioni:
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: ba7afb506a21df7fc2fe4cc4b7194549b6efde83
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 0602757fad0eb4424e10fb0c1cf0272826ed0024
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77050564"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150698"
 ---
 # <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>Esercitazione: configurare TeamViewer per il provisioning utenti automatico
 
@@ -34,13 +34,14 @@ Questa esercitazione descrive i passaggi da eseguire sia in TeamViewer che in Az
 > * Mantieni gli attributi utente sincronizzati tra Azure AD e TeamViewer
 > * [Single Sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/teamviewer-tutorial) per TeamViewer (scelta consigliata)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
 * [Tenant di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * Un account utente in Azure AD con l' [autorizzazione](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) per la configurazione del provisioning, ad esempio amministratore dell'applicazione, amministratore di applicazioni cloud, proprietario dell'applicazione o amministratore globale. 
-* Un account TeamViewer con autorizzazioni di amministratore.
+* Una [licenza di tensore](https://www.teamviewer.com/de/teamviewer-tensor/) valida per TeamViewer.
+* Identificatore personalizzato valido della configurazione [Single Sign-on](https://community.teamviewer.com/t5/Knowledge-Base/Single-Sign-On-with-Azure-Active-Directory/ta-p/60209#toc-hId--473669723) disponibile.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
 1. Informazioni sul [funzionamento del servizio di provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
@@ -49,7 +50,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 ## <a name="step-2-configure-teamviewer-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare TeamViewer per supportare il provisioning con Azure AD
 
-1. Accedere alla console di amministrazione dell'app TeamViewer. Passare a **modifica profilo**.
+1. Accedere alla [console di gestione di TeamViewer](https://login.teamviewer.com). Passare a **modifica profilo**.
 
     ![Console di amministrazione di TeamViewer](./media/teamviewer-provisioning-tutorial/admin.png)
 
@@ -116,9 +117,9 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
    |Attributo|Type|
    |---|---|
-   |userName|string|
-   |displayName|string|
-   |active|Boolean|
+   |userName|String|
+   |displayName|String|
+   |attivo|Boolean|
 
 10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

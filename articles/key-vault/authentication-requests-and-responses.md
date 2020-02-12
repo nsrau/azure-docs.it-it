@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2b4f198d596ddcb475e123c355c38ada784d21d3
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: b023b49955f642f1cafcb5f26ae67e657718bcd6
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884003"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148233"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticazione, richieste e risposte
 
@@ -22,7 +22,7 @@ Azure Key Vault supporta richieste e risposte in formato JSON. Le richieste dire
 
 Questo argomento illustra le caratteristiche del servizio Azure Key Vault. Per informazioni generali sull'uso delle interfacce REST di Azure, tra cui l'autenticazione/autorizzazione e come acquisire un token di accesso, vedere [Informazioni di riferimento sull'API REST di Azure](https://docs.microsoft.com/rest/api/azure).
 
-## <a name="request-url"></a>URL richiesta  
+## <a name="request-url"></a>URL della richiesta  
  Le operazioni di gestione delle chiavi usano HTTP DELETE, GET, PATCH, PUT e HTTP POST, mentre le operazioni crittografiche su oggetti chiave esistenti usano HTTP POST. I client che non possono supportare verbi HTTP specifici possono anche usare HTTP POST con l'intestazione X-HTTP-REQUEST per specificare il verbo desiderato. Le richieste che normalmente non richiedono un corpo devono includere un corpo vuoto quando si usa HTTP POST, ad esempio quando si usa POST invece di DELETE.  
 
  Di seguito sono riportati gli URL di esempio per lavorare con gli oggetti in Azure Key Vault:  
@@ -44,14 +44,14 @@ Questo argomento illustra le caratteristiche del servizio Azure Key Vault. Per i
 
  Le versioni del protocollo di Azure Key Vault seguono uno schema di numerazione con data nel formato {AAAA}.{MM}.{GG}.  
 
-## <a name="request-body"></a>Request Body  
+## <a name="request-body"></a>Corpo richiesto  
  Secondo la specifica HTTP, le operazioni GET NON devono avere un corpo per la richiesta, mentre le operazioni POST e PUT devono avere un corpo per la richiesta. Il corpo nelle operazioni DELETE è facoltativo in HTTP.  
 
  Se non diversamente specificato nella descrizione dell'operazione, il tipo di contenuto del corpo della richiesta deve essere application/json e contenere un oggetto JSON serializzato conforme al tipo di contenuto.  
 
  Se non diversamente specificato nella descrizione del funzionamento, l'intestazione Accept della richiesta deve contenere il tipo di elemento multimediale application/json.  
 
-## <a name="response-body"></a>Contenuto risposta  
+## <a name="response-body"></a>Corpo della risposta  
  Se non diversamente specificato nella descrizione dell'operazione, il tipo di contenuto del corpo della risposta delle operazioni riuscite e non riuscite sarà application/json e conterrà informazioni dettagliate sugli errori.  
 
 ## <a name="using-http-post"></a>Uso di HTTP POST  
@@ -64,7 +64,7 @@ Questo argomento illustra le caratteristiche del servizio Azure Key Vault. Per i
 
 - 3xx – Redirection (Reindirizzamento): può essere restituito il messaggio 304 "Not Modified" (Non modificato) per soddisfare un'operazione GET condizionale. Altri codici 3xx potranno essere usati in futuro per indicare modifiche di DNS e percorso.  
 
-- 4xx – Client Error (Errore client): usato per richieste errate, chiavi mancanti, errori di sintassi, parametri non validi, errori di autenticazione e così via. Il corpo della risposta conterrà la descrizione dettagliata dell'errore.  
+- 4xx-Errore del client: usato per richieste non corrette, chiavi mancanti, errori di sintassi, parametri non validi, errori di autenticazione e così via. Il corpo della risposta conterrà una spiegazione dettagliata dell'errore.  
 
 - 5xx – Server Error (Errore server): usato per errori interni del server. L'organo di risposta contiene informazioni riassuntive sull'errore.  
 
@@ -87,7 +87,7 @@ Questo argomento illustra le caratteristiche del servizio Azure Key Vault. Per i
 
 ```  
 
-## <a name="authentication"></a>Authentication  
+## <a name="authentication"></a>Autenticazione  
  Tutte le richieste inviate ad Azure Key Vault DEVONO essere autenticate. Azure Key Vault supporta i token di accesso di Azure Active Directory che possono essere ottenuti tramite OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
  Per altre informazioni sulla registrazione dell'applicazione e l'autenticazione per l'uso di Azure Key Vault, vedere [Registrare l'applicazione client con Azure AD](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).
@@ -112,7 +112,7 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   authorization: indirizzo del servizio di autorizzazione OAuth2 che può essere usato per ottenere un token di accesso per la richiesta.  
 
--   resource: nome della risorsa da usare nella richiesta di autorizzazione.  
+-   Resource: nome della risorsa (https://vault.azure.net) da usare nella richiesta di autorizzazione.  
 
 ## <a name="see-also"></a>Vedere anche  
  [Informazioni su chiavi, segreti e certificati](about-keys-secrets-and-certificates.md)

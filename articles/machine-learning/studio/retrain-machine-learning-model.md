@@ -1,5 +1,5 @@
 ---
-title: Rieseguire il training di un servizio Web
+title: Ripetere il training di un servizio Web
 titleSuffix: ML Studio (classic) - Azure
 description: Informazioni su come aggiornare un servizio Web per l'uso di un modello di apprendimento automatico appena sottoposto a training in Azure Machine Learning Studio (classico).
 services: machine-learning
@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: c24eb50688efcf220b26b5a0f352d012876dbab3
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 867d104b58980679dc815238fef14050e7d9e8c7
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838675"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152857"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Ripetere il training e distribuire un modello di Machine Learning
 

@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 03/14/2017
-ms.openlocfilehash: 494141cc580d80ff1d025228406d53f9788b5d97
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 320eba16511036df77dcdbb7ddb628eaa34b2450
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837763"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153554"
 ---
 # <a name="debug-your-model-in-azure-machine-learning-studio-classic"></a>Eseguire il debug del modello in Azure Machine Learning Studio (classico)
 
@@ -29,7 +29,7 @@ Questo articolo spiega le cause potenziali di questi errori.
 
 ## <a name="train-model-module-produces-an-error"></a>Il modulo Train Model genera un errore
 
-![Immagine1](./media/debug-models/train_model-1.png)
+![image1](./media/debug-models/train_model-1.png)
 
 Il modulo [Train Model][train-model] prevede due input:
 
@@ -46,7 +46,7 @@ Questo modulo può generare un errore nei casi seguenti:
 
 ## <a name="score-model-module-produces-incorrect-results"></a>Il modulo Classificazione del modello genera risultati non corretti
 
-![Immagine2](./media/debug-models/train_test-2.png)
+![image2](./media/debug-models/train_test-2.png)
 
 In un tipico esperimento di training/testing per l'apprendimento supervisionato, il modulo [Split data][split] divide il set di dati originale in due parti: una parte viene utilizzata per eseguire il training del modello e una parte viene utilizzata per assegnare un punteggio alle prestazioni del modello sottoposto a training. Il modello sottoposto a training viene quindi usato per calcolare il punteggio dei dati di test, dopo il quale vengono valutati i risultati per determinare la precisione del modello.
 

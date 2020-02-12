@@ -8,18 +8,18 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 823ce8d523a231875705d7c4d3f46cfd8fd24994
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: MT
+ms.openlocfilehash: 6149fa631633d05399568bd1ec797c5ee47d29a4
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74270592"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152602"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticazione e autorizzazione per gli ancoraggi spaziali di Azure
 
 In questa sezione vengono illustrati i vari modi in cui è possibile eseguire l'autenticazione a ancoraggi spaziali di Azure dall'app o dal servizio Web e i modi in cui è possibile usare il controllo degli accessi in base al ruolo nella directory di Azure (Azure AD) per controllare l'accesso agli account di ancoraggio spaziali.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 ![Panoramica dell'autenticazione per gli ancoraggi spaziali di Azure](./media/spatial-anchors-authentication-overview.png)
 
@@ -96,6 +96,13 @@ Per le applicazioni destinate a Azure Active Directory utenti, l'approccio consi
 
 1. Configurazione in portale di Azure
     1.  Registrare l'applicazione in Azure AD come **applicazione nativa**. Nell'ambito della registrazione, è necessario determinare se l'applicazione deve essere multi-tenant o meno e fornire gli URL di reindirizzamento consentiti per l'applicazione.
+        1.  Passa alla scheda **autorizzazioni API**
+        2.  Selezionare **Aggiungi un'autorizzazione**
+            1.  Selezionare il **provider di risorse di realtà mista** in API uso della scheda della **mia organizzazione**
+            2.  Seleziona **autorizzazioni delegate**
+            3.  Selezionare la casella per **mixedreality. SignIn** in **mixedreality**
+            4.  Selezionare **Aggiungi autorizzazioni**
+        3.  Selezionare **concedi il consenso dell'amministratore**
     2.  Concedere all'applicazione o agli utenti l'accesso alla risorsa:
         1.  Passare alla risorsa ancoraggi spaziali in portale di Azure
         2.  Passa alla scheda **controllo di accesso (IAM)**

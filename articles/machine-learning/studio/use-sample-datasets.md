@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: c2700c8241905f6e219b566a10e3378dd6c7251d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 211a2a83d2668c3240daca11e9063b31d42655ae
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427434"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152755"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Usare i set di impostazioni di esempio in Azure Machine Learning Studio (versione classica)
 [top]: #machine-learning-sample-datasets
@@ -27,12 +27,12 @@ Alcuni di questi set di dati sono disponibili nell'archivio BLOB di Azure. La ta
 La parte rimanente di questi set di dati di esempio è disponibile nell'area di lavoro presente in **Saved Datasets** (Set di dati salvati). È possibile trovarlo nella tavolozza dei moduli a sinistra dell'area di disegno dell'esperimento in Machine Learning Studio (classico).
 Per usare uno qualsiasi di questi set di dati in un esperimento personalizzato, trascinarlo all'area di disegno dell'esperimento.
 
-## <a name="datasets"></a>Set di dati
+## <a name="datasets"></a>Dataset
 
 <table>
 
 <tr>
-  <th>Nome del set di dati</th>
+  <th>Nome set di dati</th>
   <th>Descrizione del set di dati</th>
 </tr>
 

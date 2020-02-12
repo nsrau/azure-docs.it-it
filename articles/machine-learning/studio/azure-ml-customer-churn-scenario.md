@@ -7,18 +7,18 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: cc7ce8a8725e3cbc5c4f0d4db8bfcc3f1b1d657b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 903e3f3dcbcc72289fc82ec59dec0305b6adbc17
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427695"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150919"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio-classic"></a>Analizzare la varianza dei clienti usando Azure Machine Learning Studio (versione classica)
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 In questo articolo viene presentata un'implementazione di riferimento di un progetto di analisi della varianza del cliente compilato utilizzando Azure Machine Learning Studio (versione classica). L'articolo illustra i modelli generici associati per la risoluzione olistica dei problemi di varianza del cliente industriale. Viene inoltre misurata l'accuratezza dei modelli compilati usando Machine Learning e vengono poi valutate direzioni di sviluppo ulteriore.  
 
 ### <a name="acknowledgements"></a>Riconoscimenti
@@ -205,7 +205,7 @@ Un'altra funzionalità interessante disponibile in Azure Machine Learning Studio
 Si prevede di continuare a trattare questo argomento in futuro, specialmente per quanto riguarda l'analisi dei Big Data.
   
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 In questo documento viene descritto un approccio intelligente alla gestione di un problema comune, vale a dire la varianza dei clienti, usando un framework generico. Abbiamo considerato un prototipo per l'assegnazione dei punteggi ai modelli e l'implementazione tramite Azure Machine Learning Studio (versione classica). Infine, sono state valutate l'accuratezza e le prestazioni della soluzione prototipo rispetto ad algoritmi paragonabili in SAS.  
 
  

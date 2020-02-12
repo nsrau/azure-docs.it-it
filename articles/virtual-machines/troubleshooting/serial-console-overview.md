@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 8eea568217dc5f47c45433e5fdd755682e322b2f
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
-ms.translationtype: HT
+ms.openlocfilehash: 779bb88d15ea6c52f4399f17223b89916e22653d
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134059"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153860"
 ---
 # <a name="azure-serial-console"></a>Console seriale di Azure
 
@@ -66,37 +66,6 @@ La console seriale è disponibile per i set di scalabilità di macchine virtuali
   1. Nella sezione **supporto e risoluzione dei problemi** selezionare **console seriale**. Viene visualizzato un nuovo riquadro con la console seriale e viene avviata la connessione.
 
      ![Console seriale del set di scalabilità di macchine virtuali Linux](./media/virtual-machines-serial-console/vmss-start-console.gif)
-
-## <a name="serial-console-rbac-role"></a>Ruolo RBAC console seriale
-Come indicato in precedenza, la console seriale richiede un collaboratore macchina virtuale o un maggiore accesso alla VM o al set di scalabilità di macchine virtuali. Se non si vuole concedere un collaboratore alla macchina virtuale a un utente, ma si vuole comunque consentire a un utente di accedere alla console seriale, è possibile eseguire questa operazione con il ruolo seguente:
-
-```
-{
-  "Name": "Serial Console Role",
-  "IsCustom": true,
-  "Description": "Role for Serial Console Users that provides significantly reduced access than VM Contributor",
-  "Actions": [
-      "Microsoft.Compute/virtualMachines/*/write",
-      "Microsoft.Compute/virtualMachines/*/read",
-      "Microsoft.Storage/storageAccounts/*"
-  ],
-  "NotActions": [],
-  "DataActions": [],
-  "NotDataActions": [],
-  "AssignableScopes": [
-    "/subscriptions/<subscriptionId>"
-  ]
-}
-```
-
-### <a name="to-create-and-use-the-role"></a>Per creare e usare il ruolo:
-*   Salvare il file JSON in un percorso noto, ad esempio `~/serialconsolerole.json`.
-*   Usare il comando AZ CLI seguente per creare la definizione di ruolo: `az role definition create --role-definition serialconsolerole.json -o=json`
-*   Se è necessario aggiornare il ruolo, utilizzare il comando seguente: `az role definition update --role-definition serialconsolerole.json -o=json`
-*   Il ruolo verrà visualizzato nel controllo di accesso (IAM) nel portale (potrebbero essere necessari alcuni minuti per la propagazione)
-*   È possibile aggiungere utenti alla macchina virtuale e l'account di archiviazione di diagnostica di avvio con il ruolo del ruolo personalizzato
-    *   Si noti che all'utente deve essere concesso il ruolo personalizzato nella macchina virtuale *e* l'account di archiviazione della diagnostica di avvio
-
 
 ## <a name="advanced-uses-for-serial-console"></a>Usi avanzati per la console seriale
 Oltre all'accesso alla console per la macchina virtuale, è anche possibile usare la console seriale di Azure per le operazioni seguenti:

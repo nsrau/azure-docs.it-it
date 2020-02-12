@@ -3,15 +3,16 @@ title: Pianificare e gestire i costi per Azure Cosmos DB
 description: Informazioni su come pianificare e gestire i costi per Azure Cosmos DB tramite l'analisi dei costi in portale di Azure.
 author: SnehaGunda
 ms.author: sngun
+ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/02/2020
-ms.openlocfilehash: 96cb22a0153b3506835df93b50785ad7870929ce
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
-ms.translationtype: HT
+ms.openlocfilehash: cf259dfa0b00393cf0fee259b199527569ba1792
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77135759"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152585"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Pianificare e gestire i costi per Azure Cosmos DB
 

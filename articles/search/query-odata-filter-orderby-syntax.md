@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: e0db41098287ff011416932a0d44a1cb9f76127d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f3a1be435e297ab4a9ba7f8bfbd5f3ce3451d8a8
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786167"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153877"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Panoramica del linguaggio OData per `$filter`, `$orderby`e `$select` in Azure ricerca cognitiva
 
@@ -70,7 +70,7 @@ Un identificatore può fare riferimento al nome di un campo o a una variabile di
 
 Nella tabella seguente sono riportati alcuni esempi di percorsi dei campi:
 
-| Percorso campo | Description |
+| Percorso campo | Descrizione |
 | --- | --- |
 | `HotelName` | Fa riferimento a un campo di primo livello dell'indice |
 | `Address/City` | Fa riferimento al sottocampo `City` di un campo complesso nell'indice; `Address` è di tipo `Edm.ComplexType` in questo esempio |
@@ -91,15 +91,15 @@ In questo esempio, la variabile di intervallo `room` viene visualizzata nel perc
 
 I percorsi dei campi vengono usati in molti parametri delle [API REST di Azure ricerca cognitiva](https://docs.microsoft.com/rest/api/searchservice/). Nella tabella seguente sono elencate tutte le posizioni in cui è possibile utilizzare, oltre a eventuali restrizioni relative all'utilizzo:
 
-| API SmartBear Ready! | Nome parametro | Restrizioni |
+| API | Nome parametro | Restrizioni |
 | --- | --- | --- |
-| [Crea](https://docs.microsoft.com/rest/api/searchservice/create-index) o [Aggiorna](https://docs.microsoft.com/rest/api/searchservice/update-index) indice | `suggesters/sourceFields` | Nessuno |
+| [Crea](https://docs.microsoft.com/rest/api/searchservice/create-index) o [Aggiorna](https://docs.microsoft.com/rest/api/searchservice/update-index) indice | `suggesters/sourceFields` | None |
 | [Crea](https://docs.microsoft.com/rest/api/searchservice/create-index) o [Aggiorna](https://docs.microsoft.com/rest/api/searchservice/update-index) indice | `scoringProfiles/text/weights` | Può fare riferimento solo a campi **ricercabili** |
 | [Crea](https://docs.microsoft.com/rest/api/searchservice/create-index) o [Aggiorna](https://docs.microsoft.com/rest/api/searchservice/update-index) indice | `scoringProfiles/functions/fieldName` | Può fare riferimento solo a campi **filtrabili** |
-| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search` quando `queryType` è `full` | Può fare riferimento solo a campi **ricercabili** |
-| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | Può fare riferimento solo a campi **facet** |
-| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | Può fare riferimento solo a campi **ricercabili** |
-| [Search](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | Può fare riferimento solo a campi **ricercabili** |
+| [Ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search` quando `queryType` è `full` | Può fare riferimento solo a campi **ricercabili** |
+| [Ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | Può fare riferimento solo a campi **facet** |
+| [Ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | Può fare riferimento solo a campi **ricercabili** |
+| [Ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | Può fare riferimento solo a campi **ricercabili** |
 | [Suggerisci](https://docs.microsoft.com/rest/api/searchservice/suggestions) e [completamento automatico](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `searchFields` | Può fare riferimento solo a campi che fanno parte di un componente di [Suggerimento](index-add-suggesters.md) |
 | [Ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents), [suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions)e [completamento automatico](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `$filter` | Può fare riferimento solo a campi **filtrabili** |
 | [Cerca](https://docs.microsoft.com/rest/api/searchservice/search-documents) e [Suggerisci](https://docs.microsoft.com/rest/api/searchservice/suggestions) | `$orderby` | Può fare riferimento solo a campi **ordinabili** |
@@ -121,6 +121,17 @@ La tabella seguente illustra esempi di costanti per ognuno dei tipi di dati supp
 | `Edm.Int32` | `123`, `-456` |
 | `Edm.Int64` | `283032927235` |
 | `Edm.String` | `'hello'` |
+
+### <a name="escaping-special-characters-in-string-constants"></a>Escape di caratteri speciali nelle costanti stringa
+
+Le costanti di stringa in OData sono delimitate da virgolette singole. Se è necessario creare una query con una costante di stringa che può contenere virgolette singole, è possibile eseguire il escape delle virgolette incorporate tramite il raddoppio.
+
+Ad esempio, una frase con un apostrofo non formattato come "Alice ' s Car" verrebbe rappresentata in OData come costante di stringa `'Alice''s car'`.
+
+> [!IMPORTANT]
+> Quando si creano i filtri a livello di codice, è importante ricordare che le costanti di stringa di escape provengono dall'input dell'utente. Questo consente di ridurre la possibilità di [attacchi injection](https://wikipedia.org/wiki/SQL_injection), soprattutto quando si usano i filtri per implementare la [rimozione della sicurezza](search-security-trimming-for-azure-search.md).
+
+### <a name="constants-syntax"></a>Sintassi delle costanti
 
 Il seguente EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definisce la grammatica per la maggior parte delle costanti mostrate nella tabella precedente. La grammatica per i tipi geospaziali si trova in [funzioni geospaziali OData in Azure ricerca cognitiva](search-query-odata-geo-spatial-functions.md).
 
@@ -226,7 +237,7 @@ I parametri **$Filter**, **$OrderBy**e **$Select** vengono esaminati in modo pi�
 - [Sintassi di $orderby OData in Azure ricerca cognitiva](search-query-odata-orderby.md)
 - [Sintassi di $select OData in Azure ricerca cognitiva](search-query-odata-select.md)
 
-## <a name="see-also"></a>Vedi anche  
+## <a name="see-also"></a>Vedere anche  
 
 - [Esplorazione in base a facet in Azure ricerca cognitiva](search-faceted-navigation.md)
 - [Filtri in ricerca cognitiva di Azure](search-filters.md)

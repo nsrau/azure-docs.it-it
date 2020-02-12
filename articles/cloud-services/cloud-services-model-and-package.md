@@ -2,17 +2,17 @@
 title: Cosa sono un modello del servizio cloud e un pacchetto | Documentazione Microsoft
 description: Descrive il modello del servizio cloud (csdef, cscfg) e il pacchetto (cspkg) in Azure
 services: cloud-services
-author: tgore03
+author: tanmaygore
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: 0d04236861287074087cc125d7b0d44dc65eccbf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 32603f4ab33e020245861e5dc66d2ade545fa627
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75360702"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148310"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Cos'è il modello del servizio cloud e come è possibile crearne il pacchetto?
 Un servizio cloud viene creato da tre componenti: la definizione del servizio *(.csdef)* , la configurazione del servizio *(.cscfg)* e un pacchetto servizio *(.cspkg)* . Entrambi i file **ServiceDefinition.csdef** e **ServiceConfig.cscfg** sono basati su XML e descrivono la struttura e la configurazione del servizio cloud. Insieme costituiscono il modello. **ServicePackage.cspkg** è un file ZIP generato da **ServiceDefinition.csdef** e contiene, oltre ad altri elementi, tutte le dipendenze necessarie basate su file binari. Azure crea un servizio cloud sia da **ServicePackage.cspkg** che da **ServiceConfig.cscfg**.
@@ -216,6 +216,9 @@ La [libreria di runtime di Azure](/previous-versions/azure/reference/mt419365(v=
 <a name="cspkg"></a>
 
 ## <a name="servicepackagecspkg"></a>ServicePackage.cspkg
+> [!NOTE]
+> La dimensione massima del pacchetto che può essere distribuita è 600MB
+
 Per distribuire un'applicazione come servizio cloud in Azure, è necessario prima creare un pacchetto dell'applicazione nel formato appropriato. È possibile usare lo strumento da riga di comando **CSPack** (installato con [Azure SDK](https://azure.microsoft.com/downloads/)) per creare il file del pacchetto come alternativa a Visual Studio.
 
 **CSPack** usa il contenuto del file di definizione del servizio e del file di configurazione del servizio per definire il contenuto del pacchetto. **CSPack** genera un file del pacchetto dell’applicazione (con estensione .cspkg) che è possibile caricare su Azure utilizzando il [portale di Azure](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Per impostazione predefinita, il pacchetto viene denominato `[ServiceDefinitionFileName].cspkg`, ma è possibile specificare un nome diverso usando l'opzione `/out` di **CSPack**.
@@ -259,7 +262,7 @@ cspack [DirectoryName]\[ServiceDefinition]
 
 Dove le variabili vengono definite come segue:
 
-| Variabile | Valore |
+| Variable | Valore |
 | --- | --- |
 | \[DirectoryName\] |Sottodirectory della directory radice del progetto contenente il file csdef del progetto Azure. |
 | \[ServiceDefinition\] |Nome del file di definizione del servizio. Per impostazione predefinita, il file è denominato ServiceDefinition.csdef. |
