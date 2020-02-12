@@ -1,5 +1,5 @@
 ---
-title: Eseguire stime batch tramite la finestra di progettazione di Azure Machine Learning
+title: Eseguire stime batch tramite la finestra di progettazione di Azure Machine Learning (anteprima)
 titleSuffix: Azure Machine Learning
 description: Informazioni su come eseguire il training di un modello e configurare una pipeline di stime batch usando la finestra di progettazione. Distribuire la pipeline come servizio Web con parametri, che può essere attivato da qualsiasi libreria HTTP.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 01/13/2020
 ms.custom: Ignite2019
-ms.openlocfilehash: d2653699a69cb468e8490c2cba579b73e526d1ed
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 95a3c1b892cacd802f359fdc03de74fa60a1e118
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311887"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138114"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Eseguire stime batch tramite la finestra di progettazione di Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,7 +41,7 @@ La pipeline di training deve essere eseguita almeno una volta per poter creare u
 
 1. Passare alla scheda **finestra di progettazione** nell'area di lavoro.
 
-1. Selezionare la pipeline di training che consente di eseguire il training del modello per eseguire la stima.
+1. Selezionare la pipeline di training che esegue il training del modello che si desidera utilizzare per la stima.
 
 1. **Eseguire** la pipeline.
 

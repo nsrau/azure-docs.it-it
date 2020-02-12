@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ef84c5f1d1c3f3b9e7cd76d7fab327426ea6e313
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: e4b2e7c40295d134fe24def0f140bc8097c21250
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530647"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132836"
 ---
 # <a name="sensor-partner-integration"></a>Integrazione di partner di sensori
 
@@ -25,7 +25,7 @@ Per sviluppare il componente di conversione, sono necessarie le credenziali segu
 - Endpoint API
 - ID tenant
 - ID client
-- Client Secret
+- Segreto client
 - Stringa di connessione EventHub
 
 Per ottenere le credenziali sopra indicate, vedere questa sezione: [abilitare l'integrazione dei dispositivi](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats)
@@ -92,7 +92,7 @@ Di seguito sono riportate le intestazioni di richiesta più comuni che è necess
 --- | ---
 Content-Type | Formato della richiesta (Content-Type: Application/<format>). Per le API di FarmBeats Data Hub, il formato è JSON. Content-Type: application/json
 Autorizzazione | Specifica il token di accesso necessario per effettuare una chiamata API. Autorizzazione: Bearer < Access-token >
-Accept | Formato della risposta. Per le API di FarmBeats Data Hub, il formato è JSON. Accept: Application/JSON
+Accetta | Formato della risposta. Per le API di FarmBeats Data Hub, il formato è JSON. Accept: Application/JSON
 
 **Richieste API**
 
@@ -132,17 +132,17 @@ L'hub dati FarmBeats include le API seguenti che consentono ai partner di dispos
   Produttore  | Nome del produttore |
   ProductCode  | Codice prodotto del dispositivo o numero o nome del modello. Ad esempio, EnviroMonitor # 6800. |
   Porte  | Nome e tipo della porta, che è digitale o analogo.  |
-  Nome  | Nome per identificare la risorsa. Ad esempio il nome del modello o il nome del prodotto. |
-  Description  | Fornire una descrizione significativa del modello. |
+  Name  | Nome per identificare la risorsa. Ad esempio il nome del modello o il nome del prodotto. |
+  Descrizione  | Fornire una descrizione significativa del modello. |
   Proprietà  | Proprietà aggiuntive del produttore. |
   **Dispositivo** |  |
   DeviceModelId  |ID del modello di dispositivo associato. |
   HardwareId   |ID univoco per il dispositivo, ad esempio un indirizzo MAC.  |
   ReportingInterval |Intervallo di Reporting in secondi. |
-  Percorso    |Latitudine del dispositivo (da-90 a + 90), Longitudine (-180 a 180) ed elevazione (in metri). |
+  Location    |Latitudine del dispositivo (da-90 a + 90), Longitudine (-180 a 180) ed elevazione (in metri). |
   ParentDeviceId | ID del dispositivo padre a cui è connesso il dispositivo. Ad esempio, se un nodo è connesso a un gateway, il nodo avrà parentDeviceID come gateway. |
-  Nome  | Nome per identificare la risorsa. I partner del dispositivo devono inviare un nome coerente con il nome del dispositivo sul lato del partner del dispositivo. Se il nome del dispositivo è definito dall'utente sul lato del partner del dispositivo, lo stesso nome definito dall'utente deve essere propagato a FarmBeats.  |
-  Description  | Fornire una descrizione significativa.  |
+  Name  | Nome per identificare la risorsa. I partner del dispositivo devono inviare un nome coerente con il nome del dispositivo sul lato del partner del dispositivo. Se il nome del dispositivo è definito dall'utente sul lato del partner del dispositivo, lo stesso nome definito dall'utente deve essere propagato a FarmBeats.  |
+  Descrizione  | Fornire una descrizione significativa.  |
   Proprietà  |Proprietà aggiuntive del produttore.  |
   **SensorModel** |  |
   Tipo (analogico, digitale)  |Menzione sensore analogico o digitale.|
@@ -155,17 +155,17 @@ L'hub dati FarmBeats include le API seguenti che consentono ai partner di dispos
   SensorMeasures > AggregationType  | None, Average, Maximum, Minimum o StandardDeviation.
   Profondità > SensorMeasures  | Profondità del sensore in centimetri. Ad esempio, la misurazione dell'umidità di 10 cm sotto la superficie.
   Descrizione > SensorMeasures  | Fornire una descrizione significativa della misura.
-  Nome  | Nome per identificare la risorsa. Ad esempio, il nome del modello o il nome del prodotto.
-  Description  | Fornire una descrizione significativa del modello.
+  Name  | Nome per identificare la risorsa. Ad esempio, il nome del modello o il nome del prodotto.
+  Descrizione  | Fornire una descrizione significativa del modello.
   Proprietà  | Proprietà aggiuntive del produttore.
   **Sensore**  |  |
   HardwareId  | ID univoco per il sensore impostato dal produttore.
   SensorModelId  | ID del modello di sensore associato.
-  Percorso  | Latitudine del sensore (da-90 a + 90), Longitudine (-180 a 180) ed elevazione (in metri).
+  Location  | Latitudine del sensore (da-90 a + 90), Longitudine (-180 a 180) ed elevazione (in metri).
   Nome > porta  |Nome e tipo della porta a cui il sensore è connesso nel dispositivo. Deve corrispondere al nome definito nel modello di dispositivo.
   deviceId  | ID del dispositivo a cui è connesso il sensore.
-  Nome  | Nome per identificare la risorsa. Ad esempio, il nome del sensore o il nome del prodotto e il numero di modello o il codice prodotto.
-  Description  | Fornire una descrizione significativa.
+  Name  | Nome per identificare la risorsa. Ad esempio, il nome del sensore o il nome del prodotto e il numero di modello o il codice prodotto.
+  Descrizione  | Fornire una descrizione significativa.
   Proprietà  | Proprietà aggiuntive del produttore.
 
  Per informazioni su ogni oggetto e sulle relative proprietà, vedere [spavalderia](https://aka.ms/FarmBeatsDatahubSwagger).
@@ -345,4 +345,4 @@ I produttori di dispositivi o i partner possono utilizzare l'elenco di controllo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'API REST, vedere [API REST](references-for-azure-farmbeats.md#rest-api).
+Per altre informazioni sull'API REST, vedere [API REST](rest-api-in-azure-farmbeats.md).

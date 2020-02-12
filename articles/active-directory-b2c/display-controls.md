@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5b039221f3a25bddf7953cbe8d517275f76d6f37
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7cbd088ed7b4f6ae242cce2067e52def2dad61c9
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479059"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136336"
 ---
 # <a name="display-controls"></a>Controlli di visualizzazione
 
@@ -32,7 +32,7 @@ Nell'immagine seguente viene illustrata una pagina di iscrizione autocertificata
 
 ## <a name="prerequisites"></a>Prerequisiti
 
- Nella sezione dei [metadati](self-asserted-technical-profile.md#metadata) di un [profilo tecnico autocertificato](self-asserted-technical-profile.md), il [ContentDefinition](contentdefinitions.md) a cui si fa riferimento deve avere `DataUri` impostato su page Contract versione 2.0.0 o successiva. Ad esempio:
+ Nella sezione dei [metadati](self-asserted-technical-profile.md#metadata) di un [profilo tecnico autocertificato](self-asserted-technical-profile.md), il [ContentDefinition](contentdefinitions.md) a cui si fa riferimento deve avere `DataUri` impostato su page Contract versione 2.0.0 o successiva. Ad esempio,
 
 ```XML
 <ContentDefinition Id="api.selfasserted">
@@ -46,14 +46,14 @@ Nell'immagine seguente viene illustrata una pagina di iscrizione autocertificata
 
 L'elemento **DisplayControl** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| ID | Sì | Identificatore usato per il controllo di visualizzazione. È possibile [farvi riferimento](#referencing-display-controls). |
+| Id | Sì | Identificatore usato per il controllo di visualizzazione. È possibile [farvi riferimento](#referencing-display-controls). |
 | UserInterfaceControlType | Sì | Tipo del controllo di visualizzazione. Attualmente supportato è [VerificationControl](display-control-verification.md) |
 
 L'elemento **DisplayControl** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Description |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | InputClaims | 0:1 | **InputClaims** vengono utilizzati per prepopolare il valore delle attestazioni da raccogliere dall'utente. |
 | DisplayClaims | 0:1 | **DisplayClaims** vengono utilizzati per rappresentare le attestazioni che devono essere raccolte dall'utente. |
@@ -80,7 +80,7 @@ Ogni tipo di controllo di visualizzazione richiede un set diverso di attestazion
 
 Analogamente alle **attestazioni di visualizzazione** definite in un [profilo tecnico autocertificato](self-asserted-technical-profile.md#display-claims), le attestazioni di visualizzazione rappresentano le attestazioni che devono essere raccolte dall'utente all'interno del controllo di visualizzazione. L'elemento **ClaimType** a cui si fa riferimento deve specificare l'elemento **tipo** per un tipo di input utente supportato da Azure AD B2C, ad esempio `TextBox` o `DropdownSingleSelect`. Se per un' **azione**è richiesto un valore di attestazione di visualizzazione, impostare l'attributo **richiesto** su `true` per forzare l'utente a fornire un valore per l'attestazione di visualizzazione specifica.
 
-Alcune attestazioni di visualizzazione sono necessarie per determinati tipi di controllo di visualizzazione. Ad esempio, **VerificationCode** è obbligatorio per il controllo di visualizzazione di tipo **VerificationControl**. Usare l'attributo **ControlClaimType** per specificare quale DisplayClaim è designato per l'attestazione richiesta. Ad esempio:
+Alcune attestazioni di visualizzazione sono necessarie per determinati tipi di controllo di visualizzazione. Ad esempio, **VerificationCode** è obbligatorio per il controllo di visualizzazione di tipo **VerificationControl**. Usare l'attributo **ControlClaimType** per specificare quale DisplayClaim è designato per l'attestazione richiesta. Ad esempio,
 
 ```XML
 <DisplayClaim ClaimTypeReferenceId="otpCode" ControlClaimType="VerificationCode" Required="true" />
@@ -90,7 +90,7 @@ Alcune attestazioni di visualizzazione sono necessarie per determinati tipi di c
 
 Le **attestazioni di output** di un controllo di visualizzazione non vengono inviate al passaggio di orchestrazione successivo. Vengono salvati temporaneamente solo per la sessione di controllo dello schermo corrente. Queste attestazioni temporanee possono essere condivise tra le diverse azioni dello stesso controllo di visualizzazione.
 
-Per eseguire il propagazione dell'output delle attestazioni al passaggio successivo dell'orchestrazione, usare il **OutputClaims** del profilo tecnico autocertificato effettivo che fa riferimento a questo controllo di visualizzazione.
+Per eseguire il propagazione delle attestazioni di output al passaggio successivo dell'orchestrazione, usare il **OutputClaims** del profilo tecnico autocertificato effettivo che fa riferimento a questo controllo di visualizzazione.
 
 ### <a name="display-control-actions"></a>Visualizzare le azioni di controllo
 
@@ -129,7 +129,7 @@ Nell'esempio seguente viene inviato un codice in un messaggio di posta elettroni
 
 Ai controlli di visualizzazione viene fatto riferimento nelle [attestazioni di visualizzazione](self-asserted-technical-profile.md#display-claims) del [profilo tecnico autocertificato](self-asserted-technical-profile.md).
 
-Ad esempio:
+Ad esempio,
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">

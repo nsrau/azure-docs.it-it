@@ -8,13 +8,13 @@ ms.author: daperlov
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.openlocfilehash: 8238f2ea8395fc53044703db619d768918cb1834
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 02/10/2020
+ms.openlocfilehash: 2e50d226282536fa4e8c044d2ee3d91df4cfd1ee
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644699"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131476"
 ---
 # <a name="azure-data-factory-faq"></a>Domande frequenti su Azure Data Factory
 Questo articolo risponde ad alcune domande frequenti su Azure Data Factory.  
@@ -34,7 +34,7 @@ Data Factory consente di modellare liberamente qualsiasi stile di flusso che ris
 - Flussi di controllo:
     - Le attività possono essere concatenate in una sequenza all'interno di una pipeline.
     - Le attività possono essere diramate all'interno di una pipeline.
-    - Parametri
+    - Parametri:
         - I parametri possono essere definiti a livello di pipeline e gli argomenti possono essere passati quando si richiama la pipeline su richiesta o da un trigger.
         - Le attività possono utilizzare gli argomenti passati alla pipeline.
     - Passaggio stato personalizzato:
@@ -72,7 +72,7 @@ Per spostare i carichi di lavoro SSIS, è possibile creare un'istanza di Data Fa
 ### <a name="sdks"></a>SDK
 Se si è un utente avanzato e si cerca un'interfaccia a livello di codice, Data Factory offre un set completo di SDK che è possibile usare per creare, gestire o monitorare le pipeline usando l'IDE preferito. Sono supportati, tra gli altri, i linguaggi .NET, PowerShell, Python e REST.
 
-### <a name="monitoring"></a>Monitorare
+### <a name="monitoring"></a>Monitoraggio
 È possibile monitorare le istanze di Data Factory tramite PowerShell, SDK o gli strumenti di monitoraggio visivi nell'interfaccia utente del browser. È possibile monitorare e gestire flussi personalizzati basati su richiesta, basati su trigger e basati su clock in modo efficiente ed efficace. Annulla le attività esistenti, Visualizza gli errori a colpo d'occhio, Esegui il drill-down per visualizzare i messaggi di errore dettagliati ed Esegui il debug dei problemi, tutto da un unico riquadro di vetro senza cambio di contesto o spostamento tra le schermate. 
 
 ### <a name="new-features-for-ssis-in-data-factory"></a>Nuove funzionalità per SSIS in Data Factory
@@ -115,7 +115,7 @@ I flussi di dati sono oggetti compilati visivamente in Data Factory che trasform
 ### <a name="activities"></a>Attività
 Le attività rappresentano un passaggio di elaborazione in una pipeline. Ad esempio, è possibile usare un'attività di copia per copiare dati da un archivio dati a un altro archivio dati. Allo stesso modo, è possibile usare un'attività Hive che esegue una query Hive su un cluster Azure HDInsight per trasformare o analizzare i dati. Data Factory supporta tre tipi di attività: attività di spostamento dei dati, attività di trasformazione dei dati e attività di controllo.
 
-### <a name="datasets"></a>Set di dati
+### <a name="datasets"></a>Dataset
 I set di dati rappresentano strutture dei dati all'interno degli archivi dati e fanno semplicemente riferimento ai dati da usare nelle attività come input o output. 
 
 ### <a name="linked-services"></a>Servizi collegati
@@ -195,6 +195,9 @@ Usare l'attività di copia per organizzare i dati da uno qualsiasi degli altri c
 
 Il runtime di integrazione self-hosted è un costrutto di pipeline ADF che è possibile usare con l'attività di copia per acquisire o spostare dati da e verso origini dati e sink locali o basati su VM. Organizzare prima i dati con una copia, quindi il flusso di dati per la trasformazione e quindi una copia successiva se è necessario spostare di nuovo i dati trasformati nell'archivio locale.
 
+### <a name="does-the-data-flow-compute-engine-serve-multiple-tenants"></a>Il motore di calcolo del flusso di dati serve più tenant?
+I cluster non vengono mai condivisi. Garantiamo l'isolamento per ogni processo eseguito in esecuzioni di produzione. Nel caso di uno scenario di debug, una persona ottiene un cluster e tutti i bug verranno inviati a tale cluster, che vengono avviati dall'utente.
+
 ## <a name="wrangling-data-flows"></a>Litigi dei flussi di dati
 
 ### <a name="what-are-the-supported-regions-for-wrangling-data-flow"></a>Quali sono le aree supportate per la verifica del flusso di dati?
@@ -249,9 +252,9 @@ Il flusso di dati in corso supporta i tipi di dati seguenti in SQL. Si otterrà 
 * real
 * float
 * char
-* NCHAR
+* nchar
 * varchar
-* NVARCHAR
+* nvarchar
 * integer
 * int
 * bit
@@ -260,14 +263,14 @@ Il flusso di dati in corso supporta i tipi di dati seguenti in SQL. Si otterrà 
 * TINYINT
 * bigint
 * long
-* text
-* Data
-* Datetime
+* testo
+* date
+* datetime
 * datetime2
 * smalldatetime
 * timestamp
-* UNIQUEIDENTIFIER
-* Xml
+* uniqueidentifier
+* xml
 
 Altri tipi di dati saranno supportati in futuro.
 

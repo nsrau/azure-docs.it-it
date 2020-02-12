@@ -1,5 +1,5 @@
 ---
-title: Informazioni sulle assegnazioni di rifiuto per le risorse di Azure | Microsoft Docs
+title: Informazioni sulle assegnazioni di rifiuto per le risorse di Azure
 description: Informazioni sulle assegnazioni di rifiuto nel controllo degli accessi in base al ruolo per le risorse di Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 2c663b587d2e9ee278fc774c2841899b060ccbcf
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7ab811635ca50c3a28ecd8bdf6d0f18fad4c384f
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74479357"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137383"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Informazioni sulle assegnazioni di rifiuto per le risorse di Azure
 
@@ -41,7 +41,7 @@ Le assegnazioni di negazione seguono un modello simile a quello delle assegnazio
 
 | Funzionalità | Assegnazione di ruolo | Nega assegnazione |
 | --- | --- | --- |
-| Concedere l'accesso | :heavy_check_mark: |  |
+| Concedi accesso | :heavy_check_mark: |  |
 | Rifiutare l'accesso |  | :heavy_check_mark: |
 | Può essere creato direttamente | :heavy_check_mark: |  |
 | Applicare a un ambito | :heavy_check_mark: | :heavy_check_mark: |
@@ -54,7 +54,7 @@ Le assegnazioni di negazione seguono un modello simile a quello delle assegnazio
  Un'assegnazione di rifiuto ha le seguenti proprietà:
 
 > [!div class="mx-tableFixed"]
-> | Proprietà | obbligatori | digitare | DESCRIZIONE |
+> | Proprietà | Obbligatoria | Type | Descrizione |
 > | --- | --- | --- | --- |
 > | `DenyAssignmentName` | Sì | String | Il nome visualizzato dell'assegnazione di rifiuto. I nomi devono essere univoci per un determinato ambito. |
 > | `Description` | No | String | La descrizione dell'assegnazione di rifiuto. |
@@ -63,12 +63,12 @@ Le assegnazioni di negazione seguono un modello simile a quello delle assegnazio
 > | `Permissions.DataActions` | Almeno un Actions o un DataActions | String[] | Una matrice di stringhe che specifica le operazioni dati a cui l'assegnazione di rifiuto blocca l'accesso. |
 > | `Permissions.NotDataActions` | No | String[] | Una matrice di stringhe che specifica le operazioni dati da escludere nell'assegnazione di rifiuto. |
 > | `Scope` | No | String | Una stringa che specifica l'ambito a cui si applica l'assegnazione di rifiuto. |
-> | `DoNotApplyToChildScopes` | No | Booleano | Specifica se l'assegnazione di rifiuto è valida per gli ambiti figlio. Il valore predefinito è False. |
+> | `DoNotApplyToChildScopes` | No | Boolean | Specifica se l'assegnazione di rifiuto è valida per gli ambiti figlio. Il valore predefinito è false. |
 > | `Principals[i].Id` | Sì | String[] | Una matrice degli ID oggetto entità di Azure AD (utente, gruppo, entità servizio o identità gestita) a cui si applica l'assegnazione di rifiuto. Impostare un GUID vuoto `00000000-0000-0000-0000-000000000000` per rappresentare tutte le entità. |
 > | `Principals[i].Type` | No | String[] | Matrice di tipi di oggetti rappresentati da entità [i]. ID. impostare su `SystemDefined` per rappresentare tutte le entità. |
 > | `ExcludePrincipals[i].Id` | No | String[] | Una matrice degli ID oggetto entità di Azure AD (utente, gruppo, entità servizio o identità gestita) a cui non si applica l'assegnazione di rifiuto. |
 > | `ExcludePrincipals[i].Type` | No | String[] | Una matrice di tipi di oggetto rappresentati da ExcludePrincipals[i].Id. |
-> | `IsSystemProtected` | No | Booleano | Specifica se questa assegnazione di rifiuto è stata creata da Azure e non può essere modificata o eliminata. Attualmente, tutte le assegnazioni di rifiuto sono protette dal sistema. |
+> | `IsSystemProtected` | No | Boolean | Specifica se questa assegnazione di rifiuto è stata creata da Azure e non può essere modificata o eliminata. Attualmente, tutte le assegnazioni di rifiuto sono protette dal sistema. |
 
 ## <a name="the-all-principals-principal"></a>Entità tutte le entità
 

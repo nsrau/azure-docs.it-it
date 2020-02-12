@@ -16,70 +16,82 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 33510015f4f05661ad2ea041b1fd3da0e8bfb1ed
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 75cfd304869bfb63131dfd2afed9f925c86d32fb
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702080"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132445"
 ---
-# <a name="mobile-app-that-calls-web-apis---app-registration"></a>App per dispositivi mobili che chiama le API Web-registrazione app
+# <a name="register-mobile-apps-that-call-web-apis"></a>Registrare app per dispositivi mobili che chiamano API Web
 
-Questo articolo contiene le istruzioni per la registrazione di app per la creazione di un'applicazione per dispositivi mobili.
+Questo articolo contiene istruzioni che consentono di registrare un'applicazione per dispositivi mobili che si sta creando.
 
-## <a name="supported-accounts-types"></a>Tipi di account supportati
+## <a name="supported-account-types"></a>Tipi di account supportati
 
-I tipi di account supportati nelle applicazioni per dispositivi mobili dipendono dall'esperienza che si vuole abilitare e dai flussi da usare.
+I tipi di account supportati dalle applicazioni per dispositivi mobili dipendono dall'esperienza che si desidera abilitare e dai flussi che si desidera utilizzare.
 
 ### <a name="audience-for-interactive-token-acquisition"></a>Destinatari per l'acquisizione di token interattivi
 
-La maggior parte delle applicazioni mobili usa l'autenticazione interattiva. In tal caso, è possibile accedere agli utenti da qualsiasi tipo di [account](quickstart-register-app.md#register-a-new-application-using-the-azure-portal)
+La maggior parte delle applicazioni mobili usa l'autenticazione interattiva. Se l'app usa questa forma di autenticazione, è possibile accedere agli utenti da qualsiasi [tipo di account](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
 
-### <a name="audience-for-integrated-authentication-usernamepassword-and-b2c"></a>Destinatari per l'autenticazione integrata, il nome utente/password e B2C
+### <a name="audience-for-integrated-windows-authentication-username-password-and-b2c"></a>Destinatari per autenticazione integrata di Windows, nome utente-password e B2C
 
-- Se si intende usare l'autenticazione integrata di Windows (possibile nelle app UWP) o il nome utente/password, l'applicazione deve eseguire l'accesso degli utenti nel proprio tenant (sviluppatore LOB) o nelle organizzazioni di Azure Active Directory (scenario ISV). Questi flussi di autenticazione non sono supportati per gli account personali Microsoft
-- Se si esegue l'accesso agli utenti con identità di social networking che passano un'autorità e un criterio B2C, è possibile usare solo l'autenticazione interattiva e nome utente-password. Username-password è attualmente supportata solo in Novell. iOS, Novell. Android e UWP.
+Se si dispone di un'app piattaforma UWP (Universal Windows Platform) (UWP), è possibile usare l'autenticazione integrata di Windows per l'accesso degli utenti. Per usare l'autenticazione integrata di Windows o l'autenticazione con nome utente-password, l'applicazione deve eseguire l'accesso degli utenti nel tenant di sviluppo line-of-business (LOB). In uno scenario di fornitori di software indipendenti (ISV), l'applicazione può accedere agli utenti in Azure Active Directory organizzazioni. Questi flussi di autenticazione non sono supportati per gli account personali Microsoft.
 
-Per un quadro generale, vedere [scenari e flussi di autenticazione supportati](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows) e [scenari e piattaforme e linguaggi supportati](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages)
+È anche possibile accedere agli utenti usando identità social che passano un'autorità e un criterio B2C. Per usare questo metodo, è possibile usare solo l'autenticazione interattiva e l'autenticazione con password di nome utente. Username-password Authentication è attualmente supportata solo in Novell. iOS, Novell. Android e UWP.
+
+Per altre informazioni, vedere [scenari e flussi di autenticazione supportati](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows) e [scenari e piattaforme e linguaggi supportati](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages).
 
 ## <a name="platform-configuration-and-redirect-uris"></a>URI di reindirizzamento e configurazione della piattaforma  
 
 ### <a name="interactive-authentication"></a>Autenticazione interattiva
 
-Quando si compila un'app per dispositivi mobili usando l'autenticazione interattiva, il passaggio di registrazione più critico è l'URI di reindirizzamento. Questa impostazione può essere configurata tramite la [configurazione della piattaforma nel pannello autenticazione](https://aka.ms/MobileAppReg).
+Quando si compila un'app per dispositivi mobili che usa l'autenticazione interattiva, il passaggio di registrazione più critico è l'URI di reindirizzamento. È possibile impostare l'autenticazione interattiva tramite la [configurazione della piattaforma nel pannello **autenticazione** ](https://aka.ms/MobileAppReg).
 
-Questa esperienza consente all'app di ottenere Single Sign-On (SSO) tramite i Microsoft Authenticator (e Portale aziendale Intune in Android), oltre a supportare i criteri di gestione dei dispositivi.
+Questa esperienza consente all'app di ottenere Single Sign-On (SSO) tramite Microsoft Authenticator (e Portale aziendale Intune in Android). Supporta inoltre i criteri di gestione dei dispositivi.
 
-Si noti che nel portale di registrazione delle app è disponibile un'esperienza di anteprima che consente di calcolare l'URI di risposta negoziato per le applicazioni iOS e Android:
+Il portale di registrazione delle app offre un'esperienza di anteprima per il calcolo dell'URI di risposta negoziato per le applicazioni iOS e Android:
 
-1. Nella registrazione dell'app scegliere **autenticazione** e selezione **prova la nuova esperienza**
-   ![immagine](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
+1. Nel portale di registrazione delle app selezionare **autenticazione** > **provare la nuova esperienza**.
 
-2. Selezionare **Aggiungi piattaforma**
-   ![immagine](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
+   ![Il pannello autenticazione, in cui è possibile scegliere una nuova esperienza](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
-3. Quando l'elenco delle piattaforme è supportato, selezionare **iOS**
-   ![immagine](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
+2. Selezionare **Aggiungi una piattaforma**.
 
-4. Immettere l'ID bundle come richiesto e quindi premere **Register**
-   ![image](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
+   ![Aggiungere una piattaforma](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
 
-5. L'URI di reindirizzamento viene calcolato per l'utente.
-   ![image](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
+3. Quando l'elenco delle piattaforme è supportato, selezionare **iOS**.
 
-Se si preferisce configurare manualmente l'URI di reindirizzamento, è possibile farlo tramite il manifesto dell'applicazione. Il formato consigliato è il seguente:
+   ![Scegliere un'applicazione per dispositivi mobili](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
 
-- ***iOS***: `msauth.<BUNDLE_ID>://auth` (ad esempio "msauth. com. impresa. AppName://auth")
-- ***Android***: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
-  - L'hash della firma Android può essere generato usando le chiavi di rilascio o di debug tramite il comando di chiave.
+4. Immettere l'ID bundle, quindi selezionare **Register (registra**).
 
-### <a name="username-password"></a>Password nome utente
+   ![Immettere l'ID bundle](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
-Se l'app usa solo nome utente/password, non è necessario registrare un URI di reindirizzamento per l'applicazione. Questo flusso esegue effettivamente una round trip all'endpoint Microsoft Identity Platform 2.0 e l'applicazione non verrà richiamata su un URI specifico. Tuttavia, è necessario esprimere che l'applicazione è un'applicazione client pubblica. Per ottenere questa configurazione, passare alla sezione **autenticazione** per l'applicazione e nella sottosezione **Impostazioni avanzate** , scegliere **Sì**, per l' **applicazione question treat come client pubblico** (nel paragrafo del **tipo di client predefinito** )
+Quando si completano i passaggi, l'URI di reindirizzamento viene calcolato per l'utente, come nell'immagine seguente.
+
+![URI di reindirizzamento risultante](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
+
+Se si preferisce configurare manualmente l'URI di reindirizzamento, è possibile farlo tramite il manifesto dell'applicazione. Ecco il formato consigliato per il manifesto:
+
+- **iOS**: `msauth.<BUNDLE_ID>://auth` 
+  - Ad esempio, immettere `msauth.com.yourcompany.appName://auth`
+- **Android**: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
+  - È possibile generare l'hash della firma Android usando la chiave di rilascio o la chiave di debug tramite il comando di chiave.
+
+### <a name="username-password-authentication"></a>Nome utente-autenticazione con password
+
+Se l'app usa solo l'autenticazione con nome utente e password, non è necessario registrare un URI di reindirizzamento per l'applicazione. Questo flusso esegue una round trip all'endpoint della versione 2,0 di Microsoft Identity Platform. L'applicazione non verrà richiamata su un URI specifico. 
+
+Tuttavia, è necessario identificare l'applicazione come applicazione client pubblica. A tale scopo, iniziare nella sezione **autenticazione** dell'applicazione. Nella sottosezione **Impostazioni avanzate** , nel paragrafo del **tipo di client predefinito** , per l'applicazione question **treat come client pubblico**, selezionare **Sì**.
 
 ## <a name="api-permissions"></a>Autorizzazioni delle API
 
-Le applicazioni per dispositivi mobili chiamano le API per conto dell'utente che ha eseguito l'accesso. L'app deve richiedere autorizzazioni delegate, denominate anche ambiti. A seconda dell'esperienza desiderata, questa operazione può essere eseguita in modo statico tramite il portale di Azure o dinamicamente in fase di esecuzione. La registrazione statica delle autorizzazioni consente agli amministratori di approvare facilmente l'app ed è consigliata.
+Le applicazioni per dispositivi mobili chiamano le API per conto dell'utente che ha eseguito l'accesso. L'app deve richiedere autorizzazioni delegate. Queste autorizzazioni sono denominate anche ambiti. A seconda dell'esperienza desiderata, è possibile richiedere le autorizzazioni delegate in modo statico tramite la portale di Azure. In alternativa, è possibile richiederli dinamicamente in fase di esecuzione. 
+
+La registrazione statica delle autorizzazioni consente agli amministratori di approvare facilmente l'app. È consigliabile usare la registrazione statica.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

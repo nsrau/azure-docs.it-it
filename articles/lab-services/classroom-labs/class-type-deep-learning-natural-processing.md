@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 0aa30c114153521258842fc5f1e9150053b766f4
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 21a11863bd2bc9882d4336f5c5d2bf1d7b7f49da
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332308"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133772"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Configura un Lab incentrato sull'apprendimento avanzato nell'elaborazione del linguaggio naturale usando Azure Lab Services
 Questo articolo illustra come configurare un lab focalizzato sull'apprendimento avanzato nell'elaborazione del linguaggio naturale (PNL) con Azure Lab Services. L'elaborazione del linguaggio naturale è una forma di intelligenza artificiale che dota i computer di strumenti di traduzione, riconoscimento vocale e altre funzionalità di comprensione del linguaggio.  
@@ -32,7 +32,7 @@ Dopo aver creato l'account Lab, abilitare le impostazioni seguenti nell'account 
 
 | Impostazione dell'account Lab | Istruzioni |
 | ----------- | ------------ |  
-| Immagini del Marketplace | Abilitare l'immagine Data Science Virtual Machine per Linux (Ubuntu) per l'uso nell'account Lab.  Per istruzioni, vedere gli articoli seguenti: [specificare le immagini del Marketplace disponibili per gli autori del Lab](tutorial-setup-lab-account.md#specify-marketplace-images-available-to-lab-creators). | 
+| Immagini del Marketplace | Abilitare l'immagine Data Science Virtual Machine per Linux (Ubuntu) per l'uso nell'account Lab.  Per istruzioni, vedere gli articoli seguenti: [specificare le immagini del Marketplace disponibili per gli autori del Lab](how-to-configure-lab-accounts.md#specify-marketplace-images-available-to-lab-creators). | 
 
 Seguire [questa esercitazione](tutorial-setup-classroom-lab.md) per creare un nuovo Lab e applicare le impostazioni seguenti:
 

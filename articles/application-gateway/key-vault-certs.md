@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 76807c8ed10e30c554b6aa06ec096c830a86e36e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 5633dd7b72f4de22cd34b7d093e8ec4d9cb411f1
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571989"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137692"
 ---
 # <a name="ssl-termination-with-key-vault-certificates"></a>Terminazione SSL con certificati Key Vault
 
@@ -33,6 +33,9 @@ L'integrazione del gateway applicazione con Key Vault offre molti vantaggi, tra 
 - Supporto per il rinnovo automatico dei certificati archiviati nell'insieme di credenziali delle chiavi.
 
 Il gateway applicazione supporta attualmente solo certificati convalidati per il software. Modulo di protezione hardware (HSM): i certificati convalidati non sono supportati. Dopo la configurazione del gateway applicazione per l'uso di certificati Key Vault, le relative istanze recuperano il certificato da Key Vault e le installano localmente per la terminazione SSL. Anche le istanze eseguono il polling Key Vault a intervalli di 24 ore per recuperare una versione rinnovata del certificato, se esistente. Se viene trovato un certificato aggiornato, il certificato SSL attualmente associato al listener HTTPS viene ruotato automaticamente.
+
+> [!NOTE]
+> Il portale di Azure supporta solo certificati dell'insieme di credenziali delle chiavi, non segreti. Il gateway applicazione supporta ancora i segreti di riferimento da un insieme di credenziali delle chiavi, ma solo tramite risorse non del portale come PowerShell, CLI, API, modelli ARM e così via. 
 
 ## <a name="how-integration-works"></a>Funzionamento dell'integrazione
 

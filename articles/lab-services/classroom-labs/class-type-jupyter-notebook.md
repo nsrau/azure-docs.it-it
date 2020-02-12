@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
-ms.openlocfilehash: 5bf54b6975475810650aeaee4b477e60255757bf
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 695b87540178fb5c1012a095c2a86937a189ef24
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75530681"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133755"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Configurare un Lab per insegnare data science con i notebook Python e Jupyter
 
@@ -30,7 +30,7 @@ Per configurare questo Lab, è necessario disporre di una sottoscrizione di Azur
 
 ### <a name="lab-account-settings"></a>Impostazioni dell'account Lab
 
-Abilitare le impostazioni descritte nella tabella seguente per l'account Lab. Per altre informazioni su come abilitare le immagini del Marketplace, vedere [specificare le immagini del Marketplace disponibili per gli autori del Lab](tutorial-setup-lab-account.md#specify-marketplace-images-available-to-lab-creators).
+Abilitare le impostazioni descritte nella tabella seguente per l'account Lab. Per altre informazioni su come abilitare le immagini del Marketplace, vedere [specificare le immagini del Marketplace disponibili per gli autori del Lab](how-to-configure-lab-accounts.md#specify-marketplace-images-available-to-lab-creators).
 
 | Impostazione dell'account Lab | Istruzioni |
 | ------------------- | ------------ |
@@ -46,7 +46,7 @@ Usare le impostazioni nella tabella seguente quando si configura un Lab della cl
 | Impostazioni Lab | Valore/istruzioni |
 | ------------ | ------------------ |
 |Dimensioni della macchina virtuale| Small GPU (Compute). Queste dimensioni sono ideali per applicazioni a elevato utilizzo di calcolo e di rete, come l'intelligenza artificiale e l'apprendimento avanzato. |
-|Immagine della macchina virtuale| Macchina virtuale di data science - Windows 2016|
+|Immagine della macchina virtuale| Data Science Virtual Machine-Windows 2016|
 
 ## <a name="template-machine"></a>Computer modello
 
@@ -64,7 +64,7 @@ Di seguito è riportato un esempio di una possibile stima dei costi per questa c
 
 Per ulteriori informazioni sui prezzi, vedere [Azure Lab Services prezzi](https://azure.microsoft.com/pricing/details/lab-services/).
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 In questo articolo sono stati illustrati i passaggi per creare un Lab per una classe Jupyter Notebooks. È possibile usare una configurazione simile per altre classi di machine learning.
 

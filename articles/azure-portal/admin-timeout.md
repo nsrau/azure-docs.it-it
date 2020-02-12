@@ -5,24 +5,24 @@ services: azure-portal
 keywords: impostazioni, timeout
 author: mgblythe
 ms.author: mblythe
-ms.date: 12/19/2019
+ms.date: 02/10/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 87de67eec9171825a1ebff9ab60782fea8836039
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 950580048f0496fd8436901938a5b6768c61bab6
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310799"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132087"
 ---
 # <a name="set-directory-level-inactivity-timeout"></a>Impostare il timeout di inattività a livello di directory
 
-L'impostazione del timeout di inattività consente di proteggere le risorse da accessi non autorizzati se gli utenti dimenticano di proteggere la propria workstation. Quando un utente rimane inattivo per un periodo di tempo, la sessione di portale di Azure viene disconnesso automaticamente. Gli amministratori possono applicare il tempo massimo di inattività prima che una sessione venga disconnesso. L'impostazione del timeout di inattività si applica a livello di directory. Per ulteriori informazioni sulle directory, vedere [Active Directory Domain Services Overview](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
+L'impostazione del timeout di inattività consente di proteggere le risorse da accessi non autorizzati se gli utenti dimenticano di proteggere la propria workstation. Quando un utente rimane inattivo per un periodo di tempo, la sessione di portale di Azure viene disconnesso automaticamente. Gli amministratori del [ruolo amministratore globale](../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) possono applicare il tempo massimo di inattività prima che una sessione venga disconnesso. L'impostazione del timeout di inattività si applica a livello di directory. Per ulteriori informazioni sulle directory, vedere [Active Directory Domain Services Overview](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
 ## <a name="configure-the-inactive-timeout-setting"></a>Configurare l'impostazione di timeout inattivo
 
-Se si è un amministratore e si desidera applicare un'impostazione di timeout di inattività per tutti gli utenti del portale di Azure, attenersi alla procedura seguente:
+Se si è un amministratore globale e si desidera applicare un'impostazione di timeout di inattività per tutti gli utenti del portale di Azure, attenersi alla procedura seguente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Impostazioni** dall'intestazione di pagina globale.

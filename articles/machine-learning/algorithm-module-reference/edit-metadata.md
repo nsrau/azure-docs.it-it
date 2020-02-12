@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: 173e483710c3fa96ae542f7941f0912ed07ea2ca
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 57a211c6ffab9a960c013008410f4b52b909d360
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312202"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137516"
 ---
 # <a name="edit-metadata-module"></a>Modulo Modifica metadati
 
-Questo articolo descrive un modulo incluso in Azure Machine Learning Designer.
+Questo articolo descrive un modulo incluso in Azure Machine Learning Designer (anteprima).
 
 Usare il modulo Edit data per modificare i metadati associati alle colonne in un set di dati. Il valore e il tipo di dati del set di dati cambieranno dopo l'uso del modulo di modifica dei metadati.
 
@@ -40,9 +40,9 @@ Le modifiche tipiche ai metadati possono includere le operazioni seguenti:
   
 ## <a name="configure-edit-metadata"></a>Configurare la modifica dei metadati
   
-1. In Azure Machine Learning aggiungere il modulo Modifica metadati alla pipeline e connettere il set di dati che si vuole aggiornare. È possibile trovare il set di **dati in trasformazione dati** nella categoria **modifica** .
+1. Nella finestra di progettazione Azure Machine Learning aggiungere il modulo Modifica metadati alla pipeline e connettere il set di dati che si desidera aggiornare. Il modulo è reperibile nella categoria **Data Transformation** .
   
-1. Selezionare **avviare il selettore di colonna** e scegliere la colonna o il set di colonne da utilizzare. È possibile scegliere le colonne singolarmente in base al nome o all'indice oppure è possibile scegliere un gruppo di colonne per tipo.  
+1. Fare clic su **modifica colonna** nel pannello destro del modulo e scegliere la colonna o il set di colonne da utilizzare. È possibile scegliere le colonne singolarmente in base al nome o all'indice oppure è possibile scegliere un gruppo di colonne per tipo.  
   
 1. Selezionare l'opzione **tipo di dati** se è necessario assegnare un tipo di dati diverso alle colonne selezionate. Potrebbe essere necessario modificare il tipo di dati per determinate operazioni. Se, ad esempio, il set di dati di origine contiene numeri gestiti come testo, è necessario modificarli in un tipo di dati numerico prima di utilizzare operazioni matematiche.
 

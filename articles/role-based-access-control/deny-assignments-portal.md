@@ -1,6 +1,6 @@
 ---
-title: Elenco negare le assegnazioni per le risorse di Azure usando il portale di Azure | Microsoft Docs
-description: Informazioni su come elenco di utenti, gruppi, le entità servizio e identità gestite che è stata negata accedere a risorse di Azure specifiche azioni in ambiti specifici usando il portale di Azure.
+title: Elencare le assegnazioni di rifiuto per le risorse di Azure con il portale di Azure
+description: Informazioni su come elencare gli utenti, i gruppi, le entità servizio e le identità gestite a cui è stato negato l'accesso a specifiche azioni di risorse di Azure in determinati ambiti usando il portale di Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,33 +14,33 @@ ms.workload: identity
 ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 21ffb1a2539a2e724a91dd3b2818270a5e573ef8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4db76e5c6191457346ca1f95678cf73843334d3b
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67127496"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137431"
 ---
-# <a name="list-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Elenco negare le assegnazioni per le risorse di Azure usando il portale di Azure
+# <a name="list-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Elencare le assegnazioni di rifiuto per le risorse di Azure usando il portale di Azure
 
-Le [assegnazioni di rifiuto](deny-assignments.md) impediscono agli utenti di eseguire azioni specifiche sulle risorse di Azure, anche se un'assegnazione di ruolo concede loro l'accesso. Questo articolo descrive come elencare negare le assegnazioni nel portale di Azure.
+Le [assegnazioni di rifiuto](deny-assignments.md) impediscono agli utenti di eseguire azioni specifiche sulle risorse di Azure, anche se un'assegnazione di ruolo concede loro l'accesso. Questo articolo descrive come elencare le assegnazioni di rifiuto usando il portale di Azure.
 
 > [!NOTE]
-> È possibile creare direttamente il proprio negare le assegnazioni. Per informazioni su come negare le assegnazioni vengono create, vedere [negare le assegnazioni](deny-assignments.md).
+> Non è possibile creare direttamente le assegnazioni di rifiuto. Per informazioni sul modo in cui vengono create le assegnazioni Deny, vedere [Deny assegnazioni](deny-assignments.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per ottenere informazioni su un'assegnazione di negazione, è necessario disporre di:
+Per ottenere informazioni su un'assegnazione Deny, è necessario disporre di:
 
-- `Microsoft.Authorization/denyAssignments/read` autorizzazione di accesso, che è incluso nella maggior parte [ruoli predefiniti per le risorse di Azure](built-in-roles.md).
+- `Microsoft.Authorization/denyAssignments/read` autorizzazione, inclusa nella maggior parte dei [ruoli predefiniti per le risorse di Azure](built-in-roles.md).
 
-## <a name="list-deny-assignments"></a>Elenco negare le assegnazioni
+## <a name="list-deny-assignments"></a>Visualizzare le assegnazioni di rifiuto
 
-Seguire questi passaggi per ottenere l'elenco negare le assegnazioni nell'ambito del gruppo sottoscrizione o di gestione.
+Attenersi alla procedura seguente per elencare le assegnazioni di accesso negato nell'ambito della sottoscrizione o del gruppo di gestione.
 
 1. Nel portale di Azure, fare clic su **Tutti i servizi** e quindi su **Gruppi di gestione** o **Sottoscrizioni**.
 
-1. Fare clic sul gruppo di gestione o di una sottoscrizione che si desidera elencare.
+1. Fare clic sul gruppo di gestione o sulla sottoscrizione che si desidera elencare.
 
 1. Fare clic su **Controllo di accesso (IAM)** .
 
@@ -67,9 +67,9 @@ Seguire questi passaggi per ottenere l'elenco negare le assegnazioni nell'ambito
 
 1. Aggiungere un segno di spunta per gli elementi abilitati e quindi fare clic su **OK** per visualizzare le colonne selezionate.
 
-## <a name="list-details-about-a-deny-assignment"></a>Elencare i dettagli su un'assegnazione di negazione
+## <a name="list-details-about-a-deny-assignment"></a>Elenca i dettagli relativi a un'assegnazione di negazione
 
-Seguire questi passaggi per elencare informazioni dettagliate aggiuntive su un'assegnazione di negazione.
+Attenersi alla seguente procedura per elencare ulteriori dettagli su un'assegnazione di negazione.
 
 1. Aprire il riquadro **Assegnazioni di rifiuto** come descritto nella sezione precedente.
 
@@ -110,4 +110,4 @@ Seguire questi passaggi per elencare informazioni dettagliate aggiuntive su un'a
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni sulle assegnazioni di rifiuto per le risorse di Azure](deny-assignments.md)
-* [Elenco negare le assegnazioni per le risorse di Azure usando Azure PowerShell](deny-assignments-powershell.md)
+* [Elencare le assegnazioni di rifiuto per le risorse di Azure usando Azure PowerShell](deny-assignments-powershell.md)

@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 11/19/2019
-ms.openlocfilehash: a906e5f354f332cebb0656c6fc40b17c8a5016a2
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 5951c6ec63478b4b266f22eaf8bf3162e0a45df0
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546691"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137539"
 ---
 # <a name="evaluate-model-module"></a>Modulo Evaluate Model
 
@@ -80,10 +80,10 @@ Poiché si tratta di un modello di clustering, i risultati della valutazione son
 
 In questa sezione vengono descritte le metriche restituite per i tipi specifici di modelli supportati per l'utilizzo con **Evaluate Model**:
 
-+ [modelli di classificazione](#bkmk_classification)
-+ [modelli di regressione](#bkmk_regression)
++ [modelli di classificazione](#metrics-for-classification-models)
++ [modelli di regressione](#metrics-for-regression-models)
 
-###  <a name="bkmk_classification"></a>Metriche per i modelli di classificazione
+### <a name="metrics-for-classification-models"></a>Metriche per i modelli di classificazione
 
 Quando si valutano i modelli di classificazione, vengono restituite le metriche seguenti. Se si confrontano i modelli, vengono classificati in base alla metrica selezionata per la valutazione.  
   
@@ -101,7 +101,7 @@ Quando si valutano i modelli di classificazione, vengono restituite le metriche 
   
 - La **perdita dei log di training** è un singolo punteggio che rappresenta il vantaggio del classificatore su una stima casuale. La perdita di log misura l'incertezza del modello confrontando le probabilità che restituisce ai valori noti (verità) nelle etichette. Si desidera ridurre al minimo la perdita di log per il modello nel suo complesso.
 
-##  <a name="bkmk_regression"></a>Metriche per i modelli di regressione
+### <a name="metrics-for-regression-models"></a>Metriche per i modelli di regressione
  
 Le metriche restituite per i modelli di regressione sono progettate per stimare la quantità di errori.  Un modello viene considerato adatto ai dati anche se la differenza tra i valori osservati e quelli stimati è ridotta. Tuttavia, l'analisi del modello dei residui (la differenza tra un punto stimato e il valore effettivo corrispondente) può indicare una grande quantità di potenziali distorsioni nel modello.  
   
@@ -115,7 +115,7 @@ Le metriche restituite per i modelli di regressione sono progettate per stimare 
   
 - L'errore **quadratico relativo (RSE)** normalizza in modo analogo l'errore quadrato totale dei valori stimati dividendo per l'errore quadrato totale dei valori effettivi.  
   
-- **Media zero un errore (MZOE)** indica se la stima è stata corretta o meno.  In altre parole: `ZeroOneLoss(x,y) = 1` quando `x!=y`; in caso contrario `0`.
+
   
 - Il **coefficiente di determinazione**, spesso definito R<sup>2</sup>, rappresenta la potenza predittiva del modello come valore compreso tra 0 e 1. Zero indica che il modello è casuale (non spiega niente); 1 indica una soluzione perfetta. Tuttavia, è consigliabile usare l'attenzione per interpretare i valori di R<sup>2</sup> , in quanto i valori bassi possono essere completamente normali e i valori elevati possono essere sospetti.
   

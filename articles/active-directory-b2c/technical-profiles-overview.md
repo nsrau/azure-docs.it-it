@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/02/2020
+ms.date: 02/11/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 69582291ca1da95003e26a6922899defd7d5e477
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: f3a9265c1f9a5c6c63931798718e4d0679cd126b
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982399"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136242"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui profili tecnici nei criteri personalizzati di Azure Active Directory B2C
 
@@ -44,25 +44,29 @@ Un profilo tecnico supporta i tipi di scenario riportati di seguito.
 
 ## <a name="technical-profile-flow"></a>Flusso dei profili tecnici
 
-Tutti i tipi di profili tecnici condividono lo stesso concetto. Si inviano attestazioni di input, si esegue la trasformazione delle attestazioni e si comunica con l'entità configurata, ad esempio un provider di identità, un'API REST o servizi directory di Azure AD. Al termine del processo, il profilo tecnico restituisce le attestazioni di output ed eventualmente ne esegue la trasformazione. Il diagramma seguente illustra come vengono elaborati le trasformazioni e i mapping a cui viene fatto riferimento nel profilo tecnico. Indipendentemente dall'entità con cui interagisce il profilo tecnico, dopo l'esecuzione di qualsiasi trasformazione delle attestazioni, le attestazioni di output del profilo tecnico vengono immediatamente archiviate nel contenitore delle attestazioni.
+Tutti i tipi di profili tecnici condividono lo stesso concetto. Si inviano attestazioni di input, si esegue la trasformazione delle attestazioni e si comunica con l'entità configurata, ad esempio un provider di identità, un'API REST o servizi directory di Azure AD. Al termine del processo, il profilo tecnico restituisce le attestazioni di output ed è possibile che venga eseguita la trasformazione delle attestazioni di output. Il diagramma seguente illustra come vengono elaborati le trasformazioni e i mapping a cui viene fatto riferimento nel profilo tecnico. Indipendentemente dall'entità con cui interagisce il profilo tecnico, dopo l'esecuzione di qualsiasi trasformazione delle attestazioni, le attestazioni di output del profilo tecnico vengono immediatamente archiviate nel contenitore delle attestazioni.
 
 ![Diagramma che illustra il flusso del profilo tecnico](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
  
-1. **Trasformazione delle attestazioni di input**: le attestazioni di input di ogni [trasformazione delle attestazioni](claimstransformations.md) di input vengono prelevate dal contenitore delle attestazioni. Al termine dell'esecuzione, le attestazioni di output vengono inserite in tale contenitore. Le attestazioni di output di una trasformazione delle attestazioni di input possono essere le attestazioni di input di una successiva trasformazione delle attestazioni di input.
-2. **Attestazioni di input**: le attestazioni vengono prelevate dal contenitore delle attestazioni e usate per il profilo tecnico. Un [profilo tecnico autocertificato](self-asserted-technical-profile.md), ad esempio, usa le attestazioni di input per prepopolare le attestazioni di output fornite dall'utente. Un profilo tecnico API REST usa le attestazioni di input per inviare i parametri di input all'endpoint API REST. Azure Active Directory usa l'attestazione di input come identificatore univoco per la lettura, l'aggiornamento o l'eliminazione di un account.
-3. **Esecuzione del profilo tecnico**: il profilo tecnico scambia le attestazioni con l'entità configurata. Ad esempio:
+1. **Gestione delle sessioni Single Sign-on (SSO)** : Ripristina lo stato della sessione del profilo tecnico, usando la [gestione delle sessioni SSO](custom-policy-reference-sso.md). 
+1. **Input Claims Transformation** : le attestazioni di input di ogni [trasformazione delle attestazioni](claimstransformations.md) di input vengono prelevate dall'elenco delle attestazioni.  Le attestazioni di output di una trasformazione delle attestazioni di input possono essere le attestazioni di input di una successiva trasformazione delle attestazioni di input.
+1. **Attestazioni di input** : le attestazioni vengono prelevate dall'elenco di attestazioni e vengono usate per il profilo tecnico. Un [profilo tecnico autocertificato](self-asserted-technical-profile.md), ad esempio, usa le attestazioni di input per prepopolare le attestazioni di output fornite dall'utente. Un profilo tecnico API REST usa le attestazioni di input per inviare i parametri di input all'endpoint API REST. Azure Active Directory usa l'attestazione di input come identificatore univoco per la lettura, l'aggiornamento o l'eliminazione di un account.
+1. **Esecuzione del profilo tecnico**: il profilo tecnico scambia le attestazioni con l'entità configurata. Ad esempio,
     - Reindirizza l'utente al provider di identità per completare l'accesso. Dopo aver completato l'accesso, l'utente torna indietro e l'esecuzione del profilo tecnico continua.
     - Chiama un'API REST inviando i parametri come InputClaims e ricevendo le informazioni restituite come OutputClaims.
     - Crea o aggiorna l'account utente.
     - Invia e verifica il messaggio di testo di MFA.
-4. **Profili tecnici di convalida**: per un [profilo tecnico autocertificato](self-asserted-technical-profile.md), è possibile chiamare un [profilo tecnico di convalida](validation-technical-profile.md) dell'input, che convalida i dati inclusi nel profilo dall'utente e restituisce un messaggio di errore oppure OK, con o senza attestazioni di output. Prima che Azure AD B2C crei un nuovo account, ad esempio, controlla se l'utente esiste già nei servizi directory. È possibile chiamare un profilo tecnico API REST per aggiungere logica di business personalizzata.<p>L'ambito delle attestazioni di output di un profilo tecnico di convalida è limitato al profilo tecnico da cui è richiamato e agli altri profili tecnici di convalida nello stesso profilo tecnico. Se si vogliono usare le attestazioni di output nel passaggio di orchestrazione successivo, è necessario aggiungerle al profilo tecnico che richiama il profilo tecnico di convalida.
-5. **Attestazioni di output**: le attestazioni vengono restituite al contenitore delle attestazioni. È possibile usare queste attestazioni nel passaggio di orchestrazione successivo oppure nelle trasformazioni delle attestazioni di output.
-6. **Trasformazioni delle attestazioni di output**: le attestazioni di input di ogni [trasformazione delle attestazioni](claimstransformations.md) di output vengono prelevate dal contenitore delle attestazioni. Le attestazioni di output del profilo tecnico provenienti dai passaggi precedenti possono essere le attestazioni di input di una trasformazione delle attestazioni di output. Al termine dell'esecuzione, le attestazioni di output vengono inserite nel contenitore delle attestazioni. Le attestazioni di output di una trasformazione delle attestazioni di output possono essere le attestazioni di input di una successiva trasformazione delle attestazioni di output.
-7. **Gestione delle sessioni Single Sign-On (SSO)**  -  la [gestione delle sessioni SSO](custom-policy-reference-sso.md) controlla l'interazione con un utente dopo la relativa autenticazione. L'amministratore può ad esempio controllare se verrà visualizzata la selezione dei provider di identità o se sarà necessario immettere nuovamente i dettagli dell'account locale.
+1. **Profili** tecnici di convalida: un [profilo tecnico autocertificato](self-asserted-technical-profile.md) può chiamare i [profili tecnici di convalida](validation-technical-profile.md). che convalida i dati inclusi nel profilo dall'utente e restituisce un messaggio di errore oppure OK, con o senza attestazioni di output. Prima che Azure AD B2C crei un nuovo account, ad esempio, controlla se l'utente esiste già nei servizi directory. È possibile chiamare un profilo tecnico API REST per aggiungere logica di business personalizzata.<p>L'ambito delle attestazioni di output di un profilo tecnico di convalida è limitato al profilo tecnico che richiama il profilo tecnico di convalida. e altri profili tecnici di convalida nello stesso profilo tecnico. Se si vogliono usare le attestazioni di output nel passaggio di orchestrazione successivo, è necessario aggiungerle al profilo tecnico che richiama il profilo tecnico di convalida.
+1. **Attestazioni di output** : le attestazioni vengono restituite all'elenco di attestazioni. È possibile usare queste attestazioni nel passaggio di orchestrazione successivo oppure nelle trasformazioni delle attestazioni di output.
+1. **Trasformazioni di output delle attestazioni** : le attestazioni di input di ogni [trasformazione delle attestazioni](claimstransformations.md) di output vengono prelevate dall'elenco delle attestazioni Le attestazioni di output del profilo tecnico provenienti dai passaggi precedenti possono essere le attestazioni di input di una trasformazione delle attestazioni di output. Al termine dell'esecuzione, le attestazioni di output vengono inserite nel contenitore delle attestazioni. Le attestazioni di output di una trasformazione delle attestazioni di output possono essere le attestazioni di input di una successiva trasformazione delle attestazioni di output.
+1. **Gestione delle sessioni Single Sign-on (SSO)** : rende permanente i dati del profilo tecnico nella sessione, usando la [gestione delle sessioni SSO](custom-policy-reference-sso.md).
 
-Un profilo tecnico può ereditare da un altro profilo tecnico per modificare le impostazioni o aggiungere nuove funzionalità.  L'elemento **IncludeTechnicalProfile** è un riferimento al profilo tecnico di base da cui un profilo tecnico è derivato.
 
-Il profilo tecnico **AAD-UserReadUsingAlternativeSecurityId-NoError**, ad esempio, include **AAD-UserReadUsingAlternativeSecurityId**. Questo profilo tecnico imposta l'elemento dei metadati **RaiseErrorIfClaimsPrincipalDoesNotExist** su `true` e genera un errore se un account di social networking non esiste nella directory. **AAD-UserReadUsingAlternativeSecurityId-NoError** esegue l'override di questo comportamento e disabilita il messaggio di errore se l'utente non esiste.
+## <a name="technical-profile-inclusion"></a>Inclusione profilo tecnico
+
+Un profilo tecnico può includere un altro profilo tecnico per modificare le impostazioni o aggiungere nuove funzionalità.  L'elemento `IncludeTechnicalProfile` è un riferimento al profilo tecnico di base da cui deriva un profilo tecnico. Non sono previsti limiti per il numero di livelli. 
+
+Il profilo tecnico **AAD-UserReadUsingAlternativeSecurityId-NoError**, ad esempio, include **AAD-UserReadUsingAlternativeSecurityId**. Questo profilo tecnico imposta l'elemento di metadati `RaiseErrorIfClaimsPrincipalDoesNotExist` su `true`e genera un errore se un account di social networking non esiste nella directory. **AAD-UserReadUsingAlternativeSecurityId-NOERROR** esegue l'override di questo comportamento e Disabilita il messaggio di errore.
 
 ```XML
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId-NoError">
@@ -97,7 +101,7 @@ Il profilo tecnico **AAD-UserReadUsingAlternativeSecurityId-NoError**, ad esempi
 </TechnicalProfile>
 ```
 
-Sia **AAD-UserReadUsingAlternativeSecurityId-NoError** che **AAD-UserReadUsingAlternativeSecurityId** non specificano l'elemento obbligatorio **Protocol** perché è specificato nel profilo tecnico **AAD-Common**.
+**AAD-UserReadUsingAlternativeSecurityId-NOERROR** e **AAD-UserReadUsingAlternativeSecurityId** non specificano l'elemento del **protocollo** richiesto perché è specificato nel profilo tecnico **comune di AAD** .
 
 ```XML
 <TechnicalProfile Id="AAD-Common">
@@ -106,16 +110,3 @@ Sia **AAD-UserReadUsingAlternativeSecurityId-NoError** che **AAD-UserReadUsingAl
   ...
 </TechnicalProfile>
 ```
-
-Un profilo tecnico può includere o ereditare un altro profilo tecnico, che potrebbe includerne un altro ancora. Non sono previsti limiti per il numero di livelli. A seconda dei requisiti aziendali, il percorso utente potrebbe chiamare **AAD-UserReadUsingAlternativeSecurityId**, che genera un errore se l'account di social networking di un utente non esiste, oppure **AAD-UserReadUsingAlternativeSecurityId-NoError**, che non genera un errore.
-
-
-
-
-
-
-
-
-
-
-

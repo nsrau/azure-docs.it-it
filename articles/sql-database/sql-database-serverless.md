@@ -1,5 +1,5 @@
 ---
-title: Ambienti senza server
+title: Senza server
 description: Questo articolo descrive il nuovo livello di calcolo serverless e lo confronta con il livello di calcolo con provisioning esistente
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: 2b11bbc22714ab1905421812e3cb24ee660ee667
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 750d08f3667317e9e1e396cff50884101d7ff55d
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372331"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131958"
 ---
-# <a name="azure-sql-database-serverless"></a>Database SQL di Azure serverless
+# <a name="azure-sql-database-serverless"></a>Database SQL di Azure senza server
 
 Il database SQL di Azure senza server è un livello di calcolo per database singoli che consente di ridimensionare automaticamente le risorse di calcolo in base alla domanda del carico di lavoro e alle fatture per la quantità di calcolo usata al secondo. Il livello di calcolo senza server inoltre sospende automaticamente i database durante i periodi di inattività quando viene addebitata solo l'archiviazione e riprende automaticamente i database quando l'attività restituisce.
 
@@ -66,9 +66,9 @@ La tabella seguente riepiloga le differenze tra il livello di calcolo serverless
 | | **Calcolo serverless** | **Calcolo con provisioning** |
 |:---|:---|:---|
 |**Modello di utilizzo del database**| Utilizzo intermittente e non prevedibile con un utilizzo di calcolo medio inferiore nel tempo. |  Modelli di utilizzo più regolari con utilizzo di calcolo medio superiore nel tempo o più database con pool elastici.|
-| **Impegno per la gestione delle prestazioni** |Minore|Maggiore|
-|**Ridimensionamento delle risorse di calcolo**|Automatico|Manual|
-|**Tempo di risposta per le risorse di calcolo**|Inferiore dopo periodi di inattività|Immediato|
+| **Impegno per la gestione delle prestazioni** |MINUSC|Maggiore|
+|**Ridimensionamento delle risorse di calcolo**|Automatico|Manuale|
+|**Tempo di risposta per le risorse di calcolo**|Inferiore dopo periodi di inattività|Immediata|
 |**Granularità della fatturazione**|Al secondo|All'ora|
 
 ## <a name="purchasing-model-and-service-tier"></a>Modello di acquisto e livello di servizio
@@ -124,10 +124,10 @@ La sospensione dell'autosospensione è temporaneamente bloccata durante la distr
 
 La ripresa automatica viene attivata se si verifica una delle condizioni seguenti in qualsiasi momento:
 
-|Funzionalità|Trigger di ripresa automatica|
+|Caratteristica|Trigger di ripresa automatica|
 |---|---|
 |Autenticazione e autorizzazione|Accesso|
-|Rilevamento delle minacce|Abilitazione o disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o di server.<br>Modifica delle impostazioni di rilevamento delle minacce a livello di database o di server.|
+|Introduzione al rilevamento delle minacce|Abilitazione o disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o di server.<br>Modifica delle impostazioni di rilevamento delle minacce a livello di database o di server.|
 |Individuazione e classificazione dei dati|Aggiunta, modifica, eliminazione o visualizzazione delle etichette di riservatezza|
 |Controllo|Visualizzazione dei record di controllo<br>Aggiornamento o visualizzazione dei criteri di controllo.|
 |Maschera dati|Aggiunta, modifica, eliminazione o visualizzazione delle regole di maschera dati|
@@ -137,7 +137,7 @@ La ripresa automatica viene attivata se si verifica una delle condizioni seguent
 |Copia del database|Crea database come copia.<br>Esportare in un file BACPAC.|
 |Sincronizzazione dati SQL|Sincronizzazione tra database hub e membro che viene eseguita secondo un calendario configurabile o manualmente|
 |Modifica di alcuni metadati del database|Aggiunta di nuovi tag del database.<br>Modifica del ritardo massimo Vcore, minimo Vcore o di sospensione.|
-|SQL Server Management Studio|L'uso di versioni di SSMS precedenti alla 18,1 e l'apertura di una nuova finestra di query per qualsiasi database nel server riprenderà tutti i database sospesi automaticamente nello stesso server. Questo comportamento non si verifica se si usa SSMS versione 18,1 o successiva.|
+|SQL Server Management Studio (SSMS)|L'uso di versioni di SSMS precedenti alla 18,1 e l'apertura di una nuova finestra di query per qualsiasi database nel server riprenderà tutti i database sospesi automaticamente nello stesso server. Questo comportamento non si verifica se si usa SSMS versione 18,1 o successiva.|
 
 La ripresa automatica viene attivata anche durante la distribuzione di alcuni aggiornamenti dei servizi che richiedono che il database sia online.
 
@@ -157,15 +157,15 @@ La creazione di un nuovo database o lo trasferimento di un database esistente in
 
    |Nome dell'obiettivo di servizio|Livello di servizio|Generazione dell'hardware|Numero massimo vCore|
    |---|---|---|---|
-   |GP_S_Gen5_1|Scopo generico|Quinta generazione|1|
-   |GP_S_Gen5_2|Scopo generico|Quinta generazione|2|
-   |GP_S_Gen5_4|Scopo generico|Quinta generazione|4|
-   |GP_S_Gen5_6|Scopo generico|Quinta generazione|6|
-   |GP_S_Gen5_8|Scopo generico|Quinta generazione|8|
-   |GP_S_Gen5_10|Scopo generico|Quinta generazione|10|
-   |GP_S_Gen5_12|Scopo generico|Quinta generazione|12|
-   |GP_S_Gen5_14|Scopo generico|Quinta generazione|14|
-   |GP_S_Gen5_16|Scopo generico|Quinta generazione|16|
+   |GP_S_Gen5_1|Utilizzo generico|Quinta generazione|1|
+   |GP_S_Gen5_2|Utilizzo generico|Quinta generazione|2|
+   |GP_S_Gen5_4|Utilizzo generico|Quinta generazione|4|
+   |GP_S_Gen5_6|Utilizzo generico|Quinta generazione|6|
+   |GP_S_Gen5_8|Utilizzo generico|Quinta generazione|8|
+   |GP_S_Gen5_10|Utilizzo generico|Quinta generazione|10|
+   |GP_S_Gen5_12|Utilizzo generico|Quinta generazione|12|
+   |GP_S_Gen5_14|Utilizzo generico|Quinta generazione|14|
+   |GP_S_Gen5_16|Utilizzo generico|Quinta generazione|16|
 
 2. Facoltativamente, specificare il ritardo min Vcore e autopause per modificare i valori predefiniti. La tabella seguente illustra i valori disponibili per questi parametri.
 
@@ -257,7 +257,7 @@ Per modificare il vcore massimo o minimo e il ritardo di sospensione, viene eseg
 Per modificare il vcore massimo o minimo e il ritardo di sospensione, è necessario usare il comando [AZ SQL DB Update](/cli/azure/sql/db#az-sql-db-update) nell'interfaccia della riga di comando di Azure usando gli argomenti `capacity`, `min-capacity`e `auto-pause-delay`.
 
 
-## <a name="monitoring"></a>Monitorare
+## <a name="monitoring"></a>Monitoraggio
 
 ### <a name="resources-used-and-billed"></a>Risorse usate e fatturate
 
@@ -275,7 +275,7 @@ Il pool di risorse utente è il limite più interno di gestione delle risorse pe
 
 Nella tabella seguente sono elencate le metriche per il monitoraggio dell'utilizzo delle risorse del pacchetto dell'app e del pool di utenti di un database senza server.
 
-|Persona giuridica|Metrica|Description|Unità|
+|Entità|Metrica|Descrizione|Unità|
 |---|---|---|---|
 |Pacchetto dell'app|app_cpu_percent|Percentuale del numero di vCore usati dall'app rispetto al numero massimo di vCore consentito per l'app.|Percentuale|
 |Pacchetto dell'app|app_cpu_billed|Quantità di risorse di calcolo fatturata per l'app durante il periodo di riferimento. L'importo pagato durante questo periodo è dato dal prodotto di questa metrica per il prezzo unitario dei vCore. <br><br>I valori di questa metrica sono determinati dall'aggregazione nel tempo del numero massimo di CPU usate e dalla memoria usata al secondo. Se la quantità usata è inferiore a quella minima di cui è stato effettuato il provisioning in base al valore impostato per il numero minimo di vCore e la quantità minima di memoria, viene fatturata la quantità minima di cui è stato effettuato il provisioning. Per confrontare la CPU con la memoria ai fini della fatturazione, la memoria viene normalizzata in unità di Vcore ridimensionando la quantità di memoria in GB di 3 GB per ogni vCore.|Secondi per vCore|
@@ -342,7 +342,7 @@ Più precisamente, la fattura di calcolo in questo esempio viene calcolata come 
 |8:00-24:00|0|0|Nessun calcolo fatturato mentre è sospeso|0 vCore secondi|
 |Totale vCore secondi fatturati per 24 ore||||50400 vCore secondi|
 
-Si supponga che il prezzo delle unità di calcolo sia $0,000073/vCore/secondo.  Il calcolo fatturato per questo periodo di 24 ore è il prodotto del prezzo unitario di calcolo e vCore secondi fatturati: $0.000073/vCore/secondo * 50400 vCore secondi = $3,68
+Si supponga che il prezzo dell'unità di calcolo sia $0.000145/vCore/Second.  Il calcolo fatturato per questo periodo di 24 ore è il prodotto del prezzo unitario di calcolo e vCore secondi fatturati: $0.000145/vCore/secondo * 50400 vCore secondi ~ $7,31
 
 ### <a name="azure-hybrid-benefit-and-reserved-capacity"></a>Vantaggio Azure Hybrid e capacità riservata
 

@@ -9,22 +9,31 @@ ms.author: johndeu
 ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 4a0af9d040c801c125d04a5af72b2ea53322ccdb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 89b01a3fb066f181f5ec54b481b71feaa7a6ae08
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74886572"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131395"
 ---
 # <a name="recommended-on-premises-encoders"></a>Codificatori locali consigliati
+
 Quando si esegue lo streaming live con Servizi multimediali di Azure è possibile specificare in che modo si vuole che il canale riceva il flusso di input. Se si sceglie di usare un codificatore locale con un canale di codifica live, il codificatore deve eseguire il push di un flusso a bitrate singolo di alta qualità come output. Se si sceglie di usare un codificatore locale con un canale pass-through, il codificatore deve eseguire il push di un flusso a bitrate multipli come output con tutte le qualità di output desiderate. Per altre informazioni, vedere [streaming live con codificatori locali](media-services-live-streaming-with-onprem-encoders.md).
 
+## <a name="encoder-requirements"></a>Requisiti del codificatore
+
+I codificatori devono supportare TLS 1,2 quando si usano protocolli HTTPS o RTMPS.
+
+## <a name="live-encoders-that-output-rtmp"></a>Codificatori live con output RTMP 
+
 Servizi multimediali di Azure consiglia di usare uno dei codificatori live seguenti che hanno RTMP come output:
+
 - Adobe Flash Media Live Encoder 3.2
 - Haivision Makito X HEVC
 - Haivision KB
-- Telestream Wirecast 8.1+
-- Telestream Wirecast S
+- Telestream Wirecast (versione 13.0.2 o successiva a causa del requisito TLS 1,2)
+
+  I codificatori devono supportare TLS 1,2 quando si usano i protocolli RTMPS.
 - Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
@@ -33,11 +42,16 @@ Servizi multimediali di Azure consiglia di usare uno dei codificatori live segue
 - xStream
 - Switcher Studio (iOS)
 
+## <a name="live-encoders-that-output-fragmented-mp4"></a>Codificatori live che attivano MP4 frammentati 
+
 Servizi multimediali di Azure consiglia di usare uno dei codificatori live seguenti che hanno MP4 frammentato (Smooth Streaming) a bitrate multipli come output:
+
 - Media Excel Hero Live e Hero 4K (UHD/HEVC)
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
-- Elemental Live
+- Elemental Live (versione 2.14.15 e successive a causa del requisito TLS 1,2)
+
+  I codificatori devono supportare TLS 1,2 quando si usano protocolli HTTPS.
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 
@@ -45,6 +59,7 @@ Servizi multimediali di Azure consiglia di usare uno dei codificatori live segue
 > Un codificatore live può inviare un flusso a bitrate singolo a un canale pass-through, ma questa configurazione non è consigliata perché non è consentito per lo streaming a bitrate adattivo nel client.
 
 ## <a name="how-to-become-an-on-premises-encoder-partner"></a>Come diventare un partner del codificatore locale
+
 Come partner del codificatore locale di servizi multimediali di Azure, servizi multimediali promuove il prodotto consigliando il codificatore ai clienti aziendali. Per diventare un partner del codificatore locale, è necessario verificare la compatibilità del codificatore locale con servizi multimediali. A questo scopo, completare le verifiche seguenti:
 
 Verifica del canale pass-through

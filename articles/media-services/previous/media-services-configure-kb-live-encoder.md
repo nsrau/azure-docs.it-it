@@ -14,16 +14,15 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 7bb3db4861842e145689682035adc3c691538adf
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: afc0fcb6751a08b41010fa569c67a9827e0abec0
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297789"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131937"
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Usare il codificatore live Haivision KB per inviare un flusso live a velocità in bit singola  
 > [!div class="op_single_selector"]
-> * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Haivision](media-services-configure-kb-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
@@ -60,16 +59,16 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 Video:
 -   Codec: H.264
 -   Profilo: alto (livello 4.0)
--   Velocità in bit: 5000 Kbps
+-   Velocità in bit: 5000 kbps
 -   Fotogramma chiave: 2 secondi (60 fotogrammi)
 -   Frequenza dei fotogrammi: 30
 
 Audio:
 -   Codec: AAC (LC)
--   Velocità in bit: 192 Kbps
+-   Velocità in bit: 192 kbps
 -   Frequenza di campionamento: 44,1 kHz
 
-## <a name="configuration-steps"></a>Procedura di configurazione
+## <a name="configuration-steps"></a>Passaggi di configurazione
 1.  Accedere all'interfaccia utente Haivision KB.
 2.  Fare clic sul **pulsante di menu** nel centro di controllo canali e selezionare **Add Channel** (Aggiungi canale).  
     ![Screenshot del 14-08-2017 alle 09.15.09](./media/media-services-configure-kb-live-encoder/step2.png)

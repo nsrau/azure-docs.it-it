@@ -4,16 +4,16 @@ description: Elenco delle metriche disponibili per ogni tipo di risorsa con il m
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 05/20/2019
+ms.date: 02/10/2020
 author: rboucher
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: dcf5276393400be864e738d89bc5713f5aac242b
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: fb11bf402ec671a46c191be0d8958c6a8a2c963d
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963479"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134952"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Metriche della piattaforma di monitoraggio di Azure esportabili tramite le impostazioni di diagnostica
 
@@ -25,7 +25,20 @@ Monitoraggio di Azure offre [metriche della piattaforma](data-platform-metrics.m
 
 A causa delle complessità del back-end di monitoraggio di Azure, non tutte le metriche sono esportabili usando le impostazioni di diagnostica. La tabella seguente elenca le opzioni che possono e non possono essere esportate usando le impostazioni di diagnostica.
 
-La tabella contiene le colonne seguenti. 
+## <a name="change-to-behavior-for-nulls-and-zero-values"></a>Modificare il comportamento per i valori NULL e zero 
+ 
+Per le metriche della piattaforma che possono essere esportate tramite le impostazioni di diagnostica, sono disponibili alcune metriche per cui il monitoraggio di Azure interpreta ' 0' come ' null '. Ciò ha causato una certa confusione tra' 0' reale (emesso dalla risorsa) è 0' interpretato (null). A partire dal **1 ° aprile 2020** le metriche della piattaforma esportate tramite le impostazioni di diagnostica non esporteranno più' 0', a meno che non siano state effettivamente emesse dalla risorsa sottostante. Nota bene:
+
+1.  Se si elimina un gruppo di risorse o una risorsa specifica, i dati delle metriche dalle risorse applicate non verranno più inviati alle destinazioni di esportazione delle impostazioni di diagnostica. Ovvero non verrà più visualizzato negli hub eventi, negli account di archiviazione e nelle aree di lavoro Log Analytics.
+2.  Questo miglioramento sarà disponibile in tutti i cloud pubblici e privati.
+3.  Questa modifica non avrà alcun effetto sul comportamento di una delle seguenti esperienze: 
+-   Log delle risorse della piattaforma esportati tramite impostazioni di diagnostica
+-   Creazione di grafici delle metriche in Esplora metriche
+-   Avvisi sulle metriche della piattaforma
+ 
+## <a name="metrics-exportable-table"></a>Tabella delle metriche esportabili 
+
+La tabella contiene le seguenti colonne. 
 - Esportabili tramite le impostazioni di diagnostica? 
 - ResourceType 
 - Metrica 
@@ -62,7 +75,7 @@ Sì | Microsoft.AnalysisServices/servers | MemoryLimitHigh | Memoria: limite mem
 Sì | Microsoft.AnalysisServices/servers | MemoryLimitLow | Memoria: limite memoria minimo | Byte | Media
 Sì | Microsoft.AnalysisServices/servers | MemoryLimitVertiPaq | Memoria: limite memoria VertiPaq | Byte | Media
 Sì | Microsoft.AnalysisServices/servers | MemoryUsage | Memoria: utilizzo memoria | Byte | Media
-Sì | Microsoft.AnalysisServices/servers | private_bytes_metric | Private Bytes | Byte | Media
+Sì | Microsoft.AnalysisServices/servers | private_bytes_metric | Byte privati | Byte | Media
 Sì | Microsoft.AnalysisServices/servers | ProcessingPoolBusyIOJobThreads | Thread: thread di processi di I/O occupati nel pool di elaborazione | Conteggio | Media
 Sì | Microsoft.AnalysisServices/servers | ProcessingPoolBusyNonIOThreads | Thread: Thread non di I/O occupati nel pool di elaborazione | Conteggio | Media
 Sì | Microsoft.AnalysisServices/servers | ProcessingPoolIdleIOJobThreads | Thread: thread di processi di I/O inattivi nel pool di elaborazione | Conteggio | Media
@@ -86,9 +99,9 @@ Sì | Microsoft.AnalysisServices/servers | TotalConnectionFailures | Numero tota
 Sì | Microsoft.AnalysisServices/servers | TotalConnectionRequests | Numero totale di richieste di connessione | Conteggio | Media
 Sì | Microsoft.AnalysisServices/servers | VertiPaqNonpaged | Memoria: VertiPaq non di paging | Byte | Media
 Sì | Microsoft.AnalysisServices/servers | VertiPaqPaged | Memoria: VertiPaq di paging | Byte | Media
-Sì | Microsoft.AnalysisServices/servers | virtual_bytes_metric | Virtual Bytes | Byte | Media
+Sì | Microsoft.AnalysisServices/servers | virtual_bytes_metric | Byte virtuali | Byte | Media
 Sì | Microsoft.ApiManagement/service | BackendDuration | Durata delle richieste back-end | Millisecondi | Media
-Sì | Microsoft.ApiManagement/service | Capacità | Capacità | Percentuale | Media
+Sì | Microsoft.ApiManagement/service | Capacity | Capacity | Percentuale | Media
 Sì | Microsoft.ApiManagement/service | Durata | Durata complessiva delle richieste del gateway | Millisecondi | Media
 Sì | Microsoft.ApiManagement/service | EventHubDroppedEvents | Eventi EventHub eliminati | Conteggio | Totale
 Sì | Microsoft.ApiManagement/service | EventHubRejectedEvents | Eventi EventHub rifiutati | Conteggio | Totale
@@ -184,7 +197,7 @@ Sì | Microsoft. blockchain/blockchainMembers | CpuUsagePercentageInDouble | Per
 Sì | Microsoft. blockchain/blockchainMembers | IOReadBytes | Byte lettura IO | Byte | Totale
 Sì | Microsoft. blockchain/blockchainMembers | IOWriteBytes | Byte scritti IO | Byte | Totale
 Sì | Microsoft. blockchain/blockchainMembers | MemoryLimit | Limite di memoria | Byte | Media
-Sì | Microsoft. blockchain/blockchainMembers | MemoryUsage | Utilizzo della memoria | Byte | Media
+Sì | Microsoft. blockchain/blockchainMembers | MemoryUsage | Utilizzo memoria | Byte | Media
 Sì | Microsoft. blockchain/blockchainMembers | MemoryUsagePercentageInDouble | Percentuale di utilizzo della memoria | Percentuale | Media
 Sì | Microsoft. blockchain/blockchainMembers | PendingTransactions | Transazioni in sospeso | Conteggio | Media
 Sì | Microsoft. blockchain/blockchainMembers | ProcessedBlocks | Blocchi elaborati | Conteggio | Totale
@@ -248,7 +261,7 @@ Sì | Microsoft.Cache/redis | connectedclients6 | Client connessi (partizione 6)
 Sì | Microsoft.Cache/redis | connectedclients7 | Client connessi (partizione 7) | Conteggio | Massimo
 Sì | Microsoft.Cache/redis | connectedclients8 | Client connessi (partizione 8) | Conteggio | Massimo
 Sì | Microsoft.Cache/redis | connectedclients9 | Client connessi (partizione 9) | Conteggio | Massimo
-Sì | Microsoft.Cache/redis | errori | Errors | Conteggio | Massimo
+Sì | Microsoft.Cache/redis | errori | Errori | Conteggio | Massimo
 Sì | Microsoft.Cache/redis | evictedkeys | Chiavi rimosse | Conteggio | Totale
 Sì | Microsoft.Cache/redis | evictedkeys0 | Chiavi rimosse (partizione 0) | Conteggio | Totale
 Sì | Microsoft.Cache/redis | evictedkeys1 | Chiavi rimosse (partizione 1) | Conteggio | Totale
@@ -271,7 +284,7 @@ Sì | Microsoft.Cache/redis | expiredkeys6 | Chiavi scadute (partizione 6) | Con
 Sì | Microsoft.Cache/redis | expiredkeys7 | Chiavi scadute (partizione 7) | Conteggio | Totale
 Sì | Microsoft.Cache/redis | expiredkeys8 | Chiavi scadute (partizione 8) | Conteggio | Totale
 Sì | Microsoft.Cache/redis | expiredkeys9 | Chiavi scadute (partizione 9) | Conteggio | Totale
-Sì | Microsoft.Cache/redis | getcommands | Operazioni Get | Conteggio | Totale
+Sì | Microsoft.Cache/redis | getcommands | Ottiene | Conteggio | Totale
 Sì | Microsoft.Cache/redis | getcommands0 | Operazioni Get (partizione 0) | Conteggio | Totale
 Sì | Microsoft.Cache/redis | getcommands1 | Operazioni Get (partizione 1) | Conteggio | Totale
 Sì | Microsoft.Cache/redis | getcommands2 | Operazioni Get (partizione 2) | Conteggio | Totale
@@ -348,7 +361,7 @@ Sì | Microsoft.Cache/redis | totalkeys6 | Totale chiavi (partizione 6) | Conteg
 Sì | Microsoft.Cache/redis | totalkeys7 | Totale chiavi (partizione 7) | Conteggio | Massimo
 Sì | Microsoft.Cache/redis | totalkeys8 | Totale chiavi (partizione 8) | Conteggio | Massimo
 Sì | Microsoft.Cache/redis | totalkeys9 | Totale chiavi (partizione 9) | Conteggio | Massimo
-Sì | Microsoft.Cache/redis | usedmemory | Memoria utilizzata | Byte | Massimo
+Sì | Microsoft.Cache/redis | usedmemory | Used Memory | Byte | Massimo
 Sì | Microsoft.Cache/redis | usedmemory0 | Memoria usata (partizione 0) | Byte | Massimo
 Sì | Microsoft.Cache/redis | usedmemory1 | Memoria usata (partizione 1) | Byte | Massimo
 Sì | Microsoft.Cache/redis | usedmemory2 | Memoria usata (partizione 2) | Byte | Massimo
@@ -387,7 +400,7 @@ Sì | Microsoft.ClassicCompute/virtualMachines | Rete in uscita | Rete in uscita
 Sì | Microsoft.ClassicCompute/virtualMachines | CPU percentuale | CPU percentuale | Percentuale | Media
 Sì | Microsoft.ClassicStorage/storageAccounts | Disponibilità | Disponibilità | Percentuale | Media
 Sì | Microsoft.ClassicStorage/storageAccounts | Egress | Egress | Byte | Totale
-Sì | Microsoft.ClassicStorage/storageAccounts | Ingresso | Ingresso | Byte | Totale
+Sì | Microsoft.ClassicStorage/storageAccounts | Dati in ingresso | Dati in ingresso | Byte | Totale
 Sì | Microsoft.ClassicStorage/storageAccounts | SuccessE2ELatency | Latenza end-to-end per richieste con esito positivo | Millisecondi | Media
 Sì | Microsoft.ClassicStorage/storageAccounts | SuccessServerLatency | Latenza server per richieste con esito positivo | Millisecondi | Media
 Sì | Microsoft.ClassicStorage/storageAccounts | Transazioni | Transazioni | Conteggio | Totale
@@ -398,7 +411,7 @@ No | Microsoft. ClassicStorage/storageAccounts/blobServices | BlobCount | Numero
 Sì | Microsoft. ClassicStorage/storageAccounts/blobServices | ContainerCount | Numero di contenitori BLOB | Conteggio | Media
 Sì | Microsoft. ClassicStorage/storageAccounts/blobServices | Egress | Egress | Byte | Totale
 No | Microsoft. ClassicStorage/storageAccounts/blobServices | IndexCapacity | Capacità indice | Byte | Media
-Sì | Microsoft. ClassicStorage/storageAccounts/blobServices | Ingresso | Ingresso | Byte | Totale
+Sì | Microsoft. ClassicStorage/storageAccounts/blobServices | Dati in ingresso | Dati in ingresso | Byte | Totale
 Sì | Microsoft. ClassicStorage/storageAccounts/blobServices | SuccessE2ELatency | Latenza end-to-end per richieste con esito positivo | Millisecondi | Media
 Sì | Microsoft. ClassicStorage/storageAccounts/blobServices | SuccessServerLatency | Latenza server per richieste con esito positivo | Millisecondi | Media
 Sì | Microsoft. ClassicStorage/storageAccounts/blobServices | Transazioni | Transazioni | Conteggio | Totale
@@ -410,13 +423,13 @@ No | Microsoft. ClassicStorage/storageAccounts/FileService | FileShareCount | Nu
 No | Microsoft. ClassicStorage/storageAccounts/FileService | FileShareQuota | Dimensioni della quota di condivisione file | Byte | Media
 No | Microsoft. ClassicStorage/storageAccounts/FileService | FileShareSnapshotCount | Conteggio degli snapshot di condivisione file | Conteggio | Media
 No | Microsoft. ClassicStorage/storageAccounts/FileService | FileShareSnapshotSize | Dimensioni snapshot della condivisione file | Byte | Media
-Sì | Microsoft. ClassicStorage/storageAccounts/FileService | Ingresso | Ingresso | Byte | Totale
+Sì | Microsoft. ClassicStorage/storageAccounts/FileService | Dati in ingresso | Dati in ingresso | Byte | Totale
 Sì | Microsoft. ClassicStorage/storageAccounts/FileService | SuccessE2ELatency | Latenza end-to-end per richieste con esito positivo | Millisecondi | Media
 Sì | Microsoft. ClassicStorage/storageAccounts/FileService | SuccessServerLatency | Latenza server per richieste con esito positivo | Millisecondi | Media
 Sì | Microsoft. ClassicStorage/storageAccounts/FileService | Transazioni | Transazioni | Conteggio | Totale
 Sì | Microsoft. ClassicStorage/storageAccounts/queueServices | Disponibilità | Disponibilità | Percentuale | Media
 Sì | Microsoft. ClassicStorage/storageAccounts/queueServices | Egress | Egress | Byte | Totale
-Sì | Microsoft. ClassicStorage/storageAccounts/queueServices | Ingresso | Ingresso | Byte | Totale
+Sì | Microsoft. ClassicStorage/storageAccounts/queueServices | Dati in ingresso | Dati in ingresso | Byte | Totale
 Sì | Microsoft. ClassicStorage/storageAccounts/queueServices | QueueCapacity | Capacità coda | Byte | Media
 Sì | Microsoft. ClassicStorage/storageAccounts/queueServices | QueueCount | Numero di coda | Conteggio | Media
 Sì | Microsoft. ClassicStorage/storageAccounts/queueServices | QueueMessageCount | Numero di messaggi in coda | Conteggio | Media
@@ -425,7 +438,7 @@ Sì | Microsoft. ClassicStorage/storageAccounts/queueServices | SuccessServerLat
 Sì | Microsoft. ClassicStorage/storageAccounts/queueServices | Transazioni | Transazioni | Conteggio | Totale
 Sì | Microsoft. ClassicStorage/storageAccounts/tableServices | Disponibilità | Disponibilità | Percentuale | Media
 Sì | Microsoft. ClassicStorage/storageAccounts/tableServices | Egress | Egress | Byte | Totale
-Sì | Microsoft. ClassicStorage/storageAccounts/tableServices | Ingresso | Ingresso | Byte | Totale
+Sì | Microsoft. ClassicStorage/storageAccounts/tableServices | Dati in ingresso | Dati in ingresso | Byte | Totale
 Sì | Microsoft. ClassicStorage/storageAccounts/tableServices | SuccessE2ELatency | Latenza end-to-end per richieste con esito positivo | Millisecondi | Media
 Sì | Microsoft. ClassicStorage/storageAccounts/tableServices | SuccessServerLatency | Latenza server per richieste con esito positivo | Millisecondi | Media
 Sì | Microsoft. ClassicStorage/storageAccounts/tableServices | TableCapacity | Capacità tabella | Byte | Media
@@ -563,8 +576,8 @@ Sì | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Hit lettura ca
 Sì | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Lettura della cache del disco dati Premium | Lettura della cache del disco dati Premium (anteprima) | Percentuale | Media
 Sì | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Hit lettura cache del disco del sistema operativo Premium | Hit lettura cache del disco del sistema operativo Premium (anteprima) | Percentuale | Media
 Sì | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Cache del disco del sistema operativo Premium Read Miss | Cache del disco del sistema operativo Premium lettura mancata (anteprima) | Percentuale | Media
-Sì | Microsoft.ContainerInstance/containerGroups | CpuUsage | Utilizzo di CPU | Conteggio | Media
-Sì | Microsoft.ContainerInstance/containerGroups | MemoryUsage | Utilizzo della memoria | Byte | Media
+Sì | Microsoft.ContainerInstance/containerGroups | CpuUsage | Utilizzo CPU | Conteggio | Media
+Sì | Microsoft.ContainerInstance/containerGroups | MemoryUsage | Utilizzo memoria | Byte | Media
 Sì | Microsoft.ContainerInstance/containerGroups | NetworkBytesReceivedPerSecond | Byte di rete ricevuti al secondo | Byte | Media
 Sì | Microsoft.ContainerInstance/containerGroups | NetworkBytesTransmittedPerSecond | Byte di rete trasmessi al secondo | Byte | Media
 Sì | Microsoft.ContainerRegistry/registries | RunDuration | Durata esecuzione | Millisecondi | Totale
@@ -588,7 +601,7 @@ Sì | Microsoft.DataBoxEdge/dataBoxEdgeDevices | HyperVMemoryUtilization | Calco
 Sì | Microsoft.DataBoxEdge/dataBoxEdgeDevices | HyperVVirtualProcessorUtilization | Calcolo Edge-percentuale CPU | Percentuale | Media
 Sì | Microsoft.DataBoxEdge/dataBoxEdgeDevices | NICReadThroughput | Velocità effettiva di lettura (rete) | Byte al secondo | Media
 Sì | Microsoft.DataBoxEdge/dataBoxEdgeDevices | NICWriteThroughput | Velocità effettiva scrittura (rete) | Byte al secondo | Media
-Sì | Microsoft.DataBoxEdge/dataBoxEdgeDevices | Archiviazione | Capacità totale | Byte | Media
+Sì | Microsoft.DataBoxEdge/dataBoxEdgeDevices | Archiviazione | Capacità totale: | Byte | Media
 Sì | Microsoft.DataFactory/datafactories | FailedRuns | Esecuzioni non riuscite | Conteggio | Totale
 Sì | Microsoft.DataFactory/datafactories | SuccessfulRuns | Esecuzioni riuscite | Conteggio | Totale
 Sì | Microsoft.DataFactory/factories | ActivityCancelledRuns | Metriche delle esecuzioni di attività annullate | Conteggio | Totale
@@ -633,7 +646,7 @@ Sì | Microsoft.DBforMariaDB/servers | serverlog_storage_percent | Percentuale d
 Sì | Microsoft.DBforMariaDB/servers | serverlog_storage_usage | Archiviazione dei log del server usata | Byte | Media
 Sì | Microsoft.DBforMariaDB/servers | storage_limit | Limite archiviazione | Byte | Massimo
 Sì | Microsoft.DBforMariaDB/servers | storage_percent | Percentuale di archiviazione | Percentuale | Media
-Sì | Microsoft.DBforMariaDB/servers | storage_used | Risorse di archiviazione usate | Byte | Media
+Sì | Microsoft.DBforMariaDB/servers | storage_used | Uso archiviazione | Byte | Media
 Sì | Microsoft.DBforMySQL/servers | active_connections | Connessioni attive | Conteggio | Media
 Sì | Microsoft.DBforMySQL/servers | backup_storage_used | Archiviazione di backup utilizzata | Byte | Media
 Sì | Microsoft.DBforMySQL/servers | connections_failed | Connessioni non riuscite | Conteggio | Totale
@@ -648,7 +661,7 @@ Sì | Microsoft.DBforMySQL/servers | serverlog_storage_percent | Percentuale di 
 Sì | Microsoft.DBforMySQL/servers | serverlog_storage_usage | Archiviazione dei log del server usata | Byte | Media
 Sì | Microsoft.DBforMySQL/servers | storage_limit | Limite archiviazione | Byte | Massimo
 Sì | Microsoft.DBforMySQL/servers | storage_percent | Percentuale di archiviazione | Percentuale | Media
-Sì | Microsoft.DBforMySQL/servers | storage_used | Risorse di archiviazione usate | Byte | Media
+Sì | Microsoft.DBforMySQL/servers | storage_used | Uso archiviazione | Byte | Media
 Sì | Microsoft.DBforPostgreSQL/servers | active_connections | Connessioni attive | Conteggio | Media
 Sì | Microsoft.DBforPostgreSQL/servers | backup_storage_used | Archiviazione di backup utilizzata | Byte | Media
 Sì | Microsoft.DBforPostgreSQL/servers | connections_failed | Connessioni non riuscite | Conteggio | Totale
@@ -664,15 +677,15 @@ Sì | Microsoft.DBforPostgreSQL/servers | serverlog_storage_percent | Percentual
 Sì | Microsoft.DBforPostgreSQL/servers | serverlog_storage_usage | Archiviazione dei log del server usata | Byte | Media
 Sì | Microsoft.DBforPostgreSQL/servers | storage_limit | Limite archiviazione | Byte | Massimo
 Sì | Microsoft.DBforPostgreSQL/servers | storage_percent | Percentuale di archiviazione | Percentuale | Media
-Sì | Microsoft.DBforPostgreSQL/servers | storage_used | Risorse di archiviazione usate | Byte | Media
+Sì | Microsoft.DBforPostgreSQL/servers | storage_used | Uso archiviazione | Byte | Media
 Sì | Microsoft.DBforPostgreSQL/serversv2 | active_connections | Connessioni attive | Conteggio | Media
 Sì | Microsoft.DBforPostgreSQL/serversv2 | cpu_percent | Percentuale CPU | Percentuale | Media
-Sì | Microsoft.DBforPostgreSQL/serversv2 | IOPS | Operazioni di I/O al secondo | Conteggio | Media
+Sì | Microsoft.DBforPostgreSQL/serversv2 | IOPS | IOPS | Conteggio | Media
 Sì | Microsoft.DBforPostgreSQL/serversv2 | memory_percent | Percentuale memoria | Percentuale | Media
 Sì | Microsoft.DBforPostgreSQL/serversv2 | network_bytes_egress | Rete in uscita | Byte | Totale
 Sì | Microsoft.DBforPostgreSQL/serversv2 | network_bytes_ingress | Rete in ingresso | Byte | Totale
 Sì | Microsoft.DBforPostgreSQL/serversv2 | storage_percent | Percentuale di archiviazione | Percentuale | Media
-Sì | Microsoft.DBforPostgreSQL/serversv2 | storage_used | Risorse di archiviazione usate | Byte | Media
+Sì | Microsoft.DBforPostgreSQL/serversv2 | storage_used | Uso archiviazione | Byte | Media
 Sì | Microsoft. Devices/account | digitaltwins. telemetria. Nodes | Segnaposto di telemetria del nodo di gemelli digitali | Conteggio | Totale
 Sì | Microsoft.Devices/IotHubs | c2d.commands.egress.abandon.success | Messaggi C2D abbandonati | Conteggio | Totale
 Sì | Microsoft.Devices/IotHubs | c2d.commands.egress.complete.success | Recapito messaggi C2D completati | Conteggio | Totale
@@ -742,7 +755,7 @@ Sì | Microsoft.Devices/IotHubs | twinQueries.success | Query dei dispositivi ge
 Sì | Microsoft.Devices/provisioningServices | AttestationAttempts | Tentativi di attestazione | Conteggio | Totale
 Sì | Microsoft.Devices/provisioningServices | DeviceAssignments | Dispositivi assegnati | Conteggio | Totale
 Sì | Microsoft.Devices/provisioningServices | RegistrationAttempts | Tentativi di registrazione | Conteggio | Totale
-No | Microsoft.DocumentDB/databaseAccounts | AvailableStorage | Spazio di archiviazione disponibile | Byte | Totale
+No | Microsoft.DocumentDB/databaseAccounts | AvailableStorage | Archiviazione disponibile | Byte | Totale
 No | Microsoft.DocumentDB/databaseAccounts | CassandraConnectionClosures | Chiusure di connessione Cassandra | Conteggio | Totale
 No | Microsoft.DocumentDB/databaseAccounts | CassandraRequestCharges | Addebiti richieste Cassandra | Conteggio | Totale
 No | Microsoft.DocumentDB/databaseAccounts | CassandraRequests | Richieste di Cassandra | Conteggio | Conteggio
@@ -759,13 +772,13 @@ No | Microsoft.DocumentDB/databaseAccounts | MongoRequestsDelete | Frequenza del
 No | Microsoft.DocumentDB/databaseAccounts | MongoRequestsInsert | Frequenza di richieste di inserimento Mongo | Conteggio al secondo | Media
 No | Microsoft.DocumentDB/databaseAccounts | MongoRequestsQuery | Frequenza di richieste di query Mongo | Conteggio al secondo | Media
 No | Microsoft.DocumentDB/databaseAccounts | MongoRequestsUpdate | Frequenza di richieste di aggiornamento Mongo | Conteggio al secondo | Media
-No | Microsoft.DocumentDB/databaseAccounts | ProvisionedThroughput | Velocità effettiva con provisioning | Conteggio | Massimo
+No | Microsoft.DocumentDB/databaseAccounts | ProvisionedThroughput | Velocità effettiva sottoposta a provisioning | Conteggio | Massimo
 Sì | Microsoft.DocumentDB/databaseAccounts | ReplicationLatency | Latenza di replica P99 | Millisecondi | Media
-No | Microsoft.DocumentDB/databaseAccounts | ServiceAvailability | Disponibilità del servizio | Percentuale | Media
+No | Microsoft.DocumentDB/databaseAccounts | ServiceAvailability | Disponibilità dei servizi | Percentuale | Media
 Sì | Microsoft.DocumentDB/databaseAccounts | TotalRequests | Totale richieste | Conteggio | Conteggio
 Sì | Microsoft.DocumentDB/databaseAccounts | TotalRequestUnits | Total Request Units (Unità richiesta totali) | Conteggio | Totale
 No | Microsoft. EnterpriseKnowledgeGraph/Services | FailureCount | Conteggio errori | Conteggio | Conteggio
-No | Microsoft. EnterpriseKnowledgeGraph/Services | SuccessCount | Conteggio delle esecuzioni riuscite | Conteggio | Conteggio
+No | Microsoft. EnterpriseKnowledgeGraph/Services | SuccessCount | Conteggio completo | Conteggio | Conteggio
 No | Microsoft. EnterpriseKnowledgeGraph/Services | SuccessLatency | Latenza riuscita | Millisecondi | Media
 No | Microsoft. EnterpriseKnowledgeGraph/Services | TransactionCount | Conteggio transazioni | Conteggio | Conteggio
 Sì | Microsoft.EventGrid/domains | DeadLetteredCount | Eventi di messaggi non recapitati | Conteggio | Totale
@@ -805,7 +818,7 @@ Sì | Microsoft.EventHub/clusters | IncomingRequests | Richieste in ingresso | C
 Sì | Microsoft.EventHub/clusters | OutgoingBytes | Byte in uscita. | Byte | Totale
 Sì | Microsoft.EventHub/clusters | OutgoingMessages | Messaggi in uscita | Conteggio | Totale
 No | Microsoft.EventHub/clusters | QuotaExceededErrors | Errori di superamento quota. | Conteggio | Totale
-No | Microsoft.EventHub/clusters | ServerErrors | Errori server. | Conteggio | Totale
+No | Microsoft.EventHub/clusters | ServerErrors | Errori del server | Conteggio | Totale
 No | Microsoft.EventHub/clusters | SuccessfulRequests | Richieste riuscite | Conteggio | Totale
 No | Microsoft.EventHub/clusters | ThrottledRequests | Richieste limitate. | Conteggio | Totale
 No | Microsoft.EventHub/clusters | UserErrors | Errori utente. | Conteggio | Totale
@@ -836,8 +849,8 @@ Sì | Microsoft.EventHub/namespaces | OutgoingBytes | Byte in uscita. | Byte | T
 Sì | Microsoft.EventHub/namespaces | OutgoingMessages | Messaggi in uscita | Conteggio | Totale
 Sì | Microsoft.EventHub/namespaces | OUTMSGS | Messaggi in uscita (obsoleti) (deprecato) | Conteggio | Totale
 No | Microsoft.EventHub/namespaces | QuotaExceededErrors | Errori di superamento quota. | Conteggio | Totale
-No | Microsoft.EventHub/namespaces | ServerErrors | Errori server. | Conteggio | Totale
-No | Microsoft.EventHub/namespaces | Dimensioni | Dimensioni | Byte | Media
+No | Microsoft.EventHub/namespaces | ServerErrors | Errori del server | Conteggio | Totale
+No | Microsoft.EventHub/namespaces | Dimensione | Dimensione | Byte | Media
 No | Microsoft.EventHub/namespaces | SuccessfulRequests | Richieste riuscite | Conteggio | Totale
 Sì | Microsoft.EventHub/namespaces | SUCCREQ | Richieste riuscite (deprecate) | Conteggio | Totale
 Sì | Microsoft.EventHub/namespaces | SVRBSY | Errori di server occupato (deprecato) | Conteggio | Totale
@@ -993,7 +1006,7 @@ Sì | Microsoft.MachineLearningServices/workspaces | Totale nodi | Totale nodi |
 Sì | Microsoft.MachineLearningServices/workspaces | Core inutilizzabili | Core inutilizzabili | Conteggio | Media
 Sì | Microsoft.MachineLearningServices/workspaces | Nodi inutilizzabili | Nodi inutilizzabili | Conteggio | Media
 Sì | Microsoft.Maps/accounts | Disponibilità | Disponibilità | Percentuale | Media
-No | Microsoft.Maps/accounts | Uso | Uso | Conteggio | Conteggio
+No | Microsoft.Maps/accounts | Utilizzo | Utilizzo | Conteggio | Conteggio
 Sì | Microsoft. Media/MediaServices | AssetCount | Conteggio asset | Conteggio | Media
 Sì | Microsoft. Media/MediaServices | AssetQuota | Quota asset | Conteggio | Media
 Sì | Microsoft. Media/MediaServices | AssetQuotaUsedPercentage | Percentuale di utilizzo della quota di asset | Percentuale | Media
@@ -1051,7 +1064,7 @@ Sì | Microsoft.Network/applicationGateways | BytesSent | Byte inviati | Byte | 
 No | Microsoft.Network/applicationGateways | CapacityUnits | Unità di capacità correnti | Conteggio | Media
 No | Microsoft.Network/applicationGateways | ClientRtt | RTT client | Millisecondi | Media
 No | Microsoft.Network/applicationGateways | ComputeUnits | Unità di calcolo correnti | Conteggio | Media
-Sì | Microsoft.Network/applicationGateways | CurrentConnections | Current Connections (Connessioni correnti) | Conteggio | Totale
+Sì | Microsoft.Network/applicationGateways | CurrentConnections | Connessioni correnti | Conteggio | Totale
 Sì | Microsoft.Network/applicationGateways | FailedRequests | Richieste non riuscite | Conteggio | Totale
 Sì | Microsoft.Network/applicationGateways | HealthyHostCount | Healthy Host Count (Numero di host integri) | Conteggio | Media
 Sì | Microsoft.Network/applicationGateways | MatchedCount | Distribuzione della regola totale del firewall applicazione Web | Conteggio | Totale
@@ -1220,15 +1233,15 @@ Sì | Microsoft.OperationalInsights/workspaces | Average_% Available Swap Space 
 Sì | Microsoft.OperationalInsights/workspaces | Average_% Committed Bytes In Use | % byte vincolati in uso | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_% DPC Time | % DPC Time | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_% Free Inodes | % Free Inodes | Conteggio | Media
-Sì | Microsoft.OperationalInsights/workspaces | Average_% Free Space | % Free Space | Conteggio | Media
-Sì | Microsoft.OperationalInsights/workspaces | Average_% Free Space | % Free Space | Conteggio | Media
-Sì | Microsoft.OperationalInsights/workspaces | Average_% Idle Time | % Idle Time | Conteggio | Media
+Sì | Microsoft.OperationalInsights/workspaces | Average_% Free Space | % di spazio libero | Conteggio | Media
+Sì | Microsoft.OperationalInsights/workspaces | Average_% Free Space | % di spazio libero | Conteggio | Media
+Sì | Microsoft.OperationalInsights/workspaces | Average_% Idle Time | % Tempo inattività | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_% Interrupt Time | % Interrupt Time | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_% IO Wait Time | % IO Wait Time | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_% Nice Time | % Nice Time | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_% Privileged Time | % Privileged Time | Conteggio | Media
-Sì | Microsoft.OperationalInsights/workspaces | Average_% Processor Time | % di tempo processore | Conteggio | Media
-Sì | Microsoft.OperationalInsights/workspaces | Average_% Processor Time | % di tempo processore | Conteggio | Media
+Sì | Microsoft.OperationalInsights/workspaces | Average_% Processor Time | % di tempo del processore | Conteggio | Media
+Sì | Microsoft.OperationalInsights/workspaces | Average_% Processor Time | % di tempo del processore | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_% Used Inodes | % Used Inodes | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_% Used Memory | % Used Memory | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_% Used Space | % Used Space | Conteggio | Media
@@ -1237,39 +1250,39 @@ Sì | Microsoft.OperationalInsights/workspaces | Average_% User Time | % User Ti
 Sì | Microsoft.OperationalInsights/workspaces | Average_Available MBytes | MByte disponibili | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Available MBytes Memory | Available MBytes Memory | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Available MBytes Swap | Available MBytes Swap | Conteggio | Media
-Sì | Microsoft.OperationalInsights/workspaces | Average_Avg. Disk sec/Read | Media letture disco/sec | Conteggio | Media
-Sì | Microsoft.OperationalInsights/workspaces | Average_Avg. Disk sec/Read | Media letture disco/sec | Conteggio | Media
-Sì | Microsoft.OperationalInsights/workspaces | Average_Avg. Disk sec/Transfer | Media sec/trasferimento disco | Conteggio | Media
-Sì | Microsoft.OperationalInsights/workspaces | Average_Avg. Disk sec/Write | Media scritture disco/sec | Conteggio | Media
-Sì | Microsoft.OperationalInsights/workspaces | Average_Avg. Disk sec/Write | Media scritture disco/sec | Conteggio | Media
+Sì | Microsoft.OperationalInsights/workspaces | Average_Avg. letture disco/sec | Media letture disco/sec | Conteggio | Media
+Sì | Microsoft.OperationalInsights/workspaces | Average_Avg. letture disco/sec | Media letture disco/sec | Conteggio | Media
+Sì | Microsoft.OperationalInsights/workspaces | Average_Avg. trasferimenti disco/sec disco fisico | Media sec/trasferimento disco | Conteggio | Media
+Sì | Microsoft.OperationalInsights/workspaces | Average_Avg. scritture disco/sec. disco fisico | Media scritture disco/sec | Conteggio | Media
+Sì | Microsoft.OperationalInsights/workspaces | Average_Avg. scritture disco/sec. disco fisico | Media scritture disco/sec | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Bytes Received/sec | Byte ricevuti/sec | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Bytes Sent/sec | Byte inviati/sec | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Bytes Total/sec | Totale byte/sec | Conteggio | Media
-Sì | Microsoft.OperationalInsights/workspaces | Average_Current Disk Queue Length | Lunghezza corrente coda del disco | Conteggio | Media
+Sì | Microsoft.OperationalInsights/workspaces | Average_Current Disk Queue Length | Lunghezza coda del disco attuale | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Disk Read Bytes/sec | Byte letti da disco/sec | Conteggio | Media
-Sì | Microsoft.OperationalInsights/workspaces | Average_Disk Reads/sec | Letture disco/sec | Conteggio | Media
-Sì | Microsoft.OperationalInsights/workspaces | Average_Disk Reads/sec | Letture disco/sec | Conteggio | Media
+Sì | Microsoft.OperationalInsights/workspaces | Average_Disk Reads/sec | Letture da disco/sec | Conteggio | Media
+Sì | Microsoft.OperationalInsights/workspaces | Average_Disk Reads/sec | Letture da disco/sec | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Disk Transfers/sec | Disk Transfers/sec | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Disk Transfers/sec | Disk Transfers/sec | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Disk Write Bytes/sec | Byte scritti su disco/sec | Conteggio | Media
-Sì | Microsoft.OperationalInsights/workspaces | Average_Disk Writes/sec | Scritture disco/sec | Conteggio | Media
-Sì | Microsoft.OperationalInsights/workspaces | Average_Disk Writes/sec | Scritture disco/sec | Conteggio | Media
+Sì | Microsoft.OperationalInsights/workspaces | Average_Disk Writes/sec | Disk Writes/sec | Conteggio | Media
+Sì | Microsoft.OperationalInsights/workspaces | Average_Disk Writes/sec | Disk Writes/sec | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Free Megabytes | Free Megabytes | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Free Megabytes | Free Megabytes | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Free Physical Memory | Free Physical Memory | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Free Space in Paging Files | Free Space in Paging Files | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Free Virtual Memory | Free Virtual Memory | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Logical Disk Bytes/sec | Logical Disk Bytes/sec | Conteggio | Media
-Sì | Microsoft.OperationalInsights/workspaces | Average_Page Reads/sec | Page Reads/sec | Conteggio | Media
-Sì | Microsoft.OperationalInsights/workspaces | Average_Page Writes/sec | Page Writes/sec | Conteggio | Media
+Sì | Microsoft.OperationalInsights/workspaces | Average_Page Reads/sec | Letture pagina/sec | Conteggio | Media
+Sì | Microsoft.OperationalInsights/workspaces | Average_Page Writes/sec | Scritture pagina/sec | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Pages/sec | Pages/sec | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Pct Privileged Time | Pct Privileged Time | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Pct User Time | Pct User Time | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Physical Disk Bytes/sec | Physical Disk Bytes/sec | Conteggio | Media
-Sì | Microsoft.OperationalInsights/workspaces | Average_Processes | Procedure | Conteggio | Media
+Sì | Microsoft.OperationalInsights/workspaces | Average_Processes | Processi | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Processor Queue Length | Lunghezza coda processore | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Size Stored In Paging Files | Size Stored In Paging Files | Conteggio | Media
-Sì | Microsoft.OperationalInsights/workspaces | Average_Total Bytes | Total Bytes | Conteggio | Media
+Sì | Microsoft.OperationalInsights/workspaces | Average_Total Bytes | Totale byte | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Total Bytes Received | Total Bytes Received | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Total Bytes Transmitted | Total Bytes Transmitted | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Total Collisions | Total Collisions | Conteggio | Media
@@ -1277,7 +1290,7 @@ Sì | Microsoft.OperationalInsights/workspaces | Average_Total Packets Received 
 Sì | Microsoft.OperationalInsights/workspaces | Average_Total Packets Transmitted | Total Packets Transmitted | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Total Rx Errors | Total Rx Errors | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Total Tx Errors | Total Tx Errors | Conteggio | Media
-Sì | Microsoft.OperationalInsights/workspaces | Average_Uptime | Uptime | Conteggio | Media
+Sì | Microsoft.OperationalInsights/workspaces | Average_Uptime | Tempo di attività | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Used MBytes Swap Space | Used MBytes Swap Space | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Used Memory kBytes | Used Memory kBytes | Conteggio | Media
 Sì | Microsoft.OperationalInsights/workspaces | Average_Used Memory MBytes | Used Memory MBytes | Conteggio | Media
@@ -1315,13 +1328,13 @@ No | Microsoft.ServiceBus/namespaces | CPUXNS | CPU (deprecata) | Percentuale | 
 No | Microsoft.ServiceBus/namespaces | DeadletteredMessages | Numero di messaggi non recapitabili in una coda o in un argomento. | Conteggio | Media
 Sì | Microsoft.ServiceBus/namespaces | IncomingMessages | Messaggi in ingresso | Conteggio | Totale
 Sì | Microsoft.ServiceBus/namespaces | IncomingRequests | Richieste in ingresso | Conteggio | Totale
-No | Microsoft.ServiceBus/namespaces | Messaggi | Numero di messaggi contenuti in una coda o in un argomento. | Conteggio | Media
+No | Microsoft.ServiceBus/namespaces | Messages | Numero di messaggi contenuti in una coda o in un argomento. | Conteggio | Media
 No | Microsoft.ServiceBus/namespaces | NamespaceCpuUsage | CPU | Percentuale | Massimo
-No | Microsoft.ServiceBus/namespaces | NamespaceMemoryUsage | Utilizzo della memoria | Percentuale | Massimo
+No | Microsoft.ServiceBus/namespaces | NamespaceMemoryUsage | Utilizzo memoria | Percentuale | Massimo
 Sì | Microsoft.ServiceBus/namespaces | OutgoingMessages | Messaggi in uscita | Conteggio | Totale
 No | Microsoft.ServiceBus/namespaces | ScheduledMessages | Numero di messaggi pianificati in una coda o un argomento. | Conteggio | Media
-No | Microsoft.ServiceBus/namespaces | ServerErrors | Errori server. | Conteggio | Totale
-No | Microsoft.ServiceBus/namespaces | Dimensioni | Dimensioni | Byte | Media
+No | Microsoft.ServiceBus/namespaces | ServerErrors | Errori del server | Conteggio | Totale
+No | Microsoft.ServiceBus/namespaces | Dimensione | Dimensione | Byte | Media
 No | Microsoft.ServiceBus/namespaces | SuccessfulRequests | Richieste riuscite | Conteggio | Totale
 No | Microsoft.ServiceBus/namespaces | ThrottledRequests | Richieste limitate. | Conteggio | Totale
 No | Microsoft.ServiceBus/namespaces | UserErrors | Errori utente. | Conteggio | Totale
@@ -1379,7 +1392,7 @@ Sì | Microsoft.Sql/servers/databases | log_write_percent | Percentuale I/O regi
 Sì | Microsoft.Sql/servers/databases | memory_usage_percent | Percentuale di memoria | Percentuale | Massimo
 Sì | Microsoft.Sql/servers/databases | physical_data_read_percent | Percentuale di I/O di dati | Percentuale | Media
 Sì | Microsoft.Sql/servers/databases | sessions_percent | Percentuale sessioni | Percentuale | Media
-Sì | Microsoft.Sql/servers/databases | archiviazione | Spazio dati utilizzato | Byte | Massimo
+Sì | Microsoft.Sql/servers/databases | storage | Spazio dati utilizzato | Byte | Massimo
 Sì | Microsoft.Sql/servers/databases | storage_percent | Percentuale spazio dati utilizzato | Percentuale | Massimo
 Sì | Microsoft.Sql/servers/databases | tempdb_data_size | Kilobyte dimensioni file di dati tempdb | Conteggio | Massimo
 Sì | Microsoft.Sql/servers/databases | tempdb_log_size | Kilobyte dimensioni file di log tempdb | Conteggio | Massimo
@@ -1418,7 +1431,7 @@ Sì | Microsoft.Sql/servers/elasticPools | workers_percent | Percentuale ruoli d
 Sì | Microsoft.Sql/servers/elasticPools | xtp_storage_percent | Percentuale di archiviazione OLTP in memoria | Percentuale | Media
 Sì | Microsoft.Storage/storageAccounts | Disponibilità | Disponibilità | Percentuale | Media
 Sì | Microsoft.Storage/storageAccounts | Egress | Egress | Byte | Totale
-Sì | Microsoft.Storage/storageAccounts | Ingresso | Ingresso | Byte | Totale
+Sì | Microsoft.Storage/storageAccounts | Dati in ingresso | Dati in ingresso | Byte | Totale
 Sì | Microsoft.Storage/storageAccounts | SuccessE2ELatency | Latenza end-to-end per richieste con esito positivo | Millisecondi | Media
 Sì | Microsoft.Storage/storageAccounts | SuccessServerLatency | Latenza server per richieste con esito positivo | Millisecondi | Media
 Sì | Microsoft.Storage/storageAccounts | Transazioni | Transazioni | Conteggio | Totale
@@ -1429,7 +1442,7 @@ No | Microsoft.Storage/storageAccounts/blobServices | BlobCount | Numero di BLOB
 Sì | Microsoft.Storage/storageAccounts/blobServices | ContainerCount | Numero di contenitori BLOB | Conteggio | Media
 Sì | Microsoft.Storage/storageAccounts/blobServices | Egress | Egress | Byte | Totale
 No | Microsoft.Storage/storageAccounts/blobServices | IndexCapacity | Capacità indice | Byte | Media
-Sì | Microsoft.Storage/storageAccounts/blobServices | Ingresso | Ingresso | Byte | Totale
+Sì | Microsoft.Storage/storageAccounts/blobServices | Dati in ingresso | Dati in ingresso | Byte | Totale
 Sì | Microsoft.Storage/storageAccounts/blobServices | SuccessE2ELatency | Latenza end-to-end per richieste con esito positivo | Millisecondi | Media
 Sì | Microsoft.Storage/storageAccounts/blobServices | SuccessServerLatency | Latenza server per richieste con esito positivo | Millisecondi | Media
 Sì | Microsoft.Storage/storageAccounts/blobServices | Transazioni | Transazioni | Conteggio | Totale
@@ -1441,13 +1454,13 @@ No | Microsoft.Storage/storageAccounts/fileServices | FileShareCount | Numero di
 No | Microsoft.Storage/storageAccounts/fileServices | FileShareQuota | Dimensioni della quota di condivisione file | Byte | Media
 No | Microsoft.Storage/storageAccounts/fileServices | FileShareSnapshotCount | Conteggio degli snapshot di condivisione file | Conteggio | Media
 No | Microsoft.Storage/storageAccounts/fileServices | FileShareSnapshotSize | Dimensioni snapshot della condivisione file | Byte | Media
-Sì | Microsoft.Storage/storageAccounts/fileServices | Ingresso | Ingresso | Byte | Totale
+Sì | Microsoft.Storage/storageAccounts/fileServices | Dati in ingresso | Dati in ingresso | Byte | Totale
 Sì | Microsoft.Storage/storageAccounts/fileServices | SuccessE2ELatency | Latenza end-to-end per richieste con esito positivo | Millisecondi | Media
 Sì | Microsoft.Storage/storageAccounts/fileServices | SuccessServerLatency | Latenza server per richieste con esito positivo | Millisecondi | Media
 Sì | Microsoft.Storage/storageAccounts/fileServices | Transazioni | Transazioni | Conteggio | Totale
 Sì | Microsoft.Storage/storageAccounts/queueServices | Disponibilità | Disponibilità | Percentuale | Media
 Sì | Microsoft.Storage/storageAccounts/queueServices | Egress | Egress | Byte | Totale
-Sì | Microsoft.Storage/storageAccounts/queueServices | Ingresso | Ingresso | Byte | Totale
+Sì | Microsoft.Storage/storageAccounts/queueServices | Dati in ingresso | Dati in ingresso | Byte | Totale
 Sì | Microsoft.Storage/storageAccounts/queueServices | QueueCapacity | Capacità coda | Byte | Media
 Sì | Microsoft.Storage/storageAccounts/queueServices | QueueCount | Numero di coda | Conteggio | Media
 Sì | Microsoft.Storage/storageAccounts/queueServices | QueueMessageCount | Numero di messaggi in coda | Conteggio | Media
@@ -1456,7 +1469,7 @@ Sì | Microsoft.Storage/storageAccounts/queueServices | SuccessServerLatency | L
 Sì | Microsoft.Storage/storageAccounts/queueServices | Transazioni | Transazioni | Conteggio | Totale
 Sì | Microsoft.Storage/storageAccounts/tableServices | Disponibilità | Disponibilità | Percentuale | Media
 Sì | Microsoft.Storage/storageAccounts/tableServices | Egress | Egress | Byte | Totale
-Sì | Microsoft.Storage/storageAccounts/tableServices | Ingresso | Ingresso | Byte | Totale
+Sì | Microsoft.Storage/storageAccounts/tableServices | Dati in ingresso | Dati in ingresso | Byte | Totale
 Sì | Microsoft.Storage/storageAccounts/tableServices | SuccessE2ELatency | Latenza end-to-end per richieste con esito positivo | Millisecondi | Media
 Sì | Microsoft.Storage/storageAccounts/tableServices | SuccessServerLatency | Latenza server per richieste con esito positivo | Millisecondi | Media
 Sì | Microsoft.Storage/storageAccounts/tableServices | TableCapacity | Capacità tabella | Byte | Media
@@ -1485,7 +1498,7 @@ Sì | Microsoft. StorageCache/Caches | StorageTargetSyncWriteThroughput | Veloci
 Sì | Microsoft. StorageCache/Caches | StorageTargetTotalReadThroughput | StorageTarget totale velocità effettiva di lettura | Byte al secondo | Media
 Sì | Microsoft. StorageCache/Caches | StorageTargetTotalWriteThroughput | Velocità effettiva di scrittura totale StorageTarget | Byte al secondo | Media
 Sì | Microsoft. StorageCache/Caches | StorageTargetWriteIOPS | IOPS scrittura StorageTarget | Conteggio | Media
-Sì | Microsoft. StorageCache/Caches | Uptime | Uptime | Conteggio | Media
+Sì | Microsoft. StorageCache/Caches | Tempo di attività | Tempo di attività | Conteggio | Media
 Sì | microsoft.storagesync/storageSyncServices | ServerSyncSessionResult | Risultato della sessione di sincronizzazione | Conteggio | Media
 Sì | microsoft.storagesync/storageSyncServices | StorageSyncBatchTransferredFileBytes | Byte sincronizzati | Byte | Totale
 Sì | microsoft.storagesync/storageSyncServices | StorageSyncRecalledNetworkBytesByApplication | Dimensioni del richiamo di suddivisione in livelli nel cloud per applicazione | Byte | Totale
@@ -1510,7 +1523,7 @@ Sì | Microsoft.StreamAnalytics/streamingjobs | ConversionErrors | Errori di con
 Sì | Microsoft.StreamAnalytics/streamingjobs | DeserializationError | Errori di deserializzazione dell'input | Conteggio | Totale
 Sì | Microsoft.StreamAnalytics/streamingjobs | DroppedOrAdjustedEvents | Eventi non in ordine | Conteggio | Totale
 Sì | Microsoft.StreamAnalytics/streamingjobs | EarlyInputEvents | Eventi di input anticipati | Conteggio | Totale
-Sì | Microsoft.StreamAnalytics/streamingjobs | Errors | Errori di runtime | Conteggio | Totale
+Sì | Microsoft.StreamAnalytics/streamingjobs | Errori | Errori di runtime | Conteggio | Totale
 Sì | Microsoft.StreamAnalytics/streamingjobs | InputEventBytes | Byte evento di input | Byte | Totale
 Sì | Microsoft.StreamAnalytics/streamingjobs | InputEvents | Eventi di input | Conteggio | Totale
 Sì | Microsoft.StreamAnalytics/streamingjobs | InputEventsSourcesBacklogged | Eventi di input con backlog | Conteggio | Massimo
@@ -1543,7 +1556,7 @@ Sì | Microsoft.Web/hostingEnvironments/multiRolePools | AverageResponseTime | T
 Sì | Microsoft.Web/hostingEnvironments/multiRolePools | BytesReceived | Dati in entrata | Byte | Totale
 Sì | Microsoft.Web/hostingEnvironments/multiRolePools | BytesSent | Dati in uscita | Byte | Totale
 Sì | Microsoft.Web/hostingEnvironments/multiRolePools | CpuPercentage | Percentuale CPU | Percentuale | Media
-Sì | Microsoft.Web/hostingEnvironments/multiRolePools | DiskQueueLength | Lunghezza coda disco | Conteggio | Media
+Sì | Microsoft.Web/hostingEnvironments/multiRolePools | DiskQueueLength | Lunghezza coda del disco | Conteggio | Media
 Sì | Microsoft.Web/hostingEnvironments/multiRolePools | Http101 | Http 101 | Conteggio | Totale
 Sì | Microsoft.Web/hostingEnvironments/multiRolePools | Http2xx | Http 2xx | Conteggio | Totale
 Sì | Microsoft.Web/hostingEnvironments/multiRolePools | Http3xx | Http 3xx | Conteggio | Totale
@@ -1568,7 +1581,7 @@ Sì | Microsoft.Web/hostingEnvironments/workerPools | WorkersUsed | Ruoli di lav
 Sì | Microsoft.Web/serverfarms | BytesReceived | Dati in entrata | Byte | Totale
 Sì | Microsoft.Web/serverfarms | BytesSent | Dati in uscita | Byte | Totale
 Sì | Microsoft.Web/serverfarms | CpuPercentage | Percentuale CPU | Percentuale | Media
-Sì | Microsoft.Web/serverfarms | DiskQueueLength | Lunghezza coda disco | Conteggio | Media
+Sì | Microsoft.Web/serverfarms | DiskQueueLength | Lunghezza coda del disco | Conteggio | Media
 Sì | Microsoft.Web/serverfarms | HttpQueueLength | Lunghezza coda HTTP | Conteggio | Media
 Sì | Microsoft.Web/serverfarms | MemoryPercentage | Percentuale memoria | Percentuale | Media
 Sì | Microsoft.Web/serverfarms | TcpCloseWait | Attesa chiusura TCP | Conteggio | Media
@@ -1586,13 +1599,13 @@ Sì | Microsoft.Web/sites | AverageResponseTime | Tempo medio di risposta | Seco
 Sì | Microsoft.Web/sites | BytesReceived | Dati in entrata | Byte | Totale
 Sì | Microsoft.Web/sites | BytesSent | Dati in uscita | Byte | Totale
 Sì | Microsoft.Web/sites | CpuTime | Tempo CPU | Secondi | Totale
-Sì | Microsoft.Web/sites | CurrentAssemblies | Assembly attuali | Conteggio | Media
+Sì | Microsoft.Web/sites | CurrentAssemblies | Assembly correnti | Conteggio | Media
 Sì | Microsoft.Web/sites | FunctionExecutionCount | Conteggio delle esecuzioni della funzione | Conteggio | Totale
 Sì | Microsoft.Web/sites | FunctionExecutionUnits | Unità di esecuzione della funzione | Conteggio | Totale
 Sì | Microsoft.Web/sites | Gen0Collections | Garbage Collection di generazione 0 | Conteggio | Totale
 Sì | Microsoft.Web/sites | Gen1Collections | Garbage Collection di generazione 1 | Conteggio | Totale
 Sì | Microsoft.Web/sites | Gen2Collections | Garbage Collection di generazione 2 | Conteggio | Totale
-Sì | Microsoft.Web/sites | Selettori | Numero di handle | Conteggio | Media
+Sì | Microsoft.Web/sites | Selettori | Numero degli handle | Conteggio | Media
 Sì | Microsoft.Web/sites | HealthCheckStatus | Stato controllo integrità | Conteggio | Media
 Sì | Microsoft.Web/sites | Http101 | Http 101 | Conteggio | Totale
 Sì | Microsoft.Web/sites | Http2xx | Http 2xx | Conteggio | Totale
@@ -1611,10 +1624,10 @@ Sì | Microsoft.Web/sites | IoReadOperationsPerSecond | I/O - Operazioni di lett
 Sì | Microsoft.Web/sites | IoWriteBytesPerSecond | I/O - Byte in scrittura al secondo | Byte al secondo | Totale
 Sì | Microsoft.Web/sites | IoWriteOperationsPerSecond | I/O - Operazioni di scrittura al secondo | Byte al secondo | Totale
 Sì | Microsoft.Web/sites | MemoryWorkingSet | Working set della memoria | Byte | Media
-Sì | Microsoft.Web/sites | PrivateBytes | Private Bytes | Byte | Media
+Sì | Microsoft.Web/sites | PrivateBytes | Byte privati | Byte | Media
 Sì | Microsoft.Web/sites | Richieste | Richieste | Conteggio | Totale
 Sì | Microsoft.Web/sites | RequestsInApplicationQueue | Richieste nella coda dell'applicazione | Conteggio | Media
-Sì | Microsoft.Web/sites | Threads | Thread Count | Conteggio | Media
+Sì | Microsoft.Web/sites | Thread | Numero dei thread | Conteggio | Media
 Sì | Microsoft.Web/sites | TotalAppDomains | Totale di domini app | Conteggio | Media
 Sì | Microsoft.Web/sites | TotalAppDomainsUnloaded | Totale di domini app scaricati | Conteggio | Media
 Sì | Microsoft.Web/sites/slots | AppConnections | Connessioni | Conteggio | Media
@@ -1623,13 +1636,13 @@ Sì | Microsoft.Web/sites/slots | AverageResponseTime | Tempo medio di risposta 
 Sì | Microsoft.Web/sites/slots | BytesReceived | Dati in entrata | Byte | Totale
 Sì | Microsoft.Web/sites/slots | BytesSent | Dati in uscita | Byte | Totale
 Sì | Microsoft.Web/sites/slots | CpuTime | Tempo CPU | Secondi | Totale
-Sì | Microsoft.Web/sites/slots | CurrentAssemblies | Assembly attuali | Conteggio | Media
+Sì | Microsoft.Web/sites/slots | CurrentAssemblies | Assembly correnti | Conteggio | Media
 Sì | Microsoft.Web/sites/slots | FunctionExecutionCount | Conteggio delle esecuzioni della funzione | Conteggio | Totale
 Sì | Microsoft.Web/sites/slots | FunctionExecutionUnits | Unità di esecuzione della funzione | Conteggio | Totale
 Sì | Microsoft.Web/sites/slots | Gen0Collections | Garbage Collection di generazione 0 | Conteggio | Totale
 Sì | Microsoft.Web/sites/slots | Gen1Collections | Garbage Collection di generazione 1 | Conteggio | Totale
 Sì | Microsoft.Web/sites/slots | Gen2Collections | Garbage Collection di generazione 2 | Conteggio | Totale
-Sì | Microsoft.Web/sites/slots | Selettori | Numero di handle | Conteggio | Media
+Sì | Microsoft.Web/sites/slots | Selettori | Numero degli handle | Conteggio | Media
 Sì | Microsoft.Web/sites/slots | HealthCheckStatus | Stato controllo integrità | Conteggio | Media
 Sì | Microsoft.Web/sites/slots | Http101 | Http 101 | Conteggio | Totale
 Sì | Microsoft.Web/sites/slots | Http2xx | Http 2xx | Conteggio | Totale
@@ -1648,9 +1661,9 @@ Sì | Microsoft.Web/sites/slots | IoReadOperationsPerSecond | I/O - Operazioni d
 Sì | Microsoft.Web/sites/slots | IoWriteBytesPerSecond | I/O - Byte in scrittura al secondo | Byte al secondo | Totale
 Sì | Microsoft.Web/sites/slots | IoWriteOperationsPerSecond | I/O - Operazioni di scrittura al secondo | Byte al secondo | Totale
 Sì | Microsoft.Web/sites/slots | MemoryWorkingSet | Working set della memoria | Byte | Media
-Sì | Microsoft.Web/sites/slots | PrivateBytes | Private Bytes | Byte | Media
+Sì | Microsoft.Web/sites/slots | PrivateBytes | Byte privati | Byte | Media
 Sì | Microsoft.Web/sites/slots | Richieste | Richieste | Conteggio | Totale
 Sì | Microsoft.Web/sites/slots | RequestsInApplicationQueue | Richieste nella coda dell'applicazione | Conteggio | Media
-Sì | Microsoft.Web/sites/slots | Threads | Thread Count | Conteggio | Media
+Sì | Microsoft.Web/sites/slots | Thread | Numero dei thread | Conteggio | Media
 Sì | Microsoft.Web/sites/slots | TotalAppDomains | Totale di domini app | Conteggio | Media
 Sì | Microsoft.Web/sites/slots | TotalAppDomainsUnloaded | Totale di domini app scaricati | Conteggio | Media

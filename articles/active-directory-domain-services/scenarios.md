@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 489f4a527a5afaf1bab5e2065137a5011d45baa6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5d0035e7c87806012d13117ae5335b7de5f3c99d
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474446"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132289"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Casi d'uso comuni e scenari per Azure Active Directory Domain Services
 
@@ -65,7 +65,7 @@ Le considerazioni sulla distribuzione seguenti si applicano al caso d'uso di ese
 
 Come lo scenario di esempio precedente, si supponga che Contoso disponga di un'applicazione line-of-business (LOB) locale sviluppata quasi un decennio fa. Questa applicazione è compatibile con le directory ed è stata progettata per utilizzare LDAP per leggere informazioni/attributi sugli utenti di servizi di dominio Active Directory. L'applicazione non modifica gli attributi o altrimenti scrive nella directory.
 
-Contoso vuole eseguire la migrazione di questa applicazione in Azure e ritirare l'hardware locale obsoleto che ospita attualmente questa applicazione. Non è possibile riscrivere l'applicazione per usare le API di directory moderne, ad esempio le Azure AD basate su REST API Graph. Si desidera un'opzione Lift-and-Shift in cui è possibile eseguire la migrazione dell'applicazione per l'esecuzione nel cloud, senza modificare il codice o riscrivere l'applicazione.
+Contoso vuole eseguire la migrazione di questa applicazione in Azure e ritirare l'hardware locale obsoleto che ospita attualmente questa applicazione. Non è possibile riscrivere l'applicazione per usare API di directory moderne, ad esempio l'API Microsoft Graph basata su REST. Si desidera un'opzione Lift-and-Shift in cui è possibile eseguire la migrazione dell'applicazione per l'esecuzione nel cloud, senza modificare il codice o riscrivere l'applicazione.
 
 Per semplificare questo scenario, Azure AD DS consente alle applicazioni di eseguire letture LDAP sul dominio gestito per ottenere le informazioni sugli attributi necessarie. Non è necessario riscrivere l'applicazione, quindi un lift-and-Shift in Azure consente agli utenti di continuare a usare l'app senza rendersi conto che è presente una modifica in cui viene eseguito.
 

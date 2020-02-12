@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 5ac1f3e4bf629a2e12eb0461b932a5865228c79c
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.date: 02/11/2020
+ms.openlocfilehash: 6dd8246d5751609e2f20ee9d5e519529752940f7
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546708"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137536"
 ---
 # <a name="cross-validate-model"></a>Cross Validate Model
 
@@ -62,21 +62,19 @@ In questo scenario è necessario eseguire il training e il test del modello usan
 
 2. Connettere l'output di un modello di classificazione o di regressione. 
 
-    Ad esempio, se si usa **due classi Bayes Point Machine** per la classificazione, configurare il modello con i parametri desiderati. Trascinare quindi un connettore dalla porta del **modello** non sottoposto a training del classificatore alla porta corrispondente di Cross Validate Model. 
+    Se, ad esempio, si usa un **albero delle decisioni con boosting di classe** per la classificazione, configurare il modello con i parametri desiderati. Trascinare quindi un connettore dalla porta del **modello** non sottoposto a training del classificatore alla porta corrispondente di Cross Validate Model. 
 
     > [!TIP] 
     > Non è necessario eseguire il training del modello, perché Cross-Validate Model esegue automaticamente il training del modello come parte della valutazione.  
 3.  Sulla porta del **set di dati** di Cross Validate Model, connettere qualsiasi set di dati di training con etichetta.  
 
-4.  Nel riquadro **Proprietà** di Cross Validate Model selezionare **Avvia selettore colonne**. Scegliere la singola colonna che contiene l'etichetta della classe o il valore stimabile. 
+4.  Nel pannello destro di Cross Validate Model fare clic su **Edit Column**. Consente di selezionare la singola colonna che contiene l'etichetta della classe oppure il valore stimabile. 
 
 5. Impostare un valore per il parametro **seed casuale** se si desidera ripetere i risultati della convalida incrociata in esecuzioni successive sugli stessi dati.  
 
 6. Eseguire la pipeline.
 
 7. Per una descrizione dei report, vedere la sezione relativa ai [risultati](#results) .
-
-    Per ottenere una copia del modello da riutilizzare in un secondo momento, passare alla scheda **output** nel riquadro di destra del modulo che contiene l'algoritmo (ad esempio, la **due classe Bayes Point Machine**). Selezionare quindi l'icona **registra set di dati** per salvare una copia del modello sottoposto a training nell'albero del modulo.
 
 ## <a name="results"></a>Risultati
 
@@ -88,9 +86,9 @@ Il primo output del modulo fornisce i dati di origine per ogni riga, insieme ad 
 
 Per visualizzare i risultati, nella pipeline fare clic con il pulsante destro del mouse sul modulo Cross Validate Model. Selezionare **Visualizza risultati con punteggio**.
 
-| Nome nuova colonna      | Description                              |
+| Nuovo nome della colonna      | Descrizione                              |
 | -------------------- | ---------------------------------------- |
-| Scored Labels        | Questa colonna viene aggiunta alla fine del set di dati. Contiene il valore stimato per ogni riga. |
+| Etichette con Punteggio        | Questa colonna viene aggiunta alla fine del set di dati. Contiene il valore stimato per ogni riga. |
 | Probabilità con Punteggio | Questa colonna viene aggiunta alla fine del set di dati. Indica la probabilità stimata del valore nelle **etichette con punteggio**. |
 | Numero di riduzioni          | Indica l'indice in base zero della riduzioni a cui è stata assegnata ogni riga di dati durante la convalida incrociata. |
 
@@ -103,7 +101,7 @@ In questo report, le riduzioni sono elencate in base al valore di indice in ordi
 Per visualizzare i risultati, nella pipeline fare clic con il pulsante destro del mouse sul modulo Cross Validate Model. Selezionare **Visualizza i risultati della valutazione in base a riduzioni**.
 
 
-|Nome colonna| Description|
+|Nome colonna| Descrizione|
 |----|----|
 |Numero di riduzioni| Identificatore per ogni riduzioni. Se sono state create cinque riduzioni, saranno presenti cinque subset di dati, numerati da 0 a 4.
 |Numero di esempi in riduzioni|Numero di righe assegnate a ogni riduzioni. Devono essere approssimativamente uguali. |

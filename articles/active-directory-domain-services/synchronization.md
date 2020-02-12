@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: a0c9a654d0ee49dc2bdb6efb7370a3ad2b199e10
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b2a1bcedcc459a21bbc8a461ba9c8d9a8d65aebe
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481305"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132197"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Modalità di sincronizzazione di oggetti e credenziali in un Azure AD Domain Services dominio gestito
 
@@ -38,7 +38,7 @@ Il processo di sincronizzazione è unidirezionale/unidirezionale per progettazio
 
 La tabella seguente elenca alcuni attributi comuni e il modo in cui vengono sincronizzati con Azure AD DS.
 
-| Attributo in Azure AD DS | Source | note |
+| Attributo in Azure AD DS | Origine | Note |
 |:--- |:--- |:--- |
 | UPN | Attributo *UPN* dell'utente in Azure ad tenant | L'attributo UPN del tenant Azure AD viene sincronizzato così com'è per Azure AD DS. Il modo più affidabile per accedere a un dominio gestito di Azure AD DS consiste nell'usare l'UPN. |
 | SAMAccountName | Attributo *mailNickname* dell'utente in Azure ad tenant o generato automaticamente | L'attributo *sAMAccountName* viene originato dall'attributo *mailNickname* nel tenant Azure ad. Se più account utente hanno lo stesso attributo *mailNickname* , il *sAMAccountName* viene generato automaticamente. Se il *mailNickname* o il prefisso *UPN* dell'utente è più lungo di 20 caratteri, *sAMAccountName* viene generato automaticamente per soddisfare il limite di 20 caratteri per gli attributi *sAMAccountName* . |
@@ -65,11 +65,11 @@ Nella tabella seguente viene illustrato il modo in cui gli attributi specifici p
 | facsimileTelephoneNumber |facsimileTelephoneNumber |
 | givenName |givenName |
 | jobTitle |title |
-| mail |mail |
+| posta |posta |
 | mailNickname |msDS-AzureADMailNickname |
 | mailNickname |SAMAccountName (a volte può essere generato automaticamente) |
 | mobile |mobile |
-| objectId |msDS-AzureADObjectId |
+| objectid |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
 | passwordPolicies |userAccountControl (imposta o cancella il bit DONT_EXPIRE_PASSWORD) |
 | physicalDeliveryOfficeName |physicalDeliveryOfficeName |
@@ -89,18 +89,18 @@ Nella tabella seguente viene illustrato il modo in cui gli attributi specifici p
 |:--- |:--- |
 | displayName |displayName |
 | displayName |SAMAccountName (a volte può essere generato automaticamente) |
-| mail |mail |
+| posta |posta |
 | mailNickname |msDS-AzureADMailNickname |
-| objectId |msDS-AzureADObjectId |
+| objectid |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
 | securityEnabled |groupType |
 
 ## <a name="synchronization-from-on-premises-ad-ds-to-azure-ad-and-azure-ad-ds"></a>Sincronizzazione da servizi di dominio Active Directory locali a Azure AD e Azure AD DS
 
-Azure AD Connect viene usato per sincronizzare gli account utente, le appartenenze ai gruppi e gli hash delle credenziali da un ambiente Active Directory Domain Services locale a Azure AD. Gli attributi degli account utente, ad esempio UPN e l'ID di sicurezza locale (SID), sono sincronizzati. Per accedere con Azure AD Domain Services, gli hash delle password legacy necessari per l'autenticazione NTLM e Kerberos sono sincronizzati anche con Azure AD.
+Azure AD Connect viene usato per sincronizzare gli account utente, le appartenenze ai gruppi e gli hash delle credenziali da un ambiente Active Directory Domain Services locale a Azure AD. Gli attributi degli account utente, ad esempio UPN e l'ID di sicurezza locale (SID), sono sincronizzati. Per accedere con Azure AD DS, gli hash delle password legacy necessari per l'autenticazione NTLM e Kerberos sono sincronizzati anche con Azure AD.
 
 > [!IMPORTANT]
-> Azure AD Connect deve essere installato e configurato solo per la sincronizzazione con gli ambienti di servizi di dominio Active Directory locali. Non è supportata l'installazione di Azure AD Connect in un dominio gestito Azure AD DS per sincronizzare nuovamente gli oggetti con Azure AD.
+> Azure AD Connect deve essere installato e configurato solo per la sincronizzazione con gli ambienti AD DS locali. Non è supportata l'installazione di Azure AD Connect in un dominio gestito di Azure AD DS per sincronizzare gli oggetti con Azure AD.
 
 Se si configura il writeback, le modifiche apportate da Azure AD vengono sincronizzate di nuovo nell'ambiente di servizi di dominio Active Directory locale. Se, ad esempio, un utente modifica la password utilizzando Azure AD la gestione delle password self-service, la password viene aggiornata nuovamente nell'ambiente di servizi di dominio Active Directory locale.
 
@@ -113,7 +113,7 @@ Molte organizzazioni dispongono di un ambiente Active Directory Domain Services 
 
 Azure AD dispone di uno spazio dei nomi molto più semplice e Flat. Per consentire agli utenti di accedere in modo affidabile ad applicazioni protette da Azure AD, risolvere i conflitti UPN tra gli account utente nelle varie foreste. Azure AD domini gestiti DS utilizzano una struttura di unità organizzativa Flat, simile a Azure AD. Tutti gli account utente e i gruppi vengono archiviati nel contenitore *degli utenti di aaddc Computers* , anche se sono sincronizzati da domini o foreste locali diversi, anche se è stata configurata una struttura organizzativa gerarchica locale. Il dominio gestito Azure AD DS rende flat tutte le strutture OU gerarchiche.
 
-Come descritto in precedenza, non viene eseguita alcuna sincronizzazione tra Azure AD DS e Azure AD. È possibile [creare un'unità organizzativa (OU) personalizzata](create-ou.md) in Azure AD DS e quindi utenti, gruppi o account del servizio all'interno di tali unità organizzative personalizzate. Nessuno degli oggetti creati nelle unità organizzative personalizzate viene sincronizzato nuovamente con Azure AD. Questi oggetti sono disponibili solo all'interno del dominio gestito Azure AD DS e non sono visibili tramite Azure AD cmdlet di PowerShell, Azure AD API Graph o usando l'interfaccia utente di gestione Azure AD.
+Come descritto in precedenza, non viene eseguita alcuna sincronizzazione tra Azure AD DS e Azure AD. È possibile [creare un'unità organizzativa (OU) personalizzata](create-ou.md) in Azure AD DS e quindi utenti, gruppi o account del servizio all'interno di tali unità organizzative personalizzate. Nessuno degli oggetti creati nelle unità organizzative personalizzate viene sincronizzato nuovamente con Azure AD. Questi oggetti sono disponibili solo all'interno del dominio gestito Azure AD DS e non sono visibili tramite Azure AD cmdlet di PowerShell, Microsoft Graph API o tramite l'interfaccia utente di gestione Azure AD.
 
 ## <a name="what-isnt-synchronized-to-azure-ad-ds"></a>Cosa non viene sincronizzato con Azure AD DS
 
@@ -128,7 +128,11 @@ Gli oggetti o gli attributi seguenti non vengono sincronizzati da un ambiente Ac
 
 ## <a name="password-hash-synchronization-and-security-considerations"></a>Considerazioni sulla sicurezza e la sincronizzazione dell'hash delle password
 
-Quando si Abilita Azure AD DS, sono necessari gli hash delle password legacy per l'autenticazione NTLM + Kerberos. Azure AD non archivia le password di testo non crittografato, pertanto non è possibile generare automaticamente questi hash per gli account utente esistenti. Una volta generati e archiviati, gli hash delle password compatibili con NTLM e Kerberos vengono sempre archiviati in modo crittografato in Azure AD. Le chiavi di crittografia sono univoche per ogni tenant Azure AD. Questi hash sono crittografati in modo che solo Azure AD DS abbia accesso alle chiavi di decrittografia. Nessun altro servizio o componente in Azure AD ha accesso alle chiavi di decrittografia. Gli hash delle password legacy vengono quindi sincronizzati da Azure AD nei controller di dominio per un dominio gestito Azure AD DS. I dischi per i controller di dominio gestiti in Azure AD DS vengono crittografati a riposo. Questi hash delle password vengono archiviati e protetti in questi controller di dominio in modo analogo alla modalità di archiviazione e protezione delle password in un ambiente di servizi di dominio Active Directory locale.
+Quando si Abilita Azure AD DS, sono necessari gli hash delle password legacy per l'autenticazione NTLM + Kerberos. Azure AD non archivia le password di testo non crittografato, pertanto non è possibile generare automaticamente questi hash per gli account utente esistenti. Una volta generati e archiviati, gli hash delle password compatibili con NTLM e Kerberos vengono sempre archiviati in modo crittografato in Azure AD.
+
+Le chiavi di crittografia sono univoche per ogni tenant Azure AD. Questi hash sono crittografati in modo che solo Azure AD DS abbia accesso alle chiavi di decrittografia. Nessun altro servizio o componente in Azure AD ha accesso alle chiavi di decrittografia.
+
+Gli hash delle password legacy vengono quindi sincronizzati da Azure AD nei controller di dominio per un dominio gestito Azure AD DS. I dischi per i controller di dominio gestiti in Azure AD DS vengono crittografati a riposo. Questi hash delle password vengono archiviati e protetti in questi controller di dominio in modo analogo alla modalità di archiviazione e protezione delle password in un ambiente di servizi di dominio Active Directory locale.
 
 Per gli ambienti di Azure AD solo cloud, [gli utenti devono reimpostare o modificare la password](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) affinché gli hash delle password richiesti vengano generati e archiviati in Azure ad. Per qualsiasi account utente del cloud creato in Azure AD dopo l'abilitazione di Azure AD Domain Services, gli hash delle password sono generati e archiviati in formati compatibili con NTLM e Kerberos. I nuovi account non devono reimpostare o modificare la password generano gli hash delle password legacy.
 

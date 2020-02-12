@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 0f28d984cfc29e67c3b5c3a90137ee09868b471c
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: a2bc39a35299f56ba52a0143ce123560bd4d88fa
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806029"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137761"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Eseguire il training di un modello per Riconoscimento vocale personalizzato
 
-Il training di un modello di sintesi vocale può migliorare l'accuratezza del riconoscimento per il modello di base di Microsoft o un modello personalizzato che si sta pianificando di creare. Viene eseguito il training di un modello usando trascrizioni con etichetta umana e testo correlato. Questi set di dati, insieme ai dati audio caricati in precedenza, vengono usati per perfezionare ed eseguire il training del modello di riconoscimento vocale per riconoscere parole, frasi, acronimi, nomi e altri termini specifici del prodotto. Maggiore è il numero di set di dati nel dominio forniti, ovvero i dati correlati a ciò che gli utenti indicheranno e cosa si prevede di riconoscere, maggiore sarà l'accuratezza del modello, con conseguente miglioramento del riconoscimento. Tenere presente che, inserendo dati non correlati nel training, è possibile ridurre o danneggiare l'accuratezza del modello.
+Il training di un modello di sintesi vocale può migliorare l'accuratezza del riconoscimento per il modello di base di Microsoft. Viene eseguito il training di un modello usando trascrizioni con etichetta umana e testo correlato. Questi set di dati, insieme ai dati audio caricati in precedenza, vengono usati per perfezionare ed eseguire il training del modello di riconoscimento vocale per riconoscere parole, frasi, acronimi, nomi e altri termini specifici del prodotto. Maggiore è il numero di set di dati nel dominio forniti, ovvero i dati correlati a ciò che gli utenti indicheranno e cosa si prevede di riconoscere, maggiore sarà l'accuratezza del modello, con conseguente miglioramento del riconoscimento. Tenere presente che, inserendo dati non correlati nel training, è possibile ridurre o danneggiare l'accuratezza del modello.
 
 ## <a name="use-training-to-resolve-accuracy-issues"></a>Usare il training per risolvere i problemi di accuratezza
 
@@ -34,7 +34,7 @@ Se si riscontrano problemi di riconoscimento con il modello, l'uso di trascrizio
 > [!IMPORTANT]
 > Se non è stato caricato un set di dati, vedere [preparare e testare i dati](how-to-custom-speech-test-data.md). In questo documento vengono fornite istruzioni per il caricamento dei dati e le linee guida per la creazione di set di dati di alta qualità.
 
-## <a name="train-and-evaluate-a-model"></a>Eseguire il training di un modello e valutarlo
+## <a name="train-and-evaluate-a-model"></a>Eseguire il training e valutare un modello
 
 Il primo passaggio per eseguire il training di un modello consiste nel caricare i dati di training. Usare [preparare e testare i dati](how-to-custom-speech-test-data.md) per istruzioni dettagliate per preparare le trascrizioni con etichetta umana e il testo correlato (espressioni e pronunce). Dopo aver caricato i dati di training, seguire queste istruzioni per avviare il training del modello:
 

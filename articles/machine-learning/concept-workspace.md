@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
-ms.openlocfilehash: f3c2b1aa8f41b382bea96b33108d23bf09850c78
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: ba3e677b98406a5f126649aafc2f89fb9d20c895
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984762"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137622"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Che cos'è un'area di lavoro Azure Machine Learning?
 
@@ -70,9 +70,9 @@ Le attività di Machine Learning leggono e/o scrivono elementi nell'area di lavo
 
 È inoltre possibile eseguire le attività di gestione dell'area di lavoro seguenti:
 
-| Attività di gestione dell'area di lavoro   | Portale              | Studio | SDK Python/R SDK       | Interfaccia della riga di comando        |
+| Attività di gestione dell'area di lavoro   | Portal              | Studio | SDK Python/R SDK       | CLI        |
 |---------------------------|---------|---------|------------|------------|
-| Creare un'area di lavoro        | **&check;**     | | **&check;** | **&check;** |
+| Crea area di lavoro        | **&check;**     | | **&check;** | **&check;** |
 | Gestisci l'accesso all'area di lavoro    | **&check;**   || |  **&check;**    |
 | Eseguire l'aggiornamento a Enterprise Edition    | **&check;** | **&check;**  | |     |
 | Creare e gestire risorse di calcolo    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
@@ -81,6 +81,9 @@ Le attività di Machine Learning leggono e/o scrivono elementi nell'area di lavo
 > [!NOTE]
 > Le istanze di calcolo sono disponibili solo per le aree di lavoro con un'area geografica **Stati Uniti centro-settentrionali**, **Stati Uniti orientali 2**, **Europa settentrionale** o **Regno Unito meridionale**e il supporto per altre aree presto disponibile.
 >Se l'area di lavoro si trova in qualsiasi altra area geografica, è possibile continuare a creare e usare una [macchina virtuale notebook](concept-compute-instance.md#notebookvm) in alternativa.
+
+> [!WARNING]
+> Non è supportato lo stato di un'area di lavoro di Azure Machine Learning in una sottoscrizione diversa o di trasferimento della sottoscrizione proprietaria a un nuovo tenant. Questa operazione può causare errori.
 
 ## <a name='create-workspace'></a>Creare un'area di lavoro
 

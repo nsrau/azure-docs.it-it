@@ -11,12 +11,12 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 283b4004f34372104eb083496400772884f5965e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 633c3ffc8e266087c88116a15c43469727a9a50d
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420385"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133638"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Creare, configurare e gestire processi elastici
 
@@ -41,7 +41,7 @@ Se non si sono mai usati processi elastici, vedere [altre informazioni sui conce
 6. Eseguire un processo usando [PowerShell](elastic-jobs-powershell.md#run-the-job) o [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).
 7. Monitorare lo stato di esecuzione del processo usando il portale, [PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions) o [T-SQL](elastic-jobs-tsql.md#monitor-job-execution-status).
 
-   ![di Microsoft Azure](media/elastic-jobs-overview/elastic-job-executions-overview.png)
+   ![Portal](media/elastic-jobs-overview/elastic-job-executions-overview.png)
 
 ## <a name="credentials-for-running-jobs"></a>Credenziali per l'esecuzione di processi
 
@@ -57,7 +57,7 @@ L'immagine seguente semplifica la comprensione e la configurazione delle credenz
 
 ![Credenziali dei processi elastici](media/elastic-jobs-overview/job-credentials.png)
 
-## <a name="security-best-practices"></a>Procedure di sicurezza consigliate
+## <a name="security-best-practices"></a>Procedure consigliate per la sicurezza
 
 Alcune considerazioni sulle procedure consigliate per l'uso dei processi elastici:
 
@@ -88,7 +88,7 @@ Una semplice strategia consiste nel verificare l'esistenza di un oggetto prima d
 
 
 ```sql
-IF NOT EXIST (some_object)
+IF NOT EXISTS (some_object)
     -- Create the object
     -- If it exists, drop the object before recreating it.
 ```

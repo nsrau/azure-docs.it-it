@@ -9,14 +9,14 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.openlocfilehash: 5df00d68b7114cc489b0708f5c2e401c87d0be15
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: d41b0499df1a62440e8c1991e29f7963224a50d6
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314029"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138163"
 ---
-# <a name="import-your-data-into-azure-machine-learning-designer"></a>Importare i dati in Azure Machine Learning Designer
+# <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importare i dati in Azure Machine Learning Designer (anteprima)
 
 In questo articolo si apprenderà come importare i propri dati nella finestra di progettazione per creare soluzioni personalizzate. È possibile importare i dati nella finestra di progettazione in due modi: 
 
@@ -45,7 +45,7 @@ I set di documenti registrati sono disponibili nella tavolozza dei moduli, in **
 
 ![Screenshot che mostra la posizione dei set di impostazioni salvati nella tavolozza della finestra di progettazione](media/how-to-designer-import-data/use-datasets-designer.png)
 
-Qualsiasi [set di dati di file](how-to-create-register-datasets.md#dataset-types) registrato nell'area di lavoro di machine learning verrà visualizzato nella tavolozza dei moduli. Non si è limitati all'uso di set di impostazioni creati nella finestra di progettazione.
+
 
 > [!NOTE]
 > La finestra di progettazione supporta attualmente solo l'elaborazione di [DataSet tabulari](how-to-create-register-datasets.md#dataset-types). Se si vogliono usare i [set di file di file](how-to-create-register-datasets.md#dataset-types), usare l'SDK Azure machine learning disponibile per Python e R.
@@ -70,13 +70,13 @@ La finestra di progettazione supporta i set di impostazioni tabulari creati dall
  * File delimitati
  * File JSON
  * File Parquet
- * Query SQL
+ * query SQL
 
 ## <a name="data-types"></a>Tipi di dati
 
 La finestra di progettazione riconosce internamente i tipi di dati seguenti:
 
-* string
+* String
 * Integer
 * Decimal
 * Boolean

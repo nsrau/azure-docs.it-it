@@ -1,5 +1,5 @@
 ---
-title: Creare o aggiornare i ruoli personalizzati per le risorse di Azure usando l'API REST-Azure | Microsoft Docs
+title: Creare o aggiornare i ruoli personalizzati per le risorse di Azure con l'API REST
 description: Informazioni su come elencare, creare, aggiornare o eliminare ruoli personalizzati con il controllo degli accessi in base al ruolo (RBAC) per le risorse di Azure usando l'API REST.
 services: active-directory
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 474de8934ec7e27df601fe80809566a801e6af61
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 145bc45e1b7faeddc23cf5f0662337e15ab51c29
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452929"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137351"
 ---
 # <a name="create-or-update-custom-roles-for-azure-resources-using-the-rest-api"></a>Creare o aggiornare i ruoli personalizzati per le risorse di Azure usando l'API REST
 
@@ -38,7 +38,7 @@ Per elencare tutti i ruoli personalizzati in una directory, usare l'API REST per
 
 1. Sostituire *{Filter}* con il tipo di ruolo.
 
-    | Filtra | Description |
+    | Filtro | Descrizione |
     | --- | --- |
     | `$filter=type%20eq%20'CustomRole'` | Filtrare in base al tipo CustomRole |
 
@@ -54,15 +54,15 @@ Per elencare i ruoli personalizzati in un ambito, usare l'API REST per l' [elenc
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per il quale elencare i ruoli.
 
-    | Ambito | Tipo |
+    | Ambito | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Sottoscrizione |
+    | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Gruppi |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Sostituire *{Filter}* con il tipo di ruolo.
 
-    | Filtra | Description |
+    | Filtro | Descrizione |
     | --- | --- |
     | `$filter=type%20eq%20'CustomRole'` | Filtrare in base al tipo CustomRole |
 
@@ -78,15 +78,15 @@ Per ottenere informazioni su un ruolo personalizzato in base al nome visualizzat
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per il quale elencare i ruoli.
 
-    | Ambito | Tipo |
+    | Ambito | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Sottoscrizione |
+    | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Gruppi |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Sostituire *{Filter}* con il nome visualizzato per il ruolo.
 
-    | Filtra | Description |
+    | Filtro | Descrizione |
     | --- | --- |
     | `$filter=roleName%20eq%20'{roleDisplayName}'` | Usare il form con codifica URL dell'esatto nome visualizzato del ruolo. Ad esempio: `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
@@ -104,11 +104,11 @@ Per ottenere informazioni su un ruolo personalizzato in base al relativo identif
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per il quale elencare i ruoli.
 
-    | Ambito | Tipo |
+    | Ambito | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Sottoscrizione |
+    | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Gruppi |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Sostituire *{roleDefinitionId}* con l'identificatore del GUID della definizione di ruolo.
 
@@ -152,11 +152,11 @@ Per creare un ruolo personalizzato, usare l'API REST [Role Definitions - Create 
 
 1. All'interno dell'URI sostituire *{scope}* con il primo `assignableScopes` del ruolo personalizzato.
 
-    | Ambito | Tipo |
+    | Ambito | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Sottoscrizione |
+    | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Gruppi |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Sostituire *{roleDefinitionId}* con l'identificatore del GUID del ruolo personalizzato.
 
@@ -217,11 +217,11 @@ Per aggiornare un ruolo personalizzato, usare l'API REST [Role Definitions - Cre
 
 1. All'interno dell'URI sostituire *{scope}* con il primo `assignableScopes` del ruolo personalizzato.
 
-    | Ambito | Tipo |
+    | Ambito | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Sottoscrizione |
+    | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Gruppi |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Sostituire *{roleDefinitionId}* con l'identificatore del GUID del ruolo personalizzato.
 
@@ -301,11 +301,11 @@ Per eliminare un ruolo personalizzato, usare l'API REST [Role Definitions - Dele
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito in cui si vuole eliminare il ruolo personalizzato.
 
-    | Ambito | Tipo |
+    | Ambito | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Sottoscrizione |
+    | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Gruppi |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Sostituire *{roleDefinitionId}* con l'identificatore del GUID del ruolo personalizzato.
 

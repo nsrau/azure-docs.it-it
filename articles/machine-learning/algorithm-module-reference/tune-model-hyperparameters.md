@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/16/2019
-ms.openlocfilehash: d15da0c0cb00f640d2ffc647475f66b76119f609
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.date: 02/11/2020
+ms.openlocfilehash: 112a7f7aa61984b2ce9bd8400c629fe62db55584
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548374"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137906"
 ---
 # <a name="tune-model-hyperparameters"></a>Tune Model Hyperparameters
 
@@ -43,17 +43,13 @@ Questa sezione descrive come eseguire uno sweep di parametri di base, che esegue
 
 2.  Connettere un modello non sottoposto a training all'input più a sinistra. 
 
-3. Impostare l'opzione **crea modalità trainer** su **intervallo parametri**. Utilizzare il **Generatore di intervalli** per specificare un intervallo di valori da utilizzare nello sweep di parametri.  
 
-    Quasi tutti i moduli di classificazione e regressione supportano uno sweep di parametri integrato. Per gli studenti che non supportano la configurazione di un intervallo di parametri, è possibile testare solo i valori dei parametri disponibili.
-
-    È possibile impostare manualmente il valore per uno o più parametri, quindi eseguire lo sweep sui parametri rimanenti. Questo potrebbe risparmiare tempo.
 
 4.  Aggiungere il set di dati che si vuole usare per il training e connetterlo all'input centrale degli iperparametri del modello di ottimizzazione.  
 
     Facoltativamente, se si dispone di un set di dati con tag, è possibile connetterlo alla porta di input più a destra (**set di dati di convalida facoltativo**). In questo modo è possibile misurare l'accuratezza durante il training e l'ottimizzazione.
 
-5.  Nel riquadro **Proprietà** di Tune Model iperparametri scegliere un valore per la modalità di **sweep dei parametri**. Questa opzione consente di controllare la modalità di selezione dei parametri.
+5.  Nel riquadro di destra di ottimizzare gli iperparametri del modello, scegliere un valore per la **modalità di sweep dei parametri**. Questa opzione consente di controllare la modalità di selezione dei parametri.
 
     - **Griglia intera**: quando si seleziona questa opzione, il modulo esegue il ciclo su una griglia predefinita dal sistema, per provare combinazioni diverse e identificare il migliore discente. Questa opzione è utile quando non si conoscono le impostazioni dei parametri migliori e si desidera provare tutte le possibili combinazioni di valori.
 
@@ -64,8 +60,6 @@ Questa sezione descrive come eseguire uno sweep di parametri di base, che esegue
 7.  Scegliere il numero di esecuzioni:
 
     1. **Numero massimo di esecuzioni nello Sweep casuale**: se si sceglie una sweep casuale, è possibile specificare il numero di volte in cui il modello deve essere sottoposto a training, usando una combinazione casuale di valori di parametro.
-
-    2. **Numero massimo di esecuzioni su griglia casuale**: questa opzione controlla anche il numero di iterazioni su un campionamento casuale di valori di parametro, ma i valori non vengono generati in modo casuale dall'intervallo specificato. Il modulo crea invece una matrice di tutte le possibili combinazioni di valori dei parametri. Esegue quindi un campionamento casuale sulla matrice. Questo metodo è più efficiente e meno soggetto a sovracampionamento o sottocampionamento a livello di area.
 
 8.  Per la **classificazione**, scegliere una singola metrica da usare per classificare i modelli.
 

@@ -15,19 +15,18 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 0e793a5aa7d619b0bb7a1d3efcdf665ea400c555
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
-ms.translationtype: MT
+ms.openlocfilehash: 11ee8f52a8fd4db2d052eeaeef1387b011d23050
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69016733"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131560"
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Utilizzare il codificatore NewTek TriCaster per inviare un flusso live a velocità in bit singola.  
 > [!div class="op_single_selector"]
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [Elemental Live](media-services-configure-elemental-live-encoder.md)
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
-> * [FMLE](media-services-configure-fmle-live-encoder.md)
 >
 >
 
@@ -53,7 +52,7 @@ In questa esercitazione viene illustrato come gestire Servizi multimediali di Az
 * È buona norma raddoppiare le velocità in bit di streaming in fase di determinazione dei requisiti di larghezza di banda. Anche se non si tratta di un requisito obbligatorio, contribuirà a ridurre l'impatto della congestione della rete.
 * Se si usano codificatori basati su software, chiudere tutti i programmi non necessari.
 
-## <a name="create-a-channel"></a>Crea un canale
+## <a name="create-a-channel"></a>Creare un canale
 
 1. Nello strumento AMSE passare alla scheda **Live** e fare clic con il pulsante destro del mouse all'interno dell'area del canale. Scegliere **Create channel** dal menu.
 
@@ -87,17 +86,17 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 
 * Codec: H.264
 * Profilo: alto (livello 4.0)
-* Velocità in bit: 5000 Kbps
+* Velocità in bit: 5000 kbps
 * Fotogramma chiave: 2 secondi (60 secondi)
 * Frequenza dei fotogrammi: 30
 
 **Audio**:
 
 * Codec: AAC (LC)
-* Velocità in bit: 192 Kbps
+* Velocità in bit: 192 kbps
 * Frequenza di campionamento: 44,1 kHz
 
-### <a name="configuration-steps"></a>Procedura di configurazione
+### <a name="configuration-steps"></a>Passaggi di configurazione
 
 1. Creare un nuovo progetto **NewTek TriCaster** in base a quale origine di input del video si sta utilizzando.
 2. Una volta all'interno di tale progetto, cercare il pulsante **Flusso** e scegliere l'icona raffigurante un ingranaggio per accedere al menu di configurazione del flusso.
@@ -163,7 +162,7 @@ In caso di errore, sarà necessario reimpostare il canale e regolare le impostaz
 
 Il flusso è ora pronto per essere incorporato in un lettore o distribuito per la visualizzazione pubblica live.  
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Come materiale sussidiario, vedere l'[articolo sulla risoluzione dei problemi](media-services-troubleshooting-live-streaming.md).
 

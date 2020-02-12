@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 32a4fde12287e06c12fac9ed13ad7a8889b49fc1
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ec34ed723e9b0743a9a5fbbe6413659dd63b0e8a
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895924"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134918"
 ---
-# <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming live con Servizi multimediali di Azure per creare flussi a bitrate multipli
+# <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate
 
 > [!NOTE]
 > A partire dal 12 maggio 2018 i canali live non supporteranno più il protocollo di inserimento del flusso di trasporto RTP/MPEG-2. Eseguire la migrazione da RTP/MPEG-2 ai protocolli di inserimento RTMP o MP4 frammentato (Smooth Streaming).
@@ -31,7 +31,7 @@ ms.locfileid: "74895924"
 In Servizi multimediali di Azure (AMS) un **canale** rappresenta una pipeline per l'elaborazione dei contenuti in streaming live. Un **canale** riceve i flussi di input live in uno dei due modi seguenti:
 
 * Un codificatore live locale invia un flusso a bitrate singolo al canale abilitato per l'esecuzione della codifica live con Servizi multimediali in uno dei seguenti formati: RTMP o Smooth Streaming (MP4 frammentato). Il canale esegue quindi la codifica live del flusso in ingresso a velocità in bit singola in un flusso video a più velocità in bit (adattivo). Quando richiesto, Servizi multimediali invia il flusso ai clienti.
-* Un codificatore live locale invia un flusso **RTMP** o **Smooth Streaming** (MP4 frammentato) a bitrate multipli a un canale non abilitato per eseguire la codifica live con AMS. I flussi inseriti passano attraverso il **canale**senza altre elaborazioni. Questo metodo viene chiamato **pass-through**. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a bitrate multipli: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco ed Elemental. I codificatori live seguenti generano output in formato RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek e codificatori Tricaster.  Un codificatore live può anche inviare un flusso a bitrate singolo a un canale non abilitato per la codifica live, ma questa operazione non è consigliata. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
+* Un codificatore live locale invia un flusso **RTMP** o **Smooth Streaming** (MP4 frammentato) a bitrate multipli a un canale non abilitato per eseguire la codifica live con AMS. I flussi inseriti passano attraverso il **canale**senza altre elaborazioni. Questo metodo viene chiamato **pass-through**. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a bitrate multipli: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco ed Elemental. I codificatori Live seguenti generano output RTMP: Telestream Wirecast, HaiVision, Teradek e codificatori Tricaster.  Un codificatore live può anche inviare un flusso a bitrate singolo a un canale non abilitato per la codifica live, ma questa operazione non è consigliata. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
 
   > [!NOTE]
   > L'uso del metodo pass-through è il modo più economico per eseguire uno streaming live.
@@ -58,22 +58,22 @@ Per sospendere l'attività di fatturazione del canale, è necessario interromper
 È l'utente ad essere responsabile dell'interruzione dei canali al termine dell'utilizzo del canale di codifica live.  La mancata interruzione del canale di codifica comporta infatti il proseguimento della fatturazione.
 
 ### <a id="states"></a>Stati del canale e relativi metodi di mapping alla modalità di fatturazione
-Stato attuale di un canale. Possibili valori:
+Si tratta dello stato attuale del canale. I valori possibili sono:
 
-* **Arrestato**. Si tratta dello stato iniziale del canale dopo la sua creazione, a meno che non sia stata selezionata l'opzione avvio automatico nel portale. In questo stato non viene eseguita alcuna fatturazione. In questo stato le proprietà del canale possono essere aggiornate, ma lo streaming non è consentito.
-* **Avvio in corso**. È in corso l'avvio del canale. In questo stato non viene eseguita alcuna attività di fatturazione. Durante questo stato non sono consentiti aggiornamenti o streaming. In caso di errore, il canale torna allo stato Arrestato.
+* **Arrestato**. Si tratta dello stato iniziale del canale dopo la sua creazione, a meno che non sia stata selezionata l'opzione avvio automatico nel portale. In questo stato non viene eseguita alcuna fatturazione. In questo stato le proprietà del canale possono essere aggiornate ma lo streaming non è consentito.
+* **Avvio in corso**. È in corso l'avvio del canale. In questo stato non viene eseguita alcuna attività di fatturazione. In questo stato non è consentito alcun aggiornamento o streaming. Se si verifica un errore, l'entità Channel ritorna allo stato Arrestato.
 * **In esecuzione**. Il canale è in grado di elaborare flussi live. La fatturazione è ora attiva. È necessario interrompere il canale per sospendere la fatturazione. 
-* **Arresto in corso**. È in corso l'arresto del canale. In questo stato di transizione non viene eseguita alcuna attività di fatturazione. Durante questo stato non sono consentiti aggiornamenti o streaming.
-* **Eliminazione in corso**. È in corso l'eliminazione del canale. In questo stato di transizione non viene eseguita alcuna attività di fatturazione. Durante questo stato non sono consentiti aggiornamenti o streaming.
+* **Arresto in corso**. È in corso l'interruzione del canale. In questo stato di transizione non viene eseguita alcuna attività di fatturazione. In questo stato non è consentito alcun aggiornamento o streaming.
+* **Eliminazione in corso**. È in corso l'eliminazione del canale. In questo stato di transizione non viene eseguita alcuna attività di fatturazione. In questo stato non è consentito alcun aggiornamento o streaming.
 
-La tabella seguente mostra l'associazione tra stati del canale e modalità di fatturazione. 
+La tabella seguente illustra il mapping degli stati del canale alla modalità di fatturazione. 
 
 | Stato del canale | Indicatori dell'interfaccia utente del portale | Fatturazione? |
 | --- | --- | --- |
-| Avvio |Avvio |No (stato temporaneo) |
-| Running |Pronto (nessun programma in esecuzione)<br/>Oppure<br/>Streaming (almeno un programma in esecuzione) |SÌ |
+| Avvio in corso |Avvio in corso |No (stato temporaneo) |
+| In esecuzione |Pronto (nessun programma in esecuzione)<br/>o<br/>Streaming (almeno un programma in esecuzione) |YES |
 | Stopping |Stopping |No (stato temporaneo) |
-| Arrestata |Arrestata |No |
+| Arrestato |Arrestato |No |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Spegnimento automatico per i canali non usati
 A partire dal 25 gennaio 2016, Servizi multimediali ha distribuito un aggiornamento che interrompe automaticamente un canale (con la codifica live abilitata) dopo che è rimasto in esecuzione in stato di mancato utilizzo per un lungo periodo. Questa condizione si applica ai canali che non hanno programmi attivi e che non hanno ricevuto un feed di contributo di input per un lungo periodo di tempo.
@@ -207,7 +207,7 @@ Flag facoltativo che indica al codificatore live di ignorare i dati di tutti i s
 #### <a name="index"></a>Indice
 È consigliabile effettuare l'invio tramite un singolo flusso di trasporto del programma (SPTS). Se il flusso di input contiene più programmi, il codificatore live all'interno del canale analizza la tabella di mappa dei programmi (PMT, Program Map Table) nell'input, individua quindi gli input che presentano un nome del tipo di flusso MPEG-2 AAC ADTS, AC-3 System-A, AC-3 System-B, MPEG-2 Private PES, MPEG-1 Audio o MPEG-2 Audio e li dispone in base all'ordine specificato nella tabella di mappa dei programmi. L'indice in base zero viene quindi usato per selezionare la voce n in tale disposizione.
 
-#### <a name="language"></a>Linguaggio
+#### <a name="language"></a>Lingua:
 Identificatore lingua del flusso audio, conforme alla specifica ISO 639-2, ad esempio ITA. Se non è presente, il valore predefinito è UND (undefined).
 
 ### <a id="preset"></a>Set di impostazioni del sistema
@@ -217,14 +217,14 @@ Con **Default720p** il video sarà codificato nei 6 livelli seguenti.
 
 #### <a name="output-video-stream"></a>Flusso video di output
 
-| Velocità in bit | Larghezza | Altezza: | MaxFPS | Profilo | Nome del flusso di output |
+| Velocità in bit | Larghezza | Altezza | MaxFPS | Profilo | Nome del flusso di output |
 | --- | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Alte |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Alte |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Alte |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Alte |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Alte |Video_384x216_550kbps |
-| 200 |340 |192 |30 |Alte |Video_340x192_200kbps |
+| 3500 |1280 |720 |30 |Alta |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |Alta |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Alta |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Alta |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Alta |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Alta |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Flusso audio di output
 
@@ -240,14 +240,14 @@ Quando nel canale è abilitata la codifica live, nella pipeline è presente un c
 
 Di seguito sono elencate le proprietà che è possibile usare quando si inviano segnali pubblicitari. 
 
-### <a name="duration"></a>Duration
+### <a name="duration"></a>Durata
 Durata dell'interruzione pubblicitaria in secondi. Per avviare l'interruzione pubblicitaria, deve essere un valore positivo diverso da zero. Quando è in corso un'interruzione pubblicitaria e la durata è impostata su zero con ID battuta corrispondente all'interruzione pubblicitaria in corso, l'interruzione viene annullata.
 
 ### <a name="cueid"></a>ID battuta
 ID univoco dell'interruzione pubblicitaria che dovrà essere usato dall'applicazione downstream per eseguire le operazioni necessarie. Deve essere un intero positivo. È possibile impostare questo valore su qualsiasi intero positivo casuale oppure usare un sistema upstream per tenere traccia degli ID battuta. Assicurarsi di normalizzare tutti gli ID in interi positivi prima dell'invio tramite l'API.
 
 ### <a name="show-slate"></a>Visualizza slate
-facoltativo. Segnala al codificatore live di passare all'immagine dello [slate predefinito](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante un'interruzione pubblicitaria e nascondere il feed video in ingresso. Durante la visualizzazione dello slate viene disattivato anche l'audio. Il valore predefinito è **false**. 
+Facoltativa. Segnala al codificatore live di passare all'immagine dello [slate predefinito](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante un'interruzione pubblicitaria e nascondere il feed video in ingresso. Durante la visualizzazione dello slate viene disattivato anche l'audio. Il valore predefinito è **false**. 
 
 L'immagine usata sarà quella specificata tramite la proprietà ID asset dello slate predefinito al momento della creazione del canale. Lo slate verrà esteso per adattarsi alle dimensioni dell'immagine visualizzata. 
 
@@ -256,7 +256,7 @@ L'immagine usata sarà quella specificata tramite la proprietà ID asset dello s
 
 Il codificatore live può essere configurato per passare a un'immagine dello slate e nascondere il segnale video in ingresso in determinate situazioni, ad esempio, durante un'interruzione pubblicitaria. Se non è configurato uno slate, il video di input non viene mascherato durante l'interruzione pubblicitaria.
 
-### <a name="duration"></a>Duration
+### <a name="duration"></a>Durata
 Durata dello slate in secondi. Per avviare lo slate, deve essere un valore positivo diverso da zero. Se è in corso uno slate e viene specificata una durata pari a zero, lo slate in corso verrà terminato.
 
 ### <a name="insert-slate-on-ad-marker"></a>Inserisci slate su marcatore di annuncio
@@ -264,7 +264,7 @@ Quando è impostata su true, questa opzione configura il codificatore live in mo
 
 ### <a id="default_slate"></a>ID asset dello slate predefinito
 
-facoltativo. Specifica l'ID asset di Servizi multimediali che contiene l'immagine dello slate. Il valore predefinito è Null. 
+Facoltativa. Specifica l'ID asset di Servizi multimediali che contiene l'immagine dello slate. Il valore predefinito è Null. 
 
 
 > [!NOTE] 
@@ -300,22 +300,22 @@ Se si desidera mantenere il contenuto archiviato ma non averlo disponibile per l
 Quando è abilitata la codifica live, ora è possibile ottenere un'anteprima del feed live quando raggiunge il canale. Questo strumento può essere utile per verificare se il feed live sta effettivamente per raggiungere il canale. 
 
 ## <a id="states"></a>Stati del canale e come vengono mappati alla modalità di fatturazione
-Stato attuale di un canale. Possibili valori:
+Si tratta dello stato attuale del canale. I valori possibili sono:
 
-* **Arrestato**. Si tratta dello stato iniziale del canale dopo la sua creazione. In questo stato le proprietà del canale possono essere aggiornate, ma lo streaming non è consentito.
-* **Avvio in corso**. È in corso l'avvio del canale. Durante questo stato non sono consentiti aggiornamenti o streaming. In caso di errore, il canale torna allo stato Arrestato.
+* **Arrestato**. Lo stato iniziale del canale dopo la creazione. In questo stato le proprietà del canale possono essere aggiornate ma lo streaming non è consentito.
+* **Avvio in corso**. È in corso l'avvio del canale. In questo stato non è consentito alcun aggiornamento o streaming. Se si verifica un errore, l'entità Channel ritorna allo stato Arrestato.
 * **In esecuzione**. Il canale è in grado di elaborare flussi live.
-* **Arresto in corso**. È in corso l'arresto del canale. Durante questo stato non sono consentiti aggiornamenti o streaming.
-* **Eliminazione in corso**. È in corso l'eliminazione del canale. Durante questo stato non sono consentiti aggiornamenti o streaming.
+* **Arresto in corso**. È in corso l'interruzione del canale. In questo stato non è consentito alcun aggiornamento o streaming.
+* **Eliminazione in corso**. È in corso l'eliminazione del canale. In questo stato non è consentito alcun aggiornamento o streaming.
 
-La tabella seguente mostra l'associazione tra stati del canale e modalità di fatturazione. 
+La tabella seguente illustra il mapping degli stati del canale alla modalità di fatturazione. 
 
-| Stato del canale | Indicatori dell'interfaccia utente del portale | Fatturazione? |
+| Stato del canale | Indicatori dell'interfaccia utente del portale | Fatturato? |
 | --- | --- | --- |
-| Avvio |Avvio |No (stato temporaneo) |
-| Running |Pronto (nessun programma in esecuzione)<br/>Oppure<br/>Streaming (almeno un programma in esecuzione) |SÌ |
+| Avvio in corso |Avvio in corso |No (stato temporaneo) |
+| In esecuzione |Pronto (nessun programma in esecuzione)<br/>o<br/>Streaming (almeno un programma in esecuzione) |Sì |
 | Stopping |Stopping |No (stato temporaneo) |
-| Arrestata |Arrestata |No |
+| Arrestato |Arrestato |No |
 
 > [!NOTE]
 > Attualmente, l'avvio del canale richiede in media 2 minuti ma può richiedere anche più di 20 minuti. La reimpostazione del canale può richiedere fino a 5 minuti.
@@ -326,7 +326,7 @@ La tabella seguente mostra l'associazione tra stati del canale e modalità di fa
 * Quando un canale del tipo di codifica **Standard** riscontra una perdita di origine di input/contributo feed, compensa sostituendo l'audio/video di origine con uno slate di errore e inattività. Il canale continua a generare uno slate fino a quando l'input/contributo feed riprende il suo funzionamento. Si consiglia di non lasciare un canale live in tale stato per più di 2 ore. Dopo tale periodo, il comportamento del canale per la riconnessione dell’input non è garantito. Inoltre, il comportamento del canale non è in risposta a un comando di ripristino. È necessario interrompere il canale, eliminarlo e crearne uno nuovo.
 * Non è possibile modificare il protocollo di input durante l'esecuzione del canale o dei relativi programmi associati. Se sono necessari protocolli diversi, è consigliabile creare canali separati per ciascun protocollo di input.
 * Assicurarsi di chiamare il metodo **Reset** sul canale ogni volta che si riconfigura il codificatore live. Prima di reimpostare il canale, è necessario arrestare il programma. Dopo aver reimpostato il canale, riavviare il programma.
-* È possibile interrompere un canale solo quando si trova nello stato In esecuzione e tutti i programmi nel canale sono stati arrestati.
+* Un canale può essere arrestato solo quando è In esecuzione e tutti i programmi sul canale sono stati arrestati.
 * Per impostazione predefinita, è possibile aggiungere solo cinque canali all'account di Servizi multimediali. Si tratta di una quota flessibile per tutti i nuovi account. Per altre informazioni, vedere [Quote e limitazioni](media-services-quotas-and-limitations.md).
 * Non è possibile modificare il protocollo di input durante l'esecuzione del canale o dei relativi programmi associati. Se sono necessari protocolli diversi, è consigliabile creare canali separati per ciascun protocollo di input.
 * Il costo viene addebitato solo quando il canale è nello stato **In esecuzione** . Per altre informazioni, vedere [questa](media-services-manage-live-encoder-enabled-channels.md#states) sezione.
@@ -340,7 +340,7 @@ La tabella seguente mostra l'associazione tra stati del canale e modalità di fa
 * Le immagini dello slate devono essere conformi alle limitazioni descritte [qui](media-services-manage-live-encoder-enabled-channels.md#default_slate). Se si tenta di creare un canale con uno slate predefinito con una risoluzione superiore a 1920x1080, la richiesta genererà un errore.
 * Ancora una volta... per evitare il proseguimento della fatturazione.
 
-## <a name="need-help"></a>Opzioni per
+## <a name="need-help"></a>Richiesta di assistenza
 
 È possibile aprire un ticket di supporto passando a [Nuova richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
@@ -350,7 +350,7 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Argomenti correlati

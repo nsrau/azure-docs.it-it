@@ -9,8 +9,8 @@
   items:
     - name: Abilitare la reimpostazione self-service delle password
       href: tutorial-enable-sspr.md
-    - name: Abilitare MFA per le applicazioni
-      href: tutorial-mfa-applications.md
+    - name: Abilitare Azure Multi-Factor Authentication
+      href: tutorial-enable-azure-mfa.md
     - name: Abilitare l'integrazione locale della reimpostazione della password self-service
       href: tutorial-enable-writeback.md
     - name: Integrazione di Azure Identity Protection

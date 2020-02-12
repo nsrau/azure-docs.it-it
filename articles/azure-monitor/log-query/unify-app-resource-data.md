@@ -6,13 +6,13 @@ ms.author: bwren
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.openlocfilehash: 07dd4c96ba51b1ac1e0cb2807c9e26df87a6daa7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/02/2020
+ms.openlocfilehash: ce58aae3b1db1f0f338d353025d4f277aeb6944f
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364969"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137487"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificare più risorse di Application Insights in Monitoraggio di Azure 
 Questo articolo descrive come eseguire una query e visualizzare tutti i dati di log Application Insights in un'unica posizione, anche quando si trovano in sottoscrizioni di Azure diverse, sostituendo la deprecazione del Connettore di Application Insights. Il numero di risorse di Application Insights che è possibile includere in una singola query è limitato a 100.
@@ -20,12 +20,7 @@ Questo articolo descrive come eseguire una query e visualizzare tutti i dati di 
 ## <a name="recommended-approach-to-query-multiple-application-insights-resources"></a>Approccio consigliato per eseguire query su più risorse di Application Insights 
 Includere l'elenco di più risorse di Application Insights in una query può risultare impegnativo e difficile da gestire. In alternativa, è possibile sfruttare la funzione che consente di separare la logica di query dalla definizione dell'ambito delle applicazioni.  
 
-Questo esempio mostra come monitorare più risorse di Application Insights e visualizzare il numero di richieste non riuscite per nome di applicazione. Prima di iniziare, eseguire questa query nell'area di lavoro connessa alle risorse di Application Insights per ottenere l'elenco delle applicazioni connesse: 
-
-```
-ApplicationInsights
-| summarize by ApplicationName
-```
+Questo esempio mostra come monitorare più risorse di Application Insights e visualizzare il numero di richieste non riuscite per nome di applicazione.
 
 Creare una funzione usando l'operatore di unione con l'elenco delle applicazioni e quindi salvare la query nell'area di lavoro come funzione con l'alias *applicationsScoping*. 
 
@@ -61,32 +56,8 @@ La query usa lo schema di Application Insights, anche se viene eseguita nell'are
 
 ![Esempio di risultati di query su più risorse](media/unify-app-resource-data/app-insights-query-results.png)
 
-## <a name="query-across-application-insights-resources-and-workspace-data"></a>Query sulle risorse di Application Insights e sui dati dell'area di lavoro 
-Quando si arresta il Connettore e si devono eseguire query nel corso di un intervallo di tempo definito in base alla conservazione dei dati di Application Insights (90 giorni), per un periodo intermedio è necessario eseguire [query su più risorse](../../azure-monitor/log-query/cross-workspace-query.md), ovvero nell'area di lavoro e nelle risorse di Application Insights. Ciò è necessario finché i dati delle applicazioni non si accumulano in base al nuovo periodo di conservazione dei dati di Application Insights sopra indicato. La query richiede alcune modifiche poiché gli schemi in Application Insights e nell'area di lavoro sono diversi. Vedere più avanti in questa sezione la tabella che mostra le differenze tra gli schemi. 
-
 >[!NOTE]
 >Le [query su più risorse](../log-query/cross-workspace-query.md) negli avvisi dei log sono supportate nella nuova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Per impostazione predefinita, Monitoraggio di Azure usa l'[API legacy degli avvisi di Log Analytics](../platform/api-alerts.md) per la creazione di nuove regole di avviso relative ai log dal portale di Azure, a meno che non si esegua la commutazione dall'[API legacy degli avvisi relativi ai log](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Dopo la commutazione, la nuova API diventa quella predefinita per le nuove regole di avviso nel portale di Azure e consente di creare regole di avviso dei log basate su query su più risorse. È possibile creare regole di avviso dei log basate su [query su più risorse](../log-query/cross-workspace-query.md) senza effettuare la commutazione usando il [modello ARM per l'API scheduledQueryRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template), ma questa regola di avviso è gestibile tramite l'[API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e non dal portale di Azure.
-
-Se ad esempio il Connettore ha smesso di funzionare il giorno 01/11/2018, quando si esegue una query sui log delle risorse di Application Insights e sui dati delle applicazioni nell'area di lavoro, la query avrà un aspetto simile all'esempio seguente:
-
-```
-applicationsScoping //this brings data from Application Insights resources 
-| where timestamp between (datetime("2018-11-01") .. now()) 
-| where success == 'False' 
-| where duration > 1000 
-| union ( 
-    ApplicationInsights //this is Application Insights data in Log Analytics workspace 
-    | where TimeGenerated < (datetime("2018-12-01") 
-    | where RequestSuccess == 'False' 
-    | where RequestDuration > 1000 
-    | extend duration = RequestDuration //align to Application Insights schema 
-    | extend timestamp = TimeGenerated //align to Application Insights schema 
-    | extend name = RequestName //align to Application Insights schema 
-    | extend resultCode = ResponseCode //align to Application Insights schema 
-    | project-away RequestDuration , RequestName , ResponseCode , TimeGenerated 
-) 
-| project timestamp , duration , name , resultCode 
-```
 
 ## <a name="application-insights-and-log-analytics-workspace-schema-differences"></a>Differenze tra gli schemi dell'area di lavoro Log Analytics e delle risorse di Application Insights
 La tabella seguente illustra le differenze tra gli schemi di Log Analytics e Application Insights.  
@@ -104,7 +75,7 @@ La tabella seguente illustra le differenze tra gli schemi di Log Analytics e App
 | AvailabilityTestId | id |
 | AvailabilityTestName | name |
 | AvailabilityTimestamp | timestamp |
-| Browser | client_browser |
+| Browser. | client_browser |
 | Città | client_city |
 | ClientIP | client_IP |
 | Computer | cloud_RoleInstance | 
@@ -120,7 +91,7 @@ La tabella seguente illustra le differenze tra gli schemi di Log Analytics e App
 | ExceptionType | type |
 | OperationID | operation_id |
 | OperationName | operation_Name | 
-| Sistema operativo | client_OS | 
+| OS | client_OS | 
 | PageViewCount | itemCount |
 | PageViewDuration | duration | 
 | PageViewName | name | 
@@ -131,7 +102,7 @@ La tabella seguente illustra le differenze tra gli schemi di Log Analytics e App
 | RequestName | name | 
 | RequestSuccess | esito positivo | 
 | ResponseCode | resultCode | 
-| Ruolo | cloud_RoleName |
+| Role | cloud_RoleName |
 | RoleInstance | cloud_RoleInstance |
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |

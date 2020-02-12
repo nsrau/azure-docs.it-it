@@ -3,13 +3,13 @@ title: Limiti e quote della sottoscrizione di Azure
 description: Fornisce un elenco di limiti, quote e vincoli comuni relativi alle sottoscrizioni e ai servizi di Azure. Questo articolo include informazioni su come aumentare i limiti insieme ai valori massimi.
 tags: billing
 ms.topic: conceptual
-ms.date: 01/30/2020
-ms.openlocfilehash: b209bc3e60f50ac363d3426d6c87f206b016d711
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
-ms.translationtype: MT
+ms.date: 02/10/2020
+ms.openlocfilehash: 0891a18c782d4d60970ccba8efa7c9bfc98f19df
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087443"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133721"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 
@@ -28,8 +28,6 @@ Per i limiti sui nomi delle risorse, vedere [regole di denominazione e restrizio
 ## <a name="limits-and-azure-resource-manager"></a>Limiti e Azure Resource Manager
 
 È possibile combinare più risorse di Azure in un singolo gruppo di risorse di Azure. Quando si usano i gruppi di risorse, i limiti che una volta venivano gestiti globalmente a livello di area con Azure Resource Manager. Per altre informazioni sui gruppi di risorse di Azure, vedere [Panoramica di Azure Resource Manager](overview.md).
-
-Nel seguente elenco di limiti, una nuova tabella riflette eventuali differenze nei limiti quando si usa Azure Resource Manager. Ad esempio, è presente una tabella dei **limiti della sottoscrizione** e una tabella relativa ai **limiti di sottoscrizione Azure Resource Manager** . Quando si applica un limite a entrambi gli scenari, viene visualizzato solo nella prima tabella. Se non diversamente indicato, i limiti sono globali in tutte le aree.
 
 > [!NOTE]
 > Le quote per le risorse nei gruppi di risorse di Azure sono accessibili per ogni area dalla sottoscrizione, non per sottoscrizione come le quote di gestione del servizio. Si considerino, ad esempio, le quote di vCPU. Per richiedere un aumento della quota con supporto per vCPU, è necessario decidere il numero di vCPU che si vuole usare in quali aree. Si crea quindi una richiesta specifica per le quote vCPU del gruppo di risorse di Azure per le quantità e le aree desiderate. Se è necessario usare 30 vCPU in Europa occidentale per eseguire l'applicazione, si richiede in modo specifico 30 vCPU in Europa occidentale. La quota di vCPU non è aumentata in nessun'altra area, ma la quota di 30 vCPU è solo in Europa occidentale.
@@ -115,13 +113,7 @@ Nel seguente elenco di limiti, una nuova tabella riflette eventuali differenze n
 
 ### <a name="subscription-limits"></a>Limiti delle sottoscrizioni
 
-#### <a name="subscription-limits---azure-service-management-classic-deployment-model"></a>Limiti delle sottoscrizioni-gestione dei servizi di Azure (modello di distribuzione classica)
-
-[!INCLUDE [azure-subscription-limits](../../../includes/azure-subscription-limits.md)]
-
-#### <a name="subscription-limits---azure-resource-manager"></a>Limiti delle sottoscrizioni - Azure Resource Manager
-
-Quando si usano Azure Resource Manager e i gruppi di risorse di Azure, si applicano i limiti seguenti. I limiti che non sono stati modificati con Azure Resource Manager non sono elencati. Vedere la tabella precedente per questi limiti.
+Quando si usano Azure Resource Manager e i gruppi di risorse di Azure, si applicano i limiti seguenti.
 
 Per informazioni sui limiti di lettura e scrittura dell'API di Gestione risorse, vedere [Limitazione delle richieste di Gestione risorse](request-limits-and-throttling.md).
 
@@ -485,6 +477,12 @@ Per i limiti del database SQL, vedere limiti [delle risorse del database SQL per
 ### <a name="sql-data-warehouse-limits"></a>Limiti relativi a SQL Data Warehouse
 
 Per SQL Data Warehouse limiti, vedere [limiti delle risorse SQL data warehouse](../../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+
+### <a name="classic-deployment-model-limits"></a>Limiti del modello di distribuzione classica
+
+Se si usa il modello di distribuzione classica anziché il modello di distribuzione Azure Resource Manager, si applicano i limiti seguenti.
+
+[!INCLUDE [azure-subscription-limits](../../../includes/azure-subscription-limits.md)]
 
 ## <a name="see-also"></a>Vedere anche
 

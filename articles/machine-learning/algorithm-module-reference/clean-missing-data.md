@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: 46034c8392dc1720fe5e03fc5e419dba6ed20e0b
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 5851b294e52fdcc03dbf3b889ff32898a823f655
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314471"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137564"
 ---
 # <a name="clean-missing-data-module"></a>Pulisci modulo dati mancanti
 
-Questo articolo descrive un modulo in Azure Machine Learning Designer.
+Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
 Usare questo modulo per rimuovere, sostituire o dedurre i valori mancanti. 
 
@@ -37,11 +37,11 @@ Questo modulo restituisce inoltre una definizione della trasformazione utilizzat
 
 ## <a name="how-to-use-clean-missing-data"></a>Come usare clean Missing data
 
-Questo modulo consente di definire un'operazione di pulizia. È anche possibile salvare l'operazione di pulizia in modo che sia possibile applicarla in un secondo momento ai nuovi dati. Per una descrizione di come creare e salvare un processo di pulizia, vedere i collegamenti seguenti: 
+Questo modulo consente di definire un'operazione di pulizia. È anche possibile salvare l'operazione di pulizia in modo che sia possibile applicarla in un secondo momento ai nuovi dati. Vedere le sezioni seguenti di come creare e salvare un processo di pulizia: 
  
-+ Per sostituire i valori mancanti
++ [Per sostituire i valori mancanti](#replace-missing-values)
   
-+ Per applicare una trasformazione di pulizia ai nuovi dati
++ [Per applicare una trasformazione di pulizia ai nuovi dati](#apply-a-saved-cleaning-operation-to-new-data)
  
 > [!IMPORTANT]
 > Il metodo di pulizia usato per la gestione dei valori mancanti può influire in modo significativo sui risultati. Si consiglia di sperimentare metodi diversi. Prendere in considerazione sia la giustificazione per l'utilizzo di un particolare metodo che la qualità dei risultati.
@@ -56,12 +56,9 @@ Ogni volta che si applica il modulo [Clean Missing data](./clean-missing-data.md
 
     Ad esempio, per verificare la presenza di valori mancanti in tutte le colonne numeriche:
 
-    1. Aprire il selettore di colonna e selezionare **with Rules**.
-    2. Per **Begin with**selezionare **Nessuna colonna**.
+    1. Selezionare il modulo **Clean Missing data** e fare clic su **Edit Column** nel pannello di destra del modulo.
 
-        È anche possibile iniziare con tutte le colonne ed escludere le colonne. Inizialmente, le regole non vengono visualizzate se si fa prima clic su **tutte le colonne**, ma è possibile fare clic su **Nessuna colonna** e quindi fare di nuovo clic su **tutte le colonne** per iniziare con tutte le colonne, quindi filtrare (escludere) le colonne in base al nome, al tipo di dati o all'indice delle colonne.
-
-    3. Per **Includi**selezionare **tipo di colonna** dall'elenco a discesa, quindi selezionare **numerico**oppure un tipo numerico più specifico. 
+    3. Per **Includi**selezionare **tipi di colonna** dall'elenco a discesa, quindi selezionare **numeric**. 
   
     Qualsiasi metodo di pulizia o sostituzione scelto deve essere applicabile a **tutte** le colonne nella selezione. Se i dati in una colonna non sono compatibili con l'operazione specificata, il modulo restituisce un errore e arresta la pipeline.
   
@@ -74,7 +71,7 @@ Ogni volta che si applica il modulo [Clean Missing data](./clean-missing-data.md
     > [!WARNING]
     > Questa condizione deve essere soddisfatta da ogni colonna per poter applicare l'operazione specificata. Si supponga, ad esempio, di aver selezionato tre colonne e di impostare il rapporto minimo di valori mancanti su 0,2 (20%), ma solo una colonna contenga effettivamente il 20% dei valori mancanti. In questo caso, l'operazione di pulizia verrebbe applicata solo alla colonna con oltre il 20% dei valori mancanti. Pertanto, le altre colonne rimarranno invariate.
     > 
-    > In caso di dubbi sull'eventuale modifica dei valori mancanti, selezionare l'opzione **genera colonna indicatore valore mancante**. Una colonna viene aggiunta al set di dati per indicare se ogni colonna soddisfa i criteri specificati per gli intervalli minimo e massimo.  
+    > In caso di dubbi sulla modifica o meno dei valori mancanti, selezionare l'opzione **Generate missing value indicator column**. Una colonna viene aggiunta al set di dati per indicare se ogni colonna soddisfa i criteri specificati per gli intervalli minimo e massimo.  
   
 4. Per il **rapporto valore mancante massimo**, specificare il numero massimo di valori mancanti che possono essere presenti per l'operazione da eseguire.   
   
@@ -109,7 +106,7 @@ Ogni volta che si applica il modulo [Clean Missing data](./clean-missing-data.md
   
 6. Il **valore di sostituzione** dell'opzione è disponibile se è stata selezionata l'opzione **valore di sostituzione personalizzato**. Digitare un nuovo valore da utilizzare come valore di sostituzione per tutti i valori mancanti nella colonna.  
   
-    Si noti che è possibile utilizzare questa opzione solo nelle colonne con tipi di dati Integer, Double, Boolean o date. Per le colonne data, il valore di sostituzione può anche essere immesso come numero di cicli di 100 nanosecondi trascorsi dal 1/1/0001 12:00.  
+    Si noti che è possibile utilizzare questa opzione solo nelle colonne con Integer, Double, Boolean o String.
   
 7. **Genera colonna indicatore valore mancante**: selezionare questa opzione se si desidera restituire un valore che indica se i valori nella colonna soddisfano i criteri per la pulizia dei valori mancanti. Questa opzione è particolarmente utile quando si configura una nuova operazione di pulizia e si desidera assicurarsi che funzioni come previsto.
   

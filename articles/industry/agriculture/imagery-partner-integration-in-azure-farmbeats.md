@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 0c03394c48c936f9faef85e9f4933893aaa67090
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 62e5b363f8008380a61e24c0549573a30ecaeb73
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75482426"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131862"
 ---
 # <a name="imagery-partner-integration"></a>Integrazione di partner di immagini
 
@@ -85,7 +85,7 @@ Di seguito sono riportate le intestazioni di richiesta più comuni che è necess
 --- | ---
 Content-Type  | Formato della richiesta (Content-Type: Application/<format>). Per le API datahub di FarmBeats, il formato è JSON. Content-Type: application/json
 Autorizzazione | Specifica il token di accesso necessario per effettuare una chiamata API. Autorizzazione: Bearer < Access-token >
-Accept  | Formato della risposta. Per le API datahub di FarmBeats, il formato è JSON. Accept: Application/JSON
+Accetta  | Formato della risposta. Per le API datahub di FarmBeats, il formato è JSON. Accept: Application/JSON
 
 
 ## <a name="api-requests"></a>Richieste API
@@ -492,4 +492,4 @@ La chiamata POST all'API/SceneFile restituisce un URL di caricamento della firma
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sui dettagli di integrazione basata sull'API REST, vedere [API REST](references-for-azure-farmbeats.md#rest-api).
+Per altre informazioni sui dettagli di integrazione basata sull'API REST, vedere [API REST](rest-api-in-azure-farmbeats.md).

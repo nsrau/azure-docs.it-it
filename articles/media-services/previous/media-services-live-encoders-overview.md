@@ -14,21 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 8bd0014518dc93abb952114a1728f8fc1d3fb4a5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71a31228602ef161158eaa05c80d50f65de98a50
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708084"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133278"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Come configurare i codificatori locali quando si usa Servizi multimediali di Azure per creare flussi a bitrate multipli
 Questo argomento elenca i codificatori live locali che è possibile usare per acquisire gli eventi live e inviare un flusso live a bitrate singolo ai canali di AMS con codifica live abilitata per un'ulteriore elaborazione. L'argomento contiene anche i collegamenti alle esercitazioni che illustrano come configurare i codificatori elencati.
 
 > [!NOTE]
 > Durante lo streaming tramite RTMP, controllare le impostazioni del firewall e/o del proxy per assicurarsi che le porte TCP in uscita 1935 e 1936 siano aperte.
-
-## <a name="flash-media-live-encoder"></a>Flash Media Live Encoder
-Per informazioni su come configurare il codificatore [Flash Media Live Encoder](https://www.adobe.com/products/flash-media-encoder.html) (FMLE) per inviare un singolo live stream a velocità in bit a un canale AMS, vedere [Configurazione di FMLE](media-services-configure-fmle-live-encoder.md).
 
 ## <a name="haivision-kb-encoder"></a>Codificatore Haivision KB
 Per informazioni su come configurare il codificatore [Haivision KB Encoder](https://www.haivision.com/products/kb-series/) per inviare un singolo live stream a velocità in bit a un canale AMS, vedere [Configuring Haivision KB Encoder](media-services-configure-kb-live-encoder.md) (Configurazione di Haivision KB Encoder).

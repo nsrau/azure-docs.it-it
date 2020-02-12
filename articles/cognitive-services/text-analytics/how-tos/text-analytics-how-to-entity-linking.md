@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/27/2019
+ms.date: 02/10/2020
 ms.author: aahi
-ms.openlocfilehash: 9aa00898c6a567d495ed0c66bcf7bd475067fa0d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 607b65d6a6893901ce23cd48c277c14209128866
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774146"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137979"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo
 
 Il API Analisi del testo consente di usare un testo non strutturato e restituisce un elenco di entità ambiguità, con collegamenti ad altre informazioni sul Web. L'API supporta sia il riconoscimento delle entità denominate (NER) che il collegamento di entità.
 
-### <a name="entity-linking"></a>Collegamento di entità
+### <a name="entity-linking"></a>Collegamento delle entità
 
 Il collegamento di entità è la possibilità di identificare e risolvere le ambiguità dell'identità di un'entità trovata nel testo, ad esempio per determinare se un'occorrenza della parola `Mars` si riferisce al pianeta o al Dio romano della guerra. Questo processo richiede la presenza di una Knowledge base in una lingua appropriata per collegare entità riconosciute nel testo. Il collegamento di entità USA [Wikipedia](https://www.wikipedia.org/) come questa Knowledge base.
 
@@ -34,7 +34,7 @@ Il riconoscimento delle entità denominate (NER) è la possibilità di identific
 
 Nel API Analisi del testo sono disponibili due versioni di Named Entity Recognition-V2 e V3. La versione 3 (anteprima pubblica) fornisce maggiori dettagli nelle entità che possono essere rilevate e categorizzate.
 
-| Funzionalità                                                         | NER V2 | NER V3 |
+| Caratteristica                                                         | NER V2 | NER V3 |
 |-----------------------------------------------------------------|--------|--------|
 | Metodi per richieste singole e batch                          | X      | X      |
 | Riconoscimento di entità di base in diverse categorie              | X      | X      |
@@ -44,52 +44,14 @@ Nel API Analisi del testo sono disponibili due versioni di Named Entity Recognit
 
 Per informazioni, vedere Supporto per le [lingue](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) .
 
-#### <a name="version-2tabversion-2"></a>[Versione 2](#tab/version-2)
 
-### <a name="entity-types"></a>Tipi di entità
-
-> [!NOTE]
-> Il riconoscimento delle entità denominate (NER) versione 2 supporta solo le entità seguenti. NER V3 è in versione di anteprima pubblica e espande in modo sostanziale il numero e la profondità delle entità riconosciute nel testo.   
-
-| Tipo  | Sottotipo | Esempio |
-|:-----------   |:------------- |:---------|
-| Persona        | N/D\*         | "Jeff", "Bill Gates"     |
-| Percorso      | N/D\*         | "Redmond, Washington", "Paris"  |
-| Organizzazione  | N/D\*         | "Microsoft"   |
-| Quantità      | Numero        | "6", "sei"     |
-| Quantità      | Percentuale    | "50%", "cinquanta percento"|
-| Quantità      | Ordinale       | "2°", "secondo"     |
-| Quantità      | Età           | "90 giorni", "30 anni"    |
-| Quantità      | Valuta      | "$ 10,99"     |
-| Quantità      | Dimensione     | "10 miglia", "40 cm"     |
-| Quantità      | Temperatura   | "32 gradi"    |
-| Data e ora      | N/D\*         | "4 febbraio 2012 18:30"      |
-| Data e ora      | Data          | "2 maggio 2017", "02/05/2017"   |
-| Data e ora      | Durata          | "8", "8:00"  |
-| Data e ora      | Intervallo di date     | "dal 2 maggio al 5 maggio"    |
-| Data e ora      | Intervallo orario     | "dalle 18 alle 19"     |
-| Data e ora      | Durata      | "1 minuto e 45 secondi"   |
-| Data e ora      | Set           | "ogni martedì"     |
-| URL           | N/D\*         | "https:\//www.bing.com"    |
-| Indirizzo di posta elettronica         | N/D\*         | "support@contoso.com" |
-| Numero di telefono degli Stati Uniti  | N/D\*         | (Solo numeri telefonici US) "(312) 555-0176" |
-| Indirizzo IP    | N/D\*         | 10.0.0.100 |
-
-\*A seconda delle entità immesse ed estratte, alcune entità possono omettere `SubType`.  Tutti i tipi di entità supportati elencati sono disponibili solo per le lingue inglese, cinese semplificato, francese, tedesco e spagnolo.
-
-### <a name="request-endpoints"></a>Endpoint di richiesta
-
-Il riconoscimento delle entità denominate V2 usa un singolo endpoint per le richieste NER e il collegamento di entità:
-
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
-
-#### <a name="version-3-public-previewtabversion-3"></a>[Versione 3 (anteprima pubblica)](#tab/version-3)
+#### <a name="version-30-previewtabversion-3"></a>[Versione 3,0-Preview](#tab/version-3)
 
 ### <a name="entity-types"></a>Tipi di entità
 
 Il riconoscimento delle entità denominate V3 fornisce il rilevamento espanso tra più tipi. Attualmente, NER V3 è in grado di riconoscere le categorie di entità seguenti:
 
-* Informazioni di carattere generale
+* Generale
 * Informazioni personali 
 
 Per un elenco dettagliato delle entità e dei linguaggi supportati, vedere l'articolo relativo ai [tipi di entità supportati da ner V3](../named-entity-types.md) .
@@ -110,6 +72,45 @@ Collegamento di entità
 
 [!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
 
+#### <a name="version-21tabversion-2"></a>[Versione 2,1](#tab/version-2)
+
+### <a name="entity-types"></a>Tipi di entità
+
+> [!NOTE]
+> Il riconoscimento delle entità denominate (NER) versione 2 supporta solo le entità seguenti. NER V3 è in versione di anteprima pubblica e espande in modo sostanziale il numero e la profondità delle entità riconosciute nel testo.   
+
+| Type  | Sottotipo | Esempio |
+|:-----------   |:------------- |:---------|
+| Persona        | N/D\*         | "Jeff", "Bill Gates"     |
+| Location      | N/D\*         | "Redmond, Washington", "Parigi"  |
+| Organization  | N/D\*         | "Microsoft"   |
+| Quantità      | Number        | "6", "sei"     |
+| Quantità      | Percentuale    | "50%", "cinquanta percento"|
+| Quantità      | Ordinal       | "2°", "secondo"     |
+| Quantità      | Tempo trascorso           | "90 giorni", "30 anni"    |
+| Quantità      | Valuta      | "$ 10,99"     |
+| Quantità      | Dimension     | "10 miglia", "40 cm"     |
+| Quantità      | Temperatura   | "32 gradi"    |
+| Datetime      | N/D\*         | "4 febbraio 2012 18:30"      |
+| Datetime      | Data          | "2 maggio 2017", "02/05/2017"   |
+| Datetime      | Tempo          | "8", "8:00"  |
+| Datetime      | DateRange     | "Dal 2 maggio al 5 maggio"    |
+| Datetime      | TimeRange     | "dalle 18 alle 19"     |
+| Datetime      | Durata      | "1 minuto e 45 secondi"   |
+| Datetime      | Configurazione           | "ogni martedì"     |
+| URL           | N/D\*         | "https:\//www.bing.com"    |
+| Email         | N/D\*         | "support@contoso.com" |
+| Numero di telefono degli Stati Uniti  | N/D\*         | (Solo numeri telefonici US) "(312) 555-0176" |
+| Indirizzo IP    | N/D\*         | 10.0.0.100 |
+
+\*A seconda delle entità immesse ed estratte, alcune entità possono omettere `SubType`.  Tutti i tipi di entità supportati elencati sono disponibili solo per le lingue inglese, cinese semplificato, francese, tedesco e spagnolo.
+
+### <a name="request-endpoints"></a>Endpoint di richiesta
+
+Il riconoscimento delle entità denominate V2 usa un singolo endpoint per le richieste NER e il collegamento di entità:
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
+
 ---
 
 ## <a name="sending-a-rest-api-request"></a>Invio di una richiesta all'API REST
@@ -124,17 +125,10 @@ Ogni documento deve essere composto da un massimo di 5.120 caratteri ed è possi
 
 Creare una richiesta POST. È possibile usare la **console di testing API** o di [posting](text-analytics-how-to-call-api.md) nei collegamenti seguenti per strutturare rapidamente e inviarne una. 
 
-[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
+> [!NOTE]
+> È possibile trovare la chiave e l'endpoint per la risorsa Analisi del testo nel portale di Azure. Si trovano in **Gestione risorse** nella pagina **Avvio rapido** della risorsa. 
 
-#### <a name="version-2tabversion-2"></a>[Versione 2](#tab/version-2)
-
-[Informazioni di riferimento sul riconoscimento delle entità denominate (NER) V2](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
-
-La versione 2 usa l'endpoint seguente per le richieste di collegamento di entità e NER: 
-
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
-
-#### <a name="version-3tabversion-3"></a>[Versione 3](#tab/version-3)
+#### <a name="version-30-previewtabversion-3"></a>[Versione 3,0-Preview](#tab/version-3)
 
 [Informazioni di riferimento sul riconoscimento delle entità denominate V3](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)
 
@@ -147,6 +141,14 @@ NER
 
 Collegamento di entità
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
+
+#### <a name="version-21tabversion-2"></a>[Versione 2,1](#tab/version-2)
+
+[Informazioni di riferimento sul riconoscimento delle entità denominate (NER) V2](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
+
+La versione 2 usa l'endpoint seguente per le richieste di collegamento di entità e NER: 
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
 
 ---
 
@@ -174,50 +176,14 @@ Al momento della ricezione della richiesta viene eseguita l'analisi. Vedere la s
 
 L'API Analisi del testo è senza stato. Non vengono archiviati dati nell'account e i risultati vengono restituiti immediatamente nella risposta.
 
-## <a name="view-results"></a>Visualizzazione dei risultati
+## <a name="view-results"></a>Visualizza risultati
 
 Tutte le richieste POST restituiscono una risposta in formato JSON con gli ID e le proprietà dell'entità rilevata.
 
 L'output viene restituito immediatamente. Si possono trasmettere i risultati a un'applicazione che accetta JSON o salvare l'output in un file nel sistema locale e quindi importarlo in un'applicazione che consente di ordinare, cercare e modificare i dati.
 
-#### <a name="version-2tabversion-2"></a>[Versione 2](#tab/version-2)
 
-### <a name="example-ner-v2-response"></a>Risposta di esempio NER V2
-```json
-{
-  "documents": [{
-    "id": "1",
-    "entities": [{
-      "name": "Seattle",
-      "matches": [{
-        "wikipediaScore": 0.15046201222847677,
-        "entityTypeScore": 0.80624294281005859,
-        "text": "Seattle",
-        "offset": 26,
-        "length": 7
-      }],
-      "wikipediaLanguage": "en",
-      "wikipediaId": "Seattle",
-      "wikipediaUrl": "https://en.wikipedia.org/wiki/Seattle",
-      "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
-      "type": "Location"
-    }, {
-      "name": "last week",
-      "matches": [{
-        "entityTypeScore": 0.8,
-        "text": "last week",
-        "offset": 34,
-        "length": 9
-      }],
-      "type": "DateTime",
-      "subType": "DateRange"
-    }]
-  }],
-  "errors": []
-}
-```
-
-#### <a name="version-3-public-previewtabversion-3"></a>[Versione 3 (anteprima pubblica)](#tab/version-3)
+#### <a name="version-30-previewtabversion-3"></a>[Versione 3,0-Preview)](#tab/version-3)
 
 ### <a name="example-v3-responses"></a>Risposte di esempio V3
 
@@ -271,6 +237,43 @@ La versione 3 fornisce endpoint distinti per NER e il collegamento di entità. D
   }],
   "errors": [],
   "modelVersion": "2019-10-01"
+}
+```
+
+#### <a name="version-21tabversion-2"></a>[Versione 2,1](#tab/version-2)
+
+### <a name="example-ner-v2-response"></a>Risposta di esempio NER V2
+```json
+{
+  "documents": [{
+    "id": "1",
+    "entities": [{
+      "name": "Seattle",
+      "matches": [{
+        "wikipediaScore": 0.15046201222847677,
+        "entityTypeScore": 0.80624294281005859,
+        "text": "Seattle",
+        "offset": 26,
+        "length": 7
+      }],
+      "wikipediaLanguage": "en",
+      "wikipediaId": "Seattle",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Seattle",
+      "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
+      "type": "Location"
+    }, {
+      "name": "last week",
+      "matches": [{
+        "entityTypeScore": 0.8,
+        "text": "last week",
+        "offset": 34,
+        "length": 9
+      }],
+      "type": "DateTime",
+      "subType": "DateRange"
+    }]
+  }],
+  "errors": []
 }
 ```
 

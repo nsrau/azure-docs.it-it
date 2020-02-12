@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 1/14/2020
+ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: afda502bcd89423ecdd008c0297c85dd8a5b61fb
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b0ef6030b1b460d118a255ede3c46719616fe3b0
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989842"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133825"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux le immagini Gold Bring your own Subscription in Azure
 
@@ -177,7 +177,7 @@ Red Hat Enterprise Linux le immagini Gold Bring your own Subscription possono es
 
 Crittografia dischi di Azure non è supportata nelle [Immagini personalizzate di Red Hat](/linux/redhat-create-upload-vhd). Altri requisiti e prerequisiti di ADE sono documentati in [crittografia dischi di Azure per macchine virtuali Linux](../../linux/disk-encryption-overview.md#additional-vm-requirements).
 
-I passaggi per l'applicazione di crittografia dischi di Azure sono disponibili negli [scenari di crittografia dischi di Azure nelle macchine virtuali Linux](../../linux/disk-encryption-linux.md) e negli articoli correlati.  
+I passaggi per l'applicazione di crittografia dischi di Azure sono disponibili negli [scenari di crittografia dischi di Azure nelle macchine virtuali Linux](../../linux/disk-encryption-linux.md) e negli articoli correlati.
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 
@@ -186,7 +186,7 @@ I passaggi per l'applicazione di crittografia dischi di Azure sono disponibili n
     ```
     "Offer with PublisherId: redhat, OfferId: rhel-byos, PlanId: rhel-lvm75 is private and can not be purchased by subscriptionId: GUID"
     ```
-    
+
     In questo caso, contattare Microsoft o Red Hat per abilitare la sottoscrizione.
 
 - Se si modifica uno snapshot da un'immagine RHEL BYOS e si tenta di pubblicare l'immagine personalizzata nella [raccolta di immagini condivise](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries), è necessario fornire informazioni sul piano corrispondenti all'origine dello snapshot. Ad esempio, il comando potrebbe essere simile al seguente:

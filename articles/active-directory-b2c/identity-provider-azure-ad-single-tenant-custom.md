@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 02/11/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1802c3a92ed18dec5cba974c54c92f01324245eb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 64934dd5bc591415c0bad6ac3dc6a4a2d98dd005
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847615"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136298"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account Azure Active Directory usando criteri personalizzati in Azure Active Directory B2C
 
@@ -50,6 +50,19 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
 1. Selezionare **certificati & segreti**, quindi selezionare **nuovo segreto client**.
 1. Immettere una **Descrizione** per il segreto, selezionare una scadenza e quindi selezionare **Aggiungi**. Registrare il **valore** del segreto da usare in un passaggio successivo.
 
+## <a name="configuring-optional-claims"></a>Configurazione di attestazioni facoltative
+
+Se si desidera ottenere le attestazioni `family_name` e `given_name` da Azure AD, è possibile configurare attestazioni facoltative per l'applicazione nell'interfaccia utente del portale di Azure o nel manifesto dell'applicazione. Per altre informazioni, vedere [How to provide optional Claims to your Azure ad app](../active-directory/develop/active-directory-optional-claims.md).
+
+1. Accedere al [portale di Azure](https://portal.azure.com). Cercare e selezionare **Azure Active Directory**.
+1. Nella sezione **Gestisci** selezionare **registrazioni app**.
+1. Selezionare nell'elenco l'applicazione per la quale si desidera configurare attestazioni facoltative.
+1. Nella sezione **Gestisci** selezionare **configurazione token (anteprima)** .
+1. Selezionare **Aggiungi attestazione facoltativa**.
+1. Selezionare il tipo di token che si desidera configurare.
+1. Selezionare le attestazioni facoltative da aggiungere.
+1. Fare clic su **Add**.
+
 ## <a name="create-a-policy-key"></a>Creare una chiave dei criteri
 
 È necessario archiviare la chiave dell'applicazione creata nel tenant di Azure AD B2C.
@@ -62,7 +75,7 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
 1. Immettere un **nome** per la chiave dei criteri. Ad esempio: `ContosoAppSecret`.  Il prefisso `B2C_1A_` viene aggiunto automaticamente al nome della chiave quando viene creato, quindi il riferimento nel codice XML nella sezione seguente consiste nel *B2C_1A_ContosoAppSecret*.
 1. In **Secret**immettere il segreto client registrato in precedenza.
 1. In **Uso chiave** selezionare `Signature`.
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 ## <a name="add-a-claims-provider"></a>Aggiungere un provider di attestazioni
 
@@ -73,23 +86,20 @@ Per consentire agli utenti di accedere con Azure AD, è necessario definire Azur
 1. Aprire il file *TrustFrameworkExtensions.xml*.
 2. Trovare l'elemento **ClaimsProviders**. Se non esiste, aggiungerlo nell'elemento radice.
 3. Aggiungere un nuovo **ClaimsProvider** come illustrato di seguito:
-
-    ```XML
+    ```xml
     <ClaimsProvider>
       <Domain>Contoso</Domain>
       <DisplayName>Login using Contoso</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="ContosoProfile">
+        <TechnicalProfile Id="OIDC-Contoso">
           <DisplayName>Contoso Employee</DisplayName>
           <Description>Login with your Contoso account</Description>
           <Protocol Name="OpenIdConnect"/>
           <Metadata>
-            <Item Key="METADATA">https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration</Item>
-            <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
-            <!-- Update the Client ID below to the Application ID -->
+            <Item Key="METADATA">https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration</Item>
             <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
             <Item Key="response_types">code</Item>
-            <Item Key="scope">openid</Item>
+            <Item Key="scope">openid profile</Item>
             <Item Key="response_mode">form_post</Item>
             <Item Key="HttpBinding">POST</Item>
             <Item Key="UsePolicyInRedirectUri">false</Item>
@@ -125,12 +135,11 @@ Per consentire agli utenti di accedere con Azure AD, è necessario definire Azur
 
 Per ottenere un token dall'endpoint di Azure AD, è necessario definire i protocolli che Azure AD B2C deve usare per comunicare con Azure AD. Questa operazione viene eseguita all'interno dell'elemento **TechnicalProfile** di **ClaimsProvider**.
 
-1. Aggiornare l'ID dell'elemento **TechnicalProfile**. Questo ID viene usato per fare riferimento al profilo tecnico da altre parti dei criteri.
+1. Aggiornare l'ID dell'elemento **TechnicalProfile**. Questo ID viene usato per fare riferimento a questo profilo tecnico da altre parti del criterio, ad esempio `OIDC-Contoso`.
 1. Aggiornare il valore di **DisplayName**. Questo valore verrà visualizzato sul pulsante di accesso nella schermata di accesso.
 1. Aggiornare il valore di **Description**.
 1. Azure AD usa il protocollo OpenID Connect, pertanto è necessario verificare che il valore di **Protocol** sia `OpenIdConnect`.
-1. Impostare il valore di **METADATA** su `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`, dove `your-AD-tenant-name` è il nome del tenant di Azure AD. Ad esempio, usare `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
-1. Aprire il browser e passare all'URL **dei metadati** appena aggiornato, cercare l'oggetto **emittente** , quindi copiare e incollare il valore nel valore per **providerName** nel file XML.
+1. Impostare il valore di **METADATA** su `https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration`, dove `tenant-name` è il nome del tenant di Azure AD. Ad esempio, usare `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 1. Impostare **client_id** sull'ID applicazione ottenuto con la registrazione dell'applicazione.
 1. In **CryptographicKeys**aggiornare il valore di **ID riferimento archiviazione** con il nome della chiave dei criteri creata in precedenza. Ad esempio: `B2C_1A_ContosoAppSecret`.
 
@@ -171,10 +180,10 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
 1. Aggiungere l'elemento **ClaimsExchange** seguente assicurandosi di usare per **Id** lo stesso valore che è stato usato per **TargetClaimsExchangeId**:
 
     ```XML
-    <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="ContosoProfile" />
+    <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="OIDC-Contoso" />
     ```
 
-    Aggiornare il valore di **TechnicalProfileReferenceId** con l'**ID** del profilo tecnico creato in precedenza. Ad esempio: `ContosoProfile`.
+    Aggiornare il valore di **TechnicalProfileReferenceId** con l'**ID** del profilo tecnico creato in precedenza. Ad esempio: `OIDC-Contoso`.
 
 1. Salvare il file *TrustFrameworkExtensions.xml* e caricarlo di nuovo per la verifica.
 

@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: c9d02490a5627ead502429ead06608b4fb621058
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 3141795ed9ccfdabc9fd462a1cd09a74690f9c5b
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548408"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137927"
 ---
 # <a name="train-model-module"></a>Modulo Train Model
 
@@ -39,7 +39,7 @@ In Azure Machine Learning la creazione e l'uso di un modello di apprendimento au
 
 3. Al termine del training, usare il modello con training con uno dei [moduli di Punteggio](./score-model.md)per eseguire stime sui nuovi dati.
 
-## <a name="how-to-use-train-model"></a>Come usare **Train Model**  
+## <a name="how-to-use-train-model"></a>Come usare Train Model 
   
 1.  In Azure Machine Learning configurare un modello di classificazione o un modello di regressione.
     
@@ -49,7 +49,7 @@ In Azure Machine Learning la creazione e l'uso di un modello di apprendimento au
 
     Il set di dati di training deve contenere una colonna di etichetta. Tutte le righe senza etichette vengono ignorate.
   
-4.  Per **colonna etichetta**fare clic su **Avvia selettore colonne**e scegliere una singola colonna contenente i risultati che il modello può utilizzare per il training.
+4.  Per **colonna etichetta**, fare clic su **modifica colonna** nel pannello destro del modulo e scegliere una singola colonna contenente i risultati che il modello può usare per il training.
   
     - Per i problemi di classificazione, la colonna Label deve contenere valori **categorici** o valori **discreti** . Alcuni esempi potrebbero essere una classificazione Sì/No, un nome o un codice di classificazione di malattia oppure un gruppo di reddito.  Se si seleziona una colonna non categorica, il modulo restituirà un errore durante il training.
   

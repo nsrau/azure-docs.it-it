@@ -581,8 +581,6 @@
               href: disks-benchmarks.md
         - name: Trovare dischi non collegati
           href: find-unattached-disks.md
-        - name: Usare Archiviazione file
-          href: ../../storage/files/storage-files-quick-create-use-windows.md
         - name: Domande frequenti sui dischi
           href: faq-for-disks.md
     - name: Gestire la rete

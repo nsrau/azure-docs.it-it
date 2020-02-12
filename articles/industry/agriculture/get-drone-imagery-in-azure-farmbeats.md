@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: a64627028ea4ecc732924d0c9fca196204f7951d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3e452cd548738e5f211899d3a6a676f883d800ce
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75482556"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132042"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>Ottenere immagini drone da partner drone
 
@@ -35,10 +35,10 @@ Fornire le informazioni seguenti al provider di dispositivi per abilitare l'inte
  - ID client
  - Segreto client
 
-Seguire questa procedura.
+Eseguire la procedura seguente.
 
 1. Scaricare questo [script](https://aka.ms/farmbeatspartnerscript)ed estrarlo nell'unità locale. Due file sono inclusi nel file zip.
-2. Accedere al [portale di Azure](https://portal.azure.com/) e aprire Azure Cloud Shell. Questa opzione è disponibile sulla barra degli strumenti nell'angolo superiore destro del portale.
+2. Accedere al [portale di Azure](https://portal.azure.com/) e aprire Azure cloud Shell. Questa opzione è disponibile sulla barra degli strumenti nell'angolo superiore destro del portale.
 
     ![Apri Azure Cloud Shell sulla barra superiore destra del portale](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
@@ -91,4 +91,4 @@ I file e le immagini caricati dal provider drone vengono visualizzati nella sezi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come usare le [API](references-for-azure-farmbeats.md#rest-api) datahub di FarmBeats per ottenere le immagini dei droni.
+Informazioni su come usare le [API](rest-api-in-azure-farmbeats.md) datahub di FarmBeats per ottenere le immagini dei droni.

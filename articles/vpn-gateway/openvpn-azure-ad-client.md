@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 02/10/2020
 ms.author: alzam
-ms.openlocfilehash: 3072fc3a82cfe85649cf080c9def69cc4869b7ec
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 4b9678f72dd69db24b105d4b1d708928e29a09ba
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122511"
+ms.locfileid: "77134507"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configurare un client VPN per le connessioni del protocollo OpenVPN P2S: autenticazione Azure AD
 
@@ -170,7 +170,7 @@ Questi passaggi consentono di configurare la connessione per la connessione auto
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Ricerca per categorie aggiungere route personalizzate al client VPN?
 
-È possibile modificare il file XML del profilo scaricato e aggiungere la **route\<>\<includeroutes >\<destinazione >\<mask > \</route >\</includeroutes >\</Destionation** >\</Mask > Tag
+È possibile modificare il file XML del profilo scaricato e aggiungere la **route\<>\<includeroutes >\<destinazione >\<mask > \</route >\</includeroutes >\</Destination** >\</Mask > Tag
 
 ```
 <azvpnprofile>

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 9502a81149df11ffa378bf8ffc2c377f4bb22d7f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 226c9ae1c42c85db57dab3fd1911943e167a6288
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177108"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133688"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Configurare un Lab per insegnare lo script della shell in Linux
 Questo articolo illustra come configurare un Lab per insegnare lo script della shell in Linux. Lo scripting è una parte utile dell'amministrazione del sistema che consente agli amministratori di evitare attività ripetitive. In questo scenario di esempio, la classe illustra gli script bash tradizionali e gli script avanzati. Gli script avanzati sono script che combinano i comandi bash e Ruby. Questo approccio consente a Ruby di passare dati e comandi bash per interagire con la shell. 
@@ -32,13 +32,13 @@ Dopo aver creato l'account Lab, abilitare le impostazioni seguenti nell'account 
 
 | Impostazione dell'account Lab | Istruzioni |
 | ----------- | ------------ |  
-| Immagini del Marketplace | Abilitare l'immagine di [Ubuntu Server 18,04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) per l'uso nell'account Lab. Per altre informazioni, vedere [specificare le immagini del Marketplace disponibili per gli autori del Lab](tutorial-setup-lab-account.md#specify-marketplace-images-available-to-lab-creators) | 
+| Immagini del Marketplace | Abilitare l'immagine di [Ubuntu Server 18,04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) per l'uso nell'account Lab. Per altre informazioni, vedere [specificare le immagini del Marketplace disponibili per gli autori del Lab](how-to-configure-lab-accounts.md#specify-marketplace-images-available-to-lab-creators) | 
 
 Seguire [questa esercitazione](tutorial-setup-classroom-lab.md) per creare un nuovo Lab e applicare le impostazioni seguenti:
 
 | Impostazioni Lab | Valore/istruzioni | 
 | ------------ | ------------------ |
-| Dimensioni delle macchine virtuali (VM) | Small  |
+| Dimensioni delle macchine virtuali (VM) | Piccola  |
 | Immagine VM | [Ubuntu server 18,04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) |
 | Abilita connessione Desktop remoto | Abilita. <p>L'abilitazione di questa impostazione consentirà agli insegnanti e agli studenti di connettersi alle macchine virtuali tramite Desktop remoto (RDP). Per ulteriori informazioni, vedere [Enable Remote Desktop for Linux Virtual Machines in a Lab in Azure Lab Services](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
 

@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
-ms.date: 8/30/2019
+ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 20bc22661f9faad1b289dbbe7200f4f83c097f0e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.openlocfilehash: 8eea568217dc5f47c45433e5fdd755682e322b2f
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451235"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134059"
 ---
 # <a name="azure-serial-console"></a>Console seriale di Azure
 
-La console seriale nell'portale di Azure fornisce l'accesso a una console basata su testo per le macchine virtuali (VM) e le istanze del set di scalabilità di macchine virtuali che eseguono Linux o Windows. Questa connessione seriale viene stabilita con la porta seriale ttyS0 o COM1 della macchina virtuale o dell'istanza del set di scalabilità di macchine virtuali e fornisce l'accesso indipendente dallo stato del sistema operativo o della rete. È possibile accedere alla console seriale solo usando la portale di Azure ed è consentita solo per gli utenti che hanno un ruolo accesso di collaboratore o superiore alla macchina virtuale o al set di scalabilità di macchine virtuali.
+La console seriale nell'portale di Azure fornisce l'accesso a una console basata su testo per le macchine virtuali (VM) e le istanze del set di scalabilità di macchine virtuali che eseguono Linux o Windows. Questa connessione seriale si connette alla porta seriale ttyS0 o COM1 della VM o dell'istanza del set di scalabilità di macchine virtuali, fornendo accesso indipendente dalla rete o dallo stato del sistema operativo. È possibile accedere alla console seriale solo usando la portale di Azure ed è consentita solo per gli utenti che hanno un ruolo accesso di collaboratore o superiore alla macchina virtuale o al set di scalabilità di macchine virtuali.
 
 La console seriale funziona allo stesso modo per le macchine virtuali e le istanze del set di scalabilità di macchine virtuali. In questo documento, tutte le menzioni delle macchine virtuali includeranno in modo implicito le istanze del set di scalabilità di macchine virtuali, se non diversamente specificato.
 
@@ -38,7 +38,7 @@ Per accedere alla console seriale nell'istanza della VM o del set di scalabilit�
 - L'account di Azure che accede alla console seriale deve avere il [ruolo Collaboratore macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) per la VM e l'account di archiviazione di [diagnostica di avvio](boot-diagnostics.md)
 
 > [!NOTE]
-> - Le distribuzioni classiche non sono supportate. L'istanza della VM o del set di scalabilità di macchine virtuali deve usare il modello di distribuzione Azure Resource Manager.
+> Le distribuzioni classiche non sono supportate. L'istanza della VM o del set di scalabilità di macchine virtuali deve usare il modello di distribuzione Azure Resource Manager.
 
 ## <a name="get-started-with-the-serial-console"></a>Introduzione alla console seriale
 La console seriale per le macchine virtuali e il set di scalabilità di macchine virtuali è accessibile solo tramite la portale di Azure:
@@ -66,6 +66,37 @@ La console seriale è disponibile per i set di scalabilità di macchine virtuali
   1. Nella sezione **supporto e risoluzione dei problemi** selezionare **console seriale**. Viene visualizzato un nuovo riquadro con la console seriale e viene avviata la connessione.
 
      ![Console seriale del set di scalabilità di macchine virtuali Linux](./media/virtual-machines-serial-console/vmss-start-console.gif)
+
+## <a name="serial-console-rbac-role"></a>Ruolo RBAC console seriale
+Come indicato in precedenza, la console seriale richiede un collaboratore macchina virtuale o un maggiore accesso alla VM o al set di scalabilità di macchine virtuali. Se non si vuole concedere un collaboratore alla macchina virtuale a un utente, ma si vuole comunque consentire a un utente di accedere alla console seriale, è possibile eseguire questa operazione con il ruolo seguente:
+
+```
+{
+  "Name": "Serial Console Role",
+  "IsCustom": true,
+  "Description": "Role for Serial Console Users that provides significantly reduced access than VM Contributor",
+  "Actions": [
+      "Microsoft.Compute/virtualMachines/*/write",
+      "Microsoft.Compute/virtualMachines/*/read",
+      "Microsoft.Storage/storageAccounts/*"
+  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/subscriptions/<subscriptionId>"
+  ]
+}
+```
+
+### <a name="to-create-and-use-the-role"></a>Per creare e usare il ruolo:
+*   Salvare il file JSON in un percorso noto, ad esempio `~/serialconsolerole.json`.
+*   Usare il comando AZ CLI seguente per creare la definizione di ruolo: `az role definition create --role-definition serialconsolerole.json -o=json`
+*   Se è necessario aggiornare il ruolo, utilizzare il comando seguente: `az role definition update --role-definition serialconsolerole.json -o=json`
+*   Il ruolo verrà visualizzato nel controllo di accesso (IAM) nel portale (potrebbero essere necessari alcuni minuti per la propagazione)
+*   È possibile aggiungere utenti alla macchina virtuale e l'account di archiviazione di diagnostica di avvio con il ruolo del ruolo personalizzato
+    *   Si noti che all'utente deve essere concesso il ruolo personalizzato nella macchina virtuale *e* l'account di archiviazione della diagnostica di avvio
+
 
 ## <a name="advanced-uses-for-serial-console"></a>Usi avanzati per la console seriale
 Oltre all'accesso alla console per la macchina virtuale, è anche possibile usare la console seriale di Azure per le operazioni seguenti:

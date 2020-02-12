@@ -15,24 +15,26 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: cenkdin;anilmur
-ms.openlocfilehash: be3c75680599c07a3cebe3dcf0436884958e1706
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 1d9d63aa6b3da1b8d8389722bd5af0eeed585d03
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69016672"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134964"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Usare il codificatore Wirecast per inviare un flusso live a velocità in bit singola. 
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
-> * [FMLE](media-services-configure-fmle-live-encoder.md)
 >
 >
 
-Questo articolo illustra come configurare il codificatore [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) per inviare un flusso a bitrate singolo a canali AMS abilitati per la codifica live.  Per altre informazioni, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
+Questo articolo illustra come configurare il codificatore [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) per inviare un flusso a bitrate singolo a canali AMS abilitati per la codifica live. Per altre informazioni, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 In questa esercitazione viene illustrato come gestire Servizi multimediali di Azure (AMS) con lo strumento Azure Media Services Explorer (AMSE). Questo strumento può essere eseguito solo in PC Windows. Gli utenti di sistemi Mac o Linux possono usare il Portale di Azure per creare [canali](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programmi](media-services-portal-creating-live-encoder-enabled-channel.md).
+
+> [!NOTE]
+> I codificatori devono supportare TLS 1,2 quando si usano i protocolli RTMPS. Usare la versione Wirecast 13.0.2 o successiva a causa del requisito TLS 1,2.
 
 ## <a name="prerequisites"></a>Prerequisiti
 * [Creare un account Servizi multimediali di Azure](media-services-portal-create-account.md)
@@ -45,7 +47,7 @@ In questa esercitazione viene illustrato come gestire Servizi multimediali di Az
 * È buona norma raddoppiare le velocità in bit di streaming in fase di determinazione dei requisiti di larghezza di banda. Anche se non si tratta di un requisito obbligatorio, contribuirà a ridurre l'impatto della congestione della rete.
 * Se si usano codificatori basati su software, chiudere tutti i programmi non necessari.
 
-## <a name="create-a-channel"></a>Crea un canale
+## <a name="create-a-channel"></a>Creare un canale
 1. Nello strumento AMSE passare alla scheda **Live** e fare clic con il pulsante destro del mouse all'interno dell'area del canale. Scegliere **Create channel** dal menu.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
@@ -77,17 +79,17 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 
 * Codec: H.264
 * Profilo: alto (livello 4.0)
-* Velocità in bit: 5000 Kbps
+* Velocità in bit: 5000 kbps
 * Fotogramma chiave: 2 secondi (60 secondi)
 * Frequenza dei fotogrammi: 30
 
 **Audio**:
 
 * Codec: AAC (LC)
-* Velocità in bit: 192 Kbps
+* Velocità in bit: 192 kbps
 * Frequenza di campionamento: 44,1 kHz
 
-### <a name="configuration-steps"></a>Procedura di configurazione
+### <a name="configuration-steps"></a>Passaggi di configurazione
 1. Aprire l'applicazione Telestream Wirecast sul computer utilizzato e impostare per il flusso RTP.
 2. Configurare l'output accedendo alla scheda **Output** e selezionando **Output Settings…** (Impostazioni di output...).
 
@@ -104,16 +106,16 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 
     **Video**
 
-   * Codificatore: MainConcept H.264
+   * Codificatore: MainConcept h. 264
    * Fotogrammi al secondo: 30
    * Velocità in bit media: 5000 kbit al secondo (può essere regolato in base alle limitazioni di rete)
-   * Profilo: Principale
+   * Profilo: principale
    * Fotogramma chiave ogni: 60 fotogrammi
 
      **Audio**
 
    * Velocità in bit di destinazione: 192 kbit/sec
-   * Frequenza di campionamento: 44,1 kHz
+   * Frequenza di campionamento: 44,100 kHz
 
      ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
 6. Premere **Salva**.
@@ -132,7 +134,7 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
 
-1. Selezionare **OK**.
+1. Scegliere **OK**.
 2. Nella schermata principale **Wirecast** confermare che le origini di input per video e audio sono pronte e quindi premere **Flusso** nell'angolo superiore sinistro.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
@@ -169,7 +171,7 @@ In caso di errore sarà necessario reimpostare il canale e regolare le impostazi
 
 Il flusso è ora pronto per essere incorporato in un lettore o distribuito per la visualizzazione pubblica live.  
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 Come materiale sussidiario, vedere l'[articolo sulla risoluzione dei problemi](media-services-troubleshooting-live-streaming.md).
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali

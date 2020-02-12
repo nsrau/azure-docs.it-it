@@ -1,5 +1,5 @@
 ---
-title: Aggiungere o rimuovere assegnazioni di ruolo usando RBAC di Azure e l'API REST
+title: Aggiungere o rimuovere assegnazioni di ruolo con RBAC e l'API REST
 description: Informazioni su come concedere l'accesso alle risorse di Azure per utenti, gruppi, entità servizio o identità gestite usando il controllo degli accessi in base al ruolo (RBAC) di Azure e l'API REST.
 services: active-directory
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3c7b7dac649548b8b21cc13761009c11609c8904
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ae6fce5ab962637fe477ade75cf81b6ac237bdd2
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981043"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138305"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-rest-api"></a>Aggiungere o rimuovere assegnazioni di ruolo usando RBAC di Azure e l'API REST
 
@@ -57,23 +57,23 @@ In RBAC, per concedere l'accesso, si aggiunge un'assegnazione di ruolo. Per aggi
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per l'assegnazione di ruolo.
 
-    | Ambito | Tipo |
+    | Ambito | Type |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
-    | `subscriptions/{subscriptionId1}` | Sottoscrizione |
+    | `subscriptions/{subscriptionId1}` | Subscription |
     | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Gruppi |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resource |
 
 1. Sostituire *{roleAssignmentName}* con l'identificatore GUID dell'assegnazione di ruolo.
 
 1. Nel corpo della richiesta sostituire *{scope}* con l'ambito per l'assegnazione di ruolo.
 
-    | Ambito | Tipo |
+    | Ambito | Type |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
-    | `subscriptions/{subscriptionId1}` | Sottoscrizione |
+    | `subscriptions/{subscriptionId1}` | Subscription |
     | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Gruppi |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resource |
 
 1. Sostituire *{roleDefinitionId}* con l'identificatore della definizione del ruolo.
 
@@ -93,12 +93,12 @@ Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo, s
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per la rimozione dell'assegnazione di ruolo.
 
-    | Ambito | Tipo |
+    | Ambito | Type |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | Gruppo di gestione |
-    | `subscriptions/{subscriptionId1}` | Sottoscrizione |
+    | `subscriptions/{subscriptionId1}` | Subscription |
     | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Gruppi |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resource |
 
 1. Sostituire *{roleAssignmentName}* con l'identificatore GUID dell'assegnazione di ruolo.
 
