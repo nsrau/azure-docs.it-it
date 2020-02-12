@@ -12,7 +12,7 @@ ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapir
 ms.date: 01/05/2018
 ms.openlocfilehash: dfbca6514328897afe0c0eda5ce7d5a6d2ff92a7
 ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/12/2020
 ms.locfileid: "77152840"

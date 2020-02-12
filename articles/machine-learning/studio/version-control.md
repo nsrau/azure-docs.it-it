@@ -11,7 +11,7 @@ ms.author: zhanxia
 ms.date: 10/27/2016
 ms.openlocfilehash: 8dd120731ca7eeb98fafe230b79ac50668cdc4e8
 ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/12/2020
 ms.locfileid: "77152738"
