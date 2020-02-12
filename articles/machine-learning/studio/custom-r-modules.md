@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: fdd91b62355b11ba99aafcda04f86282ce5a4f71
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 76b2f2ae9774fe5951779912e679fa84350878c5
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454733"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153571"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Definire moduli R personalizzati per Azure Machine Learning Studio (versione classica)
 
@@ -283,17 +283,17 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
   
   * **allowedTypes** : filtra i tipi di colonna tra cui è possibile scegliere. I valori validi includono: 
     
-    * Numeric
+    * Numerico
     * Boolean
     * Categorical
-    * string
-    * Etichette
-    * Funzionalità
+    * String
+    * Etichetta
+    * Caratteristica
     * Punteggio
-    * Tutto
+    * Tutte
   * **default** : le selezioni predefinite valide per il selettore di colonna includono: 
     
-    * Nessuno
+    * None
     * NumericFeature
     * NumericLabel
     * NumericScore
@@ -313,7 +313,7 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
     * AllLabel
     * AllFeature
     * AllScore
-    * Tutto
+    * Tutte
 
 **DropDown**: elenco enumerato specificato dall'utente (elenco a discesa). Gli elementi dell'elenco a discesa vengono specificati all'interno dell'elemento **Properties** usando un elemento **Item**. L'**id** di ciascun elemento **Item** deve essere univoco e una variabile R valida. Il valore di **name** di un elemento **Item** rappresenta sia il testo visualizzato che il valore passato alla funzione R.
 

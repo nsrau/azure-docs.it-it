@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: e440d9d882d0459d04a15b8f39ea6877707ea096
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6976f0bb671b94f71b71287483c2ab88d0959899
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427455"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152772"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio-classic"></a>Migrare Analytics da Excel a Azure Machine Learning Studio (versione classica)
 
@@ -53,7 +53,7 @@ Inizialmente, il modello di Excel ha chiaramente superato il modello di studio (
 
 |  | Excel | Studio (versione classica) |
 | --- |:---:|:---:|
-| Performance | | |
+| Prestazioni | | |
 | <ul style="list-style-type: none;"><li>R-quadrato corretto</li></ul> |0,96 |N/D |
 | <ul style="list-style-type: none;"><li>Coefficiente di <br />determinazione</li></ul> |N/D |0,78<br />(bassa precisione) |
 | Errore assoluto medio |$ 9,5 milioni |$ 19,4 milioni |
@@ -73,8 +73,8 @@ Quando si applicano le indicazioni, si ottengono le stesse prestazioni di base i
 | --- |:---:|:---:|:---:|
 | Valore etichettato |Valori effettivi (numerici) |uguale |uguale |
 | Strumento di apprendimento |Excel -> Analisi dati -> Regressione |Regressione lineare. |Linear Regression |
-| Opzioni strumento di apprendimento |N/D |Valori predefiniti |Ordinary Least Squares<br />L2 = 0,005 |
-| Set di dati |26 righe, 3 funzionalità, 1 etichetta. Tutti valori numerici. |uguale |uguale |
+| Opzioni strumento di apprendimento |N/D |Impostazioni predefinite |Ordinary Least Squares<br />L2 = 0,005 |
+| Serie di dati |26 righe, 3 funzionalità, 1 etichetta. Tutti valori numerici. |uguale |uguale |
 | Divisione: training |Excel con training sulle prime 18 righe, con test delle ultime 8 righe. |uguale |uguale |
 | Divisione: test |Formula di regressione Excel applicata alle ultime 8 righe |uguale |uguale |
 | **Prestazioni** | | | |
@@ -92,7 +92,7 @@ Inoltre, i coefficienti di Excel hanno dato buoni risultati anche confrontati co
 | Funzionalità B |11071967,08 |11007300 |
 | Funzionalità C |25383318,09 |25140800 |
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 L'obiettivo, a questo punto, consisteva nell'includere il servizio Web di Machine Learning in Excel. Gli analisti aziendali usano Excel in modo estensivo, era quindi necessaria una soluzione che chiamasse il servizio Web di Machine Learning con una riga di dati di Excel e restituisse il valore previsto in Excel. 
 
 Volevamo anche ottimizzare il nostro modello, usando le opzioni e gli algoritmi disponibili in studio (classico).

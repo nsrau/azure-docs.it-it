@@ -1,91 +1,47 @@
 ---
-title: Selezionare un layout di pagina-Azure Active Directory B2C
-description: Informazioni su come selezionare un layout di pagina in Azure Active Directory B2C.
+title: Versioni del layout di pagina
+titleSuffix: Azure AD B2C
+description: Cronologia delle versioni del layout di pagina per la personalizzazione dell'interfaccia utente nei criteri personalizzati.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 12/18/2019
+ms.topic: reference
+ms.date: 02/10/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 452687f3886a85bea796e3899410667ee1d592fa
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2a0a786d3e2135467c7279c76bae273bff0ba2d0
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840316"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149508"
 ---
-# <a name="select-a-page-layout-in-azure-active-directory-b2c-using-custom-policies"></a>Selezionare un layout di pagina in Azure Active Directory B2C usando criteri personalizzati
-
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
-
-È possibile abilitare il codice lato client JavaScript nei criteri di Azure Active Directory B2C (Azure AD B2C) se si usano flussi utente o criteri personalizzati. Per abilitare JavaScript per le applicazioni, è necessario aggiungere un elemento ai [criteri personalizzati](custom-policy-overview.md), selezionare un layout di pagina e usare [b2clogin.com](b2clogin.md) nelle richieste.
-
-Un layout di pagina è un'associazione di elementi che Azure AD B2C fornisce e il contenuto fornito.
-
-Questo articolo illustra come selezionare un layout di pagina in Azure AD B2C tramite la configurazione in un criterio personalizzato.
-
-> [!NOTE]
-> Se si vuole abilitare JavaScript per i flussi utente, vedere la pagina relativa alle [versioni del layout di pagina e JavaScript in Azure Active Directory B2C](user-flow-javascript-overview.md).
-
-## <a name="replace-datauri-values"></a>Sostituire i valori di DataUri
-
-Nei criteri personalizzati possono essere inclusi elementi [ContentDefinition](contentdefinitions.md) che definiscono i modelli HTML usati nel percorso utente. L'elemento **ContentDefinition** contiene un elemento **DataUri** che fa riferimento agli elementi della pagina forniti da Azure AD B2C. L'elemento **LoadUri** è il percorso relativo del contenuto HTML e CSS specificato dall'utente.
-
-```XML
-<ContentDefinition Id="api.idpselections">
-  <LoadUri>~/tenant/default/idpSelector.cshtml</LoadUri>
-  <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
-  <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0</DataUri>
-  <Metadata>
-    <Item Key="DisplayName">Idp selection page</Item>
-    <Item Key="language.intro">Sign in</Item>
-  </Metadata>
-</ContentDefinition>
-```
-
-Per selezionare un layout di pagina, è necessario modificare i valori di **DataUri** in [ContentDefinitions](contentdefinitions.md) nei criteri. Passando dai valori di **DataUri** precedenti a quelli nuovi, si seleziona un pacchetto non modificabile. Il vantaggio derivante dall'utilizzo di questo pacchetto è che si è certi che non cambierà e provocherà un comportamento imprevisto nella pagina.
-
-Per specificare un layout di pagina nei criteri personalizzati che usano un valore **DataUri** precedente, inserire `contract` tra `elements` e il tipo di pagina (ad esempio, `selfasserted`) e specificare il numero di versione. Ad esempio:
-
-| Valore di DataUri precedente | Nuovo valore di DataUri |
-| ----------------- | ----------------- |
-| `urn:com:microsoft:aad:b2c:elements:claimsconsent:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:claimsconsent:1.0.0` |
-| `urn:com:microsoft:aad:b2c:elements:globalexception:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.0.0` |
-| `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.1.0` |
-| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` |
-| `urn:com:microsoft:aad:b2c:elements:multifactor:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.0.0` |
-| `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.1.0` |
-| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.0.0` |
-| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.1.0` |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssd:1.0.0` |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.0.0` |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.1.0` |
-
-## <a name="version-change-log"></a>Log delle modifiche della versione
+# <a name="page-layout-versions"></a>Versioni del layout di pagina
 
 I pacchetti del layout di pagina vengono aggiornati periodicamente per includere correzioni e miglioramenti negli elementi della pagina. Nel log delle modifiche seguente vengono specificate le modifiche introdotte in ogni versione.
 
-### <a name="200"></a>2.0.0
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
+
+## <a name="200"></a>2.0.0
 
 - Pagina autocertificata (`selfasserted`)
   - Aggiunta del supporto per la [visualizzazione dei controlli](display-controls.md) nei criteri personalizzati.
 
-### <a name="120"></a>1.2.0
+## <a name="120"></a>1.2.0
 
 - Tutte le pagine
   - Correzioni di accessibilità
-  - È ora possibile aggiungere l'attributo `data-preload="true"` nei tag HTML per controllare l'ordine di caricamento per CSS e JavaScript. Gli scenari includono:
-    - Usare il collegamento CSS per caricare il CSS contemporaneamente al codice HTML in modo che non venga "sfarfallio" tra il caricamento dei file
-    - Questo attributo consente di controllare l'ordine in cui i tag di script vengono recuperati ed eseguiti prima del caricamento della pagina
+  - È ora possibile aggiungere l'attributo `data-preload="true"` nei tag HTML per controllare l'ordine di caricamento per CSS e JavaScript.
+    - Caricare i file CSS collegati allo stesso tempo del modello HTML in modo che non venga "sfarfallio" tra il caricamento dei file.
+    - Controllare l'ordine in cui vengono recuperati e eseguiti i tag `script` prima del caricamento della pagina.
   - Il campo posta elettronica è ora `type=email` e le tastiere mobili forniranno i suggerimenti corretti
   - Supporto per la conversione di Chrome
-- Pagina unificata e autocertificata
-  - I campi nome utente/indirizzo di posta elettronica e password ora usano l'elemento HTML del modulo.  In questo modo Edge e IE verranno consentiti per salvare correttamente queste informazioni
+- Pagine unificate e autocertificate
+  - I campi nome utente/indirizzo di posta elettronica e password ora usano l'elemento HTML `form` per consentire a Edge e Internet Explorer di salvare correttamente queste informazioni.
 
-### <a name="110"></a>1.1.0
+## <a name="110"></a>1.1.0
 
 - Pagina eccezione (globalexception)
   - Correzione accessibilità
@@ -107,10 +63,10 @@ I pacchetti del layout di pagina vengono aggiornati periodicamente per includere
 - SSP unificato (unifiedssp)
   - Aggiunto il controllo Mantieni l'accesso (KMSI)
 
-### <a name="100"></a>1.0.0
+## <a name="100"></a>1.0.0
 
 - Versione iniziale
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni su come personalizzare l'interfaccia utente delle applicazioni sono disponibili nell'argomento [Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C](custom-policy-ui-customization.md).
+Per informazioni dettagliate su come personalizzare l'interfaccia utente delle applicazioni in criteri personalizzati, vedere [personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato](custom-policy-ui-customization.md).

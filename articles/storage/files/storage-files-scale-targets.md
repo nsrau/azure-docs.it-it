@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2e05f0cb46e1e54ced5911c0a78dd026dbb7f4fa
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: dcb0ffef0cf48a7bcbfbdb0107999f7e90333559
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905592"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77151990"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Obiettivi di scalabilità e prestazioni per File di Azure
 
@@ -88,7 +88,7 @@ Per semplificare la pianificazione della distribuzione per ognuna delle fasi, di
 | Numero di oggetti | 25 milioni di oggetti |
 | Dimensioni del set di dati| ~ 4,7 TiB |
 | Dimensioni medie dei file | ~ 200 KiB (file più grande: 100 GiB) |
-| Velocità effettiva di caricamento | 20 oggetti al secondo |
+| Velocità effettiva di caricamento | 20 oggetti al secondo per gruppo di sincronizzazione |
 | Velocità effettiva di download dello spazio dei nomi* | 400 oggetti al secondo |
 
 \* Quando viene creato un nuovo endpoint del server, l'agente di Sincronizzazione file di Azure non scarica il contenuto di alcun file. Sincronizza prima di tutto lo spazio dei nomi completo e quindi attiva il richiamo in background per scaricare i file, interamente o, se è abilitato il cloud a più livelli, in base ai criteri di suddivisione in livelli cloud impostati nell'endpoint del server.
@@ -98,7 +98,7 @@ Per semplificare la pianificazione della distribuzione per ognuna delle fasi, di
 | Numero di oggetti sincronizzati| 125.000 oggetti (circa 1% di varianza) |
 | Dimensioni del set di dati| 50 GiB |
 | Dimensioni medie dei file | ~500 KiB |
-| Velocità effettiva di caricamento | 20 oggetti al secondo |
+| Velocità effettiva di caricamento | 20 oggetti al secondo per gruppo di sincronizzazione |
 | Velocità effettiva per il download completo* | 60 oggetti al secondo |
 
 *Se è abilitato il cloud a più livelli, è probabile che si osserveranno prestazioni migliori, in quanto vengono scaricati solo alcuni dei dati dei file. Sincronizzazione file di Azure scarica solo i dati dei file memorizzati nella cache quando vengono modificati in uno degli endpoint. Per tutti i file a più livelli o appena creati, l'agente non scarica i dati dei file e sincronizza invece solo lo spazio dei nomi per tutti gli endpoint del server. L'agente supporta anche download parziali di file a più livelli man mano che vi accedono gli utenti. 
@@ -111,7 +111,7 @@ Come indicazione generale per la distribuzione, è necessario tenere presenti al
 - La velocità effettiva degli oggetti cambia all'incirca in misura proporzionale al numero di gruppi di sincronizzazione nel server. La suddivisione dei dati in più gruppi di sincronizzazione in un server produce una maggiore velocità effettiva, che è limitata anche dal server e dalla rete.
 - La velocità effettiva degli oggetti è inversamente proporzionale alla velocità effettiva in MiB al secondo. Per i file più piccoli, si riscontrerà una velocità effettiva maggiore per quanto riguarda il numero di oggetti elaborati al secondo, ma con una minore velocità effettiva in MiB al secondo. Al contrario, per i file di dimensioni maggiori, si otterrà un numero minore di oggetti elaborati al secondo, ma con una maggiore velocità effettiva in MiB al secondo. La velocità effettiva in MiB al secondo è limitata dagli obiettivi di scalabilità di File di Azure.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Pianificazione per la distribuzione di File di Azure](storage-files-planning.md)
 - [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)

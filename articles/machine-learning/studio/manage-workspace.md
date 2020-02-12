@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
-ms.openlocfilehash: f4a153a69f3475418873fbac04dea7d932c14373
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c3662515846965eb53e8cd19bcb1109407e0088f
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839449"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153197"
 ---
 # <a name="manage-an-azure-machine-learning-studio-classic-workspace"></a>Gestire un'area di lavoro di Azure Machine Learning Studio (classica)
 
@@ -44,7 +44,7 @@ Oltre alle informazioni e alle opzioni di gestione delle risorse standard dispon
 Per gestire i servizi Web associati a questa area di lavoro di studio (classica), usare il portale dei servizi Web Machine Learning. Per informazioni complete, vedere [Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning](manage-new-webservice.md).
 
 > [!NOTE]
-> Per distribuire o gestire i nuovi servizi Web è necessario che all'utente sia assegnato un ruolo di collaboratore o di amministratore nella sottoscrizione in cui viene distribuito il servizio Web. Se si invita un altro utente a un'area di lavoro di Machine Learning Studio (classica), è necessario assegnarli a un ruolo di collaboratore o amministratore nella sottoscrizione prima di poter distribuire o gestire i servizi Web. 
+> Per distribuire o gestire nuovi servizi Web è necessario che all'utente sia assegnato un ruolo di collaboratore o di amministratore nella sottoscrizione in cui viene distribuito il servizio Web. Se si invita un altro utente a un'area di lavoro di Machine Learning Studio (classica), è necessario assegnarli a un ruolo di collaboratore o amministratore nella sottoscrizione prima di poter distribuire o gestire i servizi Web. 
 > 
 >Per altre informazioni sull'impostazione delle autorizzazioni di accesso, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 

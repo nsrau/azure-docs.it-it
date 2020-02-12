@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: 57bc5739d8e6b1fa30482de69285c8895294cfa8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 618f2e15a2f4acf8ac397872b33aaa98f0b5c4d8
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454750"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149916"
 ---
 # <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>Creare endpoint per i servizi Web di Azure Machine Learning Studio distribuiti (classico)
 
@@ -34,7 +34,7 @@ Ogni endpoint nel servizio Web viene indirizzato, limitato e gestito in modo ind
 
 1. In Machine Learning Studio (classico), nella colonna di spostamento a sinistra fare clic su servizi Web.
 2. Nella parte inferiore del dashboard dei servizi Web, fare clic su **Gestisci endpoint**. Nel portale dei servizi Web di Azure Machine Learning viene aperta la pagina dedicata agli endpoint del servizio Web.
-3. Fare clic su **Nuovo**.
+3. Fare clic su **New**.
 4. Immettere un nome e una descrizione per il nuovo endpoint. I nomi degli endpoint devono contenere al massimo 24 caratteri alfanumerici (con lettere minuscole). Selezionare il livello di registrazione e indicare se i dati di esempio sono abilitati. Per altre informazioni sulla registrazione, vedere [Abilitare la registrazione per i servizi Web di Machine Learning](web-services-logging.md).
 
 ## <a id="scaling"></a> Ridimensionare un servizio Web tramite l'aggiunta di altri endpoint

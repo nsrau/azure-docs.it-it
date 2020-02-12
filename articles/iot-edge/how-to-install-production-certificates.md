@@ -4,16 +4,16 @@ description: Creare certificati di test e apprendere come installarli in un disp
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/03/2019
+ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cf073572cd5b371ec484c99f14cbefb4cba75ce7
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: fe46e968aa2dcebaa483cd38fd2e050ccfe43054
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509904"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149899"
 ---
 # <a name="install-production-certificates-on-an-iot-edge-device"></a>Installare i certificati di produzione in un dispositivo IoT Edge
 
@@ -68,7 +68,7 @@ Ad esempio, se sono stati usati gli script di esempio per [creare i certificati 
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-3. Impostare le proprietà del **certificato** nel file config. YAML sull'URI del file del certificato e dei file di chiave nel dispositivo IOT Edge. Rimuovere il carattere `#` prima delle proprietà del certificato per rimuovere il commento dalle quattro righe. Verificare che la riga **certificati:** non includa spazi vuoti precedenti e che gli elementi nidificati siano rientrati in due spazi. Ad esempio:
+3. Impostare le proprietà del **certificato** nel file config. YAML sull'URI del file del certificato e dei file di chiave nel dispositivo IOT Edge. Rimuovere il carattere `#` prima delle proprietà del certificato per rimuovere il commento dalle quattro righe. Verificare che la riga **certificati:** non includa spazi vuoti precedenti e che gli elementi nidificati siano rientrati in due spazi. Ad esempio,
 
    * Windows:
 
@@ -89,6 +89,12 @@ Ad esempio, se sono stati usati gli script di esempio per [creare i certificati 
       ```
 
 4. Nei dispositivi Linux, assicurarsi che l'utente **iotedge** disponga delle autorizzazioni di lettura per la directory che contiene i certificati.
+
+5. Se sono stati usati altri certificati per IoT Edge sul dispositivo prima, eliminare i file nelle due directory seguenti prima di avviare o riavviare IoT Edge:
+
+   * Windows: `C:\ProgramData\iotedge\hsm\certs` e `C:\ProgramData\iotedge\hsm\cert_keys`
+
+   * Linux: `/var/lib/iotedge/hsm/certs` e `/var/lib/iotedge/hsm/cert_keys`
 
 ## <a name="next-steps"></a>Passaggi successivi
 

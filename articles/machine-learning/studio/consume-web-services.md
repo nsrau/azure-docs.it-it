@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: 7626714812b44119099344b52fe7506989555a57
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: c164a487ef94ea1eae4b369105cb785d1e8d0f66
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314301"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150302"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Come utilizzare un servizio Web di Azure Machine Learning Studio (classico)
 
@@ -29,7 +29,7 @@ Per ulteriori informazioni su come creare e distribuire un servizio Web di Machi
 
 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Con il servizio Web di Azure Machine Learning, un'applicazione esterna comunica con un modello di valutazione del flusso di lavoro di Machine Learning in tempo reale. Una chiamata al servizio Web di Machine Learning restituisce i risultati della stima a un'applicazione esterna. Per effettuare una chiamata al servizio Web di Machine Learning, passare una chiave API creata quando si distribuisce una stima. Il servizio Web di Machine Learning è basato su REST, una scelta di architettura diffusa per progetti di programmazione Web.
 
 Azure Machine Learning Studio (versione classica) dispone di due tipi di servizi:

@@ -3,12 +3,12 @@ title: Come specificare le versioni del runtime per Funzioni di Azure
 description: La soluzione Funzioni di Azure supporta più versioni del runtime. Informazioni su come specificare la versione del runtime di un'app per le funzioni ospitata in Azure.
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 60953d10aeb92083b0aad3432921c7c55bc77e39
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 5a71338b1b9735d7e7494dc2667bd7addf5d4a53
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294168"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77151956"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Come specificare le versioni del runtime per Funzioni di Azure
 
@@ -18,7 +18,7 @@ L'app per le funzioni viene eseguita su una versione specifica del runtime di Fu
 
 Funzioni di Azure consente di specificare come destinazione una versione specifica del runtime usando l'impostazione dell'applicazione `FUNCTIONS_EXTENSION_VERSION` in un'app per le funzioni. L'app per le funzioni viene mantenuta nella versione principale specificata fino a quando non si sceglie esplicitamente di spostarla in una nuova versione.
 
-Se si specifica solo la versione principale, l'app per le funzioni viene aggiornata automaticamente alle nuove versioni secondarie del runtime quando diventano disponibili. Le versioni secondarie non introducono modifiche di rilievo. Se si specifica una versione secondaria, ad esempio "2.0.12345", l'app per le funzioni viene bloccata alla versione specifica fino a quando non viene modificata in modo esplicito.
+Se si specifica solo la versione principale, l'app per le funzioni viene aggiornata automaticamente alle nuove versioni secondarie del runtime quando diventano disponibili. Le nuove versioni secondarie non devono introdurre modifiche di rilievo. Se si specifica una versione secondaria, ad esempio "2.0.12345", l'app per le funzioni viene bloccata alla versione specifica fino a quando non viene modificata in modo esplicito.
 
 > [!NOTE]
 > Se si aggiunge una versione specifica di funzioni di Azure e quindi si prova a eseguire la pubblicazione in Azure tramite Visual Studio, viene visualizzata una finestra di dialogo che richiede di eseguire l'aggiornamento alla versione più recente o di annullare la pubblicazione. Per evitare questo problema, aggiungere la proprietà `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` nel file di `.csproj`.

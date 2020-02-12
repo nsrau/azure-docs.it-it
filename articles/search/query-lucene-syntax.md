@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,19 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 0bb8474b30c05e21a62ded1fa2cb8a6df8e4e321
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d35c96657f48905f37c9ebe246d81ebb9545cf27
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112177"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149882"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintassi di query Lucene in Azure ricerca cognitiva
 
 È possibile scrivere query su Azure ricerca cognitiva in base alla sintassi avanzata del [parser di query Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) per i moduli di query specializzati: i caratteri jolly, la ricerca fuzzy, la ricerca di prossimità, le espressioni regolari sono alcuni esempi. Gran parte della sintassi del parser di query Lucene viene [implementata in modo intatto in azure ricerca cognitiva](search-lucene-query-architecture.md), ad eccezione delle *ricerche di intervallo* costruite in Azure ricerca cognitiva tramite espressioni di `$filter`. 
+
+> [!NOTE]
+> La sintassi Lucene completa viene usata per le espressioni di query passate nel parametro di **ricerca** dell'API di [ricerca dei documenti](https://docs.microsoft.com/rest/api/searchservice/search-documents) , da non confondere con la [sintassi OData](query-odata-filter-orderby-syntax.md) usata per il parametro [$Filter](search-filters.md) di tale API. Queste diverse sintassi hanno regole proprie per la costruzione di query, l'escape di stringhe e così via.
 
 ## <a name="how-to-invoke-full-parsing"></a>Come richiamare l'analisi completa
 

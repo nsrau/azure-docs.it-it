@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dbc7f8068ed84f42ec41ebd969e0aa91ffbb264
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e5aa30bc819531ee8cc9cd337648a6cbc661bb29
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473320"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149814"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Domande frequenti su Azure Active Directory Connect
 
@@ -113,13 +113,13 @@ Di seguito è riportato un documento informativo in cui vengono illustrate alcun
 - I server di gestione temporanea non sono destinati a essere una soluzione a disponibilità elevata, ma è possibile disporre di più server di gestione temporanea
 - L'introduzione di un server di staging "lag" potrebbe ridurre il rischio di tempi di inattività in caso di errore
 - Testare e convalidare prima tutti gli aggiornamenti nel server di staging
-- Convalidare sempre le esportazioni prima di passare alla gestione temporanea serverLeverage il server di staging per le importazioni complete e le sincronizzazioni complete per ridurre l'effetto aziendale
+- Convalidare sempre le esportazioni prima di passare al server di staging.  Utilizzare il server di gestione temporanea per le importazioni complete e le sincronizzazioni complete per ridurre l'effetto aziendale
 - Mantieni la coerenza della versione tra Azure AD Connect Server il più possibile 
 
 **D: è possibile consentire Azure AD Connect di creare l'account del connettore Azure AD sul computer del gruppo di lavoro?**
 No.  Per consentire Azure AD Connect di creare automaticamente l'account del connettore Azure AD, il computer deve essere aggiunto a un dominio.  
 
-## <a name="network"></a>Network
+## <a name="network"></a>Rete
 **D: ho un firewall, un dispositivo di rete o un altro elemento che limita il tempo per cui le connessioni possono restare aperte sulla mia rete. Quale dovrebbe essere la soglia di timeout lato client quando si usa Azure AD Connect?**  
 Tutto il software di rete e tutti i dispositivi fisici o i meccanismi di altro tipo che limitano la durata delle connessioni devono applicare una soglia di almeno cinque minuti (300 secondi) per la connettività tra il server in cui è installato il client AD Azure Connect ed Azure Active Directory. Questo vale anche per tutti gli strumenti di sincronizzazione delle identità di Microsoft rilasciati in precedenza.
 
@@ -145,12 +145,12 @@ Per materiale sussidiario sul rinnovo del certificato, vedere [Rinnovare i certi
 **D: è stato impostato "Aggiorna automaticamente relying party" per l'relying party di Office 365. È necessario eseguire qualsiasi azione quando il certificato per la firma di token esegue automaticamente il rollover?**  
 Seguire il materiale sussidiario illustrato nell'articolo [Rinnovare i certificati](how-to-connect-fed-o365-certs.md).
 
-## <a name="environment"></a>Environment
+## <a name="environment"></a>Ambiente
 **D: Il fatto di rinominare il server dopo l'installazione di Azure AD Connect è supportato?**  
 No. La modifica del nome del server impedisce al motore di sincronizzazione di connettersi all'istanza del database SQL e il servizio non può essere avviato.
 
 **D: le regole di sincronizzazione di crittografia (NGC) di prossima generazione sono supportate in un computer abilitato per FIPS?**  
-No.  Non sono supportate.
+No.  non sono supportati.
 
 **D. se è stato disattivato un dispositivo sincronizzato (ad esempio: HAADJ) nel portale di Azure, perché è riabilitato?**<br>
 I dispositivi sincronizzati possono essere creati o gestiti in locale. Se un dispositivo sincronizzato è abilitato in locale, potrebbe essere riabilitato nella portale di Azure anche se è stato precedentemente disabilitato da un amministratore. Per disabilitare un dispositivo sincronizzato, usare la Active Directory locale per disabilitare l'account del computer.
