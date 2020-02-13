@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cd10bd2a04bfb2a3e3316d86e64a98c75c12e36d
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: aa7ddb75017a532b436b9a5cfc71d1a7c2832cb6
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76530897"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77179105"
 ---
 Questo articolo illustra come pianificare il backup e il ripristino di emergenza di macchine virtuali (VM) e dischi IaaS in Azure. Questo documento è relativo a dischi gestiti e non gestiti.
 
@@ -103,25 +103,25 @@ Se si usano [unità SSD Premium](../articles/virtual-machines/windows/disks-type
 Per i dischi non gestiti è possibile usare il tipo di archiviazione con ridondanza locale per dischi IaaS, ma occorre assicurarsi che Backup di Azure sia abilitato con l'opzione di archiviazione con ridondanza geografica per l'insieme di credenziali dei servizi di ripristino.
 
 > [!NOTE]
-> Se si usa l'opzione di [archiviazione con ridondanza geografica](../articles/storage/common/storage-redundancy-grs.md) o di [archiviazione con ridondanza geografica e accesso in lettura](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) per i dischi non gestiti, saranno comunque necessari snapshot coerenti per il backup e il ripristino di emergenza. Usare [Backup di Azure](https://azure.microsoft.com/services/backup/) o [snapshot coerenti](#alternative-solution-consistent-snapshots).
+> Se si usa l'opzione di [archiviazione con ridondanza geografica](../articles/storage/common/storage-redundancy-grs.md) o di [archiviazione con ridondanza geografica e accesso in lettura](../articles/storage/common/storage-redundancy.md) per i dischi non gestiti, saranno comunque necessari snapshot coerenti per il backup e il ripristino di emergenza. Usare [Backup di Azure](https://azure.microsoft.com/services/backup/) o [snapshot coerenti](#alternative-solution-consistent-snapshots).
 
  La tabella seguente fornisce un riepilogo delle soluzioni disponibili per il ripristino di emergenza.
 
 | Scenario | Replica automatica | Soluzione di ripristino di emergenza |
 | --- | --- | --- |
 | Dischi SSD Premium | Locale ([archiviazione con ridondanza locale](../articles/storage/common/storage-redundancy-lrs.md)) | [Backup di Azure](https://azure.microsoft.com/services/backup/) |
-| Managed Disks | Locale ([archiviazione con ridondanza locale](../articles/storage/common/storage-redundancy-lrs.md)) | [Backup di Azure](https://azure.microsoft.com/services/backup/) |
+| Dischi gestiti | Locale ([archiviazione con ridondanza locale](../articles/storage/common/storage-redundancy-lrs.md)) | [Backup di Azure](https://azure.microsoft.com/services/backup/) |
 | Dischi non gestiti con archiviazione con ridondanza locale | Locale ([archiviazione con ridondanza locale](../articles/storage/common/storage-redundancy-lrs.md)) | [Backup di Azure](https://azure.microsoft.com/services/backup/) |
 | Dischi non gestiti con archiviazione con ridondanza geografica | Tra aree ([archiviazione con ridondanza geografica](../articles/storage/common/storage-redundancy-grs.md)) | [Backup di Azure](https://azure.microsoft.com/services/backup/)<br/>[Snapshot coerenti](#alternative-solution-consistent-snapshots) |
-| Dischi non gestiti con archiviazione con ridondanza geografica e accesso in lettura | Tra aree ([archiviazione con ridondanza geografica e accesso in lettura](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) | [Backup di Azure](https://azure.microsoft.com/services/backup/)<br/>[Snapshot coerenti](#alternative-solution-consistent-snapshots) |
+| Dischi non gestiti con archiviazione con ridondanza geografica e accesso in lettura | Tra aree ([archiviazione con ridondanza geografica e accesso in lettura](../articles/storage/common/storage-redundancy.md)) | [Backup di Azure](https://azure.microsoft.com/services/backup/)<br/>[Snapshot coerenti](#alternative-solution-consistent-snapshots) |
 
 La disponibilità elevata si ottiene usando dischi gestiti in un set di disponibilità insieme a Backup di Azure. Se si usano dischi non gestiti, è comunque possibile usare Backup di Azure per il ripristino di emergenza. Se non si può usare Backup di Azure, la creazione di [snapshot coerenti](#alternative-solution-consistent-snapshots), come illustrato in una sezione successiva, è una soluzione alternativa per il backup e il ripristino di emergenza.
 
 Le opzioni per la disponibilità elevata, il backup e il ripristino di emergenza a livello di applicazione o infrastruttura possono essere rappresentate come segue:
 
-| Livello |   Disponibilità elevata   | Backup o ripristino di emergenza |
+| Level |   Disponibilità elevata   | Backup o ripristino di emergenza |
 | --- | --- | --- |
-| Richiesta | SQL Server AlwaysOn | Backup di Azure |
+| Applicazione | SQL Server AlwaysOn | Backup di Azure |
 | Infrastruttura    | Set di disponibilità  | Archiviazione con ridondanza geografica con snapshot coerenti |
 
 ### <a name="using-azure-backup"></a>Uso di Backup di Azure 

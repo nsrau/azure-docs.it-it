@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: rohink
-ms.openlocfilehash: b00bc1c95e2f593523c584c4abfe9381e5697f79
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 49e0bce6eea8fac32f49bb905c225e898e709af0
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939466"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136296"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Esercitazione: Indirizzare il traffico a endpoint specifici basati sulla subnet dell'utente usando Gestione traffico
 
@@ -47,7 +47,7 @@ Le macchine virtuali per il test vengono usate per illustrare come Gestione traf
 
 ### <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere al portale di Azure all'indirizzo https://portal.azure.com.
+Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
 ### <a name="create-websites"></a>Creare i siti Web
 

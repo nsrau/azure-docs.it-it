@@ -3,12 +3,12 @@ title: Come creare i criteri di configurazione Guest
 description: Informazioni su come creare criteri di configurazione Guest di criteri di Azure per macchine virtuali Windows o Linux con Azure PowerShell.
 ms.date: 12/16/2019
 ms.topic: how-to
-ms.openlocfilehash: 7a6c6bb68302d41cd750c59062432a40cf01e8bd
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 8bd769b61ed87c9ded45ceca11586cfe105740c9
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278466"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77167176"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Come creare i criteri di configurazione Guest
 
@@ -269,7 +269,7 @@ New-GuestConfigurationPolicy
     -Verbose
 ```
 
-Per i criteri di Linux, includere la proprietà **AttributesYmlContent** nella configurazione e sovrascrivere i valori in base alle esigenze. L'agente di configurazione Guest crea automaticamente il file YAML usato da INSPEC per archiviare gli attributi. Vedi l'esempio seguente.
+Per i criteri di Linux, includere la proprietà **AttributesYmlContent** nella configurazione e sovrascrivere i valori in base alle esigenze. L'agente di configurazione Guest crea automaticamente il file YAML usato da INSPEC per archiviare gli attributi. Vedere l'esempio seguente.
 
 ```powershell
 Configuration FirewalldEnabled {
@@ -374,7 +374,7 @@ $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 
 Un utile riferimento per la creazione di chiavi GPG da usare con i computer Linux è fornito da un articolo su GitHub, che [genera una nuova chiave GPG](https://help.github.com/en/articles/generating-a-new-gpg-key).
 
-Una volta pubblicato il contenuto, aggiungere un tag con il nome `GuestConfigPolicyCertificateValidation` e il valore `enabled` a tutte le macchine virtuali in cui deve essere richiesta la firma del codice. Questo tag può essere distribuito su vasta scala usando criteri di Azure. Vedere l'esempio [Applica tag e il relativo valore predefinito](../samples/apply-tag-default-value.md) . Una volta che questo tag è stato inserito, la definizione dei criteri generata usando il cmdlet `New-GuestConfigurationPolicy` Abilita il requisito tramite l'estensione di configurazione Guest.
+Una volta pubblicato il contenuto, aggiungere un tag con il nome `GuestConfigPolicyCertificateValidation` e il valore `enabled` a tutte le macchine virtuali in cui deve essere richiesta la firma del codice. Vedere gli [esempi di tag](../samples/built-in-policies.md#tags) per il modo in cui i tag possono essere distribuiti su larga scala usando criteri di Azure. Una volta che questo tag è stato inserito, la definizione dei criteri generata usando il cmdlet `New-GuestConfigurationPolicy` Abilita il requisito tramite l'estensione di configurazione Guest.
 
 ## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>Risoluzione dei problemi relativi alle assegnazioni dei criteri di configurazione Guest (anteprima)
 

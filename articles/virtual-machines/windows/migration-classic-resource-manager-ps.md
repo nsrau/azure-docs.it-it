@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 802d97e2c9b64fd9d8caeaf479af3f4aec356607
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: 109bffe7b5ab9bb322c4ddb2f7b8ec4ac87a54cc
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153129"
+ms.locfileid: "77168345"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>Eseguire la migrazione di risorse IaaS dal modello classico al Azure Resource Manager usando PowerShell
 Questi passaggi mostrano come usare i comandi di Azure PowerShell per eseguire la migrazione di risorse IaaS (infrastruttura distribuita come servizio) dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager.
@@ -52,8 +52,6 @@ Di seguito sono riportate alcune procedure consigliate per valutare se eseguire 
 Per l'installazione di Azure PowerShell sono previste due opzioni principali: [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) e [Installazione guidata piattaforma Web (WebPI)](https://aka.ms/webpi-azps). WebPI riceve aggiornamenti mensili. PowerShell Gallery riceve aggiornamenti su base continua. Questo articolo si basa su Azure PowerShell versione 2.1.0.
 
 Per le istruzioni di installazione, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
-
-<br>
 
 ## <a name="step-3-ensure-that-youre-an-administrator-for-the-subscription"></a>Passaggio 3: assicurarsi di essere un amministratore per la sottoscrizione
 Per eseguire questa migrazione, è necessario essere aggiunti come coamministratore per la sottoscrizione nel [portale di Azure](https://portal.azure.com).
@@ -104,6 +102,14 @@ Attendere cinque minuti per il completamento della registrazione. Verificare lo 
 
 Assicurarsi che RegistrationState sia `Registered` prima di procedere.
 
+Prima di passare al modello di distribuzione classica, assicurarsi di disporre di un numero sufficiente Azure Resource Manager macchina virtuale vCPU nell'area di Azure della distribuzione corrente o della rete virtuale. È possibile usare il comando PowerShell seguente per controllare il numero corrente di CPU virtuali in Azure Resource Manager. Per altre informazioni sulle quote di CPU virtuali, vedere [Limiti e Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#managing-limits).
+
+In questo esempio viene verificata la disponibilità nell'area **Stati Uniti occidentali**. Sostituire il nome dell'area di esempio con il nome della propria area.
+
+```powershell
+    Get-AzVMUsage -Location "West US"
+```
+
 A questo punto, accedere al proprio account per il modello di distribuzione classica.
 
 ```powershell
@@ -122,27 +128,17 @@ Impostare la sottoscrizione di Azure per la sessione corrente. In questo esempio
     Select-AzureSubscription –SubscriptionName "My Azure Subscription"
 ```
 
-<br>
 
-## <a name="step-5-have-enough-resource-manager-vm-vcpus"></a>Passaggio 5: disporre di un numero sufficiente di Gestione risorse VM vCPU
-Assicurarsi di disporre di un numero sufficiente Azure Resource Manager macchina virtuale vCPU nell'area di Azure della distribuzione o della rete virtuale corrente. È possibile usare il comando PowerShell seguente per controllare il numero corrente di CPU virtuali in Azure Resource Manager. Per altre informazioni sulle quote di CPU virtuali, vedere [Limiti e Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#managing-limits).
-
-In questo esempio viene verificata la disponibilità nell'area **Stati Uniti occidentali**. Sostituire il nome dell'area di esempio con il nome della propria area.
-
-```powershell
-Get-AzVMUsage -Location "West US"
-```
-
-## <a name="step-6-run-commands-to-migrate-your-iaas-resources"></a>Passaggio 6: eseguire i comandi per la migrazione delle risorse IaaS
-* [Eseguire la migrazione di macchine virtuali in un servizio cloud (non in una rete virtuale)](#step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network)
-* [Eseguire la migrazione di macchine virtuali in una rete virtuale](#step-61-option-2---migrate-virtual-machines-in-a-virtual-network)
-* [Eseguire la migrazione di un account di archiviazione](#step-62-migrate-a-storage-account)
+## <a name="step-5-run-commands-to-migrate-your-iaas-resources"></a>Passaggio 5: Eseguire i comandi per la migrazione delle risorse IaaS
+* [Eseguire la migrazione di macchine virtuali in un servizio cloud (non in una rete virtuale)](#step-51-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network)
+* [Eseguire la migrazione di macchine virtuali in una rete virtuale](#step-51-option-2---migrate-virtual-machines-in-a-virtual-network)
+* [Eseguire la migrazione di un account di archiviazione](#step-52-migrate-a-storage-account)
 
 > [!NOTE]
 > Tutte le operazioni descritte di seguito sono idempotenti. Se vengono rilevati errori diversi da una funzionalità non supportata o un errore di configurazione, è consigliabile provare a ripetere l'operazione di preparazione, interruzione o commit. La piattaforma tenterà di ripetere l'azione.
 
 
-### <a name="step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>Passaggio 6.1: Opzione 1 - Eseguire la migrazione delle macchine virtuali in un servizio cloud (non in una rete virtuale)
+### <a name="step-51-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>Passaggio 5,1: opzione 1-eseguire la migrazione delle macchine virtuali in un servizio cloud (non in una rete virtuale)
 Ottenere l'elenco dei servizi cloud usando il comando seguente. Quindi selezionare il servizio cloud di cui si vuole eseguire la migrazione. Se le VM nel servizio cloud si trovano in una rete virtuale o hanno ruoli Web o di lavoro, il comando restituisce un messaggio di errore.
 
 ```powershell
@@ -223,7 +219,7 @@ Se la configurazione preparata appare corretta, è possibile procedere ed esegui
     Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 ```
 
-### <a name="step-61-option-2---migrate-virtual-machines-in-a-virtual-network"></a>Passaggio 6.1: Opzione 2 - Eseguire la migrazione delle macchine virtuali in un una rete virtuale
+### <a name="step-51-option-2---migrate-virtual-machines-in-a-virtual-network"></a>Passaggio 5,1: opzione 2-eseguire la migrazione delle macchine virtuali in una rete virtuale
 
 Per eseguire la migrazione delle macchine virtuali in una rete virtuale, migrare la rete virtuale. Le macchine virtuali migreranno automaticamente con la rete virtuale. Selezionare la rete virtuale per cui si vuole eseguire la migrazione.
 > [!NOTE]
@@ -266,7 +262,7 @@ Se la configurazione preparata appare corretta, è possibile procedere ed esegui
     Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 ```
 
-### <a name="step-62-migrate-a-storage-account"></a>Passaggio 6,2: eseguire la migrazione di un account di archiviazione
+### <a name="step-52-migrate-a-storage-account"></a>Passaggio 5,2: eseguire la migrazione di un account di archiviazione
 Al termine della migrazione delle macchine virtuali, eseguire i controlli dei prerequisiti seguenti prima di eseguire la migrazione degli account di archiviazione.
 
 > [!NOTE]

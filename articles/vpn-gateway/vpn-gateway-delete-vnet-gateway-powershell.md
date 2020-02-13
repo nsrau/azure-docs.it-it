@@ -7,16 +7,16 @@ ms.service: vpn-gateway
 ms.date: 02/07/2019
 ms.author: cherylmc
 ms.topic: conceptual
-ms.openlocfilehash: 2c02b656f8d7879115d25516bf49f49d9921a290
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: f351f14796ec736bd5525f139a518c9a0dd3d19f
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74146318"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162107"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Eliminare un gateway di rete virtuale usando PowerShell
 > [!div class="op_single_selector"]
-> * [Portale di Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+> * [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [PowerShell (classic)](vpn-gateway-delete-vnet-gateway-classic-powershell.md) (PowerShell (classico))
 >
@@ -30,7 +30,7 @@ Esistono due diversi approcci quando si desidera eliminare un gateway di rete vi
 
 ## <a name="before-beginning"></a>Prima di iniziare
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ### <a name="1-download-the-latest-azure-resource-manager-powershell-cmdlets"></a>1. scaricare i cmdlet di Azure Resource Manager PowerShell più recenti.
 
@@ -89,7 +89,7 @@ $Conns | ForEach-Object {Remove-AzVirtualNetworkGatewayConnection -Name $_.name 
 
 ### <a name="4-delete-the-virtual-network-gateway"></a>4. eliminare il gateway di rete virtuale.
 
-Potrebbe essere richiesto di confermare l'eliminazione del gatweay. Se in aggiunta alla configurazione S2S si dispone di una configurazione P2S per questa rete virtuale, l'eliminazione del gateway di rete virtuale disconnette automaticamente tutti i client P2S senza alcun avviso.
+Potrebbe essere richiesto di confermare l'eliminazione del gateway. Se in aggiunta alla configurazione S2S si dispone di una configurazione P2S per questa rete virtuale, l'eliminazione del gateway di rete virtuale disconnette automaticamente tutti i client P2S senza alcun avviso.
 
 
 ```powershell
@@ -288,7 +288,7 @@ Set-AzVirtualNetwork -VirtualNetwork $GWSub
 
 ## <a name="delete"></a>Eliminare un gateway VPN eliminando il gruppo di risorse
 
-Se non si è interessati a mantenere risorse del gruppo di risorse e si vuole solo ricominciare da capo, è possibile eliminare un intero gruppo di risorse. Questo è un modo rapido per rimuovere tutto. La procedura seguente si applica solo al modello di distribuzione Resource Manager.
+Se non si è interessati a mantenere risorse del gruppo di risorse e si vuole solo ricominciare da capo, è possibile eliminare un intero gruppo di risorse. Questo è un modo rapido per rimuovere tutto. La procedura seguente si applica solo al modello di distribuzione di Azure Resource Manager.
 
 ### <a name="1-get-a-list-of-all-the-resource-groups-in-your-subscription"></a>1. ottenere un elenco di tutti i gruppi di risorse nella sottoscrizione.
 

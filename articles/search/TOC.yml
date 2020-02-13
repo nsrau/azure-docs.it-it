@@ -271,6 +271,8 @@
               href: knowledge-store-view-storage-explorer.md
             - name: Connettersi con Power BI
               href: knowledge-store-connect-power-bi.md
+            - name: Esempi di proiezione
+              href: knowledge-store-projections-examples.md
     - name: Eseguire query su documenti
       items:
         - name: Tipi di query e composizione

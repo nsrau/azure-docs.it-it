@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 3d6439424f2a39bf5b5477cebd5fadb23a6370b0
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: ec2d9152bf8d3d7c60f00e902f155212ee1b81cc
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984813"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169824"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Che cosa sono le destinazioni di calcolo in Azure Machine Learning? 
 
@@ -50,16 +50,12 @@ Una risorsa di calcolo gestita viene creata e gestita da Azure Machine Learning.
 
 È possibile creare Azure Machine Learning istanze di calcolo (anteprima) o cluster di calcolo in:
 
-| | Azure Machine Learning Studio | Portale di Azure | SDK | Modello di Resource Manager | Interfaccia della riga di comando |
+| | Azure Machine Learning Studio | Portale di Azure | SDK | Modello di Resource Manager | CLI |
 |---| ----- | ----- | ----- | ----- | ----- |
 | Istanza di calcolo | sì | sì | sì | sì |  |
 | Cluster di calcolo | sì | sì | sì | sì | sì |
 
 Quando vengono create, queste risorse di calcolo fanno automaticamente parte dell'area di lavoro, a differenza di altri tipi di destinazioni di calcolo.
-
-> [!NOTE]
-> Le istanze di calcolo sono disponibili solo per le aree di lavoro con un'area geografica **Stati Uniti centro-settentrionali**, **Stati Uniti orientali 2**, **Europa settentrionale** o **Regno Unito meridionale**e il supporto per altre aree presto disponibile.
->Se l'area di lavoro si trova in qualsiasi altra area geografica, è possibile continuare a creare e usare una [macchina virtuale notebook](concept-compute-instance.md#notebookvm) in alternativa. 
 
 ### <a name="compute-clusters"></a>Cluster di elaborazione
 
@@ -78,6 +74,6 @@ Una destinazione di calcolo *non gestita non* è gestita da Azure Machine Learni
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri come:
+Viene illustrato come:
 * [Configurare una destinazione di calcolo per il training del modello](how-to-set-up-training-targets.md)
 * [Distribuire il modello in una destinazione di calcolo](how-to-deploy-and-where.md)

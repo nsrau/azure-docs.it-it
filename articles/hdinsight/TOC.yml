@@ -372,6 +372,8 @@
                   href: ./spark/apache-spark-run-machine-learning-automl.md
         - name: Risolvere problemi
           items:
+            - name: Non è possibile creare un notebook di Jupyter
+              href: ./spark/troubleshoot-jupyter-notebook-convert.md
             - name: Eccezione OutOfMemoryError
               href: ./spark/apache-spark-troubleshoot-outofmemory.md
             - name: Errore del processo Apache Spark - NoClassDefFoundError
@@ -396,6 +398,8 @@
               href: ./spark/apache-spark-troubleshoot-event-log-requestbodytoolarge.md
             - name: Eseguire il debug di processi Apache Spark
               href: ./spark/apache-spark-job-debugging.md
+            - name: Eseguire il debug delle operazioni sui file WASB
+              href: ./spark/troubleshoot-debug-wasb.md
             - name: Usare IntelliJ per il debug di un processo Apache Spark
               href: ./spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md
             - name: Risoluzione dei problemi di Apache Spark
@@ -523,6 +527,8 @@
               href: ./hadoop/troubleshoot-port-conflict.md
             - name: Perdita dell'accesso al Key Vault
               href: ./hadoop/troubleshoot-lost-key-vault-access.md
+            - name: Eccezione di archiviazione WASBS
+              href: ./hadoop/troubleshoot-wasbs-storage-exception.md
 - name: Apache Kafka
   items:
     - name: Panoramica

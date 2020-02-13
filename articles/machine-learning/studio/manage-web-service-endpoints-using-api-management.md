@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 9123e1d8e63382c6b89c86f99935dd288bb1bf16
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: d0e9fff56949125c5fa797e0e4ef7e1183448dd0
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153418"
+ms.locfileid: "77168582"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Gestire i servizi Web di Azure Machine Learning Studio (classico) tramite gestione API
 ## <a name="overview"></a>Panoramica
@@ -24,7 +24,7 @@ Questa guida illustra come iniziare rapidamente a usare gestione API per gestire
 ## <a name="what-is-azure-api-management"></a>Cos'è Gestione API di Azure?
 Gestione API di Azure è un servizio di Azure che consente di gestire gli endpoint dell'API REST definendo l'accesso utente, la limitazione all'utilizzo e il monitoraggio del dashboard. Per altri dettagli, vedere il [sito gestione API di Azure](https://azure.microsoft.com/services/api-management/) . Per iniziare a usare gestione API di Azure, vedere [la Guida all'importazione e alla pubblicazione](/azure/api-management/import-and-publish). L'altra guida, su cui è basata questa, tratta più argomenti, tra cui le configurazioni delle notifiche, il livello di prezzo, la gestione delle risposte, l'autenticazione utente, la creazione di prodotti, le sottoscrizioni per sviluppatori e il dashboarding dell'uso.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Per completare questa guida, è necessario:
 
 * Un account Azure.
@@ -66,7 +66,7 @@ Per creare l'API:
 4. Immettere un valore per **Suffisso dell'URL dell'API Web". Il valore immesso diventerà l'ultima parte dell'URL che i clienti useranno per l'invio di richieste all'istanza del servizio (in questo esempio viene usato "azureml-demo").
 5. Per **Schema URL API Web** selezionare **HTTPS**.
 6. Per **Prodotti** selezionare **Starter** (Avviatore).
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 
 ## <a name="add-the-operations"></a>Aggiungere le operazioni
@@ -103,7 +103,7 @@ Creare prima un'operazione per il servizio RRS di AzureML:
 3. Per **Modello di URL** digitare "`/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}`".
 4. Immettere un valore nel campo **Nome visualizzato** (in questo esempio viene usato "BES Submit").
 5. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**.
-6. Fare clic su **Save**.
+6. Fare clic su **Salva**.
 
 ### <a name="start-a-batch-execution-job"></a>Avviare un processo di esecuzione in batch
 
@@ -112,7 +112,7 @@ Creare prima un'operazione per il servizio RRS di AzureML:
 3. Per **Verbo HTTP** digitare "`/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}`".
 4. Immettere un valore nel campo **Nome visualizzato** (in questo esempio viene usato "BES Start").
 6. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**.
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 ### <a name="get-the-status-or-result-of-a-batch-execution-job"></a>Ottenere lo stato o il risultato di un processo di esecuzione del Batch
 
@@ -121,7 +121,7 @@ Creare prima un'operazione per il servizio RRS di AzureML:
 3. Per **Modello di URL** digitare "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`".
 4. Immettere un valore nel campo **Nome visualizzato** (in questo esempio viene usato "BES Status").
 6. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**.
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 ### <a name="delete-a-batch-execution-job"></a>Eliminare un processo di esecuzione in batch
 
@@ -130,7 +130,7 @@ Creare prima un'operazione per il servizio RRS di AzureML:
 3. Per **Modello di URL** digitare "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`".
 4. Immettere un valore nel campo **Nome visualizzato** (in questo esempio viene usato "BES Delete").
 5. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**.
-6. Fare clic su **Save**.
+6. Fare clic su **Salva**.
 
 ## <a name="call-an-operation-from-the-developer-portal"></a>Chiamare un'operazione dal portale per sviluppatori
 
@@ -158,7 +158,7 @@ Creare prima un'operazione per il servizio RRS di AzureML:
 
 5. Fare clic su **Send**.
 
-   ![send](./media/manage-web-service-endpoints-using-api-management/send.png)
+   ![trasmissione](./media/manage-web-service-endpoints-using-api-management/send.png)
 
 Una volta richiamata un'operazione, nel portale per sviluppatori vengono visualizzati l'**URL richiesto** restituito dal servizio back-end, lo **Stato della risposta**, le **Intestazioni della risposta** e l'eventuale **Contenuto della risposta**.
 
@@ -166,7 +166,7 @@ Una volta richiamata un'operazione, nel portale per sviluppatori vengono visuali
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>Appendice A - Creazione e test di un semplice servizio Web di AzureML
 ### <a name="creating-the-experiment"></a>Creazione di un esperimento
-Di seguito sono riportati i passaggi per creare un semplice esperimento di AzureML e distribuirlo come servizio Web. Il servizio Web accetta come input una colonna di testo arbitrario e restituisce un set di funzionalità rappresentate come valori Integer. Ad esempio,
+Di seguito sono riportati i passaggi per creare un semplice esperimento di AzureML e distribuirlo come servizio Web. Il servizio Web accetta come input una colonna di testo arbitrario e restituisce un set di funzionalità rappresentate come valori Integer. Ad esempio:
 
 | Text | Testo con hash |
 | --- | --- |
@@ -198,7 +198,7 @@ Digitare **3** in **Hashing bitsize**. Verranno create 8 (23) colonne.
 
 A questo punto, è possibile fare clic su **Run** per testare l'esperimento.
 
-![run](./media/manage-web-service-endpoints-using-api-management/run.png)
+![Run](./media/manage-web-service-endpoints-using-api-management/run.png)
 
 ### <a name="create-a-web-service"></a>Creare un servizio Web
 Ora creare un servizio Web. Espandere **Servizio Web** e trascinare **Input** sull'esperimento. Connettere **Input** a **Feature Hashing**. Trascinare anche **output** sull'esperimento. Connettere **Output** a **Feature Hashing**.

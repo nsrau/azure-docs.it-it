@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ecb704253597bf4eb5672fe924a0dafc4c1b3fd1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b53fca292630ef988ee1357ea50adc4d7b7e9be5
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726535"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162880"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Usare l'autenticazione di Azure AD per accedere all'API di Servizi multimediali di Azure con .NET
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 A partire da windowsazure.mediaservices 4.0.0.4, Servizi multimediali di Azure supporta l'autenticazione basata su Azure Active Directory (Azure AD). In questo argomento viene illustrato come usare l'autenticazione di Azure AD per accedere all'API Servizi multimediali di Microsoft Azure con .NET.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Account di Servizi multimediali. Per altre informazioni, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
@@ -48,7 +48,7 @@ Per connettersi all'API Servizi multimediali di Azure con l'autenticazione Azure
 
 Ad esempio, non è necessario fornire dettagli sull'autorità di Azure AD, sull'URI di risorsa di Servizi multimediali o sull'applicazione Azure AD nativa. Si tratta di valori noti già configurati per la classe del provider del token di accesso di Azure AD. 
 
-Se non si usa l'SDK .NET di Servizi multimediali di Azure, è consigliabile usare [Azure AD Authentication Library](../../active-directory/develop/active-directory-authentication-libraries.md). Per ottenere i valori dei parametri da usare con Azure Active Directory Authentication Library, vedere [Utilizzo del portale di Azure per accedere alle impostazioni di autenticazione di Azure AD](media-services-portal-get-started-with-aad.md).
+Se non si usa l'SDK .NET di Servizi multimediali di Azure, è consigliabile usare [Azure AD Authentication Library](../../active-directory/azuread-dev/active-directory-authentication-libraries.md). Per ottenere i valori dei parametri da usare con Azure Active Directory Authentication Library, vedere [Utilizzo del portale di Azure per accedere alle impostazioni di autenticazione di Azure AD](media-services-portal-get-started-with-aad.md).
 
 È anche possibile sostituire l'implementazione predefinita di **AzureAdTokenProvider** con la propria implementazione.
 
@@ -131,7 +131,7 @@ L'esempio seguente mostra come creare il token di Azure AD e il contesto:
     
 Per connettersi all'API Servizi multimediali di Azure con l'opzione dell'entità servizio, l'app di livello intermedio (API o applicazione Web) deve richiedere un token di Azure AD con i parametri seguenti:  
 
-- Endpoint del tenant di Azure AD. Le informazioni sul tenant possono essere recuperate dal portale di Azure. Passare il mouse sull'utente connesso nell'angolo superiore destro.
+- Endpoint tenant di Azure AD. Le informazioni sul tenant possono essere recuperate dal portale di Azure. Passare il mouse sull'utente connesso nell'angolo superiore destro.
 - URI di risorsa per Servizi multimediali.
 - Valori dell'applicazione Azure AD: **ID client** e **Segreto client**.
 

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
-ms.openlocfilehash: 108294e3f125da9fb009eb0a85585dab026c8d01
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: c3ed780bc50b690b2f5c3285024695ec6426b9b3
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933330"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77167323"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Trigger di riscaldamento di funzioni di Azure
 
@@ -171,25 +171,9 @@ def main(warmupContext: func.Context) -> None:
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-L'esempio seguente mostra un trigger di riscaldamento in un file *Function. JSON* e una funzione [Java](functions-reference-java.md) che verrà eseguita in ogni nuova istanza quando viene aggiunta all'app.
+L'esempio seguente mostra un trigger di riscaldamento che viene eseguito quando ogni nuova istanza viene aggiunta all'app.
 
-La funzione deve essere denominata ```warmup``` (senza distinzione tra maiuscole e minuscole) ed è possibile che esista una sola funzione di riscaldamento per app.
-
-Ecco il file *function.json*:
-
-```json
-{
-    "bindings": [
-        {
-            "type": "warmupTrigger",
-            "direction": "in",
-            "name": "warmupContext"
-        }
-    ]
-}
-```
-
-Ecco il codice Java:
+La funzione deve essere denominata `warmup` (senza distinzione tra maiuscole e minuscole) ed è possibile che esista una sola funzione di riscaldamento per app.
 
 ```java
 @FunctionName("Warmup")
@@ -243,11 +227,11 @@ Il trigger di riscaldamento non è supportato in Java come attributo.
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `WarmupTrigger`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
-| **type** | N/D| Obbligatoria. Deve essere impostata su `warmupTrigger`. |
-| **direction** | N/D| Obbligatoria. Deve essere impostata su `in`. |
-| **nome** | N/D| Obbligatoria: nome della variabile usato nel codice della funzione.|
+| **type** | n/d| Obbligatoria. Deve essere impostata su `warmupTrigger`. |
+| **direction** | n/d| Obbligatoria. Deve essere impostata su `in`. |
+| **nome** | n/d| Obbligatoria: nome della variabile usato nel codice della funzione.|
 
 ## <a name="trigger---usage"></a>Trigger - uso
 

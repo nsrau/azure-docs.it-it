@@ -13,12 +13,12 @@ ms.date: 10/05/2018
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 372eac63b2ab9ea7dea540a088d61a5144886686
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: dc7771f29fb5d00aedfe5162a98f5f0c14544a7b
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698595"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161172"
 ---
 # <a name="how-azure-ad-uses-the-saml-protocol"></a>Modalità di utilizzo del protocollo SAML da parte di Azure AD
 
@@ -36,4 +36,4 @@ Azure Active Directory espone endpoint di Single Sign-On e Single Sign-Out speci
 
 * L'endpoint indipendente dal tenant si trova all'indirizzo `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. Questo indirizzo dell'endpoint contiene **common** anziché l'ID o il nome di un domino tenant.
 
-Per informazioni sui documenti di metadati della federazione pubblicati da Azure AD, vedere [Metadati della federazione](azure-ad-federation-metadata.md).
+Per informazioni sui documenti di metadati della federazione pubblicati da Azure AD, vedere [Metadati della federazione](../azuread-dev/azure-ad-federation-metadata.md).

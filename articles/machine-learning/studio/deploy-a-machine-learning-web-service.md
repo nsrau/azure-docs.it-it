@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 37968e968a0f9a1098dd5e90d463879bfa95ce1f
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: 482dc0ab549ec6b9f05bc9f74a3d31ac13646ce5
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153588"
+ms.locfileid: "77169215"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Distribuire un servizio Web di Azure Machine Learning Studio (classico)
 
@@ -101,7 +101,7 @@ Per scaricare il set di dati, aprire Machine Learning Studio (classico). Aprire 
 
 ![Scaricare il set di dati dall'area di disegno di studio (classico)](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
-Fare clic su **Prova**. Lo stato del processo di esecuzione del batch verrà visualizzato a destra sotto **Test Batch Jobs** (Test Processi batch).
+Fare clic su **Test**. Lo stato del processo di esecuzione del batch verrà visualizzato a destra sotto **Test Batch Jobs** (Test Processi batch).
 
 ![Testare il processo di esecuzione batch con il portale dei servizi Web](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
 
@@ -145,7 +145,7 @@ I prezzi sono specifici per ogni area, quindi è necessario definire un piano di
 
 1. Nella pagina de servizi Web di Microsoft Azure Machine Learning fare clic sull'opzione di menu **Servizi Web**.
 2. Selezionare il servizio Web da distribuire in una nuova area.
-3. Fare clic su **Copy**
+3. Fare clic su **Copia**.
 4. In **Web Service Name**(Nome servizio Web) digitare un nuovo nome per il servizio Web.
 5. In **Web service description**(Descrizione servizio Web) immettere una descrizione per il servizio Web.
 6. Nell'elenco a discesa **Subscription** (Sottoscrizione) selezionare la sottoscrizione in cui risiederà il nuovo servizio Web.
@@ -153,7 +153,7 @@ I prezzi sono specifici per ogni area, quindi è necessario definire un piano di
 8. Nell'elenco a discesa **Region** (Area) selezionare l'area in cui si desidera distribuire il servizio Web.
 9. Nell'elenco a discesa **Storage account** (Account di archiviazione) selezionare un account di archiviazione in cui archiviare il servizio Web.
 10. Nell'elenco a discesa **Price Plan** (Piano tariffario) selezionare un piano nell'area scelta nel passaggio 8.
-11. Fare clic su **Copy**
+11. Fare clic su **Copia**.
 
 ## <a name="deploy-it-as-a-classic-web-service"></a>Eseguire la distribuzione come servizio Web classico
 

@@ -1,38 +1,39 @@
 ---
 title: Indice di esempi di criteri
-description: Indice degli esempi per Criteri di Azure. Le categorie includono l'assegnazione di nomi, i tag, il Key Vault, la rete, l'archiviazione e altro ancora.
-ms.date: 03/19/2019
+description: Indice dei criteri predefiniti di Criteri di Azure. Tag delle categorie, conformità alle normative, Key Vault, Kubernetes, configurazione Guest e altro ancora.
+ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: 54e77a83a03d9a8f5cedd59f010569d7ecef7d90
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 11e36ba71e1b88f279e824948dffa809f16fd443
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74070108"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168040"
 ---
 # <a name="azure-policy-samples"></a>Esempi di Criteri di Azure
 
-La tabella seguente include collegamenti a esempi per Criteri di Azure. Questi esempi sono disponibili anche nel [repository degli esempi di Criteri di Azure](https://github.com/Azure/azure-policy).
+Questa pagina include l'indice delle definizioni dei criteri predefiniti e dei modelli di utilizzo del linguaggio per Criteri di Azure.
 
-[!INCLUDE [azure-policy-samples-general](../../../../includes/azure-policy-samples-general.md)]
+## <a name="built-ins"></a>Predefiniti
 
-[!INCLUDE [azure-policy-samples-compute](../../../../includes/azure-policy-samples-compute.md)]
+- [Criteri](./built-in-policies.md)
+- [Iniziative](./built-in-initiatives.md)
 
-[!INCLUDE [azure-policy-samples-datalake](../../../../includes/azure-policy-samples-datalake.md)]
+## <a name="patterns"></a>Modelli
 
-[!INCLUDE [azure-policy-samples-guest-configuration](../../../../includes/azure-policy-samples-guest-configuration.md)]
+Di seguito sono riportati esempi di modelli diversi di utilizzo del linguaggio e degli operatori in Criteri di Azure:
 
-[!INCLUDE [azure-policy-samples-keyvault](../../../../includes/azure-policy-samples-keyvault.md)]
-
-[!INCLUDE [azure-policy-samples-monitoring](../../../../includes/azure-policy-samples-monitoring.md)]
-
-[!INCLUDE [azure-policy-samples-network](../../../../includes/azure-policy-samples-network.md)]
-
-[!INCLUDE [azure-policy-samples-sql](../../../../includes/azure-policy-samples-sql.md)]
-
-[!INCLUDE [azure-policy-samples-storage](../../../../includes/azure-policy-samples-storage.md)]
+- [Operatori logici](./pattern-logical-operators.md)
+- [Fields](./pattern-fields.md)
+- [Parameters](./pattern-parameters.md)
+- [Dettagli sugli effetti](./pattern-effect-details.md)
+- [Operatore value](./pattern-value-operator.md)
+- [Operatore count](./pattern-count-operator.md)
+- [Raggruppamento di definizioni di criteri in un'iniziativa](./pattern-group-with-initiative.md)
+- [Distribuzione di risorse con deployIfNotExists](./pattern-deploy-resources.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- Vedere i criteri predefiniti nel [repository di GitHub su Criteri di Azure](https://github.com/Azure/azure-policy).
 - Vedere la [struttura delle definizioni di Criteri di Azure](../concepts/definition-structure.md).
 - Leggere [Informazioni sugli effetti di Criteri](../concepts/effects.md).

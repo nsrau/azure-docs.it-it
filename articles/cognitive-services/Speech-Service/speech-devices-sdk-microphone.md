@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: e39056d6ed1ced85e3f953bcbd7f04dd6311942c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: a87bdd7a55036e8b70f0bc5816d2b587c1569202
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111652"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168134"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Suggerimenti per i dispositivi vocali SDK per array microfoni
 
@@ -31,7 +31,7 @@ Le seguenti geometrie di matrice sono consigliate per l'uso con lo stack audio M
 | --- | -------------- | --- | ------------ | --- |
 |     | <img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/> | <img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/> |
 | Microfoni \# | 7 | 4 | 4 | 2 |
-| Geometria | 6 esterno, 1 centro, raggio = 42,5 mm, spazio uniforme | 3 esterno, 1 centro, raggio = 42,5 mm, spazio uniforme | Lunghezza = 120 mm, spaziatura = 40 mm | Spaziatura = 40 mm |
+| Geometry | 6 esterno, 1 centro, raggio = 42,5 mm, spazio uniforme | 3 esterno, 1 centro, raggio = 42,5 mm, spazio uniforme | Lunghezza = 120 mm, spaziatura = 40 mm | Spaziatura = 40 mm |
 
 I canali del microfono devono essere ordinati in base alla numerazione raffigurata per ogni matrice precedente, aumentando da 0. Lo stack audio Microsoft richiederà un flusso di riferimento aggiuntivo per la riproduzione audio per eseguire l'annullamento Echo.
 
@@ -41,7 +41,7 @@ I canali del microfono devono essere ordinati in base alla numerazione raffigura
 
 Le proprietà consigliate quando si selezionano i microfoni sono:
 
-| . | Consigliato |
+| Parametro | Consigliato |
 | --------- | ----------- |
 | SNR | \>= 65 dB (1 kHz Signal 94 dBSPL, A-weighted Noise) |
 | Corrispondenza dell'ampiezza | ± 1 dB a 1 kHz |
@@ -60,7 +60,7 @@ Per evitare di compromettere le prestazioni dei componenti usati, è necessario 
 
 Le prestazioni dell'array di microfoni quando integrato in un dispositivo si differenziano dalla specifica del componente. È importante assicurarsi che i microfoni siano abbinati correttamente dopo l'integrazione. Pertanto, le prestazioni del dispositivo misurate dopo qualsiasi guadagno fisso o EQ devono soddisfare le raccomandazioni seguenti:
 
-| .          | Consigliato                                        |
+| Parametro          | Consigliato                                        |
 | ------------------ | -------------------------------------------------- |
 | SNR                | \> 63 dB (1 kHz Signal 94 dBSPL, A-weighted Noise) |
 | Sensibilità output | -26 dBFS/PA a 1 kHz (scelta consigliata)                  |
@@ -76,7 +76,7 @@ Le prestazioni dell'array di microfoni quando integrato in un dispositivo si dif
 
 Poiché l'annullamento Echo è necessario per i dispositivi di riconoscimento vocale che contengono altoparlanti, vengono fornite indicazioni aggiuntive per la selezione e l'integrazione del relatore.
 
-| . | Consigliato |
+| Parametro | Consigliato |
 | --------- | ----------- |
 | Considerazioni sulla linearità | Nessuna elaborazione non lineare dopo il riferimento del relatore; in caso contrario, è necessario un flusso di riferimento loopback basato su hardware |
 | Loopback altoparlante | Fornito tramite WASAPI, le API private, il plug-in ALSA personalizzato (Linux) o fornito tramite il canale del firmware |
@@ -87,7 +87,7 @@ Poiché l'annullamento Echo è necessario per i dispositivi di riconoscimento vo
 
 Le linee guida seguenti per l'architettura sono necessarie quando si integrano i microfoni in un dispositivo:
 
-| . | Raccomandazione |
+| Parametro | Recommendation |
 | --------- | -------------- |
 | Somiglianza porta MIC | Tutte le porte del microfono hanno la stessa lunghezza nella matrice |
 | Dimensioni porta MIC | Dimensioni porta da Ø 0.8 a 1,0 mm. Lunghezza porta/diametro porta \< 2 |
@@ -98,7 +98,7 @@ Le linee guida seguenti per l'architettura sono necessarie quando si integrano i
 | Funzionalità di registrazione   | Il dispositivo deve essere in grado di registrare i singoli flussi RAW del canale simultaneamente |
 | USB                 | Tutti i dispositivi di input audio USB devono impostare i descrittori in base alla [specifica rev3 dispositivi audio USB](https://www.usb.org/document-library/usb-audio-devices-rev-30-and-adopters-agreement) |
 | Geometria microfono | I driver devono implementare correttamente i [descrittori di geometria della matrice microfonica](https://docs.microsoft.com/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) |
-| Individuazione     | I dispositivi non devono disporre di hardware, firmware o algoritmi di elaborazione audio non lineari basati su software di terze parti per/dal dispositivo |
+| Individuabilità     | I dispositivi non devono disporre di hardware, firmware o algoritmi di elaborazione audio non lineari basati su software di terze parti per/dal dispositivo |
 | Formato di acquisizione      | I formati di acquisizione devono usare una frequenza di campionamento minima di 16 kHz e la profondità consigliata a 24 bit |
 
 ## <a name="electrical-architecture-considerations"></a>Considerazioni sull'architettura elettrica

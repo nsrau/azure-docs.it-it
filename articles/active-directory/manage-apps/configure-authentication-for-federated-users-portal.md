@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 174cdc31d7e5f29716febc7f68bbb410f33926c6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 1300ecff416962bda4da800c5eff134951658846
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274635"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159166"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurare i comportamenti delle informazioni di accesso di Azure Active Directory per un'applicazione usando criteri di individuazione dell'area di autenticazione principale
 
@@ -152,7 +152,7 @@ Verrà usato un cmdlet Azure AD PowerShell per esaminare in modo dettagliato alc
 - Elenco delle applicazioni per cui sono configurati i criteri.
 
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 Negli esempi seguenti è possibile creare, aggiornare, collegare ed eliminare criteri su entità servizio di un'applicazione in Azure AD.
 
 1.  Per iniziare, scaricare la versione di anteprima dei cmdlet Azure AD PowerShell più recente. 
@@ -271,4 +271,4 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ## <a name="next-steps"></a>Passaggi successivi
 - Per altre informazioni sul funzionamento dell'autenticazione in Azure AD, vedere [Scenari di autenticazione per Azure AD](../develop/authentication-scenarios.md).
 - Per ulteriori informazioni sull'Single Sign-On utente, vedere [Single Sign-on to Applications in Azure Active Directory](what-is-single-sign-on.md).
-- Per una panoramica di tutti i contenuti correlati allo sviluppo, vedere la [Guida per gli sviluppatori di Active Directory](../develop/v1-overview.md).
+- Per una panoramica di tutti i contenuti correlati agli sviluppatori, visitare la [piattaforma Microsoft Identity](../develop/v2-overview.md) .

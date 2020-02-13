@@ -13,16 +13,16 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 912287200097906af7a8a9d6d12eb1421f3edadc
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 1efd027edb85cabcfdc2a170771ef19182b5c9f8
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696759"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160951"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Token ID piattaforma Microsoft Identity
 
-Gli `id_tokens` vengono inviati all'applicazione client nell'ambito di un flusso di [OpenID Connect](v1-protocols-openid-connect-code.md). Possono essere inviati insieme o in sostituzione di un token di accesso e vengono usati dal client per autenticare l'utente.
+Gli `id_tokens` vengono inviati all'applicazione client nell'ambito di un flusso di [OpenID Connect](v2-protocols-oidc.md). Possono essere inviati insieme o in sostituzione di un token di accesso e vengono usati dal client per autenticare l'utente.
 
 ## <a name="using-the-id_token"></a>Uso degli id_token
 
@@ -50,7 +50,7 @@ Questo token v2.0 di esempio viene visualizzato in [jwt.ms](https://jwt.ms/#id_t
 
 ### <a name="header-claims"></a>Attestazioni di intestazione
 
-|Attestazione | Format | Description |
+|Attestazione | Format | Descrizione |
 |-----|--------|-------------|
 |`typ` | Stringa, sempre "JWT" | Indica che il token è un token JWT.|
 |`alg` | string | Indica che l'algoritmo è stato usato per firmare il token. Esempio: "RS256" |
@@ -59,9 +59,9 @@ Questo token v2.0 di esempio viene visualizzato in [jwt.ms](https://jwt.ms/#id_t
 
 ### <a name="payload-claims"></a>Attestazioni di payload
 
-Questo elenco Mostra le attestazioni nella maggior parte dei id_tokens per impostazione predefinita, ad eccezione di quanto indicato.  Tuttavia, l'app può usare le [attestazioni facoltative](active-directory-optional-claims.md) per richiedere altre attestazioni in token ID.  Questi possono variare dall'attestazione `groups` a informazioni sul nome dell'utente.
+Questo elenco Mostra le attestazioni nella maggior parte dei id_tokens per impostazione predefinita, ad eccezione di quanto indicato.  Tuttavia, l'app può usare le [attestazioni facoltative](active-directory-optional-claims.md) per richiedere altre attestazioni nel id_token.  Questi possono variare dall'attestazione `groups` a informazioni sul nome dell'utente.
 
-|Attestazione | Format | Description |
+|Attestazione | Format | Descrizione |
 |-----|--------|-------------|
 |`aud` |  Stringa, un URI ID app | Identifica il destinatario del token. Negli `id_tokens` il destinatario è l'ID applicazione assegnato all'app nel portale di Azure. L'app deve convalidare questo valore e rifiutare il token, se il valore non corrisponde. |
 |`iss` |  Stringa, un URI del servizio token di sicurezza | Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token e il tenant di Azure AD in cui l'utente è stato autenticato. Se il token è stato rilasciato dall'endpoint v2.0, l'URI termina con `/v2.0`.  Il GUID che indica che l'utente è un utente consumer di un account Microsoft è `9188040d-6c67-4c5b-b112-36a304b66dad`. L'app deve usare la parte relativa al GUID dell'attestazione per limitare il set di tenant che possono accedere all'app, se applicabile. |
@@ -73,7 +73,7 @@ Questo elenco Mostra le attestazioni nella maggior parte dei id_tokens per impos
 |`at_hash`| string |L'hash del token di accesso è incluso in un token ID solo quando quest'ultimo viene generato con un token di accesso di OAuth 2.0. Può essere usato per convalidare l'autenticità di un token di accesso. Per informazioni dettagliate su come eseguire la convalida, vedere la [specifica di OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
 |`aio` | Stringa opaca | Attestazione interna usata da Azure AD per registrare i dati per il riutilizzo dei token. Deve essere ignorata.|
 |`preferred_username` | string | Nome utente primario che rappresenta l'utente. Potrebbe trattarsi di un indirizzo di posta elettronica, di un numero di telefono o di un nome utente generico senza un formato specificato. Il valore è modificabile e può variare nel tempo. Poiché è mutevole, questo valore non deve essere usato per prendere decisioni in merito alle autorizzazioni. Per ricevere questa attestazione, è necessario l'ambito `profile`.|
-|`email` | string | L'attestazione `email` è presente per impostazione predefinita per gli account guest che dispongono di un indirizzo di posta elettronica.  L'app può richiedere l'attestazione di posta elettronica per gli utenti gestiti, quelli dello stesso tenant della risorsa, tramite l'[attestazione facoltativa](active-directory-optional-claims.md) `email`.  Nell'endpoint 2.0 l'app può anche richiedere l'ambito `email` di OpenID Connect. Non è necessario richiedere l'attestazione facoltativa e l'ambito per ottenere l'attestazione.  L'attestazione di posta elettronica supporta solo posta elettronica indirizzabile dalle informazioni sul profilo dell'utente. |
+|`email` | string | L'attestazione `email` è presente per impostazione predefinita per gli account guest che dispongono di un indirizzo di posta elettronica.  L'app può richiedere l'attestazione di posta elettronica per gli utenti gestiti (quelli dello stesso tenant della risorsa) usando il `email` [attestazione facoltativa](active-directory-optional-claims.md).  Nell'endpoint 2.0 l'app può anche richiedere l'ambito `email` di OpenID Connect. Non è necessario richiedere l'attestazione facoltativa e l'ambito per ottenere l'attestazione.  L'attestazione di posta elettronica supporta solo posta elettronica indirizzabile dalle informazioni sul profilo dell'utente. |
 |`name` | string | L'attestazione `name` fornisce un valore leggibile che identifica l'oggetto del token. Il valore non è garantito che sia univoco, è modificabile ed è progettato per essere usato solo a scopo di visualizzazione. Per ricevere questa attestazione, è necessario l'ambito `profile`. |
 |`nonce`| string | Il parametro nonce corrisponde al parametro incluso nella richiesta /authorize originale al provider di identità. Se non corrisponde, l'applicazione deve rifiutare il token. |
 |`oid` | Stringa, un GUID | Identificatore non modificabile per un oggetto nel sistema di identità Microsoft, in questo caso, un account utente. Questo ID identifica in modo univoco l'utente nelle applicazioni; due applicazioni differenti che consentono l'accesso dello stesso utente riceveranno lo stesso valore nell'attestazione `oid`. Microsoft Graph restituirà l'ID come proprietà `id` per un determinato account utente. Poiché il `oid` consente a più app di correlare gli utenti, è necessario l'ambito `profile` per ricevere questa attestazione. Si noti che se un singolo utente è presente in più tenant, l'utente conterrà un ID oggetto diverso in ogni tenant. vengono considerati account diversi, anche se l'utente accede a ogni account con le stesse credenziali. L'attestazione `oid` è un GUID e non può essere riutilizzata. |

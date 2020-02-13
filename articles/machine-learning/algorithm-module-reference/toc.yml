@@ -2,7 +2,7 @@
   href: module-reference.md
 - name: Input e output dei dati
   items:
-    - name: Importazione dei dati
+    - name: Importare dati
       href: import-data.md
     - name: Immettere i dati manualmente
       href: enter-data-manually.md
@@ -26,6 +26,8 @@
       href: convert-to-csv.md
     - name: Eseguire la conversione in set di dati
       href: convert-to-dataset.md
+    - name: Eseguire la conversione in valori di indicatori
+      href: convert-to-indicator-values.md
     - name: Pulire i dati mancanti
       href: clean-missing-data.md
     - name: Modificare i metadati
@@ -70,7 +72,7 @@
       items:
         - name: Clustering K-means
           href: k-means-clustering.md
-    - name: classificazione
+    - name: Classificazione
       items:
         - name: Albero delle decisioni incrementato a più classi
           href: multiclass-boosted-decision-tree.md
@@ -120,7 +122,7 @@
       href: create-python-model.md
     - name: Eseguire lo script Python
       href: execute-python-script.md
-- name: Linguaggio di programmazione di R
+- name: Linguaggio R
   items:
     - name: Execute R Script
       href: execute-r-script.md

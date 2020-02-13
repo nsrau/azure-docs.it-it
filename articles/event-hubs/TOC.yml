@@ -32,7 +32,7 @@
           href: get-started-java-send-v2.md
         - name: Python (azure-eventhub versione 5)
           href: get-started-python-send-v2.md
-        - name: Node.js (azure/event-hubs versione 5)
+        - name: JavaScript (azure/event-hubs versione 5)
           href: get-started-node-send-v2.md
         - name: Go
           href: event-hubs-go-get-started-send.md
@@ -40,14 +40,28 @@
           href: event-hubs-c-getstarted-send.md
         - name: Apache Storm (solo ricezione)
           href: event-hubs-storm-getstarted-receive.md
+    - name: Inviare e ricevere eventi (versioni/pacchetti precedenti)
+      items:
+        - name: .NET Core (Microsoft.Azure.EventHubs)
+          href: event-hubs-dotnet-standard-getstarted-send.md
+        - name: Java (azure-eventhubs)
+          href: event-hubs-java-get-started-send.md
+        - name: Python (azure-eventhub versione 1)
+          href: event-hubs-python-get-started-send.md
+        - name: JavaScript (azure/event-hubs versione 2)
+          href: event-hubs-node-get-started-send.md
+        - name: .NET Framework (Microsoft.Azure.EventHubs)
+          href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Acquisire eventi
       items:
         - name: Usare il portale di Azure per abilitare Acquisizione di Hub eventi
           href: event-hubs-capture-enable-through-portal.md
         - name: Usare un modello di Resource Manager per abilitare Acquisizione di Hub eventi
           href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
-        - name: Acquisire i dati di Hub eventi con Python (azure-eventhub version 5)
+        - name: Leggere i dati acquisiti con Python (azure-eventhub versione 5)
           href: get-started-capture-python-v2.md
+        - name: Leggere i dati acquisiti con Python (azure-eventhub versione 1)
+          href: event-hubs-capture-python.md
     - name: Eseguire lo streaming in Hub eventi per Apache Kafka
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
     - name: Creare un cluster dedicato
@@ -126,20 +140,6 @@
               href: 'https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/README.md'
             - name: .NET (Microsoft.Azure.EventHubs)
               href: event-hubs-programming-guide.md
-        - name: Leggere i dati acquisiti con Python (azure-eventhub version 1)
-          href: event-hubs-capture-python.md
-        - name: Inviare e ricevere eventi (versioni/pacchetti precedenti)
-          items:
-            - name: .NET Core (Microsoft.Azure.EventHubs)
-              href: event-hubs-dotnet-standard-getstarted-send.md
-            - name: Java (azure-eventhubs)
-              href: event-hubs-java-get-started-send.md
-            - name: Python (azure-eventhub versione 1)
-              href: event-hubs-python-get-started-send.md
-            - name: Node.js (azure/event-hubs versione 2)
-              href: event-hubs-node-get-started-send.md
-            - name: .NET Framework (Microsoft.Azure.EventHubs)
-              href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Elaborazione dei dati
       items:
         - name: Elaborare dati con Analisi di flusso di Azure
@@ -234,7 +234,7 @@
               href: /python/api/azure-eventhub/?view=azure-python
         - name: Libreria di gestione
           href: /python/api/overview/azure/event-hub?view=azure-python
-    - name: Node.js
+    - name: JavaScript
       items:
         - name: Eseguire la migrazione dalla versione 2 alla versione 5 di azure/eventhubs
           href: 'https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md'

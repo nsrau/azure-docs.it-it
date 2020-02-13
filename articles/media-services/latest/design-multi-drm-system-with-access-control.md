@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: efc070491ca1ea84dc8ef095a2144df9d0bf1bcb
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: fbc6d6fa8f9a3b424eaec1f04a61b5ca24fe14fc
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311904"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161784"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso 
 
@@ -213,7 +213,7 @@ Per altre informazioni, vedere [JWT token authentication in Azure Media Services
 
 Per informazioni su Azure AD:
 
-* Le informazioni per gli sviluppatori sono disponibili nella [Guida per gli sviluppatori di Azure Active Directory](../../active-directory/develop/v1-overview.md).
+* Le informazioni per gli sviluppatori sono disponibili nella [Guida per gli sviluppatori di Azure Active Directory](../../active-directory/develop/v2-overview.md).
 * Le informazioni per gli amministratori sono disponibili in [Amministrare la directory di Azure AD](../../active-directory/fundamentals/active-directory-administer.md).
 
 ### <a name="some-issues-in-implementation"></a>Problematiche di implementazione

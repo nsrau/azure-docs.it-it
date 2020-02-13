@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: ca24cbdd9541456cbaa3f384587fee17d47f5ca2
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: ddcc7fcc14c7958e8c0d012c2395ad2b6c422f4f
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75864112"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157908"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurare una connessione da rete virtuale a rete virtuale (versione classica)
 
@@ -33,7 +33,7 @@ Questo articolo consente di creare una connessione gateway VPN tra reti virtuali
 
 ![Diagramma di connettività tra reti virtuali](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## <a name="about-vnet-to-vnet-connections"></a>Informazioni sulla connessione da rete virtuale a rete virtuale
 
@@ -73,7 +73,7 @@ La tabella seguente mostra un esempio di come definire le reti virtuali. Usare g
 
 **Esempio**
 
-| Rete virtuale | Spazio di indirizzi | Area | Si connette al sito della rete locale |
+| Rete virtuale | Spazio di indirizzi | Region | Si connette al sito della rete locale |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Stati Uniti orientali |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Stati Uniti occidentali |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
@@ -135,7 +135,7 @@ Ad esempio, TestVNet1 si connette al sito di rete locale creato dall'utente con 
 
 Il sito locale per ogni rete virtuale è l'altra rete virtuale. Per la configurazione vengono usati i valori nell'esempio seguente:
 
-| Rete virtuale | Spazio di indirizzi | Area | Si connette al sito della rete locale |
+| Rete virtuale | Spazio di indirizzi | Region | Si connette al sito della rete locale |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Stati Uniti orientali |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Stati Uniti occidentali |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |

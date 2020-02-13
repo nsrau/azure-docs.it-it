@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 90387a033a43c627be4ce69a93ee37c5b959732d
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
-ms.translationtype: MT
+ms.openlocfilehash: 54401d4fd8a911fc9cf5bc67d4324e84005fa752
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091793"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157245"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Inserimento dati in Esplora dati di Azure
 
@@ -70,7 +70,7 @@ Kusto offre un SDK client che può essere usato per inserire ed eseguire query s
 
 * [Node SDK](/azure/kusto/api/node/kusto-node-client-library)
 
-* [API REST](/azure/kusto/api/netfx/kusto-ingest-client-rest)
+* [REST API](/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
 **Tecniche di inserimento a livello di codice**:
 
@@ -118,7 +118,7 @@ Per le organizzazioni con un'infrastruttura esistente basata su un servizio di m
 ## <a name="supported-data-formats"></a>Formati di dati supportati
 
 Per tutti i metodi di inserimento diversi dall'inserimento da query, formattare i dati in modo che Esplora dati di Azure possa analizzarli. 
-* I formati di dati supportati sono: TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (separati da righe, multilinea), avro e parquet. 
+* I formati di dati supportati sono: TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (separati da righe, multilinea), avro, ORC e parquet. 
 * Supporta la compressione ZIP e GZIP.
 
 > [!NOTE]

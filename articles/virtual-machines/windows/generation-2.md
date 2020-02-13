@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 01/28/2020
+ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: ace08d95e1f2eb5a6e7252ecdf505e282b04ddf8
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7daa2da76bf3097679a72bfdef069db20ae66087
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76837350"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161733"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Supporto per le macchine virtuali di seconda generazione in Azure
 
@@ -54,11 +54,12 @@ Le macchine virtuali di prima generazione sono supportate da tutte le dimensioni
 Le macchine virtuali di seconda generazione supportano le seguenti immagini del Marketplace:
 
 * Windows Server 2019, 2016, 2012 R2, 2012
-* Windows 10
+* Windows 10
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
 * Ubuntu Server 16,04, 18,04, 19,04, 19,10 
-* RHEL 8,0
+* RHEL 8,0, 7,6, 7,5, 7,4, 7,0
+* Centesimo sistema operativo 8,0
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>Macchine virtuali in locale e Azure di seconda generazione
 
@@ -80,7 +81,7 @@ Azure attualmente non supporta alcune delle funzionalità supportate da Hyper-V 
 |---------|--------------|--------------|
 | Avvio             | PCAT                      | UEFI                               |
 | Controller del disco | IDE                       | SCSI                               |
-| Dimensioni delle VM         | Tutte le dimensioni delle macchine virtuali | Solo le macchine virtuali che supportano archiviazione Premium |
+| Dimensioni delle macchine virtuali         | Tutte le dimensioni delle macchine virtuali | Solo le macchine virtuali che supportano archiviazione Premium |
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Funzionalità di generazione 1 e generazione 2
 
@@ -102,16 +103,17 @@ Nel portale di Azure o nell'interfaccia della riga di comando di Azure è possib
 
 #### <a name="azure-portal"></a>Portale di Azure
 
-Le immagini di generazione 2 per Windows e SLES sono incluse nella stessa offerta server delle immagini Gen1. Ciò significa che, dal punto di vista del flusso, si seleziona l'offerta e lo SKU dal portale per la VM. Se lo SKU supporta le immagini di prima e di seconda generazione, è possibile scegliere di creare una VM di seconda generazione dalla scheda *Avanzate* nel flusso di creazione della macchina virtuale.
+Di seguito sono riportati i passaggi per creare una macchina virtuale di generazione 2 (Gen2) in portale di Azure.
 
-Attualmente, gli SKU seguenti supportano sia immagini di generazione 1 che di generazione 2:
-
-* Windows Server 2012
-* Windows Server 2012 R2
-* Windows Server 2016
-* Windows Server 2019
-
-Quando si seleziona uno SKU di Windows Server come offerta, nella scheda **Avanzate** è disponibile un'opzione per creare una VM di **generazione 1** (BIOS) o di **generazione 2** (UEFI). Se si seleziona **generazione 2**, verificare che le dimensioni della macchina virtuale selezionate nella scheda **nozioni di base** siano [supportate per le macchine virtuali di seconda generazione](#generation-2-vm-sizes).
+1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
+1. Selezionare **Crea una risorsa**.
+1. Fare clic su **Visualizza tutto** da Azure Marketplace sulla sinistra.
+1. Selezionare un'immagine che supporti Gen2.
+1. Fare clic su **Crea**.
+1. Nella scheda **Avanzate** , nella sezione **generazione VM** , selezionare l'opzione generazione **2** .
+1. Nella scheda informazioni di **base** , in **Dettagli istanza**, passare a **dimensioni** e aprire il pannello **selezionare una dimensione di macchina virtuale** .
+1. Selezionare una [macchina virtuale di seconda generazione supportata](#generation-2-vm-sizes).
+1. Per completare la creazione della macchina virtuale, passare al [flusso di creazione portale di Azure](quick-create-portal.md) .
 
 ![Selezionare la VM di generazione 1 o di generazione 2](./media/generation-2/gen1-gen2-select.png)
 
@@ -144,7 +146,7 @@ Per un elenco aggiornato delle immagini del Marketplace supportate, vedere la se
 
 È possibile creare una macchina virtuale di seconda generazione da un'immagine gestita o da un disco gestito nello stesso modo in cui si crea una macchina virtuale di prima generazione.
 
-### <a name="virtual-machine-scale-sets"></a>Set di scalabilità di macchine virtuali
+### <a name="virtual-machine-scale-sets"></a>set di scalabilità di macchine virtuali
 
 È anche possibile creare macchine virtuali di seconda generazione usando i set di scalabilità di macchine virtuali. Nell'interfaccia della riga di comando di Azure usare i set di scalabilità di Azure per creare VM di seconda generazione.
 
@@ -195,6 +197,13 @@ Per un elenco aggiornato delle immagini del Marketplace supportate, vedere la se
 
 * **È possibile eseguire la migrazione di una macchina virtuale dalla generazione 1 alla seconda generazione?**  
     No, non è possibile modificare la generazione di una macchina virtuale dopo averla creata. Se è necessario passare tra le generazioni di macchine virtuali, creare una nuova macchina virtuale di una generazione diversa.
+
+* **Perché le dimensioni della macchina virtuale non sono abilitate nel selettore di dimensioni quando si tenta di creare una VM Gen2?**
+
+    Questo problema può essere risolto effettuando le operazioni seguenti:
+
+    1. Verificare che la proprietà **generazione macchina virtuale** sia impostata su generazione **2** nella scheda **Avanzate** .
+    1. Verificare di aver cercato le [dimensioni della macchina virtuale che supportano le VM Gen2](#generation-2-vm-sizes).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

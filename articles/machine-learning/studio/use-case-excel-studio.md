@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 6976f0bb671b94f71b71287483c2ab88d0959899
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 5831f83d8cd38cc07c64fdc398405c3a70935485
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152772"
+ms.locfileid: "77169080"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio-classic"></a>Migrare Analytics da Excel a Azure Machine Learning Studio (versione classica)
 
@@ -73,8 +73,8 @@ Quando si applicano le indicazioni, si ottengono le stesse prestazioni di base i
 | --- |:---:|:---:|:---:|
 | Valore etichettato |Valori effettivi (numerici) |uguale |uguale |
 | Strumento di apprendimento |Excel -> Analisi dati -> Regressione |Regressione lineare. |Linear Regression |
-| Opzioni strumento di apprendimento |N/D |Impostazioni predefinite |Ordinary Least Squares<br />L2 = 0,005 |
-| Serie di dati |26 righe, 3 funzionalità, 1 etichetta. Tutti valori numerici. |uguale |uguale |
+| Opzioni strumento di apprendimento |N/D |Valori predefiniti |Ordinary Least Squares<br />L2 = 0,005 |
+| Set di dati |26 righe, 3 funzionalità, 1 etichetta. Tutti valori numerici. |uguale |uguale |
 | Divisione: training |Excel con training sulle prime 18 righe, con test delle ultime 8 righe. |uguale |uguale |
 | Divisione: test |Formula di regressione Excel applicata alle ultime 8 righe |uguale |uguale |
 | **Prestazioni** | | | |

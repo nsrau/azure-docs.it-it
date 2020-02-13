@@ -9,19 +9,16 @@ ms.topic: conceptual
 ms.author: jmartens
 author: j-martens
 ms.date: 12/09/2019
-ms.openlocfilehash: f5607c5d41a028a20a4658a67a7ce487a75f0d7c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 1999d29db21f820fbcdbca08f2258b657673be3e
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990352"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169748"
 ---
 # <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Eseguire il debug interattivo su un'istanza di calcolo Azure Machine Learning con VS Code remoto
 
 In questo articolo si apprenderà come configurare Visual Studio Code remoto in un'istanza di calcolo Azure Machine Learning per poter **eseguire il debug interattivo del codice** da vs code. 
-
-> [!NOTE]
-> Le istanze di calcolo sono disponibili solo per le aree di lavoro con un'area geografica **Stati Uniti centro-settentrionali**, **Stati Uniti orientali 2**, **Europa settentrionale** o **Regno Unito meridionale**e il supporto per altre aree presto disponibile.
 
 + Un' [istanza di calcolo Azure Machine Learning](concept-compute-instance.md) è una workstation basata su cloud completamente gestita per gli esperti di dati e offre funzionalità di gestione e disponibilità aziendale per gli amministratori IT. 
 
@@ -89,7 +86,7 @@ Host azmlci1
 
 Di seguito sono riportati alcuni dettagli sui campi: 
 
-|Campo|Description|
+|Campo|Descrizione|
 |----|---------|
 |Host|Usa qualsiasi abbreviazione che preferisci per l'istanza di calcolo |
 |HostName|Si tratta dell'indirizzo IP dell'istanza di calcolo |

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 05/06/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.openlocfilehash: f3cafb4d2df4d1944f583a99ca2014f3841827d0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: ccece6c840033913ec6d96b446dcb98c4befb32f
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701859"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159999"
 ---
 # <a name="single-page-application-call-a-web-api"></a>Applicazione a pagina singola: chiamare un'API Web
 
@@ -27,7 +27,7 @@ ms.locfileid: "76701859"
 
 ## <a name="call-a-web-api"></a>Chiamare un'API Web
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 Usare il token di accesso acquisito come portatore in una richiesta HTTP per chiamare qualsiasi API Web, ad esempio Microsoft Graph API. Ad esempio:
 
@@ -47,9 +47,11 @@ Usare il token di accesso acquisito come portatore in una richiesta HTTP per chi
         }
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 Il wrapper angolare MSAL sfrutta l'intercettore HTTP per acquisire automaticamente i token di accesso in modo invisibile all'utente e associarli alle richieste HTTP alle API. Per altre informazioni, vedere [acquisire un token per chiamare un'API](scenario-spa-acquire-token.md).
+
+---
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c44f37c37bff2ddeb0fbba83d170054bf21129a6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 98ea416305f080850d85498f74693eb2d45b0944
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791847"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162345"
 ---
 #   <a name="text-merge-cognitive-skill"></a>Competenza cognitiva di unione testi
 
 La competenza **unione testi** consolida il testo da una raccolta di campi in un unico campo. 
 
 > [!NOTE]
-> Questa competenza non è associata a un'API Servizi cognitivi e non vengono addebitati costi in caso di utilizzo. È tuttavia necessario [collegare una risorsa di Servizi cognitivi](cognitive-search-attach-cognitive-services.md) per eseguire l'override dell'opzione di risorsa **Gratuito**, che consente solo un numero ridotto di miglioramenti al giorno.
+> Questa competenza non è associata a un'API Servizi cognitivi e non vengono addebitati costi in caso di utilizzo. È tuttavia necessario [collegare una risorsa di Servizi cognitivi](cognitive-search-attach-cognitive-services.md) per eseguire l'override dell'opzione di risorsa **Gratuito**, che consente solo un numero ridotto di arricchimenti al giorno.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.MergeSkill
@@ -29,7 +29,7 @@ Microsoft.Skills.Text.MergeSkill
 
 I parametri fanno distinzione tra maiuscole e minuscole.
 
-| Nome parametro     | Description |
+| Nome parametro     | Descrizione |
 |--------------------|-------------|
 | insertPreTag  | Stringa da includere prima di ogni inserimento. Il valore predefinito è `" "`. Per omettere lo spazio, impostare il valore su `""`.  |
 | insertPostTag | Stringa da includere prima di ogni inserimento. Il valore predefinito è `" "`. Per omettere lo spazio, impostare il valore su `""`.  |
@@ -47,7 +47,7 @@ Un documento JSON che fornisce input utilizzabile per questa competenza può ess
       {
         "text": "The brown fox jumps over the dog",
         "itemsToInsert": ["quick", "lazy"],
-        "offsets": [3, 28],
+        "offsets": [3, 28]
       }
     }
   ]
@@ -140,8 +140,8 @@ Nell'esempio precedente si suppone l'esistenza di un campo di immagini normalizz
 }
 ```
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
-+ [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
++ [Come definire un set di competenze](cognitive-search-defining-skillset.md)
 + [Create indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) (Creare un indicizzatore - REST)

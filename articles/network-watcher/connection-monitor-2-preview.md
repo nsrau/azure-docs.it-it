@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 5dc705fbd17a12ee001e1e8de15b49e841f08b81
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 43c49cce1dd53edd5c2b13b01a31f94752579dff
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049295"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169330"
 ---
 # <a name="unified-connectivity-monitoring-with-connection-monitor-preview"></a>Monitoraggio della connettività unificata con monitoraggio connessione (anteprima)
 
@@ -403,7 +403,7 @@ Per creare un gruppo di test in un monitoraggio connessione, è necessario speci
 
       ![Aggiungi destinazioni 2](./media/connection-monitor-2-preview/add-azure-dests2.png)
 
-   2. Fare clic sulla scheda "endpoint" per selezionare le macchine virtuali di Azure come destinazioni. L'elenco di endpoint verrà popolato con gli URL di test O365 e d365, raggruppati in base al nome.  È anche possibile scegliere un endpoint creato in altri gruppi di test nello stesso monitoraggio della connessione. Per aggiungere un nuovo endpoint, fare clic su "+ endpoint" nell'angolo superiore destro dello schermo e specificare l'URL dell'endpoint/IP/FQDN e il nome
+   2. Fare clic sulla scheda "endpoint" per selezionare gli endpoint come destinazioni. L'elenco di endpoint verrà popolato con gli URL di test O365 e d365, raggruppati in base al nome.  È anche possibile scegliere un endpoint creato in altri gruppi di test nello stesso monitoraggio della connessione. Per aggiungere un nuovo endpoint, fare clic su "+ endpoint" nell'angolo superiore destro dello schermo e specificare l'URL dell'endpoint/IP/FQDN e il nome
 
       ![Aggiungi endpoint](./media/connection-monitor-2-preview/add-endpoints.png)
 

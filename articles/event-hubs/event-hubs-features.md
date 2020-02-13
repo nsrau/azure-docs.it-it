@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e0505960a413308283c4e67e33ec495eedd3b092
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 568a21cee5b50a8914c603976f5951d0235dbff7
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827715"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157177"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funzionalità e terminologia di Hub eventi di Azure
 
@@ -49,7 +49,7 @@ La scelta di utilizzare AMQP o HTTPS dipende dallo scenario di utilizzo. AMQP ri
 
 ![Hub eventi](./media/event-hubs-features/partition_keys.png)
 
-Hub eventi garantisce che tutti gli eventi che condividono un valore di chiave di partizione vengano recapitati in ordine e alla stessa partizione. Se si usano chiavi di partizione con i criteri di autore, l'identità dell’autore e il valore della chiave di partizione devono corrispondere. In caso contrario, si verifica un errore.
+Hub eventi garantisce che tutti gli eventi che condividono un valore di chiave di partizione vengano recapitati in ordine e alla stessa partizione. Se si usano chiavi di partizione con i criteri di autore, l'identità dell’autore e il valore della chiave di partizione devono corrispondere. In caso contrario si verifica un errore.
 
 ### <a name="publisher-policy"></a>Criteri di autore
 
@@ -65,7 +65,7 @@ Non è necessario creare nomi di autore prima di procedere, ma devono corrispond
 
 [Acquisizione di Hub eventi](event-hubs-capture-overview.md) consente di acquisire automaticamente i dati in streaming in Hub eventi e salvarli, a propria scelta, in un account di archiviazione BLOB o un account del servizio Azure Data Lake. È possibile abilitare la funzione di acquisizione dal portale di Azure e specificare una dimensione minima e l'intervallo di tempo per eseguire l'acquisizione. L'acquisizione di Hub eventi consente di specificare un contenitore e un account di Archiviazione BLOB di Azure oppure un account del servizio Azure Data Lake da usare per archiviare i dati acquisiti. I dati acquisiti vengono scritti nel formato di Apache Avro.
 
-## <a name="partitions"></a>Partitions
+## <a name="partitions"></a>Partizioni
 [!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
 
 
@@ -124,7 +124,7 @@ Dopo l'apertura di una sessione AMQP 1.0 e del collegamento per una partizione s
 Dati evento:
 * Offset
 * Numero di sequenza
-* Body
+* Corpo
 * Proprietà utente
 * Proprietà di sistema
 
@@ -134,11 +134,14 @@ L'utente è responsabile della gestione dell'offset.
 
 Per altre informazioni su Hub eventi, vedere i collegamenti seguenti:
 
-* Iniziare con un'[esercitazione di Hub eventi][Event Hubs tutorial]
+- Introduzione all'Hub eventi
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [Guida alla programmazione di Hub eventi](event-hubs-programming-guide.md)
 * [Disponibilità e coerenza nell'Hub eventi](event-hubs-availability-and-consistency.md)
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)
 * [Esempi di Hub eventi][]
 
-[Event Hubs tutorial]: event-hubs-dotnet-standard-getstarted-send.md
 [Esempi di Hub eventi]: https://github.com/Azure/azure-event-hubs/tree/master/samples

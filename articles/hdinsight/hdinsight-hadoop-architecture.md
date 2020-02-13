@@ -5,15 +5,15 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/28/2019
-ms.openlocfilehash: 2da9e41323a308782dad509c628a3677ab0cd21f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.custom: hdinsightactive
+ms.date: 02/07/2020
+ms.openlocfilehash: 3feacd94558ba275c81469827993aef106ae633c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162889"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162209"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Architettura di Apache Hadoop in Azure HDInsight
 
@@ -46,6 +46,27 @@ I NodeManager eseguono le attività che costituiscono l'applicazione, quindi seg
 Tutti i tipi di cluster HDInsight distribuiscono YARN. Il ResourceManager viene distribuito per la disponibilità elevata con un'istanza primaria e secondaria, che vengono eseguite rispettivamente nel primo e nel secondo nodo head all'interno del cluster. È attiva una sola istanza del ResourceManager alla volta. Le istanze di NodeManager vengono eseguite sui nodi di lavoro disponibili nel cluster.
 
 ![Apache YARN in Azure HDInsight](./media/hdinsight-hadoop-architecture/apache-yarn-on-hdinsight.png)
+
+## <a name="soft-delete"></a>Eliminazione temporanea
+
+Per annullare l'eliminazione di un file dall'account di archiviazione, vedere:
+
+### <a name="azure-storage"></a>Archiviazione di Azure
+
+* [Eliminazione temporanea per i BLOB di Archiviazione di Azure ](../storage/blobs/storage-blob-soft-delete.md)
+* [Annulla l'eliminazione del BLOB](https://docs.microsoft.com/rest/api/storageservices/undelete-blob)
+
+### <a name="azure-data-lake-storage-gen-1"></a>Azure Data Lake Storage Gen 1
+
+[Restore-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem)
+
+### <a name="azure-data-lake-storage-gen-2"></a>Azure Data Lake Storage Gen 2
+
+[Problemi noti relativi a Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-known-issues.md)
+
+## <a name="trash-purging"></a>Eliminazione del cestino
+
+La proprietà `fs.trash.interval` da **HDFS** > **Advanced Core-site** deve rimanere nel valore predefinito `0` perché non è necessario archiviare i dati nel file system locale. Questo valore non influisce sugli account di archiviazione remoti (WASB, ADLS GEN1, ABFS)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

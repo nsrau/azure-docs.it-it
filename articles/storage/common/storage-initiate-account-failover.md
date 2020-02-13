@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2bac51a86c8acdba0f6c2f03e5a24ab2b133aa8e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7529cfbd0ab75d0113e5cea666bc04aa1b15d30b
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521002"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157711"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Avviare un failover dell'account di archiviazione (anteprima)
 
@@ -27,20 +27,20 @@ Questo articolo illustra come avviare un failover per l'account di archiviazione
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di poter eseguire un failover sull'account di archiviazione, assicurarsi di avere eseguito i passaggi seguenti:
 
 - Registrarsi all'anteprima del failover dell'account. Per informazioni sulla registrazione, vedere [Informazioni sull'anteprima](storage-disaster-recovery-guidance.md#about-the-preview).
-- Verificare che l'account di archiviazione sia configurato per usare l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura. Per altre informazioni sull'archiviazione con ridondanza geografica, vedere [archiviazione con ridondanza geografica (GRS): replica tra più aree per archiviazione di Azure](storage-redundancy-grs.md). 
+- Verificare che l'account di archiviazione sia configurato per usare l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura. Per altre informazioni sull'archiviazione con ridondanza geografica, vedere [ridondanza di archiviazione di Azure](storage-redundancy.md).
 
 ## <a name="important-implications-of-account-failover"></a>Implicazioni importanti del failover dell'account
 
 Quando si avvia un failover per l'account di archiviazione, vengono aggiornati i record DNS per l'endpoint secondario in modo che l'endpoint secondario diventi l'endpoint primario. Assicurarsi di aver compreso l'impatto potenziale sull'account di archiviazione prima di avviare un failover.
 
-Per valutare la portata della possibile perdita di dati prima di avviare un failover, controllare la proprietà **Ora ultima sincronizzazione** usando il cmdlet di PowerShell `Get-AzStorageAccount` e includere il parametro `-IncludeGeoReplicationStats`. Controllare quindi la proprietà `GeoReplicationStats` dell'account. 
+Per valutare la portata della possibile perdita di dati prima di avviare un failover, controllare la proprietà **Ora ultima sincronizzazione** usando il cmdlet di PowerShell `Get-AzStorageAccount` e includere il parametro `-IncludeGeoReplicationStats`. Controllare quindi la proprietà `GeoReplicationStats` dell'account. \
 
-Dopo il failover, il tipo di account di archiviazione viene convertito automaticamente in archiviazione con ridondanza locale nella nuova area primaria. È possibile abilitare nuovamente l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura per l'account. Tenere presente che la conversione da archiviazione con ridondanza locale ad archiviazione con ridondanza geografica o archiviazione con ridondanza geografica e accesso in lettura comporta un costo aggiuntivo. Per altre informazioni, vedere [Dettagli sui prezzi per la larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/). 
+Dopo il failover, il tipo di account di archiviazione viene convertito automaticamente in archiviazione con ridondanza locale nella nuova area primaria. È possibile abilitare nuovamente l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura per l'account. Tenere presente che la conversione da archiviazione con ridondanza locale ad archiviazione con ridondanza geografica o archiviazione con ridondanza geografica e accesso in lettura comporta un costo aggiuntivo. Per altre informazioni, vedere [Dettagli sui prezzi per la larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 Dopo avere nuovamente abilitato l'archiviazione con ridondanza geografica per l'account di archiviazione, Microsoft inizia la replica dei dati dell'account nella nuova area secondaria. La durata della replica dipende dalla quantità di dati da replicare.  
 

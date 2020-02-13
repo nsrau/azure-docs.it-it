@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2019
+ms.date: 02/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 0635be14937a3688792f65208dcb9d482b9e6d44
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 110e935671ab1d640b2ff3dc26c203b262e999fe
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781995"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77163093"
 ---
 # <a name="preview-deploy-spot-vms-using-the-azure-cli"></a>Anteprima: distribuire le VM spot usando l'interfaccia della riga di comando di Azure
 
@@ -35,10 +35,10 @@ Il processo di creazione di una macchina virtuale con l'interfaccia della riga d
 > Le istanze di spot sono attualmente in anteprima pubblica.
 > Questa versione di anteprima non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Per la prima parte dell'anteprima pubblica, le istanze di spot avranno un prezzo fisso, quindi non vi saranno eliminazioni basate sul prezzo.
 
 
-## <a name="install-azure-cli"></a>Installare l'interfaccia della riga di comando di Azure
+
+## <a name="install-azure-cli"></a>Installare l'interfaccia da riga di comando di Azure
 
 Per creare macchine virtuali spot, è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.74 o successiva. Eseguire **az --version** per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
 

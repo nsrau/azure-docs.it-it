@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: a6c333da0e88af25e3907af23f792a210002477f
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 7cfa6e9810057493cc3007eec7fd1668a70c727e
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75901976"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77179146"
 ---
 L'uso di macchine virtuali con spot consente di sfruttare la capacità inutilizzata con un notevole risparmio sui costi. In qualsiasi momento, quando Azure necessita della capacità, l'infrastruttura di Azure eliminerà le VM spot. Quindi, le VM spot sono ottime per i carichi di lavoro in grado di gestire le interruzioni, ad esempio processi di elaborazione batch, ambienti di sviluppo/test, carichi di lavoro di calcolo di grandi dimensioni e altro ancora.
 
@@ -23,16 +23,12 @@ La quantità di capacità disponibile può variare in base alle dimensioni, all'
 > Le istanze di spot sono attualmente in anteprima pubblica.
 > Questa versione di anteprima non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Per la prima parte dell'anteprima pubblica, le istanze di spot avranno un prezzo fisso, quindi non vi saranno eliminazioni basate sul prezzo.
 
 ## <a name="eviction-policy"></a>Criteri di rimozione
 
 Le macchine virtuali possono essere eliminate in base alla capacità o al prezzo massimo impostato. Per le macchine virtuali, i criteri di rimozione sono impostati su *deallocate* , che sposta le VM eliminate nello stato arrestato-deallocato, consentendo di ridistribuire le VM rimosse in un secondo momento. Tuttavia, la riallocazione delle macchine virtuali spot dipende da una capacità di spot disponibile. Le macchine virtuali deallocate verranno conteggiate rispetto alla quota vCPU di spot e verranno addebitati i costi per i dischi sottostanti. 
 
 Gli utenti possono acconsentire esplicitamente a ricevere notifiche in-VM tramite [Azure eventi pianificati](../articles/virtual-machines/linux/scheduled-events.md). In questo modo si riceverà una notifica se le macchine virtuali vengono eliminate e saranno disponibili 30 secondi per completare i processi ed eseguire le attività di arresto prima dell'eliminazione. 
-
-> [!IMPORTANT]
-> Per la prima parte dell'anteprima pubblica, è possibile impostare un prezzo massimo, che verrà ignorato. Le macchine virtuali spot avranno un prezzo fisso, quindi non vi saranno eliminazioni basate sul prezzo.
 
 
 | Opzione | Risultato |
@@ -54,7 +50,7 @@ Le dimensioni delle macchine virtuali seguenti non sono supportate per le VM spo
 
 Le VM spot non possono attualmente usare dischi del sistema operativo temporanei.
 
-Le VM spot possono essere distribuite in qualsiasi area, ad eccezione Microsoft Azure Cina 21Vianet e Department of Defense (DoD) nell'area di Azure per enti pubblici.
+Le VM spot possono essere distribuite in qualsiasi area, ad eccezione Microsoft Azure Cina 21Vianet.
 
 ## <a name="pricing"></a>Prezzi
 
@@ -94,11 +90,11 @@ Con i prezzi variabili è possibile impostare un prezzo massimo, in dollari stat
 
 | Canali di Azure               | Disponibilità di macchine virtuali di Azure spot       |
 |------------------------------|-----------------------------------|
-| Contratto Enterprise Agreement         | Sì                               |
-| Pagamento in base al consumo                | Sì                               |
+| Enterprise Agreement         | Sì                               |
+| Con pagamento in base al consumo                | Sì                               |
 | Provider di servizi cloud | [Contatta il tuo partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Vantaggi                     | Non disponibile                     |
-| Eventi sponsorizzati                    | Non disponibile                     |
+| Sponsorizzato                    | Non disponibile                     |
 | Versione di valutazione gratuita                   | Non disponibile                     |
 
 

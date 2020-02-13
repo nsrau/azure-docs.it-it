@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 800b51c8f900d2ea99900ea147b33010452348f5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 2604d5b357feacce3493b4a4ded971144262611d
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639872"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161937"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Ripristino di emergenza a livello di area per cluster di Azure Databricks
 
@@ -37,7 +37,7 @@ Per creare una topologia di ripristino di emergenza a livello di area, rispettar
 
    1. Effettuare il provisioning di più aree di lavoro di Azure Databricks in aree di Azure separate. Ad esempio, creare l'area di lavoro principale di Azure Databricks in Stati Uniti orientali 2. Creare l'area di lavoro secondaria di Azure Databricks per il ripristino di emergenza in un'area separata, ad esempio Stati Uniti occidentali.
 
-   2. Usare l'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage). I dati associati a Azure Databricks vengono archiviati per impostazione predefinita in Archiviazione di Azure. Anche i risultati dei processi di Databricks vengono archiviati per impostazione predefinita in Archiviazione BLOB di Azure e pertanto i dati elaborati rimangono altamente disponibili dopo che il cluster è terminato. Poiché la risorsa di archiviazione e il cluster di Databricks si trovano nella stessa area, è necessario usare l'archiviazione con ridondanza geografica in modo da poter accedere ai dati nell'area secondaria se quella primaria non è più accessibile.
+   2. Usare l' [archiviazione con ridondanza geografica](../storage/common/storage-redundancy.md). I dati associati a Azure Databricks vengono archiviati per impostazione predefinita in Archiviazione di Azure. Anche i risultati dei processi di Databricks vengono archiviati per impostazione predefinita in Archiviazione BLOB di Azure e pertanto i dati elaborati rimangono altamente disponibili dopo che il cluster è terminato. Poiché la risorsa di archiviazione e il cluster di Databricks si trovano nella stessa area, è necessario usare l'archiviazione con ridondanza geografica in modo da poter accedere ai dati nell'area secondaria se quella primaria non è più accessibile.
 
    3. Dopo aver creato l'area secondaria, è necessario eseguire la migrazione di utenti, cartelle degli utenti, notebook, configurazione di cluster, configurazione di processi, librerie, dati di archiviazione e script di inizializzazione e riconfigurare il controllo di accesso. Altri dettagli sono descritti nella sezione seguente.
 

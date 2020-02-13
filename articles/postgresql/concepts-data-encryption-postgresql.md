@@ -6,21 +6,21 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 917dc85672fcc5e4c3f1431f80d1f6eb68207392
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 125f92b64ee745a595d15ccacafb6a62414955a9
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77050045"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157534"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Crittografia dei dati a server singolo del database di Azure per PostgreSQL con una chiave gestita dal cliente
 
 > [!NOTE]
 > A questo punto, è necessario richiedere l'accesso per usare questa funzionalità. A tale scopo, contattare AskAzureDBforPostgreSQL@service.microsoft.com.
 
-La crittografia dei dati a server singolo del database di Azure per PostgreSQL con una chiave gestita dal cliente consente di Bring Your Own Key (BYOK) per la protezione dei dati inattivi. Consente inoltre alle organizzazioni di implementare la separazione dei compiti nella gestione delle chiavi e dei dati. Con la crittografia gestita dal cliente, l'utente è responsabile e, in un controllo completo, del ciclo di vita di una chiave, delle autorizzazioni di utilizzo delle chiavi e del controllo delle operazioni sulle chiavi.
+La crittografia dei dati con chiavi gestite dal cliente per il server singolo di database di Azure per PostgreSQL consente di portare la chiave qwn (BYOK) per la protezione dei dati inattivi. Consente inoltre alle organizzazioni di implementare la separazione dei compiti nella gestione delle chiavi e dei dati. Con la crittografia gestita dal cliente, l'utente è responsabile e, in un controllo completo, del ciclo di vita di una chiave, delle autorizzazioni di utilizzo delle chiavi e del controllo delle operazioni sulle chiavi.
 
-Per il server singolo database di Azure per PostgreSQL, è possibile impostare la crittografia dei dati a livello di server. Con questa forma di crittografia dei dati, si usa la chiave nella crittografia della chiave di crittografia dei dati. La chiave di crittografia è una chiave asimmetrica gestita dal cliente, archiviata in un'istanza di [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) gestita dal cliente e dal cliente. La chiave di crittografia è descritta in modo più dettagliato più avanti in questo articolo.
+La crittografia dei dati con chiavi gestite dal cliente per il server singolo database di Azure per PostgreSQL è impostata a livello di server. Per un determinato server, una chiave gestita dal cliente, denominata chiave di crittografia della chiave (KEK), viene usata per crittografare la chiave di crittografia dei dati usata dal servizio. KEK è una chiave asimmetrica archiviata in un'istanza di [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) gestita dal cliente e gestita dal cliente. La chiave di crittografia della chiave (KEK) e la chiave di crittografia dei dati sono descritte in modo più dettagliato più avanti in questo articolo.
 
 Key Vault è un sistema di gestione delle chiavi esterne basato sul cloud. È a disponibilità elevata e fornisce un'archiviazione sicura e scalabile per le chiavi crittografiche RSA, supportata facoltativamente da moduli di protezione hardware convalidati FIPS 140-2 Level 2 (HSM). Non consente l'accesso diretto a una chiave archiviata, ma fornisce servizi di crittografia e decrittografia a entità autorizzate. Key Vault possibile generare la chiave, importarla o [trasferirla da un dispositivo HSM locale](../key-vault/key-Vault-hsm-protected-keys.md).
 
@@ -31,11 +31,10 @@ Key Vault è un sistema di gestione delle chiavi esterne basato sul cloud. È a 
 
 La crittografia dei dati per il server singolo di database di Azure per PostgreSQL offre i vantaggi seguenti:
 
-* Maggiore trasparenza, controllo granulare e gestione per la chiave di crittografia.
-* Gestione centralizzata e organizzazione delle chiavi ospitate in Azure Key Vault.
-* Possibilità di implementare la separazione dei compiti nella gestione delle chiavi e dei dati all'interno dell'organizzazione.
-* La possibilità di separare la gestione delle chiavi dalla gestione dei dati all'interno di un'organizzazione, quindi un amministratore Key Vault può revocare le autorizzazioni di accesso alla chiave per rendere inaccessibile un database crittografato.
-* Maggiore attendibilità degli utenti finali, perché Microsoft non è in grado di visualizzare o estrarre le chiavi di crittografia in Key Vault.
+* L'accesso ai dati è completamente controllato dalla possibilità di rimuovere la chiave e rendere inaccessibile il database 
+*   Controllo completo del ciclo di vita della chiave, inclusa la rotazione della chiave per l'allineamento con i criteri aziendali
+*   Gestione centralizzata e organizzazione delle chiavi in Azure Key Vault
+*   Possibilità di implementare la separazione dei compiti tra i responsabili della sicurezza e gli amministratori di database e di amministratore di sistema
 
 ## <a name="terminology-and-description"></a>Terminologia e descrizione
 

@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 12a20abb4014712f26e5827bcd1d3c822e8b25a1
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 68aa62ad34f8db531d439a581ef024862da0f90c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750722"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162311"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurare i log di diagnostica per un hub eventi di Azure
 
@@ -71,7 +71,7 @@ Tutti i log vengono archiviati in formato JavaScript Object Notation (JSON). Ogn
 
 Le stringhe JSON dei log di archiviazione includono gli elementi elencati nella tabella seguente:
 
-Nome | Description
+Nome | Descrizione
 ------- | -------
 TaskName | Descrizione dell'attività non riuscita.
 ActivityId | ID interno, usato a scopo di rilevamento.
@@ -109,7 +109,7 @@ Il codice seguente è un esempio di stringa JSON di log di archiviazione:
 
 Le stringhe JSON dei log operativi includono gli elementi elencati nella seguente tabella:
 
-Nome | Description
+Nome | Descrizione
 ------- | -------
 ActivityId | ID interno, usato a scopo di rilevamento.
 EventName | Nome operazione.  
@@ -139,6 +139,10 @@ Example:
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Introduzione a Hub eventi](event-hubs-what-is-event-hubs.md)
-* [Panoramica dell'API di Hub eventi](event-hubs-api-overview.md)
-* [Introduzione all'Hub eventi](event-hubs-dotnet-standard-getstarted-send.md)
+- [Introduzione a Hub eventi](event-hubs-what-is-event-hubs.md)
+- [Panoramica dell'API di Hub eventi](event-hubs-api-overview.md)
+- Introduzione all'Hub eventi
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)

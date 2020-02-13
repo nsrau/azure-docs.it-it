@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 3d4fe7319e0af9c463bd64483f43a4e73ef8871d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f2d530792e1a6f598dbf2ed66889c01cc43467ed
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75395748"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162243"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Progettazione della distribuzione dei log di monitoraggio di Azure
 
@@ -26,7 +26,7 @@ Un'area di lavoro Log Analytics offre:
 
 * Una posizione geografica per l'archiviazione dei dati.
 * Isolamento dei dati tramite la concessione di diritti di accesso a utenti diversi dopo una delle strategie di progettazione consigliate.
-* Ambito per la configurazione di impostazioni quali il [piano tariffario](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), la [conservazione](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)e la [capsulatura dei dati](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#manage-your-maximum-daily-data-volume).
+* Ambito per la configurazione di impostazioni quali il piano [tariffario](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), la [conservazione](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)e la [capsulatura dei dati](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#manage-your-maximum-daily-data-volume).
 
 Questo articolo fornisce una panoramica dettagliata delle considerazioni relative alla progettazione e alla migrazione, alla panoramica del controllo di accesso e alla comprensione delle implementazioni di progettazione consigliate per l'organizzazione IT.
 
@@ -42,7 +42,7 @@ Identificare il numero di aree di lavoro necessarie è influenzato da uno o più
 
 Oggi le organizzazioni IT sono modellate in seguito a un ibrido centralizzato, decentralizzato o tra due strutture. Di conseguenza, i modelli di distribuzione dell'area di lavoro seguenti sono stati comunemente utilizzati per eseguire il mapping a una di queste strutture organizzative:
 
-* **Centralizzata**: tutti i log vengono archiviati in un'area di lavoro centrale e amministrati da un singolo team, con monitoraggio di Azure che offre un accesso differenziato per Team. In questo scenario, è facile da gestire, eseguire ricerche tra le risorse e i log correlati tra loro. L'area di lavoro può aumentare in modo significativo a seconda della quantità di dati raccolti da più risorse nella sottoscrizione, con un sovraccarico amministrativo aggiuntivo per mantenere il controllo di accesso a utenti diversi.
+* **Centralizzata**: tutti i log vengono archiviati in un'area di lavoro centrale e amministrati da un singolo team, con monitoraggio di Azure che offre un accesso differenziato per Team. In questo scenario, è facile da gestire, eseguire ricerche tra le risorse e i log correlati tra loro. L'area di lavoro può aumentare in modo significativo a seconda della quantità di dati raccolti da più risorse nella sottoscrizione, con un sovraccarico amministrativo aggiuntivo per mantenere il controllo di accesso a utenti diversi. Questo modello è noto come "hub and spoke".
 * **Decentralizzata**: ogni team ha una propria area di lavoro creata in un gruppo di risorse che possiede e gestisce e i dati di log vengono separati per ogni risorsa. In questo scenario, l'area di lavoro può essere mantenuta sicura e il controllo degli accessi è coerente con l'accesso alle risorse, ma è difficile correlare i log. Gli utenti che necessitano di un'ampia visualizzazione di molte risorse non possono analizzare i dati in modo significativo.
 * **Ibrido**: i requisiti di conformità dei controlli di sicurezza complicano ulteriormente questo scenario perché molte organizzazioni implementano entrambi i modelli di distribuzione in parallelo. Ciò comporta in genere una configurazione complessa, costosa e difficile da gestire con gap nel code coverage dei log.
 
@@ -63,7 +63,7 @@ Con il controllo degli accessi in base al ruolo, è possibile concedere a utenti
 
 I dati a cui un utente può accedere sono determinati da una combinazione di fattori elencati nella tabella seguente. Ogni è descritto nelle sezioni riportate di seguito.
 
-| Fattore | Description |
+| Fattore | Descrizione |
 |:---|:---|
 | [Modalità di accesso](#access-mode) | Metodo utilizzato dall'utente per accedere all'area di lavoro.  Definisce l'ambito dei dati disponibili e la modalità di controllo di accesso applicata. |
 | [Modalità di controllo di accesso](#access-control-mode) | Impostazione nell'area di lavoro che definisce se le autorizzazioni vengono applicate a livello di area di lavoro o di risorsa. |

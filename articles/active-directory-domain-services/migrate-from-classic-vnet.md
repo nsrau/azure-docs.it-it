@@ -9,18 +9,18 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 5c50e3c17fe09b735aa4f4104615c4833164d94d
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: bd20bb008c52b7d99416aed7a0599a6e78d2acf2
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544158"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161648"
 ---
-# <a name="preview---migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Anteprima: eseguire la migrazione Azure AD Domain Services dal modello di rete virtuale classica al Gestione risorse
+# <a name="migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Eseguire la migrazione Azure AD Domain Services dal modello di rete virtuale classica a Gestione risorse
 
 Azure Active Directory Domain Services (AD DS) supporta uno spostamento monouso per i clienti che attualmente usano il modello di rete virtuale classica per il modello di rete virtuale Gestione risorse. Azure AD domini gestiti di DS che usano il modello di distribuzione Gestione risorse forniscono funzionalità aggiuntive, ad esempio criteri granulari per le password, log di controllo e protezione del blocco degli account.
 
-Questo articolo descrive i vantaggi e le considerazioni per la migrazione, quindi i passaggi necessari per eseguire correttamente la migrazione di un'istanza di Azure AD DS esistente. Questa funzionalità di migrazione è attualmente in anteprima.
+Questo articolo descrive i vantaggi e le considerazioni per la migrazione, quindi i passaggi necessari per eseguire correttamente la migrazione di un'istanza di Azure AD DS esistente.
 
 ## <a name="overview-of-the-migration-process"></a>Panoramica del processo di migrazione
 
@@ -319,13 +319,13 @@ Migrate-Aadds `
     -Credentials $creds
 ```
 
-### <a name="restore"></a>Ripristinare
+### <a name="restore"></a>Restore
 
 Come ultima risorsa, è possibile ripristinare Azure AD Domain Services dall'ultimo backup disponibile. Nel passaggio 1 della migrazione viene effettuato un backup per assicurarsi che sia disponibile il backup più recente. Questo backup viene archiviato per 30 giorni.
 
 Per ripristinare il dominio gestito di Azure AD DS dal backup, [aprire un ticket del caso di supporto usando il portale di Azure][azure-support]. Specificare l'ID directory, il nome di dominio e il motivo per il ripristino. Il completamento del processo di supporto e ripristino può richiedere più giorni.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se si verificano problemi dopo la migrazione al modello di distribuzione Gestione risorse, esaminare alcune delle seguenti aree comuni di risoluzione dei problemi:
 

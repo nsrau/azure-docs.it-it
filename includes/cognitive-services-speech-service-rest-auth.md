@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 22a95be43f06e95a6067b179b3023ba94ee5795d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 020055c1629a66ec1aa82beb050501803b2a0f18
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68362549"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168329"
 ---
 ## <a name="authentication"></a>Authentication
 
@@ -17,8 +17,8 @@ Ogni richiesta richiede un'intestazione di autorizzazione. Questa tabella illust
 
 | Intestazione dell'autorizzazione supportata | Riconoscimento vocale | Sintesi vocale |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | Yes | No |
-| Authorization: Bearer | Sì | Sì |
+| Ocp-Apim-Subscription-Key | Sì | No |
+| Autorizzazione: Bearer | Sì | Sì |
 
 Quando viene usata l'intestazione `Ocp-Apim-Subscription-Key`, è sufficiente fornire la chiave di sottoscrizione. Ad esempio:
 
@@ -32,9 +32,15 @@ Quando si usa l'intestazione `Authorization: Bearer`, è necessario effettuare u
 
 Per ottenere un token di accesso, è necessario effettuare una richiesta all'endpoint `issueToken` usando la `Ocp-Apim-Subscription-Key` e la propria chiave di sottoscrizione.
 
-Queste aree ed endpoint sono supportati:
+Il formato dell'endpoint `issueToken` è il seguente:
 
-[!INCLUDE [](./cognitive-services-speech-service-endpoints-token-service.md)]
+```
+https://<REGION_IDENTIFIER>.api.cognitive.microsoft.com/sts/v1.0/issueToken
+```
+
+Sostituire `<REGION_IDENTIFIER>` con l'identificatore corrispondente all'area della sottoscrizione da questa tabella:
+
+[!INCLUDE [](cognitive-services-speech-service-region-identifier.md)]
 
 Usare questi esempi per creare la richiesta di token di accesso.
 

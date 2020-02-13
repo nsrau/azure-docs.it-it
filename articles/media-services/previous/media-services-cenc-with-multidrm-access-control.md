@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
-ms.openlocfilehash: b0fec44a59bd70c6f1d0236861d93e81aaba033c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 68f42aa13288c2416257f3ba6c0b6072c1572977
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969446"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162991"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Progettazione di un sistema di protezione del contenuto con il controllo di accesso tramite Servizi multimediali di Azure 
 
@@ -85,7 +85,7 @@ Questa sezione presenta informazioni di riferimento per una progettazione indipe
 
 Un sottosistema DRM può contenere i componenti seguenti:
 
-* Gestione della chiave
+* Gestione delle chiavi
 * Creazione pacchetto DRM
 * Distribuzione di licenze DRM
 * Controllo dei diritti
@@ -215,10 +215,10 @@ L'implementazione è costituita dai passaggi seguenti:
 
     | **DRM** | **Browser** | **Risultato per un utente con diritti** | **Risultato per un utente senza diritti** |
     | --- | --- | --- | --- |
-    | **PlayReady** |Microsoft Edge o Internet Explorer 11 in Windows 10 |Succeed |Fail |
-    | **Widevine** |Chrome, Firefox, Opera |Succeed |Fail |
-    | **FairPlay** |Safari su macOS      |Succeed |Fail |
-    | **AES-128** |Browser più moderni  |Succeed |Fail |
+    | **PlayReady** |Microsoft Edge o Internet Explorer 11 in Windows 10 |Succeed |Esito negativo |
+    | **Widevine** |Chrome, Firefox, Opera |Succeed |Esito negativo |
+    | **FairPlay** |Safari su macOS      |Succeed |Esito negativo |
+    | **AES-128** |Browser più moderni  |Succeed |Esito negativo |
 
 Per informazioni su come impostare Azure AD per un'app lettore MVC ASP.NET, vedere [Integrate an Azure Media Services OWIN MVC-based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/) (Integrare un'app basata su OWIN MVC di Servizi multimediali di Azure con Azure Active Directory e limitare la distribuzione di chiavi simmetriche in base ad attestazioni JWT).
 
@@ -226,7 +226,7 @@ Per altre informazioni, vedere [JWT token authentication in Azure Media Services
 
 Per informazioni su Azure AD:
 
-* Le informazioni per gli sviluppatori sono disponibili nella [Guida per gli sviluppatori di Azure Active Directory](../../active-directory/develop/v1-overview.md).
+* Le informazioni per gli sviluppatori sono disponibili nella [Guida per gli sviluppatori di Azure Active Directory](../../active-directory/azuread-dev/v1-overview.md).
 * Le informazioni per gli amministratori sono disponibili in [Amministrare la directory di Azure AD](../../active-directory/fundamentals/active-directory-administer.md).
 
 ### <a name="some-issues-in-implementation"></a>Problematiche di implementazione
@@ -243,7 +243,7 @@ Usare le informazioni seguenti per la risoluzione dei problemi di implementazion
 
 * Aggiungere autorizzazioni all'applicazione in Azure AD nella scheda **Configura** dell'applicazione. Le autorizzazioni sono obbligatorie per ogni applicazione, indipendentemente dal tipo di versione: locale e distribuita.
 
-    ![autorizzazioni](./media/media-services-cenc-with-multidrm-access-control/media-services-perms-to-other-apps.png)
+    ![Autorizzazioni](./media/media-services-cenc-with-multidrm-access-control/media-services-perms-to-other-apps.png)
 
 * Usare l'autorità di certificazione corretta quando si configura la protezione CENC dinamica.
 
@@ -313,9 +313,9 @@ Che cosa accade se il rollover della chiave viene eseguito dopo che Azure AD ha 
 Poiché il rollover di una chiave può essere eseguito in qualsiasi momento, nel documento metadati federazione è sempre disponibile più di una chiave pubblica valida. Il servizio di distribuzione delle licenze di Servizi multimediali può usare una qualsiasi delle chiavi specificate nel documento. Poiché di una chiave può essere eseguito il rollback immediatamente, un'altra può sostituirla e così via.
 
 ### <a name="where-is-the-access-token"></a>Dov'è il token di accesso?
-Se si esamina come un'app Web chiama un'app per le API in [Identità applicazione con concessione delle credenziali client OAuth 2.0](../../active-directory/develop/web-api.md), il flusso di autenticazione è il seguente:
+Se si esamina come un'app Web chiama un'app per le API in [Identità applicazione con concessione delle credenziali client OAuth 2.0](../../active-directory/azuread-dev/web-api.md), il flusso di autenticazione è il seguente:
 
-* Un utente accede ad Azure AD nell'applicazione Web. Per altre informazioni, vedere [Da Web browser ad applicazione Web](../../active-directory/develop/web-app.md).
+* Un utente accede ad Azure AD nell'applicazione Web. Per altre informazioni, vedere [Da Web browser ad applicazione Web](../../active-directory/azuread-dev/web-app.md).
 * L'endpoint di autorizzazione di Azure AD reindirizza di nuovo l'agente utente all'applicazione client con un codice di autorizzazione. L'agente utente restituisce il codice di autorizzazione all'URI di reindirizzamento dell'applicazione client.
 * L'applicazione Web deve acquisire un token di accesso per l'autenticazione nell'API Web e il recupero della risorsa desiderata. Esegue una richiesta all'endpoint di token di Azure AD e fornisce credenziali, ID client e URI dell'ID applicazione dell'API Web. Presenta il codice di autorizzazione per dimostrare che l'utente ha acconsentito.
 * Azure AD autentica l'applicazione e restituisce un token di accesso JWT che viene usato per chiamare l'API Web.
@@ -472,11 +472,11 @@ Questo documento ha illustrato la crittografia CENC con DRM nativo multiplo e il
 
 ## <a name="additional-notes"></a>Note aggiuntive
 
-* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
  

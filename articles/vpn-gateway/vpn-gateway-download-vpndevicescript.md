@@ -9,12 +9,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: yushwang
-ms.openlocfilehash: 4bce6a05938af9b8726b1b52ccb65d22d7492cfe
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: f905e27f48a0bf9181625bbba07549a13d9420cb
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778448"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162137"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Scaricare gli script di configurazione del dispositivo VPN per le connessioni VPN S2S
 
@@ -78,7 +78,7 @@ Dopo aver creato la risorsa di connessione, seguire le istruzioni riportate di s
 
 ## <a name="download-the-configuration-script-using-azure-powershell"></a>Scaricare lo script di configurazione mediante Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 È possibile scaricare lo script di configurazione anche tramite Azure PowerShell, come illustrato nell'esempio seguente:
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 1074c4bc561236039e6ee55ef2df4fc8bd8dbbfc
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: b1f7708c9bd213e201ba4eb8837a191dca68ca9e
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772517"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77167007"
 ---
 # <a name="azure-serial-console-for-linux"></a>Console seriale di Azure per Linux
 
@@ -32,7 +32,7 @@ Per la documentazione sulla console seriale per Windows, vedere [console seriale
 > La console seriale è disponibile a livello generale nelle aree globali di Azure e in anteprima pubblica in Azure per enti pubblici. Non è ancora disponibile nel cloud di Azure China.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - L'istanza della VM o del set di scalabilità di macchine virtuali deve usare il modello di distribuzione di gestione delle risorse. Le distribuzioni classiche non sono supportate.
 
@@ -124,7 +124,7 @@ Sono stati rilevati alcuni problemi con la console seriale e il sistema operativ
 
 Problema                           |   Strategia di riduzione del rischio
 :---------------------------------|:--------------------------------------------|
-Se si preme il tasto **INVIO** dopo il banner della connessione, non viene visualizzato un prompt di accesso. | Per altre informazioni, vedere [Premendo INVIO, non accade nulla](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Questo problema può verificarsi se si esegue una macchina virtuale personalizzata, un dispositivo con protezione avanzata o una configurazione di GRUB che causa la mancata connessione di Linux alla porta seriale.
+Se si preme il tasto **INVIO** dopo il banner della connessione, non viene visualizzato un prompt di accesso. | GRUB potrebbe non essere configurato correttamente. Eseguire i comandi seguenti: `grub2-mkconfig -o /etc/grub2-efi.cfg` e/o `grub2-mkconfig -o /etc/grub2.cfg`. Per altre informazioni, vedere [Premendo INVIO, non accade nulla](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Questo problema può verificarsi se si esegue una macchina virtuale personalizzata, un dispositivo con protezione avanzata o una configurazione di GRUB che causa la mancata connessione di Linux alla porta seriale.
 Il testo della console seriale occupa solo una parte delle dimensioni dello schermo (spesso dopo l'uso di un editor di testo). | Le console seriali non supportano la negoziazione sulle dimensioni della finestra ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)): questo significa che non sarà presente alcun segnale SIGWINCH inviato per aggiornare le dimensioni dello schermo e la macchina virtuale non avrà alcuna conoscenza delle dimensioni del terminale. Installare xterm o un'utilità analoga per fornire il comando `resize` e quindi eseguire `resize`.
 L'operazione di incollare le stringhe lunghe non funziona. | La console seriale limita la lunghezza delle stringhe incollate nel terminale a 2048 caratteri per impedire il sovraccarico della larghezza di banda della porta seriale.
 Input da tastiera irregolare nelle immagini SLES BYOS. L'input da tastiera viene riconosciuto solo sporadicamente. | Si tratta di un problema con il pacchetto Plymouth. Plymouth non deve essere eseguito in Azure perché non è necessaria una schermata iniziale e Plymouth interferisce con la possibilità di usare la console seriale. Rimuovere Plymouth con `sudo zypper remove plymouth` e quindi riavviare. In alternativa, modificare la riga del kernel della configurazione di GRUB aggiungendo `plymouth.enable=0` alla fine della riga. Questa operazione può essere eseguita [modificando la voce di avvio in fase di avvio](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles)oppure modificando la riga di GRUB_CMDLINE_LINUX in `/etc/default/grub`, ricompilando GRUB con `grub2-mkconfig -o /boot/grub2/grub.cfg`e riavviando il sistema.

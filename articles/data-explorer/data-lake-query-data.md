@@ -7,27 +7,27 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: 1e5af0b45b8d2e2eceac1b653a5219a236c25467
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 8240b1a01aa39e53b9ae41f73543ccf9774290b2
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512913"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161750"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer"></a>Eseguire query sui dati in Azure Data Lake usando Azure Esplora dati
 
-Azure Data Lake Storage è una soluzione data Lake altamente scalabile ed economica per Big Data Analytics. Combina la potenza di un file system ad alte prestazioni con caratteristiche che permettono di ottenere rapidamente informazioni dettagliate in modo scalabile ed economico. Data Lake Storage Gen2 estende le funzionalità di Archiviazione BLOB di Azure ed è ottimizzato per i carichi di lavoro di analisi.
+Azure Data Lake Storage è una soluzione data Lake altamente scalabile ed economica per Big Data Analytics. Combina la potenza di una file system a prestazioni elevate con scalabilità e economia enormi che ti permettono di velocizzare i tempi di analisi. Data Lake Storage Gen2 estende le funzionalità di archiviazione BLOB di Azure ed è ottimizzato per i carichi di lavoro di analisi.
  
-Azure Esplora dati si integra con l'archiviazione BLOB di Azure e Azure Data Lake Storage Gen2, offrendo accesso rapido, memorizzato nella cache e indicizzato ai dati nel Lake. È possibile analizzare ed eseguire query sui dati nel lago senza inserimenti prima in Azure Esplora dati. È anche possibile eseguire query su dati di Lake native inseriti e non inseriti simultaneamente.  
+Azure Esplora dati si integra con l'archivio BLOB di Azure e con Azure Data Lake Storage (Gen1 e Gen2), offrendo accesso rapido, memorizzato nella cache e indicizzato ai dati nel Lake. È possibile analizzare ed eseguire query sui dati nel lago senza inserimenti prima in Azure Esplora dati. È anche possibile eseguire query su dati di Lake native inseriti e non inseriti simultaneamente.  
 
 > [!TIP]
-> Per ottimizzare le prestazioni delle query è necessario inserire i dati in Esplora dati di Azure. La possibilità di eseguire query sui dati in Azure Data Lake Storage Gen2 senza inserimento precedente deve essere utilizzata solo per i dati cronologici o per i dati raramente sottoposti a query. [Ottimizzare le prestazioni delle query in Lake](#optimize-your-query-performance) per ottenere risultati ottimali.
+> Per ottimizzare le prestazioni delle query è necessario inserire i dati in Esplora dati di Azure. La possibilità di eseguire query sui dati esterni senza inserimento precedente deve essere utilizzata solo per i dati cronologici o per i dati raramente sottoposti a query. [Ottimizzare le prestazioni delle query in Lake](#optimize-your-query-performance) per ottenere risultati ottimali.
  
 
 ## <a name="create-an-external-table"></a>Creare una tabella esterna
 
  > [!NOTE]
- > Gli account di archiviazione attualmente supportati sono archiviazione BLOB di Azure o Azure Data Lake Storage Gen2. I formati di dati attualmente supportati sono JSON, CSV, TSV e txt.
+ > Gli account di archiviazione attualmente supportati sono archiviazione BLOB di Azure o Azure Data Lake Storage (Gen1 e Gen2).
 
 1. Usare il comando `.create external table` per creare una tabella esterna in Esplora dati di Azure. Altri comandi della tabella esterna, ad esempio `.show`, `.drop`e `.alter` sono documentati in [comandi della tabella esterna](/azure/kusto/management/externaltables).
 
@@ -46,6 +46,7 @@ Azure Esplora dati si integra con l'archiviazione BLOB di Azure e Azure Data Lak
     > * Quando si definisce una tabella esterna con partizioni, la struttura di archiviazione dovrebbe essere identica.
 Se, ad esempio, la tabella è definita con una partizione DateTime nel formato AAAA/MM/GG (impostazione predefinita), il percorso del file di archiviazione URI deve essere *container1/aaaa/mm/gg/all_exported_blobs*. 
     > * Se la tabella esterna è partizionata in base a una colonna DateTime, includere sempre un filtro temporale per un intervallo chiuso nella query (ad esempio, la query `ArchivedProducts | where Timestamp between (ago(1h) .. 10m)`-deve avere prestazioni migliori rispetto a questo (intervallo aperto) uno-`ArchivedProducts | where Timestamp > ago(1h)`). 
+    > * È possibile eseguire query su tutti i formati di inserimento [supportati](ingest-data-overview.md#supported-data-formats) usando le tabelle esterne.
 
 1. La tabella esterna è visibile nel riquadro sinistro dell'interfaccia utente Web
 
@@ -254,7 +255,7 @@ Usare la compressione per ridurre la quantità di dati recuperati dall'archiviaz
  
 Organizzare i dati usando partizioni "cartella" che consentono alla query di ignorare i percorsi irrilevanti. Quando si pianifica il partizionamento, prendere in considerazione le dimensioni dei file e i filtri comuni nelle query come timestamp o ID tenant.
  
-### <a name="vm-size"></a>Dimensioni VM
+### <a name="vm-size"></a>Dimensioni macchina virtuale
  
 Selezionare SKU VM con più core e una velocità effettiva di rete superiore (la memoria è meno importante). Per altre informazioni, vedere [selezionare lo SKU di VM corretto per il cluster di Esplora dati di Azure](manage-cluster-choose-sku.md).
 

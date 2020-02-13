@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ede43e3ed939083e7b5ff94899d12f6f4795a880
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: d3ee211298598d78f423d88fd4df1c58ed4bfa29
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941488"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157449"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Acquisire un token da Azure AD per autorizzare le richieste da un'applicazione client
 
@@ -202,7 +202,7 @@ public async Task<IActionResult> Blob()
 }
 ```
 
-Il consenso è il processo con cui un utente autorizza un'applicazione ad accedere per proprio conto a risorse protette. La piattaforma Microsoft Identity 2,0 supporta il consenso incrementale, ovvero un'entità di sicurezza può richiedere inizialmente un set minimo di autorizzazioni e aggiungere le autorizzazioni nel tempo in base alle esigenze. Quando il codice richiede un token di accesso, specificare l'ambito delle autorizzazioni necessarie per l'app in un determinato momento nel parametro `scope`. Per ulteriori informazioni sul consenso incrementale, vedere la sezione intitolata **consenso incrementale e dinamico** nel [perché eseguire l'aggiornamento a Microsoft Identity Platform (v 2.0)?](../../active-directory/develop/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
+Il consenso è il processo con cui un utente autorizza un'applicazione ad accedere per proprio conto a risorse protette. La piattaforma Microsoft Identity 2,0 supporta il consenso incrementale, ovvero un'entità di sicurezza può richiedere inizialmente un set minimo di autorizzazioni e aggiungere le autorizzazioni nel tempo in base alle esigenze. Quando il codice richiede un token di accesso, specificare l'ambito delle autorizzazioni necessarie per l'app in un determinato momento nel parametro `scope`. Per ulteriori informazioni sul consenso incrementale, vedere la sezione intitolata **consenso incrementale e dinamico** nel [perché eseguire l'aggiornamento a Microsoft Identity Platform (v 2.0)?](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
 
 Il metodo seguente costruisce le proprietà di autenticazione per richiedere il consenso incrementale:
 

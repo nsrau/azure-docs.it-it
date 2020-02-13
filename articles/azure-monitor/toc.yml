@@ -907,22 +907,6 @@
           href: platform/rest-api-walkthrough.md
     - name: Visualizzare i dati
       items:
-        - name: Viste
-          items:
-            - name: Progettazione viste
-              href: platform/view-designer.md
-            - name: Informazioni di riferimento sui riquadri
-              href: platform/view-designer-tiles.md
-            - name: Informazioni di riferimento sulla parte di visualizzazione
-              href: platform/view-designer-parts.md
-            - name: Filtri
-              href: platform/view-designer-filters.md
-        - name: Power BI
-          items:
-            - name: Esportare i dati di log
-              href: platform/powerbi.md
-            - name: Esportare i dati dell'applicazione
-              href: app/export-power-bi.md
         - name: Workbooks
           items:
             - name: Panoramica
@@ -949,6 +933,36 @@
                       href: platform/workbooks-time.md
                     - name: Parametri di testo
                       href: platform/workbooks-text.md
+        - name: Viste
+          items:
+            - name: Convertire le visualizzazioni in cartelle di lavoro
+              items:
+                - name: Panoramica sulla conversione
+                  href: platform/view-designer-conversion-overview.md
+                - name: Opzioni di conversione
+                  href: platform/view-designer-conversion-options.md
+                - name: Panoramica e accesso
+                  href: platform/view-designer-conversion-access.md
+                - name: Attività comuni
+                  href: platform/view-designer-conversion-tasks.md
+                - name: Conversioni di riquadri
+                  href: platform/view-designer-conversion-tiles.md
+                - name: Esempi
+                  href: platform/view-designer-conversion-examples.md
+            - name: Progettazione viste
+              href: platform/view-designer.md
+            - name: Informazioni di riferimento sui riquadri
+              href: platform/view-designer-tiles.md
+            - name: Informazioni di riferimento sulla parte di visualizzazione
+              href: platform/view-designer-parts.md
+            - name: Filtri
+              href: platform/view-designer-filters.md
+        - name: Power BI
+          items:
+            - name: Esportare i dati di log
+              href: platform/powerbi.md
+            - name: Esportare i dati dell'applicazione
+              href: app/export-power-bi.md
         - name: Dashboard
           items:
             - name: Dashboard con i dati dei log

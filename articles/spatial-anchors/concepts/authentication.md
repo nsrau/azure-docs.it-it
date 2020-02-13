@@ -8,12 +8,12 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6149fa631633d05399568bd1ec797c5ee47d29a4
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: 3de84e2d814acfca67bc722243a90fa41f6536e1
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152602"
+ms.locfileid: "77161682"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticazione e autorizzazione per gli ancoraggi spaziali di Azure
 
@@ -92,7 +92,7 @@ Al termine dell'operazione, l'SDK gestirà lo scambio della chiave dell'account 
 
 ## <a name="azure-ad-user-authentication"></a>Autenticazione utente Azure AD
 
-Per le applicazioni destinate a Azure Active Directory utenti, l'approccio consigliato consiste nell'usare un token Azure AD per l'utente, che è possibile ottenere usando la libreria ADAL, come descritto nella documentazione seguente: [https://docs.microsoft.com/azure/active-directory/develop/v1-overview](../../active-directory/develop/v1-overview.md); attenersi alla procedura riportata in "avvio rapido", che include:
+Per le applicazioni destinate a Azure Active Directory utenti, l'approccio consigliato consiste nell'usare un token Azure AD per l'utente, che è possibile ottenere usando la [libreria MSAL](../../active-directory/develop/msal-overview.md). Attenersi alla procedura riportata nella [Guida introduttiva per la registrazione di un'app](../../active-directory/develop/quickstart-register-app.md), che include:
 
 1. Configurazione in portale di Azure
     1.  Registrare l'applicazione in Azure AD come **applicazione nativa**. Nell'ambito della registrazione, è necessario determinare se l'applicazione deve essere multi-tenant o meno e fornire gli URL di reindirizzamento consentiti per l'applicazione.
@@ -118,7 +118,7 @@ Per le applicazioni destinate a Azure Active Directory utenti, l'approccio consi
         3.  Se l'applicazione supporta **tutti gli utenti account Microsoft**, sostituire questo valore con **Common**
     3.  Nella richiesta di token impostare la **risorsa** su "https://sts.mixedreality.azure.com". Questa "risorsa" indicherà Azure AD che l'applicazione richiede un token per il servizio Azure Spatial Anchors.
 
-In questo modo, l'applicazione deve essere in grado di ottenere da ADAL un token di Azure AD; è possibile impostare il token Azure AD come **authenticationToken** nell'oggetto config della sessione cloud.
+In questo modo, l'applicazione deve essere in grado di ottenere da MSAL un token di Azure AD; è possibile impostare il token Azure AD come **authenticationToken** nell'oggetto config della sessione cloud.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -168,7 +168,7 @@ L'opzione consigliata per la distribuzione di app che sfruttano gli ancoraggi sp
 
 Si presuppone che l'app usi un proprio meccanismo, ad esempio account Microsoft, PlayFab, Facebook, Google ID, nome utente/password personalizzato e così via, per eseguire l'autenticazione al servizio back-end. Una volta che gli utenti vengono autenticati nel servizio back-end, il servizio può recuperare un token di Azure AD, scambiarlo per un token di accesso per gli ancoraggi spaziali di Azure e restituirlo all'applicazione client.
 
-Il token di accesso Azure AD viene recuperato tramite la libreria ADAL, come descritto nella documentazione seguente: [https://docs.microsoft.com/azure/active-directory/develop/v1-overview](../../active-directory/develop/v1-overview.md); attenersi alla procedura riportata in "avvio rapido", che include:
+Il token di accesso Azure AD viene recuperato tramite la [libreria MSAL](../../active-directory/develop/msal-overview.md). Attenersi alla procedura riportata nella [Guida introduttiva per la registrazione di un'app](../../active-directory/develop/quickstart-register-app.md), che include:
 
 1.  Configurazione in portale di Azure:
     1.  Registrare l'applicazione in Azure AD:

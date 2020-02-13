@@ -1,5 +1,5 @@
 ---
-title: Creare una risorsa Reader immersiva
+title: Creare una risorsa dello strumento di lettura immersiva
 titleSuffix: Azure Cognitive Services
 description: In questo articolo viene illustrato come creare una nuova risorsa Reader immersiva con un sottodominio personalizzato e quindi configurare Azure AD nel tenant di Azure.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: a2a404a03c06dde59edc88436afdc9dba3d74797
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
-ms.translationtype: MT
+ms.openlocfilehash: 187989153ae32704df8a7ff061e19fe35206e0e8
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170175"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162515"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Creare una risorsa Reader immersiva e configurare l'autenticazione Azure Active Directory
 
@@ -109,6 +109,10 @@ Lo script è progettato per essere flessibile. In questo modo, si cercherà prim
             Write-Host "New service principal created successfully"
         }
 
+        # Sleep for 5 seconds to allow the new service principal to propagate
+        Write-Host "Sleeping for 5 seconds"
+        Start-Sleep -Seconds 5
+
         Write-Host "Granting service principal access to the newly created Immersive Reader resource"
         $accessResult = az role assignment create --assignee $principalId --scope $resourceId --role "Cognitive Services User"
         if (-not $accessResult) {
@@ -174,7 +178,7 @@ Lo script è progettato per essere flessibile. In questo modo, si cercherà prim
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Visualizzare la [Guida introduttiva di node. js](./quickstart-nodejs.md) per vedere le altre operazioni che è possibile eseguire con l'SDK di immersive Reader usando node. js
+* Visualizzare l'[esercitazione per Node.js](./quickstart-nodejs.md) per scoprire quali altre attività è possibile eseguire con Immersive Reader SDK usando Node.js
 * Visualizzare l'[esercitazione per Python](./tutorial-python.md) per scoprire quali altre attività è possibile eseguire con Immersive Reader SDK usando Python
 * Vedere l' [esercitazione Swift](./tutorial-ios-picture-immersive-reader.md) per informazioni sulle altre operazioni che è possibile eseguire con l'SDK di immersive Reader con Swift
 * Esplorare [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) e le [informazioni di riferimento su Immersive Reader SDK](./reference.md)

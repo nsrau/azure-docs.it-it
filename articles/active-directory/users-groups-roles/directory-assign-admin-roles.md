@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b5ac2e899de33614fa30b1f4baf0e85efec26bb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: b142d3561e7d05b9afaeab9768b6b50a33ef28ce
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898862"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158163"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -170,7 +170,7 @@ Gli utenti con questo ruolo hanno la possibilità di gestire Azure Active Direct
 
 ### <a name="customer-lockbox-access-approvercustomer-lockbox-access-approver-permissions"></a>[Responsabile approvazione accesso Customer Lockbox](#customer-lockbox-access-approver-permissions)
 
-Gestisce [Customer Lockbox richieste](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests) all'interno dell'organizzazione. Gli utenti con questo ruolo ricevono notifiche di posta elettronica per le richieste Customer Lockbox e possono approvare e rifiutare le richieste dall'interfaccia di amministrazione di Microsoft 365. Possono anche attivare o disattivare la funzionalità Customer Lockbox. Solo gli amministratori globali possono reimpostare le password degli utenti assegnati a questo ruolo.
+gestisce le [richieste Customer Lockbox](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests) nell'organizzazione. Gli utenti con questo ruolo ricevono notifiche di posta elettronica per le richieste Customer Lockbox e possono approvare e rifiutare le richieste dall'interfaccia di amministrazione di Microsoft 365. Possono anche attivare o disattivare la funzionalità Customer Lockbox. Solo gli amministratori globali possono reimpostare le password degli utenti assegnati a questo ruolo.
 
 ### <a name="desktop-analytics-administratordesktop-analytics-administrator-permissions"></a>[Amministratore di analisi desktop](#desktop-analytics-administrator-permissions)
 
@@ -179,7 +179,7 @@ Gli utenti con questo ruolo possono gestire l'analisi del desktop e la personali
 
 ### <a name="device-administratordevice-administrators-permissions"></a>[Amministratore del dispositivo](#device-administrators-permissions)
 
-Questo ruolo è disponibile per l'assegnazione solo come amministratore locale aggiuntivo nelle [impostazioni del dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Gli utenti con questo ruolo diventano amministratori del computer locale in tutti i dispositivi Windows 10 aggiunti ad Azure Active Directory. Non possono gestire gli oggetti di dispositivi in Azure Active Directory.
+questo ruolo è disponibile per l'assegnazione solo come amministratore locale aggiuntivo in [Impostazioni dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Gli utenti con questo ruolo diventano amministratori del computer locale in tutti i dispositivi Windows 10 aggiunti ad Azure Active Directory. Non possono gestire gli oggetti di dispositivi in Azure Active Directory.
 
 ### <a name="directory-readersdirectory-readers-permissions"></a>[Lettori di directory](#directory-readers-permissions)
 
@@ -194,7 +194,7 @@ Non usare. Questo ruolo viene assegnato automaticamente al servizio Azure AD Con
 
 ### <a name="directory-writersdirectory-writers-permissions"></a>[Writer di directory](#directory-writers-permissions)
 
-Si tratta di un ruolo legacy che deve essere assegnato alle applicazioni che non supportano il [Framework di consenso](../develop/quickstart-register-app.md). Non deve essere assegnato agli utenti.
+si tratta di un ruolo legacy che deve essere assegnato alle applicazioni che non supportano il [framework di consenso](../develop/quickstart-register-app.md). Non deve essere assegnato agli utenti.
 
 ### <a name="dynamics-365-administrator--crm-administratorcrm-service-administrator-permissions"></a>[Amministratore di Dynamics 365/amministratore CRM](#crm-service-administrator-permissions)
 
@@ -219,7 +219,7 @@ Questo amministratore gestisce la Federazione tra Azure Active Directory tenant 
 
 ### <a name="global-administrator--company-administratorcompany-administrator-permissions"></a>[Amministratore globale/amministratore della società](#company-administrator-permissions)
 
-gli utenti con questo ruolo hanno accesso a tutte le funzionalità amministrative in Azure Active Directory, nonché ai servizi che usano identità di Azure Active Directory come Centro sicurezza Microsoft 365, Centro conformità Microsoft 365, Exchange Online, SharePoint Online e Skype for Business Online. La persona che effettua l'iscrizione per il tenant di Azure Active Directory diventa amministratore globale. Solo gli amministratori globali possono assegnare altri ruoli di amministratore. In una società possono essere presenti più amministratori globali. Gli amministratori globali possono reimpostare la password per qualsiasi utente e per tutti gli altri amministratori.
+gli utenti con questo ruolo hanno accesso a tutte le funzionalità amministrative in Azure Active Directory, nonché ai servizi che usano identità di Azure Active Directory come Centro sicurezza Microsoft 365, Centro conformità Microsoft 365, Exchange Online, SharePoint Online e Skype for Business Online. La persona che effettua l'iscrizione per il tenant di Azure Active Directory diventa amministratore globale. In una società possono essere presenti più amministratori globali. Gli amministratori globali possono reimpostare la password per qualsiasi utente e per tutti gli altri amministratori.
 
 > [!NOTE]
 > In Microsoft API Graph, Azure AD API Graph e Azure AD PowerShell, questo ruolo è identificato come "Amministratore società". È l'"amministratore globale" nel [portale di Azure](https://portal.azure.com).
@@ -252,7 +252,7 @@ Gli utenti con questo ruolo possono creare o gestire gruppi e le relative impost
 
 ### <a name="guest-inviterguest-inviter-permissions"></a>[Invito Guest](#guest-inviter-permissions)
 
-Gli utenti con questo ruolo possono gestire gli inviti agli utenti guest di Azure Active Directory B2B quando l'impostazione utente **può invitare** utente è impostata su No. Altre informazioni sulla collaborazione B2B in [Informazioni su Collaborazione B2B di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Il ruolo non include altre autorizzazioni.
+gli utenti con questo ruolo possono gestire gli inviti per gli utenti guest di Azure Active Directory B2B quando il valore dell'impostazione utente **I membri possono invitare** è No. Altre informazioni sulla collaborazione B2B in [Informazioni su Collaborazione B2B di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Il ruolo non include altre autorizzazioni.
 
 ### <a name="helpdesk-administratorhelpdesk-administrator-permissions"></a>[Amministratore helpdesk](#helpdesk-administrator-permissions)
 
@@ -300,7 +300,7 @@ Gli utenti con questo ruolo possono monitorare tutte le notifiche nel centro mes
 
 ### <a name="message-center-readermessage-center-reader-permissions"></a>[Lettore del centro messaggi](#message-center-reader-permissions)
 
-Gli utenti con questo ruolo possono monitorare le notifiche e gli aggiornamenti di integrità consultivi nel [centro messaggi di Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) per la propria organizzazione in servizi configurati, ad esempio Exchange, Intune e Microsoft teams. Il Ruolo con autorizzazioni di lettura per il Centro messaggi riceve settimanalmente digest di posta elettronica di post, aggiornamenti e può condividere i post del centro messaggi in Office 365. In Azure AD, gli utenti assegnati a questo ruolo avranno solo l'accesso di sola lettura ai servizi di Azure AD, ad esempio utenti e gruppi. Questo ruolo non ha accesso alle funzionalità per visualizzare, creare o gestire i ticket di supporto.
+gli utenti in questo ruolo possono monitorare le notifiche e gli aggiornamenti dello stato di integrità nel [Centro messaggi di Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) per la propria organizzazione sui servizi configurati, ad esempio Exchange, Intune e Microsoft Teams. Il Ruolo con autorizzazioni di lettura per il Centro messaggi riceve settimanalmente digest di posta elettronica di post, aggiornamenti e può condividere i post del centro messaggi in Office 365. In Azure AD, gli utenti assegnati a questo ruolo avranno solo l'accesso di sola lettura ai servizi di Azure AD, ad esempio utenti e gruppi. Questo ruolo non ha accesso alle funzionalità per visualizzare, creare o gestire i ticket di supporto.
 
 ### <a name="office-apps-administratoroffice-apps-administrator-permissions"></a>[Amministratore delle app di Office](#office-apps-administrator-permissions)
 
@@ -1695,9 +1695,9 @@ Amministratore dell'autenticazione | Amministratore autenticazione | c4e39bd9-11
 Amministratore di Azure DevOps | Amministratore di Azure DevOps | e3973bdf-4987-49ae-837a-ba8e231c7286
 Amministratore Azure Information Protection | Amministratore Azure Information Protection | 7495fdc4-34c4-4d15-a289-98788ce399fd
 Amministratore flusso utente B2C | Amministratore flusso utente B2C | 6e591065-9bad-43ed-90f3-e9424366d2f0
-Amministratore attributi flussi utente B2C | Amministratore attributi flussi utente B2C | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
-Amministratore keyset IEF B2C | Amministratore keyset IEF B2C | aaf43236-0c0d-4d5f-883a-6955382ac081
-Amministratore criteri IEF B2C | Amministratore criteri IEF B2C | 3edaf663-341e-4475-9f94-5c398ef6c070
+Amministratore attributi flusso utente B2C | Amministratore attributi flusso utente B2C | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
+Amministratore keyset Framework dell'esperienza B2C | Amministratore keyset Framework dell'esperienza B2C | aaf43236-0c0d-4d5f-883a-6955382ac081
+Amministratore criteri B2C Framework dell'esperienza | Amministratore criteri B2C Framework dell'esperienza | 3edaf663-341e-4475-9f94-5c398ef6c070
 Amministratore fatturazione | Amministratore fatturazione | b0f54661-2d74-4c50-afa3-1ec803f12efe
 Amministratore applicazione cloud | Amministratore di applicazioni cloud | 158c047a-c907-4556-b7ef-446551a6b5f7
 Amministratore dispositivo cloud | Amministratore dispositivo cloud | 7698a772-787b-4ac8-901f-60d6b08affd2

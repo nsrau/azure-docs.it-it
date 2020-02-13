@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 02/11/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 724736bedd81ea45d7472a615fa22cde6916f21c
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: 3e5fb1ebb763cc5ecd7dfe8724347c03a487bc13
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77148862"
+ms.locfileid: "77157874"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -63,7 +63,7 @@ L'elemento **ContentDefinition** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Id | Sì | Un identificatore per una definizione del contenuto. Il valore è quello specificato nella sezione **ID di definizione del contenuto** più avanti in questa pagina. |
+| ID | Sì | Un identificatore per una definizione del contenuto. Il valore è quello specificato nella sezione **ID di definizione del contenuto** più avanti in questa pagina. |
 
 L'elemento **ContentDefinition** contiene gli elementi seguenti:
 
@@ -84,11 +84,11 @@ L'elemento **DataUri** viene usato per specificare l'identificatore della pagina
 | `globalexception` | Viene visualizzata una pagina di errore quando viene rilevata un'eccezione o un errore. |
 | `providerselection` | Elenca i provider di identità tra cui gli utenti possono scegliere durante la procedura di accesso. |
 | `unifiedssp` | Viene visualizzato un modulo per eseguire l'accesso con un account locale basato su un indirizzo di posta elettronica o un nome utente. Questo valore fornisce anche la funzionalità "mantieni l'accesso" e "Password dimenticata?" collegamento. |
-| `unifiedssp` | Viene visualizzato un modulo per eseguire l'accesso con un account locale basato su un indirizzo di posta elettronica o un nome utente. |
+| `unifiedssd` | Viene visualizzato un modulo per eseguire l'accesso con un account locale basato su un indirizzo di posta elettronica o un nome utente. |
 | `multifactor` | Vengono verificati numeri di telefono usando SMS o chiamata vocale durante la procedura di iscrizione o di accesso. |
 | `selfasserted` | Visualizza un modulo che consente agli utenti di creare o aggiornare il profilo. |
 
-## <a name="select-a-page-layout"></a>Selezionare un layout di pagina
+### <a name="select-a-page-layout"></a>Selezionare un layout di pagina
 
 È possibile abilitare il [codice lato client JavaScript](javascript-samples.md) inserendo `contract` tra `elements` e il tipo di pagina. Ad esempio: `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
 
@@ -126,6 +126,29 @@ Il formato del valore deve contenere la parola `contract`: _urn: com: Microsoft:
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 
+
+### <a name="metadata"></a>Metadati
+
+L'elemento **Metadata** contiene gli elementi seguenti:
+
+| Elemento | Occorrenze | Descrizione |
+| ------- | ----------- | ----------- |
+| Elemento | 0:n | Metadati che fanno riferimento alla definizione del contenuto. |
+
+L'elemento **Elemento** di **Metadati** contiene gli attributi seguenti:
+
+| Attributo | Obbligatoria | Descrizione |
+| --------- | -------- | ----------- |
+| Chiave | Sì | La chiave dei metadati.  |
+
+#### <a name="metadata-keys"></a>Chiavi di metadati
+
+La definizione del contenuto supporta gli elementi di metadati seguenti: 
+
+| Chiave | Obbligatoria | Descrizione |
+| --------- | -------- | ----------- |
+| DisplayName | No | Stringa che contiene il nome della definizione del contenuto. |
+
 ### <a name="localizedresourcesreferences"></a>LocalizedResourcesReferences
 
 L'elemento **LocalizedResources** contiene gli elementi seguenti:
@@ -134,11 +157,11 @@ L'elemento **LocalizedResources** contiene gli elementi seguenti:
 | ------- | ----------- | ----------- |
 | LocalizedResourcesReference | 1:n | Un elenco di riferimenti di risorse localizzate per la definizione del contenuto. |
 
-L'elemento **LocalizedResources** contiene gli attributi seguenti:
+L'elemento **LocalizedResourcesReference** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Lingua: | Sì | Una stringa che contiene una lingua supportata per i criteri per RFC 5646 - Tag per identificare le lingue. |
+| Linguaggio | Sì | Una stringa che contiene una lingua supportata per i criteri per RFC 5646 - Tag per identificare le lingue. |
 | LocalizedResourcesReferenceId | Sì | L'identificatore dell'elemento **LocalizedResources**. |
 
 Nell'esempio seguente viene illustrata una definizione del contenuto di iscrizione o accesso con un riferimento alla localizzazione per inglese, francese e spagnolo:

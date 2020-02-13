@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2019
+ms.date: 02/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 2e94c48188d0eed22b338d0d7238c0d27a5d1862
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 457f1008b75fe0605c0d2934f2de09937fac8d21
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74782203"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162447"
 ---
 # <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Distribuire le VM spot usando un modello di Gestione risorse
 
@@ -33,7 +33,7 @@ I prezzi per le VM spot sono variabili in base all'area e allo SKU. Per altre in
 > Le istanze di spot sono attualmente in anteprima pubblica.
 > Questa versione di anteprima non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Per la prima parte dell'anteprima pubblica, le istanze di spot avranno un prezzo fisso, quindi non vi saranno eliminazioni basate sul prezzo.
+
 
 
 ## <a name="use-a-template"></a>Usare un modello 
@@ -48,9 +48,6 @@ Per le distribuzioni di modelli di spot, usare`"apiVersion": "2019-03-01"` o ver
                 }
 ```
 
-
-> [!IMPORTANT]
-> Per la prima parte dell'anteprima pubblica, è possibile impostare un prezzo massimo, che verrà ignorato. Le macchine virtuali spot avranno un prezzo fisso, quindi non vi saranno eliminazioni basate sul prezzo.
 
 
 Ecco un modello di esempio con le proprietà aggiunte per una VM spot. Sostituire i nomi delle risorse con i propri e `<password>` con una password per l'account amministratore locale nella macchina virtuale.

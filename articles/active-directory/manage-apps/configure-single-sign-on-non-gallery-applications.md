@@ -12,12 +12,12 @@ ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf6c89e5f891c5f16551885fb40e8d5082fd6ba5
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: ad27ad5e34d9f44fe7d7be80e05e33dd6fb5e7b1
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063510"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159064"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Configurare Single Sign-On basate su SAML per applicazioni non della raccolta
 
@@ -158,7 +158,7 @@ Se viene visualizzato un messaggio di errore, completare la procedura seguente:
 
 4. Eseguire di nuovo il test finché non viene completato correttamente.
 
-Per altre informazioni, vedere [eseguire il debug di Single Sign-on basate su SAML per le applicazioni Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md).
+Per altre informazioni, vedere [eseguire il debug di Single Sign-on basate su SAML per le applicazioni Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

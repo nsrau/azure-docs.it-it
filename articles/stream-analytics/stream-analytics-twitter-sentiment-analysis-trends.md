@@ -1,22 +1,23 @@
 ---
 title: Analisi del sentiment su Twitter in tempo reale con Analisi di flusso di Azure
 description: Questo articolo descrive come usare Analisi di flusso per l'analisi del sentiment su Twitter in tempo reale. Istruzioni dettagliate, dalla generazione degli eventi fino ai dati in un dashboard in tempo reale.
+services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: mamccrea
+ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/09/2019
-ms.openlocfilehash: f3ab21d55b7d59bb58760bfba452b4ea2d103496
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/10/2020
+ms.openlocfilehash: 7023651b09abc8c3124c7bf71608018d5cb72e25
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369899"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162005"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analisi del sentiment su Twitter in tempo reale in Analisi di flusso di Azure
 
-Si imparerà a creare una soluzione di analisi del sentiment per i social media portando gli eventi di Twitter in tempo reale negli hub eventi di Azure. Quindi scrivere una query di analisi di flusso di Azure per analizzare i dati e archiviare i risultati per un uso successivo oppure creare un dashboard [Power bi](https://powerbi.com/) per fornire informazioni in tempo reale.
+Questo articolo illustra come creare una soluzione di analisi dei sentimenti per i social media portando gli eventi di Twitter in tempo reale negli hub eventi di Azure. È possibile scrivere una query di analisi di flusso di Azure per analizzare i dati e archiviare i risultati per un uso successivo oppure creare un dashboard [Power bi](https://powerbi.com/) per fornire informazioni dettagliate in tempo reale.
 
 Gli strumenti di analisi dei social media permettono alle organizzazioni di determinare gli argomenti di tendenza, Gli argomenti di tendenza sono soggetti e atteggiamenti che hanno un volume elevato di post sui social media. L'analisi dei sentimenti, definita anche *Opinion Mining*, USA gli strumenti di analisi dei social media per determinare gli atteggiamenti verso un prodotto o un'idea. 
 
@@ -28,81 +29,79 @@ Una società con un sito Web di notizie è interessata a superare la concorrenza
 
 Per identificare in tempo reale gli argomenti di tendenza su Twitter, la società deve eseguire un'analisi in tempo reale sul volume dei tweet e sul sentiment relativo agli argomenti più importanti.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
+
 Questa guida illustra come usare un'applicazione client che si connette a Twitter e cerca Tweet con determinati hashtag, che è possibile impostare. Per eseguire l'applicazione e analizzare i tweet usando analisi di flusso di Azure, è necessario disporre di quanto segue:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/).
+
 * Un account [Twitter](https://twitter.com) .
-* L'applicazione TwitterWPFClient, che legge il feed di Twitter. Per ottenere questa applicazione, scaricare il file [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) da GitHub e decomprimere il pacchetto in una cartella nel computer. Per visualizzare il codice sorgente ed eseguire l'applicazione in un debugger, è possibile ottenere il codice sorgente da [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TwitterClient). 
 
-## <a name="create-an-event-hub-for-streaming-analytics-input"></a>Creare un hub eventi per l'input di Analisi di flusso
+* Applicazione TwitterClientCore, che legge il feed di Twitter. Per ottenere l'applicazione, scaricare [TwitterClientCore](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClientCore).
 
-L'applicazione di esempio genera eventi e ne esegue il push a un hub eventi di Azure. Gli hub eventi di Azure sono la soluzione preferita per l'inserimento di eventi per Analisi di flusso. Per altre informazioni, vedere la [documentazione di Hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md).
+* Installare il [interfaccia della riga di comando di .NET Core](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x).
+
+## <a name="create-an-event-hub-for-streaming-input"></a>Creare un hub eventi per l'input di streaming
+
+L'applicazione di esempio genera eventi e ne esegue il push a un hub eventi di Azure. Hub eventi di Azure è il metodo preferito per l'inserimento di eventi per analisi di flusso. Per altre informazioni, vedere la [documentazione di Hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md).
 
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>Creare uno spazio dei nomi dell'hub eventi e un hub eventi
-Creare uno spazio dei nomi dell'hub eventi e quindi aggiungere un hub eventi a tale spazio dei nomi. Gli spazi dei nomi degli hub eventi consentono di raggruppare in modo logico le istanze dei bus di eventi correlate. 
+In questa sezione si crea uno spazio dei nomi dell'hub eventi e si aggiunge un hub eventi a tale spazio dei nomi. Gli spazi dei nomi degli hub eventi consentono di raggruppare in modo logico le istanze dei bus di eventi correlate. 
 
-1. Accedere al portale di Azure e fare clic su **Crea una risorsa** > **Internet delle cose** > **Hub eventi**. 
+1. Accedere al portale di Azure e selezionare **Crea una risorsa**. Quindi. cercare **Hub eventi** e selezionare **Crea**.
 
-2. Nel pannello **Crea spazio dei nomi** immettere un nome per lo spazio dei nomi, ad esempio `<yourname>-socialtwitter-eh-ns`. È possibile usare qualsiasi nome per lo spazio dei nomi, a condizione che sia valido per un URL e univoco in Azure. 
+2. Nella pagina **Crea spazio dei nomi** immettere un nome per lo spazio dei nomi. È possibile usare qualsiasi nome per lo spazio dei nomi, ma il nome deve essere valido per un URL e deve essere univoco in Azure. 
     
-3. Selezionare una sottoscrizione, creare o scegliere un gruppo di risorse e quindi fare clic su **Crea**. 
-
-    ![Creare uno spazio dei nomi dell'hub eventi](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-namespace.png)
+3. Selezionare un piano tariffario e una sottoscrizione e creare o scegliere un gruppo di risorse. Scegliere quindi un percorso e selezionare **Crea**. 
  
-4. Al termine della distribuzione, lo spazio dei nomi dell'hub eventi è disponibile nell'elenco delle risorse di Azure. 
+4. Al termine della distribuzione dello spazio dei nomi, passare al gruppo di risorse e trovare lo spazio dei nomi dell'hub eventi nell'elenco delle risorse di Azure. 
 
-5. Scegliere il nuovo spazio dei nomi e, nel relativo pannello, fare clic su **+&nbsp;Hub eventi**. 
+5. Dal nuovo spazio dei nomi selezionare **+&nbsp;Hub eventi**. 
 
-    ![Pulsante Aggiungi hub eventi per creare un nuovo hub eventi](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
+6. Denominare il nuovo hub eventi *socialtwitter-eh*. È possibile usare un nome diverso. In questo caso, tenerne traccia, poiché sarà necessario in un secondo momento. Non sono richieste altre impostazioni per l'hub eventi.
  
-6. Assegnare il nome `socialtwitter-eh` al nuovo hub eventi. È possibile usare un nome diverso. In questo caso, tenerne traccia, poiché sarà necessario in un secondo momento. Non sono richieste altre impostazioni per l'hub eventi.
-
-    ![Pannello per creare un nuovo hub eventi](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub.png)
- 
-7. Fare clic su **Crea**.
-
+7. Selezionare **Create** (Crea).
 
 ### <a name="grant-access-to-the-event-hub"></a>Concedere l'accesso all'hub eventi
 
-Prima che un processo possa inviare dati a un hub eventi, è necessario che per l'hub siano configurati criteri che consentano l'accesso appropriato. I criteri di accesso generano una stringa di connessione che include informazioni di autorizzazione.
+Prima che un processo possa inviare dati a un hub eventi, l'hub eventi richiede un criterio che consenta l'accesso. I criteri di accesso generano una stringa di connessione che include informazioni di autorizzazione.
 
-1.  Nel pannello dello spazio dei nomi dell'evento fare clic su **Hub eventi** e quindi sul nome del nuovo hub eventi.
+1.  Nella barra di spostamento sul lato sinistro dello spazio dei nomi di hub eventi selezionare **Hub eventi**, disponibile nella sezione **entità** . Selezionare quindi l'hub eventi appena creato.
 
-2.  Nel pannello dell'hub eventi fare clic su **Criteri di accesso condiviso** e quindi su **+&nbsp;Aggiungi**.
+2.  Nella barra di spostamento sul lato sinistro selezionare criteri di **accesso condiviso** in **Impostazioni**.
 
     >[!NOTE]
-    >Verificare di usare l'hub eventi e non lo spazio dei nomi.
+    >Per lo spazio dei nomi dell'hub eventi e per l'hub eventi è disponibile un'opzione Criteri di accesso condiviso. Assicurarsi di lavorare nel contesto dell'hub eventi, non nello spazio dei nomi globale dell'hub eventi.
 
-3.  Aggiungere criteri denominati `socialtwitter-access` e per **Attestazione** selezionare **Gestisci**.
-
-    ![Pannello per creare nuovi criteri di accesso all'hub eventi](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-shared-access-policy-manage.png)
+3.  Nella pagina Criteri di accesso selezionare **+ Aggiungi**. Immettere quindi *socialtwitter-Access* per il **nome del criterio** e selezionare la casella di controllo **Gestisci** .
  
-4.  Fare clic su **Crea**.
+4.  Selezionare **Create** (Crea).
 
-5.  Dopo aver distribuito i criteri, fare clic nell'elenco dei criteri di accesso condiviso.
+5.  Dopo aver distribuito i criteri, selezionare i criteri nell'elenco dei criteri di accesso condiviso.
 
-6.  Individuare la casella con l'etichetta **CONNECTION STRING-PRIMARY KEY** e fare clic sul pulsante Copia accanto alla stringa di connessione. 
-    
-    ![Copia della chiave della stringa di connessione primaria dai criteri di accesso](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-shared-access-policy-copy-connection-string.png)
+6.  Individuare la casella stringa di **connessione con etichetta chiave primaria** e selezionare il pulsante copia accanto alla stringa di connessione.
  
-7.  Incollare la stringa di connessione in un editor di testo. Sarà necessario usare questa stringa nella sezione successiva, dopo avervi apportato alcune piccole modifiche.
+7.  Incollare la stringa di connessione in un editor di testo. Questa stringa di connessione è necessaria per la sezione successiva dopo avere apportato alcune piccole modifiche.
 
-    La stringa di connessione ha un aspetto simile al seguente:
+   La stringa di connessione ha un aspetto simile al seguente:
+   
+   ```
+   Endpoint=sb://EVENTHUBS-NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=socialtwitter-access;SharedAccessKey=Gw2NFZw6r...FxKbXaC2op6a0ZsPkI=;EntityPath=socialtwitter-eh
+   ```
 
-        Endpoint=sb://YOURNAME-socialtwitter-eh-ns.servicebus.windows.net/;SharedAccessKeyName=socialtwitter-access;SharedAccessKey=Gw2NFZw6r...FxKbXaC2op6a0ZsPkI=;EntityPath=socialtwitter-eh
+   Si noti che la stringa di connessione contiene più coppie chiave-valore, separate da punti e virgola: `Endpoint`, `SharedAccessKeyName`, `SharedAccessKey` e `EntityPath`.  
 
-    Si noti che la stringa di connessione contiene più coppie chiave-valore, separate da punti e virgola: `Endpoint`, `SharedAccessKeyName`, `SharedAccessKey` e `EntityPath`.  
-
-    > [!NOTE]
-    > Per sicurezza, le parti della stringa di connessione nell'esempio sono state rimosse.
+   > [!NOTE]
+   > Per sicurezza, le parti della stringa di connessione nell'esempio sono state rimosse.
 
 8.  Nell'editor di testo rimuovere la coppia `EntityPath` dalla stringa di connessione. Non dimenticare di rimuovere il punto e virgola che la precede. Al termine dell'operazione, la stringa di connessione ha un aspetto simile al seguente:
-
-        Endpoint=sb://YOURNAME-socialtwitter-eh-ns.servicebus.windows.net/;SharedAccessKeyName=socialtwitter-access;SharedAccessKey=Gw2NFZw6r...FxKbXaC2op6a0ZsPkI=
-
+   
+   ```
+   Endpoint=sb://EVENTHUBS-NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=socialtwitter-access;SharedAccessKey=Gw2NFZw6r...FxKbXaC2op6a0ZsPkI=
+   ```
 
 ## <a name="configure-and-start-the-twitter-client-application"></a>Configurare e avviare l'applicazione client Twitter
+
 L'applicazione client ottiene gli eventi tweet direttamente da Twitter. A questo scopo, è necessaria l'autorizzazione per chiamare le API di streaming di Twitter. Per configurare questa autorizzazione, si crea un'applicazione in Twitter in modo da generare credenziali univoche, ad esempio un token OAuth. Si può quindi configurare l'applicazione client in modo da usare queste credenziali quando esegue chiamate API. 
 
 ### <a name="create-a-twitter-application"></a>Creare un'applicazione Twitter
@@ -111,9 +110,7 @@ Se non si ha già un'applicazione Twitter che è possibile usare per questa guid
 > [!NOTE]
 > La procedura esatta da seguire in Twitter per creare un'applicazione e ottenere le chiavi, i segreti e il token può cambiare. Se queste istruzioni non corrispondono alle informazioni visualizzate sul sito di Twitter, consultare la documentazione per sviluppatori di Twitter.
 
-1. In un Web browser passare a [Twitter per sviluppatori](https://developer.twitter.com/en/apps) e selezionare **Create an app** (Crea un'app). Potrebbe essere visualizzato un messaggio che indica che è necessario richiedere un account per sviluppatori Twitter. Eseguire questa operazione e, dopo l'approvazione della richiesta, si dovrebbe ricevere un messaggio di posta elettronica di conferma. L'approvazione di un account di sviluppatore potrebbe richiedere diversi giorni.
-
-   ![Conferma dell'account sviluppatore Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-dev-confirmation.png "Conferma dell'account sviluppatore Twitter")
+1. In un Web browser passare a [Twitter per sviluppatori](https://developer.twitter.com/en/apps) e selezionare **Create an app** (Crea un'app). Potrebbe essere visualizzato un messaggio che indica che è necessario richiedere un account per sviluppatori Twitter. A tale scopo, dopo che l'applicazione è stata approvata, verrà visualizzato un messaggio di posta elettronica di conferma. L'approvazione di un account di sviluppatore potrebbe richiedere diversi giorni.
 
    ![Dettagli dell'applicazione Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Dettagli dell'applicazione Twitter")
 
@@ -123,162 +120,86 @@ Se non si ha già un'applicazione Twitter che è possibile usare per questa guid
 
 3. Nella pagina dell'applicazione selezionare **Keys and Tokens** (Chiavi e token) e copiare i valori di **Consumer API Key** (Chiave API consumer) e **Consumer API Secret Key** (Chiave privata API consumer). Selezionare inoltre **Create** (Crea) in **Access Token and Access Token Secret** (Token di accesso e Segreto del token di accesso) per generare i token di accesso. Copiare i valori di **Access Token** (Token di accesso) e **Access Token Secret** (Segreto del token di accesso).
 
-    ![Dettagli dell'applicazione Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-app-key-secret.png "Dettagli dell'applicazione Twitter")
+   Salvare i valori recuperati per l'applicazione Twitter. I valori sono necessari in un secondo momento.
 
-Salvare i valori recuperati per l'applicazione Twitter. Sono necessari i valori in un secondo momento nelle procedure.
-
->[!NOTE]
->Le chiavi e i segreti dell'applicazione Twitter consentono l'accesso all'account Twitter personale. Trattarle come dati sensibili, allo stesso modo della password di Twitter. Evitare, ad esempio, di incorporare queste informazioni in un'applicazione che si prevede di distribuire ad altri utenti. 
-
+> [!NOTE]
+> Le chiavi e i segreti dell'applicazione Twitter consentono l'accesso all'account Twitter personale. Trattarle come dati sensibili, allo stesso modo della password di Twitter. Evitare, ad esempio, di incorporare queste informazioni in un'applicazione che si prevede di distribuire ad altri utenti. 
 
 ### <a name="configure-the-client-application"></a>Configurare l'applicazione client
-È stata creata un'applicazione client che si connette ai dati di Twitter usando le [API di streaming di Twitter](https://dev.twitter.com/streaming/overview) per raccogliere gli eventi tweet relativi a un set specifico di argomenti. L'applicazione usa lo strumento open source [Sentiment140](http://help.sentiment140.com/) che assegna il valore di sentiment seguente a ogni tweet:
 
-* 0 = negativo
-* 2 = neutrale
-* 4 = positivo
+È stata creata un'applicazione client che si connette ai dati di Twitter usando le [API di streaming di Twitter](https://dev.twitter.com/streaming/overview) per raccogliere gli eventi tweet relativi a un set specifico di argomenti.
 
-Dopo l'assegnazione di un valore di sentiment, gli eventi tweet vengono inviati tramite push all'hub eventi creato in precedenza.
+Prima di essere eseguita, l'applicazione richiede all'utente determinate informazioni, ad esempio le chiavi di Twitter e la stringa di connessione all'hub eventi.
 
-Prima di essere eseguita, l'applicazione richiede all'utente determinate informazioni, ad esempio le chiavi di Twitter e la stringa di connessione all'hub eventi. È possibile specificare le informazioni di configurazione nei modi seguenti:
+1. Assicurarsi di aver scaricato l'applicazione [TwitterClientCore](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClientCore) , come elencato nei prerequisiti.
 
-* Eseguire l'applicazione e quindi usare l'interfaccia utente dell'applicazione per immettere le chiavi, i segreti e stringa di connessione. In questo caso, le informazioni di configurazione vengono usate per la sessione corrente, ma non vengono salvate.
-* Modificare il file config dell'applicazione e impostare i valori in tale file. Questo approccio consente di salvare in modo permanente le informazioni di configurazione, ma questo significa anche che informazioni potenzialmente riservate vengono archiviate in testo normale nel computer.
+2. Usare un editor di testo per aprire il file *app. config* . Apportare le modifiche seguenti all'elemento `<appSettings>`:
 
-La procedura seguente illustra entrambi gli approcci. 
-
-1. Verificare di aver scaricato e decompresso il file dell'applicazione [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip), come indicato nei prerequisiti.
-
-2. Per impostare i valori in fase di esecuzione (e solo per la sessione corrente), eseguire l'applicazione `TwitterWPFClient.exe`. Quando richiesto dall'applicazione, immettere i valori seguenti:
-
-    * La chiave utente di Twitter (chiave API).
-    * Il segreto utente di Twitter (segreto API).
-    * Il token di accesso di Twitter.
-    * Il segreto del token di accesso di Twitter.
-    * Le informazioni della stringa di connessione salvate in precedenza. Verificare di usare la stringa di connessione da cui è stata rimossa la coppia chiave-valore `EntityPath`.
-    * Le parole chiave di Twitter per cui si vuole determinare il sentiment.
-
-   ![Applicazione TwitterWpfClient in esecuzione, con le impostazioni oscurate](./media/stream-analytics-twitter-sentiment-analysis-trends/wpfclientlines.png)
-
-3. Per impostare i valori in modo permanente, usare un editor di testo per aprire il file TwitterWpfClient.exe.config. Nell'elemento `<appSettings>` definire le impostazioni seguenti:
-
-   * Per `oauth_consumer_key` impostare la chiave utente di Twitter (chiave API). 
-   * Per `oauth_consumer_secret` impostare il segreto utente di Twitter (segreto API).
-   * Per `oauth_token` impostare il token di accesso di Twitter.
-   * Per `oauth_token_secret` impostare il segreto del token di accesso di Twitter.
-
-     Più avanti, nell'elemento `<appSettings>`, apportare queste modifiche:
-
-   * Per `EventHubName` impostare il nome dell'hub eventi, ovvero il valore del percorso dell'entità.
+   * Impostare `oauth_consumer_key` sulla chiave utente di Twitter (chiave API). 
+   * Impostare `oauth_consumer_secret` sul segreto del consumer di Twitter (chiave privata API).
+   * Impostare `oauth_token` per il token di accesso di Twitter.
+   * Impostare `oauth_token_secret` sul segreto del token di accesso di Twitter.
    * Per `EventHubNameConnectionString` impostare la stringa di connessione. Verificare di usare la stringa di connessione da cui è stata rimossa la coppia chiave-valore `EntityPath`.
+   * Impostare `EventHubName` sul nome dell'hub eventi (ovvero il valore del percorso dell'entità).
 
-     La sezione `<appSettings>` ha un aspetto simile all'esempio seguente. Per motivi di chiarezza e sicurezza, è stato applicato il ritorno a capo automatico ad alcune righe e sono stati rimossi alcuni caratteri.
-
-     ![File di configurazione dell'applicazione TwitterWpfClient in un editor di testo che mostra i segreti e le chiavi di Twitter e le informazioni della stringa di connessione all'hub eventi](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
- 
-4. Se non si è già avviata l'applicazione, eseguire ora TwitterWpfClient.exe. 
-
-5. Fare clic sul pulsante di avvio verde per raccogliere i dati del sentiment sul social media. Gli eventi tweet con i valori **CreatedAt**, **Topic** e **SentimentScore** vengono inviati all'hub eventi.
-
-    ![Applicazione TwitterWpfClient in esecuzione, con l'elenco di tweet visualizzato](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-app-listing.png)
-
-    >[!NOTE]
-    >Se vengono restituiti errori e nella parte inferiore della finestra non viene visualizzato un flusso di tweet, controllare le chiavi e i segreti. Verificare inoltre che la stringa di connessione non includa la chiave `EntityPath` e il relativo valore.
-
+3. Aprire la riga di comando e passare alla directory in cui si trova l'app TwitterClientCore. Usare il comando `dotnet build` per compilare il progetto. Usare quindi il comando `dotnet run` per eseguire l'app. L'app invia i tweet all'hub eventi.
 
 ## <a name="create-a-stream-analytics-job"></a>Creare un processo di Analisi di flusso.
 
 Ora che gli eventi tweet vengono trasmessi in flusso in tempo reale da Twitter, è possibile impostare un processo di Analisi di flusso per analizzare questi eventi in tempo reale.
 
-1. Nel portale di Azure fare clic su **Crea una risorsa** > **Internet delle cose** > **Processo di Analisi di flusso**.
+1. Nella portale di Azure passare al gruppo di risorse e selezionare **+ Aggiungi**. Quindi cercare il **processo di analisi di flusso** e selezionare **Crea**.
 
 2. Assegnare il nome `socialtwitter-sa-job` al processo, specificare una sottoscrizione, un gruppo di risorse e un percorso.
 
     È consigliabile posizionare il processo e l'hub eventi nella stessa area per ottenere prestazioni ottimali ed evitare di pagare il trasferimento dei dati tra aree.
 
-    ![Creazione di un nuovo processo di Analisi di flusso](./media/stream-analytics-twitter-sentiment-analysis-trends/newjob.png)
-
-3. Fare clic su **Crea**.
-
-    Verrà creato il processo e il portale visualizzerà i relativi dettagli.
-
+3. Selezionare **Create** (Crea). Quindi passare al processo al termine della distribuzione.
 
 ## <a name="specify-the-job-input"></a>Specificare l'input del processo
 
-1. Nel processo di Analisi di flusso, in **Topologia processo** nella parte centrale del pannello, fare clic su **Input**. 
+1. Nel processo di analisi di flusso selezionare **input** dal menu a sinistra in **topologia processo**.
 
-2. Nel pannello **Input** fare clic su **+&nbsp;Aggiungi** e quindi compilare il pannello con questi valori:
+2. Selezionare **+&nbsp;aggiungere input di flusso** > **Hub eventi**. Compilare il nuovo modulo di **input** con le seguenti informazioni:
 
-   * **Alias di input**: usare il nome `TwitterStream`. Se si usa un nome diverso, tenerne traccia, poiché sarà necessario in un secondo momento.
-   * **Tipo di origine**: selezionare **Flusso dati**.
-   * **Origine**: selezionare **Hub eventi**.
-   * **Opzioni di importazione**: selezionare **Usa l'hub eventi della sottoscrizione corrente**. 
-   * **Spazio dei nomi del bus di servizio**: selezionare lo spazio dei nomi dell'hub eventi creato in precedenza (`<yourname>-socialtwitter-eh-ns`).
-   * **Hub eventi**: selezionare l'hub eventi creato in precedenza (`socialtwitter-eh`).
-   * **Nome criteri hub eventi**: selezionare i criteri di accesso creati in precedenza (`socialtwitter-access`).
+   |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
+   |---------|---------|---------|
+   |Alias di input| *TwitterStream* | Immettere un alias per l'input. |
+   |Subscription  | \<Sottoscrizione in uso\> |  Selezionare la sottoscrizione di Azure da usare. |
+   |Spazio dei nomi dell'hub eventi | *ASA-Twitter-eventhub* |
+   |Nome dell'hub eventi | *socialtwitter-eh* | Scegliere *Usa esistente*. Quindi selezionare l'hub eventi creato.|
+   |Tipo di compressione eventi| GZip | Tipo di compressione dei dati.|
 
-     ![Creare un nuovo input per il processo di Analisi di flusso](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
-
-3. Fare clic su **Crea**.
-
+   Lasciare i valori predefiniti rimanenti e selezionare **Salva**.
 
 ## <a name="specify-the-job-query"></a>Specificare la query del processo
 
-Analisi di flusso supporta un semplice modello di query dichiarativa per descrivere le trasformazioni. Per altre informazioni sul linguaggio, vedere le [Informazioni di riferimento sul linguaggio di query di analisi dei flussi di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).  Questa guida dettagliata consente di creare e testare diverse query su dati di Twitter.
+Analisi di flusso supporta un semplice modello di query dichiarativa per descrivere le trasformazioni. Per altre informazioni sul linguaggio, vedere le [Informazioni di riferimento sul linguaggio di query di analisi dei flussi di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Questa guida dettagliata consente di creare e testare diverse query su dati di Twitter.
 
 Per confrontare il numero di menzioni tra gli argomenti, è possibile usare una [finestra a cascata](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) per ottenere il conteggio delle menzioni per argomento ogni cinque secondi.
 
-1. Chiudere il pannello **Input** se non si è già fatto.
+1. Nella **Panoramica**del processo selezionare **modifica query** in alto a destra nella casella query. Azure elenca gli input e gli output configurati per il processo e consente di creare una query per trasformare il flusso di input così come viene inviato all'output.
 
-2. Nel pannello **Panoramica** fare clic su **Modifica query** accanto all'angolo in alto a destra della casella Query. Azure elenca gli input e gli output configurati per il processo e consente di creare una query per trasformare il flusso di input nel momento in cui viene inviato all'output.
+2. Modificare la query nell'editor di query come segue:
 
-3. Verificare che l'applicazione TwitterWpfClient sia in esecuzione. 
+   ```sql
+   SELECT *
+   FROM TwitterStream
+   ```
 
-3. Nel pannello **Query** fare clic sui puntini di sospensione accanto all'input `TwitterStream` e quindi selezionare **Campiona dati da input**.
+3. I dati degli eventi dei messaggi devono essere visualizzati nella finestra di **Anteprima di input** al di sotto della query. Verificare che la **vista** sia impostata su **JSON**. Se non vengono visualizzati dati, assicurarsi che il generatore di dati invii gli eventi all'hub eventi e che sia stato selezionato **gzip** come tipo di compressione per l'input.
 
-    ![Voci di menu per usare dati di esempio per la voce del processo di Analisi di flusso, con l'opzione "Campiona dati da input" selezionata](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-sample-data-from-input.png)
+4. Selezionare **query di test** e notare i risultati nella finestra **risultati test** sotto la query.
 
-    Verrà aperto un pannello che consente di specificare la quantità di dati di esempio da ottenere, definita in termini di durata della lettura del flusso di input.
+5. Modificare la query nell'editor di codice nel modo seguente e selezionare **query di test**:
 
-4. Impostare **Minuti** su 3 e quindi fare clic su **OK**. 
-    
-    ![Opzioni per il campionamento del flusso di input, con l'opzione "3 minuti" selezionata.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-input-create-sample-data.png)
+   ```sql
+   SELECT System.Timestamp as Time, text
+   FROM TwitterStream
+   WHERE text LIKE '%Azure%'
+   ```
 
-    Azure campiona i dati dal flusso di input per una durata di tre minuti e invia una notifica quando i dati di esempio sono pronti. Questa operazione richiede un breve tempo. 
-
-    I dati di esempio vengono archiviati temporaneamente e sono disponibili finché rimane aperta la finestra di query. Se si chiude la finestra di query, i dati di esempio verranno rimossi e sarà necessario creare un nuovo set di dati. 
-
-5. Modificare la query nell'editor di codice nel modo seguente:
-
-    ```
-    SELECT System.Timestamp as Time, Topic, COUNT(*)
-    FROM TwitterStream TIMESTAMP BY CreatedAt
-    GROUP BY TUMBLINGWINDOW(s, 5), Topic
-    ```
-
-    Se non si è usato `TwitterStream` come alias per l'input, sostituire l'alias per `TwitterStream` nella query.  
-
-    In questa query viene usata la parola chiave **TIMESTAMP BY** per specificare un campo di timestamp nel payload da usare nel calcolo temporale. Se il campo non è stato specificato, l'operazione di windowing viene eseguita usando l'ora in cui ogni evento è arrivato all'hub eventi. Altre informazioni sono disponibili nella sezione relativa a tempo di arrivo e tempo di applicazione nelle [informazioni di riferimento sulle query di Analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
-
-    Questa query accede anche a un timestamp per la fine di ogni finestra usando la proprietà **System.Timestamp**.
-
-5. Fare clic su **Test**. La query viene eseguita sui dati che sono stati campionati.
-    
-6. Fare clic su **Salva**. In questo modo la query viene salvata nell'ambito del processo di Analisi di flusso. I dati di esempio non vengono salvati.
-
-
-## <a name="experiment-using-different-fields-from-the-stream"></a>Provare a usare diversi campi dal flusso 
-
-La tabella seguente elenca i campi che fanno parte dei dati di flusso JSON. È possibile sperimentare nell'editor di query.
-
-|Proprietà JSON | Definizione|
-|--- | ---|
-|CreatedAt | Orario di creazione del tweet|
-|Argomento | Argomento che corrisponde alla parola chiave specificata|
-|SentimentScore | Punteggio del sentiment da Sentiment140|
-|Creare | Handle di Twitter che ha inviato il tweet|
-|Testo | Corpo completo del tweet|
-
+6. Questa query restituisce tutti i tweet che includono la parola chiave *Azure*.
 
 ## <a name="create-an-output-sink"></a>Creare un sink di output
 
@@ -288,83 +209,28 @@ In questa guida è possibile scrivere gli eventi Tweet aggregati dalla query del
 
 ## <a name="specify-the-job-output"></a>Specificare l'output del processo
 
-1. Nella sezione **Topologia processo** fare clic sulla casella **Output**. 
+1. Nella sezione **topologia processo** nel menu di spostamento a sinistra selezionare **output**. 
 
-2. Nel pannello **Output** fare clic su **+&nbsp;Aggiungi** e quindi compilare il pannello con questi valori:
+2. Nella pagina **output** fare clic su **+&nbsp;Aggiungi** e **archiviazione BLOB/data Lake storage Gen2**:
 
    * **Alias di output**: usare il nome `TwitterStream-Output`. 
-   * **Sink**: selezionare **Archivio BLOB**.
-   * **Opzioni di importazione**: selezionare **Usa l'archiviazione BLOB della sottoscrizione corrente**.
-   * **Account di archiviazione**. Selezionare **Crea un nuovo account di archiviazione**.
-   * **Account di archiviazione** (seconda casella). Immettere `YOURNAMEsa`, dove `YOURNAME` rappresenta il nome o un'altra stringa univoca. Il nome può contenere solo lettere minuscole e numeri e deve essere univoco in Azure. 
-   * **Contenitore**. Immettere `socialtwitter`.
-     Il nome dell'account di archiviazione e il nome del contenitore vengono usati insieme per fornire un URI per l'archiviazione BLOB, in modo simile al seguente: 
-
-     `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
-    
-     ![Pannello "Nuovo output" per il processo di Analisi di flusso](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
-    
-4. Fare clic su **Crea**. 
-
-    Azure crea l'account di archiviazione e genera automaticamente una chiave. 
-
-5. Chiudere il pannello **Output**. 
-
+   * **Opzioni di importazione**: selezionare **Seleziona archiviazione dalle sottoscrizioni**.
+   * **Account di archiviazione**. Selezionare l'account di archiviazione.
+   * **Contenitore**. Selezionare **Crea nuovo** e immettere `socialtwitter`.
+   
+4. Selezionare **Salva**.   
 
 ## <a name="start-the-job"></a>Avviare il processo
 
 Sono stati specificati l'input del processo, la query e l'output. A questo punto si è pronti ad avviare il processo di Analisi di flusso.
 
-1. Verificare che l'applicazione TwitterWpfClient sia in esecuzione. 
+1. Verificare che l'applicazione TwitterClientCore sia in esecuzione. 
 
-2. Nel pannello del processo fare clic su **Avvia**.
+2. Nella panoramica del processo selezionare **Avvia**.
 
-    ![Avviare il processo di analisi di flusso](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sa-job-start-output.png)
+3. Nella pagina **Avvia processo** , per **ora di inizio dell'output del processo**, selezionare **ora** e quindi fare clic su **Avvia**.
 
-3. Nel pannello **Avvia processo**, per **Ora di inizio dell'output del processo**, selezionare **Ora** e quindi fare clic su **Avvia**. 
-
-    ![Pannello "Avvia processo" per il processo di Analisi di flusso](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sa-job-start-job-blade.png)
-
-    Azure informa l'utente quando il processo viene avviato e, nel pannello del processo, lo stato viene visualizzato come **In esecuzione**.
-
-    ![Processo in esecuzione](./media/stream-analytics-twitter-sentiment-analysis-trends/jobrunning.png)
-
-## <a name="view-output-for-sentiment-analysis"></a>Visualizzare l'output per l'analisi del sentiment
-
-Quando il processo è in esecuzione ed elabora il flusso di Twitter in tempo reale, è possibile visualizzare l'output per l'analisi del sentiment.
-
-Per visualizzare l'output del processo in tempo reale, usare uno strumento come [Azure Storage Explorer](https://storageexplorer.com/) o [Azure Explorer](https://www.cerebrata.com/products/azure-explorer/introduction). A questo punto è possibile usare [Power BI](https://powerbi.com/) per estendere l'applicazione in modo da includere un dashboard personalizzato come quello riportato nello screenshot seguente:
-
-![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
-
-
-## <a name="create-another-query-to-identify-trending-topics"></a>Creare un'altra query per identificare gli argomenti di tendenza
-
-Un'altra query che è possibile usare per comprendere il sentiment su Twitter si basa su un [finestra temporale scorrevole](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics). Per identificare gli argomenti di tendenza si cercano gli argomenti in cui le menzioni superano un valore soglia entro un determinato periodo di tempo.
-
-Ai fini di questa procedura, si verificano gli argomenti citati più di 20 volte negli ultimi 5 secondi.
-
-1. Nel pannello del processo fare clic su **Arresta** per arrestare il processo. 
-
-2. Nella sezione **Topologia processo** fare clic sulla casella **Query**. 
-
-3. Modificare la query nel modo seguente:
-
-    ```    
-    SELECT System.Timestamp as Time, Topic, COUNT(*) as Mentions
-    FROM TwitterStream TIMESTAMP BY CreatedAt
-    GROUP BY SLIDINGWINDOW(s, 5), topic
-    HAVING COUNT(*) > 20
-    ```
-
-4. Fare clic su **Salva**.
-
-5. Verificare che l'applicazione TwitterWpfClient sia in esecuzione. 
-
-6. Fare clic su **Avvia** per riavviare il processo usando la nuova query.
-
-
-## <a name="get-support"></a>Ottenere supporto
+## <a name="get-support"></a>Supporto
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi

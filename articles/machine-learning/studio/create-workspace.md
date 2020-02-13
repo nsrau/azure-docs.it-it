@@ -1,21 +1,21 @@
 ---
-title: Crea area di lavoro
+title: Creare un'area di lavoro
 titleSuffix: ML Studio (classic) - Azure
 description: Per usare Azure Machine Learning Studio (versione classica), è necessario disporre di un'area di lavoro di Machine Learning Studio (classica). Quest'area di lavoro contiene tutti gli strumenti necessari per la creazione, la gestione e la pubblicazione di esperimenti.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 419fbd987c1deb95a7c903d85105958443d06b01
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 0530e665fb4efa94aacdd21e81c6cc88da6da03d
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153605"
+ms.locfileid: "77168792"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-classic-workspace"></a>Creare e condividere un'area di lavoro di Azure Machine Learning Studio (classica)
 

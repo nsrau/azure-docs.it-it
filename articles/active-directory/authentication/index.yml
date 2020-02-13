@@ -10,14 +10,14 @@ metadata:
   ms.topic: landing-page
   author: iainfoulds
   ms.author: iainfou
-  ms.date: 08/20/2019
+  ms.date: 02/11/2020
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 01e1fe5ed73275078fc37dbec9a0857a8c4a8619
-  ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+  ms.openlocfilehash: 3c431b81c0da54045e9b9b020de5275912b394c6
+  ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 12/05/2019
-  ms.locfileid: "74847152"
+  ms.lasthandoff: 02/12/2020
+  ms.locfileid: "77166427"
 landingContent:
 - title: Informazioni sull'autenticazione
   linkLists:
@@ -39,16 +39,16 @@ landingContent:
       url: concept-sspr-howitworks.md
     - text: writeback delle password
       url: concept-sspr-writeback.md
-  - linkListType: quickstart
+  - linkListType: tutorial
     links:
-    - text: Guida di avvio rapido sulla reimpostazione della password self-service
-      url: quickstart-sspr.md
+    - text: Abilitare la reimpostazione self-service delle password
+      url: tutorial-enable-sspr.md
+    - text: Abilitare il writeback delle password nell'ambiente locale
+      url: tutorial-enable-writeback.md
   - linkListType: deploy
     links:
-    - text: Distribuire la reimpostazione della password self-service di Azure AD
+    - text: Guida alla distribuzione della reimpostazione self-service delle password
       url: howto-sspr-deployment.md
-    - text: Abilitare il writeback delle password
-      url: howto-sspr-writeback.md
     - text: Abilitare la reimpostazione della password self-service di Azure AD dalla schermata di accesso di Windows
       url: howto-sspr-windows.md
 - title: Abilitare Azure Multi-Factor Authentication
@@ -59,13 +59,13 @@ landingContent:
       url: concept-mfa-howitworks.md
   - linkListType: tutorial
     links:
-    - text: Gestire Azure MFA per applicazioni specifiche
-      url: tutorial-mfa-applications.md
-    - text: Usare i rilevamenti di eventi di rischio per attivare Multi-Factor Authentication e modifiche delle password
+    - text: Abilitare Azure Multi-Factor Authentication
+      url: tutorial-enable-azure-mfa.md
+    - text: Abilitare il servizio Azure Multi-Factor Authentication basato sui rischi
       url: tutorial-risk-based-sspr-mfa.md
   - linkListType: deploy
     links:
-    - text: Distribuire Azure Multi-Factor Authentication
+    - text: Guida alla distribuzione di Azure multi-Factor Authentication
       url: howto-mfa-getstarted.md
     - text: Usare l'estensione NPS per integrare applicazioni locali
       url: howto-mfa-nps-extension.md

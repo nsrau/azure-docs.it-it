@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: d7311dce938ea575a27cf006e7469670813b7f10
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: f05ef9472f11a5025e9856cfb207cc0859f24c3e
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153503"
+ms.locfileid: "77169359"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Distribuire un'area di lavoro Azure Machine Learning Studio (classica) con Azure Resource Manager
 
@@ -115,7 +115,7 @@ $rg
 Verificare che il provisioning del gruppo di risorse venga effettuato correttamente. **ProvisioningState** deve essere "Succeeded".
 Il nome del gruppo di risorse viene usato dal modello per generare il nome dell'account di archiviazione. Il nome dell'account di archiviazione deve essere di lunghezza compresa tra 3 e 24 caratteri e usare solo numeri e lettere minuscole.
 
-![Gruppo risorse](./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png)
+![Gruppo di risorse](./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png)
 
 * Usando la distribuzione del gruppo di risorse, distribuire una nuova area di lavoro di Machine Learning.
 

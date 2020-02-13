@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: f6d2da49e2659cfa69d25e3fe71351547706fd42
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b65b7a9fd38b690729fafd86fe213ff56760a1bb
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984847"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169828"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Che cos'è un'istanza di calcolo Azure Machine Learning?
 
@@ -26,9 +26,6 @@ Usare un'istanza di calcolo come ambiente di sviluppo completamente configurato 
 
 Le istanze di calcolo vengono in genere usate come ambienti di sviluppo.  Possono anche essere usati come destinazione di calcolo per il training e l'inferenza per lo sviluppo e il test.  Per le attività di grandi dimensioni, un [cluster di calcolo Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) con funzionalità di scalabilità a più nodi rappresenta una scelta migliore per la destinazione di calcolo.
 
-> [!NOTE]
-> Le istanze di calcolo sono attualmente disponibili solo per le aree di lavoro con un'area **Stati Uniti centro-settentrionali**, **Stati Uniti orientali 2**, **Europa settentrionale** o **Regno Unito meridionale**e il supporto per altre aree sarà presto disponibile.
->Se l'area di lavoro si trova in qualsiasi altra area geografica, è possibile continuare a creare e usare una [macchina virtuale notebook](concept-compute-instance.md#notebookvm) in alternativa. 
 
 ## <a name="why-use-a-compute-instance"></a>Perché usare un'istanza di calcolo?
 
@@ -58,7 +55,7 @@ Questi strumenti e ambienti sono installati nell'istanza di calcolo:
 |Docker||
 |Nginx||
 |NCCL 2,0 ||
-|protobuf|| 
+|Protobuf|| 
 
 |Strumenti **R** & ambienti|Dettagli|
 |----|:----:|
@@ -68,7 +65,7 @@ Questi strumenti e ambienti sono installati nell'istanza di calcolo:
 
 |Strumenti **PYTHON** & ambienti|Dettagli|
 |----|----|
-|Anaconda Python||
+|Python Anaconda||
 |Jupyter ed estensioni||
 |Jupyterlab ed estensioni||
 |Visual Studio Code ||
@@ -115,7 +112,7 @@ Nell'area di lavoro in Azure Machine Learning Studio selezionare **calcolo**, qu
 
 ![Gestire un'istanza di calcolo](./media/concept-compute-instance/manage-compute-instance.png)
 
-È possibile eseguire le azioni seguenti:
+È possibile effettuare le azioni seguenti:
 
 * Creare un'istanza di calcolo. Specificare il nome, il tipo di macchina virtuale di Azure, incluse le GPU (si noti che il tipo di macchina virtuale non può essere modificato dopo la creazione), abilitare/disabilitare l'accesso SSH e configurare le impostazioni della rete virtuale facoltativamente. È anche possibile creare un'istanza direttamente da notebook integrati, portale di Azure, Gestione risorse modello o Azure Machine Learning SDK. La quota di core dedicati per area che si applica alla creazione dell'istanza di calcolo è unificata e condivisa con Azure Machine Learning quota del cluster di calcolo.
 * Aggiornare la scheda istanze di calcolo
@@ -124,7 +121,7 @@ Nell'area di lavoro in Azure Machine Learning Studio selezionare **calcolo**, qu
 
 Per ogni istanza di calcolo nell'area di lavoro è possibile:
 
-* Accedere a Jupyter, JupyterLab, RStudio, VS Code URI nell'istanza di calcolo
+* Accedere a Jupyter, JupyterLab, RStudio nell'istanza di calcolo
 * SSH nell'istanza di calcolo. L'accesso SSH è disabilitato per impostazione predefinita, ma può essere abilitato al momento della creazione dell'istanza di calcolo. L'accesso SSH avviene tramite il meccanismo di chiave pubblica/privata. La scheda fornirà i dettagli per la connessione SSH, ad esempio indirizzo IP, nome utente e numero di porta.
 * Ottenere informazioni dettagliate su un'istanza di calcolo specifica, ad esempio l'indirizzo IP e l'area.
 

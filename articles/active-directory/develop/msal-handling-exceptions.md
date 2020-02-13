@@ -15,12 +15,12 @@ ms.date: 11/22/2019
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 75893a85f975d5d1454f1b93535a1df7a45e8731
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 018d0c3bc009f6063de75b9a479be650b2c06e7c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084029"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160845"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Gestisci eccezioni ed errori di MSAL
 
@@ -69,7 +69,7 @@ L'interazione è finalizzata all'esecuzione di un'azione da parte dell'utente. A
 
 MSAL espone un campo `Classification`, che è possibile leggere per offrire un'esperienza utente migliore, ad esempio per indicare all'utente che la password è scaduta o che è necessario fornire il consenso per l'uso di alcune risorse. I valori supportati fanno parte dell'enumerazione `UiRequiredExceptionClassification`:
 
-| classificazione    | Significato           | Gestione consigliata |
+| Classificazione    | Significato           | Gestione consigliata |
 |-------------------|-------------------|----------------------|
 | BasicAction | La condizione può essere risolta dall'interazione dell'utente durante il flusso di autenticazione interattiva. | Chiamare AcquireTokenInteractively (). |
 | AdditionalAction | La condizione può essere risolta da un'interazione correttiva aggiuntiva con il sistema, all'esterno del flusso di autenticazione interattivo. | Chiamare AcquireTokenInteractively () per visualizzare un messaggio in cui viene illustrata l'azione correttiva. L'applicazione chiamante può scegliere di nascondere i flussi che richiedono additional_action se è improbabile che l'utente completi l'azione correttiva. |
@@ -78,7 +78,7 @@ MSAL espone un campo `Classification`, che è possibile leggere per offrire un'e
 | UserPasswordExpired | La password dell'utente è scaduta. | Chiamare AcquireTokenInteractively () in modo che l'utente possa reimpostare la password. |
 | PromptNeverFailed| È stata chiamata l'autenticazione interattiva con il prompt dei parametri = Never, forzando MSAL a basarsi sui cookie del browser e non visualizzare il browser. Questa operazione non è riuscita. | Chiamare AcquireTokenInteractively () senza prompt. None |
 | AcquireTokenSilentFailed | MSAL SDK non dispone di informazioni sufficienti per recuperare un token dalla cache. Questo può essere dovuto al fatto che non sono presenti token nella cache o che non è stato trovato alcun account. Il messaggio di errore contiene maggiori dettagli.  | Chiamare AcquireTokenInteractively (). |
-| None    | Non vengono forniti altri dettagli. La condizione può essere risolta dall'interazione dell'utente durante il flusso di autenticazione interattiva. | Chiamare AcquireTokenInteractively (). |
+| nessuno    | Non vengono forniti altri dettagli. La condizione può essere risolta dall'interazione dell'utente durante il flusso di autenticazione interattiva. | Chiamare AcquireTokenInteractively (). |
 
 ## <a name="net-code-example"></a>Esempio di codice .NET
 
@@ -142,7 +142,7 @@ catch (MsalUiRequiredException ex) when (ex.ErrorCode == MsalError.InvalidGrantE
 
 MSAL. js fornisce oggetti di errore che astraggono e classificano i diversi tipi di errori comuni. Fornisce inoltre l'interfaccia per accedere a dettagli specifici degli errori, ad esempio i messaggi di errore per gestirli in modo appropriato.
 
-### <a name="error-object"></a>Error (oggetto)
+### <a name="error-object"></a>Oggetto errore
 
 ```javascript
 export class AuthError extends Error {
@@ -264,7 +264,7 @@ Alcune condizioni che generano questo errore sono semplici da risolvere per gli 
 
 MSAL espone un campo `reason`, che può essere usato per offrire un'esperienza utente migliore. Ad esempio, il campo `reason` può portare a indicare all'utente che la password è scaduta o che è necessario fornire il consenso per l'uso di alcune risorse. I valori supportati fanno parte dell'enumerazione `InteractionRequiredExceptionReason`:
 
-| `Reason` | Significato | Gestione consigliata |
+| Motivo | Significato | Gestione consigliata |
 |---------|-----------|-----------------------------|
 | `BasicAction` | La condizione può essere risolta dall'interazione dell'utente durante il flusso di autenticazione interattiva | Chiama `acquireToken` con parametri interattivi |
 | `AdditionalAction` | La condizione può essere risolta da ulteriori interazioni correttive con il sistema esterno al flusso di autenticazione interattivo. | Chiamare `acquireToken` con i parametri interattivi per visualizzare un messaggio in cui viene illustrata l'azione correttiva da intraprendere. L'app chiamante può scegliere di nascondere i flussi che richiedono un'azione aggiuntiva se è improbabile che l'utente completi l'azione correttiva. |
@@ -506,7 +506,7 @@ Il codice di esempio Objective-C seguente illustra le procedure consigliate per 
 
 ## <a name="conditional-access-and-claims-challenges"></a>Accesso Condizionale e richieste di attestazioni
 
-Quando si ottengono i token in modo invisibile all'utente, l'applicazione può ricevere errori quando una richiesta di [attestazione dell'accesso condizionale](conditional-access-dev-guide.md) , ad esempio i criteri di autenticazione a più fattori, è richiesta da un'API a cui si sta
+Quando si ottengono i token in modo invisibile all'utente, l'applicazione può ricevere errori quando una richiesta di [attestazione dell'accesso condizionale](../azuread-dev/conditional-access-dev-guide.md) , ad esempio i criteri di autenticazione a più fattori, è richiesta da un'API a cui si sta
 
 Il modello per la gestione di questo errore consiste nell'acquisire in modo interattivo un token usando MSAL. L'acquisizione di un token in modalità interattiva visualizza una richiesta all'utente e offre a quest'ultimo la possibilità di soddisfare i criteri di Accesso Condizionale richiesti.
 
@@ -520,7 +520,7 @@ Per gestire la richiesta di attestazione, è necessario usare il metodo `.WithCl
 
 ### <a name="javascript"></a>JavaScript
 
-Quando si ottengono i token in modo invisibile all'utente (usando `acquireTokenSilent`) con MSAL. js, l'applicazione può ricevere errori quando una richiesta di [attestazione dell'accesso condizionale](conditional-access-dev-guide.md) , ad esempio l'autenticazione a più fattori, è richiesta da un'API a cui si sta provando ad accedere.
+Quando si ottengono i token in modo invisibile all'utente (usando `acquireTokenSilent`) con MSAL. js, l'applicazione può ricevere errori quando una richiesta di [attestazione dell'accesso condizionale](../azuread-dev/conditional-access-dev-guide.md) , ad esempio l'autenticazione a più fattori, è richiesta da un'API a cui si sta provando ad accedere.
 
 Il modello per gestire questo errore consiste nell'effettuare una chiamata interattiva per acquisire il token in MSAL.js, ad esempio `acquireTokenPopup` o `acquireTokenRedirect`, come nell'esempio seguente:
 

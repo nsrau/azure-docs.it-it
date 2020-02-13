@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: cf36c233df9f8aaf76333b0add8b1ffce869156b
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 40db6e9f429569bc19641aa5f0f371f287db7b18
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773243"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158027"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hub eventi di Azure - Ripristino di emergenza geografico 
 
@@ -48,7 +48,7 @@ In questo articolo viene usata la terminologia seguente:
 
 -  *Spazio dei nomi primario/secondario*: spazi dei nomi corrispondenti all'alias. Lo spazio dei nomi primario è "attivo" e riceve i messaggi (può essere uno spazio dei nomi esistente o nuovo). Lo spazio dei nomi secondario è "passivo" e non riceve i messaggi. I metadati vengono sincronizzati tra entrambi gli spazi dei nomi, quindi entrambi possono facilmente accettare messaggi senza modifiche al codice dell'applicazione o alla stringa di connessione. Per fare in modo che solo lo spazio dei nomi attivo riceva i messaggi, è necessario usare l'alias. 
 
--  *Metadati*: entità come hub eventi e gruppi di consumer e le relative proprietà del servizio associate allo spazio dei nomi. Si noti che solo le entità e le relative impostazioni vengono replicate automaticamente. I messaggi e gli eventi non vengono replicati. 
+-  *Metadati*: entità come Hub eventi e gruppi di consumer e le relative proprietà del servizio associate allo spazio dei nomi. Si noti che solo le entità e le relative impostazioni vengono replicate automaticamente. I messaggi e gli eventi non vengono replicati. 
 
 -  *Failover*: processo di attivazione dello spazio dei nomi secondario.
 
@@ -58,7 +58,7 @@ Sono supportate le seguenti combinazioni di spazi dei nomi primari e secondari:
 | Spazio dei nomi primario | Spazio dei nomi secondario | Supportato | 
 | ----------------- | -------------------- | ---------- |
 | Standard | Standard | Sì | 
-| Standard | Dedicato | Yes | 
+| Standard | Dedicato | Sì | 
 | Dedicato | Dedicato | Sì | 
 | Dedicato | Standard | No | 
 
@@ -120,7 +120,7 @@ Tenere presente le considerazioni seguenti per questa versione:
  
 3. Il fatto che non vengano replicati dati significa che le sessioni attive non vengono replicate. Il rilevamento dei duplicati e i messaggi pianificati potrebbero inoltre non funzionare. Le nuove sessioni, i messaggi pianificati e i nuovi duplicati funzioneranno. 
 
-4. È necessario [provare a eseguire](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) il failover di un'infrastruttura distribuita complessa almeno una volta. 
+4. È necessario [provare a effettuare](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) il failover di un'infrastruttura distribuita complessa almeno una volta. 
 
 5. La sincronizzazione delle entità può richiedere tempo, circa un minuto per 50-100 entità.
 
@@ -142,7 +142,11 @@ Usando il portale di Azure, è possibile abilitare le zone di disponibilità sol
 
 Per altre informazioni su Hub eventi, vedere i collegamenti seguenti:
 
-* Iniziare con un'[esercitazione di Hub eventi](event-hubs-dotnet-standard-getstarted-send.md)
+- Introduzione all'Hub eventi
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)
 * [Applicazioni di esempio che usano Hub eventi](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

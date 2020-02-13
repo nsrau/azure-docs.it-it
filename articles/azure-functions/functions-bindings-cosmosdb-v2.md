@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: da05dc7136a75d519660412f2ce176f7530eb392
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 3ef2fdcaefeedb0769eac34d292e67a99524a6f2
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547439"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168073"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Associazioni di Azure Cosmos DB per Funzioni di Azure 2.x
 
@@ -173,22 +173,7 @@ Ecco il codice Python:
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-L'esempio seguente mostra un'associazione di trigger di Cosmos DB in un file *function.json* e una [funzione Java](functions-reference-java.md) che usa l'associazione. La funzione viene richiamata quando sono presenti inserimenti o aggiornamenti nel database e nella raccolta specificati.
-
-```json
-{
-    "type": "cosmosDBTrigger",
-    "name": "items",
-    "direction": "in",
-    "leaseCollectionName": "leases",
-    "connectionStringSetting": "AzureCosmosDBConnection",
-    "databaseName": "ToDoList",
-    "collectionName": "Items",
-    "createLeaseCollectionIfNotExists": false
-}
-```
-
-Ecco il codice Java:
+Questa funzione viene richiamata quando sono presenti inserimenti o aggiornamenti nel database e nella raccolta specificati.
 
 ```java
     @FunctionName("cosmosDBMonitor")
@@ -252,11 +237,11 @@ Dalla [libreria di runtime di funzioni Java](https://docs.microsoft.com/java/api
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `CosmosDBTrigger`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
-|**type** | N/D | Il valore deve essere impostato su `cosmosDBTrigger`. |
-|**direction** | N/D | Il valore deve essere impostato su `in`. Questo parametro viene impostato automaticamente quando si crea il trigger nel portale di Azure. |
-|**nome** | N/D | Il nome della variabile usato nel codice funzione che rappresenta l'elenco di documenti con le modifiche. |
+|**type** | n/d | Il valore deve essere impostato su `cosmosDBTrigger`. |
+|**direction** | n/d | Il valore deve essere impostato su `in`. Questo parametro viene impostato automaticamente quando si crea il trigger nel portale di Azure. |
+|**nome** | n/d | Il nome della variabile usato nel codice funzione che rappresenta l'elenco di documenti con le modifiche. |
 |**connectionStringSetting**|**ConnectionStringSetting** | Il nome di un'impostazione dell'app che contiene la stringa di connessione usata per connettersi all'account di Azure Cosmos DB monitorato. |
 |**databaseName**|**DatabaseName**  | Il nome del database di Azure Cosmos DB con la raccolta monitorata. |
 |**collectionName** |**CollectionName** | Il nome della raccolta monitorata. |
@@ -1697,11 +1682,11 @@ Dalla [libreria di runtime di funzioni Java](https://docs.microsoft.com/java/api
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `CosmosDB`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
-|**type**     | N/D | Il valore deve essere impostato su `cosmosDB`.        |
-|**direction**     | N/D | Il valore deve essere impostato su `in`.         |
-|**nome**     | N/D | Nome del parametro di binding che rappresenta il documento nella funzione.  |
+|**type**     | n/d | Il valore deve essere impostato su `cosmosDB`.        |
+|**direction**     | n/d | Il valore deve essere impostato su `in`.         |
+|**nome**     | n/d | Nome del parametro di binding che rappresenta il documento nella funzione.  |
 |**databaseName** |**DatabaseName** |Database che contiene il documento.        |
 |**collectionName** |**CollectionName** | Nome della raccolta che contiene il documento. |
 |**id**    | **Id** | ID del documento da recuperare. Questa proprietà supporta le [espressioni di associazione](./functions-bindings-expressions-patterns.md). Non impostare entrambe le proprietà `id` e **sqlQuery** . Se non si imposta una delle due proprietà, verrà recuperato l'intera raccolta. |
@@ -2282,11 +2267,11 @@ L'annotazione `CosmosDBOutput` è disponibile per scrivere i dati Cosmos DB. È 
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `CosmosDB`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
-|**type**     | N/D | Il valore deve essere impostato su `cosmosDB`.        |
-|**direction**     | N/D | Il valore deve essere impostato su `out`.         |
-|**nome**     | N/D | Nome del parametro di binding che rappresenta il documento nella funzione.  |
+|**type**     | n/d | Il valore deve essere impostato su `cosmosDB`.        |
+|**direction**     | n/d | Il valore deve essere impostato su `out`.         |
+|**nome**     | n/d | Nome del parametro di binding che rappresenta il documento nella funzione.  |
 |**databaseName** | **DatabaseName**|Database contenente la raccolta in cui viene creato il documento.     |
 |**collectionName** |**CollectionName**  | Nome della raccolta in cui viene creato il documento. |
 |**createIfNotExists**  |**CreateIfNotExists**    | Valore booleano che indica se la raccolta viene creata quando non esiste. Il valore predefinito è *false* perché le nuove raccolte vengono create con una velocità effettiva riservata, che ha implicazioni in termini di costi. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/).  |
@@ -2305,7 +2290,7 @@ Per impostazione predefinita, quando si scrive nel parametro di output della fun
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Associazione | Riferimenti |
+| Associazione | Riferimento |
 |---|---|
 | Cosmos DB | [Codici di errore di CosmosDB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
@@ -2330,11 +2315,11 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 }
 ```
 
-|Proprietà  |Predefinito | Description |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------|
 |GatewayMode|Gateway|La modalità di connessione usata dalla funzione durante la connessione al servizio di Azure Cosmos DB. Le opzioni sono `Direct` e `Gateway`|
 |Protocollo|Https|Il protocollo di connessione usato dalla funzione durante la connessione al servizio di Azure Cosmos DB.  Leggere [qui per una spiegazione di entrambe le modalità](../cosmos-db/performance-tips.md#networking)|
-|leasePrefix|N/D|Prefisso di lease da usare in tutte le funzioni in un'app.|
+|leasePrefix|n/d|Prefisso di lease da usare in tutte le funzioni in un'app.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

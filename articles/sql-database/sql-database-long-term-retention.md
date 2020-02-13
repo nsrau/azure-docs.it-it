@@ -11,16 +11,16 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
-ms.openlocfilehash: 0cd4c45403d59819bf7ba729ea99de76ccf967ca
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 9c5534f2df4a375daf355d74f788b7f610f92919
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819901"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162158"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Archiviare i backup del database SQL di Azure per un massimo di 10 anni
 
-Molte applicazioni sono vincolate da ragioni normative, di conformità o altri scopi aziendali che richiedono di conservare i backup del database oltre i 7-35 giorni offerti dai [backup automatici](sql-database-automated-backups.md) del database SQL di Azure. La funzionalità di conservazione a lungo termine consente di archiviare i backup completi del database SQL in una risorsa di archiviazione BLOB [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) fino a un massimo di 10 anni. È quindi possibile ripristinare qualsiasi backup come nuovo database.
+Molte applicazioni sono vincolate da ragioni normative, di conformità o altri scopi aziendali che richiedono di conservare i backup del database oltre i 7-35 giorni offerti dai [backup automatici](sql-database-automated-backups.md) del database SQL di Azure. Usando la funzionalità di conservazione a lungo termine, è possibile archiviare i backup completi del database SQL specificati nell'archivio BLOB di Azure con archiviazione con ridondanza geografica e accesso in lettura per un massimo di 10 anni. È quindi possibile ripristinare qualsiasi backup come nuovo database. Per altre informazioni sulla ridondanza di archiviazione di Azure, vedere [ridondanza di archiviazione di Azure](../storage/common/storage-redundancy.md).
 
 > [!NOTE]
 > È possibile abilitare la conservazione a lungo termine per database singoli e in pool. Non è ancora disponibile per database dell'istanza in Istanze gestite. È possibile usare processi di SQL Agent per pianificare [backup dei database di sola copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) come alternativa alla conservazione a lungo termine oltre 35 giorni.

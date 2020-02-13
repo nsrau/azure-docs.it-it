@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: fff92057bc9812a5ef1488a46ed469382ad3ace3
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 85b59c6549a62f7d9945f5739d1d0fde8c0fa3b8
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806882"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158911"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>Uso di endpoint privati per archiviazione di Azure (anteprima)
 
@@ -50,9 +50,9 @@ Quando si crea l'endpoint privato, è necessario specificare l'account di archiv
 > [!TIP]
 > Creare un endpoint privato separato per l'istanza secondaria del servizio di archiviazione per migliorare le prestazioni di lettura sugli account RA-GRS.
 
-Per la disponibilità in lettura in un [account di archiviazione con ridondanza geografica e accesso in lettura](storage-redundancy-grs.md#read-access-geo-redundant-storage), sono necessari endpoint privati distinti per le istanze primarie e secondarie del servizio. Non è necessario creare un endpoint privato per l'istanza secondaria per il **failover**. L'endpoint privato si connette automaticamente alla nuova istanza primaria dopo il failover.
+Per l'accesso in lettura all'area secondaria con un account di archiviazione configurato per l'archiviazione con ridondanza geografica, sono necessari endpoint privati distinti per le istanze primarie e secondarie del servizio. Non è necessario creare un endpoint privato per l'istanza secondaria per il **failover**. L'endpoint privato si connette automaticamente alla nuova istanza primaria dopo il failover. Per altre informazioni sulle opzioni di ridondanza di archiviazione, vedere [ridondanza di archiviazione di Azure](storage-redundancy.md).
 
-#### <a name="resources"></a>resources
+#### <a name="resources"></a>Risorse
 
 Per informazioni più dettagliate sulla creazione di un endpoint privato per l'account di archiviazione, fare riferimento agli articoli seguenti:
 
@@ -78,20 +78,20 @@ Quando si risolve l'URL dell'endpoint di archiviazione dall'esterno del VNet con
 
 Per l'esempio illustrato in precedenza, i record di risorse DNS per l'account di archiviazione ' StorageAccountA ', quando risolti dall'esterno della VNet che ospita l'endpoint privato, saranno:
 
-| name                                                  | Type  | Value                                                 |
+| Nome                                                  | Type  | valore                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | endpoint pubblico del servizio di archiviazione \<\>                   |
-| endpoint pubblico del servizio di archiviazione \<\>                   | A     | Indirizzo IP pubblico del servizio di archiviazione \<\>                 |
+| endpoint pubblico del servizio di archiviazione \<\>                   | Una     | Indirizzo IP pubblico del servizio di archiviazione \<\>                 |
 
 Come indicato in precedenza, è possibile negare o controllare l'accesso per i client esterni a VNet tramite l'endpoint pubblico usando il firewall di archiviazione.
 
 I record di risorse DNS per StorageAccountA, in caso di risoluzione da parte di un client in VNet che ospita l'endpoint privato, saranno:
 
-| name                                                  | Type  | Value                                                 |
+| Nome                                                  | Type  | valore                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | Una     | 10.1.1.5                                              |
 
 Questo approccio consente di accedere all'account di archiviazione **usando la stessa stringa di connessione** per i client in VNet che ospitano gli endpoint privati, nonché i client esterni al VNet.
 
@@ -105,13 +105,13 @@ I nomi di zona DNS consigliati per gli endpoint privati per i servizi di archivi
 | Servizio di archiviazione        | Nome zona                            |
 | :--------------------- | :----------------------------------- |
 | Servizio BLOB           | `privatelink.blob.core.windows.net`  |
-| Archiviazione Data Lake di seconda generazione | `privatelink.dfs.core.windows.net`   |
+| Data Lake Storage Gen2 | `privatelink.dfs.core.windows.net`   |
 | Servizio file           | `privatelink.file.core.windows.net`  |
 | Servizio di accodamento          | `privatelink.queue.core.windows.net` |
 | Servizio tabelle          | `privatelink.table.core.windows.net` |
 | Siti web statici        | `privatelink.web.core.windows.net`   |
 
-#### <a name="resources"></a>resources
+#### <a name="resources"></a>Risorse
 
 Per ulteriori informazioni sulla configurazione del server DNS per supportare endpoint privati, fare riferimento agli articoli seguenti:
 

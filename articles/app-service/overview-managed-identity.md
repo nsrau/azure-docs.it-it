@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 4e2a76e40206e1562d565571dbe22e5d9d0e930e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 3e414e40cb92f5c7e8c2e1d083419d57e06a0995
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834155"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161920"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Come usare le identità gestite nel servizio app e in Funzioni di Azure
 
@@ -167,7 +167,7 @@ Sarà prima di tutto necessario creare una risorsa identità assegnata dall'uten
 
 5. Nella scheda **assegnato dall'utente** fare clic su **Aggiungi**.
 
-6. Cercare l'identità creata in precedenza e selezionarla. Scegliere **Aggiungi**.
+6. Cercare l'identità creata in precedenza e selezionarla. Fare clic su **Aggiungi**.
 
     ![Identità gestita nel servizio app](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
 
@@ -251,7 +251,7 @@ Un'app con un'identità gestita ha due variabili di ambiente definite:
 
 **MSI_ENDPOINT** è un URL locale da cui l'app può richiedere token. Per ottenere un token per una risorsa, eseguire una richiesta HTTP GET a questo endpoint, includendo i parametri seguenti:
 
-> |Nome parametro|In ingresso|Description|
+> |Nome parametro|In ingresso|Descrizione|
 > |-----|-----|-----|
 > |resource|Query|URI della risorsa AAD per cui è necessario ottenere un token. Può trattarsi di uno dei [servizi di Azure che supportano l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) o di qualsiasi altro URI di risorsa.|
 > |api-version|Query|Versione dell'API del token da usare. Al momento, l'unica versione supportata è: "2017-09-01".|
@@ -263,14 +263,14 @@ Un'app con un'identità gestita ha due variabili di ambiente definite:
 
 Una risposta 200 OK con esito positivo include un corpo JSON con le proprietà seguenti:
 
-> |Nome proprietà|Description|
+> |Nome proprietà|Descrizione|
 > |-------------|----------|
 > |access_token|Token di accesso richiesto. Il servizio Web chiamante può usare questo token per l'autenticazione nel servizio Web ricevente.|
 > |expires_on|Scadenza del token di accesso. La data è rappresentata come numero di secondi da 1970-01-01T0:0:0Z UTC fino alla scadenza. Questo valore viene usato per determinare la durata dei token memorizzati nella cache.|
 > |resource|URI ID app del servizio Web ricevente.|
 > |token_type|Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è Bearer. Per altre informazioni sui token di connessione, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Framework di autorizzazione di OAuth 2.0: uso dei token di connessione - RFC 6750).|
 
-Questa risposta è la stessa [risposta per la richiesta del token di accesso da servizio a servizio AAD](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
+Questa risposta è la stessa [risposta per la richiesta del token di accesso da servizio a servizio AAD](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#get-a-token).
 
 > [!NOTE]
 > Le variabili di ambiente vengono configurate al primo avvio del processo, quindi dopo avere abilitato un'identità gestita per l'applicazione potrebbe essere necessario riavviare l'applicazione o ridistribuire il relativo codice per rendere disponibili `MSI_ENDPOINT` e `MSI_SECRET` per il codice.

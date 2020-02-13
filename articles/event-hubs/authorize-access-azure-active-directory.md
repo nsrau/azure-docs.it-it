@@ -6,14 +6,14 @@ ms.service: event-hubs
 documentationcenter: ''
 author: spelluru
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 0d8d1b37e7f5ebb6eef1c76e4324041c48ab8986
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 021d00b9fb02f2f5ea2560038741efec11b8cbc0
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995735"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169197"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizzare l'accesso alle risorse di hub eventi usando Azure Active Directory
 Hub eventi di Azure supporta l'uso di Azure Active Directory (Azure AD) per autorizzare le richieste alle risorse di hub eventi. Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo (RBAC) per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente o un'entità servizio dell'applicazione. Per ulteriori informazioni sui ruoli e le assegnazioni di ruolo, vedere [informazioni sui diversi ruoli](../role-based-access-control/overview.md).
@@ -21,7 +21,7 @@ Hub eventi di Azure supporta l'uso di Azure Active Directory (Azure AD) per auto
 ## <a name="overview"></a>Panoramica
 Quando un'entità di sicurezza (un utente o un'applicazione) tenta di accedere a una risorsa di hub eventi, la richiesta deve essere autorizzata. Con Azure AD, l'accesso a una risorsa è un processo in due passaggi. 
 
- 1. In primo luogo, l'identità dell'entità di sicurezza viene autenticata e viene restituito un token OAuth 2,0. Il nome della risorsa per richiedere un token `https://eventhubs.azure.net/`è.
+ 1. In primo luogo, l'identità dell'entità di sicurezza viene autenticata e viene restituito un token OAuth 2,0. Il nome della risorsa per richiedere un token è `https://eventhubs.azure.net/`.
  1. Successivamente, il token viene passato come parte di una richiesta al servizio Hub eventi per autorizzare l'accesso alla risorsa specificata.
 
 Il passaggio di autenticazione richiede che una richiesta dell'applicazione contenga un token di accesso OAuth 2,0 in fase di esecuzione. Se un'applicazione è in esecuzione in un'entità di Azure, ad esempio una VM di Azure, un set di scalabilità di macchine virtuali o un'app per le funzioni di Azure, può usare un'identità gestita per accedere alle risorse. Per informazioni su come autenticare le richieste effettuate da un'identità gestita al servizio Hub eventi, vedere [autenticare l'accesso alle risorse di hub eventi di Azure con Azure Active Directory e identità gestite per le risorse di Azure](authenticate-managed-identity.md). 
@@ -38,25 +38,33 @@ Quando un ruolo RBAC viene assegnato a un'entità di sicurezza Azure AD, Azure c
 ## <a name="built-in-rbac-roles-for-azure-event-hubs"></a>Ruoli RBAC predefiniti per hub eventi di Azure
 Azure fornisce i seguenti ruoli predefiniti di controllo degli accessi in base al ruolo per autorizzare l'accesso ai dati di hub eventi tramite Azure AD e OAuth:
 
-- [Proprietario dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner): Usare questo ruolo per concedere l'accesso completo alle risorse di hub eventi.
-- [Mittente dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): Usare questo ruolo per concedere l'accesso di trasmissione alle risorse di hub eventi.
-- [Ricevitore di dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Usare questo ruolo per concedere l'accesso a consumo/ricezione alle risorse di hub eventi.
+- [Proprietario dei dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner): usare questo ruolo per concedere l'accesso completo alle risorse di hub eventi.
+- [Mittente dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): usare questo ruolo per concedere l'accesso di trasmissione alle risorse di hub eventi.
+- [Ricevitore di dati di hub eventi di Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): usare questo ruolo per concedere l'accesso a consumo/ricezione alle risorse di hub eventi.
 
 ## <a name="resource-scope"></a>Ambito delle risorse 
 Prima di assegnare un ruolo di controllo degli accessi in base al ruolo a un'entità di sicurezza, determinare l'ambito di accesso che deve avere l'entità di sicurezza. Le procedure consigliate stabiliscono che è sempre preferibile concedere solo l'ambito più ristretto possibile.
 
 L'elenco seguente descrive i livelli in cui è possibile definire l'ambito di accesso alle risorse di hub eventi, a partire dall'ambito più restrittivo:
 
-- **Gruppo di consumer**: In questo ambito, l'assegnazione di ruolo si applica solo a questa entità. Attualmente, il portale di Azure non supporta l'assegnazione di un ruolo controllo degli accessi in base al ruolo a un'entità di sicurezza a questo livello. 
-- **Hub eventi**: L'assegnazione di ruolo si applica all'entità Hub eventi e al gruppo di consumer al suo interno.
-- **Spazio dei nomi**: L'assegnazione di ruolo si estende all'intera topologia degli hub eventi nello spazio dei nomi e al gruppo di consumer associato.
-- **Gruppo di risorse**: L'assegnazione di ruolo si applica a tutte le risorse di hub eventi del gruppo di risorse.
-- **Sottoscrizione** L'assegnazione di ruolo si applica a tutte le risorse di hub eventi in tutti i gruppi di risorse nella sottoscrizione.
+- **Gruppo di consumer**: in questo ambito, l'assegnazione di ruolo si applica solo a questa entità. Attualmente, il portale di Azure non supporta l'assegnazione di un ruolo controllo degli accessi in base al ruolo a un'entità di sicurezza a questo livello. 
+- **Hub eventi**: l'assegnazione di ruolo si applica all'entità Hub eventi e al gruppo di consumer al suo interno.
+- **Spazio dei nomi**: l'assegnazione di ruolo si estende all'intera topologia degli hub eventi nello spazio dei nomi e al gruppo di consumer associato.
+- **Gruppo di risorse**: l'assegnazione di ruolo si applica a tutte le risorse di hub eventi nel gruppo di risorse.
+- **Sottoscrizione**: l'assegnazione di ruolo si applica a tutte le risorse di hub eventi in tutti i gruppi di risorse nella sottoscrizione.
 
 > [!NOTE]
 > Tenere presente che le assegnazioni di ruolo RBAC possono richiedere fino a cinque minuti per la propagazione. 
 
 Per ulteriori informazioni sulla definizione dei ruoli predefiniti, vedere informazioni sulle [definizioni](../role-based-access-control/role-definitions.md#management-and-data-operations)dei ruoli. Per informazioni sulla creazione di ruoli RBAC personalizzati, vedere [creare ruoli personalizzati per il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/custom-roles.md).
+
+## <a name="samples"></a>Esempi
+- [Esempi di Microsoft. Azure. EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
+    
+    Questi esempi usano la libreria **Microsoft. Azure. EventHubs** precedente, ma è possibile aggiornarla facilmente usando la libreria **Azure. Messaging. EventHubs** più recente. Per spostare l'esempio da usando la libreria precedente a una nuova, vedere la [Guida per eseguire la migrazione da Microsoft. Azure. EventHubs ad Azure. Messaging. EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).
+- [Esempi di Azure. Messaging. EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
+
+    Questo esempio è stato aggiornato in modo da usare la libreria **Azure. Messaging. EventHubs** più recente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come assegnare un ruolo predefinito di controllo degli accessi in base al ruolo a un'entità di sicurezza, vedere [autenticare l'accesso alle risorse di hub eventi usando Azure Active Directory](authenticate-application.md).

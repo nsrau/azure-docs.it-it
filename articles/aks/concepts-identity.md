@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: a1ed1eccd7a10d78cd503559469654e5562cde0c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5d29598b0962fc42c855e7a26917a34269c30ddb
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67615853"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158063"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opzioni di accesso e identità per il servizio Azure Kubernetes
 
@@ -40,7 +40,7 @@ Per altre informazioni sulle opzioni di identità in Kubernetes, vedere [autenti
 
 ![Integrazione di Azure Active Directory con i cluster del servizio Azure Kubernetes](media/concepts-identity/aad-integration.png)
 
-Con i cluster del servizio Azure Kubernetes integrati in AD Azure, è possibile concedere agli utenti o ai gruppi l'accesso alle risorse di Kubernetes all'interno di uno spazio dei nomi o nel cluster. Per ottenere un `kubectl` contesto di configurazione, un utente può eseguire il comando [AZ AKS Get-credentials][az-aks-get-credentials] . Quando un utente interagisce quindi con il cluster del servizio Azure Kubernetes usando `kubectl`, gli viene chiesto di accedere con le credenziali di Azure AD. Questo approccio fornisce un'unica origine per la gestione degli account utente e le credenziali della password. L'utente può accedere solo risorse definite dall'amministratore del cluster.
+Con i cluster del servizio Azure Kubernetes integrati in AD Azure, è possibile concedere agli utenti o ai gruppi l'accesso alle risorse di Kubernetes all'interno di uno spazio dei nomi o nel cluster. Per ottenere un contesto di configurazione `kubectl`, un utente può eseguire il comando [AZ AKS Get-credentials][az-aks-get-credentials] . Quando un utente interagisce quindi con il cluster del servizio Azure Kubernetes usando `kubectl`, gli viene chiesto di accedere con le credenziali di Azure AD. Questo approccio fornisce un'unica origine per la gestione degli account utente e le credenziali della password. L'utente può accedere solo risorse definite dall'amministratore del cluster.
 
 L'autenticazione di Azure AD nei cluster del servizio Azure Kubernetes usa OpenID Connect, un livello di identità basato sul protocollo OAuth 2.0. OAuth 2.0 definisce i meccanismi per ottenere e usare i token di accesso per accedere alle risorse protette e OpenID Connect implementa l'autenticazione come estensione al processo di autorizzazione di OAuth 2.0. Per ulteriori informazioni su OpenID Connect, vedere la [documentazione relativa a Open ID Connect][openid-connect]. Per verificare i token di autenticazione ottenuti da Azure AD tramite OpenID Connect, i cluster del servizio Azure Kubernetes usano l'autenticazione del token del webhook di Kubernetes. Per altre informazioni, vedere la [documentazione sull'autenticazione dei token webhook][webhook-token-docs].
 
@@ -91,7 +91,7 @@ Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al serv
 [kubernetes-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 
 <!-- LINKS - Internal -->
-[openid-connect]: ../active-directory/develop/v1-protocols-openid-connect-code.md
+[openid-connect]: ../active-directory/develop/v2-protocols-oidc.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [azure-rbac]: ../role-based-access-control/overview.md
 [aks-aad]: azure-ad-integration-cli.md

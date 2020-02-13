@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: bc7c8a059e1e17b7b280a7061206b10ed6c530aa
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 11c6da0b79f169b250dc0178f76dcd885ce91668
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "69015831"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162889"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Come eseguire lo streaming live con codificatori locali mediante .NET
 > [!div class="op_single_selector"]
@@ -33,14 +33,14 @@ ms.locfileid: "69015831"
 
 Questa esercitazione illustra come usare l'SDK di Servizi multimediali di Azure per .NET per creare un **canale** configurato per la distribuzione pass-through. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Per completare l'esercitazione è necessario quanto segue:
 
 * Un account Azure.
 * Account di Servizi multimediali. Per creare un account Servizi multimediali, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
 * Verificare che l'endpoint di streaming da cui si vuole trasmettere il contenuto sia nello stato **In esecuzione**. 
 * Configurare l'ambiente di sviluppo. Per ulteriori informazioni, vedere [Configurare l'ambiente](media-services-set-up-computer.md).
-* Una webcam. Ad esempio, [codificatore Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm).
+* Una webcam. Ad esempio, [codificatore Telestream Wirecast](media-services-configure-wirecast-live-encoder.md).
 
 È consigliabile esaminare i seguenti articoli:
 
@@ -56,7 +56,7 @@ Configurare l'ambiente di sviluppo e popolare il file app.config con le informaz
 Il seguente esempio di codice illustra come ottenere le attività seguenti:
 
 * Connettersi a Servizi multimediali
-* Crea un canale
+* Creare un canale
 * Aggiornare il canale
 * Recuperare l'endpoint di input del canale. È necessario fornire l'endpoint di input al codificatore live locale. Il codificatore live converte i segnali dalla fotocamera ai flussi che vengono inviati all'endpoint di input del canale (inserimento).
 * Recuperare l'endpoint di anteprima del canale
@@ -399,7 +399,7 @@ namespace AMSLiveTest
 }
 ```
 
-## <a name="next-step"></a>Passo successivo
+## <a name="next-step"></a>passaggio successivo
 Analizzare i percorsi di apprendimento dei Servizi multimediali
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

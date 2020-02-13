@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 5049bdfdc84df16c4b8070decf47fd2d726d7777
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: 6a82c4d6eecec3a3a9ef690536988c8402444ffc
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153027"
+ms.locfileid: "77168536"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Condividere e scoprire risorse in Azure AI Gallery
 
@@ -121,7 +121,7 @@ Se si desidera, è possibile apportare modifiche al flusso di lavoro (moduli, pa
 * Nome dell'esperimento
 * Riepilogo o descrizione
 * Tag
-* Immagine
+* Image
 * Impostazione di visibilità, tra **Public** (Pubblico) e **Unlisted** (Non in elenco)
 
 È anche possibile eliminare l'esperimento da Gallery.
@@ -149,16 +149,16 @@ Queste modifiche o eliminazioni possono essere apportate in Gallery dalla pagina
 
 1. Selezionare **Nuovo elemento**.
 
-1. Nella pagina **Descrizione**, per **Tipo di elemento**, selezionare **Esercitazione** o **Raccolta**. Immettere un nome, un breve riepilogo e una descrizione dettagliata, oltre a eventuali tag che potrebbero aiutare gli utenti a trovare il contributo in questione. Fare quindi clic su **Avanti**.
+1. Nella pagina **Descrizione**, per **Tipo di elemento**, selezionare **Esercitazione** o **Raccolta**. Immettere un nome, un breve riepilogo e una descrizione dettagliata, oltre a eventuali tag che potrebbero aiutare gli utenti a trovare il contributo in questione. Quindi fare clic su **Next**.
 
-1. Nella pagina **Selezione immagine** selezionare un'immagine visualizzata con il contributo. È possibile caricare il proprio file di immagine oppure selezionarne una. Scegliere un'immagine che possa aiutare gli utenti a identificare il contenuto e lo scopo del contributo. Fare quindi clic su **Avanti**.
+1. Nella pagina **Selezione immagine** selezionare un'immagine visualizzata con il contributo. È possibile caricare il proprio file di immagine oppure selezionarne una. Scegliere un'immagine che possa aiutare gli utenti a identificare il contenuto e lo scopo del contributo. Quindi fare clic su **Next**.
 
 1. Nella pagina **Impostazioni**, per **Visibilità**, selezionare se il contributo è **Public** (Pubblico) e quindi visibile a tutti gli utenti oppure **Unlisted** (Non in elenco), ovvero visibile solo agli utenti con un collegamento diretto.
 
    > [!TIP]
    > Per assicurarsi che la documentazione sia corretta prima di pubblicarla, è possibile usare l'opzione **Unlisted** (Non in elenco) prima di rendere pubblico l'esperimento. In un secondo momento sarà possibile modificare l'impostazione di visibilità su **Public** (Pubblico) nella pagina dei dettagli dell'esperimento. Si noti che, dopo aver impostato un esperimento su **Public** (Pubblico), successivamente non è possibile impostarlo su **Unlisted** (Non in elenco).
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 Il contributo si trova ora in Azure AI Gallery. I contributi vengono elencati nella pagina del proprio account, all'interno della scheda **Elementi**.
 

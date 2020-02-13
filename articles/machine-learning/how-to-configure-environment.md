@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 56d6e8642ffd127f0982485902c466b76cbaaeed
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 32db7b19b7ec63135c3359f9685dd767dd0921f5
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986513"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169852"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo per Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ Questo articolo illustra come configurare un ambiente di sviluppo per l'uso con 
 
 La tabella seguente illustra tutti gli ambienti di sviluppo trattati in questo articolo, oltre a vantaggi e svantaggi.
 
-| Ambiente | Vantaggi | Svantaggi |
+| Environment | Vantaggi | Svantaggi |
 | --- | --- | --- |
 | [Istanza di calcolo Azure Machine Learning basata sul cloud (anteprima)](#compute-instance) | Modo più semplice per iniziare. L'intero SDK è già installato nella macchina virtuale dell'area di lavoro e le esercitazioni sui notebook sono pre-clonate e pronte per l'esecuzione. | Mancanza di controllo sull'ambiente di sviluppo e sulle dipendenze. Costi aggiuntivi per le VM Linux (è possibile arrestare la macchina virtuale quando non è in uso per evitare addebiti). Vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
 | [Ambiente locale](#local) | Controllo completo dell'ambiente di sviluppo e delle dipendenze. Eseguire con qualsiasi strumento di compilazione, ambiente o IDE di propria scelta. | Per iniziare, è necessario più tempo. È necessario installare i pacchetti SDK necessari ed è necessario installare anche un ambiente, se non è già presente. |
@@ -39,7 +39,7 @@ Questo articolo fornisce anche suggerimenti sull'utilizzo aggiuntivi per gli str
 
 * [Visual Studio Code](#vscode): se si usa Visual Studio Code, l' [estensione Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) include il supporto completo del linguaggio per Python, oltre a funzionalità che consentono di lavorare con la Azure Machine Learning molto più comoda e produttiva.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Un'area di lavoro di Azure Machine Learning. Per creare l'area di lavoro, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md). Un'area di lavoro è sufficiente per iniziare a usare il proprio [Server notebook basato sul cloud](#compute-instance), un [DSVM](#dsvm)o [Azure Databricks](#aml-databricks).
 
@@ -57,10 +57,6 @@ Per installare l'ambiente SDK per il [computer locale](#local), [Jupyter Noteboo
 ## <a id="compute-instance"></a>Istanza di calcolo basata sul cloud
 
 L' [istanza di calcolo Azure Machine Learning (anteprima)](concept-compute-instance.md) è una workstation di Azure sicura basata sul cloud che fornisce ai data scientist un server Jupyter notebook, JupyterLab e un ambiente ml completamente preparato.
-
-> [!NOTE]
-> Le istanze di calcolo sono disponibili solo per le aree di lavoro con un'area geografica **Stati Uniti centro-settentrionali**, **Stati Uniti orientali 2**, **Europa settentrionale** o **Regno Unito meridionale**e il supporto per altre aree presto disponibile.
->Se l'area di lavoro si trova in qualsiasi altra area geografica, è possibile continuare a creare e usare una [macchina virtuale notebook](concept-compute-instance.md#notebookvm) in alternativa.
 
 Non sono presenti elementi da installare o configurare per un'istanza di calcolo.  Crearne uno in qualsiasi momento dall'area di lavoro Azure Machine Learning. Fornire un solo nome e specificare un tipo di macchina virtuale di Azure. Provare ora con questa [esercitazione: configurare l'ambiente e l'area di lavoro](tutorial-1st-experiment-sdk-setup.md).
 
@@ -293,14 +289,14 @@ Creare un [cluster databricks](https://docs.microsoft.com/azure/azure-databricks
 
 Usare le impostazioni seguenti:
 
-| Impostazione |Si applica a| Valore |
+| Impostazione |Si applica a| valore |
 |----|---|---|
 | Nome cluster |sempre| nomecluster |
 | Databricks Runtime |sempre|Runtime non ML 6,0 (scala 2,11, Spark 2.4.3) |
 | Versione Python |sempre| 3 |
 | Ruoli di lavoro |sempre| almeno 2 |
-| Worker node VM types (Tipi di VM dei nodi di ruolo di lavoro) <br>(determina il numero massimo di iterazioni simultanee) |Machine Learning automatizzato<br>only| È preferibile una macchina virtuale ottimizzata per la memoria |
-| Abilita la scalabilità automatica |Machine Learning automatizzato<br>only| Deselezionare |
+| Worker node VM types (Tipi di VM dei nodi di ruolo di lavoro) <br>(determina il numero massimo di iterazioni simultanee) |Funzionalità automatiche di Machine Learning<br>only| È preferibile una macchina virtuale ottimizzata per la memoria |
+| Enable Autoscaling (Abilita la scalabilità automatica) |Funzionalità automatiche di Machine Learning<br>only| Deselezionare |
 
 Attendere che il cluster sia in esecuzione prima di proseguire.
 
@@ -311,7 +307,7 @@ Quando il cluster è in esecuzione, [creare una libreria](https://docs.databrick
 
 1. Scegliere **una sola** opzione (non sono supportate altre installazioni SDK)
 
-   |Pacchetto di&nbsp;SDK&nbsp;funzionalità aggiuntive|Origine|PyPi&nbsp;nome&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |Pacchetto di&nbsp;SDK&nbsp;funzionalità aggiuntive|Source (Sorgente)|PyPi&nbsp;nome&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Per databricks| Caricare Python Egg o PyPI | azureml-sdk[databricks]|
    |Per databricks-con-<br> funzionalità di Machine Learning automatiche| Caricare Python Egg o PyPI | azureml-SDK [automl]|

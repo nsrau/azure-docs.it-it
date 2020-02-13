@@ -15,22 +15,22 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 443f1eb1576f2d6eb28d0de16f37e37912b707b9
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 9ac0f4d5c10cf128b6161163a81cc171bcafbd36
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547345"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158996"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Come usare le identità gestite per risorse di Azure in una macchina virtuale di Azure per acquisire un token di accesso 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 
-Le identità gestite per le risorse di Azure offrono ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza inserire le credenziali nel codice. 
+Le identità gestite per le risorse di Azure offrono ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
 
 Questo articolo fornisce vari esempi di codice e script per l'acquisizione di token, oltre a indicazioni su argomenti importanti come la gestione degli errori HTTP e di scadenza dei token. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -45,7 +45,7 @@ Se si prevede di usare gli esempi di Azure PowerShell presenti in questo articol
 
 ## <a name="overview"></a>Panoramica
 
-Un'applicazione client può richiedere un [token di accesso solo app](../develop/developer-glossary.md#access-token) per le identità gestite per risorse di Azure per accedere a una determinata risorsa. Il token è [basato sulle identità gestite per l'entità servizio delle risorse di Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work). Non è quindi necessario la registrazione del client per ottenere un token di accesso nell'ambito della propria entità servizio. Il token è adatto per l'uso come token di connessione nelle [chiamate da servizio a servizio che richiedono le credenziali client](../develop/v1-oauth2-client-creds-grant-flow.md).
+Un'applicazione client può richiedere un [token di accesso solo app](../develop/developer-glossary.md#access-token) per le identità gestite per risorse di Azure per accedere a una determinata risorsa. Il token è [basato sulle identità gestite per l'entità servizio delle risorse di Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work). Non è quindi necessario la registrazione del client per ottenere un token di accesso nell'ambito della propria entità servizio. Il token è adatto per l'uso come token di connessione nelle [chiamate da servizio a servizio che richiedono le credenziali client](../develop/v2-oauth2-client-creds-grant-flow.md).
 
 |  |  |
 | -------------- | -------------------- |
@@ -70,7 +70,7 @@ Richiesta di esempio che usa l'endpoint del servizio metadati dell'istanza (IMDS
 GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
 ```
 
-| Elemento | Description |
+| Elemento | Descrizione |
 | ------- | ----------- |
 | `GET` | Verbo HTTP, che indica che si vuole recuperare i dati dall'endpoint. In questo caso, un token di accesso OAuth. | 
 | `http://169.254.169.254/metadata/identity/oauth2/token` | L'endpoint delle identità gestite per risorse di Azure per il servizio metadati. |
@@ -88,7 +88,7 @@ GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.
 Metadata: true
 ```
 
-| Elemento | Description |
+| Elemento | Descrizione |
 | ------- | ----------- |
 | `GET` | Verbo HTTP, che indica che si vuole recuperare i dati dall'endpoint. In questo caso, un token di accesso OAuth. | 
 | `http://localhost:50342/oauth2/token` | L'endpoint delle identità gestite per risorse di Azure, dove 50342 è la porta predefinita ed è configurabile. |
@@ -113,7 +113,7 @@ Content-Type: application/json
 }
 ```
 
-| Elemento | Description |
+| Elemento | Descrizione |
 | ------- | ----------- |
 | `access_token` | Token di accesso richiesto. Quando si chiama un'API REST protetta, il token è incorporato nel campo di intestazione della richiesta `Authorization` come token di connessione, in modo da consentire all'API di autenticare il chiamante. | 
 | `refresh_token` | Non usata dalle identità gestite per risorse di Azure. |
@@ -362,7 +362,7 @@ L'endpoint delle identità gestite per risorse di Azure segnala gli errori trami
 
 Se si verifica un errore, il corpo della risposta HTTP corrispondente contiene dati JSON con i dettagli dell'errore:
 
-| Elemento | Description |
+| Elemento | Descrizione |
 | ------- | ----------- |
 | error   | Identificatore dell'errore. |
 | error_description | Descrizione dettagliata dell'errore. **Le descrizioni degli errori possono cambiare in qualsiasi momento. Non scrivere codice che si dirama in base ai valori nella descrizione dell'errore.**|
@@ -391,7 +391,7 @@ I limiti delle richieste si applicano al numero di chiamate effettuate all'endpo
 
 Per eseguire nuovi tentativi è consigliabile seguire la strategia seguente: 
 
-| **Strategia di ripetizione dei tentativi** | **Impostazioni** | **Valori** | **How it works** (Funzionamento) |
+| **Strategia di ripetizione dei tentativi** | **Impostazioni** | **Valori** | **Funzionamento** |
 | --- | --- | --- | --- |
 |ExponentialBackoff |Numero tentativi<br />Interruzione temporanea minima<br />Interruzione temporanea massima<br />Interruzione temporanea delta<br />Primo tentativo rapido |5<br />0 secondi<br />60 secondi<br />2 secondi<br />false |Tentativo di 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di ~2 sec<br />Tentativo 3 - intervallo di ~6 sec<br />Tentativo 4 - intervallo di ~14 sec<br />Tentativo 5 - intervallo di 30 sec |
 

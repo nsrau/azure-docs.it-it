@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 8062428ae63a572b81a5432c8b29910fe8422e24
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 812875be47cabdd23e6307403bb95d8d6ff174ec
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547456"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77167513"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Trigger Griglia di eventi per Funzioni di Azure
 
@@ -224,19 +224,7 @@ Questa sezione contiene gli esempi seguenti:
 * [Trigger griglia di eventi, parametro String](#event-grid-trigger-string-parameter)
 * [Trigger griglia di eventi, parametro POJO](#event-grid-trigger-pojo-parameter)
 
-Gli esempi seguenti illustrano l'associazione di trigger in un file *function.json* e [funzioni Java](functions-reference-java.md) che usano l'associazione e stampano un evento, la prima che riceve l'evento come ```String``` e la seconda come POJO.
-
-```json
-{
-  "bindings": [
-    {
-      "type": "eventGridTrigger",
-      "name": "eventGridEvent",
-      "direction": "in"
-    }
-  ]
-}
-```
+Negli esempi seguenti viene illustrata l'associazione di trigger in [Java](functions-reference-java.md) che usa l'associazione e stampa un evento, ricevendo prima l'evento come `String` e secondo come POJO.
 
 ### <a name="event-grid-trigger-string-parameter"></a>Trigger griglia di eventi, parametro stringa
 
@@ -336,7 +324,7 @@ L'annotazione [EventGridTrigger](https://github.com/Azure/azure-functions-java-l
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json*. Non sono presenti parametri o proprietà di costruttori da impostare nell'attributo `EventGridTrigger`.
 
-|Proprietà di function.json |Description|
+|Proprietà di function.json |Descrizione|
 |---------|---------|
 | **type** | Obbligatoria. Deve essere impostata su `eventGridTrigger`. |
 | **direction** | Obbligatoria. Deve essere impostata su `in`. |

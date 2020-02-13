@@ -3,12 +3,12 @@ title: Contrassegnare le risorse per l'organizzazione logica
 description: Mostra come applicare i tag per organizzare le risorse Azure per la fatturazione e la gestione.
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: 5751f2d1bc123c5918ae0fabc5b908b5f4fec71d
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: c7f8d8672e205fa677bff33c8ed173c1105b26c6
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087317"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77166588"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Usare tag per organizzare le risorse di Azure
 
@@ -43,7 +43,7 @@ Per applicare tag alle risorse, l'utente deve avere accesso in scrittura a quel 
 
 È possibile usare [Criteri di Azure](../../governance/policy/overview.md) per applicare le regole e le convenzioni dell'assegnazione di tag. Tramite la creazione di un criterio, è possibile evitare che lo scenario di risorse distribuito nella sottoscrizione non rispetti i tag previsti per l'organizzazione. Anziché procedere manualmente all'applicazione dei tag o alla ricerca delle risorse non conformi, è possibile creare un criterio che applica automaticamente i tag necessari durante la distribuzione. I tag possono essere ora applicati anche alle risorse esistenti con il nuovo effetto [modifica](../../governance/policy/concepts/effects.md#modify) e un' [attività di correzione](../../governance/policy/how-to/remediate-resources.md). La sezione seguente illustra i criteri di esempio per i tag.
 
-[!INCLUDE [Tag policies](../../../includes/azure-policy-samples-general-tags.md)]
+[!INCLUDE [Tag policies](../../../includes/azure-policy-samples-policies-tags.md)]
 
 ## <a name="powershell"></a>PowerShell
 
@@ -426,7 +426,7 @@ Per applicare i tag da un gruppo di risorse a una risorsa, usare la funzione [re
 }
 ```
 
-## <a name="portal"></a>Portal
+## <a name="portal"></a>Portale
 
 [!INCLUDE [resource-manager-tag-resource](../../../includes/resource-manager-tag-resources.md)]
 

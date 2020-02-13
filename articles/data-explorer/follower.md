@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: 20b667ae345e468bcd3db25d85b7c9de561af4bc
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 447e8a67cedbb8f78e4db9602f603fefd382693c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111472"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162940"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Usare il database di seguito per alleghi i database in Azure Esplora dati
 
@@ -206,8 +206,8 @@ In questa sezione viene illustrato come aggiungere un database a un oggetto CLUS
 
 |**Impostazione**  |**Descrizione**  |
 |---------|---------|
-|Nome del cluster di seguito     |  Nome del cluster di follower. Si tratta del cluster in cui verrà distribuito il modello.  |
-|Nome delle configurazioni del database associato    |    Nome dell'oggetto configurazioni del database associato. Il nome può essere qualsiasi stringa purché sia univoco a livello di cluster.     |
+|Nome del cluster di seguito     |  Nome del cluster di seguito. posizione in cui verrà distribuito il modello.  |
+|Nome delle configurazioni del database associato    |    Nome dell'oggetto configurazioni del database associato. Il nome può essere qualsiasi stringa univoca a livello di cluster.     |
 |Nome database     |      Nome del database da seguire. Se si desidera seguire tutti i database del leader, utilizzare "*".   |
 |ID risorsa cluster leader    |   ID risorsa del cluster leader.      |
 |Tipo di modifica delle entità predefinite    |   Tipo di modifica principale predefinito. Può essere `Union`, `Replace` o `None`. Per ulteriori informazioni sul tipo di modifica principale predefinito, vedere [comando di controllo del tipo di modifica principale](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind).      |

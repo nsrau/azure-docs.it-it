@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 23c292a950deea262ee063b4141b07a4f64f9f84
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 02/05/2020
+ms.openlocfilehash: c67fb21783a926f813d165528520b9d088154412
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77061319"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162396"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Usare Data Lake Storage Gen1 con i cluster Azure HDInsight
 
@@ -130,6 +130,8 @@ Per configurare l'accesso a Data Lake Storage dal cluster HDInsight, è necessar
 
 > [!NOTE]  
 > Se si prevede di usare Azure Data Lake Storage Gen1 come risorsa di archiviazione aggiuntiva per il cluster HDInsight, è consigliabile aggiungere questa risorsa durante la creazione del cluster, come descritto in questo articolo. L'aggiunta di Azure Data Lake Storage Gen1 come risorsa di archiviazione aggiuntiva a un cluster HDInsight esistente non è supportata.
+
+Per ulteriori informazioni sulle nozioni di base del modello di controllo di accesso per Data Lake Storage Gen1, vedere [controllo di accesso nella Azure Data Lake storage Gen1](../data-lake-store/data-lake-store-access-control.md).
 
 ## <a name="access-files-from-the-cluster"></a>Accedere ai file dal cluster
 

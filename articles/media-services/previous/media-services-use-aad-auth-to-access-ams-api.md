@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: d80a58f1886ecc1ca2a735881fc5822f2fc0c53b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8b38b38789edfd5a0a30fdd589849bfa345eaac9
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60826144"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157857"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD  
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 L'API di Servizi multimediali di Azure è di tipo RESTful. È possibile usarla per eseguire operazioni sulle risorse multimediali tramite un'API REST o tramite gli SDK client disponibili. Servizi multimediali di Azure offre un SDK client di Servizi multimediali per Microsoft .NET. Per essere autorizzati ad accedere alle risorse e all'API di Servizi multimediali, è innanzitutto necessario essere autenticati. 
 
@@ -32,7 +32,7 @@ Servizi multimediali supporta l'[autenticazione basata su Azure Active Directory
 Questo documento offre una panoramica su come accedere all'API di Servizi multimediali tramite l'API REST o .NET.
 
 > [!NOTE]
-> Autorizzazione di controllo di accesso è stato deprecato il 1 giugno 2018.
+> L'autorizzazione di controllo di accesso è stata deprecata il 1 ° giugno 2018.
 
 ## <a name="access-control"></a>Controllo di accesso
 
@@ -44,10 +44,10 @@ Le richieste non autorizzate hanno esito negativo e restituiscono il codice di s
 
 ## <a name="types-of-authentication"></a>Tipi di autenticazione 
  
-Quando si utilizza l'autenticazione di Azure AD con Servizi multimediali di Azure, sono disponibili due opzioni di autenticazione:
+Quando si usa l'autenticazione di Azure AD con Servizi multimediali di Azure, sono disponibili due opzioni di autenticazione:
 
-- **Autenticazione utente**. Consente di eseguire l'autenticazione di una persona che usa l'app per interagire con le risorse di Servizi multimediali. L'applicazione interattiva deve prima richiedere all'utente le credenziali. Un esempio è un'app della console di gestione usata dagli utenti autorizzati per monitorare i processi di codifica o lo streaming live. 
-- **Autenticazione basata su entità servizio**. Consente di eseguire l'autenticazione di un servizio. Le applicazioni che in genere usano questo metodo di autenticazione sono app che eseguono servizi daemon, servizi di livello intermedio o processi pianificati. Esempi sono le app Web, le app per le funzioni, le app per la logica, l'interfaccia API e i microservizi.
+- **Autenticazione utente**. Consente di autenticare una persona che usa l'app per interagire con le risorse di Servizi multimediali. L'applicazione interattiva deve prima richiedere all'utente le credenziali. Un esempio è un'app della console di gestione usata dagli utenti autorizzati per monitorare i processi di codifica o lo streaming live. 
+- **Autenticazione basata su entità servizio**. Consente di autenticare un servizio. Le applicazioni che in genere usano questo metodo di autenticazione sono app che eseguono servizi daemon, servizi di livello intermedio o processi pianificati. Esempi sono le app Web, le app per le funzioni, le app per la logica, l'interfaccia API e i microservizi.
 
 ### <a name="user-authentication"></a>Autenticazione utente 
 
@@ -95,7 +95,7 @@ Nel diagramma precedente i numeri rappresentano il flusso delle richieste in ord
 
 Per informazioni su come usare l'autenticazione di Azure AD per comunicare con le richieste REST tramite l'SDK del client .NET di Servizi multimediali, vedere [Uso dell'autenticazione Azure AD per accedere all'API di Servizi multimediali con .NET](media-services-dotnet-get-started-with-aad.md). 
 
-Se non si usa l'SDK del client .NET di Servizi multimediali , è necessario creare manualmente una richiesta di token di accesso di Azure AD tramite i parametri descritti nel passaggio 2. Per altre informazioni, vedere [Come usare Azure AD Authentication Library per ottenere il token di Azure AD](../../active-directory/develop/active-directory-authentication-libraries.md).
+Se non si usa l'SDK del client .NET di Servizi multimediali , è necessario creare manualmente una richiesta di token di accesso di Azure AD tramite i parametri descritti nel passaggio 2. Per altre informazioni, vedere [Come usare Azure AD Authentication Library per ottenere il token di Azure AD](../../active-directory/azuread-dev/active-directory-authentication-libraries.md).
 
 ### <a name="service-principal-authentication"></a>Autenticazione di un'entità servizio
 
@@ -137,11 +137,11 @@ Nel diagramma precedente i numeri rappresentano il flusso delle richieste in ord
 
 Per altre informazioni su come usare l'autenticazione di Azure AD per comunicare con le richieste REST tramite l'SDK del client .NET di Servizi multimediali, vedere [Uso dell'autenticazione Azure AD per accedere all'API di Servizi multimediali di Azure con .NET](media-services-dotnet-get-started-with-aad.md). 
 
-Se non si usa l'SDK del client .NET di Servizi multimediali , è necessario creare manualmente una richiesta di token di Azure AD tramite i parametri descritti nel passaggio 1. Per altre informazioni, vedere [Come usare Azure AD Authentication Library per ottenere il token di Azure AD](../../active-directory/develop/active-directory-authentication-libraries.md).
+Se non si usa l'SDK del client .NET di Servizi multimediali , è necessario creare manualmente una richiesta di token di Azure AD tramite i parametri descritti nel passaggio 1. Per altre informazioni, vedere [Come usare Azure AD Authentication Library per ottenere il token di Azure AD](../../active-directory/azuread-dev/active-directory-authentication-libraries.md).
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
-Eccezione: "Il server remoto ha restituito un errore: (401) Non autorizzato".
+Eccezione: "Il server remoto ha restituito un errore: (401) Non autorizzato."
 
 Soluzione: perché la richiesta REST di Servizi multimediali abbia esito positivo, l'utente chiamante deve avere il ruolo di Collaboratore o Proprietario per l'account di Servizi multimediali al quale sta tentando di accedere. Per altre informazioni, vedere la sezione [Controllo dell'accesso](media-services-use-aad-auth-to-access-ams-api.md#access-control).
 

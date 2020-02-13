@@ -15,7 +15,9 @@
           href: b2b-quickstart-invite-powershell.md
     - name: Esercitazioni
       items:
-        - name: Invitare in blocco gli utenti guest B2B
+        - name: Invitare in blocco tramite PowerShell
+          href: bulk-invite-powershell.md
+        - name: Invitare in blocco tramite il portale (anteprima)
           href: tutorial-bulk-invite.md
         - name: Applicare l'autenticazione a più fattori
           href: b2b-tutorial-require-mfa.md
@@ -97,7 +99,7 @@
           href: auditing-and-reporting.md
         - name: Risoluzione dei problemi di B2B
           href: troubleshoot.md
-    - name: Riferimento
+    - name: Informazioni di riferimento
       items:
         - name: API di gestione degli inviti
           href: customize-invitation-api.md

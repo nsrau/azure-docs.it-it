@@ -12,18 +12,18 @@ ms.date: 10/20/2018
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d3994b56b55a7aac0ba3ab64d53b6436bc19c45b
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: f3585cfa7ea6f0d8afc61e899f9641d415a2e354
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698544"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161189"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Rollover della chiave di firma in Azure Active Directory
 Questo articolo illustra che cosa è necessario sapere sulle chiavi pubbliche usate per la firma dei token di sicurezza in Azure Active Directory (Azure AD). È importante sottolineare che queste chiavi si riattivano periodicamente e, in caso di emergenza, possono essere immediatamente sottoposte a rollback. Tutte le applicazioni che usano Azure AD devono poter gestire a livello di codice il processo di rollover della chiave o stabilire un processo di rollover manuale periodico. Continuare la lettura per comprendere il funzionamento delle chiavi, come valutare l'impatto del rollover nell'applicazione e come aggiornare l'applicazione o stabilire un processo di rollover manuale periodico per gestire il rollover della chiave, se necessario.
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Informazioni generali sulle chiavi di firma in Azure AD
-Azure AD usa la crittografia a chiave pubblica basata su standard di settore per stabilire una relazione di trust tra se stesso e le applicazioni che usano Azure AD. In termini pratici, Azure AD usa una chiave di firma costituita da una coppia di chiavi pubbliche e private. Quando un utente accede a un'applicazione che usa Azure AD per l'autenticazione, Azure AD crea un token di sicurezza contenente informazioni sull'utente. Questo token viene firmato da Azure AD con la chiave privata prima che venga inviato di nuovo all'applicazione. Per verificare che il token sia valido e sia stato originato da Azure AD, l'applicazione deve convalidare la firma del token usando la chiave pubblica esposta da Azure AD contenuta nel [documento di individuazione di OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html) del tenant o nel [documento dei metadati della federazione](azure-ad-federation-metadata.md) SAML/WS-Fed.
+Azure AD usa la crittografia a chiave pubblica basata su standard di settore per stabilire una relazione di trust tra se stesso e le applicazioni che usano Azure AD. In termini pratici, Azure AD usa una chiave di firma costituita da una coppia di chiavi pubbliche e private. Quando un utente accede a un'applicazione che usa Azure AD per l'autenticazione, Azure AD crea un token di sicurezza contenente informazioni sull'utente. Questo token viene firmato da Azure AD con la chiave privata prima che venga inviato di nuovo all'applicazione. Per verificare che il token sia valido e sia stato originato da Azure AD, l'applicazione deve convalidare la firma del token usando la chiave pubblica esposta da Azure AD contenuta nel [documento di individuazione di OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html) del tenant o nel [documento dei metadati della federazione](../azuread-dev/azure-ad-federation-metadata.md) SAML/WS-Fed.
 
 Per motivi di sicurezza, il rollover della chiave di firma di Azure AD viene eseguito periodicamente e può essere eseguito immediatamente in caso di emergenza. Qualsiasi applicazione che si integra con Azure AD deve poter gestire un evento di rollover della chiave indipendentemente dalla frequenza con cui può verificarsi. Se l'applicazione non ha la logica necessaria e prova a usare una chiave scaduta per verificare la firma su un token, la richiesta di accesso avrà esito negativo.
 

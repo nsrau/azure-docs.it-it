@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 08/22/2019
-ms.openlocfilehash: 8f82f0539432418f967d51f00e659ce92d1fa9b6
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/11/2020
+ms.openlocfilehash: 7011bf068a96fe9da035ec08a1f6ef7f80a0b240
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719807"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161954"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
@@ -27,9 +27,6 @@ Il controllo per il [database SQL](sql-database-technical-overview.md) di azure 
 
 > [!NOTE] 
 > Questo argomento è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-
 
 ## <a id="subheading-1"></a>Panoramica del servizio di controllo del database SQL di Azure
 
@@ -44,11 +41,11 @@ Il controllo per il [database SQL](sql-database-technical-overview.md) di azure 
 >
 > - Sono supportati tutti i tipi di archiviazione (v1, v2, BLOB).
 > - Sono supportate tutte le configurazioni di replica di archiviazione.
+> - L'archiviazione dietro una rete virtuale e un firewall è supportata.
 > - **Archiviazione Premium** attualmente **non è supportata**.
-> - **Storage in VNet** attualmente **non è supportato**.
-> - **L'archiviazione dietro un firewall** non è attualmente **supportata**.
 > - **Lo spazio dei nomi gerarchico** per **Azure Data Lake storage Gen2 account di archiviazione** non è al momento **supportato**.
-
+> - L'abilitazione del controllo in una **Azure SQL data warehouse** sospesa non è supportata. Per abilitare il controllo, riprendere il data warehouse.
+   
 ## <a id="subheading-8"></a>Definire criteri di controllo a livello di server o a livello di database
 
 I criteri di controllo possono essere definiti per un database specifico o come criteri server predefiniti:
@@ -66,60 +63,51 @@ I criteri di controllo possono essere definiti per un database specifico o come 
    >
    > Negli altri casi, è consigliabile abilitare solo il controllo BLOB a livello di server e lasciare disabilitato il controllo a livello di database per tutti i database.
 
-## <a id="subheading-2"></a>Configurare il controllo per il database
+## <a id="subheading-2"></a>Configurare il controllo per il server
 
 Nella sezione seguente è descritta la configurazione del controllo mediante il portale di Azure.
 
+  > [!NOTE]
+   >Sono ora disponibili più opzioni per la configurazione della posizione in cui vengono scritti i log di controllo. È possibile scrivere i log in un account di archiviazione di Azure, in un'area di lavoro Log Analytics per l'uso da log di monitoraggio di Azure o nell'hub eventi per l'uso con hub eventi. È possibile configurare qualsiasi combinazione di queste opzioni e verranno scritti i log di controllo per ognuno.
+
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare a **Controllo** nell'intestazione Sicurezza nel riquadro del database SQL o del server.
-
-    <a id="auditing-screenshot"></a>riquadro di spostamento ![][1]
-
 3. Se si preferisce configurare un criterio di controllo del server, è possibile selezionare il collegamento **Visualizza impostazioni del server** nella pagina relativa al controllo del database. Si possono quindi visualizzare o modificare le impostazioni di controllo del server. I criteri di controllo del server si applicano a tutti i database esistenti e ai nuovi database creati in questo server.
 
     ![Riquadro di spostamento][2]
 
-4. Se si preferisce abilitare il controllo a livello di database, impostare **Controllo** su **ATTIVA**.
-
-    Se il controllo del server è abilitato, il controllo configurato del database coesisterà con il controllo del server.
+4. Se si preferisce abilitare il controllo a livello di database, impostare **Controllo** su **ATTIVA**. Se il controllo del server è abilitato, il controllo configurato del database coesisterà con il controllo del server.
 
     ![Riquadro di spostamento][3]
 
-5. **Nuovo** -sono ora disponibili più opzioni per la configurazione in cui verranno scritti i log di controllo. È possibile scrivere i log in un account di archiviazione di Azure, in un'area di lavoro Log Analytics per l'uso da log di monitoraggio di Azure o nell'hub eventi per l'uso con hub eventi. È possibile configurare qualsiasi combinazione di queste opzioni e verranno scritti i log di controllo per ognuno.
-  
-  > [!NOTE]
-   >Il cliente che desidera configurare un archivio di log non modificabile per gli eventi di controllo a livello di server o di database deve seguire le [istruzioni fornite da archiviazione di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes)
-  
-  > [!WARNING]
-   > L'abilitazione del controllo per Log Analytics comporterà costi in base ai tassi di inserimento. Per conoscere i costi associati, usare questa [opzione](https://azure.microsoft.com/pricing/details/monitor/)oppure prendere in considerazione l'archiviazione dei log di controllo in un account di archiviazione di Azure.
+### <a id="audit-storage-destination">Controllo nella destinazione di archiviazione</a>
 
-    ![opzioni di archiviazione](./media/sql-database-auditing-get-started/auditing-select-destination.png)
-
-6. Per configurare la scrittura dei log per un account di archiviazione, selezionare **memorizzazione** e aprire **dettagli archiviazione**. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e quindi selezionare il periodo di conservazione. I log meno recenti verranno eliminati. Fare quindi clic su **OK**,
+Per configurare la scrittura dei log per un account di archiviazione, selezionare **memorizzazione** e aprire **dettagli archiviazione**. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e quindi selezionare il periodo di conservazione. Fare quindi clic su **OK**. I log antecedenti al periodo di conservazione vengono eliminati.
 
    > [!IMPORTANT]
    > - Il valore predefinito per il periodo di memorizzazione è 0 (conservazione illimitata). È possibile modificare questo valore spostando il dispositivo di scorrimento **conservazione (giorni)** nelle **impostazioni di archiviazione** quando si configura l'account di archiviazione per il controllo.
    > - Se si modifica il periodo di conservazione da 0 (conservazione illimitata) a qualsiasi altro valore, si noti che la conservazione verrà applicata solo ai log scritti dopo la modifica del valore di conservazione (i log scritti durante il periodo in cui la conservazione è stata impostata su illimitata vengono conservati, anche dopo conservazione abilitata)
 
-    ![account di archiviazione](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+   ![archiviazione di Azure](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-7. Per configurare la scrittura dei log di controllo in un'area di lavoro Log Analytics, selezionare **Log Analytics (anteprima)** e aprire **Dettagli di Log Analytics**. Selezionare o creare l'area di lavoro Log Analytics in cui verranno scritti i log e quindi scegliere **OK**.
+Per configurare un account di archiviazione in una rete virtuale o un firewall, è necessario un [Active Directory amministratore](/sql-database-aad-authentication-configure.md?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) sul server, abilitare **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione** nell'account di archiviazione. Inoltre, è necessario disporre dell'autorizzazione ' Microsoft. Authorization/roleAssignments/Write ' per l'account di archiviazione selezionato.
 
-    ![Area di lavoro Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+È consigliabile essere [amministratore accesso utenti](../role-based-access-control/built-in-roles.md#user-access-administrator) per concedere all'identità gestita il ruolo "collaboratore dati BLOB di archiviazione". Per altre informazioni sulle autorizzazioni e sul controllo degli accessi in base al ruolo, vedere [che cos'è il controllo degli accessi in base al ruolo per le risorse di Azure?](../role-based-access-control/overview.md) e [aggiungere o rimuovere assegnazioni di ruolo usando RBAC di azure e il portale di Azure](../role-based-access-control/role-assignments-portal.md)
 
-8. Per configurare la scrittura dei log a un hub eventi, selezionare **Hub eventi (anteprima)** e aprire **i dettagli dell'Hub eventi**. Selezionare l'hub eventi in cui verranno scritti i log e quindi fare clic su **OK**. Assicurarsi che l'hub eventi si trovi nella stessa area del database e server.
+### <a id="audit-log-analytics-destination">Controlla per Log Analytics destinazione</a>
+  
+Per configurare la scrittura dei log di controllo in un'area di lavoro Log Analytics, selezionare **Log Analytics (anteprima)** e aprire **Dettagli di Log Analytics**. Selezionare o creare l'area di lavoro Log Analytics in cui verranno scritti i log e quindi scegliere **OK**.
 
-    ![Hub eventi](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
+   ![LogAnalyticsworkspace](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+    
+  > [!WARNING]
+   > L'abilitazione del controllo per Log Analytics comporterà costi in base ai tassi di inserimento. Per conoscere i costi associati, usare questa [opzione](https://azure.microsoft.com/pricing/details/monitor/)oppure prendere in considerazione l'archiviazione dei log di controllo in un account di archiviazione di Azure.
 
-9. Fare clic su **Save**.
-10. Per personalizzare gli eventi controllati, è possibile usare i [cmdlet PowerShell](#subheading-7) o l'[API REST](#subheading-9).
-11. Dopo aver configurato le impostazioni di controllo, è possibile attivare la nuova funzionalità di rilevamento delle minacce e configurare gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. Quando si usa il rilevamento delle minacce, si ricevono avvisi proattivi sulle attività di database anomale che possono indicare potenziali minacce per la sicurezza. Per altre informazioni, vedere [Introduzione al rilevamento delle minacce](sql-database-threat-detection-get-started.md).
+### <a id="audit-event-hub-destination">Controllare la destinazione dell'hub eventi</a>
 
-> [!IMPORTANT]
-> Non è possibile abilitare il controllo in una Azure SQL Data Warehouse sospesa. Per abilitarla, annullare la sospensione dell'data warehouse.
+Per configurare la scrittura dei log a un hub eventi, selezionare **Hub eventi (anteprima)** e aprire **i dettagli dell'Hub eventi**. Selezionare l'hub eventi in cui verranno scritti i log e quindi fare clic su **OK**. Assicurarsi che l'hub eventi si trovi nella stessa area del database e server.
 
-> [!WARNING]
-> L'abilitazione del controllo in un server che dispone di un Azure SQL Data Warehouse su di essa comporterà **la ripresa della data warehouse e la nuova sospensione, il** che potrebbe comportare addebiti per la fatturazione.
+   ![Eventhub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
 
 ## <a id="subheading-3"></a>Analizzare i log di controllo e i report
 
@@ -171,7 +159,7 @@ Se si sceglie di scrivere i log di controllo in un account di archiviazione di A
 
        ![Riquadro di spostamento][8]
 
-- Usare la funzione di sistema **sys.fn_get_audit_file** (T-SQL) per tornare ai dati dei log di controllo in formato tabulare. Per altre informazioni su questa funzione, vedere [sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
+- Usare la funzione di sistema **sys.fn_get_audit_file** (T-SQL) per tornare ai dati dei log di controllo in formato tabulare. Per altre informazioni su questa funzione, vedere [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Usare **Unisci file di controllo** in SQL Server Management Studio (a partire da SSMS 17):
     1. Dalla barra dei menu di SSMS selezionare **File** > **Apri** > **Unisci file di controllo**.
@@ -226,6 +214,9 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 
+- Per personalizzare gli eventi controllati, è possibile usare i [cmdlet PowerShell](#subheading-7) o l'[API REST](#subheading-9).
+
+- Dopo aver configurato le impostazioni di controllo, è possibile attivare la nuova funzionalità di rilevamento delle minacce e configurare gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. Quando si usa il rilevamento delle minacce, si ricevono avvisi proattivi sulle attività di database anomale che possono indicare potenziali minacce per la sicurezza. Per altre informazioni, vedere [Introduzione al rilevamento delle minacce](sql-database-threat-detection-get-started.md).
 - Per dettagli sul formato dei log, sulla gerarchia della cartella di archiviazione e sulle convenzioni di denominazione, vedere le [informazioni di riferimento sul formato dei log del controllo BLOB](https://go.microsoft.com/fwlink/?linkid=829599).
 
     > [!IMPORTANT]
@@ -233,7 +224,6 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 
 - I log di controllo vengono scritti in **Accodare BLOB**nell'archivio BLOB di Azure della sottoscrizione di Azure:
   - **Archiviazione Premium** attualmente **non è supportata** da Accodare BLOB.
-  - **Storage in VNet** attualmente **non è supportato**.
 
 - I criteri di controllo predefinito includono tutte le azioni e il set di gruppi di azioni seguente, che controllerà tutte le query e le stored procedure eseguite sul database, nonché gli accessi riusciti e non riusciti:
 
@@ -247,7 +237,7 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 
 - Il controllo del database SQL di Azure è ottimizzato per le prestazioni & disponibilità. Durante un'attività molto elevata, il database SQL di Azure consente di continuare le operazioni e non può registrare alcuni eventi controllati.
 
-- Per la configurazione del controllo non modificabile nell'account di archiviazione, vedere [Allow protected Append Blobs writes](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage#allow-protected-append-blobs-writes). Si noti che il nome del contenitore per il controllo è **sqldbauditlogs**.
+- Per la configurazione del controllo non modificabile nell'account di archiviazione, vedere [Allow protected Append Blobs writes](../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes). Si noti che il nome del contenitore per il controllo è **sqldbauditlogs**.
 
     > [!IMPORTANT]
     > L'impostazione Consenti le scritture dei BLOB con aggiunta protetta nel periodo di conservazione basato sul tempo è attualmente disponibile e visibile solo nelle aree seguenti:
@@ -260,12 +250,12 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 
 **Cmdlet PowerShell (incluso il supporto della clausola WHERE per altri filtri)** :
 
-- [Crea o aggiorna i criteri di controllo del database (set-AzSqlDatabaseAudit)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseaudit)
-- [Crea o aggiorna i criteri di controllo del server (set-AzSqlServerAudit)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit)
-- [Ottenere i criteri di controllo del database (Get-AzSqlDatabaseAudit)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseaudit)
-- [Ottenere i criteri di controllo del server (Get-AzSqlServerAudit)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveraudit)
-- [Rimuovere i criteri di controllo del database (Remove-AzSqlDatabaseAudit)](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabaseaudit)
-- [Rimuovere i criteri di controllo del server (Remove-AzSqlServerAudit)](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlserveraudit)
+- [Crea o aggiorna i criteri di controllo del database (set-AzSqlDatabaseAudit)](/powershell/module/az.sql/set-azsqldatabaseaudit)
+- [Crea o aggiorna i criteri di controllo del server (set-AzSqlServerAudit)](/powershell/module/az.sql/set-azsqlserveraudit)
+- [Ottenere i criteri di controllo del database (Get-AzSqlDatabaseAudit)](/powershell/module/az.sql/get-azsqldatabaseaudit)
+- [Ottenere i criteri di controllo del server (Get-AzSqlServerAudit)](/powershell/module/az.sql/get-azsqlserveraudit)
+- [Rimuovere i criteri di controllo del database (Remove-AzSqlDatabaseAudit)](/powershell/module/az.sql/remove-azsqldatabaseaudit)
+- [Rimuovere i criteri di controllo del server (Remove-AzSqlServerAudit)](/powershell/module/az.sql/remove-azsqlserveraudit)
 
 Per un esempio di script, vedere [Configurare il controllo del database SQL e il rilevamento delle minacce usando PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
@@ -273,21 +263,21 @@ Per un esempio di script, vedere [Configurare il controllo del database SQL e il
 
 **API REST**:
 
-- [Creare o aggiornare i criteri controllo del database](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
-- [Creare o aggiornare i criteri controllo del server](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [Ottenere i criteri controllo del database](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
-- [Ottenere i criteri controllo del server](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [Creare o aggiornare i criteri controllo del database](/rest/api/sql/database%20auditing%20settings/createorupdate)
+- [Creare o aggiornare i criteri controllo del server](/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [Ottenere i criteri controllo del database](/rest/api/sql/database%20auditing%20settings/get)
+- [Ottenere i criteri controllo del server](/rest/api/sql/server%20auditing%20settings/get)
 
 Criteri estesi con il supporto della clausola WHERE per altri filtri:
 
-- [Crea o aggiorna i criteri di controllo *esteso* del database](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
-- [Crea o aggiorna i criteri di controllo *esteso* del server](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [Ottenere i criteri di controllo *esteso* del database](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
-- [Ottenere i criteri di controllo *estesi* del server](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [Crea o aggiorna i criteri di controllo *esteso* del database](/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+- [Crea o aggiorna i criteri di controllo *esteso* del server](/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [Ottenere i criteri di controllo *esteso* del database](/rest/api/sql/database%20extended%20auditing%20settings/get)
+- [Ottenere i criteri di controllo *estesi* del server](/rest/api/sql/server%20auditing%20settings/get)
 
 ## <a id="subheading-9"></a>Gestire SQL Server di Azure e il controllo del database usando modelli di Azure Resource Manager
 
-È possibile gestire il controllo del database SQL di Azure usando i modelli di [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), come illustrato negli esempi seguenti:
+È possibile gestire il controllo del database SQL di Azure usando i modelli di [Azure Resource Manager](../azure-resource-manager/management/overview.md), come illustrato negli esempi seguenti:
 
 - [Distribuire un server SQL di Azure con il controllo abilitato per la scrittura dei log di controllo in un account di Archiviazione BLOB di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
 - [Distribuire un server SQL di Azure con il controllo abilitato per la scrittura dei log di controllo in Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
@@ -316,4 +306,4 @@ Criteri estesi con il supporto della clausola WHERE per altri filtri:
 [7]: ./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png
 [8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png
 [9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
-[10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png
+[10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png 

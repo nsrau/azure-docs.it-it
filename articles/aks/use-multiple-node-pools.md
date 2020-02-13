@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: mlearned
-ms.openlocfilehash: e494a5141a96409fc6691df3a5f1194600ad0c32
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: bbfb65c31bf6fd46cc18c9eee66086afbbff1d5f
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086503"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157975"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creare e gestire più pool di nodi per un cluster in Azure Kubernetes Service (AKS)
 
@@ -31,17 +31,16 @@ Questo articolo illustra come creare e gestire più pool di nodi in un cluster A
 
 Quando si creano e si gestiscono cluster AKS che supportano più pool di nodi, si applicano le limitazioni seguenti:
 
+* Vedere [quote, restrizioni sulle dimensioni delle macchine virtuali e disponibilità di aree in Azure Kubernetes Service (AKS)][quotas-skus-regions].
 * Non è possibile eliminare il pool di nodi predefinito (primo).
 * Non è possibile usare il componente aggiuntivo routing applicazione HTTP.
 * Il cluster AKS deve usare il servizio di bilanciamento del carico SKU standard per usare più pool di nodi. la funzionalità non è supportata con i bilanciamenti del carico SKU Basic.
 * Il cluster AKS deve usare i set di scalabilità di macchine virtuali per i nodi.
 * Il nome di un pool di nodi può contenere solo caratteri alfanumerici minuscoli e deve iniziare con una lettera minuscola. Per i pool di nodi Linux la lunghezza deve essere compresa tra 1 e 12 caratteri, per i pool di nodi Windows la lunghezza deve essere compresa tra 1 e 6 caratteri.
-* Il cluster AKS può avere un massimo di 10 pool di nodi.
-* Il cluster AKS può avere un massimo di 1000 nodi tra questi 10 pool di nodi.
 * Tutti i pool di nodi devono trovarsi nella stessa VNET e nella stessa subnet.
 * Quando si creano più pool di nodi in fase di creazione del cluster, tutte le versioni di Kubernetes utilizzate dai pool di nodi devono corrispondere al set di versioni per il piano di controllo. Questa operazione può essere aggiornata dopo il provisioning del cluster tramite operazioni del pool per nodo.
 
-## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
+## <a name="create-an-aks-cluster"></a>Creare un cluster AKS
 
 Per iniziare, creare un cluster AKS con un pool a nodo singolo. L'esempio seguente usa il comando [AZ Group create][az-group-create] per creare un gruppo di risorse denominato *myResourceGroup* nell'area *eastus* . Un cluster AKS denominato *myAKSCluster* viene quindi creato usando il comando [AZ AKS create][az-aks-create] . Viene usata una *versione--kubernetes-Version* di *1.15.7* per illustrare come aggiornare un pool di nodi in un passaggio successivo. È possibile specificare qualsiasi [versione di Kubernetes supportata][supported-versions].
 
@@ -604,6 +603,7 @@ Per creare e usare pool di nodi contenitore di Windows Server, vedere [creare un
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 
 <!-- INTERNAL LINKS -->
+[quotas-skus-regions]: quotas-skus-regions.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
 [az-aks-create]: /cli/azure/aks#az-aks-create

@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: ec3a7b6420144278df66f693d9fd9933449b3d80
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: a31dc1c6d1a7f4dce6e7baae5a0e0e8f3d6d3d34
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76748807"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77179119"
 ---
 ## <a name="trigger"></a>Trigger
 
@@ -289,17 +289,7 @@ def main(event: func.EventHubEvent):
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-L'esempio seguente illustra un'associazione di trigger di hub eventi in un file *Function. JSON* e una [funzione Java](../articles/azure-functions/functions-reference-java.md) che usa l'associazione. La funzione registra il corpo del messaggio del trigger per Hub eventi.
-
-```json
-{
-  "type": "eventHubTrigger",
-  "name": "msg",
-  "direction": "in",
-  "eventHubName": "myeventhubname",
-  "connection": "myEventHubReadConnectionAppSetting"
-}
-```
+L'esempio seguente illustra un'associazione di trigger di hub eventi che registra il corpo del messaggio del trigger di hub eventi.
 
 ```java
 @FunctionName("ehprocessor")
@@ -697,7 +687,7 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 }  
 ```
 
-|Proprietà  |Default | Descrizione |
+|Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------|
 |`maxBatchSize`|10|Il numero massimo degli eventi ricevuto per ogni ciclo di ricezione.|
 |`prefetchCount`|300|Conteggio predefinito di pre-recupero utilizzato dal `EventProcessorHost`sottostante.|

@@ -11,18 +11,20 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 409ce8b904997f2ab75f70b2138ec5b1e70a0e69
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: f1379202fc59e9cca7a3543be201f8ebff276bef
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816657"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168349"
 ---
 # <a name="speech-service-supported-regions"></a>Aree supportate del servizio riconoscimento vocale
 
 Il servizio Voce consente alle applicazioni di eseguire operazioni di riconoscimento e sintesi vocale, ovvero conversione di audio in testo e viceversa, e anche di traduzione vocale. Il servizio è disponibile in più aree con endpoint univoci per Speech SDK e le API REST.
 
-Verificare di usare l'endpoint corrispondente all'area relativa alla propria sottoscrizione.
+Il portale vocale per eseguire configurazioni personalizzate nell'esperienza vocale per tutte le aree è disponibile qui: https://speech.microsoft.com
+
+Per le chiamate del servizio di riconoscimento vocale, assicurarsi che la chiamata corrisponda all'area per la sottoscrizione.
 
 ## <a name="speech-sdk"></a>Speech SDK
 
@@ -30,41 +32,26 @@ In [Speech SDK](speech-sdk.md) le aree vengono specificate sotto forma di string
 
 ### <a name="speech-to-text-text-to-speech-and-translation"></a>Sintesi vocale, sintesi vocale, traduzione vocale
 
-Speech SDK è disponibile in queste aree per il **riconoscimento vocale**, **la sintesi vocale**e la **traduzione**:
+Il portale di personalizzazione vocale è disponibile qui: https://speech.microsoft.com
 
-| Area geografica           | Parametro Speech SDK | Portale di personalizzazione del servizio Voce    |
-| ---------------- | -------------------- | ------------------------------ |
-| Stati Uniti occidentali          | `westus`             | https://westus.cris.ai         |
-| Stati Uniti occidentali 2        | `westus2`            | https://westus2.cris.ai        |
-| Stati Uniti Orientali          | `eastus`             | https://eastus.cris.ai         |
-| Stati Uniti orientali 2        | `eastus2`            | https://eastus2.cris.ai        |
-| Stati Uniti centrali       | `centralus`          | https://centralus.cris.ai      |
-| Stati Uniti centro-settentrionali | `northcentralus`     | https://northcentralus.cris.ai |
-| Stati Uniti centro-meridionali | `southcentralus`     | https://southcentralus.cris.ai |
-| India centrale    | `centralindia`       | https://centralindia.cris.ai   |
-| Asia orientale        | `eastasia`           | https://eastasia.cris.ai       |
-| Asia sud-orientale   | `southeastasia`      | https://southeastasia.cris.ai  |
-| Giappone orientale       | `japaneast`          | https://japaneast.cris.ai      |
-| Corea centrale    | `koreacentral`       | https://koreacentral.cris.ai   |
-| Australia orientale   | `australiaeast`      | https://australiaeast.cris.ai  |
-| Canada centrale   | `canadacentral`      | https://canadacentral.cris.ai  |
-| Europa settentrionale     | `northeurope`        | https://northeurope.cris.ai    |
-| Europa occidentale      | `westeurope`         | https://westeurope.cris.ai     |
-| Regno Unito meridionale         | `uksouth`            | https://uksouth.cris.ai        |
-| Francia centrale   | `francecentral`      | https://francecentral.cris.ai  |
+Il servizio riconoscimento vocale è disponibile nelle aree geografiche per **riconoscimento vocale**, **sintesi**vocale e **traduzione**:
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+
+Se si usa l' [SDK per la sintesi vocale](speech-sdk.md), le aree vengono specificate dall' **identificatore di area** (ad esempio, come parametro per `SpeechConfig.FromSubscription`). Assicurarsi che l'area corrisponda all'area della sottoscrizione.
 
 ### <a name="intent-recognition"></a>Riconoscimento finalità
 
 Le aree disponibili per il **riconoscimento finalità** tramite Speech SDK sono le seguenti:
 
-| Regione globale | Area geografica           | Parametro Speech SDK |
+| Regione globale | Region           | Parametro Speech SDK |
 | ------------- | ---------------- | -------------------- |
 | Asia          | Asia orientale        | `eastasia`           |
 | Asia          | Asia sud-orientale   | `southeastasia`      |
 | Australia     | Australia orientale   | `australiaeast`      |
 | Europa        | Europa settentrionale     | `northeurope`        |
 | Europa        | Europa occidentale      | `westeurope`         |
-| America del Nord | Stati Uniti Orientali          | `eastus`             |
+| America del Nord | Stati Uniti orientali          | `eastus`             |
 | America del Nord | Stati Uniti orientali 2        | `eastus2`            |
 | America del Nord | Stati Uniti centro-meridionali | `southcentralus`     |
 | America del Nord | Stati Uniti centro-occidentali  | `westcentralus`      |
@@ -78,11 +65,11 @@ Questo è un sottoinsieme delle aree di pubblicazione supportate per il [servizi
 
 [Speech SDK](speech-sdk.md) supporta le funzionalità di **Assistente vocale** in queste aree:
 
-| Area geografica         | Parametro Speech SDK |
+| Region         | Parametro Speech SDK |
 | -------------- | -------------------- |
 | Stati Uniti occidentali        | `westus`             |
 | Stati Uniti occidentali 2      | `westus2`            |
-| Stati Uniti Orientali        | `eastus`             |
+| Stati Uniti orientali        | `eastus`             |
 | Stati Uniti orientali 2      | `eastus2`            |
 | Europa occidentale    | `westeurope`         |
 | Europa settentrionale   | `northeurope`        |
@@ -96,7 +83,18 @@ Il servizio Voce espone anche endpoint REST per le richieste di riconoscimento v
 
 Per la documentazione di riferimento per la sintesi vocale, vedere [API REST di riconoscimento](rest-speech-to-text.md)vocale.
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+Il formato dell'endpoint per l'API REST è il seguente:
+
+```
+https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
+```
+
+Sostituire `<REGION_IDENTIFIER>` con l'identificatore corrispondente all'area della sottoscrizione da questa tabella:
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+
+> [!NOTE]
+> Il parametro di lingua deve essere aggiunto all'URL per evitare di ricevere un errore 4xx HTTP. Ad esempio, la lingua impostata su inglese (Stati Uniti) usando l'endpoint per l'area Stati Uniti occidentali è: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
 
 ### <a name="text-to-speech"></a>Sintesi vocale
 

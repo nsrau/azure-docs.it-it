@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/11/2020
-ms.openlocfilehash: 1073b9014c83ae5d52d0b1a740819c48c9622936
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: 172753f6bbcc47ed8ae9061b71ca3291e95b7a33
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152721"
+ms.locfileid: "77162855"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Ridimensionare automaticamente i cluster Azure HDInsight
 
 > [!Important]
-> La funzionalità di scalabilità automatica funziona solo per i cluster Apache Spark, ApacheHive, LLAP e Apache HBase creati dopo l'8 maggio 2019.
+> La funzionalità di scalabilità automatica funziona solo per i cluster Apache Spark, ApacheHive, LLAP e Apache HBase creati dopo l'8 maggio 2019. La scalabilità automatica per LLAP e HBase sono disponibili in anteprima.
 
 La funzionalità di scalabilità automatica del cluster di Azure HDInsight consente di ridimensionare automaticamente il numero di nodi del ruolo di lavoro in un cluster. Attualmente non è possibile ridimensionare altri tipi di nodi nel cluster.  Durante la creazione di un nuovo cluster HDInsight è possibile impostare un numero minimo e massimo di nodi del ruolo di lavoro. La scalabilità automatica monitora quindi i requisiti delle risorse del carico di analisi e ridimensiona il numero di nodi di lavoro verso l'alto o verso il basso. Non sono previsti costi aggiuntivi per questa funzionalità.
 
@@ -74,7 +74,7 @@ Quando vengono rilevate le condizioni seguenti, la scalabilità automatica emett
 
 In base al numero di contenitori AM per nodo e ai requisiti di memoria e CPU correnti, la scalabilità automatica emette una richiesta di rimozione di un determinato numero di nodi. Il servizio rileva anche quali nodi sono candidati per la rimozione in base all'esecuzione del processo corrente. L'operazione di riduzione delle prestazioni consente innanzitutto di rimuovere le autorizzazioni dei nodi e quindi di rimuoverli dal cluster.
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Creare un cluster con scalabilità automatica basata sul carico
 

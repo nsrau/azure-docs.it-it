@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: 83717f9a78d80923f020ab699be9ddabbbcc12ef
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 0f426e7a87204acd4be6529f7dd11a954f23491a
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700006"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159472"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>Cosa è successo a un progetto MVC (servizio connesso a Visual Studio Azure Active Directory)?
 
@@ -32,7 +32,7 @@ Per informazioni sull'uso del servizio connesso, vedere l'[introduzione](vs-acti
 
 Interessa il file di progetto (riferimenti *.NET) e `packages.config` (riferimenti NuGet).
 
-| Tipo | Riferimenti |
+| Type | Riferimento |
 | --- | --- |
 | .NET; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
 | .NET; NuGet | Microsoft.Owin |
@@ -47,7 +47,7 @@ Interessa il file di progetto (riferimenti *.NET) e `packages.config` (riferimen
 
 Riferimenti aggiuntivi se è stata selezionata l'opzione **Lettura dati directory**:
 
-| Tipo | Riferimenti |
+| Type | Riferimento |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (solo Visual Studio 2015) |
@@ -61,7 +61,7 @@ Riferimenti aggiuntivi se è stata selezionata l'opzione **Lettura dati director
 
 I seguenti riferimenti vengono rimossi (solo 4 progetti ASP.NET, come in Visual Studio 2015):
 
-| Tipo | Riferimenti |
+| Type | Riferimento |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
@@ -164,4 +164,4 @@ Quando si aggiunge il servizio connesso, Visual Studio 2015 esegue il backup dei
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Scenari di autenticazione per Azure Active Directory](authentication-scenarios.md)
-- [Aggiungere l'accesso con Microsoft a un'app Web ASP.NET](quickstart-v1-aspnet-webapp.md)
+- [Aggiungere l'accesso con Microsoft a un'app Web ASP.NET](quickstart-v2-aspnet-webapp.md)

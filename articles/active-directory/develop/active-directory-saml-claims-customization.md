@@ -14,12 +14,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 7a4a58943b251628780694c001ca441a14e9c09a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 52779b7ffea0f33676426f145a700c7181cf0bf1
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698680"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161257"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
 
@@ -55,7 +55,7 @@ Se la richiesta SAML non contiene un elemento per NameIDPolicy, Azure AD emetter
 
 Dall'elenco a discesa **Scegli formato identificatore nome** è possibile selezionare una delle opzioni seguenti.
 
-| Formato NameID | Description |
+| Formato NameID | Descrizione |
 |---------------|-------------|
 | **Default** | Azure AD utilizzerà il formato di origine predefinito. |
 | **Persistente** | Azure AD utilizzerà il formato persistente come NameID. |
@@ -69,9 +69,9 @@ Il NameID temporaneo è anche supportato, ma non è disponibile nell'elenco a di
 
 Selezionare l'origine desiderata per l'attestazione `NameIdentifier` (o NameID). Si può scegliere fra le opzioni seguenti.
 
-| Nome | Description |
+| Nome | Descrizione |
 |------|-------------|
-| Indirizzo di posta elettronica | Indirizzo di posta elettronica dell'utente |
+| Email | Indirizzo di posta elettronica dell'utente |
 | userprincipalName | Nome dell'entità utente (UPN) dell'utente |
 | onpremisessamaccount | Il nome dell'account SAM che è stato sincronizzato da Azure AD locale |
 | objectid | ObjectId dell'utente in Azure AD |
@@ -99,10 +99,10 @@ Per altre informazioni, vedere [tabella 3: valori ID validi per origine](active-
 
 È inoltre possibile utilizzare le funzioni di trasformazioni delle attestazioni.
 
-| Funzione | Description |
+| Funzione | Descrizione |
 |----------|-------------|
 | **ExtractMailPrefix()** | Rimuove il suffisso di dominio dall'indirizzo di posta elettronica o dal nome dell'entità utente. In questo modo viene estratta solo la prima parte del nome utente passata, ad esempio "joe_smith" anziché joe_smith@contoso.com. |
-| **Join()** | Aggiunge un attributo a un dominio verificato. Se il valore dell'ID utente selezionato ha un dominio, estrarrà il nome utente per accodare il dominio verificato selezionato. Ad esempio, se si seleziona l'indirizzo e-mail (joe_smith@contoso.com) come valore dell'ID utente e si seleziona contoso.onmicrosoft.com come dominio verificato, si avrà come risultato joe_smith@contoso.onmicrosoft.com. |
+| **Join ()** | Aggiunge un attributo a un dominio verificato. Se il valore dell'ID utente selezionato ha un dominio, estrarrà il nome utente per accodare il dominio verificato selezionato. Ad esempio, se si seleziona l'indirizzo e-mail (joe_smith@contoso.com) come valore dell'ID utente e si seleziona contoso.onmicrosoft.com come dominio verificato, si avrà come risultato joe_smith@contoso.onmicrosoft.com. |
 | **ToLower()** | Converte i caratteri dell'attributo selezionato in minuscole. |
 | **ToUpper()** | Converte i caratteri dell'attributo selezionato in maiuscole. |
 
@@ -126,23 +126,23 @@ Per applicare una trasformazione a un attributo utente:
 
 Per trasformare le attestazioni, è possibile usare le funzioni seguenti.
 
-| Funzione | Description |
+| Funzione | Descrizione |
 |----------|-------------|
 | **ExtractMailPrefix()** | Rimuove il suffisso di dominio dall'indirizzo di posta elettronica o dal nome dell'entità utente. In questo modo viene estratta solo la prima parte del nome utente passata, ad esempio "joe_smith" anziché joe_smith@contoso.com. |
-| **Join()** | Crea un nuovo valore creando un join tra due attributi. Facoltativamente, è possibile utilizzare un separatore tra i due attributi. Per la trasformazione delle attestazioni NameID, il join è limitato a un dominio verificato. Se il valore dell'ID utente selezionato ha un dominio, estrarrà il nome utente per accodare il dominio verificato selezionato. Ad esempio, se si seleziona l'indirizzo e-mail (joe_smith@contoso.com) come valore dell'ID utente e si seleziona contoso.onmicrosoft.com come dominio verificato, si avrà come risultato joe_smith@contoso.onmicrosoft.com. |
+| **Join ()** | Crea un nuovo valore creando un join tra due attributi. Facoltativamente, è possibile utilizzare un separatore tra i due attributi. Per la trasformazione delle attestazioni NameID, il join è limitato a un dominio verificato. Se il valore dell'ID utente selezionato ha un dominio, estrarrà il nome utente per accodare il dominio verificato selezionato. Ad esempio, se si seleziona l'indirizzo e-mail (joe_smith@contoso.com) come valore dell'ID utente e si seleziona contoso.onmicrosoft.com come dominio verificato, si avrà come risultato joe_smith@contoso.onmicrosoft.com. |
 | **ToLower()** | Converte i caratteri dell'attributo selezionato in minuscole. |
 | **ToUpper()** | Converte i caratteri dell'attributo selezionato in maiuscole. |
-| **Contains()** | Restituisce un attributo o una costante se l'input corrisponde al valore specificato. In caso contrario, è possibile specificare un altro output se non esiste alcuna corrispondenza.<br/>Ad esempio, se si desidera emettere un'attestazione in cui il valore è l'indirizzo di posta elettronica dell'utente se contiene il dominio "@contoso.com"; in caso contrario, si desidera restituire il nome dell'entità utente. A tale scopo, è necessario configurare i valori seguenti:<br/>*Parametro 1 (input)* : User. email<br/>*Valore*: "@contoso.com"<br/>Parametro 2 (output): User. email<br/>Parametro 3 (output se non esiste alcuna corrispondenza): User. userPrincipalName |
+| **Contains ()** | Restituisce un attributo o una costante se l'input corrisponde al valore specificato. In caso contrario, è possibile specificare un altro output se non esiste alcuna corrispondenza.<br/>Ad esempio, se si desidera emettere un'attestazione in cui il valore è l'indirizzo di posta elettronica dell'utente se contiene il dominio "@contoso.com"; in caso contrario, si desidera restituire il nome dell'entità utente. A tale scopo, è necessario configurare i valori seguenti:<br/>*Parametro 1 (input)* : User. email<br/>*Valore*: "@contoso.com"<br/>Parametro 2 (output): User. email<br/>Parametro 3 (output se non esiste alcuna corrispondenza): User. userPrincipalName |
 | **EndWith()** | Restituisce un attributo o una costante se l'input termina con il valore specificato. In caso contrario, è possibile specificare un altro output se non esiste alcuna corrispondenza.<br/>Ad esempio, se si desidera emettere un'attestazione in cui il valore è l'ID dipendente dell'utente se l'ID dipendente termina con "000"; in caso contrario, si desidera restituire un attributo di estensione. A tale scopo, è necessario configurare i valori seguenti:<br/>*Parametro 1 (input)* : User. EmployeeID<br/>*Valore*: "000"<br/>Parametro 2 (output): User. EmployeeID<br/>Parametro 3 (output se non esiste alcuna corrispondenza): User. extensionAttribute1 |
-| **StartWith()** | Restituisce un attributo o una costante se l'input inizia con il valore specificato. In caso contrario, è possibile specificare un altro output se non esiste alcuna corrispondenza.<br/>Ad esempio, se si desidera emettere un'attestazione in cui il valore è l'ID dipendente dell'utente se il paese inizia con "US"; in caso contrario, si desidera restituire un attributo di estensione. A tale scopo, è necessario configurare i valori seguenti:<br/>*Parametro 1 (input)* : User. Country<br/>*Valore*: "US"<br/>Parametro 2 (output): User. EmployeeID<br/>Parametro 3 (output se non esiste alcuna corrispondenza): User. extensionAttribute1 |
+| **Cominciamo ()** | Restituisce un attributo o una costante se l'input inizia con il valore specificato. In caso contrario, è possibile specificare un altro output se non esiste alcuna corrispondenza.<br/>Ad esempio, se si desidera emettere un'attestazione in cui il valore è l'ID dipendente dell'utente se il paese inizia con "US"; in caso contrario, si desidera restituire un attributo di estensione. A tale scopo, è necessario configurare i valori seguenti:<br/>*Parametro 1 (input)* : User. Country<br/>*Valore*: "US"<br/>Parametro 2 (output): User. EmployeeID<br/>Parametro 3 (output se non esiste alcuna corrispondenza): User. extensionAttribute1 |
 | **Estrai ()-dopo la corrispondenza** | Restituisce la sottostringa dopo che corrisponde al valore specificato.<br/>Se, ad esempio, il valore di input è "Finance_BSimon", il valore corrispondente è "Finance_", l'output dell'attestazione è "BSimon". |
 | **Estrai ()-prima della corrispondenza** | Restituisce la sottostringa finché non corrisponde al valore specificato.<br/>Se, ad esempio, il valore di input è "BSimon_US", il valore corrispondente è "_US", l'output dell'attestazione è "BSimon". |
 | **Estrai ()-tra la corrispondenza** | Restituisce la sottostringa finché non corrisponde al valore specificato.<br/>Se, ad esempio, il valore di input è "Finance_BSimon_US", il primo valore corrispondente è "Finance_", il secondo valore corrispondente è "_US", quindi l'output dell'attestazione è "BSimon". |
-| **ExtractAlpha() - Prefix** | Restituisce la parte alfabetica del prefisso della stringa.<br/>Se, ad esempio, il valore di input è "BSimon_123", restituisce "BSimon". |
-| **ExtractAlpha() - Suffix** | Restituisce la parte alfabetica del suffisso della stringa.<br/>Se, ad esempio, il valore di input è "123_Simon", viene restituito "Simon". |
+| **ExtractAlpha ()-prefisso** | Restituisce la parte alfabetica del prefisso della stringa.<br/>Se, ad esempio, il valore di input è "BSimon_123", restituisce "BSimon". |
+| **ExtractAlpha ()-suffisso** | Restituisce la parte alfabetica del suffisso della stringa.<br/>Se, ad esempio, il valore di input è "123_Simon", viene restituito "Simon". |
 | **ExtractNumeric ()-prefisso** | Restituisce la parte numerica del prefisso della stringa.<br/>Se, ad esempio, il valore di input è "123_BSimon", viene restituito "123". |
 | **ExtractNumeric ()-suffisso** | Restituisce la parte numerica del suffisso della stringa.<br/>Se, ad esempio, il valore di input è "BSimon_123", viene restituito "123". |
-| **IfEmpty()** | Restituisce un attributo o una costante se l'input è null o vuoto.<br/>Ad esempio, se si vuole restituire un attributo archiviato in un ExtensionAttribute se l'ID dipendente di un determinato utente è vuoto. A tale scopo, è necessario configurare i valori seguenti:<br/>Parametro 1 (input): User. EmployeeID<br/>Parametro 2 (output): User. extensionAttribute1<br/>Parametro 3 (output se non esiste alcuna corrispondenza): User. EmployeeID |
+| **IfEmpty ()** | Restituisce un attributo o una costante se l'input è null o vuoto.<br/>Ad esempio, se si vuole restituire un attributo archiviato in un ExtensionAttribute se l'ID dipendente di un determinato utente è vuoto. A tale scopo, è necessario configurare i valori seguenti:<br/>Parametro 1 (input): User. EmployeeID<br/>Parametro 2 (output): User. extensionAttribute1<br/>Parametro 3 (output se non esiste alcuna corrispondenza): User. EmployeeID |
 | **IfNotEmpty()** | Restituisce un attributo o una costante se l'input non è null o vuoto.<br/>Ad esempio, se si desidera restituire un attributo archiviato in un ExtensionAttribute se l'ID dipendente per un determinato utente non è vuoto. A tale scopo, è necessario configurare i valori seguenti:<br/>Parametro 1 (input): User. EmployeeID<br/>Parametro 2 (output): User. extensionAttribute1 |
 
 Se sono necessarie altre trasformazioni, inviare un'idea nel [Forum dei commenti e suggerimenti in Azure ad](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599) sotto la categoria di *applicazioni SaaS* .
@@ -180,4 +180,4 @@ In primo luogo, Azure AD verifica se il tipo di utente di Brita è `All guests`.
 
 * [Gestione di applicazioni in Azure AD](../manage-apps/what-is-application-management.md)
 * [Configurare l'accesso Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Risolvere i problemi relativi all'accesso Single Sign-On basato su SAML](howto-v1-debug-saml-sso-issues.md)
+* [Risolvere i problemi relativi all'accesso Single Sign-On basato su SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/19/2018
-ms.openlocfilehash: 4ce1272c38bcb066f9e88ca739561ccd7696c989
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6dff1fe974ad4ffa993e4df03b4903d7e46e1990
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363507"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162260"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Procedura dettagliata sull'API REST di monitoraggio di Azure
 
@@ -57,7 +57,7 @@ New-AzRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-Per eseguire query nell'API di monitoraggio di Azure, l'applicazione client deve effettuare l'autenticazione usando l'entità servizio creata in precedenza. Nell'esempio seguente di script di PowerShell viene illustrato un approccio in cui viene usato [Active Directory Authentication Library](../../active-directory/develop/active-directory-authentication-libraries.md) (ADAL) per ottenere il token di autenticazione JTW. Il token JTW viene trasmesso come parte di un parametro di autorizzazione HTTP nelle richieste all'API di Monitoraggio di Azure.
+Per eseguire query nell'API di monitoraggio di Azure, l'applicazione client deve effettuare l'autenticazione usando l'entità servizio creata in precedenza. Nell'esempio seguente di script di PowerShell viene illustrato un approccio in cui viene usato [Active Directory Authentication Library](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) (ADAL) per ottenere il token di autenticazione JTW. Il token JTW viene trasmesso come parte di un parametro di autorizzazione HTTP nelle richieste all'API di Monitoraggio di Azure.
 
 ```powershell
 $azureAdApplication = Get-AzADApplication -IdentifierUri "https://localhost/azure-monitor"
@@ -614,7 +614,7 @@ Il seguente elenco contiene alcuni esempi di formati di ID risorsa per le varie 
 
 Esistono approcci alternativi per recuperare l'ID risorsa, tra cui l'uso di Esplora risorse di Azure, la visualizzazione della risorsa desiderata nel portale di Azure e tramite PowerShell o l'interfaccia della riga di comando di Azure.
 
-### <a name="azure-resource-explorer"></a>Esplora risorse di Azure
+### <a name="azure-resource-explorer"></a>Azure Resource Explorer
 
 Per trovare l'ID risorsa per la risorsa desiderata, un approccio utile consiste nell'usare lo strumento [Esplora risorse di Azure](https://resources.azure.com) . Individuare la risorsa desiderata e quindi esaminare l'ID indicato, come illustrato nella schermata seguente:
 

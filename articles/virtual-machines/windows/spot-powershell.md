@@ -7,14 +7,14 @@ manager: gwallace
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 10/14/2019
+ms.date: 02/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 8752522e4b5a7b91778d6eb2cd8e4ba3bac95da0
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 17186d1d7b50ea872dc47eca8c2c4491787d2a38
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74782125"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158945"
 ---
 # <a name="preview-deploy-spot-vms-using-azure-powershell"></a>Anteprima: distribuire le VM spot usando Azure PowerShell
 
@@ -29,7 +29,7 @@ I prezzi per le VM spot sono variabili in base all'area e allo SKU. Per altre in
 > Le istanze di spot sono attualmente in anteprima pubblica.
 > Questa versione di anteprima non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Per la prima parte dell'anteprima pubblica, le istanze di spot avranno un prezzo fisso, quindi non vi saranno eliminazioni basate sul prezzo.
+
 
 
 ## <a name="create-the-vm"></a>Creare la VM
@@ -37,9 +37,6 @@ I prezzi per le VM spot sono variabili in base all'area e allo SKU. Per altre in
 Creare una spotVM usando [New-AzVmConfig](/powershell/module/az.compute/new-azvmconfig) per creare la configurazione. Includere `-Priority Spot` e impostare `-MaxPrice` su:
 - `-1` in modo che la macchina virtuale non venga eliminata in base al prezzo.
 - importo in dollari, fino a 5 cifre. Ad esempio, `-MaxPrice .98765` significa che la macchina virtuale verrà deallocata quando il prezzo per un spotVM va a circa $. 98765 all'ora.
-
-> [!IMPORTANT]
-> Per la prima parte dell'anteprima pubblica, è possibile impostare un prezzo massimo, che verrà ignorato. Le macchine virtuali spot avranno un prezzo fisso, quindi non vi saranno eliminazioni basate sul prezzo.
 
 
 Questo esempio crea un spotVM che non verrà deallocato in base ai prezzi (solo quando Azure necessita della capacità).

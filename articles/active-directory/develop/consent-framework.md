@@ -13,12 +13,12 @@ ms.date: 11/30/2018
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: 3f95a0743ca6fadff0c7a26a796ef20659adfb80
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: cb9441e6ce19094ff72e902cdeea151041ceb963
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697745"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161137"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Framework di consenso di Azure Active Directory
 
@@ -28,7 +28,7 @@ Il framework è basato sulla possibilità per un utente o un amministratore di f
 
 Il framework di consenso è basato su OAuth 2.0 e i relativi flussi diversi, come la concessione del codice di autorizzazione e delle credenziali utente, mediante client pubblici o riservati. Tramite OAuth 2.0, Azure AD consente di creare numerosi tipi diversi di applicazioni client, ad esempio su telefono, tablet, server o applicazione Web, e di ottenere l'accesso alle risorse necessarie.
 
-Per altre informazioni sull'uso del framework di consenso con le concessioni di autorizzazione OAuth 2.0, vedere [Autorizzare l'accesso ad applicazioni Web tramite OAuth 2.0 e Azure AD](v1-protocols-oauth-code.md) e [Scenari di autenticazione per Azure AD](authentication-scenarios.md). Per informazioni su come ottenere l'autorizzazione per l'accesso a Office 365 tramite Microsoft Graph, vedere [App authentication with Microsoft Graph](https://developer.microsoft.com/graph/docs/authorization/auth_overview) (Autenticazione di app con Microsoft Graph).
+Per altre informazioni sull'uso del framework di consenso con le concessioni di autorizzazione OAuth 2.0, vedere [Autorizzare l'accesso ad applicazioni Web tramite OAuth 2.0 e Azure AD](v2-oauth2-auth-code-flow.md) e [Scenari di autenticazione per Azure AD](authentication-scenarios.md). Per informazioni su come ottenere l'autorizzazione per l'accesso a Office 365 tramite Microsoft Graph, vedere [App authentication with Microsoft Graph](https://developer.microsoft.com/graph/docs/authorization/auth_overview) (Autenticazione di app con Microsoft Graph).
 
 ## <a name="consent-experience---an-example"></a>Esempio di esperienza di consenso
 
@@ -42,13 +42,13 @@ I passaggi seguenti illustrano il funzionamento dell'esperienza di consenso per 
 
 1. Se l'utente non è già autenticato, l'endpoint `/authorize` di Azure AD chiede all'utente di effettuare l'accesso.
 
-    ![Accesso utente o amministratore ad Azure AD](./media/quickstart-v1-integrate-apps-with-azure-ad/usersignin.png)
+    ![Accesso utente o amministratore ad Azure AD](./media/consent-framework/usersignin.png)
 
 1. Dopo che l'utente ha effettuato l'accesso, Azure AD determinerà se l'utente deve essere reindirizzato a una pagina di consenso. Questa decisione dipende dal fatto che l'utente o l'amministratore dell'organizzazione abbia o meno già concesso il consenso dell'applicazione. Se il consenso non è già stato concesso, Azure AD lo richiede all'utente e visualizza le autorizzazioni necessarie per il funzionamento. Il set di autorizzazioni visualizzate nella finestra di dialogo di consenso corrisponde a quelle selezionate in **Autorizzazioni delegate** nel portale di Azure.
 
-    ![Mostra un esempio di autorizzazioni visualizzate nella finestra di dialogo di consenso](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
+    ![Mostra un esempio di autorizzazioni visualizzate nella finestra di dialogo di consenso](./media/consent-framework/consent.png)
 
-1. Dopo che l'utente ha concesso il consenso, all'applicazione viene restituito un codice di autorizzazione, che viene riscattato per acquisire un token di accesso e di aggiornamento. Per altre informazioni su questo flusso, vedere [Tipo di app API Web](web-api.md).
+1. Dopo che l'utente ha concesso il consenso, all'applicazione viene restituito un codice di autorizzazione, che viene riscattato per acquisire un token di accesso e di aggiornamento. Per altre informazioni su questo flusso, vedere il [flusso del codice di autorizzazione OAuth 2,0](v2-oauth2-auth-code-flow.md).
 
 1. In qualità di amministratore, è possibile inoltre consentire le autorizzazioni delegate di un'applicazione per conto di tutti gli utenti nel proprio tenant. Il consenso amministrativo evita la visualizzazione della finestra di dialogo di consenso per ogni utente del tenant e può essere eseguito nel [portale di Azure](https://portal.azure.com) da utenti con ruolo di amministratore. Per informazioni su quali ruoli di amministratore possono fornire il consenso per le autorizzazioni delegate, vedere [Autorizzazioni del ruolo di amministratore in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 

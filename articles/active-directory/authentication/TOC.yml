@@ -64,7 +64,7 @@
   items:
     - name: Reimpostazione della password self-service
       items:
-        - name: Distribuire la reimpostazione self-service delle password
+        - name: Guida alla distribuzione
           href: howto-sspr-deployment.md
         - name: Preregistrare i dati di autenticazione
           href: howto-sspr-authenticationdata.md
@@ -74,7 +74,7 @@
           href: howto-sspr-windows.md
     - name: Multi-Factor Authentication basata sul cloud
       items:
-        - name: Distribuire Multi-Factor Authentication basata sul cloud
+        - name: Guida alla distribuzione
           href: howto-mfa-getstarted.md
         - name: Multi-Factor Authentication per utente
           href: howto-mfa-userstates.md

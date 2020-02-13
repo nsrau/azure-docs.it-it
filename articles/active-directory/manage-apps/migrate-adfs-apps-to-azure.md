@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/02/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3c3eb715c3e371d7e2985f233df584fb83a9870
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: ec825a562b57f081305af20ee6a6ce078d5c0505
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063456"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159013"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Spostare le app da Active Directory Federation Services (AD FS) ad Azure Active Directory (Azure AD) 
 
@@ -138,7 +138,7 @@ La tabella seguente descrive i principali elementi di configurazione del provide
 |Metadati </br>disconnessione </br>URL|URL di disconnessione del provider di identità dal punto di vista dell'app, ossia l'URL a cui l'utente viene reindirizzato quando sceglie di disconnettersi dall'app.|Per AD FS, l'URL di disconnessione è uguale all'URL di accesso oppure è lo stesso URL con l'aggiunta di "wa=wsignout1.0", ad esempio https&#58;//fs.contoso.com/adfs/ls/?wa=wsignout1.0|Il valore corrispondente per Azure AD varia a seconda che l'app supporti o meno la disconnessione SAML 2.0.</br></br>Se l'app supporta la disconnessione SAML, il valore segue questo modello, in cui {id-tenant} verrà sostituito con l'ID del tenant. Questo è riportato come **ID directory** nel portale di Azure in  > Azure Active Directory**Proprietà**: https&#58;//login.microsoftonline.com/{id-tenant}/saml2</br></br>Se l'app non supporta la disconnessione SAML, è https&#58;//login.microsoftonline.com/common/wsfederation?wa=wsignout1.0|
 |token </br>per la firma di </br>certificato|Certificato la cui chiave privata viene usata dal provider di identità per firmare i token rilasciati. Verifica che il token provenga dallo stesso provider di identità per cui è stato configurato il trust nell'app.|Il certificato per la firma di token di AD FS si trova in **Certificati** in Gestione AD FS.|In Azure AD, il certificato per la firma di token è riportato nel portale di Azure sotto l'intestazione **Certificato di firma SAML** nelle proprietà **Single Sign-On** dell'applicazione, da dove può essere scaricato per il caricamento nell'app.</br></br> Se l'applicazione ha più certificati, si trovano tutti nel file XML dei metadati di federazione.|
 |Identificatore/</br>"autorità di certificazione"|Identificatore del provider di identità dal punto di vista dell'app, talvolta denominato "ID autorità di certificazione".</br></br>Nel token SAML, il valore è presente come elemento **Issuer**.|L'identificatore per AD FS è in genere l'identificatore del servizio federativo riportato in **Servizio** > **Modifica proprietà servizio federativo** in Gestione AD FS. Ad esempio, http&#58;//fs.contoso.com/adfs/services/trust|Il valore corrispondente per Azure AD segue questo modello, in cui {id-tenant} verrà sostituito con l'ID del tenant. Questo è riportato come **ID directory** nel portale di Azure in  > Azure Active Directory**Proprietà**: https&#58;//sts.windows.net/{id-tenant}/|
-|Metadati </br>federazione </br>metadata|Posizione dei metadati di federazione disponibili pubblicamente del provider di identità. Alcune app usano i metadati di federazione come alternativa alla configurazione di URL, identificatore e certificato per la firma di token eseguita singolarmente dall'amministratore.|L'URL dei metadati di federazione di AD FS è riportato in **Servizio** > **Endpoint** > **Metadati** > **Tipo: Metadati federativi** in Gestione AD FS. Ad esempio: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|Il valore corrispondente per Azure AD segue il modello https&#58;//login.microsoftonline.com/{NomeDominioTenant}/FederationMetadata/2007-06/FederationMetadata.xml. Il valore di {NomeDominioTenant} verrà sostituito con il nome del tenant nel formato "contoso.onmicrosoft.com". </br></br>Per altre informazioni, vedere [Metadati della federazione](../develop/azure-ad-federation-metadata.md).
+|Metadati </br>federazione </br>metadata|Posizione dei metadati di federazione disponibili pubblicamente del provider di identità. Alcune app usano i metadati di federazione come alternativa alla configurazione di URL, identificatore e certificato per la firma di token eseguita singolarmente dall'amministratore.|L'URL dei metadati di federazione di AD FS è riportato in **Servizio** > **Endpoint** > **Metadati** > **Tipo: Metadati federativi** in Gestione AD FS. Ad esempio: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|Il valore corrispondente per Azure AD segue il modello https&#58;//login.microsoftonline.com/{NomeDominioTenant}/FederationMetadata/2007-06/FederationMetadata.xml. Il valore di {NomeDominioTenant} verrà sostituito con il nome del tenant nel formato "contoso.onmicrosoft.com". </br></br>Per altre informazioni, vedere [Metadati della federazione](../azuread-dev/azure-ad-federation-metadata.md).
 
 ## <a name="moving-saas-apps"></a>Spostamento delle app SaaS
 

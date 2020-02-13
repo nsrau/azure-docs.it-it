@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: b53fc3af71ce872c9ca9f513139c8179fd4165ed
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: bc6859d29a574cea0d97989977ba9a333b20f6c4
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031399"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157135"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interagire con i cluster di Apache Kafka in Azure HDInsight usando un proxy REST
 
@@ -20,23 +20,25 @@ Il proxy REST Kafka consente di interagire con il cluster Kafka tramite un'API R
 
 ## <a name="background"></a>Background
 
-### <a name="architecture"></a>Architettura
+### <a name="architecture"></a>Architecture
 
 Senza un proxy REST, i client Kafka devono trovarsi nella stessa VNet del cluster Kafka o di un VNet con peering. Il proxy REST consente di connettere Producer o consumer di dati che si trovano ovunque. La distribuzione del proxy REST crea un nuovo endpoint pubblico per il cluster, che è possibile trovare nelle impostazioni del portale.
 
+![Architettura del proxy REST Kafka](./media/rest-proxy/rest-proxy-architecture.png)
+
 Per la specifica completa delle operazioni supportate dall'API, vedere [Apache Kafka API del proxy Rest](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy).
 
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 
 L'accesso al proxy REST Kafka viene gestito con Azure Active Directory gruppi di sicurezza. Per altre informazioni, vedere [gestire l'accesso alle app e alle risorse usando gruppi di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups).
 
 Quando si crea il cluster Kafka con il proxy REST abilitato, verrà fornito il gruppo di sicurezza AAD che dovrebbe avere accesso all'endpoint REST. I client Kafka (applicazioni) che necessitano dell'accesso al proxy REST devono essere registrati in questo gruppo dal proprietario del gruppo. Il proprietario del gruppo può eseguire questa operazione tramite il portale o tramite PowerShell.
 
-Prima di effettuare richieste all'endpoint proxy REST, l'applicazione client deve ottenere un token OAuth per verificare l'appartenenza del gruppo di sicurezza corretto. Per altre informazioni sul funzionamento dei token OAuth, vedere [autorizzare l'accesso alle applicazioni web Azure Active Directory usando il flusso di concessione del codice OAuth 2,0](../../active-directory/develop/v1-protocols-oauth-code.md). Per un esempio di recupero di un token OAuth in Python, vedere [esempio di applicazione client](#client-application-sample)
+Prima di effettuare richieste all'endpoint proxy REST, l'applicazione client deve ottenere un token OAuth per verificare l'appartenenza del gruppo di sicurezza corretto. Per altre informazioni sul funzionamento dei token OAuth, vedere [autorizzare l'accesso alle applicazioni web Azure Active Directory usando il flusso di concessione del codice OAuth 2,0](../../active-directory/azuread-dev/v1-protocols-oauth-code.md). Per un esempio di recupero di un token OAuth in Python, vedere [esempio di applicazione client](#client-application-sample)
 
 Quando l'applicazione client ha il token OAuth, deve passare il token nella richiesta HTTP effettuata al proxy REST.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 1. Registrare un'applicazione con Azure AD. Le applicazioni client scritte per interagire con il proxy REST Kafka useranno l'ID e il segreto dell'applicazione per l'autenticazione in Azure.
 1. Creare un gruppo di sicurezza Azure AD e aggiungere l'applicazione registrata con Azure AD al gruppo di sicurezza. Questo gruppo di sicurezza verrà usato per controllare quali applicazioni possono interagire con il proxy REST. Per ulteriori informazioni sulla creazione di gruppi di Azure AD, vedere [creare un gruppo di base e aggiungere membri utilizzando Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).

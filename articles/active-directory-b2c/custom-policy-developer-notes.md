@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 02/12/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: acd02f143fe35edd867ce26f26a4cba74bd6f10b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6439393b72eb724ca017edc17ce7a7c36c275fca
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847342"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77166971"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Note per gli sviluppatori per i criteri personalizzati in Azure Active Directory B2C
 
@@ -61,35 +61,35 @@ Le funzionalità del Framework personalizzato di criteri/identità sono soggette
 
 ### <a name="identity-providers-tokens-protocols"></a>Provider di identità, token, protocolli
 
-| Funzionalità | Sviluppo | Anteprima | Disponibilità a livello generale | Note |
+| Funzionalità | Sviluppo | Anteprima | GA | Note |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | IDP-OpenIDConnect |  |  | X | Ad esempio, Google +.  |
 | IDP-OAUTH2 |  |  | X | Ad esempio, Facebook.  |
 | IDP-OAUTH1 (Twitter) |  | X |  | Ad esempio Twitter. |
-| IDP-OAUTH1 (es-Twitter) |  |  |  | Supporto non disponibile |
+| IDP-OAUTH1 (es-Twitter) |  |  |  | Non supportate |
 | IDP-SAML |  |   | X | Ad esempio, Salesforce, ADFS. |
 | IDP-WSFED | X |  |  |  |
 | Relying party OAUTH1 |  |  |  | Non supportato. |
 | Relying party OAUTH2 |  |  | X |  |
 | Relying Party OIDC |  |  | X |  |
-| Relying Party SAML | X |  |  |  |
+| Relying Party SAML |  |X  |  |  |
 | Relying Party WSFED | X |  |  |  |
 | API REST con autenticazione di base e del certificato |  |  | X | Ad esempio, app per la logica di Azure. |
 
 ### <a name="component-support"></a>Supporto dei componenti
 
-| Funzionalità | Sviluppo | Anteprima | Disponibilità a livello generale | Note |
+| Funzionalità | Sviluppo | Anteprima | GA | Note |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Azure Multi-Factor Authentication |  |  | X |  |
 | Azure Active Directory come directory locale |  |  | X |  |
 | Sottosistema posta elettronica di Azure per la verifica della posta elettronica |  |  | X |  |
 | Supporto per più linguaggi|  |  | X |  |
 | Convalide di predicato |  |  | X | Ad esempio, la complessità della password. |
-| Uso di provider di servizi di posta elettronica di terze parti | X |  |  |  |
+| Uso di provider di servizi di posta elettronica di terze parti |  |X  |  |  |
 
 ### <a name="content-definition"></a>Definizione del contenuto
 
-| Funzionalità | Sviluppo | Anteprima | Disponibilità a livello generale | Note |
+| Funzionalità | Sviluppo | Anteprima | GA | Note |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Pagina di errore, api.error |  |  | X |  |
 | Pagina di selezione IDP, api.idpselections |  |  | X |  |
@@ -105,7 +105,7 @@ Le funzionalità del Framework personalizzato di criteri/identità sono soggette
 
 ### <a name="app-ief-integration"></a>Integrazione del framework dell'esperienza di gestione delle identità dell'app
 
-| Funzionalità | Sviluppo | Anteprima | Disponibilità a livello generale | Note |
+| Funzionalità | Sviluppo | Anteprima | GA | Note |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Parametro di stringa della query domain_hint |  |  | X | Disponibile come attestazione, può essere passato a IDP. |
 | Parametro di stringa della query login_hint |  |  | X | Disponibile come attestazione, può essere passato a IDP. |
@@ -115,16 +115,16 @@ Le funzionalità del Framework personalizzato di criteri/identità sono soggette
 
 ### <a name="session-management"></a>Gestione delle sessioni
 
-| Funzionalità | Sviluppo | Anteprima | Disponibilità a livello generale | Note |
+| Funzionalità | Sviluppo | Anteprima | GA | Note |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Provider di sessioni SSO |  |  | X |  |
 | Provider di sessioni di accesso esterno |  |  | X |  |
 | Provider di sessioni SSO SAML |  |  | X |  |
 | Provider sessione SSO predefinito |  |  | X |  |
 
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 
-| Funzionalità | Sviluppo | Anteprima | Disponibilità a livello generale | Note |
+| Funzionalità | Sviluppo | Anteprima | GA | Note |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | Chiavi dei criteri: generazione, manuale, caricamento |  |  | X |  |
 | Chiavi dei criteri: RSA/certificato, segreti |  |  | X |  |
@@ -132,7 +132,7 @@ Le funzionalità del Framework personalizzato di criteri/identità sono soggette
 
 ### <a name="developer-interface"></a>Interfaccia di sviluppo
 
-| Funzionalità | Sviluppo | Anteprima | Disponibilità a livello generale | Note |
+| Funzionalità | Sviluppo | Anteprima | GA | Note |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Portale di Azure: esperienza utente del framework dell'esperienza di gestione delle identità |  |  | X |  |
 | Log UserJourney di Application Insights |  | X |  | Usato per la risoluzione dei problemi durante lo sviluppo.  |

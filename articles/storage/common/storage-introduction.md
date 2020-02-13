@@ -5,17 +5,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 01/16/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 4725329ace12a2bfb285253c52249f242da31619
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ddd4f45e88c0bcc63fb62cc816fae4dbad255841
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970201"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157585"
 ---
-# <a name="introduction-to-azure-storage"></a>Introduzione al servizio di archiviazione Azure
+# <a name="introduction-to-azure-storage"></a>Introduzione ad Archiviazione di Azure
 
 Archiviazione di Azure è la soluzione di archiviazione cloud Microsoft per i moderni scenari di archiviazione dati. Archiviazione di Azure offre un archivio a scalabilità elevata per oggetti dati, un servizio di file system per il cloud, un archivio di messaggistica per messaggistica affidabile e un archivio NoSQL. Archiviazione di Azure presenta le caratteristiche seguenti:
 
@@ -120,11 +120,9 @@ Le librerie client di archiviazione di Azure forniscono metodi per la crittograf
 
 ## <a name="redundancy"></a>Ridondanza
 
-Per assicurare che i dati siano durevoli, Archiviazione di Azure esegue la replica di più copie dei dati. Quando si configura l'account di archiviazione, si seleziona un'opzione di ridondanza.
+Per assicurarsi che i dati siano durevoli, archiviazione di Azure archivia più copie dei dati. Quando si configura l'account di archiviazione, si seleziona un'opzione di ridondanza.
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
-
-Per altre informazioni sul ripristino di emergenza, consultare [Ripristino di emergenza e failover dell'account di archiviazione (anteprima) in Archiviazione di Azure](storage-disaster-recovery-guidance.md).
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>Trasferimento dei dati da e verso Archiviazione di Azure
 

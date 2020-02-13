@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: f41c9a0e4754c60fd248e540a81e2afa833d655b
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: bd848fa6f74f049f97956ef1736ac2b08f3a6148
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132411"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160152"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Chiamare un'API Web da un'app per dispositivi mobili
 
@@ -124,7 +124,7 @@ Se è necessario chiamare la stessa API più volte o se è necessario chiamare p
 
 - **Consenso incrementale**: la piattaforma Microsoft Identity consente alle app di ottenere il consenso dell'utente quando sono necessarie le autorizzazioni anziché tutte all'inizio. Ogni volta che l'app è pronta per chiamare un'API, deve richiedere solo gli ambiti necessari.
 
-- **Accesso condizionale**: quando si effettuano diverse richieste API, in determinati scenari potrebbe essere necessario soddisfare ulteriori requisiti di accesso condizionale. I requisiti possono aumentare in questo modo se la prima richiesta non ha criteri di accesso condizionale e l'app tenta di accedere automaticamente a una nuova API che richiede l'accesso condizionale. Per gestire questo problema, assicurarsi di intercettare gli errori dalle richieste automatiche e prepararsi a eseguire una richiesta interattiva.  Per altre informazioni, vedere [linee guida per l'accesso condizionale](conditional-access-dev-guide.md).
+- **Accesso condizionale**: quando si effettuano diverse richieste API, in determinati scenari potrebbe essere necessario soddisfare ulteriori requisiti di accesso condizionale. I requisiti possono aumentare in questo modo se la prima richiesta non ha criteri di accesso condizionale e l'app tenta di accedere automaticamente a una nuova API che richiede l'accesso condizionale. Per gestire questo problema, assicurarsi di intercettare gli errori dalle richieste automatiche e prepararsi a eseguire una richiesta interattiva.  Per altre informazioni, vedere [linee guida per l'accesso condizionale](../azuread-dev/conditional-access-dev-guide.md).
 
 ## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Chiamare diverse API usando il consenso incrementale e l'accesso condizionale
 

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 927014ed0c2b261351df786ad8a6b56f20c573a8
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 5f5522201534a54f5d132257553469eed5addab3
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984864"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169865"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Funzionamento di Azure Machine Learning: architettura e concetti
 
@@ -73,7 +73,7 @@ Usare questi strumenti per Azure Machine Learning:
 + <a href="#web-service-endpoint">Servizi Web</a>
 + <a href="#workspaces">Area di lavoro</a>
 
-### <a name="activities"></a>Attività
+### <a name="activities"></a>attività
 
 Un'attività rappresenta un'operazione a esecuzione prolungata. Le operazioni seguenti sono esempi di attività:
 
@@ -84,9 +84,6 @@ Le attività possono fornire notifiche tramite l'SDK o l'interfaccia utente Web 
 
 ### <a name="compute-instance"></a>Istanza di calcolo (anteprima)
 
-> [!NOTE]
-> Le istanze di calcolo sono disponibili solo per le aree di lavoro con un'area geografica **Stati Uniti centro-settentrionali**, **Stati Uniti orientali 2**, **Europa settentrionale** o **Regno Unito meridionale**e il supporto per altre aree presto disponibile.
->Se l'area di lavoro si trova in qualsiasi altra area geografica, è possibile continuare a creare e usare una [macchina virtuale notebook](concept-compute-instance.md#notebookvm) in alternativa. 
 
 Un' **istanza di calcolo Azure Machine Learning** (in precedenza VM notebook) è una workstation basata sul cloud completamente gestita che include più strumenti e ambienti installati per Machine Learning. Le istanze di calcolo possono essere usate come destinazione di calcolo per il training e l'inferenza dei processi. Per le attività di grandi dimensioni, [Azure Machine Learning cluster di calcolo](how-to-set-up-training-targets.md#amlcompute) con funzionalità di scalabilità a più nodi rappresenta una scelta migliore per la destinazione di calcolo.
 
@@ -151,7 +148,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 * Esegui il [training e la registrazione dei modelli TensorFlow su larga scala con Azure Machine Learning](how-to-train-tensorflow.md).
 * Esegui il [training e la registrazione dei modelli di Chainer su larga scala con Azure Machine Learning](how-to-train-chainer.md).
 
-### <a name="experiments"></a>Esperimenti
+### <a name="experiments"></a>Sperimentazioni
 
 Un esperimento è un raggruppamento di più esecuzioni da uno script specifico. Appartiene sempre a un'area di lavoro. Quando si invia un'esecuzione, si fornisce un nome dell'esperimento. Le informazioni per l'esecuzione vengono archiviate in tale esperimento. Se si invia un'esecuzione e si specifica un nome dell'esperimento che non esiste, viene creato automaticamente un nuovo esperimento il nuovo nome specificato.
 

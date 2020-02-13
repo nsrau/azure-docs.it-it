@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: b7962f42b4244121a67b88ef3bf789ce40f7b1e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4428187c985c1004c88f2ac20b0e5811803cce2a
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719630"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162770"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Introduzione all'autenticazione di Azure AD tramite il portale di Azure
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
 
 Informazioni su come usare il portale di Azure per accedere all'autenticazione di Azure Active Directory (Azure AD) per accedere all'API Servizi multimediali di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Un account Azure. Se non si dispone di un account, iniziare con una [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Account di Servizi multimediali. Per altre informazioni, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
@@ -64,7 +64,7 @@ Per connettersi all'API Servizi multimediali usando l'opzione di autenticazione 
 
 Se ci si connette all'API Servizi multimediali con Media Services Microsoft .NET SDK, i valori richiesti sono disponibili nell'SDK. Per altre informazioni, vedere [Use Azure AD authentication to access the Azure Media Services API with .NET](media-services-dotnet-get-started-with-aad.md) (Usare l'autenticazione di Azure AD per accedere all'API Servizi multimediali di Azure con .NET).
 
-Se non si usa l'SDK del client .NET di Servizi multimediali, è necessario creare manualmente una richiesta di token di Azure AD tramite i parametri descritti in precedenza. Per altre informazioni, vedere [Come usare Azure AD Authentication Library per ottenere il token di Azure AD](../../active-directory/develop/active-directory-authentication-libraries.md).
+Se non si usa l'SDK del client .NET di Servizi multimediali, è necessario creare manualmente una richiesta di token di Azure AD tramite i parametri descritti in precedenza. Per altre informazioni, vedere [Come usare Azure AD Authentication Library per ottenere il token di Azure AD](../../active-directory/azuread-dev/active-directory-authentication-libraries.md).
 
 ## <a name="service-principal-authentication"></a>Autenticazione di un'entità servizio
 
@@ -90,7 +90,7 @@ Se non si dispone delle autorizzazioni per creare app Azure AD nel dominio, i co
 
 Se ci si connette all'API Servizi multimediali con Media Services .NET SDK, vedere [Use Azure AD authentication to access the Azure Media Services API with .NET](media-services-dotnet-get-started-with-aad.md) (Usare l'autenticazione di Azure AD per accedere all'API Servizi multimediali di Azure con .NET).
 
-Se non si usa l'SDK del client .NET di Servizi multimediali, è necessario creare una richiesta di token di Azure AD manualmente specificando i parametri descritti in precedenza. Per altre informazioni, vedere [Come usare Azure AD Authentication Library per ottenere il token di Azure AD](../../active-directory/develop/active-directory-authentication-libraries.md).
+Se non si usa l'SDK del client .NET di Servizi multimediali, è necessario creare una richiesta di token di Azure AD manualmente specificando i parametri descritti in precedenza. Per altre informazioni, vedere [Come usare Azure AD Authentication Library per ottenere il token di Azure AD](../../active-directory/azuread-dev/active-directory-authentication-libraries.md).
 
 ### <a name="get-the-client-id-and-client-secret"></a>Ottenere l'ID client e il segreto client
 

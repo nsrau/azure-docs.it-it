@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/06/2019
+ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8124aea96ab00e7f09782531702dcb5cfa4ccdf2
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: eb75aa53051e7e3c424ffe131cda61324fe86b1a
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701825"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159965"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Applicazione a singola pagina: accesso e disconnessione
 
@@ -47,7 +47,7 @@ Non è possibile usare entrambi i metodi popup e redirect nell'applicazione. La 
 
 ## <a name="sign-in-with-a-pop-up-window"></a>Accedere con una finestra popup
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const loginRequest = {
@@ -63,7 +63,7 @@ userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
 });
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 Il wrapper MSAL angolare consente di proteggere route specifiche nell'applicazione aggiungendo `MsalGuard` alla definizione di route. Questa funzione Guard richiama il metodo per accedere quando si accede a tale route.
 
@@ -89,10 +89,11 @@ Per un'esperienza di finestra popup, abilitare l'opzione di configurazione `popU
             })]
          })
 ```
+---
 
 ## <a name="sign-in-with-redirect"></a>Accesso con Reindirizzamento
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 I metodi di reindirizzamento non restituiscono una promessa a causa dell'allontanamento dall'app principale. Per elaborare e accedere ai token restituiti, è necessario registrare i callback di esito positivo ed errore prima di chiamare i metodi di reindirizzamento.
 
@@ -110,12 +111,14 @@ const loginRequest = {
 userAgentApplication.loginRedirect(loginRequest);
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 Il codice qui è identico a quello descritto in precedenza nella sezione relativa all'accesso con una finestra popup. Il flusso predefinito è redirect.
 
 > [!NOTE]
 > Il token ID non contiene gli ambiti consentiti e rappresenta solo l'utente autenticato. Gli ambiti consentiti vengono restituiti nel token di accesso, che verrà acquisito nel passaggio successivo.
+
+---
 
 ## <a name="sign-out"></a>Disconnessione
 
@@ -123,7 +126,7 @@ La libreria MSAL fornisce un metodo `logout` che cancella la cache nell'archivio
 
 È possibile configurare l'URI a cui deve essere reindirizzato dopo la disconnessione impostando `postLogoutRedirectUri`. Questo URI deve essere registrato anche come URI di disconnessione nella registrazione dell'applicazione.
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const config = {
@@ -140,7 +143,7 @@ userAgentApplication.logout();
 
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 ```javascript
 //In app.module.ts
@@ -154,6 +157,8 @@ userAgentApplication.logout();
 // In app.component.ts
 this.authService.logout();
 ```
+
+---
 
 ## <a name="next-steps"></a>Passaggi successivi
 

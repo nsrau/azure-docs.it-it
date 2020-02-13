@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: mlearned
-ms.openlocfilehash: 5b99d76ef20c288d6ae0bd33e1e2b6a75a359d3a
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 520557c80bf2630a359188dd86ec0987e0d5326b
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "67616288"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158146"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrare Azure Active Directory con il servizio Azure Kubernetes usando l'interfaccia della riga di comando di Azure
 
@@ -78,7 +78,7 @@ serverApplicationSecret=$(az ad sp credential reset \
 Il Azure AD richiede le autorizzazioni per eseguire le azioni seguenti:
 
 * Leggi i dati della directory
-* Accedi e leggi il profilo di un altro utente
+* Eseguire l'accesso e leggere il profilo utente
 
 Assegnare queste autorizzazioni usando il comando [AZ ad app permission Add][az-ad-app-permission-add] :
 
@@ -98,7 +98,7 @@ az ad app permission admin-consent --id  $serverApplicationId
 
 ## <a name="create-azure-ad-client-component"></a>Creare Azure AD componente client
 
-La seconda applicazione Azure AD viene usata quando un utente accede al cluster AKS con l'interfaccia della riga di`kubectl`comando di Kubernetes (). Questa applicazione client accetta la richiesta di autenticazione dall'utente e verifica le credenziali e le autorizzazioni. Creare l'app Azure AD per il componente client usando il comando [AZ ad app create][az-ad-app-create] :
+La seconda applicazione Azure AD viene usata quando un utente accede al cluster AKS con l'interfaccia della riga di comando di Kubernetes (`kubectl`). Questa applicazione client accetta la richiesta di autenticazione dall'utente e verifica le credenziali e le autorizzazioni. Creare l'app Azure AD per il componente client usando il comando [AZ ad app create][az-ad-app-create] :
 
 ```azurecli-interactive
 clientApplicationId=$(az ad app create \
@@ -129,7 +129,7 @@ az ad app permission grant --id $clientApplicationId --api $serverApplicationId
 
 ## <a name="deploy-the-cluster"></a>Distribuire il cluster
 
-Con le due applicazioni Azure AD create, è ora possibile creare il cluster AKS. Per prima cosa, creare un gruppo di risorse usando il comando [AZ Group create][az-group-create] . Nell'esempio seguente viene creato il gruppo di risorse  nell'area eastus:
+Con le due applicazioni Azure AD create, è ora possibile creare il cluster AKS. Per prima cosa, creare un gruppo di risorse usando il comando [AZ Group create][az-group-create] . Nell'esempio seguente viene creato il gruppo di risorse nell'area *eastus* :
 
 Creare un gruppo di risorse per il cluster:
 
@@ -197,7 +197,7 @@ kubectl apply -f basic-azure-ad-binding.yaml
 
 ## <a name="access-cluster-with-azure-ad"></a>Accedere al cluster con Azure AD
 
-A questo punto è possibile testare l'integrazione di Azure AD autenticazione per il cluster AKS. Impostare il `kubectl` contesto di configurazione per l'utilizzo delle credenziali utente normali. Questo contesto passa tutte le richieste di autenticazione tramite Azure AD.
+A questo punto è possibile testare l'integrazione di Azure AD autenticazione per il cluster AKS. Impostare il contesto di configurazione `kubectl` per utilizzare le credenziali utente normali. Questo contesto passa tutte le richieste di autenticazione tramite Azure AD.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name $aksname --overwrite-existing
@@ -209,7 +209,7 @@ A questo punto usare il comando [kubectl Get Pod][kubectl-get] per visualizzare 
 kubectl get pods --all-namespaces
 ```
 
-Si riceverà una richiesta di accesso per l'autenticazione usando le credenziali Azure AD usando un Web browser. Una volta eseguita l'autenticazione, il `kubectl` comando Visualizza i Pod nel cluster AKS, come illustrato nell'output di esempio seguente:
+Si riceverà una richiesta di accesso per l'autenticazione usando le credenziali Azure AD usando un Web browser. Una volta eseguita l'autenticazione, il comando `kubectl` Visualizza i Pod nel cluster AKS, come illustrato nell'output di esempio seguente:
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -228,7 +228,7 @@ kube-system   metrics-server-7b97f9cd9-btxzz          1/1     Running   0       
 kube-system   tunnelfront-6ff887cffb-xkfmq            1/1     Running   0          23h
 ```
 
-Il token di autenticazione ricevuto `kubectl` per viene memorizzato nella cache. Viene richiesto di eseguire l'accesso solo quando il token è scaduto o il file di configurazione Kubernetes viene ricreato.
+Il token di autenticazione ricevuto per `kubectl` viene memorizzato nella cache. Viene richiesto di eseguire l'accesso solo quando il token è scaduto o il file di configurazione Kubernetes viene ricreato.
 
 Se viene visualizzato un messaggio di errore di autorizzazione dopo aver eseguito l'accesso con un Web browser come nell'output di esempio seguente, verificare i possibili problemi seguenti:
 
@@ -238,7 +238,7 @@ error: You must be logged in to the server (Unauthorized)
 
 * È stato definito l'ID oggetto o UPN appropriato, a seconda che l'account utente si trovi nello stesso tenant Azure AD o meno.
 * L'utente non deve essere membro di più di 200 gruppi.
-* Il segreto definito nella registrazione dell'applicazione per il server corrisponde al valore configurato usando`--aad-server-app-secret`
+* Il segreto definito nella registrazione dell'applicazione per il server corrisponde al valore configurato usando `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -260,7 +260,7 @@ Per le procedure consigliate sull'identità e sul controllo delle risorse, veder
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
-[open-id-connect]:../active-directory/develop/v1-protocols-openid-connect-code.md
+[open-id-connect]:../active-directory/develop/v2-protocols-oidc.md
 [az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
 [az-ad-app-create]: /cli/azure/ad/app#az-ad-app-create
 [az-ad-app-update]: /cli/azure/ad/app#az-ad-app-update

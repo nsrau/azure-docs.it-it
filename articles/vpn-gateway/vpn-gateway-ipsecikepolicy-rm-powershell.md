@@ -8,18 +8,18 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 8ed32ccedcd6cc4ffd159069399c0417842325d8
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: eaca48fc354f1cf37635e9729b04eaaaa882ba1c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514919"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161903"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurare criteri IPsec/IKE per connessioni VPN da sito a sito o da rete virtuale a rete virtuale
 
 Questo articolo illustra la procedura di configurazione dei criteri IPsec/IKE per connessioni VPN da sito a sito o da rete virtuale a rete virtuale tramite il modello di distribuzione Resource Manager e PowerShell.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## <a name="about"></a>Informazioni sui parametri dei criteri IPsec e IKE per gateway VPN di Azure
 Lo standard di protocollo IPsec e IKE supporta un'ampia gamma di algoritmi di crittografia in varie combinazioni. Vedere l'articolo [About cryptographic requirements and Azure VPN gateways](vpn-gateway-about-compliance-crypto.md) (Informazioni sui requisiti di crittografia e i gateway VPN di Azure) per informazioni su come questo può contribuire ad assicurare che la connettività cross-premise e da rete virtuale a rete virtuale soddisfi i requisiti di conformità o sicurezza.

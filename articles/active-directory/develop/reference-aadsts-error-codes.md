@@ -16,12 +16,12 @@ ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 03f88b0b1369020d0ba5e8cb1e1b416059def21d
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 7798cb86606c206f027a1014802770a74aba909a
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703049"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160378"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codici di errore Autenticazione di Azure AD e autorizzazione
 
@@ -39,7 +39,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 
 ## <a name="aadsts-error-codes"></a>Codici di errore AADSTS
 
-| Errore | Description |
+| Errore | Descrizione |
 |---|---|
 | AADSTS16000 | SelectUserAccount: interrupt generato da Azure AD, con conseguente attivazione dell'interfaccia utente che permette all'utente di selezionare tra più sessioni SSO valide. Questo errore è piuttosto comune e può essere restituito all'applicazione se è specificato `prompt=none`. |
 | AADSTS16001 | UserAccountSelectionInvalid: questo errore viene visualizzato se l'utente fa clic su un riquadro che è stato rifiutato dalla logica di selezione della sessione. Se attivato, questo errore permette all'utente di rimediare effettuando la selezione in un elenco aggiornato di riquadri/sessioni o scegliendo un altro account. Questo errore può essere dovuto a un problema del codice o a una race condition. |
@@ -152,7 +152,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant: autenticazione non riuscita. Il token di aggiornamento non è valido. Errore dovuto ai motivi seguenti:<ul><li>L'intestazione di associazione di token è vuota</li><li>L'hash di associazione di token non corrisponde</li></ul> |
 | AADSTS70001 | UnauthorizedClient: l'applicazione è disabilitata. |
-| AADSTS70002 | InvalidClient: errore di convalida delle credenziali. Il valore di client_secret specificato non corrisponde al valore previsto per questo client. Correggere il valore di client_secret e riprovare. Per altre informazioni, vedere [Usare un codice di autorizzazione per richiedere un token di accesso](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token). |
+| AADSTS70002 | InvalidClient: errore di convalida delle credenziali. Il valore di client_secret specificato non corrisponde al valore previsto per questo client. Correggere il valore di client_secret e riprovare. Per altre informazioni, vedere [Usare un codice di autorizzazione per richiedere un token di accesso](v2-oauth2-auth-code-flow.md#request-an-access-token). |
 | AADSTS70003 | UnsupportedGrantType: l'app ha restituito un tipo di concessione non supportato. |
 | AADSTS70004 | InvalidRedirectUri: l'app ha restituito un URI di reindirizzamento non valido. L'indirizzo di reindirizzamento specificato dal client non corrisponde ad alcun indirizzo configurato o ad alcun indirizzo nell'elenco OIDC approvato. |
 | AADSTS70005 | UnsupportedResponseType: l'app ha restituito un tipo di risposta non supportato a causa dei motivi seguenti:<ul><li>Il tipo di risposta "token" non è abilitato per l'app</li><li>Il tipo di risposta "id_token"' richiede l'ambito "OpenID" o contiene un valore di parametro OAuth non supportato nell'elemento wctx codificato</li></ul> |

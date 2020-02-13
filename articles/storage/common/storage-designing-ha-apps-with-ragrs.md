@@ -10,12 +10,12 @@ ms.date: 01/14/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: bab95f6494fad86c9fdfc0b8fb044c22a7c5a628
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 592be1710893791e80dfe4b20e1323e789b33e69
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945442"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157093"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Progettazione di applicazioni a disponibilità elevata tramite l'archiviazione con ridondanza geografica e accesso in lettura
 
@@ -23,8 +23,8 @@ Una funzionalità comune delle infrastrutture basate su cloud come Archiviazione
 
 Gli account di archiviazione configurati per la replica con ridondanza geografica vengono replicati in modo sincrono nell'area primaria e quindi replicati in modo asincrono in un'area secondaria a centinaia di chilometri di distanza. Archiviazione di Azure offre due tipi di replica con ridondanza geografica:
 
-* [Archiviazione con ridondanza geografica (GZRS) (anteprima)](storage-redundancy-gzrs.md) fornisce la replica per gli scenari che richiedono disponibilità elevata e durabilità massima. I dati vengono replicati in modo sincrono in tre zone di disponibilità di Azure nell'area primaria usando l'archiviazione con ridondanza della zona (ZRS) e quindi replicati in modo asincrono nell'area secondaria. Per l'accesso in lettura ai dati nell'area secondaria, abilitare l'archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS).
-* L' [archiviazione con ridondanza geografica (GRS)](storage-redundancy-grs.md) fornisce la replica tra più aree per la protezione da interruzioni a livello di area. I dati vengono replicati in modo sincrono tre volte nell'area primaria usando l'archiviazione con ridondanza locale (con ridondanza locale) e quindi replicati in modo asincrono nell'area secondaria. Per l'accesso in lettura ai dati nell'area secondaria, abilitare l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).
+* [Archiviazione con ridondanza geografica (GZRS) (anteprima)](storage-redundancy.md) fornisce la replica per gli scenari che richiedono disponibilità elevata e durabilità massima. I dati vengono replicati in modo sincrono in tre zone di disponibilità di Azure nell'area primaria usando l'archiviazione con ridondanza della zona (ZRS) e quindi replicati in modo asincrono nell'area secondaria. Per l'accesso in lettura ai dati nell'area secondaria, abilitare l'archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS).
+* L' [archiviazione con ridondanza geografica (GRS)](storage-redundancy.md) fornisce la replica tra più aree per la protezione da interruzioni a livello di area. I dati vengono replicati in modo sincrono tre volte nell'area primaria usando l'archiviazione con ridondanza locale (con ridondanza locale) e quindi replicati in modo asincrono nell'area secondaria. Per l'accesso in lettura ai dati nell'area secondaria, abilitare l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).
 
 Questo articolo illustra come progettare l'applicazione per gestire un'interruzione nell'area primaria. Se l'area primaria non è più disponibile, l'applicazione può adattarsi a eseguire le operazioni di lettura sull'area secondaria. Prima di iniziare, verificare che l'account di archiviazione sia configurato per RA-GRS o RA-GZRS.
 
@@ -214,38 +214,7 @@ In questo esempio presupporre che il client passi alla lettura dell'area seconda
 
 Per riconoscere la presenza di dati potenzialmente incoerenti, il client può usare il valore di *Ora ultima sincronizzazione* che può essere ottenuto in qualsiasi momento eseguendo una query su un servizio di archiviazione. Questo valore indica l'ora in cui i dati nell'area secondaria sono stati coerenti per l'ultima volta e l'ora in cui il servizio aveva applicato tutte le transazioni prima di quel momento. Nell'esempio illustrato in precedenza, dopo che il servizio ha inserito l'entità **employee** nell'area secondaria l'ora dell'ultima sincronizzazione viene impostata su *T1*. Resta impostata su *T1* finché il servizio non aggiorna l'entità **employee** nell'area secondaria quando viene impostata su *T6*. Se recupera l'ora dell'ultima sincronizzazione quando legge l'entità su *T5*, il client può confrontare questo dato con il timestamp dell'entità. Se il timestamp dell'entità è successivo all'ora dell'ultima sincronizzazione, l'entità si trova in uno stato potenzialmente non coerente ed è possibile intervenire nel modo più idoneo per l'applicazione. Per usare questo campo è necessario sapere quando è stato completato l'ultimo aggiornamento nell'area primaria.
 
-## <a name="getting-the-last-sync-time"></a>Recupero dell'ora dell'ultima sincronizzazione
-
-È possibile usare PowerShell o l'interfaccia della riga di comando di Azure per recuperare l'ora dell'ultima sincronizzazione per determinare quando i dati sono stati scritti per ultimi nella replica secondaria.
-
-### <a name="powershell"></a>PowerShell
-
-Per ottenere l'ora dell'ultima sincronizzazione per l'account di archiviazione usando PowerShell, installare un modulo di anteprima di archiviazione di Azure che supporta l'acquisizione di statistiche di replica geografica. Per esempio:
-
-```powershell
-Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force
-```
-
-Quindi controllare la proprietà **GeoReplicationStats. LastSyncTime** dell'account di archiviazione. Ricordarsi di sostituire i valori segnaposto con i propri valori:
-
-```powershell
-$lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
-    -Name <storage-account> `
-    -IncludeGeoReplicationStats).GeoReplicationStats.LastSyncTime
-```
-
-### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-
-Per ottenere l'ora dell'ultima sincronizzazione per l'account di archiviazione usando l'interfaccia della riga di comando di Azure, controllare la proprietà **geoReplicationStats. LastSyncTime** dell'account di archiviazione. Usare il parametro `--expand` per restituire i valori per le proprietà nidificate in **geoReplicationStats**. Ricordarsi di sostituire i valori segnaposto con i propri valori:
-
-```azurecli
-$lastSyncTime=$(az storage account show \
-    --name <storage-account> \
-    --resource-group <resource-group> \
-    --expand geoReplicationStats \
-    --query geoReplicationStats.lastSyncTime \
-    --output tsv)
-```
+Per informazioni su come verificare l'ora dell'ultima sincronizzazione, vedere [controllare la proprietà dell'ora dell'ultima sincronizzazione per un account di archiviazione](last-sync-time-get.md).
 
 ## <a name="testing"></a>Test
 
@@ -267,7 +236,7 @@ static function OnBeforeResponse(oSession: Session) {
 
 Se le soglie per il passaggio dell'applicazione alla modalità di sola lettura sono state impostate come configurabili, sarà più semplice verificare il comportamento con volumi di transazioni non di produzione.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 * Per altre informazioni su come leggere dall'area secondaria, incluso un altro esempio di come è stata impostata la proprietà dell'ora dell'ultima sincronizzazione, vedere [Opzioni di ridondanza di archiviazione di Azure e archiviazione con ridondanza geografica e accesso in lettura](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 

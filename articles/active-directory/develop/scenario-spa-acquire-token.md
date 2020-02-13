@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
-ms.openlocfilehash: 290b0073ea6736141bca035f82f7aa37bdf364ef
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d5d48a2fc7aca184cf8b6e7761584a8800ca5151
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701927"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160067"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Applicazione a pagina singola: acquisire un token per chiamare un'API
 
@@ -42,7 +42,7 @@ Le richieste di token invisibile al Azure AD potrebbero non riuscire per motivi 
 
 ## <a name="acquire-a-token-with-a-pop-up-window"></a>Acquisire un token con una finestra popup
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 Il codice seguente combina il modello descritto in precedenza con i metodi per un'esperienza popup:
 
@@ -69,7 +69,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 });
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 Il wrapper angolare MSAL fornisce l'intercettore HTTP, che acquisisce automaticamente i token di accesso in modo invisibile all'utente e li associa alle richieste HTTP alle API.
 
@@ -111,9 +111,11 @@ ngOnDestroy() {
 
 In alternativa, è possibile acquisire in modo esplicito i token usando i metodi di acquisizione dei token come descritto nella libreria MSAL. js di base.
 
+---
+
 ## <a name="acquire-a-token-with-a-redirect"></a>Acquisire un token con un reindirizzamento
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 Il modello seguente è descritto in precedenza, ma mostrato con un metodo di reindirizzamento per acquisire i token in modo interattivo. È necessario registrare il callback di reindirizzamento come indicato in precedenza.
 
@@ -142,6 +144,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 ```
 
 ## <a name="request-optional-claims"></a>Richiedi attestazioni facoltative
+
 È possibile utilizzare le attestazioni facoltative per gli scopi seguenti:
 
 - Includere attestazioni aggiuntive nei token per l'applicazione.
@@ -150,7 +153,6 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 
 Per richiedere attestazioni facoltative in `IdToken`, è possibile inviare un oggetto Claims file al campo `claimsRequest` della classe `AuthenticationParameters.ts`.
 
-### <a name="javascript"></a>JavaScript
 ```javascript
 "optionalClaims":  
    {
@@ -168,12 +170,14 @@ var request = {
 
 myMSALObj.acquireTokenPopup(request);
 ```
+
 Per altre informazioni, vedere [attestazioni facoltative](active-directory-optional-claims.md).
 
-
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 Questo codice è identico a quello descritto in precedenza.
+
+---
 
 ## <a name="next-steps"></a>Passaggi successivi
 

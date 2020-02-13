@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 67fe048c5afb07c65dcddc797e3a1d8461b1893f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: fa8013722376a4864ba955783dbde1f73c0d9e8a
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965961"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77163110"
 ---
-# <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori Azure
+# <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori in Azure
 
-## <a name="what-is-azure"></a>Che cos'è Azure?
+## <a name="what-is-azure"></a>Cos'è Azure?
 
 Azure è una piattaforma cloud completa che può ospitare le applicazioni esistenti e semplificare lo sviluppo di nuove applicazioni. Azure può persino migliorare le applicazioni locali. Azure integra i servizi cloud necessari per sviluppare, testare, distribuire e gestire le applicazioni, sfruttando al contempo le efficienze dei cloud computing.
 
@@ -94,9 +94,9 @@ Azure Service Fabric è una piattaforma di sistemi distribuiti. Questa piattafor
 
 * Provisioning
 * Distribuzione
-* Monitorare
+* Monitoraggio
 * Aggiornamento/applicazione di patch
-* Eliminazione
+* Deleting
 
 Le app, eseguite in un pool condiviso di computer, possono essere inizialmente di piccole dimensioni e ridimensionarsi in seguito su centinaia o migliaia di computer in base alle esigenze.
 
@@ -163,7 +163,7 @@ In Azure sono disponibili diverse modalità d'uso dei contenitori nelle applicaz
   >
   > **Come iniziare**: [usare un'immagine Docker personalizzata per il servizio app in Linux](../../app-service/containers/quickstart-docker-go.md).
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
 È fondamentale non solo sapere chi sta usando le applicazioni, ma anche impedire l'accesso non autorizzato alle risorse. In Azure sono disponibili diversi modi per autenticare i client delle app.
 
@@ -171,7 +171,7 @@ In Azure sono disponibili diverse modalità d'uso dei contenitori nelle applicaz
 
   > **Uso consigliato**: quando si vuole offrire un'esperienza SSO, usare dati basati su Graph o autenticare utenti in base al dominio.
   >
-  > **Come iniziare**: per altre informazioni, vedere la [guida per gli sviluppatori di Azure Active Directory](../../active-directory/develop/v1-overview.md).
+  > **Come iniziare**: per altre informazioni, vedere la [guida per gli sviluppatori di Azure Active Directory](../../active-directory/develop/v2-overview.md).
 
 - **Autenticazione del servizio app**: quando si sceglie di ospitare l'app nel servizio app, si ottiene anche il supporto dell'autenticazione predefinita per Azure AD, insieme ai provider di identità basati su social network, ad esempio Facebook, Google, Microsoft e Twitter.
 
@@ -181,7 +181,7 @@ In Azure sono disponibili diverse modalità d'uso dei contenitori nelle applicaz
 
 Per altre informazioni sulle procedure consigliate per la sicurezza in Azure, vedere [Procedure consigliate e modelli per la sicurezza di Azure](../../security/fundamentals/best-practices-and-patterns.md).
 
-### <a name="monitoring"></a>Monitorare
+### <a name="monitoring"></a>Monitoraggio
 
 Con l'applicazione in esecuzione in Azure, è necessario monitorare le prestazioni, controllare la presenza di problemi e vedere in che modo i clienti usano l'app. Azure offre diverse opzioni di monitoraggio.
 
@@ -193,7 +193,7 @@ Con l'applicazione in esecuzione in Azure, è necessario monitorare le prestazio
 
     >**Come iniziare**: [Introduzione al monitoraggio di Azure](../../monitoring-and-diagnostics/monitoring-get-started.md).
 
-### <a name="devops-integration"></a>Integrazione con DevOps
+### <a name="devops-integration"></a>Integrazione di strumenti DevOps
 
 Sia che si tratti di eseguire il provisioning di VM o di pubblicare app Web con integrazione continua, Azure si integra con la maggior parte degli strumenti DevOps più diffusi. È possibile usare gli strumenti già disponibili e ottimizzare l'esperienza esistente con il supporto per strumenti come:
 
@@ -320,7 +320,7 @@ Azure Resource Manager consente di assegnare tag personalizzati a risorse singol
 * Nel modello di Azure Resource Manager
 * Utilizzo dell'API REST
 * Uso dell'interfaccia della riga di comando di Azure
-* Con PowerShell
+* Utilizzo di PowerShell
 
 È possibile assegnare più tag a ogni risorsa. Per altre informazioni, vedere [Uso dei tag per organizzare le risorse di Azure](../../resource-group-using-tags.md).
 

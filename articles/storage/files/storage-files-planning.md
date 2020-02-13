@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5a9e5e014740302c439036bd3889761f4750344f
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 203bf584711fbfcfd0baeee8f5e4c7f70d96823b
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77062864"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157219"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -93,7 +93,7 @@ Per informazioni su come creare una condivisione file Premium, vedere l'articolo
 Attualmente, non è possibile eseguire la conversione diretta tra una condivisione file standard e una condivisione file Premium. Se si desidera passare a uno dei livelli, è necessario creare una nuova condivisione file in tale livello e copiare manualmente i dati dalla condivisione originale alla nuova condivisione creata. A tale scopo, è possibile utilizzare uno degli strumenti di copia File di Azure supportati, ad esempio Robocopy o AzCopy.
 
 > [!IMPORTANT]
-> Le condivisioni file Premium sono disponibili con con ridondanza locale nella maggior parte delle aree che offrono gli account di archiviazione e con ZRS in un subset più piccolo di aree. Per scoprire se le condivisioni file Premium sono attualmente disponibili nella propria area geografica, vedere la pagina [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=storage) per Azure. Per informazioni sulle aree che supportano ZRS, vedere [copertura del supporto e disponibilità a livello](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability)di area.
+> Le condivisioni file Premium sono disponibili con con ridondanza locale nella maggior parte delle aree che offrono gli account di archiviazione e con ZRS in un subset più piccolo di aree. Per scoprire se le condivisioni file Premium sono attualmente disponibili nella propria area geografica, vedere la pagina [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=storage) per Azure. Per informazioni sulle aree che supportano ZRS, vedere [ridondanza di archiviazione di Azure](../common/storage-redundancy.md).
 >
 > Per aiutarci a classificare in ordine di priorità le nuove aree e le funzionalità del livello Premium, compila questo [sondaggio](https://aka.ms/pfsfeedback).
 
@@ -155,41 +155,14 @@ Le nuove condivisioni file iniziano con il numero completo di crediti nel bucket
 
 ## <a name="file-share-redundancy"></a>Ridondanza delle condivisioni file
 
-File di Azure condivisioni standard supporta quattro opzioni di ridondanza dei dati: archiviazione con ridondanza locale (con ridondanza locale), archiviazione con ridondanza della zona (ZRS), archiviazione con ridondanza geografica (GRS) e archiviazione con ridondanza della zona geografica (GZRS) (anteprima).
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
-File di Azure le condivisioni Premium supportano sia con ridondanza locale che ZRS, ZRS è attualmente disponibile in un subset più piccolo di aree.
-
-Le sezioni seguenti descrivono le differenze tra le diverse opzioni di ridondanza:
-
-### <a name="locally-redundant-storage"></a>Archiviazione con ridondanza locale
-
-[!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
-
-### <a name="zone-redundant-storage"></a>Archiviazione con ridondanza della zona
-
-[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
-
-### <a name="geo-redundant-storage"></a>Archiviazione con ridondanza geografica
+Se si sceglie l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS), è necessario tenere presente che il file di Azure non supporta attualmente l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) in qualsiasi area. Le condivisioni file nell'account di archiviazione RA-GRS funzionano come per gli account GRS e vengono addebitati i prezzi GRS.
 
 > [!Warning]  
 > Se si usa la condivisione file di Azure come endpoint cloud in un account di archiviazione con ridondanza geografica, è consigliabile non avviare il failover dell'account di archiviazione. Il failover causerebbe l'arresto della sincronizzazione e potrebbe causare inoltre una perdita di dati imprevista nel caso di file appena disposti su livelli. Nel caso di perdita di un'area di Azure, Microsoft attiverà il failover dell'account di archiviazione in modo compatibile con Sincronizzazione file di Azure.
 
-L'archiviazione con ridondanza geografica (GRS) è progettata per offrire almeno il 99,99999999999999% (16 9) di durabilità degli oggetti nell'arco di un anno eseguendo la replica dei dati in un'area secondaria distante centinaia di chilometri dall'area primaria. Se per l'account di archiviazione è stata abilitata l'archiviazione con ridondanza geografica, la durabilità dei dati è assicurata anche in caso di un'interruzione completa dell'alimentazione locale o in situazioni di emergenza in cui l'area primaria non è recuperabile.
-
-Se si sceglie l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS), è necessario tenere presente che il file di Azure non supporta attualmente l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) in qualsiasi area. Le condivisioni file nell'account di archiviazione RA-GRS funzionano come per gli account GRS e vengono addebitati i prezzi GRS.
-
-L'archiviazione con ridondanza geografica replica i dati in un altro data center in un'area secondaria, ma i dati sono disponibili per la lettura solo se Microsoft avvia un failover dall'area primaria a quella secondaria.
-
-Per un account di archiviazione con la funzionalità GRS abilitata, tutti i dati vengono prima replicati con archiviazione con ridondanza locale (con ridondanza locale). Prima di tutto, viene eseguito il commit di un aggiornamento nella località primaria e viene eseguita la replica con l'archiviazione con ridondanza locale. L'aggiornamento viene quindi replicato in modo asincrono nell'area secondaria tramite l'archiviazione con ridondanza geografica. Quando i dati vengono scritti nella località secondaria, vengono anche replicati all'interno di tale località usando l'archiviazione con ridondanza locale.
-
-Entrambe le aree primaria e secondaria gestiscono le repliche tra domini di errore e domini di aggiornamento separati all'interno di un'unità di scala di archiviazione. L'unità di scala di archiviazione è l'unità di replica di base nel data center. La replica a questo livello viene fornita dall'archiviazione con ridondanza locale. Per altre informazioni, vedere [Archiviazione con ridondanza locale: ridondanza dei dati a basso costo per l'Archiviazione di Azure](../common/storage-redundancy-lrs.md).
-
-Nella scelta dell'opzione di replica da usare, tenere presenti queste considerazioni:
-
-* Archiviazione con ridondanza geografica (GZRS) (anteprima) offre disponibilità elevata insieme alla durabilità massima tramite la replica in modo sincrono dei dati in tre zone di disponibilità di Azure e la replica dei dati in modo asincrono nell'area secondaria. È anche possibile abilitare l'accesso in lettura all'area secondaria. GZRS è progettato per offrire almeno il 99,99999999999999% (16 9) di durabilità degli oggetti in un determinato anno. Per altre informazioni su GZRS, vedere [archiviazione con ridondanza della zona geografica per disponibilità elevata e durabilità massima (anteprima)](../common/storage-redundancy-gzrs.md).
-* L'archiviazione con ridondanza della zona (ZRS) fornisce disponibilità elevata con la replica sincrona e può essere la scelta migliore per alcuni scenari rispetto a GRS. Per altre informazioni sull'archiviazione con ridondanza della zona, vedere [Archiviazione con ridondanza della zona](../common/storage-redundancy-zrs.md).
-* La replica asincrona implica un ritardo dal momento in cui i dati vengono scritti nell'area primaria a quello in cui vengono replicati nell'area secondaria. Nel caso in cui si verifichi un'emergenza a livello di area, è possibile che le modifiche non ancora replicate nell'area secondaria vadano perse se non è possibile recuperare i dati dall'area primaria.
-* Con l'archiviazione con ridondanza geografica, la replica non è disponibile per la lettura o la scrittura a meno che Microsoft non avvii un failover nell'area secondaria. In caso di failover, si avrà accesso in lettura e scrittura a tali dati al termine del failover. Per altre informazioni, vedere le [indicazioni sul ripristino di emergenza](../common/storage-disaster-recovery-guidance.md).
+File di Azure le condivisioni Premium supportano sia con ridondanza locale che ZRS, ZRS è attualmente disponibile in un subset più piccolo di aree.
 
 ## <a name="onboard-to-larger-file-shares-standard-tier"></a>Onboarding in condivisioni file di dimensioni maggiori (livello standard)
 

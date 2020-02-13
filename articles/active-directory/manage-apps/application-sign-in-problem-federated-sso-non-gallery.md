@@ -16,19 +16,19 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b8aac627936aef2cfa79bbd92d6163fe40b4d32
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 70a85a81996766b862cd6fbc3b605636385e0fda
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274861"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159183"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemi di accesso a un'applicazione non nella raccolta configurata per il Single Sign-On federato
 
 Per risolvere i problemi di accesso indicati di seguito, è consigliabile seguire questi suggerimenti per ottenere una diagnosi migliore e automatizzare i passaggi di risoluzione:
 
 - Installare l' [estensione My App Secure Browser](access-panel-extension-problem-installing.md) per semplificare la Azure Active Directory (Azure ad) per fornire una diagnosi e una risoluzione migliori quando si usa l'esperienza di test nel portale di Azure.
-- Riprodurre l'errore usando l'esperienza di test nella pagina di configurazione dell'app nel portale di Azure. Altre informazioni sul [debug di applicazioni Single Sign-on basate su SAML](../develop/howto-v1-debug-saml-sso-issues.md)
+- Riprodurre l'errore usando l'esperienza di test nella pagina di configurazione dell'app nel portale di Azure. Altre informazioni sul [debug di applicazioni Single Sign-on basate su SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
 
 ## <a name="application-not-found-in-directory"></a>Applicazione non trovata nella directory
 
@@ -40,19 +40,19 @@ L'attributo Issuer inviato dall'applicazione ad Azure AD nella richiesta SAML no
 
 **Risoluzione**
 
-Verificare che l'attributo `Issuer` nella richiesta SAML corrisponda al valore dell'identificatore configurato nella Azure AD. Se si usa l' [esperienza di test](../develop/howto-v1-debug-saml-sso-issues.md) nella portale di Azure con l'estensione My App Secure browser, non è necessario seguire manualmente questa procedura.
+Verificare che l'attributo `Issuer` nella richiesta SAML corrisponda al valore dell'identificatore configurato nella Azure AD. Se si usa l' [esperienza di test](../azuread-dev/howto-v1-debug-saml-sso-issues.md) nella portale di Azure con l'estensione My App Secure browser, non è necessario seguire manualmente questa procedura.
 
 1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3. Digitare **"Azure Active Directory"** nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4. Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
 
 5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'**elenco di tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
 6. Selezionare l'applicazione per cui si vuole configurare l'accesso Single Sign-On.
 
@@ -70,13 +70,13 @@ Il valore AssertionConsumerServiceURL nella richiesta SAML non corrisponde al va
 
 **Risoluzione** 
 
-Verificare che l'attributo `Issuer` nella richiesta SAML corrisponda al valore dell'identificatore configurato nella Azure AD. Se si usa l' [esperienza di test](../develop/howto-v1-debug-saml-sso-issues.md) nella portale di Azure con l'estensione My App Secure browser, non è necessario seguire manualmente questa procedura.
+Verificare che l'attributo `Issuer` nella richiesta SAML corrisponda al valore dell'identificatore configurato nella Azure AD. Se si usa l' [esperienza di test](../azuread-dev/howto-v1-debug-saml-sso-issues.md) nella portale di Azure con l'estensione My App Secure browser, non è necessario seguire manualmente questa procedura.
  
 1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**. 
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra. 
 
-3. Digitare **"Azure Active Directory"** nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**. 
+3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**. 
 
 4. Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory. 
 
@@ -84,7 +84,7 @@ Verificare che l'attributo `Issuer` nella richiesta SAML corrisponda al valore d
 
    * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e      impostare l'opzione **Mostra** su **Tutte le applicazioni.**
   
-6. Selezionare l'applicazione per cui si desidera configurare l'accesso Single Sign-on
+6. Selezionare l'applicazione per cui si vuole configurare un accesso Single Sign-On
 
 7. Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di spostamento di sinistra dell'applicazione.
 
@@ -102,19 +102,19 @@ L'utente non ha ottenuto l'accesso all'applicazione in Azure AD.
 
 **Risoluzione**
 
-Per assegnare uno o più utenti direttamente a un'applicazione, attenersi alla procedura riportata di seguito. Se si usa l' [esperienza di test](../develop/howto-v1-debug-saml-sso-issues.md) nella portale di Azure con l'estensione My App Secure browser, non è necessario seguire manualmente questa procedura.
+Per assegnare uno o più utenti direttamente a un'applicazione, attenersi alla procedura riportata di seguito. Se si usa l' [esperienza di test](../azuread-dev/howto-v1-debug-saml-sso-issues.md) nella portale di Azure con l'estensione My App Secure browser, non è necessario seguire manualmente questa procedura.
 
 1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3. Digitare **"Azure Active Directory"** nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4. Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
 
 5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'**elenco di tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
 6. Selezionare nell'elenco l'applicazione che si vuole assegnare a un utente.
 
@@ -172,7 +172,7 @@ L'attributo `Issuer` inviato dall'applicazione per Azure AD nella richiesta SAML
 
 **Risoluzione**
 
-Verificare che l'attributo `Issuer` nella richiesta SAML corrisponda al valore dell'identificatore configurato nella Azure AD. Se si usa l' [esperienza di test](../develop/howto-v1-debug-saml-sso-issues.md) nella portale di Azure con l'estensione My App Secure browser, non è necessario seguire manualmente questa procedura:
+Verificare che l'attributo `Issuer` nella richiesta SAML corrisponda al valore dell'identificatore configurato nella Azure AD. Se si usa l' [esperienza di test](../azuread-dev/howto-v1-debug-saml-sso-issues.md) nella portale di Azure con l'estensione My App Secure browser, non è necessario seguire manualmente questa procedura:
 
 1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
@@ -206,13 +206,13 @@ Per eliminare e creare un nuovo certificato, seguire questa procedura:
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3. Digitare **"Azure Active Directory"** nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4. Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
 
 5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'**elenco di tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
 6. Selezionare l'applicazione per cui si vuole configurare l'accesso Single Sign-On.
 

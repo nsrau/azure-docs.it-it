@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5406d301f6487753bc13b291db6d22eaedbf67b7
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: cf1515bcf2223ae730a47f7105d51206ba638cd7
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066811"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161614"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi per il provisioning degli utenti per le applicazioni SaaS in Azure Active Directory
 
@@ -111,7 +111,7 @@ Alcuni sistemi e applicazioni che supportano la personalizzazione dell'elenco di
 
 - Salesforce
 - ServiceNow
-- Giornata lavorativa
+- Workday
 - Azure Active Directory (sono supportati gli [attributi predefiniti dell'API Graph di Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) e le estensione della directory personalizzate)
 - App che supportano [SCIM 2.0](https://tools.ietf.org/html/rfc7643), in cui devono essere aggiunti gli attributi definiti nello [schema di base](https://tools.ietf.org/html/rfc7643)
 
@@ -143,7 +143,7 @@ SCIM RFC definisce uno schema di utenti e gruppi di base, consentendo allo schem
    4. Selezionare **modifica elenco attributi per AppName**.
    5. Nella parte inferiore dell'elenco di attributi immettere le informazioni sull'attributo personalizzato nei campi specificati. Quindi selezionare **Aggiungi attributo**.
 
-Per le applicazioni SCIM, il nome dell'attributo deve seguire il modello illustrato nell'esempio riportato di seguito. "CustomExtensionName" e "CustomAttribute" possono essere personalizzati in base ai requisiti dell'applicazione, ad esempio: urn: IETF: params: SCIM: schemas: Extension: 2.0: CustomExtensionName: CustomAttribute
+Per le applicazioni SCIM, il nome dell'attributo deve seguire il modello illustrato nell'esempio riportato di seguito. "CustomExtensionName" e "CustomAttribute" possono essere personalizzati in base ai requisiti dell'applicazione, ad esempio: urn: IETF: params: SCIM: schemas: Extension: 2.0: CustomExtensionName: CustomAttribute o urn: IETF: params: SCIM: schemas: Extension: CustomExtensionName: 2.0: User. CustomAttributeName: valore
 
 Queste istruzioni sono valide solo per le applicazioni abilitate per SCIM. Le applicazioni, ad esempio ServiceNow e Salesforce, non sono integrate con Azure AD usando SCIM e pertanto non richiedono questo spazio dei nomi specifico quando si aggiunge un attributo personalizzato.
 

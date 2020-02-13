@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio (classic) | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: c1a7f44539d07761814f5cb3d7074c9428423154
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: 0bb4157ff77ef57f377ba0c6a08bfe8529f663f4
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153537"
+ms.locfileid: "77169281"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-classic-jobs"></a>Servizio Azure Batch per i processi di Azure Machine Learning Studio (classico)
 
@@ -111,4 +111,4 @@ Se si crea un pool Batch con 4 macchine virtuali e lo si elimina dopo 12 ore, al
 
 | **Usare l'elaborazione di pool Batch quando**    | **Usare l'elaborazione di batch classica quando**  |
 |---|---|
-|È necessario eseguire un numero elevato di processi<br>Oppure<br/>È necessario che i processi vengano eseguiti immediatamente<br/>Oppure<br/>È necessario garantire la velocità effettiva. Ad esempio, è necessario eseguire alcuni processi in un determinato intervallo temporale e aumentare le risorse di calcolo in base alle esigenze.    | Si sta eseguendo un numero limitato di processi<br/>E<br/> non è necessario che i processi vengano eseguiti immediatamente |
+|È necessario eseguire un numero elevato di processi<br>Oppure<br/>È necessario che i processi vengano eseguiti immediatamente<br/>Oppure<br/>È necessario garantire la velocità effettiva. Ad esempio, è necessario eseguire alcuni processi in un determinato intervallo temporale e aumentare le risorse di calcolo in base alle esigenze.    | Si sta eseguendo un numero limitato di processi<br/>e<br/> non è necessario che i processi vengano eseguiti immediatamente |

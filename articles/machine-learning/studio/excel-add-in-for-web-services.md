@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: f7b5ca7112a6fb79586dc66b385e8015fe10e0b0
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: cb91d51770c15914ff23e839cef8e7626ffd241f
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153452"
+ms.locfileid: "77168625"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Componente aggiuntivo di Excel per i servizi Web di Azure Machine Learning Studio (classico)
 Excel consente di chiamare servizi Web direttamente senza dover scrivere alcun codice.
@@ -74,7 +74,7 @@ Ottenere la chiave API per il servizio Web. La posizione in cui viene eseguita l
 5. Fare clic su **Aggiungi servizio Web**.
 6. Incollare l'URL nella casella di testo **URL**del componente aggiuntivo Excel.
 7. Incollare la chiave API/primaria nella casella di testo **Chiave API**.
-8. Fare clic su **Add**.
+8. Fare clic su **Aggiungi**.
    
     ![URL e chiave API per un servizio Web classico.](./media/excel-add-in-for-web-services/image6.png)
 9. Per usare il servizio Web, seguire le indicazioni illustrate in precedenza nella sezione "Procedura per usare un servizio Web esistente".

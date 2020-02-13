@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: cbcd3d27da3aff66e1dc6758af8a573666c0bbbe
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
-ms.translationtype: MT
+ms.openlocfilehash: 213e5523c0c99309c3244e19a406a7b82297188f
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121404"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161801"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Proteggere un'API usando OAuth 2.0 con Azure Active Directory e Gestione API
 
@@ -27,7 +27,7 @@ Questa guida illustra come configurare l'istanza di Gestione API di Azure per pr
 > [!NOTE]
 > Questa funzionalità è disponibile nei livelli **Developer**, **standard** e **Premium** di gestione API.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Per eseguire i passaggi in questo articolo è necessario avere quanto segue:
 * Un'istanza di Gestione API
 * Un'API in corso di pubblicazione che usa l'istanza di Gestione API
@@ -147,7 +147,7 @@ In questo esempio la console per sviluppatori è l'app client. La procedura segu
 
 1. Immediatamente dopo il segreto client è riportato il valore di **redirect_url** per il tipo di concessione con codice di autorizzazione. Prendere nota dell'URL.
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 1. Tornare all'app client e selezionare **Authentication (autenticazione**).
 
@@ -161,7 +161,7 @@ Il passaggio successivo consiste nell'abilitare l'autorizzazione utente OAuth 2.
 
 2. Selezionare l'API da proteggere. Ad esempio, è possibile usare la `Echo API`.
 
-3. Passare a **Settings**.
+3. Passare a **Impostazioni**.
 
 4. In **Sicurezza** scegliere **OAuth 2.0** e selezionare il server OAuth 2.0 configurato in precedenza. 
 
@@ -212,7 +212,7 @@ Tuttavia, cosa accade se un utente chiama l'API senza un token o con un token no
 
 ## <a name="build-an-application-to-call-the-api"></a>Creare un'applicazione per chiamare l'API
 
-In questa guida è stata usata la console per sviluppatori di Gestione API come applicazione client di esempio per chiamare `Echo API` a cui è applicata la protezione tramite OAuth 2.0. Per altre informazioni su come creare un'applicazione e implementare OAuth 2.0, vedere [Esempi di codice di Azure Active Directory](../active-directory/develop/sample-v1-code.md).
+In questa guida è stata usata la console per sviluppatori di Gestione API come applicazione client di esempio per chiamare `Echo API` a cui è applicata la protezione tramite OAuth 2.0. Per altre informazioni su come creare un'applicazione e implementare OAuth 2.0, vedere [Esempi di codice di Azure Active Directory](../active-directory/develop/sample-v2-code.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni su [Azure Active Directory e OAuth 2.0](../active-directory/develop/authentication-scenarios.md).

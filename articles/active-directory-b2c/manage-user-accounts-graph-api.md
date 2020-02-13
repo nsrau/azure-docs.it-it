@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a9e55edcb7c107a3dfa91f61aaa1fea64bc62f21
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 71b437f57f9d9e6e18af88d6413269cac6f66c47
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848876"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161665"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: usare l'API Graph di Azure AD
 
@@ -26,11 +26,11 @@ Potrebbe essere necessario eseguire la migrazione di un archivio utenti esistent
 Per i tenant B2C, esistono due modalità principali di comunicazione con i API Graph:
 
 * Per le attività **interattive**, Esegui una sola volta, è necessario fungere da account amministratore nel tenant B2C quando si eseguono le attività. Questa modalità richiede che un amministratore acceda con le credenziali prima di effettuare chiamate all'API Graph.
-* Per le attività **automatiche**continue, è necessario utilizzare un tipo di account del servizio fornito con i privilegi necessari per eseguire le attività di gestione. In Azure AD è possibile ottenere questo risultato registrando un'applicazione ed effettuando l'autenticazione in Azure AD. A questo scopo usare un *ID applicazione* che usa la [concessione delle credenziali client OAuth 2.0](../active-directory/develop/service-to-service.md). In questo caso l'applicazione agisce autonomamente, non come utente, per chiamare l'API Graph.
+* Per le attività **automatiche**continue, è necessario utilizzare un tipo di account del servizio fornito con i privilegi necessari per eseguire le attività di gestione. In Azure AD è possibile ottenere questo risultato registrando un'applicazione ed effettuando l'autenticazione in Azure AD. A questo scopo usare un *ID applicazione* che usa la [concessione delle credenziali client OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). In questo caso l'applicazione agisce autonomamente, non come utente, per chiamare l'API Graph.
 
 In questo articolo si apprenderà come eseguire il caso di utilizzo automatico. Verrà compilato un `B2CGraphClient` .NET 4.5 che esegue operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD, Create, Read, Update, Delete) di utenti. Il client avrà un'interfaccia della riga di comando di Windows che consente di richiamare diversi metodi. Tuttavia, il codice viene scritto per comportarsi in modo automatico e non interattivo.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di poter creare applicazioni o utenti, è necessario un tenant di Azure AD B2C. Se non ne è già presente uno, [creare un tenant Azure Active Directory B2C](tutorial-create-tenant.md).
 
@@ -73,7 +73,7 @@ L'applicazione Azure AD B2C dispone ora delle autorizzazioni aggiuntive necessar
 
 ## <a name="get-the-sample-code"></a>Scaricare il codice di esempio
 
-L'esempio di codice è un'applicazione console .NET che usa la [Active Directory Authentication Library (adal)](../active-directory/develop/active-directory-authentication-libraries.md) per interagire con Azure ad API Graph. Il codice illustra come chiamare l'API per gestire gli utenti a livello di codice in un tenant Azure AD B2C.
+L'esempio di codice è un'applicazione console .NET che usa la [Active Directory Authentication Library (adal)](../active-directory/azuread-dev/active-directory-authentication-libraries.md) per interagire con Azure ad API Graph. Il codice illustra come chiamare l'API per gestire gli utenti a livello di codice in un tenant Azure AD B2C.
 
 È possibile [scaricare l'archivio di esempio](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip) (\*. zip) o clonare il repository GitHub:
 
@@ -317,7 +317,7 @@ Esaminare il metodo `B2CGraphClient.SendGraphDeleteRequest()` per informazioni d
 
 È possibile eseguire molte altre azioni con l'API Graph di Azure AD, oltre alla gestione degli utenti. Le [informazioni di riferimento sull'API Graph di Azure AD](/previous-versions/azure/ad/graph/api/api-catalog) illustrano i dettagli di ogni azione, insieme a richieste di esempio.
 
-## <a name="use-custom-attributes"></a>Usare attributi personalizzati
+## <a name="use-custom-attributes"></a>Usare gli attributi personalizzati
 
 La maggior parte delle applicazioni consumer deve archiviare alcune informazioni del profilo utente personalizzate. Un modo per eseguire questa operazione consiste nel definire un attributo personalizzato nel tenant di B2C. È quindi possibile trattare tale attributo nello stesso modo in cui si tratta di qualsiasi altra proprietà di un oggetto utente. È possibile aggiornare l'attributo, eliminarlo, eseguire una query in base all'attributo, inviarlo come attestazione in un token di accesso e così via.
 

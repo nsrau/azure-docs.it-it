@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: f5d1fff7d1343ad569fa015ebdb65d0152f04376
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 26fe995f45a97a5863bfc20fd1564df89124ed88
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153214"
+ms.locfileid: "77168330"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST di riconoscimento vocale
 
@@ -32,9 +32,18 @@ Se l'invio di audio più lungo è un requisito per l'applicazione, prendere in c
 
 ## <a name="regions-and-endpoints"></a>Aree ed endpoint
 
-Queste aree sono supportate per la trascrizione vocale usando l'API REST. Assicurarsi di selezionare l'endpoint corrispondente all'area della propria sottoscrizione.
+Il formato dell'endpoint per l'API REST è il seguente:
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)] 
+```
+https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
+```
+
+Sostituire `<REGION_IDENTIFIER>` con l'identificatore corrispondente all'area della sottoscrizione da questa tabella:
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+
+> [!NOTE]
+> Il parametro di lingua deve essere aggiunto all'URL per evitare di ricevere un errore 4xx HTTP. Ad esempio, la lingua impostata su inglese (Stati Uniti) usando l'endpoint per l'area Stati Uniti occidentali è: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
 
 ## <a name="query-parameters"></a>Parametri di query
 
@@ -43,8 +52,8 @@ Questi parametri possono essere inclusi nella stringa di query della richiesta R
 | Parametro | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | `language` | Identifica la lingua parlata che viene riconosciuta. Vedere [Lingue supportate](language-support.md#speech-to-text). | Obbligatoria |
-| `format` | Specifica il formato del risultato. I valori accettati sono `simple` e `detailed`. I risultati semplici includono `RecognitionStatus`, `DisplayText`, `Offset` e `Duration`. Le risposte dettagliate includono più risultati con valori di attendibilità e quattro diverse rappresentazioni. L'impostazione predefinita è `simple`. | Facoltativa |
-| `profanity` | Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `masked`, che sostituisce la volgarità con asterischi, `removed`, che rimuove tutti i messaggi profani dal risultato, o `raw`, che include la volgarità nel risultato. L'impostazione predefinita è `masked`. | Facoltativa |
+| `format` | Specifica il formato del risultato. I valori accettati sono `simple` e `detailed`. I risultati semplici includono `RecognitionStatus`, `DisplayText`, `Offset` e `Duration`. Le risposte dettagliate includono più risultati con valori di attendibilità e quattro diverse rappresentazioni. L'impostazione predefinita è `simple`. | Facoltativo |
+| `profanity` | Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `masked`, che sostituisce la volgarità con asterischi, `removed`, che rimuove tutti i messaggi profani dal risultato, o `raw`, che include la volgarità nel risultato. L'impostazione predefinita è `masked`. | Facoltativo |
 
 ## <a name="request-headers"></a>Intestazioni della richiesta
 
@@ -55,7 +64,7 @@ Questa tabella elenca le intestazioni obbligatorie e facoltative per le richiest
 | `Ocp-Apim-Subscription-Key` | La chiave di sottoscrizione al Servizio di riconoscimento vocale dell'utente. | È necessaria questa intestazione o `Authorization`. |
 | `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | È necessaria questa intestazione o `Ocp-Apim-Subscription-Key`. |
 | `Content-type` | Descrive il formato e il codec dei dati audio forniti. I valori accettati sono `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Obbligatoria |
-| `Transfer-Encoding` | Specifica che vengono inviati i dati audio in blocchi, anziché un singolo file. Utilizzare questa intestazione solo se vi è stata la suddivisione in blocchi dei dati audio. | Facoltativa |
+| `Transfer-Encoding` | Specifica che vengono inviati i dati audio in blocchi, anziché un singolo file. Utilizzare questa intestazione solo se vi è stata la suddivisione in blocchi dei dati audio. | Facoltativo |
 | `Expect` | Se si usa il trasferimento in blocchi, inviare `Expect: 100-continue`. Il Servizio di riconoscimento vocale legge la richiesta iniziale e attende ulteriori dati.| Obbligatorio in caso di invio di dati audio in blocchi. |
 | `Accept` | Se specificato, deve essere `application/json`. Il servizio di riconoscimento vocale fornisce i risultati in formato JSON. Alcuni framework di richiesta forniscono un valore predefinito incompatibile. È consigliabile includere sempre `Accept`. | Facoltativo, ma consigliato. |
 
@@ -63,7 +72,7 @@ Questa tabella elenca le intestazioni obbligatorie e facoltative per le richiest
 
 L'audio viene inviato nel corpo della richiesta HTTP `POST`. Deve essere in uno dei formati elencati in questa tabella:
 
-| Formato | Codec | Bitrate | Frequenza di campionamento |
+| Format | Codec | Bitrate | Frequenza di campionamento |
 |--------|-------|---------|-------------|
 | WAV | PCM | 16 bit | 16 kHz, mono |
 | OGG | OPUS | 16 bit | 16 kHz, mono |
@@ -91,11 +100,11 @@ Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 
 | Stato codice HTTP | Descrizione | Possibile motivo |
 |------------------|-------------|-----------------|
-| 100 | Continua | La richiesta iniziale è stata accettata. Procedere con l'invio del resto dei dati. (Usato con il trasferimento in blocchi.) |
+| 100 | Continue | La richiesta iniziale è stata accettata. Procedere con l'invio del resto dei dati. (Usato con il trasferimento in blocchi.) |
 | 200 | OK | La richiesta ha avuto esito positivo; il corpo della risposta è un oggetto JSON. |
 | 400 | Richiesta non valida | Il codice della lingua non è disponibile, non è un linguaggio supportato, un file audio non valido e così via. |
 | 401 | Non autorizzata | La chiave di sottoscrizione o il token di autorizzazione non è valido nell'area specificata o l'endpoint non è valido. |
-| 403 | Non consentito | Manca la chiave di sottoscrizione o il token di autorizzazione. |
+| 403 | Accesso negato | Manca la chiave di sottoscrizione o il token di autorizzazione. |
 
 ## <a name="chunked-transfer"></a>Trasferimento in blocchi
 

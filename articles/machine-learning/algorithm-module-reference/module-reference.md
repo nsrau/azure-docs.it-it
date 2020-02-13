@@ -9,12 +9,12 @@ ms.topic: reference
 author: peterclu
 ms.author: peterlu
 ms.date: 12/17/2019
-ms.openlocfilehash: 7f2d282541e8a5a3752a0784a3f00a48ad2fb303
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: d3feb62c0c7fa24dd998add08d17ebd1d4e9ee6c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769151"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162583"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Guida di riferimento al modulo & dell'algoritmo per Azure Machine Learning Designer
 
@@ -32,16 +32,16 @@ Per informazioni sulla scelta degli algoritmi, vedere
 ## <a name="data-preparation-modules"></a>Moduli di preparazione dei dati
 
 
-| Funzionalità | Description | Modulo |
+| Funzionalità | Descrizione | Modulo |
 | --- |--- | --- |
 | Input e output dei dati | Spostare i dati dalle origini cloud alla pipeline. Scrivere i risultati o i dati intermedi in archiviazione di Azure, un database SQL o hive, durante l'esecuzione di una pipeline, oppure usare l'archiviazione cloud per scambiare dati tra pipeline.  | [Immissione manuale dei dati](enter-data-manually.md) <br/> [Esportazione dei dati](export-data.md) <br/> [Importazione dei dati](import-data.md) |
-| Trasformazione dei dati | Operazioni sui dati che sono univoche per Machine Learning, ad esempio la normalizzazione o la suddivisione in contenitori dei dati, la riduzione della dimensionalità e la conversione dei dati tra diversi formati di file.| [Aggiungi colonne](add-columns.md) <br/> [Aggiungi righe](add-rows.md) <br/> [Applica operazione matematica](apply-math-operation.md) <br/> [Applica trasformazione SQL](apply-sql-transformation.md) <br/> [Pulisci i dati mancanti](clean-missing-data.md) <br/> [Ritaglia valori](clip-values.md) <br/> [Converti in CSV](convert-to-csv.md) <br/> [Converti in DataSet](convert-to-dataset.md) <br/> [Modificare i metadati](edit-metadata.md) <br/> [Unisci dati](join-data.md) <br/> [Normalizza i dati](normalize-data.md) <br/> [Partition ed Sample](partition-and-sample.md)  <br/> [Rimuovi righe duplicate](remove-duplicate-rows.md) <br/> [COLPÌ](smote.md) <br/> [Selezione trasformazione colonne](select-columns-transform.md) <br/> [Selezionare le colonne nel set di dati](select-columns-in-dataset.md) <br/> [Dividere dati](split-data.md) |
+| Trasformazione dei dati | Operazioni sui dati che sono univoche per Machine Learning, ad esempio la normalizzazione o la suddivisione in contenitori dei dati, la riduzione della dimensionalità e la conversione dei dati tra diversi formati di file.| [Aggiungi colonne](add-columns.md) <br/> [Aggiungi righe](add-rows.md) <br/> [Applica operazione matematica](apply-math-operation.md) <br/> [Applica trasformazione SQL](apply-sql-transformation.md) <br/> [Pulisci i dati mancanti](clean-missing-data.md) <br/> [Ritaglia valori](clip-values.md) <br/> [Converti in CSV](convert-to-csv.md) <br/> [Converti in DataSet](convert-to-dataset.md) <br/> [Converti in valori indicatore](convert-to-indicator-values.md) <br/> [Modificare i metadati](edit-metadata.md) <br/> [Unisci dati](join-data.md) <br/> [Normalizza i dati](normalize-data.md) <br/> [Partition ed Sample](partition-and-sample.md)  <br/> [Rimuovi righe duplicate](remove-duplicate-rows.md) <br/> [COLPÌ](smote.md) <br/> [Selezione trasformazione colonne](select-columns-transform.md) <br/> [Selezionare le colonne nel set di dati](select-columns-in-dataset.md) <br/> [Dividere dati](split-data.md) |
 | Selezione caratteristiche | Consente di selezionare un subset di funzionalità utili rilevanti da utilizzare per la compilazione di un modello analitico. | [Selezione delle funzioni basata su filtro](filter-based-feature-selection.md) <br/> [Importanza della funzionalità di permutazione](permutation-feature-importance.md) |
 | Funzioni di statistiche | Fornire un'ampia gamma di metodi statistici correlati a data science. | [Riepiloga dati](summarize-data.md)|
 
-## <a name="machine-learning-algorithms"></a>Algoritmi di Machine Learning
+## <a name="machine-learning-algorithms"></a>Algoritmi di apprendimento automatico
 
-| Funzionalità | Description | Modulo |
+| Funzionalità | Descrizione | Modulo |
 | --- |--- | --- |
 | Regressione | Stimare un valore. | [Regressione dell'albero delle decisioni con boosting](boosted-decision-tree-regression.md) <br/> [Regressione della foresta delle decisioni](decision-forest-regression.md) <br/> [Regressione lineare](linear-regression.md)  <br/> [Regressione di rete neurale](neural-network-regression.md)  <br/> |
 | Clustering | Raggruppare i dati.| [Clustering K-means](k-means-clustering.md)
@@ -49,13 +49,13 @@ Per informazioni sulla scelta degli algoritmi, vedere
 
 ## <a name="modules-for-building-and-evaluating-models"></a>Moduli per la compilazione e la valutazione dei modelli
 
-| Funzionalità | Description | Modulo |
+| Funzionalità | Descrizione | Modulo |
 | --- |--- | --- |
 | Training dei modelli | Eseguire i dati tramite l'algoritmo. |  [Training del modello di clustering](train-clustering-model.md) <br/> [Eseguire il training del modello](train-model.md)  <br/> [Ottimizzazione degli iperparametri del modello](tune-model-hyperparameters.md) |
 | Valutazione e punteggio del modello | Misurare l'accuratezza del modello sottoposto a training. | [Applica trasformazione](apply-transformation.md) <br/> [Assegnare i dati ai cluster](assign-data-to-clusters.md) <br/> [Modello Cross Validate](cross-validate-model.md) <br/> [Valuta modello](evaluate-model.md) <br/> [Modello di Punteggio](score-model.md) |
 | Linguaggio di programmazione di Python | Scrivere il codice e incorporarlo in un modulo per integrare Python con la pipeline. | [Creare un modello Python](create-python-model.md) <br/> [Esegui script Python](execute-python-script.md) |
 | Linguaggio R | Scrivere codice e incorporarlo in un modulo per integrare R con la pipeline. | [Esegui script R](execute-r-script.md) |
-| Analisi del testo | Fornire strumenti di calcolo specializzati per lavorare con testo strutturato e non strutturato. | [Estrai le funzionalità di N grammi dal testo](extract-n-gram-features-from-text.md) <br/> [Hashing delle funzionalità](feature-hashing.md) <br/> [Pre-elabora testo](preprocess-text.md) |
+| Text Analytics | Fornire strumenti di calcolo specializzati per lavorare con testo strutturato e non strutturato. | [Estrai le funzionalità di N grammi dal testo](extract-n-gram-features-from-text.md) <br/> [Hashing delle funzionalità](feature-hashing.md) <br/> [Pre-elabora testo](preprocess-text.md) |
 | Recommendation | Compilare i modelli di raccomandazione. | [Valuta la raccomandazione](evaluate-recommender.md) <br/> [Punteggio SVD Recommender](score-svd-recommender.md) <br/> [Train SVD Recommender](train-SVD-recommender.md) |
 
 ## <a name="error-messages"></a>messaggi di errore

@@ -13,12 +13,12 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: c5b8c506398af27ced284405dd75e48fb19a17af
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: dbbe501b27bf7ae4d4cb4bc00501aeb1fb06819e
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698850"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161223"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integrazione con Azure Active Directory
 
@@ -26,13 +26,13 @@ ms.locfileid: "76698850"
 
 In questo articolo vengono illustrati i vantaggi dell'integrazione dell'applicazione con Azure Active Directory (Azure AD) e le risorse per l'integrazione. Azure AD offre alle organizzazioni una gestione delle identità di livello aziendale per le applicazioni cloud. L'integrazione di Azure AD offre agli utenti un'esperienza di accesso semplificata e favorisce la conformità delle applicazioni ai criteri IT.
 
-## <a name="how-to-integrate"></a>Modalità di integrazione
+## <a name="how-to-integrate"></a>Come integrare
 
 Per eseguire l'integrazione con Azure AD, sono disponibili diversi modi. Fare riferimento agli scenari seguenti a seconda dell'applicazione.
 
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Supportare Azure AD come un modo per accedere all'applicazione
 
-**Ridurre i problemi di accesso e i costi di supporto.** Grazie all'uso di Azure AD per l'accesso, gli utenti non avranno un nome utente e una password in più da ricordare. Gli sviluppatori avranno invece una password in meno da archiviare e proteggere. Anche il solo fatto di non dover gestire la reimpostazione delle password dimenticate costituisce un risparmio significativo. Azure AD offre la tecnologia di accesso per alcune delle applicazioni cloud più diffuse al mondo, tra cui Office 365 e Microsoft Azure. Con centinaia di milioni di utenti da milioni di organizzazioni, la probabilità che un utente abbia già eseguito l'accesso ad Azure AD è molto elevata. Altre informazioni sull'[aggiunta del supporto per l'accesso ad Azure AD](v1-authentication-scenarios.md).
+**Ridurre i problemi di accesso e i costi di supporto.** Grazie all'uso di Azure AD per l'accesso, gli utenti non avranno un nome utente e una password in più da ricordare. Gli sviluppatori avranno invece una password in meno da archiviare e proteggere. Anche il solo fatto di non dover gestire la reimpostazione delle password dimenticate costituisce un risparmio significativo. Azure AD offre la tecnologia di accesso per alcune delle applicazioni cloud più diffuse al mondo, tra cui Office 365 e Microsoft Azure. Con centinaia di milioni di utenti da milioni di organizzazioni, la probabilità che un utente abbia già eseguito l'accesso ad Azure AD è molto elevata. Altre informazioni sull'[aggiunta del supporto per l'accesso ad Azure AD](authentication-scenarios.md).
 
 **Semplificare l'iscrizione all'applicazione.**  Durante l'iscrizione all'applicazione, Azure AD può inviare le informazioni essenziali relative a un utente per precompilare il modulo di iscrizione o eliminarle completamente. Gli utenti possono effettuare l'iscrizione all'applicazione usando l'account Azure AD tramite un'esperienza di consenso nota simile a quelle dei social media e delle applicazioni per dispositivi mobili. Qualsiasi utente può iscriversi e accedere a un'applicazione integrata con Azure AD senza richiedere l'intervento del reparto IT. Altre informazioni sulla [registrazione dell'applicazione per l'accesso con l'account Azure AD](../../app-service/configure-authentication-provider-aad.md) .
 
@@ -92,5 +92,5 @@ L'integrazione con Azure AD non richiede di scrivere codice aggiuntivo.
 
 [Introduzione alla scrittura di codice](v2-overview.md#getting-started).
 
-[Consentire agli utenti di accedere usando la piattaforma di identità Microsoft](v1-authentication-scenarios.md)
+[Consentire agli utenti di accedere usando la piattaforma di identità Microsoft](authentication-scenarios.md)
 

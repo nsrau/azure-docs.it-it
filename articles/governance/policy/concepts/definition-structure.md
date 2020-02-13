@@ -3,12 +3,12 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Viene descritto come vengono usate le definizioni dei criteri per stabilire le convenzioni per le risorse di Azure nell'organizzazione.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: ba974228d63c542027ea5191d2c5877e7288b331
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: b98702161753a996cd8a6751670308a78dc36b7c
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77050027"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169763"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -255,7 +255,7 @@ Una condizione valuta se una funzione di accesso **field** o **value** soddisfa 
 Quando si usano le condizioni **like** e **notLike**, è possibile inserire un carattere jolly `*` nel valore.
 Il valore non deve contenere più di un carattere jolly `*`.
 
-Quando si usano le condizioni **match** e **notMatch** , fornire `#` per trovare la corrispondenza con una cifra, `?` per una lettera, `.` in modo che corrisponda a qualsiasi carattere e qualsiasi altro carattere in modo che corrisponda al carattere effettivo. While, **match** e **notMatch** fanno distinzione tra maiuscole e minuscole e tutte le altre condizioni che valutano un _StringValue_ non fanno distinzione tra maiuscole e minuscole. Alternative senza distinzione tra maiuscole e minuscole sono disponibili in **matchInsensitively** e **notMatchInsensitively**. Ad esempio, vedere [Consentire modelli nome multipli](../samples/allow-multiple-name-patterns.md).
+Quando si usano le condizioni **match** e **notMatch** , fornire `#` per trovare la corrispondenza con una cifra, `?` per una lettera, `.` in modo che corrisponda a qualsiasi carattere e qualsiasi altro carattere in modo che corrisponda al carattere effettivo. While, **match** e **notMatch** fanno distinzione tra maiuscole e minuscole e tutte le altre condizioni che valutano un _StringValue_ non fanno distinzione tra maiuscole e minuscole. Alternative senza distinzione tra maiuscole e minuscole sono disponibili in **matchInsensitively** e **notMatchInsensitively**.
 
 In un **\[\*\]** valore del campo della matrice di alias, ogni elemento della matrice viene valutato singolarmente con gli elementi Logical **e** between. Per ulteriori informazioni, vedere [valutazione della \[\*\] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
@@ -271,7 +271,7 @@ Sono supportati i seguenti campi:
 - `kind`
 - `type`
 - `location`
-  - Usare **global** per le risorse che sono indipendenti dalla posizione. Per un esempio, vedere [Esempi - Posizioni consentite](../samples/allowed-locations.md).
+  - Usare **global** per le risorse che sono indipendenti dalla posizione.
 - `identity.type`
   - Restituisce il tipo di [identità gestita](../../../active-directory/managed-identities-azure-resources/overview.md) abilitata per la risorsa.
 - `tags`

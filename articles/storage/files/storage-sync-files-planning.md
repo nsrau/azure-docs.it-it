@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d2dbe29c5a348363172f57da86483ccf3fd787f0
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 483603b8ff2f4b51f85d21d6ff4f02ad6f8a8272
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046088"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162090"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -246,16 +246,16 @@ In genere, Sincronizzazione file di Azure supporta l'interoperabilità con soluz
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Altre soluzioni di gestione dell'archiviazione gerarchica
 Con Sincronizzazione file di Azure non devono essere usate altre soluzioni di gestione dell'archiviazione gerarchica.
 
-## <a name="region-availability"></a>Disponibilità in base all'area
+## <a name="region-availability"></a>Aree di disponibilità
 Sincronizzazione file di Azure è disponibile solo nelle aree seguenti:
 
-| Area | Ubicazione del data center |
+| Region | Ubicazione del data center |
 |--------|---------------------|
 | Australia orientale | New South Wales |
-| Australia sudorientale | Victoria |
+| Australia sud-orientale | Victoria |
 | Brasile meridionale | Stato di San Paolo |
 | Canada centrale | Toronto |
-| Canada orientale | Québec |
+| Canada orientale | Quebec City |
 | India centrale | Pune |
 | Stati Uniti centrali | Iowa |
 | Asia orientale | RAS di Hong Kong |
@@ -263,14 +263,14 @@ Sincronizzazione file di Azure è disponibile solo nelle aree seguenti:
 | Stati Uniti Orientali 2 | Virginia |
 | Francia centrale | Parigi |
 | Francia meridionale * | Marsiglia |
-| Corea centrale | Seoul |
+| Corea centrale | Seul |
 | Corea meridionale | Busan |
 | Giappone orientale | Tokyo, Saitama |
 | Giappone occidentale | Osaka |
 | Stati Uniti centro-settentrionali | Illinois |
 | Europa settentrionale | Irlanda |
 | Sudafrica settentrionale | Johannesburg |
-| Sudafrica occidentale * | Città del Capo |
+| Sudafrica occidentale * | Città del capo |
 | Stati Uniti centro-meridionali | Texas |
 | India meridionale | Chennai |
 | Asia sud-orientale | Singapore |
@@ -278,7 +278,7 @@ Sincronizzazione file di Azure è disponibile solo nelle aree seguenti:
 | Regno Unito occidentale | Cardiff |
 | US Gov Arizona | Arizona |
 | US Gov Texas | Texas |
-| Governo degli Stati Uniti - Virginia | Virginia |
+| US Gov Virginia | Virginia |
 | Emirati Arabi Uniti settentrionali | Dubai |
 | Emirati Arabi Uniti centrali * | Abu Dhabi |
 | Europa occidentale | Paesi Bassi |
@@ -291,7 +291,7 @@ Sincronizzazione file di Azure supporta solo la sincronizzazione con una condivi
 Per le aree contrassegnate con asterischi, è necessario contattare il supporto di Azure per richiedere l'accesso ad archiviazione di Azure in tali aree. Il processo è illustrato in [questo documento](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ### <a name="azure-disaster-recovery"></a>Ripristino di emergenza di Azure
-Per evitare la perdita di un'area di Azure, Sincronizzazione file di Azure si integra con l'opzione [ di ridondanza dell'archiviazione con ridondanza geografica](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). L'archiviazione con ridondanza geografica funziona usando la replica a blocchi asincrona tra l'archiviazione nell'area primaria, con cui in genere interagisce l'utente, e l'archiviazione nell'area secondaria associata. In caso di emergenza che causa la disattivazione temporanea o permanente di un'area di Azure, Microsoft effettuerà il failover dell'archiviazione nell'area abbinata. 
+Per evitare la perdita di un'area di Azure, Sincronizzazione file di Azure si integra con l' [archiviazione con ridondanza geografica](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). L'archiviazione con ridondanza geografica funziona usando la replica a blocchi asincrona tra l'archiviazione nell'area primaria, con cui in genere interagisce l'utente, e l'archiviazione nell'area secondaria associata. In caso di emergenza che causa la disattivazione temporanea o permanente di un'area di Azure, Microsoft effettuerà il failover dell'archiviazione nell'area abbinata. 
 
 > [!Warning]  
 > Se si usa la condivisione file di Azure come endpoint cloud in un account di archiviazione con ridondanza geografica, è consigliabile non avviare il failover dell'account di archiviazione. Il failover causerebbe l'arresto della sincronizzazione e potrebbe causare inoltre una perdita di dati imprevista nel caso di file appena disposti su livelli. Nel caso di perdita di un'area di Azure, Microsoft attiverà il failover dell'account di archiviazione in modo compatibile con Sincronizzazione file di Azure.
@@ -300,8 +300,8 @@ Per supportare l'integrazione di failover tra l'archiviazione con ridondanza geo
 
 | Area primaria      | Area associata      |
 |---------------------|--------------------|
-| Australia orientale      | Australia sudorientale|
-| Australia sudorientale | Australia orientale     |
+| Australia orientale      | Australia sud-orientale|
+| Australia sud-orientale | Australia orientale     |
 | Brasile meridionale        | Stati Uniti centro-meridionali   |
 | Canada centrale      | Canada orientale        |
 | Canada orientale         | Canada centrale     |
@@ -326,8 +326,8 @@ Per supportare l'integrazione di failover tra l'archiviazione con ridondanza geo
 | Regno Unito meridionale            | Regno Unito occidentale            |
 | Regno Unito occidentale             | Regno Unito meridionale           |
 | US Gov Arizona      | US Gov Texas       |
-| US Gov Iowa         | Governo degli Stati Uniti - Virginia    |
-| Governo degli Stati Uniti - Virginia      | US Gov Texas       |
+| US Gov Iowa         | US Gov Virginia    |
+| US Gov Virginia      | US Gov Texas       |
 | Europa occidentale         | Europa settentrionale       |
 | Stati Uniti centro-occidentali     | Stati Uniti occidentali 2          |
 | Stati Uniti occidentali             | Stati Uniti orientali            |

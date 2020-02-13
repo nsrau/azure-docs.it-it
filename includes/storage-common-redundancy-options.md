@@ -5,19 +5,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 06/28/2019
+ms.date: 01/14/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 5df0fe23183b53f13d6c6545e248724324434cde
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 73c2b742ede21a4e86d717d994f8ebc4f16389c9
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69029805"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157220"
 ---
-Le opzioni di replica per un account di archiviazione includono:
+Le opzioni di ridondanza per un account di archiviazione includono:
 
-* [Archiviazione con ridondanza locale (con ridondanza locale)](../articles/storage/common/storage-redundancy-lrs.md): Una strategia di replica semplice e a basso costo. I dati vengono replicati in modo sincrono tre volte all'interno dell'area primaria.
-* [Archiviazione con ridondanza della zona (ZRS)](../articles/storage/common/storage-redundancy-zrs.md). Replica per gli scenari che richiedono una disponibilità elevata. I dati vengono replicati in modo sincrono in tre zone di disponibilità di Azure nell'area primaria.
-* [Archiviazione con ridondanza geografica](../articles/storage/common/storage-redundancy-grs.md): Replica tra più aree per la protezione da interruzioni a livello di area. I dati vengono replicati in modo sincrono tre volte nell'area primaria, quindi replicati in modo asincrono nell'area secondaria. Per l'accesso in lettura ai dati nell'area secondaria, abilitare l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).
-* [Archiviazione con ridondanza della zona geografica (GZRS) (anteprima)](../articles/storage/common/storage-redundancy-gzrs.md): Replica per scenari che richiedono disponibilità elevata e durabilità massima. I dati vengono replicati in modo sincrono in tre zone di disponibilità di Azure nell'area primaria, quindi replicati in modo asincrono nell'area secondaria. Per l'accesso in lettura ai dati nell'area secondaria, abilitare l'archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS).
+* Archiviazione con ridondanza locale (con ridondanza locale): strategia di ridondanza semplice e A basso costo. I dati vengono copiati in modo sincrono tre volte all'interno dell'area primaria.
+* Archiviazione con ridondanza della zona (ZRS): ridondanza per gli scenari che richiedono una disponibilità elevata. I dati vengono copiati in modo sincrono in tre zone di disponibilità di Azure nell'area primaria.
+* Archiviazione con ridondanza geografica: ridondanza tra più aree per la protezione da interruzioni a livello di area. I dati vengono copiati in modo sincrono tre volte nell'area primaria, quindi vengono copiati in modo asincrono nell'area secondaria. Per l'accesso in lettura ai dati nell'area secondaria, abilitare l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).
+* Archiviazione con ridondanza della zona geografica (GZRS) (anteprima): ridondanza per gli scenari che richiedono disponibilità elevata e durabilità massima. I dati vengono copiati in modo sincrono in tre zone di disponibilità di Azure nell'area primaria, quindi vengono copiati in modo asincrono nell'area secondaria. Per l'accesso in lettura ai dati nell'area secondaria, abilitare l'archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS).
+
+Per altre informazioni sulle opzioni di ridondanza in archiviazione di Azure, vedere [ridondanza di archiviazione di Azure](../articles/storage/common/storage-redundancy.md).

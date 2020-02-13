@@ -17,12 +17,12 @@ ms.date: 1/24/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 15293f6cf5ceafda2dd5727ad85804b432bae54a
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
-ms.translationtype: MT
+ms.openlocfilehash: 9cb13ea56c39f365ddb888a5d4e94228b1881fc4
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76758751"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160361"
 ---
 # <a name="whats-new-for-authentication"></a>Novità per l'autenticazione 
 
@@ -156,7 +156,7 @@ A partire dal 15 novembre 2018, Azure AD non accetterà più i codici di autenti
 
 Se l'app usa nuovamente i codici di autorizzazione per ottenere token per più risorse, è consigliabile usare il codice per ottenere un token di aggiornamento che consenta di acquisire token aggiuntivi per altre risorse. I codici di autorizzazione possono essere usati solo una volta, mentre quelli di aggiornamento possono essere usati più volte su più risorse. Qualsiasi nuova app che tenti di usare di nuovo un codice di autenticazione durante il flusso del codice OAuth genererà un errore invalid_grant.
 
-Per altre informazioni sui token di aggiornamento, vedere [Aggiornamento dei token di accesso](v1-protocols-oauth-code.md#refreshing-the-access-tokens).  Se si usa ADAL o MSAL, questa operazione viene gestita automaticamente dalla libreria. Sostituire la seconda istanza di 'AcquireTokenByAuthorizationCodeAsync' con 'AcquireTokenSilentAsync'. 
+Per altre informazioni sui token di aggiornamento, vedere [Aggiornamento dei token di accesso](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  Se si usa ADAL o MSAL, questa operazione viene gestita automaticamente dalla libreria. Sostituire la seconda istanza di 'AcquireTokenByAuthorizationCodeAsync' con 'AcquireTokenSilentAsync'. 
 
 ## <a name="may-2018"></a>Maggio 2018
 
@@ -166,7 +166,7 @@ Per altre informazioni sui token di aggiornamento, vedere [Aggiornamento dei tok
 
 **Endpoint interessati**: sia la versione 1.0 che la versione 2.0
 
-**Protocolli interessati**: flusso implicito e [flusso OBO](v1-oauth2-on-behalf-of-flow.md)
+**Protocolli interessati**: flusso implicito e [flusso per conto di](v2-oauth2-on-behalf-of-flow.md)
 
 Dopo il 1° maggio 2018, i token ID non possono essere usati come asserzione in un flusso OBO per le nuove applicazioni. È invece necessario usare token di accesso per proteggere le API, anche tra un client e il livello intermedio della stessa applicazione. Le app registrate prima del 1° maggio 2018 continueranno a funzionare e a poter scambiare token ID per un token di accesso, ma questa non è una procedura consigliata.
 

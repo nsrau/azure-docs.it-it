@@ -3,12 +3,12 @@ title: Informazioni su come controllare il contenuto delle macchine virtuali
 description: Informazioni su come criteri di Azure usa l'agente di configurazione Guest per controllare le impostazioni all'interno delle macchine virtuali.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 205aa5a9292d0f70fed8247a8af1fe575ad3614e
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 128baa0df1d3e555fe9629005529710202e1bbf6
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830497"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169534"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
 
@@ -77,7 +77,7 @@ La tabella seguente elenca i sistemi operativi supportati su Immagini di Azure:
 |Canonical|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
 |Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 datacenter, 2019 Datacenter|
-|Microsoft|Client Windows|Windows 10|
+|Microsoft|Client Windows|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5|
 |Red Hat|Red Hat Enterprise Linux|7.4, 7.5|
 |SUSE|SLES|12 SP3|
@@ -144,7 +144,7 @@ I criteri di configurazione Guest attualmente supportano solo l'assegnazione del
 
 Quando si installa l'estensione di configurazione Guest, il modulo di PowerShell ' GuestConfiguration ' è incluso nella versione più recente dei moduli di risorse DSC. È possibile scaricare questo modulo dal PowerShell Gallery usando il collegamento "download manuale" della pagina del modulo [GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/). Il formato del file ". nupkg" può essere rinominato in ". zip" per decomprimere ed esaminare.
 
-## <a name="client-log-files"></a>File di log client
+## <a name="client-log-files"></a>File di log del client
 
 L'estensione di configurazione Guest scrive i file di log nei percorsi seguenti:
 
@@ -183,10 +183,10 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 
 ## <a name="guest-configuration-samples"></a>Esempi di configurazione Guest
 
-Gli esempi per la configurazione Guest per i criteri sono disponibili nei percorsi seguenti:
+Il codice sorgente per le iniziative predefinite di configurazione Guest è disponibile nei percorsi seguenti:
 
-- [Indice degli esempi-configurazione Guest](../samples/index.md#guest-configuration)
-- [Repository GitHub degli esempi di criteri di Azure](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration)
+- [Iniziative predefinite-configurazione Guest](../samples/built-in-initiatives.md#guest-configuration)
+- [Repository GitHub degli esempi di criteri di Azure](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest Configuration)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

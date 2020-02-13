@@ -12,12 +12,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: bacac67ddd7f379d679a149fe9574676ae0c7567
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7d596292a823b4d912204f5cfbe8623ab7429fa3
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834422"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161393"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Token di accesso della piattaforma Microsoft Identity
 
@@ -63,14 +63,14 @@ I token JWT sono suddivisi in tre parti:
 
 Ogni parte è separata da un punto (`.`) e a ogni parte viene applicata separatamente la codifica Base64.
 
-Le attestazioni sono presenti solo se c'è un valore da inserire. Quindi, l'app non deve assumere una dipendenza da un'attestazione presente. Gli esempi includono `pwd_exp` (non ogni tenant richiede la scadenza delle password) o `family_name` (i flussi delle [credenziali client](v1-oauth2-client-creds-grant-flow.md) avvengono per conto delle applicazioni, che non hanno nomi). Le attestazioni usate per la convalida dei token di accesso sono sempre presenti.
+Le attestazioni sono presenti solo se c'è un valore da inserire. Quindi, l'app non deve assumere una dipendenza da un'attestazione presente. Gli esempi includono `pwd_exp` (non tutti i tenant richiedono la scadenza delle password) o `family_name` (i flussi delle credenziali client ([v 1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v 2.0](v2-oauth2-client-creds-grant-flow.md)) sono per conto di applicazioni che non hanno nomi. Le attestazioni usate per la convalida dei token di accesso sono sempre presenti.
 
 > [!NOTE]
 > Alcune attestazioni vengono usate per proteggere i token in Azure AD in caso di riutilizzo. In questo caso vengono descritte come "opache" per indicare che non sono destinate all'uso pubblico. Queste attestazioni possono o meno essere presenti in un token e possono venirne aggiunte di nuove senza preavviso.
 
 ### <a name="header-claims"></a>Attestazioni di intestazione
 
-|Attestazione | Format | Description |
+|Attestazione | Format | Descrizione |
 |--------|--------|-------------|
 | `typ` | Stringa, sempre "JWT" | Indica che il token è un token JWT.|
 | `nonce` | string | Identificatore univoco usato per la protezione contro attacchi di riproduzione dei token. La risorsa può registrare questo valore per la protezione da operazioni di riproduzione. |
@@ -80,7 +80,7 @@ Le attestazioni sono presenti solo se c'è un valore da inserire. Quindi, l'app 
 
 ### <a name="payload-claims"></a>Attestazioni di payload
 
-| Attestazione | Format | Description |
+| Attestazione | Format | Descrizione |
 |-----|--------|-------------|
 | `aud` | Stringa, un URI ID app | Identifica il destinatario del token. Nei token ID, il gruppo di destinatari è l'ID applicazione dell'app, assegnato all'app nell'portale di Azure. L'app deve convalidare questo valore e rifiutare il token se il valore non corrisponde. |
 | `iss` | Stringa, un URI del servizio token di sicurezza | Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token e il tenant di Azure AD in cui l'utente è stato autenticato. Se il token emesso è un token v2.0 (vedere l'attestazione `ver`), l'URI terminerà con `/v2.0`. Il GUID che indica che l'utente è un utente consumer di un account Microsoft è `9188040d-6c67-4c5b-b112-36a304b66dad`. L'app deve usare la parte relativa al GUID dell'attestazione per limitare il set di tenant che possono accedere all'app, se applicabile. |
@@ -98,7 +98,7 @@ Le attestazioni sono presenti solo se c'è un valore da inserire. Quindi, l'app 
 | `preferred_username` | string | Nome utente primario che rappresenta l'utente. Potrebbe trattarsi di un indirizzo di posta elettronica, di un numero di telefono o di un nome utente generico senza un formato specificato. Il valore è modificabile e può variare nel tempo. Poiché è mutevole, questo valore non deve essere usato per prendere decisioni in merito alle autorizzazioni.  Può comunque essere usato per gli hint del nome utente. Per ricevere questa attestazione, è necessario l'ambito `profile` . |
 | `name` | string | Fornisce un valore leggibile che identifica l'oggetto del token. Il valore potrebbe non essere univoco, è modificabile e può essere usato solo per scopi di visualizzazione. Per ricevere questa attestazione, è necessario l'ambito `profile` . |
 | `scp` | Stringa, elenco di ambiti separati da spazi | Set di ambiti esposti dall'applicazione per cui l'applicazione client ha richiesto (e ricevuto) il consenso. L'app deve verificare che questi ambiti siano ambiti validi esposti dall'app e prendere decisioni relative alle autorizzazioni in base al valore di questi ambiti. Inclusa solo per i [token utente](#user-and-application-tokens). |
-| `roles` | Matrice di stringhe, un elenco di autorizzazioni | Il set di autorizzazioni esposto dall'applicazione a cui l'applicazione o l'utente richiedente ha concesso l'autorizzazione per chiamare. Per i [token dell'applicazione](#user-and-application-tokens), viene usato durante il flusso di [credenziali client](v1-oauth2-client-creds-grant-flow.md) al posto degli ambiti utente.  Per i [token utente](#user-and-application-tokens) viene popolato con i ruoli a cui è stato assegnato l'utente nell'applicazione di destinazione. |
+| `roles` | Matrice di stringhe, un elenco di autorizzazioni | Il set di autorizzazioni esposto dall'applicazione a cui l'applicazione o l'utente richiedente ha concesso l'autorizzazione per chiamare. Per i [token dell'applicazione](#user-and-application-tokens), viene usato durante il flusso di credenziali client ([v 1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v 2.0](v2-oauth2-client-creds-grant-flow.md)) al posto degli ambiti utente.  Per i [token utente](#user-and-application-tokens) viene popolato con i ruoli a cui è stato assegnato l'utente nell'applicazione di destinazione. |
 | `wids` | Matrice di GUID [RoleTemplateID](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids) | Indica i ruoli a livello di tenant assegnati a questo utente dalla sezione dei ruoli presenti nella [pagina ruoli di amministratore](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids).  Questa attestazione viene configurata in base all'applicazione, tramite la proprietà `groupMembershipClaims` del [manifesto dell'applicazione](reference-app-manifest.md).  È necessario impostare su "All" o "DirectoryRole".  Potrebbe non essere presente nei token ottenuti tramite il flusso implicito a causa di problemi di lunghezza del token. |
 | `groups` | Matrice di GUID JSON | Fornisce gli ID oggetto che rappresentano le appartenenze ai gruppi del soggetto. Questi valori sono univoci (vedere ID oggetto) e possono essere usati in modo sicuro per la gestione dell'accesso, ad esempio l'attivazione dell'autorizzazione per accedere a una risorsa. I gruppi inclusi nell'attestazione dei gruppi sono configurati per ogni singola applicazione, tramite la proprietà `groupMembershipClaims` del [manifesto dell'applicazione](reference-app-manifest.md). Un valore null escluderà tutti i gruppi, un valore "SecurityGroup" includerà solo le appartenenze al gruppo di sicurezza di Active Directory e un valore "All" includerà sia i gruppi di sicurezza che le liste di distribuzione di Office 365. <br><br>Vedere di seguito l'attestazione `hasgroups` per informazioni dettagliate sull'uso dell'attestazione `groups` con la concessione implicita. <br>Per gli altri flussi, se il numero di gruppi in cui si trova l'utente supera un limite (150 per SAML, 200 per JWT), verrà aggiunta un'attestazione in eccedenza alle origini attestazioni che puntano all'endpoint Graph di AAD contenente l'elenco dei gruppi per l'utente. |
 | `hasgroups` | Boolean | Se presente, sempre `true`, per indicare che l'utente è presente in almeno un gruppo. Usato invece dell'attestazione `groups` per i token JWT nei flussi di concessione implicita se l'attestazione completa dei gruppi estenderebbe il frammento dell'URI oltre i limiti di lunghezza dell'URL (attualmente 6 o più gruppi). Indica che il client deve usare Graph per determinare i gruppi dell'utente (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
@@ -138,7 +138,7 @@ Le attestazioni sono presenti solo se c'è un valore da inserire. Quindi, l'app 
 
 Le seguenti attestazioni verranno incluse nei token v 1.0, se applicabile, ma non sono incluse nei token v 2.0 per impostazione predefinita. Se si usa la versione 2.0 e si ha bisogno di una di queste attestazioni, richiederle usando [attestazioni facoltative](active-directory-optional-claims.md).
 
-| Attestazione | Format | Description |
+| Attestazione | Format | Descrizione |
 |-----|--------|-------------|
 | `ipaddr`| string | Indirizzo IP da cui l'utente ha eseguito l'autenticazione. |
 | `onprem_sid`| Stringa, in [formato SID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Nei casi in cui l'utente ha un'autenticazione in locale, questa attestazione fornisce il relativo SID. È possibile usare `onprem_sid` per l'autorizzazione nelle applicazioni legacy.|
@@ -154,7 +154,7 @@ Le seguenti attestazioni verranno incluse nei token v 1.0, se applicabile, ma no
 
 Le identità Microsoft possono essere autenticate in modi diversi, che possono essere rilevanti per l'applicazione. L'attestazione `amr` è una matrice che può contenere più elementi, ad esempio `["mfa", "rsa", "pwd"]`, per un'autenticazione che ha usato sia una password che l'app Authenticator.
 
-| Valore | Description |
+| valore | Descrizione |
 |-----|-------------|
 | `pwd` | Autenticazione della password, ovvero una password Microsoft dell'utente o un segreto client dell'app. |
 | `rsa` | L'autenticazione è avvenuta in base alla prova di una chiave RSA, ad esempio con l'[app Microsoft Authenticator](https://aka.ms/AA2kvvu). Questo include se l'autenticazione è stata eseguita da un JWT autofirmato con un certificato X509 di proprietà del servizio. |
@@ -172,7 +172,7 @@ Per convalidare un oggetto id_token o access_token, l'app deve convalidare sia l
 
 Il middleware di Azure AD offre funzionalità predefinite per la convalida dei token di accesso ed è possibile cercare tra gli [esempi](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) per trovarne una nel linguaggio preferito. Per altre informazioni sulla convalida esplicita di un token JWT, vedere l'[esempio di convalida manuale del token JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).
 
-Microsoft fornisce esempi di codice e librerie che illustrano come gestire in modo semplice la convalida dei token. Le informazioni seguenti vengono fornite per chi vuole comprendere il processo sottostante. Per la convalida di JWT sono disponibili anche diverse librerie open source di terze parti: esiste almeno un'opzione per quasi tutte le piattaforme e la lingua. Per altre informazioni sulle librerie di autenticazione di Azure AD e per ottenere esempi di codice, vedere [Librerie di autenticazione v1.0](active-directory-authentication-libraries.md) e [Librerie di autenticazione v2.0](reference-v2-libraries.md).
+Microsoft fornisce esempi di codice e librerie che illustrano come gestire in modo semplice la convalida dei token. Le informazioni seguenti vengono fornite per chi vuole comprendere il processo sottostante. Per la convalida di JWT sono disponibili anche diverse librerie open source di terze parti: esiste almeno un'opzione per quasi tutte le piattaforme e la lingua. Per altre informazioni sulle librerie di autenticazione di Azure AD e per ottenere esempi di codice, vedere [Librerie di autenticazione v1.0](../azuread-dev/active-directory-authentication-libraries.md) e [Librerie di autenticazione v2.0](reference-v2-libraries.md).
 
 ### <a name="validating-the-signature"></a>Convalida della firma
 
@@ -229,9 +229,9 @@ La logica di business dell'applicazione richiede questo passaggio e di seguito s
 
 ## <a name="user-and-application-tokens"></a>Token utente e dell'applicazione
 
-L'applicazione può ricevere token per conto di un utente (flusso normale) o direttamente da un'applicazione (tramite il [flusso di credenziali client](v1-oauth2-client-creds-grant-flow.md)). Questi token solo app indicano che la chiamata proviene da un'applicazione e non da un utente. Questi token vengono gestiti in modo per lo più analogo, ma con alcune differenze:
+L'applicazione può ricevere token per conto di un utente (il flusso consueto) o direttamente da un'applicazione (tramite il flusso di credenziali client ([v 1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v 2.0](v2-oauth2-client-creds-grant-flow.md)). Questi token solo app indicano che la chiamata proviene da un'applicazione e non da un utente. Questi token vengono gestiti in modo per lo più analogo, ma con alcune differenze:
 
-* I token solo app non disporranno di un'attestazione `scp` e possono invece avere un'attestazione `roles`. In questa posizione verranno registrate le autorizzazioni dell'applicazione (in contrapposizione alle autorizzazioni delegate). Per altre informazioni sulle autorizzazioni dell'applicazione e delegate, vedere le informazioni relative ad autorizzazioni e consenso in [v1.0](v1-permissions-and-consent.md) e [v2.0](v2-permissions-and-consent.md).
+* I token solo app non disporranno di un'attestazione `scp` e possono invece avere un'attestazione `roles`. In questa posizione verranno registrate le autorizzazioni dell'applicazione (in contrapposizione alle autorizzazioni delegate). Per ulteriori informazioni sulle autorizzazioni delegate e dell'applicazione, vedere autorizzazione e consenso ([v 1.0](../azuread-dev/v1-permissions-consent.md), [v 2.0](v2-permissions-and-consent.md)).
 * Molte attestazioni specifiche dell'uomo saranno mancanti, ad esempio `name` o `upn`.
 * Le attestazioni `sub` e `oid` saranno uguali. 
 
@@ -257,7 +257,7 @@ I token di aggiornamento possono essere invalidati o revocati in qualsiasi momen
 | Amministratore reimposta password | Revocato | Revocato | Rimarrà attivo | Rimarrà attivo | Rimarrà attivo |
 | Utente revoca token di aggiornamento [tramite PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revocato | Revocato | Revocato | Revocato | Revocato |
 | Amministrazione revoca tutti i token di aggiornamento per il tenant [tramite PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revocato | Revocato |Revocato | Revocato | Revocato |
-| [Single Sign-Out](v1-protocols-openid-connect-code.md#single-sign-out) nel Web | Revocato | Rimarrà attivo | Revocato | Rimarrà attivo | Rimarrà attivo |
+| Single Sign-out ([v 1.0](../azuread-dev/v1-protocols-openid-connect-code.md#single-sign-out), [v 2.0](v2-protocols-oidc.md#single-sign-out) ) sul Web | Revocato | Rimarrà attivo | Revocato | Rimarrà attivo | Rimarrà attivo |
 
 > [!NOTE]
 > Un accesso "Non basato su password" si ha quando l'utente non digita alcuna password per accedere. Ad esempio, usando il viso con Windows Hello, una chiave FIDO2 o un PIN.
@@ -269,4 +269,4 @@ I token di aggiornamento possono essere invalidati o revocati in qualsiasi momen
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Leggere le informazioni su [`id_tokens` in Azure AD](id-tokens.md).
-* Leggere le informazioni su autorizzazioni e consenso in [v1.0](v1-permissions-and-consent.md) e [v2.0](v2-permissions-and-consent.md).
+* Informazioni su autorizzazione e consenso ( [v 1.0](../azuread-dev/v1-permissions-consent.md), [v 2.0](v2-permissions-and-consent.md)).

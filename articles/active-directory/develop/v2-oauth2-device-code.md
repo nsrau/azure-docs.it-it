@@ -17,16 +17,14 @@ ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4d06e5a2bfe05a530fe369f70880ea04f0bc3dd3
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: b45ba0c0b417be9cf308fedbb7fad2f6ad5fceaf
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700516"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159732"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Microsoft Identity Platform e il flusso di concessione dell'autorizzazione del dispositivo OAuth 2,0
-
-[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 La piattaforma Microsoft Identity supporta la [concessione di autorizzazioni](https://tools.ietf.org/html/rfc8628)per i dispositivi, che consente agli utenti di accedere a dispositivi con vincoli di input, ad esempio una Smart TV, un dispositivo Internet o una stampante.  Per abilitare questo flusso, il dispositivo richiede all'utente di visitare una pagina Web nel browser in un altro dispositivo per l'accesso.  Una volta che l'utente avrà eseguito l'accesso, il dispositivo potrà ottenere i token di accesso e di aggiornamento in base alle esigenze.  
 
@@ -60,23 +58,23 @@ scope=user.read%20openid%20profile
 
 ```
 
-| Parametro | Condizione | Description |
+| Parametro | Condizione | Descrizione |
 | --- | --- | --- |
-| `tenant` | Obbligatorio | Può essere/Common,/consumers o/Organizations.  Può anche essere il tenant di directory per cui si desidera richiedere l'autorizzazione nel formato GUID o nome descrittivo.  |
-| `client_id` | Obbligatorio | **ID dell'applicazione (client)** che la [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) l'esperienza assegnata all'app. |
+| `tenant` | Obbligatoria | Può essere/Common,/consumers o/Organizations.  Può anche essere il tenant di directory per cui si desidera richiedere l'autorizzazione nel formato GUID o nome descrittivo.  |
+| `client_id` | Obbligatoria | **ID dell'applicazione (client)** che la [portale di Azure registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) l'esperienza assegnata all'app. |
 | `scope` | Consigliato | Elenco separato da spazi di [ambiti](v2-permissions-and-consent.md) a cui si vuole che l'utente dia il consenso.  |
 
 ### <a name="device-authorization-response"></a>Risposta di autorizzazione dispositivo
 
 Una risposta con esito positivo sarà un oggetto JSON contenente le informazioni richieste per consentire all'utente di accedere.  
 
-| Parametro | Format | Description |
+| Parametro | Format | Descrizione |
 | ---              | --- | --- |
 |`device_code`     | string | Una stringa lunga usata per verificare la sessione tra il client e il server di autorizzazione. Il client usa questo parametro per richiedere il token di accesso dal server di autorizzazione. |
 |`user_code`       | string | Una stringa breve mostrata all'utente usato per identificare la sessione in un dispositivo secondario.|
 |`verification_uri`| URI | L'URI a cui l'utente deve passare con il `user_code` per eseguire l'accesso. |
-|`expires_in`      | int | Il numero di secondi prima della scadenza del `device_code` e del `user_code`. |
-|`interval`        | int | Il numero di secondi di attesa del client tra le richieste di polling. |
+|`expires_in`      | INT | Il numero di secondi prima della scadenza del `device_code` e del `user_code`. |
+|`interval`        | INT | Il numero di secondi di attesa del client tra le richieste di polling. |
 | `message`        | string | Una stringa leggibile dall'utente con le istruzioni per l'utente. Può essere localizzata includendo un **parametro di query** nella richiesta del form `?mkt=xx-XX`, compilando l'apposito codice della lingua di destinazione. |
 
 > [!NOTE]
@@ -99,18 +97,18 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 ```
 
-| Parametro | Obbligatorio | Description|
+| Parametro | Obbligatoria | Descrizione|
 | -------- | -------- | ---------- |
-| `tenant`  | Obbligatorio | Stesso alias tenant o tenant usato nella richiesta iniziale. | 
-| `grant_type` | Obbligatorio | Deve essere `urn:ietf:params:oauth:grant-type:device_code`|
-| `client_id`  | Obbligatorio | Deve corrispondere al `client_id` usato nella richiesta iniziale. |
-| `device_code`| Obbligatorio | Il `device_code` restituito nella richiesta di autorizzazione del dispositivo.  |
+| `tenant`  | Obbligatoria | Stesso alias tenant o tenant usato nella richiesta iniziale. | 
+| `grant_type` | Obbligatoria | Deve essere `urn:ietf:params:oauth:grant-type:device_code`|
+| `client_id`  | Obbligatoria | Deve corrispondere al `client_id` usato nella richiesta iniziale. |
+| `device_code`| Obbligatoria | Il `device_code` restituito nella richiesta di autorizzazione del dispositivo.  |
 
 ### <a name="expected-errors"></a>Errori previsti
 
 Il flusso del codice del dispositivo è un protocollo di polling, quindi il client deve aspettarsi di ricevere errori prima che l'utente abbia terminato l'autenticazione.  
 
-| Errore | Description | Azione client |
+| Errore | Descrizione | Azione client |
 | ------ | ----------- | -------------|
 | `authorization_pending` | L'utente non ha completato l'autenticazione, ma non ha annullato il flusso. | Ripetere la richiesta dopo almeno `interval` secondi. |
 | `authorization_declined` | L'utente finale ha rifiutato la richiesta di autorizzazione.| Arrestare il polling e ripristinare uno stato non autenticato.  |
@@ -132,11 +130,11 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
 }
 ```
 
-| Parametro | Format | Description |
+| Parametro | Format | Descrizione |
 | --------- | ------ | ----------- |
 | `token_type` | string| Sempre "Bearer". |
 | `scope` | Stringhe separate da uno spazio | Se è stato restituito un token di accesso, verranno elencati gli ambiti per cui è valido. |
-| `expires_in`| int | Numero di secondi per cui il token di accesso incluso verrà considerato valido. |
+| `expires_in`| INT | Numero di secondi per cui il token di accesso incluso verrà considerato valido. |
 | `access_token`| Stringa opaca | Emessa per gli [ambiti](v2-permissions-and-consent.md) che sono stati richiesti.  |
 | `id_token`   | Token JSON Web | Emessa nel parametro `scope` originale incluso nell'ambito `openid`.  |
 | `refresh_token` | Stringa opaca | Emessa nel parametro `scope` originale incluso `offline_access`.  |

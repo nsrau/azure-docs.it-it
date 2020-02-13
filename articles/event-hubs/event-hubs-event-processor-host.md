@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 01/10/2020
 ms.author: shvija
-ms.openlocfilehash: 7533c2a4d5ef2bb3e6f66e116d3ff3937ddd77b3
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 414179d62970315a7575be0411bf1cb152349fdc
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899976"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162294"
 ---
 # <a name="event-processor-host"></a>Host processore di eventi
 > [!NOTE]
@@ -186,7 +186,7 @@ Per creare un ricevitore non basato su Epoch, usare il metodo [CreateReceiver](h
 
 Esistono alcuni scenari di elaborazione del flusso in cui gli utenti desiderano creare più ricevitori in un singolo gruppo di consumer. Per supportare questi scenari, è possibile creare un ricevitore senza Epoch e in questo caso si consentiranno fino a 5 ricevitori simultanei nel gruppo di consumer.
 
-### <a name="mixed-mode"></a>Modalità mista
+### <a name="mixed-mode"></a>modalità mista
 Non si consiglia l'utilizzo dell'applicazione in cui si crea un ricevitore con Epoch, quindi si passa a nessuna-Epoch o viceversa nello stesso gruppo di consumer. Tuttavia, quando si verifica questo comportamento, il servizio lo gestisce usando le regole seguenti:
 
 - Se è già stato creato un ricevitore con Epoch E1 ed è in corso la ricezione di eventi e viene creato un nuovo ricevitore senza Epoch, la creazione di un nuovo destinatario avrà esito negativo. I ricevitori Epoch hanno sempre la precedenza nel sistema.
@@ -202,7 +202,11 @@ Non si consiglia l'utilizzo dell'applicazione in cui si crea un ricevitore con E
 
 Ora che si ha familiarità con l'host processore di eventi, vedere gli articoli seguenti per altre informazioni su Hub eventi:
 
-* Iniziare con un'[esercitazione di Hub eventi](event-hubs-dotnet-standard-getstarted-send.md)
+- Introduzione all'Hub eventi
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [Guida alla programmazione di Hub eventi](event-hubs-programming-guide.md)
 * [Disponibilità e coerenza nell'Hub eventi](event-hubs-availability-and-consistency.md)
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)

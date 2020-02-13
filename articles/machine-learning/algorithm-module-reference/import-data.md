@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 930ff1abf77c4e28d377daf12174ff3fbb60cf23
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: e7aa19c1d189eb19237ea85aae1ad2441d7e98b9
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152245"
+ms.locfileid: "77163195"
 ---
 # <a name="import-data-module"></a>Modulo Import Data
 
@@ -42,7 +42,7 @@ Prima di usare l'archiviazione cloud, prima di tutto è necessario registrare un
 
 Dopo aver definito i dati desiderati e averli connessi all'origine, l' **[importazione dei dati](./import-data.md)** deduce il tipo di dati di ogni colonna in base ai valori che contiene e carica i dati nella pipeline di progettazione. L'output dei **dati di importazione** è un set di dati che può essere usato con qualsiasi pipeline della finestra di progettazione.
 
-Se i dati di origine cambiano, è possibile aggiornare il set di dati e aggiungere nuovi dati rieseguendo [Import Data](./import-data.md). Tuttavia, se non si vuole rileggere dall'origine ogni volta che si esegue la pipeline, impostare l'opzione **USA risultati memorizzati nella cache** su true. Quando questa opzione è selezionata, il modulo controlla se la pipeline è stata eseguita in precedenza utilizzando la stessa origine e le stesse opzioni di input. Se viene trovata un'esecuzione precedente, vengono usati i dati nella cache, invece di ricaricare i dati dall'origine.
+Se i dati di origine cambiano, è possibile aggiornare il set di dati e aggiungere nuovi dati rieseguendo [Import Data](./import-data.md).
 
 ## <a name="how-to-configure-import-data"></a>Come configurare i dati di importazione
 
@@ -60,11 +60,7 @@ Se i dati di origine cambiano, è possibile aggiornare il set di dati e aggiunge
 
     ![importazione-dati-anteprima](media/module/import-data.png)
 
-1. Selezionare l'opzione **USA risultati memorizzati nella cache** se si desidera memorizzare nella cache il set di dati per il riutilizzo in esecuzioni successive.
 
-    Supponendo che non siano state apportate altre modifiche ai parametri del modulo, la pipeline carica i dati solo la prima volta che il modulo viene eseguito e successivamente usa una versione memorizzata nella cache del set di dati.
-
-    Deselezionare questa opzione se è necessario ricaricare i dati ogni volta che si esegue la pipeline.
 
 1. Eseguire la pipeline.
 

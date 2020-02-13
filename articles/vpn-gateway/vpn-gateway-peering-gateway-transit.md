@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 3f0f3528a59c721fe6926dd4c8c5039b680e1588
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 3917101ee7ac151cf624e5be0f51ccf01c8cb1cc
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025759"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161886"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurare il transito nel gateway VPN per il peering di rete virtuale
 
@@ -33,7 +33,7 @@ In questo documento sono descritti due scenari:
 
 ## <a name="requirements"></a>Requisiti
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 L'esempio riportato in questo documento richiede la creazione delle risorse seguenti:
 
@@ -54,9 +54,9 @@ Gli account usati per creare un peering di rete virtuale devono disporre del ruo
     
 |Rete virtuale|Modello di distribuzione|Ruolo|Autorizzazioni|
 |---|---|---|---|
-|Hub-RM|Azure Resource Manager|[Collaboratore di rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+|Hub-RM|Gestione risorse|[Collaboratore di rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
 | |Classico|[Collaboratore reti virtuali classiche](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/D|
-|Spoke-Classic|Azure Resource Manager|[Collaboratore di rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
+|Spoke-Classic|Gestione risorse|[Collaboratore di rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||Classico|[Collaboratore reti virtuali classiche](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
 Altre informazioni sui [ruoli predefiniti](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) e sull'assegnazione di autorizzazioni specifiche ai [ruoli personalizzati](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (solo Resource Manager).

@@ -6,14 +6,14 @@ tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 02/11/2020
 ms.author: cynthn
-ms.openlocfilehash: a7afb80276147c1562a5963a3ae9a319a8b73264
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 37e914fe6bafe9587be525faf3e01c897cdd8230
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544787"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162685"
 ---
 # <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>Anteprima: VM di Azure spot per i set di scalabilità di macchine virtuali 
 
@@ -25,7 +25,6 @@ La quantità di capacità disponibile può variare in base alle dimensioni, all'
 > Le istanze di spot sono attualmente in anteprima pubblica.
 > Questa versione di anteprima non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Per la prima parte dell'anteprima pubblica, le istanze di spot avranno un prezzo fisso, quindi non vi saranno eliminazioni basate sul prezzo.
 
 ## <a name="pricing"></a>Prezzi
 
@@ -89,7 +88,7 @@ $vmssConfig = New-AzVmssConfig `
     --max-price -1
 ```
 
-## <a name="resource-manager-templates"></a>Modelli di Resource Manager
+## <a name="resource-manager-templates"></a>Modelli di Gestione risorse
 
 Il processo per creare un set di scalabilità che usa le VM spot è identico a quello descritto nell'articolo introduttivo per [Linux](quick-create-template-linux.md) o [Windows](quick-create-template-windows.md). 
 
@@ -105,7 +104,7 @@ Per le distribuzioni di modelli di spot, usare`"apiVersion": "2019-03-01"` o ver
 
 Per eliminare l'istanza dopo che è stata rimossa, impostare il parametro `evictionPolicy` su `Delete`.
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Domande frequenti
 
 **D:** Una volta creato, è un'istanza di spot uguale all'istanza standard?
 
@@ -160,11 +159,11 @@ Per eliminare l'istanza dopo che è stata rimossa, impostare il parametro `evict
 
 | Canali di Azure               | Disponibilità di macchine virtuali di Azure spot       |
 |------------------------------|-----------------------------------|
-| Contratto Enterprise Agreement         | Sì                               |
-| Pagamento in base al consumo                | Sì                               |
+| Enterprise Agreement         | Sì                               |
+| Con pagamento in base al consumo                | Sì                               |
 | Provider di servizi cloud | [Contatta il tuo partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Vantaggi                     | Non disponibile                     |
-| Eventi sponsorizzati                    | Non disponibile                     |
+| Sponsorizzato                    | Non disponibile                     |
 | Versione di valutazione gratuita                   | Non disponibile                     |
 
 

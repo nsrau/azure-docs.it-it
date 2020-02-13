@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: a96a3de7c8ad309986417e21a13d5e18f56cbd24
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: a279aebdd19ebd3a41ddad0c1c279937e00838c2
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934118"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168454"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale
 
 Se in questo documento non sono presenti risposte alle domande di proprio interesse, vedere le [altre opzioni di supporto](support.md).
 
-## <a name="general"></a>Informazioni di carattere generale
+## <a name="general"></a>Generale
 
 **D: Qual è la differenza tra un modello di base e un modello di riconoscimento vocale personalizzato?**
 
@@ -106,11 +106,11 @@ Per aumentare la concorrenza per un ***modello di base***, sono necessarie le in
 
 - Area del servizio
 
-e
+e uno
 
 - un token di accesso per la sottoscrizione (vedere [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
 
-Oppure
+o
 
 - ID risorsa per la sottoscrizione:
   - Passare alla [portale di Azure](https://portal.azure.com),

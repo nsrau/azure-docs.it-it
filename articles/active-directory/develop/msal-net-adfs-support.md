@@ -13,12 +13,12 @@ ms.date: 07/16/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: a0dd9b339ca6372a34ff46222cad347eb1a673f9
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 15af18177cea217612a4d5276d130abe02d339f4
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084986"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160761"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>Supporto Active Directory Federation Services in MSAL.NET
 Active Directory Federation Services (AD FS) in Windows Server consente di aggiungere l'autenticazione e l'autorizzazione basate su OpenID Connect e OAuth 2,0 alle applicazioni in fase di sviluppo. Tali applicazioni possono quindi autenticare gli utenti direttamente in AD FS. Per ulteriori informazioni, vedere [ad FS scenari per gli sviluppatori](/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios).
@@ -54,7 +54,7 @@ Attualmente non sono previsti piani per supportare una connessione diretta a:
 - AD FS 16, perché non supporta PKCE e usa ancora le risorse, non l'ambito
 - AD FS V2, che non è conforme a OIDC.
 
- Se è necessario supportare scenari che richiedono una connessione diretta a AD FS 2016, usare la versione più recente di [Azure Active Directory libreria di autenticazione](active-directory-authentication-libraries.md#microsoft-supported-client-libraries). Dopo aver aggiornato il sistema locale a AD FS 2019, sarà possibile usare MSAL.NET.
+ Se è necessario supportare scenari che richiedono una connessione diretta a AD FS 2016, usare la versione più recente di [Azure Active Directory libreria di autenticazione](../azuread-dev/active-directory-authentication-libraries.md#microsoft-supported-client-libraries). Dopo aver aggiornato il sistema locale a AD FS 2019, sarà possibile usare MSAL.NET.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

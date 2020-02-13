@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: 6fe7dfaccc3cf1c3fbe4a9ea42578c56f910ea36
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 71afbf09d563a43469689132dfce071b40d694b6
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435762"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162668"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Eseguire la migrazione di cluster di Apache Hadoop locali ad Azure HDInsight
 
@@ -33,7 +33,7 @@ Archiviazione di Azure può essere replicata geograficamente. Sebbene la replica
 
 Per accedere ai dati memorizzati in Archiviazione di Azure, è possibile usare i formati seguenti.
 
-|Formato di accesso ai dati |Description |
+|Formato di accesso ai dati |Descrizione |
 |---|---|
 |`wasb:///`|Accesso allo spazio di archiviazione predefinito usando la comunicazione non crittografata.|
 |`wasbs:///`|Accesso allo spazio di archiviazione predefinito usando la comunicazione crittografata.|
@@ -79,7 +79,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 - [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
 - [Monitorare un account di archiviazione nel portale di Azure](../../storage/common/storage-monitor-storage-account.md)
 
-### <a name="azure-data-lake-storage-gen1"></a>Archiviazione Azure Data Lake di prima generazione
+### <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
 
 Azure Data Lake Store implementa il modello di controllo di accesso HDFS e POSIX e offre anche un'integrazione di livello elevato con AAD per il controllo di accesso con granularità fine. Non sono previsti limiti alle dimensioni dei dati che è possibile archiviare né alla capacità di eseguire analisi con architettura altamente parallela.
 
@@ -155,7 +155,7 @@ Per impostazione predefinito, HDInsight ha accesso completo ai dati negli accoun
 
 1. Aprire il file [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) e modificare i valori seguenti:
 
-    |Proprietà token|Description|
+    |Proprietà token|Descrizione|
     |---|---|
     |policy_name|nome da usare per i criteri archiviati da creare.|
     |storage_account_name|nome dell'account di archiviazione.|
@@ -198,7 +198,7 @@ Tutti i dati scritti in Archiviazione di Azure vengono crittografati automaticam
 - [Archiviazione con ridondanza locale (LRS)](../../storage/common/storage-redundancy-lrs.md)
 - [Archiviazione con ridondanza della zona (ZRS).](../../storage/common/storage-redundancy-zrs.md)
 - [Archiviazione con ridondanza geografica (GRS)](../../storage/common/storage-redundancy-grs.md)
-- [Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).](../../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
+- [Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).](../../storage/common/storage-redundancy.md)
 
 Azure Data Lake Store offre archiviazione con ridondanza locale, ma è anche necessario copiare i dati critici da un altro account di Data Lake Storage in un'area diversa con una frequenza adeguata alle esigenze del piano di ripristino di emergenza. Esistono diversi metodi per copiare i dati, tra cui [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md)o [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). È inoltre consigliabile applicare i criteri di accesso per l'account Data Lake Storage per impedire l'eliminazione accidentale.
 

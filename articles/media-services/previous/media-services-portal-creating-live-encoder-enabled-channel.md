@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 3217a2d5ba3d45a069eacdb67a8d69e9abc674b8
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 7d2e4274e6feaebac6536eed2f8a99d251cd5ceb
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69015216"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162566"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Eseguire lo streaming live con servizi multimediali per creare flussi a bitrate multipli con portale di Azure  
 > [!div class="op_single_selector"]
 > * [Portale](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
+> * [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 
 > [!NOTE]
@@ -43,8 +43,8 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
 
 1. Connettere una videocamera a un computer. <br/>Per alcune idee per la configurazione, vedere [Simple and portable event video gear setup]( https://link.medium.com/KNTtiN6IeT) (Configurazione semplice e portabile di attrezzature video per eventi).
 
-    Se non si ha accesso a una fotocamera, è possibile usare strumenti come [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) per generare un feed live da un file video.
-1. Avviare e configurare un codificatore live locale che può restituire un flusso a bitrate singolo in uno dei protocolli seguenti: RTMP o Smooth Streaming. Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Vedere anche questo blog: [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT) (Produzione di streaming live con OBS).
+    Se non si ha accesso a una fotocamera, è possibile usare strumenti come [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md) per generare un feed live da un file video.
+1. Avviare e configurare un codificatore live locale che può restituire un flusso a bitrate singolo in uno dei protocolli seguenti: RTMP o Smooth Streaming. Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Vedere anche questo Blog: [produzione di streaming live con OBS](https://link.medium.com/ttuwHpaJeT).
 
     Questa operazione può essere eseguita anche dopo la creazione del canale.
 1. Creare e avviare un canale. 
@@ -61,23 +61,23 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
 1. Arrestare l'evento ogni volta che si vuole arrestare lo streaming e l'archiviazione dell'evento.
 1. Eliminare l'evento e, facoltativamente, l'asset.   
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare l'esercitazione è necessario quanto segue.
 
 * Per completare l'esercitazione, è necessario un account Azure. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. 
-  Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+  Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Account di Servizi multimediali. Per creare un account di Servizi multimediali, vedere l'argomento relativo alla [creazione di un account](media-services-portal-create-account.md).
 * Una webcam e un codificatore in grado di inviare un flusso live a velocità in bit singola.
 
-## <a name="create-a-channel"></a>Crea un canale
+## <a name="create-a-channel"></a>Creare un canale
 
 1. Nel [portale di Azure](https://portal.azure.com/) selezionare Servizi multimediali e fare clic sul nome dell'account Servizi multimediali.
 2. Selezionare **Streaming live**.
 3. Selezionare **Creazione personalizzata**. Questa opzione permette di creare un canale abilitato per la codifica live.
 
-    ![Creare un CANALE](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
-4. Fare clic su **Impostazioni**.
+    ![Creare un canale](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
+4. Fare clic su **Settings** (Impostazioni).
 
    1. Scegliere il tipo di canale **Codifica live** . Questo tipo specifica che si vuole creare un canale abilitato per la codifica live. Ciò significa che il flusso in ingresso a velocità in bit singola viene inviato al canale e codificato in un flusso a più velocità in bit usando le impostazioni del codificatore live specificato. Per altre informazioni, vedere [Streaming live con Servizi multimediali di Azure per creare flussi a bitrate multipli](media-services-manage-live-encoder-enabled-channels.md). Fare clic su OK.
    2. Specificare il nome di un canale.
@@ -167,7 +167,7 @@ Facendo clic su **Sospendi trasmissione**vengono arrestati tutti gli eventi live
 ## <a name="watch-the-event"></a>Guardare l'evento
 Per guardare l'evento, fare clic su **Watch** (Guarda) nel portale di Azure o copiare l'URL di streaming e usare un lettore a propria scelta. 
 
-![Data creazione](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
+![Data di creazione](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
 
 Quando viene arrestato, l'evento live converte automaticamente gli eventi in contenuto su richiesta.
 

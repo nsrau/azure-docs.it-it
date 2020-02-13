@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5034aaaee335bbd87e7ea42b448e4e8fbf6aacca
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 11fdaa0d547e588daa9d264c2393606705554a17
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274552"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157270"
 ---
 # <a name="storage-account-overview"></a>Panoramica dell'account di archiviazione
 
@@ -115,11 +115,9 @@ Se viene apportata una modifica al modello di utilizzo dei dati, è possibile pa
 > [!IMPORTANT]
 > La modifica del livello di accesso per un account di archiviazione o un BLOB esistente può comportare costi aggiuntivi. Per altre informazioni, vedere la sezione [Fatturazione dell'account di archiviazione](#storage-account-billing).
 
-## <a name="replication"></a>Replica
+## <a name="redundancy"></a>Ridondanza
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
-
-Per altre informazioni sulla replica dell'archiviazione, vedere [Replica di Archiviazione di Azure](storage-redundancy.md).
 
 ## <a name="encryption"></a>Crittografia
 

@@ -17,12 +17,12 @@ ms.date: 07/25/2019
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: b347357bca1a7c1057a480b4afdef59d08718310
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 09d0def2ebd012670b9502f6f9b02ad18a02922d
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703066"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160408"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Librerie di autenticazione della piattaforma Microsoft Identity
 
@@ -31,7 +31,7 @@ L' [endpoint della piattaforma Microsoft Identity](active-directory-v2-compare.m
 Si consiglia di usare le librerie scritte da esperti del dominio del protocollo che seguono una metodologia Security Development Lifecycle (SDL). Tali metodologie includono quella [che Microsoft segue][Microsoft-SDL]. Se si passa codice per i protocolli, è consigliabile seguire una metodologia, ad esempio Microsoft SDL. Prestare particolare attenzione alle considerazioni sulla sicurezza nelle specifiche degli standard per ogni protocollo.
 
 > [!NOTE]
-> Si sta cercando la libreria di autenticazione Azure Active Directory (ADAL)? Vedere la [Guida alla libreria adal](active-directory-authentication-libraries.md).
+> Si sta cercando la libreria di autenticazione Azure Active Directory (ADAL)? Vedere la [Guida alla libreria adal](../azuread-dev/active-directory-authentication-libraries.md).
 
 ## <a name="types-of-libraries"></a>Tipi di librerie
 
@@ -53,7 +53,7 @@ Per un elenco di librerie che funzionano con l'endpoint della piattaforma di ide
 
 Usare le librerie di autenticazione client per acquisire un token per chiamare un'API Web protetta.
 
-| Piattaforma | Library | Download | Codice sorgente | Esempio | Riferimenti | Documenti di carattere concettuale | Guida di orientamento |
+| Piattaforma | Libreria | Download | Codice sorgente | Esempio | Riferimento | Documenti di carattere concettuale | Roadmap |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/README.md) |  [App a singola pagina](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [Riferimento](https://azuread.github.io/microsoft-authentication-library-for-js/docs/msal/) | [Documentazione concettuale](msal-overview.md)| [Roadmap](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
 |![Angular JS](media/sample-v2-code/logo_angular.png) | MSAL Angular JS | [NPM](https://www.npmjs.com/package/@azure/msal-angularjs) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  |  | |
@@ -68,7 +68,7 @@ Usare le librerie di autenticazione client per acquisire un token per chiamare u
 
 Usare le librerie middleware per proteggere le applicazioni Web e le API Web. App Web o API Web scritte con ASP.NET o ASP.NET Core usano le librerie middleware.
 
-| Piattaforma | Library | Download | Codice sorgente | Esempio | Riferimenti
+| Piattaforma | Libreria | Download | Codice sorgente | Esempio | Riferimento
 | --- | --- | --- | --- | --- | --- |
 | ![.NET](media/sample-v2-code/logo_NET.png) ![.NET Core](media/sample-v2-code/logo_NETcore.png) | ASP.NET Security |[NuGet](https://www.nuget.org/packages/Microsoft.AspNet.Mvc/) |[GitHub](https://github.com/aspnet/AspNetCore) |[App MVC](quickstart-v2-aspnet-webapp.md) |[Informazioni di riferimento sulle API REST](https://docs.microsoft.com/dotnet/api/?view=aspnetcore-2.0) |
 | ![.NET](media/sample-v2-code/logo_NET.png)| Estensioni IdentityModel per .NET| |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | [App MVC](quickstart-v2-aspnet-webapp.md) |[Riferimento](https://docs.microsoft.com/dotnet/api/overview/azure/activedirectory/client?view=azure-dotnet) |
@@ -96,8 +96,8 @@ Vedere anche [scenari per piattaforme e linguaggi supportati](authentication-flo
 |![JavaScript](media/sample-v2-code/logo_js.png)|[Hello.js](https://adodson.com/hello.js/) | Versione 1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
 | ![Java](media/sample-v2-code/logo_java.png) | [Scribe Java](https://github.com/scribejava/scribejava) | [Versione 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/) | |
 | ![Java](media/sample-v2-code/logo_java.png) | [Libreria OpenID Connect Gluu](https://github.com/GluuFederation/oxAuth) | [Versione 3.0.2](https://github.com/GluuFederation/oxAuth/releases/tag/3.0.2) | [Libreria OpenID Connect Gluu](https://github.com/GluuFederation/oxAuth) | |
-| ![Python](media/sample-v2-code/logo_python.png) | [Requests-OAuthlib](https://github.com/requests/requests-oauthlib) | [Versione 1.2.0](https://github.com/requests/requests-oauthlib/releases/tag/v1.2.0) | [Requests-OAuthlib](https://github.com/requests/requests-oauthlib) | |
-| ![Node.js](media/sample-v2-code/logo_nodejs.png) | [openid-client](https://github.com/panva/node-openid-client) | [Versione 2.4.5](https://github.com/panva/node-openid-client/releases/tag/v2.4.5) | [openid-client](https://github.com/panva/node-openid-client) | |
+| ![Python](media/sample-v2-code/logo_python.png) | [Richieste-OAuthlib](https://github.com/requests/requests-oauthlib) | [Versione 1.2.0](https://github.com/requests/requests-oauthlib/releases/tag/v1.2.0) | [Richieste-OAuthlib](https://github.com/requests/requests-oauthlib) | |
+| ![Node.js](media/sample-v2-code/logo_nodejs.png) | [OpenID-client](https://github.com/panva/node-openid-client) | [Versione 2.4.5](https://github.com/panva/node-openid-client/releases/tag/v2.4.5) | [OpenID-client](https://github.com/panva/node-openid-client) | |
 | ![PHP](media/sample-v2-code/logo_php.png) | [PHP League oauth2-client](https://github.com/thephpleague/oauth2-client) | [Versione 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/) | |
 | ![Ruby](media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth: 1.3.1<br />omniauth-OAuth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)<br />[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 | iOS, macOS, & Android  | [Autenticazione dell'app nativa React](https://github.com/FormidableLabs/react-native-app-auth) | [Versione 4.2.0](https://github.com/FormidableLabs/react-native-app-auth/releases/tag/v4.2.0) | [Autenticazione dell'app nativa React](https://github.com/FormidableLabs/react-native-app-auth) | |
