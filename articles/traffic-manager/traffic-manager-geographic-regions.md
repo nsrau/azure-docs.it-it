@@ -482,7 +482,7 @@ In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo 
 
         - CF (Repubblica Centrafricana)
 
-        - CI (Costa d'Avorio)
+        - CI (Côte d’Ivoire)
 
         - CM (Camerun)
 
