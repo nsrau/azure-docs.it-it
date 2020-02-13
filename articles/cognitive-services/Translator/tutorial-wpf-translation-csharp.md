@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 25c51067f713b5d713684e5d267c133c21b17c93
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ecb42d200eb8808f6bfa4cfb91e98909e350038b
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978527"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118615"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Esercitazione: Creare un'app di traduzione con WPF
 
@@ -37,14 +37,14 @@ In questa esercitazione si apprenderà come:
 
 Questo elenco include i Servizi cognitivi usati nell'esercitazione. Seguire il collegamento per esplorare il riferimento API per ogni funzionalità.
 
-| Service | Funzionalità | DESCRIZIONE |
+| Service | Funzionalità | Descrizione |
 |---------|---------|-------------|
 | Traduzione testuale | [Recupera lingue](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Recupera un elenco completo di lingue supportate per la traduzione testuale. |
 | Traduzione testuale | [Translate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Traduce il testo in più di 60 lingue. |
 | Traduzione testuale | [Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Rileva la lingua del testo di input. Include il punteggio di attendibilità per il rilevamento. |
 | Controllo ortografico Bing | [Controllo ortografico](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Corregge gli errori di ortografia per migliorare l'accuratezza della traduzione. |
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di continuare, è necessario disporre di quanto segue:
 
@@ -114,10 +114,10 @@ Ecco il modulo da creare.
 
 L'interfaccia utente include questi componenti:
 
-| NOME | Type | DESCRIZIONE |
+| Nome | Type | Descrizione |
 |------|------|-------------|
-| `FromLanguageComboBox` | Casella combinata | Visualizza un elenco delle lingue supportate da Microsoft Translator per la traduzione testuale. L'utente seleziona la lingua da cui eseguire la traduzione. |
-| `ToLanguageComboBox` | Casella combinata | Visualizza lo stesso elenco di lingue di `FromComboBox`, ma viene usata per selezionare la lingua verso cui l'utente esegue la traduzione. |
+| `FromLanguageComboBox` | ComboBox | Visualizza un elenco delle lingue supportate da Microsoft Translator per la traduzione testuale. L'utente seleziona la lingua da cui eseguire la traduzione. |
+| `ToLanguageComboBox` | ComboBox | Visualizza lo stesso elenco di lingue di `FromComboBox`, ma viene usata per selezionare la lingua verso cui l'utente esegue la traduzione. |
 | `TextToTranslate` | TextBox | Consente all'utente di immettere il testo da tradurre. |
 | `TranslateButton` | Pulsante | Usare questo pulsante per tradurre il testo. |
 | `TranslatedTextLabel` | Etichetta | Visualizza la traduzione. |
@@ -250,7 +250,7 @@ Tutto il progetto è incapsulato nella classe `MainWindow : Window`. Per iniziar
 
 In questo blocco di codice vengono dichiarate due variabili membro che contengono informazioni sulle lingue disponibili per la traduzione:
 
-| Variabile | Type | DESCRIZIONE |
+| Variabile | Type | Descrizione |
 |----------|------|-------------|
 |`languageCodes` | Matrice di stringhe |Memorizza nella cache i codici di lingua. Il servizio Microsoft Translator usa codici brevi, ad esempio `en` per l'inglese, per identificare le lingue. |
 |`languageCodesAndTitles` | Dizionario ordinato | Esegue il mapping dei nomi descrittivi dell'interfaccia utente nei codici brevi usati nell'API. Il mapping rispetta l'ordine alfabetico indipendentemente dalle maiuscole/minuscole. |

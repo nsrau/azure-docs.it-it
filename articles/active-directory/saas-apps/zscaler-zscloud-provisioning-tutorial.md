@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 34d3a7fb299ba143eee01b6b7184f1c566d41aba
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: af9d4aa15a4ff2784d2e1ca1334d9c24a8d12251
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515450"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062677"
 ---
 # <a name="tutorial-configure-zscaler-zscloud-for-automatic-user-provisioning"></a>Esercitazione: Configurare Zscaler ZSCloud per il provisioning utenti automatico
 
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come configurare Azure Active Directory (
 > L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e per risposte a domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../active-directory-saas-app-provisioning.md).
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare i passaggi descritti in questa esercitazione, sono necessari gli elementi seguenti:
 
@@ -98,7 +98,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 5. Nella sezione **Credenziali amministratore** specificare i campi **URL tenant** e **Token segreto** dell'account di Zscaler ZSCloud, come descritto nel passaggio successivo.
 
-6. Per ottenere i valori di **URL tenant** e **Token segreto**, scegliere **Administration** (Amministrazione)  >  **Authentication Settings** (Impostazioni di autenticazione) nel portale di Zscaler ZSCloud e selezionare **SAML** in **Authentication Type** (Tipo di autenticazione):
+6. Per ottenere i valori di **URL tenant** e **Token segreto**, scegliere **Administration** (Amministrazione)  > **Authentication Settings** (Impostazioni di autenticazione) nel portale di Zscaler ZSCloud e selezionare **SAML** in **Authentication Type** (Tipo di autenticazione):
 
     ![Impostazioni di autenticazione di Zscaler ZSCloud](./media/zscaler-zscloud-provisioning-tutorial/secrettoken1.png)
 
@@ -154,7 +154,7 @@ Per informazioni su come leggere i log di provisioning di Azure AD, vedere l'ese
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per le app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

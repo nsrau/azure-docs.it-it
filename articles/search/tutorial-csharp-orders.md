@@ -3,17 +3,17 @@ title: Esercitazione per C# sull'ordinamento dei risultati
 titleSuffix: Azure Cognitive Search
 description: Questa esercitazione illustra come ordinare i risultati della ricerca. Si basa su un progetto di hotel precedente, ordinando per proprietà primaria, proprietà secondaria e include un profilo di punteggio per aggiungere i criteri di aumento priorità.
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 9230e555f9ea56ca4cda3fcabe1f9719e36a8f62
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/10/2020
+ms.openlocfilehash: 812085a5a4b3e8d1233f19c947d2fd5e433f6ab7
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112675"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121555"
 ---
 # <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>Esercitazione per C#: Ordinare i risultati - Ricerca cognitiva di Azure
 
@@ -21,14 +21,14 @@ Fino a questo punto nella serie di esercitazioni, i risultati vengono restituiti
 
 Per poter confrontare facilmente i risultati restituiti, questo progetto si basa sul progetto di scorrimento infinito creato in [Esercitazione per C#: Paginazione dei risultati della ricerca - Ricerca cognitiva di Azure](tutorial-csharp-paging.md).
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Ordinare i risultati in base a un'unica proprietà
 > * Ordinare i risultati in base a più proprietà
 > * Filtrare i risultati in base a una distanza da un punto geografico
 > * Ordinare i risultati in base a un profilo di punteggio
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, è necessario:
 

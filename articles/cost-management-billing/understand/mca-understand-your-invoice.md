@@ -2,21 +2,21 @@
 title: Informazioni sulla fattura del Contratto del cliente Microsoft in Azure
 description: Informazioni su come leggere e comprendere la fattura del Contratto del cliente Microsoft in Azure
 author: bandersmsft
-manager: jureid
+manager: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: 793caae31841c0ea744a80a811c86aa4af63f60a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 54fcff23501c3f65e32298126d402f7a3b6ae6d1
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75990970"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134996"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Termini presenti nella fattura del Contratto del cliente Microsoft in Azure
 

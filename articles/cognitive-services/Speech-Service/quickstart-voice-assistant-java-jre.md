@@ -1,29 +1,29 @@
 ---
-title: 'Guida introduttiva: Assistente vocale personalizzato per Java (Windows, Linux) - Servizio Voce'
+title: 'Avvio rapido: Assistente vocale personalizzato per Java (Windows, Linux) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Questa guida di avvio rapido spiega come usare Speech SDK di Servizi cognitivi in un'applicazione console Java. Viene spiegato come connettere l'applicazione client a un bot di Bot Framework creato in precedenza e configurato per l'uso del canale Direct Line Speech e abilitare un'esperienza di assistente vocale.
 services: cognitive-services
-author: bidishac
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/05/2019
-ms.author: bidishac
-ms.openlocfilehash: 29f6596408a825a571682d14aceca01fa8108515
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: 45719eebb9cd74b0a5c4278e87b90978dcc3790f
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815848"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119693"
 ---
-# <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-java-preview"></a>Guida introduttiva: Creare un assistente vocale con Speech SDK, Java (anteprima)
+# <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-java-preview"></a>Avvio rapido: Creare un assistente vocale con Speech SDK, Java (anteprima)
 
 Sono disponibili guide di avvio rapido anche per il [riconoscimento vocale](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=jre), la [sintesi vocale](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=jre) e la [traduzione vocale](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre).
 
 In questo articolo viene creata un'applicazione console Java usando [Speech SDK di Servizi cognitivi di Azure](speech-sdk.md). L'applicazione si connetterà a un bot creato in precedenza e configurato per l'uso del canale Direct Line Speech, invierà una richiesta vocale e restituirà un'attività di risposta vocale (se configurata). L'applicazione viene creata con il pacchetto Maven di Speech SDK e l'IDE Eclipse Java in Windows, Ubuntu Linux o in macOS. Viene eseguito su un ambiente Java 8 runtime a 64 bit (JRE).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Questa guida introduttiva richiede:
 

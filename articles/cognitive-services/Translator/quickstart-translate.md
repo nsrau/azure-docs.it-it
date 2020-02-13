@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Tradurre un testo - Traduzione testuale'
+title: 'Avvio rapido: Tradurre un testo - Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido descrive come tradurre un testo usando l'API Traduzione testuale.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 8f25271bcf3d7bfb342ea2838bac237b158f3477
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 14407102f77c6cae7b8680485610293796807034
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975704"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118799"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-text"></a>Guida introduttiva: Usare l'API Traduzione testuale per tradurre il testo
+# <a name="quickstart-use-the-translator-text-api-to-translate-text"></a>Avvio rapido: Usare l'API Traduzione testuale per tradurre il testo
 
 Questo argomento di avvio rapido descrive come tradurre una stringa di testo dall'inglese al tedesco, all'italiano, al giapponese e al thai usando l'API REST Traduzione testuale.
 

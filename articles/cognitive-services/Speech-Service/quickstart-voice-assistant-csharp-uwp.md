@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Assistente vocale personalizzato, C# (UWP) - Servizio Voce'
+title: 'Avvio rapido: Assistente vocale personalizzato, C# (UWP) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: In questo articolo viene creata un'applicazione della piattaforma UWP (Universal Windows Platform) C# usando Speech SDK (Speech Software Development Kit) di Servizi cognitivi. L'applicazione client viene connessa a un bot di Bot Framework creato in precedenza e configurato per l'uso del canale Direct Line Speech. L'applicazione si basa sul pacchetto NuGet Speech SDK e su Microsoft Visual Studio 2019.
 services: cognitive-services
-author: trrwilson
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/05/2019
-ms.author: travisw
-ms.openlocfilehash: 25d74b640f1bf567792c317626da0178ead7e34f
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: af9395b8f75a9097d4449571fd54be6259a7b9f3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816238"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119791"
 ---
-# <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-uwp"></a>Guida introduttiva: Creare un assistente vocale con Speech SDK, piattaforma UWP
+# <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-uwp"></a>Avvio rapido: Creare un assistente vocale con Speech SDK, piattaforma UWP
 
 Sono disponibili argomenti di avvio rapido anche per il [riconoscimento vocale](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp), la [sintesi vocale](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=uwp) e la [traduzione vocale](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp).
 
@@ -26,7 +26,7 @@ In questo articolo viene sviluppata un'applicazione della piattaforma UWP (Unive
 > [!NOTE]
 > La piattaforma UWP (Universal Windows Platform) consente di sviluppare applicazioni eseguibili su qualsiasi dispositivo che supporta Windows 10, inclusi PC, Xbox, Surface Hub e altri dispositivi.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Questa guida introduttiva richiede:
 

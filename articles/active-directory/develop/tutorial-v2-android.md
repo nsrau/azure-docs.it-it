@@ -3,7 +3,7 @@ title: Concedere l'accesso agli utenti, disconnetterli e chiamare Microsoft Grap
 description: Ottenere un token di accesso e chiamare Microsoft Graph o le API che richiedono token di accesso da Microsoft Identity Platform (Android)
 services: active-directory
 documentationcenter: dev-center-name
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -15,12 +15,12 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: d851e23e8f6915c7d52565f18eff4a73bd96c9c0
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 4366f95a9c6d5c0e6b851583ac6001b3b413c08a
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76758836"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085401"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-application"></a>Esercitazione: Concedere l'accesso agli utenti e chiamare Microsoft Graph da un'app Android 
 

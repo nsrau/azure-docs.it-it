@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 01/15/2020
-ms.openlocfilehash: 8fa123772ae380cd000c414c63bdf3908d279751
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f71d8e9f88dad32818ed25d4a0719a1528656f96
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906391"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77163178"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Esercitazione: Visualizzare le anomalie dei dati in eventi in tempo reale inviati a Hub eventi di Azure
 
@@ -384,6 +384,6 @@ In questa esercitazione sono state illustrate le procedure per:
 Passare all'articolo successivo per altre informazioni su Hub eventi di Azure.
 
 > [!div class="nextstepaction"]
-> [Introduzione all'invio di messaggi a Hub eventi di Azure in .NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
+> [Introduzione all'invio di messaggi a Hub eventi di Azure in .NET Standard](get-started-dotnet-standard-send-v2.md)
 
 [Creare un account gratuito]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

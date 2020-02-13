@@ -3,20 +3,20 @@ title: Che cos'è ML Studio (versione classica)
 titleSuffix: Azure
 description: Azure Machine Learning Studio (versione classica) è uno strumento di trascinamento della selezione per la creazione rapida di modelli da una libreria di algoritmi e moduli pronta per l'uso.
 services: machine-learning
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 10/17/2019
-ms.openlocfilehash: f3be29dc222e0e9b98ed51d8f921fb9926b018ca
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: be3a07eb2d4232d27a5b41ddc4258c89b79729bf
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314072"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169044"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>Che cos'è Machine Learning Studio (versione classica)?
 
@@ -38,13 +38,13 @@ Non sono necessarie operazioni di programmazione, è sufficiente collegare visiv
 <a name="compare"></a>
 ## <a name="how-does-machine-learning-studio-classic-differ-from-azure-machine-learning"></a>Quali sono le differenze tra Machine Learning Studio (versione classica) e Azure Machine Learning?
 
-[Azure Machine Learning](../overview-what-is-azure-ml.md) offre gli SDK **e** la finestra di progettazione di Azure Machine Learning per eseguire rapidamente la preparazione dei dati e il training e la distribuzione dei modelli di Machine Learning. La finestra di progettazione offre un'esperienza di trascinamento della selezione simile a Studio (versione classica). A differenza della piattaforma di calcolo proprietaria di Studio, tuttavia, la finestra di progettazione usa le risorse di calcolo dell'utente ed è pienamente integrata in Azure Machine Learning.
+[Azure Machine Learning](../overview-what-is-azure-ml.md) offre gli SDK **e** la finestra di progettazione di Azure Machine Learning (anteprima) per eseguire rapidamente la preparazione dei dati e il training e la distribuzione dei modelli di Machine Learning. La finestra di progettazione offre un'esperienza di trascinamento della selezione simile a Studio (versione classica). A differenza della piattaforma di calcolo proprietaria di Studio, tuttavia, la finestra di progettazione usa le risorse di calcolo dell'utente ed è pienamente integrata in Azure Machine Learning.
 
 Ecco un confronto rapido:
 
 || Machine Learning Studio (versione classica) | Azure Machine Learning |
 |---| --- | --- |
-| Interfaccia per il trascinamento della selezione | Sì | Sì - [Finestra di progettazione di Azure Machine Learning](../concept-designer.md) |
+| Interfaccia per il trascinamento della selezione | Sì | Sì - [Finestra di progettazione di Azure Machine Learning (anteprima)](../concept-designer.md) |
 | Esperimento | Scalabile (limite dei dati di training di 10 GB) | Ridimensionamento con destinazione di calcolo |
 | Moduli per l'interfaccia di trascinamento della selezione | Molti | Set iniziale di [moduli](../algorithm-module-reference/module-reference.md) più diffusi|
 |Destinazioni di calcolo del training| Destinazione di calcolo proprietaria, solo supporto di CPU| Supporta destinazioni di calcolo di Azure Machine Learning (GPU o CPU) e macchine virtuali per Notebook.<br/>([Altre destinazioni di calcolo supportate nell'SDK](../concept-compute-target.md#train))|

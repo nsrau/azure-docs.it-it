@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Ottenere la lunghezza delle frasi - API Traduzione testuale'
+title: 'Avvio rapido: Ottenere la lunghezza delle frasi - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido descrive come determinare la lunghezza delle frasi usando l'API Traduzione testuale.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 505e16711281ba12c9c134799e7fb00db995f9fa
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ab7d2ccccf7f309c59c5b8ad4ac26350030760cf
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975721"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118776"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length"></a>Guida introduttiva: Usare l'API Traduzione testuale per determinare la lunghezza delle frasi
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length"></a>Avvio rapido: Usare l'API Traduzione testuale per determinare la lunghezza delle frasi
 
 Questo argomento di avvio rapido descrive come determinare la lunghezza delle frasi usando l'API Traduzione testuale.
 

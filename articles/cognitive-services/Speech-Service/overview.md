@@ -3,19 +3,19 @@ title: Informazioni sul Servizio di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: Il servizio Voce di Azure combina il riconoscimento vocale, la sintesi vocale e la traduzione vocale in un'unica sottoscrizione di Azure. Aggiungere il riconoscimento vocale ad applicazioni, strumenti e dispositivi con Speech SDK, Speech Devices SDK o API REST.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 11/05/2019
-ms.author: erhopf
-ms.openlocfilehash: df0ce5efefe86ed3b7e2e8ccf5a2bd9011e168e6
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: 7ddfae430e6aa4ec9549e40c937e5edcfd927f6d
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261433"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119915"
 ---
 # <a name="what-is-the-speech-service"></a>Informazioni sul Servizio di riconoscimento vocale
 
@@ -37,24 +37,6 @@ Queste funzionalità costituiscono il servizio Voce. Per altre informazioni sui 
 | | [Creare voci personalizzate](#customize-your-speech-experience) | Creazione di caratteri voce personalizzati univoci per il proprio marchio o prodotto. | No | [Sì](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Traduzione vocale](speech-translation.md) | Traduzione vocale | La traduzione vocale consente di attivare la traduzione vocale end-to-end in tempo reale e in più lingue in applicazioni, strumenti e dispositivi. È possibile usare questo servizio per il riconoscimento vocale e la traduzione vocale. | [Sì](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | No |
 | [Assistenti vocali](voice-assistants.md) | Assistenti vocali | Gli assistenti vocali che usano il servizio Voce consentono agli sviluppatori di creare interfacce di conversazione naturali e simili a quelle umane per applicazioni ed esperienze. Il servizio di assistente vocale offre un'interazione rapida e affidabile tra un dispositivo e l'implementazione di un assistente che usa il canale Direct Line Speech di Bot Framework o il servizio integrato Comandi personalizzati (anteprima) per completare le attività. | [Sì](voice-assistants.md) | No |
-
-## <a name="news-and-updates"></a>Notizie e aggiornamenti
-
-Informazioni sulle novità relative al servizio Voce.
-
-- Novembre 2019
-  - Sono stati aggiunti due nuovi stili del parlato, [`newscast`](speech-synthesis-markup.md#adjust-speaking-styles) e [`customerservice`](speech-synthesis-markup.md#adjust-speaking-styles) per la voce `en-US-JessaNeural`.
-- Settembre 2019
-  - Rilasciato Speech SDK 1.7.0. Per un elenco completo di aggiornamenti, miglioramenti e problemi noti, vedere [Note sulla versione](releasenotes.md).
-- Agosto 2019
-  - **Nuova esercitazione**: [Abilitare la voce per il bot con Speech SDK, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-  - Aggiunta di un nuovo modo di parlare, [`chat`](speech-synthesis-markup.md#adjust-speaking-styles), per la voce `en-US-JessaNeural`.
-- Giugno 2019
-  - Rilasciato Speech SDK 1.6.0. Per un elenco completo di aggiornamenti, miglioramenti e problemi noti, vedere [Note sulla versione](releasenotes.md).
-- Maggio 2019 - Disponibilità della documentazione per [Trascrizione conversazione](conversation-transcription-service.md), [Trascrizione di call center](call-center-transcription.md) e [Assistenti vocali](voice-assistants.md).
-- Maggio 2019
-  - Rilasciato Speech SDK 1.5.1. Per un elenco completo di aggiornamenti, miglioramenti e problemi noti, vedere [Note sulla versione](releasenotes.md).
-  - Rilasciato Speech SDK 1.5.0. Per un elenco completo di aggiornamenti, miglioramenti e problemi noti, vedere [Note sulla versione](releasenotes.md).
 
 ## <a name="try-the-speech-service"></a>Provare il servizio Voce
 

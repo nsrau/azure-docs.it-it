@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Assistente vocale personalizzato, Java (Android) - Servizio Voce'
+title: 'Avvio rapido: Assistente vocale personalizzato, Java (Android) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come creare un'applicazione di assistente vocale in Java in ambiente Android con Speech SDK
 services: cognitive-services
-author: trrwilson
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/09/2019
-ms.author: travisw
-ms.openlocfilehash: 70031513d6f120e539e80d6befad4bf9320fb9c4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: d4f84bad6139210dcff3d3f3726d8b7a17d92a5b
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975959"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119741"
 ---
-# <a name="quickstart-create-a-voice-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Guida introduttiva: Creare un assistente vocale in Java in ambiente Android con Speech SDK
+# <a name="quickstart-create-a-voice-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Avvio rapido: Creare un assistente vocale in Java in ambiente Android con Speech SDK
 
 È disponibile una guida di avvio rapido anche per il [riconoscimento vocale](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=android) e la [sintesi vocale](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=android).
 
@@ -28,14 +28,14 @@ L'applicazione è basata sul pacchetto Maven per Speech SDK e su Android Studio 
 > [!NOTE]
 > Per Speech Device SDK e il dispositivo Roobo, vedere [Speech Devices SDK](speech-devices-sdk.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Una chiave di sottoscrizione di Azure per il servizio Voce. [È possibile ottenerne una gratuitamente](get-started.md) o crearla nel [portale di Azure](https://portal.azure.com).
 - Un bot creato in precedenza e configurato per l'uso del [canale Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 - [Android Studio](https://developer.android.com/studio/) 3.3 o versioni successive
 
     > [!NOTE]
-    > Consultare [l'elenco delle aree supportate per gli assistenti vocali ](regions.md#voice-assistants) e assicurarsi che le risorse vengano distribuite in una di queste aree.
+    > Consultare [l'elenco delle aree supportate per gli assistenti vocali](regions.md#voice-assistants) e assicurarsi che le risorse vengano distribuite in una di queste aree.
 
 ## <a name="create-and-configure-a-project"></a>Creare e configurare un progetto
 

@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
-ms.openlocfilehash: 749e5eae64aa0d33c90ef8694da9a093647b8a8b
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 4bdfc950cc1277809811dc2c548a57cc2138a8e4
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76937930"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149950"
 ---
 # <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Esercitazione: Configurare un record alias per supportare nomi di dominio radice con Gestione traffico 
 
@@ -40,7 +40,7 @@ Il dominio di esempio usato per questa esercitazione è contoso.com, ma in quest
 
 ## <a name="create-the-network-infrastructure"></a>Creare l'infrastruttura di rete
 Creare innanzitutto una rete virtuale e una subnet in cui inserire i server Web.
-1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
+1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 2. In alto a sinistra nel portale selezionare **Crea una risorsa**. Immettere *gruppo di risorse* nella casella di ricerca e creare un gruppo di risorse denominato **RG-DNS-Alias-TM**.
 3. Selezionare **Crea una risorsa** > **Rete** > **Rete virtuale**.
 4. Creare una rete virtuale denominata **VNet-Servers**. Inserirla nel gruppo di risorse **RG-DNS-Alias-TM** e assegnare il nome **SN-Web** alla subnet.

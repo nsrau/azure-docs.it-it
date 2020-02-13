@@ -1,22 +1,22 @@
 ---
-title: 'Guida introduttiva: Creare un indice di ricerca in C# con .NET'
+title: 'Avvio rapido: Creare un indice di ricerca in C# con .NET'
 titleSuffix: Azure Cognitive Search
 description: Questo argomento di avvio rapido su C# illustra come creare un indice, caricare dati ed eseguire query con .NET SDK di Ricerca cognitiva di Azure.
 manager: nitinme
-author: HeidiSteen
-ms.author: heidist
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: 1d8eaea4a6eded769542921851fb0c74a3c9d58b
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 02/10/2020
+ms.openlocfilehash: e9f43f729fc9e08054cd160b82945ee4bcd5821c
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406767"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121657"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-c-using-the-net-sdk"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in C# con .NET SDK
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-c-using-the-net-sdk"></a>Avvio rapido: Creare un indice di Ricerca cognitiva di Azure in C# con .NET SDK
 > [!div class="op_single_selector"]
 > * [C#](search-get-started-dotnet.md)
 > * [Portale](search-get-started-portal.md)
@@ -32,7 +32,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 > [!NOTE]
 > Per semplicità, nel codice di esempio incluso in questo articolo si usano i metodi sincroni di .NET SDK di Ricerca cognitiva di Azure. Per scenari di produzione, è però consigliabile usare i metodi asincroni nelle proprie applicazioni per mantenerle scalabili e reattive. È ad esempio possibile usare `CreateAsync` e `DeleteAsync` invece di `Create` e `Delete`.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per questa guida di avvio rapido sono richiesti i servizi e gli strumenti seguenti.
 
@@ -56,7 +56,7 @@ Le chiamate al servizio richiedono un URL endpoint e una chiave di accesso per o
 
 Per ogni richiesta inviata al servizio è necessario specificare una chiave API. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
-## <a name="set-up-your-environment"></a>Configurazione dell'ambiente
+## <a name="set-up-your-environment"></a>Configurare l'ambiente
 
 Iniziare aprendo Visual Studio e creando un nuovo progetto di app console che può essere eseguito in .NET Core.
 

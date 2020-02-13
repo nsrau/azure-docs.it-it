@@ -3,30 +3,30 @@ title: Esercitazione per C# su completamento automatico e suggerimenti
 titleSuffix: Azure Cognitive Search
 description: Questa esercitazione illustra il completamento automatico e i suggerimenti come un modo per raccogliere l'input del termine di ricerca dagli utenti usando l'elenco a discesa. Si basa su un progetto di hotel esistente.
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: b542476ac1c9b6d4368d97eb4db76518eb2dba03
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/10/2020
+ms.openlocfilehash: 8f244d64fe33a1529cf66314515bbe16e05ccffb
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114570"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121543"
 ---
 # <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>Esercitazione per C#: Aggiungere completamento automatico e suggerimenti - Ricerca cognitiva di Azure
 
 In questa esercitazione viene spiegato come implementare il completamento automatico e i suggerimenti quando un utente inizia a digitare nella casella di ricerca. Nell'esercitazione i risultati del completamento automatico e dei suggerimenti verranno mostrati separatamente. Verrà quindi illustrato un metodo per combinarli e ottenere un'esperienza utente migliore. È possibile che l'utente debba digitare solo due o tre lettere per individuare tutti i risultati disponibili. Questa esercitazione si basa sul progetto di paginazione creato in [Esercitazione per C#: Paginazione dei risultati della ricerca - Ricerca cognitiva di Azure](tutorial-csharp-paging.md).
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Aggiungere suggerimenti
 > * Aggiungere l'evidenziazione per i suggerimenti
 > * Aggiungere il completamento automatico
 > * Combinare il completamento automatico e i suggerimenti
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, è necessario:
 

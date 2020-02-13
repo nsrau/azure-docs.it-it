@@ -1,22 +1,22 @@
 ---
-title: 'Guida introduttiva: Creare un indice di ricerca in Python con le API REST'
+title: 'Avvio rapido: Creare un indice di ricerca in Python con le API REST'
 titleSuffix: Azure Cognitive Search
 description: Informazioni su come creare un indice, caricare dati ed eseguire query con Python, Jupyter Notebook e le API REST di Ricerca cognitiva di Azure.
-author: heidisteen
+author: tchristiani
 manager: nitinme
-ms.author: heidist
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 11/04/2019
-ms.openlocfilehash: c663fae47de1e161314aa3bf2fdb9966ae80d3c6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 02/10/2020
+ms.openlocfilehash: 15a3801a7ea99d6d799bcd8adf340b03f36bc196
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792270"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121627"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in Python con Jupyter Notebook
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Avvio rapido: Creare un indice di Ricerca cognitiva di Azure in Python con Jupyter Notebook
 
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
@@ -30,7 +30,7 @@ Creare un notebook di Jupyter che crea e carica un indice di Ricerca cognitiva d
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per questa guida di avvio rapido sono richiesti i servizi e gli strumenti seguenti. 
 
@@ -310,4 +310,4 @@ Se si usa un servizio gratuito, tenere presente che il numero di indicizzatori e
 Per semplificare, questa guida di avvio rapido usa una versione abbreviata dell'indice hotels. È possibile creare la versione completa per provare query più interessanti. Per ottenere la versione completa e tutti i 50 documenti, eseguire la procedura guidata **Importa dati** selezionando *hotels-sample* nelle origini dati di esempio predefinite.
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: Creare un indice nel portale di Azure](search-get-started-portal.md)
+> [Avvio rapido: Creare un indice nel portale di Azure](search-get-started-portal.md)

@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: c5379452449188f17b75036eb09c3ca15bae0c2e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1cf519d8d8c25877b49bf14aefd1c0be3afa8023
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448170"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137884"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Avvio rapido: Riconoscere l'input penna con l'API REST Riconoscimento input penna e C#
 
@@ -49,11 +49,11 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
 
 1. In Visual Studio creare una nuova soluzione console e aggiungere i pacchetti seguenti. 
     
-    [!code-csharp[import statements](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=imports)]
+    [!code-csharp[import statements](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=imports)]
 
 2. Creare le variabili per l'endpoint e la chiave di sottoscrizione e il file JSON di esempio. L'endpoint verrà poi combinato con `inkRecognitionUrl` per accedere all'API. 
 
-    [!code-csharp[endpoint file and key variables](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=vars)]
+    [!code-csharp[endpoint file and key variables](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=vars)]
 
 ## <a name="create-a-function-to-send-requests"></a>Creare una funzione per inviare richieste
 
@@ -63,7 +63,7 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
  
 3. Inviare la richiesta con `PutAsync()`. Se la richiesta ha esito positivo, viene restituita la risposta.  
     
-    [!code-csharp[request example method](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=request)]
+    [!code-csharp[request example method](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=request)]
 
 ## <a name="send-an-ink-recognition-request"></a>Inviare una richiesta di riconoscimento input penna
 
@@ -71,13 +71,13 @@ Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://go
 
 2. Deserializzare l'oggetto JSON e visualizzarlo nella console. 
     
-    [!code-csharp[request to recognize ink data](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=recognize)]
+    [!code-csharp[request to recognize ink data](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=recognize)]
 
 ## <a name="load-your-digital-ink-data"></a>Caricare i dati dell'input penna
 
 Creare una funzione denominata `LoadJson()` per caricare il file JSON con i dati dell'input penna. Usare `StreamReader` e `JsonTextReader` per creare `JObject` e restituirlo.
 
-[!code-csharp[load the JSON file](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=loadJson)]
+[!code-csharp[load the JSON file](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=loadJson)]
 
 ## <a name="send-the-api-request"></a>Inviare la richiesta API
 
@@ -85,7 +85,7 @@ Creare una funzione denominata `LoadJson()` per caricare il file JSON con i dati
 
 2. Chiamare la funzione `recognizeInk()` creata in precedenza. Usare `System.Console.ReadKey()` per mantenere aperta la finestra della console dopo l'esecuzione dell'applicazione.
     
-    [!code-csharp[file main method](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=main)]
+    [!code-csharp[file main method](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=main)]
 
 
 ## <a name="run-the-application-and-view-the-response"></a>Eseguire l'applicazione e visualizzare la risposta

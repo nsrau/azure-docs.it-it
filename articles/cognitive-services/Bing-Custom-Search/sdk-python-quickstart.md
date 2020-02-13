@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: ca0c1174abb80452f78766c3c4f49af73c790d3e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d67075fad719b1780682c705f0e17f15c5801559
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448687"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136156"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>Avvio rapido: Chiamare l'endpoint di Ricerca personalizzata Bing usando Python SDK 
 
@@ -51,12 +51,13 @@ from msrest.authentication import CognitiveServicesCredentials
 
     ```python
     subscription_key = 'your-subscription-key'
+    endpoint = 'your-custom-endpoint'
     ```
 
 2. Creare un'istanza di `CustomSearchClient` usando un `CognitiveServicesCredentials` oggetto con la chiave di sottoscrizione. 
 
     ```python
-    client = CustomSearchClient(CognitiveServicesCredentials(subscription_key))
+    client = CustomSearchClient(endpoint, CognitiveServicesCredentials(subscription_key))
     ```
 
 3. Inviare una richiesta di ricerca con `client.custom_instance.search()`. Aggiungere il termine di ricerca al `query` parametro e impostare `custom_config` l'ID di configurazione personalizzata in modo che usi l'istanza di ricerca. È possibile ottenere l'ID dal [portale di Ricerca personalizzata Bing](https://www.customsearch.ai/), facendo clic sulla scheda **Production** (Produzione).

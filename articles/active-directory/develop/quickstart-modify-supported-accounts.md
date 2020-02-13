@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 59c1b7dbb4c47b6963cd4bbcfdeb1b2b9a2d3bb6
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 56771658380e0a5b946c3acc70df98a262561b5c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704120"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160690"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Avvio rapido: Modificare gli account supportati da un'applicazione
 
@@ -63,7 +63,7 @@ Se si scrive un'applicazione che si vuole rendere disponibile a clienti o partne
 
 Le applicazioni a pagina singola (SPA) sono in genere strutturate con un front-end JavaScript eseguito nel browser, che chiama il back-end dell'API Web dell'applicazione per eseguirne la logica di business. Per le applicazioni a singola pagina ospitate in Azure AD, è possibile usare la concessione implicita OAuth 2.0 per autenticare l'utente con Azure AD e ottenere un token da usare per chiamate protette dal client JavaScript dell'applicazione all'API Web di back-end.
 
-Dopo che l'utente ha concesso il consenso, lo stesso protocollo di autenticazione può essere usato per ottenere token per proteggere le chiamate tra il client e altre risorse dell'API Web configurate per l'applicazione. Per altre informazioni sulla concessione implicita di autorizzazioni e per stabilire se sia adatta allo scenario dell'applicazione, vedere le informazioni sul flusso di concessione implicita OAuth 2.0 in Azure AD [v1.0](v1-oauth2-implicit-grant-flow.md) e [v2.0](v2-oauth2-implicit-grant-flow.md).
+Dopo che l'utente ha concesso il consenso, lo stesso protocollo di autenticazione può essere usato per ottenere token per proteggere le chiamate tra il client e altre risorse dell'API Web configurate per l'applicazione. Per altre informazioni sulla concessione implicita di autorizzazioni e per stabilire se sia adatta allo scenario dell'applicazione, vedere le informazioni sul flusso di concessione implicita OAuth 2.0 in Azure AD [v1.0](../azuread-dev/v1-oauth2-implicit-grant-flow.md) e [v2.0](v2-oauth2-implicit-grant-flow.md).
 
 Per impostazione predefinita, la concessione implicita OAuth 2.0 è disabilitata per le applicazioni. È possibile abilitare la concessione implicita OAuth 2.0 per l'applicazione seguendo la procedura illustrata di seguito.
 

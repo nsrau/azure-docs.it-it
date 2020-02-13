@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Rilevare la lingua del testo - API Traduzione testuale'
+title: 'Avvio rapido: Rilevare la lingua del testo - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido descrive come rilevare la lingua del testo fornito usando l'API REST Traduzione testuale.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 5164ed71b2a513b8d82bee1108964f2f44f710ac
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7b417839b4561343e481a940b08e732918d35677
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975789"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118869"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language"></a>Guida introduttiva: Usare l'API Traduzione testuale per rilevare la lingua del testo
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language"></a>Avvio rapido: Usare l'API Traduzione testuale per rilevare la lingua del testo
 
 Questo argomento di avvio rapido descrive come rilevare la lingua del testo fornito usando l'API REST Traduzione testuale.
 

@@ -3,17 +3,17 @@ title: Esercitazione per C# sull'uso di facet per semplificare l'esplorazione
 titleSuffix: Azure Cognitive Search
 description: Questa esercitazione si basa sul progetto "Paginazione dei risultati della ricerca - Ricerca cognitiva di Azure", per aggiungere l'esplorazione basata su facet. Come usare i facet per limitare facilmente una ricerca.
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 9f0d716e9077b2d9702f26b1afe92d9e4faf4a77
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 02/10/2020
+ms.openlocfilehash: d88a9d7efdabd493fd31b961748bb6ad3bd8d738
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794125"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121576"
 ---
 # <a name="c-tutorial-use-facets-to-aid-navigation---azure-cognitive-search"></a>Esercitazione per C#: Usare facet per semplificare l'esplorazione - Ricerca cognitiva di Azure
 
@@ -21,12 +21,12 @@ I facet vengono usati per semplificare l'esplorazione e offrono all'utente un se
 
 Questa esercitazione si basa sul progetto di paginazione creato in [Esercitazione per C#: Paginazione dei risultati della ricerca - Ricerca cognitiva di Azure](tutorial-csharp-paging.md).
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Impostare le proprietà del modello come _IsFacetable_
 > * Aggiungere l'esplorazione basata su facet all'app
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, è necessario:
 

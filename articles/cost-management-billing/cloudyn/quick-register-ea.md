@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: dcb4a04ced1d36a6d0717b9a65150faacc702cc5
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e6431d1fa73106267730db721060906e43c456d2
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76769982"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117758"
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Registrare un Azure Enterprise Agreement e visualizzare i dati sui costi
 
@@ -24,7 +24,7 @@ Gestione costi di Azure offre funzionalità simili a quelle di Cloudyn. Gestione
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-- Accedere al portale di Azure all'indirizzo https://portal.azure.com.
+- Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="register-with-cloudyn"></a>Registrarsi in Cloudyn
 

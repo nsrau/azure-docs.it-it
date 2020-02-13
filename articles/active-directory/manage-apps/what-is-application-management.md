@@ -12,16 +12,16 @@ ms.date: 06/05/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d1ebb4b094ab5c03343486e7af6624273288453
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 7ca73fac06649f801461e53130a67aa9ec0ad0d0
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68421215"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063323"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Gestione di applicazioni con Azure Active Directory
 
-Azure Active Directory (Azure AD) semplifica la gestione delle applicazioni fornendo un unico sistema di gestione delle identità per le app cloud e locali. È possibile aggiungere ad Azure AD le proprie applicazioni SaaS (software come un servizio), locali e line-of-business. Gli utenti eseguono quindi l'accesso una sola volta per accedere in modo facile e sicuro a queste applicazioni, oltre a Office 365 e ad altre applicazioni aziendali Microsoft. È possibile ridurre i costi amministrativi [automatizzando il provisioning degli utenti](user-provisioning.md). e usare l'autenticazione a più fattori e i criteri di accesso condizionale per fornire un accesso sicuro alle applicazioni.
+Azure Active Directory (Azure AD) semplifica la gestione delle applicazioni fornendo un unico sistema di gestione delle identità per le app cloud e locali. È possibile aggiungere ad Azure AD le proprie applicazioni SaaS (software come un servizio), locali e line-of-business. Gli utenti eseguono quindi l'accesso una sola volta per accedere in modo facile e sicuro a queste applicazioni, oltre a Office 365 e ad altre applicazioni aziendali Microsoft. È possibile ridurre i costi amministrativi [automatizzando il provisioning degli utenti](../app-provisioning/user-provisioning.md). e usare l'autenticazione a più fattori e i criteri di accesso condizionale per fornire un accesso sicuro alle applicazioni.
 
 ![Diagramma che mostra le app federate tramite Azure AD](media/what-is-application-management/app-management-overview.png)
 
@@ -62,4 +62,4 @@ Eseguendo la migrazione ad Azure AD è possibile anche risparmiare sui costi ed 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Che cos'è Application Proxy?](what-is-application-proxy.md)
-- [Guida introduttiva: Aggiungere un'applicazione al tenant di Azure Active Directory](add-application-portal.md)
+- [Avvio rapido: Aggiungere un'applicazione al tenant di Azure Active Directory](add-application-portal.md)

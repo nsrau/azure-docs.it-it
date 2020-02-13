@@ -1,22 +1,22 @@
 ---
-title: 'Guida introduttiva: Creare un indice di ricerca in PowerShell con le API REST'
+title: 'Avvio rapido: Creare un indice di ricerca in PowerShell con le API REST'
 titleSuffix: Azure Cognitive Search
 description: Questo argomento di avvio rapido sulle API REST illustra come creare un indice, caricare dati ed eseguire query usando Invoke-RestMethod di PowerShell e le API REST di Ricerca cognitiva di Azure.
 manager: nitinme
-author: heidisteen
-ms.author: heidist
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 11/04/2019
-ms.openlocfilehash: db474b7e880ec2d65b9b9a71194964740e4fb329
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 02/10/2020
+ms.openlocfilehash: 612751c2405cd55ad0b3760aa8e093e434a22f57
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406923"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121598"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in PowerShell con le API REST
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Avvio rapido: Creare un indice di Ricerca cognitiva di Azure in PowerShell con le API REST
 > [!div class="op_single_selector"]
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
@@ -29,7 +29,7 @@ Questo articolo illustra in modo dettagliato il processo per creare e caricare u
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per questa guida di avvio rapido sono richiesti i servizi e gli strumenti seguenti. 
 

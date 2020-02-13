@@ -3,28 +3,28 @@ title: Esercitazione per C# sulla paginazione dei risultati della ricerca
 titleSuffix: Azure Cognitive Search
 description: Questa esercitazione illustra la paginazione dei risultati della ricerca. Si basa su un progetto di hotel esistente, con pulsanti di paginazione per prima pagina, pagina successiva, pagina precedente, ultima pagina e paginazione numerata. Un secondo sistema di paginazione usa lo scorrimento infinito, attivato dallo spostamento di una barra di scorrimento verticale fino al limite inferiore.
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 04f8229a86fbd8fbd5404997926412e760e74973
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/10/2020
+ms.openlocfilehash: 9abfeb54be6e22885b8e973034a6d89df8272146
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113759"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121511"
 ---
 # <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>Esercitazione per C#: Paginazione dei risultati della ricerca - Ricerca cognitiva di Azure
 
 Informazioni su come implementare due diversi sistemi di paginazione, il basato sui numeri di pagina e il secondo sullo scorrimento infinito. Entrambi i sistemi di paginazione sono ampiamente diffusi. Per selezionare quello più adatto, è necessario considerare l'esperienza utente che si intende ottenere con i risultati. Questa esercitazione consente di creare i sistemi di paginazione nel progetto creato in [Esercitazione per C#: Creare la prima app - Ricerca cognitiva di Azure](tutorial-csharp-create-first-app.md).
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Estendere l'app con la paginazione numerata
 > * Estendere l'app con lo scorrimento infinito
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, è necessario:
 

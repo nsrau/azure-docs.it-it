@@ -13,12 +13,12 @@ ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ROBOTS: NOINDEX
-ms.openlocfilehash: c5e8ed4a78fccce4f3a5c631a99a8729114e5722
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: a415ac749d0d322bc2f71f64d4bec6e32ad1f12e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422596"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063493"
 ---
 # <a name="how-to-configure-saml-based-single-sign-on"></a>Come configurare l'accesso Single Sign-On basato su SAML
 
@@ -34,7 +34,7 @@ Per configurare l'accesso Single Sign-On per un'applicazione non inclusa nella r
 - Se l'applicazione non è stata aggiunta al tenant di Azure AD, vedere [Aggiungere un'app della raccolta](add-gallery-app.md) oppure [Aggiungere un'app non della raccolta](add-non-gallery-app.md).
 - Contattare il fornitore dell'applicazione per ottenere le informazioni corrette per le impostazioni seguenti:
 
-    | Impostazione della configurazione SAML di base | SSO avviato da provider di servizi | SSO avviato da IdP | DESCRIZIONE |
+    | Impostazione della configurazione SAML di base | SSO avviato da provider di servizi | SSO avviato da IdP | Descrizione |
     |:--|:--|:--|:--|
     | Identificatore (ID entità) | Obbligatoria per alcune app | Obbligatoria per alcune app | Identifica in modo univoco l'applicazione per cui viene configurato l'accesso Single Sign-On. Azure AD restituisce l'identificatore all'applicazione come parametro Audience del token SAML. L'applicazione dovrebbe convalidarlo. Questo valore viene inoltre visualizzato come ID entità in tutti i metadati SAML forniti dall'applicazione. *È possibile trovare questo valore come elemento **Issuer** in nella richiesta **AuthRequest** (SAML) inviata dall'applicazione.* |
     | URL di risposta | Facoltativo | Obbligatoria | Specifica dove l'applicazione prevede di ricevere il token SAML. L'URL di risposta è denominato anche URL del servizio consumer di asserzione. |
@@ -135,4 +135,4 @@ Se viene visualizzato un messaggio di errore, completare la procedura seguente:
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Assegnare utenti o gruppi all'applicazione](methods-for-assigning-users-and-groups.md)
-- [Configurare il provisioning automatico degli account utente](configure-automatic-user-provisioning-portal.md)
+- [Configurare il provisioning automatico degli account utente](../app-provisioning/configure-automatic-user-provisioning-portal.md)

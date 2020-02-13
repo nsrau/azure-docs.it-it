@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 171f06ad238f862adbd7071ee10d81133d7a6855
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 808a17fcf303c6eb72f11f5379fa172302dc782a
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022138"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77059854"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Creazione di soluzioni per la vendita al dettaglio con Azure IoT Central
 
@@ -160,7 +160,7 @@ Gli screenshot seguenti illustrano il dashboard predefinito del modello di appli
 > [!div class="mx-imgBorder"]
 > ![Centro di micro-adempimenti](./media/overview-iot-central-retail/MFC-Dashboard.png)
 
-Per altre informazioni, vedere l'esercitazione [Distribuire ed esaminare un modello di applicazione del centro di micro-adempimenti](./tutorial-iot-central-smart-inventory-management-pnp.md).
+Per altre informazioni, vedere l'esercitazione [Distribuire ed esaminare un modello di applicazione del centro di micro-adempimenti](./tutorial-micro-fulfillment-center-pnp.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -170,5 +170,5 @@ Per iniziare a creare una soluzione per la vendita al dettaglio:
 * [Distribuire ed esaminare un modello di applicazione di logistica connessa](./tutorial-iot-central-connected-logistics-pnp.md).
 * [Distribuire ed esaminare un modello di applicazione del centro distribuzione digitale](./tutorial-iot-central-digital-distribution-center-pnp.md).
 * [Distribuire ed esaminare un modello di applicazione Gestione inventario intelligente](./tutorial-iot-central-smart-inventory-management-pnp.md).
-* [Distribuire ed esaminare un modello di applicazione del centro di micro-adempimenti](./tutorial-iot-central-smart-inventory-management-pnp.md).
+* [Distribuire ed esaminare un modello di applicazione del centro di micro-adempimenti](./tutorial-micro-fulfillment-center-pnp.md).
 * Per altre informazioni su IoT Central, vedere [Panoramica di IoT Central](../preview/overview-iot-central.md).

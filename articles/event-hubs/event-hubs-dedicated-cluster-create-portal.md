@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 12/20/2019
 ms.author: femila
-ms.openlocfilehash: 7003cc90bdb456eba9cfaebc1e24332d2e4a6251
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 5b1574eaac8771043e09500225b65e4835c8e627
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029929"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157483"
 ---
 # <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Avvio rapido: Creare un cluster di Hub eventi dedicato tramite il portale di Azure 
 I cluster Hub eventi offrono distribuzioni a tenant singolo per i clienti con i requisiti di streaming più rigorosi. Questa offerta ha un contratto di servizio garantito del 99,99% ed è disponibile solo per il piano tariffario Dedicato. Un [cluster di Hub eventi](event-hubs-dedicated-overview.md) può gestire l'ingresso di milioni di eventi al secondo con una capacità garantita e una latenza dell'ordine di frazioni di secondo. Gli spazi dei nomi e gli hub eventi creati all'interno di un cluster includono tutte le funzionalità dell'offerta standard e altre ancora, ma senza limiti di ingresso. L'offerta Dedicato include anche, senza costi aggiuntivi, la popolare funzionalità [Acquisizione di Hub eventi](event-hubs-capture-overview.md), che consente di eseguire in batch e di registrare automaticamente i flussi di dati in [Archiviazione BLOB di Azure](../storage/blobs/storage-blobs-introduction.md) o in [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md).
@@ -106,6 +106,10 @@ Se si vogliono cambiare le dimensioni del cluster dopo la creazione o se l'area 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stato creato un cluster di Hub eventi. Per istruzioni dettagliate relative all'invio e alla ricezione di eventi da un hub eventi e all'acquisizione di eventi in Archiviazione di Azure o Azure Data Lake Store, vedere le esercitazioni seguenti:
 
-- [Send and receive events on .NET Core](event-hubs-dotnet-standard-getstarted-send.md) (Inviare e ricevere eventi in .NET Core)
+- Inviare e ricevere eventi 
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 - [Use Azure portal to enable Event Hubs Capture](event-hubs-capture-enable-through-portal.md) (Usare il portale di Azure per abilitare Acquisizione di Hub eventi)
 - [Use Azure Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) (Usare Hub eventi di Azure per Apache Kafka)

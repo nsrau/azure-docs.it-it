@@ -1,21 +1,21 @@
 ---
-title: 'Guida introduttiva: Creare un servizio di ricerca nel portale'
+title: 'Avvio rapido: Creare un servizio di ricerca nel portale'
 titleSuffix: Azure Cognitive Search
 description: Questo argomento di avvio rapido sul portale illustra come creare una risorsa Ricerca cognitiva di Azure nel portale di Azure. Scegliere gruppi di risorse, aree e SKU o piano tariffario.
 manager: nitinme
-author: HeidiSteen
-ms.author: heidist
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: ec794f66866f9773f8b7c0fc57b644d8a13d697a
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 02/10/2020
+ms.openlocfilehash: bd4798ba4faa1808ecafb6d09eee09ba734c293d
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534556"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121697"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Guida introduttiva: Creare un servizio Ricerca cognitiva di Azure nel portale
+# <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Avvio rapido: Creare un servizio Ricerca cognitiva di Azure nel portale
 
 Ricerca cognitiva di Azure è una risorsa autonoma usata per aggiungere un'esperienza di ricerca alle app personalizzate. Ricerca cognitiva di Azure si integra facilmente con altri servizi di Azure, ma è possibile usarlo anche come componente autonomo oppure integrarlo con le app nei server di rete o con il software in esecuzione in altre piattaforme cloud.
 
@@ -156,4 +156,4 @@ Non è necessario un secondo servizio per la disponibilità elevata. La disponib
 Dopo il provisioning di un servizio, è possibile continuare nel portale con la creazione del primo indice.
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure nel portale](search-get-started-portal.md)
+> [Avvio rapido: Creare un indice di Ricerca cognitiva di Azure nel portale](search-get-started-portal.md)

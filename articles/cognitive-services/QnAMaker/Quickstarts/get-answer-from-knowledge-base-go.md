@@ -2,15 +2,15 @@
 title: 'Avvio rapido: Ottenere una risposta dalla knowledge base in REST, Go - QnA Maker'
 description: Questa Guida introduttiva Go basata su REST assiste nell'ottenimento di una risposta da una knowledge base a livello di codice.
 ms.topic: quickstart
-ms.date: 01/28/2020
+ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCHANGE-20200128
-ms.openlocfilehash: 2a91342be0f1bfa440d6c4092d94eb03eed554ff
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: a4b3fe6e037b73a33fe452c7c16471bfb88d6067
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844229"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109903"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-go"></a>Avvio rapido: Ottenere risposte a una domanda da una knowledge base con Go
 

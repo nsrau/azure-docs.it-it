@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 43ae028e57578634c34c69357a264fdb180b8a1f
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 177bc34162c2b5e4dadc54e1166c5f6061068bae
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515368"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064105"
 ---
 # <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>Esercitazione: Configurare Zscaler Three per il provisioning utenti automatico
 
@@ -29,7 +29,7 @@ In questa esercitazione si apprenderà come configurare Azure Active Directory (
 > [!NOTE]
 > L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e per risposte a domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../active-directory-saas-app-provisioning.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare i passaggi descritti in questa esercitazione, sono necessari gli elementi seguenti:
 
@@ -97,7 +97,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 5. Nella sezione **Credenziali amministratore** specificare i campi **URL tenant** e **Token segreto** dell'account Zscaler Three, come descritto nel passaggio successivo.
 
-6. Per ottenere i valori di **URL tenant** e **Token segreto**, scegliere **Administration** (Amministrazione)  >  **Authentication Settings** (Impostazioni di autenticazione) nel portale di Zscaler Three e selezionare **SAML** in **Authentication Type** (Tipo di autenticazione):
+6. Per ottenere i valori di **URL tenant** e **Token segreto**, scegliere **Administration** (Amministrazione)  > **Authentication Settings** (Impostazioni di autenticazione) nel portale di Zscaler Three e selezionare **SAML** in **Authentication Type** (Tipo di autenticazione):
 
     ![Impostazioni di autenticazione di Zscaler Three](./media/zscaler-three-provisioning-tutorial/secret-token-1.png)
 
@@ -153,7 +153,7 @@ Per informazioni su come leggere i log di provisioning di Azure AD, vedere l'ese
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per le app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

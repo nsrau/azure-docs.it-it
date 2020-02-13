@@ -1,19 +1,19 @@
 ---
 title: 'Esercitazione: API Apache Kafka Producer e Consumer - Azure HDInsight'
 description: Informazioni su come usare l'API Apache Kafka Producer e Consumer con Kafka in HDInsight. In questa esercitazione si apprenderà come usare queste API con Kafka in HDInsight da un'applicazione Java.
-author: dhgoelmsft
-ms.author: dhgoel
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 10/08/2019
-ms.openlocfilehash: ad810ac2f8751554aaf0afcd2b15e1da83f38fe1
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 65fc3259b0bc5fce61ccd1ceb8df30f1bba49b19
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242002"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161716"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Esercitazione: Usare le API Apache Kafka Producer e Consumer
 
@@ -21,17 +21,17 @@ Informazioni su come usare l'API Apache Kafka Producer e Consumer con Kafka in H
 
 L'API Kafka Producer consente alle applicazioni di inviare flussi di dati al cluster Kafka. L'API Kafka Consumer consente alle applicazioni di leggere flussi di dati dal cluster Kafka.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Prerequisiti
+> * Prerequisites
 > * Informazioni sul codice
 > * Compilare e distribuire l'applicazione
 > * Eseguire l'applicazione nel cluster
 
 Per altre informazioni sulle API, vedere la documentazione Apache sull'[API Producer](https://kafka.apache.org/documentation/#producerapi) e l'[API Consumer](https://kafka.apache.org/documentation/#consumerapi).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Apache Kafka in HDInsight 3.6. Per informazioni su come creare un cluster Kafka in HDInsight, vedere [Iniziare a usare Apache Kafka in HDInsight](apache-kafka-get-started.md).
 
@@ -158,7 +158,7 @@ Il file [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-sta
     export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
     > [!Note]  
-    > Se si sta eseguendo questo processo dall'esterno del cluster, esiste una procedura diversa per l'archiviazione del nome del cluster. Reperire il nome del cluster in lettere minuscole dal portale di Azure. Sostituire quindi il nome del cluster con `<clustername>` nel comando seguente ed eseguirlo: `export clusterName='<clustername>'`.  
+    > Se si esegue questo processo dall'esterno del cluster, è disponibile una procedura diversa per l'archiviazione del nome del cluster. Recuperare il nome del cluster in lettere minuscole dal portale di Azure. Sostituire quindi `<clustername>` con il nome del cluster nel comando seguente ed eseguire il comando: `export clusterName='<clustername>'`.  
 
 1. Per ottenere gli host del broker Kafka, usare il comando seguente:
 

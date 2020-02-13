@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 01/27/2020
 ms.author: nitinme
-ms.openlocfilehash: 0de0c83b0c459d29c304dbf51eaa44a62e895760
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: d71d9c7e6570e562fe4c692ede1d07b70c923cb6
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773090"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118279"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Esercitazione: Usare Riconoscimento modulo con App per la logica di Azure per analizzare le fatture
 
@@ -34,10 +34,6 @@ Contenuto dell'esercitazione:
 ## <a name="prerequisites"></a>Prerequisites
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/).
-
-## <a name="request-access-for-form-recognizer"></a>Richiedere l'accesso per Riconoscimento modulo
-
-Il riconoscimento modulo è disponibile in anteprima ad accesso limitato. Per avere accesso all'anteprima, completare e inviare il modulo di [richiesta di accesso al riconoscimento modulo](https://aka.ms/FormRecognizerRequestAccess). Dopo l'approvazione della richiesta da parte del team di Servizi cognitivi di Azure, si riceverà un messaggio di posta elettronica con le istruzioni per l'accesso al servizio.
 
 ## <a name="understand-the-invoice-to-be-analyzed"></a>Comprendere la fattura da analizzare
 

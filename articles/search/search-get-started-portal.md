@@ -2,20 +2,20 @@
 title: Creare un indice di ricerca nel portale di Azure
 titleSuffix: Azure Cognitive Search
 description: Questo argomento di avvio rapido sul portale illustra come usare l'importazione guidata dati per creare, caricare ed eseguire una query sul primo indice di ricerca in Ricerca cognitiva di Azure.
-author: HeidiSteen
+author: tchristiani
 manager: nitinme
-ms.author: heidist
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: 2ae0e5b53d735b95ce1c3d2f9275456e41319242
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.date: 02/10/2020
+ms.openlocfilehash: 6a3bbdae0d3fa898621c1c805388252beb891ecf
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900994"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121663"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure nel portale di Azure
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Avvio rapido: Creare un indice di Ricerca cognitiva di Azure nel portale di Azure
 > [!div class="op_single_selector"]
 > * [Portale](search-get-started-portal.md)
 > * [C#](search-get-started-dotnet.md)
@@ -31,7 +31,7 @@ Se gli strumenti sono troppo vincolanti, è possibile vedere un'[introduzione ba
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [Creare un servizio di Ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido. 
 

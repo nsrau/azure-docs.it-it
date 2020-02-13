@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: secdec18
-ms.openlocfilehash: aa5fc1dddec6931b5eff1e34cf6c12b218bdf2fd
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: ec6c68d209f867ab3547e855f3cf754bc27d53c5
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76769952"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117633"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Configurare gli account di archiviazione per Cloudyn
 
@@ -34,12 +34,12 @@ Se non si ha un bucket di archiviazione di AWS Simple Storage Service (S3), è n
 
 La configurazione dell'archiviazione di Azure per l'uso di Cloudyn è semplice. Raccogliere informazioni dettagliate sull'account di archiviazione e copiarle nel portale di Cloudyn.
 
-1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
+1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 2. Fare clic su **Tutti i servizi**, selezionare **Account di archiviazione**, scorrere fino all'account di archiviazione da usare e quindi selezionarlo.
 3. Nella pagina dell'account di archiviazione in **Impostazioni** fare clic su **Chiavi di accesso**.
 4. Copiare il **Nome account di archiviazione** e la **Stringa di connessione** in key1.  
    ![Copiare il nome dell'account di archiviazione e la stringa di connessione](./media/storage-accounts/azure-storage-access-keys.png)  
-5. Aprire il portale di Cloudyn dal portale di Azure oppure passare a https://azure.cloudyn.com ed eseguire l'accesso.
+5. Aprire il portale di Cloudyn dal portale di Azure oppure passare a [https://azure.cloudyn.com](https://azure.cloudyn.com) ed eseguire l'accesso.
 6. Fare clic sul simbolo con ruota dentata e quindi selezionare **Reports Storage Management** (Gestione archiviazione rapporti).
 7. Fare clic su **Add new +** (Aggiungi nuovo +) e verificare che sia selezionato Microsoft Azure. Incollare il nome dell'account di archiviazione di Azure nell'area **Nome**. Incollare la **stringa di connessione** nell'area corrispondente. Immettere un nome di contenitore e quindi fare clic su **Salva**.  
    ![Incollare il nome dell'account di archiviazione di Azure e la stringa di connessione nella casella per aggiungere una nuova archiviazione per i report](./media/storage-accounts/azure-cloudyn-storage.png)
@@ -147,7 +147,7 @@ Per collegare il nuovo criterio, aprire la console di AWS e modificare il ruolo 
 
 ### <a name="add-aws-report-storage-to-cloudyn"></a>Aggiungere una risorsa di archiviazione dei report di AWS in Cloudyn
 
-1. Aprire il portale di Cloudyn dal portale di Azure oppure passare a https://azure.cloudyn.com ed eseguire l'accesso.
+1. Aprire il portale di Cloudyn dal portale di Azure oppure passare a [https://azure.cloudyn.com](https://azure.cloudyn.com) ed eseguire l'accesso.
 2. Fare clic sul simbolo con ruota dentata e quindi selezionare **Reports Storage Management** (Gestione archiviazione rapporti).
 3. Fare clic su **Add new +** (Aggiungi nuovo +) e verificare che sia selezionato AWS.
 4. Selezionare un account e un bucket di archiviazione. Il nome del bucket di archiviazione di AWS viene inserito automaticamente.  

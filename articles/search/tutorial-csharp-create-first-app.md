@@ -3,23 +3,23 @@ title: Esercitazione per C# su come creare la prima app
 titleSuffix: Azure Cognitive Search
 description: Esercitazione passo passo per creare la prima app di ricerca per C#. L'esercitazione fornisce sia un collegamento a un'app funzionante su GitHub che il processo completo per creare l'app da zero. Informazioni sui componenti fondamentali di Ricerca cognitiva di Azure.
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: fc3d9d52ca6eb3d35138323908c73eb0d09cf519
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/10/2020
+ms.openlocfilehash: 2b4f67fc448d98239947fd764d4926f1d590c5e2
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112242"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121580"
 ---
 # <a name="c-tutorial-create-your-first-app---azure-cognitive-search"></a>Esercitazione per C#: Creare la prima app - Ricerca cognitiva di Azure
 
 Informazioni su come creare un'interfaccia Web per eseguire query e presentare i risultati della ricerca da un indice con Ricerca cognitiva di Azure. Questa esercitazione inizia con un indice ospitato già esistente in modo da potersi concentrare sulla creazione di una pagina di ricerca. L'indice contiene dati di hotel fittizi. Dopo aver creato una pagina di base, è possibile migliorarla nelle lezioni successive e includere l'impaginazione, i facet e un'esperienza di completamento automatico.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Configurare un ambiente di sviluppo
 > * Modellare le strutture di dati
@@ -44,7 +44,7 @@ Questa chiamata avvia una ricerca di dati di Azure e restituisce i risultati.
 ![Ricerca di "pool"](./media/tutorial-csharp-create-first-app/azure-search-pool.png)
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, è necessario:
 
@@ -52,7 +52,7 @@ Per completare questa esercitazione, è necessario:
 
 ### <a name="install-and-run-the-project-from-github"></a>Installare ed eseguire il progetto da GitHub
 
-1. Individuare in GitHub l'esempio per la [creazione della prima app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+1. Individuare in GitHub l'esempio per la [Creare la prima app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 1. Selezionare **Clone or download** (Clona o scarica) e creare una copia privata locale del progetto.
 1. Usando Visual Studio, selezionare e aprire la soluzione per la pagina di ricerca di base e selezionare **Avvia senza eseguire debug** (o premere F5).
 1. Digitare alcune parole, ad esempio "wifi", "view", "bar", "parking" ed esaminare i risultati.

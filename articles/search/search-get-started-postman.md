@@ -1,22 +1,22 @@
 ---
-title: 'Guida introduttiva: Creare un indice di ricerca in Postman con le API REST'
+title: 'Avvio rapido: Creare un indice di ricerca in Postman con le API REST'
 titleSuffix: Azure Cognitive Search
 description: Questo argomento di avvio rapido sulle API REST illustra come chiamare le API REST di Ricerca cognitiva di Azure con Postman, oltre a dati e definizioni di esempio.
-author: HeidiSteen
+author: tchristiani
 manager: nitinme
-ms.author: heidist
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 11/04/2019
-ms.openlocfilehash: 9014a83596a3eee71f43d12a73188c1c43b832af
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 02/10/2020
+ms.openlocfilehash: c502886aac9d13f7a470a9b83f1fc12334913beb
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406950"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121641"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in Postman con le API REST
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Avvio rapido: Creare un indice di Ricerca cognitiva di Azure in Postman con le API REST
 > [!div class="op_single_selector"]
 > * [Postman](search-get-started-postman.md)
 > * [C#](search-create-index-dotnet.md)
@@ -31,7 +31,7 @@ Questo articolo illustra come formulare le richieste in modo interattivo. In alt
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per questa guida di avvio rapido sono richiesti i servizi e gli strumenti seguenti. 
 

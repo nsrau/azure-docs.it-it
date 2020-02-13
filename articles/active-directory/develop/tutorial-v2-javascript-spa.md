@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 33e1037a0fe261f9fb0d06a9ebb0b3b323fe8d5f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 5657a2d2c348b371f81aed74c92e52b5199cdc61
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701264"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159881"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Eseguire l'accesso degli utenti e chiamare l'API Microsoft Graph da un'applicazione a singola pagina (SPA) di JavaScript
 
@@ -50,8 +50,8 @@ Questa guida usa la libreria seguente:
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Authentication Library di Microsoft per l'anteprima di JavaScript|
 
 > [!NOTE]
-> *Msal.js* specifica come destinazione l'endpoint di Microsoft Identity Platform, che consente agli account personali, aziendali e dell'istituto di istruzione di eseguire l'accesso e di acquisire i token. L'endpoint di Microsoft Identity Platform presenta [alcune limitazioni](azure-ad-endpoint-comparison.md#limitations).
-> Per capire le differenze tra gli endpoint v1.0 e v2.0, vedere la [guida al confronto tra gli endpoint](azure-ad-endpoint-comparison.md).
+> *Msal.js* specifica come destinazione l'endpoint di Microsoft Identity Platform, che consente agli account personali, aziendali e dell'istituto di istruzione di eseguire l'accesso e di acquisire i token. L'endpoint di Microsoft Identity Platform presenta [alcune limitazioni](../azuread-dev/azure-ad-endpoint-comparison.md#limitations).
+> Per capire le differenze tra gli endpoint v1.0 e v2.0, vedere la [guida al confronto tra gli endpoint](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 <!--end-collapse-->
 

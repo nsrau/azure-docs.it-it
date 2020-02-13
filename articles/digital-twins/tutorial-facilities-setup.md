@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 01/10/2020
-ms.openlocfilehash: bf07a165b6ea933719eb06b6625a91033030a120
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 16e4a7e2f06d2630c970f8daa4428e7a184a79df
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895501"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77163042"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Esercitazione: Distribuire Anteprima di Gemelli digitali di Azure e configurare un grafo spaziale
 
@@ -52,7 +52,7 @@ Usare i passaggi in questa sezione per creare una nuova istanza del servizio Gem
 
 ## <a name="grant-permissions-to-your-app"></a>Concedere autorizzazioni all'app
 
-Gemelli digitali usa [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) per controllare l'[accesso in lettura/scrittura](../active-directory/develop/v1-permissions-and-consent.md) al servizio. Qualsiasi applicazione che deve connettersi con l'istanza di Gemelli digitali deve essere registrata con Azure AD. I passaggi in questa sezione illustrano come registrare l'app di esempio.
+Gemelli digitali usa [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) per controllare l'[accesso in lettura/scrittura](../active-directory/develop/v2-permissions-and-consent.md) al servizio. Qualsiasi applicazione che deve connettersi con l'istanza di Gemelli digitali deve essere registrata con Azure AD. I passaggi in questa sezione illustrano come registrare l'app di esempio.
 
 Se si ha già una registrazione dell'app, è possibile riutilizzarla per l'esempio. Esaminare tuttavia questa sezione per assicurarsi che la registrazione dell'app sia configurata correttamente.
 
