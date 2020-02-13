@@ -39,7 +39,7 @@ I pacchetti del layout di pagina vengono aggiornati periodicamente per includere
   - Il campo posta elettronica è ora `type=email` e le tastiere mobili forniranno i suggerimenti corretti
   - Supporto per la conversione di Chrome
 - Pagine unificate e autocertificate
-  - I campi nome utente/indirizzo di posta elettronica e password ora usano l'elemento HTML `form` per consentire a Edge e Internet Explorer di salvare correttamente queste informazioni.
+  - I campi nome utente/indirizzo di posta elettronica e password ora usano l'elemento HTML `form` per consentire a Microsoft Edge e Internet Explorer di salvare correttamente queste informazioni.
 
 ## <a name="110"></a>1.1.0
 
