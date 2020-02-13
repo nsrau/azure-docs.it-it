@@ -4,13 +4,13 @@
   items:
     - name: Informazioni su Ansible in Azure
       href: ./ansible-overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Distribuire il modello di soluzione Ansible in CentOS
       href: ./ansible-deploy-solution-template.md
     - name: Installare Ansible in macchine virtuali Linux
-      href: /azure/virtual-machines/linux/ansible-install-configure
+      href: ./ansible-install-configure.md
       maintainContext: true
     - name: Eseguire playbook in Cloud Shell
       href: ./ansible-run-playbook-in-cloudshell.md
@@ -18,10 +18,10 @@
       expanded: true
       items:
         - name: Configurare le macchine virtuali Linux
-          href: /azure/virtual-machines/linux/ansible-create-vm
+          href: ./ansible-create-vm.md
           maintainContext: true
         - name: Gestire le macchine virtuali Linux
-          href: /azure/virtual-machines/linux/ansible-manage-linux-vm
+          href: ./ansible-manage-linux-vm.md
           maintainContext: true
 - name: Esercitazioni
   items:
@@ -99,7 +99,7 @@
       href: 'https://github.com/microsoft/ansiblelabs'
     - name: Esempi di playbook di Ansible Azure
       href: 'https://github.com/Azure-Samples/ansible-playbooks'
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: Ruoli dei playbook
       items:

@@ -176,6 +176,8 @@
   items:
     - name: Glossario
       href: ../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+    - name: Video
+      href: videos.md
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: Blog di Azure AD
