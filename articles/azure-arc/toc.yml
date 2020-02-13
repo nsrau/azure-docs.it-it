@@ -9,9 +9,9 @@
   expanded: true
   items:
     - name: Connettere i computer ad Azure Arc dal portale di Azure
-      href: ./servers/quickstart-onboard-portal.md
+      href: ./servers/onboard-portal.md
     - name: Connettere i computer su larga scala usando un'entità servizio
-      href: ./servers/quickstart-onboard-powershell.md
+      href: ./servers/onboard-service-principal.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure Connected Machine Agent
