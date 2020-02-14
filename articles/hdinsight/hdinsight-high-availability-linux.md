@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 8c3e377faef4e18bff01fd7001751d1f1e347b8d
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 085933f9a74ee37779ce63ce499d89ea53a9f7d6
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030872"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198940"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilità e affidabilità dei cluster Apache Hadoop in HDInsight
 
@@ -27,7 +27,7 @@ Hadoop ottiene alta disponibilità e affidabilità replicando i servizi e i dati
 I nodi in un cluster HDInsight vengono implementati con macchine virtuali di Azure. Le sezioni seguenti illustrano i singoli tipi di nodo usati con HDInsight.
 
 > [!NOTE]  
-> Non tutti i tipi di nodo vengono usati per un tipo di cluster. Ad esempio, un tipo di cluster Hadoop non ha alcun nodo Nimbus. Per altre informazioni sui nodi usati dai tipi di cluster HDInsight, vedere la sezione Tipi di cluster del documento [Creare cluster Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+> Non tutti i tipi di nodo vengono usati per un tipo di cluster. Ad esempio, un tipo di cluster Hadoop non ha alcun nodo Nimbus. Per altre informazioni sui nodi usati dai tipi di cluster HDInsight, vedere la sezione Tipi di cluster del documento [Creare cluster Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-type).
 
 ### <a name="head-nodes"></a>Nodi head
 
@@ -119,7 +119,7 @@ Esistono molte icone che possono essere visualizzate accanto a un servizio per i
 
 Gli avvisi seguenti consentono di monitorare la disponibilità di un cluster:
 
-| Nome dell'avviso                               | Descrizione                                                                                                                                                                                  |
+| Nome avviso                               | Descrizione                                                                                                                                                                                  |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Stato monitoraggio metrica                    | Questo avviso indica lo stato del processo di monitoraggio delle metriche in base a quanto determinato dallo script di stato del monitoraggio.                                                                                   |
 | Heartbeat agente Ambari                   | Questo avviso viene generato se il server ha perso il contatto con un agente.                                                                                                                        |

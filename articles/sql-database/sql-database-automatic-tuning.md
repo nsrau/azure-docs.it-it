@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/06/2019
-ms.openlocfilehash: 179bb5c9d718a556b829af8f860cb284597835aa
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 34f102b43de669b5ea03324db47ac4dfcb554133
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821900"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190752"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ottimizzazione automatica nel database SQL di Azure
 
@@ -78,6 +78,13 @@ L'ottimizzazione automatica identifica le opzioni **CREATE INDEX** (Crea indice)
 Se si applicano le indicazioni di ottimizzazione tramite T-SQL, la convalida automatica delle prestazioni e i meccanismi di inversione non sono disponibili. Le raccomandazioni applicate in questo modo rimarranno attive e visualizzate nell'elenco delle raccomandazioni per l'ottimizzazione per 24-48 ore. prima del ritiro automatico del sistema. Se si desidera rimuovere prima una raccomandazione, è possibile eliminarla dalla portale di Azure.
 
 Le opzioni di ottimizzazione automatica possono essere abilitate o disabilitate in modo indipendente per ogni database, oppure possono essere configurate nei server di database SQL e applicate a ogni database che eredita le impostazioni dal server. I server di database SQL possono ereditare le impostazioni predefinite di Azure per le impostazioni di ottimizzazione automatica. Le impostazioni predefinite di Azure in questo momento sono FORCE_LAST_GOOD_PLAN (abilitata), CREATE_INDEX (abilitata) e DROP_INDEX (disabilitata).
+
+> [!IMPORTANT]
+> A partire da marzo, 2020 le modifiche apportate alle impostazioni predefinite di Azure per l'ottimizzazione automatica diverranno effettive come segue:
+> - Le nuove impostazioni predefinite di Azure verranno FORCE_LAST_GOOD_PLAN = Enabled, CREATE_INDEX = disabled e DROP_INDEX = disabled.
+> - I server esistenti senza preferenze di ottimizzazione automatica configurati verranno configurati automaticamente con le nuove impostazioni predefinite di Azure. Si applica a tutti i clienti che attualmente dispongono di ottimizzazione automatica in uno stato non definito.
+> - I nuovi server creati verranno automaticamente configurati con le nuove impostazioni predefinite di Azure (a differenza di quanto avviene in precedenza quando la configurazione dell'ottimizzazione automatica era in uno stato non definito durante la creazione del nuovo server).
+>
 
 Il metodo consigliato per la configurazione dell'ottimizzazione automatica è quello che prevede la configurazione delle opzioni di ottimizzazione automatica in un server e l'eredità delle impostazioni per i database appartenenti al server padre, poiché questo metodo semplifica la gestione delle opzioni di ottimizzazione automatica per un numero elevato di database.
 

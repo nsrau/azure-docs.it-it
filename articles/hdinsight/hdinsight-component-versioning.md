@@ -1,20 +1,19 @@
 ---
 title: Componenti e versioni di Apache Hadoop - Azure HDInsight
 description: Informazioni sui componenti e le versioni di Apache Hadoop in Azure HDInsight.
-keywords: versioni hadoop, componenti ecosistema hadoop, componenti hadoop, come controllare versione hadoop
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 11/21/2019
-ms.openlocfilehash: ed4175d55d3c462c75dad7305f95e2ec4f84baf9
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 02/02/2020
+ms.openlocfilehash: 13c064701a5ecae2090a99980249f5daaa8d5395
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76764460"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198957"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Componenti e versioni di Apache Hadoop disponibili in HDInsight.
 
@@ -45,7 +44,7 @@ Le versioni del componente associate alle versioni del cluster HDInsight sono el
 | Apache Mahout          | -             | 0.9.0+                      |
 | Apache Phoenix         | 5             | 4.7.0                       |
 | Apache Spark           | 2.3.1, 2.4    | 2.3.0, 2.2.0, 2.1.0         |
-| Apache Livy            | 0,5           | 0,4, 0,4, 0,3               |
+| Apache Livy            | 0.5           | 0,4, 0,4, 0,3               |
 | Apache Kafka           | 1.1.1, 2.1    | 1.1, 1.0 * (vedere la nota seguente) |
 | Apache Ambari          | 2.7.0         | 2.6.0                       |
 | Apache Zeppelin        | 0.8.0         | 0.7.3                       |
@@ -75,7 +74,7 @@ La tabella seguente elenca le versioni di HDInsight disponibili nel portale di A
 | HDInsight 4.0 |Ubuntu 16.0.4 LTS |24 settembre 2018 | | |Sì |Sì |
 | HDInsight 3.6 |Ubuntu 16.0.4 LTS |4 aprile 2017 | 31 dicembre 2020 |31 dicembre 2020 |Sì |Sì |
 
-Spark 2,1, 2,2 & Kafka 1,0 support scadrà il 30 giugno, 2020.
+Il supporto di Spark 2,1, 2,2 & Kafka 1,0 scadrà il 30 giugno 2020.
 
 > [!NOTE]  
 > Se il supporto per una versione è scaduto, potrebbe non essere disponibile tramite il portale di Microsoft Azure. Tuttavia, le versioni dei cluster continueranno a essere disponibili usando il parametro `Version` nel comando [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) di Windows PowerShell e .NET SDK fino alla data di ritiro della versione.
@@ -107,7 +106,7 @@ Si tratta di un pacchetto opzionale che è possibile aggiungere al cluster HDIns
 
     In passato era possibile creare cluster HDInsight solo con un utente amministratore locale e un utente SSH locale. L'utente amministratore locale poteva accedere a tutti i file, cartelle, tabelle e colonne.  Con il Pacchetto di sicurezza aziendale è possibile abilitare il controllo degli accessi in base al ruolo integrando i cluster HDInsight con il proprio Active Directory, inclusi Active Directory locale, Azure AD Domain Services o Active Directory su macchina virtuale IaaS. L'amministratore del dominio nel cluster può concedere agli utenti di usare il proprio nome utente aziendale (del dominio) e relativa password per accedere al cluster.
 
-    Per scoprire di più, vedi:
+    Per altre informazioni, vedere:
 
     - [Introduzione alla sicurezza Apache Hadoop con i cluster HDInsight aggiunti al dominio](./domain-joined/hdinsight-security-overview.md)
     - [Pianificare cluster Apache Hadoop aggiunti a un dominio di Azure in HDInsight](./domain-joined/apache-domain-joined-architecture.md)
@@ -119,7 +118,7 @@ Si tratta di un pacchetto opzionale che è possibile aggiungere al cluster HDIns
   - Integrazione con Apache Ranger per l'autorizzazione per code Yarn, Hive e Spark SQL.
   - È possibile impostare il controllo di accesso per file e cartelle.
 
-    Per scoprire di più, vedi:
+    Per altre informazioni, vedere:
 
   - [Configurare criteri Apache Hive in HDInsight aggiunto al dominio](./domain-joined/apache-domain-joined-run-hive.md)
 
@@ -131,7 +130,9 @@ Attualmente solo i tipi di cluster seguenti supportano il Pacchetto di sicurezza
 
 - Hadoop (solo HDInsight 3.6)
 - Spark
-- Query interattiva
+- Kafka
+- hbase
+- Interactive Query
 
 ### <a name="support-for-azure-data-lake-storage"></a>Supporto per Azure Data Lake Storage
 
@@ -148,10 +149,7 @@ Il Contratto di servizio (SLA) viene definito come _finestra di supporto_. Il te
 - Formula 1: aggiungere 180 giorni alla data di rilascio del cluster HDInsight versione X.
 - Formula 2: aggiungere 90 giorni alla data di rilascio del cluster HDInsight versione X+1 nel portale di Azure.
 
-La _data di ritiro_ è la data dopo la quale non è possibile creare la versione del cluster su HDInsight. A partire dal 31 luglio 2017 non è possibile ridimensionare un cluster HDInsight dopo la data di ritiro.
-
-> [!NOTE]  
-> I cluster HDInsight su Windows (incluse le versioni 2.1, 3.0, 3.1, 3.2 e 3.3) eseguono il sistema operativo guest di Azure Family versione 4, che usa la versione a 64 bit di Windows Server 2012 R2. Il sistema operativo guest di Azure Family versione 4 supporta le versioni di .NET Framework 4.0, 4.5, 4.5.1 e 4.5.2.
+La _Data di ritiro_ è la data dopo la quale non è possibile creare la versione del cluster in HDInsight. A partire dal 31 luglio 2017, non è possibile ridimensionare un cluster HDInsight dopo la data di ritiro.
 
 ## <a name="hortonworks-release-notes-associated-with-hdinsight-versions"></a>Note sulla versione di Hortonworks associate alle versioni di HDInsight
 

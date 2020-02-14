@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: ae7c6f2d5f05b3d4ed3744be57112a62606cf622
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 5cd82635f3aec2cca251e122aadf96f70d377c8a
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833845"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190527"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Distribuire macchine virtuali in host dedicati usando il Azure PowerShell
 
@@ -28,7 +28,7 @@ Assicurarsi di aver installato Azure PowerShell versione 2.8.0 o successiva ed �
 ## <a name="limitations"></a>Limitazioni
 
 - I set di scalabilità di macchine virtuali non sono attualmente supportati negli host dedicati.
-- Sono supportate le serie di macchine virtuali seguenti: DSv3 e ESv3. 
+- Sono supportate le serie di macchine virtuali seguenti: DSv3, ESv3 e Fsv2. 
 
 ## <a name="create-a-host-group"></a>Creare un gruppo host
 
@@ -56,7 +56,7 @@ $hostGroup = New-AzHostGroup `
 
 ## <a name="create-a-host"></a>Creazione di un host
 
-A questo punto è possibile creare un host dedicato nel gruppo host. Oltre a un nome per l'host, è necessario fornire lo SKU per l'host. Lo SKU host acquisisce la serie di macchine virtuali supportate e la generazione dell'hardware per l'host dedicato.  Durante l'anteprima, sono supportati i seguenti valori SKU host: DSv3_Type1 e ESv3_Type1.
+A questo punto è possibile creare un host dedicato nel gruppo host. Oltre a un nome per l'host, è necessario fornire lo SKU per l'host. Lo SKU host acquisisce la serie di macchine virtuali supportate e la generazione dell'hardware per l'host dedicato.
 
 
 Per altre informazioni sugli SKU e i prezzi degli host, vedere [prezzi di host dedicati di Azure](https://aka.ms/ADHPricing).
@@ -74,7 +74,7 @@ $dHost = New-AzHost `
    -PlatformFaultDomain 1
 ```
 
-## <a name="create-a-vm"></a>Creare una VM
+## <a name="create-a-vm"></a>Creare una macchina virtuale
 
 Creare una macchina virtuale nell'host dedicato. 
 
@@ -201,6 +201,6 @@ Remove-AzResourceGroup -Name $rgName
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- È disponibile un [modello di esempio](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), che usa sia le zone che i domini di errore per la resilienza massima in un'area.
+- È disponibile un modello di esempio [, che](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)USA sia le zone che i domini di errore per la resilienza massima in un'area.
 
 - È anche possibile distribuire host dedicati usando il [portale di Azure](dedicated-hosts-portal.md).

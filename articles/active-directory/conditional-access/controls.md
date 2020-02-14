@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 342ec46aabafec975d780aa03fe75d7e3cf50497
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2ad8894078a15bf37a5383cdff3721f4bf7be910
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424978"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186222"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Che cosa sono i controlli di accesso nell'accesso condizionale Azure Active Directory?
 
@@ -51,7 +51,7 @@ Con i controlli di concessione è possibile bloccare completamente l'accesso o c
 
 ![Controllo](./media/controls/18.png)
 
-### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+### <a name="multi-factor-authentication"></a>Autenticazione a più fattori
 
 È possibile usare questo controllo per richiedere l'autenticazione a più fattori per l'accesso all'app cloud specificata. Questo controllo supporta i provider di autenticazione a più fattori seguenti:
 
@@ -85,18 +85,18 @@ Per altre informazioni, vedere [configurare Azure Active Directory Criteri di ac
 Poiché i dipendenti di un'azienda usano i dispositivi mobili per attività sia lavorative che personali, può essere utile avere la possibilità di proteggere i dati aziendali accessibili da dispositivi anche nel caso in cui vengano gestiti da altri utenti.
 È possibile usare i [criteri di protezione delle app di Intune](https://docs.microsoft.com/intune/app-protection-policy) per proteggere i dati aziendali indipendentemente dalla soluzione di gestione dei dispositivi mobili (MDM).
 
-Con le app client approvate, è possibile richiedere a un'app client che prova ad accedere alle app cloud di supportare i [criteri di protezione delle app di Intune](https://docs.microsoft.com/intune/app-protection-policy). È possibile, ad esempio, limitare l'accesso a Exchange Online all'app Outlook. I criteri di accesso condizionale che richiedono app client approvate sono noti anche come [criteri di accesso condizionale basato su app](app-based-conditional-access.md). Per un elenco di app client approvate supportate, vedere [Requisito per le app client approvate](technical-reference.md#approved-client-app-requirement).
+Con le app client approvate, è possibile richiedere a un'app client che prova ad accedere alle app cloud di supportare i [criteri di protezione delle app di Intune](https://docs.microsoft.com/intune/app-protection-policy). È possibile, ad esempio, limitare l'accesso a Exchange Online all'app Outlook. I criteri di accesso condizionale che richiedono app client approvate sono noti anche come [criteri di accesso condizionale basato su app](app-based-conditional-access.md). Per un elenco di app client approvate supportate, vedere [Requisito per le app client approvate](concept-conditional-access-grant.md#require-approved-client-app).
 
 ### <a name="app-protection-policy-preview"></a>Criteri di protezione delle app (anteprima)
 
 Poiché i dipendenti di un'azienda usano i dispositivi mobili per attività sia lavorative che personali, può essere utile avere la possibilità di proteggere i dati aziendali accessibili da dispositivi anche nel caso in cui vengano gestiti da altri utenti.
 È possibile usare i [criteri di protezione delle app di Intune](https://docs.microsoft.com/intune/app-protection-policy) per proteggere i dati aziendali indipendentemente dalla soluzione di gestione dei dispositivi mobili (MDM).
 
-Con i criteri di protezione delle app è possibile limitare l'accesso alle applicazioni client che hanno segnalato a Azure AD hanno ricevuto i [criteri di protezione delle app di Intune](https://docs.microsoft.com/intune/app-protection-policy). Ad esempio, è possibile limitare l'accesso a Exchange Online all'app Outlook con i criteri di protezione delle app di Intune. I criteri di accesso condizionale che richiedono criteri di protezione delle app sono noti anche come [criteri di accesso condizionale basato sulla protezione delle app](app-protection-based-conditional-access.md). 
+Con i criteri di protezione delle app è possibile limitare l'accesso alle applicazioni client che hanno segnalato a Azure AD hanno ricevuto i [criteri di protezione delle app di Intune](https://docs.microsoft.com/intune/app-protection-policy). Ad esempio, è possibile limitare l'accesso a Exchange Online all'app Outlook con i criteri di protezione delle app di Intune. I criteri di accesso condizionale che richiedono criteri di protezione delle app sono noti anche come [criteri di accesso condizionale basato sulla protezione delle app](concept-conditional-access-session.md#application-enforced-restrictions). 
 
 Il dispositivo deve essere registrato per Azure AD prima che un'applicazione possa essere contrassegnata come protetta da criteri.
 
-Per un elenco delle app client protette da criteri supportate, vedere Requisiti per i [criteri di protezione delle app](technical-reference.md#app-protection-policy-requirement).
+Per un elenco delle app client protette da criteri supportate, vedere Requisiti per i [criteri di protezione delle app](concept-conditional-access-session.md#application-enforced-restrictions).
 
 ### <a name="terms-of-use"></a>Condizioni per l'utilizzo
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: f8aa7c689379b73187349c3e6ee2a4658064ed7d
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+ms.openlocfilehash: 1f042e12c0069e68d9008c3e520331766a92e7dd
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163144"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186975"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -85,7 +85,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Busan** | [LG CNS](https://www.lgcns.com/datacenter) | 2 | Corea meridionale | n/d | LG CNS |
 | **Canberra** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Australia centrale | 10G, 100G | CDC |
 | **Canberra2** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Australia centrale 2| 10G, 100G | CDC |
-| **Città del Capo** | [CT1 teraco](https://www.teraco.co.za/data-centre-locations/cape-town/) | 3 | Sudafrica occidentale | 10G | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
+| **Città del Capo** | [CT1 teraco](https://www.teraco.co.za/data-centre-locations/cape-town/) | 3 | Sudafrica occidentale | 10G | BCX, Internet Solutions-Cloud Connect, Liquid Telecom, teraco |
 | **Chennai** | Tata Communications | 2 | India meridionale | 10G | Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Chennai2** | Airtel | 2 | India meridionale | n/d | Airtel |
 | **Chicago** | [Equinix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | 1 | Stati Uniti centro-settentrionali | 10G, 100G | Aryaka Networks, AT & T NetBond, CenturyLink Cloud Connect, Cologix, Colt, Comcast, Coresite, Equinix, intercloud, Internet2, Level 3 Communications, Megaport, PacketFabric, PCCW Global Limited, Sprint, Telia Carrier, Verizon, Zayo |

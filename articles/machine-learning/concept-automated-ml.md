@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: 012300c95fd1edd135b97f52ed3702ce3e7ef0bd
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: f7a2e78ed2b1de770f7a60f1312e069dc1757cb6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048965"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191196"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
@@ -217,9 +217,9 @@ Il Machine Learning automatico è disponibile anche in altre soluzioni Microsoft
 
 |Integrazioni|Descrizione|
 |------------|-----------|
-|[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Selezione e training automatici dei modelli nelle app .NET con Visual Studio e Visual Studio Code con ML.NET Automatic Machine Learning (anteprima).|
+|[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Selezione e training automatici dei modelli nelle app .NET con Visual Studio e Visual Studio Code con ML.NET automatizzato ML.|
 |[HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Ridimensionare i processi di training di Machine Learning automatici in Spark nei cluster HDInsight in parallelo.|
-|[Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Richiama i modelli di apprendimento automatico direttamente in Power BI (anteprima).|
+|[Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Richiama i modelli di Machine Learning direttamente in Power BI.|
 |[SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)|Creare nuovi modelli di apprendimento automatico sui dati in 2019 SQL Server cluster Big Data.|
 
 ## <a name="next-steps"></a>Passaggi successivi

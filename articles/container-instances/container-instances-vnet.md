@@ -4,12 +4,12 @@ description: Informazioni su come distribuire gruppi di contenitori in una rete 
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: danlep
-ms.openlocfilehash: 40f312ce8bc08c9b59e7c47f05b6a5d3dc94a994
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 318576e9b5c5b32bbc993ea16494c938b74bd2f4
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901859"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200062"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuire le istanze di contenitore in una rete virtuale di Azure
 
@@ -260,7 +260,7 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 ### <a name="delete-network-resources"></a>Eliminare le risorse di rete
 
-Questa funzionalità richiede attualmente diversi comandi aggiuntivi per eliminare le risorse di rete create in precedenza. Se sono stati usati i comandi di esempio nelle sezioni precedenti di questo articolo per creare la rete virtuale e la subnet, è possibile usare lo script seguente per eliminare le risorse di rete.
+Questa funzionalità richiede attualmente diversi comandi aggiuntivi per eliminare le risorse di rete create in precedenza. Se sono stati usati i comandi di esempio nelle sezioni precedenti di questo articolo per creare la rete virtuale e la subnet, è possibile usare lo script seguente per eliminare le risorse di rete. Lo script presuppone che il gruppo di risorse contenga una singola rete virtuale con un singolo profilo di rete.
 
 Prima di eseguire lo script, impostare la variabile `RES_GROUP` sul nome del gruppo di risorse contenente la rete virtuale e la subnet da eliminare. Se non è stato usato il nome `aci-vnet` suggerito in precedenza, aggiornare il nome della rete virtuale. Lo script viene formattato per la shell Bash. Se si preferisce un'altra shell, ad esempio PowerShell o il prompt dei comandi, è necessario modificare di conseguenza l'assegnazione di variabili e le funzioni di accesso.
 
@@ -269,9 +269,11 @@ Prima di eseguire lo script, impostare la variabile `RES_GROUP` sul nome del gru
 
 ```azurecli
 # Replace <my-resource-group> with the name of your resource group
+# Assumes one virtual network in resource group
 RES_GROUP=<my-resource-group>
 
 # Get network profile ID
+# Assumes one profile in virtual network
 NETWORK_PROFILE_ID=$(az network profile list --resource-group $RES_GROUP --query [0].id --output tsv)
 
 # Delete the network profile

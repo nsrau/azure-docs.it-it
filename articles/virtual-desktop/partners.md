@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 02/13/2020
 ms.author: helohr
-ms.openlocfilehash: b7c7c21f14eddf29c3dda1f420d7748a4c23e53d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f75e404e37ff45eb7d9f540cf6acba71fa83349f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906899"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201782"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrazioni di partner desktop virtuali Windows
 
@@ -46,6 +46,8 @@ Come provider approvato, i vantaggi di desktop virtuale di Windows verranno este
 la tecnologia 10ZiG, con hardware e software client all'avanguardia e con thin-Edge, è un partner di lunga durata con Microsoft e un Microsoft Azure dedicato e un partner di desktop virtuali Windows. i thin client basati su 10ZiG di Windows 10 sono endpoint potenti, affidabili e convenienti per tutti gli utenti di desktop virtuali Windows. il software 10ZiG Manager fornisce una gestione e una distribuzione eccezionali senza limitazioni di licenza senza costi aggiuntivi. Il team di 10ZiG Tech, il programma di garanzia preliminare e le demo senza problemi sono una soluzione di supporto per desktop virtuali di Windows con una sola interruzione nel cloud.
 
 la leadership del mercato 10ZiG's in dispositivi endpoint client thin e zero e nel software di gestione per i desktop virtuali è esemplificata dal modo in cui lavorano per i clienti. L'hardware thin client viene creato con le funzionalità e le opzioni di vantaggio appositamente progettate per garantire che i clienti ricevano i dispositivi client appropriati in base alle esigenze. 10ZiG Personalizza i dispositivi per adattarsi agli ambienti dei clienti con client basati su Windows e Linux che offrono le migliori prestazioni possibili nei desktop virtuali, sia all'interno che all'esterno del cloud.
+
+- [Accedere al sito Web del partner](https://www.10zig.com/).
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -149,6 +151,8 @@ Il software per l'aggregazione e la distribuzione di applicazioni liquit consent
 
 In qualità di partner di integrazione certificata, liquit consente di accelerare la transizione al cloud senza un ritardo di RIP e sostituzione. Desktop virtuale di Windows è in grado di connettersi facilmente a un ambiente esistente, creare un'area di lavoro e distribuire il desktop. È quindi possibile eseguire la migrazione del tempo dalle piattaforme precedenti e apportare modifiche al back-end senza che gli utenti ne abbiano notato. Ottieni un'esperienza coerente con l'utente finale, un'infrastruttura flessibile e Mantieni il controllo delle tue applicazioni ovunque si trovino.
 
+- [Accedere al sito Web del partner](https://www.liquit.com/wvd/).
+
 ## <a name="login-vsi"></a>Accesso VSI
 
 ![Logo VSI di accesso](./media/partners/loginvsi.png)
@@ -250,7 +254,7 @@ Con triCerat, la stampa è facile in Windows Virtual Desktop e versioni successi
 
 - [Accedere al sito Web del partner](https://www.tricerat.com/microsoft-printing).
 
-## <a name="workspot"></a>Workspot
+## <a name="workspot"></a>WORKSPOT
 
 ![Logo di WORKSPOT](./media/partners/workspot.png)
 

@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 93c0b3e27156655acee24d424cd890b48bb8e4e7
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 78455c90bab694b77a5e4a56d0b40518867d8d8c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064989"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188357"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer"></a>Inserire i dati dall'hub Internet in Azure Esplora dati 
 
@@ -83,7 +83,7 @@ A questo punto è possibile connettersi all'hub Internet delle cose da Azure Esp
     | Hub IoT | Nome dell'hub IoT |
     | Criteri di accesso condiviso | Nome dei criteri di accesso condiviso. Deve disporre delle autorizzazioni di lettura |
     | Gruppo di consumer |  Il gruppo di consumer definito nell'endpoint predefinito dell'hub Internet |
-    | Proprietà del sistema eventi | [Proprietà del sistema di eventi dell'hub](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages)Internet. Quando si aggiungono le proprietà di sistema, [creare](/azure/kusto/management/tables#create-table) o [aggiornare](/azure/kusto/management/tables#alter-table-and-alter-merge-table) lo schema e il [mapping](/azure/kusto/management/mappings) della tabella per includere le proprietà selezionate. | | | 
+    | Proprietà del sistema eventi | [Proprietà del sistema di eventi dell'hub](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages)Internet. Quando si aggiungono le proprietà di sistema, [creare](/azure/kusto/management/create-table-command) o [aggiornare](/azure/kusto/management/alter-table-command) lo schema e il [mapping](/azure/kusto/management/mappings) della tabella per includere le proprietà selezionate. | | | 
 
     > [!NOTE]
     > In caso di [failover manuale](/azure/iot-hub/iot-hub-ha-dr#manual-failover), è necessario ricreare la connessione dati.

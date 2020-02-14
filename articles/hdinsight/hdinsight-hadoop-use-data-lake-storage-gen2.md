@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/03/2020
-ms.openlocfilehash: 6ed0742a214b001ab773e33e851abfb94495984b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: aeb86823ddb25bbe0340630b55360806faef59e9
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75767671"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186890"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight
 
@@ -57,7 +57,7 @@ Creare un account di archiviazione di Azure Data Lake Storage Gen2.
 1. Fare clic su **Crea**.
 1. Nella schermata **Crea account di archiviazione** :
     1. Selezionare la sottoscrizione e il gruppo di risorse corretti.
-    1. Immettere un nome per l'account Data Lake Storage Gen2. Per altre informazioni sulle convenzioni di denominazione degli account di archiviazione vedere [convenzioni di denominazione per le risorse di Azure](/azure/architecture/best-practices/resource-naming#storage).
+    1. Immettere un nome per l'account Data Lake Storage Gen2. Per altre informazioni sulle convenzioni di denominazione degli account di archiviazione vedere [convenzioni di denominazione per le risorse di Azure](/azure/azure-resource-manager/management/resource-name-rules#microsoftstorage).
     1. Fare clic sulla scheda **Avanzate** .
     1. Fare clic su **abilitato** accanto a **spazio dei nomi gerarchico** in **Data Lake storage Gen2**.
     1. Fare clic su **Rivedi e crea**.
@@ -102,7 +102,7 @@ Assegnare l'identità gestita al ruolo di **proprietario dei dati del BLOB di ar
 
 È possibile [scaricare un file modello di esempio](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) e [scaricare un file di parametri di esempio](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Prima di usare il modello e il frammento di codice dell'interfaccia della riga di comando di Azure, sostituire i segnaposto seguenti con i valori corretti:
 
-| Segnaposto | Description |
+| Segnaposto | Descrizione |
 |---|---|
 | `<SUBSCRIPTION_ID>` | ID della sottoscrizione di Azure |
 | `<RESOURCEGROUPNAME>` | Il gruppo di risorse in cui si vuole creare il nuovo cluster e l'account di archiviazione. |

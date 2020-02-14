@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 7527cd59ef812c108cc53f84ad19f4d2cff9ec5e
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: fdc6834f3fb5ee97f27a6397645b965863e90a6b
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893571"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190529"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installare i driver GPU AMD nelle VM serie N che eseguono Windows
 
@@ -29,7 +29,7 @@ Per conoscere le specifiche base, le capacità di archiviazione e i dettagli rel
 
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemi operativi e driver supportati
 
-| Sistema operativo | Driver |
+| OS | Driver |
 | -------- |------------- |
 | Windows 10 EVD-Build 1903 <br/><br/>Windows 10-Build 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [19. q 4.1](https://download.microsoft.com/download/7/e/5/7e558ac0-3fff-413d-af62-800285a2fc53/Radeon-Pro-Software-for-Enterprise-19.Q4.1-Technical-Preview.exe) (. exe) |
 
@@ -37,7 +37,7 @@ Per conoscere le specifiche base, le capacità di archiviazione e i dettagli rel
 
 1. Connettersi tramite Desktop remoto a ogni macchina virtuale della serie NVv4.
 
-1. Download ed estrarre i file di installazione del driver. Passare alla cartella ed eseguire ' Setup. exe ' per installare il driver supportato per il sistema operativo Windows.
+1. Scaricare ed estrarre i file di installazione del driver. Passare alla cartella ed eseguire ' Setup. exe ' per installare il driver supportato per il sistema operativo Windows.
 
 ## <a name="verify-driver-installation"></a>Verificare l'installazione del driver
 

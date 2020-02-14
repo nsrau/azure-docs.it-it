@@ -1,16 +1,16 @@
 ---
 title: Creare sottoscrizioni di Azure a livello di codice
 description: Informazioni su come creare sottoscrizioni di Azure aggiuntive a livello di codice.
-author: amberb
+author: amberbhargava
 ms.topic: conceptual
 ms.date: 04/10/2019
 ms.author: banders
-ms.openlocfilehash: 2fad9d727e78b470635c91a1bf9aaac11e57f4c7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 47d4454c47967d07898492176438e547b1e561b6
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981231"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198684"
 ---
 # <a name="programmatically-create-azure-subscriptions-preview"></a>Creare sottoscrizioni di Azure a livello di codice (anteprima)
 
@@ -23,7 +23,7 @@ Quando si crea una sottoscrizione di Azure a livello di codice, tale sottoscrizi
 
 ## <a name="create-subscriptions-for-an-ea-billing-account"></a>Creare sottoscrizioni per un account di fatturazione EA
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
 Per creare una sottoscrizione, è necessario disporre di un ruolo proprietario per un account di registrazione. Esistono due modi per ottenere il ruolo:
 
@@ -147,7 +147,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 }
 ```
 
-| Nome dell'elemento  | Obbligatorio | Tipo   | Description                                                                                               |
+| Nome dell'elemento  | Obbligatoria | Type   | Descrizione                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | No      | string | Nome visualizzato della sottoscrizione Se non specificato, viene impostato il nome dell'offerta, ad esempio "Microsoft Azure Enterprise".                                 |
 | `offerType`   | Sì      | string | Offerta della sottoscrizione. Esistono due opzioni per EA, ovvero [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso in produzione) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (sviluppo/test, deve essere [attivato tramite il portale EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
@@ -165,7 +165,7 @@ Eseguire il comando [New-AzSubscription](/powershell/module/az.subscription) seg
 New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId <enrollmentAccountObjectId> -OwnerObjectId <userObjectId1>,<servicePrincipalObjectId>
 ```
 
-| Nome dell'elemento  | Obbligatorio | Tipo   | Description                                                                                               |
+| Nome dell'elemento  | Obbligatoria | Type   | Descrizione                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `Name` | No      | string | Nome visualizzato della sottoscrizione Se non specificato, viene impostato il nome dell'offerta, ad esempio "Microsoft Azure Enterprise".                                 |
 | `OfferType`   | Sì      | string | Offerta della sottoscrizione. Esistono due opzioni per EA, ovvero [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso in produzione) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (sviluppo/test, deve essere [attivato tramite il portale EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
@@ -186,7 +186,7 @@ Eseguire il comando [AZ account create](/cli/azure/ext/subscription/account?view
 az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "<enrollmentAccountObjectId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
-| Nome dell'elemento  | Obbligatorio | Tipo   | Description                                                                                               |
+| Nome dell'elemento  | Obbligatoria | Type   | Descrizione                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `display-name` | No      | string | Nome visualizzato della sottoscrizione Se non specificato, viene impostato il nome dell'offerta, ad esempio "Microsoft Azure Enterprise".                                 |
 | `offer-type`   | Sì      | string | Offerta della sottoscrizione. Esistono due opzioni per EA, ovvero [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso in produzione) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (sviluppo/test, deve essere [attivato tramite il portale EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
@@ -209,7 +209,7 @@ Per visualizzare un elenco completo di tutti i parametri, vedere [az account cre
 
 ## <a name="create-subscriptions-for-an-mca-account"></a>Creare sottoscrizioni per un account MCA
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
 Per creare sottoscrizioni, è necessario disporre di un ruolo proprietario, collaboratore o creatore della sottoscrizione di Azure per una sezione della fattura o un ruolo di proprietario o collaboratore in un profilo di fatturazione o un account di fatturazione. Per altre informazioni, vedere [Ruoli e attività di fatturazione della sottoscrizione](../../cost-management-billing/manage/understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
@@ -337,7 +337,7 @@ POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscrip
 
 ```
 
-| Nome dell'elemento  | Obbligatorio | Tipo   | Description                                                                                               |
+| Nome dell'elemento  | Obbligatoria | Type   | Descrizione                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Sì      | string | Nome visualizzato della sottoscrizione|
 | `billingProfileId`   | Sì      | string | ID del profilo di fatturazione che verrà fatturato per gli addebiti per la sottoscrizione.  |
@@ -350,7 +350,7 @@ Nella risposta verrà restituito un oggetto `subscriptionCreationResult` per il 
 
 ## <a name="create-subscriptions-for-an-mpa-billing-account"></a>Creare sottoscrizioni per un account di fatturazione MPA
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
 Per creare una sottoscrizione per l'account di fatturazione, è necessario disporre di un ruolo di amministratore globale o di amministratore nell'account del provider di soluzioni cloud dell'organizzazione. Per altre informazioni, vedere [centro per i partner-assegnare ruoli e autorizzazioni per gli utenti](https://docs.microsoft.com/partner-center/permissions-overview).
 
@@ -502,7 +502,7 @@ POST https://management.azure.com<customerId>/providers/Microsoft.Subscription/c
 }'
 ```
 
-| Nome dell'elemento  | Obbligatorio | Tipo   | Description                                                                                               |
+| Nome dell'elemento  | Obbligatoria | Type   | Descrizione                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Sì      | string | Nome visualizzato della sottoscrizione|
 | `skuId` | Sì      | string | ID SKU del piano di Azure. Usare *0001* per sottoscrizioni di tipo Microsoft Azure piano |

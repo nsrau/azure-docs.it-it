@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 657cded5e16897f9581bbcf365bacc2d2f1a821a
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 2edd62825de08becf22f2f953a63a7f89f55e0a6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754366"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191003"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Come modellare tipi di dati complessi in Azure ricerca cognitiva
 
@@ -125,7 +125,7 @@ I campi devono essere contrassegnati come recuperabili nell'indice se desiderati
 
 ## <a name="filter-facet-and-sort-complex-fields"></a>Campi di filtro, facet e di ordinamento complessi
 
-La stessa [sintassi del percorso OData](query-odata-filter-orderby-syntax.md) usata per il filtro e le ricerche in campo può essere usata anche per il facet, l'ordinamento e la selezione dei campi in una richiesta di ricerca. Per i tipi complessi, vengono applicate le regole che determinano quali sottocampi possono essere contrassegnati come ordinabili o con facet. Per ulteriori informazioni su queste regole, vedere il [riferimento all'API create index](https://docs.microsoft.com/rest/api/searchservice/create-index#request).
+La stessa [sintassi del percorso OData](query-odata-filter-orderby-syntax.md) usata per il filtro e le ricerche in campo può essere usata anche per il facet, l'ordinamento e la selezione dei campi in una richiesta di ricerca. Per i tipi complessi, vengono applicate le regole che determinano quali sottocampi possono essere contrassegnati come ordinabili o con facet. Per ulteriori informazioni su queste regole, vedere il [riferimento all'API create index](/rest/api/searchservice/create-index).
 
 ### <a name="faceting-sub-fields"></a>Sottocampi facet
 
@@ -149,7 +149,7 @@ Per filtrare in un campo di raccolta complesso, è possibile usare un' **espress
 
     $filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)
 
-Come per i campi semplici di primo livello, i campi secondari semplici dei campi complessi possono essere inclusi solo nei filtri se l'attributo **filtrabile** è impostato su `true` nella definizione dell'indice. Per altre informazioni, vedere le informazioni di [riferimento sull'API create index](https://docs.microsoft.com/rest/api/searchservice/create-index#request).
+Come per i campi semplici di primo livello, i campi secondari semplici dei campi complessi possono essere inclusi solo nei filtri se l'attributo **filtrabile** è impostato su `true` nella definizione dell'indice. Per altre informazioni, vedere le informazioni di [riferimento sull'API create index](/rest/api/searchservice/create-index).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

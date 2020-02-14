@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 60ff148e044df81e64b54fc48c1cb6f67aee14df
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 2af20a1ddf4239b7eec6cceabf2ff9711959c128
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275654"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189093"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(DEPRECATO) Microservizi della versione canary con Vamp in un cluster DC/OS del servizio Azure Container
 
@@ -127,13 +127,13 @@ Quando Elasticsearch segnala lo stato **In esecuzione**, è possibile aggiungere
 
 Ora che Vamp è in esecuzione, è possibile distribuire un servizio da un progetto. 
 
-Nella forma più semplice, un [progetto Vamp](https://vamp.io/documentation/using-vamp/blueprints/) descrive gli endpoint, ovvero i gateway, i cluster e i servizi da distribuire. Vamp usa i cluster per raggruppare diverse varianti dello stesso servizio in gruppi logici per la versione canary o i test A/B.  
+Nella forma più semplice, un [progetto Vamp](https://docs.vamp.io/how-vamp-works/vamp-and-kubernetes#vamp-deployments) descrive gli endpoint, ovvero i gateway, i cluster e i servizi da distribuire. Vamp usa i cluster per raggruppare diverse varianti dello stesso servizio in gruppi logici per la versione canary o i test A/B.  
 
 Questo scenario usa un'applicazione monolitica di esempio denominata [**sava**](https://github.com/magneticio/sava), che è alla versione 1.0. Il monolite viene compresso in un contenitore Docker, disponibile nell'hub Docker in magneticio/sava:1.0.0. L'app generalmente viene eseguita sulla porta 8080, ma in questo caso si desidera esporla nella porta 9050. Distribuire l'app tramite Vamp usando un progetto semplice.
 
 1. Andare in **Deployments** (Distribuzioni).
 
-2. Scegliere **Aggiungi**.
+2. Fare clic su **Aggiungi**.
 
 3. Incollare il progetto YAML seguente. Questo progetto contiene un cluster con solo una variante di servizio, che verrà modificata in un passaggio successivo:
 
@@ -287,9 +287,9 @@ Sono state trattate anche alcune funzioni importanti di Vamp: l'unione di una nu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sulla gestione delle azioni Vamp attraverso le [API REST di Vamp](https://vamp.io/documentation/api/api-reference/).
+* Informazioni sulla gestione delle azioni Vamp attraverso le [API REST di Vamp](https://docs.vamp.io/how-vamp-works/events-and-metrics#events).
 
-* Creazione di script di automazione Vamp in Node.js ed esecuzione degli stessi come [flussi di lavoro di Vamp](https://vamp.io/documentation/using-vamp/v1.0.0/workflows/#create-a-workflow).
+* Creazione di script di automazione Vamp in Node.js ed esecuzione degli stessi come [flussi di lavoro di Vamp](https://docs.vamp.io/how-vamp-works/concepts-and-components#workflows).
 
-* Vedere altre [esercitazioni su Vamp](https://vamp.io/documentation/tutorials/).
+* Vedere altre [esercitazioni su Vamp](https://docs.vamp.io/tutorials/).
 

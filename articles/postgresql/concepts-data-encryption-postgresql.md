@@ -6,19 +6,19 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 125f92b64ee745a595d15ccacafb6a62414955a9
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 5516bfcb3ed32ba6635943298db2a7773db0a622
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157534"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198701"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Crittografia dei dati a server singolo del database di Azure per PostgreSQL con una chiave gestita dal cliente
 
 > [!NOTE]
 > A questo punto, è necessario richiedere l'accesso per usare questa funzionalità. A tale scopo, contattare AskAzureDBforPostgreSQL@service.microsoft.com.
 
-La crittografia dei dati con chiavi gestite dal cliente per il server singolo di database di Azure per PostgreSQL consente di portare la chiave qwn (BYOK) per la protezione dei dati inattivi. Consente inoltre alle organizzazioni di implementare la separazione dei compiti nella gestione delle chiavi e dei dati. Con la crittografia gestita dal cliente, l'utente è responsabile e, in un controllo completo, del ciclo di vita di una chiave, delle autorizzazioni di utilizzo delle chiavi e del controllo delle operazioni sulle chiavi.
+La crittografia dei dati con chiavi gestite dal cliente per il server singolo di database di Azure per PostgreSQL consente di usare BYOK per la protezione dei dati inattivi. Consente inoltre alle organizzazioni di implementare la separazione dei compiti nella gestione delle chiavi e dei dati. Con la crittografia gestita dal cliente, l'utente è responsabile e, in un controllo completo, del ciclo di vita di una chiave, delle autorizzazioni di utilizzo delle chiavi e del controllo delle operazioni sulle chiavi.
 
 La crittografia dei dati con chiavi gestite dal cliente per il server singolo database di Azure per PostgreSQL è impostata a livello di server. Per un determinato server, una chiave gestita dal cliente, denominata chiave di crittografia della chiave (KEK), viene usata per crittografare la chiave di crittografia dei dati usata dal servizio. KEK è una chiave asimmetrica archiviata in un'istanza di [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) gestita dal cliente e gestita dal cliente. La chiave di crittografia della chiave (KEK) e la chiave di crittografia dei dati sono descritte in modo più dettagliato più avanti in questo articolo.
 

@@ -1,20 +1,20 @@
 ---
-title: Partner di rete WAN virtuale di Azure | Microsoft Docs
+title: Linee guida sull'automazione di partner WAN virtuali di Azure | Microsoft Docs
 description: Questo articolo illustra ai partner come configurare l'automazione della rete WAN virtuale di Azure.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 02/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6f95107960cf11ab15cb5a8294a5432498956a7a
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 7848dda09b39f446dd218b7ce1eb2a07664bcaa6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775309"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190424"
 ---
-# <a name="virtual-wan-partners"></a>Partner di rete WAN virtuale
+# <a name="automation-guidelines-for-virtual-wan-partners"></a>Linee guida di automazione per partner WAN virtuali
 
 Questo articolo descrive come configurare l'ambiente di automazione per connettere e configurare un dispositivo di branch (un dispositivo VPN locale di un cliente o un CPE SDWAN) per la rete WAN virtuale di Azure. L'articolo è rivolto ai provider che forniscono dispositivi di branch in grado di supportare la connettività VPN tramite IPsec/IKEv2 o IPsec/IKEv1.
 
@@ -27,7 +27,7 @@ Un dispositivo di branch (un dispositivo VPN locale di un cliente o un CPE SDWAN
 * Testare l'esperienza nel portale della rete WAN virtuale di Azure.
 * Decidere quindi quale parte della procedura della connettività si vuole automatizzare. È consigliabile automatizzare almeno i seguenti passaggi:
 
-  * Controllo di accesso
+  * Controllo dell’accesso
   * Caricamento delle informazioni sul dispositivo di branch nella rete WAN virtuale di Azure
   * Download della configurazione di Azure e configurazione della connettività dal dispositivo di branch alla rete WAN virtuale di Azure
 

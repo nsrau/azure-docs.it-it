@@ -1,24 +1,24 @@
 ---
 title: Inserire dati usando .NET Standard SDK di Esplora dati di Azure (anteprima)
-description: In questo articolo descrive come inserire (caricare) i dati in Esplora dati di Azure con .NET SDK Standard.
+description: Questo articolo illustra come inserire (caricare) i dati in Azure Esplora dati usando .NET Standard SDK.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 53cf055a0900a25923fe67b961755c1f4367e1fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1fb1301ae7e0cdff36f3771a44769c8bf9cc9c62
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66496883"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187922"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Inserire dati usando .NET Standard SDK di Esplora dati di Azure (anteprima)
 
-Esplora dati di Azure (ADX) è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure offre due librerie client per .NET Standard: una [libreria di inserimento](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) e una [libreria di dati](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). Queste librerie consentono di inserire (caricare) i dati in un cluster ed eseguire una query di dati dal codice. In questo articolo, è innanzitutto necessario creare una tabella e i mapping dei dati in un cluster di test. Quindi viene accodato un inserimento nel cluster e vengono convalidati i risultati.
+Esplora dati di Azure (ADX) è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure offre due librerie client per .NET Standard: una [libreria di inserimento](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) e una [libreria di dati](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). Queste librerie consentono di inserire (caricare) i dati in un cluster ed eseguire una query di dati dal codice. In questo articolo viene innanzitutto creata una tabella e il mapping dei dati in un cluster di test. Quindi viene accodato un inserimento nel cluster e vengono convalidati i risultati.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -74,7 +74,7 @@ var kustoConnectionStringBuilder =
 
 ## <a name="set-source-file-information"></a>Impostare le informazioni sul file di origine
 
-Impostare il percorso del file di origine. Questo esempio usa un file di esempio ospitato nell'archiviazione BLOB di Azure. Il set di dati di esempio **StormEvents** contiene dati relativi al meteo del [National Center for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
+Impostare il percorso del file di origine. Questo esempio usa un file di esempio ospitato nell'archiviazione BLOB di Azure. Il set di dati di esempio **StormEvents** contiene dati relativi al meteo del [National Centers for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
 
 ```csharp
 var blobPath = "https://kustosamplefiles.blob.core.windows.net/samplefiles/StormEvents.csv?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
@@ -123,7 +123,7 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
 ## <a name="define-ingestion-mapping"></a>Definire il mapping di inserimento
 
 Eseguire il mapping dei dati CSV in ingresso sui nomi di colonna usati durante la creazione della tabella.
-Effettuare il provisioning di un [oggetto di mapping di colonne CSV](/azure/kusto/management/tables#create-ingestion-mapping) su tale tabella
+Effettuare il provisioning di un [oggetto di mapping di colonne CSV](/azure/kusto/management/create-ingestion-mapping-command) su tale tabella
 
 ```csharp
 var tableMapping = "StormEvents_CSV_Mapping";
@@ -226,7 +226,7 @@ Eseguire il comando seguente per visualizzare lo stato di tutte le operazioni di
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si prevede di eseguire gli altri articoli, mantenere le risorse create. In caso contrario, eseguire il comando seguente nel database per pulire la tabella `StormEvents`.
+Se si prevede di seguire gli altri articoli, è necessario salvare le risorse create. In caso contrario, eseguire il comando seguente nel database per pulire la tabella `StormEvents`.
 
 ```Kusto
 .drop table StormEvents

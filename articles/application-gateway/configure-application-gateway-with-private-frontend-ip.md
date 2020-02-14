@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 01/30/2020
 ms.author: victorh
-ms.openlocfilehash: c49c37ced4a5d5cc7cdde0737b889aad3b538f7f
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f56929e14aef34f675139782328ed5c559df12c7
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898967"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198599"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configurare un gateway applicazione con un endpoint del servizio di bilanciamento del carico interno (ILB)
 
@@ -25,9 +25,9 @@ Questo articolo illustra i passaggi per configurare un gateway applicazione con 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Accedere a Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere alla portale di Azure in <https://portal.azure.com>KV
+Accedere al portale di Azure all'indirizzo <https://portal.azure.com>.
 
 ## <a name="create-an-application-gateway"></a>Creare un gateway applicazione
 
@@ -87,7 +87,7 @@ A tale scopo, eseguire l'operazione seguente:
 2. Installare IIS nelle macchine virtuali per verificare che il gateway applicazione sia stato creato correttamente.
 3. Aggiungere i server back-end al pool back-end.
 
-### <a name="create-a-virtual-machine"></a>Crea una macchina virtuale
+### <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
 1. Selezionare **Crea una risorsa**.
 2. Selezionare **calcolo** , quindi selezionare **macchina virtuale**.

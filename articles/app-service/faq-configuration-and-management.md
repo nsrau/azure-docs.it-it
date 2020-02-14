@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 047579550172995378d92327ecf22d63712bf407
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 598fdd5e3682226253ef8f2611ede2bbeba596f7
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967127"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190430"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla configurazione e sulla gestione per App Web di Azure
 
@@ -314,4 +314,4 @@ Per attivare la compressione sia per i tipi di contenuto sia statici che dinamic
 
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>Come si effettua la migrazione da un ambiente locale al servizio app?
 
-Per eseguire la migrazione di siti da server Web Linux e Windows al servizio app, è possibile utilizzare Azure App Service Migration Assistant. Lo strumento di migrazione crea app Web e database in Azure in base alle esigenze, quindi pubblica il contenuto. Per altre informazioni, vedere [Azure App Service Migration Assistant](https://www.migratetoazure.net/).
+Per eseguire la migrazione di siti da server Web Linux e Windows al servizio app, è possibile utilizzare Azure App Service Migration Assistant. Lo strumento di migrazione crea app Web e database in Azure in base alle esigenze, quindi pubblica il contenuto. Per altre informazioni, vedere [Azure App Service Migration Assistant](https://appmigration.microsoft.com/).

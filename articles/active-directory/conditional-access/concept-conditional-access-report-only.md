@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4289f4870ca03657afabec07049b3333412f3899
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 75880f4c533a503852d62ff940e53d4bcc30d218
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180329"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186110"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>Che cos'è la modalità solo report di accesso condizionale?
 
@@ -25,7 +25,8 @@ L'accesso condizionale viene ampiamente usato dai clienti per garantirne la sicu
 La modalità solo report è un nuovo stato dei criteri di accesso condizionale che consente agli amministratori di valutare l'impatto dei criteri di accesso condizionale prima di abilitarli nel proprio ambiente.  Con il rilascio della modalità solo report:
 
 - I criteri di accesso condizionale possono essere abilitati in modalità di sola segnalazione.
-- Durante l'accesso, i criteri in modalità solo report vengono valutati ma non applicati. I risultati vengono registrati nelle schede **accesso condizionale** e **solo report (anteprima)** dei dettagli del log di accesso.
+- Durante l'accesso, i criteri in modalità solo report vengono valutati ma non applicati.
+- I risultati vengono registrati nelle schede **accesso condizionale** e **solo report (anteprima)** dei dettagli del log di accesso.
 - I clienti con una sottoscrizione di monitoraggio di Azure possono monitorare l'effetto dei criteri di accesso condizionale usando la cartella di lavoro delle informazioni dettagliate sull'accesso condizionale.
 
 > [!WARNING]
@@ -37,7 +38,7 @@ La modalità solo report è un nuovo stato dei criteri di accesso condizionale c
 
 Quando un criterio in modalità di sola segnalazione viene valutato per un determinato accesso, sono disponibili quattro nuovi valori possibili per i risultati:
 
-| Risultato | Description |
+| Risultato | Descrizione |
 | --- | --- |
 | Solo report: operazione riuscita | Sono state soddisfatte tutte le condizioni dei criteri configurati, i controlli di concessione richiesti non interattivi e i controlli della sessione. Un requisito di autenticazione a più fattori, ad esempio, viene soddisfatto da un'attestazione di autenticazione a più fattori già presente nel token o un criterio di dispositivo conforme viene soddisfatto eseguendo un controllo del dispositivo in un dispositivo conforme. |
 | Solo report: errore | Tutte le condizioni dei criteri configurate sono state soddisfatte ma non sono stati soddisfatti tutti i controlli di concessione non interattivi o i controlli della sessione richiesti. Ad esempio, un criterio si applica a un utente in cui è configurato un controllo blocco oppure un dispositivo non riesce a rispettare un criterio per i dispositivi conformi. |

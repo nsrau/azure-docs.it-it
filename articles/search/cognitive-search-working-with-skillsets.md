@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0637e160454897af774c3bac48fc02866cb71835
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 8b45840215092281c7fbc8d499e26b095b374dd6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760794"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191034"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Concetti e composizione di competenze in Azure ricerca cognitiva
 
@@ -47,7 +47,7 @@ Quando un documento si trova nella pipeline di arricchimento, viene rappresentat
 |SQL|/document/{column1}<br>/document/{column2}<br>…|N/D |
 |Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/D|
 
- Quando le competenze vengono eseguite, aggiungono nuovi nodi all'albero di arricchimento. Questi nuovi nodi possono quindi essere utilizzati come input per le competenze downstream, proiettando nell'archivio informazioni o eseguendo il mapping a campi di indice. Gli arricchimenti non sono modificabili: una volta creati, i nodi non possono essere modificati. Poiché il skillsets è più complesso, l'albero di arricchimento, ma non tutti i nodi dell'albero di arricchimento, deve renderlo nell'indice o nell'archivio informazioni. È possibile salvare in modo selettivo solo un subset degli arricchimenti nell'indice o nell'archivio informazioni.
+ Quando le competenze vengono eseguite, aggiungono nuovi nodi all'albero di arricchimento. Questi nuovi nodi possono quindi essere utilizzati come input per le competenze downstream, proiettando nell'archivio informazioni o eseguendo il mapping a campi di indice. Gli arricchimenti non sono modificabili: una volta creati, i nodi non possono essere modificati. Poiché il skillsets è più complesso, l'albero di arricchimento, ma non tutti i nodi dell'albero di arricchimento, deve renderlo nell'indice o nell'archivio informazioni. 
 
 È possibile salvare in modo selettivo solo un subset degli arricchimenti nell'indice o nell'archivio informazioni.
 Per la parte restante di questo documento si presuppone che si stia lavorando all' [esempio di recensioni degli Alberghi](https://docs.microsoft.com/azure/search/knowledge-store-connect-powerbi), ma gli stessi concetti si applicano all'arricchimento dei documenti da tutte le altre origini dati.

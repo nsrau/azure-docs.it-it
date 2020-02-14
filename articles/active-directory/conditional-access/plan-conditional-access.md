@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 894530aa9624af18f2f33a061d5cde683e9f01be
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 266fa2403ef96e808a0c1f1eb46b4f7065c06252
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72880267"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185895"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Procedura: pianificare la distribuzione dell'accesso condizionale in Azure Active Directory
 
@@ -53,7 +53,7 @@ Usare il modello di esempio seguente per creare criteri di accesso condizionale 
 |Viene eseguito un tentativo di accesso:<br>A un'app cloud *<br>- Da utenti e gruppi*<br>Usando:<br>-Condizione 1 (ad esempio, all'esterno della rete aziendale)<br>- Condizione 2 (ad esempio, piattaforme del dispositivo)|Concedere l'accesso con (E):<br>-Requisito 1 (ad esempio, MFA)<br>-Requisito 2 (ad esempio, conformità del dispositivo)|
 |Viene eseguito un tentativo di accesso:<br>A un'app cloud *<br>- Da utenti e gruppi*<br>Usando:<br>-Condizione 1 (ad esempio, all'esterno della rete aziendale)<br>- Condizione 2 (ad esempio, piattaforme del dispositivo)|Concedere l'accesso con (O):<br>-Requisito 1 (ad esempio, MFA)<br>-Requisito 2 (ad esempio, conformità del dispositivo)|
 
-Come minimo, **quando accade questo** definisce l'entità di sicurezza (**chi**) che tenta di accedere a un'app cloud (**cosa**). Se necessario, è anche possibile includere **come** viene eseguito un tentativo di accesso. Nell'accesso condizionale gli elementi che definiscono chi, cosa e come sono noti come condizioni. Per altre informazioni, vedere [quali sono le condizioni in Azure Active Directory l'accesso condizionale?](conditions.md) 
+Come minimo, **quando accade questo** definisce l'entità di sicurezza (**chi**) che tenta di accedere a un'app cloud (**cosa**). Se necessario, è anche possibile includere **come** viene eseguito un tentativo di accesso. Nell'accesso condizionale gli elementi che definiscono chi, cosa e come sono noti come condizioni. Per altre informazioni, vedere [quali sono le condizioni in Azure Active Directory l'accesso condizionale?](concept-conditional-access-conditions.md) 
 
 Con **fare questo**, si definisce la risposta dei criteri a una condizione di accesso. Nella risposta, si blocca o si concede l'accesso con requisiti aggiuntivi, ad esempio, l'autenticazione a più fattori (MFA). Per una panoramica completa, vedere [che cosa sono i controlli di accesso in Azure Active Directory l'accesso condizionale?](controls.md)  
 
@@ -67,7 +67,7 @@ A questo punto si può stabilire uno standard di denominazione per i criteri. Lo
 
 - Numero di sequenza
 - Cloud a cui si applica
-- Risposta
+- Risposta.
 - A chi si applica
 - Quando si applica (se applicabile)
  
@@ -116,7 +116,7 @@ I casi d'uso comuni per richiedere l'autenticazione MFA riguardano l'accesso:
 
 Con i criteri di accesso condizionale, è possibile implementare risposte automatiche per accedere a identità potenzialmente compromesse. La probabilità che un account sia stato compromesso viene espressa sotto forma di livelli di rischio. Identity Protection calcola due livelli di rischio: rischio di accesso e rischio utente. Per implementare una risposta a un rischio di accesso sono disponibili due opzioni:
 
-- [Condizione di rischio](conditions.md#sign-in-risk) di accesso nei criteri di accesso condizionale
+- [Condizione di rischio](concept-conditional-access-conditions.md#sign-in-risk) di accesso nei criteri di accesso condizionale
 - [I criteri di rischio di accesso](../identity-protection/howto-sign-in-risk-policy.md) in Identity Protection 
 
 Usare il rischio di accesso come condizione è il metodo consigliato perché offre più opzioni di personalizzazione.

@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: e622abd16f900ca811385ddada187f3c96e7d758
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: bb9357ca4388bd1fb7ae3e3704cf4112d07c1105
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773927"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188196"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Inserire dati dall'hub eventi in Esplora dati di Azure
 
@@ -24,7 +24,7 @@ ms.locfileid: "76773927"
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure consente l'inserimento (caricamento dei dati) da Hub eventi, una piattaforma di Big Data streaming e un servizio di inserimento di eventi. [Hub eventi](/azure/event-hubs/event-hubs-about) riesce a elaborare milioni di eventi al secondo quasi in tempo reale. In questo articolo viene creato un hub eventi, ci si connette da Azure Esplora dati e si Visualizza il flusso di dati attraverso il sistema.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * [Un cluster e un database di test](create-cluster-database-portal.md).
@@ -45,7 +45,7 @@ In questo articolo vengono generati dati di esempio e inviati a un hub eventi. I
 
     Il pulsante **Distribuzione in Azure** consente di passare al portale di Azure per compilare un modulo di distribuzione.
 
-    ![Distribuire in Azure](media/ingest-data-event-hub/deploy-to-azure.png)
+    ![Distribuisci in Azure](media/ingest-data-event-hub/deploy-to-azure.png)
 
 1. Selezionare la sottoscrizione in cui si vuole creare l'hub eventi e creare un gruppo di risorse denominato *test-hub-rg*.
 
@@ -59,9 +59,9 @@ In questo articolo vengono generati dati di esempio e inviati a un hub eventi. I
 
     **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | Sottoscrizione | Sottoscrizione in uso | Selezionare la sottoscrizione di Azure da usare per l'hub eventi.|
-    | Gruppo di risorse | *test-hub-rg* | Creare un nuovo gruppo di risorse. |
-    | Percorso | *Stati Uniti occidentali* | Per questo articolo, selezionare *Stati Uniti occidentali* . Per un sistema di produzione, selezionare l'area più appropriata in base alle esigenze. Per prestazioni ottimali creare lo spazio dei nomi dell'hub eventi nella stessa località del cluster Kusto (più importante per spazi dei nomi dell'hub eventi con velocità effettiva elevata).
+    | Subscription | Sottoscrizione in uso | Selezionare la sottoscrizione di Azure da usare per l'hub eventi.|
+    | Resource group | *test-hub-rg* | Creare un nuovo gruppo di risorse. |
+    | Location | *Stati Uniti occidentali* | Per questo articolo, selezionare *Stati Uniti occidentali* . Per un sistema di produzione, selezionare l'area più appropriata in base alle esigenze. Per prestazioni ottimali creare lo spazio dei nomi dell'hub eventi nella stessa località del cluster Kusto (più importante per spazi dei nomi dell'hub eventi con velocità effettiva elevata).
     | Nome spazio dei nomi | Nome dello spazio dei nomi univoco | Scegliere un nome univoco per identificare lo spazio dei nomi. Ad esempio, *spazionomitest*. Il nome di dominio *servicebus.windows.net* viene accodato al nome specificato. Il nome può contenere solo lettere, numeri e trattini. Il nome deve iniziare con una lettera e deve terminare con una lettera o un numero. La lunghezza del valore deve essere compresa tra 6 e 50 caratteri.
     | Nome hub eventi | *test-hub* | L'hub eventi si trova nello spazio dei nomi, che fornisce un contenitore di ambito univoco. Il nome dell'hub eventi deve essere univoco all'interno dello spazio dei nomi. |
     | Consumer group name (Nome gruppo di consumer) | *test-group* | I gruppi di consumer consentono a più applicazioni di avere ognuna una visualizzazione distinta del flusso di eventi. |
@@ -117,7 +117,7 @@ A questo punto è possibile connettersi all'hub eventi da Esplora dati di Azure.
     | Spazio dei nomi dell'hub eventi | Nome dello spazio dei nomi univoco | Nome scelto in precedenza che identifica lo spazio dei nomi. |
     | Hub eventi | *test-hub* | Hub eventi creato. |
     | Gruppo di consumer | *test-group* | Gruppo di consumer definito nell'hub eventi creato. |
-    | Proprietà del sistema eventi | Selezionare le proprietà rilevanti | [Proprietà di sistema dell'hub eventi](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). Se sono presenti più record per ogni messaggio di evento, le proprietà di sistema verranno aggiunte alla prima. Quando si aggiungono le proprietà di sistema, [creare](/azure/kusto/management/tables#create-table) o [aggiornare](/azure/kusto/management/tables#alter-table-and-alter-merge-table) lo schema e il [mapping](/azure/kusto/management/mappings) della tabella per includere le proprietà selezionate. |
+    | Proprietà del sistema eventi | Selezionare le proprietà rilevanti | [Proprietà di sistema dell'hub eventi](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). Se sono presenti più record per ogni messaggio di evento, le proprietà di sistema verranno aggiunte alla prima. Quando si aggiungono le proprietà di sistema, [creare](/azure/kusto/management/create-table-command) o [aggiornare](/azure/kusto/management/alter-table-command) lo schema e il [mapping](/azure/kusto/management/mappings) della tabella per includere le proprietà selezionate. |
     | Compressione | *Nessuno* | Tipo di compressione del payload dei messaggi dell'hub eventi. Tipi di compressione supportati: *None, gzip*.|
     | | |
 

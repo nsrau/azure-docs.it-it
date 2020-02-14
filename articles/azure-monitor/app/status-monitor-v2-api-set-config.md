@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: d90739fbdc862d67dc2ce0f1dfdf5af5f4089a44
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 45dcd2374fc5be40f86d403f8daccf4a6f1d6997
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899670"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189432"
 ---
 # <a name="application-insights-agent-api-set-applicationinsightsmonitoringconfig"></a>API dell'agente di Application Insights: set-ApplicationInsightsMonitoringConfig
 
 Questo documento descrive un cmdlet che fa parte del modulo di [PowerShell AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
-## <a name="description"></a>Description
+## <a name="description"></a>Descrizione
 
 Imposta il file di configurazione senza eseguire una reinstallazione completa.
 Riavviare IIS per rendere effettive le modifiche.
@@ -27,7 +27,7 @@ Riavviare IIS per rendere effettive le modifiche.
 > Questo cmdlet richiede una sessione di PowerShell con autorizzazioni di amministratore.
 
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 ### <a name="example-with-a-single-instrumentation-key"></a>Esempio con una singola chiave di strumentazione
 In questo esempio, a tutte le app nel computer corrente verrà assegnata una sola chiave di strumentazione.
@@ -37,32 +37,30 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 ```
 
 ### <a name="example-with-an-instrumentation-key-map"></a>Esempio con una mappa delle chiavi di strumentazione
-In questo esempio:
+Esempio:
 - `MachineFilter` corrisponde al computer corrente usando il carattere jolly `'.*'`.
 - `AppFilter='WebAppExclude'` fornisce una chiave di strumentazione `null`. L'app specificata non verrà instrumentata.
 - `AppFilter='WebAppOne'` assegna all'app specificata una chiave di strumentazione univoca.
 - `AppFilter='WebAppTwo'` assegna all'app specificata una chiave di strumentazione univoca.
-- Infine, `AppFilter` USA anche il carattere jolly `'.*'` per trovare la corrispondenza con tutte le app Web che non corrispondono alle regole precedenti e assegnare una chiave di strumentazione predefinita.
+- Infine, `AppFilter` usa anche il carattere jolly `'.*'` per trovare la corrispondenza con tutte le app Web che non corrispondono alle regole precedenti e assegnare una chiave di strumentazione predefinita.
 - Gli spazi vengono aggiunti per migliorare la leggibilità.
 
 ```powershell
-PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap 
-    @(@{MachineFilter='.*';AppFilter='WebAppExclude'},
-      @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'},
-      @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'},
-      @{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'})
-
+Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
+       @(@{MachineFilter='.*';AppFilter='WebAppExclude'},
+          @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'}},
+          @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'}},
+          @{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'}})
 ```
 
-
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Parametri
 
 ### <a name="-instrumentationkey"></a>-InstrumentationKey
 **Obbligatorio.** Usare questo parametro per fornire una singola chiave di strumentazione da usare per tutte le app nel computer di destinazione.
 
 ### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
 **Obbligatorio.** Usare questo parametro per specificare più chiavi di strumentazione e un mapping delle chiavi di strumentazione usate da ogni app.
-È possibile creare un singolo script di installazione per più computer impostando `MachineFilter`.
+È possibile creare un singolo script di installazione per diversi computer impostando `MachineFilter`.
 
 > [!IMPORTANT]
 > Le app corrisponderanno alle regole nell'ordine in cui vengono fornite le regole. Pertanto, è necessario specificare prima le regole più specifiche e le regole più generiche.

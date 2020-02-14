@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 797475bfe0f1ec077ad39c6fce1f0facdf679802
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: eb094d04a7210d76a98f3e47af750e49b617e493
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483459"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77195063"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurare la gestione delle sessioni di autenticazione con l'accesso condizionale
 
@@ -49,7 +49,24 @@ L'impostazione della frequenza di accesso funziona con le app che hanno implemen
 - SharePoint e OneDrive
 - Client Web Teams
 - Dynamics CRM Online
-- portale di Azure
+- Portale di Azure
+
+### <a name="user-sign-in-frequency-and-device-identities"></a>Frequenza di accesso utente e identità del dispositivo
+
+Se si dispone Azure AD aggiunto, ibrido Azure AD aggiunto o Azure AD dispositivi registrati, quando un utente sblocca il dispositivo o esegue l'accesso in modo interattivo, questo evento soddisferà anche i criteri di frequenza di accesso. Nei 2 esempi seguenti, la frequenza di accesso utente è impostata su 1 ora:
+
+Esempio 1:
+
+- Alla 00:00, un utente accede al dispositivo Windows 10 Azure AD aggiunto e inizia a lavorare in un documento archiviato in SharePoint Online.
+- L'utente continua a lavorare sullo stesso documento sul dispositivo per un'ora.
+- Alla 01:00, all'utente viene richiesto di eseguire di nuovo l'accesso in base ai requisiti di frequenza di accesso nel criterio di accesso condizionale configurato dall'amministratore.
+
+Esempio 2:
+
+- Alla 00:00, un utente accede al dispositivo Windows 10 Azure AD aggiunto e inizia a lavorare in un documento archiviato in SharePoint Online.
+- Alle 00:30, l'utente diventa attivo e interrompe il blocco del dispositivo.
+- Alle 00:45, l'utente ritorna dall'interruzioni e sblocca il dispositivo.
+- Alla 01:45, all'utente viene richiesto di eseguire di nuovo l'accesso in base ai requisiti di frequenza di accesso nei criteri di accesso condizionale configurati dall'amministratore dall'ultimo accesso a 00:45.
 
 ## <a name="persistence-of-browsing-sessions"></a>Persistenza delle sessioni di esplorazione
 
@@ -67,7 +84,7 @@ L'accesso condizionale è una funzionalità di Azure AD Premium e richiede una l
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Criteri 1: controllo della frequenza di accesso
 
-1. Crea nuovo criterio
+1. Creare un nuovo criterio
 1. Scegliere tutte le condizioni necessarie per l'ambiente del cliente, incluse le app cloud di destinazione.
 
    > [!NOTE]
@@ -86,7 +103,7 @@ Se è stata configurata una frequenza di accesso diversa per diverse app Web in 
 
 ### <a name="policy-2-persistent-browser-session"></a>Criterio 2: sessione del browser persistente
 
-1. Crea nuovo criterio
+1. Creare un nuovo criterio
 1. Scegliere tutte le condizioni necessarie.
 
    > [!NOTE]

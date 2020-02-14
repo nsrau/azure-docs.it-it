@@ -10,18 +10,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
-ms.openlocfilehash: 9ca2ea6a45bdf37f15f2ab4fd9c685f11f6d7f64
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 09051ad3633ddc720cb34d3d145ccf649fa9cb08
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031493"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200113"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Usare i segreti di Azure Key Vault nelle attività della pipeline
 
 È possibile archiviare le credenziali o i valori dei segreti in un Azure Key Vault e usarli durante l'esecuzione della pipeline per passare alle attività.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Questa funzionalità si basa sull'identità gestita data factory.  Scopri come funziona da [identità gestita per data factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) e assicurati che i data factory ne abbiano uno associato.
 
@@ -47,13 +47,13 @@ Questa funzionalità si basa sull'identità gestita data factory.  Scopri come f
 
 4. Nella pipeline Data Factory aggiungere una nuova attività Web e configurarla come indicato di seguito.  
 
-    |Proprietà  |Valore  |
+    |Proprietà  |valore  |
     |---------|---------|
     |Output sicuro     |True         |
     |URL     |[Valore dell'URI del segreto]? API-Version = 7.0         |
     |Metodo     |GET         |
-    |Autenticazione     |MSI         |
-    |Resource        |https://vault.azure.net       |
+    |Authentication     |Identità del servizio gestita         |
+    |Risorsa        |https://vault.azure.net       |
 
     ![Attività Web](media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png)
 
@@ -63,7 +63,7 @@ Questa funzionalità si basa sull'identità gestita data factory.  Scopri come f
     > [!CAUTION]
     > Impostare l'opzione di output sicuro su true per impedire che il valore del segreto venga registrato come testo normale.  Qualsiasi altra attività che utilizza questo valore deve avere l'opzione di input sicuro impostata su true.
 
-5. Per usare il valore in un'altra attività, usare l'espressione di codice seguente **@activity("Web"). output. Value**.
+5. Per usare il valore in un'altra attività, usare la seguente espressione di codice **@activity(' Web1'). output. Value**.
 
     ![Espressione codice](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 

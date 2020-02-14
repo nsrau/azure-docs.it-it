@@ -1,5 +1,5 @@
 ---
-title: Esempio di script Azure PowerShell-configurare endpoint di rete virtuale IPv6 (anteprima)
+title: Esempio di script Azure PowerShell-configurare endpoint IPv6
 titlesuffix: Azure Virtual Network
 description: Abilitare gli endpoint IPv6 usando PowerShell in rete virtuale di Azure
 services: virtual-network
@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 4f07aae0e8baae44ade152cf3fe20facc7fe6770
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 5e8102cbf89d601c027e3b969c1c431da8807018
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248802"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201368"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Configurare gli endpoint IPv6 nell'esempio di script della rete virtuale (anteprima)
 
@@ -27,7 +27,7 @@ Questo articolo illustra come distribuire un'applicazione dual stack (IPv4 + IPv
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Prima di distribuire un'applicazione dual stack in Azure, è necessario configurare la sottoscrizione una sola volta per questa funzionalità di anteprima usando i Azure PowerShell seguenti:
 
 Registra come segue:
@@ -35,7 +35,7 @@ Registra come segue:
 Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
 Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
 ```
-Sono necessari fino a 30 minuti per completare la registrazione della funzionalità. È possibile controllare lo stato di registrazione eseguendo il comando Azure PowerShell seguente: Controllare la registrazione nel modo seguente:
+Sono necessari fino a 30 minuti per completare la registrazione della funzionalità. È possibile controllare lo stato di registrazione eseguendo il comando seguente Azure PowerShell: controllare la registrazione nel modo seguente:
 ```azurepowershell
 Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
 Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network

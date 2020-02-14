@@ -8,12 +8,12 @@ manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: d8461cb2d98ec8fe914c2cc878e9002d132c9995
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: b9c458b42f7436377d41cf5095d404dedbe0ffd1
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845830"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191602"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Endpoint servizio di rete virtuale per Azure Key Vault
 
@@ -66,17 +66,17 @@ Di seguito è riportato un elenco di servizi attendibili che sono autorizzati ad
 |Servizio di distribuzione dei modelli di Azure Resource Manager|[Passare valori protetti durante la distribuzione](../azure-resource-manager/templates/key-vault-parameter.md).|
 |Servizio di crittografia dei volumi di Crittografia dischi di Azure|Consentire l'accesso a BitLocker Key (VM Windows) o DM Passphrase (VM Linux) e la chiave di crittografia della chiave durante la distribuzione della macchina virtuale. In questo modo si abilita [Crittografia dischi di Azure](../security/fundamentals/encryption-overview.md).|
 |Backup di Azure|Consentire il backup e ripristino di segreti e chiavi pertinenti durante il backup delle macchine virtuali di Azure usando [Backup di Azure](../backup/backup-introduction-to-azure-backup.md).|
-|Exchange Online e SharePoint Online|Consentire l'accesso alla chiave cliente per la crittografia del servizio di archiviazione di Azure con [Chiave cliente](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
+|Exchange Online e SharePoint Online|Consentire l'accesso alla chiave cliente per la crittografia del servizio di archiviazione di Azure con [Chiave cliente](/microsoft-365/compliance/customer-key-overview).|
 |Azure Information Protection|Consentire l'accesso alla chiave del tenant per [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection).|
 |Servizio app di Azure|[Distribuire un certificato dell'app Web di Azure con Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
-|Database SQL di Azure|[Transparent Data Encryption con supporto BYOK (Bring Your Own Key) per il database SQL di Azure e Azure SQL Data Warehouse](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
+|database SQL di Azure|[Transparent Data Encryption con supporto BYOK (Bring Your Own Key) per il database SQL di Azure e Azure SQL Data Warehouse](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Archiviazione di Azure|[Crittografia del servizio di archiviazione di Azure con chiavi gestite dal cliente in Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
-|Azure Data Lake Store|[Crittografia dei dati in Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) con una chiave gestita dal cliente.|
+|Archivio Azure Data Lake|[Crittografia dei dati in Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) con una chiave gestita dal cliente.|
 |Azure Databricks|[Servizio di analisi veloce, facile e collaborativo basato su Apache Spark](../azure-databricks/what-is-azure-databricks.md)|
 |Gestione API di Azure|[Distribuire i certificati per un dominio personalizzato da Key Vault usando MSI](../api-management/api-management-howto-use-managed-service-identity.md#use-the-managed-service-identity-to-access-other-resources)|
 |Data factory di Azure|[Recuperare le credenziali dell'archivio dati in Key Vault da Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
 |Hub eventi di Azure|[Consentire l'accesso a un insieme di credenziali delle chiavi per uno scenario con chiavi gestite dal cliente](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
-|Service Bus di Azure|[Consentire l'accesso a un insieme di credenziali delle chiavi per uno scenario con chiavi gestite dal cliente](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
+|Bus di servizio di Azure|[Consentire l'accesso a un insieme di credenziali delle chiavi per uno scenario con chiavi gestite dal cliente](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
 
 
 > [!NOTE]

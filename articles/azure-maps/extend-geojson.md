@@ -8,17 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 75ad83411edfdfe7545e8f80df17fea56e317ee0
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 98db10f0fc7a417f39d4bb00e77af6bdea034a03
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911644"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198276"
 ---
 # <a name="extended-geojson-geometries"></a>Geometrie estese GeoJSON
 
-Mappe di Azure offre una serie di API avanzate per la ricerca all'interno delle funzionalità geografiche o lungo di esse.
-Queste API standardizzano le [specifiche GeoJSON][1] per rappresentare le funzionalità geografiche (ad esempio, i limiti di stato e le route).  
+Azure Maps fornisce un elenco di potenti API per la ricerca all'interno e nelle funzionalità geografiche. Queste API rispettano la [specifica GeoJSON][1] standard di che rappresenta le funzionalità geografiche.  
 
 La [specifica GeoJSON][1] supporta solo le geometrie seguenti:
 
@@ -30,7 +29,7 @@ La [specifica GeoJSON][1] supporta solo le geometrie seguenti:
 * Point
 * Polygon
 
-Alcune API di Azure Maps (ad esempio, la [ricerca all'interno di Geometry](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)) accettano geometrie come "Circle", che non fanno parte della [specifica GeoJSON][1].
+Alcune API di Azure Maps accettano geometrie che non fanno parte della [specifica GeoJSON][1]. Ad esempio, la [ricerca all'interno](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) dell'API Geometry accetta il cerchio e i poligoni.
 
 Questo articolo fornisce una spiegazione dettagliata su come Azure Maps estende le [specifiche GeoJSON][1] per rappresentare determinate geometrie.
 
@@ -38,7 +37,7 @@ Questo articolo fornisce una spiegazione dettagliata su come Azure Maps estende 
 
 La geometria `Circle` non è supportata dalla [specifica GeoJSON][1]. Viene usato un oggetto `GeoJSON Point Feature` per rappresentare un cerchio.
 
-Una geometria `Circle` rappresentata usando l'oggetto `GeoJSON Feature`__deve__ contenere quanto segue:
+Una `Circle` Geometry rappresentata utilizzando l'oggetto `GeoJSON Feature` __deve__ contenere le coordinate e le proprietà seguenti:
 
 - Center
 
@@ -54,7 +53,7 @@ Una geometria `Circle` rappresentata usando l'oggetto `GeoJSON Feature`__deve__ 
 
 #### <a name="example"></a>Esempio
 
-Ecco come si rappresenterà un cerchio con il centro in corrispondenza di (latitudine: 47,639754, longitudine: -122,126986) con raggio di 100 metri, usando un oggetto `GeoJSON Feature`:
+Di seguito viene illustrato come rappresentare un cerchio usando un oggetto `GeoJSON Feature`. Si concentrerà il cerchio in Latitudine: 47,639754 e Longitudine:-122,126986 e si assegnerà un raggio uguale a 100 metri:
 
 ```json            
 {
@@ -74,11 +73,11 @@ Ecco come si rappresenterà un cerchio con il centro in corrispondenza di (latit
 
 La geometria `Rectangle` non è supportata dalla [specifica GeoJSON][1]. Viene usato un oggetto `GeoJSON Polygon Feature` per rappresentare un rettangolo. L'estensione Rectangle viene utilizzata principalmente dal modulo degli strumenti di disegno di Web SDK.
 
-Una geometria `Rectangle` rappresentata usando l'oggetto `GeoJSON Polygon Feature`__deve__ contenere quanto segue:
+Una `Rectangle` Geometry rappresentata utilizzando l'oggetto `GeoJSON Polygon Feature` __deve__ contenere le coordinate e le proprietà seguenti:
 
 - Angoli
 
-    Gli angoli del rettangolo sono rappresentati usando le coordinate di un oggetto `GeoJSON Polygon`. Devono essere presenti cinque coordinate, una per ogni angolo e una quinta coordinata uguale alla prima per chiudere l'anello del poligono. Si presuppone che queste coordinate siano allineate e ruotate in base alle esigenze dello sviluppatore.
+    Gli angoli del rettangolo sono rappresentati usando le coordinate di un oggetto `GeoJSON Polygon`. Devono essere presenti cinque coordinate, una per ogni angolo. E, una quinta coordinata uguale alla prima coordinata, per chiudere l'anello del poligono. Si presuppone che queste coordinate siano allineate e che lo sviluppatore possa ruotarle come desiderato.
 
 - Sottotipo
 

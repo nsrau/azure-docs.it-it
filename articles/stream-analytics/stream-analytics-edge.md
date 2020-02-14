@@ -1,23 +1,23 @@
 ---
-title: Analisi di flusso di Azure in dispositivi perimetrali IoT
+title: Analisi di flusso di Azure in IoT Edge
 description: Creare processi Edge in Analisi di flusso di Azure e distribuirli in dispositivi che eseguono Azure IoT Edge.
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 02/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: ff2a7e571c771a73c46959f35e341d861533bb55
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7e4a1cf43931b56cfdb3c31ffe870a07dbaa75af
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426327"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201756"
 ---
-# <a name="azure-stream-analytics-on-iot-edge"></a>Analisi di flusso di Azure in dispositivi perimetrali IoT
+# <a name="azure-stream-analytics-on-iot-edge"></a>Analisi di flusso di Azure in IoT Edge
  
-Analisi di flusso di Azure in IoT Edge permette agli sviluppatori di distribuire funzionalità di intelligence analitica quasi in tempo reale più vicino ai dispositivi IoT, in modo da ottenere il massimo valore dai dati che generano. Analisi di flusso di Azure è progettato per offrire bassa latenza, resilienza, uso efficiente della larghezza di banda e conformità. Le organizzazioni possono ora distribuire una logica di controllo prossima alle operazioni industriali e integrare l'analisi di Big Data eseguita nel cloud.  
+Analisi di flusso di Azure in IoT Edge permette agli sviluppatori di distribuire funzionalità di intelligence di analisi quasi in tempo reale più vicino ai dispositivi IoT, in modo da ottenere il massimo valore dai dati generati dai dispositivi. Analisi di flusso di Azure è progettato per offrire bassa latenza, resilienza, uso efficiente della larghezza di banda e conformità. Le organizzazioni possono ora distribuire una logica di controllo prossima alle operazioni industriali e integrare l'analisi di Big Data eseguita nel cloud.  
 
 L'Analisi di flusso di Azure su IoT Edge viene eseguita all'interno del framework di [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/). Dopo la creazione del processo in Analisi di flusso di Azure, è possibile distribuirlo e gestirlo usando l'hub IoT.
 
@@ -104,7 +104,7 @@ Questi passaggi sono descritti nella documentazione di IoT Edge per [Windows](ht
 ##### <a name="add-asa-to-your-deployment"></a>Aggiungere Analisi di flusso di Azure alla distribuzione
 - Nel portale di Azure aprire l'hub IoT, passare a **IoT Edge** e fare clic sul dispositivo da usare come destinazione per questa distribuzione.
 - Selezionare **Imposta moduli**, quindi selezionare **+ Aggiungi** e scegliere il **modulo di Analisi di flusso di Azure**.
-- Selezionare la sottoscrizione e il processo Edge di Analisi di flusso di Azure creato. Fai clic su Salva.
+- Selezionare la sottoscrizione e il processo Edge di Analisi di flusso di Azure creato. Fare clic su Salva.
 ![Aggiungere un modulo di Analisi di flusso di Azure nella distribuzione](media/stream-analytics-edge/add-stream-analytics-module.png)
 
 
@@ -206,26 +206,26 @@ L'aggiornamento dei dati di riferimento in IoT Edge viene attivato da una distri
 
 Le informazioni sulla versione sono state aggiornate per l'ultima volta il 2019-06-27:
 
-- Immagine: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-amd64`
+- Immagine: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-amd64`
    - immagine di base: Microsoft/DotNet: 2.1.6-Runtime-Alpine 3.7
    - piattaforma
       - architettura: amd64
       - sistema operativo: Linux
   
-- Immagine: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-arm32v7`
+- Immagine: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-arm32v7`
    - immagine di base: Microsoft/DotNet: 2.1.6-Runtime-Bionic-arm32v7
    - piattaforma
       - architettura: ARM
       - sistema operativo: Linux
   
-- Immagine: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-windows-amd64`
+- Immagine: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-windows-amd64`
    - immagine di base: Microsoft/DotNet: 2.1.6-Runtime-nanoserver-1809
    - piattaforma
       - architettura: amd64
       - sistema operativo: Windows
       
       
-## <a name="get-help"></a>Ottenere supporto
+## <a name="get-help"></a>Ottenere aiuto
 Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi

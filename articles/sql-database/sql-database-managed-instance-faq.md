@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 81f776428303ad5e6486ba52c1acdf70d051563e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 1c1995b4daf3b76abf7663d8d6c1f4cb7b1d6e2b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75835006"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201680"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Domande frequenti sull'istanza gestita di database SQL
 
@@ -82,21 +82,11 @@ Un'opzione consiste nell' [esportare il database in un BacPac](sql-database-expo
 
 Si tratta dell'approccio consigliato se il database è inferiore a 100 GB. La replica transazionale può essere utilizzata se tutte le tabelle del database includono chiavi primarie.
 
-## <a name="gen-4-vs-gen-5"></a>Generazione 4 rispetto alla generazione 5 
-
-**Ricerca per categorie scegliere tra la generazione di hardware gen 4 e gen 5 per istanza gestita?**
-
-Dipende dal carico di lavoro, perché una generazione hardware è migliore per determinati tipi di carichi di lavoro. Anche se l'oggetto delle prestazioni è piuttosto complesso da semplificare, le differenze seguenti tra le generazioni hardware influiscono sulle prestazioni del carico di lavoro:
-- Generazione 4 offre un supporto di calcolo migliore in quanto si basa su processori fisici, rispetto alla generazione 5 basata sui processori vCore. Potrebbe essere più vantaggioso per i carichi di lavoro a elevato utilizzo di calcolo.
-- Generazione 5 supporta la rete accelerata con una maggiore larghezza di banda di i/o per l'archiviazione remota. Potrebbe essere vantaggioso per i carichi di lavoro con utilizzo intensivo di i/o nei livelli di servizio per utilizzo generico. Generazione 5 usa dischi locali SSD più veloci rispetto alla generazione 4. Potrebbe essere vantaggioso per i carichi di lavoro con i/o intensivi nei livelli di servizio business-critical.
-
-È consigliabile testare le prestazioni dei carichi di lavoro effettivi destinati alla produzione prima di iniziare a determinare quale generazione hardware funzionerà meglio in un caso specifico.
-
 ## <a name="switch-hardware-generation"></a>Cambia generazione hardware 
 
 **È possibile cambiare la generazione di hardware dell'istanza gestita tra gen 4 e gen 5 online?**
 
-Il cambio automatico online tra le generazioni hardware è possibile se entrambe le generazioni hardware sono disponibili nell'area in cui viene effettuato il provisioning dell'istanza gestita. In questo caso, è possibile usare [lo script del post di Blog](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Change-hardware-generation-on-Managed-Instance/ba-p/699824) che spiega come passare da una generazione all'altra.
+Il cambio automatico online tra le generazioni hardware è possibile se entrambe le generazioni hardware sono disponibili nell'area in cui viene effettuato il provisioning dell'istanza gestita. In questo caso, è possibile controllare la [pagina di panoramica del modello vCore](sql-database-service-tiers-vcore.md) che spiega come passare da una generazione all'altra.
 
 Si tratta di un'operazione a esecuzione prolungata perché verrà effettuato il provisioning di una nuova istanza gestita in background e i database trasferiti automaticamente tra la vecchia e la nuova istanza con un failover rapido alla fine del processo. 
 
@@ -108,8 +98,6 @@ Se entrambe le generazioni hardware non sono supportate nella stessa area, la mo
 **Ricerca per categorie ottimizzare le prestazioni dell'istanza gestita?**
 
 Per utilizzo generico istanza gestita utilizza l'archiviazione remota a causa delle dimensioni dei file di dati e di log importanti per le prestazioni. Per ulteriori informazioni, vedere [conseguenze delle dimensioni del file di registro in per utilizzo generico istanza gestita prestazioni](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).
-
-Per i carichi di lavoro con utilizzo intensivo i/o si consiglia di usare l'hardware di generazione 5, rispetto all'uso della generazione 4 per carichi di lavoro Per ulteriori informazioni, vedere [ricerca per categorie scegliere tra gen 4 e gen 5](#gen-4-vs-gen-5).
 
 Se il carico di lavoro è costituito da numerose transazioni di piccole dimensioni, provare a cambiare il tipo di connessione dal proxy alla modalità di reindirizzamento.
 
@@ -206,7 +194,7 @@ Per questo motivo, è fortemente sconsigliabile basarsi sull'immutabilità dell'
 
 No, si tratta di una limitazione della piattaforma corrente. Dopo la creazione di un'istanza gestita, lo stato di trasferimento dell'istanza gestita o VNet a un altro gruppo di risorse o a una sottoscrizione non è supportato.
 
-## <a name="change-time-zone"></a>Cambia fuso orario
+## <a name="change-time-zone"></a>Modificare il fuso orario
 
 **È possibile modificare il fuso orario per un'istanza gestita esistente?**
 

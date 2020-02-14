@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/11/2019
-ms.openlocfilehash: 62a66f180fd6e89329fe17a96115ecc4ca914107
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3ca9cbf2e282e3f67af3c5da470a3d81e6055f98
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407241"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189577"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
@@ -116,7 +116,7 @@ Le applicazioni Web basate sul servizio app Python non supportano attualmente il
 
 Il monitoraggio lato client è il consenso esplicito per ASP.NET. Per abilitare il monitoraggio lato client:
 
-* Selezionare **impostazioni** >** **dell'applicazione delle impostazioni** **
+* Selezionare **impostazioni** > * * * * Impostazioni applicazione * * * *
    * In Impostazioni applicazione aggiungere un nuovo nome e **valore**per l' **impostazione dell'app** :
 
      Nome: `APPINSIGHTS_JAVASCRIPT_ENABLED`
@@ -168,12 +168,12 @@ Per abilitare la raccolta di dati di telemetria con Application Insights, è nec
 
 ### <a name="application-settings-definitions"></a>Definizioni delle impostazioni dell'applicazione
 
-|Nome impostazione app |  Definizione | Valore |
+|Nome impostazione app |  Definizione | valore |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Estensione principale, che controlla il monitoraggio in fase di esecuzione. | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  Solo in modalità predefinita sono abilitate le funzionalità essenziali per garantire prestazioni ottimali. | `default` o `recommended`. |
 |InstrumentationEngine_EXTENSION_VERSION | Controlla se il motore di riscrittura binaria `InstrumentationEngine` sarà attivato. Questa impostazione presenta implicazioni sulle prestazioni e influisce sul tempo di avvio/avvio a freddo. | `~1` |
-|XDT_MicrosoftApplicationInsights_BaseExtensions | Controlla se SQL & il testo della tabella di Azure verrà acquisito insieme alle chiamate alle dipendenze. Avviso di prestazioni: questa impostazione richiede l'`InstrumentationEngine`. | `~1` |
+|XDT_MicrosoftApplicationInsights_BaseExtensions | Controlla se SQL & il testo della tabella di Azure verrà acquisito insieme alle chiamate alle dipendenze. Avviso di prestazioni: il tempo di avvio a freddo dell'applicazione sarà interessato. Questa impostazione richiede l'`InstrumentationEngine`. | `~1` |
 
 ### <a name="app-service-application-settings-with-azure-resource-manager"></a>Impostazioni dell'applicazione del servizio app con Azure Resource Manager
 
@@ -229,6 +229,10 @@ Di seguito è riportato un esempio di sostituzione di tutte le istanze di `AppMo
                         {
                             "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
                             "value": "[reference('microsoft.insights/components/AppMonitoredSite', '2015-05-01').InstrumentationKey]"
+                        },
+                        {
+                            "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
+                            "value": "[reference('microsoft.insights/components/AppMonitoredSite', '2015-05-01').ConnectionString]"
                         },
                         {
                             "name": "ApplicationInsightsAgent_EXTENSION_VERSION",
@@ -308,9 +312,6 @@ Di seguito è riportato un esempio di sostituzione di tutte le istanze di `AppMo
 }
 ```
 
-> [!NOTE]
-> Il modello genererà le impostazioni dell'applicazione in modalità "predefinita". Questa modalità consente di ottimizzare le prestazioni, anche se è possibile modificare il modello per attivare qualsiasi funzionalità preferita.
-
 ### <a name="enabling-through-powershell"></a>Abilitazione tramite PowerShell
 
 Per abilitare il monitoraggio dell'applicazione tramite PowerShell, è necessario modificare solo le impostazioni dell'applicazione sottostante. Di seguito è riportato un esempio che consente il monitoraggio delle applicazioni per un sito Web denominato "AppMonitoredSite" nel gruppo di risorse "AppMonitoredRG" e configura i dati da inviare alla chiave di strumentazione "012345678-ABCD-EF01-2345-6789abcd".
@@ -320,8 +321,9 @@ Per abilitare il monitoraggio dell'applicazione tramite PowerShell, è necessari
 ```powershell
 $app = Get-AzWebApp -ResourceGroupName "AppMonitoredRG" -Name "AppMonitoredSite" -ErrorAction Stop
 $newAppSettings = @{} # case-insensitive hash map
-$app.SiteConfig.AppSettings | %{$newAppSettings[$_.Name] = $_.Value} #preserve non Application Insights Application settings.
-$newAppSettings["APPINSIGHTS_INSTRUMENTATIONKEY"] = "012345678-abcd-ef01-2345-6789abcd"; # enable the ApplicationInsightsAgent
+$app.SiteConfig.AppSettings | %{$newAppSettings[$_.Name] = $_.Value} # preserve non Application Insights application settings.
+$newAppSettings["APPINSIGHTS_INSTRUMENTATIONKEY"] = "012345678-abcd-ef01-2345-6789abcd"; # set the Application Insights instrumentation key
+$newAppSettings["APPLICATIONINSIGHTS_CONNECTION_STRING"] = "InstrumentationKey=012345678-abcd-ef01-2345-6789abcd"; # set the Application Insights connection string
 $newAppSettings["ApplicationInsightsAgent_EXTENSION_VERSION"] = "~2"; # enable the ApplicationInsightsAgent
 $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.ResourceGroup -Name $app.Name -ErrorAction Stop
 ```
@@ -349,7 +351,7 @@ A partire dalla versione 2.8.9 viene utilizzata l'estensione del sito preinstall
 
 Se l'aggiornamento viene eseguito da una versione precedente alla 2.5.1, verificare che le DLL di ApplicationInsigths vengano rimosse dalla cartella bin dell'applicazione, [vedere la procedura di risoluzione dei problemi](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Di seguito è riportata la guida dettagliata alla risoluzione dei problemi per il monitoraggio di estensioni/agenti per le applicazioni .NET e .NET Core in esecuzione in app Azure Services.
 
@@ -359,7 +361,7 @@ Di seguito è riportata la guida dettagliata alla risoluzione dei problemi per i
 1. Verificare che l'applicazione venga monitorata tramite `ApplicationInsightsAgent`.
     * Verificare che `ApplicationInsightsAgent_EXTENSION_VERSION` impostazione dell'app sia impostata su un valore pari a "~ 2".
 2. Verificare che l'applicazione soddisfi i requisiti da monitorare.
-    * Passare a `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`.
+    * Passare a `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
     ![Screenshot della pagina dei risultati di https://yoursitename.scm.azurewebsites/applicationinsights](./media/azure-web-apps/app-insights-sdk-status.png)
 
@@ -370,7 +372,7 @@ Di seguito è riportata la guida dettagliata alla risoluzione dei problemi per i
         * Se non è presente un valore simile, significa che l'applicazione non è attualmente in esecuzione o non è supportata. Per assicurarsi che l'applicazione sia in esecuzione, provare a visitare manualmente gli endpoint dell'applicazione/URL dell'applicazione, in modo da rendere disponibili le informazioni di Runtime.
 
     * Verificare che `IKeyExists` sia `true`
-        * Se è false, aggiungere ' APPINSIGHTS_INSTRUMENTATIONKEY con il GUID iKey alle impostazioni dell'applicazione.
+        * Se è `false`, aggiungere `APPINSIGHTS_INSTRUMENTATIONKEY` e `APPLICATIONINSIGHTS_CONNECTION_STRING` con il GUID iKey alle impostazioni dell'applicazione.
 
     * Verificare che non siano presenti voci per `AppAlreadyInstrumented`, `AppContainsDiagnosticSourceAssembly`e `AppContainsAspNetTelemetryCorrelationAssembly`.
         * Se una di queste voci esiste, rimuovere i pacchetti seguenti dall'applicazione: `Microsoft.ApplicationInsights`, `System.Diagnostics.DiagnosticSource`e `Microsoft.AspNet.TelemetryCorrelation`.

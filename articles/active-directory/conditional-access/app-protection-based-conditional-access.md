@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbbe882acda532a54333ca8013693121d5b677b7
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3c853ef3a5a40381aba4e1c13eaf9ad7d8653170
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964090"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186625"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>Richiedi i criteri di protezione delle app per l'accesso alle app cloud con accesso condizionale (anteprima)
 
@@ -36,7 +36,7 @@ Nella terminologia di accesso condizionale, queste app client sono note come cri
 
 ![Accesso condizionale](./media/app-protection-based-conditional-access/05.png)
 
-Per un elenco di app client protette da criteri, vedere [requisito dei criteri di protezione delle app](technical-reference.md#approved-client-app-requirement).
+Per un elenco di app client protette da criteri, vedere [requisito dei criteri di protezione delle app](concept-conditional-access-grant.md).
 
 È possibile combinare i criteri di accesso condizionale basato sulla protezione delle app con altri criteri, ad esempio i [criteri di accesso condizionale basati su dispositivo](require-managed-devices.md). In questo modo, è possibile fornire flessibilità per la protezione dei dati sia per i dispositivi personali che per quelli aziendali.
 
@@ -55,12 +55,12 @@ Analogamente alla conformità segnalata da Intune per iOS e Android per un dispo
 
 Questo articolo presuppone che l'utente abbia familiarità con gli argomento seguenti:
 
-- Riferimento tecnico per i [requisiti dei criteri di protezione delle app](technical-reference.md#app-protection-policy-requirement) .
-- La guida tecnica per il [requisito delle app client approvate](technical-reference.md#approved-client-app-requirement).
+- [Requisito dei criteri di protezione delle app](concept-conditional-access-grant.md).
+- [Requisito dell'app client approvata](concept-conditional-access-grant.md).
 - I concetti di base dell' [accesso condizionale in Azure Active Directory](overview.md).
 - Come [configurare un criterio di accesso condizionale](app-based-mfa.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per creare un criterio di accesso condizionale basato sulla protezione delle app, è necessario:
 
@@ -323,7 +323,7 @@ Questo scenario presuppone che un utente:
 
 Tutti i criteri di protezione delle app di Intune sono necessari prima di concedere l'accesso ai dati aziendali. I criteri potrebbero richiedere all'utente di riavviare l'applicazione o di usare un PIN aggiuntivo. Questa situazione si verifica se i criteri sono configurati per l'applicazione e la piattaforma.
 
-**Osservazioni**
+**Osservazioni:**
 
 - È possibile usare questo scenario se si vogliono supportare i criteri di accesso condizionale basato su app e sulla protezione delle app.
 - In questo criterio *o* , le app con un requisito dei criteri di protezione delle app vengono valutate per l'accesso prima del requisito delle app client approvate.

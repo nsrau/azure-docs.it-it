@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: d85f6ba9d50b7d30930322ca34cb15edb30e1472
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 683b35661a41325cfd5baa877acdb0e37529bb94
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775005"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198735"
 ---
 # <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Le immagini di macchine virtuali (VM) in Azure Marketplace vengono trasportate nell'archiviazione su disco gestito
 
@@ -61,6 +61,6 @@ Non è possibile eseguire aggiornamenti per le immagini di VM durante lo spostam
 
 No, il processo di pubblicazione rimarrà invariato. 
 
-## <a name="next-steps"></a>Passaggi successivi
+### <a name="can-the-publisher-move-their-offers-to-managed-disk"></a>Il server di pubblicazione può spostare le proprie offerte nel disco gestito?
 
-Visitare la pagina della [Guida dell'editore dell'offerta di macchine virtuali](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) .
+No, i Publisher non possono spostare le proprie offerte nel disco gestito. Dovranno attendere che le immagini vengano spostate automaticamente. Prima di apportare modifiche, le notifiche vengono inviate al server di pubblicazione.

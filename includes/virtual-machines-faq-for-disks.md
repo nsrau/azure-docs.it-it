@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 39bcaac2ca94eedebd991a1c4e93f324ef651888
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 2bfdf1046c67ed1651f792191923bf4c533d0299
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76961580"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77205748"
 ---
 Questo articolo risponde alle domande frequenti su Managed Disks e i dischi SSD Premium di Azure.
 
@@ -29,7 +29,7 @@ Un disco gestito Standard creato da un disco rigido virtuale da 80 GB viene cons
 
 **Sono previsti costi di transazione per i dischi gestiti Standard?**
 
-Sì. Ogni transazione prevede un addebito. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/storage).
+Sì. Sì, ogni transazione prevede un addebito. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/storage).
 
 **Per un disco gestito Standard, si riceverà un addebito per le dimensioni effettive dei dati su disco o per la capacità con provisioning del disco?**
 
@@ -148,7 +148,7 @@ Snapshot di supporto SSD Premium, SSD standard e HDD standard. Per questi tre ti
 **Che cosa sono le prenotazioni dischi di Azure?**
 La prenotazione del disco è la possibilità di acquistare un anno di spazio di archiviazione su disco in anticipo, riducendo i costi totali. Per informazioni dettagliate sulle prenotazioni dischi di Azure, vedere l'articolo sull'argomento: [informazioni sul modo in cui viene applicato lo sconto per la prenotazione al disco di Azure](../articles/cost-management-billing/reservations/understand-disk-reservations.md).
 
-**Quali sono le opzioni offerte dalla prenotazione dischi di Azure?** Prenotazione dischi di Azure offre la possibilità di acquistare SSD Premium negli SKU specificati da P30 (1 TiB) fino a P80 (32 TiB) per un periodo di validità di un anno. Non esiste alcuna limitazione sulla quantità minima di dischi necessaria per acquistare una prenotazione su disco. Puoi inoltre scegliere di pagare con un unico pagamento anticipato o con pagamenti mensili. Non è stato applicato alcun costo transazionale aggiuntivo per SSD Premium Managed Disks. 
+**Quali sono le opzioni offerte dalla prenotazione dischi di Azure?** Prenotazione dischi di Azure offre la possibilità di acquistare SSD Premium negli SKU specificati da P30 (1 TiB) fino a P80 (32 TiB) per un periodo di validità di un anno. Non esiste alcuna limitazione sulla quantità minima di dischi necessaria per acquistare una prenotazione su disco. Inoltre, è possibile scegliere di pagare con un singolo pagamento iniziale o pagamenti mensili. Non è stato applicato alcun costo transazionale aggiuntivo per SSD Premium Managed Disks. 
 
 Le prenotazioni vengono effettuate sotto forma di dischi, non di capacità. In altre parole, quando si riserva un disco P80 (32 TiB), si ottiene un singolo disco P80, non è quindi possibile dividere la prenotazione specifica in due dischi P70 (16 TiB) più piccoli. Naturalmente, è possibile riservare il numero di dischi desiderato, inclusi due dischi P70 (16 TiB) distinti.
 
@@ -160,6 +160,44 @@ La prenotazione dei dischi di Azure viene acquistata per un'area e uno SKU speci
 
 **Cosa accade quando la prenotazione di dischi di Azure scade?**    
 Si riceveranno le notifiche tramite posta elettronica 30 giorni prima della scadenza e nuovamente alla data di scadenza. Al termine della prenotazione, i dischi distribuiti continueranno a essere eseguiti e verranno fatturati con le [tariffe con pagamento in base](https://azure.microsoft.com/pricing/details/managed-disks/)al consumo più recenti.
+
+### <a name="azure-shared-disks"></a>Dischi condivisi di Azure
+
+**La funzionalità dischi condivisi è supportata per i dischi non gestiti o i BLOB di pagine?**
+
+No, è supportato solo per i dischi gestiti da unità SSD Premium.
+
+**Quali aree supportano i dischi condivisi?**
+
+Attualmente solo negli Stati Uniti centro-occidentali.
+
+**I dischi condivisi possono essere usati come disco del sistema operativo?**
+
+No, i dischi condivisi sono supportati solo per i dischi dati.
+
+**Quali dimensioni dei dischi supportano i dischi condivisi?**
+
+Solo le unità SSD Premium P15 o versioni successive supportano dischi condivisi.
+
+**Se ho un'unità SSD Premium esistente, posso abilitarvi I dischi condivisi?**
+
+Tutti i dischi gestiti creati con API versione 2019-07-01 o successiva possono abilitare i dischi condivisi. A tale scopo, è necessario smontare il disco da tutte le macchine virtuali a cui è collegato. Modificare quindi la proprietà `maxShares` sul disco.
+
+**Se non si vuole più usare un disco in modalità condivisa, come si disabilita?**
+
+Smontare il disco da tutte le macchine virtuali a cui è collegato. Modificare quindi la proprietà maxShare del disco su 1.
+
+**È possibile ridimensionare un disco condiviso?**
+
+Sì.
+
+**È possibile abilitare l'acceleratore di scrittura su un disco in cui sono abilitati anche dischi condivisi?**
+
+No.
+
+**È possibile abilitare la memorizzazione nella cache dell'host per un disco in cui è abilitato il disco condiviso?**
+
+L'unica opzione supportata per la memorizzazione nella cache dell'host è' none '.
 
 ## <a name="ultra-disks"></a>Dischi ultra
 
@@ -245,7 +283,7 @@ L'esempio seguente mostra la sezione *properties.storageProfile.osDisk* per una 
 Per un esempio di modello completo di come creare un disco SSD standard con un modello, vedere [Create a VM from a Windows Image with Standard SSD Data Disks](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/) (Creare una macchina virtuale da un'immagine Windows con dischi dati SSD standard).
 
 **È possibile convertire i dischi esistenti in unità SSD Standard?**
-Sì, puoi. Per le linee guida generali per la conversione di Azure Managed Disks fare riferimento a [Convertire l'archiviazione di Azure Managed Disks da Standard a Premium e viceversa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Usare anche il valore seguente per aggiornare il tipo di disco in SSD Standard.
+Sì, Per le linee guida generali per la conversione di Azure Managed Disks fare riferimento a [Convertire l'archiviazione di Azure Managed Disks da Standard a Premium e viceversa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Usare anche il valore seguente per aggiornare il tipo di disco in SSD Standard.
 -AccountType StandardSSD_LRS
 
 **Quali sono i vantaggi offerti dall'uso dei dischi SSD Standard rispetto ai dischi HDD?**
@@ -257,7 +295,7 @@ No, i dischi SSD Standard sono disponibili solo come dischi gestiti.
 **I dischi SSD Standard supportano "contratti di servizio per macchine virtuali a istanza singola"?**
 No, i dischi SSD Standard non supportano contratti di servizio per macchine virtuali a istanza singola. Per i contratti di servizio per macchine virtuali a istanza singola, usare dischi SSD Premium.
 
-## <a name="migrate-to-managed-disks"></a>Migrazione al servizio Managed Disks
+## <a name="migrate-to-managed-disks"></a>Eseguire la migrazione a Managed Disks
 
 **La migrazione può avere un impatto sulle prestazioni di Managed Disks?**
 

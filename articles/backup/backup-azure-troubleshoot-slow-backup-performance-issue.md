@@ -4,12 +4,12 @@ description: Fornisce indicazioni sulla risoluzione dei problemi per diagnostica
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 2b7b8903da0d8dd83591b260bacb496b0c253ae3
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 01fff1d970a76d0d4d38c2536b41d58a4db301c8
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172574"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198618"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Risolvere i problemi di rallentamento delle prestazioni di backup di file e cartelle in Backup di Azure
 
@@ -25,6 +25,18 @@ Prima di iniziare a risolvere i problemi, è consigliabile scaricare e installar
 È anche consigliabile vedere l'articolo [Servizio Backup di Azure: Domande frequenti](backup-azure-backup-faq.md) per assicurarsi che non si tratti di problemi di configurazione comuni.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
+## <a name="cause-backup-job-running-in-unoptimized-mode"></a>Motivo: processo di backup in esecuzione in modalità non ottimizzata
+
+* L'agente MARS può eseguire il processo di backup in **modalità ottimizzata** usando il Journal delle modifiche USN (numero di sequenza di aggiornamento) o la **modalità non ottimizzata** verificando la presenza di modifiche nelle directory o nei file analizzando l'intero volume.
+* La modalità non ottimizzata è lenta perché l'agente deve eseguire la scansione di tutti i file nel volume e confrontarli con i metadati per determinare i file modificati.
+* Per verificarlo, aprire i **Dettagli del processo** dalla console dell'agente Mars e controllare lo stato per verificare se il **trasferimento dei dati (non ottimizzato potrebbe richiedere più tempo)** , come illustrato di seguito:
+
+    ![Esecuzione in modalità non ottimizzata](./media/backup-azure-troubleshoot-slow-backup-performance-issue/unoptimized-mode.png)
+
+* Le condizioni seguenti possono causare l'esecuzione del processo di backup in modalità non ottimizzata:
+  * Il primo backup (noto anche come replica iniziale) viene sempre eseguito in modalità non ottimizzata
+  * Se il processo di backup precedente ha esito negativo, il successivo processo di backup pianificato verrà eseguito come non ottimizzato.
 
 <a id="cause1"></a>
 

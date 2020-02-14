@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: d5e78c3ab08e791a5f484e45d487c3a85dc95de7
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: f4fdf25fa1403b8429e7ad7e7fc644d0355b1324
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613092"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189826"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure 
 
@@ -215,11 +215,11 @@ public void keepAlive(
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `TimerTrigger`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Description|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
-|**type** | N/D | Il valore deve essere impostato su "timerTrigger". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
-|**direction** | N/D | Il valore deve essere impostato su "in". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
-|**nome** | N/D | Nome della variabile che rappresenta l'oggetto timer nel codice della funzione. | 
+|**type** | n/d | Il valore deve essere impostato su "timerTrigger". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
+|**direction** | n/d | Il valore deve essere impostato su "in". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
+|**nome** | n/d | Nome della variabile che rappresenta l'oggetto timer nel codice della funzione. | 
 |**schedule**|**ScheduleExpression**|[Espressione CRON](#ncrontab-expressions) o valore [TimeSpan](#timespan). `TimeSpan` può essere usato solo per un'app per le funzioni in esecuzione in un piano di servizio app. È possibile inserire l'espressione schedule in un'impostazione dell'app e definire per questa proprietà il nome dell'impostazione dell'app racchiuso tra simboli **%** , come in questo esempio: "%ImpostazioneAppSchedule%". |
 |**runOnStartup**|**RunOnStartup**|Se `true`, la funzione viene richiamata all'avvio del runtime. Ad esempio, il runtime viene avviato quando l'app per le funzioni si riattiva dopo un periodo di inattività, Quando l'app per le funzioni viene riavviata a causa di modifiche della funzione e quando l'app per le funzioni si ridimensiona. Quindi, **runOnStartup** deve raramente essere impostato su `true`, specialmente nell'ambiente di produzione. |
 |**useMonitor**|**UseMonitor**|Impostata su `true` o `false` per indicare se monitorare la pianificazione. Il monitoraggio della pianificazione rende persistenti le occorrenze della pianificazione per garantire che la pianificazione venga gestita correttamente anche quando le istanze dell'app per le funzioni vengono riavviate. Se non viene impostato in modo esplicito, il valore predefinito è `true` per le pianificazioni con un intervallo di ricorrenza maggiore o uguale a 1 minuto. Per le pianificazioni attivate più di una volta al minuto, il valore predefinito è `false`.
@@ -256,13 +256,13 @@ Funzioni di Azure usa la libreria [NCronTab](https://github.com/atifaziz/NCronta
 
 Ogni campo può avere uno dei tipi di valori seguenti:
 
-|Tipo  |Esempio  |Quando viene attivato  |
+|Type  |Esempio  |Quando viene attivato  |
 |---------|---------|---------|
 |Valore specifico |<nobr>"0 5 * * * *"</nobr>|Alle hh.05.00, dove hh corrisponde a ogni ora (una volta all'ora)|
 |Tutti i valori (`*`)|<nobr>"0 * 5 * * *"</nobr>|Alle 5.mm.00 ogni giorno, dove mm è ogni minuto dell'ora (60 volte al giorno)|
 |Intervallo (operatore `-`)|<nobr>"5-7 * * * * *"</nobr>|Alle hh.mm.05, hh.mm.06 e hh.mm.07, dove hh.mm è ogni minuto di ogni ora (3 volte al minuto)|
 |Set di valori (operatore `,`)|<nobr>"5,8,10 * * * * *"</nobr>|Alle hh.mm.05, hh.mm.08 e hh.mm.10, dove hh.mm è ogni minuto di ogni ora (3 volte al minuto)|
-|Valore di intervallo (operatore `/`)|<nobr>"0 */5 * * * *"</nobr>|Alle hh.05.00, hh.10.00, hh.15.00 e così via fino alle hh.55.00, dove hh è ogni ora (12 volte all'ora)|
+|Valore di intervallo (operatore `/`)|<nobr>"0 */5 * * * *"</nobr>|alle HH: 00:00, HH: 05:00, HH: 10:00 e così via fino a HH: 55:00 dove HH è ogni ora (12 volte un'ora)|
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -329,7 +329,7 @@ Se si condividono gli account di archiviazione tra app per le funzioni non distr
 
 | Versione di Funzioni | Impostazione                                              |
 | ----------------- | ---------------------------------------------------- |
-| 2. x (e versioni successive)  | La variabile di ambiente `AzureFunctionsWebHost__hostid` |
+| 2. x (e versioni successive)  | variabile di ambiente `AzureFunctionsWebHost__hostid` |
 | 1.x               | `id` in *host. JSON*                                  |
 
 È possibile omettere il valore di identificazione o impostare manualmente la configurazione di identificazione di ogni app per le funzioni su un valore diverso.
@@ -340,7 +340,7 @@ Il trigger del timer usa un blocco di archiviazione per assicurarsi che sia pres
 
 Diversamente dal trigger di coda, il trigger timer non viene ripetuto se una funzione non riesce. Quando una funzione non riesce, non viene chiamata di nuovo fino alla volta successiva nella pianificazione.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Per informazioni su cosa fare quando il trigger timer non funziona come previsto, vedere [Investigating and reporting issues with timer triggered functions not firing](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing) (Analisi e segnalazione di problemi quando non vengono eseguite le funzioni attivate da timer).
 

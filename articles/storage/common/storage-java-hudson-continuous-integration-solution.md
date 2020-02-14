@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: tarcher
 ms.subservice: common
-ms.openlocfilehash: f8cdd7b950a11045f795ac93d4a0904f2dc526fa
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a89439f49dd53f09d5cd40be0bf2e4981e9235d4
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970185"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201386"
 ---
-# <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Usare Archiviazione di Azure con una soluzione di integrazione continuata (CI) di Hudson
-## <a name="overview"></a>Overview
+# <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Uso di Archiviazione di Azure con una soluzione di Integrazione continuata Hudson
+## <a name="overview"></a>Panoramica
 L'articolo seguente descrive il modo di usare l'archiviazione BLOB come archivio di elementi di compilazione creati dalla soluzione di integrazione continua (CI) Hudson o come origine di file scaricabili da usare in un processo di compilazione. Queste informazioni possono rivelarsi utili nel caso in cui si codifichi in un ambiente di sviluppo Agile (utilizzando Java o altri linguaggi), le compilazioni vengano eseguite in base all'integrazione continuata e sia necessario un archivio per gli elementi di compilazione, ad esempio per poterli condividere con altri membri dell'organizzazione o clienti oppure per gestire un archivio.  Un altro scenario è quando il processo di compilazione stesso richiede altri file, ad esempio dipendenze da scaricare come parte dell'input di compilazione.
 
 In questa esercitazione verrà usato il plug-in di archiviazione di Azure per l'integrazione continuata Hudson reso disponibile da Microsoft.
@@ -35,14 +35,14 @@ Di seguito sono indicati i vantaggi dell'utilizzo del servizio BLOB per ospitare
 * Migliori prestazioni durante il download degli elementi di compilazione da parte di clienti e partner.
 * Controllo dei criteri di accesso da parte dell'utente, che prevede la possibilità di scelta tra accesso anonimo, accesso condiviso con scadenza, accesso con firma, accesso privato e così via.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Per utilizzare il servizio BLOB con la soluzione di Integrazione continuata Hudson è necessario quanto segue:
 
 * Una soluzione di Integrazione continuata Hudson.
   
     Se si è sprovvisti di una soluzione di Integrazione continuata Hudson è possibile eseguire una soluzione di Integrazione continuata Hudson applicando la tecnica seguente:
   
-  1. In un computer in cui è abilitato Java scaricare il file hudson.war da <http://hudson-ci.org/>.
+  1. In un computer abilitato per Java, [scaricare il file War di Hudson](https://www.eclipse.org/hudson/download.php).
   2. Al prompt dei comandi aperto nella cartella che contiene il file WAR di Hudson eseguire il file. Se, ad esempio, è stata scaricata la versione 3.1.2:
      
       `java -jar hudson-3.1.2.war`

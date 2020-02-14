@@ -15,12 +15,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6aee049f91aaa071595ab42e9bb4d6b2f5e8616d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d970bbc5619bc25a1cf5d6abbdcf41fb4a0ae196
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021833"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77195522"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Risoluzione dei problemi di Collaborazione B2B di Azure Active Directory
 
@@ -98,6 +98,11 @@ Se il tenant dell'identità è un tenant JIT o virale (ovvero un tenant di Azure
 ## <a name="a-guest-user-is-unable-to-use-the-azuread-powershell-v1-module"></a>Un utente Guest non è in grado di usare il modulo AzureAD di PowerShell V1
 
 A partire dal 18 novembre 2019, gli utenti guest nella directory (definiti come account utente in cui la proprietà **UserType** è uguale a **Guest**) vengono bloccati dall'uso del modulo AzureAD PowerShell v1. In futuro, un utente deve essere un utente membro (dove **UserType** è uguale a **member**) o usare il modulo AzureAD di PowerShell v2.
+
+## <a name="in-an-azure-us-government-tenant-i-cant-invite-a-b2b-collaboration-guest-user"></a>In un tenant di Azure per il governo degli Stati Uniti non è possibile invitare un utente guest di collaborazione B2B
+
+Nel cloud del governo degli Stati Uniti di Azure, la collaborazione B2B è attualmente supportata solo tra i tenant che si trovano nel Cloud Azure per enti pubblici statunitensi e che supportano la collaborazione B2B. Se si invita un utente in un tenant che non fa parte del cloud del governo degli Stati Uniti di Azure o che non supporta ancora la collaborazione B2B, si riceverà un errore. Per informazioni dettagliate e limitazioni, vedere [Azure Active Directory Premium le varianti P1 e P2](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2).
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

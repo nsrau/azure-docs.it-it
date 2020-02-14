@@ -1,6 +1,6 @@
 ---
 title: Aggiungere un livello sezione a Maps Android | Mappe Microsoft Azure
-description: In questo articolo si apprenderà come eseguire il rendering di un livello sezione su una mappa usando le mappe di Microsoft Azure Android SDK.
+description: In questo articolo si apprenderà come eseguire il rendering di un livello sezione su una mappa utilizzando le mappe Microsoft Azure Android SDK.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e54eeaa6dafd60e5fc481f2f4b45929edda77c44
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 4113f632e70bf1008c688066b51a27f1bc3c6345
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911520"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198259"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Aggiungere un livello sezione a una mappa usando le mappe di Azure Android SDK
 
 Questo articolo illustra come eseguire il rendering di un livello sezione su una mappa usando le mappe di Azure Android SDK. I livelli riquadro consentono di sovrapporre immagini sopra i riquadri mappa di base in Mappe di Azure. Altre informazioni sul sistema di riquadri di Mappe di Azure sono reperibili nella documentazione [Livelli di Zoom e griglia riquadri](zoom-levels-and-tile-grid.md).
 
-Un livello sezione viene caricato in riquadri da un server. Queste immagini possono essere sottoposte a pre-rendering e archiviate come qualsiasi altra immagine in un server utilizzando una convenzione di denominazione che il livello riquadro comprenda o un servizio dinamico che generi le immagini immediatamente. Sono supportate tre diverse convenzioni di denominazione del servizio affiancate dalla classe TileLayer di Azure maps. 
+Un livello sezione viene caricato in riquadri da un server. Queste immagini possono essere pre-renderizzate e archiviate come qualsiasi altra immagine in un server, usando una convenzione di denominazione che il livello sezione riconosce. In alternativa, è possibile eseguire il rendering di queste immagini con un servizio dinamico che genera le immagini quasi in tempo reale. Sono supportate tre diverse convenzioni di denominazione del servizio affiancate dalla classe TileLayer di Azure Maps:
 
 * Notazione zoom di X, Y: in base al livello di zoom, x è la posizione nella colonna e y è la posizione nella riga del riquadro nella griglia dei riquadri.
 * Notazione Quadkey: combinazione delle informazioni x, y e zoom in un singolo valore stringa che sia un identificatore univoco per un riquadro.
@@ -35,16 +35,16 @@ L'URL di riquadro passato in un livello riquadro deve essere un URL http/https i
 * `{z}` - Livello di zoom del riquadro. Necessita inoltre di `{x}` e `{y}`.
 * `{quadkey}` - Identificatore del riquadro quadkey basato sulla convenzione di denominazione del sistema di riquadri di Mappe di Bing.
 * `{bbox-epsg-3857}` - Una stringa  del rettangolo delimitatore nel formato `{west},{south},{east},{north}` nel sistema di riferimento spaziale EPSG 3857.
-* `{subdomain}` - Un segnaposto in cui verranno aggiunti i valori di sottodominio se specificati.
+* `{subdomain}`: segnaposto per i valori del sottodominio, se viene specificato il valore del sottodominio.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare il processo in questo articolo, è necessario installare [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) per caricare una mappa.
 
 
 ## <a name="add-a-tile-layer-to-the-map"></a>Aggiungere un livello sezione alla mappa
 
- Questo esempio illustra come creare un livello riquadro che punta a una serie di riquadri che usano il sistema di riquadri x, y e zoom. L'origine di questo livello riquadro è una sovrapposizione di radar meteo dall'[Iowa Environmental Mesonet dell'Iowa State University](https://mesonet.agron.iastate.edu/ogc/). 
+ In questo esempio viene illustrato come creare un livello sezione che punta a un set di riquadri. Questi riquadri usano il sistema di affiancamento "x, y, zoom". L'origine di questo livello riquadro è una sovrapposizione di radar meteo dall'[Iowa Environmental Mesonet dell'Iowa State University](https://mesonet.agron.iastate.edu/ogc/). 
 
 È possibile aggiungere un livello sezione alla mappa seguendo questa procedura.
 

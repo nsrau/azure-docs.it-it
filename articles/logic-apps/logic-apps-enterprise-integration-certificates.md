@@ -1,6 +1,6 @@
 ---
 title: Proteggere i messaggi B2B con certificati
-description: Aggiungere certificati per proteggere i messaggi B2B in App per la logica di Azure con Enterprise Integration Pack
+description: Aggiungere certificati per proteggere i messaggi B2B in app per la logica di Azure con il Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,19 +8,19 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: 6c5de6eba000c9052c7eb7b31d75804b9f454607
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: c1b48ae8191e2e5313d9037c791eca73c8a55691
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790682"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191392"
 ---
-# <a name="secure-b2b-messages-with-certificates"></a>Proteggere i messaggi B2B con certificati
+# <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Migliorare la sicurezza per i messaggi B2B usando i certificati
 
-Quando è necessario mantenere riservate le comunicazioni B2B, è possibile proteggere tali comunicazioni per le app di integrazione aziendali, in particolare le app per la logica, aggiungendo certificati all'account di integrazione. I certificati sono documenti digitali che verificano le identità dei partecipanti nelle comunicazioni elettroniche e consentono di proteggere le comunicazioni nei modi seguenti:
+Quando è necessario garantire la riservatezza delle comunicazioni B2B, è possibile aumentare la sicurezza per la comunicazione B2B nelle app di integrazione aziendale, in particolare per le app per la logica, aggiungendo certificati all'account di integrazione. I certificati sono documenti digitali che verificano le identità dei partecipanti nelle comunicazioni elettroniche e consentono di proteggere le comunicazioni nei modi seguenti:
 
 * Crittografare il contenuto dei messaggi.
-* Firmare digitalmente i messaggi. 
+* Firmare digitalmente i messaggi.
 
 È possibile usare questi certificati nelle app di integrazione aziendali:
 
@@ -44,7 +44,7 @@ Per usare un *certificato pubblico* nelle app per la logica con funzionalità B2
 
 3. In **Certificati** scegliere **Aggiungi**. In **Aggiungi certificato** specificare questi dettagli per il certificato. Al termine dell'operazione, scegliere **OK**.
 
-   | Proprietà | Value | Description | 
+   | Proprietà | valore | Descrizione | 
    |----------|-------|-------------|
    | **Nome** | <*certificate-name*> | Nome del certificato, ovvero "publicCert" in questo esempio | 
    | **Tipo di certificato** | Pubblico | Tipo del certificato |
@@ -64,7 +64,7 @@ Per usare un *certificato privato* nelle app per la logica con funzionalità B2B
 Dopo aver definito le proprietà nei [contratti](logic-apps-enterprise-integration-agreements.md) creati, il certificato diventa disponibile per proteggere i messaggi B2B.
 
 > [!NOTE]
-> Per i certificati privati, assicurarsi di aggiungere un certificato pubblico corrispondente da visualizzare nelle impostazioni di **invio e ricezione** del [contratto AS2](logic-apps-enterprise-integration-as2.md) per la firma e la crittografia dei messaggi.
+> Per i certificati privati, assicurarsi di aggiungere un certificato pubblico corrispondente che verrà visualizzato nelle impostazioni [di](logic-apps-enterprise-integration-as2.md) **invio e ricezione** dell'accordo AS2 per la firma e la crittografia dei messaggi.
 
 1. [Aggiungere la chiave privata in Azure Key Vault](../key-vault/certificate-scenarios.md#import-a-certificate) e specificare un **nome chiave**.
    
@@ -83,13 +83,13 @@ Dopo aver definito le proprietà nei [contratti](logic-apps-enterprise-integrati
 
 5. In **Certificati** scegliere **Aggiungi**. In **Aggiungi certificato** specificare questi dettagli per il certificato. Al termine dell'operazione, scegliere **OK**.
 
-   | Proprietà | Value | Description | 
+   | Proprietà | valore | Descrizione | 
    |----------|-------|-------------|
    | **Nome** | <*certificate-name*> | Nome del certificato, ovvero "privateCert" in questo esempio | 
-   | **Tipo di certificato** | Private | Tipo del certificato |
+   | **Tipo di certificato** | Privato | Tipo del certificato |
    | **Certificate** | <*certificate-file-name*> | Per trovare e selezionare il file di certificato da caricare, scegliere l'icona della cartella accanto alla casella **Certificato**. Quando si usa un insieme di credenziali delle chiavi per la chiave privata, il file caricato sarà il certificato pubblico. | 
    | **Gruppo di risorse** | <*integration-account-resource-group*> | Gruppo di risorse dell'account di integrazione, ovvero "MyResourceGroup" in questo esempio | 
-   | **Insieme di credenziali delle chiavi** | <*key-vault-name*> | Nome dell'insieme di credenziali delle chiavi di Azure |
+   | **Insieme di credenziali di chiave** | <*key-vault-name*> | Nome dell'insieme di credenziali delle chiavi di Azure |
    | **Nome chiave** | <*key-name*> | Nome della chiave |
    ||||
 

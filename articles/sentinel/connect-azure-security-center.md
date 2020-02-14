@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 8d8f960d8cf1310ec0a380e75bdaa714408e2cac
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 4c75d1870ca3b966acdd658c91c0af8fd7465bfb
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563667"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190869"
 ---
 # <a name="connect-data-from-azure-security-center"></a>Connetti i dati dal centro sicurezza di Azure
 
@@ -24,13 +24,12 @@ ms.locfileid: "75563667"
 
 Sentinel di Azure consente di connettere gli avvisi dal [Centro sicurezza di Azure](../security-center/security-center-intro.md) e di eseguirne lo streaming in Sentinel di Azure. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-- Se si vuole esportare gli avvisi dal centro sicurezza di Azure, è necessario essere un collaboratore nella sottoscrizione di cui si esegue il flusso.
+- Per esportare gli avvisi dal centro sicurezza di Azure, è necessario avere il ruolo di lettore di sicurezza nella sottoscrizione dei log di cui si esegue il flusso.
 
 - È necessario che il [livello standard del Centro sicurezza di Azure](../security-center/security-center-pricing.md) sia in esecuzione nella sottoscrizione. In caso contrario, [aggiornare la sottoscrizione al livello standard](https://azure.microsoft.com/pricing/details/security-center/).
 
-- È necessario accedere con un utente che disponga delle autorizzazioni di amministratore globale o di amministratore della sicurezza per ogni sottoscrizione a cui si desidera connettersi.
 
 
 ## <a name="connect-to-azure-security-center"></a>Connettersi al centro sicurezza di Azure

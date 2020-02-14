@@ -13,12 +13,12 @@ ms.date: 10/10/2018
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: d29168f154c80eb2c66d0316f773375325ded67f
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 2484de4e554d16ba049d206981a44654ede28a3f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77062184"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190033"
 ---
 # <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>Possibili correzioni per il messaggio di errore "non è possibile ottenere da qui"
 
@@ -29,7 +29,7 @@ Se viene visualizzato il messaggio d'errore **Non è possibile accedervi da qui*
 
 ![Messaggio d'errore relativo al supporto browser](media/user-help-device-remediation/browser-version.png)
 
-Per risolvere il problema è necessario installare ed eseguire un browser supportato, in base al sistema operativo. Se si usa Windows 10, fra i browser supportati ci sono Microsoft Edge, Internet Explorer e Google Chrome. Se si usa un sistema operativo diverso, controllare l'elenco completo dei [browser supportati](../conditional-access/technical-reference.md#supported-browsers).
+Per risolvere il problema è necessario installare ed eseguire un browser supportato, in base al sistema operativo. Se si usa Windows 10, fra i browser supportati ci sono Microsoft Edge, Internet Explorer e Google Chrome. Se si usa un sistema operativo diverso, controllare l'elenco completo dei [browser supportati](../conditional-access/concept-conditional-access-conditions.md#supported-browsers).
 
 ## <a name="make-sure-youre-using-a-supported-operating-system"></a>Assicurarsi che il sistema operativo in uso sia supportato
 Assicurarsi che la versione del sistema operativo in uso sia supportata. Fra le versioni supportate ci sono le seguenti:

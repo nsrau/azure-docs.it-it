@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 3d741361cdeb25d6fc063f95da7bc301178f31fc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 557cfeb66301650e932e5ce271080e9fc8a256d6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818092"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191158"
 ---
 # <a name="storefront-details-tab"></a>Scheda Dettagli vetrina
 
@@ -71,7 +71,7 @@ Immettere la descrizione dell'offerta del servizio di consulenza nella casella *
 
 Non includere l'indirizzo e-mail o il numero di telefono nella descrizione dell'offerta. L'offerta comprenderà un pulsante **Contattami** per caricare i clienti potenziali nella destinazione di gestione dei clienti potenziali che verrà individuata per l'offerta.
 
-Inserire la descrizione dell'offerta in formato Markdown. Se non si ha familiarità con Markdown o con la formattazione per HTML, vedere [Usare Markdown per scrivere articoli di Docs](https://docs.microsoft.com/contribute/how-to-write-use-markdown).
+Inserire la descrizione dell'offerta in formato Markdown. Se non si ha familiarità con Markdown o con la formattazione per HTML, vedere [Usare Markdown per scrivere articoli di Docs](/contribute/markdown-reference).
 
 Usare questi formati per assicurarsi che l'offerta sia di facile lettura per i clienti.
 
@@ -161,7 +161,7 @@ Sono inclusi i seguenti cinque tipi di offerte:
 
 **Disponibilità per paese/area geografica**
 
-Selezionare il paese e l'area geografica in cui è disponibile questo servizio di consulenza. Impossibile pubblicare una singola offerta in più paesi o aree geografiche. Per ogni paese o regione, è necessario creare una nuova offerta.
+Selezionare il paese e l'area geografica in cui è disponibile questo servizio di consulenza. Impossibile pubblicare una singola offerta in più paesi o aree geografiche. Per ogni paese o area, è necessario creare una nuova offerta.
 
 >[!Note]
 >I servizi di consulenza di AppSource sono attualmente attivi negli Stati Uniti, nel Regno Unito e in Canada. È possibile inviare un'offerta per un paese o un'area geografica non ancora attiva e che verrà esaminata e preparata per l'uso. Per aprire un nuovo paese/area geografica è necessario un numero minimo di offerte pronte per l'uso, quindi le offerte per paesi/aree geografiche non attive sono consigliate.

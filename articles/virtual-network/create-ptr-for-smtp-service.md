@@ -1,5 +1,5 @@
 ---
-title: Configurare zone di ricerca inversa per un controllo del banner SMTP in Azure
+title: Configurare zone di ricerca inversa per un controllo del banner SMTP
 titlesuffix: Azure Virtual Network
 description: Descrive come configurare zone di ricerca inversa per un controllo del banner SMTP in Azure
 services: virtual-network
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 084fdb7f850f3819738a982127fa98efab114197
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 6c37ba61005c9936e6421d06369d1f52b93ac264
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059029"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201697"
 ---
 # <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>Configurare zone di ricerca inversa per un controllo del banner SMTP
 

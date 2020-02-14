@@ -13,25 +13,26 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 02/12/2020
 ms.author: shvija
-ms.openlocfilehash: 17906a7d0953d8b320301d74cda81d14c9ad340f
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 324425662622201bb50261d396d3eef1f531ba37
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123440"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187305"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Acquisire eventi tramite Hub eventi di Azure in Archiviazione BLOB di Azure o Azure Data Lake Storage
-Hub eventi di Azure consente di acquisire automaticamente i dati in streaming di Hub eventi in un account di [Archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/) o [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) a scelta, con la possibilità di specificare un intervallo di tempo o di dimensioni. La configurazione di Acquisizione è rapida, non sono previsti costi amministrativi per l'esecuzione e viene ridimensionata automaticamente con le [unità elaborate](event-hubs-scalability.md#throughput-units) in Hub eventi. Acquisizione di Hub eventi è il modo più semplice per caricare i dati in streaming in Azure e consente di concentrarsi sull'elaborazione dei dati anziché sull'acquisizione.
+Hub eventi di Azure consente di acquisire automaticamente i dati in streaming in hub eventi in un [Archivio BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/) o Azure Data Lake storage account di [generazione 1 o gen 2](https://azure.microsoft.com/services/data-lake-store/) di propria scelta, con la flessibilità aggiuntiva di specificare un intervallo di tempo o di dimensioni. La configurazione di Acquisizione è rapida, non sono previsti costi amministrativi per l'esecuzione e viene ridimensionata automaticamente con le [unità elaborate](event-hubs-scalability.md#throughput-units) in Hub eventi. Acquisizione di Hub eventi è il modo più semplice per caricare i dati in streaming in Azure e consente di concentrarsi sull'elaborazione dei dati anziché sull'acquisizione.
 
 Acquisizione di Hub eventi consente di elaborare pipeline in tempo reale e basate su batch nello stesso flusso. Ciò significa che è possibile compilare soluzioni che si adattano alle esigenze nel corso del tempo. Sia che si debbano compilare oggi sistemi basati su batch con lo sguardo rivolto alla futura elaborazione in tempo reale o che si voglia aggiungere un percorso a freddo efficiente a una soluzione in tempo reale esistente, Acquisizione di Hub eventi semplifica l'uso dei dati in streaming.
+
 
 ## <a name="how-event-hubs-capture-works"></a>Come funziona Acquisizione di Hub eventi
 
 Hub eventi è un buffer permanente di conservazione nel tempo per l'ingresso della telemetria, simile a un log distribuito. La chiave per ridurre il numero di istanze di Hub eventi è il [modello di consumer partizionato](event-hubs-scalability.md#partitions). Ogni partizione è un segmento di dati indipendente e viene utilizzata in modo indipendente. Nel corso del tempo questi dati diventano obsoleti, a seconda del periodo di conservazione configurabile. Di conseguenza, un determinato hub eventi non sarà mai "troppo pieno".
 
-Acquisizione di Hub eventi consente di specificare un account di Archiviazione BLOB di Azure e un contenitore oppure un account Azure Data Lake Store da usare per archiviare i dati acquisiti. Questi account possono trovarsi nella stessa area dell'hub eventi o in un'altra area, aumentando così la flessibilità della funzionalità Acquisizione di Hub eventi.
+Acquisizione di hub eventi consente di specificare il proprio account di archiviazione BLOB di Azure e il contenitore o l'account Azure Data Lake Storage, che vengono usati per archiviare i dati acquisiti. Questi account possono trovarsi nella stessa area dell'hub eventi o in un'altra area, aumentando così la flessibilità della funzionalità Acquisizione di Hub eventi.
 
 I dati acquisiti vengono scritti in formato [Apache avro][Apache Avro] , un formato compatto, veloce e binario che offre strutture di dati avanzate con lo schema inline. Questo formato è largamente usato nell'ecosistema Hadoop, dall'analisi di flusso e da Azure Data Factory. Altre informazioni sull'uso di Avro sono disponibili più avanti in questo articolo.
 
@@ -142,13 +143,13 @@ Si noti che l'acquisizione non utilizza la quota in uscita perché viene fattura
 È possibile creare una sottoscrizione di Griglia di eventi di Azure con uno spazio dei nomi di Hub eventi come origine. L'esercitazione seguente illustra come creare una sottoscrizione di Griglia di eventi con un hub eventi come origine e un'app di Funzioni di Azure come sink: [Elaborare i dati di Hub eventi acquisiti ed eseguirne la migrazione a SQL Data Warehouse con Griglia di eventi e Funzioni di Azure](store-captured-data-data-warehouse.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-
 Acquisizione di Hub eventi rappresenta il modo più facile per ottenere i dati in Azure. Con Azure Data Lake, Azure Data Factory e Azure HDInsight, è possibile eseguire l'elaborazione batch e altre analisi usando strumenti e piattaforme familiari a scelta con la scalabilità necessaria.
 
-Per altre informazioni su Hub eventi, visitare i collegamenti seguenti:
+Informazioni su come abilitare questa funzionalità usando il modello di portale di Azure e di Azure Resource Manager:
 
-* [Introduzione all'invio e alla ricezione di eventi](event-hubs-dotnet-framework-getstarted-send.md)
-* [Panoramica di Hub eventi][Event Hubs overview]
+- [Usare il portale di Azure per abilitare l'acquisizione di hub eventi](event-hubs-capture-enable-through-portal.md)
+- [Usare un modello di Azure Resource Manager per abilitare l'acquisizione di hub eventi](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
+
 
 [Apache Avro]: https://avro.apache.org/
 [Apache Drill]: https://drill.apache.org/

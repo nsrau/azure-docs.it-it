@@ -3,18 +3,18 @@ title: Configurare cluster Kubernetes ibridi con monitoraggio di Azure per i con
 description: Questo articolo descrive come configurare monitoraggio di Azure per i contenitori per monitorare i cluster Kubernetes ospitati in Azure Stack o in un altro ambiente.
 ms.topic: conceptual
 ms.date: 01/24/2020
-ms.openlocfilehash: 7796cc7300f34a7a412495754c083b112ba05041
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 6d03716b988b1139e01d41120f48ea9a9bf34be1
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759893"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198055"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configurare cluster Kubernetes ibridi con monitoraggio di Azure per i contenitori
 
-Monitoraggio di Azure per i contenitori offre un'esperienza di monitoraggio avanzata per i cluster di Azure Kubernetes Service (AKS) e del motore AKS ospitati in Azure. Questo articolo descrive come abilitare il monitoraggio dei cluster Kubernetes ospitati all'esterno di Azure e ottenere un'esperienza di monitoraggio simile.
+Monitoraggio di Azure per i contenitori offre un'esperienza di monitoraggio avanzata per il servizio Azure Kubernetes (AKS) e il [motore AKS in Azure](https://github.com/Azure/aks-engine), che è un cluster Kubernetes self-Managed ospitato in Azure. Questo articolo descrive come abilitare il monitoraggio dei cluster Kubernetes ospitati all'esterno di Azure e ottenere un'esperienza di monitoraggio simile.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare, verificare di disporre degli elementi seguenti:
 
@@ -279,14 +279,14 @@ Dopo aver distribuito correttamente il grafico, è possibile esaminare i dati pe
 >[!NOTE]
 >La latenza di inserimento è circa tra cinque e dieci minuti dall'agente per eseguire il commit nell'area di lavoro di Azure Log Analytics. Lo stato del cluster Mostra il valore **Nessun dato** o **sconosciuto** fino a quando non sono disponibili tutti i dati di monitoraggio necessari in monitoraggio di Azure.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se si verifica un errore durante il tentativo di abilitare il monitoraggio per il cluster Kubernetes ibrido, copiare lo script di PowerShell [TroubleshootError_nonAzureK8s. ps1](https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/Troubleshoot/TroubleshootError_nonAzureK8s.ps1) e salvarlo in una cartella nel computer. Questo script viene fornito per facilitare il rilevamento e la risoluzione dei problemi rilevati. Di seguito sono riportati i problemi che è stato progettato per rilevare e tentare la correzione:
 
 * L'area di lavoro Log Analytics specificata è valida
 * L'area di lavoro Log Analytics è configurata con la soluzione monitoraggio di Azure per contenitori. In caso contrario, configurare l'area di lavoro.
-* Il Pod REPLICASET OmsAgent è in esecuzione
-* Il Pod daemonset OmsAgent è in esecuzione
+* OmsAgent REPLICASET pod in esecuzione
+* OmsAgent daemonset pod in esecuzione
 * Il servizio integrità OmsAgent è in esecuzione
 * Il Log Analytics ID e la chiave dell'area di lavoro configurati nell'agente in contenitori corrispondono all'area di lavoro con cui è configurata l'analisi.
 * Verificare che tutti i nodi di lavoro Linux abbiano `kubernetes.io/role=agent` etichetta per pianificare il Pod RS. Se non esiste, aggiungerlo.

@@ -6,12 +6,12 @@ ms.workload: integration
 ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
 ms.date: 11/04/2019
-ms.openlocfilehash: dbb91106ad00e1a82e2e6e9c470e61764a4ad4c4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: d5b5a69c7927d07c0ae6b3b56ec97b6551e5d46b
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792021"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191343"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Chiamare, attivare o annidare app per la logica usando endpoint HTTP in app per la logica di Azure
 
@@ -28,7 +28,7 @@ Per configurare un endpoint HTTP, è possibile usare uno di questi tipi di trigg
 
 Se non si ha familiarità con le app per la logica, vedere informazioni sulle [app per la](../logic-apps/logic-apps-overview.md) logica di Azure e [avvio rapido: creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
@@ -275,7 +275,7 @@ Nel corpo della risposta è possibile includere più intestazioni e qualsiasi ti
 
 Le risposte hanno le seguenti proprietà:
 
-| Proprietà (visualizzazione) | Property (JSON) | Description |
+| Proprietà (visualizzazione) | Property (JSON) | Descrizione |
 |--------------------|-----------------|-------------|
 | **Codice di stato** | `statusCode` | Codice di stato HTTP da utilizzare nella risposta per la richiesta in ingresso. Può essere qualsiasi codice di stato valido che inizia con 2xx, 4xx o 5xx. I codici di stato 3xx non sono consentiti. |
 | **Intestazioni** | `headers` | Una o più intestazioni da includere nella risposta |
@@ -302,17 +302,17 @@ Per visualizzare la definizione JSON per l'azione di risposta e la definizione J
 }
 ```
 
-## <a name="q--a"></a>Domande frequenti
+## <a name="q--a"></a>Domande e risposte
 
 #### <a name="q-what-about-url-security"></a>D: Come viene garantita la sicurezza degli URL?
 
 **R**: Azure genera in modo sicuro gli URL di callback delle app per la logica usando la [firma di accesso condiviso (SAS)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature). Questa firma viene passata come parametro di query e deve essere convalidata prima di poter eseguire l'app per la logica. Azure genera la firma con una combinazione univoca che include la chiave privata per ogni app per la logica, il nome del trigger e l'operazione in esecuzione. Pertanto, a meno che un utente non ottenga l'accesso alla chiave privata dell'app per la logica, non potrà generare una firma valida.
 
 > [!IMPORTANT]
-> Per i sistemi di produzione e sicurezza, è consigliabile non chiamare l'app per la logica direttamente dal browser per i motivi seguenti:
+> Per i sistemi di produzione e di sicurezza più elevati, è consigliabile non chiamare l'app per la logica direttamente dal browser per i motivi seguenti:
 >
 > * La chiave di accesso condiviso viene visualizzata nell'URL.
-> * Non è possibile gestire criteri di contenuto protetti a causa di domini condivisi tra i clienti di app per la logica di Azure.
+> * Non è possibile gestire i criteri di contenuto di sicurezza a causa di domini condivisi in app per la logica di Azure.
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>D: È possibile configurare ulteriormente gli endpoint HTTP?
 

@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: a423b123626633eac761122583c5c494af68ca65
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 46be210ead3816356b63293b910e1c0e7ffc087b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020438"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200096"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creare una formula automatica per la scalabilità dei nodi di calcolo in un pool di batch
 
@@ -89,7 +89,7 @@ $NodeDeallocationOption = taskcompletion;
 
 Questo esempio crea un pool che inizia con 25 nodi con priorità bassa. Ogni volta che un nodo con priorità bassa viene interrotto, viene sostituito con un nodo dedicato. Come nel primo esempio, la variabile `maxNumberofVMs` impedisce al pool di superare 25 VM. Questo esempio è utile per sfruttare le macchine virtuali con priorità bassa, garantendo al tempo stesso l'esecuzione di un numero fisso di interruzioni per la durata del pool.
 
-## <a name="variables"></a>Variabili
+## <a name="variables"></a>variables
 
 Nelle formule di scalabilità automatica è possibile usare sia **variabili definite dal servizio** sia **variabili definite dall'utente**. Le variabili definite dal servizio sono incorporate nel servizio Batch. Alcune sono in lettura/scrittura e altre di sola lettura. Le variabili definite dall'utente vengono configurate dall'utente. Nella formula di esempio della sezione precedente `$TargetDedicatedNodes` e `$PendingTasks` sono variabili definite dal servizio. Le variabili `startingNumberOfVMs` e `maxNumberofVMs` sono definite dall'utente.
 
@@ -102,7 +102,7 @@ Le tabelle seguenti includono sia le variabili di lettura/scrittura che di sola 
 
 È possibile ottenere e impostare i valori di queste variabili definite dal servizio per gestire il numero di nodi di calcolo in un pool:
 
-| Variabili in lettura/scrittura definite dal servizio | Description |
+| Variabili in lettura/scrittura definite dal servizio | Descrizione |
 | --- | --- |
 | $TargetDedicatedNodes |Numero di destinazione dei nodi di calcolo dedicati per il pool. Il numero di nodi dedicati viene specificato come destinazione, perché un pool potrebbe non ottenere sempre il numero desiderato di nodi. Ad esempio, se il numero di nodi dedicati di destinazione viene modificato da una valutazione di scalabilità automatica prima che il pool raggiunga il valore di destinazione iniziale, è possibile che il pool non raggiunga il numero di nodi di destinazione. <br /><br /> Un pool in un account creato con la configurazione del servizio Batch potrebbe non raggiungere il valore di destinazione se supera la quota di nodi o core di un account Batch. Un pool in un account creato con la configurazione di sottoscrizione utente potrebbe non raggiungere il valore di destinazione se supera la quota condivisa di nodi per la sottoscrizione.|
 | $TargetLowPriorityNodes |Numero di destinazione dei nodi di calcolo con priorità bassa per il pool. Il numero di nodi con priorità bassa viene specificato come destinazione, perché un pool potrebbe non ottenere sempre il numero desiderato di nodi. Ad esempio, se il numero di nodi con priorità bassa di destinazione viene modificato da una valutazione di scalabilità automatica prima che il pool raggiunga il valore di destinazione iniziale, è possibile che il pool non raggiunga il numero di nodi di destinazione. Un pool potrebbe anche non raggiungere il valore di destinazione se supera la quota di nodi o core di un account Batch. <br /><br /> Per altre informazioni sui nodi di calcolo con priorità bassa, vedere [usare macchine virtuali con priorità bassa con batch](batch-low-pri-vms.md). |
@@ -115,7 +115,7 @@ Le tabelle seguenti includono sia le variabili di lettura/scrittura che di sola 
 
 È possibile ottenere il valore di queste variabili definite dal servizio per eseguire adeguamenti basati sulla metrica del servizio Batch:
 
-| Variabili di sola lettura definite dal servizio | Description |
+| Variabili di sola lettura definite dal servizio | Descrizione |
 | --- | --- |
 | $CPUPercent |Percentuale media di utilizzo della CPU. |
 | $WallClockSeconds |Numero di secondi utilizzati. |
@@ -152,7 +152,7 @@ Questi sono i tipi supportati in una formula:
 * string
 * timestamp, è una struttura composta che contiene i membri seguenti:
 
-  * anno
+  * year
   * month (1-12)
   * day (1-31)
   * weekday (in formato numero, ad esempio 1 per lunedì)
@@ -200,7 +200,7 @@ Durante il test di un valore double con un operatore ternario (`double ? stateme
 ## <a name="functions"></a>Funzioni
 Queste **funzioni** predefinite sono disponibili per consentire la definizione di una formula di ridimensionamento automatico.
 
-| Funzione | Tipo restituito | Description |
+| Funzione | Tipo restituito | Descrizione |
 | --- | --- | --- |
 | avg(doubleVecList) |double |Restituisce il valore medio per tutti i valori in doubleVecList. |
 | len(doubleVecList) |double |Restituisce la lunghezza del vettore creato da doubleVecList. |
@@ -236,7 +236,7 @@ Le formule di ridimensionamento automatico agiscono sui dati di metrica (campion
 $CPUPercent.GetSample(TimeInterval_Minute * 5)
 ```
 
-| Metodo | Description |
+| Metodo | Descrizione |
 | --- | --- |
 | GetSample() |Il metodo `GetSample()` restituisce un vettore relativo ai campioni di dati.<br/><br/>Un campione rappresenta 30 secondi di dati di metrica. In altre parole i campioni vengono raccolti ogni 30 secondi, ma come indicato di seguito si verifica un ritardo tra il momento in cui un campione viene raccolto e il momento in cui è disponibile per una formula. Di conseguenza, i campioni per un determinato periodo di tempo potrebbero non essere tutti disponibili per la valutazione da parte di una formula.<ul><li>`doubleVec GetSample(double count)`<br/>Specifica il numero di campioni da ottenere tra quelli raccolti più di recente.<br/><br/>`GetSample(1)` restituisce l'ultimo campione disponibile. Per le metriche come `$CPUPercent` non deve tuttavia essere usato perché non è possibile sapere *quando* è stato raccolto il campione. Potrebbe essere recente o risultare molto meno recente a causa di problemi di sistema. In questi casi è preferibile usare un intervallo di tempo, come illustrato di seguito.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Specifica un intervallo di tempo per la raccolta di dati di esempio. Facoltativamente specifica anche la percentuale di campioni che deve essere disponibile nell'intervallo di tempo richiesto.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` restituisce 20 campioni se nella cronologia CPUPercent sono presenti tutti i campioni per gli ultimi 10 minuti. Se l'ultimo minuto della cronologia non è disponibile, vengono tuttavia restituiti solo 18 campioni. In questo caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` avrà esito negativo poiché è disponibile solo il 90% dei campioni.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` avrà esito positivo.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Specifica un intervallo di tempo per la raccolta dei dati, con un'ora di inizio e un'ora di fine.<br/><br/>Come indicato in precedenza, si verifica un ritardo tra il momento in cui un campione viene raccolto e il momento in cui è disponibile per una formula. È necessario tenere presente questo ritardo quando si usa il metodo `GetSample`. Vedere `GetSamplePercent` di seguito. |
 | GetSamplePeriod() |Restituisce il periodo dei campioni raccolti in un set di dati campione cronologici. |
@@ -295,7 +295,7 @@ Quando si definisce una formula, è possibile usare metriche di risorse e di att
 <table>
   <tr>
     <th>Metrica</th>
-    <th>Description</th>
+    <th>Descrizione</th>
   </tr>
   <tr>
     <td><b>Risorsa</b></td>
@@ -675,10 +675,10 @@ In questo esempio le dimensioni del pool vengono regolate in base al numero di a
 
 ```csharp
 // Get pending tasks for the past 15 minutes.
-$samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
+$samples = $PendingTasks.GetSamplePercent(TimeInterval_Minute * 15);
 // If we have fewer than 70 percent data points, we use the last sample point,
 // otherwise we use the maximum of last sample point and the history average.
-$tasks = $samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1), avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
+$tasks = $samples < 70 ? max(0,$PendingTasks.GetSample(1)) : max( $PendingTasks.GetSample(1), avg($PendingTasks.GetSample(TimeInterval_Minute * 15)));
 // If number of pending tasks is not 0, set targetVM to pending tasks, otherwise
 // half of current dedicated.
 $targetVMs = $tasks > 0? $tasks:max(0, $TargetDedicatedNodes/2);

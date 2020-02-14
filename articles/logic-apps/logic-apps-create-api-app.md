@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
 ms.date: 05/26/2017
-ms.openlocfilehash: e4200d09a02da1fd95f9bf5051b7f9d5fca5aa98
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: bb6c99ea12e5b53631d42a04b36b7bfef2337e42
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793217"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191436"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Creare API personalizzate che è possibile chiamare da App per la logica di Azure
 
@@ -172,7 +172,7 @@ Ad esempio, per verificare periodicamente se nel servizio sono presenti nuovi fi
 | La richiesta include `triggerState`? | Risposta dell'API | 
 | -------------------------------- | -------------| 
 | No | Restituire uno stato HTTP `202 ACCEPTED` oltre a un'intestazione `location` con `triggerState` impostato sull'ora corrente e l'intervallo `retry-after` su 15 secondi. | 
-| SÌ | Verificare se nel servizio sono presenti file aggiunti dopo `DateTime` per `triggerState`. | 
+| Sì | Verificare se nel servizio sono presenti file aggiunti dopo `DateTime` per `triggerState`. | 
 ||| 
 
 | Numero di file trovati | Risposta dell'API | 
@@ -206,9 +206,9 @@ I trigger webhook funzionano in modo molto simile alle [azioni webhook](#webhook
 > [!TIP]
 > Per un esempio di modello webhook, esaminare questo [esempio di controller di trigger webhook in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
-## <a name="secure-calls-to-your-apis-from-logic-apps"></a>Proteggere le chiamate alle API da app per la logica
+## <a name="improve-security-for-calls-to-your-apis-from-logic-apps"></a>Migliorare la sicurezza per le chiamate alle API da app per la logica
 
-Dopo aver creato le API personalizzate, configurare l'autenticazione per le API in modo che possano essere chiamate in modo sicuro da app per la logica. Vedere [Come proteggere le chiamate alle API personalizzate da app per la logica](../logic-apps/logic-apps-custom-api-authentication.md).
+Dopo aver creato le API personalizzate, configurare l'autenticazione per le API in modo che possano essere chiamate in modo sicuro da app per la logica. Informazioni [su come migliorare la sicurezza per le chiamate alle API personalizzate da app per la logica](../logic-apps/logic-apps-custom-api-authentication.md).
 
 ## <a name="deploy-and-call-your-apis"></a>Distribuire e chiamare le API
 
@@ -220,7 +220,7 @@ Per rendere disponibili le API personalizzate per altri utenti di App per la log
 
 Per rendere disponibili le API personalizzate a tutti gli utenti di app per la logica, Power automatizzate e Microsoft Power Apps è necessario aggiungere sicurezza, registrare le API come connettori di app per la logica e designare i connettori per il [programma Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 
-## <a name="get-support"></a>Ottenere supporto
+## <a name="get-support"></a>Supporto
 
 * Per assistenza specifica per le API personalizzate, contattare [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
 

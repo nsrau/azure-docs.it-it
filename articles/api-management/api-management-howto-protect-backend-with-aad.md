@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 213e5523c0c99309c3244e19a406a7b82297188f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+ms.openlocfilehash: 8b396b782c1254b3229aeeb8e51b61cc744d6318
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161801"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190372"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Proteggere un'API usando OAuth 2.0 con Azure Active Directory e Gestione API
 
@@ -71,7 +71,7 @@ Per proteggere un'API con Azure AD, il primo passaggio consiste nel registrare u
 
 Ogni applicazione client che chiama l'API deve anche essere registrata come applicazione in Azure AD. In questo esempio, l'applicazione client è la console per sviluppatori nel portale per sviluppatori di gestione API. Ecco come registrare un'altra applicazione in Azure AD per rappresentare la console per sviluppatori.
 
-1. Passare alla [portale di Azure](https://portal.azure.com) per registrare l'applicazione. Cercare e selezionare le **registrazioni dell'API**.
+1. Passare alla [portale di Azure](https://portal.azure.com) per registrare l'applicazione. Cercare e selezionare registrazioni per l' **app**.
 
 1. Selezionare **Nuova registrazione**.
 
@@ -97,7 +97,7 @@ Quando viene creato il segreto, annotare il valore della chiave da usare in un p
 
 Ora che sono state registrate due applicazioni per rappresentare l'API e la console per sviluppatori, è necessario concedere le autorizzazioni per consentire all'app client di chiamare l'app back-end.  
 
-1. Passare alla [portale di Azure](https://portal.azure.com) per concedere le autorizzazioni all'applicazione client. Cercare e selezionare le **registrazioni dell'API**.
+1. Passare alla [portale di Azure](https://portal.azure.com) per concedere le autorizzazioni all'applicazione client. Cercare e selezionare registrazioni per l' **app**.
 
 1. Scegliere l'app client. Quindi nell'elenco di pagine per l'app selezionare autorizzazioni per le **API**.
 
@@ -202,7 +202,7 @@ Tuttavia, cosa accade se un utente chiama l'API senza un token o con un token no
     <openid-config url="https://login.microsoftonline.com/{aad-tenant}/.well-known/openid-configuration" />
     <required-claims>
         <claim name="aud">
-            <value>{Application ID URI of backend-app}</value>
+            <value>{Application ID of backend-app}</value>
         </claim>
     </required-claims>
 </validate-jwt>

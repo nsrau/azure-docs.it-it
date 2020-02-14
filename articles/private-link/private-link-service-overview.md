@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: f8d49a62ae9006e65ef86db1ae90cd5a5e9f1c6d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d2313bfc47026ed9655d0ca25f0a0fdf3f86d8a5
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647374"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191075"
 ---
 # <a name="what-is-azure-private-link-service"></a>Che cos'è il servizio di collegamento privato di Azure?
 
@@ -55,6 +55,7 @@ Un servizio di collegamento privato specifica le proprietà seguenti:
 |Configurazione IP Front-End Load Balancer (loadBalancerFrontendIpConfigurations)    |    Il servizio di collegamento privato è associato all'indirizzo IP front-end di un Load Balancer Standard. Tutto il traffico destinato al servizio raggiungerà il front-end del SLB. È possibile configurare le regole di SLB per indirizzare il traffico ai pool back-end appropriati in cui le applicazioni sono in esecuzione. Le configurazioni IP front-end del servizio di bilanciamento del carico sono diverse dalle configurazioni IP NAT.      |
 |Configurazione IP NAT (ipConfigurations)    |    Questa proprietà fa riferimento alla configurazione IP NAT (Network Address Translation) per il servizio di collegamento privato. È possibile scegliere l'indirizzo IP NAT da qualsiasi subnet nella rete virtuale di un provider di servizi. Il servizio di collegamento privato esegue la NAT sul lato di destinazione sul traffico dei collegamenti privati. In questo modo si garantisce che non esistano conflitti IP tra l'origine (lato utente) e lo spazio degli indirizzi di destinazione (provider di servizi). Sul lato di destinazione (lato provider di servizi), l'indirizzo IP NAT viene visualizzato come IP di origine per tutti i pacchetti ricevuti dal servizio e dall'IP di destinazione per tutti i pacchetti inviati dal servizio.       |
 |Connessioni a endpoint privati (privateEndpointConnections)     |  Questa proprietà elenca gli endpoint privati che si connettono al servizio di collegamento privato. Più endpoint privati possono connettersi allo stesso servizio di collegamento privato e il provider di servizi può controllare lo stato dei singoli endpoint privati.        |
+|Proxy TCP V2 (EnableProxyProtocol)     |  Questa proprietà consente al provider di servizi di utilizzare TCP proxy v2 per recuperare le informazioni di connessione relative al consumer del servizio. Il provider di servizi è responsabile della configurazione delle configurazioni del ricevitore per poter analizzare l'intestazione del protocollo proxy v2.        |
 |||
 
 
@@ -95,14 +96,28 @@ I consumer con esposizione (controllata dall'impostazione di visibilità) al ser
 
 L'azione di approvazione delle connessioni può essere automatizzata tramite la proprietà di approvazione automatica nel servizio di collegamento privato. L'approvazione automatica è una possibilità per i provider di servizi di preapprovare un set di sottoscrizioni per l'accesso automatizzato al servizio. I clienti dovranno condividere le sottoscrizioni offline per i provider di servizi da aggiungere all'elenco di approvazione automatica. L'approvazione automatica è un subset della matrice di visibilità. Visibility controlla le impostazioni di esposizione mentre l'approvazione automatica controlla le impostazioni di approvazione per il servizio. Se un cliente richiede una connessione da una sottoscrizione nell'elenco di approvazione automatica, la connessione viene approvata automaticamente e viene stabilita la connessione. I provider di servizi non devono più approvare manualmente la richiesta. D'altra parte, se un cliente richiede una connessione da una sottoscrizione nell'array di visibilità e non nell'array di approvazione automatica, la richiesta raggiungerà il provider di servizi, ma il provider di servizi deve approvare manualmente le connessioni.
 
+## <a name="getting-connection-information-using-tcp-proxy-v2"></a>Recupero delle informazioni di connessione tramite il proxy TCP V2
+
+Quando si usa il servizio di collegamento privato, l'indirizzo IP di origine dei pacchetti provenienti dall'endpoint privato è NAT (Network Address translated) sul lato del provider di servizi usando l'IP NAT allocato dalla rete virtuale del provider. Di conseguenza, le applicazioni ricevono l'indirizzo IP NAT allocato anziché l'indirizzo IP di origine effettivo dei consumer del servizio. Se l'applicazione richiede un indirizzo IP di origine effettivo dal lato consumer, è possibile abilitare il protocollo proxy nel servizio e recuperare le informazioni dall'intestazione del protocollo proxy. Oltre all'indirizzo IP di origine, l'intestazione del protocollo proxy contiene anche il LinkID dell'endpoint privato. Una combinazione di indirizzo IP di origine e LinkID può consentire ai provider di servizi di identificare in modo univoco gli utenti. Per ulteriori informazioni sul protocollo proxy, vedere qui. 
+
+Queste informazioni vengono codificate usando un vettore TLV (Type-Length-Value) personalizzato come indicato di seguito:
+
+Dettagli TLV personalizzati:
+
+|Campo |Lunghezza (ottetti)  |Descrizione  |
+|---------|---------|----------|
+|Type  |1        |PP2_TYPE_AZURE (0xEE)|
+|Length  |2      |Lunghezza del valore|
+|valore  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
+|  |4        |UINT32 (4 byte) che rappresenta il LINKID dell'endpoint privato. Codificato in formato little endian.|
+
+
 ## <a name="limitations"></a>Limitazioni
 
 Di seguito sono riportate le limitazioni note relative all'utilizzo del servizio di collegamento privato:
 - Supportato solo in Load Balancer Standard 
 - Supporta solo traffico IPv4
 - Supporta solo il traffico TCP
-- L'esperienza di creazione e gestione da portale di Azure non è supportata
-- Le informazioni di connessione dei client che usano il protocollo proxy non sono disponibili per il provider di servizi
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Creare un servizio di collegamento privato utilizzando Azure PowerShell](create-private-link-service-powershell.md)

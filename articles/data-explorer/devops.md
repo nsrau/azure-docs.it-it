@@ -1,6 +1,6 @@
 ---
-title: Attività di Azure DevOps per Esplora dati di Azure
-description: In questo argomento illustra come creare una pipeline di rilascio e distribuire
+title: Attività DevOps di Azure per Azure Esplora dati
+description: In questo argomento viene illustrato come creare una pipeline di versione e distribuire
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,113 +8,113 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/05/2019
-ms.openlocfilehash: 0628d5c07d7258cc4d68727c364e65bd81c78e8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6394d7149bd4e80f0a17a59a6259eedf4c806fd4
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388987"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188169"
 ---
-# <a name="azure-devops-task-for-azure-data-explorer"></a>Attività di DevOps di Azure per dati di Azure Explorer
+# <a name="azure-devops-task-for-azure-data-explorer"></a>Attività DevOps di Azure per Azure Esplora dati
 
-[Servizi di Azure DevOps](https://azure.microsoft.com/services/devops/) fornisce strumenti per la collaborazione, ad esempio le pipeline a prestazioni elevate, repository Git privati gratuiti, lavagne Kanban configurabili e numerose funzionalità test automatizzate e continuata sviluppo. [Le pipeline di Azure](https://azure.microsoft.com/services/devops/pipelines/) è una funzionalità DevOps di Azure che consente di gestire l'integrazione continua/recapito Continuo per distribuire il codice con le pipeline a prestazioni elevate che funzionano con qualsiasi linguaggio, piattaforme e cloud.
-[Azure Esplora dati - i comandi di amministratore](https://marketplace.visualstudio.com/items?itemName=Azure-Kusto.PublishToADX) è l'attività di pipeline di Azure che ti permette di creare pipeline di rilascio e distribuire il database delle modifiche ai database di Esplora dati di Azure. È disponibile gratuitamente nel [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
+[Azure DevOps Services](https://azure.microsoft.com/services/devops/) offre strumenti di collaborazione per lo sviluppo, ad esempio pipeline ad alte prestazioni, repository git privati gratuiti, lavagne Kanban configurabili e funzionalità complete di test automatizzati e continui. [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) è una funzionalità di Azure DevOps che consente di gestire ci/CD per distribuire il codice con pipeline ad alte prestazioni che funzionano con qualsiasi linguaggio, piattaforma e cloud.
+[Comandi di amministrazione Esplora dati di Azure](https://marketplace.visualstudio.com/items?itemName=Azure-Kusto.PublishToADX) è l'attività Azure Pipelines che consente di creare pipeline di versione e distribuire le modifiche al database nei database di Esplora dati di Azure. È disponibile gratuitamente nel [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 
-Questo documento viene descritto un semplice esempio sull'uso delle **Esplora dati di Azure: i comandi di amministratore** modifiche di attività per distribuire il proprio schema al database. Per le pipeline CI/CD completate, consultare [documentazione di Azure DevOps](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops#vsts).
+Questo documento descrive un semplice esempio di uso dell'attività **comandi di Azure Esplora dati – admin** per distribuire le modifiche dello schema nel database. Per le pipeline CI/CD complete, vedere la [documentazione di Azure DevOps](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops#vsts).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* Installazione del Cluster di Esplora dati di Azure:
-    * Un [cluster Esplora dati di Azure e database](/azure/data-explorer/create-cluster-database-portal)
-    * Creare app di Azure Active Directory (Azure AD) per [il provisioning di un'applicazione Azure AD](/azure/kusto/management/access-control/how-to-provision-aad-app).
-    * Concedere l'accesso all'app di Azure AD nel database di Esplora dati di Azure da [gestione delle autorizzazioni di database di Azure Data Explorer](/azure/data-explorer/manage-database-permissions).
-* Programma di installazione di Azure DevOps:
-    * [Iscriversi per un'organizzazione gratuita](/azure/devops/user-guide/sign-up-invite-teammates?view=azure-devops)
-    * [Creazione di un'organizzazione](/azure/devops/organizations/accounts/create-organization?view=azure-devops)
+* Installazione del cluster di Esplora dati di Azure:
+    * Un [cluster e un database di Azure Esplora dati](/azure/data-explorer/create-cluster-database-portal)
+    * Creare un'app Azure Active Directory (Azure AD) effettuando il [provisioning di un'applicazione Azure ad](/azure/kusto/management/access-control/how-to-provision-aad-app).
+    * Concedere l'accesso all'App Azure AD nel database di Esplora dati di Azure [gestendo le autorizzazioni di azure Esplora dati database](/azure/data-explorer/manage-database-permissions).
+* Installazione di Azure DevOps:
+    * [Iscriversi per ottenere un'organizzazione gratuita](/azure/devops/user-guide/sign-up-invite-teammates?view=azure-devops)
+    * [Creare un'organizzazione](/azure/devops/organizations/accounts/create-organization?view=azure-devops)
     * [Creare un progetto in Azure DevOps](/azure/devops/organizations/projects/create-project?view=azure-devops)
-    * [Il codice con Git](/azure/devops/user-guide/code-with-git?view=azure-devops)
+    * [Codice con git](/azure/devops/user-guide/code-with-git?view=azure-devops)
 
 ## <a name="create-folders"></a>Creare cartelle
 
-Creare le cartelle di esempio seguenti (*funzioni*, *criteri*, *tabelle*) nel repository Git. Copiare i file dalla [qui](https://github.com/Azure/azure-kusto-docs-samples/tree/master/DevOps_release_pipeline) nelle rispettive cartelle come illustrato nella seguente e salvare le modifiche. Per eseguire il flusso di lavoro seguente sono disponibili i file di esempio.
+Creare le cartelle di esempio seguenti (*funzioni*, *criteri*e *tabelle*) nel repository git. Copiare i file da [qui](https://github.com/Azure/azure-kusto-docs-samples/tree/master/DevOps_release_pipeline) nelle rispettive cartelle come illustrato di seguito ed eseguire il commit delle modifiche. Per eseguire il flusso di lavoro seguente, vengono forniti i file di esempio.
 
 ![Creare cartelle](media/devops/create-folders.png)
 
 > [!TIP]
-> Quando si crea il proprio flusso di lavoro, è consigliabile rendere idempotenti il codice. Ad esempio, usare [tabella relative-merge](/azure/kusto/management/tables#create-merge-tables) invece di [tabella relative](/azure/kusto/management/tables#create-table)e usare [relative o alter](/azure/kusto/management/functions#create-or-alter-function) funzione anziché [relative](/azure/kusto/management/functions#create-function) funzione.
+> Quando si crea un flusso di lavoro personalizzato, è consigliabile rendere il codice idempotente. Utilizzare, ad esempio, [. Create-merge table](/azure/kusto/management/create-table-command#create-merge-table) anziché [. Create Table](/azure/kusto/management/create-table-command)e utilizzare la funzione [. Create-o-ALTER](/azure/kusto/management/functions#create-or-alter-function) invece della funzione [. Create](/azure/kusto/management/functions#create-function) .
 
-## <a name="create-a-release-pipeline"></a>Creare una pipeline di rilascio
+## <a name="create-a-release-pipeline"></a>Creare una pipeline di versione
 
-1. Accedi per i [organizzazione di Azure DevOps](https://dev.azure.com/).
+1. Accedere all' [organizzazione DevOps di Azure](https://dev.azure.com/).
 1. Selezionare **pipeline** > **versioni** dal menu a sinistra e selezionare **nuova pipeline**.
 
     ![Nuova pipeline](media/devops/new-pipeline.png)
 
-1. Il **nuova pipeline di rilascio** verrà visualizzata la finestra. Nel **pipeline** nella scheda il **selezionare un modello** riquadro, selezionare **Comm**.
+1. Verrà visualizzata la finestra **nuova pipeline di rilascio** . Nel riquadro **selezionare un modello** della scheda **pipeline** selezionare **processo vuoto**.
 
      ![Selezionare un modello:](media/devops/select-template.png)
 
-1. Selezionare **fase** pulsante. Nelle **Stage** riquadro, aggiungere il **nome fase**. Selezionare **salvare** per salvare la pipeline.
+1. Selezionare il pulsante **stage** . Nel riquadro **fase** aggiungere il **nome della fase**. Selezionare **Save (Salva** ) per salvare la pipeline.
 
-    ![Nome fase](media/devops/stage-name.png)
+    ![Assegnare un nome alla fase](media/devops/stage-name.png)
 
-1. Selezionare **aggiungere un elemento** pulsante. Nel **aggiungere un elemento** riquadro, selezionare il repository in cui è presente il codice, compilare le informazioni rilevanti e fare clic su **Add**. Selezionare **salvare** per salvare la pipeline.
+1. Selezionare il pulsante **Aggiungi elemento** . Nel riquadro **Aggiungi un artefatto** selezionare il repository in cui è presente il codice, compilare le informazioni rilevanti e fare clic su **Aggiungi**. Selezionare **Save (Salva** ) per salvare la pipeline.
 
     ![Aggiungere un elemento](media/devops/add-artifact.png)
 
-1. Nel **variabili** scheda, seleziona **+ Aggiungi** per creare una variabile per **URL dell'Endpoint** che verrà usato nell'attività. Scrivere il **Name** e il **valore** dell'endpoint. Selezionare **salvare** per salvare la pipeline. 
+1. Nella scheda **variabili** selezionare **+ Aggiungi** per creare una variabile per l' **URL dell'endpoint** che verrà utilizzato nell'attività. Scrivere il **nome** e il **valore** dell'endpoint. Selezionare **Save (Salva** ) per salvare la pipeline. 
 
-    ![Creare una variabile](media/devops/create-variable.png)
+    ![Crea variabile](media/devops/create-variable.png)
 
-    Per trovare le Endpoint_URL, la pagina di panoramica delle **Cluster di Azure Data Explorer** nel portale di Azure, portale contiene l'URI del cluster di Esplora dati di Azure. Costruire l'URI nel formato seguente `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  Ad esempio, https:\//kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
+    Per trovare la Endpoint_URL, la pagina Panoramica del **cluster di azure Esplora dati** nel portale di Azure contiene l'URI del cluster di Azure Esplora dati. Costruire l'URI nel formato seguente `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  Ad esempio, https:\//kustodocs.westus.kusto.Windows.NET? DatabaseName = SampleDB
 
-    ![URI del cluster Esplora dati Azure](media/devops/adx-cluster-uri.png)
+    ![URI del cluster di Azure Esplora dati](media/devops/adx-cluster-uri.png)
 
-## <a name="create-tasks-to-deploy"></a>Creare attività da distribuire
+## <a name="create-tasks-to-deploy"></a>Creazione di attività da distribuire
 
-1. Nel **Pipeline** scheda, fare clic su **1 processo, 0 attività** per aggiungere le attività. 
+1. Nella scheda **pipeline** fare clic su **1 processo, 0 attività** per aggiungere attività. 
 
     ![Aggiungere attività](media/devops/add-task.png)
 
-1. Creare tre attività per distribuire **tabelle**, **funzioni**, e **criteri**, nell'ordine indicato. 
+1. Creare tre attività per la distribuzione di **tabelle**, **funzioni**e **criteri**in questo ordine. 
 
-1. Nel **attività** scheda, seleziona **+** da **processo dell'agente**. Cercare **Esplora dati di Azure**. Nelle **Marketplace**, installare il **Esplora dati di Azure: i comandi di amministratore** estensione. Quindi, selezionare **Add** nelle **esecuzione del comando Esplora dati Azure**.
+1. Nella scheda **attività** selezionare **+** in base al **processo di Agent**. Cercare **Esplora dati di Azure**. In **Marketplace**installare l'estensione **Azure Esplora dati – admin Commands** . Selezionare quindi **Aggiungi** in **Esegui comando di Azure Esplora dati**.
 
-     ![Aggiungere i comandi di amministratore](media/devops/add-admin-commands.png)
+     ![Aggiungere comandi di amministratore](media/devops/add-admin-commands.png)
 
-1. Fare clic su **Kusto comando** a sinistra e aggiornare l'attività con le informazioni seguenti:
-    * **Nome visualizzato**: Nome dell'attività
-    * **Percorso del file**: Nel **tabelle** attività, specificare */Tables/* .csl poiché i file di creazione della tabella sono nella *tabella* cartella.
-    * **URL dell'endpoint**: immettere il `EndPoint URL`variabile creata nel passaggio precedente.
-    * Selezionare **Endpoint di servizio di utilizzo** e selezionare **+ nuovo**.
+1. Fare clic sul **comando kusto** a sinistra e aggiornare l'attività con le informazioni seguenti:
+    * **Nome visualizzato**: nome dell'attività
+    * **Percorso file**: nell'attività **tabelle** specificare */Tables/* . CSL poiché i file di creazione della tabella si trovano nella cartella della *tabella* .
+    * **URL endpoint**: immettere la variabile `EndPoint URL`creata nel passaggio precedente.
+    * Selezionare **Usa endpoint servizio** e selezionare **+ nuovo**.
 
-    ![Attività di comando di aggiornamento Kusto](media/devops/kusto-command-task.png)
+    ![Attività Aggiorna comando kusto](media/devops/kusto-command-task.png)
 
-1. Completare le informazioni seguenti nel **connessione del servizio aggiungere Esplora dati di Azure** finestra:
+1. Completare le seguenti informazioni nella finestra **Aggiungi connessione al servizio Esplora dati di Azure** :
 
     |Impostazione  |Valore consigliato  |
     |---------|---------|
-    |**Nome connessione**     |    Immettere un nome per identificare questo endpoint di servizio     |
-    |**Url del cluster**    |    Valore sono reperibili nella sezione Panoramica del Cluster di Esplora dati di Azure nel portale di Azure | 
-    |**Id dell'entità servizio**    |    Immettere l'ID dell'App AAD (creato come prerequisito)     |
-    |**Chiave dell'entità servizio App**     |    Immettere la chiave dell'App AAD (creato come prerequisito)    |
-    |**Id tenant AAD**    |      Immettere il tenant di AAD (ad esempio microsoft.com, contoso.com...)    |
+    |**Nome connessione**     |    Immettere un nome per identificare l'endpoint di servizio     |
+    |**URL del cluster**    |    Il valore si trova nella sezione Panoramica del cluster di Azure Esplora dati nel portale di Azure | 
+    |**ID entità servizio**    |    Immettere l'ID app AAD (creato come prerequisito)     |
+    |**Chiave dell'app dell'entità servizio**     |    Immettere la chiave dell'app AAD (creata come prerequisito)    |
+    |**ID tenant AAD**    |      Immettere il tenant di AAD (ad esempio microsoft.com, contoso.com...)    |
 
-    Selezionare **Consenti tutte le pipeline di usare tale connessione** casella di controllo. Selezionare **OK**.
+    Selezionare **la casella di controllo Consenti a tutte le pipeline di utilizzare questa connessione** . Selezionare **OK**.
 
     ![Aggiungi connessione al servizio](media/devops/add-service-connection.png)
 
-1. Ripetere i passaggi da 1 a 5 un altro due volte per distribuire i file dal *funzioni* e *criteri* cartelle. Selezionare **Salva**. Nel **attività** scheda, vedere le tre attività creata: **Distribuire le tabelle**, **distribuire funzioni**, e **distribuire i criteri**.
+1. Ripetere i passaggi 1-5 altre due volte per distribuire i file dalle cartelle *funzioni* e *criteri* . Selezionare **Salva**. Nella scheda **attività** , vedere le tre attività create: **deploy Tables**, **deploy Functions**e **deploy Policies**.
 
-    ![Distribuire tutte le cartelle](media/devops/deploy-all-folders.png)
+    ![Distribuisci tutte le cartelle](media/devops/deploy-all-folders.png)
 
-1. Selezionare **+ Release** > **Crea versione** per creare una versione.
+1. Selezionare **+ release** > **Crea versione** per creare una versione.
 
     ![Creare una versione](media/devops/create-release.png)
 
-1. Nel **registri** scheda, controllare lo stato di distribuzione ha esito positivo.
+1. Nella scheda **logs** verificare che lo stato della distribuzione sia completato.
 
-    ![La distribuzione ha esito positivo](media/devops/deployment-successful.png)
+    ![La distribuzione è riuscita](media/devops/deployment-successful.png)
 
-A questo punto è stata completata la creazione di una pipeline di rilascio per la distribuzione delle tre attività di pre-produzione.
+A questo punto è stata completata la creazione di una pipeline di versione per la distribuzione di tre attività in pre-produzione.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: dfa7681b43bd18e15ee929156ab9a45bb9790c5b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6e066d28afc4b0959b15284378cde682fbc05615
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845580"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190472"
 ---
 # <a name="plan-virtual-networks"></a>Pianificare le reti virtuali
 
@@ -27,9 +27,9 @@ Creare una rete virtuale per sperimentare è abbastanza semplice, ma è probabil
 
 ## <a name="naming"></a>Denominazione
 
-Tutte le risorse di Azure hanno un nome. Il nome deve essere univoco all'interno di un ambito, che può variare per ogni tipo di risorsa. Ad esempio, il nome di una rete virtuale deve essere univoco all'interno di un [gruppo di risorse](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), ma può essere duplicato all'interno di una [sottoscrizione](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) o di un'[area](https://azure.microsoft.com/regions/#services) di Azure. Definire una convenzione di denominazione che è possibile usare in modo coerente quando si denominano le risorse risulta utile quando si gestiscono diverse risorse di rete nel corso del tempo. Per alcuni suggerimenti, vedere [Naming conventions](/azure/architecture/best-practices/resource-naming#networking) (Convenzioni di denominazione).
+Tutte le risorse di Azure hanno un nome. Il nome deve essere univoco all'interno di un ambito, che può variare per ogni tipo di risorsa. Ad esempio, il nome di una rete virtuale deve essere univoco all'interno di un [gruppo di risorse](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), ma può essere duplicato all'interno di una [sottoscrizione](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) o di un'[area](https://azure.microsoft.com/regions/#services) di Azure. Definire una convenzione di denominazione che è possibile usare in modo coerente quando si denominano le risorse risulta utile quando si gestiscono diverse risorse di rete nel corso del tempo. Per alcuni suggerimenti, vedere [Naming conventions](../azure-resource-manager/management/resource-name-rules.md#microsoftnetwork) (Convenzioni di denominazione).
 
-## <a name="regions"></a>Aree
+## <a name="regions"></a>Regioni
 
 Tutte le risorse di Azure vengono create in un'area e in una sottoscrizione di Azure. Una risorsa può essere creata solo in una rete virtuale presente nella stessa area e nella stessa sottoscrizione della risorsa. È tuttavia possibile connettere reti virtuali esistenti in sottoscrizioni e aree diverse. Per altre informazioni, vedere [Problemi di connettività](#connectivity). Quando si decidono le aree in cui distribuire le risorse, prendere in considerazione dove si trovano fisicamente i consumer delle risorse:
 
@@ -66,7 +66,7 @@ Una rete virtuale può essere segmentata in una o più subnet fino a raggiungere
 - È possibile limitare l'accesso alle risorse di Azure, come ad esempio un account di archiviazione di Azure o un database SQL di Azure, per le subnet specifiche con un endpoint servizio di rete virtuale. Inoltre, è possibile negare l'accesso alle risorse da internet. È possibile creare più subnet e abilitare un endpoint del servizio per alcune subnet, ma non altro. Altre informazioni sugli [endpoint del servizio](virtual-network-service-endpoints-overview.md) e sulle risorse di Azure per cui è possibile abilitarli.
 - È possibile associare zero o un gruppo di sicurezza di rete ad ogni subnet in una rete virtuale. È possibile associare lo stesso gruppo di protezione o un altro per ogni subnet di rete. Ogni gruppo di sicurezza di rete contiene regole che consentono o negano il traffico da e verso le origini e le destinazioni. Vedere altre informazioni sui [gruppi di sicurezza di rete](#traffic-filtering).
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 È possibile filtrare il traffico di rete da e verso le risorse in una rete virtuale tramite i gruppi di sicurezza di rete e i dispositivi di rete virtuale. È possibile controllare come Azure instrada il traffico proveniente da subnet. È inoltre possibile limitare gli utenti dell'organizzazione che possono usare le risorse nelle reti virtuali.
 
@@ -109,7 +109,7 @@ Le risorse in una rete virtuale non possono risolvere i nomi delle risorse nella
 
 Azure usa il [Controllo degli accessi basato sui ruoli](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) per le risorse. Le autorizzazioni vengono assegnate a un [ambito](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) nella seguente gerarchia: gruppo di gestione, sottoscrizione, gruppo di risorse e singola risorsa. Per altre informazioni sulla gerarchia, vedere [organizzare le risorse](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Per lavorare con reti virtuali di Azure e con tutte le funzionalità correlate, come ad esempio il peering, i gruppi di sicurezza di rete, gli endpoint del servizio e le tabelle di route, è possibile assegnare i membri dell'organizzazione ai ruoli incorporati [Proprietario](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [Collaboratore](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor), o [Collaboratore di rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) e assegnare il ruolo all'ambito appropriato. Se si desidera assegnare autorizzazioni specifiche per un subset delle funzionalità di rete virtuale, creare un [ruolo personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e assegnare le autorizzazioni specifiche necessarie per le [reti virtuali](manage-virtual-network.md#permissions), le [subnet e gli endpoint del servizio](virtual-network-manage-subnet.md#permissions), le [interfacce di rete](virtual-network-network-interface.md#permissions), il [peering](virtual-network-manage-peering.md#permissions), i [gruppi di sicurezza di rete e delle applicazioni](manage-network-security-group.md#permissions), o le [tabelle route](manage-route-table.md#permissions) al ruolo.
 
-## <a name="policy"></a>Criterio
+## <a name="policy"></a>Policy
 
 Criteri di Azure consente di creare, assegnare e gestire le definizioni dei criteri. Le definizioni dei criteri applicano regole diverse alle risorse, in modo che le risorse rimangano conformi ai contratti di servizio e agli standard dell'organizzazione. Criteri di Azure esegue una valutazione delle risorse, alla ricerca delle risorse che non sono conformi alle definizioni di criteri specificate. Ad esempio, è possibile definire e applicare un criterio che consente la creazione di reti virtuali solo in un gruppo di risorse o in un'area specifici. Un altro criterio potrebbe richiedere che a tutte le subnet sia associato un gruppo di sicurezza di rete. I criteri vengono quindi valutati durante la creazione e l'aggiornamento delle risorse.
 

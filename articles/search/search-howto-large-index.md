@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: b4b6c57b08de07cae431f015c8d8f53cdf3a50a4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4ad5e961e390b60784355ff3bc72aca4a2f73e11
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460734"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190969"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Come indicizzare set di dati di grandi dimensioni in ricerca cognitiva di Azure
 
@@ -55,7 +55,7 @@ La pianificazione degli indicizzatori è un meccanismo importante per l'elaboraz
 
 Per impostazione predefinita, l'indicizzazione pianificata viene avviata a intervalli specifici, in cui un processo viene in genere completato prima di riprendere nell'intervallo pianificato successivo. Tuttavia, se l'elaborazione non viene completata entro l'intervallo, l'indicizzatore si arresta perché il tempo a disposizione è terminato. All'intervallo successivo l'elaborazione riprende da dove si è interrotta perché il sistema tiene traccia del punto in cui si è verificata l'interruzione. 
 
-In pratica per i caricamenti di indici che richiedono più giorni, è possibile inserire l'indicizzatore in una pianificazione di 24 ore. Quando l'indicizzazione riprende per il ciclo di 24 ore successivo, riparte dall'ultimo documento valido noto. In questo modo un indicizzatore può continuare a funzionare tramite un backlog del documento per più giorni fino a quando non vengono elaborati tutti i documenti non elaborati. Per altre informazioni su questo approccio, vedere [Indicizzazione di set di dati di grandi dimensioni](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Per altre informazioni sull'impostazione delle pianificazioni in generale, vedere [creare un'API REST dell'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax) o vedere [come pianificare gli indicizzatori per ricerca cognitiva di Azure](search-howto-schedule-indexers.md).
+In pratica per i caricamenti di indici che richiedono più giorni, è possibile inserire l'indicizzatore in una pianificazione di 24 ore. Quando l'indicizzazione riprende per il ciclo di 24 ore successivo, riparte dall'ultimo documento valido noto. In questo modo un indicizzatore può continuare a funzionare tramite un backlog del documento per più giorni fino a quando non vengono elaborati tutti i documenti non elaborati. Per altre informazioni su questo approccio, vedere [Indicizzazione di set di dati di grandi dimensioni](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Per altre informazioni sull'impostazione delle pianificazioni in generale, vedere [creare un'API REST dell'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer) o vedere [come pianificare gli indicizzatori per ricerca cognitiva di Azure](search-howto-schedule-indexers.md).
 
 <a name="parallel-indexing"></a>
 
@@ -80,7 +80,7 @@ L'elaborazione parallela prevede le operazioni seguenti:
 
 Per gli indicizzatori la capacità di elaborazione si basa vagamente su un sottosistema dell'indicizzatore per ogni unità di servizio usata dal servizio di ricerca. Sono possibili più indicizzatori simultanei nei servizi di ricerca cognitiva di Azure di cui è stato effettuato il provisioning nei livelli Basic o standard con almeno due repliche. 
 
-1. Nella pagina **Panoramica** della dashboard del servizio di ricerca del [portale di Azure](https://portal.azure.com) controllare il **Piano tariffario** per confermarne la possibilità di gestione dell'indicizzazione parallela. I livelli Basic e Standard offrono più repliche.
+1. Nella pagina [Panoramica](https://portal.azure.com) della dashboard del servizio di ricerca del **portale di Azure** controllare il **Piano tariffario** per confermarne la possibilità di gestione dell'indicizzazione parallela. I livelli Basic e Standard offrono più repliche.
 
 2. In **Impostazioni** > **Scalabilità**[aumentare le repliche](search-capacity-planning.md) per l'elaborazione parallela: una replica aggiuntiva per ogni carico di lavoro dell'indicizzatore. Indicare un numero sufficiente per il volume di query esistente. Sacrificare i carichi di lavoro delle query per l'indicizzazione non è un buon compromesso.
 
@@ -99,7 +99,7 @@ All'ora pianificata tutti gli indicizzatori avviano l'esecuzione, caricando i da
 > [!Note]
 > Quando si aumentano le repliche, è opportuno aumentare il conteggio delle partizioni se le dimensioni dell'indice sono state pensate per un aumento significativo. Le partizioni archiviano sezioni di contenuto indicizzato: più sono le partizioni, più piccola è la sezione che ognuna deve archiviare.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 + [Panoramica degli indicizzatori](search-indexer-overview.md)
 + [Indicizzazione nel portale](search-import-data-portal.md)

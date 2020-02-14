@@ -10,13 +10,13 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: f1b15688004d23e8a568695b565b5b34d7b466d6
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.date: 02/12/2020
+ms.openlocfilehash: 7c9f22d27351b0f57c5a0158821f347073ae60b4
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110193"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187818"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
 
@@ -139,6 +139,9 @@ Di seguito è riportata una guida per la configurazione di una versione Azure Pi
 
    ![Selezionare Crea versione](media/continuous-integration-deployment/continuous-integration-image10.png)
 
+> [!IMPORTANT]
+> Negli scenari CI/CD, il tipo di runtime di integrazione (IR) in ambienti diversi deve essere lo stesso. Se, ad esempio, si dispone di un runtime di integrazione self-hosted nell'ambiente di sviluppo, anche lo stesso runtime di integrazione deve essere di tipo self-hosted in altri ambienti, ad esempio test e produzione. Analogamente, se si condividono runtime di integrazione in più fasi, è necessario configurare i runtime di integrazione come self-hosted collegato in tutti gli ambienti, ad esempio sviluppo, test e produzione.
+
 ### <a name="get-secrets-from-azure-key-vault"></a>Ottenere i segreti da Azure Key Vault
 
 Se si dispone di segreti per passare un modello di Azure Resource Manager, è consigliabile usare Azure Key Vault con la versione Azure Pipelines.
@@ -184,11 +187,11 @@ Esistono due modi per gestire i segreti:
 
 La distribuzione può non riuscire se si prova ad aggiornare i trigger attivi. Per aggiornare i trigger attivi, è necessario arrestarli manualmente e quindi riavviarli dopo la distribuzione. A tale scopo, è possibile utilizzare un'attività Azure PowerShell:
 
-1.  Nella scheda **attività** della versione aggiungere un'attività **Azure PowerShell** .
+1.  Nella scheda **attività** della versione aggiungere un'attività **Azure PowerShell** . Scegliere la versione 4. * dell'attività. 
 
-1.  Selezionare **Azure Resource Manager** come tipo di connessione e quindi selezionare la sottoscrizione.
+1.  Selezionare la sottoscrizione in cui si trova la factory.
 
-1.  Selezionare **script inline** come tipo di script e quindi fornire il codice. Il codice seguente interrompe i trigger:
+1.  Selezionare **percorso file script** come tipo di script. A questo scopo, è necessario salvare lo script di PowerShell nel repository. È possibile usare lo script di PowerShell seguente per arrestare i trigger:
 
     ```powershell
     $triggersADF = Get-AzDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
@@ -196,21 +199,28 @@ La distribuzione può non riuscire se si prova ad aggiornare i trigger attivi. P
     $triggersADF | ForEach-Object { Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
 
-    ![Attività Azure PowerShell](media/continuous-integration-deployment/continuous-integration-image11.png)
-
 È possibile completare passaggi simili (con la funzione `Start-AzDataFactoryV2Trigger`) per riavviare i trigger dopo la distribuzione.
 
-> [!IMPORTANT]
-> Negli scenari CI/CD, il tipo di runtime di integrazione (IR) in ambienti diversi deve essere lo stesso. Se, ad esempio, si dispone di un runtime di integrazione self-hosted nell'ambiente di sviluppo, anche lo stesso runtime di integrazione deve essere di tipo self-hosted in altri ambienti, ad esempio test e produzione. Analogamente, se si condividono runtime di integrazione in più fasi, è necessario configurare i runtime di integrazione come self-hosted collegato in tutti gli ambienti, ad esempio sviluppo, test e produzione.
+### <a name="sample-pre--and-post-deployment-script"></a>Script di pre-distribuzione e post-distribuzione di esempio
 
-#### <a name="sample-pre--and-post-deployment-script"></a>Script di pre-distribuzione e post-distribuzione di esempio
+Lo script di esempio seguente può essere usato per arrestare i trigger prima della distribuzione e riavviarli in seguito. Lo script include anche il codice per eliminare le risorse che sono state rimosse. Salvare lo script in un repository git di Azure DevOps e farvi riferimento tramite un'attività Azure PowerShell usando la versione 4. *.
 
-Nello script di esempio seguente viene illustrato come arrestare i trigger prima della distribuzione e riavviarli in seguito. Lo script include anche il codice per eliminare le risorse che sono state rimosse. Per installare la versione più recente di Azure PowerShell, vedere [Installare Azure PowerShell in Windows con PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Quando si esegue uno script di pre-distribuzione, è necessario specificare una variante dei seguenti parametri nel campo **argomenti script** .
+
+`-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $true -deleteDeployment $false`
+
+
+Quando si esegue uno script di post-distribuzione, è necessario specificare una variante dei seguenti parametri nel campo **argomenti script** .
+
+`-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
+
+    ![Azure PowerShell task](media/continuous-integration-deployment/continuous-integration-image11.png)
+
+Di seguito è riportato lo script che può essere usato per pre-e post-distribuzione. Questo account per le risorse eliminate e i riferimenti alle risorse.
 
 ```powershell
 param
 (
-    [parameter(Mandatory = $false)] [String] $rootFolder,
     [parameter(Mandatory = $false)] [String] $armTemplate,
     [parameter(Mandatory = $false)] [String] $ResourceGroupName,
     [parameter(Mandatory = $false)] [String] $DataFactoryName,
@@ -564,7 +574,7 @@ Ecco una spiegazione del modo in cui viene costruito il modello precedente, sudd
 * La proprietà `connectionString` verrà parametrizzata come valore `securestring`. Non avrà un valore predefinito. Avrà un nome di parametro abbreviato con il suffisso `connectionString`.
 * La proprietà `secretAccessKey` è un `AzureKeyVaultSecret`, ad esempio in un servizio collegato Amazon S3. Viene automaticamente parametrizzato come segreto Azure Key Vault e recuperato dall'insieme di credenziali delle chiavi configurato. È anche possibile parametrizzare l'insieme di credenziali delle chiavi.
 
-#### <a name="datasets"></a>Dataset
+#### <a name="datasets"></a>Set di dati
 
 * Sebbene la personalizzazione specifica del tipo sia disponibile per i set di impostazioni, è possibile fornire la configurazione senza avere una configurazione a livello di \*. Nell'esempio precedente, vengono parametrizzate tutte le proprietà del set di dati in `typeProperties`.
 

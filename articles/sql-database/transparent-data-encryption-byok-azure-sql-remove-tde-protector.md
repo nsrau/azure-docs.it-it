@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 03/12/2019
-ms.openlocfilehash: ba591872f4f8af93e5f7e13e0fb69d0679fd1a0c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 02/12/2020
+ms.openlocfilehash: be187e34e3232c0755e2613ffffe0647da70079c
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965761"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201663"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Rimuovere una protezione TDE (Transparent Data Encryption) tramite PowerShell
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - È necessario disporre di una sottoscrizione di Azure e avere il ruolo di amministratore di tale sottoscrizione.
 - È necessario che Azure PowerShell sia installato e in esecuzione.
@@ -39,7 +39,7 @@ Per l'installazione, vedere [Install Azure CLI](/cli/azure/install-azure-cli).
 
 * * *
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Questa guida pratica descrive come gestire una protezione TDE potenzialmente compromessa per un database SQL di Azure o un data warehouse che usa TDE con chiavi gestite dal cliente in Azure Key Vault e supporto Bring Your Own Key (BYOK). Per altre informazioni sul supporto BYOK per TDE, vedere la [pagina di panoramica](transparent-data-encryption-byok-azure-sql.md).
 
@@ -180,6 +180,8 @@ Per informazioni di riferimento sui comandi, vedere l'insieme di credenziali del
 
 2. Eseguire il backup del materiale della chiave della protezione TDE in Key Vault.
 3. Rimuovere la chiave potenzialmente compromessa da Key Vault.
+
+[!INCLUDE [sql-database-akv-permission-delay](includes/sql-database-akv-permission-delay.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,16 +8,16 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2cf3c784c711977a6fe758bb9017e1f0dc404c33
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8febe1fd749842a6db0cd1c9991f4002eb7cf2ad
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76992066"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190103"
 ---
 # <a name="connection-strings"></a>Stringhe di connessione
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Le stringhe di connessione forniscono agli utenti di Application Insight una singola impostazione di configurazione, eliminando la necessità di più impostazioni proxy. Particolarmente utile per i server Web Intranet, gli ambienti di cloud ibrido o sovrano che vogliono inviare dati al servizio di monitoraggio.
 
@@ -41,7 +41,7 @@ Scenari per i clienti in cui viene visualizzato questo comportamento con maggior
     Gli utenti possono inviare dati a un' [area di Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights)definita.
     Le stringhe di connessione consentono di definire le impostazioni degli endpoint per i server Intranet o le impostazioni del cloud ibrido. 
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 
 ### <a name="finding-my-connection-string"></a>Trovare la stringa di connessione?
 
@@ -140,10 +140,10 @@ In questo esempio, questa stringa di connessione specifica le sostituzioni espli
 - Per impostazione predefinita, lo schema di autorizzazione è "iKey" 
 - Chiave di strumentazione: 00000000-0000-0000-0000-000000000000
 - Gli URI del servizio regionale sono basati sui valori di override espliciti: 
-   - Inserimento: https://custom.com:111/
-   - Metriche attive: https://custom.com:222/
-   - Profiler: https://custom.com:333/ 
-   - Debugger: https://custom.com:444/   
+   - Inserimento: https:\//custom.com:111/
+   - Metriche attive: https:\//custom.com:222/
+   - Profiler: https:\//custom.com:333/ 
+   - Debugger: https:\//custom.com:444/   
 
 
 ## <a name="how-to-set-a-connection-string"></a>Come impostare una stringa di connessione

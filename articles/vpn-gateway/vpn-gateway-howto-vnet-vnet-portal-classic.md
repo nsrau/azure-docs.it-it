@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/09/2020
+ms.date: 02/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: ddcc7fcc14c7958e8c0d012c2395ad2b6c422f4f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 63c6329ad62289cd127902c1438073b28fc8683e
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157908"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201850"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurare una connessione da rete virtuale a rete virtuale (versione classica)
 
@@ -61,9 +61,9 @@ Le reti virtuali possono trovarsi in diverse sottoscrizioni e aree geografiche d
 
 Per altre informazioni sulle connessioni da rete virtuale a rete virtuale, vedere la sezione [Considerazioni sulle connessioni da rete virtuale a rete virtuale](#faq) alla fine di questo articolo.
 
-### <a name="before-you-begin"></a>Prima di iniziare
+### <a name="powershell"></a>Utilizzo di Azure PowerShell
 
-Prima di iniziare questo esercizio, scaricare e installare la versione più recente dei cmdlet di PowerShell per gestione del servizio (SM, Service Management) di Azure. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview). Il portale viene utilizzato per la maggior parte dei passaggi, ma per creare connessioni tra VNet, occorre utilizzare PoweShell. Non è possibile creare connessioni dal portale di Azure.
+Il portale viene utilizzato per la maggior parte dei passaggi, ma per creare connessioni tra VNet, occorre utilizzare PoweShell. Non è possibile creare connessioni dal portale di Azure. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
 ## <a name="plan"></a>Passaggio 1: Pianificare gli intervalli di indirizzi IP
 
@@ -209,37 +209,34 @@ Quando si creano reti virtuali classiche nel portale di Azure, il nome da visual
 
 Nelle procedure seguenti, ci si connetterà al proprio account Azure per scaricare e visualizzare il file di configurazione di rete per ottenere i valori necessari alle connessioni.
 
-1. Scaricare e installare la versione più recente dei cmdlet di PowerShell per Gestione del servizio di Azure. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
+1. Scaricare e installare la versione più recente dei cmdlet di PowerShell per Gestione del servizio di Azure. Per ulteriori informazioni, vedere [utilizzo di Azure PowerShell](#powershell).
 
-2. Aprire la console di PowerShell con diritti elevati e connettersi all'account. Per eseguire la connessione, usare gli esempi che seguono:
-
-   ```powershell
-   Connect-AzAccount
-   ```
-
-   Controllare le sottoscrizioni per l'account.
+2. Aprire la console di PowerShell con diritti elevati. Usare gli esempi seguenti per facilitare la connessione. È necessario eseguire questi comandi localmente usando il modulo di gestione dei servizi di PowerShell. Per passare a gestione servizi, usare questo comando:
 
    ```powershell
-   Get-AzSubscription
+   azure config mode asm
    ```
-
-   Se sono disponibili più sottoscrizioni, selezionare la sottoscrizione da usare.
-
-   ```powershell
-   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-   ```
-
-   Successivamente, utilizzare il cmdlet seguente per aggiungere la sottoscrizione di Azure a PowerShell per il modello di distribuzione classico.
+3. Connettersi all'account. Per eseguire la connessione, usare gli esempi che seguono:
 
    ```powershell
    Add-AzureAccount
    ```
-3. Esportare e visualizzare il file di configurazione di rete. Creare una directory nel computer ed esportarvi il file di configurazione di rete. In questo esempio il file di configurazione di rete viene esportato in **C:\AzureNet**.
+4. Controllare le sottoscrizioni per l'account.
+
+   ```powershell
+   Get-AzureSubscription
+   ```
+5. Se sono disponibili più sottoscrizioni, selezionare la sottoscrizione da usare.
+
+   ```powershell
+   Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
+   ```
+6. Esportare e visualizzare il file di configurazione di rete. Creare una directory nel computer ed esportarvi il file di configurazione di rete. In questo esempio il file di configurazione di rete viene esportato in **C:\AzureNet**.
 
    ```powershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-4. Aprire il file con un editor di testo e visualizzare il nome delle reti virtuali e dei siti. Questo sarà il nome da usare nella creazione delle le connessioni.<br>I nomi delle reti virtuali sono elencati come **Nome VirtualNetworkSite =**<br>I nomi dei siti sono elencati come **Nome LocalNetworkSiteRef =**
+7. Aprire il file con un editor di testo e visualizzare il nome delle reti virtuali e dei siti. Questi nomi saranno i nomi usati quando si creano le connessioni.<br>I nomi delle reti virtuali sono elencati come **Nome VirtualNetworkSite =**<br>I nomi dei siti sono elencati come **Nome LocalNetworkSiteRef =**
 
 ## <a name="createconnections"></a>Passaggio 8: Creare le connessioni al gateway VPN
 

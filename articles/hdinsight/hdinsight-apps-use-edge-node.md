@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/27/2020
-ms.openlocfilehash: b8bb68f7da74e547b020ae00a4672e10d70cbfd1
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: d7723ea63cbb9bab6adf42d7e92f84a6b8b2ab9b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844463"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199008"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Usare i nodi perimetrali vuoti sui cluster Apache Hadoop in HDInsight
 
@@ -52,7 +52,7 @@ Informazioni su come aggiungere un nodo perimetrale vuoto a un cluster HDInsight
 
 Come illustrato nell'esempio, è possibile chiamare facoltativamente un'[azione script](hdinsight-hadoop-customize-cluster-linux.md) per eseguire configurazioni aggiuntive, ad esempio per installare [Apache Hue](hdinsight-hadoop-hue-linux.md) nel nodo perimetrale. Lo script dell'azione script deve essere pubblicamente accessibile sul web.  Ad esempio, se lo script è archiviato in archiviazione di Azure, usare i contenitori pubblici o i BLOB pubblici.
 
-Le dimensioni della macchina virtuale del nodo perimetrale devono soddisfare i requisiti di dimensioni per le macchine virtuali del nodo di lavoro del cluster HDInsight. Per conoscere le dimensioni consigliate per le macchine virtuali dei nodi di lavoro, vedere [Creare cluster Apache Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+Le dimensioni della macchina virtuale del nodo perimetrale devono soddisfare i requisiti di dimensioni per le macchine virtuali del nodo di lavoro del cluster HDInsight. Per conoscere le dimensioni consigliate per le macchine virtuali dei nodi di lavoro, vedere [Creare cluster Apache Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-type).
 
 Dopo aver creato un nodo perimetrale, è possibile connettersi al nodo perimetrale tramite SSH ed eseguire gli strumenti client per accedere al cluster Hadoop in HDInsight.
 
@@ -77,11 +77,11 @@ In questa sezione si userà un modello di Resource Manager per aggiungere un nod
 
 1. Configurare le proprietà seguenti:
 
-    |Proprietà |Description |
+    |Proprietà |Descrizione |
     |---|---|
-    |Sottoscrizione|selezionare la sottoscrizione di Azure usata per creare il cluster.|
-    |Gruppo di risorse|selezionare il gruppo di risorse usato per il cluster HDInsight esistente.|
-    |Percorso|selezionare la località del cluster HDInsight esistente.|
+    |Subscription|selezionare la sottoscrizione di Azure usata per creare il cluster.|
+    |Resource group|selezionare il gruppo di risorse usato per il cluster HDInsight esistente.|
+    |Location|selezionare la località del cluster HDInsight esistente.|
     |Cluster Name|immettere il nome di un cluster HDInsight esistente.|
 
 1. Verificare **di accettare i termini e le condizioni indicati in precedenza**, quindi selezionare **Acquista** per creare il nodo perimetrale.
@@ -101,11 +101,11 @@ In questa sezione si userà un modello di Resource Manager per creare un cluster
 
 1. Configurare le proprietà seguenti:
 
-    |Proprietà |Description |
+    |Proprietà |Descrizione |
     |---|---|
-    |Sottoscrizione|selezionare la sottoscrizione di Azure usata per creare il cluster.|
-    |Gruppo di risorse|creare un nuovo gruppo di risorse usato per il cluster.|
-    |Percorso|Selezionare una posizione per il gruppo di risorse.|
+    |Subscription|selezionare la sottoscrizione di Azure usata per creare il cluster.|
+    |Resource group|creare un nuovo gruppo di risorse usato per il cluster.|
+    |Location|Selezionare una posizione per il gruppo di risorse.|
     |Cluster Name|immettere un nome per il nuovo cluster da creare.|
     |Nome utente dell'account di accesso del cluster|immettere il nome utente HTTP di Hadoop.  Il nome predefinito è **admin**.|
     |Password di accesso al cluster|immettere la password utente HTTP di Hadoop.|

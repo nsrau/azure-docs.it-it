@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/25/2019
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bc8dbfd315702f666d6b811e855d6bcd99df938e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e3a80628e5729813e1d405e58ecb623925b63076
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836049"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193380"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C
 
@@ -44,18 +44,18 @@ Nel profilo tecnico, mappare il resolver di attestazioni al tipo di attestazione
 
 Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 
-### <a name="culture"></a>Lingua
+### <a name="culture"></a>Impostazioni cultura
 
-| Attestazione | Description | Esempio |
+| Attestazione | Descrizione | Esempio |
 | ----- | ----------- | --------|
 | {Culture:LanguageName} | Codice ISO di due lettere per la lingua. | en |
 | {Culture:LCID}   | Identificatore LCID del codice della lingua. | 1033 |
 | {Culture:RegionName} | Codice ISO di due lettere per la regione. | Stati Uniti |
 | {Culture:RFC5646} | Codice RFC5646 della lingua. | it-IT |
 
-### <a name="policy"></a>Criterio
+### <a name="policy"></a>Policy
 
-| Attestazione | Description | Esempio |
+| Attestazione | Descrizione | Esempio |
 | ----- | ----------- | --------|
 | {Policy:PolicyId} | Nome dei criteri della relying party. | B2C_1A_signup_signin |
 | {Policy:RelyingPartyTenantId} | ID del tenant dei criteri della relying party. | your-tenant.onmicrosoft.com |
@@ -64,7 +64,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 
 ### <a name="openid-connect"></a>OpenID Connect
 
-| Attestazione | Description | Esempio |
+| Attestazione | Descrizione | Esempio |
 | ----- | ----------- | --------|
 | {OIDC:AuthenticationContextReferences} |Parametro di stringa di query `acr_values`. | N/D |
 | {OIDC:ClientId} |Parametro di stringa di query `client_id`. | 00000000-0000-0000-0000-000000000000 |
@@ -78,7 +78,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 
 ### <a name="context"></a>Context
 
-| Attestazione | Description | Esempio |
+| Attestazione | Descrizione | Esempio |
 | ----- | ----------- | --------|
 | {Context:BuildNumber} | Versione del framework dell'esperienza di gestione delle identità (numero di build).  | 1.0.507.0 |
 | {Context:CorrelationId} | L'ID di correlazione.  | 00000000-0000-0000-0000-000000000000 |
@@ -91,7 +91,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 
 I nomi di parametro inclusi in una richiesta OIDC o OAuth2 possono essere mappati a un'attestazione nel percorso utente Ad esempio, la richiesta generata dall'applicazione può includere un parametro di stringa di query denominato `app_session`, `loyalty_number` o qualsiasi stringa di query personalizzata.
 
-| Attestazione | Description | Esempio |
+| Attestazione | Descrizione | Esempio |
 | ----- | ----------------------- | --------|
 | {OAUTH-KV:campaignId} | Parametro di stringa di query. | hawaii |
 | {OAUTH-KV:app_session} | Parametro di stringa di query. | A3C5R |
@@ -100,9 +100,31 @@ I nomi di parametro inclusi in una richiesta OIDC o OAuth2 possono essere mappat
 
 ### <a name="oauth2"></a>OAuth2
 
-| Attestazione | Description | Esempio |
+| Attestazione | Descrizione | Esempio |
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | Token di accesso. | N/D |
+
+## <a name="using-claim-resolvers"></a>Uso di resolver di attestazioni 
+
+È possibile usare i resolver di attestazioni con gli elementi seguenti: 
+
+| Elemento | Elemento | Impostazioni |
+| ----- | ----------------------- | --------|
+|Profilo tecnico di Application Insights |`InputClaim` | |
+|[Azure Active Directory](active-directory-technical-profile.md) profilo tecnico| `InputClaim`, `OutputClaim`| 1, 2|
+|Profilo tecnico [OAuth2](oauth2-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Profilo tecnico di [OpenID Connect](openid-connect-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Profilo tecnico per la [trasformazione delle attestazioni](claims-transformation-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Profilo tecnico del [provider RESTful](restful-technical-profile.md)| `InputClaim`| 1, 2|
+|Profilo tecnico [Saml2](saml-technical-profile.md)| `OutputClaim`| 1, 2|
+|Profilo tecnico [autocertificato](self-asserted-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|[ContentDefinition](contentdefinitions.md)| `LoadUri`| |
+|[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
+|Profilo tecnico [RelyingParty](relyingparty.md#technicalprofile)| `OutputClaim`| 2 |
+
+Impostazioni: 
+1. I metadati di `IncludeClaimResolvingInClaimsHandling` devono essere impostati su `true`
+1. L'attributo delle attestazioni di input o output `AlwaysUseDefaultValue` deve essere impostato su `true`
 
 ## <a name="how-to-use-claim-resolvers"></a>Come usare i resolver di attestazioni
 

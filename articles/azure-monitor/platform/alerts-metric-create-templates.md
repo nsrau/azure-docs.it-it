@@ -1,5 +1,5 @@
 ---
-title: Creare un avviso sulle metriche con un modello di Resource Manager
+title: Creare un avviso metrica con un modello di Resource Manager
 description: Informazioni su come usare un modello di Resource Manager per creare un avviso di metrica.
 author: harelbr
 services: azure-monitor
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 1/14/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: bfa5d240ba4905f79274941568933daf1425bf8b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 463a389116cd58e50839d717b700b604f545e5f2
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969421"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190108"
 ---
-# <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creare un avviso sulle metriche con un modello di Resource Manager
+# <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creare un avviso metrica con un modello di Resource Manager
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -107,8 +107,8 @@ Salvare il codice JSON seguente come simplestaticmetricalert.json ai fini di que
             }
         },
         "threshold": {
-            "type": "string",
-            "defaultValue": "0",
+            "type": "double",
+            "defaultValue": 0,
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -1657,8 +1657,8 @@ Salvare il codice JSON seguente come all-vms-in-resource-group-static.json ai fi
             }
         },
         "threshold": {
-            "type": "string",
-            "defaultValue": "0",
+            "type": "double",
+            "defaultValue": 0,
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -2304,8 +2304,8 @@ Salvare il codice JSON seguente come all-vms-in-subscription-static.json ai fini
             }
         },
         "threshold": {
-            "type": "string",
-            "defaultValue": "0",
+            "type": "double",
+            "defaultValue": 0,
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -2946,8 +2946,8 @@ Salvare il codice JSON seguente come list-of-vms-static.json ai fini di questa p
             }
         },
         "threshold": {
-            "type": "string",
-            "defaultValue": "0",
+            "type": "double",
+            "defaultValue": 0,
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }

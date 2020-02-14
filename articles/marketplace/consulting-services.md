@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: d56b83c8bd9a71ac30112f9e77a97ed8ab61a137
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: cd90ae2b751a97c18dc8b6be4b8eb565a17df7a2
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825979"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191137"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Servizi di consulenza per Azure Marketplace e AppSource
 I Servizi di consulenza in Azure Marketplace e AppSource consentono ai partner Microsoft di connettere i clienti con servizi per supportare ed estendere l'uso di Azure e gli obiettivi aziendali. 
@@ -151,7 +151,7 @@ Esempi:
 
 Durante la revisione delle descrizioni e dei riepiloghi delle offerte, il team applicherà i criteri seguenti:
 
-|Tipo di offerta  |Obbligatorio |Consigliato  |
+|Tipo di offerta  |Obbligatoria |Consigliato  |
 |---------|---------|---------|
 |**Valutazione**    |   Includere un'agenda dettagliata delle valutazioni di più giorni o più settimane e descrivere in modo articolato il risultato finale che il cliente può aspettarsi      |    Ottimizzare il riepilogo dell'offerta con le principali parole chiave dell'ottimizzazione motore di ricerca     |
 |**Briefing**    |   Descrivere in modo articolato il risultato finale che il cliente può aspettarsi. Tenere presente che un briefing deve essere offerto di persona. Se si fornisce un servizio virtuale, scegliere un tipo di offerta diverso    |  Ottimizzare il riepilogo dell'offerta con le principali parole chiave dell'ottimizzazione motore di ricerca       |
@@ -159,7 +159,7 @@ Durante la revisione delle descrizioni e dei riepiloghi delle offerte, il team a
 |**Modello di verifica**    |    Descrivere in modo articolato le modifiche di progettazione e gli elementi tecnici o di altro tipo che il cliente può aspettarsi come risultato dell'engagement     | Ottimizzare il riepilogo dell'offerta con le principali parole chiave dell'ottimizzazione motore di ricerca        |
 |**Workshop**    |   Includere un'agenda dettagliata giornaliera, settimanale o mensile, in base alla durata dell'offerta. Descrivere in modo articolato gli obiettivi di apprendimento o altri risultati finali del workshop     |   Ottimizzare il riepilogo dell'offerta con le principali parole chiave dell'ottimizzazione motore di ricerca      |
 
-Nel portale Cloud Partner è possibile aggiungere la formattazione all'inserzione usando [Markdown](https://docs.microsoft.com/contribute/how-to-write-use-markdown), un linguaggio di sviluppo leggero che consente di creare facilmente inserzioni eleganti. 
+Nel portale Cloud Partner è possibile aggiungere la formattazione all'inserzione usando [Markdown](/contribute/markdown-reference), un linguaggio di sviluppo leggero che consente di creare facilmente inserzioni eleganti. 
 
 **Note di Markdown di esempio**
 * Aggiungere * all'inizio e alla fine del blocco di copiam senza spazi, per creare il corsivo (ad es: *content*)

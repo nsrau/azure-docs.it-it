@@ -1,25 +1,24 @@
 ---
-title: Esempio di script Azure PowerShell-configurare endpoint di rete virtuale IPv6 con Load Balancer Standard (anteprima)
+title: Esempio di script Azure PowerShell-configurare front-end IPv6 con Load Balancer Standard (anteprima)
 titlesuffix: Azure Virtual Network
 description: Abilitare gli endpoint IPv6 usando PowerShell in rete virtuale di Azure
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: fc5bc23ffec0956cb53e62f0cd14d7135d5fbcca
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 24d25813a5cafc98f04d3daef2803aa44acc7f69
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68269702"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201323"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-with-standard-load-balancerpreview"></a>Configurare gli endpoint IPv6 nell'esempio di script di rete virtuale con Load Balancer Standard (anteprima)
+# <a name="configure-ipv6-frontend-in-virtual-network-script-sample-with-standard-load-balancerpreview"></a>Configurare il front-end IPv6 nell'esempio di script di rete virtuale con Load Balancer Standard (anteprima)
 
 Questo articolo illustra come distribuire un'applicazione dual stack (IPv4 + IPv6) in Azure che include una rete virtuale a doppio stack con una subnet dello stack doppio, un servizio di bilanciamento del carico con due configurazioni front-end Dual (IPv4 + IPv6), macchine virtuali con NIC con una doppia configurazione IP, due regole del gruppo di sicurezza di rete e doppi indirizzi IP pubblici.
 
@@ -27,7 +26,7 @@ Questo articolo illustra come distribuire un'applicazione dual stack (IPv4 + IPv
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Prima di distribuire un'applicazione dual stack in Azure, è necessario configurare la sottoscrizione una sola volta per questa funzionalità di anteprima usando i Azure PowerShell seguenti:
 
 Registra come segue:
@@ -35,7 +34,7 @@ Registra come segue:
 Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
 Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
 ```
-Sono necessari fino a 30 minuti per completare la registrazione della funzionalità. È possibile controllare lo stato di registrazione eseguendo il comando Azure PowerShell seguente: Controllare la registrazione nel modo seguente:
+Sono necessari fino a 30 minuti per completare la registrazione della funzionalità. È possibile controllare lo stato di registrazione eseguendo il comando seguente Azure PowerShell: controllare la registrazione nel modo seguente:
 ```azurepowershell
 Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
 Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network

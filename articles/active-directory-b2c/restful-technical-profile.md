@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8a562345caf47540321528560a5ee0b4854c42a9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: edad748bc2192f98b9674b80dada5b03aa9ee2d1
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840282"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77197987"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico RESTful nei criteri personalizzati di Azure Active Directory B2C
 
@@ -121,7 +121,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 ## <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ServiceUrl | Sì | L'URL dell'endpoint API REST. |
 | AuthenticationType | Sì | Tipo di autenticazione eseguita dal provider di attestazioni RESTful. I valori possibili sono: `None`, `Basic`, `Bearer` o `ClientCertificate`. Il valore `None` indica che l'API REST non è anonimo. Il valore`Basic` indica che l'API REST viene protetta con l'autenticazione di base HTTP. Solo gli utenti verificati, tra cui Azure AD B2C, possono accedere all'API. Il valore `ClientCertificate` (scelta consigliata) indica che l'API REST limita l'accesso usando l'autenticazione del certificato client. Solo i servizi con i certificati appropriati, ad esempio Azure AD B2C, possono accedere all'API. Il valore `Bearer` indica che l'API REST limita l'accesso tramite il token di connessione del client OAuth2. |
@@ -129,6 +129,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 | ClaimsFormat | No | Specifica il formato per le attestazioni di output. I valori possibili sono: `Body` (impostazione predefinita), `Form`, `Header` o `QueryString`. Il valore `Body` è l'attestazione di output che viene inviata nel corpo della richiesta in formato JSON. Il valore`Form` è l'attestazione di output che viene inviata nel corpo della richiesta nel formato valore di chiave e commerciale "&" separata. Il valore `Header` è l'attestazione di output che viene inviata nell'intestazione della richiesta. Il valore `QueryString` è l'attestazione di output che viene inviata nella stringa di query della richiesta. |
 | ClaimUsedForRequestPayload| No | Nome di un'attestazione di stringa che contiene il payload da inviare all'API REST. |
 | DebugMode | No | Il profilo tecnico viene eseguito in modalità debug. Valori possibili: `true`o `false` (impostazione predefinita). In modalità debug, l'API REST può restituire altre informazioni. Vedere la sezione [restituzione del messaggio di errore](#returning-error-message) . |
+| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true`o `false` (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questo valore su `true`. |
 
 ## <a name="cryptographic-keys"></a>Chiavi crittografiche
 
@@ -148,7 +149,7 @@ Se il tipo di autenticazione è impostato su `None`, l'elemento **CryptographicK
 
 Se il tipo di autenticazione è impostato su `Basic`, l'elemento **CryptographicKeys** contiene i seguenti attributi:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | BasicAuthenticationUsername | Sì | Il nome utente usato per l'autenticazione. |
 | BasicAuthenticationPassword | Sì | La password usata per l'autenticazione. |
@@ -173,7 +174,7 @@ Nell'esempio seguente viene illustrato un profilo tecnico con autenticazione di 
 
 Se il tipo di autenticazione è impostato su `ClientCertificate`, l'elemento **CryptographicKeys** contiene i seguenti attributi:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ClientCertificate | Sì | Il certificato X509 (set di chiavi RSA) da usare per l'autenticazione. |
 
@@ -194,7 +195,7 @@ Se il tipo di autenticazione è impostato su `ClientCertificate`, l'elemento **C
 
 Se il tipo di autenticazione è impostato su `Bearer`, l'elemento **CryptographicKeys** contiene i seguenti attributi:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | BearerAuthenticationToken | No | Token di porta OAuth 2,0. |
 
@@ -217,7 +218,7 @@ Se il tipo di autenticazione è impostato su `Bearer`, l'elemento **Cryptographi
 
 L'API REST può restituire un messaggio di errore, ad esempio "Utente nel sistema CRM non trovato". Se si verifica un errore, l'API REST deve restituire un messaggio di errore HTTP 409 (codice di stato della risposta in conflitto) con gli attributi seguenti:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | version | Sì | 1.0.0 |
 | status | Sì | 409 |

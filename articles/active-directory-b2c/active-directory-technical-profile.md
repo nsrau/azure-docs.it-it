@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e27288f95f07c481ab98a112ed9f02a34046600a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 9f00bebfbab7b3726930e212893ae9dd2f5c17c8
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76835794"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193446"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di Azure Active Directory in un criterio personalizzato di Azure Active Directory B2C
 
@@ -253,7 +253,7 @@ Il profilo tecnico seguente elimina un account utente social mediante **alternat
 ```
 ## <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Operazione | Sì | L'operazione da eseguire. I valori possibili sono: `Read`, `Write`, `DeleteClaims` o `DeleteClaimsPrincipal`. |
 | RaiseErrorIfClaimsPrincipalDoesNotExist | No | Genera un errore se l'oggetto utente non esiste nella directory. I valori possibili sono: `true` o `false`. |
@@ -262,6 +262,7 @@ Il profilo tecnico seguente elimina un account utente social mediante **alternat
 | UserMessageIfClaimsPrincipalAlreadyExists | No | Se deve essere generato un errore (vedere la descrizione dell'attributo RaiseErrorIfClaimsPrincipalAlreadyExists) specificare il messaggio da visualizzare all'utente se l'oggetto utente esiste già. Il valore può essere [localizzato](localization.md).|
 | ApplicationObjectId | No | L'identificatore di oggetto dell'applicazione per gli attributi di estensione. Valore: ObjectID di un'applicazione. Per altre informazioni, vedere [Usare gli attributi personalizzati in un criterio di modifica del profilo personalizzato](custom-policy-custom-attributes.md). |
 | ClientId | No | L'identificatore client per l'accesso ai tenant come terza parte. Per altre informazioni, vedere [Usare gli attributi personalizzati in un criterio di modifica del profilo personalizzato](custom-policy-custom-attributes.md) |
+| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true`o `false` (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questo valore su `true`. |
 
 
 

@@ -1,27 +1,26 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: functions
-author: ggailey777
+author: craigshoemaker
 manager: gwallace
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/04/2018
-ms.author: glenga
+ms.date: 01/28/2020
+ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: 81971a1c56a51e0c110337fb645f0b84bb5d20b8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2eb82eb8b4a64cbbfef91539f46ba084aa73f207
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74914932"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77205724"
 ---
-Nella tabella seguente viene descritto come aggiungere un supporto per questa associazione in ogni ambiente di sviluppo.
+Aggiungere il supporto in un ambiente di sviluppo preferito usando i metodi seguenti.
 
-| Ambiente di sviluppo               | Per aggiungere il supporto  |
-|----------------------|----------------|
-|Sviluppo locale - Libreria di classi C#       | [Installare il pacchetto](../articles/azure-functions/functions-bindings-register.md#vs) |
-|Sviluppo locale - Script C#, JavaScript, F#, Java e Python |[Registrare l'estensione](../articles/azure-functions/functions-bindings-register.md#extension-bundles)         |
-|Sviluppo con il portale| Installare quando si aggiunge l'associazione di output    |
-
-Per informazioni su come aggiornare le estensioni delle associazioni esistenti nel portale, senza dover ripubblicare il progetto dell'app per le funzioni, vedere [Aggiornare le estensioni](../articles/azure-functions/install-update-binding-extensions-manual.md).
+| Ambiente di sviluppo  | Tipo di applicazione      | Per aggiungere il supporto |
+|--------------------------|-----------------------|----------------|
+| Visual Studio            | C#libreria di classi      | [Installare il pacchetto NuGet](../articles/azure-functions/functions-bindings-register.md#vs) |
+| Visual Studio Code       | Basato sugli [strumenti principali](../articles/azure-functions/functions-run-local.md) | [Registrare il bundle dell'estensione](../articles/azure-functions/functions-bindings-register.md#extension-bundles)<br><br>Si consiglia di installare l' [estensione degli strumenti di Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) . |
+| Qualsiasi altro editor/IDE     | Basato sugli [strumenti principali](../articles/azure-functions/functions-run-local.md) | [Registrare il bundle dell'estensione](../articles/azure-functions/functions-bindings-register.md#extension-bundles) |
+| Portale di Azure             | Online solo nel portale | Viene installato quando si aggiunge un'associazione<br /><br /> Vedere [aggiornare le estensioni](../articles/azure-functions/install-update-binding-extensions-manual.md) per aggiornare le estensioni di binding esistenti senza dover ripubblicare l'app per le funzioni. |

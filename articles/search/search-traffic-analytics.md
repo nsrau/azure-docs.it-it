@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 53fd02856a805f8bb5d7261cc9e6e32861b2b4fd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 84e60b0a942bad94d8e36eb20b5be8e3f55af80a
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426999"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190948"
 ---
 # <a name="implement-search-traffic-analytics-in-azure-cognitive-search"></a>Implementare analisi del traffico di ricerca in Azure ricerca cognitiva
 
@@ -106,7 +106,7 @@ Ogni volta che un utente esegue una richiesta di ricerca, è necessario registra
 **SearchServiceName**: (String) nome del servizio di ricerca **SearchId**: (Guid) identificatore univoco della query di ricerca (disponibile nella risposta di **ricerca) IndexName: (** String) indice del servizio di ricerca su cui eseguire una query **QueryTerms**: (String) termini di ricerca immessi dall'utente **Resultcount**: (int) numero di documenti restituiti (in risposta alla ricerca) **ScoringProfile**: (stringa) nome del profilo di punteggio usato, se disponibile.
 
 > [!NOTE]
-> Richiedere il conteggio nelle query generate dall'utente mediante l'aggiunta di $count=true alla query di ricerca. Ulteriori informazioni sono disponibili [qui](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).
+> Richiedere il conteggio nelle query generate dall'utente mediante l'aggiunta di $count=true alla query di ricerca. Per altre informazioni, vedere [qui](/rest/api/searchservice/search-documents#counttrue--false).
 >
 
 > [!NOTE]

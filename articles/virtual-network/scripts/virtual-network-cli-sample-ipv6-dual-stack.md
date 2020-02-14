@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure-configurare endpoint di rete virtuale IPv6 (anteprima)
+title: Esempio di script dell'interfaccia della riga di comando di Azure
 titlesuffix: Azure Virtual Network
 description: Abilitare gli endpoint IPv6 usando l'interfaccia della riga di comando di Azure in rete virtuale di Azure
 services: virtual-network
@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/23/2019
 ms.author: kumud
-ms.openlocfilehash: 3df475ce89a3b1f5a1acfb20dc427fdb7a9b7d16
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 0661c5231e2fce4d6a675c07be6b0ae914c99997
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248891"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201363"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Configurare gli endpoint IPv6 nell'esempio di script della rete virtuale (anteprima)
 
@@ -27,7 +27,7 @@ Questo articolo illustra come distribuire un'applicazione dual stack (IPv4 + IPv
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Per usare la funzionalità IPv6 per la rete virtuale di Azure, è necessario configurare la sottoscrizione solo una volta come indicato di seguito:
 
 ```azurecli

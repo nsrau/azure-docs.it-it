@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/20/2019
-ms.openlocfilehash: 069fc83e773c00be41e21e23fc01c589c13d687d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/13/2020
+ms.openlocfilehash: a12738f5de783c8a34718b8d9cb4bbf54f230589
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372704"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201272"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Estensioni di PostgreSQL nel database di Azure per PostgreSQL-server singolo
 PostgreSQL offre la capacità di estendere le funzionalità del database usando le estensioni. Le estensioni raggruppano più oggetti SQL correlati in un singolo pacchetto che può essere caricato o rimosso dal database con un unico comando. Dopo essere stato caricato nel database, le estensioni funzionano come le funzionalità predefinite.
@@ -204,22 +204,26 @@ Le estensioni seguenti sono disponibili nei server di database di Azure per Post
 
 
 ## <a name="pg_stat_statements"></a>pg_stat_statements
-L'estensione pg_stat_statements viene precaricata in ogni database di Azure per il server PostgreSQL per fornire un modo per tenere traccia delle statistiche di esecuzione delle istruzioni SQL.
+L' [estensione pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html) viene precaricata in ogni database di Azure per il server PostgreSQL per fornire un modo per tenere traccia delle statistiche di esecuzione delle istruzioni SQL.
 L'impostazione `pg_stat_statements.track`, che controlla le istruzioni conteggiate mediante l'estensione, è impostata su `top`. Ciò consente di rilevare tutte le istruzioni eseguite direttamente dai client. Gli altri due livelli di rilevamento sono `none` e `all`. Questa impostazione è configurabile come parametro del server tramite il [portale di Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
 
 È necessario trovare un compromesso tra le informazioni sull'esecuzione di query fornite da pg_stat_statements e l'impatto della registrazione di ogni istruzione SQL sulle prestazioni del server. Se non si usa attivamente l'estensione pg_stat_statements, è consigliabile impostare `pg_stat_statements.track` su `none`. Si noti che alcuni servizi di monitoraggio di terze parti possono basarsi su pg_stat_statements per fornire informazioni dettagliate sulle prestazioni delle query. Verificare se questo è il proprio caso.
 
 ## <a name="dblink-and-postgres_fdw"></a>dblink e postgres_fdw
-dblink e postgres_fdw consentono di connettersi da un server PostgreSQL a un altro oppure a un altro database nello stesso server. Il server di destinazione deve consentire le connessioni dal server di origine attraverso il firewall. Quando si usano queste estensioni per la connessione tra server Database di Azure per PostgreSQL, questa operazione può essere eseguita attivando l'impostazione "Consenti l'accesso a Servizi di Azure". Questo è necessario anche quando si vogliono usare le estensioni per il loopback allo stesso server. L'impostazione "Consenti l'accesso a Servizi di Azure" è disponibile nella pagina del portale di Azure per il server Postgres, nell'area Sicurezza connessione. Quando si attiva "Consenti l'accesso ai servizi di Azure" in vengono inseriti tutti gli indirizzi IP di Azure nell'elenco Consenti.
+[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) e [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) consentono di connettersi da un server PostgreSQL a un altro o a un altro database nello stesso server. Il server di destinazione deve consentire le connessioni dal server di origine attraverso il firewall. Quando si usano queste estensioni per la connessione tra server Database di Azure per PostgreSQL, questa operazione può essere eseguita attivando l'impostazione "Consenti l'accesso a Servizi di Azure". Questo è necessario anche quando si vogliono usare le estensioni per il loopback allo stesso server. L'impostazione "Consenti l'accesso a Servizi di Azure" è disponibile nella pagina del portale di Azure per il server Postgres, nell'area Sicurezza connessione. Quando si attiva "Consenti l'accesso ai servizi di Azure" in vengono inseriti tutti gli indirizzi IP di Azure nell'elenco Consenti.
 
 Attualmente, le connessioni in uscita da database di Azure per PostgreSQL non sono supportate, tranne che per le connessioni ad altri server di database di Azure per PostgreSQL.
 
 ## <a name="uuid"></a>uuid
-Se si prevede di usare `uuid_generate_v4()` dall'estensione uuid-ossp, provare a confrontare con `gen_random_uuid()` dall'estensione pgcrypto per ottenere i vantaggi delle prestazioni.
-
+Se si prevede di usare `uuid_generate_v4()` dall' [estensione uuid-ossp](https://www.postgresql.org/docs/current/uuid-ossp.html), provare a confrontare con `gen_random_uuid()` dall' [estensione pgcrypto](https://www.postgresql.org/docs/current/pgcrypto.html) per ottenere i vantaggi delle prestazioni.
 
 ## <a name="pgaudit"></a>pgAudit
-L'estensione pgAudit fornisce la registrazione di controllo di sessione e oggetti. Per informazioni su come usare questa estensione in database di Azure per PostgreSQL, vedere l' [articolo sui concetti di controllo](concepts-audit.md). 
+L' [estensione pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md) fornisce la registrazione di controllo di sessione e oggetti. Per informazioni su come usare questa estensione in database di Azure per PostgreSQL, vedere l' [articolo sui concetti di controllo](concepts-audit.md). 
+
+## <a name="pg_prewarm"></a>pg_prewarm
+L'estensione pg_prewarm carica i dati relazionali nella cache. Se si riscalda le cache, le query hanno tempi di risposta migliori alla prima esecuzione dopo un riavvio. In Postgres 10 e versioni precedenti, il preriscaldamento viene eseguito manualmente usando la [funzione prewarm](https://www.postgresql.org/docs/10/pgprewarm.html).
+
+In Postgres 11 e versioni successive è possibile configurare il preriscaldamento affinché [venga eseguita automaticamente](https://www.postgresql.org/docs/current/pgprewarm.html). È necessario includere pg_prewarm nell'elenco `shared_preload_libraries` parametro e riavviare il server per applicare la modifica. I parametri possono essere impostati dalla [portale di Azure](howto-configure-server-parameters-using-portal.md), dall' [interfaccia](howto-configure-server-parameters-using-cli.md)della riga di comando, dall'API REST o dal modello ARM. 
 
 ## <a name="timescaledb"></a>TimescaleDB
 TimescaleDB è un database di serie temporali assemblato come estensione per PostgreSQL. TimescaleDB fornisce funzioni analitiche basate sul tempo, ottimizzazioni e scale Postgres per i carichi di lavoro di serie temporali.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a27c9ae1b75b9517bd3af92486df96434c5b34fb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cebb59d30dd717e54321ab138f6580947a545961
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207394"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185839"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
 
@@ -55,9 +55,9 @@ Sotto **Dispositivi utente** vengono elencati solo i dispositivi seguenti:
 
 ---
 
-### <a name="q-why-do-my-users-see-an-error-message-saying-your-organization-has-deleted-the-device-or-your-organization-has-disabled-the-device-on-their-windows-10-devices-"></a>D: perché gli utenti visualizzano un messaggio di errore che informa che l'organizzazione ha eliminato il dispositivo o che l'organizzazione ha disabilitato il dispositivo nei dispositivi Windows 10?
+### <a name="q-why-do-my-users-see-an-error-message-saying-your-organization-has-deleted-the-device-or-your-organization-has-disabled-the-device-on-their-windows-10-devices"></a>D: perché gli utenti visualizzano un messaggio di errore che informa che l'organizzazione ha eliminato il dispositivo o che l'organizzazione ha disabilitato il dispositivo nei dispositivi Windows 10?
 
-**R:** Nei dispositivi Windows 10 aggiunti o registrati con Azure AD, viene emesso un [token di aggiornamento primario (PRT)](concept-primary-refresh-token.md) che abilita Single Sign-on. La validità del PRT è basata sull'validaity del dispositivo stesso. Questo messaggio viene visualizzato dagli utenti se il dispositivo viene eliminato o disabilitato in Azure AD senza avviare l'azione dal dispositivo stesso. Un dispositivo può essere eliminato o disabilitato in Azure AD uno degli scenari seguenti: 
+**R:** Nei dispositivi Windows 10 aggiunti o registrati con Azure AD, viene emesso un [token di aggiornamento primario (PRT)](concept-primary-refresh-token.md) che abilita Single Sign-on. La validità del PRT è basata sulla validità del dispositivo stesso. Questo messaggio viene visualizzato dagli utenti se il dispositivo viene eliminato o disabilitato in Azure AD senza avviare l'azione dal dispositivo stesso. Un dispositivo può essere eliminato o disabilitato in Azure AD uno degli scenari seguenti: 
 
 - L'utente disabilita il dispositivo dal portale app personali. 
 - Un amministratore (o utente) Elimina o Disabilita il dispositivo nella portale di Azure o tramite PowerShell
@@ -71,7 +71,7 @@ Vedere di seguito il modo in cui è possibile rettificare queste azioni.
 
 ### <a name="q-i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell-but-the-local-state-on-the-device-says-its-still-registered-what-should-i-do"></a>D: il dispositivo è stato disabilitato o eliminato nel portale di Azure o tramite Windows PowerShell. Ma lo stato locale sul dispositivo indica che è ancora registrato. Cosa devo fare?
 
-**R:** Questa operazione viene eseguita in base alla progettazione. In questo caso, il dispositivo non ha accesso alle risorse nel cloud. Gli amministratori possono eseguire questa azione per i dispositivi obsoleti, smarriti o rubati per impedire accessi non autorizzati. Se questa azione è stata eseguita involontariamente, sarà necessario riabilitare o registrare nuovamente il dispositivo come descritto di seguito.
+**R:** Questa operazione viene eseguita in base alla progettazione. In questo caso, il dispositivo non ha accesso alle risorse nel cloud. Gli amministratori possono eseguire questa operazione per dispositivi obsoleti, smarriti o rubati per impedire accessi non autorizzati. Se questa azione è stata eseguita involontariamente, sarà necessario riabilitare o registrare nuovamente il dispositivo come descritto di seguito.
 
 - Se il dispositivo è stato disabilitato in Azure AD, un amministratore con privilegi sufficienti può abilitarlo dal portale di Azure AD  
   > [!NOTE]
@@ -119,7 +119,7 @@ Vedere di seguito il modo in cui è possibile rettificare queste azioni.
 
 ### <a name="q-does-windows-10-device-registration-in-azure-ad-support-tpms-in-fips-mode"></a>D: la registrazione dei dispositivi Windows 10 in Azure AD supporta TPMs in modalità FIPS?
 
-**R:** La registrazione dei dispositivi Windows 10 è supportata solo per il TPM 2,0 conforme a FIPS e non è supportata per TPM 1,2. Se i dispositivi hanno un TPM compatibile con FIPS 1,2, è necessario disabilitarli prima di procedere con Azure AD join o Azure AD ibrido join. Si noti che Microsoft non fornisce strumenti per disabilitare la modalità FIPS per TPMs poiché dipende dal produttore del TPM. Contattare l'OEM hardware per assistenza. 
+**R:** La registrazione dei dispositivi Windows 10 è supportata solo per il TPM 2,0 conforme a FIPS e non è supportata per TPM 1,2. Se i dispositivi hanno un TPM compatibile con FIPS 1,2, è necessario disabilitarli prima di procedere con Azure AD join o Azure AD ibrido join. Microsoft non fornisce strumenti per disabilitare la modalità FIPS per TPMs poiché dipende dal produttore del TPM. Contattare l'OEM hardware per assistenza. 
 
 ---
 
@@ -293,7 +293,7 @@ Lo stato di aggiunto ad Azure AD ibrido ha la precedenza rispetto allo stato di 
 ---
 ### <a name="q-how-can-i-block-users-from-adding-additional-work-accounts-azure-ad-registered-on-my-corporate-windows-10-devices"></a>D: come è possibile impedire agli utenti di aggiungere account di lavoro aggiuntivi (Azure AD registrati) sui dispositivi Windows 10 aziendali?
 
-**R:** Abilitare il registro di sistema seguente per impedire agli utenti di aggiungere altri account di lavoro al dominio aziendale aggiunto, Azure AD aggiunti o ibridi Azure AD aggiunti ai dispositivi Windows 10. Questo criterio può essere usato anche per bloccare la registrazione accidentale dei computer aggiunti al dominio Azure AD con lo stesso account utente. 
+**R:** Abilitare il registro di sistema seguente per impedire agli utenti di aggiungere altri account di lavoro al dominio aziendale aggiunto, Azure AD aggiunto o ibrido Azure AD aggiunto ai dispositivi Windows 10. Questo criterio può essere usato anche per bloccare la registrazione accidentale dei computer aggiunti al dominio Azure AD con lo stesso account utente. 
 
 `HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001`
 
@@ -310,9 +310,9 @@ Lo stato di aggiunto ad Azure AD ibrido ha la precedenza rispetto allo stato di 
 1.  [Creare i criteri di conformità del dispositivo](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
 1.  [Definire un criterio di accesso condizionale per i dispositivi macOS](../active-directory-conditional-access-azure-portal.md) 
 
-**Osservazioni:**
+**Note:**
 
-- Per accedere alle risorse, gli utenti inclusi nei criteri di accesso condizionale necessitano [di una versione supportata di Office per MacOS](../conditional-access/technical-reference.md#client-apps-condition) . 
+- Per accedere alle risorse, gli utenti inclusi nei criteri di accesso condizionale necessitano [di una versione supportata di Office per MacOS](../conditional-access/concept-conditional-access-conditions.md) . 
 - Durante il primo tentativo di accesso, agli utenti viene richiesto di registrare il dispositivo tramite il portale aziendale.
 
 ---

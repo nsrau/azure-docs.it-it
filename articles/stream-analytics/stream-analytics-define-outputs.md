@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/18/2010
-ms.openlocfilehash: 6d8957fc5d4ba49dd034d6687df61c68b9d35ada
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 02/14/2020
+ms.openlocfilehash: cfd4c113391f2ead238f5288c255b599e91b7e3a
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314284"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201459"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Informazioni sugli output di Analisi di flusso di Azure
 
@@ -33,10 +33,10 @@ Azure Data Lake Storage output di analisi di flusso non è attualmente disponibi
 
 La tabella seguente elenca i nomi delle proprietà e le relative descrizioni per configurare l'output di Data Lake Storage generazione 1.   
 
-| Nome proprietà | Description |
+| Nome proprietà | Descrizione |
 | --- | --- |
 | Alias di output | Nome descrittivo usato nelle query per indirizzare l'output della query a Data Lake Store. |
-| Sottoscrizione | Sottoscrizione che contiene l'account Azure Data Lake Storage. |
+| Subscription | Sottoscrizione che contiene l'account Azure Data Lake Storage. |
 | Nome account | Nome dell'account Data Lake Store a cui si sta inviando l'output. Viene visualizzato un elenco a discesa di account Data Lake Store disponibili nella sottoscrizione. |
 | Schema prefisso percorso | Percorso del file usato per scrivere i file nell'account di Data Lake Store specificato. È possibile specificare una o più istanze delle variabili {date} e {Time}:<br /><ul><li>Esempio 1: folder1/logs/{date}/{time}</li><li>Esempio 2: folder1/logs/{date}</li></ul><br />Il timestamp della struttura di cartelle creata segue l'ora UTC e non l'ora locale.<br /><br />Se il modello di percorso del file non contiene una barra finale (/), l'ultimo modello nel percorso del file viene considerato come prefisso del nome file. <br /><br />Vengono creati nuovi file nei casi seguenti:<ul><li>Modifica dello schema di output</li><li>Riavvio interno o esterno di un processo</li></ul> |
 | Formato data | Facoltativa. Se nel percorso di prefisso viene usato il token di data, è possibile selezionare il formato della data in cui sono organizzati i file. Esempio: AAAA/MM/GG |
@@ -55,7 +55,7 @@ La tabella seguente elenca i nomi delle proprietà e le relative descrizioni per
 
 La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per la creazione di un output del database SQL.
 
-| Nome proprietà | Description |
+| Nome proprietà | Descrizione |
 | --- | --- |
 | Alias di output |Nome descrittivo usato nelle query per indirizzare l'output delle query a questo database. |
 | Database | Nome del database in cui si sta inviando l'output. |
@@ -74,7 +74,7 @@ Archiviazione BLOB di Azure offre una soluzione conveniente e scalabile per l'ar
 
 La tabella seguente elenca i nomi delle proprietà e le relative descrizioni per la creazione di un BLOB o di ADLS Gen2 output.
 
-| Nome proprietà       | Description                                                                      |
+| Nome proprietà       | Descrizione                                                                      |
 | ------------------- | ---------------------------------------------------------------------------------|
 | Alias di output        | Nome descrittivo usato nelle query per indirizzare l'output delle query a questa archiviazione BLOB. |
 | Account di archiviazione     | Nome dell'account di archiviazione in cui si sta inviando l'output.               |
@@ -107,7 +107,7 @@ Il servizio [Hub eventi di Azure](https://azure.microsoft.com/services/event-hub
 
 Sono necessari alcuni parametri per configurare i flussi di dati dagli hub eventi come output.
 
-| Nome proprietà | Description |
+| Nome proprietà | Descrizione |
 | --- | --- |
 | Alias di output | Nome descrittivo usato nelle query per indirizzare l'output delle query a questo hub eventi. |
 | Spazio dei nomi dell'hub eventi | Contenitore per un set di entità di messaggistica. Quando è stato creato un nuovo hub eventi, è stato creato anche uno spazio dei nomi dell'hub eventi. |
@@ -129,7 +129,7 @@ Power BI output di analisi di flusso non è attualmente disponibile nelle aree A
 
 La tabella seguente elenca i nomi delle proprietà e le relative descrizioni per configurare l'output del Power BI.
 
-| Nome proprietà | Description |
+| Nome proprietà | Descrizione |
 | --- | --- |
 | Alias di output |Fornire un nome descrittivo usato nelle query per indirizzare l'output delle query a questo output Power BI. |
 | Area di lavoro del gruppo |Per abilitare la condivisione dei dati con altri utenti Power BI, è possibile selezionare i gruppi nell'account Power BI o scegliere **area di lavoro personale** se non si vuole scrivere in un gruppo. L'aggiornamento di un gruppo esistente richiede il rinnovo dell'autenticazione di Power BI. |
@@ -180,7 +180,7 @@ Datetime | string | string |  Datetime | string
 
 Nella tabella seguente sono elencati i nomi delle proprietà e le relative descrizioni per la creazione di un output di tabella.
 
-| Nome proprietà | Description |
+| Nome proprietà | Descrizione |
 | --- | --- |
 | Alias di output |Nome descrittivo usato nelle query per indirizzare l'output delle query a questa archiviazione tabelle. |
 | Account di archiviazione |Nome dell'account di archiviazione in cui si sta inviando l'output. |
@@ -194,9 +194,11 @@ Nella tabella seguente sono elencati i nomi delle proprietà e le relative descr
 
 Le [code del bus di servizio](../service-bus-messaging/service-bus-queues-topics-subscriptions.md) consentono il recapito di messaggi FIFO a uno o più consumer concorrente. In genere, i messaggi vengono ricevuti ed elaborati dai destinatari nell'ordine temporale in cui sono stati aggiunti alla coda. Ogni messaggio viene ricevuto ed elaborato da un solo consumer di messaggi.
 
+Con il [livello di compatibilità 1,2](stream-analytics-compatibility-level.md), analisi di flusso di Azure usa il protocollo di messaggistica [AMQP (Advanced Message Queueing Protocol)](../service-bus-messaging/service-bus-amqp-overview.md) per scrivere in code e argomenti del bus di servizio. AMQP consente di creare applicazioni ibride multipiattaforma usando un protocollo aperto standard.
+
 Nella tabella seguente sono elencati i nomi delle proprietà e le relative descrizioni per la creazione di un output della coda.
 
-| Nome proprietà | Description |
+| Nome proprietà | Descrizione |
 | --- | --- |
 | Alias di output |Nome descrittivo usato nelle query per indirizzare l'output della query a questa coda del bus di servizio. |
 | Spazio dei nomi del bus di servizio |Contenitore per un set di entità di messaggistica. |
@@ -217,7 +219,7 @@ Le code del bus di servizio forniscono un metodo di comunicazione uno-a-uno dal 
 
 La tabella seguente elenca i nomi delle proprietà e le relative descrizioni per la creazione dell'output di un argomento del bus di servizio.
 
-| Nome proprietà | Description |
+| Nome proprietà | Descrizione |
 | --- | --- |
 | Alias di output |Nome descrittivo usato nelle query per indirizzare l'output delle query a questo argomento del bus di servizio. |
 | Spazio dei nomi del bus di servizio |Contenitore per un set di entità di messaggistica. Quando si crea un nuovo hub eventi, viene anche creato uno spazio dei nomi del bus di servizio. |
@@ -243,7 +245,7 @@ Azure Cosmos DB output di analisi di flusso non è attualmente disponibile nelle
 
 Nella tabella seguente sono descritte le proprietà per la creazione di un output di Azure Cosmos DB.
 
-| Nome proprietà | Description |
+| Nome proprietà | Descrizione |
 | --- | --- |
 | Alias di output | Alias per fare riferimento a questo output nella query di Analisi di flusso di Azure. |
 | Sink | Azure Cosmos DB. |
@@ -261,13 +263,15 @@ L'output di funzioni di Azure da analisi di flusso non è attualmente disponibil
 
 Analisi di flusso di Azure richiama Funzioni di Azure tramite trigger HTTP. L'adattatore di output di funzioni di Azure è disponibile con le proprietà configurabili seguenti:
 
-| Nome proprietà | Description |
+| Nome proprietà | Descrizione |
 | --- | --- |
 | App per le funzioni |Nome dell'app funzioni di Azure. |
 | Funzione |Nome della funzione nell'app funzioni di Azure. |
 | Chiave |Se si vuole usare una funzione di Azure da un'altra sottoscrizione, è possibile fornire la chiave per accedere alla funzione. |
 | Dimensioni massime batch |Proprietà che consente di impostare le dimensioni massime per ogni batch di output inviato alla funzione di Azure. L'unità di input è espressa in byte. Per impostazione predefinita, questo valore è 262.144 byte (256 KB). |
 | Numero massimo di batch  |Proprietà che consente di specificare il numero massimo di eventi in ogni batch inviato a funzioni di Azure. Il valore predefinito è 100. |
+
+Analisi di flusso di Azure prevede lo stato HTTP 200 dall'app funzioni per i batch elaborati correttamente.
 
 Quando analisi di flusso di Azure riceve un'eccezione di 413 ("entità richiesta HTTP troppo grande") da una funzione di Azure, riduce la dimensione dei batch che invia a funzioni di Azure. Usare questa eccezione nel codice della funzione di Azure per fare in modo che Analisi di flusso di Azure non invii batch troppo grandi. Assicurarsi anche che il numero massimo di batch e i valori delle dimensioni usati nella funzione siano coerenti con i valori immessi nel portale di analisi dei flussi.
 
@@ -320,11 +324,11 @@ Nella tabella seguente viene riepilogato il supporto della partizione e il numer
 
 | Tipo di output | Supporto del partizionamento | Chiave di partizione  | Numero di writer di output |
 | --- | --- | --- | --- |
-| Azure Data Lake Store | Sì | Usare i token {date} e {Time} nel modello di prefisso del percorso. Scegliere il formato della data, ad esempio AAAA/MM/GG, GG/MM/AAAA o MM-gg-aaaa. HH viene usato per il formato dell'ora. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
-| Database SQL di Azure | Sì, deve essere abilitato. | In base alla clausola PARTITION BY nella query. | Quando l'opzione eredita partizionamento è abilitata, segue il partizionamento dell'input per le [query completamente eseguibili](stream-analytics-scale-jobs.md). Per altre informazioni su come ottenere prestazioni migliori per la velocità effettiva di scrittura quando si caricano dati nel database SQL di Azure, vedere l' [output di analisi di flusso di Azure nel database SQL di Azure](stream-analytics-sql-output-perf.md). |
-| Archiviazione BLOB di Azure | Sì | Usare i token {date} e {time} dei campi evento nel modello di percorso. Scegliere il formato della data, ad esempio AAAA/MM/GG, GG/MM/AAAA o MM-gg-aaaa. HH viene usato per il formato dell'ora. L'output del BLOB può essere partizionato in base a un singolo attributo dell'evento personalizzato {fieldname} o {datetime:\<specifier>}. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
+| Archivio Azure Data Lake | Sì | Usare i token {date} e {Time} nel modello di prefisso del percorso. Scegliere il formato della data, ad esempio AAAA/MM/GG, GG/MM/AAAA o MM-gg-aaaa. HH viene usato per il formato dell'ora. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
+| database SQL di Azure | Sì, deve essere abilitato. | In base alla clausola PARTITION BY nella query. | Quando l'opzione eredita partizionamento è abilitata, segue il partizionamento dell'input per le [query completamente eseguibili](stream-analytics-scale-jobs.md). Per altre informazioni su come ottenere prestazioni migliori per la velocità effettiva di scrittura quando si caricano dati nel database SQL di Azure, vedere l' [output di analisi di flusso di Azure nel database SQL di Azure](stream-analytics-sql-output-perf.md). |
+| Archivio BLOB di Azure | Sì | Usare i token {date} e {time} dei campi evento nel modello di percorso. Scegliere il formato della data, ad esempio AAAA/MM/GG, GG/MM/AAAA o MM-gg-aaaa. HH viene usato per il formato dell'ora. L'output del BLOB può essere partizionato in base a un singolo attributo dell'evento personalizzato {fieldname} o {datetime:\<specifier>}. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
 | Hub eventi di Azure | Sì | Sì | Varia a seconda dell'allineamento della partizione.<br /> Quando la chiave di partizione per l'output di hub eventi è allineata con il passaggio di query upstream (precedente), il numero di writer corrisponde al numero di partizioni nell'output dell'hub eventi. Ogni writer usa la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) per inviare eventi alla partizione specifica. <br /> Quando la chiave di partizione per l'output di hub eventi non è allineata con il passaggio di query upstream (precedente), il numero di writer corrisponde al numero di partizioni nel passaggio precedente. Ogni writer usa la [classe SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) in **EventHubClient** per inviare eventi a tutte le partizioni di output. |
-| Power BI | No | Nessuno | Non applicabile. |
+| Power BI | No | nessuno | Non applicabile. |
 | Archiviazione tabelle di Azure | Sì | Qualsiasi colonna di output.  | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
 | Argomento del bus di servizio di Azure | Sì | Scelto automaticamente. Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore integer univoco per ogni partizione.| Corrisponde al numero di partizioni nell'argomento di output.  |
 | Coda del bus di servizio di Azure | Sì | Scelto automaticamente. Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore integer univoco per ogni partizione.| Corrisponde al numero di partizioni nella coda di output. |
@@ -340,9 +344,9 @@ Nella tabella seguente vengono illustrate alcune considerazioni relative all'inv
 
 | Tipo di output | Dimensioni massime messaggio | Ottimizzazione delle dimensioni batch |
 | :--- | :--- | :--- |
-| Azure Data Lake Store | Vedere [Data Lake storage limiti](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits). | Utilizzare fino a 4 MB per operazione di scrittura. |
-| Database SQL di Azure | Configurabile con numero massimo di batch. 10.000 numero massimo e 100 di righe minime per singolo inserimento bulk per impostazione predefinita.<br />Vedere [limiti di SQL Azure](../sql-database/sql-database-resource-limits.md). |  Ogni batch viene inizialmente inserito in blocco con il numero massimo di batch. Batch è diviso a metà (fino al numero minimo di batch) in base a errori che è necessario ripetere da SQL. |
-| Archiviazione BLOB di Azure | Vedere [limiti di archiviazione di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). | La dimensione massima del blocco BLOB è 4 MB.<br />Il numero massimo di Bock BLOB è 50.000. |
+| Archivio Azure Data Lake | Vedere [Data Lake storage limiti](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits). | Utilizzare fino a 4 MB per operazione di scrittura. |
+| database SQL di Azure | Configurabile con numero massimo di batch. 10.000 numero massimo e 100 di righe minime per singolo inserimento bulk per impostazione predefinita.<br />Vedere [limiti di SQL Azure](../sql-database/sql-database-resource-limits.md). |  Ogni batch viene inizialmente inserito in blocco con il numero massimo di batch. Batch è diviso a metà (fino al numero minimo di batch) in base a errori che è necessario ripetere da SQL. |
+| Archivio BLOB di Azure | Vedere [limiti di archiviazione di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). | La dimensione massima del blocco BLOB è 4 MB.<br />Il numero massimo di Bock BLOB è 50.000. |
 | Hub eventi di Azure  | 256 KB o 1 MB per messaggio. <br />Vedere [limiti di hub eventi](../event-hubs/event-hubs-quotas.md). |  Quando il partizionamento di input/output non è allineato, ogni evento viene compresso singolarmente in `EventData` e inviato in un batch fino alla dimensione massima del messaggio. Questo errore si verifica anche se vengono usate le [proprietà dei metadati personalizzati](#custom-metadata-properties-for-output) . <br /><br />  Quando il partizionamento di input/output è allineato, più eventi vengono compressi in un'unica istanza di `EventData`, fino alla dimensione massima del messaggio e inviati. |
 | Power BI | Vedere i [limiti dell'API REST di Power bi](https://msdn.microsoft.com/library/dn950053.aspx). |
 | Archiviazione tabelle di Azure | Vedere [limiti di archiviazione di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). | Il valore predefinito è 100 entità per singola transazione. È possibile configurarlo su un valore inferiore in base alle esigenze. |

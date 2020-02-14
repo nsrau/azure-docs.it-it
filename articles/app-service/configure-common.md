@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: e4ba7326d9c23bed2406e62fe1a206501d05a1b1
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 021941339bbbf72112628c54f5b05d5fd305bd0f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666185"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198582"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurare un'app del servizio app nel portale di Azure
 
@@ -84,13 +84,13 @@ Le impostazioni dell'app hanno la formattazione JSON seguente:
 ]
 ```
 
-## <a name="configure-connection-strings"></a>Configurare stringhe di connessione
+## <a name="configure-connection-strings"></a>Configurare le stringhe di connessione
 
 Nella [portale di Azure]cercare e selezionare **Servizi app**e quindi selezionare l'app. Nel menu a sinistra dell'app selezionare **Configuration** > **Impostazioni applicazione**.
 
 ![Impostazioni dell'applicazione](./media/configure-common/open-ui.png)
 
-Per gli sviluppatori ASP.NET e ASP.NET Core, l'impostazione delle stringhe di connessione nel servizio app è simile alla relativa impostazione in `<connectionStrings>` in *Web. config*, ma i valori impostati nel servizio app sostituiscono quelli in *Web. config*. È possibile usare le impostazioni di sviluppo (ad esempio, un file di database) in *Web. config* e i segreti di produzione, ad esempio le credenziali del database SQL, in modo sicuro nel servizio app. Lo stesso codice usa le impostazioni di sviluppo quando si esegue il debug in locale e usa i segreti di produzione durante la distribuzione in Azure.
+Per gli sviluppatori ASP.NET e ASP.NET Core, l'impostazione delle stringhe di connessione nel servizio app è simile alla relativa impostazione in `<connectionStrings>` in *Web. config*, ma i valori impostati nel servizio app sostituiscono quelli in *Web. config*. È possibile continuare a usare le impostazioni di sviluppo (ad esempio, un file di database) in *Web. config* e i segreti di produzione, ad esempio le credenziali del database SQL, in modo sicuro nel servizio app. Lo stesso codice usa le impostazioni di sviluppo quando si esegue il debug in locale e usa i segreti di produzione durante la distribuzione in Azure.
 
 Per gli stack di altri linguaggi, è preferibile usare [le impostazioni dell'app](#configure-app-settings) , perché le stringhe di connessione richiedono una formattazione speciale nelle chiavi della variabile per accedere ai valori. Ecco un'unica eccezione. Tuttavia, quando si configurano le stringhe di connessione nell'app, viene eseguito il backup di alcuni tipi di database di Azure insieme all'app. Per altre informazioni, vedere [elementi di cui viene eseguito il backup](manage-backup.md#what-gets-backed-up). Se questo backup automatico non è necessario, usare le impostazioni dell'app.
 
@@ -225,7 +225,7 @@ Per configurare le applicazioni e le directory virtuali, specificare ogni direct
 - **Chiave di accesso**: per la configurazione avanzata, il tasto di accesso.
 - **Percorso di montaggio**: il percorso assoluto nel contenitore per montare l'archiviazione personalizzata.
 
-Per altre informazioni, vedere [gestire il contenuto da archiviazione di Azure nel servizio app in Linux](containers/how-to-serve-content-from-azure-storage.md).
+Per altre informazioni, vedere [Rendere disponibile contenuto di Archiviazione di Azure nel servizio app in Linux](containers/how-to-serve-content-from-azure-storage.md).
 
 ## <a name="configure-language-stack-settings"></a>Configurare le impostazioni dello stack di lingue
 

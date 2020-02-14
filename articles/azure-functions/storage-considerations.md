@@ -3,12 +3,12 @@ title: Considerazioni sull'archiviazione per funzioni di Azure
 description: Informazioni sui requisiti di archiviazione di funzioni di Azure e sulla crittografia dei dati archiviati.
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 353fdd3bf7775e3bc7a9d017a9e8dd8238b09830
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: f094996ca44ec36d46330e54eac56b28794ef22e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964982"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190291"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerazioni sull'archiviazione per funzioni di Azure
 
@@ -17,7 +17,7 @@ Funzioni di Azure richiede un account di archiviazione di Azure quando si crea u
 
 |Servizio di archiviazione  | Utilizzo funzioni  |
 |---------|---------|
-| [Archivio BLOB di Azure](/storage/blobs/storage-blobs-overview.md)     | Gestire lo stato e i tasti funzione delle associazioni.  <br/>Usato anche dagli [Hub attività in Durable Functions](durable/durable-functions-task-hubs.md). |
+| [Archivio BLOB di Azure](../storage/blobs/storage-blobs-introduction.md)     | Gestire lo stato e i tasti funzione delle associazioni.  <br/>Usato anche dagli [Hub attività in Durable Functions](durable/durable-functions-task-hubs.md). |
 | [File di Azure](../storage/files/storage-files-introduction.md)  | Condivisione file usata per archiviare ed eseguire il codice dell'app per le funzioni in un [piano a consumo](functions-scale.md#consumption-plan). |
 | [Archiviazione code di Azure](../storage/queues/storage-queues-introduction.md)     | Usato dagli [Hub attività in Durable Functions](durable/durable-functions-task-hubs.md).   |
 | [Archivio tabelle di Azure](../storage/tables/table-storage-overview.md)  |  Usato dagli [Hub attività in Durable Functions](durable/durable-functions-task-hubs.md).       |

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 26906f2a7343dbaf09f3107d2598e81a42c65091
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 270b3f0fe7c654d2bf059784e872b7dbe97a6068
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064649"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190483"
 ---
 # <a name="virtual-network-service-tags"></a>Tag del servizio di rete virtuale 
 <a name="network-service-tags"></a>
@@ -42,7 +42,7 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 
 | Tag | Scopo | È possibile usare in ingresso o in uscita? | Può essere regionale? | È possibile usare con il firewall di Azure? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **Gestione API** | Traffico di gestione per gestione API di Azure-distribuzioni dedicate. | Entrambe | No | Sì |
+| **Gestione API** | Traffico di gestione per gestione API di Azure-distribuzioni dedicate. <br/><br/>*Nota:* Questo tag rappresenta l'endpoint del servizio gestione API di Azure per il piano di controllo per area. Ciò consente ai clienti di eseguire operazioni di gestione su API, operazioni, criteri, NamedValues configurate nel servizio gestione API.  | In ingresso | Sì | Sì |
 | **ApplicationInsightsAvailability** | Disponibilità Application Insights. | In ingresso | No | No |
 | **AppService**    | Servizio app di Azure. Questo tag è consigliato per le regole di sicurezza in uscita per i front-end dell'app Web. | In uscita | Sì | Sì |
 | **AppServiceManagement** | Traffico di gestione per le distribuzioni dedicate al ambiente del servizio app. | Entrambe | No | Sì |

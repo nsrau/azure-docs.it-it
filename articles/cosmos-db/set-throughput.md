@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: 9ac22461e04b447fe34d5647eb5ec7847d25a09d
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: b60b117b10ac9ade6f685acf788e942ff7a2c93c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931279"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188761"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Effettuare il provisioning della velocità effettiva per contenitori e database
 
@@ -60,24 +60,11 @@ Tutti i contenitori creati all'interno di un database con la velocità effettiva
 
 Se il carico di lavoro in una partizione logica utilizza un livello di velocità effettiva superiore rispetto a quello allocato a una specifica partizione logica, le operazioni risulteranno limitate in termini di velocità. Quando si verifica una limitazione della frequenza, è possibile aumentare la velocità effettiva per l'intero database o ripetere le operazioni. Per altre informazioni sul partizionamento, vedere [Partizioni logiche](partition-data.md).
 
-La velocità effettiva di cui è stato effettuato il provisioning in un database può essere condivisa dai contenitori all'interno del database. Ogni nuovo contenitore nella velocità effettiva condivisa a livello di database richiederà 100 ur/sec. Quando si esegue il provisioning dei contenitori con l'offerta di database condiviso:
+I contenitori in un database con velocità effettiva condivisa condividono la velocità effettiva (UR/sec) allocata al database. In un database di velocità effettiva condivisa:
 
-* Ogni 25 contenitori viene raggruppati in un set di partizioni e la velocità effettiva del database (D) viene condivisa tra i contenitori nel set di partizioni. Se sono presenti fino a 25 contenitori nel database e in qualsiasi momento, se si usa un solo contenitore, il contenitore può usare una velocità effettiva massima di ' d'.
+* È possibile avere fino a quattro contenitori con almeno 400 ur/sec nel database. Ogni nuovo contenitore dopo i primi quattro richiederà almeno 100 ur/sec. Se, ad esempio, si dispone di un database di velocità effettiva condivisa con otto contenitori, le UR/sec minime del database saranno 800 ur/sec.
 
-* Per ogni nuovo contenitore creato dopo 25 contenitori, viene creato un nuovo set di partizioni e la velocità effettiva del database viene divisa tra i nuovi set di partizioni creati, ovvero D/2 per 2 set di partizioni, D/3 per 3 set di partizioni.... In qualsiasi momento, se si utilizza un solo contenitore dal database, è possibile utilizzare un valore massimo di (D/2, D/3, D/4... velocità effettiva), rispettivamente. Data la velocità effettiva ridotta, è consigliabile creare non più di 25 contenitori in un database.
-
-**Esempio**
-
-* Se si crea un database denominato "MyDB" con una velocità effettiva con provisioning di 10.000 UR/s.
-
-* Se si effettua il provisioning di 25 contenitori in "MyDB", tutti i contenitori vengono raggruppati in un set di partizioni. In qualsiasi momento, se si usa un solo contenitore dal database, può usare un massimo di 10.000 UR/s (D).
-
-* Quando si esegue il provisioning del contenitore 26a, viene creato un nuovo set di partizioni e la velocità effettiva è divisa equamente tra entrambi i set di partizioni. Quindi, in qualsiasi momento, se si utilizza un solo contenitore dal database, è possibile utilizzare un massimo di 5K ur/sec (D/2). Poiché sono presenti due set di partizioni, il fattore di condivisione della velocità effettiva viene suddiviso in D/2.
-
-   Nell'immagine seguente viene illustrato graficamente l'esempio precedente:
-
-   ![Fattore di condivisione della velocità effettiva a livello di database](./media/set-throughput/database-level-throughput-shareability-factor.png)
-
+* È possibile avere un massimo di 25 contenitori nel database. Se sono già presenti più di 25 contenitori in un database di velocità effettiva condivisa, non sarà possibile creare contenitori aggiuntivi fino a quando il numero di contenitori non è inferiore a 25.
 
 Se i carichi di lavoro comportano l'eliminazione e la ricreazione di tutte le raccolte in un database, è consigliabile eliminare il database vuoto e ricreare un nuovo database prima della creazione della raccolta. L'immagine seguente mostra in che modo una partizione fisica può ospitare una o più partizioni logiche che appartengono a contenitori diversi all'interno di un database:
 
@@ -126,7 +113,7 @@ Quando si usa .NET SDK, il metodo [DocumentClient. ReadOfferAsync](https://docs.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sulle [partizioni logiche](partition-data.md).
-* Informazioni su [come effettuare il provisioning della velocità effettiva in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md).
+* [Partizionamento e scalabilità orizzontale in Azure Cosmos DB](partition-data.md)
+* [Effettuare il provisioning della velocità effettiva in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md)
 * [Effettuare il provisioning della velocità effettiva in un database di Azure Cosmos](how-to-provision-database-throughput.md)
 

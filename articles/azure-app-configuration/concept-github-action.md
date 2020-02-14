@@ -6,14 +6,14 @@ ms.author: lcozzens
 ms.date: 01/14/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 269ae5630d1524cb8f89d3af8728892079f6eb5f
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: ce8d42ec7c37b19378b6f4ae0c81548f2eff5c9c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899617"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190387"
 ---
-# <a name="sync-your-app-configuration-instance-using-github-actions"></a>Sincronizzare l'istanza di configurazione dell'app usando le azioni di GitHub
+# <a name="sync-your-app-configuration-instance-using-github-actions"></a>Sincronizzare l'istanza di Configurazione app con GitHub Actions
 App Azure configurazione usa le azioni di GitHub per aggiornare un'istanza di configurazione dell'app quando viene attivata da un'azione eseguita in un repository GitHub. È possibile sfruttare i flussi di lavoro GitHub per aggiornare la configurazione dell'app, consentendo l'integrazione degli aggiornamenti della configurazione dell'app nello stesso flusso di lavoro usato per aggiornare il codice dell'app.
 
 Un flusso di [lavoro](https://help.github.com/articles/about-github-actions#workflow) di azioni di GitHub è un processo automatico definito nel repository GitHub. Questo processo spiega a GitHub come compilare e distribuire il progetto GitHub. App Azure configurazione fornisce l'azione di *sincronizzazione della configurazione app Azure* per abilitare gli aggiornamenti a un'istanza di configurazione dell'app quando vengono apportate modifiche al repository di origine. 
@@ -25,8 +25,7 @@ Gli eventi di GitHub, ad esempio un push in un repository, possono attivare un f
 La [documentazione](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) di GitHub fornisce una panoramica approfondita dei flussi di lavoro e delle azioni di GitHub. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>Abilitare le azioni di GitHub nel repository
-Per iniziare a usare questa azione GitHub, passare al repository e selezionare la scheda **azioni** . trovare e selezionare l'azione GitHub nel Marketplace cercando "app Azure Sync Configuration". 
-
+Per iniziare a usare questa azione GitHub, passare al repository e selezionare la scheda **azioni** . fare clic su "nuovo flusso di lavoro" e quindi su "Configura un flusso di lavoro". Da qui, cercare "app Azure Sync Configuration Sync" nel Marketplace.
 > [!div class="mx-imgBorder"]
 > ![selezionare la scheda azione](media/find-github-action.png)
 
@@ -131,7 +130,7 @@ jobs:
 ## <a name="use-max-depth-to-limit-github-action"></a>Usare la profondità massima per limitare l'azione di GitHub
 Il comportamento predefinito per gli attributi JSON annidati consiste nel rendere flat l'intero oggetto.  Il codice JSON seguente definisce questa coppia chiave-valore:
 
-| Chiave | Valore |
+| Chiave | valore |
 | --- | --- |
 | Oggetto: interno: InnerKey | InnerValue |
 
@@ -173,7 +172,7 @@ jobs:
 
 Data la profondità 2, nell'esempio precedente viene restituita la coppia chiave: valore seguente:
 
-| Chiave | Valore |
+| Chiave | valore |
 | --- | --- |
 | Oggetto: interno | {"InnerKey": "InnerValue"} |
 
@@ -184,7 +183,7 @@ I parametri di input specificano i dati usati dall'azione durante il Runtime.  L
 > ID di input senza distinzione tra maiuscole e minuscole.
 
 
-| Nome input | Obbligatorio? | Valore |
+| Nome input | Obbligatorio? | valore |
 |----|----|----|
 | configurationFile | Sì | Percorso del file di configurazione nel repository rispetto alla radice del repository.  I modelli Glob sono supportati e possono includere più file. |
 | format | Sì | Formato di file del file di configurazione.  I formati validi sono: JSON, YAML, Properties. |
@@ -192,7 +191,7 @@ I parametri di input specificano i dati usati dall'azione durante il Runtime.  L
 | separator | Sì | Separatore utilizzato quando si rende flat il file di configurazione a coppie chiave-valore.  I valori validi sono:. , ; : - _ __ / |
 | prefix | No | Prefisso da aggiungere all'inizio delle chiavi. |
 | label | No | Etichetta utilizzata per l'impostazione di coppie chiave-valore. Se non è specificato, viene utilizzata un'etichetta null. |
-| Strict | No | Valore booleano che determina se è abilitata la modalità Strict. Il valore predefinito è false. |
+| strict | No | Valore booleano che determina se è abilitata la modalità Strict. Il valore predefinito è false. |
 | profondità | No | Profondità massima per rendere flat il file di configurazione.  La profondità deve essere un numero positivo.  Il valore predefinito non avrà profondità massima. |
 | tags | No | Specifica il tag impostato sulle coppie chiave-valore.  Il formato previsto è un form file di un oggetto JSON con la forma seguente: {[propertyName: String]: String;} Ogni proprietà nome-valore diventa un tag. |
 

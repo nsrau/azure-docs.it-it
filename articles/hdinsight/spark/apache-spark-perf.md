@@ -7,17 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/01/2019
-ms.openlocfilehash: 0d8890eeba7fcb53517d6ee653c8dd09866805ef
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.date: 02/12/2020
+ms.openlocfilehash: 3d8f4a28961be7e0ece517e00026d9711d8f67e9
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177375"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198872"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Ottimizzare i processi di Apache Spark in HDInsight
 
-Informazioni su come ottimizzare la configurazione del cluster [Apache Spark](https://spark.apache.org/) per carichi di lavoro specifici.  La sfida più comune è la pressione della memoria, a causa di configurazioni non corrette (in particolare esecutori di dimensioni errate), operazioni con esecuzione prolungata e attività che generano operazioni cartesiane. È possibile velocizzare i processi con una memorizzazione nella cache appropriata e consentendo l'[asimmetria dei dati](#optimize-joins-and-shuffles). Per ottenere prestazioni ottimali, monitorare e analizzare i processi Spark che comportano un'esecuzione prolungata e un consumo eccessivo di risorse.
+Informazioni su come ottimizzare la configurazione del cluster [Apache Spark](https://spark.apache.org/) per carichi di lavoro specifici.  La sfida più comune è la pressione della memoria, a causa di configurazioni non corrette (in particolare esecutori di dimensioni errate), operazioni con esecuzione prolungata e attività che generano operazioni cartesiane. È possibile velocizzare i processi con una memorizzazione nella cache appropriata e consentendo l'[asimmetria dei dati](#optimize-joins-and-shuffles). Per ottenere prestazioni ottimali, monitorare e analizzare i processi Spark che comportano un'esecuzione prolungata e un consumo eccessivo di risorse. Per informazioni su come iniziare a usare Apache Spark in HDInsight, vedere [creare Apache Spark cluster con portale di Azure](apache-spark-jupyter-spark-sql-use-portal.md).
 
 Le sezioni seguenti descrivono alcune raccomandazioni e procedure di ottimizzazione comuni per i processi Spark.
 
@@ -57,13 +57,15 @@ Il formato migliore per le prestazioni è Parquet con *compressione Snappy*, ovv
 
 Quando si crea un nuovo cluster Spark, è possibile selezionare archiviazione BLOB di Azure o Azure Data Lake Storage come risorsa di archiviazione predefinita del cluster. Entrambe le opzioni offrono il vantaggio di un'archiviazione a lungo termine per i cluster temporanei, in modo che i dati non vengano eliminati automaticamente quando si elimina il cluster. È possibile ricreare un cluster temporaneo e accedere comunque ai dati.
 
-| Tipo di store | File system | speed | Temporaneo | Casi d'uso |
+| Tipo di store | File system | speed | Temporaneo | Modalità di utilizzo comuni |
 | --- | --- | --- | --- | --- |
-| Archiviazione BLOB di Azure | **wasb:** //url/ | **Standard** | SÌ | Cluster temporaneo |
-| Archiviazione BLOB di Azure (sicurezza) | **wasbs:** //URL/ | **Standard** | SÌ | Cluster temporaneo |
-| Azure Data Lake Storage generazione 2| **ABFS:** //URL/ | **Più rapido** | SÌ | Cluster temporaneo |
-| Azure Data Lake Storage Gen 1| **adl:** //url/ | **Più rapido** | SÌ | Cluster temporaneo |
+| Archiviazione BLOB di Azure | **wasb:** //url/ | **Standard** | Sì | Cluster temporaneo |
+| Archiviazione BLOB di Azure (sicurezza) | **wasbs:** //URL/ | **Standard** | Sì | Cluster temporaneo |
+| Azure Data Lake Storage Gen 2| **ABFS:** //URL/ | **Più rapido** | Sì | Cluster temporaneo |
+| Azure Data Lake Storage Gen 1| **adl:** //url/ | **Più rapido** | Sì | Cluster temporaneo |
 | Hadoop Distributed File System locale | **hdfs:** //url/ | **Il più rapido** | No | Cluster interattivo 24/7 |
+
+Per una descrizione completa delle opzioni di archiviazione disponibili per i cluster HDInsight, vedere [confrontare le opzioni di archiviazione per l'uso con i cluster HDInsight di Azure](../hdinsight-hadoop-compare-storage-options.md).
 
 ## <a name="use-the-cache"></a>Usare la cache
 
@@ -74,7 +76,7 @@ Spark offre meccanismi di memorizzazione nella cache nativi che possono essere u
     * Non funziona con il partizionamento, che può cambiare nelle future versioni di Spark.
 
 * Memorizzazione nella cache a livello di archiviazione (consigliata)
-    * Può essere implementata usando [Alluxio](https://www.alluxio.io/).
+    * Può essere implementato in HDInsight usando la funzionalità [cache di io](apache-spark-improve-performance-iocache.md) .
     * Usa una memorizzazione nella cache di unità SSD e interna alla memoria.
 
 * Hadoop Distributed File System locale (opzione consigliata)
@@ -106,6 +108,8 @@ Per indirizzare messaggi di "memoria insufficiente", provare a:
 * Prediligere `TreeReduce`, che esegue più operazioni su executor e partizioni rispetto a `Reduce`, che esegue tutto il lavoro sul driver.
 * Sfruttare i frame di dati, anziché gli oggetti RDD di livello inferiore.
 * Creare tipi complessi in grado di incapsulare azioni, come ad esempio "Top N", diverse aggregazioni od operazioni di windowing.
+
+Per altre procedure di risoluzione dei problemi, vedere [OutOfMemoryError exceptions for Apache Spark in Azure HDInsight](apache-spark-troubleshoot-outofmemory.md).
 
 ## <a name="optimize-data-serialization"></a>Ottimizzare la serializzazione dei dati
 
@@ -193,7 +197,11 @@ Durante l'esecuzione di query simultanee, considerare quanto segue:
 3. Distribuire le query tra applicazioni parallele.
 4. Modificare le dimensioni in base alle esecuzioni della versione di valutazione e ai fattori precedenti, ad esempio sovraccarico GC.
 
-Monitorare le prestazioni della query per gli outlier o altri problemi di prestazioni osservando la visualizzazione della sequenza temporale, il grafico SQL, le statistiche dei processi e così via. In alcuni casi, uno o più executor possono rivelarsi più lenti rispetto ad altri e richiedere molto più tempo per eseguire le attività. Ciò si verifica spesso nei cluster di dimensioni maggiori (> 30 nodi). In questo caso, suddividere il lavoro in un numero maggiore di attività, in modo che l'utilità di pianificazione riesca a compensare l'effetto di rallentamento delle attività. Ad esempio, prevedere almeno il doppio di attività rispetto al numero di core degli executor nell'applicazione. È anche possibile abilitare l'esecuzione speculativa delle attività con `conf: spark.speculation = true`.
+Per altre informazioni sull'uso di Ambari per configurare gli Executor, vedere [impostazioni Apache Spark-esecutori Spark](apache-spark-settings.md#configuring-spark-executors).
+
+Monitorare le prestazioni della query per gli outlier o altri problemi di prestazioni osservando la visualizzazione della sequenza temporale, il grafico SQL, le statistiche dei processi e così via. Per informazioni sul debug di processi Spark con YARN e il server della cronologia Spark, vedere [eseguire il debug di processi Apache Spark in esecuzione in Azure HDInsight](apache-spark-job-debugging.md). Per suggerimenti sull'uso del server di sequenza temporale YARN, vedere [accedere ai log applicazioni di Apache Hadoop Yarn](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
+
+In alcuni casi, uno o più executor possono rivelarsi più lenti rispetto ad altri e richiedere molto più tempo per eseguire le attività. Ciò si verifica spesso nei cluster di dimensioni maggiori (> 30 nodi). In questo caso, suddividere il lavoro in un numero maggiore di attività, in modo che l'utilità di pianificazione riesca a compensare l'effetto di rallentamento delle attività. Ad esempio, prevedere almeno il doppio di attività rispetto al numero di core degli executor nell'applicazione. È anche possibile abilitare l'esecuzione speculativa delle attività con `conf: spark.speculation = true`.
 
 ## <a name="optimize-job-execution"></a>Ottimizzare l'esecuzione del processo
 

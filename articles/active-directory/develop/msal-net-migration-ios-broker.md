@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 17c7949f2bbd6d75343bb2e6825be36b56a20967
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: de259daa7fd27cc4f138c294a7f347502ca482a4
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695331"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185835"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Eseguire la migrazione di applicazioni iOS che usano Microsoft Authenticator da ADAL.NET a MSAL.NET
 
@@ -25,7 +25,7 @@ Si sta usando la libreria di autenticazione Azure Active Directory per .NET (ADA
 
 Da dove iniziare? Questo articolo illustra come eseguire la migrazione dell'app Novell iOS da ADAL a MSAL.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Questo articolo presuppone che sia già presente un'app Novell iOS integrata con il broker iOS. In caso contrario, passare direttamente a MSAL.NET e iniziare l'implementazione del broker. Per informazioni su come richiamare il broker iOS in MSAL.NET con una nuova applicazione, vedere [questa documentazione](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS#why-use-brokers-on-xamarinios-and-xamarinandroid-applications).
 
 ## <a name="background"></a>Background
@@ -36,8 +36,8 @@ I broker sono applicazioni fornite da Microsoft in Android e iOS. (Vedere l'app 
 
 Consentono di:
 
-- Single Sign-On.
-- Identificazione del dispositivo, richiesta da alcuni [criteri di accesso condizionale](../conditional-access/overview.md). Per ulteriori informazioni, vedere [gestione dei dispositivi](../conditional-access/conditions.md#device-platforms).
+- Single Sign-on.
+- Identificazione del dispositivo, richiesta da alcuni [criteri di accesso condizionale](../conditional-access/overview.md). Per ulteriori informazioni, vedere [gestione dei dispositivi](../conditional-access/concept-conditional-access-conditions.md#device-platforms).
 - Verifica dell'identificazione dell'applicazione, necessaria anche in alcuni scenari aziendali. Per ulteriori informazioni, vedere la pagina relativa alla [gestione di applicazioni mobili (MAM) di Intune](https://docs.microsoft.com/intune/mam-faq).
 
 ## <a name="migrate-from-adal-to-msal"></a>Eseguire la migrazione da ADAL a MSAL

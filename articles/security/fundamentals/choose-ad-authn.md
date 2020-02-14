@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: f32980b736232449d24de8721f354d9ca5dd03ab
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 7a13e50e6b5357264e7096fa58e34a4bcaf6ad8b
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064428"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190904"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Scegliere il metodo di autenticazione appropriato per la soluzione ibrida di gestione delle identità di Azure AD
 
@@ -185,7 +185,7 @@ I diagrammi seguenti definiscono i componenti dell'architettura generale necessa
 |Quali sono le opzioni di autenticazione a più fattori?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Controlli personalizzati con accesso condizionale *](../../active-directory/conditional-access/controls.md)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Controlli personalizzati con accesso condizionale *](../../active-directory/conditional-access/controls.md)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Server di Azure MFA](../../active-directory/authentication/howto-mfaserver-deploy.md)<br><br>[MFA di terze parti](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Controlli personalizzati con accesso condizionale *](../../active-directory/conditional-access/controls.md)|
 |Quali stati dell'account utente sono supportati?|Account disabilitati<br>(fino a 30 minuti di ritardo)|Account disabilitati<br><br>Account bloccato<br><br>Account scaduto<br><br>Password scaduta<br><br>Orari di accesso|Account disabilitati<br><br>Account bloccato<br><br>Account scaduto<br><br>Password scaduta<br><br>Orari di accesso|
 |Quali sono le opzioni di accesso condizionale?|[Azure AD l'accesso condizionale con Azure AD Premium](../../active-directory/conditional-access/overview.md)|[Azure AD l'accesso condizionale con Azure AD Premium](../../active-directory/conditional-access/overview.md)|[Azure AD l'accesso condizionale con Azure AD Premium](../../active-directory/conditional-access/overview.md)<br><br>[Regole di attestazione per AD FS](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
-|Il blocco dei protocolli legacy è supportato?|[Sì](../../active-directory/conditional-access/conditions.md)|[Sì](../../active-directory/conditional-access/conditions.md)|[Sì](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
+|Il blocco dei protocolli legacy è supportato?|[Sì](../../active-directory/conditional-access/overview.md)|[Sì](../../active-directory/conditional-access/overview.md)|[Sì](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |È possibile personalizzare il logo, l'immagine e la descrizione nelle pagine di accesso?|[Sì, con Azure AD Premium](../../active-directory/fundamentals/customize-branding.md)|[Sì, con Azure AD Premium](../../active-directory/fundamentals/customize-branding.md)|[Sì](../../active-directory/hybrid/how-to-connect-fed-management.md)|
 |Quali scenari avanzati sono supportati?|[Smart Password Lockout](../../active-directory/authentication/howto-password-smart-lockout.md)<br><br>[Report Credenziali perse con Azure AD Premium P2](../../active-directory/reports-monitoring/concept-risk-events.md)|[Smart Password Lockout](../../active-directory/authentication/howto-password-smart-lockout.md)|Sistema di autenticazione multisito a bassa latenza<br><br>[Blocco della Extranet di AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[Integrazione con i sistemi di gestione delle identità di terze parti](../../active-directory/hybrid/how-to-connect-fed-compatibility.md)|
 

@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: 846abb61511ae1d5aedf77059ed2f1e9f4e5dbfb
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: e65681aefc047ba540d4ad0d91ef6e4d2af5f3ca
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911748"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190269"
 ---
 # <a name="clustering-point-data"></a>Dati punto di clustering
 
-Quando si visualizzano molti punti dati sulla mappa, i punti si sovrappongono, la mappa sembra disordinata e diventa difficile da visualizzare e usare. Il clustering dei dati punto può essere usato per migliorare questa esperienza utente. I dati del punto di clustering sono il processo di combinazione di dati punto vicini tra loro e che li rappresentano sulla mappa come singolo punto dati del cluster. Quando l'utente esegue lo zoom avanti sulla mappa, i cluster si suddividono nei singoli punti dati.
+Quando si visualizzano molti punti dati sulla mappa, i punti dati possono sovrapporsi tra loro. La sovrapposizione può causare che la mappa diventi illeggibile e difficile da utilizzare. Il clustering dei dati dei punti è la combinazione di dati dei punti vicini tra loro e rappresentati sulla mappa come singolo punto dati in cluster. Quando l'utente ingrandisce la mappa, i cluster si scompongono nei singoli punti dati. Quando si lavora con un numero elevato di punti dati, utilizzare i processi di clustering per migliorare l'esperienza utente.
 
 <br/>
 
@@ -26,7 +26,7 @@ Quando si visualizzano molti punti dati sulla mappa, i punti si sovrappongono, l
 
 ## <a name="enabling-clustering-on-a-data-source"></a>Abilitazione del clustering in un'origine dati
 
-È possibile abilitare facilmente il clustering sulla classe `DataSource` impostando l'opzione `cluster` su true. Inoltre, il raggio dei pixel per selezionare i punti vicini da combinare in un cluster può essere impostato utilizzando la `clusterRadius` ed è possibile specificare un livello di zoom in cui disabilitare la logica di clustering utilizzando l'opzione `clusterMaxZoom`. Di seguito è riportato un esempio di come abilitare il clustering in un'origine dati.
+Abilitare il clustering nella classe `DataSource` impostando l'opzione `cluster` su true. Impostare `ClusterRadius` per selezionare i punti vicini e combinarli in un cluster. Il valore di `ClusterRadius` è in pixel. Utilizzare `clusterMaxZoom` per specificare un livello di zoom in cui disabilitare la logica di clustering. Di seguito è riportato un esempio di come abilitare il clustering in un'origine dati.
 
 ```javascript
 //Create a data source and enable clustering.
@@ -44,19 +44,21 @@ var datasource = new atlas.source.DataSource(null, {
 ```
 
 > [!TIP]
-> Se due punti dati sono vicini, è possibile che il cluster non si interrompa, indipendentemente dalla distanza con cui l'utente esegue lo zoom. Per risolvere questo problema, è possibile impostare l'opzione `clusterMaxZoom` dell'origine dati che specifica a livello di zoom per disabilitare la logica di clustering e semplicemente visualizzare tutti gli elementi.
+> Se due punti dati sono vicini, è possibile che il cluster non si interrompa, indipendentemente dalla distanza con cui l'utente esegue lo zoom. Per risolvere questo problema, è possibile impostare l'opzione `clusterMaxZoom` per disabilitare la logica di clustering e visualizzare semplicemente tutti gli elementi.
 
-La classe `DataSource` dispone anche dei seguenti metodi correlati al clustering:
+Di seguito sono riportati i metodi aggiuntivi offerti dalla classe `DataSource` per il clustering:
 
-| Metodo | Tipo restituito | Description |
+| Metodo | Tipo restituito | Descrizione |
 |--------|-------------|-------------|
-| getClusterChildren (clusterId: numero) | Promise&lt;matrice&lt;funzionalità&lt;geometria, qualsiasi&gt; \| forma&gt; | Recupera gli elementi figlio del cluster specificato al livello di zoom successivo. Questi elementi figlio possono essere costituiti da una combinazione di forme e sottocluster. I sottocluster saranno funzionalità con proprietà corrispondenti a ClusteredProperties. |
-| getClusterExpansionZoom (clusterId: numero) | Promise&lt;numero&gt; | Calcola un livello di zoom in corrispondenza del quale il cluster inizierà ad espandersi o suddividere. |
-| getClusterLeaves(clusterId: number, limit: number, offset: number) | Promise&lt;matrice&lt;funzionalità&lt;geometria, qualsiasi&gt; \| forma&gt; | Recupera tutti i punti in un cluster. Impostare il `limit` per restituire un subset dei punti e usare il `offset` per eseguire la pagina nei punti. |
+| getClusterChildren (clusterId: numero) | Promise&lt;Array&lt;Feature&lt;Geometry, any&gt; \| Shape&gt;&gt; | Recupera gli elementi figlio del cluster specificato al livello di zoom successivo. Questi elementi figlio possono essere costituiti da una combinazione di forme e sottocluster. I sottocluster saranno funzionalità con proprietà corrispondenti a ClusteredProperties. |
+| getClusterExpansionZoom (clusterId: numero) | Promise&lt;number&gt; | Calcola un livello di zoom in corrispondenza del quale il cluster inizierà a espandersi o scomporsi. |
+| getClusterLeaves(clusterId: number, limit: number, offset: number) | Promise&lt;Array&lt;Feature&lt;Geometry, any&gt; \| Shape&gt;&gt; | Recupera tutti i punti in un cluster. Impostare `limit` per restituire un subset dei punti e usare `offset` per spostarsi attraverso i punti. |
 
 ## <a name="display-clusters-using-a-bubble-layer"></a>Visualizzare i cluster con un livello Bubble
 
-Un livello Bubble è un ottimo modo per eseguire il rendering dei punti del cluster, in quanto è possibile ridimensionare facilmente il raggio e modificare il colore in base al numero di punti nel cluster usando un'espressione. Quando si visualizzano i cluster usando un livello a bolle, è necessario usare anche un livello separato per il rendering dei punti dati non cluster. Spesso è anche bello poter visualizzare le dimensioni del cluster sopra le bolle. Per ottenere questo comportamento, è possibile usare un livello di simbolo con testo e nessuna icona. 
+Un livello Bubble è un ottimo modo per eseguire il rendering di punti cluster. Usare le espressioni per ridimensionare il raggio e modificare il colore in base al numero di punti nel cluster. Se si visualizzano i cluster usando un livello a bolle, è necessario usare un livello separato per eseguire il rendering dei punti dati non cluster.
+
+Per visualizzare le dimensioni del cluster nella parte superiore della bolla, usare un livello di simbolo con testo e non usare un'icona.
 
 <br/>
 
@@ -66,7 +68,9 @@ Vedere la pagina relativa al <a href='https://codepen.io/azuremaps/pen/qvzRZY/'>
 
 ## <a name="display-clusters-using-a-symbol-layer"></a>Visualizzare i cluster usando un livello di simbolo
 
-Per impostazione predefinita, quando si visualizzano i dati del punto usando il livello dei simboli, i simboli che si sovrappongono per la creazione di un'esperienza di pulitura verranno nascosti automaticamente, ma potrebbe non essere l'esperienza desiderata se si desidera visualizzare la densità dei punti dati sulla mappa. L'impostazione dell'opzione `allowOverlap` della proprietà `iconOptions` layer dei simboli su `true` Disabilita questa esperienza, ma comporterà la visualizzazione di tutti i simboli. L'uso del clustering consente di visualizzare la densità di tutti i dati durante la creazione di una buona esperienza utente pulita. In questo esempio, i simboli personalizzati verranno usati per rappresentare i cluster e i singoli punti dati.
+Quando si visualizzano i punti dati, il livello dei simboli nasconde automaticamente i simboli che si sovrappongono per garantire un'interfaccia utente più pulita. Questo comportamento predefinito potrebbe essere indesiderato se si desidera visualizzare la densità dei punti dati sulla mappa. Tuttavia, queste impostazioni possono essere modificate. Per visualizzare tutti i simboli, impostare l'opzione `allowOverlap` della proprietà `iconOptions` layer dei simboli su `true`. 
+
+Usare il clustering per mostrare la densità dei punti dati mantenendo un'interfaccia utente pulita. Nell'esempio seguente viene illustrato come aggiungere simboli personalizzati e rappresentare i cluster e i singoli punti dati utilizzando il livello dei simboli.
 
 <br/>
 
@@ -76,7 +80,7 @@ Vedere il <a href='https://codepen.io/azuremaps/pen/Wmqpzz/'>livello dei simboli
 
 ## <a name="clustering-and-the-heat-maps-layer"></a>Clustering e il livello di mappa termica
 
-Le mappe termiche sono un ottimo modo per visualizzare la densità dei dati sulla mappa. Questa visualizzazione è in grado di gestire un numero elevato di punti dati, ma può gestire ancora più dati se i punti dati sono in cluster e le dimensioni del cluster vengono usate come peso della mappa termica. Impostare l'opzione `weight` del livello mappa termica su `['get', 'point_count']` a tale scopo. Quando il raggio del cluster è ridotto, la mappa termica sarà quasi identica a una mappa termica che usa i punti dati non cluster, ma eseguirà molto meglio. Tuttavia, minore è il raggio del cluster, più accurato sarà la mappa termica, ma con un minor vantaggio in merito alle prestazioni.
+Le mappe termiche sono un ottimo modo per visualizzare la densità dei dati sulla mappa. Questo metodo di visualizzazione può gestire un numero elevato di punti dati autonomamente. Se i punti dati sono in cluster e le dimensioni del cluster vengono usate come peso della mappa termica, la mappa termica può gestire ancora più dati. Per ottenere questa opzione, impostare l'opzione `weight` del livello mappa termica su `['get', 'point_count']`. Quando il raggio del cluster è ridotto, la mappa termica sarà quasi identica a una mappa termica che usa i punti dati non in cluster, ma sarà molto migliore. Tuttavia, minore è il raggio del cluster, più accurato sarà la mappa termica, ma con un minor numero di vantaggi in merito alle prestazioni.
 
 <br/>
 
@@ -86,16 +90,16 @@ Vedere la <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>mappa termica ponde
 
 ## <a name="mouse-events-on-clustered-data-points"></a>Eventi del mouse sui punti dati del cluster
 
-Quando si verificano eventi del mouse su un livello che contiene punti dati cluster, il punto dati del cluster verrà restituito all'evento come oggetto funzionalità punto GeoJSON. Questa funzionalità del punto avrà le proprietà seguenti:
+Quando si verificano eventi del mouse su un livello che contiene punti dati del cluster, il punto dati del cluster torna all'evento come oggetto funzionalità punto GeoJSON. Questa funzionalità del punto avrà le proprietà seguenti:
 
-| Nome proprietà             | Tipo    | Description   |
+| Nome proprietà             | Type    | Descrizione   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | Indica se la funzionalità rappresenta un cluster. |
-| `cluster_id`              | string  | ID univoco per il cluster che può essere utilizzato con i metodi DataSource `getClusterExpansionZoom`, `getClusterChildren`e `getClusterLeaves`. |
+| `cluster_id`              | string  | ID univoco per il cluster che può essere usato con i metodi `getClusterExpansionZoom`, `getClusterChildren` e `getClusterLeaves` della classe DataSource. |
 | `point_count`             | d'acquisto  | Numero di punti contenuti nel cluster.  |
-| `point_count_abbreviated` | string  | Stringa che abbrevia il valore `point_count` se è lungo. (ad esempio, 4.000 diventa 4K)  |
+| `point_count_abbreviated` | string  | Stringa che abbrevia il valore `point_count` se è lungo. Ad esempio, 4.000 diventa 4K.  |
 
-In questo esempio viene utilizzato un livello Bubble che esegue il rendering dei punti del cluster e aggiunge un evento click che, quando viene attivato, calcola e ingrandisce la mappa fino al livello di zoom successivo in cui il cluster si suddividerà utilizzando il metodo `getClusterExpansionZoom` della classe `DataSource` e la proprietà `cluster_id` del punto dati del cluster selezionato. 
+Questo esempio utilizza un livello Bubble che esegue il rendering di punti del cluster e aggiunge un evento click. Quando si attiva l'evento click, il codice calcola e zoom la mappa fino al livello di zoom successivo, in corrispondenza del quale il cluster si interrompe. Questa funzionalità viene implementata utilizzando il metodo `getClusterExpansionZoom` della classe `DataSource` e la proprietà `cluster_id` del punto dati del cluster selezionato.
 
 <br/>
 
@@ -105,7 +109,7 @@ Vedere il <a href='https://codepen.io/azuremaps/pen/moZWeV/'>cluster Pen getClus
 
 ## <a name="display-cluster-area"></a>Visualizza area cluster 
 
-I dati del punto rappresentati da un cluster vengono distribuiti in un'area. In questo esempio quando si passa il mouse su un cluster, i singoli punti dati in esso contenuti (foglie) verranno utilizzati per calcolare una struttura convessa e visualizzata sulla mappa per visualizzare l'area. Tutti i punti contenuti in un cluster possono essere recuperati dall'origine dati usando il metodo `getClusterLeaves`. Una struttura convessa è un poligono che esegue il wrapping di un set di punti come una banda elastica e può essere calcolato usando il metodo `atlas.math.getConvexHull`.
+I dati del punto rappresentati da un cluster vengono distribuiti in un'area. In questo esempio quando si passa il mouse su un cluster, si verificano due comportamenti principali. Per prima cosa, i singoli punti dati contenuti nel cluster verranno usati per calcolare una struttura convessa. Quindi, la struttura convessa verrà visualizzata sulla mappa per visualizzare un'area.  Una struttura convessa è un poligono che esegue il wrapping di un set di punti come una banda elastica e può essere calcolato usando il metodo `atlas.math.getConvexHull`. Tutti i punti contenuti in un cluster possono essere recuperati dall'origine dati usando il metodo `getClusterLeaves`.
 
 <br/>
 
@@ -115,9 +119,9 @@ Vedere l'area del cluster di penna <a href='https://codepen.io/azuremaps/pen/QoX
 
 ## <a name="aggregating-data-in-clusters"></a>Aggregazione dei dati nei cluster
 
-Spesso i cluster sono rappresentati usando un simbolo con il numero di punti all'interno del cluster, tuttavia talvolta è preferibile personalizzare ulteriormente lo stile dei cluster in base a una metrica, ad esempio il ricavo totale di tutti i punti all'interno di un cluster. Con le aggregazioni di cluster è possibile creare e popolare proprietà personalizzate utilizzando un calcolo di [espressione di aggregazione](data-driven-style-expressions-web-sdk.md#aggregate-expression) .  Le aggregazioni del cluster possono essere definite in `clusterProperties` opzione del `DataSource`.
+Spesso i cluster sono rappresentati usando un simbolo con il numero di punti all'interno del cluster. Tuttavia, a volte è opportuno personalizzare lo stile dei cluster con metriche aggiuntive. Con le aggregazioni del cluster, è possibile creare e popolare proprietà personalizzate utilizzando un calcolo dell' [espressione di aggregazione](data-driven-style-expressions-web-sdk.md#aggregate-expression) .  Le aggregazioni del cluster possono essere definite in `clusterProperties` opzione del `DataSource`.
 
-Nell'esempio seguente viene utilizzata un'espressione di aggregazione per calcolare un conteggio in base alla proprietà del tipo di entità di ogni punto dati in un cluster.
+Nell'esempio seguente viene utilizzata un'espressione di aggregazione. Il codice calcola un conteggio in base alla proprietà del tipo di entità di ogni punto dati in un cluster. Quando un utente fa clic su un cluster, viene visualizzata una finestra popup con informazioni aggiuntive sul cluster.
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Aggregazioni cluster" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Vedere le <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>aggregazioni del cluster</a> Pen di Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
@@ -128,7 +132,7 @@ Vedere le <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>aggregazioni del cl
 Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere:
 
 > [!div class="nextstepaction"]
-> [Classe origine dati](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)
+> [Classe DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
 > [Oggetto DataSourceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions?view=azure-iot-typescript-latest)

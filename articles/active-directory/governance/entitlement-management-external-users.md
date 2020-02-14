@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf8a2cf6c50e05a0fecff387f2e125c50931b95f
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: bf7e4837aaf65b0df28ea4a07fb485948309bc7c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608721"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185569"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Governare l'accesso per gli utenti esterni in Azure AD gestione dei diritti
 
@@ -91,7 +91,7 @@ Per assicurarsi che gli utenti esterni all'organizzazione possano richiedere pac
 
 ### <a name="review-your-conditional-access-policies"></a>Esaminare i criteri di accesso condizionale
 
-- Assicurarsi di escludere i Guest dai criteri di accesso condizionale che i nuovi utenti guest non saranno in grado di soddisfare poiché in questo modo non saranno in grado di accedere alla directory. È possibile, ad esempio, che Guest non disponga di un dispositivo registrato, che non si trovi in una posizione nota e che non si desideri ripetere la registrazione per multi-factor authentication, quindi l'aggiunta di questi requisiti in un criterio di accesso condizionale impedisce ai guest di usare il diritto gestione. Per altre informazioni, vedere [quali sono le condizioni in Azure Active Directory l'accesso condizionale?](../conditional-access/conditions.md).
+- Assicurarsi di escludere i Guest dai criteri di accesso condizionale che i nuovi utenti guest non saranno in grado di soddisfare poiché in questo modo non saranno in grado di accedere alla directory. È possibile, ad esempio, che Guest non disponga di un dispositivo registrato, che non si trovi in una posizione nota e che non si desideri ripetere la registrazione per multi-factor authentication, quindi l'aggiunta di questi requisiti in un criterio di accesso condizionale impedisce ai guest di usare il diritto gestione. Per altre informazioni, vedere [quali sono le condizioni in Azure Active Directory l'accesso condizionale?](../conditional-access/concept-conditional-access-conditions.md).
 
     ![Azure AD impostazioni di esclusione dei criteri di accesso condizionale](./media/entitlement-management-external-users/conditional-access-exclude.png)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5846934a8ad8455ca375b4bc54fc46d45aba1cd
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: aeb2e98ad9bbd35f3ec507e36e958c5ce6ad2198
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379988"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185877"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Risolvere i problemi usando lo strumento What If nell'accesso condizionale
 
@@ -52,13 +52,13 @@ Per avviare lo strumento, sulla barra degli strumenti nella parte superiore dell
 
 Prima di eseguire una valutazione, è necessario configurare le impostazioni.
 
-## <a name="settings"></a>Settings
+## <a name="settings"></a>Impostazioni
 
 Questa sezione fornisce informazioni sulle impostazioni della simulazione.
 
 ![What If](./media/what-if-tool/02.png)
 
-### <a name="user"></a>User
+### <a name="user"></a>Utente
 
 È possibile selezionare un solo utente. Questo campo è l'unico obbligatorio.
 
@@ -72,11 +72,11 @@ L'indirizzo IP è un singolo indirizzo IPv4 necessario per simulare la [condizio
 
 ### <a name="device-platforms"></a>Piattaforme del dispositivo
 
-Questa impostazione simula la [condizione di piattaforme del dispositivo](conditions.md#device-platforms) ed equivale all'opzione **Tutte le piattaforme (incluse quelle non supportate)** . 
+Questa impostazione simula la [condizione di piattaforme del dispositivo](concept-conditional-access-conditions.md#device-platforms) ed equivale all'opzione **Tutte le piattaforme (incluse quelle non supportate)** . 
 
 ### <a name="client-apps"></a>App client
 
-Questa impostazione simula la [condizione di app client](conditions.md#client-apps).
+Questa impostazione simula la [condizione di app client](concept-conditional-access-conditions.md#client-apps-preview).
 Per impostazione predefinita, esegue la valutazione di tutti i criteri per i quali è selezionato **Browser** o **App per dispositivi mobili e client desktop** o sono selezionate entrambe le opzioni. Rileva anche i criteri che applicano **Exchange ActiveSync (EAS)** . Per restringere l'ambito di questa impostazione, selezionare:
 
 - **Browser** per valutare tutti i criteri per i quali è selezionata almeno l'opzione **Browser**. 
@@ -84,7 +84,7 @@ Per impostazione predefinita, esegue la valutazione di tutti i criteri per i qua
 
 ### <a name="sign-in-risk"></a>Rischio di accesso
 
-Questa impostazione simula la [condizione di rischio di accesso](conditions.md#sign-in-risk).   
+Questa impostazione simula la [condizione di rischio di accesso](concept-conditional-access-conditions.md#sign-in-risk).   
 
 ## <a name="evaluation"></a>Versione di valutazione 
 

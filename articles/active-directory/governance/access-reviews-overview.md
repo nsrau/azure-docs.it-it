@@ -16,12 +16,12 @@ ms.date: 01/10/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e77f507f2a3bd89069f25bf984cf4059009faa6
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 5499c8808c3916842071df1f03a865efd98719f6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932653"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185745"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Cosa sono le verifiche di accesso di Azure AD?
 
@@ -62,9 +62,9 @@ A seconda di ciò che si vuole rivedere, si creerà la verifica di accesso in Az
 | Ruolo delle risorse di Azure | Revisori specificati</br>Revisione automatica | [PIM Azure AD](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portale di Azure |
 
 
-## <a name="onboard-access-reviews"></a>Onboarding delle verifiche di accesso
+## <a name="create-access-reviews"></a>Creazione di verifiche di accesso
 
-Per eseguire l'onboarding delle verifiche di accesso, seguire questa procedura.
+Per creare le verifiche di accesso, seguire questa procedura:
 
 1. Passare alla [portale di Azure](https://portal.azure.com) per gestire le verifiche di accesso e accedere come amministratore globale o utente.
 
@@ -74,13 +74,9 @@ Per eseguire l'onboarding delle verifiche di accesso, seguire questa procedura.
 
 1. Selezionare **governance identità**.
 
-1. Fare clic su verifiche di **accesso**.
- 
-    ![Pagina iniziale delle verifiche di accesso](./media/access-reviews-overview/access-reviews-overview-onboard.png)
+1. Nella pagina riquadro attività iniziale fare clic sul pulsante **Crea una verifica di accesso** .
 
-1. Nella pagina fare clic sul pulsante **onboard Now** .
-    
-      ![Onboarding delle verifiche di accesso](./media/access-reviews-overview/access-reviews-overview-select-onboard.png)
+   ![Pagina iniziale delle verifiche di accesso](./media/access-reviews-overview/access-reviews-overview-create-access-reviews.png) 
 
 
 ## <a name="learn-about-access-reviews"></a>Informazioni sulle verifiche di accesso

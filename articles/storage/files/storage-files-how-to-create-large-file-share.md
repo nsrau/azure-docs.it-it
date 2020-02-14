@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a9b545d71f21138c0374cf199ce10dc2dc246afb
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: d94237d2cfeb814b2e15d43c9f8863a76c0bcd11
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732145"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190681"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Abilitare e creare condivisioni file di grandi dimensioni
 
-In origine, le condivisioni file standard potevano essere scalate fino a 5 TiB. Ora, con condivisioni file di grandi dimensioni, è possibile scalare fino a 100 TiB. È possibile abilitare questa scalabilità per gli account di archiviazione esistenti per le condivisioni file esistenti. Per impostazione predefinita, le condivisioni file Premium vengono ridimensionate fino a 100 TiB.
+Quando si abilitano condivisioni file di grandi dimensioni nell'account di archiviazione, le condivisioni file possono essere scalate fino a 100 TiB. È possibile abilitare questa scalabilità per gli account di archiviazione esistenti per le condivisioni file esistenti.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 - Se si intende usare l'interfaccia della riga di comando di Azure, [installare la versione più recente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -26,7 +26,7 @@ In origine, le condivisioni file standard potevano essere scalate fino a 5 TiB. 
 
 ## <a name="restrictions"></a>Restrizioni
 
-Per il momento, è possibile usare solo con ridondanza locale o ZRS per gli account abilitati per la condivisione file di grandi dimensioni. Non è possibile usare GZRS, GRS o RA-GRS.
+Per il momento, è possibile usare l'archiviazione con ridondanza locale (con ridondanza locale) o l'archiviazione con ridondanza della zona (ZRS) in account abilitati per la condivisione file di grandi dimensioni. Non è possibile usare l'archiviazione con ridondanza geografica (GZRS), l'archiviazione con ridondanza geografica (GRS) o l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).
 L'abilitazione di condivisioni file di grandi dimensioni in un account è un processo irreversibile. Dopo averla abilitata, non sarà possibile convertire l'account in GZRS, GRS o RA-GRS.
 
 ## <a name="create-a-new-storage-account"></a>Creare un nuovo account di archiviazione.
@@ -47,10 +47,10 @@ L'abilitazione di condivisioni file di grandi dimensioni in un account è un pro
 1. Impostare la replica sull'archiviazione con **ridondanza locale** o sull' **archiviazione con ridondanza della zona**.
 1. Lasciare i valori predefiniti per questi campi:
 
-   |Campo  |Valore  |
+   |Campo  |valore  |
    |---------|---------|
-   |Modello di distribuzione     |Azure Resource Manager         |
-   |Performance     |Standard         |
+   |Modello di distribuzione     |Gestione risorse         |
+   |Prestazioni     |Standard         |
    |Tipo di account     |Archiviazione v2 (utilizzo generico V2)         |
    |Livello di accesso     |Accesso frequente         |
 
@@ -61,7 +61,7 @@ L'abilitazione di condivisioni file di grandi dimensioni in un account è un pro
 
 1. Selezionare **Create** (Crea).
 
-### <a name="cli"></a>Interfaccia della riga di comando
+### <a name="cli"></a>CLI
 
 Installare prima [di tutto la versione più recente dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) in modo da poter abilitare condivisioni file di grandi dimensioni.
 
@@ -100,7 +100,7 @@ A questo punto sono state abilitate condivisioni file di grandi dimensioni nell'
 
 Se viene visualizzato il messaggio di errore "le condivisioni file di grandi dimensioni non sono ancora disponibili per l'account", è possibile che l'area in cui si sta eseguendo l'implementazione sia in corso. Contattare il supporto tecnico in caso di necessità urgenti di condivisioni file di grandi dimensioni.
 
-### <a name="cli"></a>Interfaccia della riga di comando
+### <a name="cli"></a>CLI
 
 Per abilitare le condivisioni file di grandi dimensioni per l'account esistente, usare il comando seguente. Sostituire `<yourStorageAccountName>` e `<yourResourceGroup>` con le informazioni.
 
@@ -130,7 +130,7 @@ La creazione di una condivisione file di grandi dimensioni è quasi identica all
 
 ![Interfaccia utente di portale di Azure che mostra le caselle nome e quota](media/storage-files-how-to-create-large-file-share/large-file-shares-create-share.png)
 
-### <a name="cli"></a>Interfaccia della riga di comando
+### <a name="cli"></a>CLI
 
 Per creare una condivisione file di grandi dimensioni, utilizzare il comando seguente. Sostituire `<yourStorageAccountName>`, `<yourStorageAccountKey>`e `<yourFileShareName>` con le informazioni.
 
@@ -163,7 +163,7 @@ Dopo aver abilitato le condivisioni file di grandi dimensioni nell'account di ar
 
 ![Interfaccia utente di portale di Azure con quota di condivisioni file esistenti](media/storage-files-how-to-create-large-file-share/update-large-file-share-quota.png)
 
-### <a name="cli"></a>Interfaccia della riga di comando
+### <a name="cli"></a>CLI
 
 Per impostare la quota sulla dimensione massima, utilizzare il comando seguente. Sostituire `<yourStorageAccountName>`, `<yourStorageAccountKey>`e `<yourFileShareName>` con le informazioni.
 

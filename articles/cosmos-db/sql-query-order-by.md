@@ -1,17 +1,17 @@
 ---
 title: Clausola ORDER BY in Azure Cosmos DB
 description: Informazioni sulla clausola SQL ORDER BY per Azure Cosmos DB. Usare SQL come linguaggio di query JSON Azure Cosmos DB.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.author: mjbrown
-ms.openlocfilehash: fc5c875f4ae54ed334318efc5a1d5610b89bdda5
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.date: 02/12/2020
+ms.author: tisande
+ms.openlocfilehash: b88184be39a41ec42f8fb304a7511073f645f1cb
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75929591"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188739"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Clausola ORDER BY in Azure Cosmos DB
 
@@ -49,10 +49,10 @@ ORDER BY <sort_specification>
   
 ## <a name="remarks"></a>Osservazioni  
   
-   Per la clausola ORDER BY è necessario che i criteri di indicizzazione includano un indice per i campi da ordinare. Il runtime di query di Azure Cosmos DB supporta l'ordinamento in base a un nome di proprietà e non alle proprietà calcolate. Azure Cosmos DB supporta più proprietà ORDER BY. Per eseguire una query con più proprietà ORDER BY, è necessario definire un [indice composto](index-policy.md#composite-indexes) sui campi da ordinare.
-   
-> [!Note] 
-> Se le proprietà ordinate in base a potrebbero non essere definite per alcuni documenti e si desidera recuperarle in una query ORDER BY, è necessario creare un indice in modo esplicito su tali proprietà. I criteri di indicizzazione predefiniti non consentiranno il recupero dei documenti in cui la proprietà di ordinamento non è definita.
+   Per la clausola `ORDER BY` è necessario che i criteri di indicizzazione includano un indice per i campi da ordinare. Il runtime di query di Azure Cosmos DB supporta l'ordinamento in base a un nome di proprietà e non alle proprietà calcolate. Azure Cosmos DB supporta più proprietà `ORDER BY`. Per eseguire una query con più proprietà ORDER BY, è necessario definire un [indice composto](index-policy.md#composite-indexes) sui campi da ordinare.
+
+> [!Note]
+> Se le proprietà ordinate potrebbero non essere definite per alcuni documenti e si desidera recuperarle in una query ORDER BY, è necessario includere in modo esplicito questo percorso nell'indice. I criteri di indicizzazione predefiniti non consentiranno il recupero dei documenti in cui la proprietà di ordinamento non è definita. [Esaminare le query di esempio sui documenti con alcuni campi mancanti](#documents-with-missing-fields).
 
 ## <a name="examples"></a>Esempi
 
@@ -112,8 +112,112 @@ I risultati sono:
 
 Questa query recupera la famiglia `id` in ordine crescente in base al nome della città. Se più elementi hanno lo stesso nome di città, la query viene ordinata in base alla `creationDate` in ordine decrescente.
 
+## <a name="documents-with-missing-fields"></a>Documenti con campi mancanti
+
+Le query con `ORDER BY` eseguite su contenitori con i criteri di indicizzazione predefiniti non restituiranno documenti in cui la proprietà di ordinamento non è definita. Se si desidera includere documenti in cui la proprietà di ordinamento non è definita, è necessario includere in modo esplicito questa proprietà nei criteri di indicizzazione.
+
+Ad esempio, di seguito è riportato un contenitore con criteri di indicizzazione che non includono in modo esplicito alcun percorso oltre `"/*"`:
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": []
+}
+```
+
+Se si esegue una query che include `lastName` nella clausola `Order By`, i risultati includeranno solo i documenti per i quali è stata definita una proprietà `lastName`. Non è stato definito un percorso incluso esplicito per `lastName` quindi tutti i documenti senza una `lastName` non verranno visualizzati nei risultati della query.
+
+Ecco una query che ordina per `lastName` su due documenti, uno dei quali non dispone di un `lastName` definito:
+
+```sql
+    SELECT f.id, f.lastName
+    FROM Families f
+    ORDER BY f.lastName
+```
+
+I risultati includono solo il documento con un `lastName`definito:
+
+```json
+    [
+        {
+            "id": "AndersenFamily",
+            "lastName": "Andersen"
+        }
+    ]
+```
+
+Se si aggiornano i criteri di indicizzazione del contenitore per includere in modo esplicito un percorso per `lastName`, i documenti vengono inclusi con una proprietà di ordinamento non definita nei risultati della query. È necessario definire in modo esplicito il percorso per condurre questo valore scalare (e non oltre). È necessario usare il carattere `?` nella definizione del percorso nei criteri di indicizzazione per assicurarsi di indicizzare in modo esplicito la proprietà `lastName` e non ci sono altri percorsi annidati oltre.
+
+Di seguito è riportato un esempio di criterio di indicizzazione che consente di visualizzare i documenti con un `lastName` non definito nei risultati della query:
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/lastName/?"
+        },
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": []
+}
+```
+
+Se si esegue di nuovo la stessa query, i documenti mancanti `lastName` vengono visualizzati per primi nei risultati della query:
+
+```sql
+    SELECT f.id, f.lastName
+    FROM Families f
+    ORDER BY f.lastName
+```
+
+I risultati sono:
+
+```json
+[
+    {
+        "id": "WakefieldFamily"
+    },
+    {
+        "id": "AndersenFamily",
+        "lastName": "Andersen"
+    }
+]
+```
+
+Se si modifica il tipo di ordinamento per `DESC`, i documenti mancanti `lastName` vengono visualizzati per ultimi nei risultati della query:
+
+```sql
+    SELECT f.id, f.lastName
+    FROM Families f
+    ORDER BY f.lastName DESC
+```
+
+I risultati sono:
+
+```json
+[
+    {
+        "id": "AndersenFamily",
+        "lastName": "Andersen"
+    },
+    {
+        "id": "WakefieldFamily"
+    }
+]
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Introduzione](sql-query-getting-started.md)
-- [Clausola SELECT](sql-query-select.md)
+- [Indexing policies in Azure Cosmos DB](index-policy.md) (Criteri di indicizzazione in Azure Cosmos DB)
 - [Clausola limite OFFSET](sql-query-offset-limit.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: b0ef6030b1b460d118a255ede3c46719616fe3b0
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: a54e1c9cbc9a80139d71a89f86ac51ecf5ce9902
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133825"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190506"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux le immagini Gold Bring your own Subscription in Azure
 
@@ -175,7 +175,7 @@ Di seguito è riportato uno script di esempio. È necessario sostituire il grupp
 
 Red Hat Enterprise Linux le immagini Gold Bring your own Subscription possono essere protette tramite l'uso di [crittografia dischi di Azure](../../linux/disk-encryption-overview.md). Tuttavia, la sottoscrizione **deve** essere registrata prima di abilitare la crittografia.  Informazioni dettagliate sulla registrazione di un'immagine RHEL BYOS Gold sono disponibili nel sito Red Hat. Vedere [come registrare e sottoscrivere un sistema nel portale per i clienti di Red Hat con Red Hat Subscription-Manager](https://access.redhat.com/solutions/253273); Se si dispone di una sottoscrizione attiva di Red Hat, è anche possibile leggere la pagina relativa alla [creazione di chiavi di attivazione di Red Hat Customer Portal](https://access.redhat.com/articles/1378093).
 
-Crittografia dischi di Azure non è supportata nelle [Immagini personalizzate di Red Hat](/linux/redhat-create-upload-vhd). Altri requisiti e prerequisiti di ADE sono documentati in [crittografia dischi di Azure per macchine virtuali Linux](../../linux/disk-encryption-overview.md#additional-vm-requirements).
+Crittografia dischi di Azure non è supportata nelle [Immagini personalizzate di Red Hat](../../linux/redhat-create-upload-vhd.md). Altri requisiti e prerequisiti di ADE sono documentati in [crittografia dischi di Azure per macchine virtuali Linux](../../linux/disk-encryption-overview.md#additional-vm-requirements).
 
 I passaggi per l'applicazione di crittografia dischi di Azure sono disponibili negli [scenari di crittografia dischi di Azure nelle macchine virtuali Linux](../../linux/disk-encryption-linux.md) e negli articoli correlati.
 

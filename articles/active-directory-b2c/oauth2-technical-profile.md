@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 53190eda66347c23b981c5d6e0631630e9989deb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: d0fc5e6b5cafa22da6707a8f34675dcbdf5af8cc
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840367"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198021"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth2 in un Azure Active Directory B2C criteri personalizzati
 
@@ -77,7 +77,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 ## <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | client_id | Sì | L'identificatore dell'attestazione del provider di identità. |
 | IdTokenAudience | No | I destinatari dell'id_token. Se specificato, Azure AD B2C controlla se il token è in un'attestazione restituita dal provider di identità ed è uguale a quello specificato. |
@@ -96,12 +96,13 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 | ResponseErrorCodeParamName | No | Il nome del parametro che contiene il messaggio di errore restituito nel messaggio HTTP 200 (Ok). |
 | ExtraParamsInAccessTokenEndpointResponse | No | Contiene altri parametri che possono essere restituiti nella risposta di **AccessTokenEndpoint** da alcuni provider di identità. Ad esempio, la risposta di **AccessTokenEndpoint** contiene un altro parametro, ad esempio `openid`, ovvero un parametro obbligatorio oltre all'access_token in una stringa di query della richiesta **ClaimsEndpoint**. Più nomi di parametro devono essere preceduti dal carattere di escape e separati da una virgola di delimitazione ','. |
 | ExtraParamsInClaimsEndpointRequest | No | Contiene altri parametri che possono essere restituiti nella richiesta **ClaimsEndpoint** da alcuni provider di identità. Più nomi di parametro devono essere preceduti dal carattere di escape e separati da una virgola di delimitazione ','. |
+| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true`o `false` (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questo valore su `true`. |
 
 ## <a name="cryptographic-keys"></a>Chiavi crittografiche
 
 L'elemento **CryptographicKeys** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | client_secret | Sì | Il segreto client dell'applicazione del provider di identità. La chiave di crittografia è necessaria solo se i metadati **response_type** sono impostati su `code`. In questo caso, Azure AD B2C effettua un'altra chiamata per scambiare il codice di autorizzazione per un token di accesso. Se i metadati sono impostati su `id_token`, è possibile omettere la chiave crittografica. |
 

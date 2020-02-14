@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87f3e815f541ad4cfabc22d917ca9cecba47b50f
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 87224c9e3e697b86aab51d1e922af8ab2130ac40
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077607"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186241"
 ---
 # <a name="building-a-conditional-access-policy"></a>Creazione di un criterio di accesso condizionale
 
@@ -32,15 +32,15 @@ La parte relativa alle assegnazioni controlla gli utenti, gli elementi e i crite
 
 ### <a name="users-and-groups"></a>Utenti e gruppi
 
-Utenti e gruppi assegnano i criteri da includere o escludere. Questa assegnazione può includere tutti gli utenti, gruppi specifici di utenti, ruoli della directory o utenti Guest esterni. 
+[Utenti e gruppi](concept-conditional-access-users-groups.md) assegnano i criteri da includere o escludere. Questa assegnazione può includere tutti gli utenti, gruppi specifici di utenti, ruoli della directory o utenti Guest esterni. 
 
-### <a name="cloud-apps-or-actions"></a>Applicazioni cloud o azioni
+### <a name="cloud-apps-or-actions"></a>App o azioni cloud
 
-Le app o le azioni cloud possono includere o escludere le applicazioni cloud o le azioni dell'utente che saranno soggette ai criteri.
+Le [app o le azioni cloud](concept-conditional-access-cloud-apps.md) possono includere o escludere le applicazioni cloud o le azioni dell'utente che saranno soggette ai criteri.
 
 ### <a name="conditions"></a>Condizioni
 
-Un criterio può contenere più condizioni.
+Un criterio può contenere più [condizioni](concept-conditional-access-conditions.md).
 
 #### <a name="sign-in-risk"></a>Rischio di accesso
 
@@ -52,7 +52,7 @@ Le organizzazioni con più piattaforme del sistema operativo per dispositivi pot
 
 Le informazioni utilizzate per calcolare la piattaforma del dispositivo provengono da origini non verificate, ad esempio stringhe agente utente che possono essere modificate.
 
-#### <a name="locations"></a>Località
+#### <a name="locations"></a>Percorsi
 
 I dati relativi alla posizione sono forniti dai dati di georilevazione IP. Gli amministratori possono scegliere di definire le località e scegliere di contrassegnare alcuni come attendibili come quelli per i percorsi di rete dell'organizzazione.
 
@@ -72,28 +72,30 @@ La parte controlli di accesso dei criteri di accesso condizionale controlla il m
 
 ### <a name="grant"></a>Concedi
 
+[Grant](concept-conditional-access-grant.md) fornisce agli amministratori un metodo per l'applicazione dei criteri, in cui è possibile bloccare o concedere l'accesso.
+
 #### <a name="block-access"></a>Blocca accesso
 
 Blocca l'accesso consente di bloccare l'accesso in base alle assegnazioni specificate. Il controllo del blocco è potente e deve essere maneggiato con le informazioni appropriate.
 
-#### <a name="grant-access"></a>Concedi accesso
+#### <a name="grant-access"></a>Concedere l'accesso
 
 Il controllo Grant può attivare l'applicazione di uno o più controlli. 
 
 - Richiedi autenticazione a più fattori (Multi-Factor Authentication di Azure)
 - Richiedi che il dispositivo sia contrassegnato come conforme (Intune)
-- Richiedi Azure AD ibrido dispositivo aggiunto
-- Richiedi app client approvata
-- Richiedi criteri di protezione dell'app
+- Richiedi dispositivo aggiunto ad Azure AD ibrido
+- Richiedere app client approvata
+- Richiedere criteri di protezione dell'app
 
 Gli amministratori possono scegliere di richiedere uno dei controlli precedenti o tutti i controlli selezionati usando le opzioni seguenti. Il valore predefinito per più controlli consiste nel richiedere all.
 
 - Richiedi tutti i controlli selezionati (controllo e controllo)
 - Richiedi uno dei controlli selezionati (controllo o controllo)
 
-### <a name="session"></a>Sessione
+### <a name="session"></a>sessione
 
-I controlli della sessione possono limitare l'esperienza 
+I [controlli della sessione](concept-conditional-access-session.md) possono limitare l'esperienza 
 
 - Usa restrizioni imposte dalle app
    - Attualmente funziona solo con Exchange Online e SharePoint Online.
@@ -121,11 +123,11 @@ Un criterio di accesso condizionale deve contenere almeno quanto segue per esser
 
 ![Criteri di accesso condizionale vuoti](./media/concept-conditional-access-policies/conditional-access-blank-policy.png)
 
+L'articolo [criteri di accesso condizionale comuni](concept-conditional-access-policy-common.md) include alcuni criteri che riteniamo utili per la maggior parte delle organizzazioni.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Simulare il comportamento di accesso usando lo strumento di What If dell'accesso condizionale](troubleshoot-conditional-access-what-if.md)
-
-[Criteri di accesso condizionale comuni](concept-conditional-access-policy-common.md)
 
 [Pianificazione di una distribuzione di Azure Multi-Factor Authentication basata sul cloud](../authentication/howto-mfa-getstarted.md)
 

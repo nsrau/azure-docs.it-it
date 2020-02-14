@@ -1,22 +1,22 @@
 ---
 title: Capacità riservata in Azure Cosmos DB per ottimizzare i costi
 description: Informazioni su come acquistare capacità riservata di Azure Cosmos DB per risparmiare sui costi per i servizi di calcolo.
-author: bandersmsft
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/29/2019
-ms.author: banders
+ms.date: 02/12/2020
+ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 83ecb0ad85a02c8c05b9d7e504e578afd98ed7b6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 17f6787cddf2800663d37b153b3e1b8cf33390f8
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969362"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201178"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Ottimizzare il costo con la capacità riservata in Azure Cosmos DB
 
-Azure Cosmos DB capacità riservata ti permette di risparmiare denaro eseguendo un commit in una prenotazione per le risorse Azure Cosmos DB per un anno o tre anni. Con la capacità riservata di Azure Cosmos DB, è possibile ottenere uno sconto sulla velocità effettiva di cui viene effettuato il provisioning per le risorse di Cosmos DB, ad esempio database e contenitori (tabelle, raccolte e grafi).
+La capacità riservata di Azure Cosmos DB consente di risparmiare grazie al pagamento anticipato delle risorse di Azure Cosmos DB per uno o tre anni. Con la capacità riservata di Azure Cosmos DB, è possibile ottenere uno sconto sulla velocità effettiva di cui viene effettuato il provisioning per le risorse di Cosmos DB, ad esempio database e contenitori (tabelle, raccolte e grafi).
 
 La capacità riservata di Azure Cosmos DB consente di ridurre in modo significativo i costi di Cosmos DB, fino al 65% rispetto ai prezzi normali, con un impegno anticipato di un anno o di tre anni. La capacità riservata permette di ottenere uno sconto a livello di fatturazione e non ha alcuna ripercussione sullo stato di runtime delle risorse di Azure Cosmos DB.
 
@@ -30,13 +30,29 @@ La capacità riservata di Azure Cosmos DB copre la velocità effettiva con provi
 
 ## <a name="determine-the-required-throughput-before-purchase"></a>Determinare la velocità effettiva necessaria prima dell'acquisto
 
-Le dimensioni della prenotazione devono essere basate sulla quantità totale di velocità effettiva che verrà usata dalle risorse di Azure Cosmos DB esistenti o che verranno distribuite a breve. È possibile determinare la velocità effettiva necessaria nei modi seguenti:
+Le dimensioni della prenotazione devono essere basate sulla quantità totale di velocità effettiva che verrà usata dalle risorse di Azure Cosmos DB esistenti o che verranno distribuite a breve. È possibile visualizzare le dimensioni di prenotazione consigliate nel portale di Azure attenendosi alla procedura seguente:
 
-* Ottenere i dati cronologici per la velocità effettiva totale sottoposta a provisioning negli account, nei database e nelle raccolte di Azure Cosmos DB in tutte le aree. È ad esempio possibile valutare la velocità effettiva giornaliera media sottoposta a provisioning scaricando il rendiconto sull'utilizzo giornaliero da `https://account.azure.com`.
+1. Accedere al [portale di Azure](https://portal.azure.com).  
 
-* I clienti con contratto Enterprise possono scaricare il file di utilizzo per ottenere i dettagli sulla velocità effettiva di Azure Cosmos DB. Fare riferimento al valore di **Tipo di servizio** nella sezione **Informazioni aggiuntive** del file di utilizzo.
+2. Selezionare **Tutti i servizi** > **Prenotazioni** > **Aggiungi**.
 
-* È possibile sommare la velocità effettiva media per tutti i carichi di lavoro negli account di Azure Cosmos DB che si prevede di eseguire nell'anno o nei tre anni successivi. È quindi possibile usare tale quantità per la prenotazione.
+3. Dal riquadro **prenotazioni acquisti** scegliere **Azure Cosmos DB**.
+
+4. Selezionare la scheda **consigliata** per visualizzare le prenotazioni consigliate:
+
+È possibile filtrare le raccomandazioni in base ai seguenti attributi:
+
+- **Termini** (1 anno o 3 anni)
+- **Frequenza di fatturazione** (mensile o iniziale)
+- **Tipo di velocità effettiva** (UR vs multimaster UR)
+
+Inoltre, è possibile definire l'ambito delle raccomandazioni all'interno di un singolo gruppo di risorse, una singola sottoscrizione o l'intera registrazione di Azure. È possibile visualizzare le raccomandazioni in base all'utilizzo negli ultimi 7 giorni, 30 giorni o 60 giorni.
+
+Ecco un esempio di Raccomandazione:
+
+![Raccomandazioni sulla capacità riservata](./media/cosmos-db-reserved-capacity/reserved-capacity-recommendation.png)
+
+Questa raccomandazione per l'acquisto di una prenotazione di 3 milioni ur/sec indica che, tra le prenotazioni di 3 anni, una dimensione di prenotazione di 3 milioni ur/s consente di ottimizzare il risparmio. In questo caso, la raccomandazione viene calcolata in base agli ultimi 30 giorni di utilizzo del Azure Cosmos DB. Se il cliente prevede che gli ultimi 30 giorni di utilizzo di Azure Cosmos DB siano rappresentativi di un uso futuro, si otterrebbe un miglioramento del risparmio acquistando una prenotazione di 3 milioni ur/s.
 
 ## <a name="buy-azure-cosmos-db-reserved-capacity"></a>Acquistare capacità riservata di Azure Cosmos DB
 
@@ -50,12 +66,12 @@ Le dimensioni della prenotazione devono essere basate sulla quantità totale di 
 
    ![Compilare il modulo per la capacità riservata](./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png)
 
-   |Campo  |Description  |
+   |Campo  |Descrizione  |
    |---------|---------|
-   |Ambito   |   Opzione che controlla quante sottoscrizioni possono usare il vantaggio di fatturazione associato alla prenotazione. Controlla anche il modo in cui la prenotazione viene applicata alle sottoscrizioni specifiche. <br/><br/>  Se si seleziona **Condiviso**, lo sconto per la prenotazione viene applicato alle istanze di Azure Cosmos DB in esecuzione in qualsiasi sottoscrizione nel contesto di fatturazione. Il contesto di fatturazione si basa sul modo in cui è stata effettuata l'iscrizione ad Azure. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso è costituito da tutte le singole sottoscrizioni con tariffe con pagamento in base al consumo create dall'amministratore account.  <br/><br/>  Se si seleziona **Sottoscrizione singola**, lo sconto per la prenotazione viene applicato alle istanze di Azure Cosmos DB nella sottoscrizione selezionata. <br/><br/> Se si seleziona **gruppo di risorse singolo**, lo sconto relativo alla prenotazione viene applicato alle istanze Azure Cosmos DB nella sottoscrizione selezionata e al gruppo di risorse selezionato all'interno di tale sottoscrizione. <br/><br/> È possibile modificare l'ambito della prenotazione dopo l'acquisto della capacità riservata.  |
-   |Sottoscrizione  |   Sottoscrizione usata per pagare la capacità riservata di Azure Cosmos DB. Il metodo di pagamento per la sottoscrizione selezionata viene utilizzato per l'addebito dei costi. La sottoscrizione deve essere di uno dei seguenti tipi: <br/><br/>  Enterprise Agreement (numeri di offerta: MS-AZR-0017P o MS-AZR-0148P): per una sottoscrizione Enterprise, gli addebiti vengono dedotti dal saldo dell'impegno monetario di registrazione o addebitato come eccedenza. <br/><br/> Sottoscrizione singola con tariffe con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P): per una sottoscrizione singola con tariffe con pagamento in base al consumo, i costi vengono addebitati sul metodo di pagamento con carta di credito o fatturazione per la sottoscrizione.    |
+   |Scope   |   Opzione che controlla quante sottoscrizioni possono usare il vantaggio di fatturazione associato alla prenotazione. Controlla anche il modo in cui la prenotazione viene applicata alle sottoscrizioni specifiche. <br/><br/>  Se si seleziona **Condiviso**, lo sconto per la prenotazione viene applicato alle istanze di Azure Cosmos DB in esecuzione in qualsiasi sottoscrizione nel contesto di fatturazione. Il contesto di fatturazione si basa sul modo in cui è stata effettuata l'iscrizione ad Azure. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso è costituito da tutte le singole sottoscrizioni con tariffe con pagamento in base al consumo create dall'amministratore account.  <br/><br/>  Se si seleziona **Sottoscrizione singola**, lo sconto per la prenotazione viene applicato alle istanze di Azure Cosmos DB nella sottoscrizione selezionata. <br/><br/> Se si seleziona **gruppo di risorse singolo**, lo sconto relativo alla prenotazione viene applicato alle istanze Azure Cosmos DB nella sottoscrizione selezionata e al gruppo di risorse selezionato all'interno di tale sottoscrizione. <br/><br/> È possibile modificare l'ambito della prenotazione dopo l'acquisto della capacità riservata.  |
+   |Subscription  |   Sottoscrizione usata per pagare la capacità riservata di Azure Cosmos DB. Il metodo di pagamento per la sottoscrizione selezionata viene utilizzato per l'addebito dei costi. La sottoscrizione deve essere di uno dei seguenti tipi: <br/><br/>  Enterprise Agreement (numeri di offerta: MS-AZR-0017P o MS-AZR-0148P): per una sottoscrizione Enterprise, gli addebiti vengono dedotti dal saldo dell'impegno monetario di registrazione o addebitato come eccedenza. <br/><br/> Sottoscrizione singola con tariffe con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P): per una sottoscrizione singola con tariffe con pagamento in base al consumo, i costi vengono addebitati sul metodo di pagamento con carta di credito o fatturazione per la sottoscrizione.    |
    | Gruppo di risorse | Gruppo di risorse a cui viene applicato lo sconto per la capacità riservata. |
-   |Durata  |   Un anno o tre anni.   |
+   |Termine  |   Un anno o tre anni.   |
    |Tipo di velocità effettiva   |  Il provisioning della velocità effettiva viene effettuato come unità richiesta. È possibile acquistare una prenotazione per la velocità effettiva di cui è stato effettuato il provisioning per entrambe le operazioni di scrittura: singole aree e scritture in più aree. Il tipo di velocità effettiva è costituito da due valori tra cui scegliere: 100 ur/s all'ora e 100 ur/sec multimaster all'ora.|
    | Unità di capacità riservata| Quantità di velocità effettiva da riservare. È possibile calcolare questo valore determinando la velocità effettiva necessaria per tutte le risorse di Cosmos DB (ad esempio, database o contenitori) per ogni area. Viene quindi moltiplicato per il numero di aree associate al database Cosmos. Se ad esempio si hanno cinque aree con 1 milione di unità richieste/sec in ogni area, selezionare 5 milioni di unità richieste/sec per l'acquisto di capacità di prenotazione. |
 
@@ -74,8 +90,6 @@ Quando la prenotazione scade, le istanze di Azure Cosmos DB continuano a essere 
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Annullare o scambiare le prenotazioni oppure chiedere il rimborso
 
-Per informazioni sull'identificazione della capacità riservata corretta, vedere [informazioni su come viene applicato lo sconto per la prenotazione ai Azure Cosmos DB](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md).
-
 È possibile annullare o scambiare le prenotazioni oppure chiederne il rimborso con determinate limitazioni. Per altre informazioni, vedere [Scambi e rimborsi self-service per le prenotazioni di Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -92,6 +106,6 @@ Lo sconto per la prenotazione si applica automaticamente alle risorse di Azure C
    * [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
    * [Prenotazioni di Azure nel programma CSP del Centro per i partner](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Opzioni per Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

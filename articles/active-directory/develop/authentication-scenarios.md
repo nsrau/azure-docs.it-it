@@ -13,18 +13,18 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 9760f09f2588f09263c96cf8c1be74129b117009
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 6e14284b5d653af01631d56acf954f9c2a1f10ab
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77085374"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77194996"
 ---
 # <a name="authentication-basics"></a>Nozioni di base sull'autenticazione
 
 ## <a name="what-is-authentication"></a>Informazioni sull'autenticazione
 
-Questo articolo descrive molti dei concetti di autenticazione che è necessario comprendere per creare app Web protette, API Web o app che chiamano API Web protette. Se viene visualizzato un termine con cui non si ha familiarità, provare il [Glossario](developer-glossary.md).
+Questo articolo descrive molti dei concetti di autenticazione che è necessario comprendere per creare app Web protette, API Web o app che chiamano API Web protette. Se viene visualizzato un termine con cui non si ha familiarità, provare il [Glossario](developer-glossary.md) o i [video della piattaforma Microsoft Identity](identity-videos.md) che illustrano i concetti di base.
 
 L' **autenticazione** è il processo di dimostrazione dell'utente. In lingua inglese, il termine autenticazione viene talvolta abbreviato in AuthN.
 

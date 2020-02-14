@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione dei criteri di accesso condizionale-Azure Active Directory
+title: Eseguire la migrazione dei criteri di accesso condizionale - Azure Active Directory
 description: Informazioni che è necessario conoscere per eseguire la migrazione dei criteri classici nel portale di Azure.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16c6ce46af8fb9a9ab4be5fcc63ccd4909374e4f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 33b1f76dd1489e00115d0f805add8d754038df84
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74846173"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185918"
 ---
 # <a name="conditional-access-classic-policy-migration"></a>Migrazione dei criteri classici dell'accesso condizionale
 
@@ -89,7 +89,7 @@ Se si ha un criterio nuovo con **Exchange Active Sync** configurato come condizi
 
 ![Condizioni di accesso condizionale](./media/policy-migration/16.png)
  
-I criteri classici [basati su app](technical-reference.md#approved-client-app-requirement) per Office 365 Exchange Online che includono **Exchange Active Sync** come condizione per le app client consentono l'uso di [piattaforme di dispositivo](technical-reference.md#device-platform-condition) **supportate** e **non supportate**. Anche se non si possono configurare singole piattaforme di dispositivo in un criterio nuovo correlato, è possibile limitare il supporto alle [piattaforme di dispositivo supportate](technical-reference.md#device-platform-condition). 
+I criteri classici basati su app per Office 365 Exchange Online che includono **Exchange Active Sync** come condizione **per le app** client consentono piattaforme per dispositivi supportate e non **supportate** . Anche se non si possono configurare singole piattaforme di dispositivo in un criterio nuovo correlato, è possibile limitare il supporto alle [piattaforme di dispositivo supportate](concept-conditional-access-conditions.md#device-platforms). 
 
 ![Accesso condizionale selezionare Exchange ActiveSync](./media/policy-migration/65.png)
 
@@ -109,9 +109,9 @@ In questo caso, è possibile consolidare i criteri classici in un unico criterio
 
 ### <a name="device-platforms"></a>Piattaforme del dispositivo
 
-I criteri classici con [controlli basati su app](technical-reference.md#approved-client-app-requirement) sono preconfigurati con iOS e Android come [condizione per le piattaforme di dispositivo](technical-reference.md#device-platform-condition). 
+I criteri classici con controlli basati su app sono preconfigurati con iOS e Android come condizione per la piattaforma del dispositivo. 
 
-In un criterio nuovo è necessario selezionare le [piattaforme di dispositivo](technical-reference.md#device-platform-condition) da supportare singolarmente.
+In un criterio nuovo è necessario selezionare le [piattaforme di dispositivo](concept-conditional-access-conditions.md#device-platforms) da supportare singolarmente.
 
 ![Selezione delle piattaforme del dispositivo con accesso condizionale](./media/policy-migration/41.png)
 

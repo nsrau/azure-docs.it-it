@@ -1,5 +1,5 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure-configurare endpoint di rete virtuale IPv6-Load Balancer Standard (anteprima)
+title: Esempio di script dell'interfaccia della riga di comando di Azure-configurare frontend IPv6-Load Balancer Standard
 titlesuffix: Azure Virtual Network
 description: Abilitare gli endpoint IPv6 usando l'interfaccia della riga di comando di Azure in rete virtuale di Azure
 services: virtual-network
@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: afeb0c83c6e9afca16d0f0b21adafac4b7f3f2c2
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 86c8acedb230989fa7a7f28690bd4be9c51ead9e
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68269715"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201340"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-using-standard-load-balancerpreview"></a>Configurare gli endpoint IPv6 nell'esempio di script di rete virtuale usando Load Balancer Standard (anteprima)
 
@@ -27,7 +27,7 @@ Questo articolo illustra come distribuire un'applicazione dual stack (IPv4 + IPv
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Per usare la funzionalità IPv6 per la rete virtuale di Azure, è necessario configurare la sottoscrizione solo una volta come indicato di seguito:
 
 ```azurecli

@@ -10,14 +10,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/11/2019
+ms.date: 02/11/2020
 ms.author: juliako
-ms.openlocfilehash: c8901dccb67e91c608e999f823cf7d2e757da08b
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 14fee047e1f62ae7f7d3484d89779e1512e4bab7
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186005"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198718"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Endpoint di streaming (Origin) in servizi multimediali di Azure
 
@@ -41,13 +41,13 @@ Quando si usa l'endpoint di streaming predefinito, `servicename` viene omesso, q
 * Il nome dell'endpoint di streaming ha un valore massimo di 24 caratteri.
 * Il nome deve seguire questo modello [Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
 
-## <a name="types"></a>Types
+## <a name="types"></a>Tipi
 
 Sono disponibili due tipi di **endpoint di streaming** : **standard** (anteprima) e **Premium**. Il tipo è definito in base al numero di unità di scala (`scaleUnits`) allocate per l'endpoint di streaming.
 
 La tabella seguente descrive i tipi:
 
-|digitare|Unità di scala|DESCRIZIONE|
+|Type|Unità di scala|Descrizione|
 |--------|--------|--------|  
 |**Standard**|0|L'endpoint di streaming predefinito è un tipo **standard** , che può essere modificato nel tipo Premium regolando `scaleUnits`.|
 |**Premium**|>0|**Premium** Gli endpoint di streaming sono adatti per carichi di lavoro avanzati e offrono una capacità di larghezza di banda dedicata e scalabile. Si passa a un tipo **Premium** regolando `scaleUnits` (unità di streaming). Il valore `scaleUnits` rappresenta la capacità di uscita dedicata acquistabile in incrementi di 200 Mbps. Quando si usa il tipo **Premium** , ogni unità abilitata fornisce ulteriore capacità di larghezza di banda per l'app. |
@@ -65,8 +65,8 @@ Velocità effettiva |Fino a 600 Mbps e possono fornire una velocità effettiva m
 RETE CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
 Fatturazione con ripartizione proporzionale| Giornaliera|Giornaliera
 Crittografia dinamica|Sì|Sì
-Creazione dinamica dei pacchetti|Sì|Sì
-Ridimensionare|Scalabilità automatica fino alla velocità effettiva di destinazione.|SUs aggiuntivo
+creazione dinamica dei pacchetti|Sì|Sì
+Scalabilità|Scalabilità automatica fino alla velocità effettiva di destinazione.|SUs aggiuntivo
 Filtro IP/G20/host personalizzato <sup>1</sup>|Sì|Sì
 Download progressivo|Sì|Sì
 Uso consigliato |Consigliato per la maggior parte dei casi di streaming.|Uso professionale.
@@ -83,7 +83,7 @@ Questa sezione fornisce informazioni dettagliate su alcune delle proprietà dell
 
     Non tutti i data center supportano l'integrazione della rete CDN di Azure. Per verificare se l'integrazione della rete CDN di Azure data center è disponibile, seguire questa procedura:
 
-  - Provare a impostare il `cdnEnabled` su true.
+  - Provare a impostare `cdnEnabled` su true.
   - Controllare il risultato restituito per un `HTTP Error Code 412` (PreconditionFailed) con un messaggio "Impossibile impostare la proprietà CdnEnabled dell'endpoint di streaming su true perché la funzionalità della rete CDN non è disponibile nell'area corrente".
 
     Se si riceve questo errore, il data center non lo supporta. Provare con un'altra data center.
@@ -155,8 +155,10 @@ Quando viene creato l'endpoint di streaming standard, questo viene configurato p
 
 L'integrazione della rete CDN è abilitata in tutti i data center di Azure eccetto per le aree Cina e Governo federale.
 
+L'integrazione di Servizi multimediali di Azure con la rete CDN di Azure è implementata nella **rete CDN di Azure da Verizon** per gli endpoint di streaming standard. Gli endpoint di streaming Premium possono essere configurati usando tutti **i provider e i livelli di prezzo della rete CDN di Azure**. 
+
 > [!IMPORTANT]
-> L'integrazione di Servizi multimediali di Azure con la rete CDN di Azure è implementata nella **rete CDN di Azure da Verizon** per gli endpoint di streaming standard. Gli endpoint di streaming Premium possono essere configurati usando tutti **i provider e i livelli di prezzo della rete CDN di Azure**. Per altre informazioni sulle funzionalità della rete CDN di Azure, vedere la [Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure](../../cdn/cdn-overview.md).
+> Per informazioni dettagliate sulla rete CDN di Azure, vedere la panoramica della rete [CDN](../../cdn/cdn-overview.md).
 
 ### <a name="determine-if-dns-change-was-made"></a>Determinare se è stata apportata la modifica DNS
 
@@ -165,6 +167,10 @@ L'integrazione della rete CDN è abilitata in tutti i data center di Azure eccet
 ## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
+
+## <a name="see-also"></a>Vedere anche
+
+[Panoramica della rete CDN](../../cdn/cdn-overview.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

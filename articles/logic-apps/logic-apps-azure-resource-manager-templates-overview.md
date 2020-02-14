@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: 41410d4e534d0940050521ecc86e8a384566f439
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 486f90d82af729a3dbfd836239d2d19ebdf44819
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972692"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191415"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Panoramica: automatizzare la distribuzione per le app per la logica di Azure usando modelli di Azure Resource Manager
 
@@ -61,7 +61,7 @@ Al livello principale, un modello di Gestione risorse segue questa struttura, de
 
 Per un modello di app per la logica, è possibile usare principalmente questi oggetti modello:
 
-| Attributo | Description |
+| Attributo | Descrizione |
 |-----------|-------------|
 | `parameters` | Dichiara i [parametri del modello](../azure-resource-manager/templates/template-syntax.md#parameters) per accettare i valori da usare durante la creazione e la personalizzazione delle risorse per la distribuzione in Azure. Ad esempio, questi parametri accettano i valori per il nome e il percorso dell'app per la logica, le connessioni e altre risorse necessarie per la distribuzione. È possibile archiviare questi valori di parametro in un [file di parametri](#template-parameter-files), descritto più avanti in questo argomento. Per informazioni generali, vedere [parametri: Gestione risorse la struttura e la sintassi del modello](../azure-resource-manager/templates/template-syntax.md#parameters). |
 | `resources` | Definisce le [risorse](../azure-resource-manager/templates/template-syntax.md#resources) da creare o aggiornare e distribuire in un gruppo di risorse di Azure, ad esempio l'app per la logica, le connessioni, gli account di archiviazione di Azure e così via. Per informazioni generali, vedere [risorse-Gestione risorse la struttura e la sintassi del modello](../azure-resource-manager/templates/template-syntax.md#resources). |
@@ -145,10 +145,10 @@ Questo esempio Mostra solo i parametri del modello per i valori usati per creare
 
 Ad eccezione dei parametri che gestiscono valori sensibili o che devono essere protetti, ad esempio nomi utente, password e segreti, tutti questi parametri includono `defaultValue` attributi, anche se in alcuni casi i valori predefiniti sono valori vuoti. I valori di distribuzione da utilizzare per questi parametri di modello vengono forniti dal [file dei parametri](#template-parameter-files) di esempio descritto più avanti in questo argomento.
 
-Per proteggere i parametri del modello, vedere gli argomenti seguenti:
+Per ulteriori informazioni sulla protezione dei parametri di modello, vedere gli argomenti seguenti:
 
 * [Raccomandazioni sulla sicurezza per i parametri del modello](../azure-resource-manager/templates/template-best-practices.md#parameters)
-* [Parametri di modello protetti](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
+* [Migliorare la sicurezza per i parametri del modello](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 * [Passare i valori dei parametri protetti con Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
 Altri oggetti modello spesso fanno riferimento a parametri di modello in modo che possano usare i valori che passano attraverso parametri di modello, ad esempio:
@@ -171,7 +171,7 @@ Di seguito sono riportate alcune procedure consigliate per la definizione dei pa
 
   * [Raccomandazioni sulla sicurezza per i parametri del modello](../azure-resource-manager/templates/template-best-practices.md#parameters)
 
-  * [Parametri di modello protetti](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
+  * [Migliorare la sicurezza per i parametri del modello](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 
   * [Passare i valori dei parametri protetti con Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
@@ -188,7 +188,7 @@ Per specificare i valori per i parametri del modello, archiviare i valori in un 
 * Nome file modello app per la logica: **<*Logic-app-name*>. JSON**
 * Nome file dei parametri: **<*nome-app-Logic*>. Parameters. JSON**
 
-Di seguito è illustrata la struttura all'interno del file dei parametri, che include un riferimento a Key Vault per [passare un valore di parametro sicuro con Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md):
+Di seguito è illustrata la struttura all'interno del file dei parametri, che include un riferimento a Key Vault per [passare un valore di parametro protetto con Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md):
 
 ```json
 {
@@ -319,7 +319,7 @@ La definizione di risorsa dell'app per la logica inizia con l'oggetto `propertie
 
 Ecco gli attributi specifici della definizione di risorsa dell'app per la logica:
 
-| Attributo | Obbligatorio | Tipo | Description |
+| Attributo | Obbligatoria | Type | Descrizione |
 |-----------|----------|------|-------------|
 | `state` | Sì | string | Lo stato dell'app per la logica in fase di distribuzione, in cui `Enabled` indica che l'app per la logica è Live e `Disabled` significa che l'app per la logica è inattiva. Se, ad esempio, non si è pronti per l'app per la logica, ma si vuole distribuire una versione bozza, è possibile usare l'opzione `Disabled`. |
 | `integrationAccount` | No | Oggetto | Se l'app per la logica usa un account di integrazione, che archivia gli artefatti per gli scenari business-to-business (B2B), questo oggetto include l'attributo `id`, che specifica l'ID dell'account di integrazione. |
@@ -413,7 +413,7 @@ Per impostare il valore per il parametro di definizione del flusso di lavoro, us
 
 Questo modello di esempio Mostra come è possibile completare queste attività definendo parametri protetti quando necessario, in modo da poter archiviare i valori in Azure Key Vault:
 
-* Dichiarare i parametri sicuri per i valori usati per autenticare l'accesso.
+* Dichiarare i parametri protetti per i valori usati per autenticare l'accesso.
 * Usare questi valori a livello di definizione del flusso di lavoro e del modello.
 * Specificare questi valori usando un file di parametri.
 
@@ -936,7 +936,7 @@ Alcune connessioni supportano l'uso di un' [entità servizio](../active-director
 }
 ```
 
-| Attributo | Description |
+| Attributo | Descrizione |
 |-----------|-------------|
 | `token:clientId` | L'applicazione o l'ID client associato all'entità servizio |
 | `token:clientSecret` | Valore della chiave associato all'entità servizio |

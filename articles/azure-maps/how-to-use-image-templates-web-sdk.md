@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: cb182a5db77a517b11fb1863665f8c54d58b254a
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: f3b1141ea3c3c8e33b8a2ae12c22b6962a90d32b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911564"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198225"
 ---
 # <a name="how-to-use-image-templates"></a>Come usare i modelli di immagine
 
@@ -24,7 +24,7 @@ Le immagini possono essere usate con marcatori HTML e diversi livelli all'intern
  - È possibile eseguire il rendering dei livelli poligono con un'immagine del modello di riempimento. 
  - I marcatori HTML possono eseguire il rendering dei punti usando immagini e altri elementi HTML.
 
-Per garantire prestazioni ottimali con i livelli, è necessario caricare queste immagini nella risorsa sprite dell'immagine della mappa prima del rendering. Per impostazione predefinita, il [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions) di SymbolLayer precarica un paio di immagini marcatore in pochi colori nell'immagine della mappa sprite. Queste stesse immagini del marcatore e altro ancora sono disponibili come modelli SVG e possono essere usate per creare immagini con scale personalizzate, oltre a un colore primario e secondario del cliente. In totale sono disponibili 42 modelli di immagine; 27 icone di simboli e 15 modelli di riempimento poligono.
+Per garantire prestazioni ottimali con i livelli, caricare le immagini nella risorsa sprite dell'immagine della mappa prima del rendering. Per impostazione predefinita, [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions), di SymbolLayer, consente di precaricare un paio di immagini del marcatore in pochi colori nello sprite dell'immagine della mappa. Queste immagini del marcatore e altro ancora sono disponibili come modelli SVG. Possono essere usati per creare immagini con scale personalizzate o usate come colore primario e secondario del cliente. In totale sono disponibili modelli di immagine 42:27 icone dei simboli e 15 modelli di riempimento poligono.
 
 I modelli di immagine possono essere aggiunti alle risorse sprite dell'immagine della mappa usando la funzione `map.imageSprite.createFromTemplate`. Questa funzione consente di passare fino a cinque parametri;
 
@@ -32,9 +32,9 @@ I modelli di immagine possono essere aggiunti alle risorse sprite dell'immagine 
 createFromTemplate(id: string, templateName: string, color?: string, secondaryColor?: string, scale?: number): Promise<void>
 ```
 
-dove il `id` è un identificatore univoco creato che viene assegnato all'immagine quando viene aggiunto allo sprite dell'immagine maps. Usare questo identificatore nei livelli per specificare quale risorsa immagine eseguire il rendering. Il `templateName` specifica il modello di immagine da utilizzare. L'opzione `color` imposta il colore principale dell'immagine e le opzioni `secondaryColor` imposta il colore secondario dell'immagine. L'opzione `scale` ridimensiona il modello di immagine prima di applicarlo all'immagine sprite. Quando l'immagine viene applicata allo sprite dell'immagine, viene convertita in un formato PNG. Per garantire il rendering nitido, è preferibile ridimensionare il modello di immagine prima di aggiungerlo allo sprite rispetto alla scalabilità verticale in un livello.
+Il `id` è un identificatore univoco creato dall'utente. La `id` viene assegnata all'immagine quando viene aggiunta allo sprite dell'immagine maps. Usare questo identificatore nei livelli per specificare quale risorsa immagine eseguire il rendering. Il `templateName` specifica il modello di immagine da utilizzare. L'opzione `color` imposta il colore principale dell'immagine e le opzioni `secondaryColor` imposta il colore secondario dell'immagine. L'opzione `scale` ridimensiona il modello di immagine prima di applicarlo all'immagine sprite. Quando l'immagine viene applicata allo sprite dell'immagine, viene convertita in un formato PNG. Per garantire il rendering nitido, è preferibile ridimensionare il modello di immagine prima di aggiungerlo allo sprite, anziché ridimensionarlo in un livello.
 
-Questa funzione carica in modo asincrono l'immagine nello sprite dell'immagine e quindi restituisce un suggerimento che è possibile attendere il completamento di questa funzione.
+Questa funzione carica in modo asincrono l'immagine nello sprite dell'immagine. Pertanto, viene restituita una promessa che è possibile attendere il completamento di questa funzione.
 
 Il codice seguente illustra come creare un'immagine da uno dei modelli predefiniti e usarla con un livello di simboli.
 
@@ -106,9 +106,9 @@ Vedere il <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>marcatore HTML penn
 
 ## <a name="create-custom-reusable-templates"></a>Creare modelli riutilizzabili personalizzati
 
-Se l'applicazione usa la stessa icona con icone diverse o se si sta creando un modulo che aggiunge modelli di immagine aggiuntivi, è possibile aggiungere e recuperare facilmente queste icone da Azure Maps Web SDK usando le funzioni statiche seguenti nello spazio dei nomi `atlas`.
+Se l'applicazione usa la stessa icona con icone diverse o se si sta creando un modulo che aggiunge modelli di immagine aggiuntivi, è possibile aggiungere e recuperare facilmente queste icone da Azure Maps Web SDK. Usare le funzioni statiche seguenti nello spazio dei nomi `atlas`.
 
-| Nome | Tipo restituito | Description | 
+| Nome | Tipo restituito | Descrizione | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Aggiunge un modello di immagine SVG personalizzato allo spazio dei nomi dell'Atlante. |
 |  `getImageTemplate(templateName: string, scale?: number)`| string | Recupera un modello SVG in base al nome. |
@@ -116,7 +116,7 @@ Se l'applicazione usa la stessa icona con icone diverse o se si sta creando un m
 
 I modelli di immagine SVG supportano i seguenti valori segnaposto:
 
-| Segnaposto | Description |
+| Segnaposto | Descrizione |
 |-|-|
 | `{color}` | Colore primario. | 
 | `{secondaryColor}` | Colore secondario. | 
@@ -133,7 +133,7 @@ Vedere la penna <a href='https://codepen.io/azuremaps/pen/NQyvEX/'>aggiungere un
 
 ## <a name="list-of-image-templates"></a>Elenco di modelli di immagine
 
-La tabella seguente elenca tutti i modelli di immagine attualmente disponibili in Azure Maps Web SDK con il nome del modello sopra ogni immagine. Per impostazione predefinita, il colore primario è blu e il colore secondario è bianco. Per semplificare la visualizzazione del colore secondario su uno sfondo bianco, le immagini seguenti hanno il colore secondario impostato su nero.
+Questa tabella elenca tutti i modelli di immagine attualmente disponibili in Azure Maps Web SDK. Il nome del modello è superiore a ogni immagine. Per impostazione predefinita, il colore primario è blu e il colore secondario è bianco. Per semplificare la visualizzazione del colore secondario su uno sfondo bianco, le immagini seguenti hanno il colore secondario impostato su nero.
 
 **Modelli icona simboli**
 
@@ -155,7 +155,7 @@ La tabella seguente elenca tutti i modelli di immagine attualmente disponibili i
 | ![icona esagonale](./media/image-templates/hexagon.png) | ![icona con spessore esagonale](./media/image-templates/hexagon-thick.png) | ![icona esagonale arrotondata](./media/image-templates/hexagon-rounded.png) | ![icona di spessore esagonale-arrotondato](./media/image-templates/hexagon-rounded-thick.png) |
 ||||
 | aggiunta | pin-round | arrotondato-quadrato | arrotondato-spessore quadrato |
-| ![Icona Aggiungi](./media/image-templates/pin.png) | ![icona pin-round](./media/image-templates/pin-round.png) | ![icona arrotondata-quadrata](./media/image-templates/rounded-square.png) | ![icona arrotondata-con spessore rettangolare](./media/image-templates/rounded-square-thick.png) |
+| ![icona Aggiungi](./media/image-templates/pin.png) | ![icona pin-round](./media/image-templates/pin-round.png) | ![icona arrotondata-quadrata](./media/image-templates/rounded-square.png) | ![icona arrotondata-con spessore rettangolare](./media/image-templates/rounded-square-thick.png) |
 ||||
 | freccia su | freccia su-sottile | car ||
 | ![icona freccia su](./media/image-templates/arrow-up.png) | ![freccia su-icona sottile](./media/image-templates/arrow-up-thin.png) | ![icona dell'auto](./media/image-templates/car.png) | |

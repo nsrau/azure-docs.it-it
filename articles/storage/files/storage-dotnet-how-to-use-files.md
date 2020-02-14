@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: dfb1d71a02ae3bf06a5f2d8a93bcb3ac83433a86
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 361ee5179b20d9488bb477a4e3c9fc0f0e6f266e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460357"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190654"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Eseguire lo sviluppo per File di Azure con .NET
 
@@ -36,10 +36,10 @@ Per ulteriori informazioni su File di Azure, vedere [che cos'è file di Azure?](
 
 File di Azure offre due ampi approcci alle applicazioni client: Server Message Block (SMB) e REST. All'interno di .NET, le API `System.IO` e `WindowsAzure.Storage` astraggono questi approcci.
 
-API SmartBear Ready! | Quando usare questa opzione | Note
+API | Utilizzo | Note
 ----|-------------|------
 [System.IO](https://docs.microsoft.com/dotnet/api/system.io) | L'applicazione: <ul><li>Deve leggere/scrivere file tramite SMB</li><li>È in esecuzione su un dispositivo che ha accesso tramite la porta 445 all'account File di Azure</li><li>Non deve gestire le impostazioni amministrative della condivisione file</li></ul> | L'I/O dei file implementato con File di Azure su SMB corrisponde in genere all'i/O con qualsiasi condivisione file di rete o dispositivo di archiviazione locale. Per un'introduzione a numerose funzionalità di .NET, tra cui I/O di file, vedere l'esercitazione sull' [applicazione console](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) .
-[Microsoft.Azure.Storage.File](https://docs.microsoft.com/dotnet/api/overview/azure/storage#client-library) | L'applicazione: <ul><li>Non è possibile accedere a File di Azure tramite SMB sulla porta 445 a causa di vincoli firewall o ISP</li><li>Richiede funzionalità amministrative, ad esempio la possibilità di impostare la quota di una condivisione file o di creare una firma di accesso condiviso</li></ul> | Questo articolo illustra l'uso di `Microsoft.Azure.Storage.File` per l'I/O dei file tramite REST anziché SMB e la gestione della condivisione file.
+[Microsoft. Azure. storage. file](/dotnet/api/overview/azure/storage?view=azure-dotnet#version-11x) | L'applicazione: <ul><li>Non è possibile accedere a File di Azure tramite SMB sulla porta 445 a causa di vincoli firewall o ISP</li><li>Richiede funzionalità amministrative, ad esempio la possibilità di impostare la quota di una condivisione file o di creare una firma di accesso condiviso</li></ul> | Questo articolo illustra l'uso di `Microsoft.Azure.Storage.File` per l'I/O dei file tramite REST anziché SMB e la gestione della condivisione file.
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Creare l'applicazione console e ottenere l'assembly
 
@@ -79,7 +79,7 @@ Per ottenere entrambi i pacchetti, è possibile usare NuGet. A tale scopo, segui
 1. Cercare e installare i pacchetti seguenti:
 
    * **Microsoft. Azure. storage. Common**
-   * **Microsoft.Azure.Storage.File**
+   * **Microsoft. Azure. storage. file**
    * **Microsoft. Azure. ConfigurationManager**
 
 ## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Salvare le credenziali dell'account di archiviazione nel file app. config
@@ -495,12 +495,12 @@ Per ulteriori informazioni su File di Azure, vedere le risorse seguenti:
 * [Utilizzo dell'interfaccia della riga di comando di Azure con archiviazione di Azure](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
 * [Risolvere i problemi di File di Azure in Windows](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
-### <a name="reference"></a>Riferimenti
+### <a name="reference"></a>Riferimento
 
-* [API di Archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage)
+* [API di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage)
 * [File Service REST API](/rest/api/storageservices/File-Service-REST-API) (API REST del servizio file)
 
-### <a name="blog-posts"></a>Post di blog
+### <a name="blog-posts"></a>Post di BLOG
 
 * [Archiviazione file di Azure, ora disponibile a livello generale](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
 * [Analisi di archiviazione file di Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)

@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: c0aa33cce8dc163722557b1ef868cf0de8bea8fe
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1c2db107302e4851641ef430db61ec9b29ee151f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928740"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187470"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Risolvere i problemi di esecuzione del pacchetto in SSIS Integration Runtime
 
@@ -142,7 +142,7 @@ Verificare che il runtime di integrazione self-hosted sia installato e avviato. 
 
 ### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-the-requested-ole-db-provider--is-not-registered-if-the-64-bit-driver-is-not-installed-run-the-package-in-32-bit-mode"></a>Messaggio di errore: "errore attività di gestione temporanea: ErrorCode: 2906, ErrorMessage: esecuzione del pacchetto non riuscita., output: {" OperationErrorMessages ":" errore: provider OLE DB richiesto... non è registrato. Se il driver a 64 bit non è installato, eseguire il pacchetto in modalità a 32 bit... "
 
-Verificare che il provider corrispondente usato dai connettori OLE DB nel pacchetto sia installato correttamente nel computer del runtime di integrazione self-hosted. Per informazioni più dettagliate, vedere [configurare il runtime di integrazione self-hosted come proxy per Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-self-hosted-ir)
+Verificare che il provider corrispondente usato dai connettori OLE DB nel pacchetto sia installato correttamente nel computer del runtime di integrazione self-hosted. Per informazioni più dettagliate, vedere [configurare il runtime di integrazione self-hosted come proxy per Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
 
 ### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-systemiofileloadexception-could-not-load-file-or-assembly-microsoftwindowsazurestorage-version-cultureneutral-publickeytoken31bf3856ad364e35-or-one-of-its-dependencies-the-located-assemblys-manifest-definition-does-not-match-the-assembly-reference"></a>Messaggio di errore: "errore attività di gestione temporanea: ErrorCode: 2906, ErrorMessage: esecuzione del pacchetto non riuscita., output: {" OperationErrorMessages ":" errore: System. IO. FileLoadException: Impossibile caricare il file o l'assembly ' Microsoft. WindowsAzure. storage, Version =..., Culture = neutral, PublicKeyToken = 31bf3856ad364e35' o una delle relative dipendenze. La definizione del manifesto dell'assembly individuato non corrisponde al riferimento all'assembly. ..."
 
@@ -157,7 +157,7 @@ Una delle possibili cause è che il runtime di integrazione self-hosted non è i
 
 ### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>Messaggio di errore: "stato attività di gestione temporanea: non riuscito. Errore dell'attività di gestione temporanea: ErrorCode: 2906, ErrorMessage: esecuzione del pacchetto non riuscita. output: {"OperationErrorMessages": "codice di uscita di SSIS Executor:-1. \ n", "LogLocation": "...\\SSISTelemetry\\ExecutionLog\\...", "effectiveIntegrationRuntime": "...", "executionDuration":..., "durationInQueue": {"integrationRuntimeQueue":...}} "
 
-Verificare che Visual C++ Runtime sia installato nel computer del runtime di integrazione self-hosted. Per informazioni più dettagliate, vedere [configurare il runtime di integrazione self-hosted come proxy per Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-self-hosted-ir)
+Verificare che Visual C++ Runtime sia installato nel computer del runtime di integrazione self-hosted. Per informazioni più dettagliate, vedere [configurare il runtime di integrazione self-hosted come proxy per Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
 
 ### <a name="multiple-package-executions-are-triggered-unexpectedly"></a>Sono state attivate più esecuzioni di pacchetti in modo imprevisto
 

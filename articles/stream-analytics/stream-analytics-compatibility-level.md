@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/03/2020
-ms.openlocfilehash: e1eb852b7cf7aea887dea429e19b0a3b1ac5805a
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.date: 02/14/2020
+ms.openlocfilehash: 14b04f7d6068863c79c7060d29b58232be1f40cb
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989859"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201799"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Livello di compatibilità per i processi di Analisi di flusso di Azure
 
@@ -49,9 +49,13 @@ Per aggiornare il livello di compatibilità del processo nel portale di Azure:
 
 Quando si aggiorna il livello di compatibilità, il compilatore T convalida il processo con la sintassi che corrisponde al livello di compatibilità selezionato.
 
-## <a name="compatibility-level-12"></a>Livello di compatibilità 1.2
+## <a name="compatibility-level-12"></a>Livello di compatibilità 1,2
 
 Nel livello di compatibilità 1,2 sono state introdotte le modifiche principali seguenti:
+
+###  <a name="amqp-messaging-protocol"></a>Protocollo di messaggistica AMQP
+
+**1,2 livello**: analisi di flusso di Azure usa il protocollo di messaggistica [AMQP (Advanced Message Queueing Protocol)](../service-bus-messaging/service-bus-amqp-overview.md) per scrivere in code e argomenti del bus di servizio. AMQP consente di creare applicazioni ibride multipiattaforma usando un protocollo aperto standard.
 
 ### <a name="geospatial-functions"></a>Funzioni geospaziali
 

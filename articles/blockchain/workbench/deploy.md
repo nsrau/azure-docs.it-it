@@ -4,12 +4,12 @@ description: Come distribuire l'anteprima di Azure blockchain Workbench
 ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: brendal
-ms.openlocfilehash: 190f780d7aed30667c23bb97f9ce7726da0f00ca
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: fab61b5850815e480b4a380fdccd6c1df5b449cd
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779833"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189221"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Distribuire l'anteprima di Azure blockchain Workbench
 
@@ -26,7 +26,7 @@ Blockchain Workbench consente di distribuire un libro mastro blockchain insieme 
 * Piano di servizio app (standard)
 * Application Insights
 * Griglia di eventi
-* Azure Key Vault
+* Insieme di credenziali chiave di Azure
 * Bus di servizio
 * Database SQL (S0 standard) + server logico SQL
 * Account di archiviazione di Azure (con ridondanza locale standard)
@@ -40,7 +40,7 @@ Di seguito è riportato un esempio di distribuzione creata nel gruppo di risorse
 
 Il costo di Blockchain Workbench è un'aggregazione del costo dei servizi Azure sottostanti. Per calcolare i prezzi per i servizi di Azure, usare il [Calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Azure Blockchain Workbench richiede le registrazioni per l'applicazione e la configurazione di Azure AD. È possibile scegliere di eseguire la [configurazione di Azure AD manualmente](#azure-ad-configuration) prima della distribuzione o eseguire uno script successivamente alla distribuzione. Se si sta ridistribuendo Blockchain Workbench, vedere [Configurazione di Azure AD](#azure-ad-configuration) per verificare la configurazione di Azure AD.
 
@@ -58,7 +58,7 @@ Dopo avere completato i passaggi preliminari necessari, è possibile distribuire
 
     ![Creare Azure Blockchain Workbench](media/deploy/blockchain-workbench-settings-basic.png)
 
-    | Impostazione | Description  |
+    | Impostazione | Descrizione  |
     |---------|--------------|
     | Prefisso della risorsa | Identificatore univoco breve della distribuzione. Questo valore viene usato come base per la denominazione delle risorse. |
     | Nome utente macchina virtuale | Nome utente usato come amministratore per tutte le macchine virtuali (VM). |
@@ -67,9 +67,9 @@ Dopo avere completato i passaggi preliminari necessari, è possibile distribuire
     | SSH | Usare una chiave pubblica RSA in formato a una riga che inizi con **ssh-rsa** oppure usare il formato PEM a più righe. È possibile generare le chiavi SSH tramite `ssh-keygen` in Linux e OS X oppure usando PuTTYGen in Windows. Per altre informazioni sulle chiavi SSH, vedere [Come usare SSH con Windows in Azure](../../virtual-machines/linux/ssh-from-windows.md). |
     | Database e password blockchain | Specificare la password da usare per accedere al database creato nell'ambito della distribuzione. La password deve soddisfare tre dei quattro requisiti seguenti: la lunghezza deve essere compresa tra 12 & 72 caratteri, un carattere minuscolo, un carattere maiuscolo, un numero e un carattere speciale diverso da cancelletto (#), percentuale (%), virgola (,), stella (*), virgoletta indietro (\`), virgolette doppie ("), virgoletta singola ('), trattino (-) e semicolumn (;) |
     | Area di distribuzione | Specificare dove distribuire le risorse di Blockchain Workbench. Per ottimizzare la disponibilità, questa impostazione deve corrispondere alla **Località**. |
-    | Sottoscrizione | Specificare la sottoscrizione di Azure che si vuole usare per la distribuzione. |
+    | Subscription | Specificare la sottoscrizione di Azure che si vuole usare per la distribuzione. |
     | Gruppi di risorse | Creare un nuovo gruppo di risorse selezionando **Crea nuovo** e quindi specificare un nome di gruppo di risorse univoco. |
-    | Percorso | Specificare l'area in cui si vuole distribuire il framework. |
+    | Location | Specificare l'area in cui si vuole distribuire il framework. |
 
 1. Selezionare **OK** per completare la sezione di configurazione delle impostazione di base.
 
@@ -81,7 +81,7 @@ Dopo avere completato i passaggi preliminari necessari, è possibile distribuire
 
     ![Impostazioni avanzate per la nuova rete blockchain](media/deploy/advanced-blockchain-settings-new.png)
 
-    | Impostazione | Description  |
+    | Impostazione | Descrizione  |
     |---------|--------------|
     | Piano tariffario del servizio Azure blockchain | Scegliere il livello di servizio **Basic** o **standard** di Azure blockchain usato per blockchain Workbench |
     | Impostazioni di Azure Active Directory | Scegliere **Add Later** (Aggiungi in seguito).</br>Nota: se si sceglie di [pre-configurare Azure AD](#azure-ad-configuration) o si sta eseguendo una ridistribuzione, scegliere *Add Now* (Aggiungi adesso). |
@@ -100,7 +100,7 @@ Dopo avere completato i passaggi preliminari necessari, è possibile distribuire
 
      ![Impostazioni avanzate per la rete blockchain esistente](media/deploy/advanced-blockchain-settings-existing.png)
 
-     | Impostazione | Description  |
+     | Impostazione | Descrizione  |
      |---------|--------------|
      | Endpoint RPC Ethereum | Fornire l'endpoint RPC di una rete blockchain PoA esistente. L'endpoint inizia con https:// o http:// e termina con un numero di porta. Ad esempio, usare `http<s>://<network-url>:<port>` |
      | Impostazioni di Azure Active Directory | Scegliere **Add Later** (Aggiungi in seguito).</br>Nota: se si sceglie di [pre-configurare Azure AD](#azure-ad-configuration) o si sta eseguendo una ridistribuzione, scegliere *Add Now* (Aggiungi adesso). |
@@ -110,7 +110,7 @@ Dopo avere completato i passaggi preliminari necessari, è possibile distribuire
 
 1. Esaminare il riepilogo per verificare che i parametri siano corretti.
 
-    ![Riepilogo](media/deploy/blockchain-workbench-summary.png)
+    ![Summary](media/deploy/blockchain-workbench-summary.png)
 
 1. Selezionare **Crea** per accettare le condizioni e distribuire Azure Blockchain Workbench.
 
@@ -175,7 +175,7 @@ Se si sceglie di configurare manualmente o verificare le impostazioni di Azure A
 
 ### <a name="blockchain-workbench-api-app-registration"></a>Registrazione dell'app per le API per Blockchain Workbench
 
-Per la distribuzione di Blockchain Workbench, è necessaria la registrazione di un'applicazione Azure AD. Per registrare l'app, è necessario un tenant di Azure Active Directory (Azure AD). È possibile usare un tenant esistente oppure crearne uno nuovo. Se si usa un tenant di Azure AD esistente, sono necessarie autorizzazioni sufficienti per registrare le applicazioni, concedere le autorizzazioni per l'API Graph e consentire accesso guest all'interno di un tenant di Azure AD. Se non sono disponibili autorizzazioni sufficienti in un tenant di Azure AD esistente, creare un nuovo tenant.
+Per la distribuzione di Blockchain Workbench, è necessaria la registrazione di un'applicazione Azure AD. Per registrare l'app, è necessario un tenant di Azure Active Directory (Azure AD). È possibile usare un tenant esistente oppure crearne uno nuovo. Se si usa un tenant di Azure AD esistente, sono necessarie autorizzazioni sufficienti per registrare le applicazioni, concedere le autorizzazioni per l'API Graph e consentire accesso guest all'interno di un tenant di Azure AD. Se non si dispone di autorizzazioni sufficienti in un tenant di Azure AD esistente, creare un nuovo tenant.
 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
@@ -195,7 +195,7 @@ Per la distribuzione di Blockchain Workbench, è necessaria la registrazione di 
 Successivamente, è necessario modificare il manifesto per l'uso di ruoli applicazione in Azure AD, in modo da specificare gli amministratori di Blockchain Workbench.  Per altre informazioni sui manifesti delle applicazioni, vedere [Manifesto dell'applicazione Azure Active Directory](../../active-directory/develop/reference-app-manifest.md).
 
 
-1. È necessario generare un GUID per il manifesto. È possibile generare un GUID usando il comando PowerShell `[guid]::NewGuid()` o `New-GUID` cmdlet. Un'altra opzione consiste nell'usare un sito Web di generatori di GUID.
+1. Per il manifesto è necessario un GUID. È possibile generare un GUID usando il comando PowerShell `[guid]::NewGuid()` o `New-GUID` cmdlet. Un'altra opzione consiste nell'usare un sito Web di generatori di GUID.
 1. Per l'applicazione registrata, selezionare **manifesto** nella sezione **Gestisci** .
 1. Aggiornare quindi la sezione **appRoles** del manifesto. Sostituire `"appRoles": []` con il codice JSON fornito. Assicurarsi di sostituire il valore per il campo **id** con il GUID generato. 
 
@@ -233,8 +233,15 @@ Successivamente, è necessario modificare il manifesto per l'uso di ruoli applic
 L'applicazione API deve richiedere l'autorizzazione dell'utente per accedere alla directory. Impostare l'autorizzazione seguente per l'applicazione API:
 
 1. Nella registrazione dell'app per le *API blockchain* selezionare autorizzazioni per le **API**. Per impostazione predefinita, viene aggiunta l'autorizzazione API Graph **User. Read** .
+1. L'applicazione Workbench richiede l'accesso in lettura alle informazioni di base sul profilo dell'utente. In *autorizzazioni configurate*selezionare **Aggiungi un'autorizzazione**. In **Microsoft API**selezionare **Microsoft Graph**.
+1. Poiché l'applicazione Workbench usa le credenziali dell'utente autenticato, selezionare **autorizzazioni delegate**.
+1. Nella categoria *User* (utente) scegliere **User. ReadBasic. All** autorizzazione.
 
-1. In **Concedi consenso**selezionare **concedi il consenso dell'amministratore** per il dominio e quindi selezionare **Sì** per la richiesta di verifica.
+    ![Azure AD configurazione della registrazione dell'app che mostra l'aggiunta dell'autorizzazione delegata Microsoft Graph User. ReadBasic. All](media/deploy/add-graph-user-permission.png)
+
+    Selezionare **Aggiungi autorizzazioni**.
+
+1. In *autorizzazioni configurate*selezionare **concedi il consenso dell'amministratore** per il dominio e quindi selezionare **Sì** per la richiesta di verifica.
 
    ![Concedere le autorizzazioni](media/deploy/client-app-grant-permissions.png)
 
@@ -277,7 +284,7 @@ Dopo la distribuzione di Azure Blockchain Workbench, è necessario configurare l
 1. Verificare di trovarsi all'interno del tenant in cui è stata registrata l'applicazione client Azure AD.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**. Selezionare **Registrazioni per l'app**.
 1. Selezionare l'applicazione client Azure AD registrata nella sezione delle operazioni preliminari.
-1. Selezionare **Autenticazione**.
+1. Selezionare **autenticazione**.
 1. Specificare l'URL Web principale della distribuzione di Azure blockchain Workbench recuperata nella sezione [URL Web di blockchain Workbench](#blockchain-workbench-web-url) . L'URL di risposta è preceduto dal prefisso `https://`. Ad esempio, usare `https://myblockchain2-7v75.azurewebsites.net`
 
     ![URL di risposta di autenticazione](media/deploy/configure-reply-url.png)

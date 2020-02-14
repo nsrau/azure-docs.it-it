@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 11/27/2019
-ms.openlocfilehash: 90f39a5edd32225b7fed259ca48dcf4802d0ced3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: eed0ed96efdc84697797c50578e11eee37d4d495
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443819"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201731"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse dell'istanza gestita di database SQL di Azure
 
@@ -38,8 +38,8 @@ L'istanza gestita presenta le caratteristiche e i limiti delle risorse che dipen
 | Archiviazione riservata istanza massima |  Per utilizzo generico: 8 TB<br/>Business critical: 1 TB | Per utilizzo generico: 8 TB<br/> Business critical 1 TB, 2 TB o 4 TB a seconda del numero di core |
 
 > [!IMPORTANT]
-> - L'hardware Gen4 è in fase di eliminazione. È consigliabile distribuire nuove istanze gestite nell'hardware quinta generazione.
-> - Attualmente l'hardware Gen4 è ancora disponibile solo nelle aree seguenti: Europa settentrionale, Europa occidentale, Stati Uniti orientali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Stati Uniti occidentali 2, Stati Uniti centrali, Canada centrale, India meridionale, Asia sudorientale e Corea centrale.
+> - L'hardware Gen4 viene eliminato e non è più disponibile per le nuove distribuzioni. Tutte le nuove istanze gestite devono essere distribuite in hardware quinta generazione.
+> - Provare a [trasferire le istanze gestite all'hardware di generazione 5](sql-database-service-tiers-vcore.md) per sperimentare una gamma più ampia di vCore e scalabilità di archiviazione, rete accelerata, prestazioni di i/o migliori e latenza minima.
 
 ### <a name="in-memory-oltp-available-space"></a>Spazio disponibile OLTP in memoria 
 
@@ -47,8 +47,8 @@ La quantità di spazio di OLTP in memoria in [business critical](sql-database-se
 
 | Spazio OLTP in memoria  | **Quinta generazione** | **Quarta generazione** |
 | --- | --- | --- |
-| 4 vCore  | 3,14 GB | |   
-| 8 vCore  | 6,28 GB | 8 GB |
+| 4 vcore  | 3,14 GB | |   
+| 8 vcore  | 6,28 GB | 8 GB |
 | 16 vcore | 15,77 GB | 20 GB |
 | 24 vcore | 25,25 GB | 36 GB |
 | 32 vcore | 37,94 GB | |
@@ -78,7 +78,7 @@ Istanza gestita ha due livelli di servizio: [per utilizzo generico](sql-database
 | Limite velocità effettiva scrittura log (per istanza) | 3 MB/s per ogni vCore<br/>Massimo 22 MB/s | 4 MB/s per vCore<br/>Max 48 MB/s |
 | Dati effettivi (approssimativi) | 100 - 250 MB/s per ogni file<br/>\*[aumentare le dimensioni del file per ottenere prestazioni di i/o migliori](#file-io-characteristics-in-general-purpose-tier) | Non limitato. |
 | Latenza IO di archiviazione (approssimativa) | 5-10 ms | 1-2 ms |
-| OLTP in memoria | Supporto non disponibile | Disponibile, [le dimensioni dipendono dal numero di vCore](#in-memory-oltp-available-space) |
+| OLTP in memoria | Non supportate | Disponibile, [le dimensioni dipendono dal numero di vCore](#in-memory-oltp-available-space) |
 | Numero massimo di sessioni | 30000 | 30000 |
 | [Repliche di sola lettura](sql-database-read-scale-out.md) | 0 | 1 (incluso nel prezzo) |
 
@@ -134,7 +134,7 @@ La tabella seguente illustra i **limiti internazionali predefiniti** per i tipi 
 
 |Tipo di sottoscrizione| Numero massimo di subnet istanza gestite | Numero massimo di unità vCore * |
 | :---| :--- | :--- |
-|Pagamento a consumo|3|320|
+|Pagamento in base al consumo|3|320|
 |CSP |8 (15 in alcune aree * *)|960 (1440 in alcune aree * *)|
 |Sviluppo/test con pagamento in base al consumo|3|320|
 |Sviluppo/test Enterprise|3|320|

@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 54fcd1fb936b5dd41715798408b604106a24bcf9
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: b31a4e40c1e9095499faf265673ab4213ad6bde0
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112588"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190977"
 ---
 # <a name="how-to-use-azure-cognitive-search-from-a-net-application"></a>Come usare ricerca cognitiva di Azure da un'applicazione .NET
 
@@ -61,7 +61,7 @@ Esistono diverse operazioni che è necessario eseguire nell'applicazione di rice
 
 Il codice di esempio seguente illustra ognuno di questi scenari. È possibile utilizzare i frammenti di codice nell'applicazione.
 
-### <a name="overview"></a>Overview
+### <a name="overview"></a>Panoramica
 L'applicazione di esempio crea un nuovo indice denominato "hotels", vi inserisce alcuni documenti, quindi esegue alcune query di ricerca. Ecco il programma principale che mostra il flusso generale:
 
 ```csharp
@@ -462,7 +462,7 @@ La prima cosa da notare è che il nome di ogni proprietà pubblica nella classe 
 > 
 > 
 
-La seconda cosa da notare è che ogni proprietà è decorata con attributi quali `IsFilterable`, `IsSearchable`, `Key`e `Analyzer`. Questi attributi vengono mappati direttamente agli [attributi di campo corrispondenti in un indice di ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice/create-index#request). La classe `FieldBuilder` utilizza queste proprietà per costruire definizioni di campo per l'indice.
+La seconda cosa da notare è che ogni proprietà è decorata con attributi quali `IsFilterable`, `IsSearchable`, `Key`e `Analyzer`. Questi attributi vengono mappati direttamente agli [attributi di campo corrispondenti in un indice di ricerca cognitiva di Azure](/rest/api/searchservice/create-index). La classe `FieldBuilder` utilizza queste proprietà per costruire definizioni di campo per l'indice.
 
 Il terzo aspetto importante della classe `Hotel` è costituito dai tipi di dati delle proprietà pubbliche. Viene eseguito il mapping dei tipi .NET di queste proprietà ai tipi di campi equivalenti nella definizione dell'indice. Ad esempio, viene eseguito il mapping della proprietà stringa `Category` al campo `category`, che è di tipo `Edm.String`. Esistono mapping di tipi simili tra `bool?`, `Edm.Boolean`, `DateTimeOffset?`e `Edm.DateTimeOffset` e così via. Le regole specifiche per il mapping dei tipi sono documentate con il metodo `Documents.Get` in [Azure ricerca cognitiva .NET SDK Reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). La classe `FieldBuilder` si occupa di questo mapping automaticamente, ma la comprensione può comunque essere utile nel caso in cui sia necessario risolvere eventuali problemi di serializzazione.
 

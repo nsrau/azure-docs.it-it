@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 12/16/2019
-ms.openlocfilehash: b2b07882afb6c89c6920726db3c313dbb6a6dfc4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/10/2020
+ms.openlocfilehash: 619c68b84291bc35b8216194ac4534393fde454c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453489"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191527"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Configurare un singolo indirizzo IP per uno o più ambienti del servizio di integrazione in app per la logica di Azure
 
@@ -19,7 +19,7 @@ Quando si lavora con app per la logica di Azure, è possibile configurare un [ *
 
 Questo argomento illustra come instradare il traffico in uscita attraverso un firewall di Azure, ma è possibile applicare concetti simili a un'appliance virtuale di rete, ad esempio un firewall di terze parti da Azure Marketplace. Sebbene questo argomento sia incentrato sul programma di installazione di più istanze di ISE, è possibile usare questo approccio anche per un singolo ISE quando lo scenario richiede la limitazione del numero di indirizzi IP a cui è necessario accedere. Valutare se i costi aggiuntivi per il firewall o l'appliance di rete virtuale hanno senso per lo scenario. Scopri di più sui [prezzi di Azure firewall](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Un firewall di Azure in esecuzione nella stessa rete virtuale di ISE. Se non si dispone di un firewall, aggiungere prima di tutto [una subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) denominata `AzureFirewallSubnet` alla rete virtuale. È quindi possibile [creare e distribuire un firewall](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall) nella rete virtuale.
 
@@ -49,7 +49,7 @@ Questo argomento illustra come instradare il traffico in uscita attraverso un fi
 
    ![Configurare la regola per indirizzare il traffico in uscita](./media/connect-virtual-network-vnet-set-up-single-ip-address/add-rule-to-route-table.png)
 
-   | Proprietà | Valore | Description |
+   | Proprietà | valore | Descrizione |
    |----------|-------|-------------|
    | **Nome route** | <*Unique-route-name*> | Nome univoco per la route nella tabella di route |
    | **Prefisso indirizzo** | <*indirizzo di destinazione*> | Indirizzo del sistema di destinazione in cui si desidera che il traffico passi. Assicurarsi di usare la [notazione CIDR (Inter-Domain Routing) con classe](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) per questo indirizzo. |
@@ -71,7 +71,7 @@ Questo argomento illustra come instradare il traffico in uscita attraverso un fi
 
    **Proprietà della raccolta regole di rete**
 
-   | Proprietà | Valore | Description |
+   | Proprietà | valore | Descrizione |
    |----------|-------|-------------|
    | **Nome** | <*Network-Rule-Collection-name*> | Nome della raccolta di regole di rete |
    | **Priorità** | <> *a livello di priorità* | Ordine di priorità da utilizzare per l'esecuzione della raccolta regole. Per altre informazioni, vedere [quali sono alcuni concetti di Azure firewall](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts)? |
@@ -80,7 +80,7 @@ Questo argomento illustra come instradare il traffico in uscita attraverso un fi
 
    **Proprietà della regola di rete**
 
-   | Proprietà | Valore | Description |
+   | Proprietà | valore | Descrizione |
    |----------|-------|-------------|
    | **Nome** | <*Network-rule-name*> | Nome della regola di rete |
    | **Protocollo** | *protocolli di connessione* <> | Protocolli di connessione da utilizzare. Ad esempio, se si usano le regole di NSG, selezionare sia **TCP** che **UDP**, non solo **TCP**. |

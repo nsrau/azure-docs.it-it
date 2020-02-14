@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c173d0e17166911e28fea3d1c5820879d17af4a8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 1a8832234978a2c8b2db25d88b5dd6c211b634b7
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381113"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186461"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Procedura: richiedere app client approvate per l'accesso alle app cloud con accesso condizionale 
 
@@ -24,7 +24,7 @@ I dipendenti usano dispositivi mobili sia per le attività personali che per que
 
 Questo argomento illustra come configurare criteri di accesso che richiedono app client approvate.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Con [l'accesso condizionale Azure ad](overview.md), è possibile ottimizzare il modo in cui gli utenti autorizzati possono accedere alle risorse. Si può, ad esempio, fare in modo che solo i dispositivi attendibili accedano alle app cloud.
 
@@ -36,7 +36,7 @@ Nella terminologia relativa all'accesso condizionale queste app client sono note
 
 ![Accesso condizionale](./media/app-based-conditional-access/05.png)
 
-Per un elenco di app client approvate, vedere [Requisito per le app client approvate](technical-reference.md#approved-client-app-requirement).
+Per un elenco di app client approvate, vedere [Requisito per le app client approvate](concept-conditional-access-grant.md).
 
 È possibile combinare i criteri di accesso condizionale basato su app con altri criteri, ad esempio [criteri di accesso condizionale basato su dispositivo](require-managed-devices.md) , per fornire flessibilità nella protezione dei dati per i dispositivi personali e aziendali.
 
@@ -44,12 +44,12 @@ Per un elenco di app client approvate, vedere [Requisito per le app client appro
 
 Questo argomento presuppone che l'utente abbia familiarità con:
 
-- La guida tecnica per il [requisito delle app client approvate](technical-reference.md#approved-client-app-requirement).
+- [Requisito dell'app client approvata](concept-conditional-access-grant.md).
 - I concetti di base dell' [accesso condizionale in Azure Active Directory](overview.md).
 - Come [configurare un criterio di accesso condizionale](app-based-mfa.md).
 - [Migrazione dei criteri di accesso condizionale](best-practices.md#policy-migration).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per creare un criterio di accesso condizionale basato su app, è necessario avere un Enterprise Mobility + Security o una sottoscrizione Azure Active Directory Premium e gli utenti devono avere una licenza per EMS o Azure AD. 
 

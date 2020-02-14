@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: d270d38bce45c45f9323a971ad69dc2b931a9169
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dd7579c97e2166e2822ee5674bbcd5a8ad64d2c7
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369848"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201493"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Informazioni sulle unità di flusso e su come modificarle
 
@@ -59,6 +59,8 @@ Gli elementi di query temporali costituiscono il set principale degli operatori 
 Si noti che un processo con logica di query complessa potrebbe presentare un'elevata percentuale di utilizzo delle unità di streaming anche quando non riceve eventi di input in modo continuo. Questa situazione può verificarsi dopo un picco improvviso negli eventi di input e output. Se la query è complessa, il processo potrebbe continuare a mantenere lo stato in memoria.
 
 La percentuale di utilizzo dell'unità di archiviazione può improvvisamente scendere a 0 per un breve periodo di tempo prima di tornare ai livelli previsti. Ciò si verifica a causa di errori temporanei o dell'avvio di aggiornamenti di sistema. L'aumento del numero di unità di streaming per un processo potrebbe non ridurre l'utilizzo di SU% se la query non è [completamente parallela](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization).
+
+Quando si confronta l'utilizzo in un periodo di tempo, usare le [metriche della frequenza degli eventi](stream-analytics-monitoring.md). Le metriche InputEvents e eventi mostrano il numero di eventi letti ed elaborati. Sono disponibili metriche che indicano anche il numero di eventi di errore, ad esempio gli errori di deserializzazione. Quando aumenta il numero di eventi per unità di tempo, nella maggior parte dei casi viene aumentata la percentuale SU%.
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>Logica di query con stato negli elementi temporali
 Una delle esclusive funzionalità dei processi di Analisi di flusso di Azure è l'esecuzione dell'elaborazione con stato, ad esempio per funzioni di aggregazione finestra, join temporali e funzioni di analisi temporali. Ognuno di questi operatori mantiene le informazioni sullo stato. La dimensione massima della finestra per questi elementi della query è di sette giorni. 

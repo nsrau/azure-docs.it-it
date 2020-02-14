@@ -1,19 +1,19 @@
 ---
-title: Posizioni dei partner della rete WAN virtuale di Azure | Microsoft Docs
+title: Partner e località WAN virtuali di Azure | Microsoft Docs
 description: Questo articolo contiene un elenco di partner WAN virtuali di Azure e località dell'hub.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 02/12/2020
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
-ms.openlocfilehash: afa808c95c88184fb531e858fbfe6d102a6f1f08
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
+ms.openlocfilehash: 68379fd2334e517df4011c05bb32543f7ce4a173
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157160"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190396"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Posizioni dei partner e degli hub virtuali della rete WAN virtuale di Azure
 
@@ -34,7 +34,7 @@ L'automazione di alto livello seguente è impostata nella console del dispositiv
 * Download automatico di informazioni relative alla connettività di Azure
 * Configurazione del dispositivo della succursale locale 
 
-Alcuni partner di connettività possono estendere l'automazione in modo da includere la creazione della rete virtuale dell'hub virtuale di Azure e di un Gateway VPN. Se si vuole approfondire la conoscenza dell'automazione, vedere [Configurare l'automazione - partner WAN](virtual-wan-configure-automation-providers.md).
+Alcuni partner di connettività possono estendere l'automazione in modo da includere la creazione della rete virtuale dell'hub virtuale di Azure e di un Gateway VPN. Per altre informazioni sull'automazione, vedere [linee guida di automazione per i partner WAN virtuali](virtual-wan-configure-automation-providers.md).
 
 ## <a name="partners"></a>Connettività tramite partner
 
@@ -50,4 +50,4 @@ I partner seguenti sono disponibili sulla nostra roadmap per il prossimo futuro:
 
 * Per altre informazioni sulla rete WAN virtuale, vedere le [domande frequenti sulla rete WAN virtuale](virtual-wan-faq.md).
 
-* Per altre informazioni su come automatizzare la connettività alla rete WAN virtuale di Azure, vedere la sezione relativa ai [partner della rete WAN virtuale - configurate l'automazione](virtual-wan-configure-automation-providers.md).
+* Per altre informazioni su come automatizzare la connettività alla rete WAN virtuale di Azure, vedere [linee guida di automazione per i partner WAN virtuali](virtual-wan-configure-automation-providers.md).

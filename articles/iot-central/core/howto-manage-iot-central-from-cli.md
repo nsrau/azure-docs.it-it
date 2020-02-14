@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 02/11/2020
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: cf0414531d363ab5401e8c9574943a40ecf2d449
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: c44b7cd045547d01d1a31f949a42087e78e88b21
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137825"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198838"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Gestire IoT Central dall'interfaccia della riga di comando di Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "77137825"
 
 Invece di creare e gestire applicazioni IoT Central nel sito Web di [azure IOT Central Application Manager](https://aka.ms/iotcentral) , è possibile usare l'interfaccia della riga di comando di [Azure](/cli/azure/) per gestire le applicazioni.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -29,9 +29,12 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Se si preferisce eseguire l'interfaccia della riga di comando di Azure nel computer locale, vedere [installare l'interfaccia della](/cli/azure/install-azure-cli)riga di comando di Azure. Quando si esegue l'interfaccia della riga di comando di Azure in locale, usare il comando **AZ login** per accedere ad Azure prima di provare i comandi in questo articolo.
 
+> [!TIP]
+> Se è necessario eseguire i comandi dell'interfaccia della riga di comando in una sottoscrizione di Azure diversa, vedere [modificare la sottoscrizione attiva](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription).
+
 ## <a name="create-an-application"></a>Creare un'applicazione
 
-Usare il comando [AZ iotcentral app create](/cli/azure/iotcentral/app#az-iotcentral-app-create) per creare un'applicazione IoT Central nella sottoscrizione di Azure. Ad esempio,
+Usare il comando [AZ iotcentral app create](/cli/azure/iotcentral/app#az-iotcentral-app-create) per creare un'applicazione IoT Central nella sottoscrizione di Azure. Ad esempio:
 
 ```azurecli-interactive
 # Create a resource group for the IoT Central application
@@ -57,7 +60,7 @@ Questi comandi creano prima di tutto un gruppo di risorse nell'area Stati Uniti 
 | name              | Nome dell'applicazione nel portale di Azure. |
 | sottodominio         | Sottodominio nell'URL dell'applicazione. In questo esempio l'URL dell'applicazione è https://mysubdomain.azureiotcentral.com. |
 | sku               | Attualmente, è possibile usare **ST1** o **ST2**. Vedere [Prezzi di Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
-| modello          | Modello di applicazione da usare. Per altre informazioni, vedere la tabella seguente. |
+| template          | Modello di applicazione da usare. Per altre informazioni, vedere la tabella seguente. |
 | display-name      | Nome dell'applicazione visualizzato nell'interfaccia utente. |
 
 [!INCLUDE [iot-central-template-list](../../../includes/iot-central-template-list.md)]
@@ -78,7 +81,7 @@ az iotcentral app update --name myiotcentralapp \
 
 ## <a name="remove-an-application"></a>Rimuovere un'applicazione
 
-Usare il comando [AZ iotcentral app Delete](/cli/azure/iotcentral/app#az-iotcentral-app-delete) per eliminare un'applicazione IoT Central. Ad esempio,
+Usare il comando [AZ iotcentral app Delete](/cli/azure/iotcentral/app#az-iotcentral-app-delete) per eliminare un'applicazione IoT Central. Ad esempio:
 
 ```azurecli-interactive
 az iotcentral app delete --name myiotcentralapp \

@@ -1,6 +1,6 @@
 ---
 title: Visualizzare le metriche di utilizzo dell'API Maps di Azure | Mappe Microsoft Azure
-description: In questo articolo si apprenderà come visualizzare le metriche per le chiamate API di Microsoft Azure Maps nell'portale di Azure.
+description: Questo articolo illustra come visualizzare le metriche per le chiamate API di Microsoft Azure Maps nell'portale di Azure.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 08/06/2018
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 7ba50f63fb015a8696904df3decd13c811625459
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: cd60552abf247f448acdaad700396dca0cd1a1f7
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911330"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198123"
 ---
-# <a name="view-azure-maps-api-usage-metrics"></a>Visualizzare le metriche di utilizzo dell'API Maps di Azure
+# <a name="view-azure-maps-api-usage-metrics"></a>Visualizzare le metriche di utilizzo dell'API Mappe di Azure
 
-Questo articolo illustra come visualizzare le metriche di utilizzo dell'API per l'account di Mappe di Azure nel [portale](https://portal.azure.com). Le metriche vengono visualizzate in un pratico formato grafico in riferimento a un periodo di tempo personalizzabile.
+Questo articolo illustra come visualizzare le metriche di utilizzo dell'API, per l'account Azure Maps, nella [portale di Azure](https://portal.azure.com). Le metriche vengono visualizzate in un pratico formato grafico in riferimento a un periodo di tempo personalizzabile.
 
 ## <a name="view-metric-snapshot"></a>Visualizzare lo snapshot delle metriche
 
@@ -35,7 +35,7 @@ Passare alla sezione successiva, se è necessario personalizzare questi grafici 
 
 3. Dopo aver aperto l'account di Mappe fare clic sul menu **Metriche** a sinistra.
 
-4. Nel riquadro **Metriche** scegliere una delle opzioni seguenti:
+4. Nel riquadro **metrica** scegliere una delle opzioni seguenti:
 
    1. **Disponibilità**, che illustra la disponibilità *Media* dell'API in un periodo di tempo.
    2. **Utilizzo**, che illustra il funzionamento del *Conteggio* per l'account.
@@ -46,11 +46,11 @@ Passare alla sezione successiva, se è necessario personalizzare questi grafici 
 
     ![Intervallo di tempo delle metriche di Maps di Azure](media/how-to-view-api-usage/time-range.png)
 
-6. Dopo aver aggiunto la metrica, è possibile **aggiungere un filtro** dalle proprietà pertinenti alla metrica definita e quindi selezionare il valore della proprietà per la quale si vuole visualizzare il grafico.
+6. Una volta aggiunta la metrica, è possibile **aggiungere un filtro** dalle proprietà rilevanti per tale metrica. Quindi, selezionare il valore della proprietà che si desidera visualizzare nel grafico.
 
     ![Filtro metriche di utilizzo di mappe di Azure](media/how-to-view-api-usage/filter.png)
 
-7. È anche possibile **applicare la suddivisione** per la metrica in base alla proprietà della metrica selezionata. In questo modo, il grafico può essere suddiviso in più grafici, ognuno per ciascun valore della proprietà specificata. Nell'immagine seguente il colore di ogni grafico corrisponde al valore della proprietà visualizzato nella parte inferiore del grafico.
+7. È anche possibile **applicare la suddivisione** per la metrica in base alla proprietà della metrica selezionata. Consente di suddividere il grafico in più grafici, per ogni valore della proprietà. Nell'immagine seguente il colore di ogni grafico corrisponde al valore della proprietà visualizzato nella parte inferiore del grafico.
 
     ![Suddivisione delle metriche di utilizzo di Azure Maps](media/how-to-view-api-usage/splitting.png)
 

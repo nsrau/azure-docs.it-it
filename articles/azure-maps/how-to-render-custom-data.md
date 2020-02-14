@@ -9,23 +9,23 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f036847a9d46231d65d150cd4e0a76471d1ad612
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 049762382bb1a67da21f5b95fdf28319672bfca6
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766015"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198208"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Eseguire il rendering di dati personalizzati in una mappa raster
 
-Questo articolo illustra come usare il [servizio immagini statiche](https://docs.microsoft.com/rest/api/maps/render/getmapimage) con la funzionalità di composizione delle immagini per consentire le sovrimpressioni sopra una mappa raster. La composizione dell'immagine include la possibilità di ottenere un riquadro raster, con dati aggiuntivi come puntine da disegno personalizzati, etichette e sovrapposizioni di geometria.
+Questo articolo illustra come usare il [servizio immagini statiche](https://docs.microsoft.com/rest/api/maps/render/getmapimage), con la funzionalità di composizione delle immagini, per consentire le sovrimpressioni sopra una mappa raster. La composizione dell'immagine include la possibilità di ottenere un riquadro raster, con dati aggiuntivi come puntine da disegno personalizzati, etichette e sovrapposizioni di geometria.
 
 Per eseguire il rendering di puntine da disegno, etichette e sovrapposizioni di geometria personalizzati, è possibile usare l'applicazione post. È possibile usare le [API del servizio dati](https://docs.microsoft.com/rest/api/maps/data) di Azure Maps per archiviare ed eseguire il rendering di sovrimpressioni.
 
 > [!Tip]
 > Spesso è molto più conveniente usare Azure Maps Web SDK per mostrare una semplice mappa in una pagina Web rispetto all'uso del servizio immagini statiche. L'SDK Web usa le tessere mappa e, a meno che l'utente non riquadri e ingrandisce la mappa, genererà spesso solo una frazione di una transazione per carico mappa. Si noti che Azure Maps Web SDK include opzioni per disabilitare la panoramica e lo zoom. Azure Maps Web SDK offre inoltre un set più completo di opzioni di visualizzazione dei dati rispetto a un servizio Web mappa statica.  
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="create-an-azure-maps-account"></a>Creare un account di Mappe di Azure
 
@@ -43,7 +43,7 @@ Per eseguire il rendering di puntine da disegno con etichette e un'immagine pers
 
 1. Creare una raccolta in cui archiviare le richieste. Nell'app post, selezionare **nuovo**. Nella finestra **Crea nuova** selezionare **raccolta**. Assegnare un nome alla raccolta e selezionare il pulsante **Crea** . 
 
-2. Per creare la richiesta, selezionare nuovamente **nuovo** . Nella finestra **Crea nuova** selezionare **Request**. Immettere un **nome di richiesta** per il puntine da disegno. Selezionare la raccolta creata nel passaggio precedente come percorso in cui salvare la richiesta e quindi selezionare **Salva**.
+2. Per creare la richiesta, selezionare nuovamente **nuovo** . Nella finestra **Crea nuova** selezionare **Request**. Immettere un **nome di richiesta** per il puntine da disegno. Selezionare la raccolta creata nel passaggio precedente, come percorso in cui salvare la richiesta. Selezionare quindi **Salva**.
     
     ![Creare una richiesta in post](./media/how-to-render-custom-data/postman-new.png)
 
@@ -148,7 +148,7 @@ Per eseguire il rendering di puntine da disegno con etichette e un'immagine pers
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-6. Per ottenere il udId, aprire una nuova scheda nell'app post-up e selezionare GET HTTP Method nella scheda Builder ed effettuare una richiesta GET nell'URI di stato. Se il caricamento dei dati è riuscito, si riceverà un udId nel corpo della risposta. Copiare udId.
+6. Per ottenere il udId, aprire una nuova scheda nell'app post. Selezionare GET HTTP Method nella scheda Builder. effettuare una richiesta GET nell'URI di stato. Se il caricamento dei dati ha avuto esito positivo, si riceverà un udId nel corpo della risposta. Copiare udId.
 
    ```JSON
    {

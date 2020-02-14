@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: f1379202fc59e9cca7a3543be201f8ebff276bef
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: f1f425a6e3c66a72c7632cfea16d78ea6cc0d319
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168349"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201153"
 ---
 # <a name="speech-service-supported-regions"></a>Aree supportate del servizio riconoscimento vocale
 

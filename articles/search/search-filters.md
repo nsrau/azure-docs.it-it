@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f4ce3cd0db20f76aa6169f15254cf36ee64151a5
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 03333e853a2ab7606ebe60cc3f68bcb5facfbdb4
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406752"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191008"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtri in ricerca cognitiva di Azure 
 
@@ -51,7 +51,7 @@ I filtri non sono l'unica opzione disponibile per limitare i risultati della ric
 
 + Il parametro `$select` viene usato per specificare i campi da includere in un set di risultati, per limitare in modo efficace la risposta prima di inviarla all'applicazione chiamante. Questo parametro non perfeziona la query o riduce la raccolta dei documenti, ma se è l'obiettivo di una risposta più piccola, questo parametro è un'opzione da considerare. 
 
-Per altre informazioni su questi parametri, vedere [Search Documents > Request > Query parameters](https://docs.microsoft.com/rest/api/searchservice/search-documents#request) (Ricerca di documenti > Richiesta > Parametri di query).
+Per altre informazioni su questi parametri, vedere [Search Documents > Request > Query parameters](/rest/api/searchservice/search-documents#query-parameters) (Ricerca di documenti > Richiesta > Parametri di query).
 
 
 ## <a name="how-filters-are-executed"></a>Modalità di esecuzione dei filtri
@@ -156,7 +156,7 @@ Per le stringhe di testo viene fatta distinzione tra maiuscole e minuscole. Non 
 
 ### <a name="approaches-for-filtering-on-text"></a>Approcci per l'applicazione di filtri al testo
 
-| Approccio | DESCRIZIONE | Quando usare la funzionalità |
+| Approccio | Descrizione | Utilizzo |
 |----------|-------------|-------------|
 | [`search.in`](search-query-odata-search-in-function.md) | Funzione che corrisponde a un campo rispetto a un elenco di stringhe delimitato. | Consigliato per i [filtri di sicurezza](search-security-trimming-for-azure-search.md) e per tutti i filtri in cui è necessario trovare una corrispondenza per molti valori di testo non elaborati con un campo stringa. La funzione **search.in** è progettata per la velocità ed è molto più veloce rispetto a confrontare in modo esplicito il campo con ogni stringa usando `eq` e `or`. | 
 | [`search.ismatch`](search-query-odata-full-text-search-functions.md) | Funzione che consente di combinare le operazioni di ricerca full-text con operazioni di filtro esclusivamente booleane nella stessa espressione filtro. | Usare **search. IsMatch** (o l'equivalente di assegnazione dei punteggi, **search. ismatchscoring**) quando si desiderano più combinazioni di filtri di ricerca in un'unica richiesta. Può essere usata anche con un filtro *contains* per applicare un filtro su una stringa parziale all'interno di una stringa più grande. |
@@ -197,7 +197,7 @@ Per altri esempi, vedere [OData Filter Expression Syntax > Examples](https://doc
 
 ## <a name="see-also"></a>Vedere anche
 
-+ [Funzionamento della ricerca full-text in Azure ricerca cognitiva](search-lucene-query-architecture.md)
++ [Funzionamento della ricerca full-text in Ricerca cognitiva di Azure](search-lucene-query-architecture.md)
 + [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (API REST di Ricerca di documenti)
 + [Sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Sintassi di query Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)

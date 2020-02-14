@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: b091c501fb565fb267c40f686dc037e41f3c90ee
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 77812a3765a027152c957f6dbb7c9b3811a2278f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845134"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191186"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Creare un'istanza di Azure Network Watcher
 
@@ -27,7 +27,7 @@ Network Watcher è un servizio a livello di area che permette di monitorare e di
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="network-watcher-is-automatically-enabled"></a>Network Watcher viene abilitato automaticamente
-Quando si crea o si aggiorna una rete virtuale nella sottoscrizione, Network Watcher viene abilitato automaticamente nell'area della rete virtuale. Non è previsto alcun impatto sulle tue risorse o alcun addebito associato per l'abilitazione automatica di Network Watcher.
+Quando si crea o si aggiorna una rete virtuale nella sottoscrizione, Network Watcher viene abilitato automaticamente nell'area della rete virtuale. Non è previsto alcun impatto sulle risorse o alcun addebito associato per l'abilitazione automatica di Network Watcher.
 
 #### <a name="opt-out-of-network-watcher-automatic-enablement"></a>Rifiutare esplicitamente l'abilitazione automatica di Network Watcher
 Se si vuole rifiutare esplicitamente l'abilitazione automatica di Network Watcher, è possibile eseguire i comandi seguenti:
@@ -107,7 +107,7 @@ Passare ad **Tutti i servizi** > **Rete** > **Network Watcher**.
 
 Selezionare la scheda Panoramica, se non lo si è già fatto. Usare l'elenco a discesa per selezionare la sottoscrizione in cui si vuole disabilitare Network Watcher.
 Espandere l'elenco delle aree per la sottoscrizione scelta facendo clic sulla freccia. Per qualsiasi dato, usare i 3 puntini a destra per accedere al menu di scelta rapida.
-Fare clic su "Disabilita Network Watcher" per avviare la disabilitazione. Verrà richiesto di confermare questo passaggio. Fare clic su Sì per continuare.
+Fare clic su "Disabilita Network Watcher" per avviare la disabilitazione. Verrà richiesto di confermare questo passaggio. Per continuare, scegliere Sì.
 Nel portale sarà necessario eseguire questa operazione singolarmente per ogni area di ogni sottoscrizione.
 
 
@@ -132,5 +132,3 @@ Dopo aver creato un'istanza di Network Watcher, è possibile approfondire le fun
 * [Visualizzazione di un gruppo di sicurezza](network-watcher-security-group-view-overview.md)
 * [Registrazione dei flussi dei gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md)
 * [Risoluzione dei problemi del gateway di rete virtuale](network-watcher-troubleshoot-overview.md)
-
-Dopo aver creato un'istanza di Network Watcher, è possibile abilitare l'acquisizione di pacchetti all'interno delle macchine virtuali. Per informazioni su come fare, vedere l'articolo su come [creare un'acquisizione di pacchetti attivata da un avviso](network-watcher-alert-triggered-packet-capture.md)

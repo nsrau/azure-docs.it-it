@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: autenticazione pass-through | Microsoft Docs'
+title: 'Azure AD Connect: autenticazione pass-through | Documentazione Microsoft'
 description: Questo articolo descrive l'autenticazione pass-through di Azure Active Directory (Azure AD) e come consenta gli accessi ad Azure AD tramite la convalida delle password degli utenti in Active Directory locale.
 services: active-directory
 keywords: cos'è l'autenticazione pass-through di Azure AD Connect, installare Active Directory, componenti richiesti per Azure AD, SSO, Single Sign-On
@@ -16,18 +16,18 @@ ms.date: 10/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 814c81b6092c4af3778617e165a0bdbce09d71d7
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: d4b52a3025bfb15e2679709353cebf28254a75c2
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779120"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185509"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Accesso utente con l'autenticazione pass-through di Azure Active Directory
 
 ## <a name="what-is-azure-active-directory-pass-through-authentication"></a>L'autenticazione pass-through di Azure Active Directory
 
-L'autenticazione pass-through di Azure Active Directory (Azure AD) consente agli utenti di accedere sia ad applicazioni in locale che basate su cloud usando le stesse password. Questa funzionalità offre agli utenti un'esperienza migliore, visto che hanno una password in meno da ricordare, e riduce i costi del supporto tecnico poiché è meno probabile che gli utenti dimentichino come eseguire l'accesso. Quando gli utenti eseguono l'accesso usando Azure AD, la funzionalità convalida le loro password direttamente con Active Directory locale.
+L'autenticazione pass-through di Azure Active Directory (Azure AD) consente agli utenti di accedere sia ad applicazioni in locale che a quelle basate sul cloud usando le stesse password. Questa funzionalità offre agli utenti un'esperienza migliore, visto che hanno una password in meno da ricordare, e riduce i costi del supporto tecnico poiché è meno probabile che gli utenti dimentichino come eseguire l'accesso. Quando gli utenti eseguono l'accesso usando Azure AD, la funzionalità convalida le loro password direttamente con Active Directory locale.
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
@@ -49,7 +49,7 @@ Questa funzionalità è un'alternativa rispetto alla [sincronizzazione dell'hash
   - Nessun sovraccarico di gestione. L'agente riceve automaticamente miglioramenti e correzioni di bug.
 - *Proteggere*
   - Le password locali non vengono mai archiviate nel cloud in alcuna forma.
-  - Consente di proteggere gli account utente operando senza problemi con i [criteri di accesso condizionale di Azure AD](../active-directory-conditional-access-azure-portal.md), tra cui l'autenticazione a più fattori (MFA)[ e l'autenticazione legacy di blocco](../conditional-access/conditions.md), e [impedendo attacchi di forza bruta alle password](../authentication/howto-password-smart-lockout.md).
+  - Consente di proteggere gli account utente operando senza problemi con i [criteri di accesso condizionale di Azure AD](../active-directory-conditional-access-azure-portal.md), tra cui l'autenticazione a più fattori (MFA)[ e l'autenticazione legacy di blocco](../conditional-access/concept-conditional-access-conditions.md), e [impedendo attacchi di forza bruta alle password](../authentication/howto-password-smart-lockout.md).
   - L'agente esegue solo le connessioni in uscita dalla rete. Pertanto, non è necessario installarlo in una rete perimetrale.
   - La comunicazione tra un agente e Azure AD è protetta tramite l'autenticazione basata su certificato. Questi certificati vengono rinnovati automaticamente a intervalli di pochi mesi da Azure AD.
 - *Disponibilità elevata*
@@ -59,7 +59,7 @@ Questa funzionalità è un'alternativa rispetto alla [sincronizzazione dell'hash
 
 - Supporta l'accesso utente in tutte le applicazioni basate su browser e nelle applicazioni client di Microsoft Office che usano l'[autenticazione moderna](https://aka.ms/modernauthga).
 - I nomi utente per l'accesso possono essere il nome utente predefinito locale (`userPrincipalName`) o un altro attributo configurato in Azure AD Connect (noto come `Alternate ID`).
-- La funzionalità funziona senza interruzioni con le funzionalità di [accesso condizionale](../active-directory-conditional-access-azure-portal.md) , ad esempio multi-factor authentication, per proteggere gli utenti.
+- La funzionalità funziona senza interruzioni con le funzionalità di [accesso condizionale](../active-directory-conditional-access-azure-portal.md) , ad esempio multi-factor authentication (multi-factor authentication), per proteggere gli utenti.
 - Può essere integrata con la [gestione delle password self-service](../authentication/active-directory-passwords-overview.md) basata sul cloud, che include le attività di writeback delle password in Active Directory locale e di protezione delle password tramite il divieto di specificare password usate comunemente.
 - Gli ambienti a più foreste sono supportati se sono presenti relazioni di trust tra le foreste AD e se il routing del suffisso del nome è configurato correttamente.
 - È una funzionalità gratuita e non serve alcuna delle edizioni a pagamento di Azure AD per utilizzarla.
@@ -70,7 +70,7 @@ Questa funzionalità è un'alternativa rispetto alla [sincronizzazione dell'hash
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Guida introduttiva](how-to-connect-pta-quick-start.md): avvio ed esecuzione dell'autenticazione pass-through di Azure AD.
+- [Guida introduttiva](how-to-connect-pta-quick-start.md) : iniziare a usare l'autenticazione pass-through Azure ad.
 - [Eseguire la migrazione da AD FS all'autenticazione pass-through](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true): una guida dettagliata per la migrazione da AD FS (o altre tecnologie federative) per l'autenticazione pass-through.
 - [Blocco intelligente](../authentication/howto-password-smart-lockout.md): configurare la funzionalità Blocco intelligente nel tenant per proteggere gli account utente.
 - [Limitazioni correnti](how-to-connect-pta-current-limitations.md): apprendere quali sono gli scenari supportati.

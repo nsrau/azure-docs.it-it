@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 01/21/2020
-ms.openlocfilehash: d28eb6c4ee4fadf8a090a17121f6910eb34135e3
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: b9fdd1b25e53e1cdc8aa76564304a61adaa8d804
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935213"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201595"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Che cos'è l'istanza gestita di database SQL di Azure?
 
@@ -53,7 +53,7 @@ L'istanza gestita combina le migliori funzionalità disponibili sia nel database
 
 Nella tabella seguente sono elencate le principali funzionalità delle istanze gestite:
 
-|Funzionalità | Description|
+|Funzionalità | Descrizione|
 |---|---|
 | Versione/build di SQL Server | Motore di database di SQL Server (ultima versione stabile) |
 | Backup automatici gestiti | Sì |
@@ -80,9 +80,6 @@ Nel modello vCore è possibile scegliere tra diverse generazioni di hardware.
 - **Quinta generazione** Le CPU logiche sono basate su processori Intel E5-2673 V4 (Broadwell) a 2,3 GHz e Intel SP-8160 (Skylake), unità SSD NVMe veloce, core logico con Hyper-Threading e dimensioni di calcolo tra 4 e 80 core.
 
 Per altre informazioni sulle differenze tra le generazioni di hardware, vedere [Limiti delle risorse per le istanze gestite](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
-
-> [!IMPORTANT]
-> I nuovi database Gen4 non sono più supportati nelle aree dell'Australia orientale o del Brasile meridionale.
 
 ## <a name="managed-instance-service-tiers"></a>Livelli di servizio dell'istanza gestita
 
@@ -147,7 +144,7 @@ Inoltre, la gestione delle istanze può includere anche una delle operazioni sui
 
 Nella tabella seguente sono riepilogate le operazioni e le durate generali tipiche:
 
-|Categoria  |Operazione  |Segmento con esecuzione prolungata  |Durata stimata  |
+|Category  |Operazione  |Segmento con esecuzione prolungata  |Durata stimata  |
 |---------|---------|---------|---------|
 |**Distribuzione** |Prima istanza in una subnet vuota|Creazione di un cluster virtuale|90% di operazioni completate tra 4 ore|
 |Distribuzione |Prima istanza di un'altra generazione di hardware in una subnet non vuota (ad esempio, la prima istanza di generazione 5 in una subnet con istanze di generazione 4)|Creazione di un cluster virtuale *|90% di operazioni completate tra 4 ore|
@@ -188,7 +185,7 @@ Il [recupero accelerato del database](sql-database-accelerated-database-recovery
 
 Nella tabella seguente è riepilogata la possibilità di annullare operazioni di gestione specifiche e le durate generali tipiche:
 
-Categoria  |Operazione  |Annullabile  |Durata stimata annullamento  |
+Category  |Operazione  |Annullabile  |Durata stimata annullamento  |
 |---------|---------|---------|---------|
 |Distribuzione |Creazione di istanze |No |  |
 |Aggiornamento |Scalabilità verticale/orizzontale di archiviazione dell'istanza (per utilizzo generico) |No |  |
@@ -196,8 +193,8 @@ Categoria  |Operazione  |Annullabile  |Durata stimata annullamento  |
 |Aggiornamento |Scalabilità verticale (VCore) di calcolo dell'istanza (per utilizzo generico) |Sì |90% di operazioni completate in 5 minuti |
 |Aggiornamento |Scalabilità verticale (VCore) di calcolo dell'istanza (business critical) |Sì |90% di operazioni completate in 5 minuti |
 |Aggiornamento |Modifica del livello di servizio dell'istanza (per utilizzo generico business critical e viceversa) |Sì |90% di operazioni completate in 5 minuti |
-|Elimina |Eliminazione di un'istanza |No |  |
-|Elimina |Eliminazione di un cluster virtuale (operazione avviata dall'utente) |No |  |
+|Delete |Eliminazione di un'istanza |No |  |
+|Delete |Eliminazione di un cluster virtuale (operazione avviata dall'utente) |No |  |
 
 Per annullare l'operazione di gestione, passare al pannello panoramica e fare clic sulla casella di notifica dell'operazione in corso. Dal lato destro verrà visualizzata una schermata con l'operazione in corso e sarà presente un pulsante per annullare l'operazione. Dopo aver eseguito il primo clic, verrà chiesto di fare nuovamente clic e confermare che si desidera annullare l'operazione.
 
@@ -248,7 +245,7 @@ Database SQL di Azure fornisce un set di funzionalità di sicurezza avanzato che
 
 La migrazione di un database crittografato in un'istanza gestita è supportata tramite il Servizio Migrazione del database di Azure o il ripristino nativo. Se si prevede di eseguire la migrazione di un database crittografato usando il ripristino nativo, la migrazione del certificato Transparent Data Encryption esistente dal SQL Server locale o SQL Server in una macchina virtuale a un'istanza gestita è un passaggio obbligatorio. Per altre informazioni sui vari metodi di migrazione, vedere [Migrazione di un'istanza di SQL Server a un'istanza gestita](sql-database-managed-instance-migrate.md).
 
-## <a name="azure-active-directory-integration"></a>Integrazione con Azure Active Directory
+## <a name="azure-active-directory-integration"></a>Integrazione di Azure Active Directory
 
 L'opzione di distribuzione dell'istanza gestita supporta i tradizionali account di accesso del motore di database di SQL Server e gli account di accesso integrati con Azure Active Directory (AAD). Le entità server (account di accesso) di Azure AD (**anteprima pubblica**) sono una versione cloud di Azure degli account di accesso ai database di Windows usati nell'ambiente locale. Azure AD entità server (account di accesso) consentono di specificare gli utenti e i gruppi dal tenant di Azure Active Directory come entità con ambito di istanza reale, in grado di eseguire qualsiasi operazione a livello di istanza, incluse le query tra database all'interno della stessa gestione istanza.
 
@@ -258,7 +255,7 @@ Viene introdotta una nuova sintassi per creare Azure AD entità server (account 
 
 L'opzione di distribuzione dell'istanza gestita consente di gestire a livello centralizzato le identità degli utenti di database e altri servizi Microsoft grazie all'[integrazione in Azure Active Directory](sql-database-aad-authentication.md). Questa funzionalità semplifica la gestione delle autorizzazioni e ottimizza la sicurezza. Azure Active Directory supporta l'[autenticazione a più fattori](sql-database-ssms-mfa-authentication-configure.md) (MFA) per una maggiore sicurezza di dati e applicazioni, supportando allo stesso tempo un processo di accesso singolo.
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
 Per autenticazione dell'istanza gestita si intende il modo in cui l'utente dimostra la propria identità durante la connessione al database. Il database SQL supporta due tipi di autenticazione:  
 
@@ -323,7 +320,7 @@ L'opzione di distribuzione dell'istanza gestita consente all'amministratore di s
 
 La tabella seguente mostra diverse proprietà, accessibili tramite Transact SQL, che è possibile usare per rilevare se l'applicazione funziona con l'istanza gestita e recuperare proprietà importanti.
 
-|Proprietà|Valore|Comment|
+|Proprietà|valore|Comment|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Questo valore è uguale a quello del database SQL. Questa operazione **non** indica il motore SQL versione 12 (SQL Server 2014). Istanza gestita esegue sempre la versione più recente del motore SQL stabile, che è uguale o superiore alla versione RTM più recente disponibile di SQL Server.  |
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Questo valore è uguale a quello del database SQL.|

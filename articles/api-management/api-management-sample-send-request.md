@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 2c4e5d0117f046343b140ef2b2c46c074c835075
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1c86570850894a47f57a2d3587811411cc9a76eb
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60557942"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190006"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Uso di servizi esterni dal servizio Gestione API di Azure
 I criteri disponibili nel servizio Gestione API di Azure possono essere usati per una vasta gamma di attività basate esclusivamente su richieste in ingresso, risposte in uscita e informazioni di configurazione di base. Tuttavia, la possibilità di interagire con i servizi esterni dai criteri di Gestione API offre molte altre opportunità.
@@ -101,6 +101,10 @@ Dopo che Gestione API ha ottenuto il token di autorizzazione, può inviare la ri
 L'attributo `response-variable-name` viene usato per concedere l'accesso alla risposta restituita. Il nome definito in questa proprietà può essere usato come chiave nel dizionario `context.Variables` per accedere all'oggetto `IResponse`.
 
 Dall'oggetto della risposta è possibile recuperare il corpo e lo standard RFC 7622 indica a Gestione API che la risposta deve essere un oggetto JSON e deve contenere almeno una proprietà denominata `active` che rappresenta un valore booleano. Se `active` è true, il token è considerato valido.
+
+In alternativa, se il server di autorizzazione non include il campo "attivo" per indicare se il token è valido, usare uno strumento come il poster per determinare quali proprietà sono impostate in un token valido. Se, ad esempio, una risposta del token valida contiene una proprietà denominata "expires_in", verificare che il nome della proprietà esista nella risposta del server di autorizzazione in questo modo:
+
+< quando il contesto condition = "@ ((IResponse). Variabili ["tokenstate"]). Body.As<JObject>(). Property ("expires_in") = = null) ">
 
 ### <a name="reporting-failure"></a>Creazione di report sull'errore
 Per individuare un token non valido e, in tal caso restituire una risposta 401, è possibile usare i criteri `<choose>`.
@@ -281,6 +285,6 @@ I criteri completi saranno simili ai seguenti:
 
 Nella configurazione dell'operazione segnaposto, è possibile configurare la risorsa del dashboard in modo che venga memorizzata nella cache per almeno un'ora. 
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Il servizio Gestione API di Azure offre criteri flessibili che possono essere applicati in modo selettivo al traffico HTTP e consentono la realizzazione di servizi back-end. Se si desidera migliorare il gateway API con funzioni di avviso, verifica e convalida o creare nuove risorse complesse basate su più servizi back-end, `send-request` e i criteri correlati offrono numerose possibilità.
 

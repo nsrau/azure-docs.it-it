@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/04/2020
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b6c70e1a5c7e5b81157c09a794ff75e276a20d1f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: a16fb1184de5b545b3ef527b1a66ffb7b68d1ef4
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982739"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77197919"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico autocertificato nei criteri personalizzati di Azure Active Directory B2C
 
@@ -187,7 +187,7 @@ Il profilo tecnico di convalida può essere un qualsiasi profilo tecnico nei cri
 
 ## <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | setting.operatingMode | No | Per una pagina di accesso, questa proprietà controlla il comportamento del campo del nome utente, ad esempio i messaggi di errore e di convalida di input. I valori previsti sono: `Username` o `Email`. |
 | AllowGenerationOfClaimsWithNullValues| No| Consente a di generare un'attestazione con valore null. Ad esempio, in un caso l'utente non seleziona una casella di controllo.|
@@ -199,6 +199,8 @@ Il profilo tecnico di convalida può essere un qualsiasi profilo tecnico nei cri
 | setting.showContinueButton | No | Visualizza il pulsante Continua. I valori possibili sono: `true` (impostazione predefinita) o `false` |
 | setting.showSignupLink | No | Visualizza il pulsante di iscrizione. I valori possibili sono: `true` (impostazione predefinita) o `false` |
 | impostazione di. forgotPasswordLinkLocation| No| Visualizza il collegamento password dimenticata. Valori possibili: `AfterInput` (impostazione predefinita) il collegamento viene visualizzato nella parte inferiore della pagina oppure `None` rimuove il collegamento password dimenticata.| 
+| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true`o `false` (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questo valore su `true`. |
+
 ## <a name="cryptographic-keys"></a>Chiavi crittografiche
 
 L'elemento **CryptographicKeys** non viene usato.

@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 4f9804ed0e7d6c83a4f6fc732f836fcecce1c2e7
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: cc152460be777c30d79f783b9acfa846a4c73a72
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548346"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188028"
 ---
 # <a name="streaming-ingestion-preview"></a>Inserimento di flussi (anteprima)
 
@@ -23,11 +23,11 @@ Usare l'inserimento classico (bulk) invece dell'inserimento di flussi quando la 
 > [!NOTE]
 > L'inserimento di flussi non supporta le funzionalità seguenti:
 > * [Cursori del database](/azure/kusto/management/databasecursor).
-> * [Mapping dei dati](/azure/kusto/management/mappings). È supportato solo il mapping dei dati [creato in precedenza](/azure/kusto/management/tables#create-ingestion-mapping) . 
+> * [Mapping dei dati](/azure/kusto/management/mappings). È supportato solo il mapping dei dati [creato in precedenza](/azure/kusto/management/create-ingestion-mapping-command) . 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-* Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account Azure gratuito](https://azure.microsoft.com/free/).
+* Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * Accedere all' [interfaccia utente Web](https://dataexplorer.azure.com/).
 * Creare [un cluster e un database di Azure Esplora dati](create-cluster-database-portal.md)
 

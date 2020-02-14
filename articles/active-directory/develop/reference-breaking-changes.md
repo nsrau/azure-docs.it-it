@@ -17,12 +17,12 @@ ms.date: 1/24/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 9cb13ea56c39f365ddb888a5d4e94228b1881fc4
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+ms.openlocfilehash: c6ed72e5c94191411572c6ab67533141e2fe47d6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160361"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185815"
 ---
 # <a name="whats-new-for-authentication"></a>Novità per l'autenticazione 
 
@@ -42,7 +42,7 @@ Il sistema di autenticazione modifica e aggiunge funzionalità regolarmente per 
 
 Nessun aggiornamento pianificato in questo momento.  Vedere di seguito per le modifiche apportate o destinate alla produzione. 
 
-## <a name="february-2020"></a>2020 febbraio: 
+## <a name="february-2020"></a>2020 febbraio 
 
 ### <a name="empty-fragments-will-be-appended-to-every-http-redirect-from-the-login-endpoint"></a>I frammenti vuoti verranno aggiunti a ogni Reindirizzamento HTTP dall'endpoint di accesso. 
 

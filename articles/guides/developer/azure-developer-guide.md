@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: fa8013722376a4864ba955783dbde1f73c0d9e8a
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+ms.openlocfilehash: af5399a6e1a76a6020448b2e91d76a1d2e1f0ed8
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163110"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186958"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori in Azure
 
@@ -60,7 +60,7 @@ Poiché tutti e tre i tipi di app condividono il runtime del servizio app, è po
 
 Il servizio app, progettato su misura per DevOps, Supporta diversi strumenti per la pubblicazione e le distribuzioni di integrazione continua. Questi strumenti includono webhook GitHub, Jenkins, Azure DevOps, TeamCity e altri.
 
-È possibile eseguire la migrazione delle applicazioni esistenti nel servizio app tramite lo [strumento di migrazione online](https://www.migratetoazure.net/).
+È possibile eseguire la migrazione delle applicazioni esistenti nel servizio app tramite lo [strumento di migrazione online](https://appmigration.microsoft.com/).
 
 > **Quando usare**: usare il servizio app quando si esegue la migrazione di applicazioni Web esistenti in Azure e quando è necessaria una piattaforma di hosting completamente gestita per le app Web. È anche possibile usare il servizio app se l'app deve supportare client per dispositivi mobili o esporre API REST.
 >

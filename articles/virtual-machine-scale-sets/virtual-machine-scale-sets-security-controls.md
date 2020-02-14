@@ -6,12 +6,12 @@ author: msmbaldwin
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 51ddd4f3775ae8e41c0d0bdd4ed8a3a2a59b7db4
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 4007f4adeee065fe32492d3bd16f3a06d24e7d96
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271788"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190598"
 ---
 # <a name="security-controls-for-azure-virtual-machine-scale-sets"></a>Controlli di sicurezza per i set di scalabilità di macchine virtuali di Azure
 
@@ -40,7 +40,7 @@ Questo articolo descrive i controlli di sicurezza incorporati nei set di scalabi
 
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Autenticazione| Sì |  |
+| Authentication| Sì |  |
 | Autorizzazione| Sì |  |
 
 ## <a name="data-protection"></a>Protezione dei dati
@@ -51,7 +51,7 @@ Questo articolo descrive i controlli di sicurezza incorporati nei set di scalabi
 | Crittografia in transito (ad esempio crittografia ExpressRoute, crittografia VNet e crittografia VNet-VNet)| Sì | Macchine virtuali di Azure supporta la crittografia [ExpressRoute](/azure/expressroute) e VNet. Vedere [crittografia in transito nelle VM](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
 | Crittografia lato server inattiva: chiavi gestite dal cliente (BYOK) | Sì | Chiavi gestite dal cliente è uno scenario di crittografia di Azure supportato. vedere vedere [crittografia dischi di Azure per i set di scalabilità di macchine virtuali](disk-encryption-overview.md)|
 | Crittografia a livello di colonna (servizi dati di Azure)| N/D | |
-| Chiamate API crittografate| Sì | Tramite HTTPS e SSL. |
+| Chiamate API crittografate| Sì | Tramite HTTPS e TLS. |
 
 ## <a name="configuration-management"></a>Gestione della configurazione
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/9/2019
-ms.openlocfilehash: 8b3d6ea46c4a88187b70b520457ad34f7e7f36ba
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 757a061bff72ca9fc34d408cd94cec9966d1157f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975143"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191122"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limiti di Database di Azure per MySQL
 Le sezioni seguenti illustrano la capacità, il supporto del motore di archiviazione, dei privilegi e delle istruzioni di gestione dei dati e i limiti funzionali del servizio di database. Vedere anche le [limitazioni generali](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicabili al motore di database MySQL.
@@ -23,20 +23,25 @@ Di seguito è indicato il numero massimo di connessioni per ogni piano tariffari
 |---|---|---|
 |Basic| 1| 50|
 |Basic| 2| 100|
-|Scopo generico| 2| 600|
-|Scopo generico| 4| 1250|
-|Scopo generico| 8| 2500|
-|Scopo generico| 16| 5000|
-|Scopo generico| 32| 10000|
-|Scopo generico| 64| 20000|
-|Ottimizzate per la memoria| 2| 1250|
-|Ottimizzate per la memoria| 4| 2500|
-|Ottimizzate per la memoria| 8| 5000|
-|Ottimizzate per la memoria| 16| 10000|
-|Ottimizzate per la memoria| 32| 20000|
+|Utilizzo generico| 2| 600|
+|Utilizzo generico| 4| 1250|
+|Utilizzo generico| 8| 2500|
+|Utilizzo generico| 16| 5000|
+|Utilizzo generico| 32| 10000|
+|Utilizzo generico| 64| 20000|
+|Con ottimizzazione per la memoria| 2| 1250|
+|Con ottimizzazione per la memoria| 4| 2500|
+|Con ottimizzazione per la memoria| 8| 5000|
+|Con ottimizzazione per la memoria| 16| 10000|
+|Con ottimizzazione per la memoria| 32| 20000|
 
 Quando le connessioni superano il limite, è possibile che venga visualizzato l'errore seguente:
 > ERROR 1040 (08004): Too many connections (ERRORE 1040 (08004): numero eccessivo di connessioni)
+
+> [!IMPORTANT]
+> Per un'esperienza ottimale, è consigliabile usare una connessione pool come ProxySQL per gestire in modo efficiente le connessioni.
+
+La creazione di nuove connessioni client a MySQL richiede tempo e una volta stabilite, queste connessioni occupano le risorse del database, anche in caso di inattività. La maggior parte delle applicazioni richiede molte connessioni di breve durata, che comunicano questa situazione. Il risultato è un minor numero di risorse disponibili per il carico di lavoro effettivo, causando una riduzione delle prestazioni. Un pool di connessione che riduce le connessioni inattive e riutilizza le connessioni esistenti consente di evitare questo problema. Per informazioni sulla configurazione di ProxySQL, visitare il [post di Blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
 
 ## <a name="storage-engine-support"></a>Supporto del motore di archiviazione
 
@@ -81,7 +86,7 @@ Quando le connessioni superano il limite, è possibile che venga visualizzato l'
 ### <a name="vnet-service-endpoints"></a>Endpoint del servizio di rete virtuale
 - Gli endpoint di servizio di rete virtuale sono supportati solo per i server per utilizzo generico e ottimizzati per la memoria.
 
-### <a name="storage-size"></a>Dimensioni della risorsa di archiviazione
+### <a name="storage-size"></a>Dimensioni dello spazio di archiviazione
 - Per i limiti di dimensioni di archiviazione per ogni piano tariffario, fare riferimento ai [piani tariffari](concepts-pricing-tiers.md) .
 
 ## <a name="current-known-issues"></a>Problemi attualmente noti

@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 02/11/2020
 ms.author: yushwang
-ms.openlocfilehash: 5bedf5bd6d061d74201dbac3f1f99ed0d4c381aa
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: a95cd6ea85a16b0e0bf5f67f5dfc20d57f11463b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902428"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198097"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Aggiungere una connessione da sito a sito a una rete virtuale con una connessione gateway VPN esistente (modello classico)
 
@@ -55,10 +55,13 @@ Prima di iniziare la configurazione, verificare ci siano le condizioni seguenti:
 
 * Hardware VPN compatibile per ogni sede locale. Controllare le [Informazioni sui dispositivi VPN per le connessioni di rete virtuale da sito a sito](vpn-gateway-about-vpn-devices.md) per verificare se il dispositivo che si intende usare è ritenuto compatibile.
 * Un indirizzo IP IPv4 pubblico esterno per ogni dispositivo VPN. L’indirizzo IP non può trovarsi dietro un NAT. Questo è un requisito.
-* È necessario installare l'ultima versione dei cmdlet di Azure PowerShell. Assicurarsi di installare la versione Service Management (SM) oltre alla versione Resource Manager (RM). Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) .
 * Una persona esperta nella configurazione di hardware VPN. È necessario avere una conoscenza approfondita di come configurare il proprio dispositivo VPN oppure lavorare insieme una persona esperta in questo campo.
 * Gli intervalli di indirizzi IP da usare per la propria rete virtuale (se non ne hai già creata una).
 * Gli intervalli di indirizzi IP per ogni sito della rete locale a cui si effettuerà la connessione. È necessario verificare che gli intervalli di indirizzi IP per ogni sito della rete locale a cui ci si vuole connettere non si sovrappongano. In caso contrario, il portale o l'API REST rifiuteranno il caricamento della configurazione.<br>Se, ad esempio, ci sono due siti della rete locale che entrambi contengono l'intervallo di indirizzo IP 10.2.3.0/24 e si ha a disposizione un pacchetto con un indirizzo di destinazione 10.2.3.3, Azure non saprà a quale sito si vuole inviare il pacchetto perché gli intervalli degli indirizzi si sovrappongono. Per evitare problemi di routing, Azure non consente di caricare un file di configurazione con intervalli che si sovrappongono.
+
+### <a name="working-with-azure-powershell"></a>Uso di Azure PowerShell
+
+[!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
 ## <a name="1-create-a-site-to-site-vpn"></a>1. creare una VPN da sito a sito
 Se già si dispone di una VPN da sito a sito con un gateway di routing dinamico, eseguire l'operazione seguente. È possibile procedere e iniziare a [Esportare le impostazioni di configurazione della rete virtuale](#export). Se non ne avete una, eseguire le operazioni seguenti:
@@ -72,6 +75,19 @@ Se già si dispone di una VPN da sito a sito con un gateway di routing dinamico,
 2. Configurare un gateway di routing dinamico usando le istruzioni seguenti: [Configurare un gateway VPN](vpn-gateway-configure-vpn-gateway-mp.md). Assicurarsi di selezionare **routing dinamico** per il tipo di gateway.
 
 ## <a name="export"></a>2. esportare il file di configurazione di rete
+
+Aprire la console di PowerShell con diritti elevati. Per passare a gestione servizi, usare questo comando:
+
+```powershell
+azure config mode asm
+```
+
+Connettersi all'account. Per eseguire la connessione, usare gli esempi che seguono:
+
+```powershell
+Add-AzureAccount
+```
+
 Esportare il file di configurazione di rete di Azure eseguendo il comando seguente. Se necessario è possibile modificare il percorso del file da esportare.
 
 ```powershell

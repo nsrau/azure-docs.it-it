@@ -3,8 +3,7 @@ title: Hub eventi-Acquisisci eventi di streaming con portale di Azure
 description: Questo articolo descrive come abilitare l'acquisizione di eventi in streaming tramite Hub eventi di Azure tramite il portale di Azure.
 services: event-hubs
 documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
+author: spelluru
 editor: ''
 ms.assetid: ''
 ms.service: event-hubs
@@ -13,24 +12,24 @@ ms.tgt_pltfrm: na
 ms.custom: seodec18
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/20/2019
-ms.author: shvija
-ms.openlocfilehash: 267f7c47d101406463378ad12c295ace80aecb7f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/12/2020
+ms.author: spelluru
+ms.openlocfilehash: 8a6d9456b00e5520e6f4fbb9ccb77b0260731ddd
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437227"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187367"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Abilitare l'acquisizione di eventi in streaming tramite Hub eventi di Azure
 
-[Acquisizione di hub eventi][capture-overview] di Azure consente di recapitare automaticamente i dati in streaming in hub eventi a un [Archivio BLOB di azure](https://azure.microsoft.com/services/storage/blobs/) o a [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) account di propria scelta.
+L' [acquisizione di hub eventi][capture-overview] di Azure consente di recapitare automaticamente i dati in streaming in hub eventi a un account di [archiviazione BLOB di azure](https://azure.microsoft.com/services/storage/blobs/) o a [Azure Data Lake storage Gen1 o alla seconda generazione](https://azure.microsoft.com/services/data-lake-store/) scelta.
 
-È possibile configurare Acquisizione al momento della creazione dell'hub eventi usando il [portale di Azure](https://portal.azure.com). È possibile acquisire i dati in un contenitore di [archiviazione BLOB](https://azure.microsoft.com/services/storage/blobs/) di Azure o in un account [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
+È possibile configurare Acquisizione al momento della creazione dell'hub eventi usando il [portale di Azure](https://portal.azure.com). È possibile acquisire i dati in un contenitore di [archiviazione BLOB](https://azure.microsoft.com/services/storage/blobs/) di Azure o in un account [Azure Data Lake storage generazione 1 o di seconda generazione](https://azure.microsoft.com/services/data-lake-store/) .
 
 Per altre informazioni, vedere [Cenni preliminari sull'acquisizione di hub eventi][capture-overview].
 
-## <a name="capture-data-to-an-azure-storage-account"></a>Acquisire i dati in un account di archiviazione di Azure  
+## <a name="capture-data-to-azure-storage"></a>Acquisire i dati in archiviazione di Azure
 
 Quando si crea un hub eventi, è possibile abilitare l'acquisizione facendo clic sul pulsante **Sì** nella schermata del portale **Crea hub eventi**. È quindi possibile specificare un account e un contenitore di archiviazione facendo clic su **Archiviazione di Azure** nella casella **Provider di acquisizione**. Poiché Acquisizione di Hub eventi usa l'autenticazione da servizio a servizio con la risorsa di archiviazione, non è necessario specificare una stringa di connessione di archiviazione. Il selettore risorse seleziona automaticamente l'URI della risorsa per l'account di archiviazione. Se si usa Azure Resource Manager, è necessario specificare questo URI in modo esplicito come stringa.
 
@@ -41,24 +40,48 @@ L'intervallo di tempo predefinito è di 5 minuti. Il valore minimo è 1, quello 
 > [!NOTE]
 > È possibile abilitare o disabilitare la creazione di file vuoti quando non si verificano eventi durante l'intervallo di acquisizione. 
 
-## <a name="capture-data-to-an-azure-data-lake-store-account"></a>Acquisire i dati un account Azure Data Lake Store
+## <a name="capture-data-to-azure-data-lake-storage-gen-2"></a>Acquisire i dati in Azure Data Lake Storage generazione 2 
 
-Per acquisire i dati in Azure Data Lake Store, si creano un account Data Lake Store e un hub eventi.
+1. Per creare un account di archiviazione di Azure, vedere l'articolo [creare un account di archiviazione](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account) . Impostare **spazio dei nomi gerarchico** su **abilitato** nella scheda **avanzate** per impostarlo come Azure Data Lake storage account di generazione 2.
+2. Quando si crea un hub eventi, seguire questa procedura: 
 
-### <a name="create-an-azure-data-lake-store-account-and-folders"></a>Creare un account Azure Data Lake Store e le cartelle
+    1. Selezionare **on** per l' **acquisizione**. 
+    2. Selezionare **archiviazione di Azure** come provider di acquisizione. L'opzione **Azure Data Lake Store** visualizzata per il **provider di acquisizione** è per la generazione 1 di Azure Data Lake storage. Per usare una generazione 2 di Azure Data Lake Storage, è necessario selezionare **archiviazione di Azure**.
+    2. Selezionare il pulsante **Seleziona contenitore** . 
+
+        ![Abilitare l'acquisizione a Data Lake Storage generazione 2](./media/event-hubs-capture-enable-through-portal/data-lake-storage-gen2.png)
+3. Selezionare l'account **Azure Data Lake storage generazione 2** dall'elenco. 
+
+    ![Selezionare Data Lake Storage generazione 2](./media/event-hubs-capture-enable-through-portal/select-data-lake-storage-gen2.png)
+4. Selezionare il **contenitore** (file system in data Lake storage generazione 2).
+
+    ![Selezionare file system nell'archiviazione](./media/event-hubs-capture-enable-through-portal/select-file-system-data-lake-storage.png)
+5. Nella pagina **Crea Hub eventi** selezionare **Crea**. 
+
+    ![Selezionare il pulsante Crea](./media/event-hubs-capture-enable-through-portal/create-event-hub-data-lake-storage.png)
+
+    > [!NOTE]
+    > Il contenitore creato in una Azure Data Lake Storage generazione 2 con questa interfaccia utente viene visualizzato in **file system** **Storage Explorer**. Analogamente, il file system creato in un account Data Lake Storage generazione 2 viene visualizzato come contenitore in questa interfaccia utente. 
 
 
-1. Creare un account Data Lake Store seguendo le istruzioni riportate in [Introduzione ad Azure Data Lake Store con il portale di Azure](../data-lake-store/data-lake-store-get-started-portal.md).
-2. Seguire le istruzioni della sezione [Assegnare autorizzazioni a Hub eventi](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs) per creare una cartella nell'account Data Lake Store in cui acquisire i dati da Hub eventi e assegnare a Hub eventi le autorizzazioni per scrivere i dati nell'account Data Lake Store.  
+## <a name="capture-data-to-azure-data-lake-storage-gen-1"></a>Acquisire i dati Azure Data Lake Storage generazione 1 
+
+Per acquisire i dati in Azure Data Lake Storage generazione 1, è necessario creare un account Data Lake Storage di generazione 1 e un hub eventi:
+
+### <a name="create-an-azure-data-lake-storage-gen-1-account-and-folders"></a>Creazione di un account e di cartelle di Azure Data Lake Storage generazione 1
+
+1. Creare un account Data Lake Storage, seguendo le istruzioni [riportate in Introduzione a Azure Data Lake storage generazione 1 con il portale di Azure](../data-lake-store/data-lake-store-get-started-portal.md).
+2. Seguire le istruzioni nella sezione [assegnare autorizzazioni a hub eventi](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs) per creare una cartella all'interno dell'account di data Lake storage generazione 1 in cui si vogliono acquisire i dati da Hub eventi e assegnare autorizzazioni a hub eventi in modo che sia in grado di scrivere dati nell'account data Lake storage di generazione 1.  
 
 
 ### <a name="create-an-event-hub"></a>Creare un hub eventi
 
-1. Si noti che l'hub eventi deve trovarsi nella stessa sottoscrizione di Azure dell'account Azure Data Lake Store appena creato. Creare l'hub eventi facendo clic sul pulsante **Sì** sotto **Acquisisci** nella pagina del portale **Crea hub eventi**. 
+1. L'hub eventi deve trovarsi nella stessa sottoscrizione di Azure dell'account di Azure Data Lake Storage generazione 1 creato. Creare l'hub eventi facendo clic sul pulsante **Sì** sotto **Acquisisci** nella pagina del portale **Crea hub eventi**. 
 2. Nella pagina del portale **Crea hub eventi** selezionare **Azure Data Lake Store** nella casella **Provider di acquisizione**.
-3. In **Seleziona Data Lake Store** specificare l'account Data Lake Store creato in precedenza e nel campo **Percorso Data Lake** immettere il percorso della cartella dati creata.
+3. In **Seleziona archivio** accanto all'elenco a discesa **Data Lake Store** , specificare l'account di data Lake storage generazione 1 creato in precedenza e nel campo **Data Lake percorso** immettere il percorso della cartella dati creata.
 
     ![Selezionare l'account Data Lake Storage][3]
+
 
 ## <a name="add-or-configure-capture-on-an-existing-event-hub"></a>Aggiungere o configurare l'acquisizione in un hub eventi esistente
 
@@ -68,7 +91,11 @@ Per acquisire i dati in Azure Data Lake Store, si creano un account Data Lake St
 
 ![Configurare Archiviazione BLOB di Azure][2]
 
-### <a name="azure-data-lake-store"></a>Azure Data Lake Store
+### <a name="azure-data-lake-storage-gen-2"></a>Azure Data Lake Storage Gen 2
+
+![Configurare Azure Data Lake Storage generazione 2](./media/event-hubs-capture-enable-through-portal/configure-data-lake-storage-gen2.png)
+
+### <a name="azure-data-lake-storage-gen-1"></a>Azure Data Lake Storage Gen 1 
 
 ![Configurare Azure Data Lake Storage][4]
 

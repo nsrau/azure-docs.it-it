@@ -1,25 +1,25 @@
 ---
 title: Aggiungere l'autenticazione per la protezione delle chiamate alle API personalizzate
-description: Come configurare l'autenticazione per la protezione delle chiamate alle API personalizzate da app per la logica di Azure
+description: Come configurare l'autenticazione per migliorare la sicurezza per le chiamate alle API personalizzate da app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: 2f8b1cc002fe3f340ff6d5329329507316577885
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 110a684cf6ad21c13411d3bc2ada84750744f00e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666891"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191396"
 ---
-# <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Proteggere le chiamate alle API personalizzate da App per la logica di Azure
+# <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Aumentare la sicurezza per le chiamate alle API personalizzate da app per la logica di Azure
 
-Per proteggere le chiamate alle API, è possibile configurare l'autenticazione di Azure Active Directory (Azure AD) nel portale di Azure, in modo da non dover aggiornare il codice. Oppure, è possibile richiedere e applicare l'autenticazione attraverso il codice dell'API.
+Per migliorare la sicurezza per le chiamate alle API, è possibile configurare l'autenticazione Azure Active Directory (Azure AD) tramite la portale di Azure in modo da non dover aggiornare il codice. Oppure, è possibile richiedere e applicare l'autenticazione attraverso il codice dell'API.
 
 ## <a name="authentication-options-for-your-api"></a>Opzioni di autenticazione per l'API
 
-È possibile proteggere le chiamate all'API personalizzata nei modi seguenti:
+È possibile migliorare la sicurezza per le chiamate all'API personalizzata nei modi seguenti:
 
 * [Nessuna modifica del codice](#no-code): proteggere l'API con [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) dal portale di Azure, in modo che non sia necessario aggiornare il codice o implementare nuovamente l'API.
 
@@ -197,7 +197,7 @@ Aprire la definizione dell'app per la logica nella visualizzazione codice, passa
 }
 ```
 
-| Proprietà | Obbligatorio | Description | 
+| Proprietà | Obbligatoria | Descrizione | 
 | -------- | -------- | ----------- | 
 | tenant | Sì | Il GUID per il tenant di Azure AD | 
 | audience | Sì | GUID per la risorsa di destinazione cui si vuole accedere, che è l'ID client dall'identità di applicazione per l'app Web o l'app per le API | 
@@ -248,7 +248,7 @@ Nella sezione **autorizzazione** includere le proprietà seguenti:
 } 
 ```
 
-| Proprietà | Obbligatorio | Description |
+| Proprietà | Obbligatoria | Descrizione |
 | -------- | -------- | ----------- |
 | `type` | Sì | Il tipo di autenticazione. Per i certificati client SSL, il valore deve essere `ClientCertificate`. |
 | `password` | No | La password per accedere al certificato client (file PFX) |
@@ -271,7 +271,7 @@ Nella sezione **autorizzazione** includere le proprietà seguenti:
 }
 ```
 
-| Proprietà | Obbligatorio | Description | 
+| Proprietà | Obbligatoria | Descrizione | 
 | -------- | -------- | ----------- | 
 | type | Sì | Tipo di autenticazione che si vuole usare. Per l'autenticazione di base il valore deve essere `Basic`. | 
 | username | Sì | Nome utente che si vuole usare per l'autenticazione | 

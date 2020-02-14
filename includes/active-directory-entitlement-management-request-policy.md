@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: active-directory
 author: msaburnley
 ms.service: active-directory
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/11/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: d89240467d5ea5172d04c8eb187fe85d1b702723
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c73a62b2d5feeae42a5ea35c88073dd5fcc0d78c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980496"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77192804"
 ---
 ## <a name="for-users-in-your-directory"></a>Per gli utenti nella directory
 
@@ -198,7 +198,7 @@ Se ad esempio sono stati elencati Alice e Bob come primo responsabile approvazio
 
 ## <a name="enable-requests"></a>Abilita richieste
 
-1. Se si vuole che il pacchetto di accesso venga reso immediatamente disponibile per gli utenti nel criterio di richiesta da richiedere, fare clic su **Sì** per abilitare.
+1. Se si vuole che il pacchetto di accesso venga reso immediatamente disponibile per gli utenti del criterio di richiesta da richiedere, spostare l'interruttore Abilita su **Sì**.
 
     È sempre possibile abilitarla in futuro dopo aver completato la creazione del pacchetto di accesso.
 
@@ -206,4 +206,4 @@ Se ad esempio sono stati elencati Alice e Bob come primo responsabile approvazio
 
     ![Pacchetto di accesso-criteri-Abilita impostazione dei criteri](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
-1. Fare clic su **Next** (Avanti).
+1. Fare clic su **Avanti**.

@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 58070cab1221b9d9585784d82cf1a48afcedb8af
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ce7f3eafa57cbd993be98f4a2da3d89cb312f9b7
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802836"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190685"
 ---
 # <a name="security-controls-for-azure-sql-database"></a>Controlli di sicurezza per il database SQL di Azure
 
@@ -44,24 +44,24 @@ Il database SQL include sia il [database singolo](sql-database-single-index.yml)
 
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Autenticazione| Sì | Azure Active Directory (Azure AD) |
-| Autorizzazione| Sì | Nessuna |
+| Authentication| Sì | Azure Active Directory (Azure AD) |
+| Autorizzazione| Sì | nessuno |
 
-## <a name="data-protection"></a>Protezione dati
+## <a name="data-protection"></a>Protezione dei dati
 
 | Controllo di sicurezza | Sì/No | Note |
 |---|---|--|
 | Crittografia lato server: chiavi gestite da Microsoft | Sì | Denominato "crittografia in uso", come descritto nell'articolo [Always Encrypted](sql-database-always-encrypted.md). La crittografia lato server utilizza [Transparent Data Encryption](transparent-data-encryption-azure-sql.md).|
-| Crittografia in transito:<ul><li>Crittografia di Azure ExpressRoute</li><li>Crittografia in una rete virtuale</li><li>Crittografia tra reti virtuali</ul>| Sì | Viene usato HTTPS. |
+| Crittografia in transito:<ul><li>Crittografia di Azure ExpressRoute</li><li>Crittografia in una rete virtuale</li><li>Crittografia tra reti virtuali</ul>| Sì | Uso di HTTPS. |
 | Gestione della chiave di crittografia, ad esempio CMK o BYOK| Sì | Sono disponibili la gestione delle chiavi gestita dal servizio e gestita dal cliente. Quest'ultimo viene offerto tramite [Azure Key Vault](../key-vault/index.yml). |
 | Crittografia a livello di colonna fornita da servizi dati di Azure| Sì | Tramite [Always Encrypted](sql-database-always-encrypted.md). |
-| Chiamate API crittografate| Sì | Utilizzando HTTPS/SSL. |
+| Chiamate API crittografate| Sì | Utilizzando HTTPS/TLS. |
 
 ## <a name="configuration-management"></a>Gestione della configurazione
 
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Configurazione-supporto per la gestione, ad esempio il controllo delle versioni della configurazione| No  | Nessuna |
+| Configurazione-supporto per la gestione, ad esempio il controllo delle versioni della configurazione| No  | nessuno |
 
 ## <a name="additional-security-controls-for-sql-database"></a>Controlli di sicurezza aggiuntivi per il database SQL
 

@@ -7,12 +7,12 @@ ms.date: 11/19/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 12aa78d0ba7c9300fc012958660e2282e91568aa
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: a8ee1e07dafac46467aa26f89b609cd499346974
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76510822"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186569"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurare un dispositivo IoT Edge per comunicare tramite un server proxy
 
@@ -22,7 +22,7 @@ Questo articolo illustra i quattro passaggi seguenti per configurare e quindi ge
 
 1. **Installare il runtime di IoT Edge nel dispositivo.**
 
-   Il IoT Edge script di installazione estrae i pacchetti e i file da Internet, in modo che il dispositivo debba comunicare attraverso il server proxy per effettuare tali richieste. Per i passaggi dettagliati, vedere la sezione [installare il runtime tramite un proxy](#install-the-runtime-through-a-proxy) di questo articolo. Per i dispositivi Windows, lo script di installazione fornisce anche un'opzione di [installazione offline](how-to-install-iot-edge-windows.md#offline-installation) .
+   Il IoT Edge script di installazione estrae i pacchetti e i file da Internet, in modo che il dispositivo debba comunicare attraverso il server proxy per effettuare tali richieste. Per i passaggi dettagliati, vedere la sezione [installare il runtime tramite un proxy](#install-the-runtime-through-a-proxy) di questo articolo. Per i dispositivi Windows, lo script di installazione fornisce anche un'opzione di [installazione offline](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation) .
 
    Questo passaggio è un processo eseguito una sola volta sul dispositivo IoT Edge alla prima configurazione. Quando si aggiorna il runtime di IoT Edge, sono necessarie anche le stesse connessioni.
 

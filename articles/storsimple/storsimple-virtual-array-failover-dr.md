@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: be3d98dc0b3a8119fb853493440c6fc78d65c5a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 19a676f4187af2d358934539e4ca29dbc5c25897
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61409621"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190632"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Ripristino di emergenza e failover del dispositivo per l'array virtuale StorSimple tramite il portale di Azure
 
@@ -40,11 +40,11 @@ Il ripristino di emergenza è progettato come un ripristino completo del disposi
 > 
 > 
 
-Il ripristino di emergenza viene gestito tramite la funzionalità di failover del dispositivo e viene avviato nel pannello **Dispositivi**. Questo pannello riporta tutti i dispositivi StorSimple connessi al servizio Gestione dispositivi StorSimple. Per ogni dispositivo è possibile esaminare nome descrittivo, stato, capacità fornita e massima, tipo e modello.
+Il ripristino di emergenza viene orchestrato tramite la funzionalità di failover del dispositivo e viene avviato dal pannello **dispositivi** . Questo pannello riporta tutti i dispositivi StorSimple connessi al servizio Gestione dispositivi StorSimple. Per ogni dispositivo è possibile esaminare nome descrittivo, stato, capacità fornita e massima, tipo e modello.
 
 ## <a name="prerequisites-for-device-failover"></a>Prerequisiti per il failover del dispositivo
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
 Per il failover del dispositivo, verificare che siano soddisfatti i prerequisiti seguenti:
 
@@ -57,15 +57,15 @@ Per il failover del dispositivo, verificare che siano soddisfatti i prerequisiti
   > 
 * Il nome del dispositivo di destinazione non può essere lo stesso del dispositivo di origine.
 * Il dispositivo di origine e quello di destinazione devono essere dello stesso tipo. Il failover di un array virtuale configurato come file server può essere eseguito solo su un altro file server. Lo stesso vale per un server iSCSI.
-* Per il ripristino di emergenza di un file server, è consigliabile aggiungere il dispositivo di destinazione nello stesso dominio del dispositivo di origine. Questa configurazione assicura che le autorizzazioni di condivisione vengano risolte automaticamente. È supportato solo il failover su un dispositivo di destinazione nello stesso dominio.
+* Per il ripristino di emergenza di un file server, è consigliabile aggiungere il dispositivo di destinazione nello stesso dominio del dispositivo di origine. Questa configurazione assicura che le autorizzazioni di condivisione vengano risolte automaticamente. È supportato solo il failover in un dispositivo di destinazione nello stesso dominio.
 * I dispositivi di destinazione disponibili per il ripristino di emergenza sono dispositivi dotati di capacità uguale o superiore rispetto al dispositivo di origine. I dispositivi connessi al servizio che non soddisfano i criteri di spazio sufficiente non sono disponibili come dispositivi di destinazione.
 
 ### <a name="other-considerations"></a>Altre considerazioni
 
-* Per un failover pianificato 
+* Per un failover pianificato:
   
   * Si consiglia di portare offline tutti i volumi o tutte le condivisioni nel dispositivo di origine.
-  * È consigliabile eseguire un backup del dispositivo, quindi procedere con il failover per ridurre al minimo la perdita dei dati. 
+  * È consigliabile eseguire un backup del dispositivo, quindi procedere con il failover per ridurre al minimo la perdita dei dati.
 * Per un failover non pianificato, il dispositivo usa il backup più recente per ripristinare i dati.
 
 ### <a name="device-failover-prechecks"></a>Verifiche preliminari del failover del dispositivo
@@ -162,7 +162,7 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo v
 
 **Interruzione della connettività cloud durante il ripristino di emergenza**
 
-Se la connettività cloud viene interrotta dopo l'avvio del ripristino di emergenza e prima del completamento del ripristino del dispositivo, il ripristino di emergenza non va a buon fine. Si riceverà una notifica di errore. Il dispositivo di destinazione per il ripristino di emergenza è contrassegnato come *inutilizzabile*. Non è possibile usare lo stesso dispositivo di destinazione per ripristini di emergenza futuri.
+Se la connettività cloud viene interrotta dopo l'avvio del ripristino di emergenza e prima del completamento del ripristino del dispositivo, il ripristino di emergenza non va a buon fine. Si riceve una notifica di errore. Il dispositivo di destinazione per il ripristino di emergenza è contrassegnato come *inutilizzabile*. Non è possibile usare lo stesso dispositivo di destinazione per ripristini di emergenza futuri.
 
 **Nessun dispositivo di destinazione compatibile**
 

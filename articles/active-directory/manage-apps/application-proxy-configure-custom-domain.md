@@ -16,16 +16,16 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 189b8666adde0eedcb451655657a4a82dc5e4fec
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 6f1656d730d55d4c5ab7fb963e49a8057ad88c9f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062539"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185547"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configurare domini personalizzati con Azure AD proxy di applicazione
 
-Quando si pubblica un'applicazione tramite Azure Active Directory Application Proxy, si crea un URL esterno per gli utenti. Questo URL ottiene il dominio predefinito *tenant.msappproxy.net*. Se ad esempio si pubblica un'app denominata *Expenses* nel tenant denominato *Contoso*, l'URL esterno è *https: \//expenses-contoso.msappproxy.NET*. Se si vuole usare il proprio nome di dominio anziché *msappproxy.NET*, è possibile configurare un dominio personalizzato per l'applicazione. 
+Quando si pubblica un'applicazione tramite Azure Active Directory Application Proxy, si crea un URL esterno per gli utenti. Questo URL ottiene il dominio predefinito *tenant.msappproxy.net*. Se ad esempio si pubblica un'app denominata *Expenses* nel tenant denominato *Contoso*, l'URL esterno è *https:\//expenses-contoso.msappproxy.NET*. Se si vuole usare il proprio nome di dominio anziché *msappproxy.NET*, è possibile configurare un dominio personalizzato per l'applicazione. 
 
 ## <a name="benefits-of-custom-domains"></a>Vantaggi dei domini personalizzati
 
@@ -49,7 +49,7 @@ Sono disponibili diverse opzioni per configurare la configurazione DNS, a second
 
 Se non si vuole che gli utenti interni vengano indirizzati tramite il proxy di applicazione, è possibile configurare un *DNS "Split Brain*". Un'infrastruttura DNS divisa indirizza gli host interni a un Domain Name Server interno e gli host esterni a una Domain Name Server esterna per la risoluzione dei nomi. 
 
-![DNS "Split Brain"](./media/application-proxy-configure-custom-domain/split-brain-dns.png)
+![DNS "split brain"](./media/application-proxy-configure-custom-domain/split-brain-dns.png)
 
 ### <a name="different-internal-and-external-urls"></a>URL interni ed esterni diversi 
 
@@ -77,7 +77,7 @@ Per istruzioni più dettagliate, vedere [aggiungere il nome di dominio personali
 
 Per pubblicare l'app tramite il proxy di applicazione con un dominio personalizzato:
 
-1. Per una nuova app, in Azure Active Directory selezionare **applicazioni aziendali** nel percorso di spostamento a sinistra. Selezionare **Nuova applicazione**. Nella sezione **applicazioni locali** selezionare **Aggiungi un'applicazione locale**. 
+1. Per una nuova app, in Azure Active Directory selezionare **applicazioni aziendali** nel percorso di spostamento a sinistra. Selezionare **Nuova applicazione**. Nella sezione **Applicazioni locali** selezionare **Aggiungi un'applicazione locale**. 
    
    Per un'app già in **applicazioni aziendali**, selezionarla dall'elenco e quindi selezionare **proxy applicazione** nel percorso di spostamento a sinistra. 
 
@@ -144,5 +144,5 @@ Quando un certificato scade, viene visualizzato un avviso che informa di caricar
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Abilitare l'accesso Single Sign-On](application-proxy-configure-single-sign-on-with-kcd.md) alle app pubblicate con l'autenticazione di Azure AD.
-* [Abilitare l'accesso condizionale](../conditional-access/technical-reference.md#cloud-apps-assignments) alle app pubblicate.
+* [Abilitare l'accesso condizionale](../conditional-access/overview.md) alle app pubblicate.
 

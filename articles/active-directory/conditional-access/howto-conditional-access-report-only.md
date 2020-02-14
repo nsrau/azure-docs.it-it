@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3cd57c09c08ab4c86feeca27915639123b439d0
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: d63aaa0103715a928cdd5332de738a473b329f2e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180303"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186076"
 ---
 # <a name="configure-a-conditional-access-policy-in-report-only-mode-preview"></a>Configurare un criterio di accesso condizionale in modalità solo report (anteprima)
 
 Per configurare un criterio di accesso condizionale in modalità solo report:
 
 1. Accedere al **portale di Azure** come amministratore di accesso condizionale, amministratore della sicurezza o amministratore globale.
-1. Passare a **Azure Active Directory** **sicurezza** >  > **l'accesso condizionale**.
+1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**.
 1. Selezionare **Nuovi criteri**.
 1. Configurare le condizioni dei criteri e i controlli di concessione richiesti in base alle esigenze.
 1. In **Attiva criterio** impostare l'interruttore sulla modalità di **sola segnalazione** .
@@ -41,9 +41,12 @@ Per visualizzare il risultato di un criterio di solo report per un particolare a
 1. Selezionare un accesso o aggiungere i filtri per restringere i risultati.
 1. Nel cassetto dei **Dettagli** selezionare la scheda **solo report (anteprima)** per visualizzare i criteri valutati durante l'accesso.
 
+> [!NOTE]
+> Quando si scaricano i log degli accessi, scegliere il formato JSON per includere solo i dati dei risultati del report di accesso condizionale.
+
 ## <a name="set-up-azure-monitor-integration-with-azure-ad"></a>Configurare l'integrazione di monitoraggio di Azure con Azure AD
 
-Per visualizzare l'effetto aggregato dei criteri di accesso condizionale usando la nuova cartella di lavoro di Insights per l'accesso condizionale, è necessario integrare monitoraggio di Azure con Azure AD ed esportare i log di accesso. Per impostare questa integrazione, è necessario eseguire due passaggi: 
+Per visualizzare l'effetto aggregato dei criteri di accesso condizionale usando la nuova cartella di lavoro di Insights per l'accesso condizionale, è necessario integrare monitoraggio di Azure con Azure AD ed esportare i log di accesso. Per configurare questa integrazione, è necessario eseguire due passaggi: 
 
 1. [Iscriversi per ottenere una sottoscrizione di monitoraggio di Azure e creare un'area di lavoro](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 1. [Esportare i log di accesso da Azure ad a monitoraggio di Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
@@ -61,7 +64,7 @@ Dopo aver integrato i log di Azure AD con monitoraggio di Azure, è possibile mo
 1. Selezionare un intervallo di tempo (se l'intervallo di tempo supera il set di dati disponibile, il report visualizzerà tutti i dati disponibili). Dopo aver impostato i parametri di **criteri di accesso condizionale** e **intervallo di tempo** , il report viene caricato.
    1. Facoltativamente, cercare singoli **utenti** o **app** per restringere l'ambito del report.
 1. Consente di selezionare la visualizzazione dei dati nell'intervallo di tempo in base al numero di utenti o al numero di accessi.
-1. A seconda della **visualizzazione dati**, il **Riepilogo di Impact** Visualizza il numero di utenti o accessi nell'ambito dei parametri scelti, raggruppati per numero totale, **esito positivo**, **errore**, **azione dell'utente richiesta**e **non applicato** . Selezionare un riquadro per esaminare gli accessi di un tipo di risultato specifico. 
+1. A seconda della **visualizzazione dati**, il **Riepilogo di Impact** Visualizza il numero di utenti o accessi nell'ambito dei parametri scelti, raggruppati per numero totale, **esito positivo**, **errore**, **azione dell'utente richiesta**e **non applicato**. Selezionare un riquadro per esaminare gli accessi di un tipo di risultato specifico. 
    1. Se sono stati modificati i parametri della cartella di lavoro, è possibile scegliere di salvare una copia per un uso futuro. Selezionare l'icona Salva nella parte superiore del report e specificare un nome e un percorso in cui salvare.
 1. Scorrere verso il basso per visualizzare la suddivisione degli accessi per ogni condizione.
 1. Visualizzare i **Dettagli di accesso** nella parte inferiore del report per esaminare gli eventi di accesso singoli filtrati in base alle selezioni sopra riportate.
