@@ -19,20 +19,30 @@
       href: concept-conditional-access-policy-common.md
     - name: Componenti dei criteri di accesso condizionale
       href: concept-conditional-access-policies.md
-    - name: App cloud o azioni
-      href: concept-conditional-access-cloud-apps.md
-    - name: Condizioni
-      href: conditions.md
-    - name: Condizioni di posizione
-      href: location-condition.md
-    - name: Controlli
-      href: controls.md
+    - name: Assegnazioni
+      items:
+        - name: Utenti e gruppi
+          href: concept-conditional-access-users-groups.md
+        - name: App o azioni cloud
+          href: concept-conditional-access-cloud-apps.md
+        - name: Condizioni
+          href: concept-conditional-access-conditions.md
+    - name: Controlli di accesso
+      items:
+        - name: Concedi
+          href: concept-conditional-access-grant.md
+        - name: sessione
+          href: concept-conditional-access-session.md
     - name: Modalità solo report
       href: concept-conditional-access-report-only.md
     - name: Dipendenze dei servizi
       href: service-dependencies.md
+    - name: Condizioni di posizione
+      href: location-condition.md
     - name: Strumento What If
       href: what-if-tool.md
+    - name: Controlli
+      href: controls.md
     - name: Migrazioni dei criteri classici
       href: policy-migration.md
     - name: Criteri di protezione di base
@@ -84,10 +94,6 @@
       items:
         - name: Risolvere i problemi durante l'uso dello strumento What If
           href: troubleshoot-conditional-access-what-if.md
-- name: Informazioni di riferimento
-  items:
-    - name: Riferimenti tecnici
-      href: technical-reference.md
 - name: Risorse
   items:
     - name: Forum di commenti e suggerimenti su Azure

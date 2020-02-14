@@ -87,7 +87,7 @@
           href: logic-apps-handle-large-messages.md
         - name: Sicurezza
           items:
-            - name: Proteggere le app per la logica
+            - name: Migliorare la sicurezza per le app per la logica
               href: logic-apps-securing-a-logic-app.md
             - name: Eseguire l'autenticazione con le identità gestite
               href: create-managed-service-identity.md
@@ -97,7 +97,7 @@
           items:
             - name: Creare API personalizzate per app per la logica
               href: logic-apps-create-api-app.md
-            - name: Proteggere le chiamate alle API personalizzate
+            - name: Migliorare la sicurezza per le chiamate ad API personalizzate
               href: logic-apps-custom-api-authentication.md
             - name: Distribuire e chiamare API personalizzate
               href: logic-apps-custom-api-host-deploy-call.md

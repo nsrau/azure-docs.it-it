@@ -160,6 +160,8 @@
           href: disk-scalability-targets.md
         - name: Backup e ripristino di emergenza per i dischi
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Dischi condivisi
+          href: disks-shared.md
         - name: Dischi del sistema operativo temporanei
           href: ephemeral-os-disks.md
     - name: Rete
@@ -553,6 +555,8 @@
         - name: Eseguire la distribuzione di dischi con un modello
           displayName: 'Azure Resource Manager, ARM'
           href: using-managed-disks-template-deployments.md
+        - name: Abilitare i dischi condivisi
+          href: disks-shared-enable.md
         - name: Caricare un disco rigido virtuale in un disco - Interfaccia della riga di comando
           href: disks-upload-vhd-to-managed-disk-cli.md
         - name: Ridimensionare un disco
