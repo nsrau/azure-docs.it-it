@@ -351,7 +351,13 @@
         - name: Hub IoT
           href: functions-bindings-event-iot.md
         - name: HTTP e webhook
-          href: functions-bindings-http-webhook.md
+          items:
+            - name: Panoramica
+              href: functions-bindings-http-webhook.md
+            - name: Trigger
+              href: functions-bindings-http-webhook-trigger.md
+            - name: Output
+              href: functions-bindings-http-webhook-output.md
         - name: Microsoft Graph
           href: functions-bindings-microsoft-graph.md
         - name: App per dispositivi mobili

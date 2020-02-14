@@ -116,13 +116,7 @@
               href: source-control-integration.md
               displayName: 'github, vsts, azure devops, personal access token'
             - name: Integrazione del controllo del codice sorgente (legacy)
-              href: automation-source-control-integration-legacy.md
-              displayname: github
-            - name: Integrazione del controllo del codice sorgente con GitHub Enterprise
-              href: automation-scenario-source-control-integration-with-github-ent.md
-              displayName: 'CI, runbooks'
-            - name: Integrazione del controllo del codice sorgente con Azure DevOps
-              href: automation-scenario-source-control-integration-with-VSTS.md
+              href: source-control-integration-legacy.md
     - name: Risolvere problemi
       items:
         - name: Dati da raccogliere quando si apre un caso per Automazione di Microsoft Azure
@@ -288,7 +282,7 @@
         - name: Risolvere i problemi di State Configuration (DSC)
           href: troubleshoot/desired-state-configuration.md
           displayName: 'Desired State Configuration, troubleshoot'
-    - name: Riferimento
+    - name: Informazioni di riferimento
       items:
         - name: Soluzioni della community
           items:
@@ -358,7 +352,7 @@
     - name: Eseguire la migrazione dall'agente di orchestrazione
       href: automation-orchestrator-migration.md
       displayName: 'SCORCH, runbooks'
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.automation
