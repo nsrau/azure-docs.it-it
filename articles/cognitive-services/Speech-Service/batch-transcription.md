@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: 8a53f1cfbde2f518848e7ef1104bf41ba4996961
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: dc473c814cdd69204cddd976bc77f19b5db567b1
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76936399"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200079"
 ---
 # <a name="how-to-use-batch-transcription"></a>Come usare la trascrizione batch
 
@@ -34,7 +34,7 @@ I processi di trascrizione batch sono pianificati in base al massimo sforzo. Att
 
 Accanto all'API di facile utilizzo, non è necessario distribuire endpoint personalizzati e non sono previsti requisiti di concorrenza da osservare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="subscription-key"></a>Chiave di sottoscrizione
 
@@ -87,7 +87,7 @@ I parametri di configurazione vengono forniti in formato JSON:
 
 Usare queste proprietà facoltative per configurare la trascrizione:
 
-| Parametro | Description |
+| Parametro | Descrizione |
 |-----------|-------------|
 | `ProfanityFilterMode` | Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `None` che disabilita i filtri del contenuto volgare, `Masked` che sostituisce il contenuto volgare con gli asterischi, `Removed` che rimuove tutto il contenuto volgare dal risultato, o `Tags` che aggiunge tag "contenuti volgari". L'impostazione predefinita è `Masked`. |
 | `PunctuationMode` | Specifica come gestire la punteggiatura nei risultati del riconoscimento. I valori accettati sono `None` che consente di disattivare la punteggiatura, `Dictated` che implica la punteggiatura esplicita, `Automatic` che permette al decodificatore di occuparsi della punteggiatura, o `DictatedAndAutomatic` che implica segni di punteggiatura dettata o automatica. |
@@ -129,8 +129,8 @@ Per l'audio di input mono, viene creato un file di risultati della trascrizione.
                                                              speakerId as a string if
                                                              diarization requested for
                                                              mono audio file'
-          "Offset": number                                  'time in milliseconds'
-          "Duration": number                                'time in milliseconds'
+          "Offset": number                                  'time in ticks (1 tick is 100 nanosec)'
+          "Duration": number                                'time in ticks (1 tick is 100 nanosec)'
           "OffsetInSeconds" : number                        'Real number. Two decimal places'
           "DurationInSeconds" : number                      'Real number. Two decimal places'
           "NBest": [
@@ -150,8 +150,8 @@ Per l'audio di input mono, viene creato un file di risultati della trascrizione.
               "Words": [
                 {
                   "Word": string
-                  "Offset": number                          'time in milliseconds'
-                  "Duration": number                        'time in milliseconds'
+                  "Offset": number                          'time in ticks (1 tick is 100 nanosec)'
+                  "Duration": number                        'time in ticks (1 tick is 100 nanosec)'
                   "OffsetInSeconds": number                 'Real number. Two decimal places'
                   "DurationInSeconds": number               'Real number. Two decimal places'
                   "Confidence": number                      'between 0 and 1'
@@ -199,7 +199,7 @@ Per richiedere la predisposizione, è sufficiente aggiungere il parametro pertin
 
 È necessario che i timestamp a livello di parola siano anch ' essi attivati perché i parametri nella richiesta precedente indicano.
 
-## <a name="sentiment-analysis"></a>Analisi dei sentimenti
+## <a name="sentiment-analysis"></a>Analisi del sentiment
 
 La caratteristica relativa ai sentimenti stima il sentimento espresso nell'audio. Il sentimento è espresso da un valore compreso tra 0 e 1 per `Negative`, `Neutral`e `Positive` sentimenti. Ad esempio, è possibile usare l'analisi dei sentimenti negli scenari del Call Center:
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/04/2019
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a0a6581e0eed74725a7186e528618da5d8a4f890
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 3a3df4d3a955926381a664ab872e03ae987f0839
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840248"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77197973"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico SAML nei criteri personalizzati di Azure Active Directory B2C
 
@@ -121,7 +121,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 ## <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | PartnerEntity | Sì | URL dei metadati del provider di identità SAML. Copiare i metadati del provider di identità e aggiungerli nell'elemento CDATA `<![CDATA[Your IDP metadata]]>` |
 | WantsSignedRequests | No | Indica se il profilo tecnico richiede che tutte le richieste di autenticazione in uscita siano firmate. I valori possibili sono: `true` o `false`. Il valore predefinito è `true`. Quando il valore è impostato su `true`, la chiave di crittografia **SamlMessageSigning** deve essere specificata e tutte le richieste di autenticazione in uscita sono firmate. Se il valore è impostato su `false`, i parametri **SigAlg** e **Signature** (stringa di query o parametro Post) vengono omessi dalla richiesta. Questi metadati controllano anche l'attributo **AuthnRequestsSigned**, emesso nei metadati del profilo tecnico di Azure AD B2C condiviso con il provider di identità. Azure AD B2C non firma la richiesta se il valore di **WantsSignedRequests** nei metadati del profilo tecnico è impostato su `false` e i metadati del provider di identità **WantAuthnRequestsSigned** sono impostati su `false` o non specificati. |
@@ -135,12 +135,13 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 | AuthenticationRequestExtensions | No | Elementi di estensione facoltativi del messaggio del protocollo concordati tra Azure AD B2C e il provider di identità. L'estensione viene presentata in formato XML. I dati XML si aggiungono all'interno dell'elemento CDATA `<![CDATA[Your IDP metadata]]>`. Controllare la documentazione del provider di identità per vedere se l'elemento di estensione è supportato. |
 | IncludeAuthnContextClassReferences | No | Specifica uno o più riferimenti URI che identificano le classi contesto di autenticazione. Ad esempio, per consentire a un utente di accedere solo con nome utente e password, impostare il valore su `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`. Per consentire l'accesso tramite nome utente e password in una sessione protetta (SSL/TLS), specificare `PasswordProtectedTransport`. Esaminare la documentazione del provider di identità per materiale sussidiario sugli URI **AuthnContextClassRef** supportati. Specificare più URI come elenco delimitato da virgole. |
 | IncludeKeyInfo | No | Indica se la richiesta di autenticazione SAML contiene la chiave pubblica del certificato quando l'associazione è impostata su `HTTP-POST`. I valori possibili sono: `true` o `false`. |
+| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true`o `false` (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questo valore su `true`. |
 
 ## <a name="cryptographic-keys"></a>Chiavi crittografiche
 
 L'elemento **CryptographicKeys** contiene gli attributi seguenti:
 
-| Attributo |Obbligatorio | Description |
+| Attributo |Obbligatoria | Descrizione |
 | --------- | ----------- | ----------- |
 | SamlMessageSigning |Sì | Certificato X509 (set di chiavi RSA) da usare per firmare i messaggi SAML. Azure AD B2C usa questa chiave per firmare le richieste e inviarle al provider di identità. |
 | SamlAssertionDecryption |Sì | Certificato X509 (set di chiavi RSA) da usare per decrittografare i messaggi SAML. Questo certificato deve essere fornito dal provider di identità. Azure AD B2C usa questo certificato per decrittografare i dati inviati dal provider di identità. |

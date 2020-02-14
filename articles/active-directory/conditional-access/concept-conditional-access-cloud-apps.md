@@ -1,31 +1,31 @@
 ---
-title: App client nei criteri di accesso condizionale-Azure Active Directory
-description: ''
+title: App Cloud o azioni nei criteri di accesso condizionale-Azure Active Directory
+description: Cosa sono le app o le azioni cloud in un Azure AD criteri di accesso condizionale
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9afc25c906ecd3b7807e6bf3e0763ac1673ebd99
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: a9d2780e09c099d76aa2ef4ec2638a410793481d
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544056"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186396"
 ---
-# <a name="conditional-access-cloud-apps-and-actions"></a>Accesso condizionale: app e azioni cloud
+# <a name="conditional-access-cloud-apps-or-actions"></a>Accesso condizionale: app Cloud o azioni
 
-Le app o le azioni cloud sono una parte essenziale di un criterio di accesso condizionale. I criteri di accesso condizionale consentono agli amministratori di assegnare controlli a specifiche applicazioni o azioni. 
+Le app Cloud o le azioni sono un segnale chiave in un criterio di accesso condizionale. I criteri di accesso condizionale consentono agli amministratori di assegnare controlli a specifiche applicazioni o azioni.
 
 - Gli amministratori possono scegliere dall'elenco di applicazioni che includono applicazioni Microsoft incorporate e qualsiasi [Azure ad applicazioni integrate](../manage-apps/what-is-application-management.md) , tra cui raccolta, non raccolta e applicazioni pubblicate tramite il [proxy di applicazione](../manage-apps/what-is-application-proxy.md).
 - Gli amministratori possono scegliere di definire un criterio non basato su un'applicazione cloud, ma in un'azione dell'utente. L'unica azione supportata consiste nel registrare le informazioni di sicurezza (anteprima), consentendo l'accesso condizionale per applicare i controlli sull' [esperienza di registrazione delle informazioni di sicurezza combinata](../authentication/howto-registration-mfa-sspr-combined.md).
 
-![Definire un criterio di accesso condizionale e specificare le app Cloud](./media/concept-conditional-access-cloud-apps/conditional-access-define-policy-specify-cloud-apps.png)
+![Definire un criterio di accesso condizionale e specificare le app Cloud](./media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png)
 
 ## <a name="microsoft-cloud-applications"></a>Applicazioni cloud Microsoft
 
@@ -58,7 +58,7 @@ Gli amministratori possono assegnare un criterio di accesso condizionale alle ap
 - Office 365 Exchange Online
 - Office 365 SharePoint Online
 - Office 365 Yammer
-- Office Delve
+- Approfondimento su Office
 - Sway di Office
 - Outlook Groups
 - Servizio Power BI
@@ -86,13 +86,13 @@ Applicazioni principali incluse nell'app client Office 365 (anteprima):
    - Office 365 SharePoint Online
    - Office 365 servizio di ricerca
    - Office 365 Yammer
-   - Office Delve
+   - Approfondimento su Office
    - Office Online
    - Office.com
    - OneDrive
    - PowerApps
    - Skype for Business Online
-   - Sway
+   - Ondeggiare
 
 ### <a name="microsoft-azure-management"></a>Gestione di Microsoft Azure
 
@@ -111,7 +111,7 @@ L'applicazione di gestione Microsoft Azure include più servizi sottostanti.
 
 ## <a name="other-applications"></a>Altre applicazioni
 
-Oltre alle app Microsoft, gli amministratori possono aggiungere qualsiasi Azure AD applicazione registrata ai criteri di accesso condizionale. Queste applicazioni possono comprendere: 
+Oltre alle app Microsoft, gli amministratori possono aggiungere qualsiasi Azure AD applicazione registrata ai criteri di accesso condizionale. Queste applicazioni possono includere: 
 
 - Applicazioni pubblicate tramite il [proxy di applicazione Azure ad](../manage-apps/what-is-application-proxy.md)
 - [Applicazioni aggiunte dalla raccolta](../manage-apps/add-application-portal.md)
@@ -124,6 +124,7 @@ Le azioni dell'utente sono attività che possono essere eseguite da un utente. L
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Componenti dei criteri di accesso condizionale](concept-conditional-access-policies.md)
+- [Accesso condizionale: Condizioni](concept-conditional-access-conditions.md)
+
+- [Criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md)
 - [Dipendenze dell'applicazione client](service-dependencies.md)
-- [Microsoft Intune: richiedere l'autenticazione a più fattori per la registrazione dei dispositivi](https://docs.microsoft.com/intune/enrollment/multi-factor-authentication)
