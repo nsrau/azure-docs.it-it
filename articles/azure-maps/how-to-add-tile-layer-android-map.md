@@ -1,19 +1,19 @@
 ---
 title: Aggiungere un livello sezione a Maps Android | Mappe Microsoft Azure
-description: In questo articolo si apprenderà come eseguire il rendering di un livello sezione su una mappa utilizzando le mappe Microsoft Azure Android SDK.
-author: walsehgal
-ms.author: v-musehg
+description: In questo articolo si apprenderà come eseguire il rendering di un livello sezione su una mappa usando le mappe di Microsoft Azure Android SDK.
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4113f632e70bf1008c688066b51a27f1bc3c6345
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 8e1a77ae83783b2841a2600654a9775e9ceb6ada
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198259"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209937"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Aggiungere un livello sezione a una mappa usando le mappe di Azure Android SDK
 
@@ -37,7 +37,7 @@ L'URL di riquadro passato in un livello riquadro deve essere un URL http/https i
 * `{bbox-epsg-3857}` - Una stringa  del rettangolo delimitatore nel formato `{west},{south},{east},{north}` nel sistema di riferimento spaziale EPSG 3857.
 * `{subdomain}`: segnaposto per i valori del sottodominio, se viene specificato il valore del sottodominio.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare il processo in questo articolo, è necessario installare [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) per caricare una mappa.
 

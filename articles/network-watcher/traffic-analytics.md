@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: eaa95906e20072e2914d1486568d7a6ebeb64f2c
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: a2a65c6fcca4a037408c6b7e780708623aebed2b
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114398"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212242"
 ---
 # <a name="traffic-analytics"></a>Analisi del traffico
 
@@ -182,7 +182,7 @@ Selezionare le opzioni seguenti, come illustrato nell'immagine:
 
 1. Per *Stato* selezionare **Sì**
 2. Selezionare *versione 2* per la **versione dei log dei flussi**. La versione 2 contiene le statistiche di sessione dei flussi (byte e pacchetti).
-3. Selezionare un account di archiviazione esistente nel quale archiviare i log dei flussi. Per archiviare i dati per sempre, impostare il valore su *0*. Si devono sostenere i costi di archiviazione di Azure per l'account di archiviazione. Assicurarsi che la risorsa di archiviazione non disponga di "Data Lake Storage Gen2 spazio dei nomi gerarchico abilitato" impostato su true. Inoltre, i log di flusso NSG non possono essere archiviati in un account di archiviazione con un firewall. 
+3. Selezionare un account di archiviazione esistente nel quale archiviare i log dei flussi. Per archiviare i dati per sempre, impostare il valore su *0*. Si devono sostenere i costi di archiviazione di Azure per l'account di archiviazione. Assicurarsi che la risorsa di archiviazione non disponga di "Data Lake Storage Gen2 spazio dei nomi gerarchico abilitato" impostato su true.
 4. Impostare **Conservazione** sul numero di giorni per cui si vogliono archiviare i dati.
 > [!IMPORTANT]
 > Attualmente si verifica un problema per cui [i log dei flussi del gruppo di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md) per Network Watcher non vengono eliminati automaticamente dall'archiviazione BLOB in base alle impostazioni dei criteri di conservazione. Se è impostato un criterio di conservazione diverso da zero, è consigliabile eliminare periodicamente i BLOB di archiviazione che superano il periodo di conservazione per evitare eventuali addebiti. Per altre informazioni su come eliminare i BLOB di archiviazione dei log dei flussi del gruppo di sicurezza di rete, vedere [Eliminare i BLOB di archiviazione dei log dei flussi del gruppo di sicurezza di rete](network-watcher-delete-nsg-flow-log-blobs.md).

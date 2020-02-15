@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 3e7402be79f7b57a426543c35f08524e0da9d283
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: c5a413a4fe8d9ac9b7aac59ca78cedc6d5a7a313
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024535"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77206175"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Supporto lingua e area geografica per l'API Analisi del testo
 
@@ -32,7 +32,7 @@ Se si ha contenuto espresso in un lingua usata con minore frequenza, si può pro
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Analisi del sentiment, Estrazione frasi chiave e il riconoscimento di entità denominate
 
 Per l'analisi del sentiment, l'estrazione delle frasi chiave e il riconoscimento delle entità, l'elenco delle lingue supportate è più selettivo, poiché gli analizzatori sono ottimizzati in base alle regole linguistiche di lingue aggiuntive. In il riconoscimento delle entità denominate V2, il supporto per il set completo di [tipi di entità](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) è attualmente limitato alle lingue seguenti: 
-* Italiano
+* Inglese
 * Cinese semplificato
 * Francese
 * Tedesco
@@ -47,15 +47,15 @@ Il supporto di una lingua viene inizialmente implementato in anteprima e quindi 
 > [!NOTE]
 > Per informazioni dettagliate sul supporto del linguaggio per l'anteprima pubblica di NER (Named Entity Recognition) v3, vedere [tipi di entità denominate](named-entity-types.md).
 
-| Lingua              | Codice lingua | Sentiment | Frase chiave | Riconoscimento di entità denominate | Collegamento di entità |       Note        |
+| Lingua:              | Codice lingua | Valutazione | Frasi chiave | Riconoscimento di entità denominate | Collegamento di entità |       Note        |
 |:----------------------|:-------------:|:---------:|:-----------:|:------------------------:|:--------------:|:------------------:|
 | Arabo                |     `ar`      |           |             |           ✔ \*           |                |                    |
 | Ceco                 |     `cs`      |           |             |           ✔ \*           |                |                    |
-| Cinese semplificato    |   `zh-hans`   |  ✔ \*\*   |             |            ✔             |                |                    |
+| Cinese semplificato    |   `zh-hans`   |  ✔ \*\*   |             |            ✔             |                | Accettato anche `zh`                   |
 | Cinese tradizionale   |   `zh-hant`   |  ✔ \*\*   |             |                          |                |                    |
 | Danese                |     `da`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Olandese                 |     `nl`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
-| Italiano               |     `en`      |   ✔ \**   |      ✔      |          ✔ \*\*          |     ✔ \**      |                    |
+| Inglese               |     `en`      |   ✔ \**   |      ✔      |          ✔ \*\*          |     ✔ \**      |                    |
 | Finlandese               |     `fi`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Francese                |     `fr`      |   ✔ \**   |      ✔      |            ✔             |                |                    |
 | Tedesco                |     `de`      |   ✔ \**   |      ✔      |            ✔             |                |                    |
@@ -64,7 +64,7 @@ Il supporto di una lingua viene inizialmente implementato in anteprima e quindi 
 | Italiano               |     `it`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
 | Giapponese              |     `ja`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
 | Coreano                |     `ko`      |   ✔ \*\*  |      ✔      |           ✔ \*           |                |                    |
-| Norvegese (Bokmål)   |     `no`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| Norvegese (Bokmål)   |     `no`      |   ✔ \*    |      ✔      |           ✔ \*           |                | Accettato anche `nb`                   |
 | Polacco                |     `pl`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Portoghese (Portogallo) |    `pt-PT`    |   ✔\**    |      ✔      |           ✔ \*           |                | Accettato anche `pt` |
 | Portoghese (Brasile)   |    `pt-BR`    |           |      ✔      |           ✔ \*           |                |                    |
@@ -77,7 +77,7 @@ il supporto della lingua \* è in anteprima
 
 \** disponibile anche nelle anteprime pubbliche di [analisi del sentiment V3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-versions-and-features) e/o di [riconoscimento delle entità denominate V3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) .
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 [Documentazione dei servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/)   
 [Pagina del prodotto Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/)

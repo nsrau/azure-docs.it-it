@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 0ea9da894b9738fff634937294a07cc4b10624f0
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 73a505ce68ed046eba011d3b36991616f441506e
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048870"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77206303"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Crittografia lato server di Azure Managed Disks
 
@@ -38,7 +38,7 @@ Per impostazione predefinita, Managed disks USA chiavi di crittografia gestite d
 
 Il diagramma seguente illustra come i dischi gestiti usano Azure Active Directory e Azure Key Vault per eseguire richieste usando la chiave gestita dal cliente:
 
-![Flusso di lavoro chiavi gestite dal cliente di dischi gestiti](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
+![Flusso di lavoro del disco gestito e delle chiavi gestite dal cliente. Un amministratore crea una Azure Key Vault, quindi crea un set di crittografia del disco e imposta il set di crittografia del disco. Il set è associato a una macchina virtuale che consente al disco di usare Azure AD per l'autenticazione](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
 
 
 L'elenco seguente illustra il diagramma in modo ancora più dettagliato:

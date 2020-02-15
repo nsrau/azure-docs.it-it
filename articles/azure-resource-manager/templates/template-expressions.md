@@ -2,13 +2,13 @@
 title: Sintassi e espressioni del modello
 description: Descrive la sintassi JSON dichiarativa per i modelli Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: 42649d4b04b03de32b82335fce68401192de75a3
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.date: 02/13/2020
+ms.openlocfilehash: 7bca3125f80225d2180734f483194a63e39d9cf5
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120593"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207401"
 ---
 # <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Sintassi ed espressioni nei modelli di Azure Resource Manager
 
@@ -16,11 +16,9 @@ La sintassi di base del modello è JSON. Tuttavia, è possibile usare le espress
 
 Un'espressione modello non può superare i 24.576 caratteri.
 
-Le espressioni supportano JSON (' null ') e le proprietà supportano un valore letterale null. In entrambi i casi, Gestione risorse modelli lo considerano come se la proprietà non fosse presente.
-
 ## <a name="use-functions"></a>Usare le funzioni
 
-Nell'esempio seguente viene illustrata un'espressione nel valore predefinito di un parametro:
+Azure Resource Manager fornisce [funzioni](template-functions.md) che è possibile utilizzare in un modello. Nell'esempio seguente viene illustrata un'espressione che utilizza una funzione nel valore predefinito di un parametro:
 
 ```json
 "parameters": {
@@ -40,6 +38,12 @@ Per passare un valore di stringa come parametro a una funzione, usare le virgole
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]"
 ```
+
+La maggior parte delle funzioni funziona allo stesso modo se distribuite in un gruppo di risorse, una sottoscrizione, un gruppo di gestione o un tenant. Le funzioni seguenti presentano restrizioni basate sull'ambito:
+
+* [resourceGroup](template-functions-resource.md#resourcegroup) : può essere usato solo nelle distribuzioni in un gruppo di risorse.
+* [resourceId](template-functions-resource.md#resourceid) : può essere usato in qualsiasi ambito, ma i parametri validi cambiano a seconda dell'ambito.
+* [Subscription](template-functions-resource.md#subscription) -può essere usato solo nelle distribuzioni in un gruppo di risorse o in una sottoscrizione.
 
 ## <a name="escape-characters"></a>Caratteri di escape
 
@@ -65,6 +69,15 @@ Per eseguire l'escape delle virgolette doppie in un'espressione, ad esempio l'ag
 "tags": {
     "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
 },
+```
+
+## <a name="null-values"></a>Valori Null
+
+Per impostare una proprietà su null, è possibile usare **null** o **[JSON (' null ')]** . La [funzione JSON](template-functions-array.md#json) restituisce un oggetto vuoto quando si fornisce `null` come parametro. In entrambi i casi, Gestione risorse modelli lo considerano come se la proprietà non fosse presente.
+
+```json
+"stringValue": null,
+"objectValue": "[json('null')]"
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

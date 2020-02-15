@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b142d3561e7d05b9afaeab9768b6b50a33ef28ce
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 7595ef1b8742c2ba18a262d5afc5eea1b4d7a15c
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77158163"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251618"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -45,14 +45,14 @@ Per informazioni su come assegnare ruoli amministrativi a un utente in Azure Act
 
 ## <a name="available-roles"></a>Ruoli disponibili
 
-Sono disponibili i ruoli di amministratore seguenti:
+Sono disponibili i seguenti ruoli di amministratore:
 
 ### <a name="application-administratorapplication-administrator-permissions"></a>[Amministratore di applicazioni](#application-administrator-permissions)
 
 gli utenti in questo ruolo possono creare e gestire tutti gli aspetti delle applicazioni aziendali, le registrazioni delle applicazioni e le impostazioni proxy dell'applicazione. Si noti che gli utenti assegnati a questo ruolo non vengono aggiunti come proprietari quando si creano nuove registrazioni di applicazioni o applicazioni aziendali.
 
 Gli amministratori di applicazioni possono gestire le credenziali dell'applicazione che consentono di rappresentare l'applicazione. Pertanto, gli utenti assegnati a questo ruolo possono gestire le credenziali dell'applicazione solo per le applicazioni che non sono assegnate ad alcun ruolo di Azure AD o quelle assegnate solo ai ruoli di amministratore seguenti:
-* Amministratore di applicazioni
+* Amministratore applicazione
 * Sviluppatore di applicazioni
 * Amministratore applicazione cloud
 * Ruoli con autorizzazioni di lettura nella directory
@@ -79,7 +79,7 @@ Il ruolo di amministratore dell'autenticazione è attualmente disponibile in ant
 * Lettore di report
 
 > [!IMPORTANT]
-> gli utenti con questo ruolo possono modificare le credenziali di utenti che possono avere accesso a dati sensibili, informazioni private o configurazioni critiche sia all'interno che all'esterno di Azure Active Directory. La modifica delle credenziali di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. Ad esempio:
+> gli utenti con questo ruolo possono modificare le credenziali di utenti che possono avere accesso a dati sensibili, informazioni private o configurazioni critiche sia all'interno che all'esterno di Azure Active Directory. La modifica delle credenziali di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. Ad esempio,
 >
 >- Proprietari di Registrazione dell'applicazione e Applicazione aziendale, che possono gestire le credenziali delle applicazioni di loro proprietà. Tali applicazioni potrebbero avere autorizzazioni con privilegi in Azure Active Directory e altrove non concesse agli amministratori dell'autenticazione. Attraverso questo percorso, un amministratore di autenticazione potrebbe essere in grado di assumere l'identità del proprietario di un'applicazione e quindi di assumere ulteriormente l'identità di un'applicazione con privilegi aggiornando le credenziali per l'applicazione.
 >- Proprietari di sottoscrizioni Azure, che potrebbero avere accesso a dati sensibili, informazioni riservate o configurazioni critiche di Azure.
@@ -121,7 +121,7 @@ Gli utenti con questo ruolo hanno la possibilità di creare, leggere, aggiornare
 
 ### <a name="billing-administratorbilling-administrator-permissions"></a>[Amministratore fatturazione](#billing-administrator-permissions)
 
-può effettuare acquisti, gestire le sottoscrizioni e i ticket di supporto e monitorare l'integrità dei servizi.
+Effettua acquisti, gestisce sottoscrizioni, gestisce ticket di supporto ed esegue il monitoraggio dell'integrità dei servizi.
 
 ### <a name="cloud-application-administratorcloud-application-administrator-permissions"></a>[Amministratore di applicazioni cloud](#cloud-application-administrator-permissions)
 
@@ -190,7 +190,7 @@ Gli utenti con questo ruolo possono leggere le informazioni di base sulla direct
 
 ### <a name="directory-synchronization-accountsdirectory-synchronization-accounts-permissions"></a>[Account di sincronizzazione della directory](#directory-synchronization-accounts-permissions)
 
-Non usare. Questo ruolo viene assegnato automaticamente al servizio Azure AD Connect e non è progettato o supportato per altri usi.
+Non utilizzare. Questo ruolo viene assegnato automaticamente al servizio Azure AD Connect e non è progettato o supportato per altri usi.
 
 ### <a name="directory-writersdirectory-writers-permissions"></a>[Writer di directory](#directory-writers-permissions)
 
@@ -246,7 +246,7 @@ Gli utenti con questo ruolo possono leggere le impostazioni e le informazioni am
 > Queste funzionalità sono attualmente in fase di sviluppo.
 >
 
-### <a name="group-administratorgroup-administrator-permissions"></a>[Amministratore del gruppo](#group-administrator-permissions)
+### <a name="groups-administratorgroups-administrator-permissions"></a>[Amministratore gruppi](#groups-administrator-permissions)
 
 Gli utenti con questo ruolo possono creare o gestire gruppi e le relative impostazioni, ad esempio i criteri di denominazione e scadenza. È importante comprendere che l'assegnazione di un utente a questo ruolo offre la possibilità di gestire tutti i gruppi nel tenant tra vari carichi di lavoro, ad esempio teams, SharePoint, Yammer, oltre a Outlook. Inoltre, l'utente sarà in grado di gestire le diverse impostazioni dei gruppi in diversi portali di amministrazione, come l'interfaccia di amministrazione di Microsoft, portale di Azure, oltre a quelli specifici del carico di lavoro, come i team e i centri di amministrazione di SharePoint.
 
@@ -265,7 +265,7 @@ gli utenti con questo ruolo possono modificare le password, invalidare i token d
 * Lettore di report
 
 > [!IMPORTANT]
-> gli utenti con questo ruolo possono modificare le password di utenti che possono accedere a dati sensibili, informazioni riservate o configurazioni critiche sia dall'interno che dall'esterno di Azure Active Directory. Modificare la password di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. Ad esempio:
+> gli utenti con questo ruolo possono modificare le password di utenti che possono accedere a dati sensibili, informazioni riservate o configurazioni critiche sia dall'interno che dall'esterno di Azure Active Directory. Modificare la password di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. Ad esempio,
 >
 >- Proprietari di Registrazione dell'applicazione e Applicazione aziendale, che possono gestire le credenziali delle applicazioni di loro proprietà. Tali applicazioni potrebbero disporre di autorizzazioni con privilegi in Azure Active Directory e altrove non concesse agli utenti con ruolo di Amministratore supporto tecnico. Ciò significa che un Amministratore supporto tecnico potrebbe assumere l'identità del proprietario di un'applicazione e quindi quella di un'applicazione con privilegi aggiornando le credenziali dell'applicazione.
 >- Proprietari della sottoscrizione di Azure, che potrebbero avere accesso a informazioni riservate o private o a una configurazione critica in Azure.
@@ -308,11 +308,11 @@ Gli utenti con questo ruolo possono gestire le impostazioni cloud di Office 365 
 
 ### <a name="partner-tier1-supportpartner-tier1-support-permissions"></a>[Supporto per Tier1 partner](#partner-tier1-support-permissions)
 
-Non usare. Questo ruolo è deprecato e verrà rimosso da Azure AD in futuro. Il ruolo è riservato a pochi partner Microsoft per la rivendita e non è disponibile per un uso generale.
+Non utilizzare. Questo ruolo è deprecato e verrà rimosso da Azure AD in futuro. Il ruolo è riservato a pochi partner Microsoft per la rivendita e non è disponibile per un uso generale.
 
 ### <a name="partner-tier2-supportpartner-tier2-support-permissions"></a>[Supporto per livello 2 partner](#partner-tier2-support-permissions)
 
-Non usare. Questo ruolo è deprecato e verrà rimosso da Azure AD in futuro. Il ruolo è riservato a pochi partner Microsoft per la rivendita e non è disponibile per un uso generale.
+Non utilizzare. Questo ruolo è deprecato e verrà rimosso da Azure AD in futuro. Il ruolo è riservato a pochi partner Microsoft per la rivendita e non è disponibile per un uso generale.
 
 ### <a name="password-administratorpassword-administrator-permissions"></a>[Amministratore password](#password-administrator-permissions)
 
@@ -447,12 +447,12 @@ Gli utenti con questo ruolo possono creare utenti e gestire tutti gli aspetti de
 
 | | |
 | --- | --- |
-|Autorizzazioni generiche|<p>Creare utenti e gruppi</p><p>Creare e gestire visualizzazioni utente</p><p>Gestire ticket di supporto di Office<p>Aggiornare i criteri di scadenza delle password|
-|<p>Su tutti gli utenti, inclusi tutti gli amministratori</p>|<p>Gestire licenze</p><p>Gestire tutte le proprietà utente, ad eccezione del Nome dell'entità utente</p>
+|Autorizzazioni generiche|<p>Creare utenti e gruppi</p><p>Crea e gestisce le visualizzazioni degli utenti</p><p>Gestire ticket di supporto di Office<p>Aggiornare i criteri di scadenza delle password|
+|<p>Su tutti gli utenti, inclusi tutti gli amministratori</p>|<p>Gestione delle licenze</p><p>Gestire tutte le proprietà utente, ad eccezione del Nome dell'entità utente</p>
 |Solo sugli utenti non amministratori o in uno dei seguenti ruoli di amministratore con limitazioni:<ul><li>Ruoli con autorizzazioni di lettura nella directory<li>Mittente dell'invito guest<li>Amministratore del supporto tecnico<li>Ruolo con autorizzazioni di lettura per il Centro messaggi<li>Lettore di report<li>Amministratore utenti|<p>Eliminare e ripristinare</p><p>Disattivare e attivare</p><p>Invalidare i token di aggiornamento</p><p>Gestire tutte le proprietà utente, incluso il Nome dell'entità utente</p><p>Reimposta password</p><p>Aggiornare le chiavi dispositivo (FIDO)</p>|
 
 > [!IMPORTANT]
-> gli utenti con questo ruolo possono modificare le password di utenti che possono accedere a dati sensibili, informazioni riservate o configurazioni critiche sia dall'interno che dall'esterno di Azure Active Directory. Modificare la password di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. Ad esempio:
+> gli utenti con questo ruolo possono modificare le password di utenti che possono accedere a dati sensibili, informazioni riservate o configurazioni critiche sia dall'interno che dall'esterno di Azure Active Directory. Modificare la password di un utente può implicare la possibilità di assumere l'identità e le autorizzazioni di quell'utente. Ad esempio,
 >
 >- Proprietari di Registrazione dell'applicazione e Applicazione aziendale, che possono gestire le credenziali delle applicazioni di loro proprietà. Tali applicazioni potrebbero avere autorizzazioni con privilegi in Azure Active Directory e altrove non concesse agli utenti con ruolo di amministratore degli utenti. Ciò significa che un amministratore degli utenti potrebbe assumere l'identità del proprietario di un'applicazione e quindi quella di un'applicazione con privilegi aggiornando le credenziali dell'applicazione.
 >- Proprietari di sottoscrizioni Azure, che potrebbero avere accesso a dati sensibili, informazioni riservate o configurazioni critiche di Azure.
@@ -1081,7 +1081,7 @@ Consente di leggere tutti gli elementi che un amministratore globale può, ma no
 | microsoft.office365.usageReports/allEntities/read | Eseguire la lettura dei report sull'utilizzo di Office 365. |
 | Microsoft. office365. WebPortal/allEntities/standard/Read   | Leggere le proprietà standard in tutte le risorse in Microsoft. office365. WebPortal. |
 
-### <a name="group-administrator-permissions"></a>Autorizzazioni di amministratore di gruppo
+### <a name="groups-administrator-permissions"></a>Gruppi autorizzazioni di amministratore
 Può gestire tutti gli aspetti di gruppi e impostazioni di gruppo, ad esempio i criteri di denominazione e scadenza.
 
 | **Actions** | **Descrizione** |
@@ -1689,7 +1689,7 @@ Gli ID dei modelli di ruolo vengono usati principalmente dagli utenti API Graph 
 
 DisplayName grafico | Nome visualizzato portale di Azure | directoryRoleTemplateId
 ----------------- | ------------------------- | -------------------------
-Amministratore di applicazioni | Amministratore di applicazioni | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
+Amministratore applicazione | Amministratore di applicazioni | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Sviluppatore di applicazioni | Sviluppatore di applicazioni | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Amministratore dell'autenticazione | Amministratore autenticazione | c4e39bd9-1100-46d3-8c65-fb160da0071f
 Amministratore di Azure DevOps | Amministratore di Azure DevOps | e3973bdf-4987-49ae-837a-ba8e231c7286
@@ -1718,7 +1718,7 @@ Writer di directory | Writer di directory | 9360feb5-f418-4baa-8175-e2a00bac4301
 Amministratore del servizio Exchange | Amministratore di Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
 Amministratore del provider di identità esterno | Amministratore del provider di identità esterno | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Lettore globale | Lettore globale | f2ef992c-3afb-46b9-b7cf-a126ee74c451
-Amministratore del gruppo | Amministratore del gruppo | fdd7a751-b60b-444a-984c-02652fe8fa1c 
+Amministratore gruppi | Amministratore gruppi | fdd7a751-b60b-444a-984c-02652fe8fa1c 
 Mittente dell'invito guest | Mittente dell'invito guest | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Amministratore del supporto tecnico | Amministratore dell'help desk | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Amministratore del servizio Intune | Amministratore di Intune | 3a2c62db-5318-420d-8d74-23affee5d9d5
@@ -1741,7 +1741,7 @@ Editor di ricerca | Editor di ricerca | 8835291a-918c-4fd7-a9ce-faa49f0cf7d9
 Amministratore della sicurezza | Amministratore della sicurezza | 194ae4cb-b126-40b2-bd5b-6091b380977d
 Operatore di sicurezza | Operatore di sicurezza | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
 Ruolo con autorizzazioni di lettura per la sicurezza | Ruolo con autorizzazioni di lettura per la sicurezza | 5d6b6bb7-de71-4623-b4af-96380a352509
-Amministratore del supporto servizio | Amministratore del servizio | f023fd81-a637-4b56-95fd-791ac0226033
+Amministratore del supporto servizio | Amministratore dei servizi | f023fd81-a637-4b56-95fd-791ac0226033
 Amministratore del servizio SharePoint | Amministratore di SharePoint | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
 Amministratore comunicazioni Teams | Amministratore comunicazioni Teams | baf37b3a-610e-45da-9e62-d9d1e5e8914b
 Tecnico di supporto comunicazioni Teams | Tecnico di supporto comunicazioni Teams | f70938a0-fc10-4177-9e90-2178f8765737

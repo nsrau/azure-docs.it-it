@@ -3,12 +3,12 @@ title: Modalità di distribuzione
 description: Viene descritto come specificare se usare una modalità di distribuzione completa o incrementale con Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.openlocfilehash: e53b8c58bf0919e64079e62c687b76ada1db7ff0
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 9cc0e8eb20a0375a98906524d4d598ccb473d2a8
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261025"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207588"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modelli di distribuzione Azure Resource Manager
 
@@ -24,7 +24,7 @@ Nella modalità di completamento, Resource Manager **elimina** le risorse esiste
 
 Se il modello include una risorsa che non viene distribuita perché la [condizione](conditional-resource-deployment.md) restituisce false, il risultato dipende dalla versione dell'API REST usata per distribuire il modello. Se si usa una versione precedente alla 2019-05-10, la risorsa **non viene eliminata**. Con 2019-05-10 o versioni successive, la risorsa **viene eliminata**. Le versioni più recenti di Azure PowerShell e dell'interfaccia della riga di comando di Azure Elimina la risorsa.
 
-Prestare attenzione usando la modalità completa con i [cicli di copia](create-multiple-instances.md). Tutte le risorse non specificate nel modello dopo la risoluzione del ciclo di copia verranno eliminate.
+Prestare attenzione usando la modalità completa con i [cicli di copia](copy-resources.md). Tutte le risorse non specificate nel modello dopo la risoluzione del ciclo di copia verranno eliminate.
 
 Se si esegue la distribuzione in [più di un gruppo di risorse in un modello](cross-resource-group-deployment.md), le risorse nel gruppo di risorse specificato nell'operazione di distribuzione sono idonee per essere eliminate. Le risorse nei gruppi di risorse secondarie non vengono eliminate.
 

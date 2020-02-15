@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: 3ae87523e66ae49d17f198a1f70b0f449ca0a713
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 35e10c0f9babca7719ff496e7068ad1564670fee
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080411"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209155"
 ---
 # <a name="upload-files-with-iot-hub"></a>Caricare file con l'hub IoT
 
@@ -25,7 +25,7 @@ Prima di caricare un file in un hub IoT da un dispositivo, è necessario configu
 
 Il dispositivo può quindi [inizializzare un'operazione di caricamento](iot-hub-devguide-file-upload.md#initialize-a-file-upload) e quindi [Inviare una notifica all'hub IoT](iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload) al termine del caricamento. Facoltativamente, quando un dispositivo comunica all'hub IoT che il caricamento è completo, il servizio può generare un [messaggio di notifica](iot-hub-devguide-file-upload.md#file-upload-notifications).
 
-### <a name="when-to-use"></a>Quando usare le autorizzazioni
+### <a name="when-to-use"></a>Utilizzo
 
 Usare il caricamento di file per inviare file multimediali e batch di telemetria di grandi dimensioni caricati da dispositivi con connessione intermittente o compressi per risparmiare la larghezza di banda.
 
@@ -95,7 +95,7 @@ Negli argomenti di riferimento seguenti vengono offerte altre informazioni sul c
 
 Facoltativamente, quando un dispositivo comunica all'hub IoT che il caricamento è completato, l'hub IoT genera un messaggio di notifica. Questo messaggio contiene il nome e il percorso di archiviazione del file.
 
-Come illustrato nella sezione [Endpoint](iot-hub-devguide-endpoints.md), l'hub IoT recapita le notifiche di caricamento file sotto forma di messaggi tramite un endpoint per servizio ( **/messages/servicebound/fileuploadnotifications**). La semantica di ricezione per le notifiche di caricamento di file sono uguali a quella dei messaggi da cloud a dispositivo e ha lo stesso [messaggi del ciclo di vita](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). Ogni messaggio recuperato dall'endpoint delle notifiche di caricamento file è un record JSON con le proprietà seguenti.
+Come illustrato nella sezione [Endpoint](iot-hub-devguide-endpoints.md), l'hub IoT recapita le notifiche di caricamento file sotto forma di messaggi tramite un endpoint per servizio ( **/messages/servicebound/fileuploadnotifications**). La semantica di ricezione per le notifiche di caricamento file è identica a quella dei messaggi da cloud a dispositivo e ha lo stesso [ciclo di vita del messaggio](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). Ogni messaggio recuperato dall'endpoint delle notifiche di caricamento file è un record JSON con le proprietà seguenti.
 
 | Proprietà | Descrizione |
 | --- | --- |
@@ -125,10 +125,12 @@ Ogni hub IoT espone le opzioni di configurazione seguenti per le notifiche di ca
 
 | Proprietà | Descrizione | Intervallo e valore predefinito |
 | --- | --- | --- |
-| **enableFileUploadNotifications** |Controlla se verranno scritte notifiche di caricamento file nell'endpoint per le notifiche relative ai file. |Valore booleano. Predefinito: vero. |
-| **fileNotifications.ttlAsIso8601** |Durata (TTL) predefinita per le notifiche di caricamento file. |Intervallo ISO_8601 fino a 48 ore (minimo 1 minuto). Predefinito: 1 ora |
+| **enableFileUploadNotifications** |Controlla se verranno scritte notifiche di caricamento file nell'endpoint per le notifiche relative ai file. |Valore booleano. Predefinito: True. |
+| **fileNotifications.ttlAsIso8601** |Durata (TTL) predefinita per le notifiche di caricamento file. |Intervallo ISO_8601 fino a 48 ore (minimo 1 minuto). Predefinito: 1 ora. |
 | **fileNotifications.lockDuration** |Durata del blocco per la coda delle notifiche di caricamento file. |Da 5 a 300 secondi (minimo 5 secondi). Predefinito: 60 secondi. |
 | **fileNotifications.maxDeliveryCount** |Numero massimo di recapiti per la coda delle notifiche di caricamento file. |Da 1 a 100. Predefinito: 100. |
+
+È possibile impostare queste proprietà nell'hub Internet delle cose usando il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell. Per informazioni, vedere gli argomenti in [configurare il caricamento dei file](iot-hub-configure-file-upload.md).
 
 ## <a name="additional-reference-material"></a>Materiale di riferimento
 

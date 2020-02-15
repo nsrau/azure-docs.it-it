@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: rohogue
-ms.openlocfilehash: 9ad6348e15c8a25f721a89be7eab3e17c58ae17c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: da260074fc69fac9e98d3698bb2d40fdf80d7118
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988867"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252043"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Gestire la cache dalla portale di Azure
 
@@ -73,6 +73,8 @@ L'accesso client non viene interrotto durante l'aggiornamento del software, ma r
 L'aggiornamento software può richiedere diverse ore. Le cache configurate con una velocità effettiva superiore importano più tempo per l'aggiornamento rispetto alle cache con valori di velocità effettiva di picco
 
 Quando è disponibile un aggiornamento software, è necessario disporre di una settimana per applicarlo manualmente. La data di fine è elencata nel messaggio di aggiornamento. Se non si esegue l'aggiornamento durante tale periodo, Azure applica automaticamente l'aggiornamento alla cache. La tempistica dell'aggiornamento automatico non è configurabile. Se si è interessati all'effetto sulle prestazioni della cache, è necessario aggiornare il software manualmente prima della scadenza del periodo di tempo.
+
+Se la cache viene arrestata al termine della data di fine, la cache aggiornerà automaticamente il software al successivo avvio. L'aggiornamento potrebbe non essere avviato immediatamente, ma verrà avviato nella prima ora.
 
 Fare clic sul pulsante **Aggiorna** per avviare l'aggiornamento software. Lo stato della cache diventa **aggiornamento** fino a quando l'operazione non viene completata.
 

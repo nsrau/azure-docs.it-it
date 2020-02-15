@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 8370b71bfa980dbd099ade59a3a19633dfd5dc72
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 8107b16a3db76fb0e248f1681463b73cc4ee21cf
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910887"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208421"
 ---
 # <a name="show-traffic-on-the-map"></a>Mostrare il traffico sulla mappa
 
 In mappe di Azure sono disponibili due tipi di dati di traffico:
 
 - Dati degli eventi imprevisti: sono costituiti da dati basati su punti e righe per operazioni quali la costruzione, le chiusure stradali e gli incidenti.
-- Flussi di dati: fornisce le metriche sul flusso di traffico sulle strade. I dati del flusso di traffico vengono spesso usati per colorare le strade in base alla quantità di traffico che rallenta il flusso rispetto al limite di velocità o ad altre metriche. I dati del flusso di traffico in mappe di Azure hanno tre metriche di misurazione diverse:
+- Flussi di dati: fornisce le metriche sul flusso di traffico sulle strade. Spesso i dati del flusso di traffico vengono usati per colorare le strade. I colori sono basati sulla quantità di traffico che rallenta il flusso, rispetto al limite di velocità o a un'altra metrica. I dati del flusso di traffico in mappe di Azure hanno tre metriche di misurazione diverse:
     - `relative`-è relativo alla velocità del flusso libero della strada.
     - `absolute`: è la velocità assoluta di tutti i veicoli in viaggio.
     - `relative-delay`-Visualizza le aree più lente rispetto al ritardo medio previsto.

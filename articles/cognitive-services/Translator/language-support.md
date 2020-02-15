@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: ec5c1295f883bb37ad5f016bc3346c134863e6bd
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: a4f9833e8dd14dc7c8ec5849cb809bf2089a5dae
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118822"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77206124"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Supporto lingua e area geografica per l'API Traduzione testuale
 
@@ -44,7 +44,7 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 |:-----|:-----:|:-----|
 |Afrikaans| `af`|   Neurale|
 |Arabo|    `ar`    |   Neurale|
-|Bangla|    `bn`    |   Neurale|
+|Bengalese|    `bn`    |   Neurale|
 |Bosniaco (latino)|   `bs`    |   Neurale|
 |Bulgaro| `bg`    |   Neurale|
 |Cantonese (tradizionale)|   `yue`|  Statistiche|
@@ -123,7 +123,7 @@ Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il
 | Lingua:    | Codice lingua | Script | Verso/Da | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabo | `ar` | Arabo `Arab` | <--> | Latino `Latn` |
-|Bangla  | `bn` | Bengalese `Beng` | <--> | Latino `Latn` |
+|Bengalese  | `bn` | Bengalese `Beng` | <--> | Latino `Latn` |
 | Cinese (semplificato) | `zh-Hans` | Cinese semplificato `Hans`| <--> | Latino `Latn` |
 | Cinese (semplificato) | `zh-Hans` | Cinese semplificato `Hans`| <--> | Cinese tradizionale `Hant`|
 | Cinese (tradizionale) | `zh-Hant` | Cinese tradizionale `Hant`| <--> | Latino `Latn` |
@@ -141,7 +141,7 @@ Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il
 | Serbo (alfabeto latino) | `sr-Latn` | Latino `Latn` | --> | Cirillico `Cyrl`|
 | Tamil | `ta` | Tamil `Taml` | --> | Latino `Latn` |
 | Telugu | `te` | Telugu `Telu` | --> | Latino `Latn` |
-| Thai | `th` | Thai `Thai` | <--> | Latino `Latn` |
+| Thai | `th` | Thai `Thai` | --> | Latino `Latn` |
 
 ## <a name="dictionary"></a>Dizionario
 
@@ -151,7 +151,7 @@ Il dizionario supporta le lingue seguenti verso o dalla lingua inglese tramite i
 |:----------- |:-------------:|
 | Afrikaans      | `af`          |
 | Arabo       | `ar`          |
-| Bangla      | `bn`          |
+| Bengalese      | `bn`          |
 | Bosniaco (latino)      | `bs`          |
 | Bulgaro      | `bg`          |
 | Catalano      | `ca`          |
@@ -218,7 +218,7 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 | Lingua:    | Codice lingua |
 |:----------- |:-------------:|
 | Arabo       | `ar`          |
-| Bangla      | `bn`          |
+| Bengalese      | `bn`          |
 | Bosniaco (latino)      | `bs`          |
 | Bulgaro      | `bg`          |
 | Cinese semplificato      | `zh-Hans`          |

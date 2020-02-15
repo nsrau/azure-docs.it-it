@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
-ms.openlocfilehash: 9d55d91dbb2e62e87c34dc8ea8a23fb375eb9a53
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: f2602dbee12f82c32ab3a3c2ec0566d8dfbeaa83
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665358"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77211826"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usare l'analisi delle modifiche dell'applicazione (anteprima) in monitoraggio di Azure
 
@@ -31,7 +31,7 @@ Il diagramma seguente illustra l'architettura dell'analisi delle modifiche:
 
 ![Diagramma dell'architettura del modo in cui l'analisi delle modifiche ottiene i dati delle modifiche e li fornisce agli strumenti client](./media/change-analysis/overview.png)
 
-L'analisi delle modifiche è attualmente integrata nell'esperienza di **diagnostica e risoluzione dei problemi** nell'app Web del servizio app, nonché disponibile come pannello autonomo in portale di Azure.
+L'analisi delle modifiche è attualmente integrata nell'esperienza di **diagnostica e risoluzione dei problemi** nell'app Web del servizio app, nonché disponibile come scheda autonoma in portale di Azure.
 Vedere la sezione *visualizzazione delle modifiche per tutte le risorse in Azure* per accedere al pannello analisi delle modifiche e all'analisi delle modifiche *per la funzionalità app Web* per usarla nel portale dell'app Web più avanti in questo articolo.
 
 ### <a name="azure-resource-manager-tracked-properties-changes"></a>Modifiche alle proprietà rilevate Azure Resource Manager
@@ -39,7 +39,7 @@ Vedere la sezione *visualizzazione delle modifiche per tutte le risorse in Azure
 Usando il [grafo delle risorse di Azure](https://docs.microsoft.com/azure/governance/resource-graph/overview), l'analisi delle modifiche fornisce un record cronologico del modo in cui le risorse di Azure che ospitano l'applicazione sono state modificate nel tempo. È possibile rilevare le impostazioni rilevate, ad esempio le identità gestite, l'aggiornamento del sistema operativo della piattaforma e i nomi host.
 
 ### <a name="azure-resource-manager-proxied-setting-changes"></a>Azure Resource Manager modifiche alle impostazioni con proxy
-Le impostazioni come la regola di configurazione IP, le impostazioni SSL e le versioni delle estensioni non sono ancora disponibili in ARG, quindi le query di analisi delle modifiche e calcolano queste modifiche in modo sicuro per fornire altri dettagli sulle modifiche apportate all'app. Queste informazioni non sono ancora disponibili in Azure Resource Graph, ma saranno presto disponibili.
+Le impostazioni come la regola di configurazione IP, le impostazioni SSL e le versioni delle estensioni non sono ancora disponibili in ARG, quindi le query di analisi delle modifiche e calcolano queste modifiche in modo sicuro per fornire altri dettagli in ciò che è cambiato nell'app. Queste informazioni non sono ancora disponibili in Azure Resource Graph, ma saranno presto disponibili.
 
 ### <a name="changes-in-web-app-deployment-and-configuration-in-guest-changes"></a>Modifiche alla distribuzione e alla configurazione dell'app Web (modifiche nel guest)
 
@@ -51,13 +51,14 @@ L'analisi delle modifiche acquisisce lo stato di distribuzione e configurazione 
 
 Le modifiche alle dipendenze delle risorse possono causare problemi anche in un'app Web. Se, ad esempio, un'app Web chiama in una cache Redis, lo SKU della cache Redis potrebbe influire sulle prestazioni dell'app Web. Per rilevare le modifiche nelle dipendenze, l'analisi delle modifiche controlla il record DNS dell'app Web. In questo modo, identifica le modifiche in tutti i componenti dell'app che possono causare problemi.
 Attualmente sono supportate le dipendenze seguenti:
-- App Web
+- Applicazioni Web
 - Archiviazione di Azure
 - Azure SQL
 
 ### <a name="enablement"></a>Abilitazione
-Il provider di risorse "Microsoft. ChangeAnalysis" deve essere registrato con una sottoscrizione per il Azure Resource Manager proprietà rilevate e le impostazioni con proxy modificare i dati in modo che siano disponibili. Quando si immette la diagnostica dell'app Web e si risolvono i problemi o si apre il pannello autonomo di analisi delle modifiche, questo provider di risorse viene registrato automaticamente. Non sono disponibili implementazioni per le prestazioni e i costi per la sottoscrizione.
-Per le modifiche all'app Web in-Guest, è necessario abilitare separatamente per la scansione dei file di codice all'interno di un'app Web. Per altri dettagli, vedere *abilitare l'analisi delle modifiche nella sezione strumento di diagnostica e risoluzione dei problemi* più avanti in questo articolo.
+Il provider di risorse "Microsoft. ChangeAnalysis" deve essere registrato con una sottoscrizione per il Azure Resource Manager proprietà rilevate e le impostazioni con proxy modificare i dati in modo che siano disponibili. Quando si immette lo strumento per la diagnosi e la risoluzione dei problemi dell'app Web o si apre la scheda autonoma Change Analysis, questo provider di risorse viene registrato automaticamente. Non sono disponibili implementazioni per le prestazioni e i costi per la sottoscrizione. Quando si Abilita l'analisi delle modifiche per le app Web (o si Abilita nello strumento diagnostica e Risolvi i problemi), questo avrà un impatto trascurabile sulle prestazioni dell'app Web e nessun costo per la fatturazione.
+Per le modifiche all'app Web in-Guest, è necessario abilitare separatamente per la scansione dei file di codice all'interno di un'app Web. Per ulteriori informazioni, vedere [la sezione abilitare l'analisi delle modifiche nella sezione relativa allo strumento di diagnostica e risoluzione dei problemi](https://docs.microsoft.com/azure/azure-monitor/app/change-analysis#enable-change-analysis-in-the-diagnose-and-solve-problems-tool) più avanti in questo articolo.
+
 
 ## <a name="viewing-changes-for-all-resources-in-azure"></a>Visualizzazione delle modifiche per tutte le risorse in Azure
 In monitoraggio di Azure è disponibile un pannello autonomo per l'analisi delle modifiche per visualizzare tutte le modifiche con informazioni dettagliate e dipendenze dell'applicazione.
@@ -119,7 +120,7 @@ Se la sottoscrizione include numerose app Web, l'abilitazione del servizio al li
 Prerequisiti:
 * PowerShell AZ Module. Seguire le istruzioni in [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.6.0)
 
-Eseguire lo script seguente:
+Eseguire lo script riportato di seguito:
 
 ```PowerShell
 # Log in to your Azure subscription

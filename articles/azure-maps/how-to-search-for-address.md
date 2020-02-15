@@ -1,19 +1,19 @@
 ---
 title: Cercare un percorso usando i servizi di ricerca di Azure Maps | Mappe Microsoft Azure
 description: In questo articolo si apprenderà come cercare un percorso usando il Microsoft Azure Maps servizio di ricerca per la geocodifica e la geocodifica inversa.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/15/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 3b5da7eab9cff5c5e051fc4d5ab7ff582a95c20d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 40066f24fec00610a1efd10b2cb874b1100acdee
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899237"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209886"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Cercare un percorso usando i servizi di ricerca di Azure Maps
 
@@ -48,7 +48,7 @@ Se è presente un set di indirizzi per la geocodifica, è possibile usare l' [AP
 | Parametro | Valore consigliato |
 |---------------|------------------------------------------------| 
 | Metodo HTTP | GET |
-| URL richiesta | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) | 
+| URL della richiesta | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) | 
 | Autorizzazione | No Auth (Senza autenticazione) |
 
 3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare come parametri di query o percorso nell'URL della richiesta: 
@@ -96,7 +96,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
     | Parametro | Valore consigliato |
     |---------------|------------------------------------------------|
     | Metodo HTTP | GET |
-    | URL richiesta | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
+    | URL della richiesta | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
     | Autorizzazione | No Auth (Senza autenticazione) |
 
     L'attributo **json** nel percorso URL determina il formato della risposta. Questo articolo usa JSON per facilitarne l'uso e la leggibilità. I formati di risposta disponibili sono inclusi nella definizione **Get Search Fuzzy** (Richiesta GET per la ricerca fuzzy) in [Maps Functional API reference](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) (Informazioni di riferimento sull'API funzionale di Mappe).
@@ -121,7 +121,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 
     | Chiave | Valore |
     |------------------|-------------------------|
-    | countrySet | Stati Uniti |
+    | countrySet | US |
   
     I risultati sono ora limitati dall'indicativo paese e la query restituisce le pizzerie negli Stati Uniti.
   
@@ -152,7 +152,7 @@ Se si dispone di un set di percorsi delle coordinate per la geocodifica inversa,
     | Parametro | Valore consigliato |
     |---------------|------------------------------------------------|
     | Metodo HTTP | GET |
-    | URL richiesta | [https://atlas.microsoft.com/search/address/reverse/json?](https://atlas.microsoft.com/search/address/reverse/json?) |
+    | URL della richiesta | [https://atlas.microsoft.com/search/address/reverse/json?](https://atlas.microsoft.com/search/address/reverse/json?) |
     | Autorizzazione | No Auth (Senza autenticazione) |
   
 3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare come parametri di query o percorso nell'URL della richiesta:
@@ -173,7 +173,7 @@ Se si dispone di un set di percorsi delle coordinate per la geocodifica inversa,
 
     | Chiave | Valore |
     |-----|------------|
-    | d'acquisto | true |
+    | numero | true |
 
     Se il parametro di query [Number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) viene inviato con la richiesta, la risposta può includere il lato della strada (a sinistra o a destra) e anche una posizione di offset per quel numero.
   
@@ -212,7 +212,7 @@ Se si dispone di un set di percorsi delle coordinate per la geocodifica inversa,
     | Parametro | Valore consigliato |
     |---------------|------------------------------------------------|
     | Metodo HTTP | GET |
-    | URL richiesta | [https://atlas.microsoft.com/search/address/reverse/crossstreet/json?](https://atlas.microsoft.com/search/address/reverse/crossstreet/json?) |
+    | URL della richiesta | [https://atlas.microsoft.com/search/address/reverse/crossstreet/json?](https://atlas.microsoft.com/search/address/reverse/crossstreet/json?) |
     | Autorizzazione | No Auth (Senza autenticazione) |
   
 3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare come parametri di query o percorso nell'URL della richiesta:

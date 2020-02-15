@@ -14,12 +14,12 @@ ms.date: 12/10/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 7e19e9067052c516427391adcc615767446c4049
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 197379b5edd3f59c83c557590445fc5dac8fc43a
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697150"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212236"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedura: Come consentire l'accesso a qualsiasi utente di Azure Active Directory usando il modello di applicazione multi-tenant
 
@@ -134,7 +134,7 @@ L'applicazione può avere più livelli, ognuno rappresentato dalla propria regis
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>Più livelli in un singolo tenant
 
-Può trattarsi di un problema se l'applicazione logica è costituita da due o più registrazioni di applicazioni, ad esempio un client e una risorsa separati. Come ottenere prima la risorsa nel tenant del cliente? Azure AD si occupa di questo caso, concedendo al client e alla risorsa l'autorizzazione in un unico passaggio. L'utente visualizza la somma totale delle autorizzazioni richieste dal client e dalla risorsa nella pagina del consenso. Per abilitare questo comportamento, la registrazione dell'applicazione della risorsa deve includere l'ID app del client come `knownClientApplications` nel [manifesto dell'applicazione][AAD-App-Manifest]. Ad esempio:
+Può trattarsi di un problema se l'applicazione logica è costituita da due o più registrazioni di applicazioni, ad esempio un client e una risorsa separati. Come ottenere prima la risorsa nel tenant del cliente? Azure AD si occupa di questo caso, concedendo al client e alla risorsa l'autorizzazione in un unico passaggio. L'utente visualizza la somma totale delle autorizzazioni richieste dal client e dalla risorsa nella pagina del consenso. Per abilitare questo comportamento, la registrazione dell'applicazione della risorsa deve includere l'ID app del client come `knownClientApplications` nel [manifesto dell'applicazione][AAD-App-Manifest]. Ad esempio,
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 
@@ -176,7 +176,7 @@ Questo articolo ha illustrato come compilare un'applicazione che consente a un u
 
 ## <a name="related-content"></a>Contenuti correlati
 
-* [Esempi di applicazioni multi-tenant](https://docs.microsoft.com/samples/browse/?products=azure-active-directory)
+* [Esempio di applicazione multi-tenant](https://github.com/mspnp/multitenant-saas-guidance)
 * [Linee guida sulla personalizzazione per le applicazioni][AAD-App-Branding]
 * [Oggetti applicazione e oggetti entità servizio][AAD-App-SP-Objects]
 * [Integrazione di applicazioni con Azure Active Directory][AAD-Integrating-Apps]

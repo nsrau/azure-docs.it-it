@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 4eafd0fbaed067a0852edea010408a1d82353392
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: dd36895a34b36bbdf8e796cf629ab031613663cd
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277970"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208883"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -190,7 +190,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 `func init` supporta le opzioni seguenti, che sono disponibili solo nella versione 2.x, se non specificato diversamente:
 
-| Opzione     | Description                            |
+| Opzione     | Descrizione                            |
 | ------------ | -------------------------------------- |
 | **`--csharp`**<br/> **`--dotnet`** | Inizializza un [ C# progetto di libreria di classi (. cs)](functions-dotnet-class-library.md). |
 | **`--csx`** | Inizializza un [ C# progetto di script (. CSX)](functions-reference-csharp.md). È necessario specificare `--csx` nei comandi successivi. |
@@ -291,7 +291,7 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 È anche possibile specificare queste opzioni nel comando usando gli argomenti seguenti:
 
-| Argomento     | Description                            |
+| Argomento     | Descrizione                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Versione 2.x) Genera gli stessi modelli script C# (con estensione csx) usati nella versione 1.x e nel portale. |
 | **`--language`** , **`-l`**| Il linguaggio di programmazione del modello, come C#, F# o JavaScript. Questa opzione è necessaria nella versione 1.x. Nella versione 2.x non usare questa opzione o scegliere una lingua che corrisponda al runtime del ruolo di lavoro. |
@@ -347,7 +347,7 @@ func host start
 
 `func start` supporta le opzioni seguenti:
 
-| Opzione     | Description                            |
+| Opzione     | Descrizione                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | Per il progetto corrente non viene creata una build prima dell'esecuzione. Solo per progetti dotnet. Il valore predefinito è false. Solo versione 2.x. |
 | **`--cert`** | Il percorso in un file con estensione pfx che contiene una chiave privata. Usati solo con `--useHttps`. Solo versione 2.x. |
@@ -373,7 +373,7 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
 >[!IMPORTANT]
->Durante l'esecuzione in locale, l'autorizzazione non viene applicata per gli endpoint HTTP. Questo significa che tutte le richieste HTTP locali vengono gestite come `authLevel = "anonymous"`. Per altre informazioni, vedere l'[articolo sul binding HTTP](functions-bindings-http-webhook.md#authorization-keys).
+>Durante l'esecuzione in locale, l'autorizzazione non viene applicata per gli endpoint HTTP. Questo significa che tutte le richieste HTTP locali vengono gestite come `authLevel = "anonymous"`. Per altre informazioni, vedere l'[articolo sul binding HTTP](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
 ### <a name="passing-test-data-to-a-function"></a>Passaggio di dati di test a una funzione
 
@@ -437,7 +437,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 `func run` supporta le opzioni seguenti:
 
-| Opzione     | Description                            |
+| Opzione     | Descrizione                            |
 | ------------ | -------------------------------------- |
 | **`--content`** , **`-c`** | Contenuto inline. |
 | **`--debug`** , **`-d`** | Associare un debugger al processo host prima di eseguire la funzione.|
@@ -473,14 +473,14 @@ Questo comando consente di pubblicare un'app per le funzioni esistente in Azure.
 
 Le seguenti opzioni di pubblicazione si applicano a entrambe le versioni, 1. x e 2. x:
 
-| Opzione     | Description                            |
+| Opzione     | Descrizione                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Pubblicare le impostazioni di local.settings.json in Azure, suggerendo di sovrascrivere eventuali impostazioni esistenti. Se si usa il Emulatore di archiviazione di Microsoft Azure, modificare prima l'impostazione dell'app in una [connessione di archiviazione effettiva](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Eliminare il prompt per sovrascrivere le impostazioni dell'app quando si usa `--publish-local-settings -i`.|
 
 Le opzioni di pubblicazione seguenti sono supportate solo nella versione 2.x:
 
-| Opzione     | Description                            |
+| Opzione     | Descrizione                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only`** , **`-o`** |  Pubblicare solo le impostazioni e ignorare il contenuto. Viene suggerito il valore predefinito. |
 |**`--list-ignored-files`** | Visualizza un elenco di file che vengono ignorati durante la pubblicazione basato sul file con estensione funcignore. |
@@ -504,7 +504,7 @@ func deploy
 
 Sono disponibili le opzioni di distribuzione del contenitore personalizzato seguenti:
 
-| Opzione     | Description                            |
+| Opzione     | Descrizione                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | Il nome di un registro Docker a cui l'utente corrente ha eseguito l'accesso. |
 | **`--platform`** | Piattaforma di hosting per le app per le funzioni. Le opzioni valide sono `kubernetes` |
@@ -517,7 +517,7 @@ Sono disponibili le opzioni di distribuzione del contenitore personalizzato segu
 
 Il modo consigliato per monitorare l'esecuzione delle funzioni è l'integrazione con applicazione Azure Insights. È anche possibile eseguire lo streaming dei log di esecuzione nel computer locale. Per altre informazioni, vedere [Monitorare Funzioni di Azure](functions-monitoring.md).
 
-### <a name="application-insights-integration"></a>Integrazione con Application Insights
+### <a name="application-insights-integration"></a>Integrazione di Application Insights
 
 L'integrazione di Application Insights deve essere abilitata quando si crea l'app per le funzioni in Azure. Se per qualche motivo l'app per le funzioni non è connessa a un'istanza di Application Insights, è facile eseguire questa integrazione nel portale di Azure. 
 
@@ -545,5 +545,5 @@ Per registrare una richiesta per un bug o una funzionalità [aprire un problema 
 [Azure portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
-[`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
+[AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage
 [Bundle di estensione]: functions-bindings-register.md#extension-bundles

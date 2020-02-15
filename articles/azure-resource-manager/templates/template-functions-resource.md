@@ -3,12 +3,12 @@ title: Funzioni modello-risorse
 description: Informazioni sulle funzioni da usare in un modello di Azure Resource Manager per recuperare i valori relativi alle risorse.
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: cc8976b714549f7442e22b341b34e81d717c8742
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 10476f5a29c12d7437beb9a9f707feda815d7ba1
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120531"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207009"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funzioni delle risorse per i modelli di Azure Resource Manager
 
@@ -124,7 +124,7 @@ La sintassi per questa funzione varia in base al nome delle operazioni list. Ogn
 
 ### <a name="valid-uses"></a>Usi validi
 
-Le funzioni list possono essere utilizzate solo nelle proprietà di una definizione di risorsa e nella sezione Outputs di un modello o di una distribuzione. Quando viene usata con l' [iterazione della proprietà](create-multiple-instances.md#property-iteration), è possibile usare le funzioni list per `input` perché l'espressione viene assegnata alla proprietà della risorsa. Non è possibile usarle con `count` perché è necessario determinare il numero prima che la funzione elenco venga risolta.
+Le funzioni list possono essere utilizzate solo nelle proprietà di una definizione di risorsa e nella sezione Outputs di un modello o di una distribuzione. Quando viene usata con l' [iterazione della proprietà](copy-properties.md), è possibile usare le funzioni list per `input` perché l'espressione viene assegnata alla proprietà della risorsa. Non è possibile usarle con `count` perché è necessario determinare il numero prima che la funzione elenco venga risolta.
 
 ### <a name="implementations"></a>Implementazioni
 
@@ -496,7 +496,7 @@ Usare `'Full'` se sono necessari valori della risorsa che non fanno parte dello 
 
 ### <a name="valid-uses"></a>Usi validi
 
-La funzione reference può essere usata solo nelle proprietà di una definizione di risorsa e nella sezione outputs di un modello o una distribuzione. Quando viene usata con l' [iterazione della proprietà](create-multiple-instances.md#property-iteration), è possibile usare la funzione reference per `input` perché l'espressione viene assegnata alla proprietà della risorsa. Non è possibile usarlo con `count` perché è necessario determinare il numero prima che venga risolta la funzione di riferimento.
+La funzione reference può essere usata solo nelle proprietà di una definizione di risorsa e nella sezione outputs di un modello o una distribuzione. Quando viene usata con l' [iterazione della proprietà](copy-properties.md), è possibile usare la funzione reference per `input` perché l'espressione viene assegnata alla proprietà della risorsa. Non è possibile usarlo con `count` perché è necessario determinare il numero prima che venga risolta la funzione di riferimento.
 
 Non è possibile usare la funzione Reference negli output di un [modello annidato](linked-templates.md#nested-template) per restituire una risorsa distribuita nel modello annidato. Usare invece un [modello collegato](linked-templates.md#linked-template).
 
@@ -758,7 +758,7 @@ Restituisce l'identificatore univoco di una risorsa. Questa funzione viene usata
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |No |Stringa (in formato GUID) |Il valore predefinito è la sottoscrizione corrente. Specificare questo valore quando si vuole recuperare una risorsa in un'altra sottoscrizione. |
+| subscriptionId |No |Stringa (in formato GUID) |Il valore predefinito è la sottoscrizione corrente. Specificare questo valore quando si vuole recuperare una risorsa in un'altra sottoscrizione. Fornire questo valore solo quando si esegue la distribuzione nell'ambito di un gruppo di risorse o di una sottoscrizione. |
 | resourceGroupName |No |string |Il valore predefinito è il gruppo di risorse corrente. Specificare questo valore quando si vuole recuperare una risorsa in un altro gruppo di risorse. Fornire questo valore solo quando si esegue la distribuzione nell'ambito di un gruppo di risorse. |
 | resourceType |Sì |string |Tipo di risorsa, incluso lo spazio dei nomi del provider di risorse. |
 | resourceName1 |Sì |string |Nome della risorsa. |
@@ -1064,6 +1064,6 @@ Usare questa funzione per ottenere l'ID risorsa per una risorsa distribuita nel 
 
 * Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](template-syntax.md).
 * Per unire più modelli, vedere [Uso di modelli collegati con Azure Resource Manager](linked-templates.md).
-* Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](create-multiple-instances.md).
+* Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](copy-resources.md).
 * Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Azure Resource Manager](deploy-powershell.md).
 

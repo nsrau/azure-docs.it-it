@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: 781c5a579fa0cd0383e95b79df1f81f74008111c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ffb610634399594788afcb9b600ba00c6803dfdd
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679966"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207026"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Attività della funzione di Azure in Azure Data Factory
 
@@ -34,18 +34,18 @@ Il tipo restituito della funzione di Azure deve essere un `JObject` valido. Tene
 | --- | --- | --- |
 | type   | La proprietà Type deve essere impostata su: **AzureFunction** | sì |
 | function app url | URL dell'app per le funzioni di Azure. Il formato è `https://<accountname>.azurewebsites.net`. Questo URL è il valore presente nella sezione **URL** quando si visualizza l'app per le funzioni nel portale di Azure  | sì |
-| function key | Chiave di accesso per la funzione di Azure. Fare clic sulla sezione **Gestisci** per la funzione corrispondente e copiare il **tasto funzione** o la **chiave host**. Per ulteriori informazioni, vedere [trigger e associazioni HTTP di funzioni di Azure](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | sì |
+| function key | Chiave di accesso per la funzione di Azure. Fare clic sulla sezione **Gestisci** per la funzione corrispondente e copiare il **tasto funzione** o la **chiave host**. Per ulteriori informazioni, vedere [trigger e associazioni HTTP di funzioni di Azure](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | sì |
 |   |   |   |
 
 ## <a name="azure-function-activity"></a>Attività della funzione di Azure
 
 | **Proprietà**  | **Descrizione** | **Valori consentiti** | **Obbligatorio** |
 | --- | --- | --- | --- |
-| Nome  | Nome dell'attività nella pipeline  | String | sì |
+| name  | Nome dell'attività nella pipeline  | String | sì |
 | type  | Il tipo di attività è 'AzureFunctionActivity' | String | sì |
 | linked service | Servizio collegato della funzione di Azure collegata per l'app per le funzioni di Azure corrispondente  | Riferimento del servizio collegato | sì |
-| function name  | Nome della funzione nell'app per le funzioni di Azure chiamata dall'attività | String | sì |
-| statico  | Metodo dell'API REST per la chiamata di funzione | Tipi supportati da stringa: "GET", "POST", "PUT"   | sì |
+| nome di funzione  | Nome della funzione nell'app per le funzioni di Azure chiamata dall'attività | String | sì |
+| metodo  | Metodo dell'API REST per la chiamata di funzione | Tipi supportati da stringa: "GET", "POST", "PUT"   | sì |
 | intestazione  | Intestazioni che vengono inviate alla richiesta. Ad esempio, per impostare la lingua e il tipo in una richiesta: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | Stringa (o un'espressione con l'elemento resultType della stringa) | No |
 | Corpo  | Corpo inviato insieme alla richiesta al metodo API della funzione  | Stringa (o espressione con l'elemento resultType della stringa) o oggetto.   | Obbligatorio per i metodi POST e PUT |
 |   |   |   | |

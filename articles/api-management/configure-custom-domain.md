@@ -12,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 3c2cc3c280ba0da474898bed93bb8533a42ab07f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 72075d4eff336af625bbf6d62f1276d2997bfed4
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967355"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251210"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurare un nome di dominio personalizzato
 
@@ -27,7 +27,7 @@ Quando si crea un'istanza del servizio gestione API di Azure, Azure lo assegna a
 > Gestione API accetta solo le richieste con valori di [intestazione host](https://tools.ietf.org/html/rfc2616#section-14.23) che corrispondono al nome di dominio predefinito o a uno dei nomi di dominio personalizzati configurati.
 
 > [!WARNING]
-> I clienti che vogliono usare l'associazione del certificato per migliorare la sicurezza delle applicazioni devono usare un nome di dominio personalizzato e il certificato che gestiscono, non il certificato predefinito. I clienti che aggiungono il certificato predefinito avranno una dipendenza rigida dalle proprietà del certificato che non controllano, che non è una procedura consigliata.
+> I clienti che desiderano utilizzare l'aggiunta dei certificati per migliorare la sicurezza delle applicazioni devono utilizzare un nome di dominio personalizzato e un certificato che gestiscono, non il certificato predefinito. I clienti che aggiungono il certificato predefinito avranno una dipendenza rigida dalle proprietà del certificato che non controllano, che non è una procedura consigliata.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -55,7 +55,7 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
     - **SCM** (il valore predefinito è: `<apim-service-name>.scm.azure-api.net`).
 
     > [!NOTE]
-    > Solo l'endpoint del **gateway** disponibile per la configurazione nel livello di consumo.
+    > Solo l'endpoint del **gateway** è disponibile per la configurazione nel livello di consumo.
     > È possibile aggiornare tutti gli endpoint o alcuni di essi. In genere, i clienti aggiornano il **gateway** (questo URL viene usato per chiamare l'API esposta tramite gestione API) e il **portale** (l'URL del portale per sviluppatori).
     > Gli endpoint di **gestione** e **SCM** vengono usati internamente dai proprietari dell'istanza di gestione API e pertanto vengono assegnati con minore frequenza a un nome di dominio personalizzato.
     > Il livello **Premium** supporta l'impostazione di più nomi host per l'endpoint del **gateway** .
@@ -73,7 +73,7 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
     > Si consiglia di usare Azure Key Vault per gestire i certificati e impostarli per la rotazione.
     > Se si usa Azure Key Vault per gestire il certificato SSL del dominio personalizzato, assicurarsi che il certificato venga inserito in Key Vault [come _certificato_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), non come _segreto_.
     >
-    > Per recuperare un certificato SSL, gestione API deve avere l'elenco delle autorizzazioni Get Secrets sul Azure Key Vault contenente il certificato. Quando si usa portale di Azure tutti i passaggi di configurazione necessari verranno completati automaticamente. Quando si usano gli strumenti da riga di comando o l'API di gestione, è necessario concedere queste autorizzazioni manualmente. Questa operazione si esegue in due passaggi. Per prima cosa, usare la pagina identità gestite nell'istanza di gestione API per assicurarsi che l'identità gestita sia abilitata e prendere nota dell'ID entità visualizzato nella pagina. In secondo luogo, concedere l'elenco di autorizzazioni e ottenere le autorizzazioni Secrets per questo ID entità nel Azure Key Vault contenente il certificato.
+    > Per recuperare un certificato SSL, gestione API deve avere le autorizzazioni List e Get Secrets per la Azure Key Vault che contiene il certificato. Quando si usa portale di Azure tutti i passaggi di configurazione necessari verranno completati automaticamente. Quando si usano gli strumenti da riga di comando o l'API di gestione, è necessario concedere queste autorizzazioni manualmente. Questa operazione si esegue in due passaggi. Per prima cosa, usare la pagina identità gestite nell'istanza di gestione API per assicurarsi che l'identità gestita sia abilitata e prendere nota dell'ID entità visualizzato nella pagina. In secondo luogo, concedere l'elenco di autorizzazioni e ottenere le autorizzazioni Secrets per questo ID entità nel Azure Key Vault contenente il certificato.
     >
     > Se il certificato è impostato per la rotazione automatica, gestione API rileverà automaticamente la versione più recente senza tempi di inattività per il servizio (se il livello di gestione API ha SLA-i. e. in tutti i livelli eccetto il livello Developer).
 

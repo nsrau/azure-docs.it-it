@@ -1,0 +1,143 @@
+---
+title: Raccogli dati di log
+titleSuffix: Azure Cognitive Search
+description: Raccogliere e analizzare i dati di log abilitando un'impostazione di diagnostica e quindi usare il linguaggio di query kusto per esplorare i risultati.
+manager: nitinme
+author: HeidiSteen
+ms.author: heidist
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 02/11/2020
+ms.openlocfilehash: 2849dc94f1c45dda3da09120adebba6e004eb96b
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77211178"
+---
+# <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Raccogliere e analizzare i dati di log per Azure ricerca cognitiva
+
+I log di diagnostica o operativi forniscono informazioni approfondite sulle operazioni dettagliate di Azure ricerca cognitiva e sono utili per il monitoraggio dei processi del servizio e del carico di lavoro. Internamente, i log esistono nel back-end per un breve periodo di tempo, sufficiente per indagini e analisi se si crea un ticket di supporto. Tuttavia, se si desidera la direzione automatica sui dati operativi, è necessario configurare un'impostazione di diagnostica per specificare la posizione in cui vengono raccolte le informazioni di registrazione. 
+
+La configurazione dei log è utile per la diagnostica e la conservazione della cronologia operativa. Dopo aver abilitato la registrazione, è possibile eseguire query o creare report per l'analisi strutturata.
+
+Nella tabella seguente sono elencate le opzioni per la raccolta e la conservazione dei dati.
+
+| Resource | Utilizzato per |
+|----------|----------|
+| [Invia a area di lavoro Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Eventi registrati e metriche di query in base agli schemi seguenti. Gli eventi vengono registrati in un'area di lavoro Log Analytics. Utilizzando Log Analytics, è possibile eseguire query per restituire informazioni dettagliate. Per altre informazioni, vedere [Introduzione ai log di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Archivia con archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Eventi registrati e metriche di query in base agli schemi seguenti. Gli eventi vengono registrati in un contenitore BLOB e archiviati in file JSON. I log possono essere abbastanza granulari (in base all'ora/minuto), utili per la ricerca di un evento imprevisto specifico, ma non per l'analisi aperta. Usare un editor JSON per visualizzare un file di log.|
+| [Flusso a hub eventi](https://docs.microsoft.com/azure/event-hubs/) | Eventi registrati e metriche di query, basati sugli schemi documentati in questo articolo. Scegliere questa opzione come servizio di raccolta dati alternativo per i log di dimensioni molto grandi. |
+
+I log di monitoraggio di Azure e l'archiviazione BLOB sono disponibili come servizio gratuito, in modo che sia possibile provarli senza costi aggiuntivi per la durata della sottoscrizione di Azure. L'iscrizione e l'uso di Application Insights sono gratuiti purché le dimensioni dei dati dell'applicazione non superino determinati limiti (vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/monitor/) per informazioni dettagliate).
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Se si usa Log Analytics o archiviazione di Azure, è possibile creare le risorse in anticipo.
+
++ [Creare un'area di lavoro di log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+
++ Se è necessario un archivio di log, [creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) .
+
+## <a name="create-a-log"></a>Creazione di un log
+
+Le impostazioni di diagnostica definiscono la raccolta dei dati. Un'impostazione specifica come e cosa viene raccolto. 
+
+1. Selezionare **Impostazioni di diagnostica** in **Monitoraggio**.
+
+   ![Impostazioni di diagnostica](./media/search-monitor-usage/diagnostic-settings.png "Impostazioni di diagnostica")
+
+1. Selezionare **+ Aggiungi impostazione di diagnostica**
+
+1. Scegliere i dati da esportare: log, metriche o entrambi. È possibile raccogliere dati in un account di archiviazione, un'area di lavoro di log Analytics o trasmetterli a hub eventi.
+
+   È consigliabile usare log Analytics perché è possibile eseguire una query nell'area di lavoro nel portale.
+
+   Se si usa anche l'archiviazione BLOB, i contenitori e i BLOB verranno creati in base alle esigenze quando si esportano i dati di log.
+
+   ![Configurare la raccolta dati](./media/search-monitor-usage/configure-storage.png "Configurare la raccolta dei dati")
+
+1. Salvare l'impostazione.
+
+1. Testare creando o eliminando oggetti (crea eventi del log) e inviando query (genera metriche). 
+
+Nell'archivio BLOB, i contenitori vengono creati solo quando è presente un'attività da registrare o misurare. I dati che vengono copiati in un account di archiviazione vengono formattati come JSON e inseriti in due contenitori:
+
+* insights-logs-operationlogs: per i log relativi al traffico ricerca
+* insights-metrics-pt1m: per le metriche
+
+**Richiede un'ora prima che i contenitori vengano visualizzati nell'archivio BLOB. È presente un BLOB, all'ora, per ogni contenitore.**
+
+I log vengono archiviati per ogni ora in cui si verifica l'attività. Il percorso seguente è un esempio di un file di log creato il 12 2020 gennaio alle 9:00. dove ogni `/` è una cartella: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2020/m=01/d=12/h=09/m=00/name=PT1H.json`
+
+## <a name="log-schema"></a>Schema del log
+
+Le strutture di dati che contengono dati di log di Azure ricerca cognitiva sono conformi allo schema riportato di seguito. 
+
+Per l'archiviazione BLOB, ogni BLOB ha un oggetto radice denominato **record** che contiene una matrice di oggetti log. Ogni BLOB contiene record su tutte le operazioni eseguite nell'arco della stessa ora.
+
+La tabella seguente è un elenco parziale dei campi comuni alla registrazione diagnostica.
+
+| Name | Type | Esempio | Note |
+| --- | --- | --- | --- |
+| timeGenerated |datetime |"2018-12-07T00:00:43.6872559Z" |Timestamp dell'operazione |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |resourceId in uso |
+| operationName |string |"Query.Search" |Nome dell'operazione |
+| operationVersion |string |"2019-05-06" |api-version usata |
+| category |string |"OperationLogs" |constant |
+| resultType |string |"Esito positivo" |Valori possibili: esito positivo o negativo |
+| resultSignature |int |200 |Codice risultato HTTP |
+| durationMS |int |50 |Durata dell'operazione in millisecondi |
+| connessione |object |Vedere la tabella seguente |Oggetto contenente dati specifici dell'operazione |
+
+### <a name="properties-schema"></a>Schema delle proprietà
+
+Le proprietà seguenti sono specifiche per ricerca cognitiva di Azure.
+
+| Name | Type | Esempio | Note |
+| --- | --- | --- | --- |
+| Description_s |string |"GET /indexes('content')/docs" |Endpoint dell'operazione |
+| Documents_d |int |42 |Numero di documenti elaborati |
+| IndexName_s |string |"test-index" |Nome dell'indice associato all'operazione |
+| Query_s |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Parametri della query |
+
+## <a name="metrics-schema"></a>Schema delle metriche
+
+Le metriche vengono acquisite per le richieste di query e misurate in intervalli di un minuto. Ogni metrica espone i valori minimi, massimi e medi al minuto. Per altre informazioni, vedere [monitorare le richieste di query](search-monitor-queries.md).
+
+| Name | Type | Esempio | Note |
+| --- | --- | --- | --- |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ID risorsa |
+| metricName |string |"Latenza" |Nome della metrica |
+| time |datetime |"2018-12-07T00:00:43.6872559Z" |Timestamp dell'operazione |
+| average |int |64 |Valore medio degli esempi non elaborati nell'intervallo di tempo della metrica, unità in secondi o percentuale, a seconda della metrica. |
+| minimum |int |37 |Valore minimo degli esempi non elaborati nell'intervallo di tempo della metrica, unità in secondi. |
+| numero massimo |int |78 |Valore massimo degli esempi non elaborati nell'intervallo di tempo della metrica, unità in secondi.  |
+| total |int |258 |Il valore totale degli esempi non elaborati nell'intervallo di tempo della metrica, unità in secondi.  |
+| count |int |4 |Numero di metriche emesse da un nodo al log entro l'intervallo di un minuto.  |
+| timegrain |string |"PT1M" |Granularità temporale della metrica in ISO 8601. |
+
+In genere, le query vengono eseguite in millisecondi, quindi solo le query che vengono misurate come secondi verranno visualizzate in metriche come query al secondo.
+
+Per la metrica **query di ricerca al secondo** , il valore minimo è il valore minimo per le query di ricerca al secondo registrate durante tale minuto. Lo stesso vale anche per il valore massimo. Il valore medio è l'aggregato nel corso dell'intero minuto. Ad esempio, all'interno di un minuto è possibile che si disponga di un modello simile al seguente: un secondo di carico elevato, che rappresenta il valore massimo per SearchQueriesPerSecond, seguito da 58 secondi di carico medio e infine da un secondo con una sola query, che corrisponde al valore minimo.
+
+Per le **query di ricerca limitate, percentuale**, minimo, massimo, medio e totale, hanno lo stesso valore: la percentuale di query di ricerca che sono state limitate, dal numero totale di query di ricerca in un minuto.
+
+## <a name="view-log-files"></a>Visualizzare i file di log
+
+L'archiviazione BLOB viene utilizzata per l'archiviazione dei file di log. È possibile usare qualsiasi editor JSON per visualizzare il file di log. Se non ne è già disponibile uno, è consigliabile usare [Visual Studio Code](https://code.visualstudio.com/download).
+
+1. Nel portale di Azure aprire l'account di archiviazione. 
+
+2. Nel riquadro di spostamento a sinistra fare clic su **BLOB**. Dovrebbero essere disponibili i contenitori **insights-logs-operationlogs** e **insights-metrics-pt1m**. Questi contenitori vengono creati da Azure ricerca cognitiva quando i dati di log vengono esportati nell'archivio BLOB.
+
+3. Scorrere la gerarchia di cartelle verso il basso fino a raggiungere il file con estensione JSON.  Usare il menu di scelta rapida per scaricare il file.
+
+Dopo aver scaricato il file, aprirlo in un editor JSON per visualizzare il contenuto.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Se non è già stato fatto, esaminare le nozioni di base del monitoraggio del servizio di ricerca per informazioni sull'intera gamma di funzionalità di supervisione.
+
+> [!div class="nextstepaction"]
+> [Monitorare operazioni e attività in Azure ricerca cognitiva](search-monitor-usage.md)

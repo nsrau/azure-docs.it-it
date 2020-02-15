@@ -1,19 +1,19 @@
 ---
 title: Introduzione al controllo della mappa Web | Mappe Microsoft Azure
 description: Informazioni su come usare la libreria JavaScript lato client del controllo mappa di Microsoft Azure Maps per eseguire il rendering delle mappe e della funzionalità embedded di Azure Maps nell'applicazione Web o per dispositivi mobili.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/15/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 90cd752ddd46999627de538abe3ca6b1926005aa
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 6701d777fb9aa16d3012baba082415bf9858e46f
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264127"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209818"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Usare il controllo mappa di mappe di Azure
 
@@ -180,7 +180,7 @@ Per altre informazioni, vedere il documento relativo all' [autenticazione con ma
 
 ![Immagine mappa che mostra il risultato del rendering](./media/how-to-use-map-control/map-of-seattle.png)
 
-## <a name="localizing-the-map"></a>Localizzazione della mappa
+## <a name="localizing-the-map"></a>Localizzare la mappa
 
 Azure Maps offre due modi diversi per impostare la lingua e la visualizzazione regionale per la mappa di cui è stato eseguito il rendering. La prima opzione consiste nell'aggiungere queste informazioni allo spazio dei nomi `atlas` globale, che determinerà l'impostazione predefinita di tutte le istanze del controllo mappa nell'app. Il codice seguente imposta la lingua in francese ("fr-FR") e la vista regionale su "auto":
 
@@ -212,7 +212,7 @@ Di seguito è riportato un esempio di mappe di Azure con la lingua impostata su 
 
 ![Immagine mappa che mostra le etichette in francese](./media/how-to-use-map-control/websdk-localization.png)
 
-Un elenco completo delle lingue supportate e delle viste internazionali è documentato [qui](supported-languages.md).
+Un elenco completo delle lingue e delle visualizzazioni a livello di area supportate è disponibile [qui](supported-languages.md).
 
 ## <a name="azure-government-cloud-support"></a>Supporto cloud di Azure per enti pubblici
 

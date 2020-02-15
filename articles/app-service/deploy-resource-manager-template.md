@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: e9647c1833416b9b225be988acaffb4022f655c1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dfdfa9f69e00aa644c21fc96cb70e9fa460ca0c1
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422101"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77211705"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Linee guida per la distribuzione di app Web tramite i modelli di Azure Resource Manager
 
@@ -90,7 +90,7 @@ Se il modello di Resource Manager usa MSDeploy, i messaggi di errore relativi al
 
 1. Passare alla [console Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) del sito.
 2. Passare alla cartella D:\home\LogFiles\SiteExtensions\MSDeploy.
-3. Cercare i file appManagerStatus.xml e appManagerLog.xml. Nel primo file viene registrato lo stato, nel secondo le informazioni relative all'errore. Se il significato dell'errore non è chiaro, è possibile includere queste informazioni nel forum per chiedere assistenza.
+3. Cercare i file appManagerStatus.xml e appManagerLog.xml. Nel primo file viene registrato lo stato, nel secondo le informazioni relative all'errore. Se l'errore non è chiaro, è possibile includerlo quando si richiede assistenza sul [Forum](https://docs.microsoft.com/answers/topics/azure-webapps.html).
 
 ## <a name="choose-a-unique-web-app-name"></a>Immettere un nome univoco per l'app Web
 
@@ -125,7 +125,7 @@ In Azure per enti pubblici, l'entità servizio di servizio app ha l'ID **6a02c80
 
 In Key Vault, selezionare **Certificati** e **Genera/Importa** per caricare il certificato.
 
-![Importare il certificato](media/web-sites-rm-template-guidance/import-certificate.png)
+![importazione di certificati](media/web-sites-rm-template-guidance/import-certificate.png)
 
 Nel modello, specificare il nome del certificato per il `keyVaultSecretName`.
 

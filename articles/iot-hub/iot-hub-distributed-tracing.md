@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: fc861126cd723bbb0f7c43d5d2db4eed1503605a
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: ed477dddeb499023f4803929d9433ed37c302159
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911888"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212491"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Tracciare i messaggi da un dispositivo al cloud di Azure IoT con la traccia distribuita (anteprima)
 
@@ -130,6 +130,9 @@ Queste istruzioni sono relative alla compilazione dell'esempio in Windows. Per a
 
 ### <a name="edit-the-send-telemetry-sample-to-enable-distributed-tracing"></a>Modificare l'esempio di invio di dati di telemetria per abilitare la traccia distribuita
 
+> [!div class="button"]
+> <a href="https://github.com/Azure-Samples/azure-iot-distributed-tracing-sample/blob/master/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c" target="_blank">Ottenere l'esempio in GitHub</a>
+
 1. Usare un editor per aprire il file di origine `azure-iot-sdk-c/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c`.
 
 1. Individuare la dichiarazione della costante `connectionString`:
@@ -175,7 +178,7 @@ Queste istruzioni sono relative alla compilazione dell'esempio in Windows. Per a
 
 Non è **semplice** visualizzare l'anteprima della funzionalità di traccia distribuita senza usare C SDK. Pertanto, questo approccio non è consigliato.
 
-Prima di tutto, è necessario implementare tutte le primitive di protocollo dell'hub Internet nei messaggi seguendo le istruzioni della Guida per sviluppatori [creare e leggere i messaggi dell'hub](iot-hub-devguide-messages-construct.md)Internet. Modificare quindi le proprietà del protocollo nei messaggi MQTT/AMQP per aggiungere `tracestate` come **proprietà di sistema**. ovvero:
+Prima di tutto, è necessario implementare tutte le primitive di protocollo dell'hub Internet nei messaggi seguendo le istruzioni della Guida per sviluppatori [creare e leggere i messaggi dell'hub](iot-hub-devguide-messages-construct.md)Internet. Modificare quindi le proprietà del protocollo nei messaggi MQTT/AMQP per aggiungere `tracestate` come **proprietà di sistema**. In particolare:
 
 * Per MQTT aggiungere `%24.tracestate=timestamp%3d1539243209` all'argomento Message, in cui `1539243209` deve essere sostituito con l'ora di creazione del messaggio nel formato timestamp UNIX. Come esempio, fare riferimento all'implementazione [in C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761) .
 * Per AMQP, aggiungere `key("tracestate")` e `value("timestamp=1539243209")` come annotazione del messaggio. Per un'implementazione di riferimento, vedere [qui](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527).
@@ -198,7 +201,7 @@ Per modificare la percentuale di messaggi da tracciare dal cloud, è necessario 
 
 1. Per **Velocità di campionamento** scegliere un valore compreso tra 0% e 100%.
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 1. Attendere alcuni secondi e selezionare **Aggiorna**. In caso di riconoscimento da parte del dispositivo, verrà visualizzata un'icona di sincronizzazione con un segno di spunta.
 
@@ -241,7 +244,7 @@ Per aggiornare la configurazione di campionamento della traccia distribuita per 
 }
 ```
 
-| Nome dell'elemento | Obbligatorio | Tipo | Description |
+| Nome elemento | Obbligatoria | Type | Descrizione |
 |-----------------|----------|---------|-----------------------------------------------------|
 | `sampling_mode` | Sì | Integer | Sono attualmente supportati i valori di due modalità per attivare e disattivare il campionamento. `1` per attivare e `2` per disattivare. |
 | `sampling_rate` | Sì | Integer | Questo valore indica una percentuale. Sono consentiti solo valori compresi tra `0` e `100` (estremi inclusi).  |
@@ -264,11 +267,11 @@ AzureDiagnostics
 
 Log di esempio mostrati da Log Analytics:
 
-| TimeGenerated | OperationName | Categoria | Livello | CorrelationId | DurationMs | Proprietà |
+| TimeGenerated | OperationName | Category | Level | CorrelationId | DurationMs | Proprietà |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | Informativo | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
-| 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Informativo | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
-| 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | Informativo | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"} |
+| 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | Informazioni | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
+| 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Informazioni | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
+| 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | Informazioni | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"} |
 
 Per informazioni sui diversi tipi di log, vedere [Log di diagnostica dell'hub IoT di Azure](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
 
@@ -306,7 +309,7 @@ Dopo l'abilitazione, il supporto della traccia distribuita per l'hub IoT seguir�
 1. Il messaggio arriva al gateway dell'hub IoT.
 1. L'hub IoT cerca `tracestate` nelle proprietà dell'applicazione del messaggio e verifica che sia nel formato corretto.
 1. In caso affermativo, l'hub IoT genera e registra `trace-id` e `span-id` nei log di diagnostica di Monitoraggio di Azure nella categoria `DiagnosticIoTHubD2C`.
-1. Al termine dell'elaborazione del messaggio, l'hub IoT genera un altro `span-id` e lo registra nella categoria `DiagnosticIoTHubIngress` con l'elemento `trace-id` esistente.
+1. Al termine dell'elaborazione del messaggio, l'hub IoT genera un altro `span-id` e lo registra nella categoria `trace-id` con l'elemento `DiagnosticIoTHubIngress` esistente.
 1. Se è abilitato il routing del messaggio, l'hub IoT lo scrive nell'endpoint personalizzato e registra un altro `span-id` con lo stesso `trace-id` nella categoria `DiagnosticIoTHubEgress`.
 1. I passaggi sopra descritti vengono ripetuti per ogni messaggio generato.
 

@@ -4,14 +4,14 @@ description: Prerequisiti per l'uso della cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 02/12/2020
 ms.author: rohogue
-ms.openlocfilehash: 90b84d936bda4e3a974e60934e82ac6c3389d85a
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 135c231f84d95ea2418fab4647d715473378e41c
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645770"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251958"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prerequisiti per cache HPC di Azure
 
@@ -70,12 +70,6 @@ La cache supporta i contenitori BLOB di Azure o le esportazioni di archiviazione
 
 Ogni tipo di archiviazione ha prerequisiti specifici.
 
-### <a name="nfs-storage-requirements"></a>Requisiti di archiviazione NFS
-
-Se si usa l'archiviazione hardware locale, la cache deve avere un accesso di rete a larghezza di banda elevata al Data Center dalla relativa subnet. È consigliabile usare [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) o un accesso simile.
-
-L'archiviazione back-end NFS deve essere una piattaforma hardware/software compatibile. Per informazioni dettagliate, contattare il team di cache HPC di Azure.
-
 ### <a name="blob-storage-requirements"></a>Requisiti per l'archiviazione BLOB
 
 Se si vuole usare l'archiviazione BLOB di Azure con la cache, è necessario un account di archiviazione compatibile e un contenitore BLOB vuoto o un contenitore popolato con i dati formattati della cache HPC di Azure, come descritto in [spostare i dati nell'archivio BLOB di Azure](hpc-cache-ingest.md).
@@ -93,6 +87,52 @@ Per creare un account di archiviazione compatibile, usare le impostazioni seguen
 <!-- clarify location - same region or same resource group or same virtual network? -->
 
 È anche necessario concedere all'applicazione cache l'accesso all'account di archiviazione di Azure, come indicato nelle [autorizzazioni](#permissions)sopra riportate. Seguire la procedura descritta in [aggiungere destinazioni di archiviazione](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) per assegnare alla cache i ruoli di accesso necessari. Se non si è il proprietario dell'account di archiviazione, chiedere al proprietario di eseguire questo passaggio.
+
+### <a name="nfs-storage-requirements"></a>Requisiti di archiviazione NFS
+
+Se si usa un sistema di archiviazione NFS (ad esempio, un sistema NAS hardware locale), assicurarsi che soddisfi questi requisiti. Per verificare queste impostazioni, potrebbe essere necessario collaborare con gli amministratori di rete o i responsabili del firewall per il sistema di archiviazione (o data center).
+
+> [!NOTE]
+> La creazione della destinazione di archiviazione avrà esito negativo se la cache non dispone di accesso sufficiente al sistema di archiviazione NFS.
+
+* **Connettività di rete:** La cache HPC di Azure necessita di un accesso di rete a larghezza di banda elevata tra la subnet della cache e il data center del sistema NFS. È consigliabile usare [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) o un accesso simile. Se si usa una VPN, potrebbe essere necessario configurarla in modo da bloccare la connessione MSS TCP a 1350 per assicurarsi che i pacchetti di grandi dimensioni non vengano bloccati.
+
+* **Accesso alla porta:** La cache deve accedere a porte TCP/UDP specifiche sul sistema di archiviazione. Tipi diversi di archiviazione hanno requisiti di porta diversi.
+
+  Per verificare le impostazioni del sistema di archiviazione, seguire questa procedura.
+
+  * Eseguire un comando `rpcinfo` per il sistema di archiviazione per verificare le porte necessarie. Il comando seguente elenca le porte e formatta i risultati rilevanti in una tabella. (Usare l'indirizzo IP del sistema al posto del *< storage_IP termine >* .)
+
+    È possibile eseguire questo comando da qualsiasi client Linux in cui è installata l'infrastruttura NFS. Se si usa un client all'interno della subnet del cluster, può essere utile anche per verificare la connettività tra la subnet e il sistema di archiviazione.
+
+    ```bash
+    rpcinfo -p <storage_IP> |egrep "100000\s+4\s+tcp|100005\s+3\s+tcp|100003\s+3\s+tcp|100024\s+1\s+tcp|100021\s+4\s+tcp"| awk '{print $4 "/" $3 " " $5}'|column -t
+    ```
+
+  * Oltre alle porte restituite dal comando `rpcinfo`, assicurarsi che queste porte utilizzate comunemente consentano il traffico in ingresso e in uscita:
+
+    | Protocollo | Porta  | Service  |
+    |----------|-------|----------|
+    | TCP/UDP  | 111   | rpcbind  |
+    | TCP/UDP  | 2049  | NFS      |
+    | TCP/UDP  | 4045  | nlockmgr |
+    | TCP/UDP  | 4046  | mountd   |
+    | TCP/UDP  | 4047  | stato   |
+
+  * Controllare le impostazioni del firewall per assicurarsi che consentano il traffico su tutte le porte necessarie. Assicurarsi di controllare i firewall usati in Azure e nei firewall locali nel data center.
+
+* **Accesso alla directory:** Abilitare il comando `showmount` nel sistema di archiviazione. Cache HPC di Azure usa questo comando per verificare che la configurazione di destinazione di archiviazione punti a un'esportazione valida e anche per assicurarsi che più montaggi non accedano alle stesse sottodirectory (che rischia i conflitti di file).
+
+  > [!NOTE]
+  > Se il sistema di archiviazione NFS usa il sistema operativo ONTAP 9,2 di NetApp, non **abilitare `showmount`** . Per assistenza, [contattare il servizio Microsoft e il supporto tecnico](hpc-cache-support-ticket.md) .
+
+* **Accesso alla radice:** La cache si connette al sistema back-end come ID utente 0. Controllare le impostazioni seguenti nel sistema di archiviazione:
+  
+  * Abilitare `no_root_squash`. Questa opzione assicura che l'utente root remoto possa accedere ai file di proprietà della radice.
+
+  * Controllare Esporta criteri per assicurarsi che non includano restrizioni per l'accesso radice dalla subnet della cache.
+
+* L'archiviazione back-end NFS deve essere una piattaforma hardware/software compatibile. Per informazioni dettagliate, contattare il team di cache HPC di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

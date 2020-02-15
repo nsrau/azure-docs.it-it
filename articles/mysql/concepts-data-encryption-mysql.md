@@ -6,19 +6,19 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 1d4153ac5e02d28d054034f33859332158d5a555
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 552c6b5176babfc1a66f74f1bb6daa9370744b8f
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162362"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210432"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Crittografia dei dati di database di Azure per MySQL con una chiave gestita dal cliente
 
 > [!NOTE]
 > A questo punto, è necessario richiedere l'accesso per usare questa funzionalità. A tale scopo, contattare AskAzureDBforMySQL@service.microsoft.com.
 
-La crittografia dei dati con chiavi gestite dal cliente per database di Azure per MySQL consente di portare la chiave qwn (BYOK) per la protezione dei dati inattivi. Consente inoltre alle organizzazioni di implementare la separazione dei compiti nella gestione delle chiavi e dei dati. Con la crittografia gestita dal cliente, l'utente è responsabile e, in un controllo completo, del ciclo di vita di una chiave, delle autorizzazioni di utilizzo delle chiavi e del controllo delle operazioni sulle chiavi.
+La crittografia dei dati con chiavi gestite dal cliente per database di Azure per MySQL ti permette di usare la tua chiave (BYOK) per la protezione dei dati inattivi. Consente inoltre alle organizzazioni di implementare la separazione dei compiti nella gestione delle chiavi e dei dati. Con la crittografia gestita dal cliente, l'utente è responsabile e, in un controllo completo, del ciclo di vita di una chiave, delle autorizzazioni di utilizzo delle chiavi e del controllo delle operazioni sulle chiavi.
 
 La crittografia dei dati con chiavi gestite dal cliente per database di Azure per MySQL è impostata a livello di server. Per un determinato server, una chiave gestita dal cliente, denominata chiave di crittografia della chiave (KEK), viene usata per crittografare la chiave di crittografia dei dati usata dal servizio. KEK è una chiave asimmetrica archiviata in un'istanza di [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) gestita dal cliente e gestita dal cliente. La chiave di crittografia della chiave (KEK) e la chiave di crittografia dei dati sono descritte in modo più dettagliato più avanti in questo articolo.
 

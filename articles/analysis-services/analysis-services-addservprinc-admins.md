@@ -7,16 +7,20 @@ ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 0a3a86283c8ec9876fbec049a2a1a110eb1a80f3
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.custom: fasttrack-edit
+ms.openlocfilehash: b75740e9bff714ad68c93bea7e387e60da2f1c59
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573607"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212505"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Aggiungere un'entità servizio al ruolo di amministratore del server 
 
- Per automatizzare le attività di PowerShell, un'entità servizio deve avere privilegi di **amministratore del server** nel server Analysis Services gestito. Questo articolo descrive come aggiungere un'entità servizio al ruolo di amministratore del server in un server Azure Analysis Services.
+ Per automatizzare le attività di PowerShell, un'entità servizio deve avere privilegi di **amministratore del server** nel server Analysis Services gestito. Questo articolo descrive come aggiungere un'entità servizio al ruolo di amministratore del server in un server Azure Analysis Services. A tale scopo, è possibile usare SQL Server Management Studio o un modello di Gestione risorse.
+ 
+> [!NOTE]
+> Per le operazioni del server che usano i cmdlet di Azure PowerShell, l'entità servizio deve appartenere anche al ruolo di **proprietario** per la risorsa nel [controllo degli accessi in base al ruolo di Azure (RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Prima di completare questa attività, è necessario aver creato un'entità servizio registrata in Azure Active Directory.
@@ -24,10 +28,9 @@ Prima di completare questa attività, è necessario aver creato un'entità servi
 [Creare un'entità servizio - Portale di Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
 [Creare un'entità servizio - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
-## <a name="required-permissions"></a>Autorizzazioni necessarie
-Per completare questa attività, è necessario avere autorizzazioni di [amministratore del server](analysis-services-server-admins.md) nel server Azure Analysis Services. 
+## <a name="using-sql-server-management-studio"></a>Utilizzare SQL Server Management Studio
 
-## <a name="add-service-principal-to-server-administrators-role"></a>Aggiungere un'entità servizio al ruolo di amministratore del server
+È possibile configurare gli amministratori del server usando SQL Server Management Studio (SSMS). Per completare questa attività, è necessario avere autorizzazioni di [amministratore del server](analysis-services-server-admins.md) nel server Azure Analysis Services. 
 
 1. In SSMS connettersi al server Azure Analysis Services.
 2. In **Proprietà server** > **Sicurezza** fare clic su **Aggiungi**.
@@ -39,9 +42,60 @@ Per completare questa attività, è necessario avere autorizzazioni di [amminist
     
     ![Cercare l'account dell'entità servizio](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
+## <a name="using-a-resource-manager-template"></a>Uso di un modello di Gestione risorse
 
-> [!NOTE]
-> Per le operazioni del server che usano i cmdlet di Azure PowerShell, l'entità servizio che esegue l'utilità di pianificazione deve appartenere anche al ruolo di **proprietario** per la risorsa nel [controllo degli accessi in base al ruolo di Azure (RBAC)](../role-based-access-control/overview.md). 
+È anche possibile configurare gli amministratori del server distribuendo il server Analysis Services usando un modello di Azure Resource Manager. L'identità che esegue la distribuzione deve appartenere al ruolo **collaboratore** per la risorsa nel [controllo degli accessi in base al ruolo di Azure (RBAC)](../role-based-access-control/overview.md).
+
+> [!IMPORTANT]
+> L'entità servizio deve essere aggiunta usando il formato `app:{service-principal-client-id}@{azure-ad-tenant-id}`.
+
+Il modello di Gestione risorse seguente distribuisce un server Analysis Services con un'entità servizio specificata aggiunta al ruolo di amministratore Analysis Services:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "analysisServicesServerName": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "analysisServicesSkuName": {
+            "type": "string"
+        },
+        "analysisServicesCapacity": {
+            "type": "int"
+        },
+        "servicePrincipalClientId": {
+            "type": "string"
+        },
+        "servicePrincipalTenantId": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "name": "[parameters('analysisServicesServerName')]",
+            "type": "Microsoft.AnalysisServices/servers",
+            "apiVersion": "2017-08-01",
+            "location": "[parameters('location')]",
+            "sku": {
+                "name": "[parameters('analysisServicesSkuName')]",
+                "capacity": "[parameters('analysisServicesCapacity')]"
+            },
+            "properties": {
+                "asAdministrators": {
+                    "members": [
+                        "[concat('app:', parameters('servicePrincipalClientId'), '@', parameters('servicePrincipalTenantId'))]"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
 
 ## <a name="related-information"></a>Informazioni correlate
 

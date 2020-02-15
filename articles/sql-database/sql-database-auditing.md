@@ -9,12 +9,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/11/2020
-ms.openlocfilehash: 7011bf068a96fe9da035ec08a1f6ef7f80a0b240
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 686e426ef0b7706eff168e42ffc67417b2c5c743
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161954"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212894"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
@@ -82,15 +82,15 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 
 ### <a id="audit-storage-destination">Controllo nella destinazione di archiviazione</a>
 
-Per configurare la scrittura dei log per un account di archiviazione, selezionare **memorizzazione** e aprire **dettagli archiviazione**. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e quindi selezionare il periodo di conservazione. Fare quindi clic su **OK**. I log antecedenti al periodo di conservazione vengono eliminati.
+Per configurare la scrittura dei log per un account di archiviazione, selezionare **memorizzazione** e aprire **dettagli archiviazione**. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e quindi selezionare il periodo di conservazione. Fare quindi clic su **OK**, I log antecedenti al periodo di conservazione vengono eliminati.
 
    > [!IMPORTANT]
    > - Il valore predefinito per il periodo di memorizzazione è 0 (conservazione illimitata). È possibile modificare questo valore spostando il dispositivo di scorrimento **conservazione (giorni)** nelle **impostazioni di archiviazione** quando si configura l'account di archiviazione per il controllo.
    > - Se si modifica il periodo di conservazione da 0 (conservazione illimitata) a qualsiasi altro valore, si noti che la conservazione verrà applicata solo ai log scritti dopo la modifica del valore di conservazione (i log scritti durante il periodo in cui la conservazione è stata impostata su illimitata vengono conservati, anche dopo conservazione abilitata)
 
-   ![archiviazione di Azure](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+   ![account di archiviazione](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-Per configurare un account di archiviazione in una rete virtuale o un firewall, è necessario un [Active Directory amministratore](/sql-database-aad-authentication-configure.md?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) sul server, abilitare **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione** nell'account di archiviazione. Inoltre, è necessario disporre dell'autorizzazione ' Microsoft. Authorization/roleAssignments/Write ' per l'account di archiviazione selezionato.
+Per configurare un account di archiviazione in una rete virtuale o un firewall, è necessario un [Active Directory amministratore](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-managed-instance) sul server, abilitare **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione** nell'account di archiviazione. Inoltre, è necessario disporre dell'autorizzazione ' Microsoft. Authorization/roleAssignments/Write ' per l'account di archiviazione selezionato.
 
 È consigliabile essere [amministratore accesso utenti](../role-based-access-control/built-in-roles.md#user-access-administrator) per concedere all'identità gestita il ruolo "collaboratore dati BLOB di archiviazione". Per altre informazioni sulle autorizzazioni e sul controllo degli accessi in base al ruolo, vedere [che cos'è il controllo degli accessi in base al ruolo per le risorse di Azure?](../role-based-access-control/overview.md) e [aggiungere o rimuovere assegnazioni di ruolo usando RBAC di azure e il portale di Azure](../role-based-access-control/role-assignments-portal.md)
 

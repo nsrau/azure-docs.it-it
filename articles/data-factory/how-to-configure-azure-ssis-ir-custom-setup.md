@@ -11,13 +11,13 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 02/01/2020
-ms.openlocfilehash: c4502cc4a808b4a44f70c1f96fe38fd0ddeebdee
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.date: 02/14/2020
+ms.openlocfilehash: 9c084564fec3faf59317fe9e05f3e850a38454d6
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187723"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251975"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personalizzare il programma di installazione di un Azure-SSIS Integration Runtime
 
@@ -46,7 +46,7 @@ Le limitazioni seguenti si applicano solo alle configurazioni personalizzate sta
 
 - Il driver ODBC di IBM iSeries Access non è supportato nel Azure-SSIS IR. Potrebbero essere visualizzati errori di installazione durante l'installazione personalizzata. In tal caso, contattare il supporto tecnico IBM per assistenza.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -72,7 +72,7 @@ Per personalizzare il Azure-SSIS IR sono necessari gli elementi seguenti:
 
    a. In **(locale e collegato)** fare clic con il pulsante destro del mouse su **account di archiviazione**e quindi scegliere **Connetti ad archiviazione di Azure**.
 
-      ![Connettersi ad Archiviazione di Azure](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
+      ![Connetti ad Archiviazione di Azure](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
 
    b. Selezionare **Usa nome e chiave dell'account di archiviazione**e quindi fare clic su **Avanti**.
 
@@ -121,8 +121,12 @@ Per personalizzare il Azure-SSIS IR sono necessari gli elementi seguenti:
 
      * Se si seleziona il **Hedda oh22's. Componente IO** , è possibile installare [Hedda. ](https://hedda.io/ssis-component/)Componente per la qualità dei dati e la pulizia dei dati di i/o da oh22 nel Azure-SSIS IR dopo l'acquisto del servizio. La versione integrata corrente è **1.0.13**.
 
-      * Se si seleziona il componente **oh22's SQLPhonetics.NET** , è possibile installare il componente [SQLPhonetics.NET](https://sqlphonetics.oh22.is/sqlphonetics-net-for-microsoft-ssis/) Data Quality/matching da oh22 nella Azure-SSIS IR immettendo il codice Product Key acquistato da essi nella casella **chiave di licenza** . La versione integrata corrente è **1.0.43**.
-   
+     * Se si seleziona il componente **oh22's SQLPhonetics.NET** , è possibile installare il componente [SQLPhonetics.NET](https://sqlphonetics.oh22.is/sqlphonetics-net-for-microsoft-ssis/) Data Quality/matching da oh22 nella Azure-SSIS IR immettendo il codice Product Key acquistato da essi nella casella **chiave di licenza** . La versione integrata corrente è **1.0.43**.
+
+     * Se si seleziona il componente **SSIS Integration Toolkit di KingswaySoft** , è possibile installare la suite di connettori [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) per le app CRM/ERP/marketing/collaborazione, ad esempio Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce Marketing Cloud e così via, da KingswaySoft nel Azure-SSIS IR immettendo il codice di licenza del prodotto acquistato da essi nella casella **chiave di licenza** . La versione integrata corrente è **2019,2**.
+
+     * Se si seleziona il componente **SSIS Productivity Pack di KingswaySoft** , è possibile installare i componenti di [SSIS Productivity Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) suite di componenti da KingswaySoft nel Azure-SSIS IR immettendo il codice di licenza del prodotto acquistato da essi nella casella **chiave di licenza** . La versione integrata corrente è **10,0**.
+
    Le impostazioni di aggiunta personalizzate Express verranno visualizzate nella sezione **Impostazioni avanzate** . Per rimuoverli, selezionare le caselle di controllo e quindi selezionare **Elimina**.
 
    ![Impostazioni avanzate con configurazioni personalizzate](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png)

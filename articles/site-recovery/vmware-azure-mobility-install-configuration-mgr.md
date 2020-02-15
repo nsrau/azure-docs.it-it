@@ -3,14 +3,14 @@ title: Automatizzare il servizio Mobility per il ripristino di emergenza dell'in
 description: Come installare automaticamente il servizio Mobility per il ripristino di emergenza di VMware/Physical Server con Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.topic: how-to
-ms.date: 12/22/2019
+ms.date: 2/5/2020
 ms.author: ramamill
-ms.openlocfilehash: 235b96cfd2da0c097bc576c63f5bd1c8ed224781
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f24d321e882024d324435498adf11694037547f7
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896021"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252228"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatizzare l'installazione del servizio Mobility
 
@@ -20,7 +20,7 @@ Quando si distribuisce Site Recovery per il ripristino di emergenza di server fi
 
 - **Installazione push**: consente di Site Recovery installare l'agente del servizio Mobility quando si Abilita la replica per un computer nel portale di Azure.
 - **Installazione manuale**: installare manualmente il servizio Mobility in ogni computer. [Altre](vmware-physical-mobility-service-overview.md) informazioni sull'installazione push e manuale.
-- **Distribuzione automatizzata**: automatizzare l'installazione con strumenti di distribuzione software, ad esempio Microsoft endpoint Configuration Manager o strumenti di terze parti come Intigua JetPatch.
+- **Distribuzione automatizzata**: automatizzare l'installazione con strumenti di distribuzione software, ad esempio Microsoft endpoint Configuration Manager o strumenti di terze parti, ad esempio JetPatch.
 
 L'installazione e l'aggiornamento automatici forniscono una soluzione se:
 
@@ -356,7 +356,7 @@ cd /tmp
     --- | --- | ---
     **Nome** | Installare il servizio Mobility di Microsoft Azure (Windows) | Installare Microsoft Azure servizio Mobility (Linux).
     **Riga di comando** | install.bat | ./install_linux.sh
-    **È possibile eseguire il programma** | anche se non ci sono utenti connessi | anche se non ci sono utenti connessi
+    **È possibile eseguire il programma** | Indipendentemente dalla connessione degli utenti | Indipendentemente dalla connessione degli utenti
     **Altri parametri** | Usa impostazione predefinita | Usa impostazione predefinita
 
    ![Schermata di Creazione guidata pacchetto e programma](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
@@ -374,7 +374,7 @@ cd /tmp
 
    ![Screenshot della console di Configuration Manager](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
 
-1. Consente di selezionare i punti di distribuzione in cui copiare i pacchetti. [Altre informazioni](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points)
+1. Consente di selezionare i punti di distribuzione in cui copiare i pacchetti. [Altre informazioni](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points).
 1. Completare la procedura guidata. Il pacchetto inizia la replica nei punti di distribuzione specificati.
 1. Al termine della distribuzione del pacchetto, fare clic con il pulsante destro del mouse sul pacchetto > **Distribuisci**.
 
@@ -386,7 +386,7 @@ cd /tmp
 
    ![Schermata della Distribuzione guidata del software](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
 
-1. In **specificare la pianificazione per questa distribuzione**, impostare una pianificazione. [Altre informazioni](/sccm/apps/deploy-use/deploy-applications#bkmk_deploy-sched)
+1. In **specificare la pianificazione per questa distribuzione**, impostare una pianificazione. [Altre informazioni](/sccm/apps/deploy-use/deploy-applications#bkmk_deploy-sched).
 
    - Il servizio Mobility viene installato in base alla pianificazione specificata.
    - Per evitare riavvii non necessari, pianificare l'installazione del pacchetto durante la finestra di manutenzione mensile o degli aggiornamenti software.

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: d8d3204c8a5ace17ae47a17d4c4ffec2ec7977f2
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/14/2020
+ms.openlocfilehash: 0603ad1fbecf33e5880fd7f18d35af51795f8e39
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112245"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251992"
 ---
 # <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-cognitive-search"></a>Esercitazione REST: indicizzare e cercare dati semi-strutturati (BLOB JSON) in Azure ricerca cognitiva
 
@@ -27,7 +27,7 @@ In questa esercitazione usare le [API REST di Ricerca cognitiva di Azure](https:
 > * Configurare ed eseguire un indicizzatore per leggere il contenitore ed estrarre contenuto ricercabile da archiviazione BLOB di Azure
 > * Eseguire una ricerca nell'indice che appena creato
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 In questa guida di avvio rapido vengono usati i servizi, gli strumenti e i dati seguenti. 
 
@@ -67,7 +67,7 @@ Per ogni richiesta inviata al servizio è necessario specificare una chiave API.
 
 Dopo aver completato il caricamento, i file dovrebbero essere visualizzati nella rispettiva sottocartella all'interno del contenitore dei dati.
 
-## <a name="set-up-postman"></a>Impostare Postman
+## <a name="set-up-postman"></a>Configurare Postman
 
 Avviare Postman e configurare una richiesta HTTP. Se non si ha familiarità con questo strumento, vedere [Esplorare le API REST di Ricerca cognitiva di Azure con Postman](search-get-started-postman.md) per altre informazioni.
 
@@ -83,7 +83,7 @@ Eseguire le tre chiamate dell'API seguenti dal client REST.
 
 ## <a name="create-a-data-source"></a>Creare un'origine dati
 
-L'[API di creazione dell'origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source) crea un'origine di Ricerca cognitiva di Azure che specifica quali dati indicizzare.
+L' [API Create data source](https://docs.microsoft.com/rest/api/searchservice/create-data-source) crea un oggetto ricerca cognitiva di Azure che specifica i dati da indicizzare.
 
 L'endpoint di questa chiamata è `https://[service name].search.windows.net/datasources?api-version=2019-05-06`. Sostituire `[service name]` con il nome del servizio di ricerca. 
 
@@ -126,7 +126,7 @@ La risposta dovrebbe essere simile alla seguente:
 
 ## <a name="create-an-index"></a>Creare un indice
     
-La seconda chiamata è l'[API di creazione dell'indice](https://docs.microsoft.com/rest/api/searchservice/create-indexer) che crea un indice di Ricerca cognitiva di Azure che archivia tutti i dati ricercabili. Un indice specifica tutti i parametri e i relativi attributi.
+La seconda chiamata è l'[API di creazione dell'indice](https://docs.microsoft.com/rest/api/searchservice/create-index) che crea un indice di Ricerca cognitiva di Azure che archivia tutti i dati ricercabili. Un indice specifica tutti i parametri e i relativi attributi.
 
 L'URL per questa chiamata è `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Sostituire `[service name]` con il nome del servizio di ricerca.
 

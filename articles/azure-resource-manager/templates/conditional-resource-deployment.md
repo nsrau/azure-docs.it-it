@@ -3,12 +3,12 @@ title: Distribuzione condizionale con modelli
 description: Viene descritto come distribuire in modo condizionale una risorsa in un modello di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: b4ee733e81f3a923f268f33f5826387059923bcb
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 83aa22ba57e0111d060665778922437723481c69
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121999"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207792"
 ---
 # <a name="conditional-deployment-in-resource-manager-templates"></a>Distribuzione condizionale nei modelli di Gestione risorse
 
@@ -88,4 +88,4 @@ Se si distribuisce un modello con la [modalità completa](deployment-modes.md) e
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per suggerimenti sulla creazione di modelli, vedere [Procedure consigliate per la creazione di modelli di Azure Resource Manager](template-best-practices.md).
-* Per creare più istanze di una risorsa, vedere [Resource, Property o Variable iterazione in Azure Resource Manager Templates](create-multiple-instances.md).
+* Per creare più istanze di una risorsa, vedere [iterazione delle risorse nei modelli di Azure Resource Manager](copy-resources.md).

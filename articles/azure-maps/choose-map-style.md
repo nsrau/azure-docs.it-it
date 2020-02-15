@@ -1,19 +1,19 @@
 ---
 title: Funzionalità dello stile della mappa | Mappe Microsoft Azure
-description: Questo articolo illustra le funzionalità correlate allo stile disponibili in Microsoft Azure Maps Web SDK.
-author: walsehgal
-ms.author: v-musehg
+description: In questo articolo vengono fornite informazioni sulle funzionalità correlate allo stile disponibili in Microsoft Azure Maps Web SDK.
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cabf39f017afe440c883a63db57643c5c5367128
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: b793a0fc977d3da4b4b6753877e838441e70e800
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189733"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210090"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Scegliere uno stili delle mappe in Mappe di Azure
 

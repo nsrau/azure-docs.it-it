@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: bb0f2e3fc3b84f5e1f9fe999b31fffadaa5915d4
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: c2dc98d683d822628dc9ea1b4ead02279ea10ea5
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687603"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251805"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Domande frequenti sul Servizio app di Azure in Linux
 
@@ -32,7 +32,7 @@ In caso di domande, inviare commenti su questo articolo.
 
 | Stack           | Valore previsto                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
-| Java SE         | comando per avviare l'app JAR (ad esempio, `java -jar my-app.jar --server.port=80`) |
+| Java SE         | comando per avviare l'app JAR (ad esempio, `java -jar /home/site/wwwroot/app.jar --server.port=80`) |
 | Tomcat, Wildfly | percorso di uno script per eseguire tutte le configurazioni necessarie, ad esempio `/home/site/deployments/tools/startup_script.sh`          |
 | Node.js         | il file di configurazione PM2 o il file di script                                |
 | .Net Core       | nome della DLL compilata come `dotnet <myapp>.dll`                                 |

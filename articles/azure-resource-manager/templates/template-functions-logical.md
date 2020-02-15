@@ -3,12 +3,12 @@ title: Funzioni di modello-Logical
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per determinare i valori logici.
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 48c6a05c5a449626c66f9d75c8578b217906d8e0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: aef520a26124a85f414c4f4aa1a3e307d383c29b
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483960"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207214"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funzioni logiche nei modelli di Azure Resource Manager
 
@@ -28,7 +28,7 @@ Verifica se tutti i valori dei parametri sono true.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |boolean |Primo valore da controllare per verificare se è true. |
 | arg2 |Sì |boolean |Secondo valore da controllare per verificare se è true. |
@@ -66,11 +66,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| Nome | Tipo | Valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | Falso |
-| orExampleOutput | Bool | Vero |
-| notExampleOutput | Bool | Falso |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | False |
 
 ## <a name="bool"></a>bool
 
@@ -80,7 +80,7 @@ Converte il parametro in un valore booleano.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |stringa o numero intero |Valore da convertire in un valore booleano. |
 
@@ -119,12 +119,12 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
-| trueString | Bool | Vero |
-| falseString | Bool | Falso |
-| trueInt | Bool | Vero |
-| falseInt | Bool | Falso |
+| trueString | Bool | True |
+| falseString | Bool | False |
+| trueInt | Bool | True |
+| falseInt | Bool | False |
 
 ## <a name="if"></a>if
 
@@ -134,7 +134,7 @@ Restituisce un valore in base a un condizione true o false.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | condizione |Sì |boolean |Valore per verificare se è true o false. |
 | trueValue |Sì | string, int, object o array |Valore da restituire quando la condizione è true. |
@@ -144,7 +144,7 @@ Restituisce un valore in base a un condizione true o false.
 
 Restituisce il secondo parametro, quando il primo parametro è **True**. In caso contrario, restituisce il terzo parametro.
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 Quando la condizione è **true**, viene valutato solo il valore true. Quando la condizione è **false**, viene valutato solo il valore false. Con la funzione **if** è possibile includere espressioni che sono valide solo in modo condizionale. Ad esempio, è possibile fare riferimento a una risorsa presente in una condizione ma non in un'altra condizione. Nella sezione seguente viene illustrato un esempio della valutazione condizionale delle espressioni.
 
@@ -177,10 +177,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| Nome | Tipo | Valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
-| yesOutput | string | sì |
-| noOutput | string | no |
+| yesOutput | String | sì |
+| noOutput | String | no |
 | objectOutput | Oggetto | { "test": "value1" } |
 
 Nel [modello di esempio](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) seguente viene illustrato come utilizzare questa funzione con espressioni che sono valide solo in modo condizionale.
@@ -239,7 +239,7 @@ Converte il valore booleano nel valore opposto.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |boolean |Valore da convertire. |
 
@@ -275,11 +275,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| Nome | Tipo | Valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | Falso |
-| orExampleOutput | Bool | Vero |
-| notExampleOutput | Bool | Falso |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | False |
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) seguente usa **not** con [equals](template-functions-comparison.md#equals).
 
@@ -299,11 +299,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| Nome | Tipo | Valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | Vero |
+| checkNotEquals | Bool | True |
 
-## <a name="or"></a>Oppure
+## <a name="or"></a>o
 
 `or(arg1, arg2, ...)`
 
@@ -311,7 +311,7 @@ Verifica se uno qualsiasi dei valori dei parametri è true.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |boolean |Primo valore da controllare per verificare se è true. |
 | arg2 |Sì |boolean |Secondo valore da controllare per verificare se è true. |
@@ -349,16 +349,16 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| Nome | Tipo | Valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | Falso |
-| orExampleOutput | Bool | Vero |
-| notExampleOutput | Bool | Falso |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | False |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](template-syntax.md).
 * Per unire più modelli, vedere [Uso di modelli collegati con Azure Resource Manager](linked-templates.md).
-* Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](create-multiple-instances.md).
+* Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](copy-resources.md).
 * Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Azure Resource Manager](deploy-powershell.md).
 

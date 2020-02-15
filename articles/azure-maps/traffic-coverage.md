@@ -1,19 +1,19 @@
 ---
 title: Copertura del traffico | Mappe Microsoft Azure
 description: In questo articolo vengono fornite informazioni sulla copertura del traffico in Microsoft Azure maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 09/22/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 083f659f9392faff8f381e1552db23c291ffa8ca
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 02d57f39f2a911864ebe16d05456409d0119b495
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988146"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209529"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Copertura per il traffico in Mappe di Azure
 
@@ -23,7 +23,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 
 ## <a name="americas"></a>Americhe
 
-|Paese/Area geografica  |Eventi imprevisti  |Flusso  |
+|Country/Region  |Eventi  |Flusso  |
 |---------|:---------:|:---------:|
 |Argentina      |✓         |✓         |
 |Brasile     |✓         |✓         |
@@ -39,11 +39,11 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 
 ## <a name="asia-pacific"></a>Asia Pacifico
 
-|Paese/Area geografica   |Eventi imprevisti  |Flusso  |
+|Country/Region   |Eventi  |Flusso  |
 |---------|:---------:|:---------:|
 |Australia     |✓         |✓        |
 |Brunei   |✓         |✓        |
-|RAS di Hong Kong     |✓         |✓         |
+|Hong Kong - R.A.S.     |✓         |✓         |
 |India   |✓         |✓         |
 |Indonesia     |✓         |✓         |
 |Kazakhstan    |✓         |✓         |
@@ -53,13 +53,13 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 |Filippine  |✓         |✓         |
 |Singapore     |✓         |✓         |
 |Taiwan     |✓         |✓        |
-|Tailandia     |✓         |✓        |
+|Thailandia     |✓         |✓        |
 |Vietnam   |✓         |✓         |
 
 
 ## <a name="europe"></a>Europa
 
-|Paese/Area geografica   |Eventi imprevisti  |Flusso  |
+|Country/Region   |Eventi  |Flusso  |
 |---------|:---------:|:---------:|
 |Andorra   |✓         |✓         |
 |Austria     |✓         |✓         |
@@ -73,9 +73,9 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 |Estonia     |         | ✓        |
 |Finlandia     |✓         |✓         |
 |+Isole Åland      |✓         |✓         |
-|Francia     |✓         |✓         |
-|Monaco     |✓         |✓         |
-|Germania     |✓         |✓         |
+|France     |✓         |✓         |
+|Principato di Monaco     |✓         |✓         |
+|Germany     |✓         |✓         |
 |Grecia     |✓         |✓         |
 |Ungheria     |✓         |✓         |
 |Islanda     |✓         |✓         |
@@ -88,7 +88,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 |Lituania     |✓         |✓         |
 |Lussemburgo     |✓         |✓         |
 |Malta     |✓         |✓         |
-|Monaco   |✓         |✓         |
+|Principato di Monaco   |✓         |✓         |
 |Paesi Bassi     |✓         |✓         |
 |Norvegia     |✓         |✓         |
 |Polonia     |✓         |✓         |
@@ -117,13 +117,13 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 
 ## <a name="middle-east-and-africa"></a>Medio Oriente e Africa
 
-|Paese/Area geografica |Eventi imprevisti  |Flusso  |
+|Country/Region |Eventi  |Flusso  |
 |---------|:---------:|:---------:|
-|Bahrain     |✓         |✓         |
+|Bahrein     |✓         |✓         |
 |Egitto     |✓         |✓         |
 |Israele     |✓         |✓         |
 |Kenya     |✓         |✓         |
-|Kuwait     |✓         |✓         |
+|Al Kuwait     |✓         |✓         |
 |Marocco     |✓         |✓         |
 |Mozambico  |✓         |✓         |
 |Nigeria   |✓        |✓        |

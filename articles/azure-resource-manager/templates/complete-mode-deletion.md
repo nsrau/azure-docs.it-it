@@ -2,13 +2,13 @@
 title: Eliminazione in modalità completa
 description: Descrive in che modo i tipi di risorsa gestiscono l'eliminazione in modalità completa in modelli di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.openlocfilehash: b24bf2d8076dbaa1975f5444d597647156a31f4f
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/13/2020
+ms.openlocfilehash: 80d2ee356e3bc15a178862c453bf7f1ab8d66c77
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715587"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207809"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Eliminazione di risorse di Azure per distribuzioni in modalità completa
 
@@ -121,6 +121,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > - [Microsoft. migrate](#microsoftmigrate)
 > - [Microsoft. MixedReality](#microsoftmixedreality)
 > - [Microsoft. NetApp](#microsoftnetapp)
+> - [Microsoft. Notebooks](#microsoftnotebooks)
 > - [Microsoft. Network](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
 > - [Microsoft. ObjectStore](#microsoftobjectstore)
@@ -153,6 +154,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > - [Microsoft. SiteRecovery](#microsoftsiterecovery)
 > - [Microsoft. SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft. Solutions](#microsoftsolutions)
+> - [Microsoft. SpoolService](#microsoftspoolservice)
 > - [Microsoft. SQL](#microsoftsql)
 > - [Microsoft. SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.Storage](#microsoftstorage)
@@ -372,6 +374,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | billingAccounts/billingProfiles/istruzioni | No |
 > | billingAccounts/billingProfiles/fatture | No |
 > | billingAccounts/billingProfiles/fatture/pricesheets | No |
+> | billingAccounts/billingProfiles/fatture/transazioni | No |
 > | billingAccounts / billingProfiles / invoiceSections | No |
 > | billingAccounts / billingProfiles / invoiceSections / billingPermissions | No |
 > | billingAccounts / billingProfiles / invoiceSections / billingRoleAssignments | No |
@@ -489,7 +492,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | Redis | Sì |
-> | RedisConfigDefinition | No |
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
@@ -712,6 +714,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | registri/getBuildSourceUploadUrl | No |
 > | registri/GetCredentials | No |
 > | registri/importImage | No |
+> | registri/privateEndpointConnectionProxies | No |
+> | registri/privateEndpointConnectionProxies/convalida | No |
+> | registri/privateLinkResources | No |
 > | registri/queueBuild | No |
 > | registri/regenerateCredential | No |
 > | registri/regenerateCredentials | No |
@@ -775,7 +780,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Report | No |
 > | Impostazioni | No |
 > | showbackRules | No |
-> | Visualizzazioni | No |
+> | Viste | No |
 
 ## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
 
@@ -1397,6 +1402,13 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | netAppAccounts/capacityPools/volumi | Sì |
 > | netAppAccounts/capacityPools/Volumes/mountTargets | Sì |
 > | netAppAccounts/capacityPools/volumi/snapshot | Sì |
+
+## <a name="microsoftnotebooks"></a>Microsoft. Notebooks
+
+> [!div class="mx-tableFixed"]
+> | Tipo di risorsa | Eliminazione in modalità completa |
+> | ------------- | ----------- |
+> | NotebookProxies | No |
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -1512,7 +1524,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Eliminazione in modalità completa |
 > | ------------- | ----------- |
 > | cluster | Sì |
-> | devices | No |
 > | linkTargets | No |
 > | storageInsightConfigs | No |
 > | aree di lavoro | Sì |
@@ -1523,6 +1534,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | aree di lavoro/privateEndpointConnections | No |
 > | aree di lavoro/privateLinkResources | No |
 > | aree di lavoro/query | No |
+> | aree di lavoro/scopedPrivateLinkProxies | No |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
@@ -1745,8 +1757,10 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | segnalibri | No |
 > | cases | No |
 > | DataConnector | No |
+> | dataConnectorsCheckRequirements | No |
 > | entities | No |
 > | entityQueries | No |
+> | incidenti | No |
 > | officeConsents | No |
 > | impostazioni | No |
 
@@ -1780,6 +1794,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | containerGroupSets | Sì |
 > | edgeclusters | Sì |
 > | edgeclusters/applicazioni | No |
+> | managedclusters | Sì |
+> | managedclusters/NodeTypes | No |
 > | reti | Sì |
 > | secretstores | Sì |
 > | secretstores/certificati | No |
@@ -1837,6 +1853,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | applicationDefinitions | Sì |
 > | applicazioni | Sì |
 > | jitRequests | Sì |
+
+## <a name="microsoftspoolservice"></a>Microsoft. SpoolService
+
+> [!div class="mx-tableFixed"]
+> | Tipo di risorsa | Eliminazione in modalità completa |
+> | ------------- | ----------- |
+> | registeredSubscriptions | No |
+> | effettua lo spooling | Sì |
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
 
@@ -1993,6 +2017,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | devices | Sì |
 > | fornitori | No |
 > | fornitori/SKU | No |
+> | fornitori/vnfs | No |
 > | vnfs | Sì |
 
 ## <a name="microsoftweb"></a>Microsoft.Web

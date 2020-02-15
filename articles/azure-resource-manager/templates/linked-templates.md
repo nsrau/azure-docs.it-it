@@ -3,12 +3,12 @@ title: Collegare i modelli per la distribuzione
 description: Descrive come usare i modelli collegati in un modello di Azure Resource Manager per creare una soluzione basata su un modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 5d278ba05fd8230a3573983a631e4e347ff31e4f
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: c6a5dced0f8607e760422bebd114a08ca0a238e3
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76119830"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207605"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso di modelli collegati e annidati nella distribuzione di risorse di Azure
 
@@ -162,7 +162,7 @@ Il valore della variabile cambia in base all'ambito. Nella tabella seguente veng
 
 | Ambito | Output |
 | ----- | ------ |
-| interno | da modello annidato |
+| interna | da modello annidato |
 | Outer (o predefinito) | dal modello padre |
 
 Nell'esempio seguente viene distribuito un server SQL e viene recuperato un segreto dell'insieme di credenziali delle chiavi da usare per la password. L'ambito è impostato su `inner` perché crea dinamicamente l'ID dell'insieme di credenziali delle chiavi e lo passa come parametro al modello annidato.
@@ -766,7 +766,7 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 
 Gli esempi seguenti mostrano gli usi più frequenti dei modelli collegati.
 
-|Modello principale  |Modello collegato |Description  |
+|Modello principale  |Modello collegato |Descrizione  |
 |---------|---------| ---------|
 |[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[Modello collegato](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Restituisce una stringa dal modello collegato. |
 |[Load Balancer con indirizzo IP pubblico](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[Modello collegato](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Restituisce l'indirizzo IP pubblico dal modello collegato e imposta tale valore nel servizio di bilanciamento del carico. |
@@ -776,5 +776,5 @@ Gli esempi seguenti mostrano gli usi più frequenti dei modelli collegati.
 
 * Per eseguire un'esercitazione, vedere [Esercitazione: Creare modelli collegati di Azure Resource Manager](template-tutorial-create-linked-templates.md).
 * Per informazioni sulla definizione dell'ordine di distribuzione per le risorse, vedere [Definire l'ordine per la distribuzione delle risorse nei modelli di Azure Resource Manager](define-resource-dependency.md).
-* Per informazioni su come definire una sola risorsa e crearne molte istanze, vedere [Distribuire più istanze di una risorsa o di una proprietà nei modelli di Azure Resource Manager](create-multiple-instances.md).
+* Per informazioni su come definire una sola risorsa e crearne molte istanze, vedere [Distribuire più istanze di una risorsa o di una proprietà nei modelli di Azure Resource Manager](copy-resources.md).
 * Per conoscere la procedura per la configurazione di un modello in un account di archiviazione e per la generazione di un token con firma di accesso condiviso, consultare [Deploy resources with Resource Manager templates and Azure PowerShell](deploy-powershell.md) (Distribuire le risorse con i modelli di Resource Manager e Azure PowerShell) o [Deploy resources with Resource Manager templates and Azure CLI](deploy-cli.md) (Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure).

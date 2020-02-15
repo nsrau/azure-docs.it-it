@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 359f2b42ca6f56087be53a5aeb328fe43a478d63
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 63f7eac52a555be1877f235bd2f7f1d9315d53d5
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988284"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208506"
 ---
 # <a name="show-directions-from-a-to-b"></a>Visualizzare le indicazioni stradali da A a B
 
@@ -41,9 +41,9 @@ Un [livello di simbolo](https://docs.microsoft.com/javascript/api/azure-maps-con
 
 Il sesto blocco di codice esegue una query sul servizio di routing di Azure Maps, che fa parte del [modulo del servizio](how-to-use-services-module.md). Il metodo [calculateRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-iot-typescript-latest#methods) di RouteUrl viene usato per ottenere una route tra i punti di inizio e di fine. Una raccolta di funzionalità GeoJSON dalla risposta viene quindi estratta usando il metodo `geojson.getFeatures()` e viene aggiunta all'origine dati. Viene quindi eseguito il rendering della risposta come un itinerario sulla mappa. Per altre informazioni sull'aggiunta di una linea alla mappa, vedere [Aggiungere una linea](map-add-line-layer.md).
 
-L'ultimo blocco di codice imposta i limiti della mappa utilizzando la proprietà [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) della mappa.
+L'ultimo blocco di codice imposta i limiti della mappa utilizzando [la proprietà SetProperty della mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) .
 
-La query di route, l'origine dati, il simbolo, i livelli di riga e i limiti della fotocamera vengono creati e impostati all'interno del [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)della mappa. Questa struttura del codice garantisce che i risultati vengano visualizzati solo dopo il caricamento completo della mappa.
+La query di route, l'origine dati, il simbolo, i livelli di riga e i limiti della fotocamera vengono creati all'interno del [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Questa struttura di codice assicura che i risultati vengano visualizzati solo dopo il caricamento completo della mappa.
 
 ## <a name="query-the-route-via-fetch-api"></a>Eseguire query sulla route tramite l'API fetch
 
@@ -54,7 +54,7 @@ Nel codice precedente il primo blocco di codice costruisce un oggetto map e impo
 
 Il secondo blocco di codice crea e aggiunge un oggetto [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) alla mappa.
 
-Il terzo blocco di codice crea i punti di inizio e di destinazione per l'itinerario e li aggiunge all'origine dati. Per istruzioni sull'uso di [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest), è possibile vedere [Aggiungere i segnaposto alla mappa](map-add-pin.md).
+Il terzo blocco di codice crea i punti di inizio e di destinazione per la route. Quindi, li aggiunge all'origine dati. Per istruzioni sull'uso di [addPins](map-add-pin.md), è possibile vedere [Aggiungere i segnaposto alla mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest).
 
 [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) esegue il rendering degli oggetti linea con wrapping in [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) come linee sulla mappa. Il quarto blocco di codice crea e aggiunge un livello linea alla mappa. Vedere le proprietà di un livello linea in [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest).
 
@@ -64,7 +64,7 @@ Il blocco di codice successivo crea i punti `SouthWest` e `NorthEast` dai punti 
 
 L'ultimo blocco di codice usa l' [API fetch](https://fetch.spec.whatwg.org/) per eseguire una richiesta di ricerca all' [API route di Azure Maps](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). La risposta viene quindi analizzata. Se la risposta ha avuto esito positivo, le informazioni di latitudine e longitudine vengono usate per creare una linea di matrice connettendo tali punti. I dati della riga vengono quindi aggiunti all'origine dati per eseguire il rendering della route sulla mappa. Per le istruzioni, è possibile vedere [add a line on the map](map-add-line-layer.md) (Aggiungere una linea sulla mappa).
 
-La query di route, l'origine dati, il simbolo, i livelli di riga e i limiti della fotocamera vengono creati e impostati all'interno del [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)della mappa. Anche in questo caso, è necessario assicurarsi che i risultati vengano visualizzati dopo il caricamento completo della mappa.
+La query di route, l'origine dati, il simbolo, i livelli di riga e i limiti della fotocamera vengono creati all'interno del [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Anche in questo caso, è necessario assicurarsi che i risultati vengano visualizzati dopo il caricamento completo della mappa.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1df823776208418eae3e465693dd51e108c5a8bb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: da983f87977de922ec547c3ade2972dfb4d69363
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841030"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77206260"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
 
@@ -79,21 +79,21 @@ L'ordine delle parti in un'espressione è importante per evitare gli errori di s
 Ci sono tre tipi di proprietà che è possibile usare per costruire una regola di appartenenza.
 
 - Boolean
-- string
+- String
 - Raccolta di tipi string
 
 Di seguito sono elencate le proprietà utente che è possibile usare per creare una singola espressione.
 
 ### <a name="properties-of-type-boolean"></a>Proprietà di tipo boolean
 
-| Proprietà | Valori consentiti | Uso |
+| Proprietà | Valori consentiti | Utilizzo |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Proprietà di tipo stringa
 
-| Proprietà | Valori consentiti | Uso |
+| Proprietà | Valori consentiti | Utilizzo |
 | --- | --- | --- |
 | city |Qualsiasi valore di stringa o *null* |(user.city -eq "valore") |
 | country |Qualsiasi valore di stringa o *null* |(user.country -eq "valore") |
@@ -104,7 +104,7 @@ Di seguito sono elencate le proprietà utente che è possibile usare per creare 
 | facsimileTelephoneNumber |Qualsiasi valore di stringa o *null* |(user.facsimileTelephoneNumber -eq "valore") |
 | givenName |Qualsiasi valore di stringa o *null* |(user.givenName -eq "valore") |
 | jobTitle |Qualsiasi valore di stringa o *null* |(user.jobTitle -eq "valore") |
-| mail |Qualsiasi valore di stringa o *null* (indirizzo SMTP dell'utente) |(user.mail -eq "valore") |
+| posta |Qualsiasi valore di stringa o *null* (indirizzo SMTP dell'utente) |(user.mail -eq "valore") |
 | mailNickName |Qualsiasi valore stringa (alias di posta dell'utente) |(user.mailNickName -eq "valore") |
 | mobile |Qualsiasi valore di stringa o *null* |(user.mobile -eq "valore") |
 | objectId |GUID dell'oggetto utente |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
@@ -122,9 +122,9 @@ Di seguito sono elencate le proprietà utente che è possibile usare per creare 
 | userPrincipalName |Qualsiasi valore di stringa |(user.userPrincipalName -eq "alias@domain") |
 | userType |membro guest *null* |(user.userType -eq "Membro") |
 
-### <a name="properties-of-type-string-collection"></a>Proprietà di tipo insieme String
+### <a name="properties-of-type-string-collection"></a>Proprietà di tipo raccolta stringhe
 
-| Proprietà | Valori consentiti | Uso |
+| Proprietà | Valori consentiti | Utilizzo |
 | --- | --- | --- |
 | otherMails |Qualsiasi valore di stringa |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -137,10 +137,10 @@ Nella tabella seguente sono elencati tutti gli operatori supportati e la relativ
 
 | Operatore | Sintassi |
 | --- | --- |
-| Non uguale a |-ne |
+| È diverso da |-ne |
 | Uguale a |-eq |
 | Non inizia con |-notStartsWith |
-| Starts With |-startsWith |
+| Inizia con |-startsWith |
 | Non contiene |-notContains |
 | Contiene |-contains |
 | Non corrispondente |-notMatch |
@@ -213,7 +213,7 @@ Di seguito sono riportati esempi di regole di appartenenza strutturate correttam
 (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
 ```
 
-### <a name="operator-precedence"></a>Precedenza degli operatori
+### <a name="operator-precedence"></a>Precedenza tra gli operatori
 
 Tutti gli operatori sono elencati di seguito in ordine decrescente di precedenza. Gli operatori sulla stessa riga hanno uguale precedenza:
 
@@ -249,7 +249,7 @@ Una regola di appartenenza può essere costituita da espressioni complesse in cu
 
 Le proprietà multivalore sono raccolte di oggetti dello stesso tipo. Possono essere usate per creare regole di appartenenza tramite gli operatori logici -any e -all.
 
-| Proprietà | Valori | Uso |
+| Proprietà | Valori | Utilizzo |
 | --- | --- | --- |
 | assignedPlans | Ogni oggetto della raccolta espone le proprietà di stringa seguenti: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
@@ -341,13 +341,13 @@ device.objectId -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Proprietà di estensione e proprietà di estensione personalizzate
 
-Gli attributi di estensione e le proprietà dell'estensione personalizzata sono supportati come proprietà di stringa nelle regole di appartenenza dinamiche. Gli attributi di estensione vengono sincronizzati dall'istanza locale di Window Server AD e hanno il formato "ExtensionAttributeX", dove X equivale a 1 - 15. Ecco un esempio di regola che usa un attributo di estensione come proprietà:
+Gli attributi di estensione e le proprietà dell'estensione personalizzata sono supportati come proprietà di stringa nelle regole di appartenenza dinamiche. [Gli attributi di estensione](https://docs.microsoft.com/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) vengono sincronizzati dall'istanza locale di Windows Server ad e hanno il formato "ExtensionAttributeX", dove X è uguale a 1-15. Ecco un esempio di regola che usa un attributo di estensione come proprietà:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-Le proprietà di estensione personalizzate vengono sincronizzate dall'istanza locale di AD di Windows Server o da un'applicazione SaaS connessa e hanno il formato `user.extension_[GUID]_[Attribute]`, dove:
+Le [proprietà dell'estensione personalizzata](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) vengono sincronizzate da Active Directory di Windows Server locale o da un'applicazione SaaS connessa e hanno il formato `user.extension_[GUID]_[Attribute]`, dove:
 
 * [GUID] è l'identificatore univoco in Azure AD per l'applicazione che ha creato la proprietà in Azure AD
 * [Attribute] è il nome della proprietà quando è stata creata

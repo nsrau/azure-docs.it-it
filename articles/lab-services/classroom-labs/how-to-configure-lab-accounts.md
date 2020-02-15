@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 597bbfdc35c556b5c75968084c01ac222fc468f4
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 37a657093fd55ce752095417fe744f83946962db
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718097"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210577"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>Configurare gli account Lab in Azure Lab Services 
 In Azure Lab Services, un account Lab è un contenitore per i tipi Lab gestiti, ad esempio Lab in aula. Un amministratore configura un account lab con Azure Lab Services e fornisce l'accesso ai proprietari del lab autorizzati a creare lab nell'account. Questo articolo descrive come creare un account lab, visualizzare tutti gli account lab o eliminare un account lab.
@@ -37,18 +37,6 @@ Per connettere una rete virtuale come rete peer alla rete virtuale del Lab, segu
 I Lab creati in questo account sono connessi alla rete virtuale selezionata. Possono accedere alle risorse nella rete virtuale selezionata. Per altre informazioni, vedere [connettere la rete del Lab a una rete virtuale peer in Azure Lab Services](how-to-connect-peer-virtual-network.md).
 
 Quando si seleziona una rete virtuale per il campo **rete virtuale peer** , l'opzione **Consenti al creatore Lab di selezionare il percorso Lab** è disabilitata. Il motivo è che i Lab nell'account lab devono trovarsi nella stessa area dell'account Lab per connettersi alle risorse nella rete virtuale peer. 
-
-## <a name="allow-lab-creator-to-pick-location-for-the-lab"></a>Consenti a Lab Creator di selezionare la posizione per il Lab
-È possibile consentire a Lab Creator di creare Lab in un percorso diverso rispetto alla posizione dell'account Lab attenendosi alla procedura seguente: 
-
-1. Nella pagina **account Lab** selezionare Lab **Configuration** nel menu a sinistra.
-2. Per consentire al Lab **Creator di**selezionare la posizione del Lab, selezionare **abilitato** se si vuole che l'autore del Lab possa selezionare un percorso per il Lab. Se è disabilitato, i Lab vengono creati automaticamente nella stessa posizione in cui è presente l'account Lab. 
-    
-    Questo campo è disabilitato quando si seleziona una rete virtuale per il campo **rete virtuale peer** . Il motivo è che i Lab nell'account lab devono trovarsi nella stessa area dell'account Lab per accedere alle risorse nella rete virtuale peer. 
-1. Sulla barra degli strumenti selezionare **Salva**. 
-
-    ![Configurare l'impostazione del percorso Lab](../media/how-to-manage-lab-accounts/labs-configuration-page-lab-location.png)
-
 
 ## <a name="specify-an-address-range-for-vms-in-the-lab"></a>Specificare un intervallo di indirizzi per le macchine virtuali nel Lab
 La procedura seguente include i passaggi per specificare un intervallo di indirizzi per le macchine virtuali nel Lab. Se si aggiorna l'intervallo specificato in precedenza, l'intervallo di indirizzi modificato si applica solo alle macchine virtuali create dopo che è stata apportata la modifica. 

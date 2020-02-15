@@ -2,13 +2,13 @@
 title: Supporto dei tag per le risorse
 description: Informazioni sui tipi di risorse di Azure che supportano i tag. Include informazioni dettagliate per tutti i servizi di Azure.
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.openlocfilehash: e17e6a996f54d6211f87ec20765d3fde782b7d6d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/13/2020
+ms.openlocfilehash: 09dd71ef8c3ac4803a988dffbdca47116c967a0e
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715609"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207928"
 ---
 # <a name="tag-support-for-azure-resources"></a>Supporto dei tag per le risorse di Azure
 Questo articolo descrive se un tipo di risorsa supporta [tag](tag-resources.md). La colonna con etichetta **supporta i tag** indica se il tipo di risorsa ha una proprietà per il tag. La colonna etichetta **nel report dei costi** indica se il tipo di risorsa passa il tag al report dei costi. È possibile visualizzare i costi in base ai tag nell' [analisi dei costi di gestione costi](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) e la [fattura e i dati di utilizzo giornalieri di Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -116,6 +116,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > - [Microsoft. migrate](#microsoftmigrate)
 > - [Microsoft. MixedReality](#microsoftmixedreality)
 > - [Microsoft. NetApp](#microsoftnetapp)
+> - [Microsoft. Notebooks](#microsoftnotebooks)
 > - [Microsoft. Network](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
 > - [Microsoft. ObjectStore](#microsoftobjectstore)
@@ -148,6 +149,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > - [Microsoft. SiteRecovery](#microsoftsiterecovery)
 > - [Microsoft. SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft. Solutions](#microsoftsolutions)
+> - [Microsoft. SpoolService](#microsoftspoolservice)
 > - [Microsoft. SQL](#microsoftsql)
 > - [Microsoft. SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.Storage](#microsoftstorage)
@@ -367,6 +369,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | billingAccounts/billingProfiles/istruzioni | No | No |
 > | billingAccounts/billingProfiles/fatture | No | No |
 > | billingAccounts/billingProfiles/fatture/pricesheets | No | No |
+> | billingAccounts/billingProfiles/fatture/transazioni | No | No |
 > | billingAccounts / billingProfiles / invoiceSections | No | No |
 > | billingAccounts / billingProfiles / invoiceSections / billingPermissions | No | No |
 > | billingAccounts / billingProfiles / invoiceSections / billingRoleAssignments | No | No |
@@ -484,7 +487,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
 > | Redis | Sì | Sì |
-> | RedisConfigDefinition | No | No |
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
@@ -707,6 +709,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | registri/getBuildSourceUploadUrl | No | No |
 > | registri/GetCredentials | No | No |
 > | registri/importImage | No | No |
+> | registri/privateEndpointConnectionProxies | No | No |
+> | registri/privateEndpointConnectionProxies/convalida | No | No |
+> | registri/privateLinkResources | No | No |
 > | registri/queueBuild | No | No |
 > | registri/regenerateCredential | No | No |
 > | registri/regenerateCredentials | No | No |
@@ -770,7 +775,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Report | No | No |
 > | Impostazioni | No | No |
 > | showbackRules | No | No |
-> | Visualizzazioni | No | No |
+> | Viste | No | No |
 
 ## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
 
@@ -1393,6 +1398,13 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | netAppAccounts/capacityPools/Volumes/mountTargets | Sì | No |
 > | netAppAccounts/capacityPools/volumi/snapshot | Sì | No |
 
+## <a name="microsoftnotebooks"></a>Microsoft. Notebooks
+
+> [!div class="mx-tableFixed"]
+> | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
+> | ------------- | ----------- | ----------- |
+> | NotebookProxies | No | No |
+
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -1514,7 +1526,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
 > | ------------- | ----------- | ----------- |
 > | cluster | Sì | Sì |
-> | devices | No | No |
 > | linkTargets | No | No |
 > | storageInsightConfigs | No | No |
 > | aree di lavoro | Sì | Sì |
@@ -1525,6 +1536,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | aree di lavoro/privateEndpointConnections | No | No |
 > | aree di lavoro/privateLinkResources | No | No |
 > | aree di lavoro/query | No | No |
+> | aree di lavoro/scopedPrivateLinkProxies | No | No |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
@@ -1658,7 +1670,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | notifyResourceJobs | No | No |
 > | provider | No | No |
 > | resourceGroups | Sì | No |
-> | sottoscrizioni | No | No |
+> | sottoscrizioni | Sì | No |
 > | tenants | No | No |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
@@ -1747,8 +1759,10 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | segnalibri | No | No |
 > | cases | No | No |
 > | DataConnector | No | No |
+> | dataConnectorsCheckRequirements | No | No |
 > | entities | No | No |
 > | entityQueries | No | No |
+> | incidenti | No | No |
 > | officeConsents | No | No |
 > | impostazioni | No | No |
 
@@ -1782,6 +1796,8 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | containerGroupSets | Sì | Sì |
 > | edgeclusters | Sì | Sì |
 > | edgeclusters/applicazioni | No | No |
+> | managedclusters | Sì | Sì |
+> | managedclusters/NodeTypes | No | No |
 > | reti | Sì | Sì |
 > | secretstores | Sì | Sì |
 > | secretstores/certificati | No | No |
@@ -1839,6 +1855,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | applicationDefinitions | Sì | Sì |
 > | applicazioni | Sì | Sì |
 > | jitRequests | Sì | Sì |
+
+## <a name="microsoftspoolservice"></a>Microsoft. SpoolService
+
+> [!div class="mx-tableFixed"]
+> | Tipo di risorsa | Tag supportati | Tag nel report sui costi |
+> | ------------- | ----------- | ----------- |
+> | registeredSubscriptions | No | No |
+> | effettua lo spooling | Sì | Sì |
 
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
@@ -2004,6 +2028,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | devices | Sì | Sì |
 > | fornitori | No | No |
 > | fornitori/SKU | No | No |
+> | fornitori/vnfs | No | No |
 > | vnfs | Sì | Sì |
 
 ## <a name="microsoftweb"></a>Microsoft.Web

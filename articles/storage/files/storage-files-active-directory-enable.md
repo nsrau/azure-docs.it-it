@@ -4,22 +4,21 @@ description: Informazioni su come abilitare l'autenticazione basata su identità
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 01/06/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 489cb9e652d571b5322a1bd92663ca089e28b8cd
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 06ff14b23057755a643e5a57fbaf711798cca00e
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980788"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210483"
 ---
-# <a name="enable-azure-active-directory-domain-services-authentication-over-smb-for-azure-files"></a>Abilitare l'autenticazione Azure Active Directory Domain Services su SMB per File di Azure
+# <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Abilitare l'autenticazione Azure Active Directory Domain Services in File di Azure
 
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-Per una panoramica dell'autenticazione Azure AD su SMB per File di Azure, vedere [Panoramica dell'autenticazione di Azure Active Directory su SMB per file di Azure](storage-files-active-directory-overview.md).
-
+Per una panoramica dell'autenticazione basata su identità supportata in File di Azure, vedere [Panoramica dell'autenticazione Azure Active Directory su SMB per file di Azure](storage-files-active-directory-overview.md). Questo articolo è incentrato su come abilitare l'autenticazione con Azure Active Directory Domain Services (Azure AD DS) in File di Azure. 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview-of-the-workflow"></a>Panoramica del flusso di lavoro
@@ -71,9 +70,9 @@ Prima di abilitare Azure AD tramite SMB per File di Azure, verificare che siano 
 
 ## <a name="enable-azure-ad-ds-authentication-for-your-account"></a>Abilitare l'autenticazione di Azure AD DS per l'account
 
-Per abilitare l'autenticazione Azure AD DS su SMB per File di Azure, è possibile impostare una proprietà per gli account di archiviazione creati dopo il 24 settembre 2018 usando l'interfaccia della riga di comando portale di Azure, Azure PowerShell o Azure. L'impostazione di questa proprietà registra l'account di archiviazione con la distribuzione di Azure AD DS associata. Azure AD autenticazione DS su SMB viene quindi abilitata per tutte le condivisioni file nuove ed esistenti nell'account di archiviazione.
+Per abilitare l'autenticazione di Azure AD DS su SMB per File di Azure, è possibile impostare una proprietà negli account di archiviazione usando l'interfaccia della riga di comando portale di Azure, Azure PowerShell o Azure. Impostando questa proprietà in modo implicito "Domain joins", l'account di archiviazione con la distribuzione di Azure AD DS associata. Azure AD autenticazione DS su SMB viene quindi abilitata per tutte le condivisioni file nuove ed esistenti nell'account di archiviazione.
 
-Tenere presente che è possibile abilitare l'autenticazione di Azure AD DS su SMB solo dopo aver distribuito correttamente Azure AD DS nel tenant di Azure AD. Per altre informazioni, vedi i [prerequisiti](#prerequisites).
+Tenere presente che è possibile abilitare l'autenticazione di Azure AD DS su SMB solo dopo aver distribuito correttamente Azure AD DS nel tenant di Azure AD. Per ulteriori informazioni, vedere i [prerequisiti](#prerequisites).
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -171,7 +170,7 @@ $scope = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/provi
 New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $FileShareContributorRole.Name -Scope $scope
 ```
 
-#### <a name="cli"></a>Interfaccia della riga di comando
+#### <a name="cli"></a>CLI
 
 Il comando seguente dell'interfaccia della riga di comando 2,0 illustra come assegnare un ruolo RBAC a un'identità Azure AD, in base al nome di accesso. Per ulteriori informazioni sull'assegnazione di ruoli RBAC con l'interfaccia della riga di comando di Azure, vedere [Manage Access by using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 

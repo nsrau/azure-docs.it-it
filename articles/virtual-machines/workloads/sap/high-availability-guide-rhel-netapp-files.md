@@ -1,5 +1,5 @@
 ---
-title: Disponibilità elevata di macchine virtuali di Azure per SAP NetWeaver in Red Hat Enterprise Linux con Azure NetApp Files | Microsoft Docs
+title: Disponibilità elevata delle macchine virtuali di Azure per SAP NW in RHEL con Azure NetApp Files | Microsoft Docs
 description: Disponibilità elevata delle macchine virtuali di Azure per SAP NetWeaver in Red Hat Enterprise Linux
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/10/2020
+ms.date: 02/13/2020
 ms.author: radeltch
-ms.openlocfilehash: 8acb4819c6ef7a1969a85a056dfdde1fd021a5e6
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: ed18928237d19e9fad2548ee502f9a24266f12c0
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894647"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212883"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Disponibilità elevata di macchine virtuali di Azure per SAP NetWeaver in Red Hat Enterprise Linux con Azure NetApp Files per le applicazioni SAP
 
@@ -86,7 +86,7 @@ Leggere prima di tutto i documenti e le note SAP seguenti:
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491) (Installazione e configurazione di un cluster Red Hat Enterprise Linux 7.4 e versioni successive a disponibilità elevata in Microsoft Azure)
 * [Applicazioni SAP NetApp su Microsoft Azure con Azure NetApp Files][anf-sap-applications-azure]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 La disponibilità elevata per i servizi SAP NetWeaver Central richiede l'archiviazione condivisa.
 A tale scopo, in Red Hat Linux finora era necessario compilare un cluster GlusterFS a disponibilità elevata separato. 
@@ -188,7 +188,7 @@ Per prima cosa è necessario creare i volumi Azure NetApp Files. Distribuire le 
          1. Aprire il servizio di bilanciamento del carico, selezionare Pool di indirizzi IP front-end e fare clic su Aggiungi
          1. Immettere il nome del nuovo pool di indirizzi IP front-end, ad esempio front- **end. QAS. ASC**)
          1. Impostare l'assegnazione su statico e immettere l'indirizzo IP (ad esempio **192.168.14.9**)
-         1. Fare clic su OK.
+         1. Fare clic su OK
       1. Indirizzo IP 192.168.14.10 per ASC ERS
          * Ripetere i passaggi precedenti in "a" per creare un indirizzo IP per ERS, ad esempio **192.168.14.10** e front- **end. QAS. ERS**)
    1. Creare i pool back-end
@@ -204,7 +204,7 @@ Per prima cosa è necessario creare i volumi Azure NetApp Files. Distribuire le 
          1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
          1. Immettere il nome del nuovo probe di integrità, ad esempio **integrità. QAS. ASC**)
          1. Selezionare TCP come protocollo, la porta 620**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
-         1. Fare clic su OK.
+         1. Fare clic su OK
       1. Porta 621**01** per ASC ERS
             * Ripetere i passaggi precedenti in "c" per creare un probe di integrità per ERS, ad esempio 621**01** e **Health. QAS. ERS**)
    1. Regole di bilanciamento del carico
@@ -215,7 +215,7 @@ Per prima cosa è necessario creare i volumi Azure NetApp Files. Distribuire le 
          1. Selezionare le **porte a disponibilità elevata**
          1. Aumentare il timeout di inattività a 30 minuti
          1. **Assicurarsi di abilitare l'indirizzo IP mobile**
-         1. Fare clic su OK.
+         1. Fare clic su OK
          * Ripetere i passaggi precedenti per creare regole di bilanciamento del carico per ERS, ad esempio **lb. QAS. ERS**)
 1. In alternativa, se lo scenario richiede il servizio di bilanciamento del carico di base (interno), seguire questa procedura:  
    1. Creare gli indirizzi IP front-end
@@ -223,7 +223,7 @@ Per prima cosa è necessario creare i volumi Azure NetApp Files. Distribuire le 
          1. Aprire il servizio di bilanciamento del carico, selezionare Pool di indirizzi IP front-end e fare clic su Aggiungi
          1. Immettere il nome del nuovo pool di indirizzi IP front-end, ad esempio front- **end. QAS. ASC**)
          1. Impostare l'assegnazione su statico e immettere l'indirizzo IP (ad esempio **192.168.14.9**)
-         1. Fare clic su OK.
+         1. Fare clic su OK
       1. Indirizzo IP 192.168.14.10 per ASC ERS
          * Ripetere i passaggi precedenti in "a" per creare un indirizzo IP per ERS, ad esempio **192.168.14.10** e front- **end. QAS. ERS**)
    1. Creare i pool back-end
@@ -233,13 +233,13 @@ Per prima cosa è necessario creare i volumi Azure NetApp Files. Distribuire le 
          1. Fare clic su Aggiungi una macchina virtuale.
          1. Selezionare il set di disponibilità creato in precedenza per ASC 
          1. Selezionare le macchine virtuali del cluster (A)SCS
-         1. Fare clic su OK.
+         1. Fare clic su OK
    1. Creare i probe di integrità
       1. Porta 620**00** per ASCS
          1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
          1. Immettere il nome del nuovo probe di integrità, ad esempio **integrità. QAS. ASC**)
          1. Selezionare TCP come protocollo, la porta 620**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
-         1. Fare clic su OK.
+         1. Fare clic su OK
       1. Porta 621**01** per ASC ERS
             * Ripetere i passaggi precedenti in "c" per creare un probe di integrità per ERS, ad esempio 621**01** e **Health. QAS. ERS**)
    1. Regole di bilanciamento del carico
@@ -250,7 +250,7 @@ Per prima cosa è necessario creare i volumi Azure NetApp Files. Distribuire le 
          1. Mantenere il protocollo **TCP**, immettere la porta **3200**
          1. Aumentare il timeout di inattività a 30 minuti
          1. **Assicurarsi di abilitare l'indirizzo IP mobile**
-         1. Fare clic su OK.
+         1. Fare clic su OK
       1. Porte aggiuntive per ASCS
          * Ripetere i passaggi precedenti in "d" per le porte**36 00**,**39 00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 e TCP per ASC
       1. Porte aggiuntive per ASCS ERS
@@ -462,12 +462,14 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    sudo pcs node standby anftstsapcl2
    # If using NFSv3
    sudo pcs resource create fs_QAS_ASCS Filesystem device='192.168.24.5:/sapQAS/usrsapQASascs' \
-     directory='/usr/sap/QAS/ASCS00' fstype='nfs' \
+     directory='/usr/sap/QAS/ASCS00' fstype='nfs' force_unmount=safe \
+     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
      --group g-QAS_ASCS
    
    # If using NFSv4.1
    sudo pcs resource create fs_QAS_ASCS Filesystem device='192.168.24.5:/sapQAS/usrsapQASascs' \
-     directory='/usr/sap/QAS/ASCS00' fstype='nfs' options='sec=sys,vers=4.1' \
+     directory='/usr/sap/QAS/ASCS00' fstype='nfs' force_unmount=safe options='sec=sys,vers=4.1' \
+     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
      --group g-QAS_ASCS
    
    sudo pcs resource create vip_QAS_ASCS IPaddr2 \
@@ -523,12 +525,14 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    
    # If using NFSv3
    sudo pcs resource create fs_QAS_AERS Filesystem device='192.168.24.5:/sapQAS/usrsapQASers' \
-     directory='/usr/sap/QAS/ERS01' fstype='nfs' \
+     directory='/usr/sap/QAS/ERS01' fstype='nfs' force_unmount=safe \
+     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
     --group g-QAS_AERS
    
    # If using NFSv4.1
    sudo pcs resource create fs_QAS_AERS Filesystem device='192.168.24.5:/sapQAS/usrsapQASers' \
-     directory='/usr/sap/QAS/ERS01' fstype='nfs' options='sec=sys,vers=4.1' \
+     directory='/usr/sap/QAS/ERS01' fstype='nfs' force_unmount=safe options='sec=sys,vers=4.1' \
+     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
     --group g-QAS_AERS
    
    sudo pcs resource create vip_QAS_AERS IPaddr2 \
@@ -644,12 +648,15 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
     sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
     InstanceName=QAS_ASCS00_anftstsapvh START_PROFILE="/sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh" \
     AUTOMATIC_RECOVER=false \
-    meta resource-stickiness=5000 migration-threshold=1 \
+    meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
+    op monitor interval=20 on-fail=restart timeout=60 \
+    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_ASCS
    
     sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
+    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_AERS
       
     sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
@@ -669,12 +676,15 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
     sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
     InstanceName=QAS_ASCS00_anftstsapvh START_PROFILE="/sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh" \
     AUTOMATIC_RECOVER=false \
-    meta resource-stickiness=5000 \
+    meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
+    op monitor interval=20 on-fail=restart timeout=60 \
+    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_ASCS
    
     sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
     InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
+    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_AERS
       
     sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
@@ -685,6 +695,9 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
     ```
 
    Se si esegue l'aggiornamento da una versione precedente e si passa al server di Accodamento 2, vedere la nota SAP [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
+
+   > [!NOTE]
+   > I timeout nella configurazione precedente sono solo esempi e possono essere adattati alla configurazione specifica di SAP. 
 
    Assicurarsi che lo stato del cluster sia corretto e che tutte le risorse siano avviate. Non è importante il nodo su cui sono in esecuzione le risorse.
 

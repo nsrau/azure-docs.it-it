@@ -1,6 +1,6 @@
 ---
 title: Aggiungere un livello di simbolo a una mappa | Mappe Microsoft Azure
-description: In questo articolo si apprenderà come usare il livello dei simboli per personalizzare e aggiungere simboli su una mappa usando il Microsoft Azure Maps Web SDK.
+description: In questo articolo si apprenderà come usare il livello dei simboli per personalizzare un simbolo e aggiungere simboli su una mappa usando il Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,16 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 8c39c7b57167d65dfa639d41665f5d5b38110183
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: b8d131dcc798fb2fe1d4bb650cd5b0a68903381b
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933135"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209699"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Aggiungere un livello simbolo a una mappa
 
-Simbolo connesso a un'origine dati e utilizzato per eseguire il rendering di un'icona e/o di un testo in un determinato punto. Viene eseguito il rendering dei livelli di simboli utilizzando WebGL e vengono utilizzati per eseguire il rendering di grandi raccolte di punti sulla mappa. Rispetto al marcatore HTML, il livello dei simboli esegue il rendering di un numero elevato di dati punto sulla mappa, con prestazioni migliori. Tuttavia, il livello dei simboli non supporta gli elementi CSS e HTML tradizionali per lo stile.  
+Connettere un simbolo a un'origine dati e usarlo per eseguire il rendering di un'icona o di un testo in un determinato punto. 
+
+Il rendering dei livelli simbolo viene eseguito tramite WebGL. Usare un livello di simboli per eseguire il rendering di grandi raccolte di punti sulla mappa. Rispetto al marcatore HTML, il livello dei simboli esegue il rendering di un numero elevato di dati punto sulla mappa, con prestazioni migliori. Tuttavia, il livello dei simboli non supporta gli elementi CSS e HTML tradizionali per lo stile.  
 
 > [!TIP]
 > Per impostazione predefinita, i livelli simbolo eseguiranno il rendering delle coordinate di tutte le geometrie in un'origine dati. Per limitare il livello in modo che esegua il rendering solo delle funzionalità di geometria dei punti, impostare la proprietà `filter` del livello su `['==', ['geometry-type'], 'Point']` o `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` se lo si desidera, è possibile includere anche le funzionalità MultiPoint.
@@ -33,7 +35,9 @@ Maps image sprite Manager carica le immagini personalizzate usate dal livello sy
 
 ## <a name="add-a-symbol-layer"></a>Aggiungere un livello per i simboli
 
-Prima di poter aggiungere un livello di simbolo alla mappa, è necessario eseguire un paio di passaggi. Prima di tutto, creare un'origine dati e aggiungerla alla mappa. Per recuperare i dati dall'origine dati, è quindi possibile creare un livello di simboli e passarlo nell'origine dati. Infine, è necessario aggiungere i dati nell'origine dati in modo che sia necessario eseguire il rendering di un elemento. Il codice seguente illustra il codice che deve essere aggiunto alla mappa dopo che è stato caricato. Il codice esegue il rendering di un singolo punto sulla mappa usando un livello di simbolo. 
+Prima di poter aggiungere un livello di simbolo alla mappa, è necessario eseguire un paio di passaggi. Prima di tutto, creare un'origine dati e aggiungerla alla mappa. Creare un livello di simbolo. Passare quindi l'origine dati al livello del simbolo per recuperare i dati dall'origine dati. Aggiungere infine i dati nell'origine dati, in modo da eseguire il rendering di un elemento. 
+
+Il codice seguente illustra gli elementi da aggiungere alla mappa dopo che è stato caricato. Questo esempio esegue il rendering di un singolo punto sulla mappa usando un livello di simbolo. 
 
 ```javascript
 //Create a data source and add it to the map.

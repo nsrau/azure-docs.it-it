@@ -3,19 +3,19 @@ title: Funzioni di modello-distribuzione
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per recuperare informazioni relative alla distribuzione.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: f2939efc9481255233fbdda29f4fa30adcd24b7f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b241aaf43ee3204c9960d0099ce3c61d4c1a80ee
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484038"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207282"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funzioni di distribuzione per i modelli di Azure Resource Manager 
 
 Gestione risorse fornisce le funzioni seguenti per ottenere i valori correlati alla distribuzione corrente:
 
 * [deployment](#deployment)
-* [environment](#environment)
+* [ambiente](#environment)
 * [parameters](#parameters)
 * [variables](#variables)
 
@@ -77,7 +77,7 @@ Quando l'oggetto viene passato come collegamento, come quando si usa il parametr
 
 Quando si [distribuisce in una sottoscrizione di Azure](deploy-to-subscription.md) anziché in un gruppo di risorse, l'oggetto restituito include una proprietà `location`. La proprietà location è inclusa quando si distribuisce un modello locale o un modello esterno.
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 È possibile usare deployment() per il collegamento a un altro modello in base all'URI del modello padre.
 
@@ -133,7 +133,7 @@ L'esempio precedente restituisce l'oggetto seguente:
 
 Per un modello a livello di sottoscrizione che usa la funzione di distribuzione, vedere la [funzione di distribuzione per sottoscrizione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). La distribuzione si esegue con i comandi `az deployment create` o `New-AzDeployment`.
 
-## <a name="environment"></a>environment
+## <a name="environment"></a>ambiente
 
 `environment()`
 
@@ -239,7 +239,7 @@ Restituisce un valore di parametro. Il nome del parametro specificato deve esser
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | parameterName |Sì |string |Nome del parametro da restituire. |
 
@@ -247,7 +247,7 @@ Restituisce un valore di parametro. Il nome del parametro specificato deve esser
 
 Il valore del parametro specificato.
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 Per impostare i valori delle risorse, si usano in genere i parametri. Nell'esempio seguente il nome del sito Web viene impostato sul valore del parametro passato durante la distribuzione.
 
@@ -326,17 +326,17 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
-| stringOutput | string | option 1 |
+| stringOutput | String | option 1 |
 | intOutput | Int | 1 |
 | objectOutput | Oggetto | {"one": "a", "two": "b"} |
 | arrayOutput | Array | [1, 2, 3] |
-| crossOutput | string | option 1 |
+| crossOutput | String | option 1 |
 
 Per ulteriori informazioni sull'utilizzo dei parametri, vedere [parametri in Azure Resource Manager modello](template-parameters.md).
 
-## <a name="variables"></a>variables
+## <a name="variables"></a>variabili
 
 `variables(variableName)`
 
@@ -344,15 +344,15 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| variableName |Sì |string |Nome della variabile da restituire. |
+| variableName |Sì |String |Nome della variabile da restituire. |
 
 ### <a name="return-value"></a>Valore restituito
 
-Il valore della variabile specificata.
+Valore della variabile specificata.
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 Per semplificare il modello creando valori complessi una sola volta, si usano in genere le variabili. Nell'esempio seguente viene creato un nome univoco per un account di archiviazione.
 
@@ -418,11 +418,11 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
-| exampleOutput1 | string | myVariable |
+| exampleOutput1 | String | myVariable |
 | exampleOutput2 | Array | [1, 2, 3, 4] |
-| exampleOutput3 | string | myVariable |
+| exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Oggetto | {"property1": "value1", "property2": "value2"} |
 
 Per ulteriori informazioni sull'utilizzo delle variabili, vedere [variabili nel modello di Azure Resource Manager](template-variables.md).
@@ -430,6 +430,6 @@ Per ulteriori informazioni sull'utilizzo delle variabili, vedere [variabili nel 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](template-syntax.md).
 * Per unire più modelli, vedere [Uso di modelli collegati con Azure Resource Manager](linked-templates.md).
-* Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](create-multiple-instances.md).
+* Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](copy-resources.md).
 * Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Azure Resource Manager](deploy-powershell.md).
 

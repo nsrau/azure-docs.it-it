@@ -1,19 +1,19 @@
 ---
 title: Stili della mappa supportati | Mappe Microsoft Azure
-description: In questo articolo vengono illustrati i diversi stili di rendering della mappa supportati dalle mappe Microsoft Azure.
-author: walsehgal
-ms.author: v-musehg
+description: In questo articolo verranno illustrati i diversi stili di rendering della mappa supportati dalle mappe Microsoft Azure.
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 92e48486777d82589a56074790dd709c5d525859
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 9cdfd0d029057e36e010203b7c35a5aafee4b574
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910631"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208285"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Stili delle mappe supportati da Mappe di Azure
 Mappe di Azure supporta vari stili di mappa predefiniti, come descritto di seguito.
@@ -31,7 +31,7 @@ Una mappa **stradale** è una mappa standard che indica le strade, caratteristic
 
 ## <a name="blank-and-blank_accessible"></a>Blank e blank_accessible
 
-Gli stili **blank** e **blank_accessible** map forniscono un'area di disegno vuota su cui visualizzare i dati. Lo stile **blank_accessible** continuerà a fornire aggiornamenti per la lettura dello schermo con i dettagli della posizione in cui si trova la mappa, anche se la mappa di base non viene visualizzata.
+Gli stili **blank** e **blank_accessible** map forniscono un'area di disegno vuota su cui visualizzare i dati. Lo stile di **blank_accessible** continuerà a fornire aggiornamenti per la lettura dello schermo con i dettagli della posizione della mappa, anche se la mappa di base non viene visualizzata.
 
 > [!Note]
 > In Web SDK è possibile modificare il colore di sfondo della mappa impostando lo stile CSS `background-color` dell'elemento map DIV.

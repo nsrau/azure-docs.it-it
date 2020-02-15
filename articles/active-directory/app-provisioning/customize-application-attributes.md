@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf1515bcf2223ae730a47f7105d51206ba638cd7
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 842e5c4771fcac0b8011dda1df11c646bf8f070c
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161614"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207197"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi per il provisioning degli utenti per le applicazioni SaaS in Azure Active Directory
 
@@ -111,7 +111,7 @@ Alcuni sistemi e applicazioni che supportano la personalizzazione dell'elenco di
 
 - Salesforce
 - ServiceNow
-- Workday
+- Giornata lavorativa
 - Azure Active Directory (sono supportati gli [attributi predefiniti dell'API Graph di Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) e le estensione della directory personalizzate)
 - App che supportano [SCIM 2.0](https://tools.ietf.org/html/rfc7643), in cui devono essere aggiunti gli attributi definiti nello [schema di base](https://tools.ietf.org/html/rfc7643)
 
@@ -300,7 +300,7 @@ Alcuni attributi, ad esempio phoneNumbers e messaggi di posta elettronica, sono 
 
 ## <a name="restoring-the-default-attributes-and-attribute-mappings"></a>Ripristino degli attributi e dei mapping degli attributi predefiniti
 
-Se è necessario ricominciare e reimpostare i mapping esistenti sullo stato predefinito, è possibile selezionare la casella di controllo **Ripristina mapping predefiniti** e salvare la configurazione. In questo modo, tutti i mapping vengono impostati come se l'applicazione venisse appena aggiunta al tenant di Azure AD dalla raccolta di applicazioni.
+Se è necessario ricominciare e reimpostare i mapping esistenti sullo stato predefinito, è possibile selezionare la casella di controllo **Ripristina mapping predefiniti** e salvare la configurazione. In questo modo vengono impostati tutti i mapping e i filtri di ambito come se l'applicazione venisse appena aggiunta al tenant di Azure AD dalla raccolta di applicazioni.
 
 Se si seleziona questa opzione, verrà forzata una risincronizzazione di tutti gli utenti durante l'esecuzione del servizio di provisioning.
 

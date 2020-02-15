@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 2234ae4ce8257559f78d6aa50ecae59ae742ba33
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: e20acb131b1a091fef858dab34705f4a8d3b4c4a
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910014"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251839"
 ---
 # <a name="url-path-based-routing-overview"></a>Panoramica del routing basato su percorso URL
 
@@ -20,14 +20,14 @@ Il routing basato su percorso URL consente di instradare il traffico a pool di s
 
 Uno degli scenari è l'instradamento delle richieste di tipi di contenuto diversi a pool di server back-end diversi.
 
-Nell'esempio seguente, il gateway applicazione soddisfa le richieste di traffico per contoso.com dai tre pool di server back-end, ad esempio: VideoServerPool, ImageServerPool e DefaultServerPool.
+Nell'esempio seguente, il gateway applicazione soddisfa le richieste di traffico per contoso.com dai tre pool di server back-end, ad esempio VideoServerPool, ImageServerPool e DefaultServerPool.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
 Le richieste per http\://contoso.com/video/* vengono instradate a VideoServerPool, mentre quelle per http\://contoso.com/images/* vengono instradate a ImageServerPool. In caso di mancata corrispondenza dei percorsi, viene selezionato DefaultServerPool.
 
 > [!IMPORTANT]
-> Le regole vengono elaborate nell'ordine in cui sono elencate nel portale. È consigliabile configurare i listener multisito prima di configurare un listener di base.  In questo modo il traffico viene indirizzato al back-end appropriato. Se un listener di base viene elencato per primo e corrisponde a una richiesta in ingresso, sarà tale listener a elaborarla.
+> Per lo SKU V1, le regole vengono elaborate nell'ordine in cui sono elencate nel portale. Se un listener di base viene elencato per primo e corrisponde a una richiesta in ingresso, sarà tale listener a elaborarla. Per lo SKU V2, le corrispondenze esatte hanno precedenza superiore. Tuttavia, è consigliabile configurare i listener multisito prima di configurare un listener di base. In questo modo il traffico viene indirizzato al back-end appropriato.
 
 ## <a name="urlpathmap-configuration-element"></a>Elemento di configurazione UrlPathMap
 

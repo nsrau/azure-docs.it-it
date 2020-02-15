@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: juliako
-ms.openlocfilehash: e457fbe5b8dd23c93110fb8ccc7d8857128de82c
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: b0a4f390a3a897d14adc2944195b0c51148de495
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169365"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209274"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
@@ -47,7 +47,7 @@ Questo articolo illustra come caricare e indicizzare i video con queste opzioni:
 
     Se è un URL privato, il token di accesso deve essere specificato nella richiesta.
 - L'URL deve puntare a un file multimediale valido e non a una pagina Web, ad esempio un collegamento alla pagina `www.youtube.com`.
-- È possibile caricare fino a 60 film al minuto.
+- In un account a pagamento puoi caricare fino a 50 film al minuto e in un account di valutazione fino a 5 film al minuto.
 
 > [!Tip]
 > È consigliabile usare .NET framework versione 4.6.2. o versione successiva perché le versioni precedenti di .NET Framework non usano per impostazione predefinita TLS 1.2.
@@ -56,7 +56,7 @@ Questo articolo illustra come caricare e indicizzare i video con queste opzioni:
 
 ## <a name="supported-file-formats-for-video-indexer"></a>Formati di file supportati per Video Indexer
 
-Per un elenco dei formati di file che è possibile usare con Video Indexer, vedere l'articolo relativo al [contenitore di input/formati di file](../latest/media-encoder-standard-formats.md#input-containerfile-formats) .
+Per un elenco dei formati di file che è possibile usare con Video Indexer, vedere l'articolo [Contenitore di input/formati di file](../latest/media-encoder-standard-formats.md#input-containerfile-formats).
 
 ## <a name="a-idwebsiteupload-and-index-a-video-using-the-video-indexer-website"></a><a id="website"/>caricare e indicizzare un video tramite il sito Web Video Indexer
 
@@ -66,7 +66,7 @@ Per un elenco dei formati di file che è possibile usare con Video Indexer, vede
 1. Accedere al sito Web di [Video Indexer](https://www.videoindexer.ai/).
 2. Per caricare un video, premere il pulsante o il collegamento **Upload** (Carica).
 
-    ![Caricamento](./media/video-indexer-get-started/video-indexer-upload.png)
+    ![Carica](./media/video-indexer-get-started/video-indexer-upload.png)
 
     Dopo il caricamento del video, Video Indexer avvia l'indicizzazione e l'analisi.
 
@@ -93,7 +93,7 @@ Un URL che viene usato per notificare al cliente (con una richiesta POST) gli ev
 - Modifica stato indicizzazione: 
     - Proprietà:    
     
-        |Nome|Description|
+        |Name|Descrizione|
         |---|---|
         |id|ID video|
         |state|Lo stato del video|  
@@ -101,7 +101,7 @@ Un URL che viene usato per notificare al cliente (con una richiesta POST) gli ev
 - Persona identificata nel video:
   - Proprietà
     
-      |Nome|Description|
+      |Name|Descrizione|
       |---|---|
       |id| ID video|
       |faceId|L'ID viso che appare nell'indice video|
@@ -344,10 +344,11 @@ public class AccountContractSlim
 
 L'operazione di caricamento può restituire i codici di stato elencati nella tabella seguente.
 
-|Codice di stato|ErrorType (nel corpo della risposta)|Description|
+|Codice di stato|ErrorType (nel corpo della risposta)|Descrizione|
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|Lo stesso video è già in fase di elaborazione nell'account specificato.|
 |400|VIDEO_ALREADY_FAILED|Lo stesso video ha restituito un errore di elaborazione nell'account specificato meno di 2 ore prima. I client API devono attendere almeno 2 ore prima di caricare nuovamente un video.|
+|429||Gli account di valutazione sono consentiti 5 caricamenti al minuto. Gli account a pagamento sono consentiti 50 caricamenti al minuto.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

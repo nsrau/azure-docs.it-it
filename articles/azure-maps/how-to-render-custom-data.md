@@ -1,20 +1,20 @@
 ---
 title: Eseguire il rendering di dati personalizzati in una mappa raster | Mappe Microsoft Azure
 description: In questo articolo si apprenderà come eseguire il rendering di dati personalizzati in una mappa raster usando Microsoft Azure mapping del servizio immagini statiche.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 049762382bb1a67da21f5b95fdf28319672bfca6
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 78068a8deda68434daaeb18cc994099d74d9ccdf
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198208"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209954"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Eseguire il rendering di dati personalizzati in una mappa raster
 
@@ -25,7 +25,7 @@ Per eseguire il rendering di puntine da disegno, etichette e sovrapposizioni di 
 > [!Tip]
 > Spesso è molto più conveniente usare Azure Maps Web SDK per mostrare una semplice mappa in una pagina Web rispetto all'uso del servizio immagini statiche. L'SDK Web usa le tessere mappa e, a meno che l'utente non riquadri e ingrandisce la mappa, genererà spesso solo una frazione di una transazione per carico mappa. Si noti che Azure Maps Web SDK include opzioni per disabilitare la panoramica e lo zoom. Azure Maps Web SDK offre inoltre un set più completo di opzioni di visualizzazione dei dati rispetto a un servizio Web mappa statica.  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="create-an-azure-maps-account"></a>Creare un account di Mappe di Azure
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: 551167cda28a2bb6007e66c1b4b458a0a7b2e396
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: a0361203f4a8a2e57d179b39ba6da2fb62f68720
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718023"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252060"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Lab in aula in Azure Lab Services-domande frequenti
 Ottenere le risposte ad alcune delle domande più comuni sui Lab in Azure Lab Services. 
@@ -46,6 +46,12 @@ Le porte sono: 49152 – 65535. I Lab della classe si trovano dietro un servizio
 
 ### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Quale intervallo di indirizzi IP pubblici è necessario aprire sulle impostazioni del firewall dell'organizzazione per connettersi alle macchine virtuali del Lab tramite RDP/SSH?
 Vedere [Azure IP Ranges and Service Tags (cloud pubblico)](https://www.microsoft.com/download/details.aspx?id=56519), che fornisce l'intervallo di indirizzi IP pubblici per i Data Center in Azure. È possibile aprire gli indirizzi IP per le aree in cui si trovano gli account Lab.
+
+## <a name="virtual-machine-images"></a>Immagini di macchine virtuali
+
+### <a name="as-a-lab-creator-why-cant-i-enable-additional-image-options-in-the-virtual-machine-images-dropdown-when-creating-a-new-lab"></a>Come autore del Lab, perché non è possibile abilitare opzioni aggiuntive per le immagini nell'elenco a discesa immagini macchina virtuale quando si crea un nuovo Lab?
+
+Quando un amministratore aggiunge l'utente come autore del Lab a un account Lab, vengono concesse le autorizzazioni per la creazione dei Lab. Tuttavia, non si dispone delle autorizzazioni per modificare le impostazioni all'interno dell'account Lab, incluso l'elenco delle immagini di macchine virtuali abilitate. Per abilitare immagini aggiuntive, contattare l'amministratore dell'account Lab per eseguire questa operazione o chiedere all'amministratore di aggiungere l'utente come ruolo Collaboratore all'account Lab. Il ruolo Collaboratore fornirà le autorizzazioni per modificare l'elenco di immagini della macchina virtuale nell'account Lab.
 
 ## <a name="users"></a>Utenti
 

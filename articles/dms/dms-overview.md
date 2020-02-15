@@ -9,13 +9,13 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.topic: article
-ms.date: 05/31/2019
-ms.openlocfilehash: 634f949daa4926f2707c0611b819800441e76610
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 06/01/2019
+ms.openlocfilehash: d573378bc5e729eb75b6c3b51d3671492f7f98f1
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438022"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209376"
 ---
 # <a name="what-is-azure-database-migration-service"></a>Che cos'è il Servizio Migrazione del database di Azure?
 
@@ -28,11 +28,11 @@ Il servizio migrazione del database di Azure integra alcune funzionalità degli 
 > [!NOTE]
 > L'uso del Servizio Migrazione del database di Azure per eseguire una migrazione online richiede la creazione di un'istanza basata sul piano tariffario Premium.
 
-## <a name="regional-availability"></a>Disponibilità a livello di area
+## <a name="regional-availability"></a>Disponibilità internazionale
 
 Per informazioni aggiornate sulla disponibilità a livello di area del servizio migrazione del database di Azure, vedere [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration).
 
-## <a name="pricing"></a>Prezzi
+## <a name="pricing"></a>Pricing
 
 Per informazioni aggiornate sui prezzi del servizio Migrazione del database di Azure, vedere [prezzi del servizio Migrazione del database di Azure](https://azure.microsoft.com/pricing/details/database-migration/).
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 376d7c1a9d2fe2ebce857362fd216e2047eb1f7b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 7916bbb28602d64e0916fce7badf16a65c242227
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934321"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251873"
 ---
 # <a name="security-control-network-security"></a>Controllo di sicurezza: sicurezza di rete
 
@@ -23,7 +23,7 @@ I consigli sulla sicurezza di rete sono incentrati sulla specifica di quali prot
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 1.1 | 9,2, 9,4, 14,1-14,3 | Customer |
+| 1.1 | 9,2, 9,4, 14,1-14,3 | Cliente |
 
 Verificare che tutte le distribuzioni di subnet della rete virtuale dispongano di un gruppo di sicurezza di rete applicato con controlli di accesso alla rete specifici delle porte e delle origini attendibili dell'applicazione. Usare i servizi di Azure con collegamento privato abilitato, distribuire il servizio all'interno della VNET o connettersi privatamente usando endpoint privati. Per i requisiti specifici del servizio, fare riferimento alle raccomandazioni sulla sicurezza per il servizio specifico.
 
@@ -49,7 +49,7 @@ https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 1.2 | 9,3, 12,2 | Customer |
+| 1.2 | 9,3, 12,2 | Cliente |
 
 Usare il Centro sicurezza di Azure e seguire le raccomandazioni per la protezione della rete per proteggere le risorse di rete in Azure. Abilitare i log di flusso NSG e inviare i log a un account di archiviazione per il controllo del traffico.
 
@@ -65,7 +65,7 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 1.3 | 9,5 | Customer |
+| 1.3 | 9,5 | Cliente |
 
 Distribuire il Web Application Firewall (WAF) di Azure davanti alle applicazioni Web critiche per un ulteriore controllo del traffico in ingresso. Abilitare l'impostazione di diagnostica per WAF e inserire i log in un account di archiviazione, un hub eventi o un'area di lavoro Log Analytics.
 
@@ -77,7 +77,7 @@ https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-a
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 1.4 | 12.3 | Customer |
+| 1.4 | 12.3 | Cliente |
 
 Abilitare la protezione standard DDoS nelle reti virtuali di Azure per proteggersi da attacchi DDoS. Usare il Centro sicurezza di Azure Integrated Threat Intelligence per negare le comunicazioni con indirizzi IP dannosi noti.
 
@@ -111,7 +111,7 @@ https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 1.5 | 12,5, 15,8 | Customer |
+| 1.5 | 12,5, 15,8 | Cliente |
 
 Registrare i log dei flussi di NSG in un account di archiviazione per generare record di flusso. Se necessario per l'analisi dell'attività anomala, abilitare Network Watcher acquisizione pacchetti.
 
@@ -127,7 +127,7 @@ https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 1.6 | 12,6, 12,7 | Customer |
+| 1.6 | 12,6, 12,7 | Cliente |
 
 Distribuire il firewall di Azure in ogni limite di rete dell'organizzazione con l'Intelligence per le minacce abilitata e configurata per &quot;avviso e negare&quot; per il traffico di rete dannoso.
 
@@ -139,7 +139,7 @@ Come configurare gli avvisi con il firewall di Azure: https://docs.microsoft.com
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 1.7 | 12,9, 12,10 | Customer |
+| 1.7 | 12,9, 12,10 | Cliente |
 
 Distribuire applicazione Azure gateway per le applicazioni Web con HTTPS/SSL abilitato per i certificati attendibili.
 
@@ -159,7 +159,7 @@ https://docs.microsoft.com/azure/application-gateway/overview
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 1.8 | 1.5 | Customer |
+| 1.8 | 1.5 | Cliente |
 
 Usare i tag del servizio rete virtuale per definire i controlli di accesso alla rete nei gruppi di sicurezza di rete o nel firewall di Azure. È possibile usare tag di servizio invece di indirizzi IP specifici nella creazione di regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, ApiManagement) nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag di servizio in base alla modifica degli indirizzi.
 
@@ -171,7 +171,7 @@ https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 1.9 | 11.1 | Customer |
+| 1.9 | 11.1 | Cliente |
 
 Definire e implementare configurazioni di sicurezza standard per le risorse di rete con criteri di Azure.
 
@@ -183,7 +183,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Esempi di criteri di Azure per la rete:
 
-https://docs.microsoft.com/azure/governance/policy/samples/#network
+https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network
 
 Come creare un Azure Blueprint:
 
@@ -193,7 +193,7 @@ https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 1.1 | 11.2 | Customer |
+| 1.1 | 11,2 | Cliente |
 
 Usare i tag per gruppi e altre risorse correlate alla sicurezza di rete e al flusso del traffico. Per le singole regole NSG, usare il campo &quot;Description&quot; per specificare le esigenze aziendali e/o la durata (e così via) per le regole che consentono il traffico da e verso una rete.
 
@@ -213,7 +213,7 @@ https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 1.11 | 11.3 | Customer |
+| 1.11 | 11.3 | Cliente |
 
 Usare i criteri di Azure per convalidare e/o correggere la configurazione per le risorse di rete.
 
@@ -223,7 +223,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Esempi di criteri di Azure per la rete:
 
-https://docs.microsoft.com/azure/governance/policy/samples/#network
+https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,19 +1,19 @@
 ---
 title: Supporto per la localizzazione | Mappe Microsoft Azure
-description: In questo articolo vengono illustrate le lingue supportate per i servizi in Microsoft Azure maps.
-author: walsehgal
-ms.author: v-musehg
+description: In questo articolo verranno illustrate le lingue supportate per i servizi in Microsoft Azure maps.
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: eec8e47e75a6c92be8f893af893761a9ccddc650
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 5de04b4e37e79a47f89bb235aad2b0f9cab69e6a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025436"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208149"
 ---
 # <a name="localization-support-in-azure-maps"></a>Supporto della localizzazione nelle mappe di Azure
 
@@ -22,10 +22,10 @@ Azure Maps supporta diversi linguaggi e visualizzazioni in base al paese/area ge
 
 ## <a name="azure-maps-supported-languages"></a>Lingue supportate in Mappe di Azure
 
-I servizi disponibili in Mappe di Azure sono stati localizzati in varie lingue. Nella tabella seguente sono elencati i codici della lingua supportata per ogni servizio.  
+Le mappe di Azure sono state localizzate in diversi linguaggi tra i servizi. Nella tabella seguente sono elencati i codici della lingua supportata per ogni servizio.  
   
 
-| ID         | Nome                   |  Mappe | Cerca | Routing | Clima | Eventi imprevisti del traffico | Controllo mappa JS |
+| ID         | Name                   |  Mappe | Ricerca | Routing. | Weather | Eventi imprevisti del traffico | Controllo mappa JS |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | af-ZA      | Afrikaans              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Arabo                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
@@ -109,7 +109,7 @@ I servizi disponibili in Mappe di Azure sono stati localizzati in varie lingue. 
 >
 > Dopo il 1 ° agosto 2019, il parametro **View** definirà il contenuto della mappa restituito per le nuove aree/Paesi elencati sopra. Il parametro di **visualizzazione** mappe di Azure, noto anche come "parametro dell'area utente", è un codice paese a due lettere ISO-3166 che mostra le mappe corrette per quel paese/area geografica specificando il set di contenuto geopoliticomente contestato che viene restituito tramite i servizi Maps di Azure, inclusi i bordi e le etichette visualizzati sulla mappa. 
 
-Assicurarsi di aver configurato il parametro di **visualizzazione** come richiesto per le API REST e gli SDK utilizzati dai servizi.
+Assicurarsi di impostare il parametro di **visualizzazione** come richiesto per le API REST e gli SDK, usati dai servizi.
 >  
 >
 >  **API REST:**
@@ -142,12 +142,12 @@ Assicurarsi di aver configurato il parametro di **visualizzazione** come richies
 >    * Azure Maps Web SDK
 >    * Azure Maps Android SDK
 
-Per impostazione predefinita, il parametro di visualizzazione è impostato su **unificato**, anche se non è stato definito nella richiesta. Determinare il percorso degli utenti, quindi impostare il parametro di **visualizzazione** correttamente per tale percorso. In alternativa, è possibile impostare ' View = auto ', che restituirà i dati della mappa in base all'indirizzo IP della richiesta.  Il parametro **View** in Maps di Azure deve essere usato in conformità alle leggi applicabili, incluse le leggi sul mapping del paese in cui sono disponibili mappe, immagini e altri dati e contenuti di terze parti a cui si è autorizzati ad accedere tramite le mappe di Azure.
+Per impostazione predefinita, il parametro di visualizzazione è impostato su **unificato**, anche se non è stato definito nella richiesta. Determinare la posizione degli utenti. Quindi, impostare il parametro **View** correttamente per tale percorso. In alternativa, è possibile impostare ' View = auto ', che restituirà i dati della mappa in base all'indirizzo IP della richiesta.  Il parametro **View** in Maps di Azure deve essere usato in conformità alle leggi applicabili, incluse le leggi sul mapping del paese in cui sono disponibili mappe, immagini e altri dati e contenuti di terze parti a cui si è autorizzati ad accedere tramite le mappe di Azure.
 
 
 Nella tabella seguente vengono fornite le visualizzazioni supportate.
 
-| Visualizza         | Description                            |  Mappe | Cerca | controllo mappa JS |
+| Visualizzazione         | Descrizione                            |  Mappe | Ricerca | controllo mappa JS |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Emirati Arabi Uniti (visualizzazione araba)    |   ✓   |        |     ✓          |
 | AR           | Argentina (vista Argentina)           |   ✓   |    ✓   |     ✓          |
@@ -161,9 +161,9 @@ Nella tabella seguente vengono fornite le visualizzazioni supportate.
 | OM           | Oman (visualizzazione araba)                    |   ✓   |        |     ✓          |
 | PK           | Pakistan (vista pakistana)              |   ✓   |    ✓    |     ✓          |
 | PS           | Autorità palestinese (visualizzazione araba)    |   ✓   |        |     ✓          |
-| QA           | Qatar (visualizzazione araba)                   |   ✓   |        |     ✓          |
+| CONTROLLO DI QUALITÀ           | Qatar (visualizzazione araba)                   |   ✓   |        |     ✓          |
 | SA           | Arabia Saudita (visualizzazione araba)            |   ✓   |        |     ✓          |
 | SY           | Siria (visualizzazione araba)                   |   ✓   |        |     ✓          |
 | YE           | Yemen (visualizzazione araba)                   |   ✓   |        |     ✓          |
-| Auto         | Restituisce i dati della mappa in base all'indirizzo IP della richiesta.|   ✓   |    ✓   |     ✓          |
-| Unificato      | Visualizzazione unificata (altri)                  |   ✓   |   ✓     |     ✓          |
+| Automatico         | Restituisce i dati della mappa in base all'indirizzo IP della richiesta.|   ✓   |    ✓   |     ✓          |
+| Unificata      | Visualizzazione unificata (altri)                  |   ✓   |   ✓     |     ✓          |

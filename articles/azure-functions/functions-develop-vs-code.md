@@ -3,12 +3,12 @@ title: Sviluppare funzioni di Azure usando Visual Studio Code
 description: Informazioni su come sviluppare e testare funzioni di Azure usando l'estensione funzioni di Azure per Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 7e533d5826d429a716ad1592d75159782ed43fa7
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 3bc8c9aa5d31f757a34350d9605fdecbe42b8be7
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964015"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210243"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Sviluppare funzioni di Azure usando Visual Studio Code
 
@@ -71,7 +71,7 @@ L'estensione Functions consente di creare un progetto di app per le funzioni, in
 
     ![Scegliere il modello Trigger HTTP](./media/functions-develop-vs-code/create-function-choose-template.png)
 
-1. Digitare **HttpExample** per il nome della funzione e premere INVIO, quindi selezionare autorizzazione **funzione** . Per questo livello di autorizzazione è necessario fornire un [tasto funzione](functions-bindings-http-webhook.md#authorization-keys) quando si chiama l'endpoint funzione.
+1. Digitare **HttpExample** per il nome della funzione e premere INVIO, quindi selezionare autorizzazione **funzione** . Per questo livello di autorizzazione è necessario fornire un [tasto funzione](functions-bindings-http-webhook-trigger.md#authorization-keys) quando si chiama l'endpoint funzione.
 
     ![Seleziona autorizzazione funzione](./media/functions-develop-vs-code/create-function-auth.png)
 
@@ -184,7 +184,7 @@ Visual Studio Code consente di aggiungere binding al file function. JSON attenen
 
 Di seguito sono riportate alcune richieste di esempio per definire una nuova associazione di output di archiviazione:
 
-| Prompt | Valore | Description |
+| Prompt | Valore | Descrizione |
 | -------- | ----- | ----------- |
 | **Selezionare la direzione di binding** | `out` | Il binding è un binding di output. |
 | **Seleziona binding con direzione** | `Azure Queue Storage` | Il binding è un binding della coda di archiviazione di Azure. |
@@ -248,15 +248,15 @@ La procedura seguente consente di pubblicare il progetto in una nuova app per le
 
 1. Dopo i prompt, fornire le seguenti informazioni:
 
-    | Prompt | Valore | Description |
+    | Prompt | Valore | Descrizione |
     | ------ | ----- | ----------- |
     | Selezionare l'app per le funzioni in Azure | Crea nuovo app per le funzioni in Azure | Al prompt successivo, digitare un nome univoco globale che identifichi la nuova app per le funzioni e quindi premere INVIO. I caratteri validi per un nome di app per le funzioni sono `a-z`, `0-9` e `-`. |
-    | Selezionare un sistema operativo | Windows | L'app per le funzioni viene eseguita in Windows. |
+    | Selezionare un sistema operativo | WINDOWS | L'app per le funzioni viene eseguita in Windows. |
     | Selezionare un piano di hosting | Piano a consumo | Viene usato un [piano A consumo](functions-scale.md#consumption-plan) senza server che ospita. |
     | Selezionare un runtime per la nuova app | Lingua del progetto | Il runtime deve corrispondere al progetto che si sta pubblicando. |
     | Selezionare un gruppo di risorse per le nuove risorse | Crea nuovo gruppo di risorse | Al prompt successivo, digitare il nome di un gruppo di risorse, ad esempio `myResourceGroup`, quindi premere INVIO. È anche possibile selezionare un gruppo di risorse esistente. |
     | Selezionare un account di archiviazione | Creare un nuovo account di archiviazione | Al prompt successivo, digitare un nome univoco globale per il nuovo account di archiviazione usato dall'app per le funzioni e quindi premere INVIO. I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. È anche possibile selezionare un account esistente. |
-    | Selezionare un percorso per le nuove risorse | region | Selezionare una località in un' [area](https://azure.microsoft.com/regions/) vicina o vicino ad altri servizi a cui accedono le funzioni. |
+    | Selezionare una località per le nuove risorse | region | Selezionare una località in un' [area](https://azure.microsoft.com/regions/) vicina o vicino ad altri servizi a cui accedono le funzioni. |
 
     Dopo la creazione dell'app per le funzioni viene visualizzata una notifica e viene applicato il pacchetto di distribuzione. Selezionare **Visualizza output** nelle notifiche per visualizzare i risultati della creazione e della distribuzione, incluse le risorse di Azure create.
 
@@ -277,7 +277,7 @@ Il progetto viene ricompilato, riassemblato e caricato in Azure. Il progetto esi
 
 ## <a name="get-the-url-of-the-deployed-function"></a>Ottenere l'URL della funzione distribuita
 
-Per chiamare una funzione attivata tramite HTTP, è necessario l'URL della funzione quando viene distribuita nell'app per le funzioni. Questo URL include tutti i [tasti funzione](functions-bindings-http-webhook.md#authorization-keys)necessari. Per ottenere questi URL per le funzioni distribuite, è possibile usare l'estensione.
+Per chiamare una funzione attivata tramite HTTP, è necessario l'URL della funzione quando viene distribuita nell'app per le funzioni. Questo URL include tutti i [tasti funzione](functions-bindings-http-webhook-trigger.md#authorization-keys)necessari. Per ottenere questi URL per le funzioni distribuite, è possibile usare l'estensione.
 
 1. Selezionare F1 per aprire il riquadro comandi, quindi cercare ed eseguire il comando funzioni di **Azure: copia URL funzione**.
 
@@ -297,7 +297,7 @@ Per eseguire localmente il progetto di funzioni, è necessario soddisfare i requ
 
 * Installare i requisiti specifici per il linguaggio scelto:
 
-    | Lingua | Requisito |
+    | Lingua: | Requisito |
     | -------- | --------- |
     | **C#** | [Estensione C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[Strumenti di interfaccia della riga di comando di .NET Core](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Debugger per l'estensione Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 o versione successiva](https://maven.apache.org/) |
@@ -413,7 +413,7 @@ Dopo aver completato questi passaggi, le chiamate effettuate agli strumenti di b
 
 L'estensione funzioni di Azure offre un'interfaccia grafica utile nell'area per interagire con le app per le funzioni in Azure. La stessa funzionalità è disponibile anche come comandi nel riquadro comandi (F1). Sono disponibili i comandi di funzioni di Azure seguenti:
 
-|Comando di funzioni di Azure  | Description  |
+|Comando di funzioni di Azure  | Descrizione  |
 |---------|---------|
 |**Aggiungi nuove impostazioni**  |  Crea una nuova impostazione dell'applicazione in Azure. Per altre informazioni, vedere [pubblicare le impostazioni dell'applicazione](#publish-application-settings). Potrebbe anche essere necessario [scaricare questa impostazione nelle impostazioni locali](#download-settings-from-azure). |
 | **Configurare l'origine della distribuzione** | Connette l'app per le funzioni in Azure a un repository git locale. Per altre informazioni, vedere [distribuzione continua per funzioni di Azure](functions-continuous-deployment.md). |

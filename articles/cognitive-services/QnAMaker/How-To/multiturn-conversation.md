@@ -1,22 +1,14 @@
 ---
 title: Conversazioni a più turni-QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Usare i prompt e il contesto per gestire il multiplo turno, noto come multi-turn, per il bot da una domanda a un'altra. La funzionalità a più turni è la possibilità di avere una conversazione in avanti e indietro in cui il contesto della domanda precedente influenza la domanda e la risposta successive.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.author: diberry
-ms.openlocfilehash: 681f00adde1d440fbb41f2e66652db34d53fbf99
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/13/2020
+ms.openlocfilehash: abdde09fbb1f6b066772366c5cea933824cb5864
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843261"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210415"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Usare i prompt di completamento per creare più turni di una conversazione
 
@@ -31,6 +23,9 @@ Per informazioni sul funzionamento della funzionalità multifunzione, vedere il 
 Non è possibile rispondere ad alcune domande in una sola volta. Quando si progettano le conversazioni dell'applicazione client (chat bot), un utente potrebbe porre una domanda che deve essere filtrata o perfezionata per determinare la risposta corretta. Questo flusso viene fatto attraverso le domande possibili presentando all'utente *richieste di completamento*.
 
 Quando un utente pone una domanda, QnA Maker restituisce la risposta _e_ tutte le richieste di completamento. Questa risposta consente di presentare le domande successive come scelte.
+
+> [!CAUTION]
+> I prompt a più turni non vengono estratti dai documenti delle domande frequenti. Se è necessaria l'estrazione a più turni, rimuovere i punti interrogativi che designano le coppie QnA come domande frequenti.
 
 ## <a name="example-multi-turn-conversation-with-chat-bot"></a>Esempio di conversazione a più turni con chat bot
 

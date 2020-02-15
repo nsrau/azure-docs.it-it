@@ -1,26 +1,26 @@
 ---
 title: Introduzione al controllo mappa di Android | Mappe Microsoft Azure
-description: In questo articolo si apprenderà come iniziare a usare il controllo mappa di Android usando le mappe Microsoft Azure Android SDK.
-author: walsehgal
-ms.author: v-musehg
+description: In questo articolo si apprenderà come iniziare a usare il controllo mappa di Android usando le mappe di Microsoft Azure Android SDK.
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: fbb81764262d98a401a26cd089e53ad37007050c
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 57ad9992bec3f070366134d8dfbcdafa8f2e16d4
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198191"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209852"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Introduzione ad Azure Maps Android SDK
 
 Il Android SDK mappe di Azure è una libreria di mappa vettoriale per Android. Questo articolo illustra i processi di installazione delle mappe di Azure Android SDK e il caricamento di una mappa.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="create-an-azure-maps-account"></a>Creare un account di Mappe di Azure
 

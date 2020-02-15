@@ -2,13 +2,13 @@
 title: Limiti - QnA Maker
 description: QnA Maker prevede metalimiti per alcune parti della knowledge base e del servizio. Per poter eseguire test e pubblicare, è importate rispettare i limiti previsti per la knowledge base.
 ms.topic: article
-ms.date: 01/23/2020
-ms.openlocfilehash: 32e12d9e983795d2fb403a5b6bc304289ece92c2
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.date: 02/14/2020
+ms.openlocfilehash: 7fdf45a4a22f6d9ffe123f5998592739402be55f
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760233"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252009"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limiti della knowledge base di QnA Maker
 
@@ -37,7 +37,7 @@ I nomi file non possono includere i caratteri seguenti:
 
 ### <a name="maximum-file-size"></a>Dimensione massima dei file
 
-|Format|Dimensioni massime file (MB)|
+|Formato|Dimensioni massime file (MB)|
 |--|--|
 |`.docx`|10|
 |`.pdf`|25|
@@ -55,6 +55,8 @@ Il numero massimo di collegamenti profondi che possono essere sottoposti a ricer
 
 ## <a name="metadata-limits"></a>Limiti di metadati
 
+I metadati vengono archiviati e confrontati in lettere minuscole.
+
 ### <a name="by-azure-cognitive-search-pricing-tier"></a>Da Azure ricerca cognitiva piano tariffario
 
 Il numero massimo di campi di metadati per Knowledge base è basato sui **[limiti del livello di ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)** .
@@ -69,7 +71,7 @@ Nella tabella seguente sono elencati i caratteri di lunghezza e accettabili per 
 
 |Elemento|Caratteri consentiti|Corrispondenza del criterio Regex|Caratteri max|
 |--|--|--|--|
-|Nome|Consente<br>alfanumerico (lettere e cifre)<br>`_` (carattere di sottolineatura)|`^[a-zA-Z0-9_]+$`|100|
+|Name|Consente<br>alfanumerico (lettere e cifre)<br>`_` (carattere di sottolineatura)|`^[a-zA-Z0-9_]+$`|100|
 |Valore|Consente tutti gli elementi eccetto<br>`:` (due punti)<br>`|` (barra verticale)|`^[^:|]+$`|500|
 |||||
 

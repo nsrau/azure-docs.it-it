@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 04e7aeddaa4e3aba38f1bf08893b0b0487109653
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 7821b0b76fb9be1b62aaf334b3c07aaff1d0021a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025453"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209546"
 ---
 # <a name="azure-maps-render-coverage"></a>Copertura per il rendering in Mappe di Azure
 
-Mappe di Azure usa sia i riquadri raster che i riquadri vettoriali per creare le mappe. Con la risoluzione più bassa, l'intero mondo si integra in un unico riquadro. Con la risoluzione più elevata, un singolo riquadro rappresenta 38 metri quadrati. Quando si esegue lo zoom avanti, verranno visualizzati altri dettagli su continenti, aree, città e strade singole. Per ulteriori informazioni sui riquadri, vedere [livelli di zoom e griglia affiancata](zoom-levels-and-tile-grid.md).
+Mappe di Azure usa sia i riquadri raster che i riquadri vettoriali per creare le mappe. Con la risoluzione più bassa, l'intero mondo si integra in un unico riquadro. Con la risoluzione più elevata, un singolo riquadro rappresenta 38 metri quadrati. Verranno visualizzati altri dettagli su continenti, aree, città e strade singole mentre si esegue lo zoom avanti sulla mappa. Per ulteriori informazioni sui riquadri, vedere [livelli di zoom e griglia affiancata](zoom-levels-and-tile-grid.md).
 
-Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte le aree. Le tabelle seguenti illustrano in dettaglio il livello di informazioni di cui è possibile eseguire il rendering per ogni area.
+Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per tutte le aree. Le tabelle seguenti illustrano in dettaglio il livello di informazioni di cui è possibile eseguire il rendering per ogni area.
 
-## <a name="legend"></a>Legenda
+## <a name="legend"></a>Legend
 
 | Simbolo | Significato |
 |--------|---------|
@@ -32,7 +32,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 ## <a name="africa"></a>Africa 
 
 
-| Paese/Area geografica | Riquadri raster unificati | Riquadri vettoriali unificati |
+| Country/Region | Riquadri raster unificati | Riquadri vettoriali unificati |
 | ------ | :------------------: | :------------------: |
 | Algeria                          | ✓ | ✓ |
 | Angola                           | ✓ | ✓ |
@@ -42,11 +42,11 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Burundi                          | ✓ | ✓ |
 | Cabo Verde                       | ✓ | ✓ |
 | Camerun                         | ✓ | ✓ |
-| Repubblica Centrafricana         | ✓ | Ø |
+| Repubblica centrafricana         | ✓ | Ø |
 | Chad                             | ✓ | Ø |
 | Comore                          | ✓ | Ø |
-| Repubblica democratica del Congo | ✓ | ✓ |
-| Côte d'Ivoire (Costa d'Avorio)                    | ✓ | Ø |
+| Congo, Repubblica democratica | ✓ | ✓ |
+| Côte d’Ivoire (Costa d'Avorio)                    | ✓ | Ø |
 | Gibuti                         | ✓ | Ø |
 | Egitto                            | ✓ | ✓ |
 | Guinea equatoriale                | ✓ | Ø |
@@ -92,7 +92,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 
 ## <a name="americas"></a>Americhe
 
-| Paese/Area geografica | Riquadri raster unificati | Riquadri vettoriali unificati |
+| Country/Region | Riquadri raster unificati | Riquadri vettoriali unificati |
 | ------ | :------------------: | :------------------: |
 | Anguilla                  | ✓ | ✓ |
 | Antigua e Barbuda       | ✓ | ✓ |
@@ -113,7 +113,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Cuba                      | ✓ | ✓ |
 | Curaçao                   | ✓ | ✓ |
 | Dominica                  | ✓ | ✓ |
-| Repubblica Domenicana        | ✓ | ✓ |
+| Repubblica Dominicana        | ✓ | ✓ |
 | Ecuador                   | ✓ | ✓ |
 | Isole Falkland | ✓ | ✓ |
 | Guayana francese             | ✓ | ✓ |
@@ -136,7 +136,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Portorico               | ✓ | ✓ |
 | Quebec (Canada)           | ✓ | ✓ |
 | Saint Barthélemy          | ✓ | ✓ |
-| Saint Christopher e Nevis     | ✓ | ✓ |
+| Saint Kitts e Nevis     | ✓ | ✓ |
 | Saint Lucia               | ✓ | ✓ |
 | Saint Martin (francese)     | ✓ | ✓ |
 | Saint Pierre e Miquelon | ✓ | ✓ |
@@ -150,34 +150,34 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Uruguay                   | ✓ | ✓ |
 | Venezuela                 | ✓ | ✓ |
 | Isole Vergini britanniche   | ✓ | ✓ |
-| Isole Vergini Americane      | ✓ | ✓ |
+| Isole Vergini americane      | ✓ | ✓ |
 
 ## <a name="asia"></a>Asia 
 
-| Paese/Area geografica | Riquadri raster unificati | Riquadri vettoriali unificati |
+| Country/Region | Riquadri raster unificati | Riquadri vettoriali unificati |
 | ------ | :------------------: | :------------------: |
 | Afghanistan               |   | Ø |
-| Bahrain                   | ✓ | ✓ |
+| Bahrein                   | ✓ | ✓ |
 | Bangladesh                |   | Ø |
 | Bhutan                    |   | Ø |
-| Territorio britannico dell'Oceano indiano |   | Ø |
+| Territorio britannico dell'oceano Indiano |   | Ø |
 | Brunei                    | ✓ | ✓ |
 | Cambogia                  |   | Ø |
 | Cina                     |   | Ø |
 | Isole Cocos (Keeling)   |   | Ø |
 | Repubblica democratica popolare di Corea |   | Ø |
-| RAS di Hong Kong             | ✓ | ✓ |
+| Hong Kong - R.A.S.             | ✓ | ✓ |
 | India                     | Ø | ✓ | 
 | Indonesia                 | ✓ | ✓ |
 | Iran                      |   | Ø |
 | Iraq                      | ✓ | ✓ |
 | Israele                    |   | ✓ |
-| Giappone                     |   | Ø |
+| Japan                     |   | Ø |
 | Giordania                    | ✓ | ✓ |
 | Kazakhstan                |   | ✓ |
-| Kuwait                    | ✓ | ✓ |
+| Al Kuwait                    | ✓ | ✓ |
 | Kirghizistan                |   | Ø |
-| Repubblica democratica popolare del Laos |   | Ø |
+| Repubblica democratica del Laos |   | Ø |
 | Libano                   | ✓ | ✓ |
 | RAS di Macao                 | ✓ | ✓ |
 | Malaysia                  | ✓ | ✓ |
@@ -197,20 +197,20 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Repubblica araba siriana      |   | Ø |
 | Taiwan                    | ✓ | ✓ |
 | Tagikistan                |   | Ø |
-| Tailandia                  | ✓ | ✓ |
+| Thailandia                  | ✓ | ✓ |
 | Timor Est               |   | Ø |
 | Turkmenistan              |   | Ø |
 | Emirati Arabi Uniti      | ✓ | ✓ |
-| Altre isole americane del Pacifico |   | Ø |
+| Altre isole minori degli Stati Uniti |   | Ø |
 | Uzbekistan                |   | Ø |
 | Vietnam                   | ✓ | ✓ |
 | Yemen                     | ✓ | ✓ |
 
 ## <a name="oceania"></a>Oceania
 
-| Paese/Area geografica | Riquadri raster unificati | Riquadri vettoriali unificati |
+| Country/Region | Riquadri raster unificati | Riquadri vettoriali unificati |
 | ------ | :------------------: | :------------------: |
-| Samoa americane            |   | ✓ |
+| Isole Samoa americane            |   | ✓ |
 | Australia                 | ✓ | ✓ |
 | Isole Cook              |   | Ø |
 | Figi                      |   | Ø |
@@ -238,7 +238,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 
 ## <a name="europe"></a>Europa
 
-| Paese/Area geografica | Riquadri raster unificati | Riquadri vettoriali unificati |
+| Country/Region | Riquadri raster unificati | Riquadri vettoriali unificati |
 | ------ | :------------------: | :------------------: |
 | Albania                   | ✓ | ✓ |
 | Andorra                   | ✓ | ✓ |
@@ -254,11 +254,11 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Repubblica Ceca            | ✓ | ✓ |
 | Danimarca                   | ✓ | ✓ |
 | Estonia                   | ✓ | ✓ |
-| Fær Øer             | ✓ | Ø |
+| Isole Fær Øer             | ✓ | Ø |
 | Finlandia                   | ✓ | ✓ |
-| Francia                    | ✓ | ✓ |
+| France                    | ✓ | ✓ |
 | Georgia                   | ✓ | Ø |
-| Germania                   | ✓ | ✓ |
+| Germany                   | ✓ | ✓ |
 | Gibilterra                 | ✓ | ✓ |
 | Grecia                    | ✓ | ✓ |
 | Isola di Guernsey                  | ✓ | ✓ |
@@ -276,7 +276,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Macedonia del Nord           | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
 | Moldova                   | ✓ | ✓ |
-| Monaco                    | ✓ | ✓ |
+| Principato di Monaco                    | ✓ | ✓ |
 | Montenegro                | ✓ | ✓ |
 | Paesi Bassi               | ✓ | ✓ |
 | Norvegia                    | ✓ | ✓ |

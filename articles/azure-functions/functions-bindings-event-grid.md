@@ -1,24 +1,25 @@
 ---
-title: Trigger Griglia di eventi per Funzioni di Azure
+title: Associazioni di griglia di eventi di Azure per funzioni di Azure
 description: Informazioni su come gestire gli eventi di Griglia di eventi in Funzioni di Azure.
 author: craigshoemaker
 ms.topic: reference
-ms.date: 09/04/2018
+ms.date: 02/03/2020
 ms.author: cshoe
-ms.openlocfilehash: 812875be47cabdd23e6307403bb95d8d6ff174ec
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.custom: fasttrack-edit
+ms.openlocfilehash: df851a79ef3fbb7473e100619f58b7f35bce1d45
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77167513"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212004"
 ---
-# <a name="event-grid-trigger-for-azure-functions"></a>Trigger Griglia di eventi per Funzioni di Azure
+# <a name="azure-event-grid-bindings-for-azure-functions"></a>Associazioni di griglia di eventi di Azure per funzioni di Azure
 
 Questo articolo illustra come gestire gli eventi di [Griglia di eventi](../event-grid/overview.md) in Funzioni di Azure. Per informazioni dettagliate su come gestire i messaggi della griglia di eventi in un endpoint HTTP, leggere [ricevere eventi in un endpoint HTTP](../event-grid/receive-events.md).
 
 Griglia di eventi è un servizio di Azure che consente di inviare richieste HTTP per la notifica degli eventi che si verificano negli *editori*. Un editore è il servizio o la risorsa da cui ha origine l'evento. Ad esempio, un account di archiviazione BLOB di Azure è un editore, mentre [un'eliminazione o un caricamento di BLOB è un evento](../storage/blobs/storage-blob-event-overview.md). Alcuni [servizi di Azure includono il supporto incorporato per la pubblicazione di eventi in Griglia di eventi](../event-grid/overview.md#event-sources).
 
-I *gestori* di eventi ricevono ed elaborano gli eventi. Funzioni di Azure è uno dei vari [servizi di Azure con supporto incorporato per la gestione degli eventi di Griglia di eventi](../event-grid/overview.md#event-handlers). In questo articolo viene spiegato come usare un trigger Griglia di eventi per richiamare una funzione quando Griglia di eventi riceve un evento.
+I *gestori* di eventi ricevono ed elaborano gli eventi. Funzioni di Azure è uno dei vari [servizi di Azure con supporto incorporato per la gestione degli eventi di Griglia di eventi](../event-grid/overview.md#event-handlers). Questo articolo illustra come usare un trigger di griglia di eventi per richiamare una funzione quando viene ricevuto un evento da griglia di eventi e come usare l'associazione di output per inviare eventi a un [argomento personalizzato di griglia di eventi](../event-grid/post-to-custom-topic.md).
 
 Se si preferisce, è possibile usare un trigger HTTP per gestire gli eventi di griglia di eventi. vedere [ricevere eventi in un endpoint HTTP](../event-grid/receive-events.md). Attualmente non è possibile usare un trigger Griglia di eventi per un'app di Funzioni di Azure quando l'evento è nello [schema CloudEvents](../event-grid/cloudevents-schema.md#azure-functions). È necessario usare invece un trigger HTTP.
 
@@ -26,7 +27,7 @@ Se si preferisce, è possibile usare un trigger HTTP per gestire gli eventi di g
 
 ## <a name="packages---functions-2x-and-higher"></a>Packages-Functions 2. x e versioni successive
 
-Il trigger Griglia di eventi è disponibile nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) versione 2.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x).
+Le associazioni di griglia di eventi sono incluse nel pacchetto NuGet [Microsoft. Azure. webjobs. Extensions. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) , versione 2. x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x).
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -36,7 +37,11 @@ Il trigger Griglia di eventi è disponibile nel pacchetto NuGet [Microsoft.Azure
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="example"></a>Esempio
+## <a name="trigger"></a>Trigger
+
+Usare il trigger di funzione per rispondere a un evento inviato a un argomento di griglia di eventi.
+
+## <a name="trigger---example"></a>Trigger - esempio
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -66,7 +71,7 @@ namespace Company.Function
 }
 ```
 
-Per altre informazioni, consultare le sezioni Pacchetti, [Attributi](#attributes), [Configurazione](#configuration) e [Uso](#usage).
+Per altre informazioni, consultare le sezioni Pacchetti, [Attributi](#trigger---attributes), [Configurazione](#trigger---configuration) e [Uso](#trigger---usage).
 
 ### <a name="version-1x"></a>Versione 1.x
 
@@ -127,7 +132,7 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 }
 ```
 
-Per altre informazioni, consultare le sezioni Pacchetti, [Attributi](#attributes), [Configurazione](#configuration) e [Uso](#usage).
+Per altre informazioni, consultare le sezioni Pacchetti, [Attributi](#trigger---attributes), [Configurazione](#trigger---configuration) e [Uso](#trigger---usage).
 
 ### <a name="version-1x"></a>Versione 1.x
 
@@ -284,7 +289,7 @@ Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/
 
 ---
 
-## <a name="attributes"></a>Attributes
+## <a name="trigger---attributes"></a>Trigger - attributi
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -316,11 +321,11 @@ Gli attributi non sono supportati da Python.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-L'annotazione [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) consente di configurare in modo dichiarativo un'associazione di griglia di eventi fornendo valori di configurazione. Per altri dettagli, vedere le sezioni di [esempio](#example) e di [configurazione](#configuration) .
+L'annotazione [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) consente di configurare in modo dichiarativo un'associazione di griglia di eventi fornendo valori di configurazione. Per altri dettagli, vedere le sezioni di [esempio](#trigger---example) e di [configurazione](#trigger---configuration) .
 
 ---
 
-## <a name="configuration"></a>Configurazione
+## <a name="trigger---configuration"></a>Trigger - configurazione
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json*. Non sono presenti parametri o proprietà di costruttori da impostare nell'attributo `EventGridTrigger`.
 
@@ -330,7 +335,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 | **direction** | Obbligatoria. Deve essere impostata su `in`. |
 | **nome** | Obbligatoria: nome della variabile usato nel codice della funzione per il parametro che riceve i dati dell'evento. |
 
-## <a name="usage"></a>Uso
+## <a name="trigger---usage"></a>Trigger - uso
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -370,11 +375,11 @@ L'istanza di griglia di eventi è disponibile tramite il parametro configurato n
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-L'istanza dell'evento di griglia di eventi è disponibile tramite il parametro associato all'attributo `EventGridTrigger`, tipizzato come `EventSchema`. Per altri dettagli, vedere l' [esempio](#example) .
+L'istanza dell'evento di griglia di eventi è disponibile tramite il parametro associato all'attributo `EventGridTrigger`, tipizzato come `EventSchema`. Per altri dettagli, vedere l' [esempio](#trigger---example) .
 
 ---
 
-## <a name="event-schema"></a>Schema di eventi
+## <a name="trigger---event-schema"></a>Trigger-schema evento
 
 I dati di un evento di Griglia di eventi vengono trasmessi come oggetto JSON nel corpo di una richiesta HTTP. L'oggetto JSON sarà simile all'esempio seguente:
 
@@ -412,7 +417,7 @@ Per altre informazioni sulle proprietà comuni e specifiche degli eventi, vedere
 
 Il tipo `EventGridEvent` definisce solo le proprietà di livello superiore, mentre la proprietà `Data` è un elemento `JObject`.
 
-## <a name="create-a-subscription"></a>Creare una sottoscrizione
+## <a name="trigger---create-a-subscription"></a>Trigger-crea una sottoscrizione
 
 Per iniziare a ricevere richieste HTTP di Griglia di eventi, è necessario creare una sottoscrizione di Griglia di eventi in cui sia specificato l'URL dell'endpoint che richiama la funzione.
 
@@ -486,7 +491,7 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_exten
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}
 ```
 
-Poiché si tratta di un'API di amministrazione, è necessaria la [chiave master](functions-bindings-http-webhook.md#authorization-keys) dell'app per le funzioni. Non confondere la chiave di sistema (per richiamare una funzione trigger Griglia di eventi) con la chiave master (per l'esecuzione di attività amministrative nell'app per le funzioni). Quando si sottoscrive un argomento di Griglia di eventi, usare la chiave di sistema.
+Poiché si tratta di un'API di amministrazione, è necessaria la [chiave master](functions-bindings-http-webhook-trigger.md#authorization-keys) dell'app per le funzioni. Non confondere la chiave di sistema (per richiamare una funzione trigger Griglia di eventi) con la chiave master (per l'esecuzione di attività amministrative nell'app per le funzioni). Quando si sottoscrive un argomento di Griglia di eventi, usare la chiave di sistema.
 
 Di seguito è riportato un esempio di risposta fornita dalla chiave di sistema:
 
@@ -508,11 +513,11 @@ Di seguito è riportato un esempio di risposta fornita dalla chiave di sistema:
 > [!IMPORTANT]
 > La chiave master consente l'accesso di amministratore all'app per le funzioni. Non condividere questa chiave con terze parti né distribuirla in applicazioni client native.
 
-Per altre informazioni, vedere [Chiavi di autorizzazione](functions-bindings-http-webhook.md#authorization-keys) nell'articolo di riferimento relativo al trigger HTTP.
+Per altre informazioni, vedere [Chiavi di autorizzazione](functions-bindings-http-webhook-trigger.md#authorization-keys) nell'articolo di riferimento relativo al trigger HTTP.
 
 In alternativa, è possibile inviare una richiesta HTTP PUT per specificare il valore della chiave autonomamente.
 
-## <a name="local-testing-with-viewer-web-app"></a>Test locale con l'app visualizzatore Web
+## <a name="trigger---local-testing-with-viewer-web-app"></a>Trigger-test locali con l'app Web del Visualizzatore
 
 Per testare un trigger Griglia di eventi in locale, è necessario ottenere le richieste HTTP di Griglia di eventi inviate dalla rispettiva origine nel cloud al computer locale. A tale scopo, è possibile acquisire le richieste online e rinviarle manualmente al computer locale:
 
@@ -584,6 +589,239 @@ Le schermate seguenti illustrano le intestazioni e il corpo della richiesta in P
 La funzione trigger Griglia di eventi viene eseguita e vengono visualizzati log simili all'esempio seguente:
 
 ![Log di esempio della funzione trigger Griglia di eventi](media/functions-bindings-event-grid/eg-output.png)
+
+## <a name="output"></a>Output
+
+Usare l'associazione di output di griglia di eventi per scrivere eventi in un argomento personalizzato. È necessario disporre di una [chiave di accesso valida per l'argomento personalizzato](../event-grid/security-authentication.md#custom-topic-publishing).
+
+> [!NOTE]
+> L'associazione di output di griglia di eventi non supporta le firme di accesso condiviso (token SAS). È necessario usare la chiave di accesso dell'argomento.
+
+Prima di provare a implementare un'associazione di output, assicurarsi che i riferimenti ai pacchetti necessari siano presenti.
+
+> [!IMPORTANT]
+> L'associazione di output di griglia di eventi è disponibile solo per le funzioni 2. x e successive.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Nell'esempio seguente viene illustrata una [ C# funzione](functions-dotnet-class-library.md) che scrive un messaggio in un argomento personalizzato di griglia di eventi, usando il valore restituito del metodo come output:
+
+```csharp
+[FunctionName("EventGridOutput")]
+[return: EventGrid(TopicEndpointUri = "MyEventGridTopicUriSetting", TopicKeySetting = "MyEventGridTopicKeySetting")]
+public static EventGridEvent Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
+{
+    return new EventGridEvent("message-id", "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0");
+}
+```
+
+Nell'esempio seguente viene illustrato come utilizzare l'interfaccia `IAsyncCollector` per inviare un batch di messaggi.
+
+```csharp
+[FunctionName("EventGridAsyncOutput")]
+public static async Task Run(
+    [TimerTrigger("0 */5 * * * *")] TimerInfo myTimer,
+    [EventGrid(TopicEndpointUri = "MyEventGridTopicUriSetting", TopicKeySetting = "MyEventGridTopicKeySetting")]IAsyncCollector<EventGridEvent> outputEvents,
+    ILogger log)
+{
+    for (var i = 0; i < 3; i++)
+    {
+        var myEvent = new EventGridEvent("message-id-" + i, "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0");
+        await outputEvents.AddAsync(myEvent);
+    }
+}
+```
+
+# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+
+L'esempio seguente mostra i dati dell'associazione di output di griglia di eventi nel file *Function. JSON* .
+
+```json
+{
+    "type": "eventGrid",
+    "name": "outputEvent",
+    "topicEndpointUri": "MyEventGridTopicUriSetting",
+    "topicKeySetting": "MyEventGridTopicKeySetting",
+    "direction": "out"
+}
+```
+
+Ecco il C# codice script che crea un evento:
+
+```cs
+#r "Microsoft.Azure.EventGrid"
+using System;
+using Microsoft.Azure.EventGrid.Models;
+using Microsoft.Extensions.Logging;
+
+public static void Run(TimerInfo myTimer, out EventGridEvent outputEvent, ILogger log)
+{
+    outputEvent = new EventGridEvent("message-id", "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0");
+}
+```
+
+Ecco il C# codice script che consente di creare più eventi:
+
+```cs
+#r "Microsoft.Azure.EventGrid"
+using System;
+using Microsoft.Azure.EventGrid.Models;
+using Microsoft.Extensions.Logging;
+
+public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent, ILogger log)
+{
+    outputEvent.Add(new EventGridEvent("message-id-1", "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0"));
+    outputEvent.Add(new EventGridEvent("message-id-2", "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0"));
+}
+```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+L'esempio seguente mostra i dati dell'associazione di output di griglia di eventi nel file *Function. JSON* .
+
+```json
+{
+    "type": "eventGrid",
+    "name": "outputEvent",
+    "topicEndpointUri": "MyEventGridTopicUriSetting",
+    "topicKeySetting": "MyEventGridTopicKeySetting",
+    "direction": "out"
+}
+```
+
+Ecco il codice JavaScript che crea un singolo evento:
+
+```javascript
+module.exports = async function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+
+    context.bindings.outputEvent = {
+        id: 'message-id',
+        subject: 'subject-name',
+        dataVersion: '1.0',
+        eventType: 'event-type',
+        data: "event-data",
+        eventTime: timeStamp
+    };
+    context.done();
+};
+```
+
+Ecco il codice JavaScript che crea più eventi:
+
+```javascript
+module.exports = function(context) {
+    var timeStamp = new Date().toISOString();
+
+    context.bindings.outputEvent = [];
+
+    context.bindings.outputEvent.push({
+        id: 'message-id-1',
+        subject: 'subject-name',
+        dataVersion: '1.0',
+        eventType: 'event-type',
+        data: "event-data",
+        eventTime: timeStamp
+    });
+    context.bindings.outputEvent.push({
+        id: 'message-id-2',
+        subject: 'subject-name',
+        dataVersion: '1.0',
+        eventType: 'event-type',
+        data: "event-data",
+        eventTime: timeStamp
+    });
+    context.done();
+};
+```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+L'associazione di output di griglia di eventi non è disponibile per Python.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+L'associazione di output di griglia di eventi non è disponibile per Java.
+
+---
+
+## <a name="output---attributes-and-annotations"></a>Output-attributi e annotazioni
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Per le [ C# librerie di classi](functions-dotnet-class-library.md), usare l'attributo [EventGridAttribute](https://github.com/Azure/azure-functions-eventgrid-extension/blob/dev/src/EventGridExtension/OutputBinding/EventGridAttribute.cs) .
+
+Il costruttore dell'attributo accetta il nome di un'impostazione dell'app che contiene il nome dell'argomento personalizzato e il nome di un'impostazione dell'app che contiene la chiave dell'argomento. Per altre informazioni su queste impostazioni, vedere la [sezione relativa alla configurazione dell'output](#output---configuration). Di seguito è riportato un esempio di attributo `EventGrid`:
+
+```csharp
+[FunctionName("EventGridOutput")]
+[return: EventGrid(TopicEndpointUri = "MyEventGridTopicUriSetting", TopicKeySetting = "MyEventGridTopicKeySetting")]
+public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
+{
+    ...
+}
+```
+
+Per un esempio completo, vedere [Output - esempio in C#](#output).
+
+# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+
+Gli attributi non sono supportati C# dallo script.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Gli attributi non sono supportati da JavaScript.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+L'associazione di output di griglia di eventi non è disponibile per Python.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+L'associazione di output di griglia di eventi non è disponibile per Java.
+
+---
+
+## <a name="output---configuration"></a>Output - configurazione
+
+Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `EventGrid`.
+
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
+|---------|---------|----------------------|
+|**type** | n/d | Deve essere impostato su "eventGrid". |
+|**direction** | n/d | Deve essere impostato su "out". Questo parametro viene impostato automaticamente quando si crea l'associazione nel portale di Azure. |
+|**nome** | n/d | Nome della variabile usato nel codice della funzione che rappresenta l'evento. |
+|**topicEndpointUri** |**TopicEndpointUri** | Nome di un'impostazione dell'app che contiene l'URI per l'argomento personalizzato, ad esempio `MyTopicEndpointUri`. |
+|**topicKeySetting** |**TopicKeySetting** | Nome di un'impostazione dell'app che contiene una chiave di accesso per l'argomento personalizzato. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+> [!IMPORTANT]
+> Assicurarsi di impostare il valore della proprietà di configurazione `TopicEndpointUri` sul nome di un'impostazione dell'app che contiene l'URI dell'argomento personalizzato. Non specificare l'URI dell'argomento personalizzato direttamente in questa proprietà.
+
+## <a name="output---usage"></a>Output - uso
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Inviare messaggi utilizzando un parametro del metodo, ad esempio `out EventGridEvent paramName`. Per scrivere più messaggi, è possibile usare `ICollector<EventGridEvent>` o `IAsyncCollector<EventGridEvent>` al posto di `out EventGridEvent`.
+
+# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+
+Inviare messaggi utilizzando un parametro del metodo, ad esempio `out EventGridEvent paramName`. Negli script C#, `paramName` è il valore specificato nella proprietà `name` di *function.json*. Per scrivere più messaggi, è possibile usare `ICollector<EventGridEvent>` o `IAsyncCollector<EventGridEvent>` al posto di `out EventGridEvent`.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Accedere all'evento di output usando `context.bindings.<name>` dove `<name>` è il valore specificato nella proprietà `name` di *Function. JSON*.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+L'associazione di output di griglia di eventi non è disponibile per Python.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+L'associazione di output di griglia di eventi non è disponibile per Java.
+
+---
 
 ## <a name="next-steps"></a>Passaggi successivi
 

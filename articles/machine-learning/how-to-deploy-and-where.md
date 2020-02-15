@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: bbb0992eaeef7892e5940130131ac139a339b47d
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: fa73cb690fafb67f75abafab1b0dd27ffa0b8e32
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77083246"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210500"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuire modelli con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -584,6 +584,20 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 [!INCLUDE [aml-local-deploy-config](../../includes/machine-learning-service-local-deploy-config.md)]
 
 Per ulteriori informazioni, vedere la documentazione [AZ ml Model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) .
+
+### <a name="understanding-service-state"></a>Informazioni sullo stato del servizio
+
+Durante la distribuzione del modello, è possibile che venga visualizzata la modifica dello stato del servizio durante la distribuzione completa.
+
+Nella tabella seguente vengono descritti i diversi Stati del servizio:
+
+| Stato WebService | Descrizione | Stato finale?
+| ----- | ----- | ----- |
+| Transizione | Il servizio è in fase di distribuzione. | No |
+| Non integro | Il servizio è stato distribuito ma non è attualmente raggiungibile.  | No |
+| Non pianificabile | Non è possibile distribuire il servizio in questo momento a causa di risorse insufficienti. | No |
+| Operazione non riuscita | La distribuzione del servizio non è riuscita a causa di un errore o di un arresto anomalo. | Sì |
+| Integro | Il servizio è integro e l'endpoint è disponibile. | Sì |
 
 ### <a id="notebookvm"></a>Servizio Web dell'istanza di calcolo (sviluppo/test)
 

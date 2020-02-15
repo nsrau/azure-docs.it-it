@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e3a80628e5729813e1d405e58ecb623925b63076
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 1734b063530f9e8a8f0429111c4c39d628bfad4e
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77193380"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251771"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C
 
@@ -50,7 +50,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 | ----- | ----------- | --------|
 | {Culture:LanguageName} | Codice ISO di due lettere per la lingua. | en |
 | {Culture:LCID}   | Identificatore LCID del codice della lingua. | 1033 |
-| {Culture:RegionName} | Codice ISO di due lettere per la regione. | Stati Uniti |
+| {Culture:RegionName} | Codice ISO di due lettere per la regione. | US |
 | {Culture:RFC5646} | Codice RFC5646 della lingua. | it-IT |
 
 ### <a name="policy"></a>Policy
@@ -70,7 +70,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 | {OIDC:ClientId} |Parametro di stringa di query `client_id`. | 00000000-0000-0000-0000-000000000000 |
 | {OIDC:DomainHint} |Parametro di stringa di query `domain_hint`. | facebook.com |
 | {OIDC:LoginHint} |  Parametro di stringa di query `login_hint`. | someone@contoso.com |
-| {OIDC:MaxAge} | `max_age`. | N/D |
+| {OIDC:MaxAge} | Lo `max_age`. | N/D |
 | {OIDC:Nonce} |Parametro di stringa di query `Nonce`. | defaultNonce |
 | {OIDC:Prompt} | Parametro di stringa di query `prompt`. | login |
 | {OIDC:Resource} |Parametro di stringa di query `resource`. | N/D |
@@ -123,16 +123,16 @@ I nomi di parametro inclusi in una richiesta OIDC o OAuth2 possono essere mappat
 |Profilo tecnico [RelyingParty](relyingparty.md#technicalprofile)| `OutputClaim`| 2 |
 
 Impostazioni: 
-1. I metadati di `IncludeClaimResolvingInClaimsHandling` devono essere impostati su `true`
-1. L'attributo delle attestazioni di input o output `AlwaysUseDefaultValue` deve essere impostato su `true`
+1. I metadati di `IncludeClaimResolvingInClaimsHandling` devono essere impostati su `true`.
+1. L'attributo Claims di input o output `AlwaysUseDefaultValue` deve essere impostato su `true`.
 
-## <a name="how-to-use-claim-resolvers"></a>Come usare i resolver di attestazioni
+## <a name="claim-resolvers-samples"></a>Esempi di resolver di attestazioni
 
 ### <a name="restful-technical-profile"></a>Profilo tecnico RESTful
 
 In un profilo tecnico [RESTful](restful-technical-profile.md) può essere utile inviare la lingua dell'utente, il nome dei criteri, l'ambito e l'ID client. Sulla base di queste attestazioni, l'API REST può eseguire logica di business personalizzata e, se necessario, generare un messaggio di errore localizzato.
 
-Nell'esempio seguente viene illustrato un profilo tecnico RESTful:
+Nell'esempio seguente viene illustrato un profilo tecnico RESTful con questo scenario:
 
 ```XML
 <TechnicalProfile Id="REST">
@@ -142,12 +142,13 @@ Nell'esempio seguente viene illustrato un profilo tecnico RESTful:
     <Item Key="ServiceUrl">https://your-app.azurewebsites.net/api/identity</Item>
     <Item Key="AuthenticationType">None</Item>
     <Item Key="SendClaimsIn">Body</Item>
+    <Item Key="IncludeClaimResolvingInClaimsHandling">true</Item>
   </Metadata>
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="userLanguage" DefaultValue="{Culture:LCID}" />
-    <InputClaim ClaimTypeReferenceId="policyName" DefaultValue="{Policy:PolicyId}" />
-    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="{OIDC:scope}" />
-    <InputClaim ClaimTypeReferenceId="clientId" DefaultValue="{OIDC:ClientId}" />
+    <InputClaim ClaimTypeReferenceId="userLanguage" DefaultValue="{Culture:LCID}" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="policyName" DefaultValue="{Policy:PolicyId}" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="{OIDC:scope}" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="clientId" DefaultValue="{OIDC:ClientId}" AlwaysUseDefaultValue="true" />
   </InputClaims>
   <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
 </TechnicalProfile>
@@ -159,9 +160,9 @@ Con i resolver di attestazioni è possibile precompilare il nome di accesso o l'
 
 ### <a name="dynamic-ui-customization"></a>Personalizzazione dell'interfaccia utente dinamica
 
-Azure AD B2C consente di passare parametri della stringa di query agli endpoint della definizione del contenuto HTML, in modo da poter eseguire il rendering dinamico del contenuto della pagina. È ad esempio possibile modificare l'immagine di sfondo nella pagina di accesso o di iscrizione ad Azure AD B2C in base a un parametro personalizzato passato dall'applicazione Web o per dispositivi mobili. Per altre informazioni, vedere [Azure Active Directory B2C: Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati](custom-policy-ui-customization-dynamic.md). È anche possibile localizzare la pagina HTML in base a un parametro di lingua oppure è possibile modificare il contenuto in base all'ID client.
+Azure AD B2C consente di passare i parametri della stringa di query agli endpoint della definizione del contenuto HTML per eseguire dinamicamente il rendering del contenuto della pagina. Questo consente, ad esempio, di modificare l'immagine di sfondo nella pagina Azure AD B2C iscrizione o l'accesso in base a un parametro personalizzato passato dall'applicazione Web o per dispositivi mobili. Per altre informazioni, vedere [Azure Active Directory B2C: Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati](custom-policy-ui-customization-dynamic.md). È anche possibile localizzare la pagina HTML in base a un parametro di lingua oppure è possibile modificare il contenuto in base all'ID client.
 
-L'esempio seguente passa nella stringa di query un parametro denominato **campaignId** con il valore `hawaii`, un codice **language**`en-US` e **app** che rappresenta l'ID client:
+L'esempio seguente passa il parametro della stringa di query denominato **campaignId** con il valore `hawaii`, un codice di **lingua** di `en-US`e l' **app** che rappresenta l'ID client:
 
 ```XML
 <UserJourneyBehaviors>
@@ -173,10 +174,21 @@ L'esempio seguente passa nella stringa di query un parametro denominato **campai
 </UserJourneyBehaviors>
 ```
 
-Azure AD B2C invia quindi i parametri di cui sopra alla pagina di contenuto HTML:
+Di conseguenza, Azure AD B2C invia i parametri precedenti alla pagina contenuto HTML:
 
 ```
 /selfAsserted.aspx?campaignId=hawaii&language=en-US&app=0239a9cc-309c-4d41-87f1-31288feb2e82
+```
+
+### <a name="content-definition"></a>Definizione del contenuto
+
+In una `LoadUri`[ContentDefinition](contentdefinitions.md) è possibile inviare i resolver di attestazioni per eseguire il pull del contenuto da posizioni diverse in base ai parametri utilizzati. 
+
+```XML
+<ContentDefinition Id="api.signuporsignin">
+  <LoadUri>https://contoso.blob.core.windows.net/{Culture:LanguageName}/myHTML/unified.html</LoadUri>
+  ...
+</ContentDefinition>
 ```
 
 ### <a name="application-insights-technical-profile"></a>Profilo tecnico di Application Insights
@@ -195,4 +207,29 @@ Con Azure Application Insights e i resolver di attestazioni è possibile ottener
     <InputClaim ClaimTypeReferenceId="AppId" PartnerClaimType="{property:App}" DefaultValue="{OIDC:ClientId}" />
   </InputClaims>
 </TechnicalProfile>
+```
+
+### <a name="relying-party-policy"></a>Criteri della relying party
+
+In un profilo tecnico dei criteri della [relying party](relyingparty.md) , è possibile inviare l'ID tenant o l'ID di correlazione all'applicazione relying party all'interno di JWT. 
+
+```XML
+<RelyingParty>
+    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+    <TechnicalProfile Id="PolicyProfile">
+      <DisplayName>PolicyProfile</DisplayName>
+      <Protocol Name="OpenIdConnect" />
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="displayName" />
+        <OutputClaim ClaimTypeReferenceId="givenName" />
+        <OutputClaim ClaimTypeReferenceId="surname" />
+        <OutputClaim ClaimTypeReferenceId="email" />
+        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+        <OutputClaim ClaimTypeReferenceId="identityProvider" />
+        <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+        <OutputClaim ClaimTypeReferenceId="correlationId" AlwaysUseDefaultValue="true" DefaultValue="{Context:CorrelationId}" />
+      </OutputClaims>
+      <SubjectNamingInfo ClaimType="sub" />
+    </TechnicalProfile>
+  </RelyingParty>
 ```

@@ -1,23 +1,23 @@
 ---
 title: Copertura della mobilità (transito) | Mappe Microsoft Azure
-description: In questo articolo si apprenderà come coprire la mobilità nelle mappe Microsoft Azure
-author: walsehgal
-ms.author: v-musehg
+description: In questo articolo si apprenderà come coprire la mobilità in Microsoft Azure Maps
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8dcbfe7a47dba5a1783d6010d41e33073bc0bb20
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 04804f28b2b0b5c45ed8f523d2f465f81b6ab151
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048910"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208251"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Copertura della mobilità di Maps di Azure
 
-Azure Maps offre un [servizio di mobilità](https://aka.ms/AzureMapsMobilityService). Il servizio Mobility migliora il tempo di sviluppo per le applicazioni con funzionalità di trasporto pubblico, bike Share e scooter. Offre un'opzione per l'instradamento con le opzioni di pianificazione dei viaggi multimodale. Le funzionalità per il trasporto pubblico includono la ricerca di stazioni adiacenti, la ricerca di arresti, la ricerca di linee di transito, il recupero delle informazioni sulla pianificazione, il recupero di arrivi in tempo reale in transito e l'elenco delle guide. Il servizio restituisce informazioni sulla disponibilità statica e in tempo reale ai veicoli condivisi, ad esempio automobili, biciclette e scooter. L'API restituisce gli itinerari dettagliati e multimodali e gli avvisi del servizio.
+Azure Maps offre un [servizio di mobilità](https://aka.ms/AzureMapsMobilityService). Il servizio Mobility migliora il tempo di sviluppo per le applicazioni con funzionalità di trasporto pubblico, bike Share e scooter. Le funzionalità per il trasporto pubblico includono la ricerca di stazioni adiacenti, la ricerca di arresti, la ricerca di linee di transito, il recupero delle informazioni sulla pianificazione, il recupero di arrivi in tempo reale in transito, l'elenco delle interruzioni e le guide alle route. Il servizio restituisce informazioni sulla disponibilità statica e in tempo reale ai veicoli condivisi, ad esempio automobili, biciclette e scooter. Inoltre, il servizio Mobility fornisce funzionalità di routing con le opzioni di pianificazione dei viaggi multimodali. La pianificazione dei viaggi multimodali incorpora le opzioni di ciclismo, trasmissione e trasmissione, in un unico viaggio. Gli utenti della camma accedono agli itinerari dettagliati e multimodali e agli avvisi del servizio.
 
 Le mappe di Azure non hanno lo stesso livello di informazioni e accuratezza per tutte le città e i paesi o le aree geografiche. La possibilità di chiamare i dati di transito dipende dalla città. I dati potrebbero non includere tutte le opzioni di transito pubblico e le agenzie che svolgono la città.
 
@@ -30,7 +30,7 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 
 ## <a name="americas"></a>Americhe
 
-| Paese/Area geografica |  Città (area metro) |
+| Paese/area geografica |  Città (area metro) |
 |----------------|---------|
 | Argentina       | <p>Bahía Blanca, Buenos Aires, Caleta Olivia, Chivilcoy, Comodoro Rivadavia, Cordova, Corrientes, generale Pico, la Rioja, Mar del Plata, Mendoza, Miramar, Neuquén, Oberá, Olavarría, Paraná, Posadas, Rio Tercero, Rosario, salta, San Carlos de Bariloche, San Luis, San Pedro, Santa Fe, Tandil, Ushuaia, Victoria, Villa María</p>|
 | Barbados       |  Barbados |
@@ -52,15 +52,15 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 
 ## <a name="asia-pacific"></a>Asia Pacifico
 
-| Paese/Area geografica |  Città (area metro) |
+| Paese/area geografica |  Città (area metro) |
 |--------|---------|
 | Australia      | <p>Adelaide, Alice Springs, Bowen, Brisbane, Bundaberg QLD, Burnie, Cairns, Canberra, Darwin, Gladstone, Hobart, Innisfail, Launceston, Mackay, Magnetic Island, Maryborough-Hervey Bay, Melbourne, New South Wales, Perth, RockHampton, South East Queensland, Sydney, Toowoomba, Townsville, Victoria, Warwick, Yeppoon</p> |
 | Cina | <p> Changchun, Changsha, Chengdu, Chongqing, Dalian, Datong, Dongguan, Hangzhou, Jiangyin, Jinan, Nanjing, Nantong, Ningbo, Pingdingshan, Qingdao, Shenyang, Suzhou, Tangshan, Tianjin, Weifang, Wuhan, Wuxi, Yantai, Yixing, Zhuhai, Shanghai, Pechino, Guangzhou, Shenzhen, Zhengzhou</P>| 
-| RAS di Hong Kong | RAS di Hong Kong *|
+| Hong Kong - R.A.S. | RAS di Hong Kong *|
 | RAS di Macao | RAS di Macao *|
 | India | Ahmedabad, Bengaluru, Delhi, Mumbai, Mysuru, Pune|
 | Indonesia | Bandung, Banyuwangi, Batam, Denpasar, Jakarta, Kediri, Malang, Palembang, Semarang, Surabaya, Surakarta, Yogyakarta |
-| Giappone | Prefettura Shizuoka, Tokyo, Wakkanai, Prefettura Yamanashi |
+| Japan | Prefettura Shizuoka, Tokyo, Wakkanai, Prefettura Yamanashi |
 | Malaysia | Ipoh, Johar Bahru, Kuala Lumpur, Penang |
 | Nuova Zelanda | Auckland, Christchurch, Dunedin, Queenstown, Timaru, Wellington|
 | Filippine | Manila |
@@ -73,7 +73,7 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 
 ## <a name="europe"></a>Europa
 
-| Paese/Area geografica |  Città (area metro) |
+| Paese/area geografica |  Città (area metro) |
 |----------------|---------|
 | Andorra        | Andorra la Vella |
 | Atene         | Chios | 
@@ -85,15 +85,15 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 | Bulgaria       | <p>Balchik, Blagoevgrad, Burgas, Dobrich, Gabrovo, Haskovo, Kardzhali, Lovech, Nessebar, Pazardzhik, Pleven, Plovdiv, Ruse, Shumen, Sliven, Stara Zagora, Vratsa, Yambol, Varna, Veliko, Sofia</P> |
 | Croazia | Crikvenica, Dubrovnik, Rijeka, Slovanski Brod, Zagabria | 
 | Cipro | Larnaca, Limassol, Nicosia | 
-| Repubblica ceca | Brno, Jablonec, Karlovy Vary, Liberec, Ostrava, Praga | 
+| Repubblica Ceca | Brno, Jablonec, Karlovy Vary, Liberec, Ostrava, Praga | 
 | Danimarca   | Danimarca |
 | Estonia   | Estonia |   
 | Finlandia   | Hämeenlinna, Helsinki, Joensuu, Jyväskylä, Kajaani, Kouvola-Kotka, Kuopio, Lappeenranta, Mikkeli, Oulu, Seinäjoki, Tampere, Turku, Vaasa|
-| Francia    | <p>Amberieu-en-Bugey, Amiens, Angers, Annecy, Annonay, Arras, Aubenas, Bayonne, Besançon, Blois, Bordeaux, Boulogne sur Mer, Brest, Briançon, Cannes, Châlons-en-Champagne, Chartres, Clermont-Ferrand, Colmar, Dax, Dijon, Grenoble, Haguenau, la Rochelle, le Mans, Lens, Lille, Lorient, Lione, MACS, Marseille & Provence, Metz, Millau, Mont-de-Marsan, Montpellier, Mulhouse, Nancy, Nantes, Nice, Nimes, Normandia, Nyons, Parigi, Poitiers, prive, Quimper, Rennes, Saint Malo, Saint-Étienne, Saint-Nazaire, Saintes, Sarrebourg, sete, Strasburgo, Tarbes, Toulouse, Tours</P> | 
+| France    | <p>Amberieu-en-Bugey, Amiens, Angers, Annecy, Annonay, Arras, Aubenas, Bayonne, Besançon, Blois, Bordeaux, Boulogne sur Mer, Brest, Briançon, Cannes, Châlons-en-Champagne, Chartres, Clermont-Ferrand, Colmar, Dax, Dijon, Grenoble, Haguenau, la Rochelle, le Mans, Lens, Lille, Lorient, Lione, MACS, Marseille & Provence, Metz, Millau, Mont-de-Marsan, Montpellier, Mulhouse, Nancy, Nantes, Nice, Nimes, Normandia, Nyons, Parigi, Poitiers, prive, Quimper, Rennes, Saint Malo, Saint-Étienne, Saint-Nazaire, Saintes, Sarrebourg, sete, Strasburgo, Tarbes, Toulouse, Tours</P> | 
 | \+ Guyana francese | Cayenne |
 | \+ Nuova Caledonia | Nouméa  |
 | Georgia | Tbilisi | 
-| Germania | <p>Berlino, Brandenburg, Brema & Niedersachsen, Colonia, Eisenach, Francoforte, Amburgo, Karlsruhe, Mainz, München-Munich, Rhein-Neckar Region, Rhein-Ruhr Region, Stuttgart, Titisee-Neustadt, Ulm</P> | 
+| Germany | <p>Berlino, Brandenburg, Brema & Niedersachsen, Colonia, Eisenach, Francoforte, Amburgo, Karlsruhe, Mainz, München-Munich, Rhein-Neckar Region, Rhein-Ruhr Region, Stuttgart, Titisee-Neustadt, Ulm</P> | 
 | Grecia | <p>Atene, Arta, Amorgos, Chania, Corfù, Chio Kos, Heraklion, Ioannina, Kavala, Kalamata, Komotini, Kos, Larissa, Meganisi, Milos, Mykonos, Patra, Rethimno, Rhodes, Santorini, Serres, Syros, Tinos, Salonicco, Veria, Volos, Xanthi </P> |
 | Ungheria | Budapest, Nograd County, Szeged, Székesfehérvár |
 | Islanda | Ísland-Islanda * | 
@@ -124,9 +124,9 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 
 ## <a name="middle-east-and-africa"></a>Medio Oriente e Africa
 
-| Paese/Area geografica |  Città (area metro) |
+| Paese/area geografica |  Città (area metro) |
 |---------|---------|
-| Bahrain | Bahrain |
+| Bahrein | Bahrain |
 | Egitto | Cairo    |
 | Israele| Israele  |
 | Kenya | Nairobi  | 
@@ -134,7 +134,7 @@ La tabella seguente contiene informazioni sulla copertura per il servizio Mobili
 | Marocco | Casablanca, Khouribga, Tétouan|
 | Qatar| Doha|
 | Arabia Saudita | Thuwal |
-| Sud Africa | Città del capo |
+| Sudafrica | Città del capo |
 | Tunisia | Kairouan |
 | Emirati Arabi Uniti  | Abu Dhabi, Dubai |
 

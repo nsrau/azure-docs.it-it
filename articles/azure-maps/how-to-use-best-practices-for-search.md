@@ -1,19 +1,19 @@
 ---
 title: Eseguire ricerche in modo efficiente usando le mappe di Azure servizio di ricerca | Mappe Microsoft Azure
 description: Informazioni su come applicare le procedure consigliate per servizio di ricerca usando Microsoft Azure maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e29b3d70c576955637424208aeb0f980669b67bb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 82e0339e02fa2fb27e7b2ca24f65934e3ce4fe23
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899163"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209801"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Procedure consigliate per le mappe di Azure servizio di ricerca
 
@@ -784,7 +784,7 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 Esaminiamo la struttura della risposta. Nella risposta che segue, i tipi degli oggetti risultato sono diversi. Se si osserva con attenzione, vengono visualizzati tre tipi di oggetti risultato:
 
 * Indirizzo punto
-* Street
+* Via
 * Tra le strade
 
 Si noti che la ricerca di indirizzi non restituisce POIs.  

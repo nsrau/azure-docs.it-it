@@ -1,19 +1,19 @@
 ---
 title: Concetti relativi ai servizi meteorologici | Mappe Microsoft Azure
 description: In questo articolo verranno illustrati i concetti che si applicano a Microsoft Azure Maps Weather Services.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: bcf100236d4a2a707a007a24e9e51105cc9ca0ac
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: af7ea5c6e9d09b05b2f9271d6954162c0fd429c6
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76991392"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208727"
 ---
 # <a name="weather-services-in-azure-maps"></a>Servizi Meteo in mappe di Azure
 
@@ -23,11 +23,11 @@ Questo articolo presenta i concetti che si applicano ai [Servizi Meteo di Azure 
 
 Alcune API del servizio meteorologico consentono all'utente di specificare se i dati vengono restituiti in formato metrica o in unità imperiali. Le risposte restituite per queste API includono unitType e un valore numerico che può essere usato per le traduzioni di unità. Vedere la tabella seguente per interpretare questi valori.
 
-|UnitType|Description         |
+|unitType|Descrizione         |
 |--------|--------------------|
 |0       |piedi                |
 |1       |pollici              |
-|2       |chilometri               |
+|2       |miles               |
 |3       |millimetro          |
 |4       |centimetro          |
 |5       |Metro               |
@@ -45,7 +45,7 @@ Alcune API del servizio meteorologico consentono all'utente di specificare se i 
 |17      |celsius             |
 |18      |fahrenheit          |
 |19      |kelvin              |
-|20      |%             |
+|20      |percent             |
 |21      |float               |
 |22      |integer             |
 
@@ -54,7 +54,7 @@ Alcune API del servizio meteorologico consentono all'utente di specificare se i 
 
 Alcune API del servizio meteorologico restituiscono il `iconCode` nella risposta. Il `iconCode` è un valore numerico utilizzato per definire l'icona. Non eseguire direttamente il collegamento a queste immagini dalle applicazioni, gli URL possono essere modificati e sostituiti.
 
-| Numero icona |Icona| Giorno | Notte | Testo |
+| Numero icona |Icona| Giorno | Notte | Text |
 |-------------|:----:|-----|-------|------|
 | 1           |![](./media/weather-services-concepts/sunny-i.png)                      | Sì |  No    | Sunny|
 | 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | Sì |  No    | Per lo più soleggiato|
@@ -81,10 +81,10 @@ Alcune API del servizio meteorologico restituiscono il `iconCode` nella risposta
 | 25           |![](./media/weather-services-concepts/sleet-i.png)                     | Sì |  Sì   | Nevischio|
 | 26           |![](./media/weather-services-concepts/freezing-rain.png)              | Sì |  Sì   | Congelamento pioggia|
 | 29           |![](./media/weather-services-concepts/rain-snow.png)                  | Sì |  Sì   | Pioggia e neve|
-| 30           |![](./media/weather-services-concepts/hot-i.png)                       | Sì |  Sì   | Accesso frequente|
-| 31           |![](./media/weather-services-concepts/cold-i.png)                      | Sì |  Sì   | Cold|
+| 30           |![](./media/weather-services-concepts/hot-i.png)                       | Sì |  Sì   | Alto|
+| 31           |![](./media/weather-services-concepts/cold-i.png)                      | Sì |  Sì   | Basso|
 | 32           |![](./media/weather-services-concepts/windy-i.png)                     | Sì |  Sì   | Ventoso|
-| 33           |![](./media/weather-services-concepts/clear-night.png)                | No  |  Sì   | Deseleziona|
+| 33           |![](./media/weather-services-concepts/clear-night.png)                | No  |  Sì   | Cancella|
 | 34           |![](./media/weather-services-concepts/mostly-clear-night.png)          | No  |  Sì   | Per lo più chiaro|
 | 35           |![](./media/weather-services-concepts/partly-cloudy-night.png)         | No  |  Sì   | Parzialmente nuvoloso|
 | 36           |![](./media/weather-services-concepts/intermittent-clouds-Night.png)   | No  |  Sì   | Cloud intermittenti|

@@ -10,12 +10,12 @@ ms.date: 02/10/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 78a7f3eb920d2f656b91cff187ca22b1e15973b7
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 14ad6dbf139b34f501e0b0ea8c16d8570b2ace5b
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77165410"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212577"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Modificare la modalità di replica di un account di archiviazione
 
@@ -38,10 +38,10 @@ Nella tabella seguente viene fornita una panoramica su come passare da un tipo d
 
 | Commutazione | ... a con ridondanza locale | ... al GRS/RA-GRS | ... a ZRS | ... a GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>... da con ridondanza locale</b> | N/D | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica | Eseguire una migrazione manuale <br /><br />Richiedi una migrazione in tempo reale | Eseguire una migrazione manuale <br /><br />Richiedi una migrazione in tempo reale |
-| <b>... da GRS/RA-GRS</b> | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica | N/D | Eseguire una migrazione manuale <br /><br />Richiedi una migrazione in tempo reale | Eseguire una migrazione manuale <br /><br />Richiedi una migrazione in tempo reale |
-| <b>... da ZRS</b> | Eseguire una migrazione manuale <br /><br />Richiedi una migrazione in tempo reale | Eseguire una migrazione manuale <br /><br />Richiedi una migrazione in tempo reale | N/D | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica |
-| <b>... da GZRS/RA-GZRS</b> | Eseguire una migrazione manuale <br /><br />Richiedi una migrazione in tempo reale | Eseguire una migrazione manuale <br /><br />Richiedi una migrazione in tempo reale | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica | N/D |
+| <b>... da con ridondanza locale</b> | N/D | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica<sup>1</sup> | Eseguire una migrazione manuale <br /><br />Richiedi una migrazione in tempo reale | Eseguire una migrazione manuale <br /><br /> OPPURE <br /><br /> Passa prima a GRS/RA-GRS e quindi Richiedi una migrazione in tempo reale<sup>1</sup> |
+| <b>... da GRS/RA-GRS</b> | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica | N/D | Eseguire una migrazione manuale <br /><br /> OPPURE <br /><br /> Passa prima a con ridondanza locale e quindi Richiedi una migrazione in tempo reale | Eseguire una migrazione manuale <br /><br /> Richiedi una migrazione in tempo reale |
+| <b>... da ZRS</b> | Eseguire una migrazione manuale | Eseguire una migrazione manuale | N/D | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica<sup>1</sup> |
+| <b>... da GZRS/RA-GZRS</b> | Eseguire una migrazione manuale | Eseguire una migrazione manuale | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica | N/D |
 
 <sup>1</sup> comporta un addebito di uscita una sola volta.
 
@@ -118,16 +118,16 @@ Sebbene Microsoft gestisca tempestivamente la richiesta di migrazione in tempo r
 
 1. Selezionare **Nuova richiesta di supporto**
 2. Completare le **nozioni di base** con le informazioni relative all'account. Nella sezione **Assistenza** selezionare **Gestione Account di archiviazione** e la risorsa che si vuole convertire in archiviazione con ridondanza della zona.
-3. Selezionare **Avanti**.
+3. Fare clic su **Avanti**.
 4. Specificare i valori seguenti nella sezione **Problema**:
     - **Gravità**: lasciare il valore predefinito.
     - **Tipo di problema**: selezionare **Migrazione dei dati**.
     - **Category**: selezionare **migrate to ZRS**.
     - **Titolo**: digitare un titolo descrittivo, ad esempio **migrazione di account con archiviazione con ridondanza della zona**.
     - **Dettagli**: digitare ulteriori dettagli nella casella **Dettagli** , ad esempio, si desidera eseguire la migrazione a ZRS da [con ridondanza locale, GRS] nell'area \_\_.
-5. Selezionare **Avanti**.
+5. Fare clic su **Avanti**.
 6. Verificare che le informazioni di contatto nel pannello **Informazioni contatto** siano corrette.
-7. Selezionare **Create** (Crea).
+7. Selezionare **Crea**.
 
 Un addetto del supporto tecnico contatterà l'utente e fornirà l'assistenza necessaria.
 

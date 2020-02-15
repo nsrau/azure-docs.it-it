@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: cynthn
-ms.openlocfilehash: cf4c8c57121a06a607770470c5aef69c5edc0c5f
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 58c0964d170f49066802b955f09dab01eaf998a7
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77115631"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252196"
 ---
 # <a name="preview-control-updates-with-maintenance-control-and-the-azure-cli"></a>Anteprima: controllare gli aggiornamenti con il controllo manutenzione e l'interfaccia della riga di comando di Azure
 
@@ -195,7 +195,7 @@ az maintenance update list \
    -o table
 ```
 
-## <a name="apply-updates"></a>Applicazione degli aggiornamenti
+## <a name="apply-updates"></a>Applicare gli aggiornamenti
 
 Usare `az maintenance apply update` per applicare gli aggiornamenti in sospeso. Al termine dell'operazione, questo comando restituirà JSON contenente i dettagli dell'aggiornamento.
 
@@ -233,6 +233,18 @@ az maintenance applyupdate create \
 È possibile controllare lo stato degli aggiornamenti utilizzando `az maintenance applyupdate get`. 
 
 È possibile utilizzare `default` come nome dell'aggiornamento per visualizzare i risultati dell'ultimo aggiornamento oppure sostituire `myUpdateName` con il nome dell'aggiornamento restituito quando è stato eseguito `az maintenance applyupdate create`.
+
+```text
+Status         : Completed
+ResourceId     : /subscriptions/12ae7457-4a34-465c-94c1-17c058c2bd25/resourcegroups/TestShantS/providers/Microsoft.Comp
+ute/virtualMachines/DXT-test-04-iso
+LastUpdateTime : 1/1/2020 12:00:00 AM
+Id             : /subscriptions/12ae7457-4a34-465c-94c1-17c058c2bd25/resourcegroups/TestShantS/providers/Microsoft.Comp
+ute/virtualMachines/DXT-test-04-iso/providers/Microsoft.Maintenance/applyUpdates/default
+Name           : default
+Type           : Microsoft.Maintenance/applyUpdates
+```
+LastUpdateTime sarà il momento in cui l'aggiornamento è stato completato, avviato dall'utente o dalla piattaforma nel caso in cui non sia stata utilizzata la finestra self-maintenance. Se non è mai stato applicato un aggiornamento tramite il controllo di manutenzione, verrà visualizzato il valore predefinito.
 
 ### <a name="isolated-vm"></a>VM isolata
 

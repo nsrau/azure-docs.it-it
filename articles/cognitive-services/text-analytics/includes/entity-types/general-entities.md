@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: f95d7613926cf332a498cca84563dbc0ebcbbe9b
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: ba516a548fc8385ca86526a7f2dd082b27e53208
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086875"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77211430"
 ---
 ## <a name="general-entity-types"></a>Tipi di entità generali:
 
@@ -22,7 +22,7 @@ ms.locfileid: "77086875"
 Riconoscere i nomi di persona nel testo.
 
 Lingue:
-* Anteprima pubblica: `English`
+* Anteprima pubblica: `Arabic`, `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English`, `Finnish`, `French`, `German`, `Hungarian`, `Italian`, `Japanese`, `Korean`, `Norwegian (Bokmål)`, `Polish`, `Portuguese (Portugal)`, `Portuguese (Brazil)`, `Russian`, `Spanish`, `Swedish` e `Turkish`
 
 | Nome sottotipo | Descrizione                                                      | Disponibile a partire dalla versione del modello |
 |--------------|------------------------------------------------------------------|---------------------------------------|
@@ -44,12 +44,12 @@ Punti di riferimento naturali e umani, strutture, funzionalità geografiche e en
 
 Lingue:
 
-* Anteprima pubblica: `English`
+* Anteprima pubblica: `Arabic`, `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English`, `Finnish`, `French`, `German`, `Hungarian`, `Italian`, `Japanese`, `Korean`, `Norwegian (Bokmål)`, `Polish`, `Portuguese (Portugal)`, `Portuguese (Brazil)`, `Russian`, `Spanish`, `Swedish` e `Turkish`
 
 | Nome sottotipo              | Descrizione                                                                              | Disponibile a partire dalla versione del modello |
 |---------------------------|------------------------------------------------------------------------------------------|----------------------------------------|
 | N/D                       | località, ad esempio `Atlantic Ocean`, `library`, `Eiffel Tower``Statue of Liberty`  | `2019-10-01`                           |
-| Entità geopolitica (GPE) | Città, Paesi, Stati, ad esempio `Seattle`, `Pennsylvania`, `South Africa``Tokyo` | `2020-02-01`                           |
+| Entità geopolitica (GPE)-solo inglese| Città, Paesi, Stati, ad esempio `Seattle`, `Pennsylvania`, `South Africa``Tokyo` | `2020-02-01`                           |
 
 ### <a name="organization"></a>Organization  
 
@@ -57,7 +57,7 @@ Organizzazioni, aziende, agenzie e altri gruppi di persone riconosciute. Ad esem
 
 Lingue: 
 
-* Anteprima pubblica: `English`
+* Anteprima pubblica: `Arabic`, `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English`, `Finnish`, `French`, `German`, `Hungarian`, `Italian`, `Japanese`, `Korean`, `Norwegian (Bokmål)`, `Polish`, `Portuguese (Portugal)`, `Portuguese (Brazil)`, `Russian`, `Spanish`, `Swedish` e `Turkish`
 
 | Nome sottotipo | Descrizione                                                                                             | Disponibile a partire dalla versione del modello |
 |--------------|---------------------------------------------------------------------------------------------------------|----------------------------------------|
@@ -148,7 +148,7 @@ Lingue:
 |--------------|------------------------------------------|----------------------------------------|
 | N/D          | Indirizzo di rete, ad esempio `10.0.0.101` | `2019-10-01`                           |
 
-###  <a name="datetime"></a>DateTime
+###  <a name="datetime"></a>Datetime
 
 Entità di data e ora. 
 
@@ -156,7 +156,7 @@ Entità di data e ora.
 
 Lingue:
 
-* Anteprima pubblica: `English`
+* Anteprima pubblica: `Chinese-Simplified`, `English`, `French`, `German` e `Spanish`
 
 | Nome sottotipo    | Esempi                     |
 |-------------|------------------------------|
@@ -176,14 +176,14 @@ Numeri e quantità numeriche.
 
 Lingue:
 
-* Anteprima pubblica: `English`
+* Anteprima pubblica: `Chinese-Simplified`, `English`, `French`, `German` e `Spanish`
 
 | Nome sottotipo    | Esempi                     |
 |-------------|------------------------------|
-| NUMBER         | `6`, `six`                   |
+| Number         | `6`, `six`                   |
 | Percentuale  | `50%`, `fifty percent`       |
 | Ordinal     | `2nd`, `second`              |
 | Tempo trascorso         | `90 day old`, `30 years old` |
-| Currency    | `$10.99`, `€30.00`           |
+| Valuta    | `$10.99`, `€30.00`           |
 | Dimension   | `10 miles`, `40 cm`          |
 | Temperatura | `32 degrees`, `10°C`         |

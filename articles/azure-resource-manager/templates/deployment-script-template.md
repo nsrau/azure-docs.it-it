@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 01/24/2020
 ms.author: jgao
-ms.openlocfilehash: f18c9c6efb17f84446b9fee3d2df2c0977bed0c4
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: a67f360aa08f306d6462342d96f59e06a4d3b501
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76757304"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251856"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usare gli script di distribuzione nei modelli (anteprima)
 
@@ -30,7 +30,7 @@ I vantaggi dello script di distribuzione:
 
 - Facile da codificare, utilizzare ed eseguire il debug. È possibile sviluppare script di distribuzione negli ambienti di sviluppo preferiti. Gli script possono essere incorporati in modelli o in file di script esterni.
 - È possibile specificare la piattaforma e il linguaggio di scripting. Attualmente, sono supportati solo gli script di distribuzione Azure PowerShell nell'ambiente Linux.
-- Consente di specificare le identità utilizzate per eseguire gli script. Attualmente è supportata solo l' [identità gestita assegnata dall'utente di Azure](../../active-directory/managed-identities-azure-resources/overview.md) .
+- Consente di specificare le identità utilizzate per eseguire gli script. Attualmente è supportata solo l' [identità gestita assegnata dall'utente di Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) .
 - Consente di passare gli argomenti della riga di comando allo script.
 - Può specificare gli output dello script e passarli nuovamente alla distribuzione.
 
@@ -59,7 +59,7 @@ I vantaggi dello script di distribuzione:
 
 - **Azure PowerShell versione 2.7.0, 2.8.0 o 3.0.0**. Queste versioni non sono necessarie per la distribuzione dei modelli. Queste versioni sono tuttavia necessarie per testare localmente gli script di distribuzione. Vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps). È possibile usare un'immagine Docker preconfigurata.  Vedere [configurare l'ambiente di sviluppo](#configure-development-environment).
 
-## <a name="resource-schema"></a>Schema delle risorse
+## <a name="sample-template"></a>Modello di esempio
 
 Il codice JSON seguente è un esempio.  Lo schema del modello più recente è disponibile [qui](/azure/templates/microsoft.resources/deploymentscripts).
 
@@ -87,7 +87,7 @@ Il codice JSON seguente è un esempio.  Lo schema del modello più recente è di
       $DeploymentScriptOutputs = @{}
       $DeploymentScriptOutputs['text'] = $output
     ",
-    "primaryScriptUri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.json",
+    "primaryScriptUri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
     "supportingScriptUris":[],
     "timeout": "PT30M",
     "cleanupPreference": "OnSuccess",
@@ -122,7 +122,7 @@ Il modello seguente include una risorsa definita con il tipo di `Microsoft.Resou
 > [!NOTE]
 > Poiché gli script di distribuzione inline sono racchiusi tra virgolette doppie, le stringhe all'interno degli script di distribuzione devono essere racchiuse tra virgolette singole. Il carattere di escape per PowerShell **&#92;** è. È anche possibile prendere in considerazione l'uso della sostituzione di stringhe come illustrato nell'esempio JSON precedente. Vedere il valore predefinito del parametro Name.
 
-Lo script accetta un parametro e genera l'output del valore del parametro. **DeploymentScriptOutputs** viene usato per archiviare gli output.  Nella sezione Outputs (output) la riga **valore** Mostra come accedere ai valori archiviati. `Write-Output` viene utilizzato a scopo di debug. Per informazioni su come accedere al file di output, vedere [debug degli script di distribuzione](#debug-deployment-scripts).  Per le descrizioni delle proprietà, vedere [schema di risorse](#resource-schema).
+Lo script accetta un parametro e genera l'output del valore del parametro. **DeploymentScriptOutputs** viene usato per archiviare gli output.  Nella sezione Outputs (output) la riga **valore** Mostra come accedere ai valori archiviati. `Write-Output` viene utilizzato a scopo di debug. Per informazioni su come accedere al file di output, vedere [debug degli script di distribuzione](#debug-deployment-scripts).  Per le descrizioni delle proprietà, vedere [modello di esempio](#sample-template).
 
 Per eseguire lo script, selezionare **prova** per aprire cloud Shell e quindi incollare il codice seguente nel riquadro della shell.
 
@@ -144,7 +144,7 @@ L'output è simile al seguente:
 
 ## <a name="use-external-scripts"></a>Usare script esterni
 
-Oltre agli script inline, è anche possibile usare file di script esterni. Attualmente sono supportati solo gli script di PowerShell con l'estensione di file **ps1** . Per usare file di script esterni, sostituire `scriptContent` con `primaryScriptUri`. Ad esempio:
+Oltre agli script inline, è anche possibile usare file di script esterni. Attualmente sono supportati solo gli script di PowerShell con l'estensione di file **ps1** . Per usare file di script esterni, sostituire `scriptContent` con `primaryScriptUri`. Ad esempio,
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",

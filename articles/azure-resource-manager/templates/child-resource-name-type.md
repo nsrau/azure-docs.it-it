@@ -3,12 +3,12 @@ title: Risorse figlio nei modelli
 description: Viene descritto come impostare il nome e il tipo per le risorse figlio in un modello di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 7d8a7a39bab3340b6f5c9e66d54b7398fa70ee3e
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 6de2b476fe19a057a62e4a54963dd8fde0d11579
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122016"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207894"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Imposta il nome e il tipo per le risorse figlio
 
@@ -27,7 +27,7 @@ In un modello di Resource Manager è possibile specificare la risorsa figlio all
 ]
 ```
 
-Nell'esempio seguente viene illustrata la risorsa figlio al di fuori della risorsa padre. Questo approccio può essere usato se la risorsa padre non viene distribuita nello stesso modello o se si vuole usare [Copy](create-multiple-instances.md) per creare più di una risorsa figlio.
+Nell'esempio seguente viene illustrata la risorsa figlio al di fuori della risorsa padre. Questo approccio può essere usato se la risorsa padre non viene distribuita nello stesso modello o se si vuole usare [Copy](copy-resources.md) per creare più di una risorsa figlio.
 
 ```json
 "resources": [

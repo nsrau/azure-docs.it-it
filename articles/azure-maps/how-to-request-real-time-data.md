@@ -1,20 +1,20 @@
 ---
 title: Richiedere dati di transito in tempo reale | Mappe Microsoft Azure
 description: Richiedi dati in tempo reale usando il servizio Mobility Microsoft Azure maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 09/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 053e6c84f69e8b3d3fed0a90a8b632aa4eb311cb
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 9710366bdb7d8e86c8abb54b29b8dde3cc315692
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198157"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209903"
 ---
 # <a name="request-real-time-data-using-the-azure-maps-mobility-service"></a>Richiedi dati in tempo reale usando il servizio Mobility di Azure Maps
 
@@ -27,7 +27,7 @@ In questo articolo viene spiegato come:
  * Richiedere informazioni in tempo reale per una determinata stazione di ancoraggio della bicicletta.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di tutto è necessario avere un account Azure Maps e una chiave di sottoscrizione per effettuare chiamate alle API di transito pubblico di Azure maps. Per informazioni, seguire le istruzioni riportate in [creare un account](quick-demo-map-app.md#create-an-account-with-azure-maps) per creare un account Azure maps. Seguire i passaggi in [ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account) per ottenere la chiave primaria per l'account. Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](./how-to-manage-authentication.md).
 

@@ -1,20 +1,22 @@
 ---
-title: Funzioni di modelli
+title: Funzioni di modello
 description: Vengono descritte le funzioni da utilizzare in un modello di gestione risorse di Azure per recuperare valori, lavorare con stringhe e valori numerici, e recuperare informazioni sulla distribuzione.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: aef813595df96449d5dd59ad1e95e77c4c198d0f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/13/2020
+ms.openlocfilehash: a9d10ad4899f35acd45069cb3d351a60632fed3a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483973"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207043"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funzioni del modello di Azure Resource Manager
 
 Questo articolo descrive tutte le funzioni disponibili in un modello di Azure Resource Manager. Per informazioni sull'uso delle funzioni nel modello, vedere [sintassi del modello](template-expressions.md).
 
 Per creare funzioni personalizzate, vedere [Funzioni definite dall'utente](template-syntax.md#functions).
+
+La maggior parte delle funzioni funziona allo stesso modo quando viene distribuita in un gruppo di risorse, una sottoscrizione, un gruppo di gestione o un tenant. Alcune funzioni non possono essere usate in tutti gli ambiti. Sono indicati negli elenchi riportati di seguito.
 
 <a id="array" aria-hidden="true" />
 <a id="coalesce" aria-hidden="true" />
@@ -35,6 +37,7 @@ Per creare funzioni personalizzate, vedere [Funzioni definite dall'utente](templ
 <a id="union" aria-hidden="true" />
 
 ## <a name="array-and-object-functions"></a>Funzioni di array e di oggetto
+
 Resource Manager include numerose funzioni per gestire gli array e gli oggetti.
 
 * [array](template-functions-array.md#array)
@@ -62,6 +65,7 @@ Resource Manager include numerose funzioni per gestire gli array e gli oggetti.
 <a id="greaterorequals" aria-hidden="true" />
 
 ## <a name="comparison-functions"></a>Funzioni di confronto
+
 Resource Manager include numerose funzioni per l'esecuzione di confronti nei modelli.
 
 * [equals](template-functions-comparison.md#equals)
@@ -75,10 +79,11 @@ Resource Manager include numerose funzioni per l'esecuzione di confronti nei mod
 <a id="variables" aria-hidden="true" />
 
 ## <a name="deployment-value-functions"></a>Funzioni dei valori della distribuzione
+
 Gestione risorse fornisce le funzioni seguenti per ottenere i valori dalle sezioni del modello e i valori relativi alla distribuzione:
 
 * [deployment](template-functions-deployment.md#deployment)
-* [environment](template-functions-deployment.md#environment)
+* [ambiente](template-functions-deployment.md#environment)
 * [parameters](template-functions-deployment.md#parameters)
 * [variables](template-functions-deployment.md#variables)
 
@@ -89,6 +94,7 @@ Gestione risorse fornisce le funzioni seguenti per ottenere i valori dalle sezio
 <a id="or" aria-hidden="true" />
 
 ## <a name="logical-functions"></a>Funzioni logiche
+
 Resource Manager fornisce le funzioni seguenti per utilizzare le condizioni logiche:
 
 * [and](template-functions-logical.md#and)
@@ -109,6 +115,7 @@ Resource Manager fornisce le funzioni seguenti per utilizzare le condizioni logi
 <a id="sub" aria-hidden="true" />
 
 ## <a name="numeric-functions"></a>Funzioni numeriche
+
 Gestione risorse fornisce le funzioni seguenti per usare i numeri interi:
 
 * [add](template-functions-numeric.md#add)
@@ -134,6 +141,7 @@ Gestione risorse fornisce le funzioni seguenti per usare i numeri interi:
 <a id="tenantResourceId" aria-hidden="true" />
 
 ## <a name="resource-functions"></a>Funzioni delle risorse
+
 Gestione risorse fornisce le funzioni seguenti per ottenere i valori delle risorse:
 
 * [extensionResourceId](template-functions-resource.md#extensionresourceid)
@@ -143,9 +151,9 @@ Gestione risorse fornisce le funzioni seguenti per ottenere i valori delle risor
 * [list*](template-functions-resource.md#list)
 * [provider](template-functions-resource.md#providers)
 * [reference](template-functions-resource.md#reference)
-* [resourceGroup](template-functions-resource.md#resourcegroup)
-* [resourceId](template-functions-resource.md#resourceid)
-* [sottoscrizione](template-functions-resource.md#subscription)
+* [resourceGroup](template-functions-resource.md#resourcegroup) : può essere usato solo nelle distribuzioni in un gruppo di risorse.
+* [resourceId](template-functions-resource.md#resourceid) : può essere usato in qualsiasi ambito, ma i parametri validi cambiano a seconda dell'ambito.
+* [Subscription](template-functions-resource.md#subscription) -può essere usato solo nelle distribuzioni in un gruppo di risorse o in una sottoscrizione.
 * [subscriptionResourceId](template-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](template-functions-resource.md#tenantresourceid)
 
@@ -181,6 +189,7 @@ Gestione risorse fornisce le funzioni seguenti per ottenere i valori delle risor
 <a id="uricomponenttostring" aria-hidden="true" />
 
 ## <a name="string-functions"></a>Funzioni per i valori stringa
+
 Gestione risorse fornisce le funzioni seguenti per usare le stringhe:
 
 * [base64](template-functions-string.md#base64)
@@ -221,5 +230,5 @@ Gestione risorse fornisce le funzioni seguenti per usare le stringhe:
 
 * Per una descrizione delle sezioni in un modello di Gestione risorse di Azure, vedere [Creazione di modelli di Gestione risorse di Azure](template-syntax.md)
 * Per unire più modelli, vedere [Uso di modelli collegati con Gestione risorse di Azure](linked-templates.md)
-* Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Azure Resource Manager](create-multiple-instances.md)
+* Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](copy-resources.md).
 * Per informazioni su come distribuire il modello creato, vedere [distribuire un'applicazione con il modello di Azure Resource Manager](deploy-powershell.md)

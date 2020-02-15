@@ -3,12 +3,12 @@ title: Funzioni di modello-numeric
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per elaborare i numeri.
 ms.topic: conceptual
 ms.date: 11/08/2017
-ms.openlocfilehash: 1a611277bb473d605c76d131a18f9ccb550fab29
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 91aa637701acb278e81b7eb86aa3ae2db15acc28
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483947"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207236"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funzioni numeriche per i modelli di Azure Resource Manager
 
@@ -36,7 +36,7 @@ Restituisce la somma dei due numeri interi forniti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- | 
 |operand1 |Sì |int |Il primo numero da aggiungere. |
 |operand2 |Sì |int |Il secondo numero da aggiungere. |
@@ -82,7 +82,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
 | addResult | Int | 8 |
 
@@ -107,18 +107,18 @@ Restituisce l'indice di un ciclo di iterazione.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | loopName | No | string | Nome del ciclo per ottenere l'iterazione. |
 | offset |No |int |Il numero da aggiungere al valore di iterazione in base zero. |
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 Questa funzione viene sempre usata con un oggetto **copy** . Se non viene specificato alcun valore per **offset**, viene restituito il valore di iterazione corrente. Il valore di iterazione inizia da zero. È possibile usare i cicli di iterazione quando si definiscono le risorse o le variabili.
 
 La proprietà **loopName** consente di specificare se copyIndex fa riferimento all'iterazione di una risorsa o all'iterazione di una proprietà. Se non viene specificato alcun valore per **loopName**, viene usata l'iterazione del tipo di risorsa corrente. Specificare un valore per **loopName** durante l'iterazione di una proprietà. 
  
-Per una descrizione completa dell'uso di **copyIndex**, vedere [Creare più istanze di risorse in Azure Resource Manager](create-multiple-instances.md).
+Per una descrizione completa dell'uso di **copyIndex**, vedere [Creare più istanze di risorse in Azure Resource Manager](copy-resources.md).
 
 Per un esempio di utilizzo di **copyIndex** nella definizione di una variabile, vedere [Variabili](template-syntax.md#variables).
 
@@ -153,7 +153,7 @@ Restituisce la divisione Integer dei due numeri interi forniti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |int |Il numero da dividere. |
 | operand2 |Sì |int |Il numero usato per dividere. Non può essere 0. |
@@ -199,7 +199,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
 | divResult | Int | 2 |
 
@@ -224,7 +224,7 @@ Converte il valore in un numero a virgola mobile. Usare questa funzione solo qua
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |stringa o numero intero |Il valore da convertire in un numero a virgola mobile. |
 
@@ -258,7 +258,7 @@ Converte il valore specificato in un numero intero.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sì |stringa o numero intero |Il valore da convertire in numero intero. |
 
@@ -293,7 +293,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
 | intResult | Int | 4 |
 
@@ -318,7 +318,7 @@ Restituisce il valore massimo da una matrice di numeri interi o da un elenco di 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore massimo. |
 
@@ -356,7 +356,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
@@ -375,14 +375,14 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="min" />
 
-## <a name="min"></a>min
+## <a name="min"></a>Min
 `min (arg1)`
 
 Restituisce il valore minimo di una matrice di numeri interi o di un elenco di numeri interi delimitato da virgole.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore minimo. |
 
@@ -420,7 +420,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
@@ -446,7 +446,7 @@ Restituisce la parte rimanente della divisione Integer usando i due numeri inter
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |int |Il numero da dividere. |
 | operand2 |Sì |int |Il numero usato per dividere; non può corrispondere a 0. |
@@ -491,7 +491,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
 | modResult | Int | 1 |
 
@@ -516,7 +516,7 @@ Restituisce la moltiplicazione dei due numeri interi forniti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |int |Il primo numero da moltiplicare. |
 | operand2 |Sì |int |Il secondo numero da moltiplicare. |
@@ -562,7 +562,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
 | mulResult | Int | 15 |
 
@@ -587,7 +587,7 @@ Restituisce la sottrazione dei due numeri interi forniti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |int |Il numero da cui sottrarre. |
 | operand2 |Sì |int |Il numero sottratto. |
@@ -632,7 +632,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
 | subResult | Int | 4 |
 
@@ -651,6 +651,6 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="next-steps"></a>Passaggi successivi
 * Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](template-syntax.md).
 * Per unire più modelli, vedere [Uso di modelli collegati con Azure Resource Manager](linked-templates.md).
-* Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](create-multiple-instances.md).
+* Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](copy-resources.md).
 * Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Azure Resource Manager](deploy-powershell.md).
 

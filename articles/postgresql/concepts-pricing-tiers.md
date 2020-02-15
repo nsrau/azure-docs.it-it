@@ -6,24 +6,24 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: f7e5d3e681c86d5ecb014f95d838e6d3d51e1c48
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 2b5d5bfff3ff97efb351497c48a404beada2036a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74768368"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209342"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Piani tariffari nel database di Azure per PostgreSQL-server singolo
 
 È possibile creare un server di Database di Azure per PostgreSQL in uno dei tre piani tariffari disponibili: Basic, Utilizzo generico e Con ottimizzazione per la memoria. I piani tariffari si differenziano per le risorse di calcolo in vCore di cui è possibile effettuare il provisioning, per la memoria in ogni vCore e per la tecnologia usata per l'archiviazione dei dati. Il provisioning di tutte le risorse viene effettuato a livello di server PostgreSQL. Un server può avere uno o più database.
 
-|    | **Basic** | **Utilizzo generico** | **Con ottimizzazione per la memoria** |
+|    | **Base** | **Utilizzo generico** | **Con ottimizzazione per la memoria** |
 |:---|:----------|:--------------------|:---------------------|
-| Generazione di calcolo | Generazione 4, Generazione 5 | Generazione 4, Generazione 5 | Quinta generazione |
+| Generazione di calcolo | Generazione 4, Generazione 5 | Generazione 4, Generazione 5 | Generazione 5 |
 | vCore | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Memoria per vCore | 2 GB | 5 GB | 10 GB |
-| Dimensioni della risorsa di archiviazione | Da 5 GB a 1 TB | da 5 GB a 16 TB | da 5 GB a 16 TB |
-| Tipo di risorse di archiviazione | Archiviazione Standard di Azure | Archiviazione premium di Azure | Archiviazione premium di Azure |
+| Dimensioni dello spazio di archiviazione | Da 5 GB a 1 TB | da 5 GB a 16 TB | da 5 GB a 16 TB |
+| Tipo di archiviazione | Archiviazione Standard di Azure | Archiviazione Premium di Azure | Archiviazione Premium di Azure |
 | Periodo di conservazione dei backup dei database | Da 7 a 35 giorni | Da 7 a 35 giorni | Da 7 a 35 giorni |
 
 Per scegliere un piano tariffario, usare la tabella seguente come punto di partenza.
@@ -31,8 +31,8 @@ Per scegliere un piano tariffario, usare la tabella seguente come punto di parte
 | Piano tariffario | Carichi di lavoro di destinazione |
 |:-------------|:-----------------|
 | Basic | Carichi di lavoro con esigenze di calcolo e di prestazioni I/O ridotte. Ad esempio, server usati per lo sviluppo o i test oppure applicazioni su scala ridotta usate raramente. |
-| Scopo generico | La maggior parte dei carichi di lavoro aziendali che richiedono risorse di calcolo e di memoria bilanciate con velocità effettiva di I/O scalabile. Ad esempio, server per l'hosting di app Web e di app per dispositivi mobili e altre applicazioni aziendali.|
-| Ottimizzate per la memoria | Carichi di lavoro di database ad alte prestazioni che richiedono prestazioni in memoria per l'elaborazione più rapida delle transazioni e una concorrenza maggiore. Ad esempio, server per l'elaborazione di dati in tempo reale e app transazionali o analitiche a prestazioni elevate.|
+| Utilizzo generico | La maggior parte dei carichi di lavoro aziendali che richiedono risorse di calcolo e di memoria bilanciate con velocità effettiva di I/O scalabile. Ad esempio, server per l'hosting di app Web e di app per dispositivi mobili e altre applicazioni aziendali.|
+| Con ottimizzazione per la memoria | Carichi di lavoro di database ad alte prestazioni che richiedono prestazioni in memoria per l'elaborazione più rapida delle transazioni e una concorrenza maggiore. Ad esempio, server per l'elaborazione di dati in tempo reale e app transazionali o analitiche a prestazioni elevate.|
 
 Dopo aver creato un server, il numero di vCore, la generazione dell'hardware e il piano tariffario (ad eccezione del passaggio da/a Basic) possono essere aumentati o ridotti in pochi secondi. È anche possibile aumentare autonomamente lo spazio di archiviazione e aumentare o ridurre il periodo di conservazione dei backup senza tempi di inattività per le applicazioni. Non è possibile modificare il tipo di archiviazione dei backup dopo aver creato il server. Per altre informazioni, vedere la sezione [Ridimensionare le risorse](#scale-resources).
 
@@ -44,15 +44,15 @@ Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logic
 
 Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di archiviazione disponibile per il server Database di Azure per PostgreSQL. Lo spazio di archiviazione viene usato per i file del database, i file temporanei, i log delle transazioni e i log del server PostgreSQL. Lo spazio di archiviazione totale di cui si effettua il provisioning definisce anche la capacità di I/O disponibile per il server.
 
-|    | **Basic** | **Utilizzo generico** | **Con ottimizzazione per la memoria** |
+|    | **Base** | **Utilizzo generico** | **Con ottimizzazione per la memoria** |
 |:---|:----------|:--------------------|:---------------------|
-| Tipo di risorse di archiviazione | Archiviazione Standard di Azure | Archiviazione premium di Azure | Archiviazione premium di Azure |
-| Dimensioni della risorsa di archiviazione | Da 5 GB a 1 TB | da 5 GB a 16 TB | da 5 GB a 16 TB |
+| Tipo di archiviazione | Archiviazione Standard di Azure | Archiviazione Premium di Azure | Archiviazione Premium di Azure |
+| Dimensioni dello spazio di archiviazione | Da 5 GB a 1 TB | da 5 GB a 16 TB | da 5 GB a 16 TB |
 | Dimensioni di incremento dell'archiviazione | 1 GB | 1 GB | 1 GB |
-| Operazioni di I/O al secondo | Variabile |3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS |
+| IOPS | Variable |3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS |
 
 > [!NOTE]
-> Lo spazio di archiviazione fino a 16TB e 20.000 IOPS è supportato nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti occidentali, Europa settentrionale, Europa occidentale, Regno Unito meridionale, Regno Unito occidentale, Asia sudorientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Australia orientale, Australia Sud-est.
+> Lo spazio di archiviazione fino a 16TB e 20.000 IOPS è supportato nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti occidentali, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Europa settentrionale, Europa occidentale, Regno Unito meridionale, Regno Unito occidentale, Asia sudorientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale , Corea meridionale, Australia orientale, Australia sud-orientale.
 >
 > Tutte le altre aree supportano fino a 4 TB di archiviazione e 6000 IOPS.
 >
@@ -86,7 +86,7 @@ Se, ad esempio, è stato effettuato il provisioning di 1000 GB di spazio di arch
 
 Tenere presente che lo spazio di archiviazione può essere scalato solo, non inattivo.
 
-## <a name="backup"></a>Eseguire il backup
+## <a name="backup"></a>Backup
 
 Il servizio esegue automaticamente il backup del server. Il periodo di conservazione minimo dei backup è di sette giorni. È possibile impostare un periodo di conservazione massimo di 35 giorni. È possibile modificare il periodo di conservazione in qualsiasi momento durante il ciclo di vita del server. È possibile scegliere tra backup con ridondanza locale e backup con ridondanza geografica. Anche i backup con ridondanza geografica vengono archiviati nell'[area geografica abbinata](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) all'area in cui è stato creato il server. Questa ridondanza consente un livello di protezione in caso di emergenza. È anche possibile ripristinare il server in qualsiasi altra area di Azure in cui sia disponibile il servizio con backup con ridondanza geografica. Non è possibile cambiare opzione di archiviazione dei backup dopo aver creato il server.
 
@@ -101,9 +101,9 @@ Quando si modifica il numero di vCore, la generazione dell'hardware o il piano t
 
 Il ridimensionamento dello spazio di archiviazione e la modifica del periodo di conservazione dei backup sono realmente operazioni online. Non si registrano tempi di inattività e l'applicazione non viene influenzata. Le operazioni di I/O al secondo vengono ridimensionate in funzione dello spazio di archiviazione sottoposto a provisioning, quindi è possibile aumentare le operazioni di I/O al secondo disponibili per il server aumentando lo spazio di archiviazione.
 
-## <a name="pricing"></a>Prezzi
+## <a name="pricing"></a>Pricing
 
-Per le informazioni più aggiornate sui prezzi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/PostgreSQL/). Per informazioni sui costi della configurazione desiderata, consultare la scheda **Piano tariffario** del [portale di Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) che illustra il costo mensile in base alle opzioni selezionate. Se non è disponibile una sottoscrizione di Azure, è possibile usare il calcolatore dei prezzi di Azure per ottenere una stima. Passare al sito Web del [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/), selezionare **Aggiungi elementi**, espandere la categoria **Database** e scegliere **Database di Azure per PostgreSQL** per personalizzare le opzioni.
+Per le informazioni più aggiornate sui prezzi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/PostgreSQL/). Per informazioni sui costi della configurazione desiderata, consultare la scheda [Piano tariffario](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) del **portale di Azure** che illustra il costo mensile in base alle opzioni selezionate. Se non è disponibile una sottoscrizione di Azure, è possibile usare il calcolatore dei prezzi di Azure per ottenere una stima. Passare al sito Web del [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/), selezionare **Aggiungi elementi**, espandere la categoria **Database** e scegliere **Database di Azure per PostgreSQL** per personalizzare le opzioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

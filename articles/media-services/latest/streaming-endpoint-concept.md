@@ -10,14 +10,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/11/2020
+ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 14fee047e1f62ae7f7d3484d89779e1512e4bab7
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c1e9be605a6f01695f2472ae76a9e5a786388aa0
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198718"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77206107"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Endpoint di streaming (Origin) in servizi multimediali di Azure
 
@@ -59,14 +59,14 @@ Per informazioni sul contratto di contratto, vedere [prezzi e contratto di contr
 
 ## <a name="comparing-streaming-types"></a>Confronto tra le tipologie di streaming
 
-Funzionalità|Standard|Premium
+Caratteristica|Standard|Premium
 ---|---|---
 Velocità effettiva |Fino a 600 Mbps e possono fornire una velocità effettiva molto più elevata quando si usa una rete CDN.|200 Mbps per unità di streaming (SU). Può fornire una velocità effettiva molto più elevata quando viene usata una rete CDN.
 RETE CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
 Fatturazione con ripartizione proporzionale| Giornaliera|Giornaliera
 Crittografia dinamica|Sì|Sì
 creazione dinamica dei pacchetti|Sì|Sì
-Scalabilità|Scalabilità automatica fino alla velocità effettiva di destinazione.|SUs aggiuntivo
+Scala|Scalabilità automatica fino alla velocità effettiva di destinazione.|SUs aggiuntivo
 Filtro IP/G20/host personalizzato <sup>1</sup>|Sì|Sì
 Download progressivo|Sì|Sì
 Uso consigliato |Consigliato per la maggior parte dei casi di streaming.|Uso professionale.
@@ -102,7 +102,7 @@ Questa sezione fornisce informazioni dettagliate su alcune delle proprietà dell
     - `media.azure.net`
     - `verifydns.media.azure.net`
 
-  - Cina:
+  - China:
 
     - `mediaservices.chinacloudapi.cn`
     - `verifydns.mediaservices.chinacloudapi.cn`
@@ -147,17 +147,20 @@ Non esiste un valore della larghezza di banda specifico quando si aggiunge la re
 
 ### <a name="enable-azure-cdn-integration"></a>Abilitare l'integrazione della rete CDN di Azure
 
+> [!IMPORTANT]
+> Non è possibile abilitare la rete CDN per gli account Azure di valutazione o per studenti.
+>
+> L'integrazione della rete CDN è abilitata in tutti i Data Center di Azure, ad eccezione del governo federale e della Cina.
+
 Quando viene eseguito il provisioning di un endpoint di streaming con la rete CDN abilitata, è previsto un tempo di attesa definito in servizi multimediali prima di eseguire l'aggiornamento DNS per eseguire il mapping dell'endpoint di streaming all'endpoint rete CDN.
 
 Se in seguito si desidera disabilitare o abilitare la rete CDN, l'endpoint di streaming deve essere nello stato **interrotto**. L'abilitazione dell'integrazione della rete CDN di Azure e l'attivazione delle modifiche in tutti i POP della rete CDN potrebbero richiedere fino a due ore. Tuttavia, è possibile avviare l'endpoint di streaming e il flusso senza interruzioni dall'endpoint di streaming e, una volta completata l'integrazione, il flusso viene recapitato dalla rete CDN. Durante il periodo di provisioning, l'endpoint di streaming sarà nello stato **iniziale** ed è possibile che si verifichi un calo delle prestazioni.
 
 Quando viene creato l'endpoint di streaming standard, questo viene configurato per impostazione predefinita con Verizon standard. È possibile configurare Premium Verizon o provider Akamai standard usando le API REST.
 
-L'integrazione della rete CDN è abilitata in tutti i data center di Azure eccetto per le aree Cina e Governo federale.
-
 L'integrazione di Servizi multimediali di Azure con la rete CDN di Azure è implementata nella **rete CDN di Azure da Verizon** per gli endpoint di streaming standard. Gli endpoint di streaming Premium possono essere configurati usando tutti **i provider e i livelli di prezzo della rete CDN di Azure**. 
 
-> [!IMPORTANT]
+> [!NOTE]
 > Per informazioni dettagliate sulla rete CDN di Azure, vedere la panoramica della rete [CDN](../../cdn/cdn-overview.md).
 
 ### <a name="determine-if-dns-change-was-made"></a>Determinare se è stata apportata la modifica DNS

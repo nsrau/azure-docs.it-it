@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 08d9245201a8e0899d47847eb10dcdff3c0d8d16
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 13daf20e364b1e629b3ae13be2c9406da3702211
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984677"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209648"
 ---
 # <a name="show-search-results-on-the-map"></a>Visualizzare i risultati della ricerca sulla mappa
 
@@ -37,7 +37,7 @@ Il quarto blocco di codice usa il metodo [SearchFuzzy](/javascript/api/azure-map
 
 L'ultimo blocco di codice regola i limiti della fotocamera per la mappa utilizzando [la proprietà SetProperty della mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) .
 
-La richiesta di ricerca, l'origine dati, il livello di simbolo e i limiti della fotocamera si trovano all'interno del [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)pronto della mappa. Si vuole garantire che i risultati vengano visualizzati dopo il caricamento completo della mappa.
+La richiesta di ricerca, l'origine dati, il livello dei simboli e i limiti della fotocamera si trovano all'interno del [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) della mappa. Si vuole garantire che i risultati vengano visualizzati dopo il caricamento completo della mappa.
 
 
 ## <a name="make-a-search-request-via-fetch-api"></a>Eseguire una richiesta di ricerca tramite l'API fetch

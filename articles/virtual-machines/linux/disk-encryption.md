@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 28c971993721744245a5d3d57f1f5b68df58b492
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 1d203fd0c6777eee96311f45f4d5dfb8728ff431
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841183"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210602"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Crittografia lato server di Azure Managed Disks
 
@@ -38,7 +38,7 @@ Per impostazione predefinita, Managed disks USA chiavi di crittografia gestite d
 
 Il diagramma seguente illustra come i dischi gestiti usano Azure Active Directory e Azure Key Vault per eseguire richieste usando la chiave gestita dal cliente:
 
-![Flusso di lavoro chiavi gestite dal cliente di dischi gestiti](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
+![Flusso di lavoro del disco gestito e delle chiavi gestite dal cliente. Un amministratore crea una Azure Key Vault, quindi crea un set di crittografia del disco e imposta il set di crittografia del disco. Il set è associato a una macchina virtuale che consente al disco di usare Azure AD per l'autenticazione](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
 
 
 L'elenco seguente illustra il diagramma in modo ancora più dettagliato:
@@ -73,7 +73,7 @@ Per il momento, le chiavi gestite dal cliente presentano le restrizioni seguenti
 - I dischi, gli snapshot e le immagini crittografati con chiavi gestite dal cliente non possono passare a un'altra sottoscrizione.
 - Se si usa il portale di Azure per creare il set di crittografia del disco, non è possibile usare gli snapshot per il momento.
 
-### <a name="cli"></a>Interfaccia della riga di comando
+### <a name="cli"></a>CLI
 #### <a name="setting-up-your-azure-key-vault-and-diskencryptionset"></a>Configurazione di Azure Key Vault e DiskEncryptionSet
 
 1. Verificare di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e di avere eseguito la registrazione a un account di Azure con [az login](/cli/azure/reference-index).

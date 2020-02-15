@@ -1,19 +1,19 @@
 ---
 title: Impostare uno stile mappa usando le mappe di Azure Android SDK | Mappe Microsoft Azure
 description: In questo articolo vengono fornite informazioni sulle funzionalità relative allo stile di Microsoft Azure Maps per il Android SDK.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4adb38148acc0c18ac73709efbe7628ca9497897
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 96564a89a2b64203eef913b0d8300f0dafa332c5
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988958"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209580"
 ---
 # <a name="set-map-style-using-azure-maps-android-sdk"></a>Impostare lo stile della mappa usando le mappe di Azure Android SDK
 
@@ -55,7 +55,7 @@ L'attributo `mapcontrol_style` precedente imposta lo stile della mappa su **gray
 
 <center>
 
-![style-grayscale_dark](./media/set-android-map-styles/grayscale-dark.png)</center>
+stile ![-grayscale_dark](./media/set-android-map-styles/grayscale-dark.png)</center>
 
 ## <a name="set-map-style-in-the-activity-class"></a>Impostare lo stile della mappa nella classe Activity
 
@@ -73,4 +73,4 @@ mapControl.onReady(map -> {
 
 <center>
 
-![style-satellite-road-labels](./media/set-android-map-styles/satellite-road-labels.png)</center>
+stile ![-satellite-Road-labels](./media/set-android-map-styles/satellite-road-labels.png)</center>

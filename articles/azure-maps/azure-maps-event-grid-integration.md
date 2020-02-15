@@ -1,20 +1,20 @@
 ---
 title: Reagire per eseguire il mapping degli eventi tramite griglia di eventi | Mappe Microsoft Azure
 description: In questo articolo si apprenderà come rispondere agli eventi di Microsoft Azure Maps usando griglia di eventi.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 02/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ca77d4704fb71972090ce0b96dfdb888ef7d1d2c
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: f7e5be8d4aca85c9574db18ec9df8a7f30850d06
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190341"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210107"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Rispondere agli eventi di Mappe di Azure con Griglia di eventi 
 
@@ -30,7 +30,7 @@ Griglia di eventi di Azure è un servizio di routing di eventi completamente ges
 
 Griglia di eventi usa le [sottoscrizioni di eventi](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) per instradare i messaggi di evento ai sottoscrittori. Un account di Mappe di Azure genera i tipi di eventi seguenti: 
 
-| Tipo di evento | Descrizione |
+| Tipo evento | Descrizione |
 | ---------- | ----------- |
 | Microsoft.Maps.GeofenceEntered | Generato quando le coordinate ricevute sono state spostate dall'esterno di una data Fence specificata all'interno di |
 | Microsoft.Maps.GeofenceExited | Generato quando le coordinate ricevute sono state spostate dall'interno di una determinata georecinzione all'esterno |

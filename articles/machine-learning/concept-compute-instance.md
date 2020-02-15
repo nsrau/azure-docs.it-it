@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: b65b7a9fd38b690729fafd86fe213ff56760a1bb
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 280851b2fea0b8100a7d0f8ec8105109a41c8c83
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169828"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252077"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Che cos'è un'istanza di calcolo Azure Machine Learning?
 
@@ -141,11 +141,11 @@ Le istanze di calcolo possono essere usate come [destinazione di calcolo di trai
 
 ## <a name="notebookvm"></a>Cosa è successo alla VM notebook?
 
-Le istanze di calcolo sostituiscono la VM del notebook.  Nelle aree in cui le istanze di calcolo non sono ancora disponibili, è possibile continuare a usare le VM notebook con funzionalità complete e creare nuove macchine virtuali del notebook.
+Le istanze di calcolo sostituiscono la VM del notebook.  
 
 Tutti i file del notebook archiviati nella condivisione file dell'area di lavoro e i dati negli archivi dati dell'area di lavoro saranno accessibili da un'istanza di calcolo. Tuttavia, eventuali pacchetti personalizzati installati in precedenza in una macchina virtuale notebook dovranno essere reinstallati nell'istanza di calcolo. Le limitazioni di quota che si applicano alla creazione dei cluster di calcolo verranno applicate anche alla creazione dell'istanza di calcolo. 
 
-Nelle aree in cui sono disponibili istanze di calcolo, non è possibile creare nuove macchine virtuali notebook. Tuttavia, è comunque possibile accedere e usare le macchine virtuali notebook create con funzionalità complete. È possibile creare istanze di calcolo nella stessa area di lavoro delle macchine virtuali del notebook esistenti. 
+Non è possibile creare nuove macchine virtuali del notebook. Tuttavia, è comunque possibile accedere e usare le macchine virtuali notebook create con funzionalità complete. È possibile creare istanze di calcolo nella stessa area di lavoro delle macchine virtuali del notebook esistenti. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 1bdb4e40d7e173dcb2368f2f0cf645581647f6ee
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 09e5a6c5eee21e5432c4cf96a63fd2337307954a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77202203"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77211378"
 ---
 Azure Shared Disks (anteprima) è una nuova funzionalità di Azure Managed disks che consente di aggiungere simultaneamente un disco gestito di Azure a più macchine virtuali (VM). Il fissaggio di un disco gestito a più macchine virtuali consente di distribuire le applicazioni in cluster nuove o migrate in Azure.
 
@@ -35,7 +35,7 @@ I dischi gestiti con dischi condivisi abilitati non offrono in modo nativo un fi
 
 ## <a name="sample-workloads"></a>Carichi di lavoro di esempio
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a>WINDOWS
 
 La maggior parte del clustering basato su Windows si basa su WSFC, che gestisce tutta l'infrastruttura di base per la comunicazione del nodo cluster, consentendo alle applicazioni di sfruttare i vantaggi dei modelli di accesso parallelo. WSFC Abilita le opzioni CSV e non basate su CSV a seconda della versione di Windows Server in uso. Per informazioni dettagliate, vedere [creare un cluster di failover](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
 
@@ -55,7 +55,7 @@ I cluster Linux possono sfruttare i gestori di cluster come [pacemaker](https://
 
 Il diagramma seguente illustra un'applicazione di database in cluster a 2 nodi di esempio che sfrutta la richiesta pull SCSI per abilitare il failover da un nodo all'altro.
 
-![Shared-Disk-updated-two-node-cluster-Diagram. png](media/virtual-machines-disks-shared-disks/shared-disk-updated-two-node-cluster-diagram.png)
+![Cluster a due nodi. Un'applicazione in esecuzione nel cluster gestisce l'accesso al disco](media/virtual-machines-disks-shared-disks/shared-disk-updated-two-node-cluster-diagram.png)
 
 Il flusso è il seguente:
 
@@ -68,7 +68,7 @@ Il flusso è il seguente:
 
 Il diagramma seguente illustra un altro carico di lavoro cluster comune costituito da più nodi che leggono dati dal disco per l'esecuzione di processi paralleli, ad esempio il training di modelli di machine learning.
 
-![Shared-Disk-updated-Machine-Learning-Trainer-Model. png](media/virtual-machines-disks-shared-disks/shared-disk-updated-machine-learning-trainer-model.png)
+![Cluster di macchine virtuali a quattro nodi, ogni nodo registra la finalità di scrittura, l'applicazione richiede una prenotazione esclusiva per gestire correttamente i risultati della scrittura](media/virtual-machines-disks-shared-disks/shared-disk-updated-machine-learning-trainer-model.png)
 
 Il flusso è il seguente:
 

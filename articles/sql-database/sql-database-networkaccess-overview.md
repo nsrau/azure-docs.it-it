@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 44fcaa0a4292ac86c7371c27f29faf0e7246e9d5
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 16ba90aab52c00f77af590f854217cd989df53b3
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894781"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251907"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controlli di accesso alla rete del database SQL di Azure e data warehouse
 
@@ -113,7 +113,7 @@ Quando si esplorano le regole del firewall di rete virtuale, tenere presenti le 
 
 **Subnet:** una rete virtuale contiene **subnet**. Le macchine virtuali (VM) di Azure esistenti vengono assegnate a subnet. Una subnet può contenere varie VM o altri nodi di calcolo. I nodi di calcolo esterni alla rete virtuale non possono accedervi, a meno che non si configuri la sicurezza in modo da consentirne l'accesso.
 
-**Endpoint servizio rete virtuale:** Un [endpoint servizio rete virtuale] [VM-Virtual-Network-Service-Endpoints-Overview-649D] è una subnet i cui valori di proprietà includono uno o più nomi formali di tipi di servizi di Azure. Questo articolo è incentrato sul nome del tipo **Microsoft.Sql**, che fa riferimento al servizio Azure denominato Database SQL.
+**Endpoint servizio di rete virtuale:** un [endpoint servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md) è una subnet in cui i valori delle proprietà includono uno o più nomi formali di tipi di servizi Azure. Questo articolo è incentrato sul nome del tipo **Microsoft.Sql**, che fa riferimento al servizio Azure denominato Database SQL.
 
 **Regola di rete virtuale:** una regola di rete virtuale per il server di database SQL è una subnet presente nell'elenco di controllo di accesso (ACL) del server di database SQL. Per essere nell'elenco ACL del database SQL, la subnet deve contenere il nome del tipo **Microsoft.Sql**. Una regola di rete virtuale indica al server di database SQL di accettare le comunicazioni da ogni nodo che si trova nella subnet.
 
@@ -122,7 +122,7 @@ Quando si esplorano le regole del firewall di rete virtuale, tenere presenti le 
 
 Il firewall SQL Server di Azure consente di specificare gli intervalli di indirizzi IP da cui le comunicazioni vengono accettate nel database SQL. Questo approccio è ideale per gli indirizzi IP stabili esterni alla rete privata di Azure, Tuttavia, le macchine virtuali (VM) nella rete privata di Azure sono configurate con indirizzi IP *dinamici* . Gli indirizzi IP dinamici possono cambiare quando la macchina virtuale viene riavviata e, a sua volta, invalida la regola del firewall basata su IP. Sarebbe inutile specificare un indirizzo IP dinamico in una regola del firewall, in un ambiente di produzione.
 
-Per ovviare a questa limitazione, è possibile ottenere un indirizzo IP *statico* per la macchina virtuale. Per informazioni dettagliate, vedere [configurare indirizzi IP privati per una macchina virtuale usando il portale di Azure] [VM-Configure-Private-IP-Addresss-for-a-Virtual-Machine-using-the-Azure-Portal-321w]. Tuttavia, l'approccio IP statico può diventare difficile da gestire ed è costoso quando viene eseguito su larga scala. 
+Per ovviare a questa limitazione, è possibile ottenere un indirizzo IP *statico* per la macchina virtuale. Per informazioni dettagliate, vedere [configurare indirizzi IP privati per una macchina virtuale usando il portale di Azure](../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). Tuttavia, l'approccio IP statico può diventare difficile da gestire ed è dispendioso a livello di scalabilità. 
 
 Le regole della rete virtuale sono un'alternativa più semplice per definire e gestire l'accesso da una subnet specifica che contiene le macchine virtuali.
 

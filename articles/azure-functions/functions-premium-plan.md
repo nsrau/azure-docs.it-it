@@ -1,18 +1,18 @@
 ---
-title: Piano Premium di Funzioni di Azure
+title: Piano Premium di funzioni di Azure
 description: Dettagli e opzioni di configurazione (VNet, nessun avvio a freddo, durata di esecuzione illimitata) per il piano Premium di funzioni di Azure.
 author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: b373691a6b9649a43d68c9da93b49fd20536c42b
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 81db0889294360f74cb42d388e5d875de91c1019
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024637"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212465"
 ---
-# <a name="azure-functions-premium-plan"></a>Piano Premium di Funzioni di Azure
+# <a name="azure-functions-premium-plan"></a>Piano Premium di funzioni di Azure
 
 Il piano Premium di funzioni di Azure, noto anche come piano Premium elastico, è un'opzione di hosting per le app per le funzioni. Il piano Premium offre funzionalità come la connettività VNet, l'avvio a freddo e l'hardware Premium.  È possibile distribuire più app per le funzioni nello stesso piano Premium e il piano consente di configurare le dimensioni dell'istanza di calcolo, le dimensioni del piano di base e la dimensione massima del piano.  Per un confronto tra il piano Premium e altri tipi di piano e hosting, vedere [Opzioni di scalabilità e hosting delle funzioni](functions-scale.md).
 
@@ -31,7 +31,7 @@ In questo esempio, sostituire `<RESOURCE_GROUP>` con il gruppo di risorse e `<PL
 
 Dopo aver creato il piano, è possibile usare il comando [AZ functionapp create](/cli/azure/functionapp#az-functionapp-create) per creare l'app per le funzioni. Nel portale vengono creati contemporaneamente il piano e l'app. Per un esempio di script dell'interfaccia della riga di comando di Azure completo, vedere [creare un'app per le funzioni in un piano Premium](scripts/functions-cli-create-premium-plan.md).
 
-## <a name="features"></a>database elastico
+## <a name="features"></a>Funzionalità
 
 Per le app per le funzioni distribuite in un piano Premium sono disponibili le funzionalità seguenti.
 
@@ -94,16 +94,21 @@ Quando si crea o si ridimensiona il piano, è possibile scegliere tra tre dimens
 |EP2|2|7 GB|250 GB|
 |EP3|4|14 GB|250 GB|
 
-## <a name="regions"></a>Aree
+### <a name="memory-utilization-considerations"></a>Considerazioni sull'utilizzo della memoria
+L'esecuzione in un computer con una maggiore quantità di memoria non significa sempre che l'app per le funzioni utilizzerà tutta la memoria disponibile.
+
+Ad esempio, un'app per le funzioni JavaScript è vincolata dal limite di memoria predefinito in node. js. Per aumentare il limite di memoria fisso, aggiungere l'impostazione dell'app `languageWorkers:node:arguments` con un valore di `--max-old-space-size=<max memory in MB>`.
+
+## <a name="regions"></a>Regioni
 
 Di seguito sono elencate le aree attualmente supportate per ogni sistema operativo.
 
-|Area| Windows | Linux |
+|Region| WINDOWS | Linux |
 |--| -- | -- |
 |Australia centrale| ✔<sup>1</sup> | |
 |Australia centrale 2| ✔<sup>1</sup> | |
 |Australia orientale| ✔ | |
-|Australia sudorientale | ✔ | ✔<sup>1</sup> |
+|Australia sud-orientale | ✔ | ✔<sup>1</sup> |
 |Brasile meridionale| ✔<sup>2</sup> |  |
 |Canada centrale| ✔ |  |
 |Stati Uniti centrali| ✔ |  |

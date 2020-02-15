@@ -2,14 +2,14 @@
 title: Che cos'è Blockchain Data Manager per il servizio Azure Blockchain?
 description: Blockchain Data Manager consente di acquisire, trasformare e distribuire i dati della blockchain negli argomenti di Griglia di eventi.
 ms.date: 11/04/2019
-ms.topic: overview
+ms.topic: conceptual
 ms.reviewer: chroyal
-ms.openlocfilehash: 6583a99ef6efaefa732178d0228708cea82365b1
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
-ms.translationtype: HT
+ms.openlocfilehash: 78c93880007259267b26cf53e93de722be1c7323
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326207"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209444"
 ---
 # <a name="what-is-blockchain-data-manager-for-azure-blockchain-service"></a>Che cos'è Blockchain Data Manager per il servizio Azure Blockchain?
 
@@ -29,7 +29,7 @@ Ogni istanza di Blockchain Data Manager si connette a un nodo della transazione 
 
 È possibile usare Blockchain Data Manager per decodificare lo stato di eventi e proprietà configurando applicazioni di contratto intelligente all'interno di Blockchain Data Manager. Per aggiungere un contratto intelligente, fornire l'ABI e il bytecode del contratto. Blockchain Data Manager usa gli artefatti del contratto intelligente per decodificare e individuare gli indirizzi del contratto. Dopo l'aggiunta dell'applicazione blockchain all'istanza, Blockchain Data Manager individua dinamicamente l'indirizzo del contratto intelligente quando viene distribuito al consorzio e invia lo stato decodificato di eventi e proprietà alle destinazioni configurate.
 
-## <a name="deliver"></a>Distribuzione
+## <a name="deliver"></a>Fornitura
 
 Blockchain Data Manager supporta più connessioni in uscita per gli argomenti di Griglia di eventi per qualsiasi istanza di Blockchain Data Manager specificata. È possibile inviare i dati della blockchain a una o più destinazioni. Usando Blockchain Data Manager, è possibile creare una soluzione scalabile di pubblicazione dei dati basata su eventi per qualsiasi distribuzione di blockchain.
 

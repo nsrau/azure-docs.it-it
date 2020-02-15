@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d52d808813078c2aca7de59aa626e83f96221720
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 4a853871ef5f66881235e5a6ffec0886b81f5a92
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986241"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208540"
 ---
 # <a name="add-a-heat-map-layer"></a>Aggiungere un livello per le mappe termiche
 
@@ -79,10 +79,10 @@ Nell'esempio precedente viene personalizzata la mappa termica impostando le opzi
   | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'interpolate',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['linear'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, 'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'purple',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.5, '#fb00fb',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, '#00c3ff'<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'step',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'navy',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,25,' verde ',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,50,' Yellow ',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,75,' Red '<br/>\] |   
 
 - `opacity`: specifica come opaco o trasparente il livello mappa termica.
-- `intensity`: applica un moltiplicatore al peso di ogni punto dati per aumentare l'intensità complessiva del mappa termica. Ciò consente di distinguere il peso dei punti dati, semplificando la visualizzazione.
+- `intensity`: applica un moltiplicatore al peso di ogni punto dati per aumentare l'intensità complessiva del mappa termica. Causa una differenza nel peso dei punti dati, semplificando la visualizzazione.
 - `weight`: per impostazione predefinita, tutti i punti dati hanno un peso di 1 e sono ponderati equamente. L'opzione Weight funge da moltiplicatore ed è possibile impostarla come numero o espressione. Se un numero è impostato come peso, è l'equivalenza di posizionare due volte ogni punto dati sulla mappa. Ad esempio, se il peso è 2, la densità raddoppia. Impostando l'opzione peso su un numero, la mappa termica viene renderizzata in modo simile all'utilizzo dell'opzione intensità. 
 
-  Tuttavia, se si utilizza un'espressione, il peso di ogni punto dati può essere basato sulle proprietà di ogni punto dati. Si supponga, ad esempio, che ogni punto dati rappresenti un terremoto. Una metrica importante ogni punto dati sismico è un valore di magnitude. I terremoti si verificano sempre, ma hanno una grandezza bassa e non vengono rilevati. Usando il valore magnitude in un'espressione per assegnare il peso a ogni punto dati, si ottiene una rappresentazione migliore dell'importanza dei terremoti all'interno della mappa termica.
+  Tuttavia, se si utilizza un'espressione, il peso di ogni punto dati può essere basato sulle proprietà di ogni punto dati. Si supponga, ad esempio, che ogni punto dati rappresenti un terremoto. Il valore magnitude è un'importante metrica per ogni punto dati sismico. I terremoti si verificano sempre, ma hanno una grandezza bassa e non vengono rilevati. Usare il valore magnitude in un'espressione per assegnare il peso a ogni punto dati. Usando il valore Magnitude per assegnare il peso, si ottiene una rappresentazione migliore dell'importanza dei terremoti all'interno della mappa termica.
 - `source` e `source-layer`: consentono di aggiornare l'origine dati.
 
 Ecco uno strumento per testare le diverse opzioni del livello mappa termica.

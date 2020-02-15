@@ -3,12 +3,12 @@ title: Funzioni di modello-confronto
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per confrontare valori.
 ms.topic: conceptual
 ms.date: 09/05/2017
-ms.openlocfilehash: 3f21066ae5882f51ef1e01343752eea725fece1d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 67cb1c1f92694ca217e99fb6528fb1d00f2cfcf6
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484051"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207312"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Funzioni di confronto per i modelli di Azure Resource Manager
 
@@ -29,7 +29,7 @@ Controlla se due valori sono uguali tra loro.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int, stringa, matrice o oggetto |Il primo valore per verificare l'uguaglianza. |
 | arg2 |Sì |int, stringa, matrice o oggetto |Il secondo valore per verificare l'uguaglianza. |
@@ -38,7 +38,7 @@ Controlla se due valori sono uguali tra loro.
 
 Restituisce **True** se i valori sono uguali; in caso contrario, restituisce **False**.
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 La funzione uguale a viene spesso usata con l'elemento `condition` per verificare se la risorsa viene distribuita.
 
@@ -124,12 +124,12 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
-| checkInts | Bool | Vero |
-| checkStrings | Bool | Vero |
-| checkArrays | Bool | Vero |
-| checkObjects | Bool | Vero |
+| checkInts | Bool | True |
+| checkStrings | Bool | True |
+| checkArrays | Bool | True |
+| checkObjects | Bool | True |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -162,9 +162,9 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| Nome | Tipo | Valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | Vero |
+| checkNotEquals | Bool | True |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -185,7 +185,7 @@ Controlla se il primo valore è maggiore del secondo.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del maggiore. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del maggiore. |
@@ -237,10 +237,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
-| checkInts | Bool | Falso |
-| checkStrings | Bool | Vero |
+| checkInts | Bool | False |
+| checkStrings | Bool | True |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -261,7 +261,7 @@ Controlla se il primo valore è maggiore o uguale al secondo valore.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del maggiore e dell'uguaglianza. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del maggiore e dell'uguaglianza. |
@@ -313,10 +313,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
-| checkInts | Bool | Falso |
-| checkStrings | Bool | Vero |
+| checkInts | Bool | False |
+| checkStrings | Bool | True |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -337,7 +337,7 @@ Controlla se il primo valore è minore del secondo.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del minore. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del minore. |
@@ -389,10 +389,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
-| checkInts | Bool | Vero |
-| checkStrings | Bool | Falso |
+| checkInts | Bool | True |
+| checkStrings | Bool | False |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -413,7 +413,7 @@ Controlla se il primo valore è minore o uguale al secondo valore.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Description |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del minore o dell'uguaglianza. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del minore o dell'uguaglianza. |
@@ -465,10 +465,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| Name | Type | Valore |
 | ---- | ---- | ----- |
-| checkInts | Bool | Vero |
-| checkStrings | Bool | Falso |
+| checkInts | Bool | True |
+| checkStrings | Bool | False |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -485,6 +485,6 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="next-steps"></a>Passaggi successivi
 * Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](template-syntax.md).
 * Per unire più modelli, vedere [Uso di modelli collegati con Azure Resource Manager](linked-templates.md).
-* Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](create-multiple-instances.md).
+* Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](copy-resources.md).
 * Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Azure Resource Manager](deploy-powershell.md).
 
