@@ -3,14 +3,15 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 02/14/2020
 ms.author: mathoma
-ms.openlocfilehash: 0fad326107fa101cbba869311724710bd3f5307b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.reviewer: vanto
+ms.openlocfilehash: 3e2c8a424c9a3744bfb91d03632965c15613a424
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496172"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252134"
 ---
 In questo passaggio si creerà un database singolo di Database SQL di Azure. 
 
@@ -29,14 +30,14 @@ Creare il gruppo di risorse e il database singolo usando il portale di Azure.
 
    ![Creare un database singolo](../media/sql-database-get-started-portal/create-single-database.png)
 
-3. Nella sezione **Dettagli del progetto** della scheda **Generale** digitare o selezionare i valori seguenti:
+4. Nella sezione **Dettagli del progetto** della scheda **Generale** digitare o selezionare i valori seguenti:
 
    - **Sottoscrizione** se non è già visualizzata, selezionare la sottoscrizione corretta nell'elenco a discesa.
    - **Gruppo di risorse**: selezionare **Crea nuovo**, digitare `myResourceGroup` e selezionare **OK**.
 
      ![Nuovo database SQL - scheda Generale](../media/sql-database-get-started-portal/new-sql-database-basics.png)
 
-4. Nella sezione **Dettagli del database** digitare o selezionare i valori seguenti:
+5. Nella sezione **Dettagli del database** digitare o selezionare i valori seguenti:
 
    - **Nome database**: Immettere `mySampleDatabase`.
    - **Server**: selezionare **Crea nuovo**, immettere i valori seguenti e quindi scegliere **Selezionare**.
@@ -63,18 +64,22 @@ Creare il gruppo di risorse e il database singolo usando il portale di Azure.
      - Se si vuole, è anche possibile selezionare **Cambia la configurazione** per cambiare la generazione dell'hardware.
    - Selezionare **Applica**.
 
-5. Selezionare la scheda **Impostazioni aggiuntive**. 
-6. Nella sezione **Origine dati**, in **Usa dati esistenti**, selezionare `Sample`.
+6. Selezionare la scheda **Rete** e scegliere [**Consenti alle risorse e ai servizi di Azure di accedere a questo server**](../sql-database-networkaccess-overview.md) oppure aggiungere un [endpoint privato](../../private-link/private-endpoint-overview.md).
+
+   ![Scheda Rete](../media/sql-database-get-started-portal/create-database-networking.png)
+
+7. Selezionare la scheda **Impostazioni aggiuntive**. 
+8. Nella sezione **Origine dati**, in **Usa dati esistenti**, selezionare `Sample`.
 
    ![Impostazioni aggiuntive del database SQL](../media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
 
    > [!IMPORTANT]
    > Assicurarsi di selezionare i dati di **Sample (AdventureWorksLT)** per poter seguire questa e le altre guide introduttive per il database SQL di Azure in cui vengono usati tali dati.
 
-7. Lasciare i restanti valori predefiniti e selezionare **Rivedi e crea** in basso nel modulo.
-8. Rivedere le impostazioni finali e selezionare **Crea**.
+9. Lasciare i restanti valori predefiniti e selezionare **Rivedi e crea** in basso nel modulo.
+10. Rivedere le impostazioni finali e selezionare **Crea**.
 
-9. Nel modulo **Database SQL** selezionare **Crea** per distribuire il gruppo di risorse, il server e il database ed effettuarne il provisioning.
+11. Nel modulo **Database SQL** selezionare **Crea** per distribuire il gruppo di risorse, il server e il database ed effettuarne il provisioning.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 

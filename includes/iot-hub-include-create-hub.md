@@ -5,15 +5,15 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: include
-ms.date: 08/07/2019
+ms.date: 02/13/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: e93ce54262fe6dd38ef2ebc07d676608dae7cfff
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bbdafde85097d0052edd5984b594fd37066dc1e6
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75968891"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77279742"
 ---
 Questa sezione illustra come creare un hub IoT usando il [portale di Azure](https://portal.azure.com).
 
@@ -35,7 +35,7 @@ Questa sezione illustra come creare un hub IoT usando il [portale di Azure](http
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-   ![Creare un hub nel portale di Azure](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics-vs2019.png)
+   ![Creare un hub nel portale di Azure](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
 
 1. Selezionare **Avanti: Dimensioni e piano** per continuare a creare l'hub.
 
@@ -48,10 +48,18 @@ Questa sezione illustra come creare un hub IoT usando il [portale di Azure](http
     - **Unità di hub IoT**: Il numero di messaggi consentiti per unità al giorno dipende dal piano tariffario dell'hub. Se ad esempio si vuole che l'hub supporti 700.000 messaggi in ingresso, selezionare due unità del piano S1.
     Per informazioni dettagliate sulle altre opzioni relative al livello, vedere [Scegliere il livello più adatto di hub IoT](../articles/iot-hub/iot-hub-scaling.md).
 
+    - **Centro sicurezza di Azure**: attivare questa opzione per aggiungere un livello aggiuntivo di protezione dalle minacce a IoT e ai dispositivi. Questa opzione non è disponibile per gli hub del livello gratuito. Per altre informazioni su questa funzionalità, vedere [Centro sicurezza di Azure per IoT](https://docs.microsoft.com/azure/asc-for-iot/).
+
     - **Impostazioni avanzate** > **Partizioni da dispositivo a cloud**: questa proprietà associa i messaggi da dispositivo a cloud al numero di lettori simultanei di tali messaggi. La maggior parte degli hub richiede solo quattro partizioni.
 
-1. Per questo articolo accettare le scelte predefinite e quindi selezionare **Rivedi e crea** per esaminare le scelte effettuate. Dovrebbe essere visualizzata una schermata simile alla seguente.
+1. Per questo articolo accettare le scelte predefinite e quindi selezionare **Avanti: Tag** per passare alla schermata successiva.
 
-   ![Rivedere le informazioni per la creazione del nuovo hub](./media/iot-hub-include-create-hub/iot-hub-create-review-vs2019.png)
+    I tag sono coppie nome/valore. È possibile assegnare lo stesso tag a più risorse e gruppi di risorse per classificare le risorse e consolidare la fatturazione.
+
+   ![Configurare le dimensioni e la scalabilità per un nuovo hub con il portale di Azure](./media/iot-hub-include-create-hub/iot-hub-create-tabs.png)
+
+    Selezionare **Avanti: Rivedi e crea** per rivedere le scelte effettuate. Dovrebbe essere visualizzata una schermata simile alla seguente.
+
+   ![Rivedere le informazioni per la creazione del nuovo hub](./media/iot-hub-include-create-hub/iot-hub-create-review.png)
 
 1. Fare clic su **Crea** per creare il nuovo hub. La creazione dell'hub richiede alcuni minuti.

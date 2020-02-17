@@ -105,9 +105,9 @@
           href: search-sku-tier.md
         - name: Limiti del servizio
           href: search-limits-quotas-capacity.md
-        - name: Ridimensionare partizioni e repliche
+        - name: Regolare la capacità
           href: search-capacity-planning.md
-        - name: Strategie e procedure consigliate per la distribuzione
+        - name: Ridimensionare in base alle prestazioni
           href: search-performance-optimization.md
         - name: Architettura multitenant
           href: search-modeling-multitenant-saas-applications.md
