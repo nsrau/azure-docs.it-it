@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: aahi
-ms.openlocfilehash: 607b65d6a6893901ce23cd48c277c14209128866
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 0622aca5579c64c6d840761abb151665af559eea
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137979"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367645"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo
 
@@ -28,13 +28,15 @@ Il collegamento di entità è la possibilità di identificare e risolvere le amb
 
 ### <a name="named-entity-recognition-ner"></a>Riconoscimento delle entità denominate (NER)
 
-Il riconoscimento delle entità denominate (NER) è la possibilità di identificare entità diverse nel testo e di classificarle in classi o tipi predefiniti. Ad esempio: persone, luoghi e organizzazioni.
+Il riconoscimento delle entità denominate (NER) è la possibilità di identificare entità diverse nel testo e di classificarle in classi o tipi predefiniti quali: persona, località, evento, prodotto e organizzazione.  
+
+A partire dalla versione 3, questa funzionalità del API Analisi del testo può anche identificare i tipi di informazioni personali e sensibili, ad esempio il numero di telefono, il numero di previdenza sociale, l'indirizzo di posta elettronica e il numero di conto bancario.  L'identificazione di queste entità può aiutare a classificare i documenti sensibili e a relazioni le informazioni personali.
 
 ## <a name="named-entity-recognition-versions-and-features"></a>Versioni e funzionalità di riconoscimento entità denominate
 
 Nel API Analisi del testo sono disponibili due versioni di Named Entity Recognition-V2 e V3. La versione 3 (anteprima pubblica) fornisce maggiori dettagli nelle entità che possono essere rilevate e categorizzate.
 
-| Caratteristica                                                         | NER V2 | NER V3 |
+| Funzionalità                                                         | NER V2 | NER V3 |
 |-----------------------------------------------------------------|--------|--------|
 | Metodi per richieste singole e batch                          | X      | X      |
 | Riconoscimento di entità di base in diverse categorie              | X      | X      |
@@ -87,7 +89,7 @@ Collegamento di entità
 | Quantità      | Number        | "6", "sei"     |
 | Quantità      | Percentuale    | "50%", "cinquanta percento"|
 | Quantità      | Ordinal       | "2°", "secondo"     |
-| Quantità      | Tempo trascorso           | "90 giorni", "30 anni"    |
+| Quantità      | Age           | "90 giorni", "30 anni"    |
 | Quantità      | Valuta      | "$ 10,99"     |
 | Quantità      | Dimension     | "10 miglia", "40 cm"     |
 | Quantità      | Temperatura   | "32 gradi"    |
@@ -96,7 +98,7 @@ Collegamento di entità
 | Datetime      | Tempo          | "8", "8:00"  |
 | Datetime      | DateRange     | "Dal 2 maggio al 5 maggio"    |
 | Datetime      | TimeRange     | "dalle 18 alle 19"     |
-| Datetime      | Durata      | "1 minuto e 45 secondi"   |
+| Datetime      | Duration      | "1 minuto e 45 secondi"   |
 | Datetime      | Configurazione           | "ogni martedì"     |
 | URL           | N/D\*         | "https:\//www.bing.com"    |
 | Email         | N/D\*         | "support@contoso.com" |
@@ -176,7 +178,7 @@ Al momento della ricezione della richiesta viene eseguita l'analisi. Vedere la s
 
 L'API Analisi del testo è senza stato. Non vengono archiviati dati nell'account e i risultati vengono restituiti immediatamente nella risposta.
 
-## <a name="view-results"></a>Visualizza risultati
+## <a name="view-results"></a>Visualizzazione dei risultati
 
 Tutte le richieste POST restituiscono una risposta in formato JSON con gli ID e le proprietà dell'entità rilevata.
 
@@ -279,7 +281,7 @@ La versione 3 fornisce endpoint distinti per NER e il collegamento di entità. D
 
 ---
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo si sono appresi i concetti e il flusso di lavoro per il collegamento delle entità usando Analisi del testo nei Servizi cognitivi. In sintesi:
 

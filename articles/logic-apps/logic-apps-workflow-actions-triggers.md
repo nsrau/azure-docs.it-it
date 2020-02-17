@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 01/19/2020
-ms.openlocfilehash: 336d2ef471e21e3157c7d8c81b3837bb6a962e2e
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 18e9c9d330ffb8cc4e284fc649cff0840ec2c82c
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191305"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366223"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guida di riferimento allo schema per i tipi di trigger e azione in app per la logica di Azure
 
@@ -2304,7 +2304,7 @@ Questa azione del ciclo contiene azioni che vengono eseguite fino a che la condi
 | <*action-type*> | string | Il tipo di azione da eseguire | 
 | <*action-inputs*> | Vari | Gli input per l'azione da eseguire | 
 | <*condition*> | string | La condizione o espressione da valutare dopo completamento dell'esecuzione di tutte le azioni nel ciclo | 
-| <*loop-count*> | Integer | Limite sul numero massimo di cicli che l'azione può eseguire. Il valore predefinito `count` è 60. | 
+| <*loop-count*> | Integer | Limite sul numero massimo di cicli che l'azione può eseguire. Per altre informazioni sul limite predefinito e il limite massimo, vedere [limiti e configurazione per app per la logica di Azure](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). | 
 | <*loop-timeout*> | string | Il limite sulla durata massima di esecuzione del ciclo. Il valore predefinito `timeout` è `PT1H`, che è il [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) obbligatorio. |
 |||| 
 

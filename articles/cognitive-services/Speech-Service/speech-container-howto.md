@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: dapine
-ms.openlocfilehash: ca7e7f7460db82a357ed8aa240467a6894254217
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 5d30693eb13104504d1cf27ffdbfb8d098d4ef9e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087004"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367764"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installare ed eseguire i contenitori dei servizi vocali (anteprima)
 
@@ -35,7 +35,7 @@ I contenitori di sintesi vocale consentono ai clienti di creare un'architettura 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 I prerequisiti seguenti prima di usare i contenitori di sintesi vocale:
 
@@ -75,25 +75,25 @@ La tabella seguente descrive l'allocazione minima e consigliata delle risorse pe
 
 # <a name="speech-to-texttabstt"></a>[Riconoscimento vocale](#tab/stt)
 
-| Contenitore | Minimo | Consigliato |
+| Contenitore | Minima | Consigliato |
 |-----------|---------|-------------|
 | Riconoscimento vocale | 2 Core, 2 GB di memoria | 4 core, 4 GB di memoria |
 
 # <a name="custom-speech-to-texttabcstt"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
 
-| Contenitore | Minimo | Consigliato |
+| Contenitore | Minima | Consigliato |
 |-----------|---------|-------------|
 | Da Riconoscimento vocale personalizzato a testo | 2 Core, 2 GB di memoria | 4 core, 4 GB di memoria |
 
 # <a name="text-to-speechtabtts"></a>[Sintesi vocale](#tab/tts)
 
-| Contenitore | Minimo | Consigliato |
+| Contenitore | Minima | Consigliato |
 |-----------|---------|-------------|
 | Sintesi vocale | 1 core, 2 GB di memoria | 2 Core, 3 GB di memoria |
 
 # <a name="custom-text-to-speechtabctts"></a>[Sintesi vocale personalizzata](#tab/ctts)
 
-| Contenitore | Minimo | Consigliato |
+| Contenitore | Minima | Consigliato |
 |-----------|---------|-------------|
 | Sintesi vocale personalizzata | 1 core, 2 GB di memoria | 2 Core, 3 GB di memoria |
 
@@ -112,25 +112,25 @@ Le immagini del contenitore per la sintesi vocale sono disponibili nelle Contain
 
 # <a name="speech-to-texttabstt"></a>[Riconoscimento vocale](#tab/stt)
 
-| Contenitore | Repository |
+| Contenitore | Archivio |
 |-----------|------------|
 | Riconoscimento vocale | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
 
 # <a name="custom-speech-to-texttabcstt"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
 
-| Contenitore | Repository |
+| Contenitore | Archivio |
 |-----------|------------|
 | Da Riconoscimento vocale personalizzato a testo | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest` |
 
 # <a name="text-to-speechtabtts"></a>[Sintesi vocale](#tab/tts)
 
-| Contenitore | Repository |
+| Contenitore | Archivio |
 |-----------|------------|
 | Sintesi vocale | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
 
 # <a name="custom-text-to-speechtabctts"></a>[Sintesi vocale personalizzata](#tab/ctts)
 
-| Contenitore | Repository |
+| Contenitore | Archivio |
 |-----------|------------|
 | Sintesi vocale personalizzata | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest` |
 
@@ -261,7 +261,16 @@ Questo comando:
 
 # <a name="custom-speech-to-texttabcstt"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
 
-Il contenitore *da riconoscimento vocale personalizzato a testo* si basa su un modello di riconoscimento vocale personalizzato. È necessario eseguire il [Training](how-to-custom-speech-train-model.md) del modello personalizzato usando il [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech). Per eseguire il contenitore è necessario l' **ID del modello** di riconoscimento vocale personalizzato. Si trova nella pagina **Training** del portale di riconoscimento vocale personalizzato. Dal portale di riconoscimento vocale personalizzato passare alla pagina **Training** e selezionare il modello.
+Il contenitore *da riconoscimento vocale personalizzato a testo* si basa su un modello di riconoscimento vocale personalizzato. È necessario eseguire il [Training](how-to-custom-speech-train-model.md) del modello personalizzato usando il [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech).
+
+> [!IMPORTANT]
+> È necessario eseguire il training del modello di Riconoscimento vocale personalizzato da una delle versioni seguenti del modello:
+> * **20181201 (v 3.3 unificata)**
+> * **20190520 (v 4.14 Unified)**
+> * **20190701 (v 4.17 Unified)**<br>
+> ![Riconoscimento vocale personalizzato modello di contenitore di training](media/custom-speech/custom-speech-train-model-container-scoped.png)
+
+Per eseguire il contenitore è necessario l' **ID del modello** di riconoscimento vocale personalizzato. Si trova nella pagina **Training** del portale di riconoscimento vocale personalizzato. Dal portale di riconoscimento vocale personalizzato passare alla pagina **Training** e selezionare il modello.
 <br>
 
 ![Pagina di formazione vocale personalizzata](media/custom-speech/custom-speech-model-training.png)
@@ -396,7 +405,7 @@ Questo contenitore e un contenitore di Servizi cognitivi diverso sono in esecuzi
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 All'avvio o all'esecuzione del contenitore possono verificarsi problemi. Usare un [montaggio](speech-container-configuration.md#mount-settings) di output e abilitare la registrazione. Questa operazione consentirà al contenitore di generare file di log utili per la risoluzione dei problemi.
 
@@ -414,7 +423,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](spe
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati appresi concetti e flussi di lavoro per il download, l'installazione e l'esecuzione di contenitori di sintesi vocale. In sintesi:
 

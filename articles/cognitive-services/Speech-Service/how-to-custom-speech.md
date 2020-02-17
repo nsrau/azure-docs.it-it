@@ -3,19 +3,19 @@ title: Introduzione al servizio di Riconoscimento vocale personalizzato vocale
 titleSuffix: Azure Cognitive Services
 description: Riconoscimento vocale personalizzato è un set di strumenti online che consentono di valutare e migliorare l'accuratezza del riconoscimento vocale per le applicazioni, gli strumenti e i prodotti. Per iniziare sono disponibili solo alcuni file audio di test. Per iniziare a creare un'esperienza di riconoscimento vocale personalizzata, seguire i collegamenti seguenti.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/06/2019
-ms.author: erhopf
-ms.openlocfilehash: c8c849cb83ecb1db5e972c660d94c795092c458e
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 02/14/2020
+ms.author: dapine
+ms.openlocfilehash: 0788ff84cd5b0d50e0798d0d72ee84b47cb5f0b1
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806012"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368320"
 ---
 # <a name="what-is-custom-speech"></a>Che cos'è Riconoscimento vocale personalizzato?
 
@@ -60,6 +60,9 @@ Dopo aver creato un account Azure e una sottoscrizione al servizio vocale, è ne
 Contenuti come dati, modelli, test ed endpoint sono organizzati in **progetti** nel [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech). Ogni progetto è specifico per un dominio e un paese/lingua. Ad esempio, è possibile creare un progetto per i Call Center che usano la lingua inglese nella Stati Uniti.
 
 Per creare il primo progetto, selezionare la voce vocale **/personalizzata**, quindi fare clic su **nuovo progetto**. Seguire le istruzioni fornite dalla procedura guidata per creare il progetto. Dopo aver creato un progetto, verranno visualizzate quattro schede: **dati**, **testing**, **Training**e **distribuzione**. Usare i collegamenti forniti nei [passaggi successivi](#next-steps) per informazioni su come usare ogni scheda.
+
+> [!IMPORTANT]
+> Il [portale riconoscimento vocale personalizzato](https://aka.ms/custom-speech) è stato aggiornato di recente. Se sono stati creati progetti precedenti con dati, modelli, test ed endpoint pubblicati nel portale di CRIS o con le API, è necessario creare un nuovo progetto nel nuovo portale per connettersi a queste entità obsolete.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
