@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: f8400cbefc514fa01dedb1434a60989b1df0528d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c15662409f9f5badf50765b78bce7dd71e9fb1bc
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980226"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367174"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configurazione di macchine virtuali nell'host sessione
 
 Usare questo articolo per risolvere i problemi che si verificano durante la configurazione delle macchine virtuali (VM) host sessione desktop virtuale di Windows.
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 
 Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 
@@ -26,7 +26,7 @@ Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunit
 
 Se si verificano problemi durante l'aggiunta di macchine virtuali al dominio, seguire queste istruzioni.
 
-- Aggiungere la VM manualmente usando il processo in [aggiungere una macchina virtuale Windows Server a un dominio gestito](https://docs.microsoft.com/azure/active-directory-domain-services/Active-directory-ds-admin-guide-join-windows-vm-portal) o usando il [modello di aggiunta al dominio](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
+- Aggiungere la VM manualmente usando il processo in [aggiungere una macchina virtuale Windows Server a un dominio gestito](../active-directory-domain-services/join-windows-vm.md) o usando il [modello di aggiunta al dominio](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
 - Provare a eseguire il ping del nome di dominio dalla riga di comando nella macchina virtuale.
 - Esaminare l'elenco dei messaggi di errore di aggiunta a un dominio nella [sezione risoluzione dei problemi di aggiunta al dominio](https://social.technet.microsoft.com/wiki/contents/articles/1935.troubleshooting-domain-join-error-messages.aspx)
 
@@ -37,7 +37,7 @@ Se si verificano problemi durante l'aggiunta di macchine virtuali al dominio, se
 **Correzione:** Eseguire una delle azioni seguenti per risolvere il comportamento.
 
 - Aggiungere manualmente le VM a un dominio.
-- Ridistribuire il modello dopo aver confermato le credenziali. Vedere [creare un pool di host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+- Ridistribuire il modello dopo aver confermato le credenziali. Vedere [creare un pool di host con PowerShell](create-host-pools-powershell.md).
 - Aggiungere macchine virtuali a un dominio usando un modello con un join di una [macchina virtuale Windows esistente al dominio di Active Directory](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
 
 ### <a name="error-timeout-waiting-for-user-input"></a>Errore: timeout in attesa dell'input dell'utente
@@ -62,17 +62,17 @@ Se si verificano problemi durante l'aggiunta di macchine virtuali al dominio, se
 
 **Cause 1:** Le macchine virtuali si trovano in una rete virtuale non associata alla rete virtuale (VNET) in cui si trova il dominio.
 
-**Correzione 1:** Creare il peering VNET tra il VNET in cui è stato effettuato il provisioning delle macchine virtuali e il VNET in cui è in esecuzione il controller di dominio (DC). Vedere [creare un peering di rete virtuale-Gestione risorse, sottoscrizioni diverse](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions).
+**Correzione 1:** Creare il peering VNET tra il VNET in cui è stato effettuato il provisioning delle macchine virtuali e il VNET in cui è in esecuzione il controller di dominio (DC). Vedere [creare un peering di rete virtuale-Gestione risorse, sottoscrizioni diverse](../virtual-network/create-peering-different-subscriptions.md).
 
 **Motivo 2:** Quando si usa Azure Active Directory Domain Services (Azure AD DS), le impostazioni del server DNS per la rete virtuale non sono aggiornate in modo che puntino ai controller di dominio gestiti.
 
-**Correzione 2:** Per aggiornare le impostazioni DNS per la rete virtuale che contiene Azure AD DS, vedere [aggiornare le impostazioni DNS per la rete virtuale di Azure](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network).
+**Correzione 2:** Per aggiornare le impostazioni DNS per la rete virtuale che contiene Azure AD DS, vedere [aggiornare le impostazioni DNS per la rete virtuale di Azure](../active-directory-domain-services/tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network).
 
 **Motivo 3:** Le impostazioni del server DNS dell'interfaccia di rete non puntano al server DNS appropriato nella rete virtuale.
 
 **Correzione 3:** Eseguire una delle azioni seguenti per risolvere, seguendo i passaggi descritti in [modificare i server DNS].
-- Modificare le impostazioni del server DNS dell'interfaccia di rete in **personalizzata** con i passaggi da [modificare i server DNS](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers) e specificare gli indirizzi IP privati dei server DNS nella rete virtuale.
-- Modificare le impostazioni del server DNS dell'interfaccia di rete in modo che **ereditino da rete virtuale** con i passaggi da [modificare i server DNS](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers), quindi modificare le impostazioni del server DNS della rete virtuale con i passaggi da modificare i server [DNS](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers).
+- Modificare le impostazioni del server DNS dell'interfaccia di rete in **personalizzata** con i passaggi da [modificare i server DNS](../virtual-network/virtual-network-network-interface.md#change-dns-servers) e specificare gli indirizzi IP privati dei server DNS nella rete virtuale.
+- Modificare le impostazioni del server DNS dell'interfaccia di rete in modo che **ereditino da rete virtuale** con i passaggi da [modificare i server DNS](../virtual-network/virtual-network-network-interface.md#change-dns-servers), quindi modificare le impostazioni del server DNS della rete virtuale con i passaggi da modificare i server [DNS](../virtual-network/manage-virtual-network.md#change-dns-servers).
 
 ## <a name="windows-virtual-desktop-agent-and-windows-virtual-desktop-boot-loader-are-not-installed"></a>Il caricatore di avvio di Windows Virtual Desktop Agent e Windows Virtual Desktop non sono installati
 
@@ -88,7 +88,7 @@ Seguire queste istruzioni per confermare che i componenti sono installati e per 
 
 **Cause 1:** Le credenziali fornite durante l'input per il modello di Azure Resource Manager non sono corrette oppure le autorizzazioni sono insufficienti.
 
-**Correzione 1:** Aggiungere manualmente i componenti mancanti alle macchine virtuali usando [Crea un pool di host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+**Correzione 1:** Aggiungere manualmente i componenti mancanti alle macchine virtuali usando [Crea un pool di host con PowerShell](create-host-pools-powershell.md).
 
 **Motivo 2:** PowerShell DSC è stato in grado di essere avviato ed eseguito, ma non è stato possibile completarlo perché non è in grado di accedere a desktop virtuale Windows e ottenere le informazioni necessarie.
 
@@ -147,7 +147,7 @@ Quando l'agente desktop virtuale di Windows viene installato per la prima volta 
 
 **Correzione 2:** Seguire queste istruzioni per aprire la porta 443.
 
-1. Verificare che la porta 443 sia aperta scaricando lo strumento PSPing da [Sysinternal Tools](https://docs.microsoft.com/sysinternals/downloads/psping).
+1. Verificare che la porta 443 sia aperta scaricando lo strumento PSPing da [Sysinternal Tools](/sysinternals/downloads/psping/).
 2. Installare PSPing nella macchina virtuale host sessione in cui è in esecuzione l'agente.
 3. Aprire il prompt dei comandi come amministratore ed eseguire il comando seguente:
 
@@ -189,7 +189,7 @@ L'output di **qwinsta** elenca **RDP-SxS** nell'output se lo stack affiancato vi
 
 ![Stack side-by-side installato o abilitato con qwinsta elencato come RDP-SxS nell'output.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-Esaminare le voci del registro di sistema elencate di seguito e verificare che i relativi valori corrispondano. Se mancano le chiavi del registro di sistema o i valori non corrispondono, seguire le istruzioni in [creare un pool di host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell) per informazioni su come reinstallare lo stack affiancato.
+Esaminare le voci del registro di sistema elencate di seguito e verificare che i relativi valori corrispondano. Se mancano le chiavi del registro di sistema o i valori non corrispondono, seguire le istruzioni in [creare un pool di host con PowerShell](create-host-pools-powershell.md) per informazioni su come reinstallare lo stack affiancato.
 
 ```registry
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal
@@ -208,13 +208,13 @@ Esaminare le voci del registro di sistema elencate di seguito e verificare che i
 **Correzione:** Seguire queste istruzioni per installare lo stack affiancato nella macchina virtuale host sessione.
 
 1. Usare Remote Desktop Protocol (RDP) per accedere direttamente alla macchina virtuale host sessione come amministratore locale.
-2. Scaricare e importare [il modulo PowerShell per desktop virtuale Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) da usare nella sessione di PowerShell, se non è già stato fatto, quindi eseguire questo cmdlet per accedere al proprio account:
+2. Scaricare e importare [il modulo PowerShell per desktop virtuale Windows](/powershell/windows-virtual-desktop/overview/) da usare nella sessione di PowerShell, se non è già stato fatto, quindi eseguire questo cmdlet per accedere al proprio account:
 
     ```powershell
     Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
     ```
 
-3. Installare lo stack affiancato usando [creare un pool di host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+3. Installare lo stack affiancato usando [creare un pool di host con PowerShell](create-host-pools-powershell.md).
 
 ## <a name="how-to-fix-a-windows-virtual-desktop-side-by-side-stack-that-malfunctions"></a>Come correggere lo stack side-by-side di un desktop virtuale di Windows che funziona correttamente
 
@@ -226,7 +226,7 @@ Ci sono circostanze note che possono causare un malfunzionamento dello stack sid
 - Esecuzione di enablesxsstackrc. ps1 più volte
 - Esecuzione di enablesxsstackrc. ps1 in un account che non dispone di privilegi di amministratore locale
 
-Le istruzioni riportate in questa sezione consentono di disinstallare lo stack side-by-side di desktop virtuale di Windows. Dopo aver disinstallato lo stack affiancato, passare a "registrare la macchina virtuale con il pool host del desktop virtuale Windows" in [creare un pool host con PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell) per reinstallare lo stack affiancato.
+Le istruzioni riportate in questa sezione consentono di disinstallare lo stack side-by-side di desktop virtuale di Windows. Dopo aver disinstallato lo stack affiancato, passare a "registrare la macchina virtuale con il pool host del desktop virtuale Windows" in [creare un pool host con PowerShell](create-host-pools-powershell.md) per reinstallare lo stack affiancato.
 
 La macchina virtuale usata per eseguire la correzione deve trovarsi nella stessa subnet e dominio della macchina virtuale con lo stack side-by-side non funzionante.
 
@@ -298,52 +298,52 @@ Se il sistema operativo è Microsoft Windows 10, continuare con le istruzioni se
 
 ## <a name="remote-desktop-licensing-mode-isnt-configured"></a>La modalità di gestione licenze Desktop remoto non è configurata
 
-If you sign in to Windows 10 Enterprise multi-session using an administrative account, you might receive a notification that says, “Remote Desktop licensing mode is not configured, Remote Desktop Services will stop working in X days. On the Connection Broker server, use Server Manager to specify the Remote Desktop licensing mode."
+Se si accede a una multisessione Enterprise di Windows 10 con un account amministrativo, è possibile che venga visualizzata una notifica che indica che la modalità di gestione licenze Desktop remoto non è configurata, Servizi Desktop remoto smetterà di funzionare tra X giorni. Nel server Gestore connessione usare Server Manager per specificare la modalità di gestione licenze Desktop remoto ".
 
-If the time limit expires, an error message will appear that says, "The remote session was disconnected because there are no Remote Desktop client access licenses available for this computer."
+Se il limite di tempo scade, verrà visualizzato un messaggio di errore che indica che la sessione remota è stata disconnessa perché non sono disponibili Desktop remoto licenze di accesso client per questo computer.
 
-If you see either of these messages, this means the image doesn't have the latest Windows updates installed or that you are setting the Remote Desktop licensing mode through group policy. Follow the steps in the next sections to check the group policy setting, identify the version of Windows 10 Enterprise multi-session, and install the corresponding update.  
-
->[!NOTE]
->Windows Virtual Desktop only requires an RDS client access license (CAL) when your host pool contains Windows Server session hosts. To learn how to configure an RDS CAL, see [License your RDS deployment with client access licenses](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license).
-
-### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Disable the Remote Desktop licensing mode group policy setting
-
-Check the group policy setting by opening the Group Policy Editor in the VM and navigating to **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing** > **Set the Remote Desktop licensing mode**. If the group policy setting is **Enabled**, change it to **Disabled**. If it's already disabled, then leave it as-is.
+Se viene visualizzato uno di questi messaggi, significa che nell'immagine non sono installati gli aggiornamenti di Windows più recenti o che si sta impostando la modalità di gestione licenze Desktop remoto tramite criteri di gruppo. Seguire i passaggi nelle sezioni successive per verificare l'impostazione di criteri di gruppo, identificare la versione di Windows 10 Enterprise Multisession e installare l'aggiornamento corrispondente.  
 
 >[!NOTE]
->If you set group policy through your domain, disable this setting on policies that target these Windows 10 Enterprise multi-session VMs.
+>Desktop virtuale Windows richiede solo una licenza CAL (Client Access License) RDS quando il pool host contiene host sessione Windows Server. Per informazioni su come configurare una licenza CAL Servizi Desktop remoto, vedere [concedere in licenza la distribuzione di Servizi Desktop remoto con licenze di accesso client](/windows-server/remote/remote-desktop-services/rds-client-access-license/).
 
-### <a name="identify-which-version-of-windows-10-enterprise-multi-session-youre-using"></a>Identify which version of Windows 10 Enterprise multi-session you're using
+### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Disabilitare l'impostazione di criteri di gruppo Desktop remoto modalità di gestione licenze
 
-To check which version of Windows 10 Enterprise multi-session you have:
+Controllare l'impostazione di criteri di gruppo aprendo l'Editor Criteri di gruppo nella macchina virtuale e passando a **Modelli amministrativi** > **componenti di Windows** > **Servizi Desktop remoto** > **host sessione Desktop remoto > ** **licenze** > **impostare la modalità di gestione licenze Desktop remoto**. Se l'impostazione di criteri di gruppo è **abilitata**, modificarla in **disabilitata**. Se è già disabilitato, lasciarlo invariato.
 
-1. Sign in with your admin account.
-2. Enter "About" into the search bar next to the Start menu.
-3. Select **About your PC**.
-4. Check the number next to "Version." The number should be either "1809" or "1903," as shown in the following image.
+>[!NOTE]
+>Se si impostano i criteri di gruppo tramite il dominio, disabilitare questa impostazione nei criteri destinati a queste VM multisessione Enterprise di Windows 10.
 
-    ![A screenshot of the Windows specifications window. The version number is highlighted in blue.](media/windows-specifications.png)
+### <a name="identify-which-version-of-windows-10-enterprise-multi-session-youre-using"></a>Identificare la versione di Windows 10 Enterprise multisessione in uso
 
-Now that you know your version number, skip ahead to the relevant section.
+Per verificare la versione di Windows 10 Enterprise con più sessioni:
 
-### <a name="version-1809"></a>Version 1809
+1. Accedere con l'account amministratore.
+2. Immettere "about" nella barra di ricerca accanto al menu Start.
+3. Selezionare **informazioni sul computer**.
+4. Controllare il numero accanto a "Version". Il numero deve essere "1809" o "1903", come illustrato nella figura seguente.
 
-If your version number says "1809," install [the KB4516077 update](https://support.microsoft.com/help/4516077).
+    ![Screenshot della finestra delle specifiche di Windows. Il numero di versione è evidenziato in blu.](media/windows-specifications.png)
 
-### <a name="version-1903"></a>Version 1903
+Ora che si conosce il numero di versione, passare alla sezione pertinente.
 
-Redeploy the host operating system with the latest version of the Windows 10, version 1903 image from the Azure Gallery.
+### <a name="version-1809"></a>Versione 1809
+
+Se il numero di versione indica "1809", installare [l'aggiornamento di KB4516077](https://support.microsoft.com/help/4516077).
+
+### <a name="version-1903"></a>Versione 1903
+
+Ridistribuire il sistema operativo host con la versione più recente dell'immagine di Windows 10, versione 1903 dalla raccolta di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
-- To troubleshoot issues while creating a tenant and host pool in a Windows Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues.md).
-- To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
-- To troubleshoot issues with Windows Virtual Desktop client connections, see [Windows Virtual Desktop service connections](troubleshoot-service-connection.md).
-- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client.md)
-- To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- To learn more about the service, see [Windows Virtual Desktop environment](environment-setup.md).
-- To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- Per una panoramica sulla risoluzione dei problemi relativi a desktop virtuale Windows e alle tracce di escalation, vedere [panoramica sulla risoluzione dei problemi, commenti e suggerimenti e supporto](troubleshoot-set-up-overview.md).
+- Per risolvere i problemi durante la creazione di un tenant e di un pool host in un ambiente desktop virtuale Windows, vedere [creazione di tenant e pool host](troubleshoot-set-up-issues.md).
+- Per risolvere i problemi durante la configurazione di una macchina virtuale (VM) in desktop virtuale di Windows, vedere [configurazione della macchina virtuale host sessione](troubleshoot-vm-configuration.md).
+- Per risolvere i problemi relativi alle connessioni client di desktop virtuali Windows, vedere [connessioni al servizio desktop virtuale di Windows](troubleshoot-service-connection.md).
+- Per risolvere i problemi relativi ai client di Desktop remoto, vedere [risoluzione dei problemi del client di desktop remoto](troubleshoot-client.md)
+- Per risolvere i problemi relativi all'uso di PowerShell con desktop virtuale di Windows, vedere [PowerShell per desktop virtuale di Windows](troubleshoot-powershell.md).
+- Per ulteriori informazioni sul servizio, vedere [ambiente desktop virtuale di Windows](environment-setup.md).
+- Per un'esercitazione per la risoluzione dei problemi, vedere [esercitazione: risolvere i problemi relativi alle distribuzioni di modelli gestione risorse](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
 - Per altre informazioni sulle azioni di controllo, vedere [Operazioni di controllo con Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
 - Per altre informazioni sulle azioni che consentono di determinare gli errori di distribuzione, vedere [Visualizzare le operazioni di distribuzione con il portale di Azure](../azure-resource-manager/templates/deployment-history.md).

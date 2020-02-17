@@ -1,6 +1,6 @@
 ---
-title: Esportare o importare la configurazione di provisioning usando API Graph | Microsoft Docs
-description: Informazioni su come esportare e importare la configurazione del provisioning usando API Graph.
+title: Esportare o importare la configurazione di provisioning tramite l'API Microsoft Graph | Microsoft Docs
+description: Informazioni su come esportare e importare la configurazione del provisioning tramite l'API Microsoft Graph.
 services: active-directory
 author: cmmdesai
 documentationcenter: na
@@ -15,21 +15,21 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af699fa2201bce5627426dcdefc1b98c1d885ae5
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e2fa80726875c82cfa4b5d4cf6a14f4e0dae1871
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066616"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367789"
 ---
-# <a name="export-or-import-your-provisioning-configuration-by-using-graph-api"></a>Esportare o importare la configurazione di provisioning usando API Graph
+# <a name="export-or-import-your-provisioning-configuration-by-using-the-microsoft-graph-api"></a>Esportare o importare la configurazione di provisioning tramite l'API Microsoft Graph
 
-È possibile usare Microsoft Graph API e Graph Explorer per esportare i mapping degli attributi e lo schema del provisioning degli utenti in un file JSON e importarli di nuovo in Azure AD. È anche possibile usare i passaggi acquisiti qui per creare un backup della configurazione del provisioning. 
+È possibile usare l'API Microsoft Graph e Esplora Microsoft Graph per esportare i mapping degli attributi e lo schema del provisioning degli utenti in un file JSON e importarli di nuovo in Azure AD. È anche possibile usare i passaggi acquisiti qui per creare un backup della configurazione del provisioning. 
 
 ## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Passaggio 1: recuperare l'ID dell'entità servizio dell'app di provisioning (ID oggetto)
 
 1. Avviare il [portale di Azure](https://portal.azure.com)e passare alla sezione proprietà dell'applicazione di provisioning. Ad esempio, se si vuole esportare la *giornata lavorativa nel mapping di un'applicazione di provisioning utenti ad* , passare alla sezione proprietà dell'app. 
-1. Nella sezione delle proprietà dell'app di provisioning, copiare il valore GUID associato al campo *Object ID* (ID oggetto). Questo valore è denominato anche **ServicePrincipalId** dell'app e verrà usato nelle operazioni di Graph Explorer.
+1. Nella sezione delle proprietà dell'app di provisioning, copiare il valore GUID associato al campo *Object ID* (ID oggetto). Questo valore viene anche chiamato **ServicePrincipalId** dell'app e verrà usato nelle operazioni di Microsoft Graph Explorer.
 
    ![ID entità Servizio app Workday](./media/export-import-provisioning-configuration/wd_export_01.png)
 
@@ -38,7 +38,7 @@ ms.locfileid: "77066616"
 1. Avviare [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
 1. Fare clic sul pulsante "Sign-In with Microsoft" (Accedi con Microsoft) e accedere con le credenziali di amministratore globale di AD o di amministratore dell'app.
 
-    ![Accedere a Graph](./media/export-import-provisioning-configuration/wd_export_02.png)
+    ![Accesso Microsoft Graph](./media/export-import-provisioning-configuration/wd_export_02.png)
 
 1. Quando l'accesso è stato completato, vengono visualizzati i dettagli dell'account utente nel riquadro sinistro.
 

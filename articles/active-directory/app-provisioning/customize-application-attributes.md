@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 842e5c4771fcac0b8011dda1df11c646bf8f070c
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: bfc5c24b1ba3d623e148e0da5b38a869d056996a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207197"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367815"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi per il provisioning degli utenti per le applicazioni SaaS in Azure Active Directory
 
@@ -112,7 +112,7 @@ Alcuni sistemi e applicazioni che supportano la personalizzazione dell'elenco di
 - Salesforce
 - ServiceNow
 - Giornata lavorativa
-- Azure Active Directory (sono supportati gli [attributi predefiniti dell'API Graph di Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) e le estensione della directory personalizzate)
+- Azure Active Directory (informazioni di[riferimento sull'API REST Microsoft Graph v 1.0](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0) e le estensioni di directory personalizzate sono supportate)
 - App che supportano [SCIM 2.0](https://tools.ietf.org/html/rfc7643), in cui devono essere aggiunti gli attributi definiti nello [schema di base](https://tools.ietf.org/html/rfc7643)
 
 > [!NOTE]
@@ -133,7 +133,7 @@ Quando si modifica l'elenco degli attributi supportati, vengono fornite le propr
 - **Multivalore?** : Indica se l'attributo supporta più valori.
 - **Maiuscole/minuscole esatte?** : Indica se i valori degli attributi vengono valutati con distinzione tra maiuscole e minuscole.
 - **Espressione API** : non usare, a meno che non sia stato richiesto dalla documentazione per un connettore di provisioning specifico, ad esempio la giornata lavorativa.
-- **Attributo oggetto a cui si fa riferimento** : se è un attributo di tipo riferimento, questo menu consente di selezionare la tabella e l'attributo nell'applicazione di destinazione che contiene il valore associato all'attributo. Ad esempio, in presenza di un attributo denominato "Reparto" il cui valore archiviato fa riferimento a un oggetto in una tabella "Reparti" separata, sarà necessario selezionare "Reparti.Nome". Le tabelle di riferimento e i campi ID primari supportati per un'applicazione specifica sono preconfigurati e attualmente non possono essere modificati usando il portale di Azure, ma possono essere modificati usando il [API Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
+- **Attributo oggetto a cui si fa riferimento** : se è un attributo di tipo riferimento, questo menu consente di selezionare la tabella e l'attributo nell'applicazione di destinazione che contiene il valore associato all'attributo. Ad esempio, in presenza di un attributo denominato "Reparto" il cui valore archiviato fa riferimento a un oggetto in una tabella "Reparti" separata, sarà necessario selezionare "Reparti.Nome". Le tabelle di riferimento e i campi ID primari supportati per un'applicazione specifica sono preconfigurati e attualmente non possono essere modificati usando il portale di Azure, ma possono essere modificati usando l' [API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Provisioning di un attributo di estensione personalizzato in un'applicazione conforme a SCIM
 SCIM RFC definisce uno schema di utenti e gruppi di base, consentendo allo schema anche le estensioni per soddisfare le esigenze dell'applicazione. Per aggiungere un attributo personalizzato a un'applicazione SCIM:

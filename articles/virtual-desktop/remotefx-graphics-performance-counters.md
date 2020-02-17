@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
-ms.openlocfilehash: c41a433ee19969546e1db2aa583c72ed166b7ebf
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: eee8fdf515861b43b58d5af111930e2224c9a60a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607472"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367229"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnosticare problemi di prestazioni grafica in Desktop remoto
 
@@ -69,15 +69,15 @@ Un valore elevato per uno dei contatori ignorati/secondo implica che il problema
 
 Se il contatore frame di output/secondo corrisponde al contatore frame di input/secondo, ma si nota comunque un ritardo o un blocco insolito, il tempo di codifica medio potrebbe essere il colpevole. La codifica è un processo sincrono che si verifica nel server nello scenario a sessione singola (vGPU) e nella macchina virtuale nello scenario con più sessioni. Il tempo di codifica medio dovrebbe essere inferiore a 33 ms. Se il tempo medio di codifica è inferiore a 33 MS ma si verificano ancora problemi di prestazioni, è possibile che si verifichi un problema con l'app o il sistema operativo in uso.
 
-Per altre informazioni sulla diagnosi dei problemi correlati all'app, vedere [contatori delle prestazioni dei ritardi di input utente](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters).
+Per altre informazioni sulla diagnosi dei problemi correlati all'app, vedere [contatori delle prestazioni dei ritardi di input utente](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/).
 
-Poiché RDP supporta un tempo di codifica medio di 33 ms, supporta una frequenza di fotogrammi di input fino a 30 frame al secondo. Si noti che 33 ms è la frequenza dei fotogrammi massima supportata. In molti casi, la frequenza dei fotogrammi riscontrata dall'utente sarà inferiore, a seconda della frequenza con cui un frame viene fornito a RDP dall'origine. Ad esempio, le attività come il controllo di un video richiedono una frequenza di fotogrammi di input completa di 30 fotogrammi al secondo, ma le attività a elevato utilizzo di calcolo, come la modifica non frequente di un documento, comportano un valore molto più basso per i fotogrammi di input al secondo senza riduzione delle prestazioni dell'utente qualità dell'esperienza.
+Poiché RDP supporta un tempo di codifica medio di 33 ms, supporta una frequenza di fotogrammi di input fino a 30 frame al secondo. Si noti che 33 ms è la frequenza dei fotogrammi massima supportata. In molti casi, la frequenza dei fotogrammi riscontrata dall'utente sarà inferiore, a seconda della frequenza con cui un frame viene fornito a RDP dall'origine. Ad esempio, attività come il controllo di un video richiedono una frequenza di fotogrammi di input completa pari a 30 fotogrammi al secondo, ma attività con un utilizzo intensivo di calcolo, come la modifica non frequente di un documento, comportano un valore molto più basso per i frame di input al secondo senza riduzione della qualità dell'esperienza dell'utente.
 
 ### <a name="addressing-poor-frame-quality"></a>Risoluzione della scarsa qualità del frame
 
 Usare il contatore qualità del frame per diagnosticare i problemi di qualità dei frame. Questo contatore esprime la qualità del frame di output come percentuale della qualità del frame di origine. La perdita di qualità può essere dovuta a RemoteFX o può essere insita nell'origine grafica. Se RemoteFX ha causato la perdita di qualità, il problema potrebbe essere dovuto alla mancanza di risorse di rete o del server per l'invio di contenuti con maggiore fedeltà.
 
-## <a name="mitigation"></a>Mitigazione
+## <a name="mitigation"></a>Strategia di riduzione del rischio
 
 Se le risorse del server causano il collo di bottiglia, provare uno degli approcci seguenti per migliorare le prestazioni:
 
@@ -101,6 +101,6 @@ Se le risorse client causano il collo di bottiglia, provare uno degli approcci s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per creare una macchina virtuale di Azure ottimizzata per la GPU, vedere [configurare l'accelerazione GPU (Graphics Processing Unit) per l'ambiente desktop virtuale di Windows](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu).
-- Per una panoramica delle tracce di risoluzione dei problemi e di escalation, vedere [panoramica sulla risoluzione dei problemi, commenti e suggerimenti e supporto](https://docs.microsoft.com/azure/virtual-desktop/troubleshoot-set-up-overview).
-- Per ulteriori informazioni sul servizio, vedere [ambiente desktop Windows](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- Per creare una macchina virtuale di Azure ottimizzata per la GPU, vedere [configurare l'accelerazione GPU (Graphics Processing Unit) per l'ambiente desktop virtuale di Windows](configure-vm-gpu.md).
+- Per una panoramica delle tracce di risoluzione dei problemi e di escalation, vedere [panoramica sulla risoluzione dei problemi, commenti e suggerimenti e supporto](troubleshoot-set-up-overview.md).
+- Per ulteriori informazioni sul servizio, vedere [ambiente desktop Windows](environment-setup.md).

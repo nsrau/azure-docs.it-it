@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: 2a7d10f41e343f21e16b10f4bf7c79670824ec2c
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: e55641457e1ed27928e6bf380701b646b672cae8
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77115912"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368839"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>Distribuire uno strumento di gestione con PowerShell
 
@@ -36,7 +36,7 @@ I browser seguenti sono compatibili con lo strumento di gestione di:
 Prima di distribuire lo strumento di gestione, è necessario che un utente di Azure Active Directory (Azure AD) crei una registrazione dell'app e distribuisca l'interfaccia utente di gestione. Questo utente dovrà avere:
 
 - L'autorizzazione per creare risorse nella sottoscrizione di Azure
-- L'autorizzazione per creare un'applicazione di Azure AD. Seguire questa procedura per verificare se l'utente ha le autorizzazioni necessarie in base alle istruzioni indicate in [Autorizzazioni necessarie](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+- L'autorizzazione per creare un'applicazione di Azure AD. Seguire questa procedura per verificare se l'utente ha le autorizzazioni necessarie in base alle istruzioni indicate in [Autorizzazioni necessarie](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
 Per distribuire e configurare correttamente lo strumento di gestione, è prima di tutto necessario scaricare gli script di PowerShell seguenti dal [repository GitHub dei modelli RDS](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts) e salvarli nella stessa cartella del computer locale.
 

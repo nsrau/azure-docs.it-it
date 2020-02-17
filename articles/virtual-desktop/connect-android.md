@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: helohr
-ms.openlocfilehash: 41b0c1ced9e66bd58d73683865b2c40afc16c5d3
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: de875ca9db9716e59c3c6efc0d7fb34e31f0c1d2
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605858"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367532"
 ---
 # <a name="connect-with-the-android-client"></a>Connettersi con il client Android
 
@@ -49,4 +49,4 @@ Una volta effettuata la sottoscrizione a un feed, il contenuto del feed verrà a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su come usare il client Android, vedere Introduzione al [client Android](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-android).
+Per altre informazioni su come usare il client Android, vedere Introduzione al [client Android](/windows-server/remote/remote-desktop-services/clients/remote-desktop-android/).

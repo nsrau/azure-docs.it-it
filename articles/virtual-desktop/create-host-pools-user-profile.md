@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: helohr
-ms.openlocfilehash: 65d800cc6c1b6818369807ffeae9cd350a34066f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: a6bc8546a4047e921d62953e39eaddf546f38229
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606998"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367433"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Creare un contenitore di profili per un pool di host con una condivisione file
 
@@ -27,13 +27,13 @@ Questo articolo illustra come configurare una condivisione del contenitore del p
 
 Quando si crea la macchina virtuale, assicurarsi di inserirla nella stessa rete virtuale delle macchine virtuali del pool host o in una rete virtuale con connettività alle macchine virtuali del pool host. È possibile creare una macchina virtuale in diversi modi:
 
-- [Creare una macchina virtuale da un'immagine della raccolta di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)
-- [Creare una macchina virtuale da un'immagine gestita](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
+- [Creare una macchina virtuale da un'immagine della raccolta di Azure](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
+- [Creare una macchina virtuale da un'immagine gestita](../virtual-machines/windows/create-vm-generalized-managed.md)
 - [Creare una macchina virtuale da un'immagine non gestita](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
 Dopo aver creato la macchina virtuale, aggiungerla al dominio effettuando le operazioni seguenti:
 
-1. [Connettersi alla macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) con le credenziali fornite durante la creazione della macchina virtuale.
+1. [Connettersi alla macchina virtuale](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) con le credenziali fornite durante la creazione della macchina virtuale.
 2. Nella macchina virtuale avviare il **Pannello di controllo** e selezionare **sistema**.
 3. Selezionare **nome computer**, fare clic su **Modifica impostazioni**e quindi selezionare **modifica...**
 4. Selezionare **dominio** e quindi immettere il dominio Active Directory nella rete virtuale.
@@ -43,31 +43,31 @@ Dopo aver creato la macchina virtuale, aggiungerla al dominio effettuando le ope
 
 Di seguito sono riportate le istruzioni generali su come preparare una macchina virtuale da utilizzare come condivisione file per i profili utente:
 
-1. Aggiungere il desktop virtuale Windows Active Directory utenti a un [gruppo di sicurezza Active Directory](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). Questo gruppo di sicurezza verrà usato per autenticare gli utenti di desktop virtuali Windows nella macchina virtuale di condivisione file appena creata.
-2. [Connettersi alla macchina virtuale di condivisione file](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine).
+1. Aggiungere il desktop virtuale Windows Active Directory utenti a un [gruppo di sicurezza Active Directory](/windows/security/identity-protection/access-control/active-directory-security-groups/). Questo gruppo di sicurezza verrà usato per autenticare gli utenti di desktop virtuali Windows nella macchina virtuale di condivisione file appena creata.
+2. [Connettersi alla macchina virtuale di condivisione file](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine).
 3. Nella macchina virtuale di condivisione file creare una cartella nell' **unità C** che verrà usata come condivisione del profilo.
 4. Fare clic con il pulsante destro del mouse sulla nuova cartella, scegliere **Proprietà**, selezionare **condivisione**, quindi scegliere **condivisione avanzata.**
 5. Selezionare **Condividi questa cartella**, selezionare **autorizzazioni...** , quindi selezionare **Aggiungi...** .
 6. Cercare il gruppo di sicurezza a cui sono stati aggiunti gli utenti del desktop virtuale di Windows, quindi verificare che il gruppo disponga del **controllo completo**.
 7. Dopo aver aggiunto il gruppo di sicurezza, fare clic con il pulsante destro del mouse sulla cartella, scegliere **Proprietà**, selezionare **condivisione**, quindi copiare il **percorso di rete** da utilizzare per un momento successivo.
 
-Per ulteriori informazioni sulle autorizzazioni, vedere la [documentazione di FSLogix](https://docs.microsoft.com/fslogix/fslogix-storage-config-ht).
+Per ulteriori informazioni sulle autorizzazioni, vedere la [documentazione di FSLogix](/fslogix/fslogix-storage-config-ht/).
 
 ## <a name="configure-the-fslogix-profile-container"></a>Configurare il contenitore del profilo FSLogix
 
 Per configurare le macchine virtuali con il software FSLogix, eseguire le operazioni seguenti in ogni computer registrato nel pool host:
 
-1. [Connettersi alla macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) con le credenziali fornite durante la creazione della macchina virtuale.
+1. [Connettersi alla macchina virtuale](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) con le credenziali fornite durante la creazione della macchina virtuale.
 2. Avviare un browser Internet e passare a [questo collegamento](https://go.microsoft.com/fwlink/?linkid=2084562) per scaricare l'agente FSLogix.
-3. Passare a \\\\versione Win32\\o \\\\x64\\versione nel file con estensione zip ed eseguire **FSLogixAppsSetup** per installare l'agente FSLogix.  Per ulteriori informazioni su come installare FSLogix, vedere [scaricare e installare FSLogix](https://docs.microsoft.com/fslogix/install-ht).
+3. Passare a \\\\versione Win32\\o \\\\x64\\versione nel file con estensione zip ed eseguire **FSLogixAppsSetup** per installare l'agente FSLogix.  Per ulteriori informazioni su come installare FSLogix, vedere [scaricare e installare FSLogix](/fslogix/install-ht/).
 4. Passare a **programmi** > **FSLogix** > **app** per verificare che l'agente sia installato.
 5. Dal menu Start eseguire **Regedit** come amministratore. Passare a **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
 6. Creare una chiave denominata **profili**.
 7. Creare i valori seguenti per la chiave dei profili:
 
-| Name                | Tipo               | Dati/valore                        |
+| Name                | Type               | Dati/valore                        |
 |---------------------|--------------------|-----------------------------------|
-| Enabled             | DWORD              | 1                                 |
+| Abilitato             | DWORD              | 1                                 |
 | VHDLocations        | Valore multistringa | "Percorso di rete per la condivisione file"     |
 
 >[!IMPORTANT]

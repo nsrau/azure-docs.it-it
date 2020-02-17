@@ -1,5 +1,5 @@
 ---
-title: Usare le funzionalità di accessibilità nella finestra di progettazione
+title: Usare le funzionalità di accessibilità nella finestra di progettazione (anteprima)
 titleSuffix: Azure Machine Learning
 description: Informazioni sulle scelte rapide da tastiera e sulle funzionalità di accessibilità per la lettura schermo disponibili nella finestra di progettazione.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
-ms.openlocfilehash: 7d5c8047fea8e9081de08b582c537711714ea463
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 59199291589a81d0a0d96b7867078b8196be086f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314233"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366190"
 ---
-# <a name="use-a-keyboard-to-use-azure-machine-learning-designer"></a>Utilizzare una tastiera per utilizzare Azure Machine Learning Designer
+# <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Utilizzare una tastiera per utilizzare Azure Machine Learning Designer (anteprima)
 
 Informazioni su come usare una tastiera e un'utilità per la lettura dello schermo per usare Azure Machine Learning Designer. Per un elenco di tasti di scelta rapida che funzionano ovunque nella portale di Azure, vedere [tasti di scelta rapida nella portale di Azure](../azure-portal/azure-portal-keyboard-shortcuts.md)
 
@@ -24,7 +24,7 @@ Questo flusso di lavoro è stato testato con [Assistente vocale](https://support
 
 ## <a name="navigate-the-pipeline-graph"></a>Esplorare il grafico della pipeline
 
-Il grafico della pipeline è organizzato come un elenco di elenchi. L'elenco dei moduli di primo livello contiene tutto il modulo nella pipeline. Ogni elemento nell'elenco dei moduli contiene un elenco di connessioni che descrive tutte le relative connessioni. 
+Il grafico della pipeline è organizzato come elenco annidato. L'elenco esterno è un elenco di moduli, che descrive tutti i moduli nel grafico della pipeline. L'elenco interno è un elenco di connessioni che descrive tutte le connessioni di un modulo specifico.  
 
 1. Nell'elenco modulo usare il tasto freccia per cambiare i moduli.
 1. Usare TAB per aprire l'elenco di connessioni per il modulo di destinazione.
@@ -52,24 +52,24 @@ Per modificare le proprietà del modulo:
 
 ## <a name="navigation-shortcuts"></a>Collegamenti di navigazione
 
-| Tasto o combinazione di tasti | Description |
+| Tasti | Descrizione |
 |-|-|
 | CTRL + F6 | Attiva/Nascondi lo stato attivo tra Canvas e albero del modulo |
 | CTRL + F1   | Aprire la scheda informazioni quando si concentra su un nodo nell'albero del modulo |
 | CTRL + MAIUSC + H | Apre l'helper di connessione quando lo stato attivo si trova in un nodo |
 | CTRL + MAIUSC + E | Apre le proprietà del modulo quando lo stato attivo si trova in un nodo |
-| CTRL+G | Sposta lo stato attivo al primo nodo non riuscito se l'esecuzione della pipeline non è riuscita |
+| CTRL + G | Sposta lo stato attivo al primo nodo non riuscito se l'esecuzione della pipeline non è riuscita |
 
 ## <a name="action-shortcuts"></a>Collegamenti azione
 
 Usare i collegamenti seguenti con la chiave di accesso. Per ulteriori informazioni sulle chiavi di accesso, vedere https://en.wikipedia.org/wiki/Access_key.
 
-| Tasto o combinazione di tasti | Azione |
+| Tasti | Azione |
 |-|-|
-| Chiave di accesso + R | Esecuzione |
+| Chiave di accesso + R | Esegui |
 | Chiave di accesso + P | Pubblica |
-| Chiave di accesso + C | Clona |
-| Chiave di accesso + D | Distribuzione |
+| Chiave di accesso + C | Clone |
+| Chiave di accesso + D | Distribuisci |
 | Chiave di accesso + I | Crea/aggiorna pipeline di inferenza |
 | Chiave di accesso + B | Crea/aggiorna la pipeline di inferenza batch |
 | Chiave di accesso + K | Aprire l'elenco a discesa "crea pipeline di inferenza" |

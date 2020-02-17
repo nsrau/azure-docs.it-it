@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: helohr
-ms.openlocfilehash: 0db1ffe46165d91148b6980abbf89d03340e646e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8065be841b18fa0f8706a3bea3739ee2cb013323
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486690"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367596"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configurare il tipo di assegnazione del pool di host personal desktop
 
@@ -27,7 +27,7 @@ Assegnazione automatica è il tipo di assegnazione predefinito per i nuovi pool 
 
 Per assegnare automaticamente gli utenti, assegnarli prima al pool di host desktop personali in modo che possano visualizzare il desktop nel feed. Quando un utente assegnato avvia il desktop nel proprio feed, dimostrerà un host sessione disponibile se non è già connesso al pool host, che completa il processo di assegnazione.
 
-Prima di iniziare, [scaricare e importare il modulo PowerShell per desktop virtuale di Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) , se non è già stato fatto. 
+Prima di iniziare, [scaricare e importare il modulo PowerShell per desktop virtuale di Windows](/powershell/windows-virtual-desktop/overview/) , se non è già stato fatto. 
 
 > [!NOTE]
 > Prima di seguire queste istruzioni, verificare di aver installato Windows Virtual Desktop PowerShell Module versione 1.0.1534.2001 o successiva.

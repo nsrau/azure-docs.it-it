@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: f7a2e78ed2b1de770f7a60f1312e069dc1757cb6
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 2869384d4f4072e1e71ab0a69af81edc68e7a5b7
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191196"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366253"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
@@ -141,8 +141,8 @@ Considerare i modelli sottoposti a training seguenti e le relative precisioni di
 
 | Modello | Accuratezza del training | Accuratezza test |
 |-------|----------------|---------------|
-| Una | 99,9% | 95% |
-| b | 87% | 87% |
+| A | 99,9% | 95% |
+| B | 87% | 87% |
 | C | 99,9% | 45% |
 
 Considerando il modello **a**, si verifica un malinteso comune che se l'accuratezza dei test sui dati non visualizzati è inferiore alla precisione di training, il modello viene sovramontato. Tuttavia, l'accuratezza dei test deve essere sempre inferiore alla precisione del training e la distinzione tra adattamento e adattamento rispetto a quello appropriato è *molto* meno accurata. 
@@ -211,22 +211,71 @@ Le tecniche seguenti sono opzioni aggiuntive per la gestione di dati sbilanciati
 
 Con Azure Machine Learning, è possibile usare il Machine Learning automatico per compilare un modello Python e convertirlo nel formato ONNX. Il runtime di ONNX C#supporta, quindi è possibile usare il modello creato automaticamente nelle C# app senza la necessità di ricodificare o una delle latenze di rete introdotte dagli endpoint REST. Provare un esempio di questo flusso [nel notebook di Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
 
-## <a name="automated-ml-across-microsoft"></a>Automatizzato ML in Microsoft
+## <a name="automated-ml-in-azure-machine-learning"></a>ML automatizzato in Azure Machine Learning
 
-Il Machine Learning automatico è disponibile anche in altre soluzioni Microsoft, ad esempio:
+Azure Machine Learning offre due esperienze per l'uso di ML automatizzato
 
-|Integrazioni|Descrizione|
-|------------|-----------|
-|[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Selezione e training automatici dei modelli nelle app .NET con Visual Studio e Visual Studio Code con ML.NET automatizzato ML.|
-|[HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Ridimensionare i processi di training di Machine Learning automatici in Spark nei cluster HDInsight in parallelo.|
-|[Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Richiama i modelli di Machine Learning direttamente in Power BI.|
-|[SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)|Creare nuovi modelli di apprendimento automatico sui dati in 2019 SQL Server cluster Big Data.|
+* Per i clienti con esperienza di codice, [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py) 
+
+* Per i clienti con esperienza limitata o senza codice, Azure Machine Learning Studio all' [https://ml.azure.com](https://ml.azure.com/)  
+
+Di seguito sono riepilogate le funzionalità di Machine Learning automatiche di livello elevato supportate in ogni esperienza.
+
+<a name="parity"></a>
+
+### <a name="experiment-settings"></a>Impostazioni esperimento 
+
+Le impostazioni seguenti consentono di configurare l'esperimento di ML automatizzato. 
+
+| | Python SDK| Studio
+----|:----:|:----:
+Suddividere i dati in set di Training/convalida| ✓|✓
+Supporta le attività ML: classificazione, regressione e previsione| ✓| ✓
+Ottimizza in base alla metrica primaria| ✓| ✓
+Supporta il calcolo di AML come destinazione di calcolo | ✓|✓
+Configurare l'orizzonte di previsione, i ritardi di destinazione & finestra in sequenza|✓|✓
+Imposta criteri di uscita |✓|✓ 
+Imposta iterazioni simultanee| ✓|✓
+Rilascia colonne| ✓|✓
+Algoritmi di blocco|✓|✓
+Convalida incrociata |✓|✓
+Supporta la formazione su cluster Azure Databricks| ✓|
+Visualizzare i nomi delle funzionalità progettate|✓|
+Riepilogo di conteggi| ✓|
+Conteggi festivi|✓|
+Livello di dettaglio per i file di log| ✓|
+
+### <a name="model-settings"></a>Impostazioni modello
+
+Queste impostazioni possono essere applicate al modello migliore in seguito all'esperimento di Machine Learning automatizzato.
+
+||Python SDK|Studio
+----|:----:|:----:
+Registrazione ottimale del modello| ✓|✓
+Distribuzione ottimale del modello| ✓| ✓
+Migliore spiegazione del modello| ✓|✓
+Abilitare i modelli di ensemble di voto & stack Ensemble| ✓|✓
+Mostra il modello migliore in base a una metrica non primaria|✓|Abilita/Disabilita la compatibilità del modello ONNX|✓|
+Testare un modello | ✓| |
+
+### <a name="run-control-settings"></a>Impostazioni di controllo esecuzione
+
+Queste impostazioni consentono di esaminare e controllare le esecuzioni dell'esperimento e le esecuzioni figlio. 
+
+||Python SDK| Studio
+----|:----:|:----:
+Tabella di riepilogo esecuzione| ✓|✓
+Annulla esecuzione| ✓|✓
+Annulla esecuzione figlio| ✓| ✓
+Ottenere Guardrails| ✓|✓
+Sospendi esecuzione| ✓| 
+Riprendi esecuzione| ✓| 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere gli esempi e informazioni su come creare modelli usando Machine Learning automatico:
 
-+ Seguire l' [esercitazione: eseguire automaticamente il training di un modello di regressione con Azure automatic machine learning](tutorial-auto-train-models.md)
++ Seguire l' [esercitazione: eseguire automaticamente il training di un modello di regressione con Azure Machine Learning](tutorial-auto-train-models.md)
 
 + Configurare le impostazioni per l'esperimento di training automatico:
   + In Azure Machine Learning Studio [usare questa procedura](how-to-create-portal-experiments.md).
@@ -235,3 +284,5 @@ Vedere gli esempi e informazioni su come creare modelli usando Machine Learning 
 + Per informazioni su come eseguire il training automatico usando i dati delle serie temporali, [seguire questa procedura](how-to-auto-train-forecast.md).
 
 + Prova [Jupyter notebook esempi per Machine Learning automatizzato](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
+
+* Il Machine Learning automatico è disponibile anche in altre soluzioni Microsoft, ad esempio [ml.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power bi](https://docs.microsoft.com/power-bi/service-machine-learning-automated) e [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)

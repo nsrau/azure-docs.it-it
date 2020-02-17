@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: b6b310bf1958671583aab873ab42a70845f93f9a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5eff53119362cd03c9a6497e3133984627e513c1
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452420"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368841"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Distribuire lo strumento di diagnostica
 
@@ -36,8 +36,8 @@ Ecco cosa può fare lo strumento di diagnostica per desktop virtuale di Windows:
 
 Prima di iniziare, è necessario installare anche questi due moduli di PowerShell:
 
-- [Modulo di Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.4.0)
-- [Modulo Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+- [Modulo di Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.4.0/)
+- [Modulo Azure AD](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/)
 
 Assicurarsi che l'ID sottoscrizione sia pronto per l'accesso.
 
@@ -253,7 +253,7 @@ Nei risultati della ricerca trovare e selezionare l'host sessione per cui si vog
 
     - Soglia: superiore al 80% è contrassegnato come non integro.
 
-- [Ritardo input utente per sessione (\*)\\ritardo input massimo](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
+- [Ritardo input utente per sessione (\*)\\ritardo input massimo](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/):
 
     - Soglia: superiore a 2000 ms è contrassegnato come non integro.
 

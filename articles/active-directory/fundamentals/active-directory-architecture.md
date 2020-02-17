@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d0511f008a3d5bc39a0fb2d9406d33b72dbede6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 854fb4649f8c1113f20abe5807dd0ce473ba6ee3
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532952"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368073"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Che cos'è l'architettura di Azure Active Directory?
 
@@ -79,7 +79,7 @@ Le operazioni di lettura (che sono più numerose di quelle di scrittura di diver
 
 Una scrittura viene impegnata in modo durevole in almeno due Data Center prima che venga riconosciuta. Questo problema si verifica eseguendo prima il commit della scrittura sul database primario e quindi replicando immediatamente la scrittura in almeno un altro Data Center. Questa azione di scrittura garantisce che una potenziale perdita irreversibile del data center che ospita il database primario non comporti la perdita di dati.
 
-Azure AD ha un [Obiettivo tempo di ripristino ](https://en.wikipedia.org/wiki/Recovery_time_objective) pari a zero per non perdere dati sui failover. Sono inclusi:
+Azure AD ha un [Obiettivo tempo di ripristino ](https://en.wikipedia.org/wiki/Recovery_time_objective) pari a zero per non perdere dati sui failover. ad esempio:
 
 * Rilascio di token e operazioni di lettura directory
 * Solo circa 5 minuti obiettivo tempo di ripristino concessi per le operazioni di scrittura nella directory
@@ -100,7 +100,7 @@ Il modello della directory si basa sulla coerenza finale. Un problema tipico dei
 
 Azure AD offre la coerenza in lettura/scrittura per le applicazioni che specificano come destinazione una replica secondaria instradandone le operazioni di scrittura alla replica primaria ed effettuando di nuovo il pull sincrono delle operazioni di scrittura alla replica secondaria.
 
-Per le operazioni di scrittura delle applicazioni che usano l'API Graph di Azure AD non è necessario mantenere l'affinità con la replica di una directory per la coerenza in lettura/scrittura. Il servizio Azure AD Graph gestisce una sessione logica con affinità a una replica secondaria utilizzata per le letture. l'affinità viene acquisita in un "token di replica" memorizzato nella cache del servizio Graph utilizzando una cache distribuita nel Data Center della replica secondaria. Questo token viene quindi usato per le operazioni successive nella stessa sessione logica. Per continuare a utilizzare la stessa sessione logica, le richieste successive devono essere indirizzate allo stesso Azure AD Data Center. Non è possibile continuare una sessione logica se le richieste del client di directory vengono instradate a più data center Azure AD; in tal caso, il client dispone di più sessioni logiche con consistenze di lettura/scrittura indipendenti.
+Le Scritture dell'applicazione con l'API Microsoft Graph di Azure AD sono astratte dalla gestione dell'affinità a una replica di directory per la coerenza di lettura/scrittura. Il servizio API di Microsoft Graph gestisce una sessione logica con affinità a una replica secondaria utilizzata per le letture. l'affinità viene acquisita in un "token di replica" memorizzato nella cache del servizio usando una cache distribuita nel Data Center della replica secondaria. Questo token viene quindi usato per le operazioni successive nella stessa sessione logica. Per continuare a utilizzare la stessa sessione logica, le richieste successive devono essere indirizzate allo stesso Azure AD Data Center. Non è possibile continuare una sessione logica se le richieste del client di directory vengono instradate a più data center Azure AD; in tal caso, il client dispone di più sessioni logiche con consistenze di lettura/scrittura indipendenti.
 
  >[!NOTE]
  >Le operazioni di scrittura vengono immediatamente replicate nella replica secondaria in cui sono state rilasciate le operazioni di lettura della sessione logica.

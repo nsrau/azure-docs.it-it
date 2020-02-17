@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7791e7b50a963d2f92a2cbc460e36f9e83bb1b52
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 4ef8f1ef381c86b6eec62c96ff6dcf87522de040
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025709"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367973"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Accesso Single Sign-On facile di Azure Active Directory
 
@@ -36,7 +36,7 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 ![Accesso Single Sign-On facile](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->Per poter usare l'accesso Single Sign-on facile, il dispositivo dell'utente deve essere **aggiunto al dominio** ma non è necessario che sia [aggiunto ad Azure AD](../active-directory-azureadjoin-overview.md).
+>Seamless SSO richiede che il dispositivo dell'utente sia **aggiunto** a un dominio, ma non viene usato in [Azure ad unito](../active-directory-azureadjoin-overview.md) o [Azure ad ibrido aggiunto] (.. /active-directory-azureadjoin-overview.md). Single Sign-on SSO Azure AD Unito in join e Azure AD ibrido funziona in base al [token di aggiornamento primario] (.. /active-directory/devices/concept-primary-refresh-token.md)
 
 ## <a name="key-benefits"></a>Vantaggi principali
 
@@ -53,8 +53,8 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 
 - Il nome utente usato per l'accesso può essere il nome utente predefinito locale (`userPrincipalName`) o un altro attributo configurato in Azure AD Connect (`Alternate ID`). Sono supportati entrambi i casi d'uso, perché l'accesso Single Sign-On facile usa l'attestazione `securityIdentifier` nel ticket Kerberos per cercare l'oggetto utente corrispondente in Azure AD.
 - L'accesso SSO facile è una funzionalità opportunistica. Se per qualche motivo ha esito negativo, l'esperienza di accesso dell'utente ritorna al comportamento normale, ovvero l'utente deve immettere la propria password nella pagina di accesso.
-- Se un'applicazione (ad esempio, `https://myapps.microsoft.com/contoso.com`) Invia un parametro `domain_hint` (OpenID Connect) o `whr` (SAML), che identifica il tenant o il parametro `login_hint` che identifica l'utente, nella richiesta di accesso Azure AD gli utenti eseguono automaticamente l'accesso senza di essi immissione di nomi utente o password.
-- Gli utenti ottengono anche un'esperienza di accesso automatico se un'applicazione (ad esempio, `https://contoso.sharepoint.com`) Invia le richieste di accesso agli endpoint di Azure AD configurati come tenant, ovvero `https://login.microsoftonline.com/contoso.com/<..>` o `https://login.microsoftonline.com/<tenant_ID>/<..>`, anziché l'endpoint comune di Azure AD, ovvero `https://login.microsoftonline.com/common/<...>`.
+- Se un'applicazione (ad esempio, `https://myapps.microsoft.com/contoso.com`) Invia un parametro di `domain_hint` (OpenID Connect) o `whr` (SAML), che identifica il tenant, o `login_hint` parametro che identifica l'utente, nella richiesta di accesso Azure AD, gli utenti accedono automaticamente senza immettere nomi utente o password.
+- Gli utenti ottengono anche un'esperienza di accesso automatico se un'applicazione (ad esempio, `https://contoso.sharepoint.com`) Invia le richieste di accesso agli endpoint di Azure AD configurati come tenant, ovvero `https://login.microsoftonline.com/contoso.com/<..>` o `https://login.microsoftonline.com/<tenant_ID>/<..>`, anziché Azure AD endpoint comune, ovvero `https://login.microsoftonline.com/common/<...>`.
 - La disconnessione è supportata. In questo modo gli utenti possono scegliere di eseguire l'accesso con un altro account di Azure AD anziché accedere automaticamente tramite l'accesso Single Sign-On facile.
 - I client Office 365 Win32 (Outlook, Word, Excel e altri) con le versioni 16.0.8730.xxxx e successive sono supportati tramite un flusso non interattivo. Per OneDrive, è necessario attivare la [funzionalità di configurazione automatica di OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) per un'esperienza di accesso automatico.
 - Può essere abilitata da Azure AD Connect.
@@ -63,15 +63,15 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 
 | SO\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Sì\*|Yes|Yes|Sì\*\*\*|N/D
-|Windows 8.1|Sì\*|N/D|Yes|Sì\*\*\*|N/D
-|Windows 8|Sì\*|N/D|Yes|Sì\*\*\*|N/D
-|Windows 7|Sì\*|N/D|Yes|Sì\*\*\*|N/D
-|Windows Server 2012 R2 o versione successiva|Sì\*\*|N/D|Yes|Sì\*\*\*|N/D
+|Windows 10|Sì\*|Sì|Sì|Sì\*\*\*|N/D
+|Windows 8.1|Sì\*|N/D|Sì|Sì\*\*\*|N/D
+|Windows 8|Sì\*|N/D|Sì|Sì\*\*\*|N/D
+|Windows 7|Sì\*|N/D|Sì|Sì\*\*\*|N/D
+|Windows Server 2012 R2 o versione successiva|Sì\*\*|N/D|Sì|Sì\*\*\*|N/D
 |Mac OS X|N/D|N/D|Sì\*\*\*|Sì\*\*\*|Sì\*\*\*
 
 
-\*Richiede Internet Explorer versione 10 o successiva
+\*Richiede Internet Explorer versione 10 o una versione successiva
 
 \*\*Richiede Internet Explorer versione 10 o successiva. Disabilitare la modalità protetta avanzata
 

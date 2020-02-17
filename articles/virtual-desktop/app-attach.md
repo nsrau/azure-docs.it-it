@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/14/2019
 ms.author: helohr
-ms.openlocfilehash: 8e8eec8af81832992a27206efcd7b7e7051a83b8
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: f6a8e4b9129018686aa5833a2ac260075e5627f9
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772551"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367622"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurare la connessione all'app MSIX
 
@@ -38,7 +38,7 @@ In primo luogo, è necessario ottenere l'immagine del sistema operativo da usare
 1. Aprire il [portale di Windows Insider](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) ed accedere.
 
      >[!NOTE]
-     >Per accedere al portale di Windows Insider, è necessario essere membri del programma Windows Insider. Per ulteriori informazioni sul programma Windows Insider, consultare la [documentazione di Windows Insider](https://docs.microsoft.com/windows-insider/at-home/).
+     >Per accedere al portale di Windows Insider, è necessario essere membri del programma Windows Insider. Per ulteriori informazioni sul programma Windows Insider, consultare la [documentazione di Windows Insider](/windows-insider/at-home/).
 
 2. Scorrere verso il basso fino alla sezione **Select Edition** e selezionare **Windows 10 Insider Preview Enterprise (Fast) – Build 19035** o versione successiva.
 
@@ -79,7 +79,7 @@ Dopo aver caricato il disco rigido virtuale in Azure, creare un pool host basato
 
 ## <a name="prepare-the-application-for-msix-app-attach"></a>Preparare l'applicazione per la connessione all'app MSIX 
 
-Se si dispone già di un pacchetto MSIX, andare avanti per [configurare l'infrastruttura di desktop virtuali Windows](#configure-windows-virtual-desktop-infrastructure). Se si vuole testare le applicazioni legacy, seguire le istruzioni riportate in [creare un pacchetto MSIX da un programma di installazione desktop in una macchina virtuale](https://docs.microsoft.com/windows/msix/packaging-tool/create-app-package-msi-vm) per convertire l'applicazione legacy in un pacchetto MSIX.
+Se si dispone già di un pacchetto MSIX, andare avanti per [configurare l'infrastruttura di desktop virtuali Windows](#configure-windows-virtual-desktop-infrastructure). Se si vuole testare le applicazioni legacy, seguire le istruzioni riportate in [creare un pacchetto MSIX da un programma di installazione desktop in una macchina virtuale](/windows/msix/packaging-tool/create-app-package-msi-vm/) per convertire l'applicazione legacy in un pacchetto MSIX.
 
 ## <a name="generate-a-vhd-or-vhdx-package-for-msix"></a>Generare un pacchetto VHD o VHDX per MSIX
 
@@ -149,7 +149,7 @@ Successivamente, sarà necessario "espandere" l'immagine MSIX decomprimerla. Per
 
 3. Passare al disco rigido virtuale montato e aprire la cartella dell'app e verificare che il contenuto del pacchetto sia presente.
 
-4. Smontare il VHD.
+4. Smontare il disco rigido virtuale.
 
 ## <a name="configure-windows-virtual-desktop-infrastructure"></a>Configurare l'infrastruttura di desktop virtuali Windows
 
@@ -167,7 +167,7 @@ Nell'ambiente desktop virtuale Windows creare una condivisione di rete e spostar
 >[!NOTE]
 > La procedura consigliata per la creazione di condivisioni di rete MSIX consiste nell'impostare la condivisione di rete con autorizzazioni di sola lettura NTFS.
 
-## <a name="install-certificates"></a>Installa i certificati
+## <a name="install-certificates"></a>Installare i certificati
 
 Se l'app usa un certificato che non è pubblico o è autofirmato, di seguito viene illustrato come installarlo:
 
@@ -178,14 +178,14 @@ Se l'app usa un certificato che non è pubblico o è autofirmato, di seguito vie
 5. Se il programma di installazione chiede se si vuole consentire all'app di apportare modifiche al dispositivo, selezionare **Sì**.
 6. Selezionare **colloca tutti i certificati nel seguente archivio**, quindi selezionare **Sfoglia**.
 7. Quando viene visualizzata la finestra Seleziona archivio certificati, selezionare **persone attendibili**, quindi fare clic su **OK**.
-8. Selezionare **Fine**.
+8. Fare clic su **Fine**.
 
 ## <a name="prepare-powershell-scripts-for-msix-app-attach"></a>Preparare gli script di PowerShell per la connessione all'app MSIX
 
 La connessione dell'app MSIX prevede quattro fasi distinte che devono essere eseguite nell'ordine seguente:
 
-1. Stage
-2. Iscriviti
+1. Fase
+2. Register
 3. Annullare
 4. Destage
 
@@ -390,7 +390,7 @@ rmdir $packageName -Force -Verbose
 
 ## <a name="set-up-simulation-scripts-for-the-msix-app-attach-agent"></a>Configurare gli script di simulazione per l'agente di associazione app MSIX
 
-Dopo aver creato gli script, gli utenti possono eseguirli manualmente o configurarli per l'esecuzione automatica come script di avvio, di accesso, di disconnessione e di arresto. Per altre informazioni su questi tipi di script, vedere [uso degli script di avvio, arresto, accesso e disconnessione in criteri di gruppo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)).
+Dopo aver creato gli script, gli utenti possono eseguirli manualmente o configurarli per l'esecuzione automatica come script di avvio, di accesso, di disconnessione e di arresto. Per altre informazioni su questi tipi di script, vedere [uso degli script di avvio, arresto, accesso e disconnessione in criteri di gruppo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)/).
 
 Ognuno di questi script automatici esegue una fase degli script di connessione dell'app:
 
@@ -407,7 +407,7 @@ Per installare i file di licenza, è necessario usare uno script di PowerShell c
 
 Di seguito viene illustrato come configurare le licenze per l'utilizzo offline: 
 
-1. Scaricare il pacchetto dell'app, le licenze e i Framework necessari da Microsoft Store for business. Sono necessari sia il file di licenza codificato che quello non codificato. Le istruzioni dettagliate per il download sono disponibili [qui](https://docs.microsoft.com/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
+1. Scaricare il pacchetto dell'app, le licenze e i Framework necessari da Microsoft Store for business. Sono necessari sia il file di licenza codificato che quello non codificato. Le istruzioni dettagliate per il download sono disponibili [qui](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app/).
 2. Aggiornare le variabili seguenti nello script per il passaggio 3:
       1. `$contentID` è il valore ContentID del file di licenza non codificato (con estensione XML). È possibile aprire il file di licenza in un editor di testo di propria scelta.
       2. `$licenseBlob` è l'intera stringa per il BLOB di licenze nel file di licenza codificato (. bin). È possibile aprire il file di licenza codificato in un editor di testo di propria scelta. 

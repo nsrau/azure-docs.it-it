@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d94237d2cfeb814b2e15d43c9f8863a76c0bcd11
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 94a376c01229de20e6a1264da3f29532becefa8a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190681"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368670"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Abilitare e creare condivisioni file di grandi dimensioni
 
 Quando si abilitano condivisioni file di grandi dimensioni nell'account di archiviazione, le condivisioni file possono essere scalate fino a 100 TiB. È possibile abilitare questa scalabilità per gli account di archiviazione esistenti per le condivisioni file esistenti.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 - Se si intende usare l'interfaccia della riga di comando di Azure, [installare la versione più recente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -29,9 +29,9 @@ Quando si abilitano condivisioni file di grandi dimensioni nell'account di archi
 Per il momento, è possibile usare l'archiviazione con ridondanza locale (con ridondanza locale) o l'archiviazione con ridondanza della zona (ZRS) in account abilitati per la condivisione file di grandi dimensioni. Non è possibile usare l'archiviazione con ridondanza geografica (GZRS), l'archiviazione con ridondanza geografica (GRS) o l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).
 L'abilitazione di condivisioni file di grandi dimensioni in un account è un processo irreversibile. Dopo averla abilitata, non sarà possibile convertire l'account in GZRS, GRS o RA-GRS.
 
-## <a name="create-a-new-storage-account"></a>Creare un nuovo account di archiviazione.
+## <a name="create-a-new-storage-account"></a>Creazione di un nuovo account di archiviazione
 
-### <a name="portal"></a>Portale
+### <a name="portal"></a>Portal
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Nel portale di Azure fare clic su **Tutti i servizi**. 
@@ -43,23 +43,23 @@ L'abilitazione di condivisioni file di grandi dimensioni in un account è un pro
     ![Screenshot che mostra come creare un gruppo di risorse nel portale](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
 1. Immettere quindi un nome per l'account di archiviazione. Il nome deve essere univoco in Azure. Anche il nome deve avere una lunghezza compresa tra 3 e 24 caratteri e può contenere solo numeri e lettere minuscole.
-1. Selezionare una località per l'account di archiviazione e assicurarsi che sia [una delle aree supportate per le condivisioni file di grandi dimensioni](storage-files-planning.md#regional-availability).
+1. Selezionare una località per l'account di archiviazione e assicurarsi che sia [una delle repliche supportate per le condivisioni file di grandi dimensioni](storage-files-planning.md#regional-availability).
 1. Impostare la replica sull'archiviazione con **ridondanza locale** o sull' **archiviazione con ridondanza della zona**.
 1. Lasciare i valori predefiniti per questi campi:
 
-   |Campo  |valore  |
+   |Campo  |Valore  |
    |---------|---------|
    |Modello di distribuzione     |Gestione risorse         |
    |Prestazioni     |Standard         |
    |Tipo di account     |Archiviazione v2 (utilizzo generico V2)         |
-   |Livello di accesso     |Accesso frequente         |
+   |Livello di accesso     |Alto         |
 
 1. Selezionare **Avanzate**, quindi selezionare il pulsante di opzione **abilitato** a destra di **condivisioni file di grandi dimensioni**.
 1. Selezionare **Rivedi e crea** per esaminare le impostazioni dell'account di archiviazione e creare l'account.
 
     ![Screenshot con il pulsante di opzione "Enabled" in un nuovo account di archiviazione nel portale di Azure](media/storage-files-how-to-create-large-file-share/large-file-shares-advanced-enable.png)
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 ### <a name="cli"></a>CLI
 
@@ -87,7 +87,7 @@ New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAc
 
 È anche possibile abilitare condivisioni file di grandi dimensioni per gli account esistenti. Se si abilitano condivisioni file di grandi dimensioni, non sarà possibile eseguire la conversione in GZRS, GRS o RA-GRS. L'abilitazione di condivisioni file di grandi dimensioni è irreversibile in questo account di archiviazione.
 
-### <a name="portal"></a>Portale
+### <a name="portal"></a>Portal
 
 1. Aprire il [portale di Azure](https://portal.azure.com)e passare all'account di archiviazione in cui si vuole abilitare le condivisioni file di grandi dimensioni.
 1. Aprire l'account di archiviazione e selezionare **configurazione**.
@@ -120,7 +120,7 @@ Set-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAc
 
 Dopo aver abilitato le condivisioni file di grandi dimensioni nell'account di archiviazione, è possibile creare condivisioni file in tale account con quote più elevate. 
 
-### <a name="portal"></a>Portale
+### <a name="portal"></a>Portal
 
 La creazione di una condivisione file di grandi dimensioni è quasi identica alla creazione di una condivisione file standard. La differenza principale consiste nel fatto che è possibile impostare una quota fino a 100 TiB.
 
@@ -155,7 +155,7 @@ New-AzStorageShare -Name $shareName -Context $ctx
 
 Dopo aver abilitato le condivisioni file di grandi dimensioni nell'account di archiviazione, è anche possibile espandere le condivisioni file esistenti in tale account con una quota superiore. 
 
-### <a name="portal"></a>Portale
+### <a name="portal"></a>Portal
 
 1. Dall'account di archiviazione selezionare **condivisioni file**.
 1. Fare clic con il pulsante destro del mouse sulla condivisione file e quindi scegliere **quota**.

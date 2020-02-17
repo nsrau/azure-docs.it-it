@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/16/2019
+ms.date: 02/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: fd744e6283b00b0dfdd50805cb628f5bc40ab8d6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e814d9be4a0db2852bd9e21f3d3c1d54a45bd268
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846150"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368653"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Definire la struttura degli eventi con Anteprima di Time Series Insights
 
@@ -117,7 +117,7 @@ L'istanza della serie temporale contiene i metadati del dispositivo. Questi meta
 
 Anteprima di Time Series Insights crea un join di una tabella (dopo la trasformazione in flat) durante la fase di query. La tabella include colonne aggiuntive, ad esempio **Type**. L'esempio seguente illustra come è possibile [modellare](./time-series-insights-send-events.md#supported-json-shapes) i dati di telemetria.
 
-| deviceId  | Tipo | L1 | L2 | timestamp | Frequenza series_Flow ft3/s | Pressione del petrolio series_Engine |
+| deviceId  | Type | L1 | L2 | timestamp | Frequenza series_Flow ft3/s | Pressione del petrolio series_Engine |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | `FXXX` | Default_Type | SIMULATOR | Battery System | 2018-01-17T01:17:00Z |   1.0172575712203979 |    34.7 |
 | `FXXX` | Default_Type | SIMULATOR |   Battery System |    2018-01-17T01:17:00Z | 2.445906400680542 |  49.2 |
@@ -148,7 +148,7 @@ Si consideri il codice JSON seguente:
   "data_flow" : 1.76435072345733643
 }
 ```
-Nell'esempio precedente, la proprietà `data_flow` bidimensionale presenta un conflitto di denominazione con la proprietà `data_flow`. In questo caso, il valore della proprietà *più recente* sovrascrive quello precedente. Se questo comportamento rappresenta una sfida per gli scenari aziendali, rivolgersi al team di STI.
+Nell'esempio precedente, la proprietà `data_flow` bidimensionale presenta un conflitto di denominazione con la proprietà `data_flow`. In questo caso, il valore della proprietà *più recente* sovrascrive quello precedente. Se questo comportamento presenta una sfida per gli scenari aziendali, contattare il team di STI.
 
 > [!WARNING] 
 > Nei casi in cui le proprietà duplicate sono presenti nello stesso payload dell'evento a causa del flat o di un altro meccanismo, viene archiviato il valore più recente della proprietà, overwritting i valori precedenti.

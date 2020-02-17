@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 65006b8357db44c3e1b8f8d9e819615b5dd9db6e
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 571be831d337c71a084780da18b480cdd1e42d20
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031749"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77365219"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Risoluzione dei problemi relativi ai runbook
 
@@ -188,7 +188,7 @@ Questo errore può essere causato dall'utilizzo di moduli di Azure non aggiornat
 
 Questo errore può essere risolto aggiornando i moduli di Azure alla versione più recente.
 
-Nell'account di Automazione fare clic su **Moduli** e quindi su **Aggiorna moduli di Azure**. L'aggiornamento richiede circa 15 minuti. Al termine, eseguire di nuovo il runbook non riuscito. Per ulteriori informazioni sull'aggiornamento dei moduli, vedere [Aggiornare i moduli di Azure in Automazione di Azure](../automation-update-azure-modules.md).
+Nell'account di automazione fare clic su **moduli**e quindi su **Aggiorna moduli di Azure**. L'aggiornamento richiede circa 15 minuti. Al termine, eseguire di nuovo il runbook non riuscito. Per ulteriori informazioni sull'aggiornamento dei moduli, vedere [Aggiornare i moduli di Azure in Automazione di Azure](../automation-update-azure-modules.md).
 
 ## <a name="runbook-auth-failure"></a>Scenario: manuali operativi ha esito negativo quando si gestiscono più sottoscrizioni
 
@@ -254,7 +254,7 @@ Questo errore può essere risolto eseguendo una delle attività seguenti:
 
 Se il modulo è un modulo di Azure, vedere [How to update Azure PowerShell Modules in automazione di Azure](../automation-update-azure-modules.md) per informazioni su come aggiornare i moduli nell'account di automazione.
 
-Se è un modulo separato, assicurarsi che il modulo venga importato nell'account di automazione.
+Se si tratta di un modulo separato, verificare che il modulo sia stato importato nell'account di automazione.
 
 ## <a name="job-attempted-3-times"></a>Scenario: l'avvio del processo Runbook è stato tentato tre volte, ma non è stato possibile avviarsi ogni volta
 
@@ -457,7 +457,7 @@ Questo errore si verifica quando il motore di PowerShell non trova il cmdlet uti
 una qualsiasi delle soluzioni seguenti consente di correggere il problema:
 
 * Verificare di aver immesso correttamente il nome del cmdlet.
-* Verificare che il cmdlet esista nell'account di automazione e che non siano presenti conflitti. Per verificare se il cmdlet è presente, aprire un runbook in modalità di modifica e cercare il cmdlet nella libreria o eseguire `Get-Command <CommandName>`. Dopo aver verificato che il cmdlet è disponibile per l'account e che non ci sono conflitti di nomi con altri cmdlet o runbook, aggiungerlo all'area di disegno e assicurarsi di usare un set di parametri valido nel runbook.
+* Assicurarsi che il cmdlet esista nell'account di automazione e che non siano presenti conflitti. Per verificare se il cmdlet è presente, aprire un runbook in modalità di modifica e cercare il cmdlet nella libreria o eseguire `Get-Command <CommandName>`. Dopo aver verificato che il cmdlet è disponibile per l'account e che non ci sono conflitti di nomi con altri cmdlet o runbook, aggiungerlo all'area di disegno e assicurarsi di usare un set di parametri valido nel runbook.
 * Nel caso di un conflitto di nomi e se il cmdlet è disponibile in due moduli diversi, è possibile risolvere questo problema usando il nome completo del cmdlet. Ad esempio, usare **ModuleName\CmdletName**.
 * Se si eseguono i runbook in locale in un gruppo di lavoro ibrido, verificare che il modulo e il cmdlet siano installati nel computer che ospita il ruolo di lavoro ibrido.
 
@@ -569,53 +569,77 @@ L'account nxautomationuser per l'agente di Log Analytics per Linux non è config
 
 * Verificare la configurazione dell'account nxautomationuser nel file sudoers. Vedere [esecuzione di manuali operativi in un ruolo di lavoro ibrido per Runbook](../automation-hrw-run-runbooks.md)
 
+## <a name="scenario-cmdlet-failing-in-pnp-powershell-runbook-on-azure-automation"></a>Scenario: errore del cmdlet in Runbook di PowerShell PnP in automazione di Azure
+
+### <a name="issue"></a>Problema
+
+Quando un Runbook scrive direttamente un oggetto generato da PowerShell PnP nell'output di automazione di Azure, l'output del cmdlet non riesce a eseguire il flusso all'automazione.
+
+### <a name="cause"></a>Causa
+
+Questo problema si verifica in genere quando automazione di Azure elabora manuali operativi che richiamano i cmdlet di PowerShell PnP, ad esempio **Add-pnplistitem**, senza intercettare gli oggetti restituiti.
+
+### <a name="resolution"></a>Risoluzione
+
+Modificare gli script per assegnare i valori restituiti alle variabili in modo che i cmdlet non tentino di scrivere interi oggetti nell'output standard. Uno script può reindirizzare il flusso di output a un cmdlet come illustrato di seguito.
+
+```azurecli
+  $null = add-pnplistitem
+```
+Se lo script analizza l'output del cmdlet, lo script deve archiviare l'output in una variabile e modificare la variabile anziché semplicemente trasmettere l'output.
+
+```azurecli
+$SomeVariable = add-pnplistitem ....
+if ($SomeVariable.someproperty -eq ....
+```
+
 ## <a name="other"></a>Il problema non è elencato sopra
 
 Le sezioni seguenti elencano altri errori comuni oltre alla documentazione di supporto per facilitare la risoluzione del problema.
 
-## <a name="hybrid-runbook-worker-doesnt-run-jobs-or-isnt-responding"></a>Il ruolo di lavoro per runbook ibrido non esegue i processi o non risponde
+### <a name="hybrid-runbook-worker-doesnt-run-jobs-or-isnt-responding"></a>Il ruolo di lavoro per runbook ibrido non esegue i processi o non risponde
 
 Se si eseguono processi usando un ruolo di lavoro ibrido anziché in automazione di Azure, potrebbe essere necessario [risolvere i problemi del ruolo di lavoro ibrido](https://docs.microsoft.com/azure/automation/troubleshoot/hybrid-runbook-worker).
 
-## <a name="runbook-fails-with-no-permission-or-some-variation"></a>Il runbook ha esito negativo e viene segnalata l'assenza di autorizzazioni o la presenza di alcune varianti
+### <a name="runbook-fails-with-no-permission-or-some-variation"></a>Il runbook ha esito negativo e viene segnalata l'assenza di autorizzazioni o la presenza di alcune varianti
 
 Gli account RunAs potrebbero non avere le stesse autorizzazioni per le risorse di Azure dell'account corrente. Verificare che l'account RunAs disponga [delle autorizzazioni per accedere a tutte le risorse](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) utilizzate nello script.
 
-## <a name="runbooks-were-working-but-suddenly-stopped"></a>I runbook funzionavano ma sono stati arrestati improvvisamente
+### <a name="runbooks-were-working-but-suddenly-stopped"></a>I runbook funzionavano ma sono stati arrestati improvvisamente
 
 * Se manuali operativi è stato eseguito in precedenza ma arrestato, verificare che l' [account RunAs](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal) non sia scaduto.
 * Se si usano webhook per avviare manuali operativi, assicurarsi che un [webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook) non sia scaduto.
 
-## <a name="issues-passing-parameters-into-webhooks"></a>Problemi durante il passaggio dei parametri ai webhook
+### <a name="issues-passing-parameters-into-webhooks"></a>Problemi durante il passaggio dei parametri ai webhook
 
 Per informazioni sul passaggio di parametri ai webhook, vedere [avviare un Runbook da un webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
 
-## <a name="issues-using-az-modules"></a>Problemi con AZ Modules
+### <a name="issues-using-az-modules"></a>Problemi con AZ Modules
 
-L'uso di moduli Az e AzureRM nello stesso account di automazione non è supportato. Per ulteriori informazioni, vedere [AZ Modules in manuali operativi](https://docs.microsoft.com/azure/automation/az-modules) .
+Non è supportato l'uso dei moduli AZ modules e AzureRM nello stesso account di automazione. Per ulteriori informazioni, vedere [AZ Modules in manuali operativi](https://docs.microsoft.com/azure/automation/az-modules) .
 
-## <a name="inconsistent-behavior-in-runbooks"></a>Comportamento incoerente nei runbook
+### <a name="inconsistent-behavior-in-runbooks"></a>Comportamento incoerente nei runbook
 
 Seguire le linee guida nell' [esecuzione di Runbook](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-behavior) per evitare problemi con i processi simultanei, le risorse create più volte o altre logiche sensibili alla temporizzazione in manuali operativi.
 
-## <a name="runbook-fails-with-the-error-no-permission-forbidden-403-or-some-variation"></a>Runbook ha esito negativo con errore, nessuna autorizzazione, non consentito (403) o alcune variazioni
+### <a name="runbook-fails-with-the-error-no-permission-forbidden-403-or-some-variation"></a>Runbook ha esito negativo con errore, nessuna autorizzazione, non consentito (403) o alcune variazioni
 
 Gli account RunAs potrebbero non avere le stesse autorizzazioni per le risorse di Azure dell'account corrente. Verificare che l'account RunAs disponga [delle autorizzazioni per accedere a tutte le risorse](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) utilizzate nello script.
 
-## <a name="runbooks-were-working-but-suddenly-stopped"></a>I runbook funzionavano ma sono stati arrestati improvvisamente
+### <a name="runbooks-were-working-but-suddenly-stopped"></a>I runbook funzionavano ma sono stati arrestati improvvisamente
 
 * Se manuali operativi è stato eseguito in precedenza ma arrestato, verificare che l'account RunAs non sia scaduto. Vedere [rinnovo della certificazione](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal).
 * Se si usano webhook per avviare manuali operativi, assicurarsi che il webhook [non sia scaduto](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook).
 
-## <a name="passing-parameters-into-webhooks"></a>Trasmissione dei parametri nei webhook
+### <a name="passing-parameters-into-webhooks"></a>Trasmissione dei parametri nei webhook
 
 Per informazioni sul passaggio di parametri ai webhook, vedere [avviare un Runbook da un webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
 
-## <a name="using-az-modules"></a>Uso dei moduli Az
+### <a name="using-az-modules"></a>Uso dei moduli Az
 
-L'uso di moduli Az e AzureRM nello stesso account di automazione non è supportato. Vedere [AZ Modules in manuali operativi](https://docs.microsoft.com/azure/automation/az-modules).
+Non è supportato l'uso dei moduli AZ modules e AzureRM nello stesso account di automazione. Vedere [AZ Modules in manuali operativi](https://docs.microsoft.com/azure/automation/az-modules).
 
-## <a name="using-self-signed-certificates"></a>Utilizzo di certificati autofirmati
+### <a name="using-self-signed-certificates"></a>Utilizzo di certificati autofirmati
 
 Per usare i certificati autofirmati, vedere [creazione di un nuovo certificato](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate).
 

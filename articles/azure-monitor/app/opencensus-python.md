@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 091cf26a0c18aba0925ad23e61950f8622f6080b
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b9d2bda1d3f01d2bf4bb152c0f62ade87bb61b4c
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989519"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368275"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurare monitoraggio di Azure per l'applicazione Python (anteprima)
 
@@ -38,13 +38,13 @@ Prima di tutto è necessario creare una risorsa Application Insights in monitora
 
 1. Viene visualizzata una finestra di configurazione. Usare la tabella seguente per compilare i campi di input.
 
-   | Impostazione        | Valore           | Description  |
+   | Impostazione        | Valore           | Descrizione  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valore univoco globale | Nome che identifica l'app che si sta monitorando |
    | **Gruppo di risorse**     | myResourceGroup      | Nome del nuovo gruppo di risorse per ospitare i dati Application Insights |
    | **Posizione** | Stati Uniti orientali | Una località nelle vicinanze o vicino alla posizione in cui è ospitata l'app |
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 ## <a name="instrument-with-opencensus-python-sdk-for-azure-monitor"></a>Instrumentare con OpenCensus Python SDK per monitoraggio di Azure
 
@@ -67,7 +67,7 @@ Ecco gli esportatori che OpenCensus fornisce mappato ai tipi di dati di telemetr
 
 ![Screenshot del mapping dei tipi di dati di telemetria da OpenCensus a monitoraggio di Azure](./media/opencensus-python/0012-telemetry-types.png)
 
-### <a name="trace"></a>Trace
+### <a name="trace"></a>Traccia
 
 > [!NOTE]
 > `Trace` in OpenCensus si riferisce alla [traccia distribuita](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing). Il `AzureExporter` Invia `requests` e `dependency` la telemetria a monitoraggio di Azure.
@@ -107,7 +107,7 @@ Ecco gli esportatori che OpenCensus fornisce mappato ai tipi di dati di telemetr
     [SpanData(name='test', context=SpanContext(trace_id=8aa41bc469f1a705aed1bdb20c342603, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='f3f9f9ee6db4740a', parent_span_id=None, attributes=BoundedDict({}, maxlen=32), start_time='2019-06-27T18:21:46.157732Z', end_time='2019-06-27T18:21:47.269583Z', child_span_count=0, stack_trace=None, annotations=BoundedList([], maxlen=32), message_events=BoundedList([], maxlen=128), links=BoundedList([], maxlen=32), status=None, same_process_as_parent_span=None, span_kind=0)]
     ```
 
-3. Sebbene l'immissione di valori sia utile a scopo dimostrativo, in definitiva si vuole creare il `SpanData` in monitoraggio di Azure. Modificare il codice del passaggio precedente in base all'esempio di codice seguente:
+3. Sebbene l'immissione di valori sia utile a scopo dimostrativo, in definitiva si vuole creare il `SpanData` in monitoraggio di Azure. Passare la stringa di connessione direttamente all'utilità di esportazione oppure è possibile specificarla in una variabile di ambiente `APPLICATIONINSIGHTS_CONNECTION_STRING`. Modificare il codice del passaggio precedente in base all'esempio di codice seguente:
 
     ```python
     from opencensus.ext.azure.trace_exporter import AzureExporter
@@ -193,7 +193,7 @@ Ecco gli esportatori che OpenCensus fornisce mappato ai tipi di dati di telemetr
     Point(value=ValueLong(7), timestamp=2019-10-09 20:58:07.138614)
     ```
 
-3. Sebbene l'immissione di valori sia utile a scopo dimostrativo, in definitiva si vuole creare i dati delle metriche in monitoraggio di Azure. Modificare il codice del passaggio precedente in base all'esempio di codice seguente:
+3. Sebbene l'immissione di valori sia utile a scopo dimostrativo, in definitiva si vuole creare i dati delle metriche in monitoraggio di Azure. Passare la stringa di connessione direttamente all'utilità di esportazione oppure è possibile specificarla in una variabile di ambiente `APPLICATIONINSIGHTS_CONNECTION_STRING`. Modificare il codice del passaggio precedente in base all'esempio di codice seguente:
 
     ```python
     from datetime import datetime
@@ -243,7 +243,7 @@ Ecco gli esportatori che OpenCensus fornisce mappato ai tipi di dati di telemetr
 
 4. L'utilità di esportazione invierà i dati delle metriche al monitoraggio di Azure a intervalli fissi. Il valore predefinito è ogni 15 secondi. Stiamo monitorando una singola metrica, quindi questi dati della metrica, con qualsiasi valore e timestamp in esso contenuti, verranno inviati ogni intervallo. È possibile trovare i dati in `customMetrics`.
 
-### <a name="logs"></a>Log
+### <a name="logs"></a>Registri
 
 1. Prima di tutto, è necessario generare alcuni dati di log locali.
 
@@ -277,7 +277,7 @@ Ecco gli esportatori che OpenCensus fornisce mappato ai tipi di dati di telemetr
     90
     ```
 
-3. Sebbene l'immissione di valori sia utile a scopo dimostrativo, in definitiva si vuole creare i dati di log in monitoraggio di Azure. Modificare il codice del passaggio precedente in base all'esempio di codice seguente:
+3. Sebbene l'immissione di valori sia utile a scopo dimostrativo, in definitiva si vuole creare i dati di log in monitoraggio di Azure. Passare la stringa di connessione direttamente all'utilità di esportazione oppure è possibile specificarla in una variabile di ambiente `APPLICATIONINSIGHTS_CONNECTION_STRING`. Modificare il codice del passaggio precedente in base all'esempio di codice seguente:
 
     ```python
     import logging

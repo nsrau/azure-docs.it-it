@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1300ecff416962bda4da800c5eff134951658846
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 600cd3f3ad8826b52648b51beb8c66a382766b80
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159166"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367888"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurare i comportamenti delle informazioni di accesso di Azure Active Directory per un'applicazione usando criteri di individuazione dell'area di autenticazione principale
 
@@ -100,9 +100,7 @@ I criteri diventano effettivi per una specifica applicazione solo quando sono co
 
 Un solo criterio HRD può essere attivo in un'entità servizio in qualsiasi momento.  
 
-È possibile usare direttamente l'API Graph oppure i cmdlet PowerShell di Microsoft Azure Active Directory per creare e gestire i criteri HRD.
-
-L'API Graph che modifica i criteri è descritta nell'articolo [Operazioni sui criteri](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) in MSDN.
+È possibile usare i cmdlet di Azure Active Directory PowerShell per creare e gestire i criteri HRD.
 
 Di seguito è riportato un esempio di definizione di criteri HRD:
     
@@ -152,7 +150,7 @@ Verrà usato un cmdlet Azure AD PowerShell per esaminare in modo dettagliato alc
 - Elenco delle applicazioni per cui sono configurati i criteri.
 
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerequisiti
 Negli esempi seguenti è possibile creare, aggiornare, collegare ed eliminare criteri su entità servizio di un'applicazione in Azure AD.
 
 1.  Per iniziare, scaricare la versione di anteprima dei cmdlet Azure AD PowerShell più recente. 
@@ -209,7 +207,7 @@ Per eseguire i criteri HRD dopo la rispettiva creazione, è possibile assegnarli
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Passaggio 2: individuazione dell'entità servizio a cui assegnare i criteri  
 È necessario disporre dell'**ObjectID** delle entità servizio alle quali si intende assegnare i criteri. Esistono diversi modi per trovare l'**ObjectID** delle entità servizio.    
 
-È possibile usare il portale oppure è possibile eseguire una query [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Per visualizzare tutte le entità servizio dell'organizzazione, è inoltre possibile passare allo [strumento Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) e accedere all'account Azure AD. 
+È possibile usare il portale oppure è possibile eseguire una query [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta). Per visualizzare tutte le entità servizio dell'organizzazione, è inoltre possibile passare allo [strumento Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) e accedere all'account Azure AD. 
 
 Poiché si usa PowerShell, è possibile usare il cmdlet seguente per elencare le entità servizio e i relativi ID.
 

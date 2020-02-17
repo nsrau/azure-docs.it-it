@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: helohr
-ms.openlocfilehash: c201df03bb156bac3f63d03cc4ca35215792f65c
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: f38fc45411c89351eb9a50a48f22d22905ee34e6
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77061512"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367243"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Ridimensionare gli host di sessione usando automazione di Azure
 
@@ -35,7 +35,7 @@ Lo strumento di scalabilità usa una combinazione di manuali operativi di PowerS
 Durante il periodo di picco dell'utilizzo, il processo controlla il numero corrente di sessioni e la capacità della VM dell'host della sessione attualmente in esecuzione per ogni pool host. Usa queste informazioni per calcolare se le VM host della sessione in esecuzione possono supportare le sessioni esistenti in base al parametro *SessionThresholdPerCPU* definito per il file **createazurelogicapp. ps1** . Se le macchine virtuali host sessione non supportano le sessioni esistenti, il processo avvia altre VM host sessione nel pool host.
 
 >[!NOTE]
->*SessionThresholdPerCPU* non limita il numero di sessioni nella macchina virtuale. Questo parametro determina solo quando è necessario avviare nuove macchine virtuali per bilanciare il carico delle connessioni. Per limitare il numero di sessioni, è necessario seguire le istruzioni [set-RdsHostPool](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/set-rdshostpool) per configurare il parametro *MaxSessionLimit* di conseguenza.
+>*SessionThresholdPerCPU* non limita il numero di sessioni nella macchina virtuale. Questo parametro determina solo quando è necessario avviare nuove macchine virtuali per bilanciare il carico delle connessioni. Per limitare il numero di sessioni, è necessario seguire le istruzioni [set-RdsHostPool](/powershell/module/windowsvirtualdesktop/set-rdshostpool/) per configurare il parametro *MaxSessionLimit* di conseguenza.
 
 Durante il tempo di utilizzo inferiore, il processo determina quali macchine virtuali host sessione devono essere arrestate in base al parametro *MinimumNumberOfRDSH* . Il processo imposterà le VM host della sessione in modalità svuotamento per impedire che le nuove sessioni si connettano agli host. Se si imposta il parametro *LimitSecondsToForceLogOffUser* su un valore positivo diverso da zero, lo script invierà una notifica a tutti gli utenti attualmente connessi per salvare il lavoro, attendere la quantità di tempo configurata e quindi forzare la disconnessione degli utenti. Dopo la disconnessione di tutte le sessioni utente nella macchina virtuale host sessione, lo script arresterà la macchina virtuale.
 
@@ -51,7 +51,7 @@ Tuttavia, lo strumento presenta anche le limitazioni seguenti:
 >[!NOTE]
 >Lo strumento di scalabilità controlla la modalità di bilanciamento del carico del pool host in cui viene ridimensionato. Lo imposta sul bilanciamento del carico per la prima volta per le ore di picco e di minore traffico.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare la configurazione dello strumento di scalabilità, assicurarsi che siano disponibili gli elementi seguenti:
 
@@ -126,7 +126,7 @@ Per creare un account RunAs nell'account Azure:
 
 Successivamente, è necessario creare un'assegnazione di ruolo in modo che AzureRunAsConnection possa interagire con il desktop virtuale di Windows. Assicurarsi di usare PowerShell per accedere con un account che disponga delle autorizzazioni per creare assegnazioni di ruolo.
 
-Prima di tutto, scaricare e importare il [modulo PowerShell per desktop virtuale Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) da usare nella sessione di PowerShell, se non è già stato fatto. Eseguire i cmdlet di PowerShell seguenti per connettersi a Desktop virtuale Windows e visualizzare i tenant.
+Prima di tutto, scaricare e importare il [modulo PowerShell per desktop virtuale Windows](/powershell/windows-virtual-desktop/overview/) da usare nella sessione di PowerShell, se non è già stato fatto. Eseguire i cmdlet di PowerShell seguenti per connettersi a Desktop virtuale Windows e visualizzare i tenant.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 203bf584711fbfcfd0baeee8f5e4c7f70d96823b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 9b71c4a5c0f245d9da97dc8f096d15c5386bf919
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157219"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368608"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 
@@ -177,8 +177,6 @@ Questa sezione si applica solo alle condivisioni file standard. Tutte le condivi
 Le condivisioni file standard con limite di capacità di 100 TiB sono disponibili a livello globale in tutte le aree di Azure-
 
 - CON ridondanza locale: tutte le aree, ad eccezione dell'area Sud Africa settentrionale e Sud Africa occidentale.
-   - Stati Uniti orientali ed Europa occidentale: tutti i nuovi account sono supportati. Un numero ridotto di account esistenti non ha completato il processo di aggiornamento. È possibile verificare se gli account di archiviazione esistenti hanno completato il processo di aggiornamento tentando di [abilitare condivisioni file di grandi dimensioni](storage-files-how-to-create-large-file-share.md).
-
 - ZRS: tutte le aree, ad eccezione di Giappone orientale, Europa settentrionale, Sudafrica settentrionale.
 - GRS/GZRS: non supportato.
 

@@ -1,5 +1,5 @@
 ---
-title: Quali sono le novità di Azure AD in Microsoft 365 Government? | Documentazione di Microsoft
+title: Quali sono le novità di Azure AD in Microsoft 365 Government? | Microsoft Docs
 description: Informazioni sulle modifiche apportate all'Azure Active Directory (Azure AD) nell'istanza del cloud Microsoft 365 Government, che può influisca sull'utente.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75e7c6809810a78c81348bd4bbeb808e103f453f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: bc6a478bebef0733847ef4744b722ed9e61a6c7f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73805290"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367950"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Novità relative a Azure Active Directory in Microsoft 365 Government
 
@@ -51,11 +51,10 @@ I clienti in precedenza potevano accedere usando i portali di Azure (portal.azur
 
 La tabella seguente Mostra gli endpoint per tutti i clienti:
 
-| Nome | Dettagli endpoint |
+| Name | Dettagli endpoint |
 |------|------------------|
 | Portali |Microsoft Azure per enti pubblici: https://portal.azure.us<p>Microsoft 365 Government-GCC High: https://portal.office365.us<p>Microsoft 365 Government-DoD: https://portal.apps.mil |
 | Endpoint autorità Azure Active Directory | https://login.microsoftonline.us |
-| API Graph di Azure Active Directory | https://graph.windows.net |
 | API Microsoft Graph per Microsoft 365 Government-GCC High | https://graph.microsoft.us |
 | API Microsoft Graph per Microsoft 365 Government-DoD | https://dod-graph.microsoft.us |
 | Endpoint dei servizi di Azure per enti pubblici | Per informazioni dettagliate, vedere Guida per gli [sviluppatori di Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |

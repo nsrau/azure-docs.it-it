@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 47c1ce3391129525237566fb92cec2e9b33ca08f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: de2b40ea0339b564b97d17601415d1071bdc6a6e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443406"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367906"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Domande frequenti sul proxy di applicazione Active Directory (Azure AD)
 
@@ -36,7 +36,7 @@ Per usare Azure AD proxy di applicazione, è necessario disporre di una licenza 
 
 Assicurarsi di avere almeno una licenza Azure AD Premium P1 o P2 e un connettore proxy di applicazione Azure AD installato. Dopo aver installato correttamente il primo connettore, il servizio proxy applicazione Azure AD verrà abilitato automaticamente.
 
-## <a name="connector-configuration"></a>Configurazione del connettore
+## <a name="connector-configuration"></a>Configurazione connettore
 
 ### <a name="can-application-proxy-connector-services-run-in-a-different-user-context-than-the-default"></a>I servizi del connettore proxy di applicazione possono essere eseguiti in un contesto utente diverso da quello predefinito?
 
@@ -146,6 +146,8 @@ No. Azure AD proxy di applicazione è progettato per funzionare con Azure AD e n
 ### <a name="does-websocket-support-work-for-applications-other-than-qliksense"></a>WebSocket supporta il lavoro per applicazioni diverse da Qlik Sense?
 
 Attualmente, il supporto del protocollo WebSocket è ancora in anteprima pubblica e potrebbe non funzionare per altre applicazioni. Alcuni clienti hanno avuto un successo misto usando il protocollo WebSocket con altre applicazioni. Se si testano tali scenari, si apprezzeranno i risultati. Inviare commenti e suggerimenti all'aadapfeedback@microsoft.com.
+
+Le funzionalità (registri eventi, PowerShell e Servizi Desktop remoto) nell'interfaccia di amministrazione di Windows (WAC) o Desktop remoto client Web non funzionano attualmente tramite Azure AD proxy di applicazione.
 
 ## <a name="link-translation"></a>Conversione collegamento
 

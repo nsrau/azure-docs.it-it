@@ -16,12 +16,12 @@ ms.date: 02/18/2019
 ms.author: mimart
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97954123b6fc31dce09282c08c702438cd64c476
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 874d273e26a728afc0a1dc1a16852016797067ca
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159251"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367891"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemi di accesso a un'applicazione della raccolta configurata per il Single Sign-On federato
 
@@ -162,7 +162,7 @@ Il fornitore dell'applicazione deve verificare che supportino l'implementazione 
 
 ## <a name="misconfigured-application"></a>Applicazione non configurata correttamente
 
-*Errore AADSTS650056: applicazione non configurata correttamente. La causa potrebbe essere una delle seguenti: il client non ha elencato alcuna autorizzazione per "AAD Graph" nelle autorizzazioni richieste nella registrazione dell'applicazione del client. In alternativa, l'amministratore non ha acconsentito al tenant. In alternativa, controllare l'identificatore dell'applicazione nella richiesta per assicurarsi che corrisponda all'identificatore dell'applicazione client configurato. Per correggere la configurazione o il consenso per conto del tenant, contattare l'amministratore*.
+*Errore AADSTS650056: applicazione non configurata correttamente. La causa potrebbe essere una delle seguenti: il client non ha elencato alcuna autorizzazione nelle autorizzazioni richieste nella registrazione dell'applicazione del client. In alternativa, l'amministratore non ha acconsentito al tenant. In alternativa, controllare l'identificatore dell'applicazione nella richiesta per assicurarsi che corrisponda all'identificatore dell'applicazione client configurato. Per correggere la configurazione o il consenso per conto del tenant, contattare l'amministratore*.
 
 **Causa possibile**
 

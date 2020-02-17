@@ -15,12 +15,12 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c3c0aea6ecaccc972702a8c87e4d127c71c75d6
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: a3b1b38063dcef1c61fbfb6fec529aeeed40a662
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121360"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367786"
 ---
 # <a name="how-provisioning-works"></a>Come funziona il provisioning
 
@@ -44,7 +44,7 @@ Il servizio di provisioning Azure AD usa il [protocollo SCIM 2,0](https://techco
 
 Per richiedere un connettore di provisioning automatico Azure AD per un'app che attualmente non dispone di un connettore, compilare una [richiesta Azure Active Directory applicazione](https://aka.ms/aadapprequest).
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>Autorizzazione
 
 Per Azure AD connettersi all'API di gestione degli utenti dell'applicazione, sono necessarie le credenziali. Durante la configurazione del provisioning utenti automatico per un'applicazione, è necessario immettere credenziali valide. È possibile trovare i tipi di credenziali e i requisiti per l'applicazione facendo riferimento all'esercitazione sull'app. Nel portale di Azure sarà possibile testare le credenziali con Azure AD tentativo di connessione all'app di provisioning dell'app con le credenziali fornite.
 
@@ -91,7 +91,7 @@ Si noti che il valore di userPrincipalName per un utente guest viene spesso arch
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Cicli di provisioning: iniziale e incrementale
 
-Quando Azure AD è il sistema di origine, il servizio di provisioning usa la [funzionalità di query differenziale dell'API di Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) per monitorare gli utenti e i gruppi. Il servizio di provisioning esegue un ciclo iniziale sul sistema di origine e di destinazione, seguito da cicli incrementali periodici.
+Quando Azure AD è il sistema di origine, il servizio di provisioning usa la [query Delta use per tenere traccia delle modifiche apportate ai dati Microsoft Graph](https://docs.microsoft.com/graph/delta-query-overview) per monitorare gli utenti e i gruppi. Il servizio di provisioning esegue un ciclo iniziale sul sistema di origine e di destinazione, seguito da cicli incrementali periodici.
 
 ### <a name="initial-cycle"></a>Ciclo iniziale
 
@@ -142,8 +142,8 @@ Dopo il ciclo iniziale, tutti gli altri cicli:
 
 Il servizio di provisioning continua a eseguire cicli incrementali back-to-back a tempo indeterminato, a intervalli definiti nell' [esercitazione specifica per ogni applicazione](../saas-apps/tutorial-list.md). I cicli incrementali continuano fino a quando si verifica uno degli eventi seguenti:
 
-- Il servizio viene arrestato manualmente tramite il portale di Azure o con il comando appropriato dell'API Graph. 
-- Un nuovo ciclo iniziale viene attivato utilizzando l'opzione **Cancella stato e riavvia** nell'portale di Azure o utilizzando il comando API Graph appropriato. Questa azione Cancella qualsiasi filigrana archiviata e fa in modo che tutti gli oggetti di origine vengano nuovamente valutati.
+- Il servizio viene interrotto manualmente utilizzando il portale di Azure o utilizzando il comando Microsoft Graph API appropriato.
+- Un nuovo ciclo iniziale viene attivato utilizzando l'opzione **Cancella stato e riavvia** nell'portale di Azure o utilizzando il comando Microsoft Graph API appropriato. Questa azione Cancella qualsiasi filigrana archiviata e fa in modo che tutti gli oggetti di origine vengano nuovamente valutati.
 - Viene attivato un nuovo ciclo iniziale a causa di una modifica nei mapping degli attributi o nei filtri di ambito. Questa azione Cancella anche eventuali filigrane archiviate e fa in modo che tutti gli oggetti di origine vengano nuovamente valutati.
 - Il processo di provisioning entra in quarantena (vedere di seguito) a causa di una frequenza di errori elevata e rimane in quarantena per più di quattro settimane. In questo caso, il servizio viene disabilitato automaticamente.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: baa44481c4641f69ead5335298316c837062d2c0
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 6842338bd27e4bea3436f0b249380ab773d60de6
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186055"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368081"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Domande frequenti sull'accesso condizionale Azure Active Directory
 
@@ -40,7 +40,7 @@ Un criterio di accesso condizionale imposta i requisiti per l'accesso a un servi
 
 I criteri di accesso condizionale si applicano a tutti gli account utente. inclusi gli account utente usati come account del servizio. Spesso, un account del servizio che viene eseguito in modo automatico non è in grado di soddisfare i requisiti di un criterio di accesso condizionale. È possibile, ad esempio, che sia richiesta l'autenticazione a più fattori. Gli account del servizio possono essere esclusi da un criterio usando le impostazioni di gestione dei criteri di accesso condizionale. 
 
-## <a name="are-graph-apis-available-for-configuring-conditional-access-policies"></a>Sono disponibili API Graph per la configurazione dei criteri di accesso condizionale?
+## <a name="are-microsoft-graph-apis-available-for-configuring-conditional-access-policies"></a>Sono disponibili API Microsoft Graph per la configurazione dei criteri di accesso condizionale?
 
 Attualmente no. 
 

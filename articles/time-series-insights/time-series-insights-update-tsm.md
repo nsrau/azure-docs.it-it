@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 02/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1f560a7aa746ce7c6262dcaddf74c9d573332fa6
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 884244b245be06f1477d27a4828cad18e36eca24
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861388"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368631"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Modello Time Series in Azure Time Series Insights Preview
 
@@ -63,7 +63,7 @@ Allo scopo di semplificare e agevolare la gestione della contestualizzazione del
 * Definire le relazioni padre-figlio per consentire lo spostamento, la ricerca e il riferimento.
 * Definire le proprietà associate alle istanze, definite come campi dell' *istanza*, e usarle per creare gerarchie.
 
-### <a name="components"></a>Componenti
+### <a name="components"></a>Components
 
 Il modello Time Series è costituito da tre componenti principali:
 
@@ -97,7 +97,7 @@ La [demo di Contoso Wind Farm](https://insights.timeseries.azure.com/preview/sam
 
 Le istanze sono definite da **timeSeriesId**, **typeid**, **Name**, **Description**, **hierarchyids**e **instanceFields**. Ogni istanza esegue il mapping a un solo *tipo*e una o più *gerarchie*.
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | --- | ---|
 | timeSeriesId | UUID della serie temporale a cui è associata l'istanza. |
 | typeId | UUID del tipo di modello Time Series a cui è associata l'istanza. Per impostazione predefinita, tutte le nuove istanze individuate vengono associate a un tipo predefinito.
@@ -145,7 +145,7 @@ L'interfaccia client [demo di Contoso Wind Farm](https://insights.timeseries.azu
 
 Le gerarchie sono definite in base all' **ID**, al **nome**e all' **origine**della gerarchia.
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | ---| ---|
 | id | Identificatore univoco per la gerarchia, che viene utilizzato, ad esempio, quando si definisce un'istanza di. |
 | name | Stringa utilizzata per fornire un nome per la gerarchia. |
@@ -237,12 +237,12 @@ La [demo di Contoso Wind Farm](https://insights.timeseries.azure.com/preview/sam
 
 I tipi di modello Time Series sono definiti in base all' **ID**, al **nome**, alla **Descrizione**e alle **variabili**.
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 | ---| ---|
 | id | UUID per il tipo. |
 | name | Stringa utilizzata per fornire un nome per il tipo. |
 | description | Descrizione della stringa per il tipo. |
-| variables | Specificare le variabili associate al tipo. |
+| variabili | Specificare le variabili associate al tipo. |
 
 I tipi sono conformi all'esempio JSON seguente:
 
@@ -300,7 +300,7 @@ Nella tabella seguente vengono illustrate le proprietà rilevanti per ogni tipo 
 
 #### <a name="numeric-variables"></a>Variabili numeriche
 
-| Proprietà Variable | Description |
+| Proprietà Variable | Descrizione |
 | --- | ---|
 | Filtro di variabile | I filtri sono clausole condizionali facoltative per limitare il numero di righe da considerare per il calcolo. |
 | Valore di variabile | Valori di telemetria usati per il calcolo proveniente dal dispositivo o dai sensori oppure trasformati usando le espressioni della serie temporale. Le variabili di tipo numerico devono essere di tipo *Double*.|
@@ -330,7 +330,7 @@ Le variabili sono conformi all'esempio JSON seguente:
 
 #### <a name="categorical-variables"></a>Variabili categoriche
 
-| Proprietà Variable | Description |
+| Proprietà Variable | Descrizione |
 | --- | ---|
 | Filtro di variabile | I filtri sono clausole condizionali facoltative per limitare il numero di righe da considerare per il calcolo. |
 | Valore di variabile | Valori di telemetria usati per il calcolo proveniente dal dispositivo o dai sensori. Le variabili di tipo categorico devono essere *Long* o *String*. |
@@ -370,7 +370,7 @@ Le variabili sono conformi all'esempio JSON seguente:
 
 #### <a name="aggregate-variables"></a>Variabili di aggregazione
 
-| Proprietà Variable | Description |
+| Proprietà Variable | Descrizione |
 | --- | ---|
 | Filtro di variabile | I filtri sono clausole condizionali facoltative per limitare il numero di righe da considerare per il calcolo. |
 | Aggregazione di variabile | Supporto del calcolo tramite *AVG*, *min*, *Max*, *Sum*, *count*, *First*, *Last*. |

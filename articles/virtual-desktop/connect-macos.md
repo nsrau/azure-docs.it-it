@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: helohr
-ms.openlocfilehash: a46be5dea8286194ccd2558b2e6e301e2624a5f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c8995899a0bc6d8d023a7ad08d886fc879fab390
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460202"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367512"
 ---
 # <a name="connect-with-the-macos-client"></a>Connettersi con il client macOS
 
@@ -24,18 +24,18 @@ ms.locfileid: "75460202"
 
 Per iniziare, [scaricare](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) e installare il client nel dispositivo MacOS.
 
-## <a name="subscribe-to-a-feed"></a>Effettuare la sottoscrizione a un feed
+## <a name="subscribe-to-a-feed"></a>Sottoscrivere un feed
 
 Sottoscrivere il feed che l'amministratore ha fornito per ottenere l'elenco delle risorse gestite disponibili nel dispositivo macOS.
 
 Per sottoscrivere un feed:
 
 1. Selezionare **Aggiungi feed** nella pagina principale per connettersi al servizio e recuperare le risorse.
-2. Immettere l'URL del feed. Può essere un URL o un indirizzo e-mail:
+2. Immettere l'URL del feed. Può trattarsi di un URL o di un indirizzo di posta elettronica:
    - Se si usa un URL, usare quello che l'amministratore ha assegnato. L'URL viene in genere <https://rdweb.wvd.microsoft.com>.
    - Per usare la posta elettronica, immettere l'indirizzo di posta elettronica. Indica al client di cercare un URL associato all'indirizzo di posta elettronica se l'amministratore ha configurato il server in modo.
 3. Selezionare **Sottoscrivi**.
-4. Accedi con l'account utente quando richiesto.
+4. Accedere con l'account utente quando richiesto.
 
 Dopo aver eseguito l'accesso, verrà visualizzato un elenco di risorse disponibili.
 
@@ -43,4 +43,4 @@ Una volta effettuata la sottoscrizione a un feed, il contenuto del feed verrà a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul client macOS, vedere la documentazione [introduttiva per il client MacOS](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac) .
+Per altre informazioni sul client macOS, vedere la documentazione [introduttiva per il client MacOS](/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac/) .

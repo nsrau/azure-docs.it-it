@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: e9410ce93d9e11d3023f4f461f3ba90a7bf74507
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fb473ec55ec6a5e93ba4ad22bf500414d54e4a5d
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451326"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367195"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opzioni di archiviazione per i contenitori del profilo FSLogix in desktop virtuale di Windows
 
@@ -24,24 +24,24 @@ Le tabelle seguenti confrontano le soluzioni di archiviazione offerte da archivi
 
 ## <a name="azure-platform-details"></a>Dettagli della piattaforma Azure
 
-|database elastico|File di Azure|Azure NetApp Files|Spazi di archiviazione diretta|
+|Funzionalità|File di Azure|Azure NetApp Files|Spazi di archiviazione diretta|
 |--------|-----------|------------------|---------------------|
 |Servizio piattaforma|Sì, soluzione nativa di Azure|Sì, soluzione nativa di Azure|No, self-Managed|
-|Disponibilità a livello di area|Tutte le aree|[Selezionare le aree](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Tutte le aree|
-|Ridondanza|Ridondanza locale/con ridondanza della zona/con ridondanza geografica|Ridondante a livello locale|Ridondanza locale/con ridondanza della zona/con ridondanza geografica|
+|Disponibilità internazionale|Tutte le aree|[Selezionare le aree](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Tutte le aree|
+|Ridondanza|Ridondanza locale/con ridondanza della zona/con ridondanza geografica|Con ridondanza locale|Ridondanza locale/con ridondanza della zona/con ridondanza geografica|
 |Livelli e prestazioni|Standard<br>Premium<br>Fino a un massimo di 100.000 IOPS per condivisione con 5 GBps per condivisione a circa 3 ms di latenza|Standard<br>Premium<br>Ultra<br>Fino a 320K (16K) IOPS con 4,5 GBps per volume a circa 1 ms di latenza|HDD Standard: fino a 500 IOPS per disco<br>SDD Standard: limiti fino a 4K IOPS per disco<br>SSD Premium: fino a 20.000 IOPS per disco<br>È consigliabile usare dischi Premium per Spazi di archiviazione diretta|
-|Capacità|100 TiB per condivisione|100 TiB per volume, fino a 12,5 PiB per sottoscrizione|Massimo 32 TiB per disco|
+|Capacity|100 TiB per condivisione|100 TiB per volume, fino a 12,5 PiB per sottoscrizione|Massimo 32 TiB per disco|
 |Infrastruttura necessaria|Dimensioni minime condivisione 1 GiB|Pool di capacità minimo 4 TiB, dimensione minima del volume 100 GiB|Due macchine virtuali in Azure IaaS (+ cloud Witness) o almeno tre VM senza e i costi per i dischi|
 |Protocolli|SMB 2.1/3. e REST|NFSv3, NFSv 4.1 (anteprima), SMB 3. x/2. x|NFSv3, NFSv 4.1, SMB 3,1|
 
 ## <a name="azure-management-details"></a>Dettagli sulla gestione di Azure
 
-|database elastico|File di Azure|Azure NetApp Files|Spazi di archiviazione diretta|
+|Funzionalità|File di Azure|Azure NetApp Files|Spazi di archiviazione diretta|
 |--------|-----------|------------------|---------------------|
 |Accesso|Cloud, locale e ibrido (sincronizzazione file di Azure)|Cloud, locale (tramite ExpressRoute)|Cloud, locale|
-|Eseguire il backup|Integrazione di snapshot di backup di Azure|Snapshot Azure NetApp Files|Integrazione di snapshot di backup di Azure|
+|Backup|Integrazione di snapshot di backup di Azure|Snapshot Azure NetApp Files|Integrazione di snapshot di backup di Azure|
 |Sicurezza e conformità|[Tutti i certificati supportati di Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|ISO completato|[Tutti i certificati supportati di Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
-|Integrazione con Azure Active Directory|Azure Active Directory e Azure Active Directory Domain Services|[Azure Active Directory Domain Services e Active Directory nativo](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Active Directory nativo o solo supporto Azure Active Directory Domain Services|
+|Integrazione di Azure Active Directory|Azure Active Directory e Azure Active Directory Domain Services|[Azure Active Directory Domain Services e Active Directory nativo](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Active Directory nativo o solo supporto Azure Active Directory Domain Services|
 
 Una volta scelto il metodo di archiviazione, vedere [prezzi di desktop virtuali Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/) per informazioni sui piani tariffari.
 
@@ -53,6 +53,6 @@ Se si è pronti per creare i propri contenitori di profili FSLogix, iniziare con
 
 - [Introduzione ai contenitori di profili di FSLogix su File di Azure nel desktop virtuale di Windows](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-FSLogix-profile-containers-on-Azure-Files/ba-p/746477)
 - [Creare un contenitore di profili FSLogix per un pool host usando i file NetApp di Azure](create-fslogix-profile-container.md)
-- Le istruzioni in [distribuire una file server con scalabilità orizzontale spazi di archiviazione diretta a due nodi per l'archiviazione UPD in Azure](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) si applicano anche quando si usa un contenitore di profili FSLogix anziché un disco del profilo utente
+- Le istruzioni in [distribuire una file server con scalabilità orizzontale spazi di archiviazione diretta a due nodi per l'archiviazione UPD in Azure](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) si applicano anche quando si usa un contenitore di profili FSLogix anziché un disco del profilo utente
 
 È anche possibile iniziare dall'inizio e configurare la propria soluzione desktop virtuale Windows in [creare un tenant in un desktop virtuale di Windows](tenant-setup-azure-active-directory.md).

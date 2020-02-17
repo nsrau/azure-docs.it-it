@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 934fe8271796ed6196c9e50a0eddd5d7de3d8432
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: bc5824fcb62477d4e6dc6c2b7390b1bfa916094f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76511893"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368050"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guida di riferimento per le operazioni di gestione dell'autenticazione Azure Active Directory
 
@@ -51,7 +51,7 @@ Quando si esamina l'elenco, è possibile che sia necessario assegnare un proprie
 - [Assegnazione dei ruoli di amministratore in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
 - [Governance in Azure](https://docs.microsoft.com/azure/security/governance-in-azure)
 
-## <a name="credentials-management"></a>Gestione di credenziali
+## <a name="credentials-management"></a>Gestione delle credenziali
 
 ### <a name="password-policies"></a>Criteri per la password
 
@@ -59,7 +59,7 @@ Gestire le password in modo sicuro è una delle parti più importanti della gest
 
 Usare la tabella seguente per trovare la soluzione consigliata per attenuare il problema che deve essere risolto:
 
-| Problema | Recommendation |
+| Problema | Indicazione |
 | :- | :- |
 | Nessun meccanismo per la protezione da password vulnerabili | Abilita Azure AD la [reimpostazione della password self-service (SSPR)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks) e la [protezione con password](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) |
 | Nessun meccanismo per rilevare le password perse | Abilitare la [sincronizzazione dell'hash delle password](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) (pH) per ottenere informazioni dettagliate |
@@ -105,7 +105,7 @@ Per comprendere meglio le opzioni di autenticazione, vedere [scegliere il metodo
 
 ### <a name="programmatic-usage-of-credentials"></a>Utilizzo di credenziali a livello di codice
 
-Azure AD script che usano PowerShell o le applicazioni che usano API Graph richiedono l'autenticazione protetta. Una gestione delle credenziali scadente che esegue gli script e gli strumenti aumenta il rischio di furto di credenziali. Se si usano script o applicazioni che si basano su password hardcoded o richieste di password, è necessario prima esaminare le password nei file di configurazione o nel codice sorgente, quindi sostituire tali dipendenze e usare le identità gestite di Azure, l'autenticazione integrata di Windows o i [certificati](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates) , quando possibile. Per le applicazioni in cui le soluzioni precedenti non sono possibili, provare a usare [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+Azure AD script che usano PowerShell o le applicazioni che usano l'API Microsoft Graph richiedono l'autenticazione protetta. Una gestione delle credenziali scadente che esegue gli script e gli strumenti aumenta il rischio di furto di credenziali. Se si usano script o applicazioni che si basano su password hardcoded o richieste di password, è necessario prima esaminare le password nei file di configurazione o nel codice sorgente, quindi sostituire tali dipendenze e usare le identità gestite di Azure, l'autenticazione integrata di Windows o i [certificati](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates) , quando possibile. Per le applicazioni in cui le soluzioni precedenti non sono possibili, provare a usare [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 Se si determina che esistono entità servizio con credenziali password e non si è certi del modo in cui le credenziali password sono protette da script o applicazioni, contattare il proprietario dell'applicazione per comprendere meglio i modelli di utilizzo.
 
@@ -300,28 +300,27 @@ Di seguito è riportato un elenco di app con autorizzazioni che possono essere e
 - Le app con autorizzazioni delegate possono leggere, inviare o gestire i messaggi di posta elettronica per conto dell'utente
 - App a cui viene concesso usando le autorizzazioni seguenti:
 
-| Gruppi | Autorizzazione |
+| Resource | Autorizzazione |
 | :- | :- |
 | Office 365 Exchange Online | EAS. AccessAsUser. All |
 | | EWS. AccessAsUser. All |
 | | Posta elettronica. Read |
-| Microsoft Graph | Posta elettronica. Read |
+| API Microsoft Graph | Posta elettronica. Read |
 | | Mail. Read. Shared |
 | | Mail. ReadWrite |
 
-- Le app hanno concesso la rappresentazione utente completa dell'utente che ha eseguito l'accesso. Ad esempio:
+- Le app hanno concesso la rappresentazione utente completa dell'utente che ha eseguito l'accesso. Ad esempio,
 
-|Gruppi | Autorizzazione |
+|Resource | Autorizzazione |
 | :- | :- |
-| Microsoft Azure AD Graph | Directory.AccessAsUser.All |
-| Microsoft Graph | Directory.AccessAsUser.All |
+| API Microsoft Graph| Directory. AccessAsUser. All |
 | API REST di Azure | user_impersonation |
 
 Per evitare questo scenario, è necessario fare riferimento a [rilevare e correggere le concessioni di consenso illecito in Office 365](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) per identificare e correggere le applicazioni con concessioni illecite o applicazioni che dispongono di più concessioni rispetto a quelle necessarie. A questo punto, [rimuovere completamente il self-service](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-user-consent) e [stabilire le procedure di governance](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow). Infine, pianificare le verifiche regolari delle autorizzazioni dell'app e rimuoverle quando non sono necessarie.
 
 #### <a name="consent-grants-recommended-reading"></a>Concessioni di consenso consigliate
 
-- [Autorizzazioni di Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference)
+- [Autorizzazioni API Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference)
 
 ### <a name="user-and-group-settings"></a>Impostazioni utente e gruppo
 

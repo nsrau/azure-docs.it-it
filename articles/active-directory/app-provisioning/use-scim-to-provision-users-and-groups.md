@@ -1,6 +1,6 @@
 ---
-title: Sviluppare un endpoint SCIM per il provisioning degli utenti nelle app da Azure AD
-description: System for Cross-Domain Identity Management (SCIM) standardizza il provisioning utenti automatico. Informazioni su come sviluppare un endpoint SCIM, integrare l'API SCIM con Azure Active Directory e avviare l'automazione del provisioning di utenti e gruppi nelle applicazioni cloud.
+title: Compilare un endpoint SCIM per il provisioning degli utenti nelle app da Azure AD
+description: Scopri come creare un endpoint SCIM, integrare l'API SCIM con Azure Active Directory e iniziare ad automatizzare il provisioning di utenti e gruppi nelle tue applicazioni cloud.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -11,25 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 2/7/2020
+ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5a74e03a5b166af85c809725c2c8b9a13b7e4f4
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: d3d891dfcc2a37489953724ce22e0e0422d512ff
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77085457"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368226"
 ---
-# <a name="develop-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Sviluppare un endpoint SCIM e configurare il provisioning utenti con Azure Active Directory (Azure AD)
+# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Compilare un endpoint SCIM e configurare il provisioning utenti con Azure Active Directory (Azure AD)
 
 Gli sviluppatori di applicazioni possono usare l'API di gestione degli utenti di System for Cross-Domain Identity Management (SCIM) per abilitare il provisioning automatico di utenti e gruppi tra l'applicazione e Azure AD. Questo articolo descrive come creare un endpoint SCIM e integrarsi con il servizio di provisioning di Azure AD. La specifica SCIM fornisce uno schema utente comune per il provisioning. Se usato in combinazione con gli standard di federazione come SAML o OpenID Connect, SCIM offre agli amministratori una soluzione end-to-end basata sugli standard per la gestione degli accessi.
 
 SCIM è una definizione standardizzata di due endpoint: un endpoint/Users e un endpoint/groups. Usa verbi REST comuni per creare, aggiornare ed eliminare oggetti e uno schema predefinito per attributi comuni come nome del gruppo, nome utente, nome, cognome e indirizzo di posta elettronica. Le app che offrono un'API REST SCIM 2,0 possono ridurre o eliminare il dolore dovuto all'uso di un'API proprietaria per la gestione degli utenti. Ad esempio, tutti i client SCIM conformi sanno come creare un POST HTTP di un oggetto JSON nell'endpoint/Users per creare una nuova voce utente. Anziché richiedere un'API leggermente diversa per le stesse azioni di base, le app conformi allo standard SCIM possono sfruttare immediatamente i vantaggi di client, strumenti e codice preesistenti. 
 
-![Provisioning da Azure AD a un'app con SCIM](./media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
+![Provisioning da Azure AD a un'app con SCIM](media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
 
 Lo schema dell'oggetto utente standard e le API REST per la gestione definite in SCIM 2,0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.ietf.org/html/rfc7643), [7644](https://tools.ietf.org/html/rfc7644)) consentono a provider di identità e app di integrarsi più facilmente tra loro. Gli sviluppatori di applicazioni che compilano un endpoint SCIM possono integrarsi con qualsiasi client conforme a SCIM senza dover eseguire operazioni personalizzate.
 
@@ -45,57 +45,19 @@ L'automazione del provisioning in un'applicazione richiede la compilazione e l'i
 
   * **[Passaggio 5: pubblicare l'applicazione nella raccolta di applicazioni Azure AD.](#step-5-publish-your-application-to-the-azure-ad-application-gallery)** Per i clienti è facile individuare l'applicazione e configurare facilmente il provisioning. 
 
-![Passaggi per l'integrazione di un endpoint SCIM con Azure AD](./media/use-scim-to-provision-users-and-groups/process.png)
+![Passaggi per l'integrazione di un endpoint SCIM con Azure AD](media/use-scim-to-provision-users-and-groups/process.png)
 
 ## <a name="step-1-design-your-user-and-group-schema"></a>Passaggio 1: progettare lo schema utente e gruppo
 
-Ogni applicazione richiede attributi diversi per creare un utente o un gruppo. Avviare l'integrazione identificando gli oggetti (utenti, gruppi) e gli attributi (nome, Manager, titolo del processo e così via) richiesti dall'applicazione. Lo standard SCIM definisce uno schema per la gestione di utenti e gruppi. Lo schema utente di base richiede solo tre attributi: **ID** (identificatore definito dal provider di servizi), **externalID** (identificatore definito dal client) e **meta** (metadati di sola lettura gestiti dal provider di servizi). Tutti gli altri attributi sono facoltativi. Oltre allo schema utente principale, lo standard SCIM definisce un'estensione utente aziendale e un modello per l'estensione dello schema utente per soddisfare le esigenze dell'applicazione. Se, ad esempio, l'applicazione richiede un responsabile dell'utente, è possibile usare lo schema utente aziendale per raccogliere il responsabile dell'utente e lo schema principale per raccogliere la posta elettronica dell'utente. Per progettare lo schema, attenersi alla procedura seguente:
-  1. Elencare gli attributi richiesti dall'applicazione. Può essere utile suddividere i requisiti negli attributi necessari per l'autenticazione (ad esempio, LoginName e posta elettronica), gli attributi necessari per gestire il ciclo di vita dell'utente (ad esempio, status/Active) e altri attributi necessari per il funzionamento dell'applicazione specifica (ad esempio, Manager, tag).
-  2. Controllare se tali attributi sono già definiti nello schema utente principale o nello schema utente aziendale. Se gli attributi necessari non sono inclusi negli schemi utente core o Enterprise, sarà necessario definire un'estensione per lo schema utente che copre gli attributi necessari. Nell'esempio seguente è stata aggiunta un'estensione all'utente per consentire il provisioning di un "tag" per un utente. È preferibile iniziare solo con gli schemi utente core e Enterprise ed espanderlo in altri schemi personalizzati in un secondo momento.  
-  3. Eseguire il mapping degli attributi SCIM agli attributi utente in Azure AD. Se uno degli attributi definiti nell'endpoint SCIM non ha una controparte chiara nello schema utente Azure AD, è probabile che i dati non vengano archiviati nell'oggetto utente nella maggior parte dei tenant. Valutare se questo attributo può essere facoltativo per la creazione di un utente. Se l'attributo è fondamentale per il funzionamento dell'applicazione, guidare l'amministratore tenant per estendere lo schema o usare un attributo di estensione, come illustrato di seguito per la proprietà "Tags".
+Ogni applicazione richiede attributi diversi per creare un utente o un gruppo. Avviare l'integrazione identificando gli oggetti (utenti, gruppi) e gli attributi (nome, Manager, titolo del processo e così via) richiesti dall'applicazione. È quindi possibile usare la tabella seguente per comprendere il modo in cui gli attributi richiesti dall'applicazione potrebbero eseguire il mapping a un attributo in Azure AD e SCIM RFC. Si noti che è possibile [personalizzare](customize-application-attributes.md) la modalità di mapping degli attributi tra Azure ad e l'endpoint SCIM. 
 
-### <a name="table-1-outline-the-attributes-that-you-need"></a>Tabella 1: strutturare gli attributi necessari 
-| Passaggio 1: determinare gli attributi richiesti dall'app| Passaggio 2: eseguire il mapping dei requisiti dell'app allo standard SCIM| Passaggio 3: eseguire il mapping degli attributi SCIM agli attributi di Azure AD|
-|--|--|--|
-|loginName|userName|userPrincipalName|
-|firstName|name.givenName|givenName|
-|lastName|nome. lastName|lastName|
-|workMail|Messaggi di posta elettronica [digitare EQ "Work"]. Value|Posta|
-|manager|manager|manager|
-|tag|urn: IETF: params: SCIM: schemas: Extension: 2.0: CustomExtension: Tag|extensionAttribute1|
-|stato|attivo|isSoftDeleted (valore calcolato non archiviato nell'utente)|
+Le risorse utente sono identificate dall'identificatore dello schema, `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`, incluso in questa specifica del protocollo: https://tools.ietf.org/html/rfc7643.  Il mapping predefinito degli attributi degli utenti in Azure AD agli attributi delle risorse utente è indicato nella tabella 1.  
 
-Lo schema definito in precedenza verrebbe rappresentato usando il payload JSON riportato di seguito. Si noti che, oltre agli attributi necessari per l'applicazione, la rappresentazione JSON include gli attributi "ID", "externalId" e "meta" obbligatori.
+Le risorse gruppo sono identificate dall'identificatore dello schema, `urn:ietf:params:scim:schemas:core:2.0:Group`. Nella tabella 2 viene illustrato il mapping predefinito degli attributi dei gruppi nel Azure AD agli attributi delle risorse del gruppo.
 
-```json
-{
-     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
-      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
-      "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
-     "userName":"bjensen",
-     "externalId":"bjensen",
-     "name":{
-       "familyName":"Jensen",
-       "givenName":"Barbara"
-     },
-     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
-     "Manager": "123456"
-   },
-     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
-     "tag": "701984",
-   },
-   "meta": {
-     "resourceType": "User",
-     "created": "2010-01-23T04:56:22Z",
-     "lastModified": "2011-05-13T04:42:34Z",
-     "version": "W\/\"3694e05e9dff591\"",
-     "location":
- "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
-   }
- ```
+Si noti che non è necessario supportare utenti e gruppi o tutti gli attributi mostrati di seguito. Si tratta di un riferimento per il modo in cui gli attributi di Azure AD vengono spesso mappati alle proprietà del protocollo SCIM.  
 
-### <a name="table-2-default-user-attribute-mapping"></a>Tabella 2: mapping predefinito degli attributi utente
-È quindi possibile usare la tabella seguente per comprendere il modo in cui gli attributi richiesti dall'applicazione potrebbero eseguire il mapping a un attributo in Azure AD e SCIM RFC. È possibile [personalizzare](customize-application-attributes.md) la modalità di mapping degli attributi tra Azure ad e l'endpoint SCIM. Si noti che non è necessario supportare utenti e gruppi o tutti gli attributi mostrati di seguito. Si tratta di un riferimento per il modo in cui gli attributi di Azure AD vengono spesso mappati alle proprietà del protocollo SCIM. 
+### <a name="table-1-default-user-attribute-mapping"></a>Tabella 1: mapping predefinito degli attributi utente
 
 | Utente Azure Active Directory | "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" |
 | --- | --- |
@@ -119,7 +81,7 @@ Lo schema definito in precedenza verrebbe rappresentato usando il payload JSON r
 | user-PrincipalName |userName |
 
 
-### <a name="table-3-default-group-attribute-mapping"></a>Tabella 3: mapping predefinito degli attributi di gruppo
+### <a name="table-2-default-group-attribute-mapping"></a>Tabella 2: mapping predefinito degli attributi gruppo
 
 | Gruppo di Azure Active Directory | urn: IETF: params: SCIM: schemas: Core: 2.0: Group |
 | --- | --- |
@@ -129,19 +91,6 @@ Lo schema definito in precedenza verrebbe rappresentato usando il payload JSON r
 | membri |membri |
 | objectId |externalId |
 | proxyAddresses |emails[type eq "other"].Value |
-
-Esistono diversi endpoint definiti nella RFC SCIM. È possibile iniziare a usare l'endpoint/User e quindi espandersi da questa posizione. L'endpoint/schemas è utile quando si usano attributi personalizzati o se lo schema cambia di frequente. Consente a un client di recuperare automaticamente lo schema più aggiornato. L'endpoint/bulk è particolarmente utile per i gruppi di supporto. La tabella seguente descrive i vari endpoint definiti nello standard SCIM. L'endpoint/schemas è utile quando si usano attributi personalizzati o se lo schema cambia di frequente. Consente a un client di recuperare automaticamente lo schema più aggiornato. L'endpoint/bulk è particolarmente utile per i gruppi di supporto. La tabella seguente descrive i vari endpoint definiti nello standard SCIM. 
- 
-### <a name="table-4-determine-the-endpoints-that-you-would-like-to-develop"></a>Tabella 4: determinare gli endpoint che si desidera sviluppare
-|ENDPOINT|DESCRIZIONE|
-|--|--|
-|/User|Eseguire operazioni CRUD su un oggetto utente.|
-|/Group|Eseguire operazioni CRUD su un oggetto Group.|
-|/ServiceProviderConfig|Fornisce informazioni dettagliate sulle funzionalità dello standard SCIM supportate, ad esempio le risorse supportate e il metodo di autenticazione.|
-|/ResourceTypes|Specifica i metadati relativi a ogni risorsa|
-|/Schemas|Il set di attributi supportati da ogni client e provider di servizi può variare. Mentre un provider di servizi può includere "Name", "title" e "emails", mentre un altro provider di servizi utilizza "Name", "title" e "phoneNumbers". L'endpoint degli schemi consente l'individuazione degli attributi supportati.|
-|/Bulk|Le operazioni bulk consentono di eseguire operazioni su una raccolta di grandi dimensioni di oggetti risorsa in un'unica operazione, ad esempio l'appartenenza agli aggiornamenti per un gruppo di grandi dimensioni.|
-
 
 ## <a name="step-2-understand-the-azure-ad-scim-implementation"></a>Passaggio 2: comprendere l'implementazione di SCIM Azure AD
 > [!IMPORTANT]
@@ -176,7 +125,7 @@ Quando si implementa un endpoint SCIM per garantire la compatibilità con Azure 
 
 La figura seguente illustra i messaggi che Azure Active Directory Invia a un servizio SCIM per gestire il ciclo di vita di un utente nell'archivio identità dell'applicazione.  
 
-![Mostra la sequenza di provisioning e deprovisioning utenti](./media/use-scim-to-provision-users-and-groups/scim-figure-4.png)<br/>
+![Mostra la sequenza di provisioning e deprovisioning utenti](media/use-scim-to-provision-users-and-groups/scim-figure-4.png)<br/>
 *Sequenza di provisioning e deprovisioning utenti*
 
 ### <a name="group-provisioning-and-deprovisioning"></a>Provisioning e deprovisioning di gruppi
@@ -186,14 +135,14 @@ Il provisioning e il deprovisioning del gruppo sono facoltativi. Quando implemen
 * Le richieste di recupero dei gruppi specificano che l'attributo members deve essere escluso da qualsiasi risorsa fornita in risposta alla richiesta.  
 * Le richieste per determinare se un attributo reference ha un determinato valore sono richieste relative all'attributo members.  
 
-![Mostra la sequenza di provisioning e deprovisioning del gruppo](./media/use-scim-to-provision-users-and-groups/scim-figure-5.png)<br/>
+![Mostra la sequenza di provisioning e deprovisioning del gruppo](media/use-scim-to-provision-users-and-groups/scim-figure-5.png)<br/>
 *Sequenza di provisioning e deprovisioning del gruppo*
 
 ### <a name="scim-protocol-requests-and-responses"></a>Richieste e risposte del protocollo SCIM
 Questa sezione fornisce le richieste SCIM di esempio emesse dal client Azure AD SCIM e dalle risposte previste di esempio. Per ottenere risultati ottimali, è necessario codificare l'app in modo che gestisca queste richieste in questo formato e generare le risposte previste.
 
 > [!IMPORTANT]
-> Per comprendere come e quando il servizio di provisioning utenti Azure AD emette le operazioni descritte di seguito, vedere la sezione [cicli di provisioning: iniziale e incrementale](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) nel funzionamento del [provisioning](../app-provisioning/how-provisioning-works.md).
+> Per comprendere come e quando il servizio di provisioning utenti Azure AD emette le operazioni descritte di seguito, vedere la sezione [cicli di provisioning: iniziale e incrementale](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) nel funzionamento del [provisioning](how-provisioning-works.md).
 
 [Operazioni utente](#user-operations)
   - [Crea utente](#create-user) ([richiesta](#request) / [risposta](#response))
@@ -722,34 +671,6 @@ Questa sezione fornisce le richieste SCIM di esempio emesse dal client Azure AD 
 
 *HTTP/1.1 204 nessun contenuto*
 
-### <a name="security-requirements"></a>Requisiti di sicurezza
-**Versioni del protocollo TLS**
-
-Le uniche versioni del protocollo TLS accettabili sono TLS 1,2 e TLS 1,3. Non sono consentite altre versioni di TLS. Non è consentita alcuna versione di SSL. 
-- Le chiavi RSA devono essere di almeno 2.048 bit.
-- Le chiavi ECC devono essere di almeno 256 bit, generate usando una curva ellittica approvata
-
-
-**Lunghezze delle chiavi**
-
-Tutti i servizi devono usare i certificati X. 509 generati usando chiavi crittografiche di lunghezza sufficiente, ovvero:
-
-**Pacchetti di crittografia**
-
-Tutti i servizi devono essere configurati per usare i pacchetti di crittografia seguenti, nell'ordine esatto specificato di seguito. Si noti che se si dispone solo di un certificato RSA, l'installazione dei pacchetti di crittografia ECDSA non ha alcun effetto. </br>
-
-Barra minima suite di crittografia TLS 1,2:
-
-- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-
-
 ## <a name="step-3-build-a-scim-endpoint"></a>Passaggio 3: creare un endpoint SCIM
 
 Grazie alla creazione di un servizio Web SCIM che si interfaccia con Azure Active Directory, è possibile abilitare il provisioning utenti automatico per praticamente qualsiasi applicazione o archivio identità.
@@ -831,7 +752,7 @@ Per sviluppare un servizio Web personalizzato conforme alla specifica SCIM, è n
 
 * Le librerie CLI (Common Language Infrastructure) vengono messe a disposizione per essere usate con linguaggi basati su questa infrastruttura, ad esempio C#. Una di queste librerie, Microsoft. SystemForCrossDomainIdentityManagement. Service, dichiara un'interfaccia, Microsoft. SystemForCrossDomainIdentityManagement. IProvider, illustrata nella figura seguente. Uno sviluppatore che usa le librerie implementerà questa interfaccia con una classe a cui è possibile fare riferimento, in modo generico, come provider. Le librerie consentono allo sviluppatore di distribuire un servizio Web conforme alla specifica SCIM. Il servizio Web può essere ospitato all'interno Internet Information Services o qualsiasi assembly CLI eseguibile. La richiesta viene convertita in chiamate ai metodi del provider, che saranno programmate dallo sviluppatore per agire su un archivio identità.
   
-   ![Suddivisione: una richiesta convertita in chiamate ai metodi del provider](./media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
+   ![Suddivisione: una richiesta convertita in chiamate ai metodi del provider](media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
   
 * I [gestori di ExpressRoute](https://expressjs.com/guide/routing.html) sono disponibili per l'analisi di oggetti richiesta node.js che rappresentano chiamate, in base alla definizione della specifica SCIM, effettuate a un servizio Web node.js.
 
@@ -842,6 +763,10 @@ Gli sviluppatori che usano le librerie dell'interfaccia della riga di comando po
 ```csharp
  private static void Main(string[] arguments)
  {
+ // Microsoft.SystemForCrossDomainIdentityManagement.IMonitor, 
+ // Microsoft.SystemForCrossDomainIdentityManagement.IProvider and 
+ // Microsoft.SystemForCrossDomainIdentityManagement.Service are all defined in 
+ // Microsoft.SystemForCrossDomainIdentityManagement.Service.dll.  
 
  Microsoft.SystemForCrossDomainIdentityManagement.IMonitor monitor = 
    new DevelopersMonitor();
@@ -931,6 +856,10 @@ Per ospitare il servizio in Internet Information Services, uno sviluppatore comp
 ```csharp
  public class Startup
  {
+ // Microsoft.SystemForCrossDomainIdentityManagement.IWebApplicationStarter, 
+ // Microsoft.SystemForCrossDomainIdentityManagement.IMonitor and  
+ // Microsoft.SystemForCrossDomainIdentityManagement.Service are all defined in 
+ // Microsoft.SystemForCrossDomainIdentityManagement.Service.dll.  
 
  Microsoft.SystemForCrossDomainIdentityManagement.IWebApplicationStarter starter;
 
@@ -956,7 +885,7 @@ Per ospitare il servizio in Internet Information Services, uno sviluppatore comp
 
 ### <a name="handling-endpoint-authentication"></a>Gestione dell'autenticazione dell'endpoint
 
-Le richieste da Azure Active Directory includono un token di connessione OAuth 2.0.   Qualsiasi servizio che riceve la richiesta deve autenticare l'autorità emittente come Azure Active Directory per il tenant di Azure Active Directory previsto, per l'accesso al servizio Web di Azure Active Directory Graph.  Nel token, l'emittente è identificato da un'attestazione ISS, ad esempio "ISS": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  In questo esempio, l'indirizzo di base del valore dell'attestazione, https://sts.windows.net, identifica Azure Active Directory come emittente, mentre il segmento dell'indirizzo relativo, cbb1a5ac-f33b-45FA-9BF5-f37db0fed422, è un identificatore univoco del tenant Azure Active Directory per il quale è stato emesso il token. I destinatari del token saranno l'ID del modello di applicazione per l'app nella raccolta. L'ID del modello di applicazione per tutte le app personalizzate è 8adf8e6e-67b2-4cf2-A259-e3dc5476c621. L'ID del modello di applicazione per ogni app nella raccolta varia. Per domande sull'ID modello dell'applicazione per un'applicazione della raccolta, contattare ProvisioningFeedback@microsoft.com. Ogni applicazione registrata in un singolo tenant può ricevere lo stesso `iss` attestazione con richieste SCIM.
+Le richieste da Azure Active Directory includono un token di connessione OAuth 2.0. Qualsiasi servizio che riceve la richiesta deve autenticare l'emittente come Azure Active Directory per il tenant Azure Active Directory previsto, per l'accesso al servizio API Microsoft Graph. Nel token, l'emittente è identificato da un'attestazione ISS, ad esempio "ISS": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  In questo esempio, l'indirizzo di base del valore dell'attestazione, https://sts.windows.net, identifica Azure Active Directory come emittente, mentre il segmento dell'indirizzo relativo, cbb1a5ac-f33b-45FA-9BF5-f37db0fed422, è un identificatore univoco del tenant Azure Active Directory per il quale è stato emesso il token. I destinatari del token saranno l'ID del modello di applicazione per l'app nella raccolta. L'ID del modello di applicazione per tutte le app personalizzate è 8adf8e6e-67b2-4cf2-A259-e3dc5476c621. L'ID del modello di applicazione per ogni app nella raccolta varia. Per domande sull'ID modello dell'applicazione per un'applicazione della raccolta, contattare ProvisioningFeedback@microsoft.com. Ogni applicazione registrata in un singolo tenant può ricevere lo stesso `iss` attestazione con richieste SCIM.
 
 Gli sviluppatori che usano le librerie dell'interfaccia della riga di comando fornite da Microsoft per la creazione di un servizio SCIM possono autenticare le richieste da Azure Active Directory usando il pacchetto Microsoft. Owin. Security. ActiveDirectory seguendo questa procedura: 
 
@@ -978,7 +907,7 @@ In primo luogo, in un provider, implementare la proprietà Microsoft. SystemForC
   }
 ```
 
-Successivamente, aggiungere il codice seguente al metodo per avere una richiesta a uno degli endpoint del servizio autenticato come contenente un token emesso da Azure Active Directory per un tenant specifico, per l'accesso al servizio Web di Azure AD Graph: 
+Aggiungere quindi il codice seguente a tale metodo per avere una richiesta a uno degli endpoint del servizio autenticato come contenente un token emesso da Azure Active Directory per un tenant specifico, per l'accesso al servizio API Microsoft Graph: 
 
 ```csharp
   private void OnServiceStartup(
@@ -1386,7 +1315,7 @@ Azure AD può essere configurato per eseguire automaticamente il provisioning di
 Verificare la conformità ai requisiti sopra riportati con il provider dell'applicazione o consultando la documentazione fornita dal provider.
 
 > [!IMPORTANT]
-> Il Azure AD implementazione di SCIM si basa sul servizio di provisioning utenti Azure AD, progettato per consentire agli utenti di sincronizzare costantemente gli utenti tra Azure AD e l'applicazione di destinazione e implementa un set molto specifico di operazioni standard. È importante comprendere questi comportamenti per comprendere il comportamento del client di Azure AD SCIM. Per ulteriori informazioni, vedere la sezione [cicli di provisioning: iniziale e incrementale](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) nel funzionamento del [provisioning](../app-provisioning/how-provisioning-works.md).
+> Il Azure AD implementazione di SCIM si basa sul servizio di provisioning utenti Azure AD, progettato per consentire agli utenti di sincronizzare costantemente gli utenti tra Azure AD e l'applicazione di destinazione e implementa un set molto specifico di operazioni standard. È importante comprendere questi comportamenti per comprendere il comportamento del client di Azure AD SCIM. Per ulteriori informazioni, vedere la sezione [cicli di provisioning: iniziale e incrementale](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) nel funzionamento del [provisioning](how-provisioning-works.md).
 
 ### <a name="getting-started"></a>Introduzione
 
@@ -1399,13 +1328,13 @@ Le applicazioni che supportano il profilo SCIM descritto in questo articolo poss
 3. Selezionare **+ nuova applicazione** > **tutte** > **applicazione non della raccolta**.
 4. Immettere un nome per l'applicazione e selezionare **Aggiungi** per creare un oggetto app. La nuova app viene aggiunta all'elenco di applicazioni aziendali e si apre alla relativa schermata di gestione delle app.
 
-   ![screenshot mostra la raccolta di applicazioni Azure AD](./media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)<br/>
+   ![screenshot mostra la raccolta di applicazioni Azure AD](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)<br/>
    *Raccolta di applicazioni Azure AD*
 
 5. Nella schermata gestione app selezionare **provisioning** nel riquadro sinistro.
 6. Nel menu **Modalità di provisioning** selezionare **Automatica**.
 
-   ![esempio: pagina di provisioning di un'app nel portale di Azure](./media/use-scim-to-provision-users-and-groups/scim-figure-2b.png)<br/>
+   ![esempio: pagina di provisioning di un'app nel portale di Azure](media/use-scim-to-provision-users-and-groups/scim-figure-2b.png)<br/>
    *Configurazione del provisioning nel portale di Azure*
 
 7. Nel campo **URL tenant** immettere l'URL dell'endpoint SCIM dell'applicazione. Esempio: https://api.contoso.com/scim/
@@ -1441,20 +1370,11 @@ Se si sta creando un'applicazione che verrà usata da più di un tenant, è poss
 ### <a name="authorization-for-provisioning-connectors-in-the-application-gallery"></a>Autorizzazione per il provisioning dei connettori nella raccolta di applicazioni
 La specifica SCIM non definisce uno schema specifico di SCIM per l'autenticazione e l'autorizzazione. Si basa sull'uso di standard di settore esistenti. Il client di provisioning Azure AD supporta due metodi di autorizzazione per le applicazioni nella raccolta. 
 
-|Metodo di autorizzazione|Vantaggi|Svantaggi|Supporto|
-|--|--|--|--|
-|Nome utente e password (non consigliata o supportata da Azure AD)|Facile da implementare|Non sicuro: [la PA $ $Word non è rilevante](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Supportato da caso per caso per le app della raccolta. Non supportato per le app non della raccolta.|
-|Bearer token di lunga durata (attualmente supportata da Azure AD)|Per i token di lunga durata non è necessario che un utente sia presente. Per gli amministratori è facile usare quando si configura il provisioning.|I token di lunga durata possono essere difficili da condividere con un amministratore senza usare metodi non protetti come la posta elettronica. |Supportato per le app della raccolta e non della raccolta. |
-|Concessione del codice di autorizzazione OAuth (supportata da Azure AD attualmente)|I token di accesso hanno una durata molto più breve rispetto alle password e hanno un meccanismo di aggiornamento automatico che non sono disponibili per i token di connessione di lunga durata.  Un utente reale deve essere presente durante l'autorizzazione iniziale, aggiungendo un livello di responsabilità. |Richiede che un utente sia presente. Se l'utente lascia l'organizzazione, il token non è valido ed è necessario completare nuovamente l'autorizzazione.|Supportato per le app della raccolta. Il supporto per le app non della raccolta è in corso.|
-|Concessione di credenziali client OAuth (non supportata in questa roadmap)|I token di accesso hanno una durata molto più breve rispetto alle password e hanno un meccanismo di aggiornamento automatico che non sono disponibili per i token di connessione di lunga durata. Sia la concessione del codice di autorizzazione che la concessione delle credenziali client creano lo stesso tipo di token di accesso, quindi il passaggio tra questi metodi è trasparente per l'API.  Il provisioning può essere completamente automatizzato e i nuovi token possono essere richiesti automaticamente senza l'intervento dell'utente. ||Non supportato per le app della raccolta e non della raccolta. Il supporto è nel backlog.|
-
 **Flusso di concessione del codice di autorizzazione OAuth:** Il servizio di provisioning supporta la [concessione del codice di autorizzazione](https://tools.ietf.org/html/rfc6749#page-24). Dopo aver inviato la richiesta di pubblicazione dell'app nella raccolta, il Team collaborerà con l'utente per raccogliere le informazioni seguenti:
 *  URL autorizzazione: URL del client per ottenere l'autorizzazione dal proprietario della risorsa tramite il reindirizzamento dell'agente utente. L'utente viene reindirizzato a questo URL per autorizzare l'accesso. 
 *  URL di scambio di token: URL del client per scambiare una concessione di autorizzazione per un token di accesso, in genere con l'autenticazione client.
 *  ID client: il server di autorizzazione rilascia al client registrato un identificatore client, ovvero una stringa univoca che rappresenta le informazioni di registrazione fornite dal client.  L'identificatore client non è un segreto. viene esposto al proprietario della risorsa e **non deve** essere usato da solo per l'autenticazione client.  
 *  Segreto client: il segreto client è un segreto generato dal server di autorizzazione. Deve essere un valore univoco noto solo al server di autorizzazione. 
-
-Si noti che OAuth V1 non è supportato a causa dell'esposizione del segreto client. OAuth V2 è supportato.  
 
 Procedure consigliate (consigliato ma non obbligatorio):
 * Supporta più URL di reindirizzamento. Gli amministratori possono configurare il provisioning da "portal.azure.com" e "aad.portal.azure.com". Il supporto di più URL di reindirizzamento garantisce che gli utenti possano autorizzare l'accesso da uno dei due portale.
@@ -1472,7 +1392,7 @@ Determinate app consentono il traffico in ingresso verso l'app. Affinché il ser
 
 * [Automatizzare il provisioning e il deprovisioning utenti in app SaaS](user-provisioning.md)
 * [Personalizzare i mapping degli attributi per il provisioning degli utenti](customize-application-attributes.md)
-* [Scrittura di espressioni per i mapping degli attributi](../app-provisioning/functions-for-customizing-application-data.md)
-* [Filtri di ambito per il provisioning degli utenti](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
+* [Scrittura di espressioni per i mapping degli attributi](functions-for-customizing-application-data.md)
+* [Filtri di ambito per il provisioning degli utenti](define-conditional-rules-for-provisioning-user-accounts.md)
 * [Notifiche relative al provisioning dell'account](user-provisioning.md)
 * [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](../saas-apps/tutorial-list.md)

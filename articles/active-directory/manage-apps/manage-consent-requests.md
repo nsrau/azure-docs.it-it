@@ -12,12 +12,12 @@ ms.date: 12/27/2019
 ms.author: mimart
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 528aff73b931776ef9a6542437db271bb214c7fb
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 0451fe18629a572c9b49f14924bfa50293f42a2b
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290700"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367842"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Gestione del consenso alle applicazioni e valutazione delle richieste di consenso
 
@@ -100,7 +100,7 @@ Per istruzioni dettagliate su come concedere il consenso dell'amministratore a l
 
 ### <a name="granting-consent-on-behalf-of-a-specific-user"></a>Concessione del consenso per conto di un utente specifico
 
-Anziché concedere il consenso per l'intera organizzazione, un amministratore può utilizzare anche il [Azure AD API Graph](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) per concedere il consenso alle autorizzazioni delegate per conto di un singolo utente. A tale scopo, inviare una richiesta di `POST` per creare un'entità [OAuth2PermissionGrant](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) in cui `consentType` sia impostato su "Principal" e `principalId` sia impostato sull'ID oggetto per l'utente per conto del quale viene concesso il consenso.
+Anziché concedere il consenso per l'intera organizzazione, un amministratore può utilizzare anche il [API Graph Microsft](https://docs.microsoft.com/graph/use-the-api) per concedere il consenso alle autorizzazioni delegate per conto di un singolo utente. Per altre informazioni, vedere [ottenere l'accesso per conto di un utente](https://docs.microsoft.com/graph/auth-v2-user).
 
 ## <a name="limiting-user-access-to-applications"></a>Limitazione dell'accesso degli utenti alle applicazioni
 
