@@ -87,6 +87,8 @@
           href: built-in-vulnerability-assessment.md
         - name: Uso di rilevatori esterni
           href: partner-vulnerability-assessment.md
+    - name: Monitorare i contenitori
+      href: monitor-container-security.md
     - name: Proteggere i server con Microsoft Defender ATP
       href: security-center-wdatp.md
     - name: Usare la sicurezza dei dati avanzata per SQL in VM di Azure
