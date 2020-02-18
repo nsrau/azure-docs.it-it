@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 19dd0051985231a0274baf550755cc61782ce740
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: d982771d5c7ebc864991026e399e9648d333cc8f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281309"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425528"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-cli"></a>Creare e gestire un collegamento privato per database di Azure per PostgreSQL-server singolo (anteprima) con l'interfaccia della riga di comando
 
@@ -38,7 +38,7 @@ Per poter creare le risorse, è prima necessario creare un gruppo di risorse in 
 az group create --name myResourceGroup --location westeurope
 ```
 
-## <a name="create-a-virtual-network"></a>Creare una rete virtuale
+## <a name="create-a-virtual-network"></a>Creazione di una rete virtuale
 Creare una rete virtuale con il comando [az network vnet create](/cli/azure/network/vnet). Questo esempio crea una rete virtuale predefinita denominata *myVirtualNetwork* con una subnet denominata *mySubnet*:
 
 ```azurecli-interactive
@@ -58,7 +58,7 @@ az network vnet subnet update \
  --vnet-name myVirtualNetwork \
  --disable-private-endpoint-network-policies true
 ```
-## <a name="create-the-vm"></a>Creare la VM 
+## <a name="create-the-vm"></a>Creazione della VM 
 Creare una macchina virtuale con il comando az vm create. Quando richiesto, specificare la password da usare come credenziali di accesso per la macchina virtuale. Questo esempio crea una macchina virtuale denominata *myVM*: 
 ```azurecli-interactive
 az vm create \
@@ -131,7 +131,7 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 
 1. Selezionare **Scarica file RDP**. Azure crea e scarica nel computer un file Remote Desktop Protocol con estensione *.rdp*.
 
-1. Aprire il file con estensione rdp scaricato.
+1. Aprire il file *downloaded.rdp*.
 
     1. Quando richiesto, selezionare **Connetti**.
 
@@ -140,7 +140,7 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
         > [!NOTE]
         > Potrebbe essere necessario selezionare **Altre opzioni** > **Usa un altro account** per specificare le credenziali immesse al momento della creazione della macchina virtuale.
 
-1. Selezionare **OK**.
+1. Scegliere **OK**.
 
 1. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se si riceve un avviso relativo al certificato, selezionare **Sì** oppure **Continua**.
 
@@ -159,30 +159,31 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
     Non-authoritative answer:
     Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
     Address:  10.1.3.4
+    ```
 
-3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) to do the operation.
+3. Testare la connessione del collegamento privato per il server PostgreSQL usando un client disponibile. Nell'esempio seguente è stato usato [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) per eseguire l'operazione.
 
-4. In **New connection**, enter or select this information:
+4. In **nuova connessione**immettere o selezionare queste informazioni:
 
-    | Setting | Value |
+    | Impostazione | Valore |
     | ------- | ----- |
-    | Server type| Select **PostgreSQL**.|
-    | Server name| Select *mydemopostgresserver.privatelink.postgres.database.azure.com* |
-    | User name | Enter username as username@servername which is provided during the PostgreSQL server creation. |
-    |Password |Enter a password provided during the PostgreSQL server creation. |
-    |SSL|Select **Required**.|
+    | Tipo di server| Selezionare **PostgreSQL**.|
+    | Nome server| Seleziona *mydemopostgresserver.privatelink.postgres.database.Azure.com* |
+    | Nome utente | Immettere username come username@servername fornito durante la creazione del server PostgreSQL. |
+    |Password |Immettere una password specificata durante la creazione del server PostgreSQL. |
+    |SSL|Selezionare **required**.|
     ||
 
-5. Select Connect.
+5. Selezionare Connetti.
 
-6. Browse databases from left menu.
+6. Esplorare i database dal menu a sinistra.
 
-7. (Optionally) Create or query information from the postgreSQL server.
+7. Facoltativamente Creare o eseguire query sulle informazioni dal server postgreSQL.
 
-8. Close the remote desktop connection to myVm.
+8. Chiudere la connessione Desktop remoto a myVm.
 
-## Clean up resources 
-When no longer needed, you can use az group delete to remove the resource group and all the resources it has: 
+## <a name="clean-up-resources"></a>Pulire le risorse 
+Quando non sono più necessari, è possibile usare il comando az group delete per rimuovere il gruppo di risorse e tutte le risorse in esso contenute: 
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes 

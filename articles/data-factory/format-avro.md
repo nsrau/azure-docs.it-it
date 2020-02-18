@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 02/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 9e962a0e76cdc0d51a87df3c33927c34db991fc7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6d867ccd8704d4aba4627e7b81638394b7e1e8d3
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927403"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77423780"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Formato avro in Azure Data Factory
 
@@ -26,11 +26,11 @@ Il formato avro è supportato per i connettori seguenti [: Amazon S3](connector-
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati avro.
 
-| Proprietà         | Description                                                  | Obbligatoria |
+| Proprietà         | Descrizione                                                  | Obbligatoria |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | La proprietà Type del set di dati deve essere impostata su **avro**. | SÌ      |
-| location         | Impostazioni del percorso dei file. Ogni connettore basato su file ha un tipo di percorso e proprietà supportate in `location`. **Per informazioni dettagliate, vedere l'articolo connettore-> sezione Proprietà set di dati**. | SÌ      |
-| avroCompressionCodec | Codec di compressione da usare durante la scrittura nei file avro. Durante la lettura da file Avro, Data Factory determina automaticamente il codec di compressione basato sui metadati del file.<br>I tipi supportati sono "**None**" (impostazione predefinita), "**deflate**", "**Snapper**". | No       |
+| type             | La proprietà Type del set di dati deve essere impostata su **avro**. | Sì      |
+| posizione         | Impostazioni del percorso dei file. Ogni connettore basato su file ha un tipo di percorso e proprietà supportate in `location`. **Per informazioni dettagliate, vedere l'articolo connettore-> sezione Proprietà set di dati**. | Sì      |
+| avroCompressionCodec | Codec di compressione da usare durante la scrittura nei file avro. Durante la lettura da file Avro, Data Factory determina automaticamente il codec di compressione basato sui metadati del file.<br>I tipi supportati sono "**None**" (impostazione predefinita), "**deflate**", "**Snapper**". Nota Attualmente l'attività di copia non supporta l'allineamento quando i file avro di lettura/scrittura. | No       |
 
 > [!NOTE]
 > Lo spazio vuoto nel nome della colonna non è supportato per i file avro.
@@ -67,18 +67,18 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà seguenti sono supportate nella sezione ***\*origine\**** dell'attività di copia.
 
-| Proprietà      | Description                                                  | Obbligatoria |
+| Proprietà      | Descrizione                                                  | Obbligatoria |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **AvroSource**. | SÌ      |
+| type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **AvroSource**. | Sì      |
 | storeSettings | Un gruppo di proprietà su come leggere i dati da un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di lettura supportate in `storeSettings`. **Per informazioni dettagliate, vedere l'articolo connettore > sezione proprietà dell'attività di copia**. | No       |
 
 ### <a name="avro-as-sink"></a>Avro come sink
 
 Le proprietà seguenti sono supportate nella sezione ***\*sink\**** dell'attività di copia.
 
-| Proprietà      | Description                                                  | Obbligatoria |
+| Proprietà      | Descrizione                                                  | Obbligatoria |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **AvroSink**. | SÌ      |
+| type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **AvroSink**. | Sì      |
 | storeSettings | Gruppo di proprietà su come scrivere dati in un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di scrittura supportate in `storeSettings`. **Per informazioni dettagliate, vedere l'articolo connettore > sezione proprietà dell'attività di copia**. | No       |
 
 ## <a name="data-type-support"></a>Supporto dei tipi di dati

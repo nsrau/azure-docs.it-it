@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 788fcf15ebd68aae525c2895340f437594c9c58c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 34583ef49b2f919391af3fe5700a558b2dc40700
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906401"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187231"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Acquisire i dati di Hub eventi in archiviazione di Azure e leggerli con Python (azure-eventhub versione 5)
 
-È possibile configurare un hub eventi in modo che i dati che riceve vengano acquisiti in un account di archiviazione di Azure o in Azure Data Lake Storage. Questo articolo illustra come scrivere codice Python per inviare eventi a un hub eventi e leggere i dati acquisiti da archiviazione BLOB di Azure. Per altre informazioni su questa funzionalità, vedere la [Panoramica sulle funzionalità Acquisizione di hub eventi](event-hubs-capture-overview.md).
+È possibile configurare un hub eventi in modo che i dati che riceve vengano acquisiti in un account di archiviazione di Azure o in Azure Data Lake Storage Gen 1 o Gen 2. Questo articolo illustra come scrivere codice Python per inviare eventi a un hub eventi e leggere i dati acquisiti da **Archiviazione BLOB di Azure**. Per altre informazioni su questa funzionalità, vedere la [Panoramica sulle funzionalità Acquisizione di hub eventi](event-hubs-capture-overview.md).
 
 In questo argomento di avvio rapido si usa [Azure Python SDK](https://azure.microsoft.com/develop/python/) per illustrare la funzionalità Acquisizione. L'app *sender.py* invia dati di telemetria ambientale simulati a hub eventi in formato JSON. L'hub eventi è configurato per l'uso della funzione Acquisisci per la scrittura di questi dati nell'archivio BLOB in batch. L'app *capturereader.py* legge questi BLOB e crea un file di accodamento per ogni dispositivo. L'app quindi scrive i dati all'interno di file CSV.
 
 > [!IMPORTANT]
 > In questo argomento di avvio rapido si usa le versione 5 di Python SDK per Hub eventi di Azure. Per un argomento di avvio rapido sulla versione 1 di Python SDK, vedere [questo articolo](event-hubs-capture-python.md). 
 
-Questa guida introduttiva spiega come: 
+Questa guida di avvio rapido spiega come: 
 
 > [!div class="checklist"]
 > * Creare un account di archiviazione e un contenitore BLOB di Azure nel portale di Azure.
@@ -37,7 +37,7 @@ Questa guida introduttiva spiega come:
 > * Inviare i dati all'hub eventi tramite uno script Python.
 > * Leggere ed elaborare i file ottenuti da Acquisizione di Hub eventi tramite un altro script Python.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Python 2.7 e 3.5 o versione successiva con PIP installato e aggiornato.  
 - Una sottoscrizione di Azure. Se non se ne ha una, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.  

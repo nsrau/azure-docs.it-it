@@ -3,12 +3,12 @@ title: Matrice di supporto per il backup di macchine virtuali di Azure
 description: Informazioni riepilogative su impostazioni e limitazioni del supporto durante il backup di macchine virtuali di Azure con il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 1dd060840e589d601d87d8be235eda5c34283a4f
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 0bc66939fc6bd150d57242f144cdb032db8188d1
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77369895"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425052"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 
@@ -65,7 +65,7 @@ Nella tabella seguente sono riepilogati i sistemi operativi supportati per il ba
 
 **Scenario** | **Supporto del sistema operativo**
 --- | ---
-Backup con l'estensione dell'agente di macchine virtuali di Azure | -Client Windows 10 (solo 64 bit) <br/><br/>-Windows Server 2019 (Datacenter/datacenter core/standard) <br/><br/> -Windows Server 2016 (Datacenter/datacenter core/standard) <br/><br/> -Windows Server 2012 R2 (Datacenter/standard) <br/><br/> -Windows Server 2008 R2 (RTM e SP1 Standard)  <br/><br/> -Windows 2008 (solo bit 64)
+Backup con l'estensione dell'agente di macchine virtuali di Azure | -Client Windows 10 (solo 64 bit) <br/><br/>-Windows Server 2019 (Datacenter/datacenter core/standard) <br/><br/> -Windows Server 2016 (Datacenter/datacenter core/standard) <br/><br/> -Windows Server 2012 R2 (Datacenter/standard) <br/><br/> -Windows Server 2008 R2 (RTM e SP1 Standard)  <br/><br/> -Windows Server 2008 (solo bit 64)
 Backup con l'agente di Servizi di ripristino di Microsoft Azure | Sistemi operativi [supportati](backup-support-matrix-mars-agent.md#support-for-direct-backups).
 Backup con DPM/MAB | Sistemi operativi supportati per il backup con il [server di Backup di Microsoft Azure](backup-mabs-protection-matrix.md) e [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 

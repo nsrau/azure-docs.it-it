@@ -32,6 +32,10 @@
         - name: Panoramica dell'inserimento dati
           displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
           href: ingest-data-overview.md
+    - name: Linguaggio di query Kusto
+      items:
+        - name: Guida di riferimento rapido
+          href: kql-quick-reference.md
     - name: Panoramica della visualizzazione dei dati
       href: viz-overview.md
     - name: Panoramica della sicurezza

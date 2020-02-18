@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: f76fd7bce539ebcf79216aabb5bf868b2d18107a
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: f88053c93884e10e46a0f7d70106bda67b057562
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780182"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425723"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Risolvere i problemi di connessione VPN da punto a sito dai client Mac OS X
 
@@ -48,7 +48,7 @@ Questo articolo consente di risolvere i problemi di connettività da punto a sit
 4. Il campo **Local ID** (ID locale) può essere vuoto.
 5. Fare clic sul pulsante **Authentication Setting** (Impostazioni di autenticazione) e verificare che "Username" (Nome utente) sia stato selezionato nell'elenco a discesa.
 
-   ![Authentication settings](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.jpg)
+   ![Authentication settings](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
 6. Verificare che siano state immesse le credenziali corrette.
 
 ## <a name="additional"></a>Passaggi aggiuntivi
@@ -60,7 +60,7 @@ Se si segue la procedura precedente e tutto viene configurato correttamente, sca
 
    ![pacchetto](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
   
-3. Se non c'è risposta del server nelle tracce di rete, verificare di aver abilitato il protocollo IKEv2 nella pagina di configurazione del gateway di Azure nel sito Web del portale di Azure.
+3. Se non è presente alcuna risposta server sulle tracce di rete, verificare di aver abilitato il protocollo IKEv2 nella pagina di configurazione del gateway di Azure nel sito Web portale di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, contattare [il supporto tecnico Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

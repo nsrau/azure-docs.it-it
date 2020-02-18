@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 12/03/2019
-ms.openlocfilehash: cf343773695275bc5600ab59e1cd719374d65700
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: ea132578a08b9f0002084374838c615a01fa820f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152364"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425800"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Eccezioni e codici di errore per la finestra di progettazione (anteprima)
 
@@ -74,7 +74,7 @@ Esistono due modi per ottenere il testo completo di un messaggio di errore nella
 |Messaggi di eccezione|
 |------------------------|
 |Uno o più input sono null o vuoti.|
-|L'input "{0}" è null o vuoto.|
+|L'input "{Name}" è null o vuoto.|
 
 
 ## <a name="error-0004"></a>Errore 0004  
@@ -87,8 +87,8 @@ Esistono due modi per ottenere il testo completo di un messaggio di errore nella
 |Messaggi di eccezione|
 |------------------------|
 |Parameter should be greater than boundary value.|
-|Il valore del parametro "{0}" deve essere maggiore di {1}.|
-|Il parametro "{0}" ha il valore "{1}" che deve essere maggiore di {2}.|
+|Il valore del parametro "{arg_name}" deve essere maggiore di {lower_boundary}.|
+|Il valore "{actual_value}" del parametro "{arg_name}" deve essere maggiore di {lower_boundary}.|
 
 
 ## <a name="error-0005"></a>Errore 0005  
@@ -101,8 +101,8 @@ Esistono due modi per ottenere il testo completo di un messaggio di errore nella
 |Messaggi di eccezione|
 |------------------------|
 |Il valore del parametro deve essere maggiore o uguale al valore limite.|
-|Il valore del parametro "{arg_name}" deve essere maggiore o uguale a {target_val}.|
-|Il valore "{true_val}" del parametro "{arg_name}" deve essere maggiore o uguale a {target_val}.|
+|Il valore del parametro "{arg_name}" deve essere maggiore o uguale a {lower_boundary}.|
+|Il valore "{value}" del parametro "{arg_name}" deve essere maggiore o uguale a {lower_boundary}.|
 
 
 ## <a name="error-0006"></a>Errore 0006  
@@ -115,8 +115,8 @@ Esistono due modi per ottenere il testo completo di un messaggio di errore nella
 |Messaggi di eccezione|
 |------------------------|
 |Parametri non corrispondenti. Il valore di uno dei parametri deve essere minore del valore di un altro.|
-|Il valore del parametro "{0}" deve essere minore del parametro "{1}".|
-|Il valore del parametro "{0}" è "{1}" che deve essere minore di {2}.|
+|Il valore del parametro "{arg_name}" deve essere minore del parametro "{upper_boundary_parameter_name}".|
+|Il valore "{value}" del parametro "{arg_name}" deve essere minore di {upper_boundary_parameter_name}.|
 
 
 ## <a name="error-0007"></a>Errore 0007  
@@ -137,8 +137,9 @@ Esistono due modi per ottenere il testo completo di un messaggio di errore nella
 |Messaggi di eccezione|
 |------------------------|
 |Parametri non corrispondenti. Il valore di uno dei parametri deve essere maggiore o uguale al valore di un altro.|
-|Il valore del parametro "{0}" deve essere minore o uguale al valore del parametro "{1}".|
-|Il parametro "{0}" ha il valore "{1}" che deve essere minore o uguale a {2}.|
+|Il valore del parametro "{arg_name}" deve essere minore o uguale al valore del parametro "{upper_boundary_parameter_name}".|
+|Il valore "{actual_value}" del parametro "{arg_name}" deve essere minore o uguale a {upper_boundary}.|
+|Il valore {actual_value} del parametro "{arg_name}" deve essere minore o uguale al valore {upper_boundary} del parametro "{upper_boundary_parameter_name}".|
 
 
 ## <a name="error-0008"></a>Errore 0008  
@@ -154,7 +155,7 @@ Esistono due modi per ottenere il testo completo di un messaggio di errore nella
 |------------------------|
 |Il valore del parametro non è compreso nell'intervallo specificato.|
 |Il valore del parametro "{arg_name}" non è compreso nell'intervallo.|
-|Il valore del parametro "{arg_name}" deve essere compreso nell'intervallo [{a}, {b}].|
+|Il valore del parametro "{arg_name}" deve essere compreso nell'intervallo [{lower_boundary}, {upper_boundary}].|
 |Il valore del parametro "{arg_name}" non è compreso nell'intervallo. motivo|
 
 
@@ -187,7 +188,7 @@ Se è stato specificato il percorso completo di un BLOB, verificare che il perco
 |Messaggi di eccezione|
 |------------------------|
 |Il nome dell'account o del contenitore di archiviazione di Azure non è corretto.|
-|Il nome dell'account di archiviazione di Azure "{0}" o il nome del contenitore "{1}" non è corretto; è previsto un nome di contenitore del formato contenitore/BLOB.|
+|Il nome dell'account di archiviazione di Azure "{account_name}" o il nome del contenitore "{container_name}" non è corretto; è previsto un nome di contenitore del formato contenitore/BLOB.|
 
 
 ## <a name="error-0010"></a>Errore 0010  
@@ -200,7 +201,7 @@ Se è stato specificato il percorso completo di un BLOB, verificare che il perco
 |Messaggi di eccezione|
 |------------------------|
 |Le colonne con indice corrispondente nei set di dati di input hanno nomi diversi.|
-|I nomi delle colonne non sono gli stessi per le colonne {0} (in base zero) dei set di dati di input (rispettivamente{1} e {2}).|
+|I nomi di colonna non sono gli stessi per la colonna {col_index} (in base zero) dei set di dati di input ({DataSet1} e {Dataset2} rispettivamente).|
 
 
 ## <a name="error-0011"></a>Errore 0011  
@@ -219,7 +220,7 @@ Se è stato specificato il percorso completo di un BLOB, verificare che il perco
 |Messaggi di eccezione|
 |------------------------|
 |Il set di colonne specificato non è applicabile ad alcuna colonna del set di dati.|
-|Il set di colonne "{0}" specificato non è applicabile ad alcuna colonna del set di dati.|
+|Il set di colonne "{column_set}" specificato non si applica a nessuna delle colonne del set di dati.|
 
 
 ## <a name="error-0012"></a>Errore 0012  
@@ -301,7 +302,7 @@ Per le colonne che si desidera utilizzare per il raggruppamento o la categorizza
 |Messaggi di eccezione|
 |------------------------|
 |Error making database connection.|
-|Errore durante la connessione al database: {0}.|
+|Errore durante la connessione al database: {connection_str}.|
 
 
 ## <a name="error-0016"></a>Errore 0016  
@@ -384,8 +385,8 @@ Per le colonne che si desidera utilizzare per il raggruppamento o la categorizza
 |Messaggi di eccezione|
 |------------------------|
 |Values in column are not sorted.|
-|I valori nella colonna "{0}" non sono ordinati.|
-|I valori nella colonna "{0}" del set di dati "{1}" non sono ordinati.|
+|I valori nella colonna "{col_index}" non sono ordinati.|
+|I valori nella colonna "{col_index}" del set di dati "{DataSet}" non sono ordinati.|
 
 
 ## <a name="error-0020"></a>Errore 0020  
@@ -398,6 +399,7 @@ Per le colonne che si desidera utilizzare per il raggruppamento o la categorizza
 |Messaggi di eccezione|
 |------------------------|
 |Il numero di colonne nel set di dati di input è inferiore al minimo consentito.|
+|Il numero di colonne nel set di dati di input "{arg_name}" è inferiore al minimo consentito.|
 |Il numero di colonne nel set di dati di input è inferiore al minimo consentito di {required_columns_count} colonne.|
 |Il numero di colonne nel set di dati di input "{arg_name}" è inferiore al minimo consentito di {required_columns_count} colonne.|
 
@@ -450,9 +452,9 @@ Per le colonne che si desidera utilizzare per il raggruppamento o la categorizza
 |Messaggi di eccezione|
 |------------------------|
 |Il numero di colonne selezionate nel set di dati di input non corrisponde al numero previsto.|
-|Il numero di colonne selezionate nel set di dati di input non è uguale a {0}.|
-|Il criterio di selezione delle colonne "{0}" fornisce il numero di colonne selezionate nel set di dati di input diverso da {1}.|
-|È previsto che il modello di selezione delle colonne "{0}" fornisca {1} colonne selezionate nel set di dati di input, ma {2} colonne vengono effettivamente fornite.|
+|Il numero di colonne selezionate nel set di dati di input non è uguale a {expected_col_count}.|
+|Il criterio di selezione delle colonne "{selection_pattern_friendly_name}" fornisce il numero di colonne selezionate nel set di dati di input diverso da {expected_col_count}.|
+|Il criterio di selezione delle colonne "{selection_pattern_friendly_name}" deve fornire {expected_col_count} colonne selezionate nel set di dati di input, ma sono effettivamente presenti {selected_col_count} colonne.|
 
 
 ## <a name="error-0023"></a>Errore 0023  
@@ -466,8 +468,8 @@ Questo errore si verifica Azure Machine Learning se la colonna di destinazione (
 |Messaggi di eccezione|
 |------------------------|
 |Input dataset has unsupported target column.|
-|Il set di dati di input contiene la colonna di destinazione "{0}" non supportata.|
-|Per il set di dati di input non è supportata la colonna di destinazione "{0}" per gli studenti di tipo {1}.|
+|Il set di dati di input contiene la colonna di destinazione "{column_index}" non supportata.|
+|Il set di dati di input contiene la colonna di destinazione "{column_index}" non supportata per lo Learner di tipo {learner_type}.|
 
 
 ## <a name="error-0024"></a>Errore 0024  
@@ -500,8 +502,8 @@ Si verifica un'eccezione se il set di dati non contiene una colonna di etichetta
 |Messaggi di eccezione|
 |------------------------|
 |Non sono presenti colonne di punteggio nel set di dati.|
-|Non è presente alcuna colonna score in "{0}".|
-|Non è presente alcuna colonna score in "{0}" prodotta da un "{1}". Assegnare un punteggio al set di dati usando il tipo di strumento di apprendimento corretto.|
+|Nessuna colonna score in "{dataset_name}".|
+|Non è presente alcuna colonna score in "{dataset_name}" prodotta da "{learner_type}". Assegnare un punteggio al set di dati usando il tipo di strumento di apprendimento corretto.|
 
 
 ## <a name="error-0026"></a>Errore 0026  
@@ -514,7 +516,7 @@ Si verifica un'eccezione se il set di dati non contiene una colonna di etichetta
 |Messaggi di eccezione|
 |------------------------|
 |Equal column names are specified in arguments. Equal column names are not allowed by module.|
-|Non sono consentiti nomi di colonna uguali negli argomenti "{0}" e "{1}". Specificare nomi diversi.|
+|Non sono consentiti nomi di colonna uguali negli argomenti "{arg_name_1}" e "{arg_name_2}". Specificare nomi diversi.|
 
 
 ## <a name="error-0027"></a>Errore 0027  
@@ -533,7 +535,7 @@ Si verifica un'eccezione se il set di dati non contiene una colonna di etichetta
 |Messaggi di eccezione|
 |------------------------|
 |The size of passed objects is inconsistent.|
-|Le dimensioni di "{0}" non sono coerenti con le dimensioni di "{1}".|
+|Le dimensioni di "{friendly_name1}" non sono coerenti con le dimensioni di "{friendly_name2}".|
 
 
 ## <a name="error-0028"></a>Errore 0028  
@@ -571,7 +573,7 @@ Si verifica un'eccezione se il set di dati non contiene una colonna di etichetta
 |Messaggi di eccezione|
 |------------------------|
 |Invalid Uri is passed.|
-|L'URI "{0}" non è valido.|
+|L'URI "{invalid_url}" non è valido.|
 
 
 ## <a name="error-0030"></a>Errore 0030  
@@ -584,7 +586,7 @@ Si verifica un'eccezione se il set di dati non contiene una colonna di etichetta
 |Messaggi di eccezione|
 |------------------------|
 |Unable to download a file.|
-|Errore durante il download del file: {0}.|
+|Errore durante il download del file: {file_url}.|
 
 
 ## <a name="error-0031"></a>Errore 0031  
@@ -597,7 +599,8 @@ Si verifica un'eccezione se il set di dati non contiene una colonna di etichetta
 |Messaggi di eccezione|
 |------------------------|
 |Il numero di colonne nel set di colonne è inferiore a quello richiesto.|
-|Specificare almeno {0} colonna/e. Il numero effettivo delle colonne specificate è {1}.|
+|Per l'argomento di input "{arg_name}" è necessario specificare almeno {required_columns_count} colonna/e.|
+|Per l'argomento di input "{arg_name}" è necessario specificare almeno {required_columns_count} colonna/e. Il numero effettivo di colonne specificate è {input_columns_count}.|
 
 
 ## <a name="error-0032"></a>Errore 0032  
@@ -610,7 +613,7 @@ Si verifica un'eccezione se il set di dati non contiene una colonna di etichetta
 |Messaggi di eccezione|
 |------------------------|
 |Argument is not a number.|
-|"{0}" non è un numero.|
+|"{arg_name}" non è un numero.|
 
 
 ## <a name="error-0033"></a>Errore 0033  
@@ -623,7 +626,7 @@ Si verifica un'eccezione se il set di dati non contiene una colonna di etichetta
 |Messaggi di eccezione|
 |------------------------|
 |L'argomento deve essere finito.|
-|"{0}" non è finito.|
+|"{arg_name}" non è finito.|
 
 
 ## <a name="error-0034"></a>Errore 0034  
@@ -663,7 +666,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 |Messaggi di eccezione|
 |------------------------|
 |Nessuna funzione fornita per un utente o un elemento richiesto.|
-|Funzionalità per {0} richieste ma non fornite.|
+|Funzionalità per {required_feature_name} obbligatorie ma non fornite.|
 
 
 ## <a name="error-0036"></a>Errore 0036  
@@ -676,7 +679,6 @@ For general information about how the Matchbox recommendation algorithm works, a
 |Messaggi di eccezione|
 |------------------------|
 |Definizione di funzione duplicata per un utente o un elemento.|
-|Definizione di funzionalità duplicata per {0}.|
 
 
 ## <a name="error-0037"></a>Errore 0037  
@@ -742,9 +744,9 @@ Un altro motivo per cui è possibile ottenere questo errore se si tenta di utili
 |Messaggi di eccezione|
 |------------------------|
 |Not allowed conversion.|
-|Non è stato possibile convertire la colonna di tipo {0} nella colonna di tipo {1}.|
-|Impossibile convertire la colonna "{2}" di tipo {0} nella colonna di tipo {1}.|
-|Impossibile convertire la colonna "{2}" di tipo {0} nella colonna "{3}" di tipo {1}.|
+|Non è stato possibile convertire la colonna di tipo {tipo1} nella colonna di tipo {tipo2}.|
+|Non è stato possibile convertire la colonna "{col_name1}" di tipo {tipo1} nella colonna di tipo {tipo2}.|
+|Non è stato possibile convertire la colonna "{col_name1}" di tipo {tipo1} nella colonna "{col_name2}" di tipo {tipo2}.|
 
 
 ## <a name="error-0044"></a>Errore 0044  
@@ -757,8 +759,8 @@ Un altro motivo per cui è possibile ottenere questo errore se si tenta di utili
 |Messaggi di eccezione|
 |------------------------|
 |Cannot derive element type of the column.|
-|Non è possibile derivare il tipo di elemento per la colonna "{0}"--tutti gli elementi sono riferimenti null.|
-|Non è possibile derivare il tipo di elemento per la colonna "{0}" del set di dati "{1}": tutti gli elementi sono riferimenti null.|
+|Non è possibile derivare il tipo di elemento per la colonna "{column_name}"--tutti gli elementi sono riferimenti null.|
+|Non è possibile derivare il tipo di elemento per la colonna "{column_name}" del set di dati "{dataset_name}"--tutti gli elementi sono riferimenti null.|
 
 
 ## <a name="error-0045"></a>Errore 0045  
@@ -771,8 +773,8 @@ Un altro motivo per cui è possibile ottenere questo errore se si tenta di utili
 |Messaggi di eccezione|
 |------------------------|
 |Cannot create column with mixed element types.|
-|Impossibile creare la colonna con ID "{column_id}" dei tipi di elementi misti: \ n\tType dei dati [{row_1}, {column_id}] è "{type_1}". Il tipo di dati [{row_2}, {column_id}] è "{type_2}".|
-|Non è possibile creare la colonna con ID "{column_id}" dei tipi di elementi misti: \ n\tType nel blocco {chunk_id_1} è "{type_1}". Il tipo in blocco {chunk_id_2} è "{type_2}" con la dimensione del blocco: {chunk_size}.|
+|Non è possibile creare la colonna con ID "{column_id}" di tipi di elemento misti:<br />Il tipo di dati [{row_1}, {column_id}] è "{type_1}". <br />Il tipo di dati [{row_2}, {column_id}] è "{type_2}".|
+|Non è possibile creare la colonna con ID "{column_id}" di tipi di elemento misti:<br />Il tipo nel blocco {chunk_id_1} è "{type_1}". <br />Il tipo in blocco {chunk_id_2} è "{type_2}" con la dimensione del blocco: {chunk_size}.|
 
 
 ## <a name="error-0046"></a>Errore 0046  
@@ -785,7 +787,7 @@ Un altro motivo per cui è possibile ottenere questo errore se si tenta di utili
 |Messaggi di eccezione|
 |------------------------|
 |Please specify a valid output directory.|
-|Directory: non è possibile creare {0}. Please specify valid path.|
+|Non è possibile creare la directory: {Path}. Please specify valid path.|
 
 
 ## <a name="error-0047"></a>Errore 0047  
@@ -824,8 +826,8 @@ Un altro motivo per cui è possibile ottenere questo errore se si tenta di utili
 |Messaggi di eccezione|
 |------------------------|
 |Non è possibile aprire un file.|
-|Errore durante l'apertura del file: {0}.|
-|Errore durante l'apertura del file: {0}. Messaggio eccezione di archiviazione: {1}.|
+|Errore durante l'apertura del file: {file_name}.|
+|Errore durante l'apertura del file: {file_name}. Messaggio eccezione di archiviazione: {Exception}.|
 
 
 ## <a name="error-0049"></a>Errore 0049  
@@ -910,7 +912,7 @@ Un altro motivo per cui è possibile ottenere questo errore se si tenta di utili
 |Messaggi di eccezione|
 |------------------------|
 |File or Blob already exists.|
-|Il file o il BLOB "{0}" esiste già.|
+|Il file o il BLOB "{file_path}" esiste già.|
 
 
 ## <a name="error-0058"></a>Errore 0058  
@@ -945,7 +947,7 @@ Un altro motivo per cui è possibile ottenere questo errore se si tenta di utili
 |Messaggi di eccezione|
 |------------------------|
 |Non è stato possibile analizzare uno o più indici di colonna o intervalli di indice specificati.|
-|Non è stato possibile analizzare l'indice o l'intervallo di colonne "{0}".|
+|Non è stato possibile analizzare l'indice o l'intervallo di colonne "{column_index_or_range}".|
 
 
 ## <a name="error-0060"></a>Errore 0060  
@@ -958,7 +960,7 @@ Un altro motivo per cui è possibile ottenere questo errore se si tenta di utili
 |Messaggi di eccezione|
 |------------------------|
 |L'intervallo specificato per l'indice di colonna non è valido o non è compreso nei limiti consentiti.|
-|L'intervallo di colonne "{0}" non è valido o non è compreso nell'intervallo.|
+|L'intervallo di colonne "{column_range}" non è valido o non è compreso nell'intervallo.|
 
 
 ## <a name="error-0061"></a>Errore 0061  
@@ -1035,7 +1037,7 @@ Un altro motivo per cui è possibile ottenere questo errore se si tenta di utili
 |Messaggi di eccezione|
 |------------------------|
 |Non è stato possibile caricare la risorsa nell'area di archiviazione di Azure.|
-|Non è stato possibile caricare il file "{0}" in archiviazione di Azure come "{1}".|
+|Non è stato possibile caricare il file "{source_path}" in archiviazione di Azure come "{dest_path}".|
 
 
 ## <a name="error-0067"></a>Errore 0067  
@@ -1079,7 +1081,6 @@ Vedere gli articoli seguenti per informazioni sull'esecuzione di query hive per 
 |Messaggi di eccezione|
 |------------------------|
 |Hive script is incorrect.|
-|{0} script hive non è corretto.|
 
 
 ## <a name="error-0069"></a>Errore 0069  
@@ -1101,8 +1102,8 @@ Vedere gli articoli seguenti per informazioni sull'esecuzione di query hive per 
 |Messaggi di eccezione|
 |------------------------|
 |SQL script is incorrect.|
-|La query SQL "{0}" non è corretta.|
-|La query SQL "{0}" non è corretta:{1}.|
+|La query SQL "{sql_query}" non è corretta.|
+|La query SQL "{sql_query}" non è corretta. Messaggio eccezione: {Exception}.|
 
 
 ## <a name="error-0070"></a>Errore 0070  
@@ -1115,7 +1116,7 @@ Vedere gli articoli seguenti per informazioni sull'esecuzione di query hive per 
 |Messaggi di eccezione|
 |------------------------|
 |Azure table does not exist.|
-|La tabella di Azure "{0}" non esiste.|
+|La tabella di Azure "{table_name}" non esiste.|
 
 
 ## <a name="error-0072"></a>Errore 0072  
@@ -1140,7 +1141,7 @@ Vedere gli articoli seguenti per informazioni sull'esecuzione di query hive per 
 |Messaggi di eccezione|
 |------------------------|
 |Failed to convert column.|
-|Non è stato possibile convertire la colonna in {0}.|
+|Non è stato possibile convertire la colonna in {target_type}.|
 
 
 ## <a name="error-0075"></a>Errore 0075  
@@ -1169,7 +1170,7 @@ La gestione degli errori per questo evento è stata introdotta in una versione p
 |Messaggi di eccezione|
 |------------------------|
 |Unsupported blob write mode.|
-|Modalità di scrittura BLOB non supportata: {0}.|
+|Modalità di scrittura BLOB non supportata: {blob_write_mode}.|
 
 
 ## <a name="error-0078"></a>Errore 0078  
@@ -1194,7 +1195,7 @@ La gestione degli errori per questo evento è stata introdotta in una versione p
 |Messaggi di eccezione|
 |------------------------|
 |The Azure storage container name is incorrect.|
-|Il nome del contenitore di archiviazione di Azure "{0}" non è corretto; è previsto un nome di contenitore del formato contenitore/BLOB.|
+|Il nome del contenitore di archiviazione di Azure "{container_name}" non è corretto; è previsto un nome di contenitore del formato contenitore/BLOB.|
 
 
 ## <a name="error-0080"></a>Errore 0080  
@@ -1207,7 +1208,7 @@ La gestione degli errori per questo evento è stata introdotta in una versione p
 |Messaggi di eccezione|
 |------------------------|
 |Non sono consentite colonne prive di tutti i valori.|
-|La colonna {0} contiene tutti i valori mancanti.|
+|La colonna {col_index_or_name} contiene tutti i valori mancanti.|
 
 
 ## <a name="error-0081"></a>Errore 0081  
@@ -1244,9 +1245,9 @@ La gestione degli errori per questo evento è stata introdotta in una versione p
 |Messaggi di eccezione|
 |------------------------|
 |Dataset used for training is invalid.|
-|{0} contiene dati non validi per il training.|
-|{0} contiene dati non validi per il training. Tipo di apprendimento: {1}.|
-|{0} contiene dati non validi per il training. Tipo di apprendimento: {1}. Motivo: {2}.|
+|{data_name} contiene dati non validi per il training.|
+|{data_name} contiene dati non validi per il training. Tipo di discente: {learner_type}.|
+|{data_name} contiene dati non validi per il training. Tipo di discente: {learner_type}. Motivo: {Reason}.|
 
 
 ## <a name="error-0084"></a>Errore 0084  
@@ -1271,7 +1272,7 @@ La gestione degli errori per questo evento è stata introdotta in una versione p
 |Messaggi di eccezione|
 |------------------------|
 |Errore durante la valutazione dello script.|
-|Si è verificato il seguente errore durante la valutazione dello script. per ulteriori informazioni, vedere il log di output:----------inizio del messaggio di errore da {script_language} interprete----------{Message}----------fine del messaggio di errore da {script_language}  ----------interprete|
+|L'errore seguente si è verificato durante la valutazione dello script. Per altre informazioni, vedere il log di output:<br />----------L'avvio del messaggio di errore dall'interprete {script_language}----------<br />messaggio<br />----------Fine del messaggio di errore dall'interprete {script_language}----------|
 
 
 ## <a name="error-0090"></a>Errore 0090  
@@ -1284,8 +1285,8 @@ La gestione degli errori per questo evento è stata introdotta in una versione p
 |Messaggi di eccezione|
 |------------------------|
 |Non è stato possibile creare la tabella hive. Per un cluster HDInsight, verificare che il nome dell'account di archiviazione di Azure associato al cluster corrisponda a quello passato tramite il parametro Module.|
-|Non è stato possibile creare la tabella hive "{0}". Per un cluster HDInsight, verificare che il nome dell'account di archiviazione di Azure associato al cluster corrisponda a quello passato tramite il parametro Module.|
-|Non è stato possibile creare la tabella hive "{0}". Per un cluster HDInsight, verificare che il nome dell'account di archiviazione di Azure associato al cluster sia "{1}".|
+|Non è stato possibile creare la tabella hive "{table_name}". Per un cluster HDInsight, verificare che il nome dell'account di archiviazione di Azure associato al cluster corrisponda a quello passato tramite il parametro Module.|
+|Non è stato possibile creare la tabella hive "{table_name}". Per un cluster HDInsight, verificare che il nome dell'account di archiviazione di Azure associato al cluster sia "{cluster_name}".|
 
 
 ## <a name="error-0102"></a>Errore 0102  
@@ -1317,6 +1318,19 @@ La gestione degli errori per questo evento è stata introdotta in una versione p
 |Il tipo di parametro '{0}' specificato non è supportato.|  
 
 
+## <a name="error-0107"></a>Errore 0107  
+ Generata quando un file di definizione del modulo definisce un tipo di output non supportato  
+  
+ Questo errore in Azure Machine Learning viene generato quando il tipo di una porta di output in una definizione XML del modulo personalizzato non corrisponde a un tipo supportato.  
+  
+**Risoluzione:** Verificare che la proprietà Type di un elemento output nel file di definizione XML del modulo personalizzato sia un tipo supportato.  
+  
+|Messaggi di eccezione|  
+|------------------------|  
+|Tipo di output non supportato.|  
+|Il tipo di output ' {output_type}' specificato non è supportato.|  
+
+
 ## <a name="error-0125"></a>Errore 0125  
  Generata quando lo schema per più set di impostazioni non corrisponde.  
 
@@ -1342,7 +1356,7 @@ La gestione degli errori per questo evento è stata introdotta in una versione p
 |Messaggi di eccezione|
 |------------------------|
 |Le dimensioni in pixel dell'immagine superano il limite consentito.|
-|Le dimensioni in pixel dell'immagine nel file '{0}' superano il limite consentito:'{1}'.|
+|Le dimensioni in pixel dell'immagine nel file ' {file_path}' superano il limite consentito:' {size_limit}'.|
 
 
 ## <a name="error-0128"></a>Errore 0128  
@@ -1353,7 +1367,7 @@ La gestione degli errori per questo evento è stata introdotta in una versione p
 |Messaggi di eccezione|
 |------------------------|
 |Il numero di probabilità condizionali per le colonne categoriche supera il limite.|
-|Il numero di probabilità condizionali per le colonne categoriche supera il limite. Le colonne '{0}' è{1}' sono la coppia problematica.|
+|Il numero di probabilità condizionali per le colonne categoriche supera il limite. Le colonne ' {column_name_or_index_1}' è {column_name_or_index_2}' sono la coppia problematica.|
 
 
 ## <a name="error-0129"></a>Errore 0129  
@@ -1424,7 +1438,7 @@ Risoluzione:
 |Messaggi di eccezione|
 |------------------------|
 |Il numero delle colonne numeriche selezionate e i valori univoci nelle colonne categoriche e stringa sono troppo piccoli.|
-|Il numero totale delle colonne numeriche selezionate e i valori univoci nelle colonne categoriche e stringa (attualmente {0}) devono essere almeno {1}.|
+|Il numero totale delle colonne numeriche selezionate e i valori univoci nelle colonne categoriche e stringa (attualmente {actual_num}) devono essere almeno {lower_boundary}.|
 
 
 ## <a name="error-0154"></a>Errore 0154  
@@ -1473,6 +1487,6 @@ Per ottenere ulteriore assistenza, è consigliabile pubblicare il messaggio dett
 |Messaggi di eccezione|
 |------------------------|
 |Library exception.|
-|Eccezione libreria: {0}.|
-|Eccezione libreria sconosciuta: {0}. {1}.|
+|Eccezione della libreria: {Exception}.|
+|Eccezione libreria sconosciuta: {Exception}. {customer_support_guidance}.|
 

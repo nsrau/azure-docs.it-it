@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 1948151dfa07e565a929b4506273e3f88f5408c4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3e41f92f9e41f7a05102e8c0e1c2edb81fa50bf3
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76907825"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426327"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Configurare i log di monitoraggio di Azure e raccogliere i dati di diagnostica per le app per la logica di Azure
 
@@ -111,7 +111,7 @@ Quando si archiviano informazioni sugli eventi e i dati di runtime nei [log di m
 
    1. Al termine, selezionare **Salva**.
 
-   Ad esempio:
+   Ad esempio,
 
    ![Selezionare l'area di lavoro Log Analytics e i dati per la registrazione](./media/monitor-logic-apps-log-analytics/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -145,7 +145,7 @@ Dopo l'esecuzione dell'app per la logica, è possibile visualizzare i dati relat
    ![Visualizzare le proprietà rilevate per un'app per la logica](./media/monitor-logic-apps-log-analytics/logic-app-tracked-properties.png)
 
    > [!NOTE]
-   > Le proprietà rilevate o gli eventi completati potrebbero riscontrare ritardi di 10-15 minuti prima che vengano visualizzati nell'area di lavoro Log Analytics.
+   > Le proprietà rilevate o gli eventi completati potrebbero subire ritardi di 10-15 minuti prima che vengano visualizzati nell'area di lavoro Log Analytics.
    > Inoltre, la funzionalità di **reinvio** in questa pagina non è attualmente disponibile.
 
 1. Per filtrare i risultati, è possibile eseguire il filtro lato client e lato server.
@@ -179,7 +179,7 @@ Insieme ai log di monitoraggio di Azure, è possibile estendere il modo in cui s
 * [Archiviare i log delle risorse di Azure nell'account di archiviazione](../azure-monitor/platform/resource-logs-collect-storage.md)
 * [Trasmettere i log della piattaforma Azure a hub eventi di Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 
-È quindi possibile eseguire il monitoraggio in tempo reale usando i dati di telemetria e l'analisi da altri servizi, ad esempio [Analisi di flusso di Azure](../stream-analytics/stream-analytics-introduction.md) e [Power BI](../azure-monitor/platform/powerbi.md), Ad esempio:
+È quindi possibile eseguire il monitoraggio in tempo reale usando i dati di telemetria e l'analisi da altri servizi, ad esempio [Analisi di flusso di Azure](../stream-analytics/stream-analytics-introduction.md) e [Power BI](../azure-monitor/platform/powerbi.md), Ad esempio,
 
 * [Trasmettere i dati da Hub eventi ad Analisi di flusso](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analizzare i dati di streaming con Analisi di flusso e creare un dashboard di analisi in tempo reale in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)

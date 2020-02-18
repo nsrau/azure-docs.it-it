@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: overview
 ms.date: 09/23/2019
-ms.openlocfilehash: 7fadb17476c2a071de767573994bb1120b476cdf
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 0e7b2db188ef6ee7d6b80ba5da4010112008ad70
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053727"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122121"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Panoramica della sicurezza aziendale in Azure HDInsight
 
@@ -38,7 +38,7 @@ Il pacchetto [Enterprise Security Package](apache-domain-joined-architecture.md)
 
 Con questa configurazione, i dipendenti dell'azienda possono accedere ai nodi del cluster usando le credenziali del dominio. Possono usare le credenziali del dominio anche per eseguire l'autenticazione con altri endpoint approvati, ad esempio visualizzazioni di Apache Ambari, ODBC, JDBC, PowerShell e API REST per l'interazione con il cluster. 
 
-### <a name="authorization"></a>Authorization
+### <a name="authorization"></a>Autorizzazione
 
 Una procedura consigliata seguita dalla maggior parte delle aziende è assicurarsi di limitare l'accesso a tutte le risorse aziendali da parte dei dipendenti. In modo analogo, l'amministratore può definire i criteri di controllo degli accessi in base al ruolo per le risorse del cluster. Questa operazione è disponibile solo nei cluster ESP.
 
@@ -87,7 +87,7 @@ La tabella seguente include i collegamenti alle risorse per ogni tipo di soluzio
 |  | Assicurarsi di eseguire regolarmente l'[applicazione di patch del sistema operativo](../hdinsight-os-patching.md) | Customer |
 | Sicurezza di rete | Configurare una [rete virtuale](../hdinsight-plan-virtual-network-deployment.md) |
 |  | Configurare [regole in ingresso dei gruppi di sicurezza di rete](../hdinsight-plan-virtual-network-deployment.md#networktraffic) | Customer |
-|  | Configurare la [restrizione del traffico in uscita](../hdinsight-restrict-outbound-traffic.md) con Firewall (anteprima) | Customer |
+|  | Configurare la [restrizione del traffico in uscita](../hdinsight-restrict-outbound-traffic.md) con Firewall | Customer |
 | Infrastruttura virtualizzata | N/D | HDInsight (provider di servizi cloud) |
 | Sicurezza dell'infrastruttura fisica | N/D | HDInsight (provider di servizi cloud) |
 

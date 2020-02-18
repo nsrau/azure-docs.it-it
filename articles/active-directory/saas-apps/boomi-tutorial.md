@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 02/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2469745edb5b8b3696478603cfe874bcabc8c1ff
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a22a36d5e6c36008c3a574cbcf9be8ec4f52b82b
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231960"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086434"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Boomi
 
@@ -31,7 +30,7 @@ Questa esercitazione descrive come integrare Boomi con Azure Active Directory (A
 * Abilitare gli utenti per l'accesso automatico a Boomi con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -45,6 +44,7 @@ Per iniziare, sono necessari gli elementi seguenti:
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 * Boomi supporta l'accesso SSO avviato da **IDP**
+* Dopo aver configurato Boomi, è possibile applicare i controlli sessione che consentono di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. I controlli sessione costituiscono un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-boomi-from-the-gallery"></a>Aggiunta di Boomi dalla raccolta
 
@@ -81,14 +81,22 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** immettere i valori per i campi seguenti:
+1. Nella sezione **Configurazione SAML di base** seguire questa procedura se si dispone del **file di metadati del provider di servizi** e si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    a. Nella casella di testo **Identificatore** digitare un URL: `https://platform.boomi.com/`
+    a. Fare clic su **Carica il file di metadati**.
 
-    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://platform.boomi.com/sso/<boomi-tenant>/saml`
+    ![Caricare file di metadati](common/upload-metadata.png)
 
-    > [!NOTE]
-    > Il valore di URL di risposta non è reale. è necessario aggiornare questo valore con l'URL di risposta effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Boomi](https://boomi.com/company/contact/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    b. Fare clic su **logo cartella** per selezionare il file di metadati e fare quindi clic su **Upload**.
+
+    ![Scegliere file di metadati](common/browse-upload-metadata.png)
+
+    c. Dopo il caricamento del file di metadati, il valore di **Identificatore** e **URL di risposta** viene inserito automaticamente nella sezione Configurazione SAML di base.
+
+    ![image](common/idp-intiated.png)
+
+    > [!Note]
+    > Si otterrà il **file di metadati del provider di servizi** in base alla procedura descritta più avanti nella sezione **Configurare l'accesso Single Sign-On di Boomi** dell'esercitazione. Se i valori di **Identificatore** e **URL di risposta** non vengono popolati automaticamente, inserirli manualmente in base alle proprie esigenze.
 
 1. L'applicazione Boomi prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti.
 
@@ -96,7 +104,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Oltre quelli elencati in precedenza, l'applicazione Boomi prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
 
-    | NOME |  Attributo di origine|
+    | Nome |  Attributo di origine|
     | ---------------|  --------- |
     | FEDERATION_ID | user.mail |
 
@@ -154,15 +162,17 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     c. Nella casella di testo **URL di accesso provider di identità** inserire il valore di **URL di accesso** dalla finestra di configurazione dell'applicazione di Azure AD.
 
-    d. Come **Federation Id Location** selezionare il pulsante di opzione **Federation Id is in FEDERATION_ID Attribute element**.
+    d. Per **Federation Id Location** (Percorso ID federazione) selezionare il pulsante di opzione **Federation Id is in FEDERATION_ID Attribute element** (L'ID federazione si trova nell'elemento Attribute di FEDERATION_ID).
 
-    e. Fare clic sul pulsante **Salva** .
+    e. Copiare l'**URL dei metadati di AtomSphere**, passare all'**URL dei metadati** tramite il browser preferito e salvare l'output in un file. Caricare l'**URL dei metadati** nella sezione **Configurazione SAML di base** del portale di Azure.
+
+    f. Fare clic sul pulsante **Salva**.
 
 ### <a name="create-boomi-test-user"></a>Creare l'utente di test di Boomi
 
 Per consentire agli utenti di Azure AD di accedere a Boomi, è necessario effettuarne il provisioning in Boomi. Nel caso di Boomi, il provisioning è un'attività manuale.
 
-### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Per effettuare il provisioning di un account utente, seguire questa procedura:
+### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Per eseguire il provisioning di un account utente, seguire questa procedura:
 
 1. Accedere al sito aziendale di Boomi come amministratore.
 
@@ -189,7 +199,7 @@ Per consentire agli utenti di Azure AD di accedere a Boomi, è necessario effett
     f. Fare clic su **OK**.
 
     > [!NOTE]
-    > L'utente non riceverà un messaggio di notifica di benvenuto contenente una password che può essere utilizzata per accedere all'account di AtomSphere perché la password viene gestita tramite il provider di identità. È possibile usare qualsiasi altro strumento o API di creazione di account utente forniti da Boomi per effettuare il provisioning degli account utente di Azure AD.
+    > L'utente non riceverà un messaggio di notifica di benvenuto contenente una password che può essere usata per accedere all'account di AtomSphere perché la password viene gestita tramite il provider di identità. È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Boomi per eseguire il provisioning degli account utente di AAD.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO
 
@@ -201,8 +211,10 @@ Quando si fa clic sul riquadro di Boomi nel pannello di accesso, si dovrebbe acc
 
 - [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [Provare Boomi con Azure AD](https://aad.portal.azure.com/)

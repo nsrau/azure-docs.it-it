@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: 64c5d80b5a2660164b21e71f06e847d5b11e40da
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: a8265680f74b2d5679d1ebfbb2873dd096f498a3
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964423"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083056"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Esercitazione: Condividere dati con Condivisione dati di Azure  
 
@@ -29,6 +29,7 @@ In questa esercitazione si apprenderà come:
 
 * Sottoscrizione di Azure: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * Indirizzo di posta elettronica per l'accesso ad Azure dei destinatari (gli alias di posta elettronica non funzionano).
+* Se l'archivio dati di Azure di origine si trova in una sottoscrizione di Azure diversa da quella che verrà usata per creare la risorsa Condivisione dati, registrare il [provider di risorse Microsoft.DataShare](concepts-roles-permissions.md#resource-provider-registration) nella sottoscrizione in cui risiede l'archivio dati di Azure. 
 
 ### <a name="share-from-a-storage-account"></a>Condividere da un account di archiviazione:
 
@@ -57,7 +58,7 @@ In questa esercitazione si apprenderà come:
 * Accesso del firewall di SQL Server all'indirizzo IP client. A tale scopo, seguire questa procedura: 
     1. Nel portale di Azure in SQL Server passare a *Firewall e reti virtuali*
     1. Fare clic sull'interruttore di **attivazione** per consentire l'accesso ai servizi di Azure.
-    1. Fare clic su **+ Aggiungi IP client** e fare clic su **Salva**. L'indirizzo IP client è soggetto a modifiche. È anche possibile aggiungere un intervallo di indirizzi IP. 
+    1. Fare clic su **+ Aggiungi IP client** e fare clic su **Salva**. L'indirizzo IP client è soggetto a modifiche. Potrebbe essere necessario ripetere questo processo la volta successiva che si condividono i dati SQL dal portale di Azure. È anche possibile aggiungere un intervallo di indirizzi IP. 
 
 ### <a name="share-from-azure-data-explorer"></a>Condividere da Esplora dati di Azure
 * Cluster di Esplora dati di Azure con i database da condividere.

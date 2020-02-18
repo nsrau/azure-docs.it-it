@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: 1fa9c72f7ca305a03cdc90ea02cefe973932792b
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 838d215cb49e526251aff9267dbeb0feb6d5f8df
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77046308"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425257"
 ---
 # <a name="metrics-for-application-gateway"></a>Metriche per il gateway applicazione
 
@@ -95,10 +95,20 @@ Per il gateway applicazione sono disponibili le metriche seguenti:
 - **Connessioni correnti**
 
    Il numero totale di connessioni simultanee attive dai client al gateway applicazione
+   
+- **Unità di capacità fatturate stimate**
+
+  Numero di unità di capacità utilizzate per stimare la fatturazione. Si tratta di calcutaed come valore maggiore tra *unità di capacità correnti* e *unità di capacità fatturabili fisse*.  
 
 - **Richieste non riuscite**
 
    Numero di richieste non riuscite gestite dal gateway applicazione. Il numero di richieste può essere ulteriormente filtrato per visualizzare il conteggio per ogni combinazione di impostazioni http del pool back-end specifico.
+   
+- **Unità di capacità fatturabili fisse** Numero minimo di unità di capacità di cui è stato effettuato il provisioning in base all'impostazione *minima delle unità di scala* nella configurazione del gateway applicazione.
+   
+ - **Nuove connessioni al secondo**
+
+   Numero medio di nuove connessioni TCP al secondo stabilite dai client al gateway applicazione e dal gateway applicazione ai membri back-end.
 
 
 - **Stato della risposta**

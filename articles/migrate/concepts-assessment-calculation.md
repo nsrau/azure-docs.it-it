@@ -2,13 +2,13 @@
 title: Valutazioni in Azure Migrate
 description: Informazioni sulle valutazioni in Azure Migrate.
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: 5fc61d9987c9e728a5d83cb3ab3f91b8e8f5f740
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/17/2020
+ms.openlocfilehash: 0cf933dd1c8c61edfcea20ea954c5813f3848b28
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76833329"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425698"
 ---
 # <a name="about-assessments-in-azure-migrate"></a>Informazioni sulle valutazioni in Azure Migrate
 
@@ -116,7 +116,7 @@ Non tutti i computer sono idonei per l'esecuzione in Azure. Server Assessment va
 
 Per calcolare la conformità, server Assessment esamina le proprietà del computer e le impostazioni del sistema operativo riepilogate nelle tabelle seguenti. 
 
-### <a name="machine-properties"></a>Proprietà del computer
+### <a name="machine-properties"></a>Proprietà computer
 
 Server Assessment esamina le seguenti proprietà della macchina virtuale locale per determinare se può essere eseguita in Azure.
 
@@ -124,7 +124,7 @@ Server Assessment esamina le seguenti proprietà della macchina virtuale locale 
 --- | --- | ---
 **Tipo di avvio** | Azure supporta le VM con un tipo di avvio BIOS e non UEFI. | Pronto in modo condizionale se il tipo di avvio è UEFI.
 **Core** | Il numero di core nei computer deve essere uguale o inferiore al numero massimo di core (128) supportati per una macchina virtuale di Azure.<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione per il confronto i core utilizzati. Se nelle impostazioni di valutazione è specificato un fattore di comfort, il numero di core utilizzati viene moltiplicato per questo fattore.<br/><br/> Se non è presente alcuna cronologia delle prestazioni, Azure Migrate usa i core allocati senza applicare il fattore di comfort. | Idoneo se è minore o uguale ai limiti.
-**Memoria** | Le dimensioni della memoria del computer devono essere uguali o inferiori alla memoria massima (3892 gigabyte [GB] nella serie M di Azure Standard_M128m&nbsp;<sup>2</sup>) consentite per una macchina virtuale di Azure. [Altre informazioni](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione per il confronto la memoria utilizzata. Se è specificato un fattore di comfort, la memoria utilizzata viene moltiplicata per questo fattore.<br/><br/> Se non è presente alcuna cronologia, viene usata la memoria allocata senza applicare il fattore di comfort.<br/><br/> | Idoneo se rientra nei limiti.
+**Memoria** | Le dimensioni della memoria del computer devono essere uguali o inferiori alla memoria massima (3892 gigabyte [GB] nella serie M di Azure Standard_M128m&nbsp;<sup>2</sup>) consentite per una macchina virtuale di Azure. [Altre informazioni](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione per il confronto la memoria utilizzata. Se è specificato un fattore di comfort, la memoria utilizzata viene moltiplicata per questo fattore.<br/><br/> Se non è presente alcuna cronologia, viene usata la memoria allocata senza applicare il fattore di comfort.<br/><br/> | Idoneo se rientra nei limiti.
 **Disco di archiviazione** | La dimensione allocata di un disco deve essere 32 TB o inferiore. Anche se Azure supporta dischi da 64 TB con Ultra SSD dischi, Azure Migrate: la valutazione del server attualmente verifica la presenza di 32 TB come limiti di dimensioni del disco, poiché non supporta ancora Ultra SSD. <br/><br/> Il numero di dischi collegati al computer deve essere 65 o inferiore, incluso il disco del sistema operativo. | Idoneo se rientra nei limiti.
 **Rete** | Un computer deve avere 32 o un minor numero di interfacce di rete (NIC) collegati. | Idoneo se rientra nei limiti.
 
@@ -149,7 +149,7 @@ Client Windows 7, 8 e 10 | Azure offre supporto solo con [la sottoscrizione di V
 Windows 10 Pro Desktop | Azure fornisce supporto con [i diritti di hosting multi-tenant.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Idoneo per Azure con condizioni
 Windows Vista, XP Professional | Questi sistemi operativi hanno superato la data di fine del supporto. Il computer potrebbe essere avviato in Azure, ma Azure non offre alcun supporto del sistema operativo. | Pronto per Azure in modo condizionale. Si consiglia di aggiornare il sistema operativo prima di eseguire la migrazione ad Azure.
 Linux | Azure approva questi [sistemi operativi Linux](../virtual-machines/linux/endorsed-distros.md). Altri sistemi operativi Linux potrebbero avviarsi in Azure, ma è consigliabile aggiornare il sistema operativo a una versione approvata prima di eseguire la migrazione ad Azure. | Idoneo per Azure se la versione è approvata.<br/><br/>Idoneo per Azure con condizioni se la versione non è approvata.
-Altri sistemi operativi<br/><br/> Ad esempio Oracle Solaris, Apple Mac OS, FreeBSD e così via. | Azure non approva questi sistemi operativi. Il computer potrebbe essere avviato in Azure, ma Azure non offre alcun supporto del sistema operativo. | Pronto per Azure in modo condizionale. Prima di eseguire la migrazione ad Azure, è consigliabile installare un sistema operativo supportato.  
+Altri sistemi operativi<br/><br/> Ad esempio Oracle Solaris, Apple macOS e così via, FreeBSD e così via. | Azure non approva questi sistemi operativi. Il computer potrebbe essere avviato in Azure, ma Azure non offre alcun supporto del sistema operativo. | Pronto per Azure in modo condizionale. Prima di eseguire la migrazione ad Azure, è consigliabile installare un sistema operativo supportato.  
 Sistema operativo specificato come **Altro** nel server vCenter | In questo caso Azure Migrate non può identificare il sistema operativo. | Idoneità sconosciuta. Verificare che il sistema operativo eseguito nella VM sia supportato in Azure.
 Sistemi operativi a 32 bit | Il computer potrebbe essere avviato in Azure, ma Azure potrebbe non fornire supporto completo. | Pronto per Azure in modo condizionale. Provare ad aggiornare il sistema operativo del computer da un sistema operativo a 32 bit a un sistema operativo a 64 bit prima di eseguire la migrazione ad Azure.
 

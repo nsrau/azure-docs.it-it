@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/29/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ad6b84323ac49713506bc61bd0051421e0234a94
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 5dc9bc56ac717d355f0fb0ebcc482430662378ca
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982280"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425608"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -75,17 +75,17 @@ Un elemento **TechnicalProfiles** contiene un set di profili tecnici supportati 
 
 L'elemento **TechnicalProfile** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 |---------|---------|---------|
-| ID | Sì | Un identificatore univoco del profilo tecnico. È possibile fare riferimento al profilo tecnico usando questo identificatore dagli altri elementi nel file dei criteri. Ad esempio, **OrchestrationSteps** e **ValidationTechnicalProfile**. |
+| Id | Sì | Un identificatore univoco del profilo tecnico. È possibile fare riferimento al profilo tecnico usando questo identificatore dagli altri elementi nel file dei criteri. Ad esempio, **OrchestrationSteps** e **ValidationTechnicalProfile**. |
 
 L'elemento **TechnicalProfile** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Description |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | Dominio | 0:1 | Il nome di dominio per il profilo tecnico. Ad esempio, se il profilo tecnico specifica il provider di identità Facebook, il nome di dominio è Facebook.com. |
 | DisplayName | 1:1 | Il nome del profilo tecnico che può essere visualizzato dagli utenti. |
-| Description | 0:1 | La descrizione del profilo tecnico che può essere visualizzato dagli utenti. |
+| Descrizione | 0:1 | La descrizione del profilo tecnico che può essere visualizzato dagli utenti. |
 | Protocollo | 0:1 | Il protocollo usato per la comunicazione con altre entità. |
 | Metadati | 0:1 | Una raccolta di coppie di chiavi/valori che vengono usate dal protocollo per comunicare con l'endpoint durante la transazione. |
 | InputTokenFormat | 0:1 | Il formato del token di input. I valori possibili sono: `JSON`, `JWT`, `SAML11` o `SAML2`. Il valore `JWT` rappresenta un Token JSON Web in base alla specifica IETF. Il valore `SAML11` rappresenta un token di sicurezza SAML 1.1 in base alla specifica di OASIS.  Il valore `SAML2` rappresenta un token di sicurezza SAML 2.0 in base alla specifica di OASIS. |
@@ -109,16 +109,16 @@ L'elemento **TechnicalProfile** contiene gli elementi seguenti:
 
 L'elemento **Protocollo** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Nome | Sì | Nome di un protocollo valido supportato da Azure AD B2C usato come parte del profilo tecnico. Valori possibili: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary`, `session management`, `self-asserted`o `None`. |
-| Gestore | No | Quando il nome del protocollo è impostato su `Proprietary`, specificare il nome completo dell'assembly usato da Azure AD B2C per determinare il gestore di protocollo. |
+| Name | Sì | Nome di un protocollo valido supportato da Azure AD B2C usato come parte del profilo tecnico. Valori possibili: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary`o `None`. |
+| Handler | No | Quando il nome del protocollo è impostato su `Proprietary`, specificare il nome completo dell'assembly usato da Azure AD B2C per determinare il gestore di protocollo. |
 
 ## <a name="metadata"></a>Metadati
 
 L'elemento **Metadata** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Description |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | Elemento | 0:n | I metadati che riguardano il profilo tecnico. Ogni tipo di profilo tecnico dispone di un diverso set di elementi di metadati. Per altre informazioni, vedere la sezione dedicata ai tipi di profilo tecnico. |
 
@@ -126,7 +126,7 @@ L'elemento **Metadata** contiene gli elementi seguenti:
 
 L'elemento **Elemento** di **Metadati** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Chiave | Sì | La chiave dei metadati. Per l'elenco degli elementi di metadati, vedere ogni tipo di profilo tecnico. |
 
@@ -134,7 +134,7 @@ L'elemento **Elemento** di **Metadati** contiene gli attributi seguenti:
 
 L'elemento **CryptographicKeys** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Description |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | Chiave | 1:n | Una chiave di crittografia usata in questo profilo tecnico. |
 
@@ -142,16 +142,16 @@ L'elemento **CryptographicKeys** contiene l'elemento seguente:
 
 L'elemento **Chiave** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| ID | No | Un identificatore univoco di una coppia di chiavi specifica a cui fanno riferimento altri elementi nel file dei criteri. |
+| Id | No | Un identificatore univoco di una coppia di chiavi specifica a cui fanno riferimento altri elementi nel file dei criteri. |
 | StorageReferenceId | Sì | Un identificatore di un contenitore di chiavi di archiviazione a cui fanno riferimento altri elementi nel file dei criteri. |
 
 ## <a name="inputclaimstransformations"></a>InputClaimsTransformations
 
 L'elemento **InputClaimsTransformations** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Description |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | InputClaimsTransformation | 1:n | L'identificatore di una trasformazione di attestazioni che deve essere eseguita prima che le attestazioni siano inviate al provider di attestazioni o relying party. Una trasformazione delle attestazioni può essere usata per modificare le attestazioni ClaimsSchema esistenti o generarne di nuove. |
 
@@ -159,7 +159,7 @@ L'elemento **InputClaimsTransformations** contiene l'elemento seguente:
 
 L'elemento **InputClaimsTransformation** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ReferenceId | Sì | Un identificatore di trasformazione delle attestazioni già definito nel file dei criteri o nel file dei criteri padre. |
 
@@ -167,7 +167,7 @@ L'elemento **InputClaimsTransformation** contiene l'attributo seguente:
 
 L'elemento **InputClaims** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Description |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | InputClaim | 1:n | Un tipo di attestazione di input previsto. |
 
@@ -175,7 +175,7 @@ L'elemento **InputClaims** contiene l'elemento seguente:
 
 L'elemento **InputClaim** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sì | L'identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri o del file dei criteri padre. |
 | DefaultValue | No | Un valore predefinito da usare per creare un'attestazione se l'attestazione indicata da ClaimTypeReferenceId non esiste, in modo che l'attestazione che ne deriva possa essere usata come InputClaim dal profilo tecnico. |
@@ -185,7 +185,7 @@ L'elemento **InputClaim** contiene gli attributi seguenti:
 
 L'elemento **DisplayClaims** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Description |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | DisplayClaim | 1:n | Un tipo di attestazione di input previsto. |
 
@@ -195,11 +195,11 @@ La funzionalità DislayClaims è attualmente in fase di **Anteprima**.
 
 L'elemento **DisplayClaim** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | No | L'identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri o del file dei criteri padre. |
 | DisplayControlReferenceId | No | Identificatore di un [controllo di visualizzazione](display-controls.md) già definito nella sezione ClaimsSchema del file di criteri o del file di criteri padre. |
-| Obbligatorio | No | Indica se l'attestazione di visualizzazione è obbligatoria. |
+| Obbligatoria | No | Indica se l'attestazione di visualizzazione è obbligatoria. |
 
 Per **DisplayClaim** è necessario specificare un `ClaimTypeReferenceId` o `DisplayControlReferenceId`.
 
@@ -207,7 +207,7 @@ Per **DisplayClaim** è necessario specificare un `ClaimTypeReferenceId` o `Disp
 
 L'elemento **PersistedClaims** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Description |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | PersistedClaim | 1:n | Il tipo di attestazione da mantenere. |
 
@@ -215,7 +215,7 @@ L'elemento **PersistedClaims** contiene gli elementi seguenti:
 
 L'elemento **PersistedClaim** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sì | L'identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri o del file dei criteri padre. |
 | DefaultValue | No | Un valore predefinito da usare per creare un'attestazione se l'attestazione indicata da ClaimTypeReferenceId non esiste, in modo che l'attestazione che ne deriva possa essere usata come InputClaim dal profilo tecnico. |
@@ -225,7 +225,7 @@ L'elemento **PersistedClaim** contiene gli attributi seguenti:
 
 L'elemento **OutputClaims** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Description |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | OutputClaim | 1:n | Un tipo di attestazione di output previsto. |
 
@@ -233,7 +233,7 @@ L'elemento **OutputClaims** contiene l'elemento seguente:
 
 L'elemento **OutputClaim** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sì | L'identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri o del file dei criteri padre. |
 | DefaultValue | No | Un valore predefinito da usare per creare un'attestazione se l'attestazione indicata da ClaimTypeReferenceId non esiste, in modo che l'attestazione che ne deriva possa essere usata come InputClaim dal profilo tecnico. |
@@ -244,7 +244,7 @@ L'elemento **OutputClaim** contiene gli attributi seguenti:
 
 L'elemento **OutputClaimsTransformations** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Description |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | OutputClaimsTransformation | 1:n | Gli identificatori delle trasformazione di attestazioni che devono essere eseguiti prima che le attestazioni siano inviate al provider di attestazioni o relying party. Una trasformazione delle attestazioni può essere usata per modificare le attestazioni ClaimsSchema esistenti o generarne di nuove. |
 
@@ -252,7 +252,7 @@ L'elemento **OutputClaimsTransformations** contiene l'elemento seguente:
 
 L'elemento **OutputClaimsTransformation** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ReferenceId | Sì | Un identificatore di trasformazione delle attestazioni già definito nel file dei criteri o nel file dei criteri padre. |
 
@@ -260,7 +260,7 @@ L'elemento **OutputClaimsTransformation** contiene l'attributo seguente:
 
 L'elemento **ValidationTechnicalProfiles** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Description |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | ValidationTechnicalProfile | 1:n | Gli identificatori dei profili tecnici che consentono di convalidare alcune o tutte le attestazioni di output del profilo tecnico di riferimento. Tutte le attestazioni di input del profilo tecnico a cui si fa riferimento devono essere visualizzate nelle attestazioni di output del profilo tecnico di riferimento. |
 
@@ -268,7 +268,7 @@ L'elemento **ValidationTechnicalProfiles** contiene l'elemento seguente:
 
 L'elemento **ValidationTechnicalProfile** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ReferenceId | Sì | Un identificatore del profilo tecnico già definito nel file dei criteri o nel file dei criteri padre. |
 
@@ -276,7 +276,7 @@ L'elemento **ValidationTechnicalProfile** contiene gli attributi seguenti:
 
 Il **SubjectNamingInfo** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ClaimType | Sì | Un identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri. |
 
@@ -284,7 +284,7 @@ Il **SubjectNamingInfo** contiene l'attributo seguente:
 
 L'elemento **IncludeTechnicalProfile** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ReferenceId | Sì | Un identificatore del profilo tecnico già definito nel file dei criteri o nel file dei criteri padre. |
 
@@ -292,7 +292,7 @@ L'elemento **IncludeTechnicalProfile** contiene l'attributo seguente:
 
 L'elemento **UseTechnicalProfileForSessionManagement** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ReferenceId | Sì | Un identificatore del profilo tecnico già definito nel file dei criteri o nel file dei criteri padre. |
 

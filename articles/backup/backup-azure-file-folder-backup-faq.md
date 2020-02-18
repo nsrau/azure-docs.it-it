@@ -3,16 +3,16 @@ title: Backup di file e cartelle-domande comuni
 description: Risolve le domande frequenti sul backup di file e cartelle con backup di Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 45c01a08151060b60b0f3e3b27b2fcc16ec8e60b
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 7b80932d49038bb42fa93f71b3ac0194c2869489
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720362"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425069"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Domande frequenti sul backup di file e cartelle
 
-Questo articolo contiene le risposte alle domande più comuni che comportano il backup di file e cartelle con l'agente di Servizi di ripristino di Microsoft Azure (MARS) nel servizio [backup di Azure](backup-overview.md) .
+Questo articolo risponde a domande comuni che abbondano i file e le cartelle con l'agente di Servizi di ripristino di Microsoft Azure (MARS) nel servizio [backup di Azure](backup-overview.md) .
 
 ## <a name="configure-backups"></a>Configurare i backup
 
@@ -66,7 +66,7 @@ Quando si rinomina un computer Windows, tutti i backup attualmente configurati v
 
 * È necessario registrare il nuovo nome del computer con l'insieme di credenziali per il backup.
 * Quando si registra il nuovo nome con l'insieme di credenziali, la prima operazione è un backup *completo* .
-* Se è necessario ripristinare i dati di cui è stato eseguito il backup nell'insieme di credenziali con il nome del server precedente, usare l'opzione per eseguire il ripristino in un percorso alternativo nella procedura guidata Ripristina dati. [Altre informazioni](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+* Se è necessario ripristinare i dati di cui è stato eseguito il backup nell'insieme di credenziali con il nome del server precedente, usare l'opzione per eseguire il ripristino in un percorso alternativo nella procedura guidata Ripristina dati. [Altre informazioni](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>Qual è la lunghezza massima del percorso file per il backup?
 
@@ -90,7 +90,7 @@ Questo avviso può essere visualizzato anche se sono stati configurati criteri d
 La dimensione della cartella della cache determina la quantità di dati sottoposti a backup.
 
 * Lo spazio disponibile nei volumi della cartella della cache è uguale almeno al 5-10% delle dimensioni totali dei dati di backup.
-* Se lo spazio disponibile nel volume è inferiore al 5%, aumentare la dimensione del volume oppure spostare la cartella della cache in un volume con spazio sufficiente.
+* Se lo spazio disponibile nel volume è inferiore al 5%, aumentare la dimensione del volume oppure spostare la cartella della cache in un volume con spazio sufficiente attenendosi alla seguente [procedura](#how-do-i-change-the-cache-location-for-the-mars-agent).
 * Se si esegue il backup dello stato del sistema Windows, saranno necessari altri 30-35 GB di spazio libero nel volume contenente la cartella della cache.
 
 ### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>Come verificare se la cartella Scratch è valida e accessibile
@@ -98,35 +98,35 @@ La dimensione della cartella della cache determina la quantità di dati sottopos
 1. Per impostazione predefinita, la cartella Scratch si trova in `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 2. Verificare che il percorso della cartella dei file temporanei corrisponda ai valori delle voci della chiave del registro di sistema mostrate di seguito:
 
-  | Percorso del Registro | Chiave del Registro | Valore |
-  | --- | --- | --- |
-  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nuovo percorso della cartella della cache* |
-  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nuovo percorso della cartella della cache* |
+    | Percorso del Registro | Chiave del Registro | Valore |
+    | --- | --- | --- |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nuovo percorso della cartella della cache* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nuovo percorso della cartella della cache* |
 
 ### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>Ricerca per categorie modificare il percorso della cache per l'agente MARS?
 
 1. Eseguire questo comando in un prompt dei comandi con privilegi elevati per arrestare il motore di backup:
 
     ```Net stop obengine```
-
 2. Se è stato configurato il backup dello stato del sistema, aprire Gestione disco e smontare i dischi con nomi nel formato `"CBSSBVol_<ID>"`.
-3. Non spostare i file. Copiare invece la cartella dello spazio della cache in un'unità diversa con spazio sufficiente.
-4. Aggiornare le voci del registro di sistema seguenti con il percorso della nuova cartella della cache.
+3. Per impostazione predefinita, la cartella Scratch si trova in `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+4. Copiare l'intera cartella `\Scratch` in un'altra unità con spazio sufficiente. Verificare che il contenuto venga copiato, non spostato.
+5. Aggiornare le voci del registro di sistema seguenti con il percorso della cartella Scratch appena spostata.
 
     | Percorso del Registro | Chiave del Registro | Valore |
     | --- | --- | --- |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nuovo percorso della cartella della cache* |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nuovo percorso della cartella della cache* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nuovo percorso cartella Scratch* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nuovo percorso cartella Scratch* |
 
-5. Riavviare il motore di backup a un prompt dei comandi con privilegi elevati:
+6. Riavviare il motore di backup a un prompt dei comandi con privilegi elevati:
 
-  ```command
-  Net stop obengine
+    ```command
+    Net stop obengine
 
-  Net start obengine
-  ```
+    Net start obengine
+    ```
 
-6. Eseguire un backup su richiesta. Al termine del backup con il nuovo percorso, è possibile rimuovere la cartella della cache originale.
+7. Eseguire un backup su richiesta. Al termine del backup con il nuovo percorso, è possibile rimuovere la cartella della cache originale.
 
 ### <a name="where-should-the-cache-folder-be-located"></a>Dove si trova la cartella della cache?
 
@@ -149,9 +149,9 @@ La cartella della cache e il VHD dei metadati non hanno gli attributi necessari 
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>È possibile modificare la quantità di larghezza di banda usata per il backup?
 
-Sì, è possibile usare l'opzione **modifica proprietà** nell'agente Mars per regolare la larghezza di banda e l'intervallo di tempo. [Altre informazioni](backup-configure-vault.md#enable-network-throttling)
+Sì, è possibile usare l'opzione **modifica proprietà** nell'agente Mars per regolare la larghezza di banda e l'intervallo di tempo. [Altre informazioni](backup-configure-vault.md#enable-network-throttling).
 
-## <a name="restore"></a>Ripristinare
+## <a name="restore"></a>Ripristina
 
 ### <a name="manage"></a>Gestire
 
@@ -160,10 +160,10 @@ L'agente di backup di Azure richiede una passphrase (fornita durante la registra
 
 | Computer originale <br> *(computer di origine in cui sono stati eseguiti i backup)* | Passphrase | Opzioni disponibili |
 | --- | --- | --- |
-| Disponibile |Lost |Se il computer originale (in cui sono stati eseguiti i backup) è disponibile e ancora registrato con lo stesso insieme di credenziali di servizi di ripristino, è possibile rigenerare la passphrase attenendosi alla [procedura](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase)seguente.  |
-| Lost |Lost |Non è possibile recuperare i dati o i dati non sono disponibili |
+| Disponibile |Perso |Se il computer originale (in cui sono stati eseguiti i backup) è disponibile e ancora registrato con lo stesso insieme di credenziali di servizi di ripristino, è possibile rigenerare la passphrase attenendosi alla [procedura](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase)seguente.  |
+| Perso |Perso |Non è possibile recuperare i dati o i dati non sono disponibili |
 
-Prendere in considerazione le condizioni seguenti:
+Si considerino le condizioni seguenti:
 
 * Se si disinstalla e si registra di nuovo l'agente nello stesso computer originale con
   * *Stessa passphrase*, sarà possibile ripristinare i dati di cui è stato eseguito il backup.
@@ -179,8 +179,8 @@ Se si ha la stessa passphrase (fornita durante la registrazione) del computer or
 
 | Computer originale | Passphrase | Opzioni disponibili |
 | --- | --- | --- |
-| Lost |Disponibile |È possibile installare e registrare l'agente MARS in un altro computer con la stessa passphrase fornita durante la registrazione del computer originale. Scegliere l' **opzione di ripristino** > **un altro percorso** per eseguire il ripristino. Per altre informazioni, vedere questo [articolo](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
-| Lost |Lost |Non è possibile recuperare i dati o i dati non sono disponibili |
+| Perso |Disponibile |È possibile installare e registrare l'agente MARS in un altro computer con la stessa passphrase fornita durante la registrazione del computer originale. Scegliere l' **opzione di ripristino** > **un altro percorso** per eseguire il ripristino. Per altre informazioni, vedere questo [articolo](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
+| Perso |Perso |Non è possibile recuperare i dati o i dati non sono disponibili |
 
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Cosa accade se si annulla un processo di ripristino in corso?

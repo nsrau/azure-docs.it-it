@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 02/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 736cf03b58ec09b291c91857177a32c7dad89c6a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 874c685491774e2a318ae0a8b7394945a51b2f7f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892055"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77423811"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiare dati da e in Oracle usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -44,7 +44,6 @@ In particolare, questo connettore Oracle supporta:
     - Oracle 9i R2 (9,2) e versioni successive
     - Oracle 8i R3 (8.1.7) e versioni successive
     - Servizio Exadata cloud Oracle Database
-- Copia di dati tramite l'autenticazione di base o OID.
 - Copia parallela da un'origine Oracle. Per informazioni dettagliate, vedere la sezione [copia parallela da Oracle](#parallel-copy-from-oracle) .
 
 > [!Note]
@@ -56,7 +55,7 @@ In particolare, questo connettore Oracle supporta:
 
 Il runtime di integrazione fornisce un driver Oracle incorporato. Non è pertanto necessario installare manualmente un driver quando si copiano dati da e in Oracle.
 
-## <a name="get-started"></a>Inizia oggi stesso
+## <a name="get-started"></a>Attività iniziali
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -66,18 +65,18 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà usate pe
 
 Il servizio collegato Oracle supporta le proprietà seguenti:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **Oracle**. | Sì |
 | connectionString | Specifica le informazioni necessarie per la connessione all'istanza del database Oracle. <br/>È anche possibile inserire una password in Azure Key Vault ed estrarre la configurazione `password` dalla stringa di connessione. Per informazioni dettagliate, vedere gli esempi seguenti e [archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) . <br><br>**Tipo di connessione supportato**: è possibile usare l'**ID di sicurezza Oracle** o il **nome del servizio Oracle** per identificare il database:<br>- Se si usa il SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Se si usa il nome del servizio: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;`<br>Per le opzioni avanzate di connessione Oracle native, è possibile scegliere di aggiungere una voce in [tnsnames. File ORA](http://www.orafaq.com/wiki/Tnsnames.ora) nel server Oracle e nel servizio collegato Oracle di ADF scegliere di usare il tipo di connessione del nome del servizio Oracle e configurare il nome del servizio corrispondente. | Sì |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Ulteriori informazioni sono disponibili nella sezione [prerequisiti](#prerequisites) . Se questa proprietà non è specificata, viene usato il tipo Azure Integration Runtime predefinito. |No |
 
 >[!TIP]
->Se viene ricevuto un errore, "ORA-01025: parametro UPI non compreso nell'intervallo" e la versione di Oracle è 8i, aggiungere `WireProtocolMode=1` alla stringa di connessione. Quindi riprovare.
+>Se viene ricevuto un errore, "ORA-01025: parametro UPI non compreso nell'intervallo" e la versione di Oracle è 8i, aggiungere `WireProtocolMode=1` alla stringa di connessione. quindi riprovare.
 
 Ulteriori proprietà di connessione che è possibile impostare nella stringa di connessione in base al caso:
 
-| Proprietà | Description | Valori consentiti |
+| Proprietà | Descrizione | Valori consentiti |
 |:--- |:--- |:--- |
 | ArraySize |Numero di byte che il connettore può recuperare in una singola rete round trip. Ad esempio, `ArraySize=‭10485760‬`.<br/><br/>I valori più grandi aumentano la velocità effettiva riducendo il numero di volte in cui recuperare i dati attraverso la rete. I valori più piccoli aumentano il tempo di risposta, poiché si verificano meno ritardi in attesa del server per la trasmissione dei dati. | Numero intero compreso tra 1 e 4294967296 (4 GB). Il valore predefinito è `60000`. Il valore 1 non definisce il numero di byte, ma indica l'allocazione dello spazio per esattamente una riga di dati. |
 
@@ -167,11 +166,11 @@ Per abilitare la crittografia sulla connessione di Oracle, sono disponibili due 
 ```
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
-Questa sezione presenta un elenco delle proprietà supportate dal set di dati Oracle. Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere [Datasets](concepts-datasets-linked-services.md). 
+Questa sezione presenta un elenco delle proprietà supportate dal set di dati Oracle. Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere [DataSets](concepts-datasets-linked-services.md). 
 
 Per copiare dati da e in Oracle, impostare la proprietà Type del set di dati su `OracleTable`. Sono supportate le proprietà seguenti.
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà Type del set di dati deve essere impostata su `OracleTable`. | Sì |
 | schema | Nome dello schema. |No per l'origine, Sì per il sink  |
@@ -210,7 +209,7 @@ Questa sezione presenta un elenco delle proprietà supportate dall'origine e dal
 
 Per copiare dati da Oracle, impostare il tipo di origine nell'attività di copia su `OracleSource`. Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti.
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su `OracleSource`. | Sì |
 | oracleReaderQuery | Usare la query SQL personalizzata per leggere i dati. Un esempio è `"SELECT * FROM MyTable"`.<br>Quando si Abilita il caricamento partizionato, è necessario associare tutti i parametri di partizione predefiniti corrispondenti nella query. Per esempi, vedere la sezione [copia parallela da Oracle](#parallel-copy-from-oracle) . | No |
@@ -257,7 +256,7 @@ Per copiare dati da Oracle, impostare il tipo di origine nell'attività di copia
 
 Per copiare dati in Oracle, impostare il tipo di sink nell'attività di copia su `OracleSink`. Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti.
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà Type del sink dell'attività di copia deve essere impostata su `OracleSink`. | Sì |
 | writeBatchSize | Inserisce i dati nella tabella SQL quando la dimensione del buffer raggiunge `writeBatchSize`.<br/>I valori consentiti sono integer (numero di righe). |No (il valore predefinito è 10.000) |
@@ -351,25 +350,25 @@ Quando si copiano dati da e in Oracle, vengono applicati i mapping seguenti. Per
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(supportato solo in Oracle 10g e versioni successive) |
-| CHAR |string |
-| CLOB |string |
-| DATE |Data e ora |
+| CHAR |String |
+| CLOB |String |
+| DATE |Datetime |
 | FLOAT |Decimal, String (se la precisione > 28) |
 | INTEGER |Decimal, String (se la precisione > 28) |
-| LONG |string |
+| LONG |String |
 | LONG RAW |Byte[] |
-| NCHAR |string |
-| NCLOB |string |
+| NCHAR |String |
+| NCLOB |String |
 | NUMBER |Decimal, String (se la precisione > 28) |
-| NVARCHAR2 |string |
+| NVARCHAR2 |String |
 | RAW |Byte[] |
-| ROWID |string |
-| timestamp |Data e ora |
-| TIMESTAMP WITH LOCAL TIME ZONE |string |
-| TIMESTAMP WITH TIME ZONE |string |
-| UNSIGNED INTEGER |Numero |
-| VARCHAR2 |string |
-| XML |string |
+| ROWID |String |
+| timestamp |Datetime |
+| TIMESTAMP WITH LOCAL TIME ZONE |String |
+| TIMESTAMP WITH TIME ZONE |String |
+| UNSIGNED INTEGER |Number |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > I tipi di dati INTERVAL YEAR TO MONTH e INTERVAL DAY TO SECOND non sono supportati.

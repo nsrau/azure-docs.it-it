@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: saudas
-ms.openlocfilehash: 8c144fb0c9818e21c2ca5bd61525067b485531bb
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 625b44ae3f8a1d5d474d980693d92840b1317f09
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026116"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425766"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versioni Kubernetes supportate nel servizio Azure Kubernetes
 
@@ -22,7 +22,7 @@ AKS mira a certificare e rilasciare nuove versioni di Kubernetes entro 30 giorni
 
 ## <a name="kubernetes-versions"></a>Versioni di Kubernetes
 
-Kubernetes usa lo schema di controllo delle versioni [semantico standard](https://semver.org/). Ciò significa che ogni versione di Kubernetes segue questo schema di numerazione:
+Kubernetes usa lo schema di controllo delle versioni [semantico](https://semver.org/) standard. Ciò significa che ogni versione di Kubernetes segue questo schema di numerazione:
 
 ```
 [major].[minor].[patch]
@@ -70,7 +70,7 @@ Quando viene introdotta una nuova versione secondaria, la versione secondaria pi
 1.13.f
 ```
 
-E AKS rilascia 1,16. *questo significa che 1,13.* le versioni (tutte le versioni 1,13) verranno rimosse e non supportate.
+E AKS rilascia 1,16. *questo significa che 1,13.* le versioni (tutte le versioni 1,13) verranno rimosse e non saranno supportate.
 
 > [!NOTE]
 > Si noti che se i clienti eseguono una versione di Kubernetes non supportata, verrà richiesto di eseguire l'aggiornamento quando richiede il supporto per il cluster. I cluster che eseguono versioni Kubernetes non supportate non sono coperti dai [criteri di supporto di AKS](https://docs.microsoft.com/azure/aks/support-policies).
@@ -99,7 +99,7 @@ New Supported Version List
   * I clienti hanno **30 giorni** dalla data di notifica pubblica per eseguire l'aggiornamento a una versione secondaria supportata.
 * Per le nuove versioni di **patch** di Kubernetes
   * A tutti gli utenti viene notificata la nuova versione della patch rilasciata e per eseguire l'aggiornamento alla versione più recente della patch.
-  * Gli utenti hanno **30 giorni** per eseguire l'aggiornamento a una versione più recente supportata della patch. Gli utenti hanno **30 giorni** per eseguire l'aggiornamento a una versione di patch supportata prima che venga rimosso il meno recente.
+  * Gli utenti hanno **30 giorni** per eseguire l'aggiornamento a una versione più recente supportata della patch prima che venga rimosso il meno recente.
 
 AKS definisce una "versione rilasciata" come le versioni disponibili a livello generale, abilitata in tutte le misurazioni SLO/qualità del servizio e disponibile in tutte le aree. AKS può supportare anche le versioni di anteprima, etichettate in modo esplicito e soggette a termini e condizioni per l'anteprima.
 
@@ -135,18 +135,18 @@ Per informazioni sulle versioni attualmente disponibili per la sottoscrizione e 
 az aks get-versions --location eastus --output table
 ```
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Domande frequenti
 
 **Cosa accade quando un cliente esegue l'aggiornamento di un cluster Kubernetes con una versione secondaria che non è supportata?**
 
-Se si utilizza la versione *n-3* , l'utente non è supportato e verrà richiesto di effettuare l'aggiornamento. Se l'aggiornamento dalla versione n-3 a n-2 ha esito positivo, si è ora all'interno dei criteri di supporto. Ad esempio:
+Se si utilizza la versione *n-3* , l'utente non è supportato e verrà richiesto di effettuare l'aggiornamento. Se l'aggiornamento dalla versione n-3 a n-2 ha esito positivo, si è ora all'interno dei criteri di supporto. Ad esempio,
 
 - Se la versione più recente di AKS supportata è *1.13. a* e l'utente si trova in *1.12. b* o versioni precedenti, l'utente non è supportato.
 - Se l'aggiornamento da *1.12. b* a *1.13. a* o versione successiva ha esito positivo, si torna all'interno dei criteri di supporto.
 
 Gli aggiornamenti alle versioni precedenti alla finestra supportata di *N-2* non sono supportati. In questi casi, è consigliabile che i clienti creino nuovi cluster AKS e ridistribuiscano i carichi di lavoro con le versioni nella finestra supportata.
 
-**Cosa significa ' fuori supporto '**
+**Cosa significa ' esterno al supporto tecnico '**
 
 "All'esterno del supporto" significa che la versione in esecuzione è esterna all'elenco delle versioni supportate e verrà richiesto di aggiornare il cluster a una versione supportata quando si richiede il supporto. Inoltre, AKS non esegue alcun runtime o altre garanzie per i cluster al di fuori dell'elenco delle versioni supportate.
 

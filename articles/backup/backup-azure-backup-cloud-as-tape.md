@@ -3,19 +3,19 @@ title: Come sostituire l'infrastruttura basata su nastro
 description: Informazioni su come backup di Azure offre una semantica di tipo nastro che consente di eseguire il backup e il ripristino dei dati in Azure
 ms.topic: conceptual
 ms.date: 04/30/2017
-ms.openlocfilehash: 4659a4d6fcc7213f8323e23d59411680276fcb28
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: aeda1cefc84d425855c40b793f8334936541e63f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173320"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425103"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Spostare lo spazio di archiviazione a lungo termine su nastro nel cloud di Azure
 
 I clienti di Backup di Azure e System Center Data Protection Manager possono eseguire le attività seguenti:
 
 * Eseguire il backup dei dati secondo le pianificazioni più adatte alle esigenze dell'organizzazione.
-* Mantenere i dati di backup per periodi più lunghi
+* Mantenere i dati di backup per periodi di tempo più lunghi.
 * Includere Azure nelle strategie di conservazione dei dati a lungo termine, in alternativa al backup su nastro.
 
 Questo articolo illustra come abilitare i criteri di backup e di conservazione. I clienti che usano i nastri per soddisfare le esigenze di conservazione a lungo termine dispongono ora di un'alternativa efficace e affidabile. Questa funzionalità è abilitata nella versione più recente di Backup di Azure, disponibile [in questa pagina](https://aka.ms/azurebackup_agent). I clienti di System Center DPM devono effettuare l'aggiornamento a DPM 2012 R2 UR5 almeno, prima di poter usare DPM con il servizio Backup di Azure.
@@ -43,9 +43,9 @@ Il numero totale di "punti di conservazione" specificati in questi criteri è pa
 ![Schermata di esempio](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
 1. **Criteri di mantenimento giornaliero**: i backup eseguiti quotidianamente vengono archiviati per sette giorni.
-2. **Criteri di conservazione settimanale**: i backup eseguiti ogni giorno a mezzanotte e ogni sabato alle 18.00 verranno conservati per quattro settimane
-3. **Criteri di mantenimento mensile**: i backup eseguiti a mezzanotte e alle 18.00 dell'ultimo sabato del mese verranno conservati per 12 mesi
-4. **Criteri di mantenimento annuale**: i backup eseguiti a mezzanotte dell'ultimo sabato del mese di marzo verranno conservati per 10 anni
+2. **Criteri di conservazione settimanale**: i backup eseguiti a mezzanotte e le 18.00 sabato vengono conservati per quattro settimane.
+3. **Criteri di conservazione mensili**: i backup eseguiti a mezzanotte e le 18.00 dell'ultimo sabato di ogni mese vengono conservati per 12 mesi.
+4. **Criteri di conservazione annuali**: i backup eseguiti a mezzanotte dell'ultimo sabato di ogni mese di marzo vengono conservati per 10 anni.
 
 Il numero totale dei "punti di conservazione" (punti da cui un cliente può ripristinare i dati) riportati nel diagramma precedente viene calcolato nel modo seguente:
 

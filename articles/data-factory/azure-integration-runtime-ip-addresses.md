@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: d64475ce524a3e859ed68a46552fedf30068f71d
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 8b1fd7b1962a4d46d38287e5faf8f1ba4cbb40bd
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514783"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77423631"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Indirizzi IP di Azure Integration Runtime
 
@@ -31,20 +31,20 @@ Gli indirizzi IP usati da Azure Integration Runtime dipendono dall'area in cui s
 
 Consentire il traffico dagli indirizzi IP elencati per il runtime di integrazione di Azure nell'area specifica di Azure in cui si trovano le risorse:
 
-|                | Area              | Indirizzi IP                                                 |
+|                | Region              | indirizzi IP                                                 |
 | -------------- | ------------------- | ------------------------------------------------------------ |
 | Asia           | Asia orientale           | 20.189.104.128/25, </br>20.189.106.0/26, </br>13.75.39.112/28 |
 | &nbsp;         | Asia sud-orientale      | 20.43.128.128/25, </br>20.43.130.0/26, </br>40.78.236.176/28 |
 | Australia      | Australia orientale      | 20.37.193.0/25,</br>20.37.193.128/26,</br>13.70.74.144/28    |
-| &nbsp;         | Australia sudorientale | 20.42.225.0/25,</br>20.42.225.128/26,</br>13.77.53.160/28    |
+| &nbsp;         | Australia sud-orientale | 20.42.225.0/25,</br>20.42.225.128/26,</br>13.77.53.160/28    |
 | Brasile         | Brasile meridionale        | 191.235.224.128/25,</br>191.235.225.0/26,</br>191.233.205.160/28 |
 | Canada         | Canada centrale      | 52.228.80.128/25,</br>52.228.81.0/26,</br>13.71.175.80/28    |
 | Europa         | Europa settentrionale        | 20.38.82.0/23,</br>20.38.80.192/26,</br>13.69.230.96/28      |
 | &nbsp;         | Europa occidentale         | 40.74.26.0/23,</br>40.74.24.192/26,</br>13.69.67.192/28      |
-| Francia         | Francia centrale      | 20.43.40.128/25,</br>20.43.41.0/26,</br>40.79.132.112/28     |
+| France         | Francia centrale      | 20.43.40.128/25,</br>20.43.41.0/26,</br>40.79.132.112/28     |
 | India          | India centrale       | 52.140.104.128/25,</br>52.140.105.0/26,</br>20.43.121.48/28  |
-| Giappone          | Giappone orientale          | 20.43.64.128/25,</br>20.43.65.0/26,</br>13.78.109.192/28     |
-| Corea          | Corea centrale       | 20.41.64.128/25,</br>20.41.65.0/26,</br>52.231.20.64/28      |
+| Japan          | Giappone orientale          | 20.43.64.128/25,</br>20.43.65.0/26,</br>13.78.109.192/28     |
+| Korea          | Corea centrale       | 20.41.64.128/25,</br>20.41.65.0/26,</br>52.231.20.64/28      |
 | Sudafrica   | Sudafrica settentrionale  | 102.133.124.104/29,</br>102.133.216.128/25,</br>102.133.217.0/26 |
 | Regno Unito | Regno Unito meridionale            | 51.104.24.128/25,</br>51.104.25.0/26,</br>51.104.9.32/28     |
 | Stati Uniti  | Stati Uniti centrali          | 20.37.154.0/23,</br>20.37.156.0/26,</br>20.44.10.64/28       |
@@ -56,6 +56,7 @@ Consentire il traffico dagli indirizzi IP elencati per il runtime di integrazion
 |                | Stati Uniti centro-occidentali     | 52.150.137.128/25,</br>52.150.136.192/26,</br>13.71.199.0/28 |
 |                | Stati Uniti occidentali             | 40.82.250.0/23,</br>40.82.249.64/26,</br>13.86.219.208/28    |
 |                | Stati Uniti occidentali 2            | 20.42.132.0/23,</br>20.42.129.64/26,</br>13.66.143.128/28    |
+|                | US Gov Virginia     | 52.127.45.96/28,</br>52.127.48.128/25,</br>52.127.49.0/26    |
 
 ## <a name="known-issue-with-azure-storage"></a>Problemi noti con archiviazione di Azure
 

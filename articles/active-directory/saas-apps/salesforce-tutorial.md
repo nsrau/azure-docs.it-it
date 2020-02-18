@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d0793c863f4f682c967c7a5ae61c5a0b78cdb4d
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 564e8dd8e6d7c4c0e3747469875e030be30b1a9b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292536"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046704"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Salesforce
 
@@ -47,10 +47,10 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * Salesforce supporta [provisioning e deprovisioning utenti **automatici**](salesforce-provisioning-tutorial.md) (scelta consigliata)
 
-* Salesforce supporta il provisioning **Just-In-Time** (JIT) degli utenti
+* Salesforce supporta il provisioning utenti **JIT**
 
 * È ora possibile configurare l'applicazione per dispositivi mobili Salesforce con Azure AD per abilitare l'accesso SSO. In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
-* Dopo aver configurato Salesforce, è possibile applicare i controlli sessione che consentono di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. I controlli sessione costituiscono un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Dopo aver configurato Salesforce, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-salesforce-from-the-gallery"></a>Aggiunta di Salesforce dalla raccolta
 
@@ -201,7 +201,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ### <a name="create-salesforce-test-user"></a>Creare l'utente di test di Salesforce
 
-In questa sezione viene creato un utente di nome B.Simon in Salesforce. Salesforce supporta il provisioning JIT (Just-In-Time) che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Salesforce, ne viene creato uno nuovo quando si prova ad accedere a Salesforce. Salesforce supporta anche il provisioning utenti automatico; [qui](salesforce-provisioning-tutorial.md) è possibile trovare altre informazioni su come configurare il provisioning utenti automatico.
+In questa sezione viene creato un utente di nome B.Simon in Salesforce. Salesforce supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Salesforce, ne viene creato uno nuovo quando si prova ad accedere a Salesforce. Salesforce supporta anche il provisioning utenti automatico; [qui](salesforce-provisioning-tutorial.md) è possibile trovare altre informazioni su come configurare il provisioning utenti automatico.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO
 
@@ -243,6 +243,6 @@ Quando si fa clic sul riquadro di Salesforce nel pannello di accesso, si dovrebb
 
 - [Provare Salesforce con Azure AD](https://aad.portal.azure.com)
 
-- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/protect-salesforce)
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Come proteggere Salesforce con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Come proteggere Salesforce con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/protect-salesforce)

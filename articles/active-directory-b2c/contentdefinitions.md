@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/16/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c759b7f0467ddb961f44f27c2d2f18ed24d2cfca
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: fd6a24c768056c949c05b9e2444bd49ef743c0ef
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77372802"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425630"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -70,7 +70,7 @@ L'elemento **ContentDefinition** contiene gli elementi seguenti:
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | Una stringa che contiene l'URL della pagina HTML5 per la definizione del contenuto. |
-| RecoveryUri | 0:1 | Una stringa che contiene l'URL della pagina HTML per la visualizzazione di un errore relativo alla definizione del contenuto. |
+| RecoveryUri | 1:1 | Una stringa che contiene l'URL della pagina HTML per la visualizzazione di un errore relativo alla definizione del contenuto. |
 | DataUri | 1:1 | Una stringa che contiene l'URL relativo di un file HTML che fornisce l'esperienza utente da richiamare per il passaggio. |
 | Metadati | 0:1 | Una raccolta di coppie chiave/valore che contiene i metadati usati per la definizione del contenuto. |
 | LocalizedResourcesReferences | 0:1 | Una raccolta di riferimenti di risorse localizzate. Usare questo elemento per personalizzare la localizzazione di un'interfaccia utente e di un attributo delle attestazioni. |
@@ -86,7 +86,7 @@ L'elemento **DataUri** viene usato per specificare l'identificatore della pagina
 | `unifiedssp` | Viene visualizzato un modulo per eseguire l'accesso con un account locale basato su un indirizzo di posta elettronica o un nome utente. Questo valore fornisce anche la funzionalità "mantieni l'accesso" e "Password dimenticata?" collegamento. |
 | `unifiedssd` | Viene visualizzato un modulo per eseguire l'accesso con un account locale basato su un indirizzo di posta elettronica o un nome utente. |
 | `multifactor` | Vengono verificati numeri di telefono usando SMS o chiamata vocale durante la procedura di iscrizione o di accesso. |
-| `selfasserted` | Visualizza un modulo che consente agli utenti di creare o aggiornare il profilo. |
+| `selfasserted` | Visualizza un modulo per la raccolta di dati da un utente. Ad esempio, consente agli utenti di creare o aggiornare il proprio profilo. |
 
 ### <a name="select-a-page-layout"></a>Selezionare un layout di pagina
 

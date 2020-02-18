@@ -6,18 +6,18 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: fbb30b0a290011a5edfb05c1de9b5d4717a5f733
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 1cd13369f443f91782eef1024003e07435a44a45
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898699"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425222"
 ---
 # <a name="keys-and-values"></a>Chiavi e valori
 
 Configurazione app di Azure archivia i dati di configurazione sotto forma di coppie chiave-valore. Le coppie chiave-valore costituiscono un modo semplice e flessibile per rappresentare vari tipi di impostazioni delle applicazioni già noti agli sviluppatori.
 
-## <a name="keys"></a>Chiavi
+## <a name="keys"></a>Keys
 
 La chiavi fungono da nome per le coppie chiave-valore e vengono usate per archiviare e recuperare i valori corrispondenti. In genere le chiavi vengono organizzate in uno spazio dei nomi gerarchico usando un delimitatore di caratteri, ad esempio `/` o `:`. Usare la convenzione più indicata per l'applicazione. Configurazione app tratta le chiavi come un insieme. Non analizza le chiavi per individuare come sono strutturati i relativi nomi, né applica alcuna regola.
 
@@ -25,7 +25,7 @@ L'utilizzo dei dati configurazione all'interno dei framework applicazione potreb
 
 Le chiavi archiviate in Configurazione sono stringhe basate su Unicode con distinzione tra maiuscole e minuscole. Le chiavi *app1* e *App1* sono distinte in un archivio di Configurazione app. Tenere presente questo aspetto quando si usano le impostazioni di configurazione all'interno di un'applicazione, perché alcuni framework gestiscono le chiavi di configurazione senza fare distinzione tra maiuscole e minuscole. Ad esempio, il sistema di configurazione ASP.NET Core tratta le chiavi come stringhe senza distinzione tra maiuscole e minuscole. Per evitare comportamenti imprevedibili quando si eseguono query su Configurazione app all'interno di un'applicazione ASP.NET Core, non usare chiavi che differiscono solo per quanto riguarda l'uso di maiuscole e minuscole.
 
-Nei nomi delle chiavi immessi in Configurazione app è possibile usare qualsiasi carattere Unicode, ad eccezione di `*`, `,` e `\`. Questi caratteri sono riservati. Per includere un carattere riservato, è necessario usare `\{Reserved Character}` per specificare il carattere di escape. Per una coppia chiave-valore è previsto un limite di dimensioni di 10.000 caratteri. Questo limite include tutti i caratteri della chiave, il relativo valore e tutti gli attributi facoltativi associati. Entro questo limite è possibile avere molti livelli gerarchici per le chiavi.
+Nei nomi delle chiavi immessi in Configurazione app è possibile usare qualsiasi carattere Unicode, ad eccezione di `*`, `,` e `\`. Questi caratteri sono riservati. Per includere un carattere riservato, è necessario usare `\{Reserved Character}` per specificare il carattere di escape. Una coppia chiave-valore prevede un limite di dimensioni combinate di 10 KB. Questo limite include tutti i caratteri della chiave, il relativo valore e tutti gli attributi facoltativi associati. Entro questo limite è possibile avere molti livelli gerarchici per le chiavi.
 
 ### <a name="design-key-namespaces"></a>Progettare gli spazi dei nomi delle chiavi
 
@@ -51,7 +51,7 @@ Ecco diversi esempi di come strutturare i nomi delle chiavi in una gerarchia:
 
 ### <a name="label-keys"></a>Chiavi di etichetta
 
-Le coppie chiave-valore di Configurazione app possono facoltativamente avere un attributo etichetta. Le etichette vengono usate per distinguere le coppie chiave-valore con la stessa chiave. Una chiave *app1* con le etichette *A* e *B* corrisponde a due chiavi distinte in un archivio di Configurazione app. Per impostazione predefinita, l'etichetta di una coppia chiave-valore è vuota o `null`.
+Le coppie chiave-valore di Configurazione app possono facoltativamente avere un attributo etichetta. Le etichette vengono usate per distinguere le coppie chiave-valore con la stessa chiave. Una chiave *app1* con le etichette *A* e *B* corrisponde a due chiavi distinte in un archivio di Configurazione app. Per impostazione predefinita, un valore di chiave non dispone di un'etichetta. Per fare riferimento in modo esplicito a un valore di chiave senza etichetta, usare `\0` (URL codificato come `%00`).
 
 L'etichetta fornisce un modo pratico per creare varianti di una chiave. Un uso comune delle etichette consiste nello specificare più ambienti per la stessa chiave:
 
@@ -74,20 +74,16 @@ Ogni coppia chiave-valore viene identificata in modo univoco dalla chiave e da u
 | `key` è omesso oppure `key=*` | Corrisponde a tutte le chiavi |
 | `key=abc` | Corrisponde esattamente al nome della chiave **abc** |
 | `key=abc*` | Corrisponde ai nomi delle chiavi che iniziano con **abc** |
-| `key=*abc` | Corrisponde ai nomi delle chiavi che terminano con **abc** |
-| `key=*abc*` | Corrisponde ai nomi delle chiavi che contengono **abc** |
 | `key=abc,xyz` | Corrisponde ai nomi delle chiavi **abc** o **xyz**, con il limite di cinque CSV |
 
 È anche possibile includere i criteri delle etichette seguenti:
 
-| Etichette | |
+| Etichetta | |
 |---|---|
 | `label` è omesso oppure `label=*` | Corrisponde a qualsiasi etichetta, incluso `null` |
 | `label=%00` | Corrisponde all'etichetta `null` |
 | `label=1.0.0` | Corrisponde esattamente all'etichetta **1.0.0** |
 | `label=1.0.*` | Corrisponde alle etichette che iniziano con **1.0.** |
-| `label=*.0.0` | Corrisponde alle etichette che terminano con **.0.0** |
-| `label=*.0.*` | Corrisponde alle etichette che contengono **.0.** |
 | `label=%00,1.0.0` | Corrisponde alle etichette `null` o **1.0.0**, con il limite di cinque CSV |
 
 ## <a name="values"></a>Valori

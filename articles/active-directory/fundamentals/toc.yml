@@ -39,8 +39,8 @@
       href: active-directory-deployment-checklist-p2.md
     - name: Archiviazione dei dati relativi alle identità per la UE
       href: active-directory-data-storage-eu.md
-    - name: Archiviazione dei dati relativi alle identità per l'Australia
-      href: active-directory-data-storage-australia.md
+    - name: Archiviazione dei dati relativi alle identità per l'Australia e la Nuova Zelanda
+      href: active-directory-data-storage-australia-newzealand.md
     - name: Novità di Microsoft 365 Government
       href: whats-new-microsoft-365-government.md
     - name: Informazioni di riferimento sulle operazioni di Azure AD
@@ -58,7 +58,7 @@
 - name: Guide pratiche
   expanded: true
   items:
-    - name: Organization
+    - name: Organizzazione
       items:
         - name: Iscriversi ad Azure AD come organizzazione
           href: sign-up-organization.md

@@ -12,19 +12,19 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 843dd403bc5434e2c79ee0bb85eb781b56bf3ec9
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: a2f39b6f58b250d68a3b2ce962f158c7df36d812
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291448"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046607"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Workday
 
-Questa esercitazione descrive come integrare Workday con Azure Active Directory (Azure AD). Integrando Workday con Azure AD è possibile:
+Questa esercitazione descrive come integrare Workday con Azure Active Directory (Azure AD). Integrando Workday con Azure AD, è possibile:
 
 * Controllare in Azure AD chi può accedere a Workday.
 * Abilitare gli utenti per l'accesso automatico a Workday con gli account Azure AD personali.
@@ -43,9 +43,9 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* Workday supporta l'accesso Single Sign-On avviato da **provider di servizi**.
+* Workday supporta l'accesso Single Sign-On avviato da **SP**.
 
-* Dopo aver configurato Workday, è possibile applicare i controlli sessione che consentono di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. I controlli sessione costituiscono un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Dopo aver configurato Workday, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-workday-from-the-gallery"></a>Aggiunta di Workday dalla raccolta
 
@@ -64,12 +64,12 @@ Configurare e testare l'accesso Single Sign-On di Azure AD con Workday usando un
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Workday, completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** per consentire agli utenti di usare questa funzionalità.
     1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
     1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** per consentire a B.Simon di usare l'accesso Single Sign-On di Azure AD.
 2. **[Configurare Workday](#configure-workday)** per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Workday](#create-workday-test-user)** per avere una controparte di B.Simon in Workday collegata alla rappresentazione dell'utente in Azure AD.
-3. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
+3. **[Testare l'accesso Single Sign-On](#test-sso)** per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
@@ -216,7 +216,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
     c.  Nella casella di testo **Valid To** digitare il valore dell'attributo di fine validità del certificato.
 
     > [!NOTE]
-    > Per individuare la data di inizio e di fine validità, fare doppio clic sul certificato scaricato.  Le date sono elencate nella scheda **Details** (Dettagli).
+    > Per individuare la data di inizio e di fine validità, fare doppio clic sul certificato scaricato.  Le date sono elencate nella scheda **Details**.
     >
     >
 
@@ -243,7 +243,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
     ![OK](./media/workday-tutorial/IC782933.png "OK")
 
     > [!NOTE]
-    > Assicurarsi di aver configurato il single sign-on in modo corretto. Nel caso in cui il single sign-on sia stato configurato in modo errato, potrebbe non essere possibile accedere all'applicazione con le proprie credenziali. In questo caso, Workday fornisce un backup dell'URL di accesso da cui gli utenti possono accedere usando i consueti nome utente e password nel formato seguente: [Your Workday URL]/login.flex?redirect=n
+    > Assicurarsi di aver configurato il single sign-on in modo corretto. Nel caso in cui il single sign-on sia stato configurato in modo errato, potrebbe non essere possibile accedere all'applicazione con le proprie credenziali. In questo caso, Workday fornisce un URL di accesso di backup a cui gli utenti possono accedere usando il normale nome utente e la password nel formato seguente: [Your Workday URL]/login.flex?redirect=n
 
 ### <a name="create-workday-test-user"></a>Creare l'utente di test di Workday
 
@@ -263,6 +263,6 @@ Quando si seleziona il riquadro di Workday nel pannello di accesso, si dovrebbe 
 
 - [Provare Workday con Azure AD](https://aad.portal.azure.com)
 
-- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/protect-workday)
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Come proteggere Workday con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Come proteggere Workday con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/protect-workday)

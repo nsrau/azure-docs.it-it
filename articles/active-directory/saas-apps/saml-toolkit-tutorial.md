@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/12/2019
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1aa2d58a40c623cc451ca30aaa9d75a4a6b3d4c0
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 7902112c1694bacfeb45b5f20db80d5136642169
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983878"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047941"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Azure AD SAML Toolkit
 
@@ -45,6 +45,7 @@ Per iniziare, sono necessari gli elementi seguenti:
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 * Azure AD SAML Toolkit supporta l'accesso SSO avviato da **SP**
+* Dopo aver configurato Azure AD SAML Toolkit, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-azure-ad-saml-toolkit-from-the-gallery"></a>Aggiunta di Azure AD SAML Toolkit dalla raccolta
 
@@ -76,17 +77,17 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella pagina di integrazione dell'applicazione **Azure AD SAML Toolkit** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni. È possibile recuperare le impostazioni nella pagina di configurazione SAML del toolkit SAML. 
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
 1. Nella pagina **Configurazione SAML di base** immettere i valori per i campi seguenti:
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL `https://samltoolkit.azurewebsites.net/SAML/Login/<3digitnumber>`
+    a. Nella casella di testo **URL di accesso** digitare l'URL `https://samltoolkit.azurewebsites.net/`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL: `https://samltoolkit.azurewebsites.net`
 
-    c. Nella casella di testo **URL di risposta** digitare un URL: `https://samltoolkit.azurewebsites.net/SAML/Consume/<3digitnumber>`
+    c. Nella casella di testo **URL di risposta** digitare un URL: `https://samltoolkit.azurewebsites.net/SAML/Consume`
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (base)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -173,3 +174,7 @@ Quando si seleziona il riquadro di Azure AD SAML Toolkit nel Pannello di accesso
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Provare Azure AD SAML Toolkit con Azure AD](https://aad.portal.azure.com/)
+
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Come proteggere Azure AD SAML Toolkit con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/protect-azure)

@@ -3,17 +3,17 @@ title: "Avvio rapido: Aggiungere un dispositivo simulato all'applicazione Azure 
 description: Questa guida di avvio rapido mostra come creare un modello di dispositivo e aggiungere un dispositivo simulato all'applicazione IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/10/2019
+ms.date: 02/12/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: cb8f0c806435a6c623d14e50263844db7aac61bb
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 489bf81388c1bb889756d54957e791282054f0f7
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026184"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169676"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Avvio rapido: Aggiungere un dispositivo simulato all'applicazione IoT Central
 
@@ -28,7 +28,7 @@ In questo argomento di avvio rapido si aggiunge un modello di dispositivo per un
 * Risponde a comandi quali l'attivazione e la disattivazione.
 * Segnala le proprietà generiche del dispositivo, ad esempio la versione del firmware e il numero di serie.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Completare la guida di avvio rapido [Creare un'applicazione Azure IoT Central](./quick-deploy-iot-central.md) per creare un'applicazione IoT Central usando il modello **App personalizzata > Applicazione personalizzata**.
 

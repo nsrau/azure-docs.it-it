@@ -2,13 +2,13 @@
 title: Appliance Azure Migrate
 description: Viene fornita una panoramica dell'appliance Azure Migrate utilizzata per la valutazione e la migrazione dei server.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: 652fe9d379d6e2ba50e9e282f384905e154368d8
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.date: 02/17/2020
+ms.openlocfilehash: d02227747be4bc7d994e2ea84cd74e7f2fd2531f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031664"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425460"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -55,7 +55,7 @@ Computer fisico |  Azure Migrate: valutazione del server |  Individuare i server
 **Valore hash** | MD5:29a7531f32bcf69f32d964fa5ae950bc<br/><br/> SHA256:37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
 **Host Hyper-V** | Esecuzione di Windows Server 2012 R2 o versione successiva.
 **Progetto Azure Migrate** | Un appliance può essere associato a un singolo progetto. <br/> Un numero qualsiasi di Appliance può essere associato a un singolo progetto.<br/> 
-**Individuazione** | Un dispositivo può individuare fino a 5000 VM VMware in una server vCenter.<br/> Un appliance può connettersi a un massimo di 300 host Hyper-V.
+**Individuazione** | Un'appliance può individuare fino a 5000 macchine virtuali Hyper-V.<br/> Un appliance può connettersi a un massimo di 300 host Hyper-V.
 **Componenti del dispositivo** | App di gestione: app Web in appliance per l'input dell'utente durante la distribuzione.<br/> Agente di individuazione: raccoglie i dati di configurazione del computer.<br/> Agente di valutazione: raccolta dei dati sulle prestazioni.<br/>  Aggiornamento automatico del servizio: Aggiorna componenti (eseguito ogni 24 ore).
 
 

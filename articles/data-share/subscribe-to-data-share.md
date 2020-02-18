@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: f2acb89597ef877543a2c4cc46f395aede41034b
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 5b7d9cd7e7d438cf2beac76d5d8bcc78d377a8f4
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964499"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083098"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Esercitazione: Accettare e ricevere dati con Condivisione dati di Azure  
 
@@ -30,7 +30,7 @@ Assicurarsi che tutti i prerequisiti siano soddisfatti prima di accettare un inv
 
 * Sottoscrizione di Azure: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * Un invito alla Condivisione dati: un invito da Microsoft Azure con un oggetto denominato "Azure Data Share invitation from **<yourdataprovider@domain.com>** " (Invito alla Condivisione dati di Azure da...).
-* Registrare il provider di risorse Microsoft.DataShare. Seguire le istruzioni riportate in [Risolvere i problemi relativi a Condivisione dati di Azure](data-share-troubleshoot.md) per registrare il provider di risorse di condivisione dati.
+* Registrare il [provider di risorse Microsoft.DataShare](concepts-roles-permissions.md#resource-provider-registration) nella sottoscrizione di Azure verrà creata una risorsa Condivisione dati e nella sottoscrizione di Azure in cui si trovano gli archivi dati di Azure di destinazione.
 
 ### <a name="receive-data-into-a-storage-account"></a>Ricevere dati in un account di archiviazione: 
 
@@ -57,7 +57,7 @@ Assicurarsi che tutti i prerequisiti siano soddisfatti prima di accettare un inv
 * Accesso del firewall di SQL Server all'indirizzo IP client. A tale scopo, seguire questa procedura: 
     1. Nel portale di Azure in SQL Server passare a *Firewall e reti virtuali*
     1. Fare clic sull'interruttore di **attivazione** per consentire l'accesso ai servizi di Azure.
-    1. Fare clic su **+ Aggiungi IP client** e fare clic su **Salva**. L'indirizzo IP client è soggetto a modifiche. Potrebbe essere necessario ripetere questo processo la volta successiva che si condividono i dati SQL dal portale di Azure. È anche possibile aggiungere un intervallo di indirizzi IP. 
+    1. Fare clic su **+ Aggiungi IP client** e fare clic su **Salva**. L'indirizzo IP client è soggetto a modifiche. Potrebbe essere necessario ripetere questo processo la volta successiva che vengono ricevuti i dati in una destinazione SQL dal portale di Azure. È anche possibile aggiungere un intervallo di indirizzi IP. 
 
 
 ### <a name="receive-data-into-an-azure-data-explorer-cluster"></a>Ricevere i dati in un cluster di Esplora dati di Azure: 

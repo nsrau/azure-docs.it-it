@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
-ms.openlocfilehash: d097894c841d91d344b5958e7f5e1c10249f8b6e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e564660b502a950021ba4e4754ff5c210dfd477f
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904882"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77082857"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Provisioning di dispositivi con il servizio Device Provisioning in hub IoT di Azure
 Microsoft Azure include un ampio set di servizi cloud pubblici integrati per tutte le esigenze di soluzioni IoT. Il servizio Device Provisioning in hub IoT è un servizio helper per Hub IoT che consente di effettuare il provisioning JIT automatizzato nell'hub IoT corretto senza alcun intervento dell'utente. Consente di effettuare il provisioning di milioni di dispositivi in modo sicuro e scalabile.
@@ -80,8 +80,10 @@ Il servizio Device Provisioning include molte funzionalità che lo rendono una s
 * **Elenco di registrazione** contenente il record completo dei dispositivi/gruppi di dispositivi che con il tempo potrebbero registrarsi. L'elenco di registrazione contiene le informazioni sulla configurazione desiderata del dispositivo registrato e può essere aggiornato in qualsiasi momento.
 * **Più criteri di allocazione** per controllare la modalità con cui il servizio Device Provisioning assegna i dispositivi agli hub IoT per supportare gli scenari del cliente: latenza più bassa, distribuzione ponderata in modo uniforme (impostazione predefinita) e configurazione statica tramite elenco di registrazione. La latenza viene determinata con lo stesso metodo di [Gestione traffico](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#performance).
 * **Monitoraggio e registrazione diagnostica** per assicurarsi che tutto funzioni correttamente.
-* **Supporto di più hub** per consentire al servizio Device Provisioning di associare successivamente i dispositivi a un hub IoT in fase di esecuzione. Il servizio Device Provisioning può dialogare con gli hub tramite più sottoscrizioni di Azure.
+* **Supporto di più hub** per consentire al servizio Device Provisioning di assegnare dispositivi a più hub IoT. Il servizio Device Provisioning può dialogare con gli hub tramite più sottoscrizioni di Azure.
 * **Supporto tra aree** per consentire al servizio Device Provisioning di assegnare i dispositivi a hub IoT in altre aree.
+* **Crittografia per i dati inattivi** per crittografare e decrittografare i dati nel servizio Device Provisioning con la crittografia AES a 256 bit, una delle crittografie a blocchi più solide disponibili, conforme a FIPS 140-2.
+
 
 È possibile approfondire i concetti e le funzionalità del provisioning dei dispositivi in [device concepts](concepts-device.md) (Concetti sui dispositivi), [service concepts](concepts-service.md) (Concetti sul servizio) e [security concepts](concepts-security.md) (Concetti sulla sicurezza).
 

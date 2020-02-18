@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
-ms.openlocfilehash: facd52ea1fdaa2ad30d6b1544cb1f2d6d5833bfa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1f3dd1fa4b70fcdbec7e62c84bbfc1df14d3502e
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450567"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425086"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Risoluzione dei problemi di Diagnostica di Azure
 Questo articolo contiene informazioni sulla risoluzione dei problemi relativi all'uso di Diagnostica di Azure. Per altre informazioni su Diagnostica di Azure, vedere la [panoramica di Diagnostica di Azure](diagnostics-extension-overview.md).
@@ -28,7 +28,7 @@ Questo articolo contiene informazioni sulla risoluzione dei problemi relativi al
 Di seguito sono elencati i percorsi di alcuni log ed elementi importanti. Nel resto del documento verrà fatto riferimento a queste informazioni.
 
 ### <a name="azure-cloud-services"></a>Servizi cloud di Azure
-| Elemento | Path |
+| Elemento | Percorso |
 | --- | --- |
 | **File di configurazione di Diagnostica di Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versione>\Config.txt |
 | **File di log** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versione>\ |
@@ -39,7 +39,7 @@ Di seguito sono elencati i percorsi di alcuni log ed elementi importanti. Nel re
 | **File di log MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Macchine virtuali
-| Elemento | Path |
+| Elemento | Percorso |
 | --- | --- |
 | **File di configurazione di Diagnostica di Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<versione>\RuntimeSettings |
 | **File di log** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
@@ -51,7 +51,7 @@ Di seguito sono elencati i percorsi di alcuni log ed elementi importanti. Nel re
 | **File di log MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Mancata visualizzazione dei dati relativi alle metriche nel portale di Azure
-Diagnostica di Azure offre dati relativi alle metriche che possono essere visualizzati nel portale di Azure. In caso di problemi con la visualizzazione dei dati nel portale, controllare la tabella WADMetrics\* nell'account di archiviazione di Diagnostica di Azure per verificare se siano presenti i record delle metriche corrispondenti.
+Diagnostica di Azure offre dati relativi alle metriche che possono essere visualizzati nel portale di Azure. In caso di problemi durante la visualizzazione dei dati nel portale, controllare la tabella di\* WADMetrics nell'account di archiviazione Diagnostica di Azure per verificare se sono presenti i record delle metriche corrispondenti e assicurarsi che il [provider di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) Microsoft. Insights sia registrato.
 
 Il valore **PartitionKey** della tabella è l'ID risorsa, la macchina virtuale o il set di scalabilità di macchine virtuali. **RowKey** è il nome della metrica (detto anche nome del contatore delle prestazioni).
 
@@ -229,7 +229,7 @@ Per il ruolo del servizio cloud, se si seleziona la configurazione dal disco, ai
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Codici di uscita del plug-in di Diagnostica di Azure
 Il plug-in restituisce i seguenti codici di uscita:
 
-| Codice di uscita | Description |
+| Codice di uscita | Descrizione |
 | --- | --- |
 | 0 |Esito positivo. |
 | -1 |Errore generico. |

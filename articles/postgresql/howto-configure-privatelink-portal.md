@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: f7a796408267fda08d765425a3c529895a251782
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: e73f5e578ef498d3c6be8422fbbcfa7ac8856adf
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281105"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425817"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-portal"></a>Creare e gestire un collegamento privato per database di Azure per PostgreSQL-server singolo (anteprima) con il portale
 
@@ -22,7 +22,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 > [!NOTE]
 > Questa funzionalità è disponibile in tutte le aree di Azure in cui il server singolo database di Azure per PostgreSQL supporta i piani tariffari per utilizzo generico e con ottimizzazione per la memoria.
 
-## <a name="sign-in-to-azure"></a>Accedere a Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 Accedere al [portale di Azure](https://portal.azure.com).
 
 ## <a name="create-an-azure-vm"></a>Creare una macchina virtuale di Azure
@@ -37,17 +37,17 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
 
     | Impostazione | Valore |
     | ------- | ----- |
-    | Nome | Immettere *MyVirtualNetwork*. |
+    | Name | Immettere *MyVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
-    | Sottoscrizione | Selezionare la propria sottoscrizione.|
+    | Subscription | Selezionare la propria sottoscrizione.|
     | Gruppo di risorse | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
-    | Percorso | Selezionare **Europa occidentale**.|
+    | Location | Selezionare **Europa occidentale**.|
     | Subnet - Nome | Immettere *mySubnet*. |
     | Subnet - Intervallo di indirizzi | Immettere *10.1.0.0/24*. |
     |||
 3. Lasciare le altre impostazioni sui valori predefiniti e selezionare **Crea**.
 
-### <a name="create-virtual-machine"></a>Crea una macchina virtuale
+### <a name="create-virtual-machine"></a>Creazione della macchina virtuale
 
 1. Nella parte superiore sinistra della schermata del portale di Azure selezionare **Crea una risorsa** > **Calcolo** > **Macchina virtuale**.
 
@@ -56,18 +56,18 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
     | Impostazione | Valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
-    | Sottoscrizione | Selezionare la propria sottoscrizione. |
+    | Subscription | Selezionare la propria sottoscrizione. |
     | Gruppo di risorse | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.  |
     | **DETTAGLI DELL'ISTANZA** |  |
     | Nome macchina virtuale | Immettere *myVm*. |
-    | Area | Selezionare **Europa occidentale**. |
+    | Region | Selezionare **Europa occidentale**. |
     | Opzioni di disponibilità | Lasciare l'impostazione predefinita **Nessuna ridondanza dell'infrastruttura necessaria**. |
     | Immagine | Selezionare **Windows Server 2019 Datacenter**. |
-    | Dimensioni | Lasciare l'impostazione predefinita **DS1 Standard v2**. |
+    | Dimensione | Lasciare l'impostazione predefinita **DS1 Standard v2**. |
     | **ACCOUNT AMMINISTRATORE** |  |
     | Username | Immettere un nome utente a scelta. |
     | Password | Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    | Confirm Password | Reimmettere la password. |
+    | Conferma password | Reimmettere la password. |
     | **REGOLE PORTA IN INGRESSO** |  |
     | Porte in ingresso pubbliche | Lasciare il valore predefinito **Nessuna**. |
     | **RISPARMIA** |  |
@@ -106,18 +106,18 @@ In questa sezione verrà creato un database di Azure per il server PostgreSQL in
     | Impostazione | Valore |
     | ------- | ----- |
     | **Dettagli del progetto** | |
-    | Sottoscrizione | Selezionare la propria sottoscrizione. |
+    | Subscription | Selezionare la propria sottoscrizione. |
     | Gruppo di risorse | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
     | **Dettagli server** |  |
     |Nome server  | Immettere *myserver*. Se il nome è già usato, creare un nome univoco.|
     | Nome utente amministratore| Immettere un nome amministratore a scelta. |
     | Password | Immettere una password a scelta. La password deve contenere almeno 8 caratteri e soddisfare i requisiti definiti. |
-    | Percorso | Selezionare un'area di Azure in cui si vuole che il server PostgreSQL si trovi. |
+    | Location | Selezionare un'area di Azure in cui si vuole che il server PostgreSQL si trovi. |
     |Versione  | Selezionare la versione del database del server PostgreSQL richiesta.|
     | Calcolo e archiviazione| Selezionare il piano tariffario necessario per il server in base al carico di lavoro. |
     |||
  
-7. Selezionare **OK**. 
+7. Scegliere **OK**. 
 8. Selezionare **Rivedi e crea**. Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione. 
 9. Quando viene visualizzato il messaggio Convalida superata, selezionare **Crea**. 
 10. Quando viene visualizzato il messaggio Convalida superata, selezionare Crea. 
@@ -136,11 +136,11 @@ In questa sezione si creerà un server PostgreSQL a cui verrà aggiunto un endpo
     | Impostazione | Valore |
     | ------- | ----- |
     | **Dettagli del progetto** | |
-    | Sottoscrizione | Selezionare la propria sottoscrizione. |
+    | Subscription | Selezionare la propria sottoscrizione. |
     | Gruppo di risorse | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
     | **Dettagli istanza** |  |
-    | Nome | Immettere *myPrivateEndpoint*. Se il nome è già usato, creare un nome univoco. |
-    |Area|Selezionare **Europa occidentale**.|
+    | Name | Immettere *myPrivateEndpoint*. Se il nome è già usato, creare un nome univoco. |
+    |Region|Selezionare **Europa occidentale**.|
     |||
 5. Selezionare **Avanti: risorsa**.
 6. In **Crea un endpoint privato - Risorsa** immettere o selezionare queste informazioni:
@@ -148,9 +148,9 @@ In questa sezione si creerà un server PostgreSQL a cui verrà aggiunto un endpo
     | Impostazione | Valore |
     | ------- | ----- |
     |Metodo di connessione  | Selezionare Connettersi a una risorsa di Azure nella directory.|
-    | Sottoscrizione| Selezionare la propria sottoscrizione. |
+    | Subscription| Selezionare la propria sottoscrizione. |
     | Tipo di risorsa | Selezionare **Microsoft. DBforPostgreSQL/Servers**. |
-    | Gruppi |Selezionare *myServer*.|
+    | Resource |Selezionare *myServer*.|
     |Sottorisorsa di destinazione |Seleziona *postgresqlServer*|
     |||
 7. Selezionare **Avanti: configurazione**.
@@ -191,7 +191,7 @@ Dopo aver creato **myVm**, connettersi alla macchina virtuale da Internet come i
         > [!NOTE]
         > Potrebbe essere necessario selezionare **Altre opzioni** > **Usa un altro account** per specificare le credenziali immesse al momento della creazione della macchina virtuale.
 
-1. Selezionare **OK**.
+1. Scegliere **OK**.
 
 1. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se si riceve un avviso relativo al certificato, selezionare **Sì** oppure **Continua**.
 
@@ -210,35 +210,36 @@ Dopo aver creato **myVm**, connettersi alla macchina virtuale da Internet come i
     Non-authoritative answer:
     Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
     Address:  10.1.3.4
+    ```
 
-3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) to do the operation.
+3. Testare la connessione del collegamento privato per il server PostgreSQL usando un client disponibile. Nell'esempio seguente è stato usato [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) per eseguire l'operazione.
 
-4. In **New connection**, enter or select this information:
+4. In **nuova connessione**immettere o selezionare queste informazioni:
 
-    | Setting | Value |
+    | Impostazione | Valore |
     | ------- | ----- |
-    | Server type| Select **PostgreSQL**.|
-    | Server name| Select *mydemopostgresserver.privatelink.postgres.database.azure.com* |
-    | User name | Enter username as username@servername which is provided during the PostgreSQL server creation. |
-    |Password |Enter a password provided during the PostgreSQL server creation. |
-    |SSL|Select **Required**.|
+    | Tipo di server| Selezionare **PostgreSQL**.|
+    | Nome server| Seleziona *mydemopostgresserver.privatelink.postgres.database.Azure.com* |
+    | Nome utente | Immettere username come username@servername fornito durante la creazione del server PostgreSQL. |
+    |Password |Immettere una password specificata durante la creazione del server PostgreSQL. |
+    |SSL|Selezionare **required**.|
     ||
 
-5. Select Connect.
+5. Selezionare Connetti.
 
-6. Browse databases from left menu.
+6. Esplorare i database dal menu a sinistra.
 
-7. (Optionally) Create or query information from the postgreSQL server.
+7. Facoltativamente Creare o eseguire query sulle informazioni dal server postgreSQL.
 
-8. Close the remote desktop connection to myVm.
+8. Chiudere la connessione Desktop remoto a myVm.
 
-## Clean up resources
-When you're done using the private endpoint, PostgreSQL server, and the VM, delete the resource group and all of the resources it contains:
+## <a name="clean-up-resources"></a>Pulire le risorse
+Al termine dell'uso dell'endpoint privato, del server PostgreSQL e della macchina virtuale, eliminare il gruppo di risorse e tutte le risorse in esso contenute:
 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results.
-2. Select **Delete resource group**.
-3. Enter myResourceGroup for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
+1. Immettere *myResourceGroup* nella casella **Cerca** nella parte superiore del portale e selezionare *myResourceGroup* nei risultati della ricerca.
+2. Selezionare **Elimina gruppo di risorse**.
+3. Immettere myResourceGroup in **DIGITARE IL NOME DEL GRUPPO DI RISORSE** e selezionare **Elimina**.
 
-## Next steps
+## <a name="next-steps"></a>Passaggi successivi
 
-In this how-to, you created a VM on a virtual network, an Azure Database for PostgreSQL - Single server, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the PostgreSQL server using Private Link. To learn more about private endpoints, see [What is Azure private endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+In questa procedura è stata creata una VM in una rete virtuale, un database di Azure per PostgreSQL-server singolo e un endpoint privato per l'accesso privato. È stata effettuata la connessione a una VM da Internet e la comunicazione protetta con il server PostgreSQL è stata effettuata tramite un collegamento privato. Per altre informazioni sugli endpoint privati, vedere [che cos'è endpoint privato di Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).

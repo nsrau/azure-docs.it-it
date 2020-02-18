@@ -2,21 +2,22 @@
 title: 'Domande comuni: individuazione, valutazione e analisi delle dipendenze in Azure Migrate'
 description: Risposte alle domande più comuni sull'individuazione, la valutazione e l'analisi delle dipendenze in Azure Migrate.
 ms.topic: conceptual
-ms.date: 12/29/2019
-ms.openlocfilehash: 201d67c38e9583de16cb6075cc1c4bf826c204fd
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.date: 02/17/2020
+ms.openlocfilehash: 2ae534e50cbee3ebd17d703f957aa7200460dbfe
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77059488"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426293"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>Domande comuni sull'individuazione, la valutazione e l'analisi delle dipendenze
 
-Questo articolo risponde alle domande più comuni sull'individuazione, la valutazione e l'analisi delle dipendenze in Azure Migrate. Se si hanno altre query dopo aver letto questo articolo, pubblicarle nel [forum Azure migrate](https://aka.ms/AzureMigrateForum). Per altre domande, vedere gli articoli seguenti:
+Questo articolo risponde alle domande più comuni sull'individuazione, la valutazione e l'analisi delle dipendenze in Azure Migrate. Per altre domande, vedere gli articoli seguenti:
 
 - [Domande generali](resources-faq.md) su Azure migrate.
 - [Domande](common-questions-appliance.md) sull'appliance Azure migrate.
 - [Domande](common-questions-server-migration.md) sulla migrazione del server.
+- Pubblicare domande nel [Forum di Azure migrate](https://aka.ms/AzureMigrateForum)
 
 
 

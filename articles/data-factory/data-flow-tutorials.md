@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 01/14/2020
-ms.openlocfilehash: dee8c919b815c6f22b171f58be9fc6a38167056a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 02/06/2020
+ms.openlocfilehash: 00b51c14a24b525d98e9634a4f416177364228cb
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030023"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069587"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Esercitazioni video sul flusso di dati di mapping
 
@@ -42,6 +42,8 @@ Poiché il prodotto viene aggiornato costantemente, alcune caratteristiche prese
 [Trasformazione Colonna derivata](https://www.youtube.com/watch?v=FFCbU4ujCiY)
 
 [Trasformazione Join](https://www.youtube.com/watch?v=zukwayEXRtg)
+
+[Modello di self-join](https://www.youtube.com/watch?v=Dx1kANfnvmk&feature=youtu.be&hd=1)
 
 [Trasformazione Ricerca](https://www.youtube.com/watch?v=9U-0VPU2ZPU)
 
@@ -130,3 +132,7 @@ Poiché il prodotto viene aggiornato costantemente, alcune caratteristiche prese
 [Modelli logici rispetto a modelli fisici](http://youtu.be/K5tgzLjEE9Q)
 
 [Rilevare le modifiche ai dati di origine](http://youtu.be/CaxIlI7oXfI?hd=1)
+
+## <a name="data-flow-expressions"></a>Espressioni del flusso di dati
+
+[Espressioni data/ora](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)

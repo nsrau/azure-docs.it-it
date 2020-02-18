@@ -3,18 +3,18 @@ title: 'Avvio rapido: Configurare regole e azioni in Azure IoT Central'
 description: Questo avvio rapido illustra come i creatori possono configurare regole e azioni basate su dati di telemetria nell'applicazione Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 02/12/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: a63e77fb3c50d4387c27912336d65f9f84d2d5c9
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 4bbf571d6b73a6f43c1c3b1ce261da6963a74183
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026244"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169486"
 ---
 # <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Avvio rapido: Configurare regole e azioni per il dispositivo in Azure IoT Central
 
@@ -22,7 +22,7 @@ ms.locfileid: "77026244"
 
 In questo argomento di avvio rapido si crea una regola che invia un messaggio di posta elettronica quando la temperatura segnalata da un dispositivo sensore supera 90&deg;F (circa 32 °C).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, è consigliabile completare i due argomenti di avvio rapido precedenti, [Creare un'applicazione Azure IoT Central](./quick-deploy-iot-central.md) e [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-pnp-device.md), per creare il modello di dispositivo **MXChip IoT DevKit** da usare.
 
@@ -74,7 +74,7 @@ Subito dopo aver salvato la regola, questa viene applicata. Quando vengono soddi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva si è appreso come:
+In questa guida di avvio rapido si è appreso come:
 
 * Creare una regola basata su dati di telemetria
 * Aggiungere un'azione

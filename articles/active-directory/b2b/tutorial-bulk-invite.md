@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 9/19/2019
+ms.date: 2/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c78d2a8b4ccc51bc7afaef82a6c0dd609acdcab9
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c429648adeb0c81799bff2dca1650de965395a60
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908837"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77166447"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Esercitazione: Invitare in blocco utenti di Collaborazione B2B di Azure AD (anteprima)
 
@@ -27,7 +27,7 @@ ms.locfileid: "76908837"
 
 > [!NOTE]
 > A partire dal 22/12/2019, la funzionalità per l'invito di utenti in blocco (anteprima) è stata temporaneamente disabilitata.
-> Non è attualmente disponibile alcuna data certa per la riabilitazione della funzionalità. 
+> Non è attualmente disponibile alcuna data certa per la riabilitazione della funzionalità nel portale di Azure. Per invitare gli utenti guest in blocco usando PowerShell, vedere l'esercitazione [Invitare in blocco utenti per B2B ](bulk-invite-powershell.md) o gli [esempi di PowerShell e di codice per B2B](code-samples.md).
 
 Se si usa Collaborazione B2B di Azure Active Directory (Azure AD) per collaborare con partner esterni, è possibile invitare nell'organizzazione più utenti guest contemporaneamente. Questa esercitazione descrive come usare il portale di Azure per inviare inviti in blocco a utenti esterni. In particolare, si eseguiranno le operazioni seguenti:
 

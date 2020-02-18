@@ -8,12 +8,12 @@ ms.date: 02/10/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 34f5de01df72b48d275448e028ab0f8cb71e51f8
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: aae11facd2fea5413b2996b3088cb2edc23f0dc1
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132073"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77424933"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Risolvere i problemi di query quando si usa Azure Cosmos DB
 
@@ -383,7 +383,7 @@ Le query che vengono eseguite da un'area diversa da quella dell'account Azure Co
 
 ## <a name="increase-provisioned-throughput"></a>Aumenta la velocità effettiva con provisioning
 
-In Azure Cosmos DB la velocità effettiva con provisioning viene misurata in unità richiesta (UR). Si supponga di disporre di una query che utilizza 5 UR di velocità effettiva. Se, ad esempio, si esegue il provisioning di 1.000 UR, sarà possibile eseguire la query 200 volte al secondo. Se si è tentato di eseguire la query quando la velocità effettiva disponibile non è sufficiente, Azure Cosmos DB restituirebbe un errore HTTP 429. Uno qualsiasi degli SDK dell'API Core (SQL) corrente tenterà automaticamente di ripetere la query dopo un breve periodo di tempo. Le richieste limitate richiedono una quantità di tempo maggiore, quindi l'aumento della velocità effettiva con provisioning può migliorare la latenza delle query. È possibile osservare il [numero totale di richieste limitate](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) richieste nel pannello metriche del portale di Azure.
+In Azure Cosmos DB la velocità effettiva con provisioning viene misurata in unità richiesta (UR). Si supponga di disporre di una query che utilizza 5 UR di velocità effettiva. Se, ad esempio, si esegue il provisioning di 1.000 UR, sarà possibile eseguire la query 200 volte al secondo. Se si è tentato di eseguire la query quando la velocità effettiva disponibile non è sufficiente, Azure Cosmos DB restituirebbe un errore HTTP 429. Uno qualsiasi degli SDK dell'API Core (SQL) corrente tenterà automaticamente di ripetere la query dopo un breve periodo di tempo. Le richieste limitate richiedono una quantità di tempo maggiore, quindi l'aumento della velocità effettiva con provisioning può migliorare la latenza delle query. È possibile osservare il [numero totale di richieste limitate](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) nel pannello metriche del portale di Azure.
 
 ## <a name="increase-maxconcurrency"></a>Aumenta MaxConcurrency
 

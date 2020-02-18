@@ -1,18 +1,18 @@
 ---
-title: Creazione e gestione di progetti Azure Migrate
+title: Creare e gestire i progetto di Azure Migrate
 description: Trovare, creare, gestire ed eliminare progetti in Azure Migrate.
 ms.topic: how-to
-ms.date: 01/01/2020
-ms.openlocfilehash: 548e51cbd215dd9b5e69c68b9bd8fc81625240a2
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.date: 02/17/2020
+ms.openlocfilehash: a49595f0580e71048239d5c5d8f4d1a66e24fe6d
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75725884"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425664"
 ---
-# <a name="create-and-manage-azure-migrate-projects"></a>Creazione e gestione di progetti Azure Migrate
+# <a name="create-and-manage-azure-migrate-projects"></a>Creare e gestire i progetto di Azure Migrate
 
-Questo articolo descrive come creare, gestire ed eliminare progetti di [Azure migrate](migrate-services-overview.md)
+Questo articolo descrive come creare, gestire ed eliminare progetti [Azure migrate](migrate-services-overview.md) .
 
 
 ## <a name="create-a-project-for-the-first-time"></a>Creare un progetto per la prima volta
@@ -66,7 +66,7 @@ Elimina come segue:
     - Se il gruppo di risorse viene usato esclusivamente dal progetto di Azure Migrate, è possibile eliminare l'intero gruppo di risorse.
 
 
-Tenere presente quanto segue:
+Come puoi notare:
 
 - Quando si elimina, vengono eliminati sia il progetto che i metadati relativi alle macchine virtuali individuate.
 - Se si usa la versione precedente di Azure Migrate, aprire il gruppo di risorse di Azure in cui è stato creato il progetto. Selezionare il progetto di migrazione che si vuole eliminare (il tipo di risorsa è **progetto di migrazione**).

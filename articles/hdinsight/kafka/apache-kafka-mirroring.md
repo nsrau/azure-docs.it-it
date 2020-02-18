@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 0f444838c87e14fa88f2785030c29915df637cf8
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 45977f52226fac0a3e23455ce9457a721947a8cc
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552203"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425885"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Usare MirrorMaker per replicare gli argomenti di Apache Kafka con Kafka in HDInsight
 
@@ -63,7 +63,7 @@ Questa architettura include due cluster in gruppi di risorse e reti virtuali div
 
 1. Creare due nuovi gruppi di risorse:
 
-    |Gruppo di risorse | Percorso |
+    |Gruppo risorse | Location |
     |---|---|
     | kafka-primary-rg | Stati Uniti centrali |
     | Kafka-secondario-RG | Stati Uniti centro-settentrionali |
@@ -73,7 +73,7 @@ Questa architettura include due cluster in gruppi di risorse e reti virtuali div
 
 1. Creare due nuovi cluster Kafka:
 
-    | Nome cluster | Gruppo di risorse | Rete virtuale | Account di archiviazione |
+    | Nome cluster | Gruppo risorse | Rete virtuale | Account di archiviazione |
     |---|---|---|---|
     | Kafka-primario-cluster | kafka-primary-rg | kafka-primary-vnet | kafkaprimarystorage |
     | Kafka-secondario-cluster | Kafka-secondario-RG | Kafka-secondario-VNET | kafkasecondarystorage |
@@ -81,7 +81,7 @@ Questa architettura include due cluster in gruppi di risorse e reti virtuali div
 1. Creare peering di rete virtuale. Questo passaggio creerà due peering: uno da **Kafka-Primary-VNET** a **Kafka-Secondary-VNET** e uno indietro da **Kafka-Secondary-VNET** a **Kafka-Primary-VNET**.
     1. Selezionare la rete virtuale **Kafka-Primary-VNET** .
     1. Selezionare **peer** in **Impostazioni**.
-    1. Selezionare **Aggiungi**.
+    1. Fare clic su **Aggiungi**.
     1. Nella schermata **Aggiungi peering** immettere i dettagli, come illustrato nella schermata seguente.
 
         ![HDInsight Kafka-aggiunta del peering VNET](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
@@ -268,7 +268,7 @@ Configurare la pubblicità IP per consentire a un client di connettersi tramite 
 
     I parametri usati in questo esempio sono i seguenti:
 
-    |Parametro |Description |
+    |Parametro |Descrizione |
     |---|---|
     |--consumer. config|specifica il file che contiene le proprietà del consumer. Queste proprietà vengono usate per creare un consumer che legge dal cluster Kafka *primario* .|
     |--Producer. config|specifica il file che contiene le proprietà del producer. Queste proprietà vengono usate per creare un producer che scrive nel cluster Kafka *secondario* .|
@@ -305,7 +305,7 @@ I passaggi descritti in questo documento hanno creato cluster in diversi gruppi 
 In questo documento è stato descritto come usare [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) per creare la replica di un cluster [Apache Kafka](https://kafka.apache.org/). Per trovare altri modi per lavorare con Kafka, vedere i collegamenti seguenti:
 
 * [Documentazione su Apache Kafka MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) in cwiki.apache.org.
+* [Procedure consigliate per l'autore del mirror Kafka](https://community.cloudera.com/t5/Community-Articles/Kafka-Mirror-Maker-Best-Practices/ta-p/249269)
 * [Introduzione ad Apache Kafka (anteprima) in HDInsight](apache-kafka-get-started.md)
 * [Usare Apache Spark con Apache Kafka in HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Usare Apache Storm con Apache Kafka in HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Connettersi ad Apache Kafka tramite una rete virtuale di Azure](apache-kafka-connect-vpn-gateway.md)

@@ -347,7 +347,7 @@
           href: contractsafe-saml2-sso-tutorial.md
         - name: ContractWorks
           href: contractworks-tutorial.md
-        - name: Controllo
+        - name: Control
           href: control-tutorial.md
         - name: Convene
           href: convene-tutorial.md
@@ -355,7 +355,7 @@
           href: convercent-tutorial.md
         - name: Coralogix
           href: coralogix-tutorial.md
-        - name: cornerstone ondemand
+        - name: Cornerstone OnDemand
           href: cornerstone-ondemand-tutorial.md
         - name: CorpTax
           href: corptax-tutorial.md
@@ -389,7 +389,7 @@
           href: deskradar-tutorial.md
         - name: DigiCert
           href: digicert-tutorial.md
-        - name: Connessione diretta
+        - name: Direct
           href: direct-tutorial.md
         - name: Discovery Benefits SSO
           href: discovery-benefits-sso-tutorial.md
@@ -485,9 +485,11 @@
           href: expensein-tutorial.md
         - name: Expensify
           href: expensify-tutorial.md
+        - name: Experience Cloud
+          href: experience-cloud-tutorial.md
         - name: Explanation-Based Auditing System
           href: explanation-based-auditing-system-tutorial.md
-        - name: Promemoria di scadenza
+        - name: Expiration Reminder
           href: expiration-reminder-tutorial.md
         - name: EZOfficeInventory
           href: ezofficeinventory-tutorial.md
@@ -597,8 +599,6 @@
       items:
         - name: Hackerone
           href: hackerone-tutorial.md
-        - name: Halogen Software
-          href: halogen-software-tutorial.md
         - name: Halosys
           href: halosys-tutorial.md
         - name: HappyFox
@@ -651,6 +651,8 @@
           href: hype-tutorial.md
         - name: HyperAnna
           href: hyperanna-tutorial.md
+        - name: IamIP Patent Platform
+          href: iamip-patent-platform-tutorial.md
         - name: IBM Kenexa Survey Enterprise
           href: kenexasurvey-tutorial.md
         - name: IBM OpenPages
@@ -759,7 +761,7 @@
           href: jobbadmin-tutorial.md
         - name: JOBHUB
           href: jobhub-tutorial.md
-        - name: jobscience
+        - name: Jobscience
           href: jobscience-tutorial.md
         - name: JobScore
           href: jobscore-tutorial.md
@@ -851,7 +853,7 @@
           href: litmos-tutorial.md
         - name: LockPath Keylight
           href: keylight-tutorial.md
-        - name: logicmonitor
+        - name: LogicMonitor
           href: logicmonitor-tutorial.md
         - name: LoginRadius
           href: lr-tutorial.md
@@ -961,7 +963,7 @@
           href: netsuite-tutorial.md
         - name: New Relic
           href: new-relic-tutorial.md
-        - name: New Relic (versione limitata)
+        - name: New Relic (Limited Release)
           href: new-relic-limited-release-tutorial.md
         - name: Nexonia
           href: nexonia-tutorial.md
@@ -975,6 +977,8 @@
           href: nomadic-tutorial.md
         - name: Novatus
           href: novatus-tutorial.md
+        - name: NS1 SSO for Azure
+          href: ns1-sso-azure-tutorial.md
         - name: Nuclino
           href: nuclino-tutorial.md
         - name: O.C. Tanner - AppreciateHub
@@ -1049,7 +1053,7 @@
           href: peakon-tutorial.md
         - name: Pega Systems
           href: pegasystems-tutorial.md
-        - name: Persone
+        - name: People
           href: people-tutorial.md
         - name: Peoplecart
           href: peoplecart-tutorial.md
@@ -1177,6 +1181,8 @@
           href: runmyprocess-tutorial.md
     - name: S
       items:
+        - name: Saba TalentSpace
+          href: halogen-software-tutorial.md
         - name: SafeConnect
           href: safeconnect-tutorial.md
         - name: SafetyNet
@@ -1297,7 +1303,7 @@
           href: skyhighnetworks-tutorial.md
         - name: SKYSITE
           href: skysite-tutorial.md
-        - name: Skytap
+        - name: Single Sign-on for Skytap
           href: skytap-tutorial.md
         - name: Skyward Qmlativ
           href: skyward-qmlativ-tutorial.md

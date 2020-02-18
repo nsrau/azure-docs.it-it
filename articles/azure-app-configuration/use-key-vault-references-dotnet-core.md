@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: b35c23e6dd88af01391bf7f01a7e736a1a744fff
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 4e896c5fa6f8656be29eed7eb8d4e8854a94ecfa
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714437"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116611"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Esercitazione: Usare i riferimenti a Key Vault in un'app ASP.NET Core
 
@@ -172,7 +172,7 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
     using Azure.Identity;
     ```
 
-1. Aggiornare il metodo `CreateWebHostBuilder` per usare Configurazione app effettuando una chiamata al metodo `config.AddAzureAppConfiguration`. Includere l'opzione `UseAzureKeyVault`, che passa un nuovo riferimento `KeyVaultClient` a Key Vault.
+1. Aggiornare il metodo `CreateWebHostBuilder` per usare Configurazione app effettuando una chiamata al metodo `config.AddAzureAppConfiguration`. Includere l'opzione `ConfigureKeyVault` e passare le credenziali corrette a Key Vault.
 
     #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -217,7 +217,7 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
             .UseStartup<Startup>());
     ```
 
-1. Quando è stata inizializzata la connessione a Configurazione app, è stato passato il riferimento `KeyVaultClient` al metodo `UseAzureKeyVault`. Dopo l'inizializzazione, è possibile accedere ai valori dei riferimenti a Key Vault nello stesso modo in cui si accede ai valori delle normali chiavi di Configurazione app.
+1. Quando è stata inizializzata la connessione a Configurazione app, è stata configurata la connessione a Key Vault chiamando il metodo `ConfigureKeyVault`. Dopo l'inizializzazione, è possibile accedere ai valori dei riferimenti a Key Vault nello stesso modo in cui si accede ai valori delle normali chiavi di Configurazione app.
 
     Per vedere questo processo in azione, aprire *Index.cshtml* nella cartella **Views** > **Home**. Sostituire il contenuto con il codice seguente:
 

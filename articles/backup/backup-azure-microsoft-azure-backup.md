@@ -3,12 +3,12 @@ title: Usare server di Backup di Azure per eseguire il backup dei carichi di lav
 description: In questo articolo viene illustrato come preparare l'ambiente per la protezione e il backup dei carichi di lavoro utilizzando il server di Backup di Microsoft Azure (MAB).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: ff5df19d3e2d42af9a45fbc1b71980cee1cdb8a0
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: efa54eac2e3e134fb285d38242ca1b59727c2c86
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111606"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425188"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installare e preparare il server di Backup di Azure
 
@@ -51,7 +51,7 @@ La protezione dei carichi di lavoro con il server di Backup di Azure è piuttost
 
 Se non si vuole eseguire il server di base in Azure, è possibile eseguire il server in una VM Hyper-V o VMware oppure in un host fisico. I requisiti minimi consigliati per l'hardware del server sono due core e 8 GB di RAM. Nella tabella seguente sono elencati i sistemi operativi supportati:
 
-| Sistema operativo | Piattaforma | SKU |
+| Sistema operativo | Platform | SKU |
 |:--- | --- |:--- |
 | Windows Server 2019 |64 bit |Standard, Datacenter, Essentials |
 | Windows Server 2016 e versioni più recenti di SP |64 bit |Standard, Datacenter, Essentials  |
@@ -62,10 +62,10 @@ Se non si vuole eseguire il server di base in Azure, è possibile eseguire il se
 > Il server di Backup di Azure è progettato per essere eseguito su un server dedicato, con un unico scopo. Non è possibile installare il server di Backup di Azure su:
 >
 > * Un computer in esecuzione come controller di dominio
-> * Un computer in cui è installato il ruolo di server applicazioni
+> * in un computer in cui è installato il ruolo Application Server,
 > * Un computer che sia un server di gestione di System Center Operations Manager
-> * Un computer su cui è in esecuzione Exchange Server
-> * Un computer che sia un nodo di un cluster
+> * in un computer che esegue Exchange Server,
+> * in un computer che è un nodo di un cluster.
 >
 > L'installazione di server di Backup di Azure non è supportata in Windows Server Core o Microsoft Hyper-V Server.
 
@@ -163,14 +163,15 @@ Al termine del processo di estrazione, selezionare la casella per avviare il fil
 2. Nella schermata iniziale fare clic sul pulsante **Avanti** . Verrà visualizzata la sezione *Prerequisite Checks* (Controlli dei prerequisiti). In questa schermata fare clic su **Controlla** per determinare se i prerequisiti hardware e software per il server di Backup di Azure sono stati soddisfatti. Se tutti i prerequisiti sono soddisfatti, verrà visualizzato un messaggio che indica che il computer soddisfa i requisiti. Fare clic sul pulsante **Avanti** .
 
     ![Server di backup di Azure - Pagina iniziale e controllo dei prerequisiti](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
-3. Il server di Backup di Microsoft Azure richiede SQL Server Enterprise. Inoltre, il pacchetto di installazione del server di Backup di Azure include i file binari appropriati di SQL Server necessari, se non si vogliono usare i propri file SQL. Quando si avvia una nuova installazione del server di Backup di Azure, è consigliabile selezionare l'opzione **Installa una nuova istanza di SQL Server con questa installazione** e fare clic sul pulsante **Controlla e installa**. Una volta che i prerequisiti vengono installati correttamente, fare clic su **Avanti**.
+3. Il pacchetto di installazione di server di Backup di Azure viene fornito con i file binari SQL Server appropriati necessari. Quando si avvia una nuova installazione di server di Backup di Azure, selezionare l'opzione **installa una nuova istanza di SQL Server con questa configurazione** e fare clic sul pulsante **Controlla e installa** . Una volta che i prerequisiti vengono installati correttamente, fare clic su **Avanti**.
+
+    >[!NOTE]
+    >Se si vuole usare il proprio server SQL, le versioni SQL Server supportate sono SQL Server 2014 SP1 o versione successiva, 2016 e 2017.  Tutte le versioni di SQL Server devono essere standard o Enterprise 64 bit.
+    >Il server di Backup di Azure non funzionerà con un'istanza remota di SQL Server. L'istanza usata dal server di Backup di Azure deve essere locale. Se si utilizza un'istanza di SQL Server esistente per MAB, il programma di installazione di MAB supporta solo l'utilizzo di *istanze denominate* di SQL Server.
 
     ![Server di backup di Azure - Controllo SQL](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
     Se si verifica un errore con l'indicazione di riavviare il computer, eseguire questa operazione e fare clic su **Controlla di nuovo**. Se si verificano problemi di configurazione di SQL, riconfigurare SQL in base alle linee guida di SQL e riprovare a installare o aggiornare MAB usando l'istanza esistente di SQL.
-
-   > [!NOTE]
-   > Il server di Backup di Azure non funzionerà con un'istanza remota di SQL Server. L'istanza usata dal server di Backup di Azure deve essere locale. Nel caso in cui si usi un server SQL esistente per MABS, il programma di installazione di MABS supporta solo l'uso delle *istanze denominate* di SQL Server.
 
    **Configurazione manuale**
 
@@ -264,7 +265,7 @@ Ecco i passaggi necessari se si vuole spostare MABS in un nuovo server, mantenen
 2. Arrestare il server di backup di Azure originale o portarlo fuori rete.
 3. Reimpostare l'account del computer in Active Directory.
 4. Installare SQL Server 2016 nel nuovo computer e assegnare al computer lo stesso nome del server di Backup di Azure originale.
-5. Eseguire l'aggiunta al dominio
+5. Aggiunta al dominio
 6. Installare il server di backup di Azure V3 o versione successiva (spostare i dischi del pool di archiviazione di MAB dal vecchio server e importare)
 7. Ripristinare il database di Data Protection Manager acquisito nel passaggio 1.
 8. Collegare l'archiviazione dal server di backup originale a quello nuovo.
@@ -285,7 +286,7 @@ Allo stesso tempo, è necessario che la sottoscrizione di Azure sia in uno stato
 
 Dopo avere verificato lo stato della connettività di Azure e della sottoscrizione di Azure, è possibile usare la tabella seguente per scoprire l'impatto della funzionalità di backup/ripristino offerta.
 
-| Stato di connettività | Sottoscrizione di Azure | Eseguire il backup in Azure | Eseguire il backup su disco | Ripristino da Azure | Ripristino da disco |
+| Stato di connettività | Sottoscrizione di Azure | Eseguire il backup in Azure | Esegui il backup su disco | Ripristino da Azure | Ripristino da disco |
 | --- | --- | --- | --- | --- | --- |
 | Connesso |Attivo |Consentito |Consentito |Consentito |Consentito |
 | Connesso |Scaduto |Arrestato |Arrestato |Consentito |Consentito |

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/17/2020
 ms.author: dapine
-ms.openlocfilehash: 0788ff84cd5b0d50e0798d0d72ee84b47cb5f0b1
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 4a2887ef8b264628128872730422fd38d6b0ac0f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368320"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425001"
 ---
 # <a name="what-is-custom-speech"></a>Che cos'è Riconoscimento vocale personalizzato?
 
@@ -62,7 +62,7 @@ Contenuti come dati, modelli, test ed endpoint sono organizzati in **progetti** 
 Per creare il primo progetto, selezionare la voce vocale **/personalizzata**, quindi fare clic su **nuovo progetto**. Seguire le istruzioni fornite dalla procedura guidata per creare il progetto. Dopo aver creato un progetto, verranno visualizzate quattro schede: **dati**, **testing**, **Training**e **distribuzione**. Usare i collegamenti forniti nei [passaggi successivi](#next-steps) per informazioni su come usare ogni scheda.
 
 > [!IMPORTANT]
-> Il [portale riconoscimento vocale personalizzato](https://aka.ms/custom-speech) è stato aggiornato di recente. Se sono stati creati progetti precedenti con dati, modelli, test ed endpoint pubblicati nel portale di CRIS o con le API, è necessario creare un nuovo progetto nel nuovo portale per connettersi a queste entità obsolete.
+> Il [portale riconoscimento vocale personalizzato](https://aka.ms/custom-speech) è stato aggiornato di recente. Se sono stati creati dati, modelli, test e endpoint pubblicati in precedenza nel portale di CRIS.ai o con le API, è necessario creare un nuovo progetto nel nuovo portale per connettersi a queste entità obsolete.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 07/09/2019
-ms.openlocfilehash: e32250102d095f341b2de918037b9ad834adfd33
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/17/2020
+ms.openlocfilehash: fe006cebe9aab30a6aaa0bdf2bf3362a494f64d7
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842657"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426274"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Creazione e uso della replica geografica attiva
 
@@ -113,7 +113,7 @@ Per assicurarsi che l'applicazione possa accedere immediatamente al nuovo databa
 
 ## <a name="configuring-secondary-database"></a>Configurazione del database secondario
 
-I database primari e secondari devono avere lo stesso livello di servizio. È anche consigliabile creare tale database secondario con le stesse dimensioni di calcolo (DTU o vCore) del database primario. Se il database primario sta riscontrando un carico di lavoro di scrittura elevato, è possibile che una replica secondaria con una dimensione di calcolo inferiore non sia in grado di tenersi al passo con essa. Questa operazione provocherà il ritardo di rollforward sulla replica secondaria e la potenziale indisponibilità. Un database secondario che rimane indietro rispetto a quello primario può comportare perdite di dati importanti qualora fosse necessario un failover forzato. Per attenuare questi rischi, la replica geografica attiva efficace limiterà la velocità di log del primario per consentire l'aggiornamento dei relativi database secondari. L'altra conseguenza di una configurazione secondaria sbilanciata è che dopo il failover le prestazioni dell'applicazione risentiranno a causa di una capacità di calcolo insufficiente del nuovo database primario. Verrà richiesto di eseguire l'aggiornamento a un livello di calcolo superiore a quello necessario, che non sarà possibile fino a quando l'interruzione non verrà mitigata. 
+I database primari e secondari devono avere lo stesso livello di servizio. È anche consigliabile creare tale database secondario con le stesse dimensioni di calcolo (DTU o vCore) del database primario. Se il database primario sta riscontrando un carico di lavoro di scrittura elevato, è possibile che una replica secondaria con una dimensione di calcolo inferiore non sia in grado di tenersi al passo con essa. Questa operazione provocherà il ritardo di rollforward sulla replica secondaria e la potenziale indisponibilità. Un database secondario in ritardo rispetto al database primario rischia anche una perdita di dati di grandi dimensioni in caso di necessità di un failover forzato. Per attenuare questi rischi, la replica geografica attiva efficace limiterà la velocità di log del primario per consentire l'aggiornamento dei relativi database secondari. L'altra conseguenza di una configurazione secondaria sbilanciata è che dopo il failover le prestazioni dell'applicazione risentiranno a causa di una capacità di calcolo insufficiente del nuovo database primario. Verrà richiesto di eseguire l'aggiornamento a un livello di calcolo superiore a quello necessario, che non sarà possibile fino a quando l'interruzione non verrà mitigata. 
 
 
 > [!IMPORTANT]
@@ -145,7 +145,7 @@ Il client che esegue le modifiche richiede l'accesso alla rete al server primari
 1. Creare un utente corrispondente e assegnarlo al ruolo dbmanager: 
 
    ```sql
-   create user geodrsetup for login gedrsetup
+   create user geodrsetup for login geodrsetup
    alter role geodrsetup dbmanager add member geodrsetup
    ```
 
@@ -223,12 +223,12 @@ A causa della latenza elevata delle reti WAN, per la copia continua viene usato 
 
 ## <a name="monitoring-geo-replication-lag"></a>Monitoraggio del ritardo della replica geografica
 
-Per monitorare il ritardo rispetto a RPO, utilizzare *replication_lag_sec* colonna di [sys. dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) nel database primario. Mostra un ritardo in secondi tra le transazioni di cui è stato eseguito il commit nel database primario e rese permanente sul database secondario. Ad esempio Se il valore del ritardo è di 1 secondo, significa che se il database primario è influenzato da un'interruzione in questo momento e viene avviato il failover, 1 secondo delle transizioni più recenti non verrà salvato. 
+Per monitorare il ritardo rispetto a RPO, utilizzare *replication_lag_sec* colonna di [sys. dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) nel database primario. Mostra un ritardo in secondi tra le transazioni di cui è stato eseguito il commit nel database primario e rese permanente sul database secondario. ad esempio Se il valore del ritardo è di 1 secondo, significa che se il database primario è influenzato da un'interruzione in questo momento e viene avviato il failover, 1 secondo delle transizioni più recenti non verrà salvato. 
 
 Per misurare il ritardo rispetto alle modifiche apportate al database primario che sono state applicate al database secondario, ovvero disponibili per la lettura dalla replica secondaria, confrontare *last_commit* tempo nel database secondario con lo stesso valore nel database primario.
 
 > [!NOTE]
-> A volte *replication_lag_sec* nel database primario ha un valore null, il che significa che il database primario non conosce attualmente la distanza del database secondario.   Questo problema si verifica in genere dopo il riavvio del processo e deve essere una condizione temporanea. Si consiglia di avvisare l'applicazione se il *replication_lag_sec* restituisce null per un periodo di tempo prolungato. Indica che il database secondario non è in grado di comunicare con il database primario a causa di un errore di connettività permanente. Esistono anche condizioni che possono causare la differenza tra *last_commit* tempo nel database secondario e nel database primario per diventare di grandi dimensioni. Ad esempio Se un commit viene eseguito sul database primario dopo un lungo periodo di assenza di modifiche, la differenza passerà a un valore elevato prima di tornare rapidamente a 0. Si consideri una condizione di errore quando la differenza tra questi due valori rimane grande per molto tempo.
+> A volte *replication_lag_sec* nel database primario ha un valore null, il che significa che il database primario non conosce attualmente la distanza del database secondario.   Questo problema si verifica in genere dopo il riavvio del processo e deve essere una condizione temporanea. Si consiglia di avvisare l'applicazione se il *replication_lag_sec* restituisce null per un periodo di tempo prolungato. Indica che il database secondario non è in grado di comunicare con il database primario a causa di un errore di connettività permanente. Esistono anche condizioni che possono causare la differenza tra *last_commit* tempo nel database secondario e nel database primario per diventare di grandi dimensioni. ad esempio Se un commit viene eseguito sul database primario dopo un lungo periodo di assenza di modifiche, la differenza passerà a un valore elevato prima di tornare rapidamente a 0. Si consideri una condizione di errore quando la differenza tra questi due valori rimane grande per molto tempo.
 
 
 ## <a name="programmatically-managing-active-geo-replication"></a>Gestione a livello di codice della replica geografica attiva
@@ -240,7 +240,7 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 > [!IMPORTANT]
 > Questi comandi Transact-SQL si applicano solo alla replica geografica attiva e non ai gruppi di failover. Di conseguenza potrebbero anche non applicarsi a istanze gestite, perché supportano solo i gruppi di failover.
 
-| Comando | Description |
+| Comando | Descrizione |
 | --- | --- |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Usare l'argomento ADD SECONDARY ON SERVER per creare un database secondario per un database esistente e avviare la replica dei dati |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Usare FAILOVER o FORCE_FAILOVER_ALLOW_DATA_LOSS per passare un database secondario al ruolo di database primario per avviare il failover |
@@ -257,7 +257,7 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 > [!IMPORTANT]
 > Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono sostanzialmente identici.
 
-| Cmdlet | Description |
+| Cmdlet | Descrizione |
 | --- | --- |
 | [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) |Ottiene uno o più database. |
 | [New-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasesecondary) |Crea un database secondario per un database esistente e avvia la replica dei dati. |
@@ -271,7 +271,7 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 
 ### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>API REST: gestire il failover di database singoli e in pool
 
-| API SmartBear Ready! | Description |
+| API | Descrizione |
 | --- | --- |
 | [Creare o aggiornare database (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Crea, aggiorna o ripristina un database primario o secondario. |
 | [Get Create or Update Database Status](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Restituisce lo stato durante un'operazione di creazione. |

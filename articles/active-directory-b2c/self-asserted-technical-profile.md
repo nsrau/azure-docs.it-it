@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/16/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 37d895e2514d01bdbe73f42e1ba5ea5e4c46bfa1
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 8f2a86f72f16a23b0133601cfe41b9e636d8866d
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77372868"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425596"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico autocertificato nei criteri personalizzati di Azure Active Directory B2C
 
@@ -55,7 +55,7 @@ In un profilo tecnico autocertificato, è possibile usare gli elementi **InputCl
 
 La funzionalità di visualizzazione delle attestazioni è attualmente in **Anteprima**.
 
-L'elemento **DisplayClaims** contiene un elenco di attestazioni da presentare sullo schermo per la raccolta di dati da parte dell'utente. Per prepopolare i valori delle attestazioni di output, usare le attestazioni di input descritte in precedenza. L'elemento può contenere anche un valore predefinito.
+L'elemento **DisplayClaims** contiene un elenco di attestazioni da presentare sullo schermo per la raccolta di dati da parte dell'utente. Per prepopolare i valori delle attestazioni di visualizzazione, usare le attestazioni di input descritte in precedenza. L'elemento può contenere anche un valore predefinito.
 
 L'ordine delle attestazioni in **DisplayClaims** specifica l'ordine in cui Azure ad B2C esegue il rendering delle attestazioni sullo schermo. Per forzare l'utente a fornire un valore per un'attestazione specifica, impostare l'attributo **obbligatorio** dell'elemento **DisplayClaim** su `true`.
 

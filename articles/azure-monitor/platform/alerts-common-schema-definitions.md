@@ -4,15 +4,15 @@ description: Informazioni sulle definizioni dello schema di avviso comuni per mo
 ms.service: azure-monitor
 ms.subservice: alerts
 ms.topic: conceptual
-author: anantr
+author: ofirmanor
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: fb8c2c7e25f94c66c8cc8f7768071d508da8d3b5
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: efa6a8807b3db14649a2b4ad38c575cf98aba113
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765667"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425171"
 ---
 # <a name="common-alert-schema-definitions"></a>Definizioni dello schema di avviso comune
 
@@ -71,13 +71,13 @@ Tutte le istanze di avviso descrivono la risorsa interessata e la relativa origi
 }
 ```
 
-## <a name="essentials"></a>Essentials
+## <a name="essentials"></a>Informazioni di base
 
-| Campo | Description|
+| Campo | Descrizione|
 |:---|:---|
 | alertId | GUID che identifica in modo univoco l'istanza di avviso. |
 | alertRule | Nome della regola di avviso che ha generato l'istanza di avviso. |
-| Gravità | Gravità dell'avviso. Valori possibili: Sev0, Sev1, Sev2, Sev3 o Sev4. |
+| Severity | Gravità dell'avviso. Valori possibili: Sev0, Sev1, Sev2, Sev3 o Sev4. |
 | signalType | Identifica il segnale su cui è stata definita la regola di avviso. Valori possibili: metrica, log o log attività. |
 | monitorCondition | Quando viene generato un avviso, la condizione di monitoraggio dell'avviso è impostata su **attivato**. Quando la condizione sottostante che ha causato l'attivazione dell'avviso viene cancellata, la condizione di monitoraggio è impostata su **risolto**.   |
 | monitoringService | Il servizio di monitoraggio o la soluzione che ha generato l'avviso. I campi per il contesto dell'avviso sono determinati dal servizio di monitoraggio. |
@@ -151,7 +151,7 @@ Tutte le istanze di avviso descrivono la risorsa interessata e la relativa origi
 ### <a name="log-alerts"></a>Avvisi relativi ai log
 
 > [!NOTE]
-> Per gli avvisi di log con un oggetto di posta elettronica personalizzato e/o un payload JSON definito, l'abilitazione dello schema comune ripristina l'oggetto di posta elettronica e/o lo schema del payload a quello descritto di seguito. Gli avvisi con lo schema comune abilitato hanno un limite di dimensione superiore di 256 KB per avviso. I risultati della ricerca non sono incorporati nel payload degli avvisi del log se causano il superamento di questa soglia da parte della dimensione dell'avviso. È possibile determinare questo problema selezionando il flag `IncludedSearchResults`. Quando non sono inclusi i risultati della ricerca, è consigliabile usare la query di ricerca insieme all' [API log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
+> Per gli avvisi di log con un oggetto di posta elettronica personalizzato e/o un payload JSON definito, l'abilitazione dello schema comune ripristina l'oggetto di posta elettronica e/o lo schema del payload a quello descritto di seguito. Gli avvisi con lo schema comune abilitato hanno un limite di dimensione superiore di 256 KB per avviso. I risultati della ricerca non sono incorporati nel payload degli avvisi del log se causano il superamento di questa soglia da parte della dimensione dell'avviso. È possibile determinare questo problema selezionando il flag `IncludeSearchResults`. Quando non sono inclusi i risultati della ricerca, è consigliabile usare la query di ricerca insieme all' [API log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
@@ -214,7 +214,7 @@ Tutte le istanze di avviso descrivono la risorsa interessata e la relativa origi
         }
       ]
     },
-    "IncludedSearchResults": "True",
+    "IncludeSearchResults": "True",
     "AlertType": "Number of results"
   }
 }
@@ -277,7 +277,7 @@ Tutte le istanze di avviso descrivono la risorsa interessata e la relativa origi
         }
       ]
     },
-    "IncludedSearchResults": "True",
+    "IncludeSearchResults": "True",
     "AlertType": "Number of results"
   }
 }

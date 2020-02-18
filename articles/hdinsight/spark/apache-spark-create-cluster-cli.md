@@ -7,28 +7,27 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 02/03/2020
-ms.openlocfilehash: ac937519ca3fa9381fe4970f2e4336fe4a0a9227
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: e4679d5a04be7b8c0145fd93818e4187170b4194
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989332"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049690"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>Avvio rapido: Creare cluster Apache Spark in Azure HDInsight usando l'interfaccia della riga di comando di Azure
 
-In questo argomento di avvio rapido si apprenderà come creare un cluster Apache Spark in Azure HDInsight tramite l'interfaccia della riga di comando di Azure. Apache Spark consente cluster computing e analisi dei dati veloci grazie all'elaborazione in memoria. L'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) è l'esperienza di riga di comando multipiattaforma Microsoft per la gestione delle risorse di Azure.
+Questa guida di avvio rapido illustra come creare un cluster Apache Spark in Azure HDInsight con l'interfaccia della riga di comando di Azure. Azure HDInsight è un servizio di analisi open source, gestito e ad ampio spettro per le aziende. Il framework Apache Spark per HDInsight consente di velocizzare cluster computing e analisi dei dati grazie all'elaborazione in memoria. L'interfaccia della riga di comando di Azure è l'esperienza di riga di comando multipiattaforma Microsoft per la gestione delle risorse di Azure.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+## <a name="prerequisites"></a>Prerequisiti
 
-## <a name="prerequisites"></a>Prerequisites
-
-Interfaccia della riga di comando di Azure. Se l'interfaccia della riga di comando di Azure non è stata installata, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) per la relativa procedura.
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli), se non si vuole usare Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-an-apache-spark-cluster"></a>Creare un cluster Apache Spark
 
-1. Accedere alla sottoscrizione di Azure. Se si prevede di usare Azure Cloud Shell, fare clic su **Prova** nell'angolo superiore destro del blocco di codice. In caso contrario, immettere il comando seguente:
+1. Accedere alla sottoscrizione di Azure. Se si intende usare Azure Cloud Shell, fare clic su **Prova** nell'angolo superiore destro del blocco di codice seguente. Altrimenti, immettere il comando seguente:
 
     ```azurecli-interactive
     az login
@@ -141,7 +140,7 @@ az group delete \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido si è appreso come creare un cluster Apache Spark in Azure HDInsight tramite l'interfaccia della riga di comando di Azure.  Passare all'esercitazione successiva per imparare come usare un cluster HDInsight Spark per eseguire query interattive su dati di esempio.
+In questo argomento di avvio rapido si è appreso come creare un cluster Apache Spark in Azure HDInsight tramite l'interfaccia della riga di comando di Azure.  Passare all'esercitazione successiva per imparare come usare un cluster HDInsight per eseguire query interattive su dati di esempio.
 
 > [!div class="nextstepaction"]
 > [Eseguire query interattive su Apache Spark](./apache-spark-load-data-run-query.md)

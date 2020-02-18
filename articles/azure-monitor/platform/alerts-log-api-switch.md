@@ -8,17 +8,20 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 5d6b8ce557cb794b3a56ecb3a938a2fe184156ab
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: a6f71cca2c63591d2d26a7d34ced232eabfbc6bb
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680750"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425152"
 ---
-# <a name="switch-api-preference-for-log-alerts"></a>Modifica la preferenza per gli avvisi del log
+# <a name="switch-api-preference-for-log-alerts"></a>Modificare la preferenza della API degli avvisi di Log Alerts
 
 > [!NOTE]
 > Contenuto dichiarato applicabile solo al cloud pubblico di Azure e **non** per Azure per enti pubblici o Azure China cloud.  
+
+> [!NOTE]
+> Quando un utente sceglie di modificare la preferenza per la nuova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) , non è possibile ripristinare l'uso della precedente [API log Analytics Alert](api-alerts.md).
 
 Fino a poco tempo fa le regole degli avvisi venivano gestite nel portale Microsoft Operations Management Suite (OMS). La nuova esperienza avvisi è stata integrata con diversi servizi in Microsoft Azure, tra cui Log Analytics e abbiamo chiesto di [estendere le regole di avviso dal portale OMS ad Azure](alerts-extend.md). Ma per assicurare un'interruzione minima per i clienti, il processo non ha modificato l'interfaccia programmatica per l'uso- [API degli avvisi di Log Analytics](api-alerts.md) basata su SavedSearch.
 
@@ -50,9 +53,6 @@ Il processo di estensione degli avvisi da [API legacy degli avvisi di Log Analyt
 
 - Una modifica alle preferenze dell'API e all'accesso alle regole tramite una nuova API.
 - URI di risorsa della regola di avviso modificato contenente gli ID usati nell' [API log Analytics Alert legacy](api-alerts.md) anziché il nome della regola di avviso in questa struttura `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Il nome visualizzato della regola di avviso rimarrà invariato.
-
-> [!NOTE]
-> Quando un utente sceglie di modificare la preferenza per la nuova [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) , non è possibile ripristinare l'uso della precedente [API log Analytics Alert](api-alerts.md).
 
 Qualsiasi cliente che desideri passare volontariamente al nuovo [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e bloccare l'uso dalla [API legacy degli avvisi relativi a Log Analytics](api-alerts.md) può farlo effettuando una chiamata PUT sull'API per cambiare tutte le regole relative agli avvisi associate all'area di lavoro specifica di Log Analytics.
 

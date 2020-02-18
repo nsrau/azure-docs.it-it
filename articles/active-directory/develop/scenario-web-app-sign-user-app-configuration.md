@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f15006f9c7f2778c986d1977123e1a396c4317f3
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d54103cad8a3550bdc300cba2308397dd1ce3d6c
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701604"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425579"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>App Web che esegue l'accesso degli utenti: configurazione del codice
 
@@ -30,7 +30,7 @@ Informazioni su come configurare il codice per l'app Web che esegue l'accesso ag
 <!-- This section can be in an include for Web App and Web APIs -->
 Le librerie usate per proteggere un'app Web (e un'API Web) sono:
 
-| Piattaforma | Library | Description |
+| Platform | Libreria | Descrizione |
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_net.png) | [Estensioni del modello di identità per .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Usato direttamente da ASP.NET e ASP.NET Core, Microsoft Identity Model Extensions per .NET propone un set di dll in esecuzione sia in .NET Framework che in .NET Core. Da un'app Web ASP.NET o ASP.NET Core è possibile controllare la convalida dei token usando la classe **TokenValidationParameters** (in particolare, in alcuni scenari partner). |
 | ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Supporto per le applicazioni Web Java |
@@ -93,7 +93,7 @@ In ASP.NET Core queste impostazioni si trovano nel file [appSettings. JSON](http
     // - "organizations" to sign in users in any work or school account
     // - "common" to sign in users with any work or school account or Microsoft personal account
     // - "consumers" to sign in users with a Microsoft personal account only
-    "TenantId": "[Enter the tenantId here]]",
+    "TenantId": "[Enter the tenantId here]",
 
     // Client ID (application ID) obtained from the Azure portal
     "ClientId": "[Enter the Client Id]",

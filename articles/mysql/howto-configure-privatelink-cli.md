@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 59c38423f771685dc79a8be12a383cfdec6a0266
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 798c80ec2290a96b6f76116120292720c05c9198
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031527"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426259"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-cli"></a>Creare e gestire un collegamento privato per database di Azure per MySQL (anteprima) con l'interfaccia della riga di comando
 
@@ -127,7 +127,7 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 
 1. Selezionare **Scarica file RDP**. Azure crea e scarica nel computer un file Remote Desktop Protocol con estensione *.rdp*.
 
-1. Aprire il file con estensione rdp scaricato.
+1. Aprire il file *downloaded.rdp*.
 
     1. Quando richiesto, selezionare **Connetti**.
 
@@ -155,30 +155,31 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
     Non-authoritative answer:
     Name:    mydemomysqlserver.privatelink.mysql.database.azure.com
     Address:  10.1.3.4
+    ```
 
-3. Test the private link connection for the MySQL server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
+3. Testare la connessione del collegamento privato per il server MySQL usando un client disponibile. Nell'esempio seguente ho usato [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) per eseguire l'operazione.
 
 
-4. In **New connection**, enter or select this information:
+4. In **nuova connessione**immettere o selezionare queste informazioni:
 
-    | Setting | Value |
+    | Impostazione | Valore |
     | ------- | ----- |
-    | Connection Name| Select the connection name of your choice.|
-    | Hostname | Select *mydemoserver.privatelink.mysql.database.azure.com* |
-    | Username | Enter username as *username@servername* which is provided during the MySQL server creation. |
-    | Password | Enter a password provided during the MySQL server creation. |
+    | Nome della connessione| Selezionare il nome della connessione scelta.|
+    | HostName | Seleziona *mydemoserver.privatelink.MySQL.database.Azure.com* |
+    | Username | Immettere username come *username@servername* fornito durante la creazione del server MySQL. |
+    | Password | Immettere una password specificata durante la creazione del server MySQL. |
     ||
 
-5. Select Connect.
+5. Selezionare Connetti.
 
-6. Browse databases from left menu.
+6. Esplorare i database dal menu a sinistra.
 
-7. (Optionally) Create or query information from the MySQL database.
+7. Facoltativamente Creare o eseguire query sulle informazioni dal database MySQL.
 
-8. Close the remote desktop connection to myVm.
+8. Chiudere la connessione Desktop remoto a myVm.
 
-## Clean up resources 
-When no longer needed, you can use az group delete to remove the resource group and all the resources it has: 
+## <a name="clean-up-resources"></a>Pulire le risorse 
+Quando non sono più necessari, è possibile usare il comando az group delete per rimuovere il gruppo di risorse e tutte le risorse in esso contenute: 
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes 

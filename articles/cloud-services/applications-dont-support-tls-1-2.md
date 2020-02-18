@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/17/2020
 ms.author: tagore
-ms.openlocfilehash: c4cbe2a99de97b2938d494e80d410a44c4143629
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 85fb87e23fa11781587572e836d1439dd813170e
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026835"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425035"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Risoluzione dei problemi relativi alle applicazioni che non supportano TLS 1,2
 Questo articolo descrive come abilitare i protocolli TLS precedenti (TLS 1,0 e 1,1), nonché come applicare pacchetti di crittografia legacy per supportare i protocolli aggiuntivi nei ruoli Web e di lavoro del servizio cloud di Windows Server 2019. 
@@ -27,7 +27,7 @@ Questo articolo descrive come abilitare i protocolli TLS precedenti (TLS 1,0 e 1
 Microsoft comprende che, durante l'esecuzione dei passaggi per deprecare TLS 1,0 e TLS 1,1, è possibile che i clienti debbano supportare i protocolli e i pacchetti di crittografia precedenti fino a quando non pianificano la loro deprecazione.  Sebbene non sia consigliabile riabilitare questi valori legacy, verranno fornite indicazioni per aiutare i clienti. Si consiglia ai clienti di valutare il rischio di regressione prima di implementare le modifiche descritte in questo articolo. 
 
 > [!NOTE]
-> Le versioni della famiglia di sistemi operativi guest 6 applica TLS 1,2 disabilitando le crittografie 1.0/1.0. 
+> Le versioni della famiglia di sistemi operativi guest 6 applica TLS 1,2 disabilitando le crittografie 1.0/1.1. 
 
   
 ## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Eliminazione del supporto per TLS 1,0, TLS 1,1 e pacchetti di crittografia precedenti 

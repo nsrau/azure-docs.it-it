@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 72b001ada98ecd768cd39fea012a20f2ada466d2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 340f91fc926c155f95449f7cc49c214f46d1ff35
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931283"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77423658"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Formato parquet in Azure Data Factory
 
@@ -26,11 +26,11 @@ Il formato parquet è supportato per i connettori seguenti [: Amazon S3](connect
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati parquet.
 
-| Proprietà         | Description                                                  | Obbligatoria |
+| Proprietà         | Descrizione                                                  | Obbligatoria |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | La proprietà Type del set di dati deve essere impostata su **parquet**. | SÌ      |
-| location         | Impostazioni del percorso dei file. Ogni connettore basato su file ha un tipo di percorso e proprietà supportate in `location`. **Per informazioni dettagliate, vedere l'articolo connettore-> sezione Proprietà set di dati**. | SÌ      |
-| compressionCodec | Codec di compressione da usare durante la scrittura in file parquet. Durante la lettura da file parquet, Data Factory determina automaticamente il codec di compressione basato sui metadati del file.<br>I tipi supportati sono "**None**", "**gzip**", "**Snapper**" (impostazione predefinita) e "**LZO**". Nota Attualmente l'attività di copia non supporta LZO. | No       |
+| type             | La proprietà Type del set di dati deve essere impostata su **parquet**. | Sì      |
+| posizione         | Impostazioni del percorso dei file. Ogni connettore basato su file ha un tipo di percorso e proprietà supportate in `location`. **Per informazioni dettagliate, vedere l'articolo connettore-> sezione Proprietà set di dati**. | Sì      |
+| compressionCodec | Codec di compressione da usare durante la scrittura in file parquet. Durante la lettura da file parquet, Data Factory determina automaticamente il codec di compressione basato sui metadati del file.<br>I tipi supportati sono "**None**", "**gzip**", "**Snapper**" (impostazione predefinita) e "**LZO**". Nota Attualmente l'attività di copia non supporta LZO quando si leggono/scrivono file parquet. | No       |
 
 > [!NOTE]
 > Lo spazio vuoto nel nome della colonna non è supportato per i file parquet.
@@ -67,18 +67,18 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà seguenti sono supportate nella sezione ***\*origine\**** dell'attività di copia.
 
-| Proprietà      | Description                                                  | Obbligatoria |
+| Proprietà      | Descrizione                                                  | Obbligatoria |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **ParquetSource**. | SÌ      |
+| type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **ParquetSource**. | Sì      |
 | storeSettings | Un gruppo di proprietà su come leggere i dati da un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di lettura supportate in `storeSettings`. **Per informazioni dettagliate, vedere l'articolo connettore > sezione proprietà dell'attività di copia**. | No       |
 
 ### <a name="parquet-as-sink"></a>Parquet come sink
 
 Le proprietà seguenti sono supportate nella sezione ***\*sink\**** dell'attività di copia.
 
-| Proprietà      | Description                                                  | Obbligatoria |
+| Proprietà      | Descrizione                                                  | Obbligatoria |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **ParquetSink**. | SÌ      |
+| type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **ParquetSink**. | Sì      |
 | storeSettings | Gruppo di proprietà su come scrivere dati in un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di scrittura supportate in `storeSettings`. **Per informazioni dettagliate, vedere l'articolo connettore > sezione proprietà dell'attività di copia**. | No       |
 
 ## <a name="mapping-data-flow-properties"></a>Mapping delle proprietà del flusso di dati

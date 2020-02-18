@@ -1,17 +1,14 @@
 ---
 title: Visualizzazione delle dipendenze in Azure Migrate
 description: Viene fornita una panoramica dei calcoli di valutazione nel servizio Server assessment in Azure Migrate
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2019
-ms.author: hamusa
-ms.openlocfilehash: 75b2120b9fef904114d532e83d571c08e1a1034d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.date: 02/17/2020
+ms.openlocfilehash: 65a99e230262ae05d34dc8c04e87252c15133fda
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772313"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425681"
 ---
 # <a name="dependency-visualization"></a>Visualizzazione delle dipendenze
 
@@ -33,7 +30,7 @@ La visualizzazione delle dipendenze consente di comprendere le dipendenze tra i 
 Sono disponibili due opzioni per la distribuzione della visualizzazione delle dipendenze:
 
 - **Visualizzazione delle dipendenze senza agente**: questa opzione è attualmente in anteprima ed è disponibile solo per le macchine virtuali VMware. Non richiede l'installazione di agenti nei computer. 
-    - L'operazione viene eseguita acquisendo i dati di connessione TCP da computer per i quali è abilitata. [Altre informazioni](how-to-create-group-machine-dependencies-agentless.md)
+    - L'operazione viene eseguita acquisendo i dati di connessione TCP da computer per i quali è abilitata. [Altre informazioni](how-to-create-group-machine-dependencies-agentless.md).
 Dopo l'avvio dell'individuazione delle dipendenze, l'appliance raccoglie i dati dai computer a un intervallo di polling di cinque minuti.
     - Vengono raccolti i dati seguenti:
         - Connessioni TCP
@@ -54,7 +51,7 @@ Prima di distribuire la visualizzazione delle dipendenze, è necessario disporre
 [Altre](how-to-assess.md) informazioni sull'aggiunta dello strumento e sulla distribuzione di un'appliance per i server [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md)o fisici.
 
 
-### <a name="how-does-it-work"></a>Come funziona?
+### <a name="how-does-it-work"></a>Funzionamento
 
 Azure Migrate usa la soluzione [mapping dei servizi](../operations-management-suite/operations-management-suite-service-map.md) nei [log di monitoraggio di Azure](../log-analytics/log-analytics-overview.md) per la visualizzazione delle dipendenze.
 

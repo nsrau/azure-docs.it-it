@@ -4,12 +4,12 @@ description: Informazioni sui gruppi di gestione, sul funzionamento delle autori
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.date: 12/18/2019
 ms.topic: overview
-ms.openlocfilehash: 507f4575e6d8daa16a1ed7db3d429d2810a63a7c
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 319f48d4d0f8ce8501fecb74282760340b597188
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750246"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186991"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizzare le risorse con i gruppi di gestione di Azure
 
@@ -23,7 +23,7 @@ Ad esempio, è possibile applicare a un gruppo di gestione criteri che limitano 
 
 ![Esempio di un albero gerarchico dei gruppi di gestione](./media/tree.png)
 
-È possibile creare una gerarchia che applica un criterio, ad esempio che limita le posizioni delle VM all'area Stati Uniti occidentali nel gruppo denominato "Produzione". Questo criterio erediterà da tutte le sottoscrizioni EA discendenti del gruppo di gestione e verrà applicato a tutte le macchine virtuali all'interno delle sottoscrizioni. Questo criterio di sicurezza non potrà essere modificato dal proprietario della risorsa o della sottoscrizione e garantisce così una governance migliore.
+È possibile creare una gerarchia che applica un criterio, ad esempio che limita le posizioni delle VM all'area Stati Uniti occidentali nel gruppo denominato "Produzione". Questo criterio erediterà da tutte le sottoscrizioni del Contratto Enterprise (EA) discendenti del gruppo di gestione e verrà applicato a tutte le macchine virtuali all'interno delle sottoscrizioni. Questo criterio di sicurezza non potrà essere modificato dal proprietario della risorsa o della sottoscrizione e garantisce così una governance migliore.
 
 Un altro scenario in cui è utile usare gruppi di gestione è per fornire agli utenti l'accesso a più sottoscrizioni. Spostando più sottoscrizioni all'interno del gruppo di gestione, è possibile creare un'assegnazione di [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) nel gruppo di gestione, con ereditarietà di tale accesso in tutte le sottoscrizioni.
 Una sola assegnazione nel gruppo di gestione può consentire agli utenti di accedere a tutte le risorse necessarie invece di eseguire script di controllo degli accessi in base al ruolo per diverse sottoscrizioni.
@@ -102,7 +102,7 @@ Il grafico seguente mostra l'elenco dei ruoli e delle azioni supportate per i gr
 
 ## <a name="custom-rbac-role-definition-and-assignment"></a>Definizione e assegnazione del ruolo Controllo degli accessi in base al ruolo personalizzato
 
-Il supporto del ruolo Controllo degli accessi in base al ruolo personalizzato per i gruppi di gestione è attualmente supportato con alcune [limitazioni](#limitations).  È possibile definire l'ambito del gruppo di gestione nell'ambito assegnabile della definizione del ruolo.  Il ruolo Controllo degli accessi in base al ruolo personalizzato sarà quindi disponibile per l'assegnazione in tale gruppo di gestione e in qualsiasi gruppo di gestione, sottoscrizione, gruppo di risorse o risorsa in esso contenuti. Questo ruolo personalizzato erediterà la gerarchia in modo analogo a qualsiasi ruolo predefinito.    
+Il supporto del ruolo Controllo degli accessi in base al ruolo personalizzato per i gruppi di gestione è attualmente disponibile in anteprima con alcune [limitazioni](#limitations).  È possibile definire l'ambito del gruppo di gestione nell'ambito assegnabile della definizione del ruolo.  Il ruolo Controllo degli accessi in base al ruolo personalizzato sarà quindi disponibile per l'assegnazione in tale gruppo di gestione e in qualsiasi gruppo di gestione, sottoscrizione, gruppo di risorse o risorsa in esso contenuti. Questo ruolo personalizzato erediterà la gerarchia in modo analogo a qualsiasi ruolo predefinito.    
 
 ### <a name="example-definition"></a>Definizione di esempio
 La [definizione e la creazione di un ruolo personalizzato](../../role-based-access-control/custom-roles.md) non cambiano con l'inclusione di gruppi di gestione. Usare il percorso completo per definire il gruppo di gestione **/providers/Microsoft.Management/managementgroups/{groupId}** . 

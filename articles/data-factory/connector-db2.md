@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 02/17/2020
 ms.author: jingwang
-ms.openlocfilehash: 3d3a1704b75de53bf65012329fba5f8522adff3a
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 22ecac12e049e58e533cdde0078f4a25f6bb2aa6
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941762"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77423828"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiare dati da DB2 usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -46,13 +46,16 @@ In particolare, il connettore DB2 supporta le piattaforme e le versioni di IBM D
 * IBM DB2 per LUW 10.5
 * IBM DB2 per LUW 10.1
 
+>[!TIP]
+>Il connettore DB2 si basa su provider Microsoft OLE DB per DB2. Per risolvere i problemi relativi agli errori del connettore DB2, vedere [provider di dati codici di errore](https://docs.microsoft.com/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors).
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 Il runtime di integrazione offre un driver per DB2 integrato e non è quindi necessario installare manualmente alcun driver quando si copiano dati da/in DB2.
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -62,13 +65,13 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di DB2 sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **Db2** | Sì |
 | server |Nome del server DB2. È possibile specificare il numero di porta dopo il nome del server delimitato da due punti, ad esempio `server:port`. |Sì |
 | database |Nome del database DB2. |Sì |
 | authenticationType |Tipo di autenticazione usato per connettersi al database DB2.<br/>Il valore consentito è: **Di base**. |Sì |
-| username |Specificare il nome utente per la connessione al database DB2. |Sì |
+| nomeutente |Specificare il nome utente per la connessione al database DB2. |Sì |
 | password |Specificare la password per l'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
 | packageCollection | Specificare in dove i pacchetti necessari vengono creati automaticamente da ADF quando si eseguono query sul database. | No |
 | certificateCommonName | Quando si usa la crittografia Secure Sockets Layer (SSL) o Transport Layer Security (TLS), è necessario immettere un valore per nome comune del certificato. | No |
@@ -108,7 +111,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da DB2, sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà Type del set di dati deve essere impostata su: **Db2Table** | Sì |
 | schema | Nome dello schema. |No (se nell'origine dell'attività è specificato "query")  |
@@ -143,7 +146,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da DB2, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su: **Db2Source** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | No (se nel set di dati è specificato "tableName") |
@@ -191,28 +194,28 @@ Quando si copiano dati da DB2, vengono usati i mapping seguenti tra i tipi di da
 | BigInt |Int64 |
 | Binary |Byte[] |
 | BLOB |Byte[] |
-| Char |string |
-| Clob |string |
+| Char |String |
+| Clob |String |
 | Data |Datetime |
-| DB2DynArray |string |
-| DbClob |string |
+| DB2DynArray |String |
+| DbClob |String |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Double |Double |
 | Float |Double |
-| Graphic |string |
+| Graphic |String |
 | Integer |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |string |
-| LongVarGraphic |string |
-| Numeric |Decimal |
-| Real |Singolo |
+| LongVarChar |String |
+| LongVarGraphic |String |
+| Numerico |Decimal |
+| Real |Single |
 | SmallInt |Int16 |
-| Durata |TimeSpan |
-| Timestamp |Data e ora |
+| Tempo |TimeSpan |
+| Timestamp |Datetime |
 | VarBinary |Byte[] |
-| VarChar |string |
-| VarGraphic |string |
+| VarChar |String |
+| VarGraphic |String |
 | Xml |Byte[] |
 
 ## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
