@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 5f3bceb8398f9837f6f8eaa390def41456daf08d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 786950011f10e25d6bcb72061212c1878e79d45a
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271600"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373362"
 ---
 # <a name="secure-azure-data-explorer-clusters-in-azure"></a>Proteggere i cluster di Azure Esplora dati in Azure
 
@@ -26,7 +26,7 @@ La funzionalità identità gestite di Azure Active Directory (Azure AD) per le r
 
 ## <a name="data-encryption"></a>Crittografia dei dati
 
-### <a name="azure-disk-encryption"></a>Crittografia dischi di Azure
+### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
 [Crittografia dischi di Azure](/azure/security/azure-security-disk-encryption-overview) consente di proteggere e salvaguardare i dati per soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Fornisce la crittografia del volume per il sistema operativo e i dischi dati delle macchine virtuali del cluster. Crittografia dischi di Azure si integra anche con [Azure Key Vault](/azure/key-vault/), che consente di controllare e gestire le chiavi e i segreti di crittografia del disco e di assicurarsi che tutti i dati nei dischi delle macchine virtuali siano crittografati. 
 
@@ -34,10 +34,10 @@ La funzionalità identità gestite di Azure Active Directory (Azure AD) per le r
 
 Per impostazione predefinita, i dati vengono crittografati con le chiavi gestite da Microsoft. Per un maggiore controllo sulle chiavi di crittografia, è possibile fornire chiavi gestite dal cliente da usare per la crittografia dei dati. È possibile gestire la crittografia dei dati a livello di archiviazione con le proprie chiavi. Una chiave gestita dal cliente viene usata per proteggere e controllare l'accesso alla chiave di crittografia radice, usata per crittografare e decrittografare tutti i dati. Le chiavi gestite dal cliente offrono maggiore flessibilità per creare, ruotare, disabilitare e revocare i controlli di accesso. È anche possibile controllare le chiavi di crittografia usate per proteggere i dati.
 
-Usare Azure Key Vault per archiviare le chiavi gestite dal cliente. È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure è possibile usare un'API Azure Key Vault per generare chiavi. Il cluster Azure Esplora dati e il Azure Key Vault devono trovarsi nella stessa area, ma possono trovarsi in sottoscrizioni diverse. Per ulteriori informazioni su Azure Key Vault, vedere [che cos'è Azure Key Vault?](/azure/key-vault/key-vault-overview). Per una spiegazione dettagliata delle chiavi gestite dal cliente, vedere [chiavi gestite dal cliente con Azure Key Vault](/azure/storage/common/storage-service-encryption)
+Usare Azure Key Vault per archiviare le chiavi gestite dal cliente. È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure è possibile usare un'API Azure Key Vault per generare chiavi. Il cluster Azure Esplora dati e il Azure Key Vault devono trovarsi nella stessa area, ma possono trovarsi in sottoscrizioni diverse. Per ulteriori informazioni su Azure Key Vault, vedere [che cos'è Azure Key Vault?](/azure/key-vault/key-vault-overview). Per una spiegazione dettagliata delle chiavi gestite dal cliente, vedere [chiavi gestite dal cliente con Azure Key Vault](/azure/storage/common/storage-service-encryption). Configurare le chiavi gestite dal cliente nel cluster di Azure Esplora dati [C#](/azure/data-explorer/customer-managed-keys-csharp) usando o il [modello di Azure Resource Manager](/azure/data-explorer/customer-managed-keys-resource-manager)
 
 > [!Note]
-> Le chiavi gestite dal cliente si basano sulle identità gestite per le risorse di Azure, una funzionalità di Azure Active Directory (Azure AD). Per configurare le chiavi gestite dal cliente nel portale di Azure, è necessario configurare un'identità gestita di **SystemAssigned** per il cluster.
+> Le chiavi gestite dal cliente si basano sulle identità gestite per le risorse di Azure, una funzionalità di Azure Active Directory (Azure AD). Per configurare le chiavi gestite dal cliente nel portale di Azure, è necessario configurare un'identità gestita di **SystemAssigned** nel cluster, come descritto in [configurare le identità gestite per il cluster Azure Esplora dati](/azure/data-explorer/managed-identities).
 
 #### <a name="store-customer-managed-keys-in-azure-key-vault"></a>Archiviare chiavi gestite dal cliente in Azure Key Vault
 
@@ -54,14 +54,14 @@ Per revocare l'accesso alle chiavi gestite dal cliente, usare PowerShell o l'int
 > [!Note]
 > Quando Azure Esplora dati identifica che l'accesso a una chiave gestita dal cliente viene revocato, il cluster verrà automaticamente sospeso per eliminare i dati memorizzati nella cache. Una volta che l'accesso alla chiave viene restituito, il cluster deve essere ripreso manualmente.
 
-## <a name="role-based-access-control"></a>Controllo degli accessi basato sul ruolo
+## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 
 Usando il [controllo degli accessi in base al ruolo](/azure/role-based-access-control/overview), è possibile separare i compiti all'interno del team e concedere solo l'accesso necessario agli utenti del cluster. Anziché concedere a tutti le autorizzazioni senza restrizioni per il cluster, è possibile consentire solo determinate azioni. È possibile configurare il [controllo di accesso per i database](/azure/data-explorer/manage-database-permissions) nel [portale di Azure](/azure/role-based-access-control/role-assignments-portal)usando l' [interfaccia](/azure/role-based-access-control/role-assignments-cli)della riga di comando di Azure o [Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Configurare le identità gestite per il cluster di Azure Esplora dati](managed-identities.md)
 * [Proteggere il cluster in Azure Esplora dati-Portal](manage-cluster-security.md) abilitando la crittografia dei computer inattivi.
+* [Configurare le identità gestite per il cluster di Azure Esplora dati](managed-identities.md)
 * [Configurare chiavi gestite dal cliente usando il modello di Azure Resource Manager](customer-managed-keys-resource-manager.md)
 * [Configurare chiavi gestite dal cliente medianteC#](customer-managed-keys-csharp.md)
 

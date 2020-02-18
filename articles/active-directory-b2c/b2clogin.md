@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5c9054daea76675ed621caf1630c509b16743f4e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: aa1e6d8705cf4aed975ed0940087f243a06a9019
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836343"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77372686"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Impostare gli URL di reindirizzamento su b2clogin.com per Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Per eseguire la migrazione delle applicazioni a *b2clogin.com*, potrebbe essere 
 
 * Modificare l'URL di reindirizzamento nelle applicazioni del provider di identità in modo che faccia riferimento a *b2clogin.com*.
 * Aggiornare le applicazioni Azure AD B2C in modo da usare *b2clogin.com* nei riferimenti all'endpoint del flusso utente e del token.
-* Aggiornare le **origini consentite** definite nelle impostazioni CORS per la [personalizzazione dell'interfaccia utente](custom-policy-ui-customization-dynamic.md).
+* Aggiornare le **origini consentite** definite nelle impostazioni CORS per la [personalizzazione dell'interfaccia utente](custom-policy-ui-customization.md).
 
 ## <a name="change-identity-provider-redirect-urls"></a>Modificare gli URL di reindirizzamento del provider di identità
 
@@ -58,7 +58,7 @@ Esistono due formati che è possibile usare per gli URL di reindirizzamento di b
 https://{your-tenant-name}.b2clogin.com/{your-tenant-id}/oauth2/authresp
 ```
 
-La seconda opzione Usa il nome di dominio del tenant sotto forma di `your-tenant-name.onmicrosoft.com`. Ad esempio:
+La seconda opzione Usa il nome di dominio del tenant sotto forma di `your-tenant-name.onmicrosoft.com`. Ad esempio,
 
 ```
 https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp

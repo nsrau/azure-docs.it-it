@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f171d9d71d3e6f8fa57671578502675442293793
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 2dcdc67f884d1f566c794ab9e996a74984ab61a4
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908939"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373148"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente in Azure Active Directory B2C
 
@@ -39,7 +39,7 @@ Usare il [portale di Azure](tutorial-customize-ui.md) per configurare la persona
 
 Se si usano [criteri personalizzati](custom-policy-overview.md) per fornire l'iscrizione o l'accesso, la reimpostazione della password o la modifica del profilo nell'applicazione, usare [i file dei criteri per personalizzare l'interfaccia utente](custom-policy-ui-customization.md).
 
-Se è necessario fornire contenuti dinamici in base alla decisione di un cliente, usare criteri personalizzati che possono [modificare il contenuto della pagina in modo dinamico](custom-policy-ui-customization-dynamic.md) in base a un parametro inviato in una stringa di query. È ad esempio possibile modificare l'immagine di sfondo nella pagina Azure AD B2C iscrizione o accesso in base a un parametro passato dall'applicazione Web o per dispositivi mobili.
+Se è necessario fornire contenuti dinamici in base alla decisione di un cliente, usare criteri personalizzati che possono [modificare il contenuto della pagina in modo dinamico](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri) in base a un parametro inviato in una stringa di query. È ad esempio possibile modificare l'immagine di sfondo nella pagina Azure AD B2C iscrizione o accesso in base a un parametro passato dall'applicazione Web o per dispositivi mobili.
 
 ### <a name="javascript"></a>JavaScript
 
@@ -150,7 +150,7 @@ La tabella seguente elenca i frammenti HTML che Azure AD B2C unisce nell'element
 | Iscrizione dell'account locale | Contiene un modulo per eseguire l'iscrizione dell'account locale in base a un indirizzo di posta elettronica o a un nome utente. Il modulo può contenere diversi controlli di input, ad esempio caselle per l'immissione di testo, caselle per l'immissione della password, pulsanti di opzione, caselle a discesa a selezione singola e caselle di controllo con selezione multipla. |
 | Iscrizione dell'account di social networking | Può essere visualizzata quando si effettua l'iscrizione usando un account esistente di un provider di identità basato su social network, ad esempio Facebook o Google. Viene usato quando è necessario raccogliere informazioni aggiuntive dal cliente usando un modulo di iscrizione. |
 | Unificata per l'iscrizione o l'accesso | Gestisce sia l'iscrizione che l'accesso dei clienti, che possono usare provider di identità basati su social network, come Facebook o Google, o account locali. |
-| Multi-Factor Authentication | Gli utenti possono verificare il proprio numero di telefono (tramite SMS o chiamata vocale) durante la procedura di iscrizione o di accesso. |
+| Autenticazione a più fattori | Gli utenti possono verificare il proprio numero di telefono (tramite SMS o chiamata vocale) durante la procedura di iscrizione o di accesso. |
 | Errore | Fornisce informazioni sugli errori al cliente. |
 
 ## <a name="company-branding-preview"></a>Informazioni personalizzate distintive dell'azienda (anteprima)

@@ -101,7 +101,7 @@
               href: user-flow-self-service-password-reset.md
         - name: Personalizzazione dell'esperienza utente
           items:
-            - name: Personalizzazione dell'interfaccia utente
+            - name: Personalizzare l'interfaccia utente
               href: customize-ui-overview.md
             - name: JavaScript e layout di pagina
               href: user-flow-javascript-overview.md
@@ -177,8 +177,6 @@
             - name: Personalizzare l'interfaccia utente
               href: custom-policy-ui-customization.md
               displayName: 'ux, input, cors, html, css'
-            - name: Personalizzare l'interfaccia utente in modo dinamico
-              href: custom-policy-ui-customization-dynamic.md
             - name: Posta elettronica personalizzata
               href: custom-email.md
               displayName: verification

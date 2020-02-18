@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/12/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 76e2b1c221475a90dc63498d13d4ede7a78e0779
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: fc01bd5c868cddd448e3a262960af64f50b78d74
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185594"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77372981"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -44,20 +44,38 @@ L'elemento **ClaimType** contiene l'attributo seguente:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| ID | Sì | Identificatore usato per il tipo di attestazione. Altri elementi possono usare questo identificatore nei criteri. |
+| Id | Sì | Identificatore usato per il tipo di attestazione. Altri elementi possono usare questo identificatore nei criteri. |
 
 L'elemento **ClaimType** contiene gli elementi seguenti:
 
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | Titolo che viene visualizzato agli utenti nelle varie schermate. Il valore può essere [localizzato](localization.md). |
-| DataType | 1:1 | Tipo di attestazione. È possibile utilizzare i tipi di dati Boolean, date, dateTime, int, Long, String, StringCollection e phoneNumber. Il tipo di dati primitivo rappresenta C# l'equivalente del tipo di dati della variabile. StringCollection rappresenta una raccolta di stringhe. Per altre informazioni [ C# , vedere tipi e variabili](https://docs.microsoft.com/dotnet/csharp/tour-of-csharp/types-and-variables). Data segue la convenzione ISO 8601. |
+| DataType | 1:1 | Tipo di attestazione. |
 | DefaultPartnerClaimTypes | 0:1 | Tipi di attestazione predefiniti di partner da usare per un protocollo specificato. Il valore può essere sovrascritto nell'elemento **PartnerClaimType** specificato nell'elemento **InputClaim** o **OutputClaim**. Usare questo elemento per specificare il nome predefinito per un protocollo.  |
 | Mask | 0:1 | Stringa di caratteri di mascheramento facoltativa che può essere applicata durante la visualizzazione dell'attestazione. Il numero di telefono 324-232-4343 ad esempio può essere mascherato come XXX-XXX-4343. |
 | UserHelpText | 0:1 | Descrizione del tipo di attestazione che può essere utile agli utenti per comprenderne lo scopo. Il valore può essere [localizzato](localization.md). |
 | UserInputType | 0:1 | Tipo di controllo di input che deve essere disponibile all'utente per l'immissione manuale dei dati di attestazione per il tipo di attestazione. Vedere i tipi di input utente definiti più avanti in questa pagina. |
 | Restrizione | 0:1 | Restrizioni ai valori per questa attestazione, ad esempio un'espressione regolare (Regex) o un elenco di valori accettabili. Il valore può essere [localizzato](localization.md). |
 PredicateValidationReference| 0:1 | Riferimento a un elemento **PredicateValidationsInput**. Gli elementi **PredicateValidationReference** consentono di eseguire un processo di convalida per garantire l'inserimento solo di dati formattati adeguatamente. Per altre informazioni, vedere [Predicates](predicates.md). |
+
+### <a name="datatype"></a>DataType
+
+L'elemento **DataType** supporta i valori seguenti:
+
+| Type | Descrizione |
+| ------- | ----------- | 
+|boolean|Rappresenta un valore booleano (`true` o `false`).|
+|date| Rappresenta un istante di tempo, in genere espresso come data di un giorno. Il valore della data segue la convenzione ISO 8601.|
+|dateTime|Rappresenta un istante di tempo, in genere espresso come data e ora del giorno. Il valore della data segue la convenzione ISO 8601.|
+|duration|Rappresenta un intervallo di tempo in anni, mesi, giorni, ore, minuti e secondi. Il formato di è `PnYnMnDTnHnMnS`, dove `P` indica positivo o `N` per un valore negativo. `nY` è il numero di anni seguito da un `Y`letterale. `nMo` è il numero di mesi seguito da un `Mo`letterale. `nD` è il numero di giorni seguito da un `D`letterale. Esempi: `P21Y` rappresenta 21 anni. `P1Y2Mo` rappresenta un anno e due mesi. `P1Y2Mo5D` rappresenta un anno, due mesi e cinque giorni.  `P1Y2M5DT8H5M620S` rappresenta un anno, due mesi, cinque giorni, otto ore, cinque minuti e venti secondi.  |
+|phoneNumber|Rappresenta un numero di telefono. |
+|int| Rappresenta il numero compreso tra-2.147.483.648 e 2.147.483.647|
+|long| Rappresenta il numero compreso tra-9.223.372.036.854.775.808 e 9.223.372.036.854.775.807 |
+|string| Rappresenta il testo come sequenza di unità di codice UTF-16.|
+|stringCollection|Rappresenta una raccolta di oggetti `string`.|
+|userIdentity| Rappresenta un'identità utente.|
+|userIdentityCollection|Rappresenta una raccolta di oggetti `userIdentity`.|
 
 ### <a name="defaultpartnerclaimtypes"></a>DefaultPartnerClaimTypes
 
@@ -71,7 +89,7 @@ L'elemento **Protocollo** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Nome | Sì | Nome di un protocollo valido supportato da Azure AD B2C. I valori possibili sono: OAuth1, OAuth2, SAML2, OpenIdConnect. |
+| Name | Sì | Nome di un protocollo valido supportato da Azure AD B2C. I valori possibili sono: OAuth1, OAuth2, SAML2, OpenIdConnect. |
 | PartnerClaimType | Sì | Nome del tipo di attestazione da usare. |
 
 Nell'esempio seguente, quando il framework dell'esperienza di gestione delle identità interagisce con un provider di identità SAML2 o un'applicazione basata su attestazioni, l'attestazione **surname** (cognome) viene mappata a `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`. Quando il framework interagisce con OpenIdConnect e OAuth2, l'attestazione viene mappata a `family_name`.
@@ -155,14 +173,14 @@ L'elemento **Restriction** contiene gli elementi seguenti:
 | Enumerazione | 1:n | Opzioni disponibili nell'interfaccia utente che l'utente può selezionare per un'attestazione, ad esempio un valore in un menu a discesa. |
 | Modello | 1:1 | Espressione regolare da usare. |
 
-### <a name="enumeration"></a>Enumerazione
+#### <a name="enumeration"></a>Enumerazione
 
 L'elemento **Enumeration** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Text | Sì | Stringa di visualizzazione che viene mostrata all'utente nell'interfaccia utente per questa opzione. |
-|valore | Sì | Valore di attestazione che viene associato alla selezione di questa opzione. |
+|Valore | Sì | Valore di attestazione che viene associato alla selezione di questa opzione. |
 | SelectByDefault | No | Indica se questa opzione deve essere selezionata o meno per impostazione predefinita nell'interfaccia utente. I valori possibili sono: True o False. |
 
 L'esempio seguente configura un'attestazione di elenco a discesa di **città** con il valore predefinito impostato su `New York`:
@@ -214,11 +232,26 @@ Il framework dell'esperienza di gestione delle identità esegue il rendering del
 
 ![Casella di testo che mostra il messaggio di errore attivato dalla restrizione Regex](./media/claimsschema/pattern.png)
 
-## <a name="userinputtype"></a>UserInputType
+### <a name="userinputtype"></a>UserInputType
 
-Azure AD B2C supporta molti tipi di input utente, ad esempio casella di testo, password ed elenco a discesa, che possono essere usati durante l'immissione dei dati di attestazione per il tipo di attestazione. È necessario specificare l'elemento **UserInputType** quando si raccolgono le informazioni per l'utente usando un [profilo tecnico autocertificato](self-asserted-technical-profile.md).
+Azure AD B2C supporta molti tipi di input utente, ad esempio casella di testo, password ed elenco a discesa, che possono essere usati durante l'immissione dei dati di attestazione per il tipo di attestazione. È necessario specificare **tipo** quando si raccolgono informazioni dall'utente utilizzando un [profilo tecnico autocertificato](self-asserted-technical-profile.md) e i [controlli di visualizzazione](display-controls.md).
 
-### <a name="textbox"></a>TextBox
+Tipi di input utente disponibili nell'elemento **tipo** :
+
+| UserInputType | ClaimType supportati | Descrizione |
+| --------- | -------- | ----------- |
+|CheckboxMultiSelect| `string` |Casella di riepilogo a discesa MultiSelect. Il valore dell'attestazione è rappresentato in una stringa delimitatore da virgole dei valori selezionati. |
+|DateTimeDropdown | `date`, `dateTime` |Elenchi a discesa per selezionare un giorno, un mese e un anno. |
+|DropdownSingleSelect |`string` |Casella di riepilogo a discesa selezione singola. Il valore dell'attestazione è il valore selezionato.|
+|EmailBox | `string` |Campo di input della posta elettronica. |
+|Paragrafo | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|Campo che mostra solo il testo in un tag di paragrafo. |
+|Password | `string` |Casella di testo password.|
+|RadioSingleSelect |`string` | Raccolta di pulsanti di opzione. Il valore dell'attestazione è il valore selezionato.|
+|Readonly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Casella di testo di sola lettura. |
+|TextBox |`boolean`, `int`, `string` |Casella di testo a riga singola. |
+
+
+#### <a name="textbox"></a>TextBox
 
 Il tipo di input utente **TextBox** viene usato per visualizzare una casella di testo a riga singola.
 
@@ -233,7 +266,7 @@ Il tipo di input utente **TextBox** viene usato per visualizzare una casella di 
 </ClaimType>
 ```
 
-### <a name="emailbox"></a>EmailBox
+#### <a name="emailbox"></a>EmailBox
 
 Il tipo di input utente **EmailBox** viene usato per visualizzare un campo di input di base per l'e-mail.
 
@@ -251,7 +284,7 @@ Il tipo di input utente **EmailBox** viene usato per visualizzare un campo di in
 </ClaimType>
 ```
 
-### <a name="password"></a>Password
+#### <a name="password"></a>Password
 
 Il tipo di input utente **Password** viene usato per registrare una password immessa dall'utente.
 
@@ -266,7 +299,7 @@ Il tipo di input utente **Password** viene usato per registrare una password imm
 </ClaimType>
 ```
 
-### <a name="datetimedropdown"></a>DateTimeDropdown
+#### <a name="datetimedropdown"></a>DateTimeDropdown
 
 Il tipo di input utente **DateTimeDropdown** viene usato per visualizzare un set di menu a discesa da cui selezionare un giorno, un mese e un anno. È possibile usare gli elementi Predicates e PredicateValidations per controllare i valori di data minimo e massimo. Per altre informazioni, vedere la sezione **Configurare un intervallo di date** in [Predicates e PredicateValidations](predicates.md).
 
@@ -281,7 +314,7 @@ Il tipo di input utente **DateTimeDropdown** viene usato per visualizzare un set
 </ClaimType>
 ```
 
-### <a name="radiosingleselect"></a>RadioSingleSelect
+#### <a name="radiosingleselect"></a>RadioSingleSelect
 
 Il tipo di input utente **RadioSingleSelect** viene usato per visualizzare una raccolta di pulsanti radio da cui l'utente può selezionare un'opzione.
 
@@ -300,7 +333,7 @@ Il tipo di input utente **RadioSingleSelect** viene usato per visualizzare una r
 </ClaimType>
 ```
 
-### <a name="dropdownsingleselect"></a>DropdownSingleSelect
+#### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
 Il tipo di input utente **DropdownSingleSelect** viene usato per visualizzare una casella a discesa da cui l'utente può selezionare un'opzione.
 
@@ -319,7 +352,7 @@ Il tipo di input utente **DropdownSingleSelect** viene usato per visualizzare un
 </ClaimType>
 ```
 
-### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
+#### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
 Il tipo di input utente **CheckboxMultiSelect** viene usato per visualizzare una raccolta di caselle di controllo da cui l'utente può selezionare più opzioni.
 
@@ -338,7 +371,7 @@ Il tipo di input utente **CheckboxMultiSelect** viene usato per visualizzare una
 </ClaimType>
 ```
 
-### <a name="readonly"></a>Readonly
+#### <a name="readonly"></a>Readonly
 
 Il tipo di input utente **Readonly** viene usato per visualizzare un campo di sola lettura in cui visualizzare l'attestazione e il valore.
 
@@ -354,9 +387,9 @@ Il tipo di input utente **Readonly** viene usato per visualizzare un campo di so
 ```
 
 
-### <a name="paragraph"></a>Paragraph
+#### <a name="paragraph"></a>Paragrafo
 
-Il tipo di input utente **Paragraph** viene usato per visualizzare un campo che mostra solo testo in un tag di paragrafo, ad esempio &lt;p&gt;testo&lt;/p&gt;.
+Il tipo di input utente **Paragraph** viene usato per visualizzare un campo che mostra solo testo in un tag di paragrafo,  ad esempio &lt;p&gt;testo&lt;/p&gt;. Un tipo di input utente di **paragrafo** `OutputClaim` di un profilo tecnico autocertificato, deve impostare l'attributo `Required` `false` (impostazione predefinita).
 
 ![Utilizzo del tipo di attestazione con paragrafo (paragraph)](./media/claimsschema/paragraph.png)
 

@@ -7,16 +7,16 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 3b0bb62de4a96a45d607e05b32a87feec692e4d4
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: e76ae2e072bb780ac9788902e9157db871e4f09d
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75725975"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373366"
 ---
 # <a name="configure-managed-identities-for-your-azure-data-explorer-cluster"></a>Configurare le identità gestite per il cluster di Azure Esplora dati
 
-Un' [identità gestita da Azure Active Directory](/azure/active-directory/managed-identities-azure-resources/overview) consente al cluster di accedere facilmente ad altre risorse protette da AAD, ad esempio Azure Key Vault. L'identità viene gestita dalla piattaforma Azure e non richiede il provisioning o la rotazione dei segreti. Questo articolo illustra come creare un'identità gestita per i cluster di Azure Esplora dati. 
+Un' [identità gestita da Azure Active Directory](/azure/active-directory/managed-identities-azure-resources/overview) consente al cluster di accedere facilmente ad altre risorse protette da AAD, ad esempio Azure Key Vault. L'identità viene gestita dalla piattaforma Azure e non richiede il provisioning o la rotazione dei segreti. Questo articolo illustra come creare un'identità gestita per i cluster di Azure Esplora dati. La configurazione di identità gestita è attualmente supportata solo per [abilitare le chiavi gestite dal cliente per il cluster](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault).
 
 > [!Note]
 > Le identità gestite per Azure Esplora dati non si comportano come previsto se viene eseguita la migrazione dell'app tra sottoscrizioni o tenant. L'app dovrà ottenere una nuova identità. a tale scopo, è possibile disabilitare e riabilitare la funzionalità usando [Rimuovi un'identità](#remove-an-identity). Anche i criteri di accesso delle risorse downstream dovranno essere aggiornati per usare la nuova identità.
@@ -92,7 +92,7 @@ L'aggiunta del tipo assegnato dal sistema indica ad Azure di creare e gestire l'
 }    
 ```
 
-Ad esempio:
+Ad esempio,
 
 ```json
 {

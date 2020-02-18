@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/02/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7659c8187f7f4763b51b09362c94dad9554ed1c0
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 502b4cef4fc44abcc55c1733b86fb6052e3e43ab
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982841"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77372741"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -74,7 +74,7 @@ L'esempio seguente mostra un elemento **RelyingParty** nel file dei criteri *B2C
 
 L'elemento **RelyingParty** facoltativo contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Description |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | DefaultUserJourney | 1:1 | Percorso utente predefinito per l'applicazione RP. |
 | UserJourneyBehaviors | 0:1 | Ambito dei comportamenti del percorso utente. |
@@ -102,7 +102,7 @@ Criterio *B2C_1A_signup_signin*:
 
 L'elemento **DefaultUserJourney** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ReferenceId | Sì | Identificatore del percorso utente nei criteri. Per altre informazioni, consultare [Percorsi utente](userjourneys.md) |
 
@@ -110,7 +110,7 @@ L'elemento **DefaultUserJourney** contiene l'attributo seguente:
 
 L'elemento **UserJourneyBehaviors** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Description |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | SingleSignOn | 0:1 | Ambito del comportamento della sessione di Single Sign-On (SSO) di un percorso utente. |
 | SessionExpiryType |0:1 | Comportamento di autenticazione della sessione. I valori possibili sono: `Rolling` o `Absolute`. Il valore `Rolling` (predefinito) indica che l'utente rimane connesso, purché sia continuamente attivo nell'applicazione. Il valore `Absolute` indica che l'utente è obbligato a ripetere l'autenticazione una volta superato il periodo di tempo specificato dalla durata della sessione dell'applicazione. |
@@ -122,7 +122,7 @@ L'elemento **UserJourneyBehaviors** contiene gli elementi seguenti:
 
 L'elemento **SingleSignOn** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Ambito | Sì | Ambito del comportamento di Single Sign-On (SSO). I valori possibili sono: `Suppressed`, `Tenant`, `Application` o `Policy`. Il valore `Suppressed` indica che il comportamento viene eliminato. Ad esempio, nel caso di una sessione di Single Sign-On, non viene mantenuta alcuna sessione per l'utente, a cui viene sempre richiesta la selezione di un provider di identità. Il valore `TrustFramework` indica che il comportamento viene applicato per tutti i criteri del framework attendibilità. Ad esempio, a un utente che naviga in due percorsi di criteri per un framework attendibilità non viene richiesto di selezionare un provider di identità. Il valore `Tenant` indica che il comportamento viene applicato a tutti i criteri nel tenant. Ad esempio, a un utente che naviga in due percorsi di criteri per un tenant non viene richiesto di selezionare un provider di identità. Il valore `Application` indica che il comportamento viene applicato a tutti i criteri per l'applicazione che esegue la richiesta. Ad esempio, a un utente che naviga in due percorsi di criteri per un'applicazione non viene richiesto di selezionare un provider di identità. Il valore `Policy` indica che il comportamento si applica solo a un criterio. Ad esempio, a un utente che naviga in due percorsi di criteri per un framework attendibilità viene richiesto di selezionare un provider di identità in caso passaggio da un criterio a un altro. |
 | KeepAliveInDays | Sì | Controlla per quanto tempo l'utente rimane connesso. Se si imposta il valore su 0, la funzionalità KMSI viene disattivata. Per altre informazioni, vedere [Mantenere l'accesso](custom-policy-keep-me-signed-in.md). |
@@ -133,7 +133,7 @@ L'elemento **SingleSignOn** contiene l'attributo seguente:
 
 L'elemento **JourneyInsights** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | TelemetryEngine | Sì | Il valore deve essere `ApplicationInsights`. |
 | InstrumentationKey | Sì | Stringa che contiene la chiave di strumentazione per l'elemento Application Insights. |
@@ -154,32 +154,32 @@ L'esempio seguente passa un parametro denominato `campaignId` con un valore `haw
 
 L'elemento **ContentDefinitionParameters** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Description |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | ContentDefinitionParameter | 0:n | Stringa che contiene la coppia chiave-valore accodata alla stringa di query di un URI di caricamento della definizione del contenuto. |
 
 L'elemento **ContentDefinitionParameter** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Nome | Sì | Nome della coppia chiave-valore. |
+| Name | Sì | Nome della coppia chiave-valore. |
 
-Per altre informazioni, vedere [Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati](custom-policy-ui-customization-dynamic.md)
+Per altre informazioni, vedere [Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri)
 
 ## <a name="technicalprofile"></a>TechnicalProfile
 
 L'elemento **TechnicalProfile** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| ID | Sì | Il valore deve essere `PolicyProfile`. |
+| Id | Sì | Il valore deve essere `PolicyProfile`. |
 
 L'elemento **TechnicalProfile** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Description |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | Stringa che contiene il nome del profilo tecnico. |
-| Description | 0:1 | Stringa che contiene la descrizione del profilo tecnico. |
+| Descrizione | 0:1 | Stringa che contiene la descrizione del profilo tecnico. |
 | Protocollo | 1:1 | Protocollo usato per la federazione. |
 | Metadati | 0:1 | Raccolta di *Item* delle coppie chiave-valore usate dal protocollo di comunicazione con l'endpoint durante una transazione per configurare l'interazione tra la relying party e altri membri della community. |
 | OutputClaims | 1:1 | Elenco di tipi di attestazione eseguiti come output nel profilo tecnico. Ognuno di questi elementi contiene un riferimento a un **ClaimType** già definito nella sezione **ClaimsSchema** o in un criterio da cui eredita questo file di criteri. |
@@ -187,21 +187,21 @@ L'elemento **TechnicalProfile** contiene gli elementi seguenti:
 
 L'elemento **Protocol** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Nome | Sì | Nome di un protocollo valido supportato da Azure AD B2C usato come parte del profilo tecnico. I valori possibili sono: `OpenIdConnect` o `SAML2`. Il valore `OpenIdConnect` rappresenta lo standard del protocollo OpenID Connect 1.0 in base alla specifica di OpenID Foundation. `SAML2` rappresenta lo standard del protocollo SAML 2.0 in base alla specifica di OASIS. Non usare un token SAML nell'ambiente di produzione. |
+| Name | Sì | Nome di un protocollo valido supportato da Azure AD B2C usato come parte del profilo tecnico. I valori possibili sono: `OpenIdConnect` o `SAML2`. Il valore `OpenIdConnect` rappresenta lo standard del protocollo OpenID Connect 1.0 in base alla specifica di OpenID Foundation. `SAML2` rappresenta lo standard del protocollo SAML 2.0 in base alla specifica di OASIS. Non usare un token SAML nell'ambiente di produzione. |
 
 ## <a name="outputclaims"></a>OutputClaims
 
 L'elemento **OutputClaims** contiene l'elemento seguente:
 
-| Elemento | Occorrenze | Description |
+| Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | OutputClaim | 0:n | Nome di un tipo di attestazione previsto nell'elenco supportato per i criteri a cui la relying party esegue la sottoscrizione. Questa attestazione viene usata come output per il profilo tecnico. |
 
 L'elemento **OutputClaim** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sì | Riferimento a un **ClaimType** già definito nella sezione **ClaimsSchema** nel file dei criteri. |
 | DefaultValue | No | Valore predefinito che può essere usato se il valore dell'attestazione è vuoto. |
@@ -215,7 +215,7 @@ Con l'elemento **SubjectNameingInfo** viene controllato il valore del soggetto d
 
 L'elemento **SubjectNamingInfo** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ClaimType | Sì | Riferimento all'elemento **PartnerClaimType** di un'attestazione di output. Le attestazioni di output devono essere definite nella raccolta **OutputClaims** di criteri della relying party. |
 

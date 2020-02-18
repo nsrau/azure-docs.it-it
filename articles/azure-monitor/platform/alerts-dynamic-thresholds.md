@@ -5,15 +5,15 @@ author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 02/16/2020
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 750aded128804468ae557d7c016a50c5378d9217
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: f67dcf7f1f4f39a11eb995995a8d0acc278b5d4a
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74762514"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373403"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Avvisi relativi alle metriche con soglie dinamiche in monitoraggio di Azure
 
@@ -64,7 +64,7 @@ Usando la stessa regola di avviso con soglie dinamiche è possibile creare sogli
 
 ## <a name="what-do-the-advanced-settings-in-dynamic-thresholds-mean"></a>A cosa servono le impostazioni avanzate per le soglie dinamiche?
 
-**Periodi di errore** : le soglie dinamiche consentono anche di configurare "violazioni dei numeri per attivare l'avviso", un numero minimo di deviazioni richieste in un intervallo di tempo specifico per il sistema per generare un avviso (l'intervallo di tempo predefinito è di quattro deviazioni in 20 minuti). L'utente può configurare i periodi di errore e scegliere il criterio in base al quale essere avvisato modificando i periodi di errore e l'intervallo di tempo. Questa opzione consente di ridurre la generazione di avvisi non significativi a causa di picchi temporanei. ad esempio:
+**Periodi di errore** : le soglie dinamiche consentono anche di configurare "violazioni dei numeri per attivare l'avviso", un numero minimo di deviazioni richieste in un intervallo di tempo specifico per il sistema per generare un avviso (l'intervallo di tempo predefinito è di quattro deviazioni in 20 minuti). L'utente può configurare i periodi di errore e scegliere il criterio in base al quale essere avvisato modificando i periodi di errore e l'intervallo di tempo. Questa opzione consente di ridurre la generazione di avvisi non significativi a causa di picchi temporanei. Ad esempio,
 
 Per attivare un avviso quando il problema continua per 20 minuti, 4 volte consecutive con periodicità di 5 minuti, usare le impostazioni seguenti:
 
@@ -92,11 +92,11 @@ La risposta è probabilmente negativa. Le soglie dinamiche sono utili per rileva
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>Quanti dati vengono usati per visualizzare in anteprima le soglie e quindi calcolarle?
 
-Quando e l'avviso viene creato per la prima volta, le soglie visualizzate nel grafico vengono calcolate in base a dati cronologici sufficienti per calcolare l'ora o i modelli stagionali giornalieri (10 giorni). Una volta creata una regola di avviso, le soglie dinamiche utilizzano tutti i dati cronologici necessari disponibili e apprenderanno e si adatteranno continuamente in base ai nuovi dati per rendere più accurate le soglie. Ciò significa che, dopo questo calcolo, nel grafico vengono visualizzati anche i modelli settimanali.
+Quando una regola di avviso viene creata per la prima volta, le soglie visualizzate nel grafico vengono calcolate in base a dati cronologici sufficienti per calcolare l'ora o i modelli stagionali giornalieri (10 giorni). Una volta creata una regola di avviso, le soglie dinamiche utilizzano tutti i dati cronologici necessari disponibili e apprenderanno e si adatteranno continuamente in base ai nuovi dati per rendere più accurate le soglie. Ciò significa che, dopo questo calcolo, nel grafico vengono visualizzati anche i modelli settimanali.
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>Quanti dati sono necessari per attivare un avviso?
 
-Se si dispone di una nuova risorsa o di dati di metrica mancanti, le soglie dinamiche non attiveranno avvisi prima che siano disponibili tre giorni di dati per garantire soglie accurate.
+Se si dispone di una nuova risorsa o di dati di metrica mancanti, le soglie dinamiche non attiveranno avvisi prima di tre giorni o 30 campioni di dati di metrica saranno disponibili per garantire soglie accurate.
 
 ## <a name="dynamic-thresholds-best-practices"></a>Procedure consigliate per le soglie dinamiche
 
