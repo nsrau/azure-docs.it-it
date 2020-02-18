@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be1c0e93a51064870635d4f06bd5b365bbfe517a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a1f0e5242d87bc68efd92a52619e8d48cff9ac87
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847287"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370063"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Procedura: abilitare la reimpostazione della password dalla schermata di accesso di Windows
 
@@ -27,7 +27,9 @@ Per i computer che eseguono Windows 7, 8, 8,1 e 10 è possibile consentire agli 
 ## <a name="general-limitations"></a>Limitazioni generali
 
 - La reimpostazione della password non è attualmente supportata da un Desktop remoto o da sessioni avanzate di Hyper-V.
-- Questa funzionalità non funziona per le reti con autenticazione di rete 802.1x distribuita e l'opzione "Esegui immediatamente prima dell'accesso utente". Per le reti con autenticazione di rete 802.1x distribuita, è consigliabile usare l'autenticazione di computer per abilitare questa funzionalità.
+- Alcuni provider di credenziali di terze parti sono noti per causare problemi con questa funzionalità.
+- La disabilitazione di UAC tramite la modifica della [chiave del registro di sistema EnableLUA](https://docs.microsoft.com/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) è nota per causare problemi.
+- Questa funzionalità non funziona per le reti con autenticazione di rete 802.1 x distribuita e l'opzione "Esegui immediatamente prima dell'accesso utente". Per le reti con autenticazione di rete 802.1x distribuita, è consigliabile usare l'autenticazione di computer per abilitare questa funzionalità.
 - Per usare la nuova password e aggiornare le credenziali memorizzate nella cache, è necessario che i computer Azure AD ibrido Uniti abbiano la connettività di rete a un controller di dominio.
 - Se si utilizza un'immagine, prima di eseguire Sysprep assicurarsi che la cache Web venga cancellata per l'amministratore predefinito prima di eseguire il passaggio CopyProfile. Per altre informazioni su questo passaggio, vedere l'articolo relativo al supporto [delle prestazioni scarse quando si usa un profilo utente predefinito personalizzato](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - Le impostazioni seguenti sono note per interferire con la possibilità di usare e reimpostare le password nei dispositivi Windows 10
@@ -113,7 +115,7 @@ Quando gli utenti reimpostano la password dalla schermata di accesso di un dispo
 > [!WARNING]
 > È necessario abilitare TLS 1,2, non solo impostare la negoziazione automatica
 
-### <a name="install"></a>Installazione
+### <a name="install"></a>Installa
 
 1. Scaricare il programma di installazione appropriato per la versione di Windows che si vuole abilitare.
    - Il software è disponibile nell'Area download Microsoft all'indirizzo [https://aka.ms/sspraddin](https://aka.ms/sspraddin)

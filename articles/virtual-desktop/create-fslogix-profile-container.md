@@ -32,7 +32,7 @@ Le istruzioni riportate in questa guida sono specifiche per gli utenti di deskto
 >[!NOTE]
 >Se si sta cercando materiale di confronto sulle diverse opzioni di archiviazione del contenitore del profilo FSLogix in Azure, vedere [Opzioni di archiviazione per i contenitori di profili FSLogix](store-fslogix-profile.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di poter creare un contenitore di profili FSLogix per un pool host, è necessario:
 

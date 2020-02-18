@@ -3,12 +3,12 @@ title: Informazioni su come controllare il contenuto delle macchine virtuali
 description: Informazioni su come criteri di Azure usa l'agente di configurazione Guest per controllare le impostazioni all'interno delle macchine virtuali.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 128baa0df1d3e555fe9629005529710202e1bbf6
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 73f986774fc13ac8c69cd800c977c909b591a74c
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169534"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77369748"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendere la configurazione guest di Criteri di Azure
 
@@ -185,8 +185,9 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 
 Il codice sorgente per le iniziative predefinite di configurazione Guest è disponibile nei percorsi seguenti:
 
+- [Definizioni dei criteri predefiniti-configurazione Guest](../samples/built-in-policies.md#guest-configuration)
 - [Iniziative predefinite-configurazione Guest](../samples/built-in-initiatives.md#guest-configuration)
-- [Repository GitHub degli esempi di criteri di Azure](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest Configuration)
+- [Repository GitHub degli esempi di criteri di Azure](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

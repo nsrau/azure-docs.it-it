@@ -1,5 +1,5 @@
 ---
-title: Il riavvio delle macchine virtuali di Azure è bloccato durante il riavvio, l'arresto o l'arresto dei servizi | Microsoft Docs
+title: L'arresto di macchine virtuali di Azure è bloccato durante il riavvio, l'arresto o l'arresto dei servizi | Microsoft Docs
 description: Questo articolo consente di risolvere gli errori del servizio in Azure macchine virtuali Windows.
 services: virtual-machines-windows
 documentationCenter: ''
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
-ms.openlocfilehash: db7b26402170236843891799738088b9229e4693
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5d6396efc9ab25baa0d32e7c33c7715863516249
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75477408"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77371365"
 ---
-# <a name="azure-windows-vm-restart-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>Il riavvio delle macchine virtuali Windows di Azure è bloccato durante il riavvio, l'arresto o l'arresto dei servizi
+# <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>L'arresto della macchina virtuale Windows di Azure è bloccato durante il riavvio, l'arresto o l'arresto dei servizi
 
 Questo articolo illustra i passaggi per risolvere i problemi relativi ai messaggi di "riavvio", "arresto" o "arresto dei servizi" che possono verificarsi quando si riavvia una macchina virtuale (VM) Windows in Microsoft Azure.
 

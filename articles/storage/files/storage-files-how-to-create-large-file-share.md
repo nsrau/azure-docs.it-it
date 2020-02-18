@@ -18,7 +18,7 @@ ms.locfileid: "77368670"
 
 Quando si abilitano condivisioni file di grandi dimensioni nell'account di archiviazione, le condivisioni file possono essere scalate fino a 100 TiB. È possibile abilitare questa scalabilità per gli account di archiviazione esistenti per le condivisioni file esistenti.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 - Se si intende usare l'interfaccia della riga di comando di Azure, [installare la versione più recente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -29,9 +29,9 @@ Quando si abilitano condivisioni file di grandi dimensioni nell'account di archi
 Per il momento, è possibile usare l'archiviazione con ridondanza locale (con ridondanza locale) o l'archiviazione con ridondanza della zona (ZRS) in account abilitati per la condivisione file di grandi dimensioni. Non è possibile usare l'archiviazione con ridondanza geografica (GZRS), l'archiviazione con ridondanza geografica (GRS) o l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).
 L'abilitazione di condivisioni file di grandi dimensioni in un account è un processo irreversibile. Dopo averla abilitata, non sarà possibile convertire l'account in GZRS, GRS o RA-GRS.
 
-## <a name="create-a-new-storage-account"></a>Creazione di un nuovo account di archiviazione
+## <a name="create-a-new-storage-account"></a>Creare un nuovo account di archiviazione.
 
-### <a name="portal"></a>Portal
+### <a name="portal"></a>Portale
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Nel portale di Azure fare clic su **Tutti i servizi**. 
@@ -47,19 +47,19 @@ L'abilitazione di condivisioni file di grandi dimensioni in un account è un pro
 1. Impostare la replica sull'archiviazione con **ridondanza locale** o sull' **archiviazione con ridondanza della zona**.
 1. Lasciare i valori predefiniti per questi campi:
 
-   |Campo  |Valore  |
+   |Campo  |valore  |
    |---------|---------|
    |Modello di distribuzione     |Gestione risorse         |
    |Prestazioni     |Standard         |
    |Tipo di account     |Archiviazione v2 (utilizzo generico V2)         |
-   |Livello di accesso     |Alto         |
+   |Livello di accesso     |Accesso frequente         |
 
 1. Selezionare **Avanzate**, quindi selezionare il pulsante di opzione **abilitato** a destra di **condivisioni file di grandi dimensioni**.
 1. Selezionare **Rivedi e crea** per esaminare le impostazioni dell'account di archiviazione e creare l'account.
 
     ![Screenshot con il pulsante di opzione "Enabled" in un nuovo account di archiviazione nel portale di Azure](media/storage-files-how-to-create-large-file-share/large-file-shares-advanced-enable.png)
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ### <a name="cli"></a>CLI
 
@@ -87,7 +87,7 @@ New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAc
 
 È anche possibile abilitare condivisioni file di grandi dimensioni per gli account esistenti. Se si abilitano condivisioni file di grandi dimensioni, non sarà possibile eseguire la conversione in GZRS, GRS o RA-GRS. L'abilitazione di condivisioni file di grandi dimensioni è irreversibile in questo account di archiviazione.
 
-### <a name="portal"></a>Portal
+### <a name="portal"></a>Portale
 
 1. Aprire il [portale di Azure](https://portal.azure.com)e passare all'account di archiviazione in cui si vuole abilitare le condivisioni file di grandi dimensioni.
 1. Aprire l'account di archiviazione e selezionare **configurazione**.
@@ -120,7 +120,7 @@ Set-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAc
 
 Dopo aver abilitato le condivisioni file di grandi dimensioni nell'account di archiviazione, è possibile creare condivisioni file in tale account con quote più elevate. 
 
-### <a name="portal"></a>Portal
+### <a name="portal"></a>Portale
 
 La creazione di una condivisione file di grandi dimensioni è quasi identica alla creazione di una condivisione file standard. La differenza principale consiste nel fatto che è possibile impostare una quota fino a 100 TiB.
 
@@ -155,7 +155,7 @@ New-AzStorageShare -Name $shareName -Context $ctx
 
 Dopo aver abilitato le condivisioni file di grandi dimensioni nell'account di archiviazione, è anche possibile espandere le condivisioni file esistenti in tale account con una quota superiore. 
 
-### <a name="portal"></a>Portal
+### <a name="portal"></a>Portale
 
 1. Dall'account di archiviazione selezionare **condivisioni file**.
 1. Fare clic con il pulsante destro del mouse sulla condivisione file e quindi scegliere **quota**.

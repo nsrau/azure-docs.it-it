@@ -32,7 +32,7 @@ Concettualmente Kafka e hub eventi sono quasi identici: sono entrambi log partiz
 | --- | --- |
 | Cluster | Spazio dei nomi |
 | Argomento | Hub eventi |
-| Partizione | Partizione|
+| Partition | Partition|
 | Gruppo di consumer | Gruppo di consumer |
 | Offset | Offset|
 
@@ -71,7 +71,7 @@ sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 ```
 
-#### <a name="samples"></a>Samples 
+#### <a name="samples"></a>Esempi 
 Per un' **esercitazione** con istruzioni dettagliate per creare un hub eventi di Kafka abilitato e accedervi usando la firma di accesso condiviso o OAuth, vedere [Guida introduttiva: flusso di dati con hub eventi usando il protocollo Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md).
 
 Per altri **esempi** che illustrano come usare OAuth con hub eventi per Kafka, vedere gli [esempi su GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).

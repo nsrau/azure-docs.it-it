@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: de60b4ea1b09998e84bab4d204e3c8c3bc8779a4
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: fe1260982edc877c049716bd74f1bb3e90d33b0f
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77050447"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370529"
 ---
 # <a name="tutorial-configure-azure-databricks-scim-connector-for-automatic-user-provisioning"></a>Esercitazione: configurare Azure Databricks connettore SCIM per il provisioning utenti automatico
 
@@ -34,7 +34,7 @@ Questa esercitazione descrive i passaggi da eseguire sia in Azure Databricks con
 > * Mantieni gli attributi utente sincronizzati tra Azure AD e Azure Databricks connettore SCIM
 > * Effettuare il provisioning di gruppi e appartenenze a gruppi in Azure Databricks connettore SCIM
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
@@ -96,7 +96,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere le credenziali di amministratore Azure Databricks scim Connector e il nome utente. Fare clic su **Test connessione** per assicurarsi che Azure ad possibile connettersi a Azure DATABRICKS connettore SCIM. Se la connessione non riesce, verificare che l'account Azure Databricks connettore SCIM disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **credenziali amministratore** immettere il valore dell'endpoint scim nell' **URL del tenant**. Il formato dell'URL del tenant deve essere `https://<region>.azuredatabricks.net/api/2.0/preview/scim` in cui è possibile trovare l' **area** nell'url del Azure Databricks Home page. Ad esempio, verrà `https://westus.azuredatabricks.net/api/2.0/preview/scim`un endpoint SCIM per l'area **westus** . Immettere il valore del token recuperato in precedenza in **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possibile connettersi a Azure DATABRICKS connettore SCIM. Se la connessione non riesce, verificare che l'account Azure Databricks connettore SCIM disponga delle autorizzazioni di amministratore e riprovare.
 
     ![provisioning](./media/azure-databricks-scim-provisioning-connector-provisioning-tutorial/provisioning.png)
 
@@ -112,9 +112,9 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
    |Attributo|Type|
    |---|---|
-   |userName|string|
-   |displayName|string|
-   |active|Boolean|
+   |userName|String|
+   |displayName|String|
+   |attivo|Boolean|
 
 10. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory gruppi per Azure Databricks connettore scim**.
 
@@ -122,8 +122,8 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
      |Attributo|Type|
      |---|---|
-     |displayName|string|
-     |Membri di|Riferimento|
+     |displayName|String|
+     |membri|Riferimento|
 
 11. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory gruppi per Azure Databricks connettore scim**.
 

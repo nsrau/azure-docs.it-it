@@ -1,22 +1,14 @@
 ---
 title: Procedure consigliate - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Usare queste procedure consigliate per migliorare la knowledge base e fornire risultati migliori per gli utenti finali dell'applicazione/chat bot.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/27/2020
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: 2fd85e43fb2aa53299b4e37eca5163b7da8fc6ec
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/15/2020
+ms.openlocfilehash: fb935aeed7b492a3a0c213d6d7166bd5d80144c1
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843804"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370110"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedure consigliate per una knowledge base di QnA Maker
 
@@ -31,8 +23,6 @@ In generale, le pagine di domande frequenti devono essere autonome e non combina
 ### <a name="configuring-multi-turn"></a>Configurazione della multifunzione
 
 [Crea la Knowledge base con l'](../how-to/multiturn-conversation.md#create-a-multi-turn-conversation-from-a-documents-structure) estrazione a più turni abilitata. Se la Knowledge base è o deve supportare la gerarchia delle domande, questa gerarchia può essere estratta dal documento o creata dopo l'estrazione del documento.
-
-<!--is this a global setting that can only be configured at kb creation time? -->
 
 ## <a name="creating-good-questions-and-answers"></a>Creazione di domande e risposte di qualità
 
@@ -66,11 +56,11 @@ Chit-Chat è supportata per diverse personali predefinite:
 
 |Personalità |QnA Maker file di set di dati |
 |---------|-----|
-|Professionale |[qna_chitchat_professional.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
-|Gentile |[qna_chitchat_friendly.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_friendly.tsv) |
-|Spiritoso |[qna_chitchat_witty.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_witty.tsv) |
-|Occuparsi |[qna_chitchat_caring.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_caring.tsv) |
-|Entusiasta |[qna_chitchat_enthusiastic.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_enthusiastic.tsv) |
+|Professional |[qna_chitchat_professional. TSV](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
+|Gentile |[qna_chitchat_friendly. TSV](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_friendly.tsv) |
+|Spiritoso |[qna_chitchat_witty. TSV](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_witty.tsv) |
+|Occuparsi |[qna_chitchat_caring. TSV](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_caring.tsv) |
+|Entusiasta |[qna_chitchat_enthusiastic. TSV](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_enthusiastic.tsv) |
 
 Le risposte possono andare da quelle formali a quelle informali e irriverenti. È consigliabile selezionare la personalità più allineata al tono desiderato per il bot. È possibile visualizzare i [set di impostazioni](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets)e sceglierne uno che funge da base per il bot, quindi personalizzare le risposte.
 
@@ -83,7 +73,7 @@ Esistono alcune domande specifiche per i bot che fanno parte del set di dati chi
 * operazioni consentite
 * Quanti anni hai?
 * Chi ti ha creato?
-* Ciao
+* Hello
 
 ### <a name="adding-custom-chit-chat-with-a-metadata-tag"></a>Aggiunta di una Chit-Chat personalizzata con un tag di metadati
 
@@ -104,7 +94,7 @@ Assicurarsi di usare al meglio le funzionalità di classificazione supportate da
 
 ### <a name="choosing-a-threshold"></a>Scelta della soglia
 
-Il [Punteggio di confidenza](confidence-score.md) predefinito usato come soglia è 50, ma è possibile [modificare la soglia](confidence-score.md#set-threshold) per la KB in base alle esigenze. Poiché ogni KB è diversa, occorre testare e scegliere la soglia più adatta alla propria KB.
+Il [Punteggio di confidenza](confidence-score.md) predefinito usato come soglia è 0, ma è possibile [modificare la soglia](confidence-score.md#set-threshold) per la KB in base alle esigenze. Poiché ogni KB è diversa, occorre testare e scegliere la soglia più adatta alla propria KB.
 
 ### <a name="choosing-ranker-type"></a>Scelta del tipo di rango
 Per impostazione predefinita, QnA Maker cerca le domande e le risposte. Se si desidera cercare solo le domande, per generare una risposta, utilizzare il `RankerType=QuestionOnly` nel corpo POST della richiesta GenerateAnswer.
@@ -115,7 +105,7 @@ Le [domande alternative](../How-To/edit-knowledge-base.md) aumentano la probabil
 |Query originale|Query alternative|Modifica|
 |--|--|--|
 |È disponibile il parcheggio?|Si dispone di parcheggio?|struttura della frase|
- |Ciao|Ehi<br>Salve!|stile delle parole o gergo|
+ |Ciao|È<br>Salve!|stile delle parole o gergo|
 
 <a name="use-metadata-filters"></a>
 
@@ -142,7 +132,7 @@ Ad esempio, si potrebbero avere due QnA separate con le domande seguenti:
 
 Poiché queste due QnA sono formulate con parole molto simili, questa analogia potrebbe causare punteggi molto simili per molte query utente che hanno formula *"dove si `<x>` trova"* . Provare invece a differenziare chiaramente con query quali *"dov'è il parcheggio"* e *"dov'è il bancomat"* , evitando parole come "trova" che potrebbe ricorrere in molte domande nella KB.
 
-## <a name="collaborate"></a>Collabora
+## <a name="collaborate"></a>Collaborare
 QnA Maker permette agli utenti di [collaborare](../How-to/collaborate-knowledge-base.md) a una knowledge base. Per accedere alle knowledge base, gli utenti necessitano dell'accesso al gruppo di risorse di QnA Maker in Azure. Alcune organizzazioni potrebbero voler assegnare all'esterno le attività di modifica e manutenzione della knowledge base, mantenendo comunque la possibilità di proteggere l'accesso alle risorse di Azure. Questo modello di approvazione dell'editor di testo può essere ottenuto configurando due [servizi QnA Maker](../How-to/set-up-qnamaker-service-azure.md) identici in diverse sottoscrizioni e se si seleziona uno per il ciclo di test di modifica. Una volta completati i test, il contenuto della knowledge base può essere trasferito con un processo di [importazione-esportazione](../Tutorials/migrate-knowledge-base.md) al servizio QnA Maker del responsabile approvazione che infine pubblicherà la knowledge base e aggiornerà l'endpoint.
 
 

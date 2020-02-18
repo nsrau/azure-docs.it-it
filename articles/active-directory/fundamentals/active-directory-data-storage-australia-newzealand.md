@@ -1,5 +1,5 @@
 ---
-title: Archiviazione dei dati Identity per i clienti australiani e neozelandesi-Azure AD
+title: Archiviazione dei dati Identity per i clienti australiani-Azure AD
 description: Informazioni su dove Azure Active Directory archivia i dati relativi all'identità per i clienti australiani.
 services: active-directory
 author: msaburnley
@@ -12,21 +12,21 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 850298719d5636e964b0c338d7a2a4cc9bb8aece
+ms.openlocfilehash: cbe4befa824990c2f8b2627e7709913f564c0486
 ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/16/2020
-ms.locfileid: "77370302"
+ms.locfileid: "77371527"
 ---
-# <a name="identity-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Archiviazione dei dati Identity per i clienti australiani e neozelandesi in Azure Active Directory
+# <a name="identity-data-storage-for-australian-customers-in-azure-active-directory"></a>Archiviazione dei dati Identity per i clienti australiani in Azure Active Directory
 
 I dati di identità vengono archiviati da Azure AD in una posizione geografica in base all'indirizzo fornito dall'organizzazione quando si sottoscrive un servizio online Microsoft, ad esempio Office 365 e Azure. Per informazioni sulla posizione in cui vengono archiviati i dati dei clienti di identità, è possibile usare la sezione [dove si trovano i dati?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) di Microsoft Trust Center.
 
 > [!NOTE]
 > I servizi e le applicazioni che si integrano con Azure AD hanno accesso ai dati dei clienti Identity. Valutare ogni servizio e applicazione usato per determinare il modo in cui i dati dei clienti Identity vengono elaborati da tale servizio e applicazione e se soddisfano i requisiti di archiviazione dei dati aziendali. Per ulteriori informazioni sulla residenza dei dati dei servizi Microsoft, vedere la posizione in cui si trovano i dati. sezione del Centro protezione Microsoft.
 
-Per i clienti che hanno fornito un indirizzo in Australia o Nuova Zelanda, Azure AD mantiene i dati di identità per questi servizi nei data center australiani: 
+Per i clienti che hanno fornito un indirizzo in Australia, Azure AD mantiene i dati di identità per questi servizi nei data center australiani: 
 - Gestione di Azure AD directory 
 - Autenticazione
 

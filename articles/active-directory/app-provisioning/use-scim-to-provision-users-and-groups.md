@@ -61,14 +61,14 @@ Si noti che non è necessario supportare utenti e gruppi o tutti gli attributi m
 
 | Utente Azure Active Directory | "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" |
 | --- | --- |
-| IsSoftDeleted |attivo |
+| IsSoftDeleted |active |
 |department|urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Department|
 | displayName |displayName |
 |employeeId|urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: employeeNumber|
 | Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
 | jobTitle |title |
-| posta |emails[type eq "work"].value |
+| mail |emails[type eq "work"].value |
 | mailNickname |externalId |
 | manager |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
@@ -86,9 +86,9 @@ Si noti che non è necessario supportare utenti e gruppi o tutti gli attributi m
 | Gruppo di Azure Active Directory | urn: IETF: params: SCIM: schemas: Core: 2.0: Group |
 | --- | --- |
 | displayName |displayName |
-| posta |emails[type eq "work"].value |
+| mail |emails[type eq "work"].value |
 | mailNickname |displayName |
-| membri |membri |
+| Membri di |Membri di |
 | objectId |externalId |
 | proxyAddresses |emails[type eq "other"].Value |
 
@@ -509,7 +509,7 @@ Questa sezione fornisce le richieste SCIM di esempio emesse dal client Azure AD 
 * L'aggiornamento alla richiesta PATCH di gruppo deve restituire un *contenuto HTTP 204 senza contenuto* nella risposta. Non è consigliabile restituire un corpo con un elenco di tutti i membri.
 * Non è necessario supportare la restituzione di tutti i membri del gruppo.
 
-#### <a name="create-group"></a>Crea gruppo
+#### <a name="create-group"></a>Creare un gruppo
 
 ##### <a name="request-7"></a>Richiesta
 
@@ -661,7 +661,7 @@ Questa sezione fornisce le richieste SCIM di esempio emesse dal client Azure AD 
 
 *HTTP/1.1 204 nessun contenuto*
 
-#### <a name="delete-group"></a>Elimina gruppo
+#### <a name="delete-group"></a>Eliminare un gruppo
 
 ##### <a name="request-13"></a>Richiesta
 

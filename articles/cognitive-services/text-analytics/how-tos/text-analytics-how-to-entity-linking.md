@@ -36,7 +36,7 @@ A partire dalla versione 3, questa funzionalità del API Analisi del testo può 
 
 Nel API Analisi del testo sono disponibili due versioni di Named Entity Recognition-V2 e V3. La versione 3 (anteprima pubblica) fornisce maggiori dettagli nelle entità che possono essere rilevate e categorizzate.
 
-| Funzionalità                                                         | NER V2 | NER V3 |
+| Caratteristica                                                         | NER V2 | NER V3 |
 |-----------------------------------------------------------------|--------|--------|
 | Metodi per richieste singole e batch                          | X      | X      |
 | Riconoscimento di entità di base in diverse categorie              | X      | X      |
@@ -89,7 +89,7 @@ Collegamento di entità
 | Quantità      | Number        | "6", "sei"     |
 | Quantità      | Percentuale    | "50%", "cinquanta percento"|
 | Quantità      | Ordinal       | "2°", "secondo"     |
-| Quantità      | Age           | "90 giorni", "30 anni"    |
+| Quantità      | Tempo trascorso           | "90 giorni", "30 anni"    |
 | Quantità      | Valuta      | "$ 10,99"     |
 | Quantità      | Dimension     | "10 miglia", "40 cm"     |
 | Quantità      | Temperatura   | "32 gradi"    |
@@ -98,7 +98,7 @@ Collegamento di entità
 | Datetime      | Tempo          | "8", "8:00"  |
 | Datetime      | DateRange     | "Dal 2 maggio al 5 maggio"    |
 | Datetime      | TimeRange     | "dalle 18 alle 19"     |
-| Datetime      | Duration      | "1 minuto e 45 secondi"   |
+| Datetime      | Durata      | "1 minuto e 45 secondi"   |
 | Datetime      | Configurazione           | "ogni martedì"     |
 | URL           | N/D\*         | "https:\//www.bing.com"    |
 | Email         | N/D\*         | "support@contoso.com" |
@@ -178,7 +178,7 @@ Al momento della ricezione della richiesta viene eseguita l'analisi. Vedere la s
 
 L'API Analisi del testo è senza stato. Non vengono archiviati dati nell'account e i risultati vengono restituiti immediatamente nella risposta.
 
-## <a name="view-results"></a>Visualizzazione dei risultati
+## <a name="view-results"></a>Visualizza risultati
 
 Tutte le richieste POST restituiscono una risposta in formato JSON con gli ID e le proprietà dell'entità rilevata.
 
@@ -281,7 +281,7 @@ La versione 3 fornisce endpoint distinti per NER e il collegamento di entità. D
 
 ---
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo si sono appresi i concetti e il flusso di lavoro per il collegamento delle entità usando Analisi del testo nei Servizi cognitivi. In sintesi:
 

@@ -25,7 +25,7 @@ Ecco cosa può fare lo strumento di diagnostica per desktop virtuale di Windows:
 - Inviare un messaggio agli utenti attivi in un host sessione specifico.
 - Disconnettersi gli utenti da un host sessione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 È necessario creare una registrazione dell'app Azure Active Directory e un'area di lavoro Log Analytics prima di poter distribuire il modello di Azure Resource Manager per lo strumento. L'utente o l'amministratore necessita di queste autorizzazioni per eseguire questa operazione:
 

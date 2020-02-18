@@ -26,7 +26,7 @@ Questo articolo descrive il modello Time Series, le funzionalità e come iniziar
 > * Per informazioni su come spostarsi nell'interfaccia utente del modello Time Series, vedere informazioni su [Azure Time Series Insights Preview Explorer](time-series-insights-update-explorer.md) .
 > * Informazioni [su come usare il modello Time Series](time-series-insights-update-how-to-tsm.md) con esplora Web Time Series Insights.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 I dati raccolti dai dispositivi IoT non includono in genere informazioni contestuali, cosa che rende difficile trovare e analizzare rapidamente i sensori. La motivazione principale per il modello Time Series è semplificare la ricerca e l'analisi dei dati delle serie temporali o degli Internet. Questo obiettivo viene raggiunto consentendo la cura, la manutenzione e l'arricchimento dei dati relativi alle serie temporali per preparare i set di dati pronti per il consumo per l'analisi.
 
@@ -63,7 +63,7 @@ Allo scopo di semplificare e agevolare la gestione della contestualizzazione del
 * Definire le relazioni padre-figlio per consentire lo spostamento, la ricerca e il riferimento.
 * Definire le proprietà associate alle istanze, definite come campi dell' *istanza*, e usarle per creare gerarchie.
 
-### <a name="components"></a>Components
+### <a name="components"></a>Componenti
 
 Il modello Time Series è costituito da tre componenti principali:
 
@@ -242,7 +242,7 @@ I tipi di modello Time Series sono definiti in base all' **ID**, al **nome**, al
 | id | UUID per il tipo. |
 | name | Stringa utilizzata per fornire un nome per il tipo. |
 | description | Descrizione della stringa per il tipo. |
-| variabili | Specificare le variabili associate al tipo. |
+| variables | Specificare le variabili associate al tipo. |
 
 I tipi sono conformi all'esempio JSON seguente:
 
@@ -284,7 +284,7 @@ I tipi sono conformi all'esempio JSON seguente:
 }
 ```
 
-### <a name="variables"></a>Variabili
+### <a name="variables"></a>variables
 
 I tipi di Time Series Insights potrebbero avere molte variabili che specificano le regole relative a formule e calcolo per gli eventi.
 

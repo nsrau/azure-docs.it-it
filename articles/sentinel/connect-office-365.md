@@ -12,28 +12,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 02/12/2020
 ms.author: rkarlin
-ms.openlocfilehash: df5aade7244f69e7264f901364ecc164351eec50
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 709961fe63e5ed862a0e8dc3fa735d426dd02998
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815796"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77371324"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Connettere i dati dai log di Office 365
 
 
 
-È possibile trasmettere i log di controllo da [Office 365](https://docs.microsoft.com/office365/admin/admin-home?view=o365-worldwide) ad Azure Sentinel con un solo clic. È possibile trasmettere i log di controllo da più tenant a una singola area di lavoro in Sentinel di Azure. Il connettore log attività di Office 365 fornisce informazioni approfondite sulle attività dell'utente in corso. Si otterranno informazioni su varie azioni utente, amministratore, sistema e criteri ed eventi di Office 365. Connettendo i log di Office 365 ad Azure Sentinel è possibile usare questi dati per visualizzare i dashboard, creare avvisi personalizzati e migliorare il processo di analisi.
+È possibile trasmettere i log di controllo da [Office 365](https://docs.microsoft.com/office365/admin/admin-home?view=o365-worldwide) ad Azure Sentinel con un solo clic. È possibile trasmettere i log di controllo da Office 365 nell'area di lavoro di Azure Sentinel nello stesso tenant. Il connettore log attività di Office 365 fornisce informazioni approfondite sulle attività dell'utente in corso. Si otterranno informazioni su varie azioni utente, amministratore, sistema e criteri ed eventi di Office 365. Connettendo i log di Office 365 ad Azure Sentinel è possibile usare questi dati per visualizzare i dashboard, creare avvisi personalizzati e migliorare il processo di analisi.
 
 > [!IMPORTANT]
 > Se si dispone di una licenza E3, prima di poter accedere ai dati tramite l'API di gestione delle attività di Office 365, è necessario abilitare la registrazione di controllo unificata per l'organizzazione di Office 365. A tale scopo, accendere il registro di controllo di Office 365. Per istruzioni, vedere [attivare o disattivare la ricerca dei log di controllo di Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off). Per ulteriori informazioni, vedere [riferimento all'API di gestione delle attività di Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-reference).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- È necessario essere un amministratore globale o un amministratore della sicurezza nel tenant
-- Nel computer da cui è stato eseguito l'accesso ad Azure Sentinel per creare la connessione, assicurarsi che la porta 4433 sia aperta per il traffico Web. Questa porta può essere chiusa nuovamente dopo che la connessione è stata eseguita correttamente.
+- È necessario essere un amministratore globale o un amministratore della sicurezza nel tenant.
 - Se il tenant non ha una licenza Office 365 E3 o Office 365 E5, è necessario abilitare il controllo unificato nel tenant usando uno di questi processi:
     - [Usare il cmdlet Set-AdminAuditLogConfig](https://docs.microsoft.com/powershell/module/exchange/policy-and-compliance-audit/set-adminauditlogconfig?view=exchange-ps) e abilitare il parametro "UnifiedAuditLogIngestionEnabled").
     - [O usando l'interfaccia utente di Centro sicurezza e conformità](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin).
@@ -42,13 +41,9 @@ ms.locfileid: "74815796"
 
 1. In Sentinel di Azure selezionare **connettori dati** , quindi fare clic sul riquadro **Office 365** .
 
-2. Se non è già stato fatto, è possibile farlo accedendo al pannello **connettori dati** e selezionando connettore **Office 365** . Qui è possibile fare clic sulla **pagina Apri connettore** e in sezione di configurazione con etichetta **abilitare la soluzione Office 365 nell'area di lavoro** usare il pulsante **Installa soluzione** per abilitarla. Se è già abilitato, verrà identificato nella schermata di connessione come già abilitato.
-1. Office 365 consente di trasmettere i dati da più tenant ad Azure Sentinel. Per ogni tenant a cui ci si vuole connettere, aggiungere il tenant in **Connetti tenant a Sentinel di Azure**. 
-1. Viene visualizzata una schermata Active Directory. Viene richiesto di eseguire l'autenticazione con un utente amministratore globale in ogni tenant a cui si vuole connettersi a Sentinel di Azure e di fornire le autorizzazioni per Azure Sentinel per leggere i log. 
-5. Nell'elenco tenant verrà visualizzato il Azure AD ID directory (ID tenant) e due caselle di controllo per i log di Exchange e SharePoint. È possibile selezionare uno o tutti i servizi elencati che si desidera inserire in Sentinel. Attualmente, Azure Sentinel supporta i log di Exchange e SharePoint all'interno dei servizi Office365 esistenti.
-
-4. Dopo aver selezionato i servizi (Exchange, SharePoint e così via), è possibile fare clic su Salva nel frame di aggiunta tenant nella pagina. 
-
+2. Se non è già stato fatto, è possibile farlo accedendo al pannello **connettori dati** e selezionando connettore **Office 365** . Qui è possibile fare clic sulla **pagina Apri connettore** e nella sezione configurazione con etichetta **configurazione** Selezionare tutti i log attività di Office 365 che si vuole connettere a Sentinel di Azure. 
+   > [!NOTE]
+   > Se sono già stati connessi più tenant in una versione supportata in precedenza del connettore Office 365 in Azure Sentinel, sarà possibile visualizzare e modificare i log raccolti da ogni tenant. Non sarà possibile aggiungere tenant aggiuntivi, ma è possibile rimuovere i tenant aggiunti in precedenza.
 3. Per usare lo schema pertinente in Log Analytics per i log di Office 365, cercare **OfficeActivity**.
 
 

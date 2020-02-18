@@ -22,7 +22,7 @@ Quando si esegue il failover di macchine virtuali di Azure da un'area a un'altra
 1. Riproteggere le macchine virtuali nell'area secondaria, in modo da avviare la replica nell'area primaria.
 1. Al termine della riprotezione e durante la replica delle macchine virtuali, è possibile eseguire il failover dall'area secondaria a quella primaria.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - È necessario eseguire il commit del failover delle macchine virtuali dall'area primaria all'area secondaria.
 - Il sito di destinazione primario deve essere disponibile e deve essere possibile accedere a quell'area o crearvi risorse.
@@ -33,7 +33,7 @@ Quando si esegue il failover di macchine virtuali di Azure da un'area a un'altra
 
    ![Riproteggere](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
-1. Rivedere il gruppo di risorse, la rete, la risorsa di archiviazione e i set di disponibilità. Fare quindi clic su **OK**, Se sono presenti risorse contrassegnate come nuove, vengono create come parte del processo di riprotezione.
+1. Rivedere il gruppo di risorse, la rete, la risorsa di archiviazione e i set di disponibilità. Fare quindi clic su **OK**. Se sono presenti risorse contrassegnate come nuove, vengono create come parte del processo di riprotezione.
 1. Con questo processo il sito di destinazione viene aggiornato con i dati più recenti. Al termine del processo, si verifica delta replication. Sarà quindi possibile effettuare il failover al sito primario. È possibile selezionare l'account di archiviazione o la rete da usare durante la riprotezione tramite l'opzione Personalizza.
 
    ![Opzione di personalizzazione](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)

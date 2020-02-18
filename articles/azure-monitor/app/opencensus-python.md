@@ -19,7 +19,7 @@ ms.locfileid: "77368275"
 
 Monitoraggio di Azure supporta la traccia distribuita, la raccolta delle metriche e la registrazione delle applicazioni Python tramite l'integrazione con [OpenCensus](https://opencensus.io). Questo articolo illustra il processo di configurazione di OpenCensus per Python e l'invio dei dati di monitoraggio a monitoraggio di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 - Installazione di Python. Questo articolo usa [Python 3.7.0](https://www.python.org/downloads/), anche se le versioni precedenti potrebbero funzionare con modifiche minime.
@@ -38,13 +38,13 @@ Prima di tutto è necessario creare una risorsa Application Insights in monitora
 
 1. Viene visualizzata una finestra di configurazione. Usare la tabella seguente per compilare i campi di input.
 
-   | Impostazione        | Valore           | Descrizione  |
+   | Impostazione        | valore           | Descrizione  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valore univoco globale | Nome che identifica l'app che si sta monitorando |
    | **Gruppo di risorse**     | myResourceGroup      | Nome del nuovo gruppo di risorse per ospitare i dati Application Insights |
    | **Posizione** | Stati Uniti orientali | Una località nelle vicinanze o vicino alla posizione in cui è ospitata l'app |
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 ## <a name="instrument-with-opencensus-python-sdk-for-azure-monitor"></a>Instrumentare con OpenCensus Python SDK per monitoraggio di Azure
 
@@ -67,7 +67,7 @@ Ecco gli esportatori che OpenCensus fornisce mappato ai tipi di dati di telemetr
 
 ![Screenshot del mapping dei tipi di dati di telemetria da OpenCensus a monitoraggio di Azure](./media/opencensus-python/0012-telemetry-types.png)
 
-### <a name="trace"></a>Traccia
+### <a name="trace"></a>Trace
 
 > [!NOTE]
 > `Trace` in OpenCensus si riferisce alla [traccia distribuita](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing). Il `AzureExporter` Invia `requests` e `dependency` la telemetria a monitoraggio di Azure.
@@ -243,7 +243,7 @@ Ecco gli esportatori che OpenCensus fornisce mappato ai tipi di dati di telemetr
 
 4. L'utilità di esportazione invierà i dati delle metriche al monitoraggio di Azure a intervalli fissi. Il valore predefinito è ogni 15 secondi. Stiamo monitorando una singola metrica, quindi questi dati della metrica, con qualsiasi valore e timestamp in esso contenuti, verranno inviati ogni intervallo. È possibile trovare i dati in `customMetrics`.
 
-### <a name="logs"></a>Registri
+### <a name="logs"></a>Log
 
 1. Prima di tutto, è necessario generare alcuni dati di log locali.
 

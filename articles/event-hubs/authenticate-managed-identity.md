@@ -140,7 +140,7 @@ var ehClient = EventHubClient.CreateWithManagedIdentity(new Uri($"sb://{EventHub
 ## <a name="event-hubs-for-kafka"></a>Hub eventi per Kafka
 È possibile usare le applicazioni Apache Kafka per inviare e ricevere messaggi da Hub eventi di Azure usando OAuth di identità gestito. Vedere l'esempio seguente su GitHub: [Hub eventi per Kafka-inviare e ricevere messaggi tramite l'identità gestita OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity).
 
-## <a name="samples"></a>Samples
+## <a name="samples"></a>Esempi
 - [Esempi di Microsoft. Azure. EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
     Questi esempi usano la libreria **Microsoft. Azure. EventHubs** precedente, ma è possibile aggiornarla facilmente usando la libreria **Azure. Messaging. EventHubs** più recente. Per spostare l'esempio da usando la libreria precedente a una nuova, vedere la [Guida per eseguire la migrazione da Microsoft. Azure. EventHubs ad Azure. Messaging. EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).

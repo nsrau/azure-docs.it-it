@@ -27,7 +27,7 @@ Questo articolo consente di completare queste attività:
 > * Rispedire il dispositivo a Microsoft.
 > * Applicare le autorizzazioni di accesso a file e directory (solo Data Lake Storage Gen2)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Queste operazioni sono necessarie per completare la migrazione.
 
