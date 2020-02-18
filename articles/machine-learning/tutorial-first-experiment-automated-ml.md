@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
-ms.openlocfilehash: 93cbf8e9e60ef48e1ff3516dd4e9e123f70e0f42
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 02/04/2020
+ms.openlocfilehash: 70fcdb1c22664a0bd3091fea88c8e23e3d1b81e5
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982428"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048292"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Esercitazione: Creare il primo modello di classificazione con apprendimento automatico
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -69,11 +69,15 @@ Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento 
 
 1. Creare un nuovo set di dati selezionando **From local files** (Da file locali) dall'elenco a discesa **+Create dataset** (Crea set di dati). 
 
+    1. Nel modulo **Informazioni di base** assegnare un nome al set di dati e specificare una descrizione facoltativa. Il servizio ML automatizzato in Azure Machine Learning Studio attualmente supporta solo set di dati tabulari, quindi il tipo di set di dati dovrebbe essere tabulare per impostazione predefinita.
+
+    1. Selezionare **Avanti** in basso a sinistra
+
+    1. Nel modulo **Selezione archivio dati e file** selezionare l'archivio dati predefinito che è stato configurato automaticamente durante la creazione dell'area di lavoro, **workspaceblobstore (archiviazione BLOB di Azure)** . Qui verrà caricato il file di dati per renderlo disponibile nell'area di lavoro.
+
     1. Selezionare **Sfoglia**.
     
     1. Scegliere il file **bankmarketing_train.csv** nel computer locale. Si tratta del file scaricato come [prerequisito](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
-
-    1. Selezionare **Tabular** (Tabulare) come tipo di set di dati. 
 
     1. Assegnare un nome univoco al set di dati e specificare una descrizione facoltativa. 
 
@@ -136,18 +140,18 @@ Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento 
         Blocked algorithms (Algoritmi bloccati) | Algoritmi da escludere dal processo di training| nessuno
         Exit criterion (Esci da criterio)| Se viene soddisfatto un criterio, il processo di training viene arrestato. |Durata del&nbsp;processo&nbsp;di training (ore): 1 <br> Soglia&nbsp;punteggio&nbsp;metrica: nessuno
         Convalida | Scegliere un tipo di convalida incrociata e un numero di test.|Tipo di convalida:<br>Convalida incrociata &nbsp;k-fold&nbsp; <br> <br> Numero di convalide: 2
-        Concorrenza| Numero massimo di iterazioni parallele eseguite e di core usati per iterazione| Numero massimo di&nbsp;iterazioni&nbsp;simultanee: 5<br> Numero massimo di&nbsp;core&nbsp;per&nbsp;iterazione: nessuno
+        Concorrenza| Il numero massimo di iterazioni parallele eseguite per ogni iterazione| Numero massimo di&nbsp;iterazioni&nbsp;simultanee: 5
         
         Selezionare **Salva**.
 
-1. Selezionare **Fine** per eseguire l'esperimento. Verrà visualizzata la schermata **Dettagli esecuzione** con **Stato dell'esecuzione** quando inizia la preparazione dell'esperimento.
+1. Selezionare **Fine** per eseguire l'esperimento. Verrà visualizzata la schermata **Dettagli esecuzione** con **Stato dell'esecuzione** nella parte superiore quando inizia la preparazione dell'esperimento.
 
 >[!IMPORTANT]
 > La preparazione dell'esecuzione dell'esperimento richiede **10-15 minuti**.
 > Dopo l'avvio, **ogni iterazione richiede almeno 2-3 minuti**.  
 > Selezionare a intervalli regolari **Aggiorna** per visualizzare lo stato dell'esecuzione durante l'avanzamento dell'esperimento.
 >
-> In produzione, è probabile che nell'attesa ci si allontani. Per questa esercitazione però è consigliabile iniziare a esplorare gli algoritmi testati nella scheda Modelli non appena vengono completati mentre gli altri sono ancora in esecuzione. 
+> In produzione, è probabile che nell'attesa ci si allontani. Per questa esercitazione però è consigliabile iniziare a esplorare gli algoritmi testati nella scheda **Modelli** non appena vengono completati mentre gli altri sono ancora in esecuzione. 
 
 ##  <a name="explore-models"></a>Esplorare i modelli
 
@@ -165,11 +169,11 @@ Machine Learning automatizzato in Azure Machine Learning Studio consente di dist
 
 Per questo esperimento, attraverso la distribuzione a un servizio Web l'istituto finanziario ha ora una soluzione Web iterativa e scalabile per l'identificazione dei potenziali clienti con deposito a termine fisso. 
 
-Al termine dell'esecuzione, tornare alla pagina **Dettagli esecuzione** e selezionare la scheda **Modelli**. Selezionare **Aggiorna**. 
+Al termine dell'esecuzione, tornare alla pagina **Dettagli esecuzione** e selezionare la scheda **Modelli**.
 
 Nel contesto di questo esperimento **VotingEnsemble** viene considerato il modello migliore, in base alla metrica **AUC_weighted**.  Viene distribuito questo modello, ma tenere presente che il completamento della distribuzione richiede circa 20 minuti. Il processo di distribuzione comporta diversi passaggi, tra cui la registrazione del modello, la generazione delle risorse e la relativa configurazione per il servizio Web.
 
-1. Selezionare il pulsante **Deploy Best Model** (Distribuisci modello migliore) nell'angolo in basso a sinistra.
+1. Selezionare il pulsante **Distribuisci modello migliore** nell'angolo in basso a sinistra.
 
 1. Immettere i dati nel riquadro **Deploy a model** (Distribuisci un modello) in questo modo:
 
@@ -216,7 +220,7 @@ In questa esercitazione di Machine Learning automatizzato è stato usato Azure M
 > [!div class="nextstepaction"]
 > [Utilizzare un servizio Web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
-+ Altre informazioni sulla [pre-elaborazione](how-to-create-portal-experiments.md#preprocess).
++ Altre informazioni sullo [sviluppo di funzionalità](how-to-create-portal-experiments.md#featurization).
 + Altre informazioni sulla [profilatura dei dati](how-to-create-portal-experiments.md#profile).
 + [Funzionalità automatizzate di Machine Learning](concept-automated-ml.md).
 + Per altre informazioni sulle metriche e sui grafici di classificazione, vedere l'articolo [Informazioni sui risultati di Machine Learning automatizzato](how-to-understand-automated-ml.md#classification).

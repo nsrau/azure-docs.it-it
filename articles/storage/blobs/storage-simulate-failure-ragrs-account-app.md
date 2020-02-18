@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
-ms.openlocfilehash: 44c5d037797d845aa9c68af2d7b8e5e45bf418fb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 522ed13681a98535c35552128fc8432782ec1ca2
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892448"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162702"
 ---
 # <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>Esercitazione: Simulare un errore durante la lettura dei dati dall'area primaria
 
-Questa è la seconda di una serie di esercitazioni. Si apprenderanno i vantaggi di un'[archiviazione con ridondanza geografica e accesso in lettura](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) simulando un errore.
+Questa è la seconda di una serie di esercitazioni. Illustra i vantaggi dell'[archiviazione con ridondanza geografica e accesso in lettura](../common/storage-redundancy.md) (RA-GRS) simulando un errore.
 
-Per simulare un errore, è possibile usare il [routing statico](#simulate-a-failure-with-an-invalid-static-route) o [Fiddler](#simulate-a-failure-with-fiddler). Entrambi i metodi consentono di simulare un errore per le richieste all'endpoint primario di un account di archiviazione con [ridondanza geografica e accesso in lettura](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) e fare in modo che l'applicazione esegua invece la lettura dall'endpoint secondario.
+Per simulare un errore, è possibile usare il [routing statico](#simulate-a-failure-with-an-invalid-static-route) o [Fiddler](#simulate-a-failure-with-fiddler). Entrambi i metodi consentono di simulare un errore per le richieste all'endpoint primario di un account di archiviazione con [ridondanza geografica e accesso in lettura](../common/storage-redundancy.md) (RA-GRS) e fare in modo che l'applicazione esegua invece la lettura dall'endpoint secondario.
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -31,7 +31,7 @@ Nella seconda parte della serie si apprenderà come:
 > * Simulare un errore con una [route statica non valida](#simulate-a-failure-with-an-invalid-static-route) o con [Fiddler](#simulate-a-failure-with-fiddler)
 > * Simulare il ripristino di un endpoint primario
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione, completare quella precedente: [Applicare la disponibilità elevata ai dati delle applicazioni con l'archiviazione di Azure][previous-tutorial].
 
@@ -41,11 +41,11 @@ Per simulare un errore con Fiddler, scaricare e [installare Fiddler](https://www
 
 ## <a name="simulate-a-failure-with-an-invalid-static-route"></a>Simulare un errore con una route statica non valida
 
-È possibile creare una route statica non valida per tutte le richieste all'endpoint primario dell'account di archiviazione con [ridondanza geografica e accesso in lettura](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS). In questa esercitazione, l'host locale viene usato come gateway per il routing delle richieste all'account di archiviazione. L'uso dell'host locale come gateway determina il loopback all'interno dell'host di tutte le richieste all'endpoint primario dell'account di archiviazione, causando quindi un errore. Per simulare un errore e il ripristino dell'endpoint primario con una route statica non valida, seguire questa procedura.
+È possibile creare una route statica non valida per tutte le richieste all'endpoint primario dell'account di archiviazione con [ridondanza geografica e accesso in lettura](../common/storage-redundancy.md) (RA-GRS). In questa esercitazione, l'host locale viene usato come gateway per il routing delle richieste all'account di archiviazione. L'uso dell'host locale come gateway determina il loopback all'interno dell'host di tutte le richieste all'endpoint primario dell'account di archiviazione, causando quindi un errore. Per simulare un errore e il ripristino dell'endpoint primario con una route statica non valida, seguire questa procedura.
 
 ### <a name="start-and-pause-the-application"></a>Avviare e mettere in pausa l'applicazione
 
-Usare le istruzioni nell'[esercitazione precedente][previous-tutorial] per avviare l'esempio e scaricare il file di test, assicurandosi che provenga dalla risorsa di archiviazione primaria. A seconda della piattaforma di destinazione, è quindi possibile sospendere manualmente l'esempio o attendere un prompt dei comandi.
+Usare le istruzioni dell'[esercitazione precedente][previous-tutorial] per avviare l'esempio e scaricare il file di test, confermando che proviene da un'archiviazione primaria. A seconda della piattaforma di destinazione, è quindi possibile sospendere manualmente l'esempio o attendere un prompt dei comandi.
 
 ### <a name="simulate-failure"></a>Simulare un errore
 
@@ -133,7 +133,7 @@ Al termine, selezionare **File** e **Salva** per salvare le modifiche. Lasciare 
 
 ### <a name="start-and-pause-the-application"></a>Avviare e mettere in pausa l'applicazione
 
-Usare le istruzioni nell'[esercitazione precedente][previous-tutorial] per avviare l'esempio e scaricare il file di test, assicurandosi che provenga dalla risorsa di archiviazione primaria. A seconda della piattaforma di destinazione, è quindi possibile sospendere manualmente l'esempio o attendere un prompt dei comandi.
+Usare le istruzioni dell'[esercitazione precedente][previous-tutorial] per avviare l'esempio e scaricare il file di test, confermando che proviene da un'archiviazione primaria. A seconda della piattaforma di destinazione, è quindi possibile sospendere manualmente l'esempio o attendere un prompt dei comandi.
 
 ### <a name="simulate-failure"></a>Simulare un errore
 

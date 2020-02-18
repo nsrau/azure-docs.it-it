@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Concedere l'accesso alle risorse di Azure a un utente usando il controllo degli accessi in base al ruolo e il portale di Azure"
+title: "Esercitazione: Concedere a un utente l'accesso alle risorse di Azure con il controllo degli accessi in base al ruolo e il portale di Azure "
 description: Questa esercitazione descrive come concedere l'accesso alle risorse di Azure a un utente usando il controllo degli accessi in base al ruolo nel portale di Azure.
 services: role-based-access-control
 documentationCenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: f4dd3995df2a068824c4aa6bccca5606d250a165
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 6281c9a1818a3b46ac4f7a62f8ae76668db56887
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419656"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138084"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Esercitazione: Concedere l'accesso alle risorse di Azure a un utente usando il controllo degli accessi in base al ruolo e il portale di Azure
 
 Il [controllo degli accessi in base al ruolo](overview.md) è la modalità di gestione dell'accesso alle risorse di Azure. Questa esercitazione illustra come concedere un accesso a un utente in modo che possa creare e gestire macchine virtuali in un gruppo di risorse.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Concedere l'accesso per un utente nell'ambito di un gruppo di risorse
@@ -92,7 +92,7 @@ Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo, s
 
 1. Nell'elenco delle assegnazioni di ruolo, aggiungere un segno di spunta accanto all'utente con il ruolo di Collaboratore macchina virtuale.
 
-1. Fare clic su **Rimuovi**.
+1. Scegliere **Rimuovi**.
 
    ![Messaggio di rimozione assegnazione di ruolo](./media/quickstart-assign-role-user-portal/remove-role-assignment.png)
 

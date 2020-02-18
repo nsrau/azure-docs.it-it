@@ -3,30 +3,27 @@ title: Trasferire la proprietà della fatturazione di una sottoscrizione di Azur
 description: Questo articolo descrive come trasferire la proprietà della fatturazione di una sottoscrizione di Azure in un altro account e contiene alcune domande frequenti sul processo
 keywords: trasferire la sottoscrizione di Azure, trasferimento della sottoscrizione di Azure, spostare una sottoscrizione di Azure in un altro account, cambiare il proprietario della sottoscrizione di Azure, trasferire la sottoscrizione di Azure in un altro account, trasferire la fatturazione di Azure
 author: bandersmsft
-manager: amberb
+ms.reviewer: amberb
 tags: billing,top-support-issue
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d2bbfd7f4ddc5fc34c0bec3612783dfef5074d83
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3eb76535a8047840a577f5b044001d85c20b13f0
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76270866"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188403"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Trasferire la proprietà della fatturazione di una sottoscrizione di Azure in un altro account
 
-Potrebbe essere necessario trasferire la proprietà della fatturazione della sottoscrizione di Azure se si lascia l'organizzazione o si vuole che la sottoscrizione venga addebitata a un altro account. Il trasferimento della proprietà della fatturazione in un altro account fornisce agli amministratori del nuovo account l'autorizzazione per eseguire attività di fatturazione, ad esempio cambiare metodo di pagamento, visualizzare gli addebiti e annullare la sottoscrizione.
+Si potrebbe avere l'esigenza di trasferire la proprietà della fatturazione della sottoscrizione di Azure nel caso in cui si lasci l'organizzazione o se si vuole che la sottoscrizione venga addebitata a un altro account. Il trasferimento della proprietà della fatturazione a un altro account fornisce agli amministratori del nuovo account le autorizzazioni necessarie per le attività di fatturazione. Tali amministratori possono cambiare il metodo di pagamento, visualizzare gli addebiti e annullare la sottoscrizione.
 
-Se si vuole mantenere la proprietà della fatturazione, ma cambiare il tipo di sottoscrizione, vedere [Trasferire la sottoscrizione di Azure a un'altra offerta](switch-azure-offer.md). Se si vuole controllare chi può gestire le risorse della sottoscrizione, vedere [Ruoli predefiniti per le risorse di Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Se si vuole mantenere la proprietà della fatturazione, ma cambiare il tipo di sottoscrizione, vedere [Trasferire la sottoscrizione di Azure a un'altra offerta](switch-azure-offer.md). Per controllare chi può gestire le risorse della sottoscrizione, vedere [Ruoli predefiniti per le risorse di Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
-Per i clienti con contratto Enterprise Agreement (EA), gli amministratori dell'organizzazione possono trasferire la proprietà della fatturazione delle sottoscrizioni tra gli account. Per altre informazioni, vedere [Trasferire la proprietà di fatturazione delle sottoscrizioni Enterprise Agreement (EA)](#transfer-billing-ownership-of-enterprise-agreement-ea-subscriptions).
+Per i clienti con contratto Enterprise Agreement (EA), gli amministratori dell'organizzazione possono trasferire la proprietà della fatturazione delle sottoscrizioni tra gli account. Per altre informazioni, vedere [Trasferire la proprietà di fatturazione delle sottoscrizioni Enterprise Agreement (EA)](#EA).
 
 ## <a name="transfer-billing-ownership-of-an-azure-subscription"></a>Trasferire la proprietà della fatturazione di una sottoscrizione di Azure
 
@@ -44,7 +41,7 @@ Per i clienti con contratto Enterprise Agreement (EA), gli amministratori dell'o
 
 1. Immettere l'indirizzo di posta elettronica di un utente con il ruolo di amministratore della fatturazione dell'account che diventerà il nuovo proprietario della sottoscrizione.
 
-1. Se la sottoscrizione viene trasferita in un account in un altro tenant di Azure AD, scegliere se la si vuole spostare nel tenant del nuovo account. Per altre informazioni, vedere [Trasferimento della sottoscrizione in un account in un altro tenant di Azure AD](#transferring-subscription-to-an-account-in-another-azure-ad-tenant)
+1. Se la sottoscrizione viene trasferita in un account in un altro tenant di Azure AD, scegliere se la si vuole spostare nel tenant del nuovo account. Per altre informazioni, vedere [Trasferimento della sottoscrizione in un account in un altro tenant di Azure AD](#transfer-a-subscription-to-another-azure-ad-tenant-account)
 
     > [!IMPORTANT]
     >
@@ -58,7 +55,7 @@ Per i clienti con contratto Enterprise Agreement (EA), gli amministratori dell'o
 
    ![Messaggio di posta elettronica sul trasferimento della sottoscrizione inviato al destinatario](./media/billing-subscription-transfer/billing-receiver-email.png)
 
-1. Per approvare la richiesta di trasferimento, l'utente seleziona il collegamento nel messaggio di posta elettronica e segue le istruzioni. L'utente dovrà selezionare un metodo di pagamento che verrà usato per pagare la sottoscrizione. Inoltre, se l'utente non ha un account Azure, dovrà iscriversi per riceverne uno nuovo.
+1. Per approvare la richiesta di trasferimento, l'utente seleziona il collegamento nel messaggio di posta elettronica e segue le istruzioni. L'utente seleziona quindi un metodo di pagamento che verrà usato per pagare la sottoscrizione. Se l'utente non ha un account Azure, dovrà iscriversi per riceverne uno nuovo.
 
    ![Prima pagina Web del trasferimento della sottoscrizione](./media/billing-subscription-transfer/billing-accept-ownership-step1.png)
 
@@ -68,29 +65,29 @@ Per i clienti con contratto Enterprise Agreement (EA), gli amministratori dell'o
 
 1. Operazione riuscita. La sottoscrizione è stata trasferita.
 
-## <a name="transferring-subscription-to-an-account-in-another-azure-ad-tenant"></a>Trasferimento della sottoscrizione in un account in un altro tenant di Azure AD
+## <a name="transfer-a-subscription-to-another-azure-ad-tenant-account"></a>Trasferire una sottoscrizione in un account di un altro tenant di Azure AD
 
 Quando ci si iscrive ad Azure, viene automaticamente creato un tenant di Azure Active Directory (AD). Il tenant rappresenta l'account. Viene usato per gestire l'accesso alle sottoscrizioni e alle risorse.
 
-Le nuove sottoscrizioni create vengono ospitate nel tenant di Azure AD del proprio account. Se si vuole concedere ad altri utenti l'accesso alla sottoscrizione o alle relative risorse, è necessario invitarli ad aggiungersi al tenant. In questo modo, è possibile controllare l'accesso alle sottoscrizioni e alle risorse.
+Le nuove sottoscrizioni create vengono ospitate nel tenant di Azure AD del proprio account. Se si vuole consentire ad altri utenti di accedere alla sottoscrizione o alle relative risorse, è necessario invitarli ad aggiungersi al tenant. In questo modo è possibile controllare l'accesso alle sottoscrizioni e alle risorse.
 
-Se la proprietà della fatturazione della sottoscrizione viene trasferita in un account in un altro tenant di Azure AD, scegliere se la si vuole spostare nel tenant del nuovo account. In questo caso, tutti gli utenti, i gruppi o le entità servizio con il ruolo [Controllo dell'accesso in base al ruolo](../../role-based-access-control/role-assignments-portal.md) per la gestione delle sottoscrizioni e delle relative risorse perderanno l'accesso. Solo l'utente del nuovo account che accetta la richiesta di trasferimento avrà accesso per la gestione delle risorse. Per fornire l'accesso agli utenti che originariamente lo avevano, il nuovo proprietario dovrà [aggiungerli manualmente alla sottoscrizione](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Se la proprietà della fatturazione della sottoscrizione viene trasferita in un account in un altro tenant di Azure AD, scegliere se la si vuole spostare nel tenant del nuovo account. In questo caso, tutti gli utenti, i gruppi o le entità servizio con il ruolo [Controllo dell'accesso in base al ruolo](../../role-based-access-control/role-assignments-portal.md) per la gestione delle sottoscrizioni e delle relative risorse perderanno l'accesso. Solo l'utente del nuovo account che accetta la richiesta di trasferimento avrà accesso per la gestione delle risorse. Il nuovo proprietario deve [aggiungere manualmente questi utenti alla sottoscrizione](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) per fornire l'accesso agli utenti che lo hanno perso.
 
 
-## <a name="transferring-visual-studio-mpn-and-pay-as-you-go-devtest-subscriptions"></a>Trasferimento di sottoscrizioni di sviluppo/test di Visual Studio, MPN e con pagamento in base al consumo
+## <a name="transfer-visual-studio-and-partner-network-subscriptions"></a>Trasferire le sottoscrizioni di Visual Studio e Partner Network
 
-Alle sottoscrizioni di Visual Studio e Microsoft Partner Network è associato un credito Azure ricorrente mensile. Quando si trasferiscono queste sottoscrizioni, il credito non è disponibile nell'account di fatturazione di destinazione. La sottoscrizione usa il credito nell'account di fatturazione di destinazione. Si supponga ad esempio che Bob trasferisca una sottoscrizione di Visual Studio Enterprise all'account di Jane il 9 settembre e che Jane accetti il trasferimento. Al termine del trasferimento, la sottoscrizione inizia a usare il credito nell'account di Jane. Il credito viene reimpostato ogni 9 del mese.
+Alle sottoscrizioni di Visual Studio e Microsoft Partner Network è associato un credito Azure ricorrente mensile. Quando si trasferiscono queste sottoscrizioni, il credito non è disponibile nell'account di fatturazione di destinazione. La sottoscrizione usa il credito nell'account di fatturazione di destinazione. Supponiamo ad esempio che Bob trasferisca una sottoscrizione di Visual Studio Enterprise all'account di Jane il 9 settembre e che Jane accetti il trasferimento. Al termine del trasferimento, la sottoscrizione inizia a usare il credito nell'account di Jane. Il credito viene reimpostato ogni nono giorno del mese.
 
 
 <a id="EA"></a>
 
-## <a name="transfer-billing-ownership-of-enterprise-agreement-ea-subscriptions"></a>Trasferire la proprietà della fatturazione di sottoscrizioni del contratto Enterprise Agreement (EA)
+## <a name="transfer-ea-subscription-billing-ownership"></a>Trasferire la proprietà di fatturazione delle sottoscrizioni con contratto Enterprise
 
 L'amministratore dell'organizzazione può trasferire la proprietà delle sottoscrizioni tra gli account all'interno di una registrazione. Per altre informazioni, vedere [Cambiare il proprietario dell'account](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started#change-account-owner).
 
 ## <a name="next-steps-after-accepting-billing-ownership"></a>Passaggi successivi all'accettazione della proprietà della fatturazione
 
-Se è stata accettata la proprietà di fatturazione di una sottoscrizione di Azure, è consigliabile esaminare i passaggi seguenti:
+Se è stata accettata la proprietà di fatturazione di una sottoscrizione di Azure, è consigliabile rivedere i passaggi successivi seguenti:
 
 1. Rivedere e aggiornare il ruolo dell'amministratore del servizio, il ruolo dei coamministratori e gli altri ruoli RBAC. Per altre informazioni, vedere [Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure](add-change-subscription-administrator.md) e [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 1. Aggiornare le credenziali associate ai servizi della sottoscrizione, tra cui:
@@ -103,7 +100,7 @@ Se è stata accettata la proprietà di fatturazione di una sottoscrizione di Azu
 
 ## <a name="supported-subscription-types"></a>Tipi di sottoscrizioni supportati
 
-Il trasferimento di sottoscrizioni nel portale di Azure è disponibile per i tipi di sottoscrizione elencati di seguito. Attualmente il trasferimento non è supportato per le sottoscrizioni della [versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p/) o di [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/). Per aggirare questa limitazione, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../../azure-resource-manager/management/move-resource-group-and-subscription.md). Per il trasferimento di altre sottoscrizioni, ad esempio [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) o piani di supporto, [contattare il supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Il trasferimento di sottoscrizioni nel portale di Azure è disponibile per i tipi di sottoscrizione elencati di seguito. Attualmente il trasferimento non è supportato per le sottoscrizioni della [versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p/) o [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/). Per aggirare questa limitazione, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../../azure-resource-manager/management/move-resource-group-and-subscription.md). Per il trasferimento di altre sottoscrizioni, ad esempio [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) o piani di supporto, [contattare il supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 - [Contratto Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*
 - [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)  
@@ -129,13 +126,13 @@ Queste domande frequenti si applicano agli utenti che trasferiscono la propriet�
 
 ### <a name="whoisaa"></a> Chi è l'amministratore fatturazione di un account?
 
-L'amministratore fatturazione è una persona autorizzata a gestire la fatturazione per un account. Ha l'autorizzazione per accedere alla fatturazione nel [portale di Azure](https://portal.azure.com) e per eseguire varie attività collegate, ad esempio creare sottoscrizioni, visualizzare e pagare fatture oppure aggiornare i metodi di pagamento.
+L'amministratore fatturazione è una persona autorizzata a gestire la fatturazione per un account. Ha l'autorizzazione per accedere alla fatturazione nel [portale di Azure](https://portal.azure.com) ed eseguire varie attività collegate, ad esempio creare sottoscrizioni, visualizzare e pagare fatture oppure aggiornare i metodi di pagamento.
 
 Per identificare gli account di cui si è un amministratore fatturazione, procedere come segue:
 
 1. Visitare la pagina [Gestione dei costi e fatturazione nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview).
 1. Selezionare **Tutti gli ambiti di fatturazione** nel riquadro sinistro.
-1. Nella pagina delle sottoscrizioni sono elencate tutte le sottoscrizioni di cui si è un amministratore fatturazione.
+1. Nella pagina delle sottoscrizioni sono elencate tutte le sottoscrizioni in cui si è un amministratore fatturazione.
 
 Se non si conosce l'amministratore account per una sottoscrizione, seguire questa procedura per individuarlo.
 
@@ -145,19 +142,19 @@ Se non si conosce l'amministratore account per una sottoscrizione, seguire quest
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>Vengono trasferite tutte le risorse? Anche gruppi di risorse, macchine virtuali, dischi e altri servizi in esecuzione?
 
-Tutte le risorse, come VM, dischi e siti Web, vengono trasferite al nuovo account. Tuttavia, se la sottoscrizione viene trasferita in un account in un altro tenant di Azure AD, i [ruoli di amministratore](add-change-subscription-administrator.md) e le assegnazioni di [Controllo degli accessi in base al ruolo](../../role-based-access-control/role-assignments-portal.md) della sottoscrizione [non verranno trasferiti](#transferring-subscription-to-an-account-in-another-azure-ad-tenant). Inoltre, le [registrazioni di app](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) e gli altri servizi specifici del tenant non vengono trasferiti insieme alla sottoscrizione.
+Tutte le risorse, come VM, dischi e siti Web, vengono trasferite al nuovo account. Tuttavia, se una sottoscrizione viene trasferita in un account in un altro tenant di Azure AD, i [ruoli di amministratore](add-change-subscription-administrator.md) e le assegnazioni di [Controllo degli accessi in base al ruolo](../../role-based-access-control/role-assignments-portal.md) della sottoscrizione [non vengono trasferiti](#transfer-a-subscription-to-another-azure-ad-tenant-account). Inoltre, le [registrazioni di app](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) e gli altri servizi specifici del tenant non vengono trasferiti insieme alla sottoscrizione.
 
 ### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>È possibile trasferire la proprietà in un account di un altro paese?
-Purtroppo, i trasferimenti tra paesi non possono essere eseguiti nel portale di Azure. Per trasferire la sottoscrizione in altri paesi, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Purtroppo i trasferimenti tra paesi non possono essere eseguiti nel portale di Azure. Per trasferire la sottoscrizione in altri paesi, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="i-am-an-administrator-on-two-accounts-can-i-transfer-a-subscription-from-one-of-my-accounts-to-another"></a>Gli amministratori di due account possono trasferire una sottoscrizione da un account all'altro?
 Sì, è possibile trasferire la sottoscrizione tra gli account. Gli account vengono considerati concettualmente come account di due utenti diversi, quindi è possibile eseguire la procedura descritta sopra per trasferire le sottoscrizioni.
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>Il trasferimento di una sottoscrizione comporta tempi di inattività del servizio?
 
-Il trasferimento di una sottoscrizione in un account nello stesso tenant di Azure AD non ha alcun effetto sulle risorse in esecuzione nella sottoscrizione. Tuttavia, se la sottoscrizione viene trasferita in un account in un altro tenant e si decide di spostarla nel tenant, tutti gli utenti, i gruppi e le entità servizio che avevano il ruolo [Controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) per la gestione delle risorse della sottoscrizione perderanno l'accesso. Di conseguenza, potrebbero verificarsi tempi di inattività del servizio.
+Il trasferimento di una sottoscrizione in un account nello stesso tenant di Azure AD non ha alcun impatto sulle risorse in esecuzione nella sottoscrizione. Le informazioni di contesto salvate in PowerShell non vengono tuttavia aggiornate, pertanto potrebbe essere necessario cancellarle o modificare le impostazioni. Se la sottoscrizione viene trasferita in un account in un altro tenant e si decide di spostarla nel tenant, tutti gli utenti, i gruppi e le entità servizio che avevano il ruolo [Controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) per la gestione delle risorse della sottoscrizione perderanno l'accesso. Questo si potrebbe tradurre in tempi di inattività del servizio.
 
-### <a name="do-users-in-new-account-have-access-to-usage-and-billing-history"></a>Gli utenti del nuovo account hanno accesso alla cronologia di fatturazione e utilizzo?
+### <a name="can-users-in-new-account-access-usage-and-billing-history"></a>Gli utenti del nuovo account possono accedere alla cronologia di fatturazione e utilizzo?
 
 Le uniche informazioni disponibili per gli utenti in un nuovo account sono quelle relative al costo dell'ultimo mese per la sottoscrizione. Il resto della cronologia di fatturazione e utilizzo non viene trasferito con la sottoscrizione.
 
@@ -167,7 +164,7 @@ Se non è possibile trasferire la proprietà di una sottoscrizione, eseguire la 
 
 ### <a name="if-i-transfer-a-visual-studio-or-microsoft-partner-network-subscription-does-my-credit-carry-forward-with-the-subscription-in-the-new-account"></a>Se si trasferisce una sottoscrizione di Visual Studio o di Microsoft Partner Network, il credito viene riportato nella sottoscrizione del nuovo account?
 
-No, il credito non è disponibile nel nuovo account. Per accettare la richiesta di trasferimento, l'utente deve avere una licenza di Visual Studio. La sottoscrizione usa il credito di Visual Studio disponibile nell'account dell'utente. Per altre informazioni, vedere [Trasferimento di sottoscrizioni di sviluppo/test di Visual Studio, Microsoft Partner Network (MPN) e con pagamento in base al consumo](#transferring-visual-studio-mpn-and-pay-as-you-go-devtest-subscriptions).
+No, il credito non è disponibile nel nuovo account. Per accettare la richiesta di trasferimento, l'utente deve avere una licenza di Visual Studio. La sottoscrizione usa il credito di Visual Studio disponibile nell'account dell'utente. Per altre informazioni, vedere [Trasferire le sottoscrizioni di Visual Studio e Partner Network](#transfer-visual-studio-and-partner-network-subscriptions).
 
 
 ## <a name="frequently-asked-questions-faq-for-recipients"></a>Domande frequenti per i destinatari
@@ -176,13 +173,13 @@ Queste domande frequenti si applicano agli utenti che accettano la proprietà de
 
 ### <a name="if-i-take-over-billing-ownership-of-a-subscription-from-another-account-do-users-in-that-account-continue-to-have-access-to-my-resources"></a>Se si rileva la proprietà della fatturazione di una sottoscrizione da un altro account, gli utenti di quest'ultimo continuano ad avere accesso alle risorse del nuovo proprietario?
 
-Sì. Tuttavia, se l'account si trova in un tenant di Azure AD diverso da quello della sottoscrizione e l'utente che ha inviato la richiesta di trasferimento sposta la sottoscrizione nel tenant dell'account, i [ruoli di amministratore](add-change-subscription-administrator.md) e le assegnazioni di [Controllo degli accessi in base al ruolo](../../role-based-access-control/role-assignments-portal.md) vengono rimossi. Per visualizzare gli utenti che hanno il ruolo [Controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) per la gestione delle risorse della sottoscrizione, procedere come segue:
+Sì. Tuttavia, i [ruoli di amministratore](add-change-subscription-administrator.md) e le assegnazioni del [controllo degli accessi in base al ruolo](../../role-based-access-control/role-assignments-portal.md) potrebbero essere rimossi. La perdita dell'accesso si verifica quando l'account si trova in un tenant di Azure AD diverso dal tenant della sottoscrizione e l'utente che ha inviato la richiesta di trasferimento sposta la sottoscrizione nel tenant dell'account. Per visualizzare gli utenti che hanno il ruolo [Controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) per la gestione delle risorse della sottoscrizione, procedere come segue:
 
 1. Visitare la [pagina delle sottoscrizioni nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Selezionare la sottoscrizione da verificare e quindi **Controllo di accesso (IAM)** nel riquadro sinistro.
 1. Selezionare **Assegnazioni di ruolo** nella parte superiore della pagina. La pagina Assegnazioni di ruolo contiene l'elenco di tutti gli utenti con accesso Controllo degli accessi in base al ruolo nella sottoscrizione.
 
-Anche se le assegnazioni di [Controllo degli accessi in base al ruolo](../../role-based-access-control/role-assignments-portal.md) vengono rimosse durante il trasferimento, gli utenti nell'account proprietario originale potrebbero avere ancora accesso alla sottoscrizione tramite alcuni meccanismi di sicurezza, tra cui:
+Anche se le assegnazioni di [Controllo degli accessi in base al ruolo](../../role-based-access-control/role-assignments-portal.md) vengono rimosse durante il trasferimento, gli utenti nell'account proprietario originale potrebbero avere ancora accesso alla sottoscrizione tramite qualche meccanismo di sicurezza, tra cui:
 
 * Certificati di gestione che concedono all'utente privilegi di amministratore per le risorse della sottoscrizione. Per altre informazioni, vedere [Creare e caricare un certificato di gestione per Azure](../../cloud-services/cloud-services-certs-create.md).
 * Chiavi di accesso per servizi quali Archiviazione. Per altre informazioni, vedere [Informazioni sugli account di archiviazione di Azure](../../storage/common/storage-create-storage-account.md).
@@ -193,7 +190,7 @@ Se il destinatario deve limitare l'accesso alle risorse, deve prendere in consid
   1. Accedere al [portale di Azure](https://portal.azure.com).
   2. Scegliere **Tutte le risorse** dal menu Hub.
   3. Selezionare la risorsa.
-  4. Nella pagina della risorsa fare clic su **Impostazioni**. Qui è possibile visualizzare e aggiornare i segreti esistenti.
+  4. Nella pagina della risorsa selezionare **Impostazioni**. Qui è possibile visualizzare e aggiornare i segreti esistenti.
 
 ### <a name="if-i-take-over-the-billing-ownership-of-a-subscription-in-the-middle-of-the-billing-cycle-do-i-have-to-pay-for-the-entire-billing-cycle"></a>Se si trasferisce la proprietà della fatturazione nel corso del ciclo di fatturazione, sarà necessario pagare il ciclo intero?
 
@@ -211,7 +208,7 @@ L'amministratore dell'organizzazione può aggiornare la proprietà dell'account 
 
 ### <a id="no-button"></a> Perché non viene visualizzato il pulsante Trasferisci sottoscrizione?
 
-Il trasferimento della sottoscrizione in modalità self-service non è disponibile per questo account di fatturazione. Attualmente, nel portale di Azure non è supportato il trasferimento della proprietà della fatturazione delle sottoscrizioni negli account del contratto Enterprise Agreement (EA). Inoltre, gli account con Contratto del cliente Microsoft creati in collaborazione con un rappresentante Microsoft non supportano il trasferimento della proprietà della fatturazione.
+Il trasferimento della sottoscrizione in modalità self-service non è disponibile per questo account di fatturazione. Attualmente, nel portale di Azure non è supportato il trasferimento della proprietà della fatturazione delle sottoscrizioni negli account del contratto Enterprise Agreement (EA). Inoltre, gli account con contratto del cliente Microsoft creati in collaborazione con un rappresentante Microsoft non supportano il trasferimento della proprietà della fatturazione.
 
 ### <a id="no-button"></a> Perché un tipo di sottoscrizione non supporta il trasferimento?
 

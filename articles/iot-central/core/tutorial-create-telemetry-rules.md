@@ -3,29 +3,27 @@ title: "Esercitazione: Creare e gestire le regole nell'applicazione Azure IoT Ce
 description: Questa esercitazione illustra come usare le regole di Azure IoT Central per il monitoraggio dei dispositivi in tempo reale e l'attivazione automatica di azioni quali l'invio di un messaggio di posta elettronica quando la regola si attiva.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 02/12/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 96514a224960240f2187164aac7c79c1659880e6
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: f61a41fa89c7006341db928472f6b20d272bc550
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026354"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77167463"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Esercitazione: Creare una regola e configurare le notifiche nell'applicazione Azure IoT Central
 
 *Questo articolo è rivolto a operatori, autori e amministratori.*
 
-
-
 È possibile usare Azure IoT Central per monitorare in remoto i dispositivi connessi. Le regole di Azure IoT Central consentono di monitorare i dispositivi quasi in tempo reale e di richiamare automaticamente azioni quali l'invio di un messaggio di posta elettronica. Con pochi clic è possibile definire una condizione per monitorare i dati di telemetria del dispositivo e configurare un'azione corrispondente. Questo articolo illustra come creare regole che consentono di monitorare i dati di telemetria inviati dal dispositivo.
 
 I dispositivi usano la telemetria per l'invio di dati numerici dal dispositivo. Una regola viene attivata quando i dati di telemetria del dispositivo selezionato superano una soglia specificata.
 
-In questa esercitazione verrà creata una regola per l'invio di un messaggio di posta elettronica quando la temperatura di un dispositivo di tipo sensore ambientale supera 70&deg; F (circa 32° C).
+In questa esercitazione verrà creata una regola per l'invio di un messaggio di posta elettronica quando la temperatura di un dispositivo sensore ambientale simulato supera 70&deg; F (circa 32° C).
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -36,7 +34,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="prerequisites"></a>Prerequisites
 
-Prima di iniziare, è necessario completare gli argomenti di avvio rapido [Creare un'applicazione Azure IoT Central](./quick-deploy-iot-central.md) e [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-pnp-device.md) per creare il modello di dispositivo di tipo **Sensore ambientale** da usare.
+Prima di iniziare, è necessario completare gli argomenti di avvio rapido [Creare un'applicazione Azure IoT Central](./quick-deploy-iot-central.md) e [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-pnp-device.md) per creare il modello di dispositivo **MXChip IoT DevKit** da usare.
 
 ## <a name="create-a-rule"></a>Creare una regola
 
@@ -52,7 +50,7 @@ Per creare una regola di telemetria, il modello di dispositivo deve disporre di 
 
 1. Immettere il nome _Temperature monitor_ per identificare la regola e premere INVIO.
 
-1. Selezionare il modello di dispositivo **Sensore ambientale** (Environmental Sensor). Per impostazione predefinita, la regola viene applicata automaticamente a tutti i dispositivi associati al modello di dispositivo. Per filtrare un subset dei dispositivi, selezionare **+ Filtra** e usare le proprietà dei dispositivi per identificare i dispositivi. Per disabilitare la regola, attivare/disattivare il pulsante **Abilitato/Disabilitato** nell'intestazione della regola:
+1. Selezionare il modello di dispositivo **MXChip IoT DevKit**. Per impostazione predefinita, la regola viene applicata automaticamente a tutti i dispositivi associati al modello di dispositivo. Per filtrare un subset dei dispositivi, selezionare **+ Filtra** e usare le proprietà dei dispositivi per identificare i dispositivi. Per disabilitare la regola, attivare/disattivare il pulsante **Abilitato/Disabilitato** nell'intestazione della regola:
 
     ![Filtri e abilitazione](media/tutorial-create-telemetry-rules/device-filters.png)
 
@@ -77,7 +75,7 @@ Le condizioni definiscono i criteri monitorati dalla regola. In questa esercitaz
 
 ### <a name="configure-actions"></a>Configurare le azioni
 
-Dopo aver definito la condizione, è necessario impostare le azioni che devono essere eseguite quando si attiva la regola. Le azioni vengono richiamate quando tutte le condizioni specificate nella regola restituiscono il valore true. L'unica azione attualmente disponibile è l'invio di un messaggio di posta elettronica.
+Dopo aver definito la condizione, è necessario impostare le azioni che devono essere eseguite quando si attiva la regola. Le azioni vengono richiamate quando tutte le condizioni specificate nella regola restituiscono il valore true.
 
 1. Selezionare **+ Posta elettronica** nella sezione **Azioni**.
 

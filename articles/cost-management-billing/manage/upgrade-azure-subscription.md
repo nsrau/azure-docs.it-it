@@ -3,22 +3,22 @@ title: Aggiornare l'account Azure
 description: Descrive come aggiornare l'account Azure.
 keywords: pagamento a consumo
 author: bandersmsft
-manager: jureid
+manager: sasrin
 tags: billing
 ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/10/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e1e99313454c8352b96b8f11ec35f482521f7b5
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: aa9e4c60222f5dd0f2991f2b0085c00a34d1dd7a
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75989774"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134540"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Aggiornare l'account Azure gratuito o l'account Azure for Students Starter
 
@@ -30,7 +30,7 @@ Se è stata effettuata l'iscrizione per un account [Azure for Students Starter](
 
 ## <a name="upgrade-your-azure-free-account"></a>Aggiornare l'account Azure gratuito
 
-Quando si esegue l'aggiornamento dell'account Azure gratuito, si mantiene il credito rimanente per 30 giorni dalla data dell'iscrizione. Ad esempio: Se l'iscrizione è stata effettuata il 1 ° novembre e l'aggiornamento è stato effettuato il 5 novembre, tutti i crediti non utilizzati saranno disponibili fino al 30 novembre. Dopo l'aggiornamento, si avrà inoltre accesso ai servizi gratuiti per 12 mesi.
+Quando si esegue l'aggiornamento dell'account Azure gratuito, si mantiene il credito rimanente per 30 giorni dalla data dell'iscrizione. Ad esempio: Se l'iscrizione è stata effettuata il 1° novembre e l'aggiornamento è stato effettuato il 5 novembre, tutti i crediti inutilizzati saranno disponibili fino al 30 novembre. Dopo l'aggiornamento, si avrà inoltre accesso ai servizi gratuiti per 12 mesi.
 
 1. Accedere al [portale di Azure](https://portal.azure.com)
 1. Cercare **Sottoscrizioni.**

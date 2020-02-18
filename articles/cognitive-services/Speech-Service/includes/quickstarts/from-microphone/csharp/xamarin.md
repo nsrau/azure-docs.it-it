@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 66391f7b9282781902723b0153a5797a5f7ae82b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3f315f29eab107c9e0e145bd25db71a8cb8b2ace
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468146"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156074"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -48,7 +48,7 @@ Il progetto helloworld comune contiene implementazioni indipendenti dalla piatta
 1. Nel gestore `OnRecognitionButtonClicked` del file di origine individuare la stringa `YourSubscriptionKey` e sostituirla con la chiave di sottoscrizione.
 
 
-1. Nel gestore `OnRecognitionButtonClicked` individuare la stringa `YourServiceRegion` e sostituirla con l'[area](~/articles/cognitive-services/Speech-Service/regions.md) associata alla sottoscrizione. Ad esempio, usare `westus` per la sottoscrizione di valutazione gratuita.
+1. Nel gestore `OnRecognitionButtonClicked` individuare la stringa `YourServiceregion` e sostituirla con il "Parametro Speech SDK" dell'[area](https://aka.ms/speech/sdkregion) associata alla sottoscrizione. Ad esempio, usare `westus` per la sottoscrizione di valutazione gratuita.
 
 1. È quindi necessario creare un [servizio Xamarin](https://docs.microsoft.com/xamarin/android/app-fundamentals/services/creating-a-service/), che viene usato per eseguire una query sulle autorizzazioni del microfono da diversi progetti di piattaforma, ad esempio UWP, Android e iOS. A tale scopo, aggiungere una nuova cartella denominata *Services* nel progetto helloworld e creare un nuovo file di origine C# al suo interno. È possibile fare clic con il pulsante destro del mouse sulla cartella *Services*, quindi scegliere **Aggiungi** > **Nuovo elemento** > **File di codice**. Rinominare il file `IMicrophoneService.cs` e inserirvi tutto il codice del frammento seguente:
 

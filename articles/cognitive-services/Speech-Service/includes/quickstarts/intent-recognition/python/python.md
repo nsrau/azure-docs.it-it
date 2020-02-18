@@ -6,12 +6,12 @@ ms.date: 01/27/2020
 ms.topic: include
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 9bc514c32d97958d8ab154dc2c5533747f380e86
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 8f3be4dfb0beeb97558dbda606af7c6bcc50bfa7
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76900522"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156225"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -42,7 +42,7 @@ Prima di inizializzare un oggetto `IntentRecognizer`, è necessario creare una c
 Inserire questo codice in `quickstart.py`. Assicurarsi di aggiornare questi valori:
 
 * Sostituire `"YourLanguageUnderstandingSubscriptionKey"` con la chiave di previsione di LUIS. 
-* Sostituire `"YourLanguageUnderstandingServiceRegion"` con l'area di LUIS. 
+* Sostituire `"YourLanguageUnderstandingServiceRegion"` con l'area di LUIS. Usare il "Parametro Speech SDK" dell'[area](https://aka.ms/speech/sdkregion)
 
 >[!TIP]
 > Per informazioni su come trovare questi valori, vedere [Creare un'app LUIS per il riconoscimento delle finalità](#create-a-luis-app-for-intent-recognition).

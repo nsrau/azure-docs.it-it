@@ -3,19 +3,17 @@ title: Gestire le prenotazioni di Azure
 description: Informazioni su come gestire le prenotazioni di Azure.
 ms.service: cost-management-billing
 author: bandersmsft
-manager: yashesvi
+ms.reviewer: yashesvi
 ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/06/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: cc24c176b5b61210d68d2dcb244d63f15402928b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 82bf250a7902cfe4b905991809fd4bbe5dea102a
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75994051"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188512"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gestire le prenotazioni per le risorse di Azure
 
@@ -128,7 +126,7 @@ Per aggiornare l'impostazione di ottimizzazione per la prenotazione:
 
 ## <a name="optimize-reservation-use"></a>Ottimizzare l'uso delle prenotazioni
 
-Il risparmio sulle prenotazioni di Azure deriva solo dall'uso prolungato delle risorse. Quando si acquista una prenotazione, si paga un costo iniziale per un possibile uso delle risorse essenzialmente pari al 100% per un periodo di uno o tre anni. Provare a ottimizzare la prenotazione per usare tutte le risorse possibili e ottenere il massimo risparmio. Le sezioni seguenti illustrano come monitorare una prenotazione e ottimizzarne l'uso.
+Il risparmio sulle prenotazioni di Azure deriva solo dall'uso prolungato delle risorse. Quando si acquista una prenotazione, si paga essenzialmente per un possibile uso delle risorse al 100% per un periodo di uno o tre anni. Provare a ottimizzare la prenotazione per usare tutte le risorse possibili e ottenere il massimo risparmio. Le sezioni seguenti illustrano come monitorare una prenotazione e ottimizzarne l'uso.
 
 ### <a name="view-reservation-use-in-the-azure-portal"></a>Visualizzare l'uso delle prenotazioni nel portale di Azure
 

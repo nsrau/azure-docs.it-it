@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Concedere a un utente l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e Azure PowerShell"
+title: "Esercitazione: Concedere a un utente l'accesso alle risorse di Azure con il controllo degli accessi in base al ruolo e Azure PowerShell"
 description: Questa esercitazione descrive come concedere a un utente l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e Azure PowerShell.
 services: active-directory
 documentationCenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: c5570c6b1d2cdd168dbaeb0a91d80a61e171e5d1
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: f4ba56bf79d707200bf361ab4c717bb63d081953
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74418622"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138218"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Esercitazione: Concedere l'accesso alle risorse di Azure a un utente usando il controllo degli accessi in base al ruolo e Azure PowerShell
 
 Il [controllo degli accessi in base al ruolo](overview.md) è la modalità di gestione dell'accesso alle risorse di Azure. In questa esercitazione si consente a un utente di visualizzare tutte le aree di una sottoscrizione e di gestire tutti gli elementi in un gruppo di risorse con Azure PowerShell.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Concedere l'accesso a un utente in ambiti diversi
@@ -35,9 +35,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Per completare questa esercitazione, è necessario:
+Per completare questa esercitazione è necessario quanto segue:
 
 - Autorizzazioni per creare utenti in Azure Active Directory (oppure avere un utente esistente)
 - [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell)

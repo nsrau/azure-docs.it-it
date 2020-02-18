@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare una pipeline CI/CD per Java - Azure DevOps Projects'
+title: 'Avvio rapido: Creare una pipeline CI/CD per Java - Azure DevOps Projects'
 description: DevOps Projects consente di iniziare a usare Azure in modo semplice. Con pochi rapidi passaggi, è possibile avviare un'app in un servizio di Azure a scelta.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -16,30 +16,31 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 monikerRange: vsts
-ms.openlocfilehash: 49514022dc00afcd07002c7a3278c18a606e5ad5
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 1a276770887bee39972ba8630fb13f52bcbe802d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203753"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049954"
 ---
-# <a name="quickstart-set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-projects"></a>Guida introduttiva: Configurare una pipeline CI/CD per un'app Java con Azure DevOps Projects
+# <a name="quickstart-set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-projects"></a>Avvio rapido: Configurare una pipeline CI/CD per un'app Java con Azure DevOps Projects
 
-In questo articolo di avvio rapido si userà l'esperienza semplificata di Azure DevOps Projects per configurare una pipeline di integrazione continua (CI, Continuous Integration) e recapito continuo (CD, Continuous Delivery) per l'app Java in Azure Pipelines. È anche possibile usare Azure DevOps Projects per creare altre risorse di Azure.  
+In questo argomento di avvio rapido si userà l'esperienza semplificata di Azure DevOps Projects per configurare una pipeline di integrazione continua (CI, Continuous Integration) e recapito continuo (CD, Continuous Delivery) per l'app Java in Azure Pipelines. È possibile usare DevOps Projects per configurare tutto ciò che occorre per lo sviluppo, la distribuzione e il monitoraggio di un'app. 
 
-Se non si ha ancora una sottoscrizione di Azure, è possibile ottenerne una gratuita tramite [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+## <a name="prerequisites"></a>Prerequisites
+
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- Un account e un'organizzazione [Azure DevOps](https://azure.microsoft.com/services/devops/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
-  DevOps Projects crea una pipeline CI/CD in Azure Pipelines. È possibile creare una nuova organizzazione di Azure DevOps o usare un'organizzazione esistente. DevOps Projects crea anche risorse di Azure nella sottoscrizione di Azure di propria scelta.
+DevOps Projects crea una pipeline CI/CD in Azure Pipelines. È possibile creare una nuova organizzazione di Azure DevOps o usare un'organizzazione esistente. DevOps Projects crea anche risorse di Azure nella sottoscrizione di Azure di propria scelta.
 
-1. Accedere al [portale di Microsoft Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com) e, nel riquadro sinistro, selezionare **Crea una risorsa**. 
 
-1. Nel riquadro a sinistra selezionare **Crea una risorsa** e quindi cercare **DevOps Projects**.  
+   ![Creare una risorsa di Azure nel portale di Azure](_img/azure-devops-project-java/continuous-delivery-configuration-full-browser.png)
 
-2. Selezionare **Create** (Crea).
-
-    ![Creare una risorsa di Azure in DevOps Projects](_img/azure-devops-project-java/continuous-delivery-configuration-full-browser.png)
+1. Cercare e selezionare **DevOps Projects**, quindi selezionare **Crea**.
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Selezionare un'applicazione di esempio e un servizio di Azure
 
@@ -53,18 +54,17 @@ Gli esempi di Java includono diversi framework applicazione.
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configurare Azure DevOps e una sottoscrizione di Azure 
 
 1. Creare una nuova organizzazione di Azure DevOps Services o scegliere un'organizzazione esistente. 
-
-    a. Scegliere un nome per il progetto. 
-
-    b. Selezionare la sottoscrizione di Azure e la posizione, scegliere un nome per l'applicazione, quindi selezionare **Fine**.  
-    Dopo pochi minuti, il dashboard di DevOps Projects viene visualizzato nel portale di Azure. Viene configurata un'applicazione di esempio in un repository nell'organizzazione Azure DevOps, viene eseguita una compilazione e l'applicazione viene distribuita in Azure. Questo dashboard fornisce visibilità su repository di codice, pipeline CI/CD e applicazione in Azure.
-    
-
+   
+   1. Scegliere un nome per il progetto. 
+   
+   1. Selezionare la sottoscrizione di Azure e la posizione, scegliere un nome per l'applicazione, quindi selezionare **Fine**.  
+   Dopo pochi minuti, il dashboard di DevOps Projects viene visualizzato nel portale di Azure. Viene configurata un'applicazione di esempio in un repository nell'organizzazione Azure DevOps, viene eseguita una compilazione e l'applicazione viene distribuita in Azure. Questo dashboard fornisce visibilità su repository di codice, pipeline CI/CD e applicazione in Azure.
+   
 2. Selezionare **Sfoglia** per visualizzare l'applicazione in esecuzione.
+   
+   ![Visualizzare il dashboard dell'applicazione nel portale di Azure](_img/azure-devops-project-java/azure-devops-application-dashboard.png) 
 
-    ![Visualizzare il dashboard dell'applicazione nel portale di Azure](_img/azure-devops-project-java/azure-devops-application-dashboard.png) 
-    
-   DevOps Projects ha configurato automaticamente un trigger di compilazione e di versione di integrazione continua.  A questo punto, si è pronti per collaborare con un team a un'app Java con un processo di CI/CD che distribuisce automaticamente il lavoro più recente nel sito Web.
+DevOps Projects ha configurato automaticamente un trigger di compilazione e di versione di integrazione continua.  A questo punto, si è pronti per collaborare con un team a un'app Java con un processo di CI/CD che distribuisce automaticamente il lavoro più recente nel sito Web.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Eseguire il commit delle modifiche al codice e la pipeline di CI/CD
 

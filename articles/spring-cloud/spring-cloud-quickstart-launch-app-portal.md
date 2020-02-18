@@ -1,23 +1,23 @@
 ---
-title: "Avvio rapido: Avviare un'applicazione Azure Spring Cloud con il portale di Azure"
-description: In questa guida di avvio rapido verrà distribuita un'applicazione di esempio in Azure Spring Cloud tramite il portale di Azure.
+title: "Avvio rapido: Avviare un'applicazione Azure Spring Cloud esistente con il portale di Azure"
+description: In questa guida di avvio rapido verrà distribuita un'applicazione in Azure Spring Cloud usando il portale di Azure.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 11/4/2019
+ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: f88319319b366ec8b726d5cf6cce540008497b57
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 67ad112021c2fadb5ea93ffefcf5e58e9404e92a
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278915"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137745"
 ---
-# <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Avvio rapido: Avviare un'applicazione Azure Spring Cloud con il portale di Azure
+# <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Avvio rapido: Avviare un'applicazione Azure Spring Cloud esistente con il portale di Azure
 
-Azure Spring Cloud consente di eseguire facilmente applicazioni di microservizi basate su Spring Cloud in Azure.
+Questo argomento di avvio rapido illustra come distribuire un'applicazione Spring Cloud esistente in Azure. Azure Spring Cloud consente di eseguire facilmente applicazioni di microservizi basate su Spring Cloud in Azure. 
 
-Questo argomento di avvio rapido illustra come distribuire un'applicazione Spring Cloud esistente in Azure.  Il codice dell'applicazione di esempio usato in questa esercitazione è reperibile nel [repository degli esempi di GitHub](https://github.com/Azure-Samples/PiggyMetrics). Al termine, l'applicazione di esempio sarà accessibile online e pronta per essere gestita tramite il portale di Azure.
+Il codice dell'applicazione di esempio usato in questa esercitazione è reperibile nel [repository degli esempi di GitHub](https://github.com/Azure-Samples/PiggyMetrics). Al termine, l'applicazione di esempio sarà accessibile online e pronta per essere gestita tramite il portale di Azure.
 
 Seguendo questo argomento di avvio rapido, si apprenderà come:
 

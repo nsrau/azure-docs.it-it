@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 02/12/2020
 ms.author: erhopf
-ms.openlocfilehash: 2def0eaa2e1ee22498202228cf62257605d940e5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 657cf0a0648cd53e5692a2cf5333ba29951b77a4
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75380321"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189130"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Avvio rapido: Eseguire l'app di esempio Speech Devices SDK su Android
 
@@ -34,7 +34,7 @@ Prima di iniziare a usare Speech Devices SDK, è necessario:
 - Scaricare la versione più recente di [Speech Devices SDK](https://aka.ms/sdsdk-download) ed estrarre il file ZIP nella directory di lavoro.
 
   > [!NOTE]
-  > Il file Android-Sample-Release.zip include l'app di esempio per Android e questa guida di avvio rapido presuppone che l'app venga estratta in C:\SDSDK\Android-Sample-Release
+  > Questo argomento di avvio rapido presuppone che l'app venga estratta in C:\SDSDK\Android-Sample-Release
 
 - Per ottenere una [chiave di sottoscrizione di Azure per il servizio Voce](get-started.md)
 
@@ -83,6 +83,29 @@ Per convalidare la configurazione del kit di sviluppo, compilare e installare l'
 
 1. Passare a C:\SDSDK\Android-Sample-Release\example. Fare clic su **OK** per aprire il progetto di esempio.
 
+1. Configurare Gradle per fare riferimento a Speech SDK. I file seguenti sono disponibili in **Gradle Scripts** (Script Gradle) in Android Studio.
+
+    Aggiornare **build.gradle(Project:example)** , il blocco allprojects dovrebbe corrispondere a quando riportato di seguito, aggiungendo le righe Maven.
+
+    ```xml
+    allprojects {
+        repositories {
+            google()
+            jcenter()
+            mavenCentral()
+            maven {
+                url 'https://csspeechstorage.blob.core.windows.net/maven/'
+            }
+        }
+    }
+    ```
+
+    Aggiornare **build.gradle(Module:app)** aggiungendo questa riga alla sezione dipendenze. 
+    
+    ```xml
+    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.9.0'
+    ```
+    
 1. Aggiungere la chiave di sottoscrizione del Servizio di riconoscimento vocale al codice sorgente. Se si vuole provare la funzionalità Riconoscimento finalità, aggiungere anche la chiave di sottoscrizione e l'ID applicazione del [servizio Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
    Per il riconoscimento vocale e LUIS, le informazioni vanno in MainActivity.java:
@@ -152,7 +175,7 @@ Per convalidare la configurazione del kit di sviluppo, compilare e installare l'
 
 1. A questo punto, non resta che sperimentare.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se non è possibile connettersi al dispositivo di riconoscimento vocale, digitare il comando seguente in una finestra del prompt dei comandi. Verrà restituito un elenco di dispositivi.
 

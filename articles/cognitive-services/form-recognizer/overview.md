@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 91ea2b68828ac54d4128a90550e9c60e065b719d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0d78f3cc4f2b12b2d9f45878a0c1b91263112689
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75379436"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118550"
 ---
 # <a name="what-is-form-recognizer"></a>Informazioni su Riconoscimento modulo
 
@@ -51,17 +51,9 @@ Riconoscimento modulo include anche un modello per la lettura di ricevute di ven
 
 Riconoscimento modulo può anche estrarre la struttura di testo e tabelle (il numero di righe e colonne associate al testo) tramite riconoscimento ottico dei caratteri (OCR) in alta definizione. 
 
-## <a name="where-do-i-start"></a>Dove iniziare?
+## <a name="get-started"></a>Introduzione
 
-**Passaggio 1:** Richiedere l'accesso:
-
-Il riconoscimento modulo è disponibile in anteprima ad accesso limitato. Per avere accesso all'anteprima, completare e inviare il modulo di [richiesta di accesso al riconoscimento modulo](https://aka.ms/FormRecognizerRequestAccess). Il modulo richiede informazioni sull'utente, sull'azienda e sullo scenario utente in cui si userà Riconoscimento modulo.
-
-**Passaggio 2:** Creare una risorsa di Riconoscimento modulo nel portale di Azure:
-
-Quando viene concesso l'accesso per l'uso di Riconoscimento modulo, si riceve un messaggio di posta elettronica di benvenuto con diversi collegamenti e risorse. Usare il collegamento al portale di Azure nel messaggio per aprire il portale di Azure e creare una risorsa di riconoscimento modulo.
-
-**Passaggio 3:** Estrarre dati dai moduli:
+Seguire un argomento di avvio rapido per iniziare a estrarre i dati dai moduli. È consigliabile usare il servizio gratuito mentre si acquisisce familiarità con questa tecnologia. Tenere presente che il numero di pagine gratuite è limitato a 500 al mese.
 
 * Eseguire il training personalizzato di un modello nei moduli
   * Training senza etichette
@@ -76,9 +68,7 @@ Quando viene concesso l'accesso per l'uso di Riconoscimento modulo, si riceve un
 * Layout: estrarre la struttura di testo e tabelle dai moduli
   * [Avvio rapido: Estrarre i dati del layout usando Python](quickstarts/python-layout.md)
 
-È consigliabile usare il servizio gratuito mentre si acquisisce familiarità con questa tecnologia. Tenere presente che il numero di pagine gratuite è limitato a 500 al mese.
-
-**Passaggio 4:** Esaminare le API REST:
+### <a name="review-the-rest-apis"></a>Esaminare le API REST
 
 Per eseguire il training dei modelli ed estrarre dati strutturati dai moduli, verranno usate le API seguenti.
 

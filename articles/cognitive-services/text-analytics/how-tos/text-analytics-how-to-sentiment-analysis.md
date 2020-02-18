@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 12/17/2019
+ms.date: 02/10/2020
 ms.author: aahi
-ms.openlocfilehash: 214c071e0d01908e2d46c932fcf87906de834102
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 84ef01b5e7fc3f628b1cdf7a1f13175604ebcdd4
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644682"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137950"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Procedura: Rilevare il sentiment con l'API REST Analisi del testo
 
@@ -50,14 +50,7 @@ L'API Analisi del testo prevede due versioni di Analisi del sentiment, v2 e v3. 
 | Assegnazione di etichette per la valutazione                        |                       | X                     |
 | Gestione della versione dei modelli                   |                       | X                     |
 
-#### <a name="version-2tabversion-2"></a>[Versione 2](#tab/version-2)
-
-### <a name="sentiment-scoring"></a>Assegnazione di punteggi del sentiment
-
-L'analizzatore del sentiment classifica il testo come prevalentemente positivo o negativo, assegnando un punteggio compreso tra 0 e 1. I valori vicini a 0,5 sono neutri o indeterminati. Un punteggio pari a 0,5 indica neutralità. Se una stringa non può essere analizzata per valutarne il sentiment o non viene riscontrato alcun sentiment, il punteggio è sempre 0,5. Se ad esempio si passa una stringa in spagnolo con un codice di lingua inglese, il punteggio è pari a 0,5.
-
-
-#### <a name="version-3-public-previewtabversion-3"></a>[Versione 3 (anteprima pubblica)](#tab/version-3)
+#### <a name="version-30-previewtabversion-3"></a>[Versione 3.0-preview](#tab/version-3)
 
 ### <a name="sentiment-scoring"></a>Assegnazione di punteggi del sentiment
 
@@ -85,6 +78,13 @@ Analisi del sentiment versione 3 può restituire punteggi ed etichette a livello
 
 Un'applicazione C# di esempio che chiama questa versione di Analisi del sentiment è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs).
 
+
+#### <a name="version-21tabversion-2"></a>[Versione 2.1](#tab/version-2)
+
+### <a name="sentiment-scoring"></a>Assegnazione di punteggi del sentiment
+
+L'analizzatore del sentiment classifica il testo come prevalentemente positivo o negativo, assegnando un punteggio compreso tra 0 e 1. I valori vicini a 0,5 sono neutri o indeterminati. Un punteggio pari a 0,5 indica neutralità. Se una stringa non può essere analizzata per valutarne il sentiment o non viene riscontrato alcun sentiment, il punteggio è sempre 0,5. Se ad esempio si passa una stringa in spagnolo con un codice di lingua inglese, il punteggio è pari a 0,5.
+
 ---
 
 ## <a name="sending-a-rest-api-request"></a>Invio di una richiesta all'API REST 
@@ -101,27 +101,28 @@ Le dimensioni dei documenti devono essere inferiori a 5.120 caratteri per docume
 
 Creare una richiesta POST. È possibile [usare Postman](text-analytics-how-to-call-api.md) o la **console di test dell'API** nei collegamenti di riferimento seguenti per strutturarne e inviarne rapidamente una. 
 
-#### <a name="version-2tabversion-2"></a>[Versione 2](#tab/version-2)
-
-[Informazioni di riferimento su Analisi del sentiment v2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
-
-#### <a name="version-3-public-previewtabversion-3"></a>[Versione 3 (anteprima pubblica)](#tab/version-3)
+#### <a name="version-30-previewtabversion-3"></a>[Versione 3.0-preview](#tab/version-3)
 
 [Informazioni di riferimento su Analisi del sentiment v3](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)
+
+#### <a name="version-21tabversion-2"></a>[Versione 2.1](#tab/version-2)
+
+[Informazioni di riferimento su Analisi del sentiment v2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
 ---
 
 Impostare l'endpoint HTTP per l'analisi del sentiment usando una risorsa di Analisi del testo in Azure oppure un'istanza di [contenitore di Analisi del testo](text-analytics-how-to-install-containers.md). È necessario includere l'URL corretto per la versione che si vuole usare. Ad esempio:
-    
-[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
 
-#### <a name="version-2tabversion-2"></a>[Versione 2](#tab/version-2)
+> [!NOTE]
+> È possibile trovare la chiave e l'endpoint per la risorsa Analisi del testo nel portale di Azure. Si trovano in **Gestione risorse** nella pagina **Avvio rapido** della risorsa. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
-
-#### <a name="version-3-public-previewtabversion-3"></a>[Versione 3 (anteprima pubblica)](#tab/version-3)
+#### <a name="version-30-previewtabversion-3"></a>[Versione 3.0-preview](#tab/version-3)
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/sentiment`
+
+#### <a name="version-21tabversion-2"></a>[Versione 2.1](#tab/version-2)
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
 
 ---
 
@@ -161,26 +162,7 @@ L'analizzatore del sentiment classifica il testo come prevalentemente positivo o
 
 L'output viene restituito immediatamente. È possibile trasmettere i risultati a un'applicazione che accetta JSON o salvare l'output in un file nel sistema locale. Importare quindi l'output in un'applicazione che consente di ordinare, cercare e modificare i dati.
 
-#### <a name="version-2tabversion-2"></a>[Versione 2](#tab/version-2)
-
-### <a name="sentiment-analysis-v2-example-response"></a>Risposta di esempio di Analisi del sentiment v2
-
-Le risposte di Analisi del sentiment v2 contengono i punteggi del sentiment per ogni documento inviato.
-
-```json
-{
-  "documents": [{
-    "id": "1",
-    "score": 0.98690706491470337
-  }, {
-    "id": "2",
-    "score": 0.95202046632766724
-  }],
-  "errors": []
-}
-```
-
-#### <a name="version-3-public-previewtabversion-3"></a>[Versione 3 (anteprima pubblica)](#tab/version-3)
+#### <a name="version-30-previewtabversion-3"></a>[Versione 3.0-preview](#tab/version-3)
 
 ### <a name="sentiment-analysis-v3-example-response"></a>Risposta di esempio di Analisi del sentiment versione 3
 
@@ -255,6 +237,26 @@ Le risposte di Analisi del sentiment v3 contengono le etichette e i punteggi del
     "errors": []
 }
 ```
+
+#### <a name="version-21tabversion-2"></a>[Versione 2.1](#tab/version-2)
+
+### <a name="sentiment-analysis-v2-example-response"></a>Risposta di esempio di Analisi del sentiment v2
+
+Le risposte di Analisi del sentiment v2 contengono i punteggi del sentiment per ogni documento inviato.
+
+```json
+{
+  "documents": [{
+    "id": "1",
+    "score": 0.98690706491470337
+  }, {
+    "id": "2",
+    "score": 0.95202046632766724
+  }],
+  "errors": []
+}
+```
+
 ---
 
 ## <a name="summary"></a>Summary

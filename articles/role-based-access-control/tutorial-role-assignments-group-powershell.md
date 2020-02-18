@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Concedere a un gruppo l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e Azure PowerShell"
+title: "Esercitazione: Concedere a un gruppo l'accesso alle risorse di Azure con il controllo degli accessi in base al ruolo e Azure PowerShell"
 description: Questa esercitazione descrive come concedere a un gruppo l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e Azure PowerShell.
 services: active-directory
 documentationCenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: fb26e603ebb867bda47a93162ffef9bf716d3db6
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 2f001e781640704cfcee161b3de75b3f4cae1423
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74418599"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138248"
 ---
 # <a name="tutorial-grant-a-group-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Esercitazione: concedere l'accesso alle risorse di Azure a un gruppo usando il controllo degli accessi in base al ruolo e Azure PowerShell
 
 Il [controllo degli accessi in base al ruolo](overview.md) è la modalità di gestione dell'accesso alle risorse di Azure. In questa esercitazione si consente a un gruppo di visualizzare tutte le aree di una sottoscrizione e di gestire tutti gli elementi in un gruppo di risorse con Azure PowerShell.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Concedere l'accesso per un gruppo in ambiti diversi
@@ -35,9 +35,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Per completare questa esercitazione, è necessario:
+Per completare questa esercitazione è necessario quanto segue:
 
 - Autorizzazioni per creare gruppi in Azure Active Directory (oppure avere un gruppo esistente)
 - [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell)

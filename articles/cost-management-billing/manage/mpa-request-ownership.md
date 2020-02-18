@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: banders
-ms.openlocfilehash: 65b56511a3b454b192b5adb2a98fb3bb3510bb7e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 6a4b215b2b386754bae2c1bbec171ed4bc558a93
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75988201"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048198"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Ottenere la proprietà della fatturazione delle sottoscrizioni di Azure dall'account del contratto Microsoft Partner
 
@@ -120,7 +120,7 @@ Le informazioni in questo articolo si applicano agli account di fatturazione per
 - [Sviluppo/test Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)\*
 - [Contratto Enterprise Microsoft](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
-\* La sottoscrizione Sviluppo/test Enterprise verrà fatturata in base alle tariffe con pagamento in base al consumo a partire dal momento del trasferimento. Gli eventuali sconti previsti dall'offerta Sviluppo/test Enterprise tramite il contratto Enterprise del cliente non saranno disponibili per il partner CSP.
+\* Una sottoscrizione di sviluppo/test deve prima essere convertita in un'offerta EA Enterprise tramite un ticket di supporto. Una sottoscrizione di sviluppo/test Enterprise viene fatturata in base a una tariffa con pagamento in base al consumo dopo il trasferimento. Qualsiasi sconto offerto tramite l'offerta Sviluppo/test Enterprise mediante il contratto Enterprise del cliente non sarà disponibile per il partner CSP.
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 

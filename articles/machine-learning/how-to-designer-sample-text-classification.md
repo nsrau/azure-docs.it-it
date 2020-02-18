@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: sample
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 11/04/2019
-ms.openlocfilehash: 4d22fd39eae5d5cf207d6d44819f0ce7ab2eceb5
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.date: 02/11/2020
+ms.openlocfilehash: f15f50e372d0bfe58018b16ebfa5d5d85644ae1a
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963242"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137776"
 ---
 # <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Creare un classificatore per prevedere la categoria aziendale usando la finestra di progettazione di Azure Machine Learning.
 
@@ -63,7 +63,7 @@ Per alcune aziende non sono stati trovati articoli, quindi il numero di record �
 
 ## <a name="pre-process-the-text-data"></a>Pre-elaborare i dati di testo
 
-Per pre-elaborare i dati di testo viene usato il modulo **Preprocess Text** (Preelabora il testo), che include il rilevamento e la divisione in token delle frasi. Tutte le opzioni supportate sono disponibili nell'articolo [**Preprocess Text**](algorithm-module-reference/preprocess-text.md). Dopo la pre-elaborazione dei dati, si usa il modulo **Split data** (Dividi dati) per dividere in modo casuale i dati di input in modo che il set di dati di training contenga il 50% dei dati originali e il set di dati di test il 50% dei dati originali.
+Per pre-elaborare i dati di testo viene usato il modulo **Preprocess Text** (Preelabora il testo), che include il rilevamento e la divisione in token delle frasi. Tutte le opzioni supportate sono disponibili nell'articolo [**Preprocess Text**](algorithm-module-reference/preprocess-text.md). Dopo la pre-elaborazione dei dati di testo, si usa il modulo **Split data** (Dividi dati) per dividere in modo casuale i dati di input in modo che il set di dati di training contenga il 50% dei dati originali e il set di dati di test il 50% dei dati originali.
 
 ## <a name="feature-engineering"></a>Progettazione delle caratteristiche
 In questo esempio si useranno due metodi per eseguire la progettazione delle caratteristiche.
@@ -79,7 +79,7 @@ Nella pipeline di esempio si imposta il numero di bit di hashing su 14 e il nume
 
 Un n-gramma è una sequenza contigua di n termini prelevati da una sequenza di testo specificata. Un n-gramma di dimensioni 1 viene definito unigramma; un n-gramma di dimensioni 2 è un bigramma; un n-gramma di dimensioni 3 è un trigramma. Gli n-grammi di dimensioni più grandi vengono identificati dal valore n, ad esempio 4-gramma, 5-gramma e così via.
 
-È stato usato il modulo [**Extract N-Gram Feature from Text**](algorithm-module-reference/extract-n-gram-features-from-text.md)(Estrai la caratteristica n-gramma dal testo) come altra soluzione per la progettazione delle caratteristiche. Questo modulo estrae prima di tutto il set di n-grammi. In aggiunta agli n-grammi, viene conteggiato il numero di documenti in cui ognuno compare nel testo (DF). In questo esempio viene usata la metrica TF-IDF per calcolare i valori delle caratteristiche. Quindi i dati di testo non strutturati vengono convertiti in vettori di caratteristiche numeriche di lunghezza uguale, in cui ogni caratteristica rappresenta l'algoritmo TF-IDF di un n-gramma in un'istanza di testo.
+È stato usato il modulo [**Extract N-Gram Feature from Text**](algorithm-module-reference/extract-n-gram-features-from-text.md) (Estrai la caratteristica n-gramma dal testo) come altra soluzione per la progettazione delle caratteristiche. Questo modulo estrae prima di tutto il set di n-grammi. In aggiunta agli n-grammi, viene conteggiato il numero di documenti in cui ognuno compare nel testo (DF). In questo esempio viene usata la metrica TF-IDF per calcolare i valori delle caratteristiche. Quindi i dati di testo non strutturati vengono convertiti in vettori di caratteristiche numeriche di lunghezza uguale, in cui ogni caratteristica rappresenta l'algoritmo TF-IDF di un n-gramma in un'istanza di testo.
 
 Dopo la conversione dei dati di testo in vettori di caratteristiche numeriche, viene usato il modulo **Select Column** (Seleziona colonna) per rimuovere i dati di testo dal set di dati. 
 

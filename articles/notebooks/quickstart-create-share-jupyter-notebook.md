@@ -3,20 +3,23 @@ title: Creare e condividere un notebook di Jupyter in Azure Notebooks (anteprima
 description: Creare rapidamente ed eseguire un notebook di Jupyter in Azure Notebooks (anteprima) e quindi condividerlo con altri utenti.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 7b983d927bfd789cddb8d00675294cefc9f55e08
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d3310444fa28240b8fb1344199514a9601a2c615
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647085"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064445"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Avvio rapido: Creare e condividere un notebook in Azure Notebooks (anteprima)
 
-Questa guida di avvio rapido illustra come creare ed eseguire rapidamente un notebook di Jupyter in Azure Notebooks e quindi condividerlo con altri utenti.
+Questa guida di avvio rapido illustra come creare ed eseguire un notebook di Jupyter in Azure Notebooks e quindi condividerlo con altri utenti. Jupyter consente di combinare facilmente testo in formato Markdown, codice eseguibile, dati persistenti, grafica e visualizzazioni in un'unica area di disegno condivisibile, il notebook. Azure Notebooks è un servizio ospitato gratuito che consente di sviluppare ed eseguire notebook di Jupyter nel cloud senza alcuna installazione.
 
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+## <a name="prerequisites"></a>Prerequisites
+No.
 
 ## <a name="create-a-new-project-and-notebook"></a>Creare un nuovo progetto e un nuovo notebook
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. Passare al [sito di Azure Notebooks (https://notebooks.azure.com)](https://notebooks.azure.com) ed eseguire l'accesso. Per informazioni dettagliate, vedere [Avvio rapido: Accedere ad Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 
@@ -24,7 +27,7 @@ Questa guida di avvio rapido illustra come creare ed eseguire rapidamente un not
 
     ![Collegamento My Projects (Progetti personali) nella parte superiore della finestra del browser](media/quickstarts/my-projects-link.png)
 
-1. Nella pagina **My Projects** (Progetti personali) selezionare **+ New Project** (+ Nuovo progetto) (tasto di scelta rapida: n); se la finestra del browser è di dimensioni ridotte, il pulsante potrebbe essere visualizzato solo come **+** :
+1. Nella pagina **Progetti personali** selezionare **+Nuovo progetto** (tasti di scelta rapida: n). Il pulsante può essere visualizzato solo come **+** se la finestra del browser è ridotta:
 
     ![Comando New Project (Nuovo progetto) nella pagina My Projects (Progetti personali)](media/quickstarts/new-project-command.png)
 

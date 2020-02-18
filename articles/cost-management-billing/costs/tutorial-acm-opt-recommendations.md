@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 37253bb4c6001afe436e22597e75e2bc869fbbc8
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 04b3802ae17440fe7cb96b424727600ab53aefce
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75990294"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168757"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Esercitazione: Ottimizzare i costi grazie agli elementi consigliati
 
@@ -79,7 +79,7 @@ Nei dettagli della macchina virtuale, controllare l'utilizzo della macchina virt
 
 Notare le dimensioni della macchina virtuale corrente. Dopo aver verificato che la macchina virtuale deve essere ridimensionata, chiudere i dettagli della macchina virtuale per visualizzare l'elenco delle macchine virtuali.
 
-Nell'elenco dei candidati da arrestare o ridimensionare, selezionare **Ridimensiona *&lt;FromVirtualMachineSKU&gt;* a *&lt;ToVirtualMachineSKU&gt;***.
+Nell'elenco dei candidati da arrestare o ridimensionare selezionare **Ridimensiona _&lt;FromVirtualMachineSKU&gt;_ a _&lt;ToVirtualMachineSKU&gt;_** .
 ![Consiglio di esempio con la possibilità di ridimensionare la macchina virtuale](./media/tutorial-acm-opt-recommendations/resize-vm.png)
 
 Successivamente, viene visualizzato un elenco di opzioni di ridimensionamento disponibili. Scegliere quella in grado di offrire prestazioni ottimali e convenienza economica per il proprio scenario. Nell'esempio seguente l'opzione scelta consente di ridimensionare da **Standard_D8s_v3** a **Standard_D2s_v3**.

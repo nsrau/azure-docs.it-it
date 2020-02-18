@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 863989f8e2cb90fe5ec0921ea6e080b61fc1b4ae
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 9a20dca71727e83db98c4c97567949bd127fc7fb
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808877"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77111187"
 ---
 Il [routing dei messaggi](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) consente l'invio dei dati di telemetria dai dispositivi IoT agli endpoint compatibili con Hub eventi predefiniti o agli endpoint personalizzati, ad esempio l'archiviazione BLOB, le code del bus di servizio, gli argomenti del bus di servizio e Hub eventi. Per configurare il routing dei messaggi personalizzato, creare [query di routing](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md) per personalizzare la route che corrisponde a una determinata condizione. Una volta impostati, i dati in ingresso vengono automaticamente indirizzati agli endpoint dall'hub IoT. Se un messaggio non corrisponde ad alcuna delle query di routing definita, viene indirizzato all'endpoint predefinito.
 
@@ -36,7 +36,7 @@ Per completate la prima e la seconda parte di questa esercitazione, eseguire le 
 > * ...nell'account di archiviazione.
 > * ... nella visualizzazione di Power BI.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Per la prima parte di questa esercitazione:
   - È necessario disporre di una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
@@ -46,5 +46,6 @@ Per completate la prima e la seconda parte di questa esercitazione, eseguire le 
   - Installare [Visual Studio](https://www.visualstudio.com/).
   - Avere accesso a un account di Power BI per analizzare l'analisi di flusso dell'endpoint predefinito. ([Provare gratuitamente Power BI](https://app.powerbi.com/signupredirect?pbi_source=web).)
   - Disporre di un account Office 365 per l'invio di notifiche tramite posta elettronica.
+  - Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di questa esercitazione usa il protocollo MQTT, che comunica tramite la porta 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](../articles/iot-hub/iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 [!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]

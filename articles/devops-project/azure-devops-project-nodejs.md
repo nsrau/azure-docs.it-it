@@ -16,28 +16,31 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 monikerRange: vsts
-ms.openlocfilehash: 11edeb35119e2c598fd83fd89c65ba4dc4679650
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 35eebeaa393ff75ada11752aaf9f195efddfa12b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256127"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049778"
 ---
-#  <a name="quickstart-create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-projects"></a>Guida introduttiva: Creare una pipeline CI/CD in Azure Pipelines per Node.js con Azure DevOps Projects
+#  <a name="quickstart-create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-projects"></a>Avvio rapido: Creare una pipeline CI/CD in Azure Pipelines per Node.js con Azure DevOps Projects
 
-Azure DevOps Projects offre un'esperienza semplificata per la creazione di risorse di Azure e la configurazione di una pipeline di integrazione continua (CI, Continuous Integration) e recapito continuo (CD, Continuous Delivery) per l'app Node.js in Azure Pipelines.  
+In questo argomento di avvio rapido si userà l'esperienza semplificata di Azure DevOps Projects per configurare una pipeline di integrazione continua (CI, Continuous Integration) e recapito continuo (CD, Continuous Delivery) per l'app Node.js in Azure Pipelines. È possibile usare DevOps Projects per configurare tutto ciò che occorre per lo sviluppo, la distribuzione e il monitoraggio di un'app. 
 
-Se non si ha ancora una sottoscrizione di Azure, è possibile ottenerne una gratuita tramite [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+## <a name="prerequisites"></a>Prerequisites
+
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- Un account e un'organizzazione [Azure DevOps](https://azure.microsoft.com/services/devops/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
 DevOps Projects crea una pipeline CI/CD in Azure Pipelines. È possibile creare una nuova organizzazione di Azure DevOps o usare un'organizzazione esistente. DevOps Projects crea anche risorse di Azure nella sottoscrizione di Azure di propria scelta.
 
-1. Accedere al [portale di Microsoft Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com) e, nel riquadro sinistro, selezionare **Crea una risorsa**. 
 
-1. Nel riquadro a sinistra selezionare **Crea una risorsa** e quindi cercare **DevOps Projects**. 
+   ![Creare una risorsa di Azure nel portale di Azure](_img/azure-devops-project-nodejs/create-azure-resource.png)
 
-    ![Creare una risorsa di configurazione per la distribuzione continua](_img/azure-devops-project-nodejs/create-azure-resource.png)
+1. Cercare e selezionare **DevOps Projects**, quindi selezionare **Crea**.
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Selezionare un'applicazione di esempio e un servizio di Azure
 
@@ -52,16 +55,16 @@ DevOps Projects crea una pipeline CI/CD in Azure Pipelines. È possibile creare 
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configurare Azure DevOps e una sottoscrizione di Azure 
 
 1. Creare una nuova organizzazione di Azure DevOps Services o scegliere un'organizzazione esistente. 
+   
+   1. Immettere un nome per il progetto.
+      
+   1. Selezionare la sottoscrizione di Azure e la posizione, immettere un nome per l'applicazione, quindi selezionare **Fine**.  
+      Dopo pochi minuti, il dashboard di DevOps Projects viene visualizzato nel portale di Azure. Viene configurata un'applicazione di esempio in un repository nell'organizzazione Azure DevOps, viene eseguita una compilazione e l'applicazione viene distribuita in Azure. Questo dashboard fornisce visibilità su repository di codice, pipeline CI/CD e applicazione in Azure.
+   
+1. Selezionare **Sfoglia** per visualizzare l'applicazione in esecuzione.
+   
+   ![Visualizzazione della pipeline CI/CD nel dashboard](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
 
-    a. Immettere un nome per il progetto.
-
-    b. Selezionare la sottoscrizione di Azure e la posizione, immettere un nome per l'applicazione, quindi selezionare **Fine**.  
-    Dopo pochi minuti, il dashboard di DevOps Projects viene visualizzato nel portale di Azure. Viene configurata un'applicazione di esempio in un repository nell'organizzazione Azure DevOps, viene eseguita una compilazione e l'applicazione viene distribuita in Azure. Questo dashboard fornisce visibilità su repository di codice, pipeline CI/CD e applicazione in Azure.
-     
-3. Selezionare **Sfoglia** per visualizzare l'applicazione in esecuzione.
-
-    ![Visualizzazione della pipeline CI/CD nel dashboard](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
-    
 DevOps Projects ha configurato automaticamente un trigger di compilazione e di versione di integrazione continua.  A questo punto, si è pronti per collaborare con un team a un'app Node.js con un processo di CI/CD che distribuisce automaticamente il lavoro più recente nel sito Web.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Eseguire il commit delle modifiche al codice e la pipeline di CI/CD

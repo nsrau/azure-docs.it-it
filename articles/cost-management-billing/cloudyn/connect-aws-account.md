@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: dcb4c30fe485559834791fa567856bc78cff067e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 28229ad71327daefb8e42881cf001b6a3ddd3a53
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76770339"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086835"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Connettere un account di Amazon Web Services
 
@@ -41,7 +41,7 @@ Per prima cosa, è necessario ottenere dal portale di Cloudyn la passphrase di c
 
 ### <a name="add-aws-read-only-role-based-access"></a>Aggiungere l'accesso di sola lettura in base al ruolo AWS
 
-1. Accedere alla console di AWS all'indirizzo https://console.aws.amazon.com/iam/home e selezionare **Roles** (Ruoli).
+1. Accedere alla console di AWS all'indirizzo [https://console.aws.amazon.com/iam/home](https://console.aws.amazon.com/iam/home) e selezionare **Roles** (Ruoli).
 2. Fare clic su **Create Role** (Crea ruolo) e quindi selezionare **AWS account** (Account AWS).
 3. Nella casella **Account ID** (ID account) incollare `432263259397`. Questo è l'ID dell'account dell'agente di raccolta dati di Cloudyn assegnato da AWS al servizio Cloudyn. Usare l'ID account esattamente com'è visualizzato.
 4. Accanto a **Options** (Opzioni) selezionare **Require external ID** (Richiedi ID esterno). Incollare il valore univoco copiato in precedenza dal campo **External ID** (ID esterno) in Cloudyn. Fare quindi clic su **Avanti: Permissions** (Avanti: Autorizzazioni).  
@@ -76,7 +76,7 @@ Le sezioni seguenti illustrano le procedure per creare un utente di sola lettura
 
 ### <a name="add-aws-read-only-user-based-access"></a>Aggiungere l'accesso di sola lettura in base all'utente di AWS
 
-1. Accedere alla console di AWS all'indirizzo https://console.aws.amazon.com/iam/home e selezionare **Users** (Utenti).
+1. Accedere alla console di AWS all'indirizzo [https://console.aws.amazon.com/iam/home](https://console.aws.amazon.com/iam/home) e selezionare **Users** (Utenti).
 2. Fare clic su **Add User**.
 3. Nel campo **User name** (Nome utente) digitare un nome per l'utente.
 4. Per **Access type** (Tipo di accesso) selezionare **Programmatic access** (Accesso a livello di codice) e fare clic su **Next: Permissions** (Avanti: Autorizzazioni).  
@@ -107,7 +107,7 @@ Cloudyn inizia a raccogliere i dati e a compilare i report. Quindi, [abilitare l
 
 Usare la procedura seguente per ottenere l'ARN del ruolo AWS. L'ARN del ruolo viene usato per concedere le autorizzazioni di lettura a un bucket di fatturazione.
 
-1. Accedere alla console di AWS all'indirizzo https://console.aws.amazon.com e selezionare **Services** (Servizi).
+1. Accedere alla console di AWS all'indirizzo [https://console.aws.amazon.com](https://console.aws.amazon.com) e selezionare **Services** (Servizi).
 2. Nella casella Service Search (Ricerca servizio) digitare *IAM* e selezionare l'opzione corrispondente.
 3. Selezionare **Roles** (Ruoli) dal menu a sinistra.
 4. Nell'elenco di ruoli selezionare il ruolo creato per l'accesso a Cloudyn.
@@ -117,7 +117,7 @@ Usare la procedura seguente per ottenere l'ARN del ruolo AWS. L'ARN del ruolo vi
 
 Occorre creare un bucket S3 in cui archiviare le informazioni di fatturazione dettagliate.
 
-1. Accedere alla console di AWS all'indirizzo https://console.aws.amazon.com e selezionare **Services** (Servizi).
+1. Accedere alla console di AWS all'indirizzo [https://console.aws.amazon.com](https://console.aws.amazon.com) e selezionare **Services** (Servizi).
 2. Nella casella Service Search (Ricerca servizio) digitare *S3* e selezionare **S3**.
 3. Nella pagina Amazon S3 fare clic su **Create bucket** (Crea bucket).
 4. Nella procedura guidata Create bucket (Crea bucket) scegliere un nome e un'area per il bucket e quindi fare clic su **Next** (Avanti).  

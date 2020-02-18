@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Creare un ruolo personalizzato per le risorse di Azure tramite l'interfaccia della riga di comando di Azure"
+title: "Esercitazione: Creare un ruolo personalizzato per le risorse di Azure con l'interfaccia della riga di comando di Azure"
 description: Questa esercitazione descrive come creare un ruolo personalizzato per le risorse di Azure con l'interfaccia della riga di comando di Azure.
 services: active-directory
 documentationCenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 29b0bea851466b5173711441a5a7927c796c9926
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: f1a6e72e1444a26b675379d9948217a7773c4a1c
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419588"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138257"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Esercitazione: creare un ruolo personalizzato per le risorse di Azure tramite l'interfaccia della riga di comando di Azure
 
 Se i [ruoli predefiniti per le risorse di Azure](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati. Per questa esercitazione viene creato un ruolo personalizzato denominato Reader Support Tickets con l'interfaccia della riga di comando di Azure. Il ruolo personalizzato consente all'utente di visualizzare tutti gli elementi nel piano di gestione di una sottoscrizione e anche di aprire ticket di supporto.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un ruolo personalizzato
@@ -34,9 +34,9 @@ In questa esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Per completare questa esercitazione, è necessario:
+Per completare questa esercitazione è necessario quanto segue:
 
 - Avere le autorizzazioni per creare ruoli personalizzati, ad esempio [Proprietario](built-in-roles.md#owner) o [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator)
 - [Azure Cloud Shell](../cloud-shell/overview.md) o [interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli)
@@ -51,7 +51,7 @@ Il modo più semplice per creare un ruolo personalizzato è quello di iniziare c
 
 1. Esaminare l'elenco delle operazioni per il [provider di risorse Microsoft.Support](resource-provider-operations.md#microsoftsupport). È utile conoscere le operazioni disponibili per creare le autorizzazioni.
 
-    | Operazione | DESCRIZIONE |
+    | Operazione | Descrizione |
     | --- | --- |
     | Microsoft.Support/register/action | Esegue la registrazione al provider di risorse di supporto |
     | Microsoft.Support/supportTickets/read | Ottiene i dettagli del ticket di supporto (inclusi stato, gravità, dettagli di contatto e comunicazioni) oppure ottiene l'elenco dei ticket di supporto dalle diverse sottoscrizioni. |

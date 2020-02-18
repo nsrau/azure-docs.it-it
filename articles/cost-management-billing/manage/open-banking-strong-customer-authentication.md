@@ -2,21 +2,21 @@
 title: Open Banking (PSD2) e Strong Customer Authentication (SCA) per i clienti di Azure
 description: Questo articolo spiega il motivo per cui per alcuni acquisti di Azure è necessaria l'autenticazione a più fattori e descrive come completarla.
 author: bandersmsft
-manager: jureid
+manager: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: aff5e1e707980c9a63988c22653fa5fba0fc236b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 5f9c5f861e238bf38451863fb2d39cbb8af93225
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75996040"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133568"
 ---
 # <a name="open-banking-psd2-and-strong-customer-authentication-sca-for-azure-customers"></a>Open Banking (PSD2) e Strong Customer Authentication (SCA) per i clienti di Azure
 
@@ -53,14 +53,13 @@ Se la banca rifiuta gli addebiti, lo stato dell'account di Azure diventerà **Sc
 
 ### <a name="settle-outstanding-charges-for-marketplace-and-reservation-purchases"></a>Pagare gli addebiti in sospeso per gli acquisti di prenotazioni e nel Marketplace
 
-Gli acquisti di prenotazioni e quelli effettuati nel Marketplace vengono fatturati separatamente rispetto ai servizi di Azure. Se la banca rifiuta questi addebiti, lo stato della fattura diventerà **Scaduto** nel portale di Azure. Per verificare lo stato delle fatture relative a prenotazioni e Marketplace, eseguire questa procedura:
+Gli acquisti di prenotazioni e quelli effettuati nel Marketplace vengono fatturati separatamente rispetto ai servizi di Azure. Se la banca rifiuta questi addebiti, lo stato della fattura diventerà Scaduta e nel portale di Azure comparirà l'opzione **Pagamento immediato**. Per pagare le fatture scadute relative a prenotazioni e Marketplace, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore account.
 2. Eseguire una ricerca in **Gestione costi e fatturazione**.
 3. In 'Fatturazione' selezionare **Fatture**.
-4. Fare clic sulla scheda **Azure Marketplace e prenotazioni** a destra.
-5. Selezionare la sottoscrizione corrispondente.
-6. Nella griglia delle fatture esaminare la colonna dello stato. Se lo stato della fattura è **Scadenza** o **Scaduto**, fare clic su **Pagamento immediato.** Viene chiesto di completare l'autenticazione a più fattori durante il processo.
+5. Nel filtro a discesa delle sottoscrizioni selezionare la sottoscrizione associata all'acquisto sul Marketplace o all'acquisto di una prenotazione.
+6. Nella griglia delle fatture esaminare la colonna del tipo. Se il tipo è **Azure Marketplace e prenotazioni**, si vedrà un collegamento **Pagamento immediato** se la fattura è in scadenza o scaduta. Se non c'è un collegamento **Pagamento immediato**, significa che la fattura è già stata pagata. Durante il processo di pagamento immediato viene chiesto di completare l'autenticazione a più fattori.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Se è necessario pagare una fattura di Azure, vedere [Risolvere i problemi relativi al saldo scaduto per la sottoscrizione di Azure](resolve-past-due-balance.md).

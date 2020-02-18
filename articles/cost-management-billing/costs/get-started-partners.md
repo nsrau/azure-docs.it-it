@@ -1,25 +1,28 @@
 ---
 title: Introduzione a Gestione costi di Azure per i partner
 description: Questo articolo illustra in che modo i partner usano le funzionalità di Gestione costi di Azure e autorizzano l'accesso alla gestione dei costi da parte dei clienti.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/28/2020
+ms.date: 02/10/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: fc0401ac200ac55de5d812ddc5162d970b8e6d2a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9f35f0ae2b310fba462a3f45038496854077da27
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76842419"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117598"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introduzione a Gestione costi di Azure per i partner
 
-Gestione costi di Azure è disponibile in modo nativo per i partner che hanno eseguito l'onboarding dei propri clienti a un Contratto del cliente Microsoft e [hanno acquistato un piano di Azure](/partner-center/purchase-azure-plan). Questo articolo illustra in che modo i partner usano le funzionalità di [Gestione costi di Azure](../index.yml) per visualizzare i costi per le sottoscrizioni del piano di Azure. Descrive inoltre il modo in cui i partner abilitano l'accesso a Gestione costi per i clienti. I clienti possono usare le funzionalità di Gestione costi quando sono abilitate dal partner CSP.
+Gestione costi di Azure è disponibile in modo nativo per i partner diretti che hanno eseguito l'onboarding dei propri clienti a un contratto del cliente Microsoft e hanno [acquistato un piano di Azure](/partner-center/purchase-azure-plan). Questo articolo illustra in che modo i partner usano le funzionalità di [Gestione costi di Azure](../index.yml) per visualizzare i costi per le sottoscrizioni del piano di Azure. Descrive inoltre il modo in cui i partner abilitano l'accesso a Gestione costi per i clienti.
+
+Per i partner diretti e i provider indiretti, l'amministratore globale e gli agenti di amministrazione del provider indiretto possono accedere a Gestione costi nel tenant del partner. I rivenditori e i clienti possono accedere a Gestione costi nel tenant del cliente e visualizzare i costi per le sottoscrizioni, dove i costi sono calcolati e visualizzati con le tariffe al dettaglio. Devono però avere accesso con controllo degli accessi in base al ruolo alla sottoscrizione nel tenant del cliente per visualizzare i costi. I criteri di visibilità dei costi devono essere abilitati dal provider per il tenant del cliente.
+
+I clienti possono usare le funzionalità di Gestione costi quando sono abilitate dal partner CSP.
 
 I partner CSP usano Gestione costi per:
 

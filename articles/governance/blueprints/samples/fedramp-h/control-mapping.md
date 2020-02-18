@@ -1,14 +1,14 @@
 ---
-title: Esempio - Progetto FedRAMP High - Mapping dei controlli
+title: Controlli dell'esempio di progetto FedRAMP High
 description: Mapping dei controlli dell'esempio di progetto FedRAMP High. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
 ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: 4b4d644497eb98ed88f57803e99cf27a419523fe
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: cceca23e4bdc749c553eaf41b5f9599be3c9bf7d
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76941349"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150613"
 ---
 # <a name="control-mapping-of-the-fedramp-high-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto FedRAMP High
 
@@ -261,7 +261,7 @@ Questo progetto assegna inoltre definizioni di criteri che monitorano endpoint, 
 
 - Le regole per i gruppi di sicurezza di rete delle macchine virtuali con connessione Internet devono essere rafforzate
 - L'accesso tramite endpoint con connessione Internet deve essere limitato
-- Le regole per i gruppi di sicurezza di rete delle applicazioni Web in IaaS devono essere rafforzate
+- Le porte Web devono essere limitate nei gruppi di sicurezza di rete associati alla VM
 - Controlla l'accesso di rete senza restrizioni agli account di archiviazione
 
 ## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) Protezione dei limiti | Punti di accesso

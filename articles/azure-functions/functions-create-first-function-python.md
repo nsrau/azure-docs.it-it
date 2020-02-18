@@ -1,17 +1,17 @@
 ---
-title: Creare una funzione Python attivata da HTTP in Azure
+title: Creare una funzione Python serverless per richieste HTTP in Funzioni di Azure
 description: Creare e distribuire codice Python serverless nel cloud con Funzioni di Azure.
-ms.date: 01/15/2020
+ms.date: 02/11/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: c665f807d78c699423db457bf57dca2f16109913
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a781e10cee4cf433de5e837490d901020a875205
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898573"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157891"
 ---
-# <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Avvio rapido: Creare una funzione Python attivata da HTTP in Azure
+# <a name="quickstart-create-a-python-function-in-azure-that-responds-to-http-requests"></a>Avvio rapido: Creare una funzione Python in Azure che risponde alle richieste HTTP
 
 In questo articolo vengono usati gli strumenti da riga di comando per creare una funzione Python che risponde alle richieste HTTP. Dopo aver testato il codice in locale, verrà distribuito nell'ambiente serverless di Funzioni di Azure. Le procedure illustrate in questa guida di avvio rapido comportano l'addebito di qualche centesimo (USD) o meno nell'account Azure.
 
@@ -107,7 +107,7 @@ In Funzioni di Azure un progetto di funzione è un contenitore per una o più fu
 
 Se si vuole, è possibile passare a [Eseguire la funzione localmente](#run-the-function-locally) ed esaminare il contenuto del file in un secondo momento.
 
-### <a name="__init__py"></a>\_\_init\_\_.py
+#### <a name="__init__py"></a>\_\_init\_\_.py
 
 *\_\_init\_\_.py* contiene una funzione Python `main()` attivata in base alla configurazione presente in *function.json*.
 
@@ -140,7 +140,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 Per il trigger HTTP, la funzione riceve i dati della richiesta nella variabile `req` come definito in *function.json*. `req` è un'istanza della [classe azure.functions.HttpRequest](/python/api/azure-functions/azure.functions.httprequest). L'oggetto restituito, definito come `$return` in *function.json*, è un'istanza della [classe azure.functions.HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Per altre informazioni, vedere [Trigger e associazioni HTTP di Funzioni di Azure](functions-bindings-http-webhook.md).
 
-### <a name="functionjson"></a>function.json
+#### <a name="functionjson"></a>function.json
 
 *function.json* è un file di configurazione che definisce gli oggetti `bindings` di input e output per la funzione, incluso il tipo di trigger. Se si vuole, è possibile modificare `scriptFile` per richiamare un file Python diverso.
 
@@ -199,7 +199,7 @@ Quando si è pronti, usare **CTRL**+**C** per arrestare l'host di Funzioni.
 
 ## <a name="create-supporting-azure-resources-for-your-function"></a>Creare le risorse di Azure di supporto per la funzione
 
-Per distribuire il codice della funzione in Azure, è necessario creare tre risorse:
+Prima di distribuire il codice della funzione in Azure, è necessario creare tre risorse:
 
 - Un gruppo di risorse, ovvero un contenitore logico di risorse correlate.
 - Un account di archiviazione di Azure, che mantiene lo stato e altre informazioni sul progetto.

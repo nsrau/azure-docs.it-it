@@ -3,15 +3,15 @@ title: Registri di contenitori gestiti
 description: Introduzione al servizio Registro Azure Container, che offre registri Docker privati, gestiti e basati sul cloud.
 author: stevelas
 ms.topic: overview
-ms.date: 12/03/2019
+ms.date: 02/10/2020
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 863b93497505443b79f41f580150a4dbf790a6f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1992a2a63d16a955d136459f5dbaece7df815c71
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445721"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132038"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introduzione ai registri per contenitori Docker privati in Azure
 
@@ -41,7 +41,7 @@ Azure offre strumenti, tra cui l'interfaccia della riga di comando di Azure, il 
 * **Sicurezza e accesso**. L'accesso a un registro viene eseguito usando l'interfaccia della riga di comando di Azure oppure il comando `docker login` standard. Registro Azure Container trasferisce le immagini del contenitore tramite HTTPS e supporta TLS per proteggere le connessioni client. 
 
   > [!IMPORTANT]
-  > A partire dal 13 gennaio 2020, Registro Azure Container richiederà l'uso di TLS 1.2 in tutte le connessioni sicure da server e applicazioni. Il supporto per TLS 1.0 e 1.1 verrà ritirato.
+  > A partire dal 13 gennaio 2020, Registro Azure Container richiederà l'uso di TLS 1.2 in tutte le connessioni sicure da server e applicazioni. Abilitare TLS 1.2 usando qualsiasi client Docker recente (versione 18.03.0 o successiva). Il supporto per TLS 1.0 e 1.1 verrà ritirato. 
 
   Per [controllare l'accesso](container-registry-authentication.md) a un registro contenitori si usa un'identità di Azure, un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md) supportata da Azure Active Directory o un account amministratore specificato. Usare il controllo degli accessi in base al ruolo per assegnare agli utenti o ai sistemi autorizzazioni specifiche per un registro.
 

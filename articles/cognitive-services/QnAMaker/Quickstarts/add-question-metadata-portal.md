@@ -1,6 +1,5 @@
 ---
 title: 'Avvio rapido: Aggiungere domande e risposte nel portale di QnA Maker'
-titleSuffix: Azure Cognitive Services
 description: Questo argomento di avvio rapido illustra come aggiungere set di domande e risposte con metadati in modo che gli utenti possano trovare la risposta corretta per la loro domanda.
 services: cognitive-services
 author: diberry
@@ -8,25 +7,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 11/22/2019
+ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: 664d6006ab78f91a8ed0e199cf78fae9512efd73
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 25c0fe549dfc850a53b06f79f348a87cba3b70a1
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843040"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109939"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Avvio rapido: Aggiungere domande e risposte con il portale di QnA Maker
 
-Dopo aver creato una knowledge base, aggiungere set di domande e risposte con metadati in modo che gli utenti possano trovare la risposta giusta alla propria domanda.
-
-La risposta giusta è una singola risposta, ma la domanda che conduce a quella risposta può essere formulata in molte forme diverse.
-
-Ad esempio, le domande riportate nella tabella seguente sono relative ai limiti dei servizi di Azure, ma ognuna riguarda un servizio di Azure diverso.
+Una volta creata una knowledge base, aggiungere i set di domande e risposte con i metadati per filtrare la risposta. Le domande riportate nella tabella seguente sono relative ai limiti dei servizi di Azure, ma ognuna riguarda un servizio di Azure diverso.
 
 <a name="qna-table"></a>
-
 
 |Set|Domande|Risposta|Metadati|
 |--|--|--|--|
@@ -38,28 +32,22 @@ Una volta aggiunti i metadati a un set di domande e risposte, l'applicazione cli
 * Richiedere risposte che corrispondono solo a determinati metadati.
 * Ricevere tutte le risposte, ma elaborarle successivamente in base ai metadati di ogni risposta.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisites
 
-* Un servizio QnA Maker
-* Una knowledge base creata in quel servizio QnA Maker
-
-Entrambi sono stati creati nella [prima guida di avvio rapido](../how-to/create-knowledge-base.md).
+* Completare gli [argomenti di avvio rapido precedenti](./create-publish-knowledge-base.md)
 
 ## <a name="sign-in-to-the-qna-maker-portal"></a>Accedere al portale di QnA Maker
 
 1. Accedere al [portale di QnA Maker](https://www.qnamaker.ai).
 
-1. Selezionare la knowledge base esistente. Se non si ha una knowledge base, tornare alla [guida di avvio rapido precedente](../how-to/create-knowledge-base.md) e completare i passaggi per crearla.
+1. Selezionare la knowledge base esistente creata nell'[argomento di avvio rapido precedente](../how-to/create-knowledge-base.md).
 
 ## <a name="add-additional-alternatively-phrased-questions"></a>Aggiungere altre domande formulate in modi alternativi
 
-La knowledge base corrente, creata nella [guida di avvio rapido precedente](../how-to/create-knowledge-base.md), è costituita da set di domande e risposte sulla risoluzione dei problemi di QnA Maker. Questi set sono stati creati quando l'URL è stato aggiunto alla knowledge base durante il processo di creazione.
+Nella knowledge base corrente sono presenti i set di domande e risposte per la risoluzione dei problemi di QnA Maker. Questi set sono stati creati quando l'URL è stato aggiunto alla knowledge base durante il processo di creazione.
 
-Quando questo URL è stato importato, è stata creata una sola domanda con una sola risposta.
-
-In questa procedura si aggiungeranno altre domande.
+Quando questo URL è stato importato, è stata creata una sola domanda con una sola risposta. In questa procedura si aggiungeranno altre domande.
 
 1. Nella pagina **Edit** (Modifica) usare la casella di ricerca sopra i set di domande e risposte per trovare la domanda `How large a knowledge base can I create?`
 
@@ -76,11 +64,13 @@ In questa procedura si aggiungeranno altre domande.
 
     `What GB size can a knowledge base be?`
 
-    La risposta corretta viene restituita nel formato Markdown: `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`
+    La risposta corretta viene restituita nel formato Markdown:
+
+    `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`
 
     Se si seleziona **Inspect** (Esamina) sotto la risposta restituita, si vedrà che più risposte hanno soddisfatto la domanda, ma non con lo stesso livello elevato di attendibilità.
 
-    Non aggiungere ogni possibile combinazione di formulazioni alternative. Attivare invece l'[apprendimento attivo](../how-to/improve-knowledge-base.md) di QnA Maker, che trova le formulazioni alternative che consentiranno alla knowledge base di soddisfare al meglio le esigenze degli utenti.
+    Non aggiungere ogni possibile combinazione di formulazioni alternative. Quando si attiva l'[apprendimento attivo](../how-to/improve-knowledge-base.md) di QnA Maker, vengono trovate le formulazioni alternative che consentiranno alla knowledge base di soddisfare al meglio le esigenze degli utenti.
 
 1. Selezionare nuovamente **Test** per chiudere la finestra di test.
 
@@ -92,11 +82,12 @@ L'aggiunta di metadati a un set di domande e risposte consente all'applicazione 
 
 1. Selezionare **View options** (Opzioni di visualizzazione), quindi **Show metadata** (Mostra metadati).
 
-1. Per il set di domande e risposte appena aggiunto selezionare **Add metadata tags** (Aggiungi tag di metadati), quindi aggiungere il nome `service` e il valore `search`, `service:search`.
+1. Per il set di domande e risposte appena aggiunto selezionare **Add metadata tags** (Aggiungi tag di metadati), quindi aggiungere il nome `service` e il valore `search`. L'aspetto sarà simile al seguente: `service:search`.
 
-1. Aggiungere altri tag di metadati con il nome `link_in_answer` e il valore `false`, `link_in_answer:false`.
+1. Aggiungere altri tag di metadati con il nome `link_in_answer` e il valore `false`. L'aspetto sarà simile al seguente: `link_in_answer:false`.
 
 1. Cercare la prima risposta nella tabella, `How large a knowledge base can I create?`.
+
 1. Aggiungere coppie di metadati per gli stessi due tag di metadati:
 
     `link_in_answer`: `true`<br>
@@ -107,71 +98,16 @@ L'aggiunta di metadati a un set di domande e risposte consente all'applicazione 
 1. Selezionare **Save and train** (Salva ed esegui il training) per ripetere il training della knowledge base.
 
 1. Selezionare **Publish** (Pubblica) nel menu superiore per passare alla pagina di pubblicazione.
-1. Selezionare il pulsante **Publish** (Pubblica) per pubblicare la knowledge base corrente in un endpoint disponibile per query.
-1. Dopo la pubblicazione della knowledge base, selezionare la scheda **Curl** per visualizzare un esempio di comando cURL usato per generare una risposta dalla knowledge base.
-1. Copiare il comando nel Blocco note o in un altro ambiente che consenta di modificarlo. Modificare il nome della risorsa, l'ID della knowledge base e la chiave dell'endpoint:
+1. Selezionare il pulsante **Publish** (Pubblica) per pubblicare la knowledge base corrente nell'endpoint.
+1. Dopo la pubblicazione della knowledge base, passare all'argomento di avvio rapido successivo per informazioni su come generare una risposta dalla knowledge base.
 
-    |Replace|
-    |--|
-    |`your-resource-name`|
-    |`your-knowledge-base-id`|
-    |`your-endpoint-key`|
+## <a name="what-did-you-accomplish"></a>Cosa si è ottenuto?
 
-    ```curl
-    curl -X POST https://your-resource-name.azurewebsites.net/qnamaker/knowledgebases/your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
-    ```
-
-    Si noti che la domanda è una singola parola, `size`, che può restituire un set di domande e risposte. La matrice `strictFilters` indica di limitare le risposte a quelle con tag `qna_maker`.
-
-    [!INCLUDE [Tip for debug property to JSON request](../includes/tip-debug-json.md)]
-
-1. La risposta include solo la risposta che soddisfa i criteri di filtro.
-
-    La risposta cURL seguente è stata formattata per migliorare la leggibilità:
-
-    ```JSON
-    {
-        "answers": [
-            {
-                "questions": [
-                    "How large a knowledge base can I create?",
-                    "What is the max size of a knowledge base?",
-                    "How many GB of data can a knowledge base hold?"
-                ],
-                "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment)for more details.",
-                "score": 68.76,
-                "id": 3,
-                "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
-                "metadata": [
-                    {
-                        "name": "link_in_answer",
-                        "value": "true"
-                    },
-                    {
-                        "name": "service",
-                        "value": "qna_maker"
-                    }
-                ],
-                "context": {
-                    "isContextOnly": false,
-                    "prompts": []
-                }
-            }
-        ],
-        "debugInfo": null
-    }
-    ```
-
-    Se è presente un set di domande e risposte che non soddisfa il termine di ricerca ma soddisfa il filtro, non viene restituito. Viene invece restituita la risposta generale `No good match found in KB.`.
-
-    Assicurarsi di mantenere le coppie di nome e valore dei metadati entro i limiti richiesti.
+È stata modificata la knowledge base per supportare più domande e sono state fornite coppie nome/valore per supportare l'applicazione di filtri durante la ricerca della risposta principale o la postelaborazione, dopo la restituzione della risposta o delle risposte.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possibile eliminare la risorsa o il gruppo di risorse. Eliminando il gruppo di risorse vengono eliminate anche tutte le altre risorse associate.
-
-* [Portale](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Interfaccia della riga di comando di Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+Se non si continua con l'argomento di avvio rapido successivo, eliminare le risorse QnA Maker e Bot Framework nel portale di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

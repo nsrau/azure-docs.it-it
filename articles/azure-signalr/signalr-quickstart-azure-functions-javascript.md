@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva al servizio Azure SignalR serverless - JavaScript
+title: Usare JavaScript per creare una chat room con Funzioni di Azure e il servizio SignalR
 description: Una guida introduttiva per usare il servizio Azure SignalR e le Funzioni di Azure per la creazione di una chat room.
 author: sffamily
 ms.service: signalr
@@ -7,28 +7,29 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: zhshang
-ms.openlocfilehash: eadeb0f0203868c2a1a37190fdd46e47bf26e8f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2726d5da2613be4ae2065246543d206cf814f353
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450271"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083184"
 ---
-# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Avvio rapido: Creare una chat room con Funzioni di Azure e il servizio SignalR usando JavaScript
+# <a name="quickstart-use-javascript-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Avvio rapido: Usare JavaScript per creare una chat room con Funzioni di Azure e il servizio SignalR
 
-Il servizio Azure SignalR consente di aggiungere facilmente funzionalità in tempo reale all'applicazione. Funzioni di Azure è una piattaforma serverless che consente di eseguire il codice senza gestire alcuna infrastruttura. Questa guida introduttiva fornisce informazioni su come usare il servizio SignalR e le funzioni per creare un'applicazione serverless di chat in tempo reale.
+Il servizio Azure SignalR consente di aggiungere facilmente funzionalità in tempo reale all'applicazione e Funzioni di Azure è una piattaforma serverless che consente di eseguire il codice senza gestire alcuna infrastruttura. Questo argomento di avvio rapido illustra come usare JavaScript per creare un'applicazione serverless di chat in tempo reale con il Servizio SignalR e Funzioni di Azure.
 
 ## <a name="prerequisites"></a>Prerequisites
 
-Questa guida introduttiva può essere eseguita su macOS, Windows o Linux.
+- Un editor di codice, ad esempio [Visual Studio Code](https://code.visualstudio.com/)
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) versione 2 o successive. Usato per eseguire le app Funzioni di Azure in locale.
+- [Node.js](https://nodejs.org/en/download/), versione 10.x
 
-Assicurarsi di disporre di un editor di codice installato, ad esempio [Visual Studio Code](https://code.visualstudio.com/).
+   > [!NOTE]
+   > Gli esempi dovrebbero funzionare con altre versioni di Node.js; per altre informazioni, vedere la [documentazione sulle versioni di runtime di Funzioni di Azure](../azure-functions/functions-versions.md#languages).
 
-Installare [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (versione 2 o successiva) per eseguire le app per le funzioni di Azure in locale.
-
-Questa guida di avvio rapido usa [Node.js](https://nodejs.org/en/download/) 10.x, ma dovrebbe funzionare anche con altre versioni. Per altre informazioni sulle versioni di Node.js supportate, vedere la [documentazione sulle versioni di runtime di Funzioni di Azure](../azure-functions/functions-versions.md#languages).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+> [!NOTE]
+> Questa guida introduttiva può essere eseguita su macOS, Windows o Linux.
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 

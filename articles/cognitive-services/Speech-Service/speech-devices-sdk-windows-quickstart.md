@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire Speech Devices SDK in Windows - Servizio Voce'
+title: 'Avvio rapido: Eseguire Speech Devices SDK in Windows - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Prerequisiti e istruzioni per iniziare con Speech Devices SDK in Windows.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/13/2019
+ms.date: 02/12/2020
 ms.author: erhopf
-ms.openlocfilehash: e3764dbfa7de52bf210a1e6cc8bd240d64d64aeb
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 78d9dc8c2302de6a9bdbfef62d47d10d252cf0c5
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815548"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189037"
 ---
-# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows"></a>Guida introduttiva: Eseguire l'app di esempio Speech Devices SDK in Windows
+# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows"></a>Avvio rapido: Eseguire l'app di esempio Speech Devices SDK in Windows
 
 In questa Guida introduttiva, si apprenderà come usare Speech Devices SDK per Windows per compilare un prodotto abilitato al riconoscimento vocale o usarlo come dispositivo di [trascrizione conversazione](conversation-transcription-service.md). Per la trascrizione conversazione è supportato solo [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/). Per altri tipi di riconoscimento vocale sono supportati gruppi di microfoni lineari che forniscono una geometria per gruppi di microfoni.
 
@@ -27,7 +27,7 @@ Per riprodurre le procedure di questa guida, è necessario un account di [Serviz
 
 Il codice sorgente dell'[applicazione di esempio](https://aka.ms/sdsdk-download-JRE) è incluso in Speech Devices SDK ed è anche [disponibile in GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Questa guida introduttiva richiede:
 
@@ -39,11 +39,11 @@ Questa guida introduttiva richiede:
 * Una chiave di sottoscrizione di Azure per il servizio Voce. [È possibile ottenerne una gratuitamente](get-started.md).
 * Scaricare la versione più recente di [Speech Devices SDK](https://aka.ms/sdsdk-download-JRE) per Java ed estrarre il file zip nella directory di lavoro.
    > [!NOTE]
-   > Il file JRE-Sample-Release.zip include l'app di esempio JRE e questa guida introduttiva presuppone che l'app venga estratta in C:\SDSDK\JRE-Sample-Release
+   > Questo argomento di avvio rapido presuppone che l'app venga estratta in C:\SDSDK\JRE-Sample-Release
 
 La trascrizione conversazione è attualmente disponibile solo per "en-US" e "zh-CN", nelle aree geografiche "centralus" e "eastasia". È necessario avere una chiave di riconoscimento vocale in una di queste aree per usare la trascrizione conversazione.
 
-Se si prevede di usare la finalità è necessaria una sottoscrizione al [servizio LUIS (Language Understanding)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). Per altre informazioni su LUIS e sul riconoscimento finalità, vedere [Riconoscere le finalità voce con LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp). Un [modello LUIS di esempio](https://aka.ms/sdsdk-luis) è disponibile per questa app.
+Se si prevede di usare la finalità è necessaria una sottoscrizione al [servizio LUIS (Language Understanding)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). Per altre informazioni su LUIS e sul riconoscimento delle finalità, vedere [Riconoscere le finalità voce con LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp). Un [modello LUIS di esempio](https://aka.ms/sdsdk-luis) è disponibile per questa app.
 
 ## <a name="create-and-configure-the-project"></a>Creare e configurare il progetto
 
@@ -81,7 +81,7 @@ Se si prevede di usare la finalità è necessaria una sottoscrizione al [servizi
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.7.0</version>
+             <version>1.9.0</version>
         </dependency>
     </dependencies>
    ```

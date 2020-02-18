@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare una pipeline CI/CD per Python con Azure DevOps Projects'
+title: 'Avvio rapido: Creare una pipeline CI/CD per Python con Azure DevOps Projects'
 description: DevOps Projects consente di iniziare a usare Azure in modo semplice. Con pochi rapidi passaggi, è possibile avviare un'app in un servizio di Azure a scelta.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -16,30 +16,31 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: cb4e27aeada4f1b5f9e06279382327dcc51cc7dc
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: b912dfe3fb6461a925977192a6631ecac1357d35
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899612"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049830"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-projects"></a>Creare una pipeline CI/CD per Python con Azure DevOps Projects
 
-Azure DevOps Projects offre un'esperienza semplificata per la creazione di risorse di Azure e la configurazione di una pipeline di integrazione continua (CI, Continuous Integration) e recapito continuo (CD, Continuous Delivery) per l'app Python.  
+In questo argomento di avvio rapido si userà l'esperienza semplificata di Azure DevOps Projects per configurare una pipeline di integrazione continua (CI, Continuous Integration) e recapito continuo (CD, Continuous Delivery) per l'app Python in Azure Pipelines. È possibile usare DevOps Projects per configurare tutto ciò che occorre per lo sviluppo, la distribuzione e il monitoraggio di un'app. 
 
-Se non si ha ancora una sottoscrizione di Azure, è possibile ottenerne una gratuita tramite [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+## <a name="prerequisites"></a>Prerequisites
+
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- Un account e un'organizzazione [Azure DevOps](https://azure.microsoft.com/services/devops/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
- DevOps Projects crea una pipeline CI/CD in Azure Pipelines.  È possibile creare una nuova organizzazione gratuita di Azure DevOps o usare un'organizzazione esistente. DevOps Projects crea anche risorse di Azure nella sottoscrizione di Azure di propria scelta.
+DevOps Projects crea una pipeline CI/CD in Azure Pipelines. È possibile creare una nuova organizzazione di Azure DevOps o usare un'organizzazione esistente. DevOps Projects crea anche risorse di Azure nella sottoscrizione di Azure di propria scelta.
 
-1. Accedere al [portale di Microsoft Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com) e, nel riquadro sinistro, selezionare **Crea una risorsa**. 
 
-2. Selezionare **Crea una risorsa** nel riquadro a sinistra e quindi cercare **DevOps Projects**.  
+   ![Creare una risorsa di Azure nel portale di Azure](_img/azure-devops-project-python/fullbrowser.png)
 
-3. Selezionare **Create** (Crea).
-
-    ![Inizio della configurazione del recapito continuo](_img/azure-devops-project-python/fullbrowser.png)
+1. Cercare e selezionare **DevOps Projects**, quindi selezionare **Crea**.
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Selezionare un'applicazione di esempio e un servizio di Azure
 

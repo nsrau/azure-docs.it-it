@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: b86f58a1b6b9e3a952861dbe7dbeef4dfe06a644
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 90d39635ac6302f816f39ca19cc00a39cfbbf850
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964835"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121024"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-c"></a>Avvio rapido: Connettere un'applicazione dispositivo Plug and Play IoT (anteprima) di esempio all'hub IoT (C#)
 
@@ -25,7 +25,7 @@ Questa guida di avvio rapido illustra come creare un'applicazione dispositivo Pl
 
 ## <a name="prerequisites"></a>Prerequisites
 
-Per completare questa guida di avvio rapido, è necessario installare .NET Core 2.2 nel computer di sviluppo. È possibile scaricare questa versione di .NET Core SDK per più piattaforme dalla pagina [Download di .NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2).
+Per completare questa guida di avvio rapido, è necessario installare .NET Core 3.0 nel computer di sviluppo. È possibile scaricare questa versione di .NET Core SDK per più piattaforme dalla pagina [Download di .NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
 Per verificare la versione di .NET presente nel computer di sviluppo, eseguire il comando seguente in una finestra del terminale locale: 
 
@@ -72,7 +72,7 @@ Usare il codice di esempio clonato per creare un'applicazione che simula un disp
 1. Eseguire un'applicazione di esempio per simulare un dispositivo Plug and Play IoT che invia dati di telemetria all'hub IoT. Nella stessa finestra del terminale per compilare i pacchetti necessari ed eseguire l'applicazione di esempio, usare il comando seguente:
 
     ```cmd\sh
-        dotnet run
+    dotnet run --framework=netcoreapp3.0
     ```
 
 Vengono visualizzati messaggi per informare che il dispositivo è stato registrato correttamente ed è in attesa di aggiornamenti dal cloud. Questi messaggi indicano che il dispositivo è ora pronto a ricevere comandi e aggiornamenti delle proprietà ed ha iniziato a inviare dati di telemetria all'hub. Lasciare l'esempio in esecuzione mentre si completano i passaggi successivi.

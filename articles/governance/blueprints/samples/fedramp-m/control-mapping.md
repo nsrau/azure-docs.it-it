@@ -3,12 +3,12 @@ title: Controlli dell'esempio di progetto FedRAMP Moderate
 description: Mapping dei controllo dell'esempio di progetto FedRAMP Moderate. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
 ms.date: 10/31/2019
 ms.topic: sample
-ms.openlocfilehash: 0ecf5430f643ee795f81759f3d07a062e433f5b6
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 3fd6762f4f0a76b560a37dd1ed4f727aa76385fd
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74544562"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150479"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>Mapping dei controllo dell'esempio di progetto FedRAMP Moderate
 
@@ -190,7 +190,7 @@ Questo progetto assegna inoltre definizioni di criteri che monitorano endpoint, 
 
 - Le regole per i gruppi di sicurezza di rete delle macchine virtuali con connessione Internet devono essere rafforzate
 - L'accesso tramite endpoint con connessione Internet deve essere limitato
-- Le regole per i gruppi di sicurezza di rete delle applicazioni Web in IaaS devono essere rafforzate
+- Le porte Web devono essere limitate nei gruppi di sicurezza di rete associati alla VM
 - Controlla l'accesso di rete senza restrizioni agli account di archiviazione
 
 ## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) Protezione dei limiti | Punti di accesso

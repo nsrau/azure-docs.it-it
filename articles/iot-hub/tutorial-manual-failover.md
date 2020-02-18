@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/24/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 42785e3ee636f24ca185f57a11d4ee1091db3e98
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: bf37f7b27e3f8923a229cc0617365d912d47aec2
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890420"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110670"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Esercitazione: Eseguire il failover manuale per un hub IoT
 
@@ -29,9 +29,11 @@ In questa esercitazione si eseguono le seguenti attività:
 > * Eseguire un failback per ritornare alle operazioni dell'hub IoT nella località primaria. 
 > * Verificare che l'hub venga eseguito correttamente nella località corretta.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-- Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+
+* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo di questa esercitazione usa il protocollo MQTT, che comunica tramite la porta 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
@@ -47,7 +49,7 @@ In questa esercitazione si eseguono le seguenti attività:
 
     **Gruppo di risorse**: fare clic su **Crea nuovo** e specificare **ManlFailRG** come nome del gruppo di risorse.
 
-    **Area**: selezionare un'area nelle vicinanze. Questa esercitazione usa `West US 2`. Un failover può essere eseguito solo tra aree geografiche associate di Azure. L'area geografica associata a Stati Uniti occidentali 2 è WestCentralUS.
+    **Area**: selezionare un'area nelle vicinanze. In questa esercitazione viene usato `West US 2`. Un failover può essere eseguito solo tra aree geografiche associate di Azure. L'area geografica associata a Stati Uniti occidentali 2 è WestCentralUS.
     
    **Nome hub IoT**: specificare un nome per l'hub IoT. Il nome dell'hub deve essere univoco a livello globale. 
 

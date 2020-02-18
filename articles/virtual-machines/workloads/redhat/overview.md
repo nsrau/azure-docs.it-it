@@ -7,14 +7,14 @@ manager: borisb2015
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.topic: overview
-ms.date: 12/18/2019
+ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 8ca249a5f6c300a39548e4e16927d7a20acae1a8
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: daba49e6861eb67fd07c6fcf618b2b2d6cdd8c89
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942619"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133812"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Carichi di lavoro Red Hat in Azure
 I carichi di lavoro Red Hat sono supportati tramite un'ampia gamma di offerte in Azure. Le immagini Red Hat Enterprise Linux (RHEL) sono alla base dei carichi di lavoro RHEL, così come Red Hat Update Infrastructure (RHUI).
@@ -37,6 +37,11 @@ Azure offre anche immagini Red Hat Gold. Queste immagini possono essere utili pe
 
 > [!NOTE]
 > La fatturazione duplicata viene addebitata quando un utente paga due volte per le sottoscrizioni RHEL. Questo accade generalmente quando un cliente usa subscription-manager per associare un entitlement a una VM RHEL con pagamento in base al consumo. Ad esempio, a un cliente che usa subscription-manager per associare un entitlement per pacchetti SAP a un'immagine RHEL con pagamento in base al consumo verrà indirettamente addebitata una fatturazione duplicata, in quanto pagherà due volte per RHEL: una tramite la tariffa premium con pagamento in base al consumo e una tramite la sottoscrizione SAP. Questo non vale per gli utenti di immagini BYOS.
+
+### <a name="generation-2-images"></a>Immagini di seconda generazione
+Le macchine virtuali di seconda generazione offrono alcune funzionalità più recenti rispetto alle macchine virtuali di prima generazione. I dettagli sono illustrati nella [documentazione di Generazione 2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2). La differenza principale rispetto alla prospettiva di un'immagine RHEL è che le macchine virtuali di seconda generazione usano un'interfaccia UEFI anziché un firmware BIOS e usano una tabella di partizione GUID (GPT) invece di un record di avvio principale (MBR) al momento dell'avvio. Questo consente, tra le altre cose, dimensioni del disco del sistema operativo superiori a 2 TB. In più, le [macchine virtuali della serie Mv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#mv2-series) vengono eseguite solo su immagini di seconda generazione.
+
+Le immagini di seconda generazione RHEL sono disponibili nel Marketplace. Cercare "gen2" nello SKU dell'immagine quando si elencano tutte le immagini usando l'interfaccia della riga di comando di Azure e passare alla scheda "Avanzate" nel processo di distribuzione della macchina virtuale per distribuire una macchina virtuale di seconda generazione.
 
 ## <a name="red-hat-update-infrastructure-rhui"></a>Red Hat Update Infrastructure (RHUI)
 Azure fornisce Red Hat Update Infrastructure solo per le macchine virtuali RHEL con pagamento in base al consumo. RHUI funge da mirror delle reti CDN Red Hat, ma è accessibile solo alle VM RHEL di Azure con pagamento in base al consumo. Si avrà accesso ai pacchetti appropriati a seconda dell'immagine RHEL distribuita. Ad esempio, un'immagine RHEL for SAP avrà accesso ai pacchetti SAP oltre ai pacchetti RHEL di base.

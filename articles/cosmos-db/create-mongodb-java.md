@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 05a796e5bf197bf9ea4f8f47adfbf30851b300ca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 35c6944ddcfac1553ffb2c1cc28472f2a56d4515
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445497"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061711"
 ---
 # <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Avvio rapido: Creare un'app console con Java e l'API MongoDB in Azure Cosmos DB
 
@@ -27,18 +27,13 @@ ms.locfileid: "75445497"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-In questo argomento di avvio rapido si useranno l'API di Azure Cosmos DB per Mongo DB e Java SDK per creare un'app Web console. Azure Cosmos DB consente di creare database di documenti, chiave/valore e a grafo ed eseguire query rapidamente sfruttando i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Cosmos DB.
-
-Questo argomento di avvio rapido illustra come creare un account Cosmos con l'[API Azure Cosmos DB per MongoDB](mongodb-introduction.md). Si creerà e si distribuirà quindi un'app console basata sul [driver Java MongoDB](https://docs.mongodb.com/ecosystem/drivers/java/). 
+In questo argomento di avvio rapido si apprenderà a creare e gestire un account API di Azure Cosmos DB per MongoDB dal portale di Azure e aggiungere dati usando un'app SDK Java clonata da GitHub. Azure Cosmos DB è un servizio di database modello che consente di creare ed eseguire rapidamente query su database di documenti, tabelle, valori chiave e grafi, con funzionalità di scalabilità orizzontale e distribuzione globale.
 
 ## <a name="prerequisites"></a>Prerequisites
-
-Prima di poter eseguire questo esempio, è necessario soddisfare i prerequisiti seguenti:
-* [Installare JDK per Azure e Azure Stack JDK versione 8](https://aka.ms/azure-jdks)
-* Maven (eseguire `apt-get install maven` se Maven non è disponibile)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+- Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). In alternativa, è possibile [provare gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure. È anche possibile usare l'[Emulatore di Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) con la stringa di connessione `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`.
+- [Java Development Kit (JDK) versione 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). 
+- [Maven](https://maven.apache.org/download.cgi). In alternativa, eseguire `apt-get install maven` per installare Maven.
+- [Git](https://git-scm.com/downloads). 
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 
@@ -46,7 +41,7 @@ Prima di poter eseguire questo esempio, è necessario soddisfare i prerequisiti 
 
 ## <a name="add-a-collection"></a>Aggiungere una raccolta
 
-Assegnare un nome al nuovo database, **db**, e alla nuova raccolta, **coll**.
+Assegnare un nome al nuovo database **db** e alla nuova raccolta **coll**.
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)] 
 
@@ -78,7 +73,9 @@ Clonare ora un'app da GitHub, impostare la stringa di connessione ed eseguirla. 
 
 Questo passaggio è facoltativo. Per scoprire in che modo le risorse del database vengono create nel codice, è possibile esaminare i frammenti di codice seguenti. In alternativa, è possibile passare ad [Aggiornare la stringa di connessione](#update-your-connection-string). 
 
-Tutti i frammenti di codice seguenti sono tratti dal file Program.java.
+Tutti i frammenti di codice seguenti sono tratti dal file *Program.java*.
+
+Questa console usa il [driver Java di MongoDB](https://docs.mongodb.com/ecosystem/drivers/java/). 
 
 * Viene inizializzato DocumentClient.
 
@@ -114,9 +111,9 @@ Tutti i frammenti di codice seguenti sono tratti dal file Program.java.
 
 Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di connessione e copiarle nell'app.
 
-1. Nell'account selezionare **Avvio rapido**, **Java** e quindi copiare la stringa di connessione negli Appunti.
+1. Nell'account di Azure Cosmos DB selezionare **Avvio rapido**, **Java** e quindi copiare la stringa di connessione negli Appunti.
 
-2. Aprire il file `Program.java`, sostituire l'argomento del costruttore MongoClientURI con la stringa di connessione. L'app è stata aggiornata con tutte le informazioni necessarie per comunicare con Azure Cosmos DB. 
+2. Aprire il file *Program.java*, sostituire l'argomento del costruttore MongoClientURI con la stringa di connessione. L'app è stata aggiornata con tutte le informazioni necessarie per comunicare con Azure Cosmos DB. 
     
 ## <a name="run-the-console-app"></a>Eseguire l'app console
 
@@ -136,7 +133,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido si è appreso come creare un account Cosmos, creare una raccolta ed eseguire un'app console. È ora possibile importare dati aggiuntivi nel database Cosmos.
+In questo argomento di avvio rapido si è appreso come creare un account API di Azure Cosmos DB per Mongo DB, aggiungere un database e un contenitore usando Esplora dati e aggiungere dati usando un'app console Java. È ora possibile importare dati aggiuntivi nel database Cosmos. 
 
 > [!div class="nextstepaction"]
 > [Importare i dati di MongoDB in Azure Cosmos DB](mongodb-migrate.md)

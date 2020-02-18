@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 12/19/2019
+ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: 9483db2187c05fe8e0f4fa2d41c17b8748ba3db7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e16166c741b99c1af5b36f2c7ccd25b01f7544ba
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451106"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109001"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Avvio rapido: Testare la Knowledge base con domande batch e risposte previste
 
@@ -24,7 +24,7 @@ Usare lo strumento di test batch di QnA Maker per testare le knowledge base nell
 ## <a name="prerequisites"></a>Prerequisites
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Creare un servizio di QnA Maker](create-publish-knowledge-base.md#create-a-new-qna-maker-knowledge-base) o usarne uno esistente in lingua inglese per il documento di esempio usato in questo argomento di avvio rapido.
+* [Creare un servizio di QnA Maker](create-publish-knowledge-base.md) o usarne uno esistente in lingua inglese.
 * Scaricare il file di [esempio multiturno`.docx` ](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)
 * Scaricare lo [strumento di test batch](https://aka.ms/qnamakerbatchtestingtool) ed estrarre il file eseguibile dal file `.zip`.
 
@@ -41,9 +41,16 @@ Usare lo strumento di test batch di QnA Maker per testare le knowledge base nell
     * Nome del servizio QnA di Azure
     * Lingua: la lingua inglese
 1. Immettere `Multi-turn batch test quickstart` come nome della knowledge base.
-1. Nel **passaggio 4** selezionare **Enable multi-turn extraction from URLs, .pdf or .docx files** (Abilita l'estrazione multiturno da URL, PDF o file docx).
-1. Immettere il **testo di risposta predefinito** `Quickstart - can't find answer`. In una knowledge base di produzione queste informazioni dovrebbero essere più istruttive per l'utente, ma per questo argomento di avvio rapido va bene anche una semplice risposta.
-1. Sempre nel **passaggio 4** selezionare **+ Add file** (Aggiungi file), quindi selezionare il file `.docx` scaricato come da prerequisiti.
+
+1. Nel **Passaggio 4** configurare le impostazioni in base alla tabella seguente:
+
+    |Impostazione|valore|
+    |--|--|
+    |**Enable multi-turn extraction from URLs, .pdf or .docx files** (Abilita estrazione a più turni da URL e file PDF o DOCX)|Selezionato|
+    |**Default answer text** (Testo della risposta predefinita)| `Batch test - default answer not found.`|
+    |**+ Add File** (+ Aggiungi file)|Selezionare il file `.docx` scaricato come da prerequisiti.|
+    |**Chit-chat**|Selezionare **Professional**|
+
 1. Nel **passaggio 5**, selezionare **Create your KB** (Crea la KB).
 
     Al termine del processo di creazione, nel portale viene visualizzata la knowledge base modificabile.
@@ -160,7 +167,7 @@ Esistono due scenari principali per i test batch:
 * **Elaborare i file di log della chat**: determinare la risposta principale per una domanda in precedenza non vista; la situazione più comune è il caso in cui sia necessario elaborare un file di log di query, ad esempio le domande dell'utente di un chatbot. Creare un test di file batch solo con le colonne necessarie. Il test restituisce la risposta principale per ogni domanda. Questo non significa che tale risposta sia quella corretta. Una volta completato questo test, passare al test di convalida.
 * **Test di convalida**: convalidare la risposta prevista. Per questo test è necessario che siano state convalidate tutte le domande e le risposte previste corrispondenti nel test batch. Questa operazione potrebbe richiedere un processo manuale.
 
-La procedura seguente presuppone che lo scenario consista nell'elaborare i log della chat 
+La procedura seguente presuppone che lo scenario consista nell'elaborare i log della chat
 
 1. Creare un nuovo file di test batch per includere i dati facoltativi `batch-test-data-2.tsv`. Aggiungere le sei righe del file di input del test batch originale, quindi aggiungere per ogni riga i metadati, il parametro Top e l'ID del set di domande e risposte.
 

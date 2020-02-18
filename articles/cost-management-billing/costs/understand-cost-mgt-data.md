@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/29/2020
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 156684676758d777231d3b159ba7bc4749b8582a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a514dc07da3e4fd5928614099eb86ecef311bbb1
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901769"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188526"
 ---
 # <a name="understand-cost-management-data"></a>Informazioni sui dati di Gestione costi
 
@@ -85,8 +85,6 @@ Se i dati relativi a una sottoscrizione non vengono visualizzati e si vuole dete
 
 Le tabelle seguenti illustrano i dati inclusi o meno in Gestione costi. Tutti i costi vengono stimati fino a quando non viene generata una fattura. I costi indicati non includono crediti gratuiti e prepagati.
 
-**Dati su costi e utilizzo**
-
 | **Incluso** | **Non incluso** |
 | --- | --- |
 | Utilizzo dei servizi di Azure<sup>5</sup>        | Addebiti per il supporto - Per altre informazioni, vedere [Spiegazioni delle condizioni di fatturazione](../understand/understand-invoice.md). |
@@ -101,13 +99,42 @@ _<sup>**6**</sup> Gli acquisti di Marketplace non sono attualmente disponibili p
 
 _<sup>**7**</sup> Gli acquisti di prenotazioni sono disponibili attualmente solo per gli account Contratto Enterprise (EA)._
 
-**Metadata**
+## <a name="how-tags-are-used-in-cost-and-usage-data"></a>Uso dei tag nei dati relativi a costi e utilizzo
 
-| **Incluso** | **Non incluso** |
-| --- | --- |
-| Tag delle risorse<sup>8</sup> | Tag dei gruppi di risorse |
+Gestione costi di Azure riceve i tag come parte di ogni record di utilizzo inviato dai singoli servizi. A questi tag si applicano i vincoli seguenti:
 
-_<sup>**8**</sup> I tag delle risorse vengono applicati al momento della generazione dei dati sull'utilizzo da ogni servizio e non sono disponibili in modo retroattivo per l'utilizzo cronologico._
+- I tag devono essere applicati direttamente alle risorse e non vengono ereditati in modo implicito dal gruppo di risorse padre.
+- I tag di risorsa sono supportati solo per le risorse distribuite in gruppi di risorse.
+- Alcune risorse distribuite potrebbero non supportare i tag o non includere i tag nei dati di utilizzo. Vedere [Supporto dei tag per le risorse di Azure](../../azure-resource-manager/tag-support.md).
+- I tag di risorsa vengono inclusi solo nei dati di utilizzo quando il tag viene applicato. I tag non vengono applicati ai dati cronologici.
+- I tag di risorsa sono disponibili in Gestione costi solo dopo l'aggiornamento dei dati. Vedere [Variazione della frequenza di aggiornamento dei dati sull'utilizzo](#usage-data-update-frequency-varies).
+- I tag di risorsa sono disponibili in Gestione costi solo quando la risorsa è attiva o in esecuzione e produce record di utilizzo, quindi non quando una macchina virtuale viene deallocata, ad esempio.
+- Per la gestione dei tag è necessario l'accesso come collaboratore a ogni risorsa.
+- Per la gestione dei criteri di tag è necessario l'accesso come proprietario o collaboratore ai criteri a un gruppo di gestione, una sottoscrizione o un gruppo di risorse.
+    
+Se non si trova un tag specifico in gestione costi, considerare quanto segue:
+
+- Il tag è stato applicato direttamente alla risorsa?
+- Il tag è stato applicato più di 24 ore fa? Vedere [Variazione della frequenza di aggiornamento dei dati sull'utilizzo](#usage-data-update-frequency-varies)
+- Il tipo di risorsa supporta i tag? I tipi di risorse seguenti non supportano i tag nei dati di utilizzo a partire dal 1° dicembre 2019. Vedere [Supporto dei tag per le risorse di Azure](../../azure-resource-manager/tag-support.md) per l'elenco completo dei tag supportati.
+    - Directory di Azure Active Directory B2C
+    - Firewall di Azure
+    - Azure NetApp Files
+    - Data Factory
+    - Databricks
+    - Servizi di bilanciamento del carico
+    - Network Watcher
+    - Hub di notifica
+    - Bus di servizio
+    - Time Series Insights
+    - gateway VPN
+    
+Ecco alcuni suggerimenti per l'uso dei tag:
+
+- Pianificare in anticipo e definire una strategia di assegnazione di tag che consenta di suddividere i costi per organizzazione, applicazione, ambiente e così via.
+- Usare Criteri di Azure per copiare i tag dei gruppi di risorse nelle singole risorse e applicare la strategia di assegnazione di tag.
+- Usare l'API Tag insieme a Query o UsageDetails per ottenere tutti i costi in base ai tag correnti.
+
 
 **Aggiornamento della versione di valutazione gratuita a Pagamento in base al consumo**
 

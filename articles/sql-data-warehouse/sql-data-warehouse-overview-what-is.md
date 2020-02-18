@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 40f779fa5545e0e9c8fd1aa2cc2689b29dffdb82
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 68d39b4f363794d50fd05c2067502fc55d5d0170
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760760"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153248"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Che cos'è Azure Synapse Analytics (in precedenza SQL Data Warehouse)?
 
@@ -34,7 +34,7 @@ Azure Synapse è costituito da quattro componenti:
 
 ## <a name="sql-analytics-and-sql-pool-in-azure-synapse"></a>Analisi SQL e pool SQL in Azure Synapse
 
-Analisi SQL si riferisce alle funzionalità di data warehousing aziendali disponibili a livello generale con Azure Synapse. 
+Analisi SQL si riferisce alle funzionalità di data warehousing aziendali disponibili a livello generale in Azure Synapse. 
 
 Il pool SQL rappresenta una raccolta di risorse analitiche di cui viene effettuato il provisioning durante l'uso di Analisi SQL. Le dimensioni del pool SQL sono determinate dalle unità Data Warehouse (DWU).
 

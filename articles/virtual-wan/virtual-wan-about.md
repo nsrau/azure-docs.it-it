@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 11/13/2019
+ms.date: 02/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 3b33015b3a69372f6783d59b28a111ec279dd860
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 9ac70252ce7c818ccbdecfd996b9970f011aa967
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048482"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77056343"
 ---
 # <a name="about-azure-virtual-wan"></a>Informazioni sulla rete WAN virtuale di Azure
 
@@ -37,6 +37,13 @@ Sono disponibili due tipi di rete WAN virtuale: Di base e standard. La tabella s
 
 Per i passaggi necessari per l'aggiornamento di una rete WAN virtuale, vedere [Aggiornare una rete WAN virtuale dal livello di base a quello standard](upgrade-virtual-wan.md).
 
+## <a name="architecture"></a>Architettura
+
+Per informazioni sull'architettura WAN virtuale e su come eseguire la migrazione a una rete WAN virtuale, vedere gli articoli seguenti:
+
+* [Architettura della rete WAN virtuale](migrate-from-hub-spoke-topology.md)
+* [Architettura della rete di transito globale](virtual-wan-global-transit-network-architecture.md)
+
 ## <a name="resources"></a>Risorse della rete WAN virtuale
 
 Per configurare una rete WAN virtuale completa, si creano le risorse seguenti:
@@ -57,7 +64,7 @@ Per configurare una rete WAN virtuale completa, si creano le risorse seguenti:
 
   * **Sito:** questa risorsa si usa solo per le connessioni da sito a sito. La risorsa sito è **vpnsite**. Rappresenta il dispositivo VPN locale e le relative impostazioni. Se si collabora con un partner di rete WAN virtuale, si avrà a disposizione una soluzione predefinita per esportare automaticamente queste informazioni in Azure.
 
-## <a name="connectivity"></a>Connettività
+## <a name="connectivity"></a>Tipi di connettività
 
 La rete WAN virtuale consente i tipi di connettività seguenti: VPN da sito a sito, VPN utente da punto a sito ed ExpressRoute.
 

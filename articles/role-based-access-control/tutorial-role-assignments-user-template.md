@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Concedere a un utente l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e il modello di Resource Manager"
+title: "Esercitazione: Concedere a un utente l'accesso alle risorse di Azure con il controllo degli accessi in base al ruolo e il modello di Resource Manager"
 description: Questa esercitazione descrive come concedere l'accesso alle risorse di Azure a un utente usando il controllo degli accessi in base al ruolo tramite il modello di Azure Resource Manager.
 services: role-based-access-control,azure-resource-manager
 documentationCenter: ''
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 05/15/2019
 ms.author: rolyon
-ms.openlocfilehash: ed143f85b4372348baa1d74b4ec7a7447943a74f
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 96ca4f65d2def5f5004388c533410f09cc2a71fa
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74418496"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138212"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-resource-manager-template"></a>Esercitazione: Concedere a un utente l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e il modello di Resource Manager
 
 Il [controllo degli accessi in base al ruolo](overview.md) è la modalità di gestione dell'accesso alle risorse di Azure. Questa esercitazione illustra come creare un gruppo di risorse e concede un accesso a un utente in modo che possa creare e gestire macchine virtuali nel gruppo di risorse. Questa esercitazione è incentrata sul processo di distribuzione di un modello di Resource Manager per concedere l'accesso. Per altre informazioni sullo sviluppo di modelli di Resource Manager, vedere la [documentazione di Resource Manager](/azure/azure-resource-manager/) e le [informazioni di riferimento sui modelli](/azure/templates/microsoft.authorization/allversions
 ).
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Concedere l'accesso per un utente nell'ambito di un gruppo di risorse
@@ -34,7 +34,7 @@ In questa esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per aggiungere e rimuovere assegnazioni di ruoli, l'utente deve disporre di:
 

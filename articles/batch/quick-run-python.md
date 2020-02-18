@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire un processo batch di Azure - API Python'
+title: Usare l'API Python per eseguire un processo di Azure Batch
 description: Eseguire rapidamente un processo e attività di esempio di Azure Batch con la libreria client Batch Python. Apprendere i concetti chiave del servizio Batch.
 services: batch
 author: LauraBrenner
@@ -12,30 +12,26 @@ ms.author: labrenne
 ms.custom:
 - seo-python-october2019
 - mvc
-ms.openlocfilehash: 87c08c403a1e5eefd7645572f593b20037a8212b
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 140ae0fc9f9a8daba193aa05e0800d83b7b6b963
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77017106"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086037"
 ---
-# <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Avvio rapido: Eseguire il primo processo Batch con l'API Python
+# <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Avvio rapido: Usare l'API Python per eseguire un processo di Azure Batch
 
-Questa guida introduttiva esegue un processo Azure Batch da un'applicazione compilata con l'API Python di Azure Batch.  Dopo aver completato questa guida introduttiva, saranno chiari i concetti fondamentali del servizio Batch e sarà possibile provare Batch con carichi di lavoro più realistici su scala più ampia.
+In questo argomento di avvio rapido si usa l'API Python per eseguire un processo di Azure Batch da un'app. L'applicazione carica i file di dati di input in Archiviazione di Azure e crea un *pool* di nodi di calcolo Batch (macchine virtuali). Crea quindi un *processo* che esegue *attività* per l'elaborazione di ogni file di input nel pool usando un comando di base.
 
-L'applicazione carica più file di dati di input nell'archivio di Azure e quindi crea un *pool* di nodi di calcolo Batch (macchine virtuali). Crea quindi un *processo* di esempio che esegue *attività* per l'elaborazione di ogni file di input nel pool usando un comando di base.
- 
+Qui sono illustrati i concetti fondamentali del servizio Batch ed è possibile provare Batch con carichi di lavoro più realistici su scala più ampia.
+
 ![Panoramica del flusso di lavoro di Azure Batch](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
-
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prerequisites
 
-* [Python versione 2.7, 3.3 o successiva](https://www.python.org/downloads/)
-
-* Gestione pacchetti [pip](https://pip.pypa.io/en/stable/installing/)
-
-* Un account Azure Batch e un account di archiviazione di Azure collegato. Per creare questi account, vedere le guide introduttive di Batch usando il [portale di Azure](quick-create-portal.md) o l'[interfaccia della riga di comando di Azure](quick-create-cli.md). 
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Un account **Azure Batch** e un account di **Archiviazione di Azure** collegato. Usare il [portale di Azure](quick-create-portal.md) o [CLI](quick-create-cli.md) per creare questi account.
+- [Python](https://python.org/downloads), versione 2.7 o 3.3 o successiva, inclusa la gestione pacchetti [PIP](https://pip.pypa.io/en/stable/installing/)
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 

@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 11/04/2019
-ms.openlocfilehash: c38347a03ddc0ef5f6c1bd3118696062db9a8254
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 02/10/2020
+ms.openlocfilehash: aa90655ecb14abe38ec8fdfc6c18e7d292abbef3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532424"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116530"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Esercitazione: Eseguire il training del primo modello di Machine Learning
 
@@ -35,7 +35,7 @@ In questa esercitazione si apprenderanno informazioni sulle attività seguenti:
 
 L'unico prerequisito consiste nell'eseguire la prima parte di questa esercitazione, [Configurare l'ambiente e l'area di lavoro](tutorial-1st-experiment-sdk-setup.md).
 
-In questa parte dell'esercitazione si eseguirà il codice nel notebook di Jupyter `tutorials/tutorial-1st-experiment-sdk-train.ipynb` di esempio aperto alla fine della prima parte. Questo articolo illustra lo stesso codice presente nel notebook.
+In questa parte dell'esercitazione si eseguirà il codice del notebook di Jupyter di esempio *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* aperto alla fine della prima parte. Questo articolo illustra lo stesso codice presente nel notebook.
 
 ## <a name="open-the-notebook"></a>Aprire il notebook
 
@@ -45,7 +45,7 @@ In questa parte dell'esercitazione si eseguirà il codice nel notebook di Jupyte
 
 
 > [!Warning]
-> **Non** creare un *nuovo* notebook nell'interfaccia di Jupyter. Il notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` include **tutto il codice e i dati necessari** per questa esercitazione.
+> **Non** creare un *nuovo* notebook nell'interfaccia di Jupyter. Il notebook *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* include **tutto il codice e i dati necessari** per questa esercitazione.
 
 ## <a name="connect-workspace-and-create-experiment"></a>Connettere l'area di lavoro e creare un esperimento
 

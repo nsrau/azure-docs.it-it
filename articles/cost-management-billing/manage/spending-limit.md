@@ -2,21 +2,21 @@
 title: Limite di spesa di Azure | Microsoft Docs
 description: Questo articolo descrive il funzionamento del limite di spesa di Azure e spiega come rimuoverlo.
 author: bandersmsft
-manager: amberb
+manager: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 5dbf885848d9866a184caee1da6b9000a26f83a9
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: bde3c142fa0f4f69948a9ff1df61d77f06d2b430
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76314132"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188328"
 ---
 # <a name="azure-spending-limit"></a>Limite di spesa di Azure
 
@@ -36,30 +36,48 @@ Se si usa un account Azure gratuito e si raggiunge il limite di spesa, è possib
 
 ## <a name="remove-the-spending-limit-in-azure-portal"></a>Rimuovere il limite di spesa nel portale di Azure
 
+È possibile rimuovere il limite di spesa in qualsiasi momento, purché alla sottoscrizione di Azure sia associato un metodo di pagamento valido. Per i tipi di sottoscrizione con credito su più mesi, come Visual Studio Enterprise e Visual Studio Professional, è anche possibile scegliere di rimuovere il limite di spesa per un periodo illimitato o solo per il periodo di fatturazione corrente. Se si sceglie solo il periodo di fatturazione corrente, il limite di spesa viene abilitato automaticamente all'inizio del periodo di fatturazione successivo.
+
+Se si ha un account Azure gratuito, vedere [Aggiornare la sottoscrizione di Azure](upgrade-azure-subscription.md) per rimuovere il limite di spesa. In caso contrario, seguire questa procedura per rimuovere il limite di spesa:
+
 <a id="remove"></a>
 
-È possibile rimuovere il limite di spesa in qualsiasi momento, purché alla sottoscrizione di Azure sia associato un metodo di pagamento valido. Per i tipi di sottoscrizioni con credito su più mesi, ad esempio Visual Studio Enterprise e Visual Studio Professional, è anche possibile abilitare il limite di spesa all'inizio del periodo di fatturazione successivo.
+1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore account.
+1. Cercare **Gestione dei costi e fatturazione**.
 
-Per rimuovere il limite di spesa, seguire questi passaggi:
+    ![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione ](./media/spending-limit/search-bar.png)
 
-1. Accedere al [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Passare a **Sottoscrizioni**.
-1. Selezionare la propria sottoscrizione. Ad esempio, *Visual Studio Enterprise*.
-1. Nella parte superiore della pagina selezionare **Gestisci**. Si verrà reindirizzati a https://account.azure.com/. Sul lato destro della pagina selezionare **Rimuovere il limite di spesa**.  
-  ![Esempio che mostra la rimozione del limite di spesa](./media/spending-limit/account-azure-com-spending-limit.png)
-1. Si verrà reindirizzati al portale di Azure. Selezionare un'opzione appropriata per l'utente e quindi selezionare un metodo di pagamento. Selezionare **Fine**.  
-  ![Selezionare un'opzione per rimuovere il limite di spesa](./media/spending-limit/remove-spending-limit.png)
+1. Nell'elenco **Sottoscrizioni personali** selezionare la propria sottoscrizione. Ad esempio, *Visual Studio Enterprise*. 
 
-| Opzione | Effetto |
-| --- | --- |
-| Rimuovi il limite di spesa per un periodo illimitato | Rimuove il limite di spesa senza riattivarlo automaticamente all'inizio del periodo di fatturazione successivo. |
-| Rimuovi il limite di spesa per il periodo di fatturazione corrente | Rimuove il limite di spesa in modo che si riattivi automaticamente all'inizio del periodo di fatturazione successivo. |
+   ![Screenshot che mostra la griglia delle sottoscrizioni personali in visualizzazione panoramica](./media/spending-limit/cost-management-overview-msdn-x.png)
+
+    > [!NOTE]
+    > Se non vengono visualizzate alcune sottoscrizioni di Visual Studio, è possibile che la directory della sottoscrizione sia stata modificata in un determinato momento. Per queste sottoscrizioni, è necessario passare alla directory originale (la directory in cui è stata effettuata l'iscrizione iniziale). Quindi, ripetere il passaggio 2.
+    
+1. Nella visualizzazione panoramica della sottoscrizione fare clic sul banner arancione per rimuovere il limite di spesa.
+    
+    ![Screenshot che mostra il banner per la rimozione del limite di spesa](./media/spending-limit/msdn-remove-spending-limit-banner-x.png)
+
+1. Scegliere se si vuole rimuovere il limite di spesa per un periodo illimitato o solo per il periodo di fatturazione corrente.
+    
+      ![Screenshot che mostra il pannello per la rimozione del limite di spesa](./media/spending-limit/remove-spending-limit-blade-x.png)
+    
+      | Opzione | Effetto |
+      | --- | --- |
+      | Rimuovi il limite di spesa per un periodo illimitato | Il limite di spesa non viene riattivato automaticamente all'inizio del periodo di fatturazione successivo. È però possibile riattivarlo manualmente in qualsiasi momento. |
+      | Rimuovi il limite di spesa per il periodo di fatturazione corrente | Il limite di spesa viene riattivato automaticamente all'inizio del periodo di fatturazione successivo. |
+
+
+1. Fare clic su **Selezionare un metodo di pagamento** per scegliere un metodo di pagamento per la sottoscrizione. Questo diventerà il metodo di pagamento attivo per la sottoscrizione.
+
+1. Fare clic su **Fine**.
+
 
 ## <a name="why-you-might-want-to-remove-the-spending-limit"></a>Perché può essere necessario rimuovere il limite di spesa
 
 Il limite di spesa può impedire all'utente di distribuire o usare determinati servizi Microsoft e di terze parti. Ecco le situazioni in cui è consigliabile rimuovere il limite di spesa per la sottoscrizione.
 
--  Se si prevede di distribuire immagini proprietarie come Oracle o servizi come Azure DevOps Services. Questa situazione comporta il superamento quasi immediato del limite di spesa e la disabilitazione della sottoscrizione.
+-  Se si prevede di distribuire immagini di terze parti come Oracle o servizi come Azure DevOps Services. Questa situazione comporta il superamento quasi immediato del limite di spesa e la disabilitazione della sottoscrizione.
 - Se si usano servizi che non devono essere interrotti. Quando si raggiunge il limite di spesa, le risorse di Azure distribuite vengono rimosse dall'ambiente di produzione e le macchine virtuali di Azure vengono arrestate e deallocate. Per evitare che i servizi usati vengano interrotti, è necessario rimuovere il limite di spesa.
 - Se si usano servizi e risorse con impostazioni come indirizzi IP virtuali che non si vuole perdere. Queste impostazioni vanno perse quando si raggiunge il limite di spesa e le risorse e i servizi vengono deallocati.
 
@@ -67,9 +85,20 @@ Il limite di spesa può impedire all'utente di distribuire o usare determinati s
 
 Questa funzionalità è disponibile solo quando il limite di spesa è stato rimosso per un periodo illimitato per i tipi di sottoscrizioni che includono crediti su più mesi. È possibile usare questa funzionalità per attivare automaticamente il limite di spesa all'inizio del periodo di fatturazione successivo.
 
-1. Accedere al [Centro account](https://account.windowsazure.com/Subscriptions).
-1. Selezionare il banner giallo per modificare l'opzione relativa al limite di spesa.
-1. Scegliere **Attiva limite di spesa per il prossimo periodo di fatturazione \<data di inizio del periodo di fatturazione\>** .
+
+1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore account.
+1. Cercare **Gestione dei costi e fatturazione**.
+
+    ![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione ](./media/spending-limit/search-bar.png)
+
+1. Nell'elenco **Sottoscrizioni personali** selezionare la propria sottoscrizione. Ad esempio, *Visual Studio Enterprise*. 
+
+   ![Screenshot che mostra la griglia delle sottoscrizioni personali in visualizzazione panoramica](./media/spending-limit/cost-management-overview-msdn-x.png)
+
+    > [!NOTE]
+    > Se non vengono visualizzate alcune sottoscrizioni di Visual Studio, è possibile che la directory della sottoscrizione sia stata modificata in un determinato momento. Per queste sottoscrizioni, è necessario passare alla directory originale (la directory in cui è stata effettuata l'iscrizione iniziale). Quindi, ripetere il passaggio 2.
+    
+1. Nella pagina di panoramica della sottoscrizione fare clic sul banner nella parte superiore della pagina per riattivare il limite di spesa.
 
 ## <a name="custom-spending-limit"></a>Limite di spesa personalizzato
 

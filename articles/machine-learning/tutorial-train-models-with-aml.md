@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 95e5754c440cc591444df8960fde34de6fc384f0
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 5a2ff4d78c1e0e67b390f607da69cc299e2dce4a
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261365"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116487"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Esercitazione: Eseguire il training di modelli di classificazione delle immagini con dati MNIST e scikit-learn usando Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -46,7 +46,7 @@ Se non è disponibile una sottoscrizione di Azure, creare un account gratuito pr
     * Clonare il notebook delle esercitazioni nella cartella nell'area di lavoro.
     * Creare un'istanza di calcolo basata sul cloud.
 
-* Aprire il notebook **img-classification-part1-training.ipynb** nella cartella **tutorials** clonata. 
+* Aprire quindi il notebook *img-classification-part1-training.ipynb* nella cartella *ttutorials/image-classification-mnist-data* clonata. 
 
 
 Questa esercitazione e il file **utils.py** associato sono disponibili in [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se si vuole usarli nel proprio [ambiente locale](how-to-configure-environment.md#local). Eseguire `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` per installare le dipendenze per questa esercitazione.

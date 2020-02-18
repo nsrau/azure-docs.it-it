@@ -3,24 +3,30 @@ title: Eseguire la migrazione di un notebook locale di Jupyter in Azure Notebook
 description: Trasferire rapidamente un notebook di Jupyter in Azure Notebooks (anteprima) dal computer locale o da un URL Web e quindi condividerlo per la collaborazione.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 9e5270c59a64f9510f9108bbe4d00b922178888c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: baf05d7adb1340d712ff0fc87436d5bbac51bc8f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647051"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064326"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook-in-azure-notebooks-preview"></a>Avvio rapido: Eseguire la migrazione di un notebook locale di Jupyter in Azure Notebooks (anteprima)
 
-I notebook di Jupyter creati da utente in locale sono accessibili solo dall'utente, che potrà condividerli in vari modi, ma ai destinatari resterà una copia locale del notebook, in cui sarà difficile incorporare eventuali modifiche necessarie. È anche possibile archiviare i notebook in un repository online condiviso come GitHub, ma in questo caso è necessario che ogni collaboratore abbia un'installazione Jupyter locale con la stessa configurazione di cui dispone l'utente.
+Questo argomento di avvio rapido si apprenderà a eseguire la migrazione di un notebook di Jupyter dal computer locale o da un altro URL di file accessibile in Azure Notebooks. 
 
-Eseguendo la migrazione in Azure Notebooks dei notebook locali o basati su repository, questi vengono archiviati nel cloud da cui è possibile condividerli immediatamente con i collaboratori. Questi ultimi possono visualizzare ed eseguire il notebook mediante un semplice browser e, se [accedono](quickstart-sign-in-azure-notebooks.md) ad Azure Notebooks, possono anche apportare modifiche.
+I notebook di Jupyter sul proprio computer sono accessibili solo dall'utente, che potrà condividerli, ma ai destinatari resterà una copia locale del notebook, in cui sarà difficile incorporare modifiche necessarie. Anche se si archiviano i notebook in un repository online condiviso come GitHub, ogni collaboratore dovrà avere un'installazione Jupyter locale con la stessa configurazione dell'utente.
 
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+Eseguendo la migrazione in Azure Notebooks dei notebook locali o basati su repository, è possibile condividerli immediatamente con i collaboratori, che necessiteranno solo di un browser per visualizzarli ed eseguirli. Se accedono ad Azure Notebooks, potranno anche apportare modifiche.
 
-Questo argomento di avvio rapido illustra il processo di migrazione di un notebook dal computer locale o da un altro URL di file accessibile. Per migrare un notebook da un repository di GitHub, vedere [Avvio rapido: Clonare un notebook](quickstart-clone-jupyter-notebook.md).
+## <a name="prerequisites"></a>Prerequisites
+
+- Un [notebook di Jupyter](https://jupyter-notebook.readthedocs.io) nel computer locale o in un altro URL di file accessibile. 
 
 ## <a name="create-a-project-on-azure-notebooks"></a>Creare un progetto in Azure Notebooks
+
+Questo argomento di avvio rapido illustra la migrazione di un notebook dal computer locale o da un altro URL di file accessibile. Per migrare un notebook da un repository di GitHub, vedere [Avvio rapido: Clonare un notebook](quickstart-clone-jupyter-notebook.md).
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. Passare ad [Azure Notebooks](https://notebooks.azure.com) ed eseguire l'accesso. Per informazioni dettagliate, vedere [Avvio rapido: Accedere ad Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 
@@ -28,7 +34,7 @@ Questo argomento di avvio rapido illustra il processo di migrazione di un notebo
 
     ![Collegamento My Projects (Progetti personali) nella parte superiore della finestra del browser](media/quickstarts/my-projects-link.png)
 
-1. Nella pagina **My Projects** (Progetti personali) selezionare **+ New Project** (+ Nuovo progetto) (tasto di scelta rapida: n); se la finestra del browser è di dimensioni ridotte, il pulsante potrebbe essere visualizzato solo come **+** :
+1. Nella pagina **Progetti personali** selezionare **Nuovo progetto** (tasti di scelta rapida: n). Il pulsante può essere visualizzato solo come **+** se la finestra del browser è ridotta:
 
     ![Comando New Project (Nuovo progetto) nella pagina My Projects (Progetti personali)](media/quickstarts/new-project-command.png)
 
@@ -42,11 +48,11 @@ Questo argomento di avvio rapido illustra il processo di migrazione di un notebo
 
    Anche in questo caso, se il notebook si trova in un repository di GitHub, seguire la procedura descritta in [Avvio rapido: Clonare un notebook](quickstart-clone-jupyter-notebook.md).
 
-   - Se si usa l'opzione **From Computer** (Da computer), trascinare i file *.ipynb* nella finestra popup o selezionare **Choose Files** (Scegli file) e quindi passare ai file di dati da importare e selezionarli. Selezionare quindi **Carica**. A file caricati viene assegnato lo stesso nome dei file locali. Non è necessario caricare il contenuto della cartella *.ipynb_checkpoints*.
+   - Se si usa l'opzione **From Computer** (Da computer), trascinare i file *.ipynb* nella finestra popup o selezionare **Choose Files** (Scegli file) e quindi passare ai file di dati da importare e selezionarli. Selezionare quindi **Carica**. A file caricati viene assegnato lo stesso nome dei file locali. Non è necessario caricare il contenuto delle cartelle *.ipynb_checkpoints*.
 
      ![Caricamento dalla finestra popup del computer](media/quickstarts/upload-from-computer-popup.png)
 
-   - Se si usa l'opzione **From URL** (Da URL), immettere l'indirizzo dell'origine nel campo **File URL** (URL del file) e il nome file da assegnare al notebook nel progetto nel campo **File Name** (Nome file). Selezionare quindi **Carica**. Se si hanno più file con URL separati, usare il comando **+ Add file** (Aggiungi file) per verificare il primo URL immesso. Nella finestra popup verranno quindi visualizzati nuovi campi per un altro file.
+   - Se si usa l'opzione **From URL** (Da URL), immettere l'indirizzo dell'origine nel campo **File URL** (URL del file) e il nome file da assegnare al notebook nel progetto nel campo **File Name** (Nome file). Selezionare quindi **Carica**. Se si hanno più file con URL separati, usare il comando **Add file** (Aggiungi file) per verificare il primo URL immesso. Nella finestra popup verranno quindi visualizzati nuovi campi per un altro file.
 
      ![Caricamento dalla finestra popup dell'URL](media/quickstarts/upload-from-url-popup.png)
 

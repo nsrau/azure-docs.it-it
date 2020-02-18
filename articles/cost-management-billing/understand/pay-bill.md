@@ -2,22 +2,22 @@
 title: Pagare la fattura per Microsoft Azure | Microsoft Docs
 description: Descrive come pagare una fattura nel portale di Azure
 keywords: fatturazione, scaduto, saldo, pagamento immediato,
-author: jureid
-manager: jureid
+author: banders
+manager: judupont
 tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: d486fe72a43465832ca13ac1a62a7f0a9aeaa65e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 214382693d942152d82b7ae5e487969b8ebaeaff
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75989709"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188131"
 ---
 # <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Come pagare la fattura per Microsoft Azure
 
@@ -35,21 +35,12 @@ Per pagare le fatture nel portale di Azure, è necessario avere il ruolo di prop
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Eseguire ricerche in **Gestione dei costi e fatturazione**.
-1. Nel pannello **Panoramica** fare clic sulla scheda *Riepilogo*.
-
-    ![Screenshot che mostra la scheda Riepilogo](./media/pay-bill/billing-account-overview.png)
-
-1. Se è presente una fattura in scadenza o scaduta, verrà visualizzato il totale dell'importo dovuto.
-1. Fare clic sul pulsante blu **Pagamento immediato**.
-
-    ![Screenshot che mostra il pulsante Pagamento immediato](./media/pay-bill/paynow-button-overview.png)
-
-1. Nel nuovo pannello fare clic su **Seleziona metodo di pagamento** per scegliere una carta di credito esistente o aggiungerne una nuova.<!-- screenshot of select payment method link -->
+1. Nel menu a sinistra selezionare **Fatture** in "Fatturazione".
+1. Se una fattura è in scadenza o scaduta, verrà visualizzato un collegamento blu **Pagamento immediato** per la fattura. Selezionare **Pagamento immediato**.
+1. Nel nuovo pannello fare clic su **Seleziona metodo di pagamento** per scegliere una carta di credito esistente o aggiungerne una nuova.
 1. Dopo aver selezionato il metodo di pagamento, fare clic su **Pagamento immediato**.
 
 Lo stato della fattura verrà aggiornato a Pagato nel pannello Fatture.
-
-<!-- pay now from invoice blade -->
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificare l'accesso a un Contratto del cliente Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

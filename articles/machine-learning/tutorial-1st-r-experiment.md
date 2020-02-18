@@ -1,7 +1,7 @@
 ---
-title: 'Esercitazione: Eseguire il training del primo modello di Machine Learning con R'
+title: 'Esercitazione: Modello di regressione logistica in R'
 titleSuffix: Azure Machine Learning
-description: Questa esercitazione illustra i modelli di progettazione di base in Azure Machine Learning e si eseguirà il training di un modello di regressione logistica usando i pacchetti R azuremlsdk e caret per stimare la probabilità di un incidente d'auto mortale.
+description: Questa esercitazione illustra come creare un modello di regressione logistica usando i pacchetti R azuremlsdk e caret per prevedere la probabilità di un incidente d'auto mortale.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,27 +9,28 @@ ms.topic: tutorial
 ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
-ms.date: 11/04/2019
-ms.openlocfilehash: 7ea02fa4544b478e6b041e0b9c342bccdfe6c48c
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 02/07/2020
+ms.openlocfilehash: 37f2f98e594f558a9cd3c3e5994bf17a71ff1899
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532454"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191276"
 ---
-# <a name="tutorial-train-and-deploy-your-first-model-in-r-with-azure-machine-learning"></a>Esercitazione: Eseguire il training e distribuire il primo modello in R con Azure Machine Learning
+# <a name="tutorial-create-a-logistic-regression-model-in-r-with-azure-machine-learning"></a>Esercitazione: Creare un modello di regressione logistica in R con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Questa esercitazione illustra i modelli di progettazione di base in Azure Machine Learning.  Si eseguirà il training e la distribuzione di un modello **caret** per stimare la probabilità di un incidente d'auto mortale. Al termine dell'esercitazione, si avrà la conoscenza pratica dell'SDK R necessaria per passare allo sviluppo di esperimenti e flussi di lavoro più complessi.
+In questa esercitazione si useranno R e Azure Machine Learning per creare un modello di regressione logistica che prevede la probabilità di un incidente d'auto mortale. Al termine dell'esercitazione, si avrà la conoscenza pratica dell'SDK R per Azure Machine Learning necessaria per passare allo sviluppo di esperimenti e flussi di lavoro più complessi.
 
-In questa esercitazione si apprenderanno informazioni sulle attività seguenti:
-
+In questa esercitazione si eseguono le seguenti attività:
 > [!div class="checklist"]
-> * Connettersi all'area di lavoro
+> * Creare un'area di lavoro di Machine Learning di Azure
+> * Clonare una cartella del notebook con i file necessari per eseguire questa esercitazione nell'area di lavoro
+> * Aprire RStudio dall'area di lavoro
 > * Caricare i dati e preparare il training
-> * Caricare i dati nell'archivio dati in modo che siano disponibili per il training remoto
-> * Creare una risorsa di calcolo
-> * Eseguire il training di un modello caret per stimare la probabilità di incidente mortale
+> * Caricare i dati in un archivio dati in modo che siano disponibili per il training remoto
+> * Creare una risorsa di calcolo per eseguire il training del modello in remoto
+> * Eseguire il training di un modello `caret` per prevedere la probabilità di incidente mortale
 > * Distribuire un endpoint di stima
 > * Testare il modello da R
 
@@ -66,13 +67,11 @@ Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento 
 
 1. Aprire la cartella con un numero di versione.  Questo numero rappresenta la versione corrente di R SDK.
 
-1. Aprire la cartella **vignettes**.
-
-1. Selezionare **"..."** a destra della cartella **train-and-deploy-to-aci** e quindi scegliere **Clone** (Clona).
+1. Selezionare **"..."** a destra della cartella **vignettes** e quindi scegliere **Clone** (Clona).
 
     ![Clonare la cartella](media/tutorial-1st-r-experiment/clone-folder.png)
 
-1. Viene visualizzato un elenco di cartelle che mostra ogni utente che accede all'area di lavoro.  Selezionare la propria cartella per clonare la cartella **train-and-deploy-to-aci** al suo interno.
+1. Viene visualizzato un elenco di cartelle che mostra ogni utente che accede all'area di lavoro.  Selezionare la propria cartella per clonare la cartella **vignettes** al suo interno.
 
 ## <a name="a-nameopenopen-rstudio"></a><a name="open">Aprire RStudio
 
@@ -84,10 +83,11 @@ Per eseguire questa esercitazione, usare RStudio in un'istanza di calcolo o in u
 
 1. Quando il calcolo è in esecuzione, usare il collegamento **RStudio** per aprire RStudio.
 
-1. In RStudio la cartella **train-and--deploy-to-aci** alcuni livelli sotto **Users** (Utenti) nella sezione **Files** (File) nella parte inferiore destra.  Selezionare la cartella **train-and-deploy-to-aci** per trovare i file necessari per questa esercitazione.
+1. In RStudio la cartella *vignettes* si trova alcuni livelli sotto *Users* (Utenti) nella sezione **Files** (File) nella parte inferiore destra.  In *vignettes* selezionare la cartella *train-and-deploy-to-aci* per trovare i file necessari per questa esercitazione.
 
 > [!Important]
-> Il resto di questo articolo contiene lo stesso contenuto visualizzato nel file **train-and-deploy-to-aci.Rmd**. Se si ha familiarità con RMarkdown, è possibile usare il codice di tale file.  In alternativa, è possibile copiare e incollare i frammenti di codice da tale posizione o da questo articolo in uno script R o nella riga di comando.  
+> Il resto di questo articolo contiene lo stesso contenuto visualizzato nel file *train-and-deploy-to-aci.Rmd*. Se si ha familiarità con RMarkdown, è possibile usare il codice di tale file.  In alternativa, è possibile copiare e incollare i frammenti di codice da tale posizione o da questo articolo in uno script R o nella riga di comando.  
+
 
 ## <a name="set-up-your-development-environment"></a>Configurazione dell'ambiente di sviluppo
 La configurazione per il lavoro di sviluppo di questa esercitazione include le azioni seguenti:
@@ -102,12 +102,6 @@ Per questa esercitazione è necessario avere installato Azure ML SDK. Proseguire
 
 ```R
 library(azuremlsdk)
-```
-
-L'esercitazione usa i dati del [pacchetto **DAAG**](https://cran.r-project.org/package=DAAG). Installare il pacchetto, se necessario.
-
-```R
-install.packages("DAAG")
 ```
 
 Gli script di training e assegnazione dei punteggi (`accidents.R` e `accident_predict.R`) presentano alcune dipendenze aggiuntive. Se si prevede di eseguire tali script in locale, assicurarsi di disporre anche dei pacchetti necessari.
@@ -147,15 +141,21 @@ wait_for_provisioning_completion(compute_target)
 ```
 
 ## <a name="prepare-data-for-training"></a>Preparare i dati per il training
-Questa esercitazione usa i dati del pacchetto **DAAG**. Questo set di dati include i dati provenienti da oltre 25.000 incidenti d'auto negli Stati Uniti, con variabili utili per stimare la probabilità di un incidente mortale. Prima di tutto, importare i dati in R e trasformarli in un nuovo dataframe `accidents` per l'analisi, quindi esportarli in un file `Rdata`.
+Questa esercitazione usa i dati della [National Highway Traffic Safety Administration](https://cdan.nhtsa.gov/tsftables/tsfar.htm) statunitense (grazie a [Mary C. Meyer e Tremika Finney](https://www.stat.colostate.edu/~meyer/airbags.htm)).
+Questo set di dati include i dati provenienti da oltre 25.000 incidenti d'auto negli Stati Uniti, con variabili utili per stimare la probabilità di un incidente mortale. Prima di tutto, importare i dati in R e trasformarli in un nuovo dataframe `accidents` per l'analisi, quindi esportarli in un file `Rdata`.
 
 ```R
-library(DAAG)
-data(nassCDS)
-
+nassCDS <- read.csv("nassCDS.csv", 
+                     colClasses=c("factor","numeric","factor",
+                                  "factor","factor","numeric",
+                                  "factor","numeric","numeric",
+                                  "numeric","character","character",
+                                  "numeric","numeric","character"))
 accidents <- na.omit(nassCDS[,c("dead","dvcat","seatbelt","frontal","sex","ageOFocc","yearVeh","airbag","occRole")])
 accidents$frontal <- factor(accidents$frontal, labels=c("notfrontal","frontal"))
 accidents$occRole <- factor(accidents$occRole)
+accidents$dvcat <- ordered(accidents$dvcat, 
+                          levels=c("1-9km/h","10-24","25-39","40-54","55+"))
 
 saveRDS(accidents, file="accidents.Rd")
 ```
@@ -394,5 +394,6 @@ delete_compute(compute)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che è stato completato il primo esperimento di Azure Machine Learning in R, vedere altre informazioni su [Azure Machine Learning SDK per R](https://azure.github.io/azureml-sdk-for-r/index.html).
+* Ora che è stato completato il primo esperimento di Azure Machine Learning in R, vedere altre informazioni su [Azure Machine Learning SDK per R](https://azure.github.io/azureml-sdk-for-r/index.html).
 
+* Altre informazioni su Azure Machine Learning con R dagli esempi negli altre cartelle *vignettes*.

@@ -9,13 +9,13 @@ ms.topic: overview
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-ms.date: 01/25/2019
-ms.openlocfilehash: c2548bb4537d17a3dab94d5476c743e2a70faad0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 02/07/2020
+ms.openlocfilehash: 1ffa17bd0e35e3753cde3e915c0ee70d8000147a
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810100"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083113"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizzare le attività di gestione con processi di database
 
@@ -72,7 +72,7 @@ La [replica transazionale](sql-database-managed-instance-transactional-replicati
 
 - Lettore di log delle transazioni.
 - Snapshot.
-- Database di distribuzione.
+- Server di distribuzione.
 
 Altri tipi di passaggi dei processi non sono attualmente supportati, tra cui:
 
@@ -80,7 +80,7 @@ Altri tipi di passaggi dei processi non sono attualmente supportati, tra cui:
 - La lettura coda non è supportata.
 - Analysis Services non è supportato.
 
-### <a name="job-schedules"></a>Pianificazioni dei processi
+### <a name="job-schedules"></a>Pianificazioni di processi
 
 Una pianificazione specifica quando un processo viene eseguito. La stessa pianificazione può includere l'esecuzione di più processi e allo stesso processo possono essere applicate più pianificazioni.
 Per quanto riguarda quando un processo deve essere eseguito, una pianificazione può definire le condizioni seguenti:
@@ -202,7 +202,9 @@ Il *database di processo* viene usato per definire i processi e tracciare lo sta
 
 Per l'anteprima corrente, è necessario un database SQL di Azure esistente (S0 o superiore) per creare un agente di processo elastico.
 
-Il *database di processo* non deve essere necessariamente nuovo, ma deve essere pulito, vuoto e con livello di servizio S0 o superiore. Il livello di servizio consigliato per il *database di processo* è S1 o superiore, ma in realtà dipende dalle prestazioni richieste dai processi, ovvero numero di passaggi e numero e frequenza delle esecuzioni. Un database S0 può essere ad esempio sufficiente per un agente di processo che esegue pochi processi ogni ora, mentre se esegue un processo ogni minuto le prestazioni potrebbero essere insufficienti e rendere opportuno un livello di servizio superiore.
+Il *database di processo* non deve essere necessariamente nuovo, ma deve essere pulito, vuoto e con obiettivo di servizio S0 o superiore. L'obiettivo di servizio consigliato per il *database di processo* è S1 o superiore, ma la scelta ottimale dipende dalle prestazioni richieste dai processi, ovvero numero di passaggi del processo, numero di obiettivi del processo e frequenza delle esecuzioni. Un database S0 può essere ad esempio sufficiente per un agente di processo che esegue pochi processi ogni ora destinati a meno di dieci database, mentre l'esecuzione di un processo ogni minuto potrebbe non essere abbastanza veloce con un database S0, rendendo opportuno un livello di servizio superiore. 
+
+Se le operazioni eseguite sul database dei processi sono più lente del previsto, [monitorare](sql-database-monitor-tune-overview.md#monitor-database-performance) le prestazioni del database e l'utilizzo delle risorse nel database dei processi durante i periodi di lentezza usando il portale di Azure o la DMV [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database). Se l'utilizzo di una risorsa, ad esempio CPU, I/O dati o scrittura log si avvicina al 100% ed è correlato a periodi di lentezza, valutare il ridimensionamento incrementale del database a obiettivi di servizio più elevati (nel [modello DTU](sql-database-service-tiers-dtu.md) o nel modello [vCore](sql-database-service-tiers-vcore.md)) finché le prestazioni del database del processo non sono sufficientemente migliorate.
 
 
 ##### <a name="job-database-permissions"></a>Autorizzazioni per il database di processo
@@ -212,7 +214,7 @@ Durante la creazione di un agente di processo vengono creati uno schema, tabelle
 
 |Nome del ruolo  |Autorizzazioni per lo schema "jobs"  |Autorizzazioni per lo schema 'jobs_internal'  |
 |---------|---------|---------|
-|**jobs_reader**     |    SELECT     |    Nessuna     |
+|**jobs_reader**     |    SELECT     |    nessuno     |
 
 > [!IMPORTANT]
 > Prima di concedere l'accesso al *database di processo* come amministratore del database, considerare le implicazioni per la sicurezza. Un utente malintenzionato con le autorizzazioni di creazione o modifica dei processi potrebbe creare o modificare un processo che usa una credenziale archiviata per connettersi a un database con il controllo dell'utente malintenzionato, consentendo a questo utente di determinare la password della credenziale.
@@ -250,6 +252,10 @@ L'**esempio 4** mostra un gruppo di destinazione contenente un pool elastico com
 
 L'**esempio 5** e l'**esempio 6** mostrano scenari avanzati in cui server di Azure SQL, pool elastici e database possono essere combinati usando regole di inclusione e di esclusione.<br>
 L'**esempio 7** mostra che in fase di esecuzione del processo possono essere valutate anche le partizioni in una mappa delle partizioni.
+
+> [!NOTE]
+> Il database del processo stesso può essere la destinazione di un processo. In questo scenario, il database del processo viene considerato come qualsiasi altro database di destinazione. È necessario aver creato l'utente del processo a cui concedere autorizzazioni sufficienti nel database del processo e nel database del processo devono anche esistere le credenziali con ambito database per l'utente del processo, come per qualsiasi altro database di destinazione.
+>
 
 #### <a name="job"></a>Processo
 

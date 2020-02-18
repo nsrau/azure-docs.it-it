@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: a0205d57fa68585b1a91b99b19e008eb92e73c0d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a0ffa6e20b42ed8ac145b50c062f5c0a8998add0
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435848"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061642"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Esercitazione: Configurare i criteri di Apache Kafka in HDInsight con Enterprise Security Package (anteprima)
 
@@ -147,6 +147,8 @@ In base ai criteri di Ranger configurati, **sales_user** può creare o utilizzar
 
 4. Seguire il passaggio 3 in **Compilare e distribuire l'esempio** dell'[Esercitazione: Usare le API Apache Kafka Producer e Consumer](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) per assicurarsi che `kafka-producer-consumer.jar` sia disponibile anche per **sales_user**.
 
+**Nota:  Per questa esercitazione, usare il file kafka-producer-consumer.jar nel progetto "DomainJoined-Producer-Consumer" (non quello nel progetto Producer-Consumer, che serve per gli scenari non aggiunti a un dominio).**
+
 5. Verificare che **sales_user1** possa creare risorse nell'argomento `salesevents` eseguendo il comando seguente:
 
    ```bash
@@ -194,6 +196,9 @@ Se non si intende continuare a usare questa applicazione, eseguire questa proced
 1. Selezionare **Cluster HDInsight** in **Servizi**.
 1. Nell'elenco di cluster HDInsight visualizzato, fare clic su **...** accanto al cluster creato per questa esercitazione. 
 1. Fare clic su **Elimina**. Fare clic su **Sì**.
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+Se kafka-producer-consumer.jar non funziona in un cluster aggiunto a dominio, assicurarsi di usare il file kafka-producer-consumer.jar nel progetto "DomainJoined-Producer-Consumer" (non quello nel progetto Producer-Consumer, che serve per gli scenari non aggiunti a un dominio).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

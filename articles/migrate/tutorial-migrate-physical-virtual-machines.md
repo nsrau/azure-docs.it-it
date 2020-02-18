@@ -4,12 +4,12 @@ description: Questo articolo illustra come eseguire la migrazione di computer fi
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.custom: MVC
-ms.openlocfilehash: 6cdd107cb761aab3a85b73067fd646a36fe97d63
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 908a5915cbb7f5aeb9f641da18024d5dbf497707
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989757"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134944"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Eseguire la migrazione di computer come server fisici in Azure
 
@@ -61,9 +61,6 @@ Prima di iniziare questa esercitazione, è necessario:
 Configurare le autorizzazioni di Azure prima di eseguire la migrazione con lo strumento Migrazione server di Azure Migrate.
 
 - **Creare un progetto**: l'account Azure deve avere le autorizzazioni per creare un progetto di Azure Migrate. 
-- **Registrare l'appliance di replica Azure Migrate**: l'appliance di replica crea e registra un'app Azure Active Directory nell'account Azure. Delegare le autorizzazioni per questa operazione.
-- **Creare un insieme di credenziali delle chiavi**: per eseguire la migrazione delle macchine virtuali, Azure Migrate crea un insieme di credenziali delle chiavi nel gruppo di risorse, per gestire le chiavi di accesso all'account di archiviazione di replica nella sottoscrizione. Per creare l'insieme di credenziali, sono necessarie autorizzazioni di assegnazione di ruolo per il gruppo di risorse in cui si trova il progetto di Azure Migrate. 
-
 
 ### <a name="assign-permissions-to-create-project"></a>Assegnare le autorizzazioni per creare il progetto
 
@@ -73,43 +70,6 @@ Configurare le autorizzazioni di Azure prima di eseguire la migrazione con lo st
     - Se è appena stato creato un account Azure gratuito, si è proprietari della propria sottoscrizione.
     - Se non si ha il ruolo di proprietario della sottoscrizione, collaborare con il proprietario per assegnare il ruolo.
 
-### <a name="assign-permissions-to-register-the-replication-appliance"></a>Assegnare le autorizzazioni per registrare l'appliance di replica
-
-Per la migrazione basata su agente, delegare allo strumento Migrazione server di Azure Migrate le autorizzazioni per creare e registrare un'app Azure AD nel proprio account. È possibile assegnare le autorizzazioni usando uno dei metodi seguenti:
-
-- Un amministratore tenant/globale può concedere agli utenti del tenant le autorizzazioni per creare e registrare app Azure AD.
-- Un amministratore tenant/globale può assegnare il ruolo Sviluppatore di applicazioni (che include le autorizzazioni) all'account.
-
-Vale la pena notare che:
-
-- Le app non hanno altre autorizzazioni di accesso per la sottoscrizione oltre a quelle descritte sopra.
-- Queste autorizzazioni sono necessarie solo quando si registra una nuova appliance di replica. Dopo la configurazione dell'appliance di replica è possibile rimuoverle. 
-
-
-#### <a name="grant-account-permissions"></a>Concedere le autorizzazioni all'account
-
-L'amministratore tenant/globale può concedere le autorizzazioni nel modo seguente:
-
-1. In Azure AD, l'amministratore globale/tenant deve passare a **Azure Active Directory** > **Utenti** > **Impostazioni utente**.
-2. L'amministratore deve impostare **Registrazioni app**su **Sì**.
-
-    ![Autorizzazioni di Azure AD](./media/tutorial-migrate-physical-virtual-machines/aad.png)
-
-> [!NOTE]
-> Si tratta di un'impostazione predefinita che non è sensibile. [Altre informazioni](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance)
-
-#### <a name="assign-application-developer-role"></a>Assegnare il ruolo Sviluppatore di applicazioni 
-
-L'amministratore tenant/globale può assegnare il ruolo Sviluppatore di applicazioni a un account. [Altre informazioni](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
-
-## <a name="assign-permissions-to-create-key-vault"></a>Assegnare le autorizzazioni per creare l'insieme di credenziali delle chiavi
-
-Per assegnare le autorizzazioni di assegnazione di ruolo per il gruppo di risorse in cui si trova il progetto di Azure Migrate, eseguire questa procedura:
-
-1. Nel gruppo di risorse nel portale di Azure selezionare **Controllo di accesso (IAM)** .
-2. In **Verifica l'accesso** trovare l'account pertinente e fare clic su di esso per visualizzare le autorizzazioni. Sono necessarie le autorizzazioni di **Proprietario** (o di **Collaboratore** e **Amministratore Accesso utenti** ).
-3. Se non si hanno le autorizzazioni necessarie, richiederle al proprietario del gruppo di risorse. 
-
 ## <a name="prepare-for-migration"></a>Preparare la migrazione
 
 ### <a name="check-machine-requirements-for-migration"></a>Verificare i requisiti del computer per la migrazione
@@ -117,7 +77,7 @@ Per assegnare le autorizzazioni di assegnazione di ruolo per il gruppo di risors
 Assicurarsi che i computer siano conformi ai requisiti per la migrazione ad Azure. 
 
 > [!NOTE]
-> La migrazione basata su agente con lo strumento Migrazione server di Azure Migrate si basa sulle funzionalità del servizio Azure Site Recovery. Alcuni requisiti potrebbero includere collegamenti alla documentazione di Site Recovery.
+> La migrazione basata su agente con Migrazione del server di Azure Migrate ha la stessa architettura di replica della funzionalità di ripristino di emergenza basata su agente del servizio Azure Site Recovery e alcuni dei componenti usati condividono la stessa base di codice. Alcuni requisiti potrebbero includere collegamenti alla documentazione di Site Recovery.
 
 1. [Verificare](migrate-support-matrix-physical-migration.md#physical-server-requirements) i requisiti dei server fisici.
 2. Verificare le impostazioni delle macchine virtuali. Le macchine virtuali locali replicate in Azure devono essere conformi ai [requisiti delle macchine virtuali di Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
@@ -194,7 +154,7 @@ La prima fase del processo di migrazione è la configurazione dell'appliance di 
 
     ![Finalizzare la registrazione](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
-Una volta finalizzata la registrazione, possono essere necessari fino a 15 minuti prima che le macchine virtuali individuate vengano visualizzate in Migrazione server di Azure Migrate. Man mano che vengono individuate VM, il numero indicato in **Server individuati** aumenta.
+Una volta finalizzata la registrazione, può essere necessario del tempo prima che le macchine virtuali individuate vengano visualizzate in Migrazione del server di Azure Migrate. Man mano che vengono individuate VM, il numero indicato in **Server individuati** aumenta.
 
 ![Server individuati](./media/tutorial-migrate-physical-virtual-machines/discovered-servers.png)
 

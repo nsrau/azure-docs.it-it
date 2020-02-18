@@ -7,12 +7,12 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 864cccc4629140754a326823cbaebd7ad8933d3d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: e469837c8e374e62824bd8f7a7feb110ed1be9c9
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75765070"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153112"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creare un progetto di etichettatura dei dati ed esportare le etichette 
 
@@ -125,7 +125,7 @@ Per i rettangoli di selezione, le domande importanti sono:
 
 ## <a name="initialize-the-labeling-project"></a>Inizializzare il progetto di etichettatura
 
-Dopo l'inizializzazione del progetto di etichettatura, alcuni aspetti non saranno modificabili. Non è possibile cambiare il tipo di attività o il set di dati. È invece *possibile* modificare le etichette e l'URL per la descrizione dell'attività. Esaminare attentamente le impostazioni prima di creare il progetto. Dopo aver inviato il progetto, si tornerà nella pagina iniziale **Etichettatura** in cui verrà mostrato il progetto con lo stato **Inizializzazione**. Questa pagina non viene aggiornata automaticamente. Quindi, dopo una pausa, aggiornare manualmente la pagina per visualizzare lo stato del progetto come **Creato**.
+Dopo l'inizializzazione del progetto di etichettatura, alcuni aspetti non saranno modificabili. Non è possibile cambiare il tipo di attività o il set di dati. È invece *possibile* modificare le etichette e l'URL per la descrizione dell'attività. Esaminare attentamente le impostazioni prima di creare il progetto. Dopo aver inviato il progetto, si tornerà nella pagina iniziale **Etichettatura dei dati** in cui verrà mostrato il progetto con lo stato **Inizializzazione**. Questa pagina non viene aggiornata automaticamente. Quindi, dopo una pausa, aggiornare manualmente la pagina per visualizzare lo stato del progetto come **Creato**.
 
 ## <a name="manage-teams-and-people"></a>Gestire team e persone
 
@@ -139,7 +139,7 @@ Per inviare un messaggio di posta elettronica al team, selezionare il team per v
 
 ## <a name="run-and-monitor-the-project"></a>Eseguire e monitorare il progetto
 
-Una volta inizializzato il progetto, Azure inizierà a eseguirlo. Selezionare il progetto nella pagina principale **Etichettatura** per passare a **Dettagli del progetto**. La scheda **Dashboard** indicherà lo stato di avanzamento dell'attività di etichettatura.
+Una volta inizializzato il progetto, Azure inizierà a eseguirlo. Selezionare il progetto nella pagina principale **Etichettatura dei dati** per passare a **Dettagli del progetto**. La scheda **Dashboard** indicherà lo stato di avanzamento dell'attività di etichettatura.
 
 Nella scheda **Dati** è possibile esaminare il set di dati e rivedere i dati etichettati. Se vengono individuati dati etichettati in modo errato, selezionarli e fare clic su **Rifiuta**. Le etichette verranno rimosse e i dati verranno inseriti nuovamente nella coda dei dati non etichettati.
 
@@ -148,6 +148,24 @@ Usare la scheda **Team** per assegnare o annullare l'assegnazione di team a ques
 Per sospendere o riavviare il progetto, selezionare il pulsante **Sospendi**/**Avvia**. È possibile etichettare i dati solo quando il progetto è in esecuzione.
 
 È possibile etichettare i dati direttamente dalla pagina **Dettagli del progetto** selezionando **Etichetta dati**.
+
+## <a name="add-labels-to-a-project"></a>Aggiungere etichette a un progetto
+
+Durante il processo di etichettatura, si potrebbe rilevare che sono necessarie etichette aggiuntive per classificare le immagini.  Ad esempio, si potrebbe scegliere di aggiungere un'etichetta "Sconosciuto" o "Altro" per indicare immagini confuse.
+
+Usare questi passaggi per aggiungere una o più etichette a un progetto:
+
+1. Selezionare il progetto nella pagina principale **Etichettatura dei dati**.
+1. Nella parte superiore della pagina selezionare **Sospendi** per arrestare l'attività degli etichettatori.
+1. Selezionare la scheda **Dettagli**.
+1. Nell'elenco a sinistra selezionare **Classi di etichetta**.
+1. All'inizio dell'elenco selezionare **+ Aggiungi etichette** ![Aggiungere un'etichetta](media/how-to-create-labeling-projects/add-label.png)
+1. Nel modulo aggiungere la nuova etichetta e scegliere come procedere.  Poiché le etichette disponibili per un'immagine sono state cambiate, scegliere come trattare i dati già etichettati:
+    * Ricominciare rimuovendo tutte le etichette esistenti.  Scegliere questa opzione se si vuole iniziare a etichettare dall'inizio con il nuovo set completo di etichette. 
+    * Ricominciare mantenendo tutte le etichette esistenti.  Scegliere questa opzione per contrassegnare tutti i dati come non etichettati, ma mantenere le etichette esistenti come tag predefinito per le immagini etichettate in precedenza.
+    * Continuare mantenendo tutte le etichette esistenti. Scegliere questa opzione per mantenere tutti i dati etichettati così come sono e iniziare a usare la nuova etichetta per i dati non ancora etichettati.
+1. Modificare la pagina di istruzioni secondo necessità per le nuove etichette.
+1. Dopo aver aggiunto tutte le nuove etichette, nella parte superiore della pagina selezionare **Avvia** per riavviare il progetto.  
 
 ## <a name="export-the-labels"></a>Esportare le etichette
 

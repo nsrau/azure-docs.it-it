@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/31/2019
+ms.date: 02/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 315ebfa1460f9d9bc041925cec2451f63ac5be16
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 55c7e2f30324fe7878e38f1129c63c6e0c51a75f
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580266"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134851"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Esercitazione: Tenere traccia dell'utilizzo di un lab in Azure Lab Services
 Questa esercitazione spiega in che modo il creatore/proprietario di un lab può tenere traccia dell'utilizzo del lab.
@@ -32,18 +32,18 @@ In questa esercitazione vengono completate le azioni seguenti:
 > * Gestire le macchine virtuali degli studenti 
 
 
-## <a name="view-users-registered-with-the-lab"></a>Visualizzare gli utenti che hanno eseguito la registrazione per il lab
+## <a name="view-registered-users"></a>Visualizzare gli utenti registrati
 
 1. Accedere al [sito Web di Azure Lab Services](https://labs.azure.com). 
 2. Selezionare **Accedi** e immettere le credenziali. Azure Lab Services supporta gli account aziendali e gli account Microsoft.
 3. Nella pagina **My labs** (I miei lab) selezionare il lab per il quale si vuole tenere traccia dell'utilizzo. 
-4. Selezionare **Utenti** nel menu a sinistra oppure il riquadro **Utenti**. Verranno visualizzati gli studenti che hanno eseguito la registrazione per il lab. Selezionare **Registration link** (Collegamento di registrazione), copiare il collegamento e inviarlo a qualsiasi nuovo studente che non ha ancora eseguito la registrazione per il lab. 
+4. Selezionare **Utenti** nel menu a sinistra oppure il riquadro **Utenti**. Verranno visualizzati gli studenti che hanno eseguito la registrazione per il lab.  
 
     ![Utenti registrati](../media/tutorial-track-usage/registered-users.png)
 
     Per informazioni dettagliate sull'aggiunta e la gestione degli utenti per il lab, vedere [Aggiungere e gestire gli utenti del lab](how-to-configure-student-usage.md).
 
-## <a name="view-the-usage-of-vms-in-the-lab"></a>Visualizzare l'utilizzo delle macchine virtuali nel lab 
+## <a name="view-the-usage-of-vms"></a>Visualizzare l'utilizzo di VM
 
 1. Nel menu a sinistra scegliere **Macchine virtuali**. 
 2. Verificare che vengano visualizzati lo stato e il numero di ore di esecuzione delle macchine virtuali. Il tempo usato dal proprietario del lab nella macchina virtuale di uno studente non viene conteggiato nel tempo di utilizzo visualizzato nell'ultima colonna. 

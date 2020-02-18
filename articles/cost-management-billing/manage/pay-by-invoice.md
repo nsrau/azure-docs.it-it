@@ -2,28 +2,28 @@
 title: Pagare le sottoscrizioni di Azure tramite fattura
 description: Questo articolo descrive come pagare le sottoscrizioni di Azure tramite fattura.
 author: bandersmsft
-manager: jureid
+manager: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: a0f012145788d2d1d4935e10691859e5aaf71255
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a471e859261dc735e92bfff743eb3a8e13dd9a35
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75994337"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133637"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Pagare la sottoscrizione di Azure tramite fattura
 
 Con il metodo di pagamento tramite fattura la fattura viene pagata entro 30 giorni dalla data di emissione, con assegno o bonifico bancario. Per diventare idonei al pagamento della sottoscrizione di Azure tramite fattura, inviare una richiesta al supporto tecnico di Azure. Dopo che la richiesta è stata approvata, è possibile passare al pagamento con fattura (assegno/bonifico bancario) nel [portale di Azure](https://portal.azure.com).
 
 > [!IMPORTANT]
-> * Il pagamento con fattura (assegno/bonifico bancario) è disponibile solo per gli account aziendali.
+> * Il pagamento tramite fattura (assegno/bonifico) è disponibile solo per i clienti che usano Azure per conto di una società.
 > * Prima di passare al pagamento tramite fattura, è necessario corrispondere tutti gli addebiti insoluti.
 > * Attualmente il pagamento tramite fattura non è supportato per Azure globale in Cina.
 

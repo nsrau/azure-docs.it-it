@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva al servizio Azure SignalR serverless - Java
+title: Usare Java per creare una chat room con Funzioni di Azure e il servizio SignalR
 description: Una guida introduttiva per usare il servizio Azure SignalR e le Funzioni di Azure per la creazione di una chat room.
 author: sffamily
 ms.service: signalr
@@ -7,36 +7,34 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: 9e4e64b99a69e523547bae04146c7460d08bc1df
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 890fc381afe0146e721e084e2dcd7eae9215d004
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261174"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083212"
 ---
-# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-java"></a>Avvio rapido: Creare una chat room con Funzioni di Azure e il servizio SignalR usando Java
+# <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Avvio rapido: Usare Java per creare una chat room con Funzioni di Azure e il servizio SignalR
 
-Il servizio Azure SignalR consente di aggiungere facilmente funzionalità in tempo reale all'applicazione. Funzioni di Azure è una piattaforma serverless che consente di eseguire il codice senza gestire alcuna infrastruttura. Questa guida introduttiva fornisce informazioni su come usare il servizio SignalR e le funzioni per creare un'applicazione serverless di chat in tempo reale.
+Il servizio Azure SignalR consente di aggiungere facilmente funzionalità in tempo reale all'applicazione e Funzioni di Azure è una piattaforma serverless che consente di eseguire il codice senza gestire alcuna infrastruttura. Questo argomento di avvio rapido illustra come usare Java per creare un'applicazione serverless di chat in tempo reale con il Servizio SignalR e Funzioni di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Questa guida introduttiva può essere eseguita su macOS, Windows o Linux.
+- Un editor di codice, ad esempio [Visual Studio Code](https://code.visualstudio.com/)
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing). Usato per eseguire le app Funzioni di Azure in locale.
 
-Assicurarsi di disporre di un editor di codice installato, ad esempio [Visual Studio Code](https://code.visualstudio.com/).
+   > [!NOTE]
+   > Le associazioni del servizio SignalR richieste in Java sono supportate solo in Azure Function Core Tools versione 2.4.419 (versione host 2.0.12332) o versione successiva.
 
-Installare gli [Strumenti di base di Funzioni di Azure (v2)](https://github.com/Azure/azure-functions-core-tools#installing) per eseguire localmente le app per le funzioni di Azure.
+   > [!NOTE]
+   > Per installare le estensioni, Azure Functions Core Tools richiede che sia installato [.NET Core SDK](https://www.microsoft.com/net/download). Tuttavia, non è necessaria alcuna conoscenza di .NET per compilare le app per le funzioni di Azure per JavaScript.
+
+- [Java Developer Kit](https://www.azul.com/downloads/zulu/), versione 8
+- [Apache Maven](https://maven.apache.org), versione 3.0 o successive
 
 > [!NOTE]
-> Per usare le associazioni del servizio SignalR in Java, verificare di usare la versione 2.4.419 o versione successiva di Azure Functions Core Tools (versione host 2.0.12332).
-
-Per installare le estensioni, gli strumenti di base di Funzioni di Azure richiedono attualmente che sia installato [.NET Core SDK](https://www.microsoft.com/net/download). Tuttavia, non è necessaria alcuna conoscenza di .NET per compilare le app per le funzioni di Azure per JavaScript.
-
-Per sviluppare app per le funzioni con Java, è necessario che siano installati gli elementi seguenti:
-
-* [Java Developer Kit](https://www.azul.com/downloads/zulu/), versione 8.
-* [Apache Maven](https://maven.apache.org), versione 3.0 o successiva.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+> Questa guida introduttiva può essere eseguita su macOS, Windows o Linux.
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
