@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1734b063530f9e8a8f0429111c4c39d628bfad4e
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 4434c877f69391f5dc5926c6aed07049ba46b7b7
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251771"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425647"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C
 
@@ -104,6 +104,18 @@ I nomi di parametro inclusi in una richiesta OIDC o OAuth2 possono essere mappat
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | Token di accesso. | N/D |
 
+
+### <a name="saml"></a>SAML
+
+| Attestazione | Descrizione | Esempio |
+| ----- | ----------- | --------|
+| {SAML: AuthnContextClassReferences} | Il valore dell'elemento `AuthnContextClassRef`, dalla richiesta SAML. | urn: Oasis: Names: TC: SAML: 2.0: AC: Classes: PasswordProtectedTransport |
+| {SAML: NameIdPolicyFormat} | Attributo `Format`, dall'elemento `NameIDPolicy` della richiesta SAML. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
+| {SAML: emittente} |  Il valore dell'elemento `Issuer` SAML della richiesta SAML.| https://contoso.com |
+| {SAML: AllowCreate} | Il valore dell'attributo `AllowCreate`, dall'elemento `NameIDPolicy` della richiesta SAML. | True |
+| {SAML: ForceAuthn} | Il valore dell'attributo `ForceAuthN`, dall'elemento `AuthnRequest` della richiesta SAML. | True |
+| {SAML: ProviderName} | Il valore dell'attributo `ProviderName`, dall'elemento `AuthnRequest` della richiesta SAML.| Contoso.com |
+
 ## <a name="using-claim-resolvers"></a>Uso di resolver di attestazioni 
 
 È possibile usare i resolver di attestazioni con gli elementi seguenti: 
@@ -160,7 +172,7 @@ Con i resolver di attestazioni è possibile precompilare il nome di accesso o l'
 
 ### <a name="dynamic-ui-customization"></a>Personalizzazione dell'interfaccia utente dinamica
 
-Azure AD B2C consente di passare i parametri della stringa di query agli endpoint della definizione del contenuto HTML per eseguire dinamicamente il rendering del contenuto della pagina. Questo consente, ad esempio, di modificare l'immagine di sfondo nella pagina Azure AD B2C iscrizione o l'accesso in base a un parametro personalizzato passato dall'applicazione Web o per dispositivi mobili. Per altre informazioni, vedere [Azure Active Directory B2C: Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati](custom-policy-ui-customization-dynamic.md). È anche possibile localizzare la pagina HTML in base a un parametro di lingua oppure è possibile modificare il contenuto in base all'ID client.
+Azure AD B2C consente di passare i parametri della stringa di query agli endpoint della definizione del contenuto HTML per eseguire dinamicamente il rendering del contenuto della pagina. Questo consente, ad esempio, di modificare l'immagine di sfondo nella pagina Azure AD B2C iscrizione o l'accesso in base a un parametro personalizzato passato dall'applicazione Web o per dispositivi mobili. Per altre informazioni, vedere [Azure Active Directory B2C: Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati](custom-policy-ui-customization.md). È anche possibile localizzare la pagina HTML in base a un parametro di lingua oppure è possibile modificare il contenuto in base all'ID client.
 
 L'esempio seguente passa il parametro della stringa di query denominato **campaignId** con il valore `hawaii`, un codice di **lingua** di `en-US`e l' **app** che rappresenta l'ID client:
 

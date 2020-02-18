@@ -1,23 +1,23 @@
 ---
 title: Inserire BLOB di Azure in Esplora dati di Azure
 description: Questo articolo illustra come inviare i dati dell'account di archiviazione ad Azure Esplora dati usando una sottoscrizione di griglia di eventi.
-author: radennis
-ms.author: radennis
-ms.reviewer: orspodek
+author: orspod
+ms.author: orspodek
+ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: da701dc91781ef72c29e6454e79523073810dbe4
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: a07a5a5956d8ea295d269d81ed264177bc8805f2
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667490"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77424984"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Inserire BLOB in Esplora dati di Azure tramite la sottoscrizione delle notifiche di Griglia di eventi
 
 > [!div class="op_single_selector"]
-> * [di Microsoft Azure](ingest-data-event-grid.md)
+> * [Portale](ingest-data-event-grid.md)
 > * [C#](data-connection-event-grid-csharp.md)
 > * [Python](data-connection-event-grid-python.md)
 > * [Modello di Azure Resource Manager](data-connection-event-grid-resource-manager.md)
@@ -44,10 +44,10 @@ Questo articolo illustra come impostare una sottoscrizione di griglia di [eventi
 
     **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | name | *test-grid-connection* | Il nome della griglia di eventi da creare.|
+    | Name | *test-grid-connection* | Il nome della griglia di eventi da creare.|
     | Schema di eventi | *Schema griglia di eventi* | Lo schema da usare per la griglia di eventi. |
     | Tipo di argomento | *Account di archiviazione* | Il tipo di argomento della griglia di eventi. |
-    | Risorsa argomento | *gridteststorage* | Nome dell'account di archiviazione. |
+    | Risorsa argomento | *gridteststorage* | nome dell'account di archiviazione. |
     | Esegui la sottoscrizione di tutti i tipi di eventi | *deselezionare* | Non si ricevono notifiche per tutti gli eventi. |
     | Tipi di evento definiti | *Blob created* (BLOB creato) | Gli eventi specifici per cui ricevere notifiche. |
     | Tipo di endpoint | *Hub eventi* | Il tipo di endpoint a cui vengono inviati gli eventi. |
@@ -117,12 +117,12 @@ Connettersi ora alla griglia di eventi da Azure Esplora dati, in modo che il flu
 
      **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | Table | *TestTable* | Tabella creata in **TestDatabase**. |
+    | Tabella | *TestTable* | Tabella creata in **TestDatabase**. |
     | Formato dati | *JSON* | I formati supportati sono Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV e TXT. Opzioni di compressione supportate: zip e GZip |
     | Mapping di colonne | *TestMapping* | Mapping creato in **TestDatabase** che esegue il mapping dei dati JSON in ingresso ai nomi di colonna e ai tipi di dati di **TestTable**.|
     | | |
     
-## <a name="generate-sample-data"></a>Generare i dati di esempio
+## <a name="generate-sample-data"></a>Generare dati di esempio
 
 Dopo aver connesso Esplora dati di Azure e l'account di archiviazione, è possibile creare i dati di esempio e caricarli nella risorsa di archiviazione BLOB.
 
@@ -157,6 +157,11 @@ Salvare i dati in un file e caricarlo con questo script:
 
     echo "Done"
 ```
+
+> [!NOTE]
+> Azure Esplora dati non eliminerà i BLOB dopo l'inserimento.
+> Conservare i BLOB per thrre a cinque giorni.
+> Usare il ciclo di vita dell' [archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal) per gestire l'eliminazione del BLOB. 
 
 ## <a name="review-the-data-flow"></a>Esaminare il flusso di dati
 
