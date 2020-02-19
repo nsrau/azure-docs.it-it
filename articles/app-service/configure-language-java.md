@@ -11,7 +11,7 @@ ms.reviewer: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: f6f334ed6b84d4688849b6dfd8cb1f79f8db57bf
 ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/18/2020
 ms.locfileid: "77443895"
