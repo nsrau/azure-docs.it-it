@@ -1,5 +1,5 @@
 ---
-title: Raccomandazioni per la sicurezza nel centro sicurezza di Azure | Microsoft Docs
+title: Raccomandazioni di sicurezza nel Centro sicurezza di Azure
 description: Questo documento dimostra come le raccomandazioni presenti nel Centro sicurezza di Azure facilitino la protezione delle risorse di Azure e garantiscano la conformità ai criteri di sicurezza.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 6a01ddbc733ce52c02e9abef2569adbfbd19c6a8
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 4f41f4996f230a373245633b9449e93c403a1dfc
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520742"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430296"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Raccomandazioni di sicurezza nel Centro sicurezza di Azure 
 Questo argomento illustra come visualizzare e comprendere le raccomandazioni nel centro sicurezza di Azure per proteggere le risorse di Azure.

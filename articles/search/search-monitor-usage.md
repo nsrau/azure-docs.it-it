@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/15/2020
-ms.openlocfilehash: c4a787362089dabf9c4eda9681358e7a70d8e78a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 5846e9516548032595c1ce072d1dae8dcce9d39e
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210543"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443602"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Monitorare le operazioni e le attività di Azure ricerca cognitiva
 
 In questo articolo viene introdotto il monitoraggio a livello di servizio (risorsa), a livello di carico di lavoro (query e indicizzazione) e viene suggerito un Framework per il monitoraggio dell'accesso degli utenti.
 
-Attraverso lo spettro, si userà una combinazione di infrastruttura incorporata e servizi di base come monitoraggio di Azure, oltre alle API del servizio che restituiscono statistiche, conteggi e stato. Comprendere la gamma di funzionalità consentirà di configurare o creare un sistema di comunicazione efficace per le risposte proattive ai problemi man mano che emergono.
+Attraverso lo spettro, si userà una combinazione di infrastruttura incorporata e servizi di base come monitoraggio di Azure, oltre alle API del servizio che restituiscono statistiche, conteggi e stato. Comprendere la gamma di funzionalità consente di creare un ciclo di feedback per poter risolvere i problemi che emergono.
 
 ## <a name="use-azure-monitor"></a>Usare Monitoraggio di Azure
 
@@ -52,9 +52,9 @@ Le pagine a schede incorporate nella pagina Panoramica segnalano l'utilizzo dell
 
 Se è necessario prendere decisioni in merito al [livello da usare per i carichi di lavoro di produzione](search-sku-tier.md) o per stabilire se occorre [modificare il numero di repliche e partizioni attive](search-capacity-planning.md), queste metriche sono utili perché indicano con quale velocità vengono utilizzate le risorse e se la configurazione corrente è adeguata per gestire il carico esistente.
 
-Gli avvisi relativi all'archiviazione non sono attualmente disponibili. il consumo di spazio di archiviazione non viene aggregato o registrato in **AzureMetrics**. Per ottenere le notifiche relative alle risorse, è necessario compilare una soluzione personalizzata.
+Gli avvisi relativi all'archiviazione non sono attualmente disponibili. il consumo di spazio di archiviazione non viene aggregato o registrato nella tabella **AzureMetrics** di monitoraggio di Azure. È necessario creare una soluzione personalizzata che genera notifiche correlate alle risorse, in cui il codice controlla le dimensioni di archiviazione e gestisce la risposta. Per altre informazioni sulle metriche di archiviazione, vedere [ottenere le statistiche del servizio](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response).
 
-Nel portale la scheda **utilizzo** Mostra la disponibilità delle risorse rispetto ai [limiti](search-limits-quotas-capacity.md) correnti imposti dal livello di servizio. 
+Per il monitoraggio visivo nel portale, la scheda **utilizzo** Mostra la disponibilità delle risorse rispetto ai [limiti](search-limits-quotas-capacity.md) correnti imposti dal livello di servizio. 
 
 La figura seguente è riferita al servizio gratuito, che prevede un limite di 3 oggetti di ogni tipo e 50 MB di spazio di archiviazione. Un servizio Basic o Standard ha limiti più elevati e se si aumenta il numero delle partizioni, lo spazio di archiviazione massimo aumenta in proporzione.
 
@@ -63,7 +63,7 @@ La figura seguente è riferita al servizio gratuito, che prevede un limite di 3 
 
 ## <a name="monitor-workloads"></a>Monitorare i carichi di lavoro
 
-Gli eventi registrati includono quelli correlati all'indicizzazione e alle query. La tabella **diagnostica di Azure** in log Analytics raccoglie dati operativi correlati a query e indicizzazione.
+Gli eventi registrati includono quelli correlati all'indicizzazione e alle query. La tabella **AzureDiagnostics** in log Analytics raccoglie dati operativi correlati a query e indicizzazione.
 
 La maggior parte dei dati registrati è per operazioni di sola lettura. Per le altre operazioni di creazione-aggiornamento-eliminazione non acquisite nel log, è possibile eseguire una query sul servizio di ricerca per ottenere informazioni sul sistema.
 
@@ -115,9 +115,9 @@ Sia l'API REST di Azure ricerca cognitiva che .NET SDK forniscono l'accesso a li
 
 ## <a name="monitor-user-access"></a>Monitorare l'accesso utente
 
-Poiché gli indici di ricerca sono un componente di un'applicazione client di dimensioni maggiori, non esiste una metodologia incorporata per ogni utente per il controllo dell'accesso a un indice. Si presuppone che le richieste provengano da un'applicazione client per le richieste di amministratore o di query. Le operazioni di lettura/scrittura di amministrazione includono la creazione, l'aggiornamento e l'eliminazione di oggetti nell'intero servizio. Le operazioni di sola lettura sono query sulla raccolta Documents, che hanno come ambito un singolo indice. 
+Poiché gli indici di ricerca sono un componente di un'applicazione client di dimensioni maggiori, non esiste alcuna metodologia incorporata per il controllo o il monitoraggio dell'accesso per utente a un indice. Si presuppone che le richieste provengano da un'applicazione client per le richieste di amministratore o di query. Le operazioni di lettura/scrittura di amministrazione includono la creazione, l'aggiornamento e l'eliminazione di oggetti nell'intero servizio. Le operazioni di sola lettura sono query sulla raccolta Documents, che hanno come ambito un singolo indice. 
 
-Di conseguenza, gli elementi visualizzati nei log sono riferimenti a chiamate che usano chiavi amministrative o chiavi di query. La chiave appropriata è inclusa nelle richieste originate dal codice client. Il servizio non è in grado di gestire i token di identità o la rappresentazione.
+Di conseguenza, gli elementi visualizzati nei log attività sono riferimenti a chiamate che usano chiavi amministrative o chiavi di query. La chiave appropriata è inclusa nelle richieste originate dal codice client. Il servizio non è in grado di gestire i token di identità o la rappresentazione.
 
 Quando i requisiti aziendali sono disponibili per l'autorizzazione per utente, è consigliabile usare l'integrazione con Azure Active Directory. È possibile utilizzare $filter e le identità utente per [tagliare i risultati della ricerca](search-security-trimming-for-azure-search-with-aad.md) dei documenti che un utente non dovrebbe visualizzare. 
 

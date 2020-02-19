@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 02/18/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 3df7e772ea88a7a58780f08ff20f44d50f01c336
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: f15e92f5e98c047fc5ed481968674370cf222a16
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063884"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443619"
 ---
 # <a name="frequently-asked-questions-faqs-about-the-microsoft-authenticator-app"></a>Domande frequenti sull'app Microsoft Authenticator
 
@@ -51,7 +51,8 @@ L'app Microsoft Authenticator ha sostituito l'app Azure Authenticator ed è cons
 | Che cos'è la funzionalità Blocco dell'app e in che modo aumenta la sicurezza? | Per rendere più sicuri i passcode monouso, le informazioni sull'app e le impostazioni dell'app, è possibile attivare la funzionalità di blocco dell'app nell'app Microsoft Authenticator. Attivando il blocco dell'app dalla schermata **Impostazioni** dell'app Microsoft Authenticator, verrà chiesto di eseguire l'autenticazione usando il PIN o la biometria ogni volta che si apre l'app Microsoft Authenticator. Questa funzionalità offre protezione aggiuntiva, ma il modo di approvare le notifiche nell'app Microsoft Authenticator non cambierà.<br><br>**Nota**<br>Poiché la registrazione del dispositivo può avvenire in altre posizioni all'esterno dell'app Microsoft Authenticator, ad esempio nell'app Portale aziendale o nelle impostazioni dell'account Android, non c'è alcuna garanzia che il blocco dell'app arresti l'accesso di un utente a Microsoft App Authenticator. |
 | Perché vengono visualizzate notifiche sull'attività dell'account? | Affinché gli utenti siano sempre informati su quanto accade con l'account Microsoft personale, vengono inviate notifiche sull'attività all'app Microsoft Authenticator. Queste notifiche vengono visualizzate immediatamente dopo qualsiasi modifica, in modo da garantire una maggiore sicurezza. In precedenza queste notifiche venivano inviate tramite posta elettronica e SMS e ora è stata inclusa l'app. Per altre informazioni sulle notifiche sull'attività, vedere [Cosa succede se si verifica un accesso anomalo al tuo account](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in). Per modificare il punto in cui si ricevono le notifiche, accedere alla pagina [dove è possibile contattare l'utente con gli avvisi non critici](https://account.live.com/SecurityNotifications/Update) dell'account. |
 | Quando si accede all'account aziendale o dell'Istituto di istruzione usando l'app di posta elettronica predefinita fornita con iOS, viene richiesto all'app Microsoft Authenticator per le informazioni di verifica della sicurezza. Dopo aver immesso le informazioni e restituito all'app di posta elettronica, viene restituito un errore. In che modo è possibile risolvere questo problema? | Questo problema si verifica più spesso perché l'accesso e l'app di posta elettronica si verificano in due diverse app, causando la mancata esecuzione del processo di accesso in background iniziale e l'interruzione. Per provare a risolvere questo problema, è consigliabile selezionare l'icona **Safari** sul lato inferiore destro dello schermo durante l'accesso all'app di posta elettronica. Passando a Safari, l'intero processo di accesso si verifica in una singola app, consentendo di accedere correttamente all'app. |
-| I codici OTP (One-time password) non funzionano. Cosa devo fare? | Assicurarsi che la data e l'ora del dispositivo siano corrette e che vengano sincronizzate automaticamente. Se la data e l'ora non sono corrette o non sono sincronizzate, il codice non funzionerà. |
+| I codici OTP (One-time password) non funzionano. Come si deve procedere? | Assicurarsi che la data e l'ora del dispositivo siano corrette e che vengano sincronizzate automaticamente. Se la data e l'ora non sono corrette o non sono sincronizzate, il codice non funzionerà. |
+| Il sistema operativo Windows 10 Mobile è stato deprecato il 2019 dicembre. Il Microsoft Authenticator sui sistemi operativi Windows Mobile sarà deprecato? | L'app Microsoft Authenticator in tutti i sistemi operativi Windows Mobile non sarà supportata dopo il 28 febbraio 2020. Gli utenti non saranno idonei per la ricezione di nuovi aggiornamenti per l'app dopo la data indicata sopra. Dopo il 28 febbraio 2020 i servizi Microsoft che attualmente supportano le autenticazioni che usano il Microsoft Authenticator su tutti i sistemi operativi Windows Mobile inizieranno a ritirare il proprio supporto. Per eseguire l'autenticazione nei servizi Microsoft, si consiglia vivamente a tutti gli utenti di passare a un meccanismo di autenticazione alternativo prima di questa data. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,12 +7,12 @@ ms.date: 12/5/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 8f84b5641b79514ffed493302f246ecc51a20a87
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: abcf7d100a1c195d4a49c3061bf22710285c2a9f
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850058"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444163"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure
 
@@ -77,7 +77,7 @@ Si supponga di avere un piano di servizio app per il sito Web. Si intende monito
 - Risorsa di destinazione: myAppServicePlan
 - Metrica: CPU percentuale
 - Tipo di condizione: static
-- Dimensioni
+- Dimensions
   - Istanza = InstanceName1, InstanceName2
 - Aggregazione temporale: Media
 - Periodo: Negli ultimi 5 minuti
@@ -92,7 +92,7 @@ Supponiamo di avere un'app Web che registra un numero di richieste elevato, a ca
 - Risorsa di destinazione: myAppServicePlan
 - Metrica: CPU percentuale
 - Tipo di condizione: static
-- Dimensioni
+- Dimensions
   - Istanza = *
 - Aggregazione temporale: Media
 - Periodo: Negli ultimi 5 minuti
@@ -109,7 +109,7 @@ Supponiamo di avere un'app Web con numerose istanze e di non sapere quale sia la
 - Risorsa di destinazione: myAppServicePlan
 - Metrica: CPU percentuale
 - Tipo di condizione: Dynamic
-- Dimensioni
+- Dimensions
   - Istanza = *
 - Aggregazione temporale: Media
 - Periodo: Negli ultimi 5 minuti
@@ -125,15 +125,15 @@ Questa regola monitora se l'utilizzo medio della CPU negli ultimi 5 minuti super
 
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Monitoraggio su larga scala mediante gli avvisi delle metriche in Monitoraggio di Azure
 
-Fino a questo punto abbiamo visto che un solo avviso di metrica può essere usato per monitorare una o molte serie temporali di metriche correlate a una singola risorsa di Azure. Spesso si ha l'esigenza di applicare la stessa regola di avviso a molte risorse. Monitoraggio di Azure supporta anche il monitoraggio di più risorse con una regola di avviso per la metrica. Questa funzionalità è attualmente supportata solo per le macchine virtuali, i database di SQL Server, i pool elastici di SQL Server e i dispositivi perimetrali di data box. Un singolo avviso per la metrica, inoltre, può monitorare le risorse in una sola area di Azure.
+Fino a questo punto abbiamo visto che un solo avviso di metrica può essere usato per monitorare una o molte serie temporali di metriche correlate a una singola risorsa di Azure. Spesso si ha l'esigenza di applicare la stessa regola di avviso a molte risorse. Monitoraggio di Azure supporta anche il monitoraggio di più risorse (dello stesso tipo) con una regola di avviso di metrica, per le risorse presenti nella stessa area di Azure. Questa funzionalità è attualmente supportata solo nel cloud pubblico di Azure e solo per le macchine virtuali, i database di SQL Server, i pool elastici di SQL Server e i dispositivi perimetrali di data box. Inoltre, questa funzionalità è disponibile solo per le metriche della piattaforma e non è supportata per le metriche personalizzate.
 
-È possibile specificare l'ambito del monitoraggio con un singolo avviso per la metrica in uno dei tre modi seguenti:
+È possibile specificare l'ambito di monitoraggio per una singola regola di avviso di metrica in uno dei tre modi seguenti:
 
 - come elenco di macchine virtuali in un'area di Azure all'interno di una sottoscrizione
 - tutte le macchine virtuali (in un'area di Azure) in uno o più gruppi di risorse in una sottoscrizione
 - tutte le macchine virtuali (in un'area di Azure) in una sottoscrizione
 
-La creazione di regole di avviso per le metriche che monitorano più risorse equivale a [creare qualsiasi altro avviso per le metriche](alerts-metric.md) che monitora una sola risorsa. L'unica differenza è che occorre selezionare tutte le risorse da monitorare. È possibile creare queste regole anche tramite i [modelli di Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Si riceveranno notifiche specifiche per ogni macchina virtuale.
+La creazione di regole di avviso per le metriche che monitorano più risorse equivale a [creare qualsiasi altro avviso per le metriche](alerts-metric.md) che monitora una sola risorsa. L'unica differenza è che occorre selezionare tutte le risorse da monitorare. È possibile creare queste regole anche tramite i [modelli di Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Si riceveranno notifiche singole per ogni risorsa monitorata.
 
 ## <a name="typical-latency"></a>Latenza tipica
 

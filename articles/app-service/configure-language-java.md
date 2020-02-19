@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a088a90642a0394b0ede3c163590f64112799d1a
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
-ms.translationtype: HT
+ms.openlocfilehash: f6f334ed6b84d4688849b6dfd8cb1f79f8db57bf
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425290"
+ms.locfileid: "77443895"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configurare un'app Java Windows per il servizio app Azure
 
@@ -128,9 +128,9 @@ Le applicazioni Java in esecuzione nel servizio app hanno lo stesso set di proce
 
 Configurare l'autenticazione delle app nel portale di Azure con l'opzione di **autenticazione e autorizzazione** . che consente di abilitare l'autenticazione usando Azure Active Directory o gli account di accesso ai social network, ad esempio Facebook, Google o GitHub. La configurazione nel portale di Azure funziona solo quando si configura un singolo provider di autenticazione. Per altre informazioni, vedere [Configurare un'applicazione dei servizi app per usare l'account di accesso di Azure Active Directory](configure-authentication-provider-aad.md) e gli articoli correlati per gli altri provider di identità. Se è necessario abilitare più provider di accesso, seguire le istruzioni dell'articolo [Personalizzare l'autenticazione nel servizio app](app-service-authentication-how-to.md).
 
-#### <a name="tomcat-and-wildfly"></a>Tomcat e Wildfly
+#### <a name="tomcat"></a>Tomcat
 
-L'applicazione Tomcat o Wildfly può accedere alle attestazioni dell'utente direttamente dalla servlet eseguendo il cast dell'oggetto Principal a un oggetto map. L'oggetto map eseguirà il mapping di ogni tipo di attestazione a una raccolta di attestazioni per quel tipo. Nel codice riportato di seguito `request` è un'istanza di `HttpServletRequest`.
+L'applicazione Tomcat può accedere alle attestazioni dell'utente direttamente dalla servlet eseguendo il cast dell'oggetto Principal a un oggetto map. L'oggetto map eseguirà il mapping di ogni tipo di attestazione a una raccolta di attestazioni per quel tipo. Nel codice riportato di seguito `request` è un'istanza di `HttpServletRequest`.
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();

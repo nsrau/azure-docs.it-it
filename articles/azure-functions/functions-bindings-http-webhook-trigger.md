@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 5d2ee6c530e2154373508be00edcf1bcdbb59861
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 8dbb4ff0c9f8df6609d8447e84dcfe878a954fff
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210892"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443959"
 ---
 # <a name="azure-functions-http-trigger"></a>Trigger HTTP di funzioni di Azure
 
@@ -29,7 +29,7 @@ Per ulteriori informazioni sulle associazioni HTTP, vedere la [Panoramica](./fun
 
 ## <a name="example"></a>Esempio
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 L'esempio seguente mostra una [funzione in C#](functions-dotnet-class-library.md) che cerca un parametro `name` nella stringa di query o nel corpo della richiesta HTTP. Si noti che il valore restituito viene usato per l'associazione di output, ma non è necessario un attributo di valore restituito.
 
@@ -53,7 +53,7 @@ public static async Task<IActionResult> Run(
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[C#Script](#tab/csharp-script)
 
 L'esempio seguente mostra un'associazione di trigger in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione cerca un parametro `name` nella stringa di query o nel corpo della richiesta HTTP.
 
@@ -129,7 +129,7 @@ public class Person {
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L'esempio seguente illustra un'associazione di trigger in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione cerca un parametro `name` nella stringa di query o nel corpo della richiesta HTTP.
 
@@ -178,7 +178,7 @@ module.exports = function(context, req) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 L'esempio seguente mostra un'associazione di trigger in un file *function.json* e una [funzione Python](functions-reference-python.md) che usa l'associazione. La funzione cerca un parametro `name` nella stringa di query o nel corpo della richiesta HTTP.
 
@@ -234,7 +234,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 * [Leggere un parametro dalla stringa di query](#read-parameter-from-the-query-string)
 * [Leggere il corpo da una richiesta POST](#read-body-from-a-post-request)
@@ -428,7 +428,7 @@ Nelle [ C# librerie di classi](functions-dotnet-class-library.md) e in Java, l'a
 
 È possibile impostare il livello di autorizzazione e i metodi HTTP consentiti nei parametri del costruttore dell'attributo, nel tipo di Webhook e in un modello di route. Per ulteriori informazioni su queste impostazioni, vedere [configurazione](#configuration).
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Questo esempio illustra come usare l'attributo [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) .
 
@@ -443,19 +443,19 @@ public static Task<IActionResult> Run(
 
 Per un esempio completo, vedere l' [esempio di trigger](#example).
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[C#Script](#tab/csharp-script)
 
 Gli attributi non sono supportati C# dallo script.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Gli attributi non sono supportati da JavaScript.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Gli attributi non sono supportati da Python.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Questo esempio illustra come usare l'attributo [HttpTrigger](https://github.com/Azure/azure-functions-java-library/blob/dev/src/main/java/com/microsoft/azure/functions/annotation/HttpTrigger.java) .
 
@@ -489,11 +489,11 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 | **route** | **Route** | Definisce il modello di route, controllando a quali URL di richiesta risponde la funzione. Il valore predefinito, se non ne viene specificato nessuno, è `<functionname>`. Per ulteriori informazioni, vedere [personalizzare l'endpoint HTTP](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** | _Supportato solo per la versione di runtime 1.x._<br/><br/>Configura il trigger HTTP perché funga da ricevitore [webhook](https://en.wikipedia.org/wiki/Webhook) per il provider specificato. Non impostare la proprietà `methods` se si imposta questa proprietà. Il tipo di webhook può essere uno dei seguenti:<ul><li><code>genericJson</code>&mdash;Endpoint di webhook per uso generico senza logica per un provider specifico. Questa impostazione limita le richieste solo a quelle che usano HTTP POST e con il tipo di contenuto `application/json`.</li><li><code>github</code>&mdash;La funzione risponde ai [webhook GitHub](https://developer.github.com/webhooks/). Non usare la proprietà _authLevel_ con webhook GitHub. Per altre informazioni, vedere la sezione con relativa ai webhook GitHub più avanti in questo articolo.</li><li><code>slack</code>&mdash;La funzione risponde ai [webhook Slack](https://api.slack.com/outgoing-webhooks). Non usare la proprietà _authLevel_ con webhook Slack. Per altre informazioni, vedere la sezione con relativa ai webhook Slack più avanti in questo articolo.</li></ul>|
 
-## <a name="usage"></a>Utilizzo
+## <a name="payload"></a>Payload
 
 Il tipo di input del trigger viene dichiarato come `HttpRequest` o come tipo personalizzato. Se si sceglie `HttpRequest`, si ottiene accesso completo all'oggetto richiesta. Per un tipo personalizzato, il runtime cerca di analizzare il corpo della richiesta JSON per impostare le proprietà dell'oggetto.
 
-### <a name="customize-the-http-endpoint"></a>Personalizzare l'endpoint HTTP
+## <a name="customize-the-http-endpoint"></a>Personalizzare l'endpoint HTTP
 
 Per impostazione predefinita, quando si crea una funzione per un trigger HTTP la funzione può essere indirizzata con una route nel formato seguente:
 
@@ -528,7 +528,7 @@ http://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 
 Questa configurazione consente al codice della funzione di supportare due parametri nell'indirizzo, nella _categoria_ e nell' _ID_.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 I parametri sono compatibili con qualsiasi [vincolo di route dell'API Web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints). Il codice di funzione C# seguente usa entrambi i parametri.
 
@@ -544,7 +544,7 @@ public static IActionResult Run(HttpRequest req, string category, int? id, ILogg
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[C#Script](#tab/csharp-script)
 
 I parametri sono compatibili con qualsiasi [vincolo di route dell'API Web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints). Il codice di funzione C# seguente usa entrambi i parametri.
 
@@ -562,7 +562,7 @@ public static IActionResult Run(HttpRequest req, string category, int? id, ILogg
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Nel nodo, il runtime di funzioni fornisce il corpo della richiesta dall'oggetto `context`. Per altre informazioni, vedere l'[esempio di trigger JavaScript](#example).
 
@@ -583,7 +583,7 @@ module.exports = function (context, req) {
 }
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Il contesto di esecuzione della funzione viene esposto tramite un parametro dichiarato come `func.HttpRequest`. Questa istanza consente a una funzione di accedere ai parametri della route di dati, ai valori della stringa di query e ai metodi che consentono di restituire risposte HTTP.
 
@@ -603,7 +603,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     return func.HttpResponse(message)
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Il contesto di esecuzione della funzione è proprietà dichiarate nell'attributo `HttpTrigger`. L'attributo consente di definire parametri di route, livelli di autorizzazione, verbi HTTP e l'istanza della richiesta in ingresso.
 
@@ -644,7 +644,7 @@ Per impostazione predefinita, tutte le route di funzione sono precedute da *api*
 }
 ```
 
-### <a name="using-route-parameters"></a>Uso dei parametri di route
+## <a name="using-route-parameters"></a>Uso dei parametri di route
 
 I parametri di route che definiscono il modello di `route` di una funzione sono disponibili per ogni associazione. Se, ad esempio, è presente una route definita come `"route": "products/{id}"`, un'associazione di archiviazione tabelle può usare il valore del parametro `{id}` nella configurazione dell'associazione.
 
@@ -661,13 +661,13 @@ Nella configurazione seguente viene illustrato come il parametro `{id}` viene pa
 }
 ```
 
-### <a name="working-with-client-identities"></a>Utilizzo delle identità client
+## <a name="working-with-client-identities"></a>Utilizzo delle identità client
 
 Se l'app per le funzioni usa l'[autenticazione/autorizzazione di Servizio app ](../app-service/overview-authentication-authorization.md), è possibile visualizzare informazioni sui client autenticati dal codice. Queste informazioni sono disponibili come [intestazioni delle richieste inserite dalla piattaforma](../app-service/app-service-authentication-how-to.md#access-user-claims). 
 
 È anche possibile leggere queste informazioni dai dati di binding. Questa funzionalità è disponibile solo per il runtime di funzioni in 2. x e versioni successive. È anche al momento disponibile solo per i linguaggi .NET.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Le informazioni relative ai client autenticati sono disponibili come [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). ClaimsPrincipal è disponibile come parte del contesto della richiesta, come illustrato nell'esempio seguente:
 
@@ -699,7 +699,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[C#Script](#tab/csharp-script)
 
 Le informazioni relative ai client autenticati sono disponibili come [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). ClaimsPrincipal è disponibile come parte del contesto della richiesta, come illustrato nell'esempio seguente:
 
@@ -733,21 +733,21 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L'utente autenticato è disponibile tramite [intestazioni HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 L'utente autenticato è disponibile tramite [intestazioni HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 L'utente autenticato è disponibile tramite [intestazioni HTTP](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
 ---
 
-### <a name="authorization-keys"></a>Chiavi di autorizzazione
+## <a name="authorization-keys"></a>Chiavi di autorizzazione
 
 Funzioni consente di usare in fase di sviluppo le chiavi che rendono più difficile accedere agli endpoint di funzione HTTP.  Un trigger HTTP standard può richiedere nella richiesta sia presente una chiave API di questo tipo. 
 
@@ -769,7 +769,7 @@ Ogni app per le funzioni ha anche una speciale **chiave master**. Questa chiave 
 > [!CAUTION]  
 > Date le autorizzazioni elevate concesse dalla chiave master nell'app per le funzioni, è consigliabile non condividere questa chiave con terze parti o distribuirla in applicazioni client native. Fare attenzione quando si sceglie il livello di autorizzazione di amministratore.
 
-### <a name="obtaining-keys"></a>Ottenere le chiavi
+## <a name="obtaining-keys"></a>Ottenere le chiavi
 
 Le chiavi vengono archiviate come parte dell'app per le funzioni in Azure e crittografate inattive. Per visualizzare le chiavi, crearne di nuove o aggiornare le chiavi con nuovi valori, passare a una delle funzioni attivate da HTTP nel [portale di Azure](https://portal.azure.com) e selezionare **Gestisci**.
 
@@ -777,7 +777,7 @@ Le chiavi vengono archiviate come parte dell'app per le funzioni in Azure e crit
 
 È possibile ottenere le chiavi della funzione a livello di codice usando le [API di gestione delle chiavi](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
 
-### <a name="api-key-authorization"></a>Autorizzazione della chiave API
+## <a name="api-key-authorization"></a>Autorizzazione della chiave API
 
 La maggior parte dei modelli di trigger HTTP richiedono una chiave API nella richiesta. La richiesta HTTP è quindi in genere simile al seguente URL:
 
@@ -791,7 +791,7 @@ La chiave può essere inclusa in una variabile della stringa di query denominata
 > Quando si eseguono le funzioni in locale, l'autorizzazione viene disabilitata indipendentemente dall'impostazione del livello di autorizzazione specificato. Dopo la pubblicazione in Azure, viene applicata l'impostazione `authLevel` del trigger. Le chiavi sono comunque necessarie quando si esegue [localmente in un contenitore](functions-create-function-linux-custom-image.md#build-the-container-image-and-test-locally).
 
 
-### <a name="secure-an-http-endpoint-in-production"></a>Proteggere un endpoint HTTP nell'ambiente di produzione
+## <a name="secure-an-http-endpoint-in-production"></a>Proteggere un endpoint HTTP nell'ambiente di produzione
 
 Per proteggere completamente gli endpoint di funzione nell'ambiente di produzione, è consigliabile implementare una delle opzioni di sicurezza a livello di app per le funzioni seguenti:
 
@@ -803,24 +803,24 @@ Per proteggere completamente gli endpoint di funzione nell'ambiente di produzion
 
 Quando si usa uno di questi metodi di sicurezza a livello di app per le funzioni, è necessario impostare il livello di autorizzazione della funzione attivata da HTTP su `anonymous`.
 
-### <a name="webhooks"></a>Webhook
+## <a name="webhooks"></a>Webhook
 
 > [!NOTE]
 > La modalità webhook è disponibile solo per il runtime di funzioni versione 1.x. Questa modifica è stata apportata per migliorare le prestazioni dei trigger HTTP nella versione 2. x e versioni successive.
 
 Nella versione 1.x, i modelli webhook forniscono una convalida aggiuntiva per i payload di webhook. Nella versione 2. x e versioni successive, il trigger HTTP di base continua a funzionare ed è l'approccio consigliato per i webhook. 
 
-#### <a name="github-webhooks"></a>Webhook GitHub
+### <a name="github-webhooks"></a>Webhook GitHub
 
 Per rispondere ai webhook GitHub, creare prima di tutto la funzione con un trigger HTTP e impostare la proprietà **webHookType** su `github`. Copiare quindi l'URL e la chiave API nella pagina **Aggiungi webhook** del repository GitHub. 
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
-#### <a name="slack-webhooks"></a>Webhook Slack
+### <a name="slack-webhooks"></a>Webhook Slack
 
 Il webhook Slack genera automaticamente un token invece di consentire di specificarlo, quindi è necessario configurare una chiave specifica della funzione con il token da Slack. Vedere [Chiavi di autorizzazione](#authorization-keys).
 
-### <a name="webhooks-and-keys"></a>Chiavi e webhook
+## <a name="webhooks-and-keys"></a>Chiavi e webhook
 
 L'autorizzazione webhook viene gestita dal componente ricevitore dei webhook, che fa parte del trigger HTTP, e il meccanismo varia in base al tipo di webhook. Ogni meccanismo si basa su una chiave. Per impostazione predefinita, viene usata la chiave di funzione denominata "default". Per usare una chiave diversa, configurare il provider di webhook per inviare il nome della chiave con la richiesta in uno dei modi seguenti:
 

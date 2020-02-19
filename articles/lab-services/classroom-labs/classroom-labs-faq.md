@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: a0361203f4a8a2e57d179b39ba6da2fb62f68720
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 8d1ed128181d036af0026ae273c2c5bf1d3a066e
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77252060"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443500"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Lab in aula in Azure Lab Services-domande frequenti
 Ottenere le risposte ad alcune delle domande più comuni sui Lab in Azure Lab Services. 
@@ -27,6 +27,9 @@ Ottenere le risposte ad alcune delle domande più comuni sui Lab in Azure Lab Se
 
 ### <a name="is-the-quota-per-user-or-per-week-or-per-entire-duration-of-the-lab"></a>La quota per utente o per settimana o per l'intera durata del Lab? 
 La quota impostata per un Lab riguarda ogni studente per tutta la durata del Lab. Il [tempo di esecuzione pianificato delle macchine virtuali](how-to-create-schedules.md) non viene conteggiato rispetto alla quota assegnata a un utente. La quota è relativa al periodo di tempo non compreso nelle ore di pianificazione trascorso da uno studente sulle macchine virtuali.  Per altre informazioni sulle quote, vedere [impostare le quote per gli utenti](how-to-configure-student-usage.md#set-quotas-for-users).
+
+### <a name="if-professor-turns-on-a-student-vm-does-that-affect-the-student-quota"></a>Se il professore accende una macchina virtuale per studenti, ha effetto sulla quota di studenti? 
+No. Non lo è. Quando il professore accende la macchina virtuale per studenti, non influisce sulla quota assegnata allo studente. 
 
 ## <a name="schedules"></a>Pianificazioni
 
@@ -42,7 +45,9 @@ Se, ad esempio, si dispone di un blocco di/19-10.0.0.0/19, questo intervallo di 
 
 ### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Quali intervalli di porte è necessario aprire nell'impostazione del firewall dell'organizzazione per connettersi alle macchine virtuali del Lab tramite RDP/SSH?
 
-Le porte sono: 49152 – 65535. I Lab della classe si trovano dietro un servizio di bilanciamento del carico, quindi tutte le macchine virtuali in un Lab hanno un unico indirizzo IP e ogni macchina virtuale nel Lab ha una porta univoca. I numeri di porta e l'indirizzo IP pubblico possono cambiare ogni volta che il Lab viene ripubblicato.
+Le porte sono: 49152 – 65535. I Lab della classe si trovano dietro un servizio di bilanciamento del carico. Ogni Lab dispone di un singolo indirizzo IP pubblico e ogni macchina virtuale nel Lab ha una porta univoca. 
+
+È anche possibile visualizzare l'indirizzo IP privato di ogni macchina virtuale nella scheda **pool di macchine virtuali** della Home page per lab nel portale di Azure. Se si ripubblica un Lab, l'indirizzo IP pubblico del Lab non cambierà, ma l'IP privato e il numero di porta di ogni macchina virtuale nel Lab possono cambiare. Per altre informazioni, vedere l'articolo [relativo alle impostazioni del firewall per Azure Lab Services](how-to-configure-firewall-settings.md).
 
 ### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Quale intervallo di indirizzi IP pubblici è necessario aprire sulle impostazioni del firewall dell'organizzazione per connettersi alle macchine virtuali del Lab tramite RDP/SSH?
 Vedere [Azure IP Ranges and Service Tags (cloud pubblico)](https://www.microsoft.com/download/details.aspx?id=56519), che fornisce l'intervallo di indirizzi IP pubblici per i Data Center in Azure. È possibile aprire gli indirizzi IP per le aree in cui si trovano gli account Lab.

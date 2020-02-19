@@ -1,5 +1,5 @@
 ---
-title: Protezione delle risorse di rete nel Centro sicurezza di Azure | Microsoft Docs
+title: Protezione delle risorse di rete nel centro sicurezza di Azure
 description: Questo documento illustra le raccomandazioni presenti nel Centro sicurezza di Azure che facilitano la protezione delle risorse della rete di Azure e la conformità ai criteri di sicurezza.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 98001ba01c5dd29375a9af3af43a06f760e4f55f
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 792b95b120f67afcd360730acbd783a3071388b2
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552917"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77431486"
 ---
 # <a name="protect-your-network-resources"></a>Proteggere le risorse di rete
 Il Centro sicurezza di Azure analizza continuamente lo stato di sicurezza delle risorse di Azure per consigliare le procedure ottimali di protezione della rete. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari per rafforzare e tutelare le risorse.

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/16/2020
-ms.openlocfilehash: 7845e381c5a8851683edf6b955d40070bd4e0c30
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 02/17/2020
+ms.openlocfilehash: 2f147890887d5eb9dd1b2681bd09c662c14c74ff
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122271"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77431080"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiare e trasformare i dati in Azure Data Lake Storage Gen2 usando Azure Data Factory
 
@@ -47,7 +47,7 @@ Per l'attività di copia, con questo connettore è possibile:
 >[!TIP]
 >Se si Abilita lo spazio dei nomi gerarchico, attualmente non esiste alcuna interoperabilità tra le API BLOB e Data Lake Storage Gen2. Se viene visualizzato l'errore "ErrorCode = FilesystemNotFound" con il messaggio "il file system specificato non esiste", è causato dal sink specificato file system creato tramite l'API BLOB anziché Data Lake Storage Gen2 API altrove. Per risolvere il problema, specificare un nuovo file system con un nome che non esiste come nome di un contenitore BLOB. Quindi Data Factory crea automaticamente tale file system durante la copia dei dati.
 
-## <a name="get-started"></a>Inizia oggi stesso
+## <a name="get-started"></a>Attività iniziali
 
 >[!TIP]
 >Per una procedura dettagliata sull'uso del connettore Data Lake Storage Gen2, vedere [caricare dati in Azure Data Lake storage Gen2](load-azure-data-lake-storage-gen2.md).
@@ -71,7 +71,7 @@ Il connettore Azure Data Lake Storage Gen2 supporta i tipi di autenticazione seg
 
 Per usare l'autenticazione basata sulla chiave dell'account di archiviazione, sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **AzureBlobFS**. |Sì |
 | url | Endpoint per Data Lake Storage Gen2 con il modello di `https://<accountname>.dfs.core.windows.net`. | Sì |
@@ -123,7 +123,7 @@ Per utilizzare l'autenticazione basata su entità servizio, attenersi alla segue
 
 Queste proprietà sono supportate per il servizio collegato:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **AzureBlobFS**. |Sì |
 | url | Endpoint per Data Lake Storage Gen2 con il modello di `https://<accountname>.dfs.core.windows.net`. | Sì |
@@ -177,7 +177,7 @@ Per usare le identità gestite per l'autenticazione delle risorse di Azure, segu
 
 Queste proprietà sono supportate per il servizio collegato:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **AzureBlobFS**. |Sì |
 | url | Endpoint per Data Lake Storage Gen2 con il modello di `https://<accountname>.dfs.core.windows.net`. | Sì |
@@ -203,13 +203,13 @@ Queste proprietà sono supportate per il servizio collegato:
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere [Datasets](concepts-datasets-linked-services.md).
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere [DataSets](concepts-datasets-linked-services.md).
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
 Le proprietà seguenti sono supportate per Data Lake Storage Gen2 in impostazioni `location` nel set di dati basato sul formato:
 
-| Proprietà   | Description                                                  | Obbligatorio |
+| Proprietà   | Descrizione                                                  | Obbligatoria |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | La proprietà Type in `location` nel set di dati deve essere impostata su **AzureBlobFSLocation**. | Sì      |
 | fileSystem | Nome del file system Data Lake Storage Gen2.                              | No       |
@@ -253,10 +253,10 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà seguenti sono supportate per Data Lake Storage Gen2 in impostazioni `storeSettings` in origine copia basata sul formato:
 
-| Proprietà                 | Description                                                  | Obbligatorio                                      |
+| Proprietà                 | Descrizione                                                  | Obbligatoria                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | La proprietà Type in `storeSettings` deve essere impostata su **AzureBlobFSReadSettings**. | Sì                                           |
-| ricorsiva                | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Quando l'opzione ricorsiva è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. I valori consentiti sono **true** (predefinito) e **false**. | No                                            |
+| ricorsive                | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Quando l'opzione ricorsiva è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. I valori consentiti sono **true** (predefinito) e **false**. | No                                            |
 | wildcardFolderPath       | Il percorso della cartella con caratteri jolly sotto la file system specificata configurata nel set di dati per filtrare le cartelle di origine. <br>I caratteri jolly consentiti sono `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero o a un carattere singolo). Usare `^` per eseguire l'escape se il nome della cartella effettivo contiene un carattere jolly o il carattere di escape. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                            |
 | wildcardFileName         | Nome file con caratteri jolly sotto il file system + folderPath/wildcardFolderPath specificato per filtrare i file di origine. <br>I caratteri jolly consentiti sono `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero o a un carattere singolo). Usare `^` per eseguire l'escape se il nome della cartella effettivo contiene un carattere jolly o il carattere di escape. Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì se `fileName` non è specificato nel DataSet |
 | modifiedDatetimeStart    | Filtro file basato sull'Ultima modifica dell'attributo. I file vengono selezionati se l'ora dell'Ultima modifica rientra nell'intervallo di tempo compreso tra `modifiedDatetimeStart` e `modifiedDatetimeEnd`. L'ora viene applicata al fuso orario UTC nel formato "2018-12-01T05:00:00Z". <br> Le proprietà possono essere NULL, il che significa che al set di dati non viene applicato alcun filtro di attributi di file. Quando `modifiedDatetimeStart` dispone di un valore DateTime ma `modifiedDatetimeEnd` è NULL, significa che i file il cui ultimo attributo modificato è maggiore o uguale al valore DateTime sono selezionati. Quando `modifiedDatetimeEnd` dispone di un valore DateTime ma `modifiedDatetimeStart` è NULL, significa che i file il cui attributo Last modified è minore del valore DateTime sono selezionati. | No                                            |
@@ -310,10 +310,11 @@ Le proprietà seguenti sono supportate per Data Lake Storage Gen2 in impostazion
 
 Le proprietà seguenti sono supportate per Data Lake Storage Gen2 in impostazioni `storeSettings` nel sink di copia basato sul formato:
 
-| Proprietà                 | Description                                                  | Obbligatorio |
+| Proprietà                 | Descrizione                                                  | Obbligatoria |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | La proprietà Type in `storeSettings` deve essere impostata su **AzureBlobFSWriteSettings**. | Sì      |
-| copyBehavior             | Definisce il comportamento di copia quando l'origine è costituita da file di un archivio dati basato su file.<br/><br/>I valori consentiti sono i seguenti:<br/><b>- PreserveHierarchy (predefinito)</b>: mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><b>- FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. I nomi dei file di destinazione vengono generati automaticamente. <br/><b>- MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se si specifica il nome di file, il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome di file generato automaticamente. | No       |
+| copyBehavior             | Definisce il comportamento di copia quando l'origine è costituita da file di un archivio dati basato su file.<br/><br/>I valori consentiti sono:<br/><b>- PreserveHierarchy (predefinito)</b>: mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><b>- FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. I nomi dei file di destinazione vengono generati automaticamente. <br/><b>- MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se si specifica il nome di file, il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome di file generato automaticamente. | No       |
+| blockSizeInMB | Specificare le dimensioni del blocco in MB utilizzate per scrivere i dati in ADLS Gen2. Altre informazioni [sui BLOB in blocchi](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>Il valore consentito è **compreso tra 4 e 100 MB**. <br/>Per impostazione predefinita, ADF determina automaticamente le dimensioni del blocco in base al tipo e ai dati dell'archivio di origine. Per la copia non binaria in ADLS Gen2, le dimensioni predefinite del blocco sono pari a 100 MB, in modo da contenere al massimo 4,95 TB di dati. Potrebbe non essere ottimale quando i dati non sono di grandi dimensioni, soprattutto quando si usano Integration Runtime indipendenti con una rete scarsa, causando il timeout dell'operazione o un problema di prestazioni. È possibile specificare in modo esplicito le dimensioni del blocco, assicurandosi che blockSizeInMB * 50000 sia sufficientemente grande per archiviare i dati. in caso contrario, l'esecuzione dell'attività di copia non riuscirà. | No |
 | maxConcurrentConnections | Numero di connessioni per la connessione all'archivio dati contemporaneamente. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No       |
 
 **Esempio:**
@@ -355,7 +356,7 @@ Le proprietà seguenti sono supportate per Data Lake Storage Gen2 in impostazion
 
 Questa sezione descrive il comportamento risultante del percorso cartella e del nome del file con i filtri con caratteri jolly.
 
-| folderPath | fileName | ricorsiva | Struttura delle cartelle di origine e risultato del filtro (i file in **grassetto** sono stati recuperati)|
+| folderPath | fileName | ricorsive | Struttura delle cartelle di origine e risultato del filtro (i file in **grassetto** sono stati recuperati)|
 |:--- |:--- |:--- |:--- |
 | `Folder*` | (Vuoto, USA predefinito) | false | CartellaA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AltraCartellaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
 | `Folder*` | (Vuoto, USA predefinito) | true | CartellaA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AltraCartellaB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
@@ -366,7 +367,7 @@ Questa sezione descrive il comportamento risultante del percorso cartella e del 
 
 In questa sezione viene descritto il comportamento risultante dell'operazione di copia per diverse combinazioni di valori ricorsivi e copyBehavior.
 
-| ricorsiva | copyBehavior | Struttura della cartella di origine | Destinazione risultante |
+| ricorsive | copyBehavior | Struttura della cartella di origine | Destinazione risultante |
 |:--- |:--- |:--- |:--- |
 | true |preserveHierarchy | Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | La Cartella1 di destinazione viene creata con la stessa struttura dell'origine:<br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
 | true |flattenHierarchy | Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sottocartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | La Cartella1 di destinazione viene creata con la struttura seguente: <br/><br/>Cartella1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome generato automaticamente per File5 |
@@ -484,7 +485,7 @@ Per informazioni dettagliate sulle proprietà, controllare l' [attività di elim
 
 ### <a name="legacy-dataset-model"></a>Modello DataSet legacy
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su **AzureBlobFSFile**. |Sì |
 | folderPath | Percorso della cartella in Data Lake Storage Gen2. Se il valore non è specificato, punta alla radice. <br/><br/>Il filtro con caratteri jolly è supportato. I caratteri jolly consentiti sono `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero o a un carattere singolo). Usare `^` per eseguire l'escape se il nome effettivo della cartella contiene un carattere jolly o se il carattere di escape è interno. <br/><br/>Esempi: filesystem/Folder/. Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). |No |
@@ -529,10 +530,10 @@ Per informazioni dettagliate sulle proprietà, controllare l' [attività di elim
 
 ### <a name="legacy-copy-activity-source-model"></a>Modello di origine dell'attività di copia legacy
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **AzureBlobFSSource**. |Sì |
-| ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Quando l'opzione ricorsiva è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink.<br/>I valori consentiti sono **true** (predefinito) e **false**. | No |
+| ricorsive | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Quando l'opzione ricorsiva è impostata su true e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink.<br/>I valori consentiti sono **true** (predefinito) e **false**. | No |
 | maxConcurrentConnections | Numero di connessioni per la connessione all'archivio dati contemporaneamente. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No |
 
 **Esempio:**
@@ -569,10 +570,10 @@ Per informazioni dettagliate sulle proprietà, controllare l' [attività di elim
 
 ### <a name="legacy-copy-activity-sink-model"></a>Modello di sink dell'attività di copia legacy
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del sink dell'attività di copia deve essere impostata su **AzureBlobFSSink**. |Sì |
-| copyBehavior | Definisce il comportamento di copia quando l'origine è costituita da file di un archivio dati basato su file.<br/><br/>I valori consentiti sono i seguenti:<br/><b>- PreserveHierarchy (predefinito)</b>: mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><b>- FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. I nomi dei file di destinazione vengono generati automaticamente. <br/><b>- MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se si specifica il nome di file, il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome di file generato automaticamente. | No |
+| copyBehavior | Definisce il comportamento di copia quando l'origine è costituita da file di un archivio dati basato su file.<br/><br/>I valori consentiti sono:<br/><b>- PreserveHierarchy (predefinito)</b>: mantiene la gerarchia dei file nella cartella di destinazione. Il percorso relativo del file di origine nella cartella di origine è identico al percorso relativo del file di destinazione nella cartella di destinazione.<br/><b>- FlattenHierarchy</b>: tutti i file della cartella di origine si trovano nel primo livello della cartella di destinazione. I nomi dei file di destinazione vengono generati automaticamente. <br/><b>- MergeFiles</b>: unisce tutti i file della cartella di origine in un solo file. Se si specifica il nome di file, il nome del file unito sarà il nome specificato. In caso contrario, verrà usato un nome di file generato automaticamente. | No |
 | maxConcurrentConnections | Numero di connessioni per la connessione all'archivio dati contemporaneamente. Specificare solo quando si desidera limitare la connessione simultanea all'archivio dati. | No |
 
 **Esempio:**

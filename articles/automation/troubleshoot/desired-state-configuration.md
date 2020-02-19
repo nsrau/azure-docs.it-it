@@ -9,41 +9,48 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3c3c9950aab9a5a422ebc9e858daded2888fd82e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: dcd0371d275c3a46fe9bf07c96516a2d0820abb7
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834263"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430534"
 ---
 # <a name="troubleshoot-issues-with-azure-automation-desired-state-configuration-dsc"></a>Risolvere i problemi di automazione DSC (Desired state Configuration) di automazione di Azure
 
 Questo articolo contiene informazioni sulla risoluzione dei problemi della configurazione dello stato desiderato (DSC, Desired State Configuration).
 
-## <a name="steps-to-troubleshoot-desired-state-configuration-dsc"></a>Passaggi per la risoluzione dei problemi di desired state Configuration (DSC)
+## <a name="diagnosing-an-issue"></a>Diagnosi di un problema
 
-Quando si verificano errori durante la compilazione o la distribuzione di configurazioni in Azure state Configuration, di seguito sono riportati alcuni passaggi che consentono di diagnosticare il problema.
+Quando si verificano errori durante la compilazione o la distribuzione di configurazioni in Azure state Configuration, di seguito sono riportati alcuni passaggi per diagnosticare il problema.
 
-1. **Assicurarsi che la configurazione venga compilata correttamente nel computer locale:**  La configurazione dello stato di Azure si basa su PowerShell DSC. È possibile trovare la documentazione relativa alla sintassi e al linguaggio DSC in [PowerShell DSC docs](https://docs.microsoft.com/powershell/scripting/overview).
+### <a name="1-ensure-that-your-configuration-compiles-successfully-on-the-local-machine"></a>1. Assicurarsi che la configurazione venga compilata correttamente nel computer locale
 
-   Compilando la configurazione DSC nel computer locale è possibile individuare e risolvere gli errori comuni, ad esempio:
+La configurazione dello stato di Azure si basa su PowerShell DSC. È possibile trovare la documentazione relativa alla sintassi e al linguaggio DSC in [PowerShell DSC docs](https://docs.microsoft.com/powershell/scripting/overview).
 
-   - **Moduli mancanti**
-   - **Errori di sintassi**
-   - **Errori di logica**
+Compilando la configurazione DSC nel computer locale, è possibile individuare e risolvere gli errori comuni, ad esempio:
 
-2. **Visualizzare i log DSC nel nodo:** Se la configurazione viene compilata correttamente, ma ha esito negativo quando viene applicata a un nodo, è possibile trovare informazioni dettagliate nei log. Per informazioni su dove trovare i log DSC, vedere [dove sono i registri eventi DSC](/powershell/scripting/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
+   - Moduli mancanti
+   - Errori di sintassi
+   - Errori di logica
 
-   Inoltre, [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) può essere utile per l'analisi di informazioni dettagliate dai log DSC. Se si contatta il supporto tecnico, questi registri saranno necessari per diagnosticare il problema.
+### <a name="2-view-dsc-logs-on-your-node"></a>2. visualizzare i log DSC nel nodo
 
-   È possibile installare **xDscDiagnostics** nel computer locale usando le istruzioni disponibili in [installare il modulo versione stabile](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
+Se la configurazione viene compilata correttamente, ma ha esito negativo quando viene applicata a un nodo, è possibile trovare informazioni dettagliate nei log DSC. Per informazioni su dove trovare questi log, vedere [dove sono i registri eventi DSC](/powershell/scripting/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
 
-   Per installare **xDscDiagnostics** nel computer Azure, è possibile usare [AZ VM Run-Command](/cli/azure/vm/run-command) o [Invoke-AzVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand). È anche possibile usare l'opzione **Esegui comando** dal portale, seguendo i passaggi descritti in [eseguire script di PowerShell nella macchina virtuale Windows con il comando Esegui](../../virtual-machines/windows/run-command.md).
+Il modulo [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) può risultare utile per l'analisi di informazioni dettagliate dai log DSC. Se si contatta il supporto tecnico, questi registri sono necessari per diagnosticare il problema.
 
-   Per informazioni sull'uso di **xDscDiagnostics**, vedere [uso di xDscDiagnostics per analizzare i log DSC](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs), nonché i [cmdlet di xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
-3. **Verificare che i nodi e l'area di lavoro di automazione dispongano dei moduli necessari:** La configurazione dello stato desiderato dipende dai moduli installati nel nodo.  Quando si usa la configurazione dello stato di automazione di Azure, importare tutti i moduli richiesti nell'account di automazione usando i passaggi elencati in [importare i moduli](../shared-resources/modules.md#import-modules). Le configurazioni possono anche avere una dipendenza da versioni specifiche dei moduli.  Per ulteriori informazioni, vedere [risoluzione dei problemi relativi ai moduli](shared-resources.md#modules).
+È possibile installare il modulo xDscDiagnostics nel computer locale usando le istruzioni disponibili in [installare il modulo versione stabile](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
 
-## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Errori comuni durante l'utilizzo di Desired State Configuration (DSC)
+Per installare il modulo xDscDiagnostics nel computer Azure, usare [Invoke-AzVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand). È anche possibile usare l'opzione **Esegui comando** dal portale, seguendo i passaggi descritti in [eseguire script di PowerShell nella macchina virtuale Windows con il comando Esegui](../../virtual-machines/windows/run-command.md).
+
+Per informazioni sull'uso di xDscDiagnostics, vedere [uso di xDscDiagnostics per analizzare i log DSC](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs). Vedere anche [cmdlet xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
+
+### <a name="3-ensure-that-nodes-and-the-automation-workspace-have-required-modules"></a>3. Assicurarsi che i nodi e l'area di lavoro di automazione dispongano dei moduli necessari
+
+DSC dipende dai moduli installati nel nodo. Quando si usa la configurazione dello stato di automazione di Azure, importare tutti i moduli richiesti nell'account di automazione usando i passaggi elencati in [importare i moduli](../shared-resources/modules.md#import-modules). Le configurazioni possono anche avere una dipendenza da versioni specifiche dei moduli. Per altre informazioni, vedere [risolvere i problemi relativi ai moduli](shared-resources.md#modules).
+
+## <a name="common-errors-when-working-with-dsc"></a>Errori comuni durante l'uso di DSC
 
 ### <a name="unsupported-characters"></a>Scenario: una configurazione con caratteri speciali non può essere eliminata dal portale
 
@@ -97,7 +104,7 @@ Verificare che il computer abbia accesso agli endpoint appropriati per Automatio
 Quando si registra un nodo con configurazione dello stato (DSC), viene visualizzato uno dei messaggi di errore seguenti:
 
 ```error
-The attempt to send status report to the server https://{your automation account url}/accounts/xxxxxxxxxxxxxxxxxxxxxx/Nodes(AgentId='xxxxxxxxxxxxxxxxxxxxxxxxx')/SendReport returned unexpected response code Unauthorized.
+The attempt to send status report to the server https://{your Automation account URL}/accounts/xxxxxxxxxxxxxxxxxxxxxx/Nodes(AgentId='xxxxxxxxxxxxxxxxxxxxxxxxx')/SendReport returned unexpected response code Unauthorized.
 ```
 
 ```error
@@ -114,7 +121,7 @@ Attenersi alla procedura riportata di seguito per registrare nuovamente il nodo 
 
 Per prima cosa, annullare la registrazione del nodo attenendosi alla procedura seguente.
 
-1. Dal portale di Azure, in **Home** -> **account di automazione**-> {your automation account}-> **state Configuration (DSC)**
+1. Dal portale di Azure, in **Home** -> **account di automazione**-> {Your automation account}-> **state Configuration (DSC)**
 2. Fare clic su "nodi" e fare clic sul nodo in cui si sono verificati problemi.
 3. Fare clic su "Annulla registrazione" per annullare la registrazione del nodo.
 
@@ -146,7 +153,7 @@ If (($certs.Count) -gt 0)
 
 Infine, registrare di nuovo il nodo che ha avuto esito negativo attenendosi alla procedura seguente.
 
-1. Dal portale di Azure, in **Home** -> **account di automazione** -> {your automation account}-> **state Configuration (DSC)**
+1. Dal portale di Azure, in **Home** -> **account di automazione** -> {Your automation account}-> **state Configuration (DSC)**
 2. Fare clic su "Nodes".
 3. Fare clic sul pulsante "Aggiungi".
 4. Selezionare il nodo in errore.
@@ -229,7 +236,7 @@ Sono state usate le credenziali in una configurazione ma non è stato fornito un
 
 #### <a name="resolution"></a>Risoluzione
 
-* Assicurarsi di passare il **configurationData** appropriato per impostare **PSDscAllowPlainTextPassword** su true per ogni configurazione di nodo citata nella configurazione. Per altre informazioni, vedere la sezione relativa agli [asset in Automation DSC per Azure](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation).
+* Assicurarsi di passare il **configurationData** appropriato per impostare **PSDscAllowPlainTextPassword** su true per ogni configurazione di nodo citata nella configurazione. Per altre informazioni, vedere [compilazione di configurazioni DSC in configurazione dello stato di automazione di Azure](../automation-dsc-compile.md).
 
 ### <a name="failure-processing-extension"></a>Scenario: onboarding dall'estensione DSC, errore dell'estensione per l'elaborazione degli errori
 
@@ -331,6 +338,6 @@ La soluzione migliore consiste nel compilare localmente o in una pipeline CI/CD 
 
 Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
 
-* Ottieni risposte dagli esperti di Azure tramite i [forum di Azure](https://azure.microsoft.com/support/forums/)
+* Ottieni risposte dagli esperti di Azure tramite i [Forum di Azure](https://azure.microsoft.com/support/forums/).
 * Collegarsi a [@AzureSupport](https://twitter.com/azuresupport), l'account Microsoft Azure ufficiale per il miglioramento dell'esperienza dei clienti che mette in contatto la community di Azure con le risorse corrette: risposte, supporto ed esperti.
 * Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.

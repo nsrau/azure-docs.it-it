@@ -7,26 +7,28 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: f109f2dd45fe90884d3947b244b3dafffd547725
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 91401031945d0ec3ac22fc8cbcea8ba73580ee50
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68355928"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77442004"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>Inserire dati usando la libreria di Esplora dati di Azure per Python
 
-Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure offre due librerie client per Python: una [libreria di inserimento](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) e [una libreria di dati](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Queste librerie consentono di inserire (caricare) i dati in un cluster ed eseguire una query di dati dal codice. In questo articolo viene innanzitutto creata una tabella e il mapping dei dati in un cluster. Quindi viene accodato l'inserimento nel cluster e vengono convalidati i risultati.
+Questo articolo illustra come inserire i dati usando la libreria Python di Azure Esplora dati. Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure offre due librerie client per Python: una [libreria di inserimento](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) e [una libreria di dati](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Queste librerie consentono di inserire o caricare dati in un cluster ed eseguire query sui dati del codice.
+
+Per prima cosa, creare una tabella e il mapping dei dati in un cluster. Quindi viene accodato l'inserimento nel cluster e vengono convalidati i risultati.
 
 Questo articolo è disponibile anche come [notebook di Azure](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Un cluster e un database](create-cluster-database-portal.md)
+* [Python 3.4 +](https://www.python.org/downloads/).
 
-* [Python](https://www.python.org/downloads/) installato nel computer di sviluppo
+* [Un cluster e un database](create-cluster-database-portal.md).
 
 ## <a name="install-the-data-and-ingest-libraries"></a>Installare le librerie di dati e di inserimento
 
@@ -103,7 +105,7 @@ BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.windows.net/" + \
 
 ## <a name="create-a-table-on-your-cluster"></a>Creare una tabella nel cluster
 
-Creare una tabella che corrisponde allo schema dei dati nel file StormEvents.csv. Quando viene eseguito, questo codice restituisce un messaggio simile al seguente: *Per accedere, usare un Web browser per aprire la pagina https://microsoft.com/devicelogin e immettere il codice F3W4VWZDM per eseguire l'autenticazione*. Seguire i passaggi per l'accesso, quindi tornare a eseguire il blocco di codice successivo. I blocchi di codice successivi che stabiliscono una connessione richiedono di eseguire nuovamente l'accesso.
+Creare una tabella che corrisponde allo schema dei dati nel file StormEvents.csv. Quando viene eseguito questo codice, restituisce un messaggio simile al seguente: *Per accedere, usare un web browser per aprire la pagina https://microsoft.com/devicelogin e immettere il codice F3W4VWZDM per l'autenticazione*. Seguire i passaggi per l'accesso, quindi tornare a eseguire il blocco di codice successivo. I blocchi di codice successivi che stabiliscono una connessione richiedono di eseguire nuovamente l'accesso.
 
 ```python
 KUSTO_CLIENT = KustoClient(KCSB_DATA)

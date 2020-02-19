@@ -1,5 +1,5 @@
 ---
-title: Creare e modificare i criteri di sicurezza dei criteri di Azure usando l'API REST | Microsoft Docs
+title: Creare e modificare i criteri di sicurezza dei criteri di Azure usando l'API REST
 description: Informazioni sulla gestione dei criteri di criteri di Azure tramite un'API REST.
 services: security-center
 author: memildin
@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 56c5ca8c4e1d70e002a338c753f9ab1f0b1aa411
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: c218b5dc8ca3bfa0358a9b6a0d4867696762a8d4
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73522021"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430942"
 ---
 # <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Configurare i criteri di sicurezza in criteri di Azure usando l'API REST
 
@@ -119,18 +119,18 @@ Questo esempio illustra come rimuovere un'assegnazione:
 
 |Nome del criterio in Centro sicurezza|Nome del criterio visualizzato in Criteri di Azure |Nome del parametro di effetto del criterio|
 |----|----|----|
-|Crittografia SQL |Monitora i database SQL non crittografati nel Centro sicurezza di Azure |sqlEncryptionMonitoringEffect| 
+|Crittografia SQL |Monitorare i database SQL non crittografati nel Centro sicurezza di Azure |sqlEncryptionMonitoringEffect| 
 |Controllo SQL |Monitorare i database SQL non controllati nel Centro sicurezza di Azure |sqlAuditingMonitoringEffect|
-|Aggiornamenti del sistema |Monitora gli aggiornamenti di sistema mancanti nel Centro sicurezza di Azure |systemUpdatesMonitoringEffect|
-|Crittografia di archiviazione |Controlla crittografia BLOB mancante per gli account di archiviazione |storageEncryptionMonitoringEffect|
+|Aggiornamenti del sistema |Monitorare gli aggiornamenti di sistema mancanti nel Centro sicurezza di Azure |systemUpdatesMonitoringEffect|
+|Crittografia di archiviazione |Controllare crittografia BLOB mancante per gli account di archiviazione |storageEncryptionMonitoringEffect|
 |Accesso alla rete JIT |Monitorare il possibile accesso JIT (just-in-Time) di rete nel centro sicurezza di Azure |jitNetworkAccessMonitoringEffect |
 |Controlli delle applicazioni adattivi |Monitorare il possibile elenco elementi consentiti dell'app nel Centro sicurezza di Azure |adaptiveApplicationControlsMonitoringEffect|
 |Gruppi di sicurezza di rete |Monitorare gli accessi di rete permissivi nel Centro sicurezza di Azure |networkSecurityGroupsMonitoringEffect| 
-|Configurazioni di sicurezza |Monitora le vulnerabilità del sistema operativo nel Centro sicurezza di Azure |systemConfigurationsMonitoringEffect| 
-|Endpoint Protection |Monitora server senza Endpoint Protection nel Centro sicurezza di Azure |endpointProtectionMonitoringEffect |
-|Crittografia del disco |Monitora i dischi di macchine virtuali non crittografati nel Centro sicurezza di Azure |diskEncryptionMonitoringEffect|
-|Valutazione della vulnerabilità |Monitora le vulnerabilità delle macchine virtuali nel Centro sicurezza di Azure |vulnerabilityAssessmentMonitoringEffect|
-|Web application firewall |Monitora le applicazioni Web non protette nel Centro sicurezza di Azure |webApplicationFirewallMonitoringEffect |
+|Configurazioni di sicurezza |Monitorare le vulnerabilità del sistema operativo nel Centro sicurezza di Azure |systemConfigurationsMonitoringEffect| 
+|Endpoint Protection |Monitorare il server senza Endpoint Protection nel Centro sicurezza di Azure |endpointProtectionMonitoringEffect |
+|Crittografia del disco |Monitorare i dischi di macchine virtuali non crittografati nel Centro sicurezza di Azure |diskEncryptionMonitoringEffect|
+|Valutazione della vulnerabilità |Monitorare le vulnerabilità delle macchine virtuali nel Centro sicurezza di Azure |vulnerabilityAssessmentMonitoringEffect|
+|Web application firewall |Monitorare le applicazioni Web non protette nel Centro sicurezza di Azure |webApplicationFirewallMonitoringEffect |
 |Firewall di nuova generazione |Monitorare gli endpoint di rete non protetti nel Centro sicurezza di Azure| |
 
 

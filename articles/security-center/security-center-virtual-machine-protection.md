@@ -11,32 +11,32 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2019
+ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: b7e5b0286cdd15834b84e4fd3e619c6555054823
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: bcf92838483fbb6b54802cc0d44cc44ea086d705
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75553002"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430647"
 ---
 # <a name="protect-your-machines-and-applications"></a>Proteggi le tue macchine e le tue applicazioni
 Quando il Centro sicurezza di Azure identifica le potenziali vulnerabilità di sicurezza, viene creato un Consiglio che guida l'utente nel processo di configurazione dei controlli necessari per rafforzare e proteggere le risorse.
 
 Questo articolo illustra la pagina **calcolo e app** della sezione sicurezza delle risorse del Centro sicurezza.
 
-Per un elenco completo delle raccomandazioni che è possibile visualizzare in questa pagina, vedere [indicazioni sui dati e sull'archiviazione](recommendations-reference.md#recs-computeapp).
+Per un elenco completo delle raccomandazioni che è possibile visualizzare in questa pagina, vedere le raccomandazioni relative a [calcolo e app](recommendations-reference.md#recs-computeapp).
 
 
 ## <a name="view-the-security-of-your-compute-and-apps-resources"></a>Visualizzazione della sicurezza delle risorse di calcolo e app
 
-[Dashboard del Centro sicurezza ![](./media/security-center-virtual-machine-recommendations/overview.png)](./media/security-center-virtual-machine-recommendations/overview.png#lightbox)
+[Dashboard del Centro sicurezza ![](./media/security-center-virtual-machine-recommendations/compute-and-apps-recs-overview.png)](./media/security-center-virtual-machine-recommendations/compute-and-apps-recs-overview.png#lightbox)
 
-Per visualizzare lo stato delle risorse di calcolo e app, selezionare **calcolo & app** in **risorse** nell'intestazione laterale del Centro sicurezza. Sono disponibili le schede seguenti:
+Per visualizzare lo stato delle risorse di calcolo e app, nel riquadro sinistro del Centro sicurezza selezionare **calcolo & app**. Sono disponibili le schede seguenti:
 
 * **Panoramica**: elenca le raccomandazioni per tutte le risorse di calcolo e app, nonché lo stato di sicurezza corrente 
 
-* [**VM e computer**](#vms-and-computers): elenca le raccomandazioni per le macchine virtuali, i computer e lo stato di sicurezza corrente di ogni
+* [**Macchine virtuali e server**](#vms-and-computers): elenca le raccomandazioni per le VM, i computer e lo stato di sicurezza corrente di ogni
 
 * [**Set di scalabilità di macchine virtuali**](#vmscale-sets): elenca le raccomandazioni per i set di scalabilità, 
 
@@ -44,7 +44,7 @@ Per visualizzare lo stato delle risorse di calcolo e app, selezionare **calcolo 
 
 * [**Servizi app**](#app-services): elenca le raccomandazioni per gli ambienti del servizio app e lo stato di sicurezza corrente di ogni
 
-* **Contenitori**: elenca le raccomandazioni per i contenitori e la valutazione della sicurezza delle configurazioni
+* [**Contenitori**](#containers): elenca le raccomandazioni per i contenitori e la valutazione della sicurezza delle configurazioni
 
 * **Risorse di calcolo**: elenca le raccomandazioni per le risorse di calcolo, ad esempio cluster Service Fabric e hub eventi
 
@@ -60,7 +60,10 @@ Ogni raccomandazione è inoltre associata a una serie di azioni che è possibile
 > Le raccomandazioni sulla sicurezza sono le stesse della pagina **raccomandazioni** , ma in questo caso vengono filtrate per il tipo di risorsa specifico selezionato. Per altre informazioni su come risolvere le raccomandazioni, vedere [implementazione delle raccomandazioni di sicurezza nel centro sicurezza di Azure](security-center-recommendations.md).
 >
 
-### <a name="vms-and-computers"></a>VM e computer
+
+
+
+### <a name="vms-and-computers"></a>Macchine virtuali e server
 La sezione VM e computer offre una panoramica di tutte le raccomandazioni sulla sicurezza per le macchine virtuali e i computer. Sono inclusi quattro tipi di computer:
 
 ![Computer non Azure](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon1.png) Computer non Azure.
@@ -78,6 +81,35 @@ Qui sono visualizzasti i dettagli sulla sicurezza relativi alla macchina virtual
 
 [Servizi cloud ![](./media/security-center-virtual-machine-recommendations/recommendation-list.png)](./media/security-center-virtual-machine-recommendations/recommendation-list.png#lightbox)
 
+
+
+
+### <a name="vmscale-sets"></a>Set di scalabilità di macchine virtuali
+Il Centro sicurezza rileva automaticamente se sono presenti set di scalabilità e consiglia di installare il Microsoft Monitoring Agent su di essi.
+
+Per installare Microsoft Monitoring Agent: 
+
+1. Selezionare la raccomandazione **Install the monitoring agent on virtual machine scale set.**  (Installare l'agente di monitoraggio nel set di scalabilità di macchine virtuali). Si otterrà un elenco dei set di scalabilità non monitorati.
+
+1. Selezionare un set di scalabilità non integro. Seguire le istruzioni per installare l'agente di monitoraggio mediante un'area di lavoro popolata esistente o crearne una nuova. Assicurarsi di impostare il [piano tariffario](security-center-pricing.md)dell'area di lavoro se non è impostato.
+
+   ![Installare Microsoft Monitoring Agent](./media/security-center-virtual-machine-recommendations/install-mms.png)
+
+Per impostare nuovi set di scalabilità per installare automaticamente i Microsoft Monitoring Agent:
+1. Passare a Criteri di Azure e fare clic su **Definizioni**.
+
+1. Cercare i criteri **distribuisci log Analytics Agent per i set di scalabilità di macchine virtuali Windows** e fare clic su di esso.
+
+1. Fare clic su **Assegna**.
+
+1. Impostare l'**ambito** e l'**area di lavoro Log Analytics** e fare clic su **Assegna**.
+
+Se si desidera impostare tutti i set di scalabilità esistenti affinché installino Microsoft Monitoring Agent, in Criteri di Azure passare a **Correzione** e applicare i criteri esistenti ai set di scalabilità esistenti.
+
+
+
+
+
 ### <a name="cloud-services"></a>Servizi cloud
 Per i servizi cloud viene creata una raccomandazione quando la versione del sistema operativo non è aggiornata.
 
@@ -85,9 +117,13 @@ Per i servizi cloud viene creata una raccomandazione quando la versione del sist
 
 In uno scenario in cui è presente una raccomandazione, seguire i passaggi indicati nella raccomandazione per aggiornare il sistema operativo. Quando è disponibile un aggiornamento, verrà generato un avviso (rosso o arancione, a seconda della gravità del problema). Per una spiegazione completa di questa raccomandazione, fare clic su **Aggiorna versione sistema operativo** nella colonna **Descrizione** .
 
+
+
+
+
+
 ### <a name="app-services"></a>Servizi app
 Per visualizzare le informazioni sul servizio app, è necessario avere il piano tariffario standard del Centro sicurezza e abilitare il servizio app nella sottoscrizione. Per istruzioni sull'abilitazione di questa funzionalità, vedere [proteggere il servizio app con il Centro sicurezza di Azure](security-center-app-services.md).
-
 
 Nella sezione **Servizi app**, è riportato un elenco degli ambienti del Servizio app e il riepilogo dell'integrità eseguita sulla base della valutazione del Centro sicurezza.
 
@@ -117,27 +153,49 @@ Selezionare una raccomandazione per ottenerne la descrizione e l'elenco delle ri
 
    - Selezionare una valutazione superata dall'elenco per visualizzarne la descrizione e l'elenco di risorse non integre, integre e non analizzate. È presente una scheda per le risorse di tipo non integro, ma tale elenco è sempre vuoto perché la valutazione è superata.
 
-### <a name="vmscale-sets"></a>Set di scalabilità di macchine virtuali
-Il Centro sicurezza rileva automaticamente se sono presenti set di scalabilità e consiglia di installare il Microsoft Monitoring Agent su di essi.
 
-Per installare Microsoft Monitoring Agent: 
 
-1. Selezionare la raccomandazione **Install the monitoring agent on virtual machine scale set.**  (Installare l'agente di monitoraggio nel set di scalabilità di macchine virtuali). Si otterrà un elenco dei set di scalabilità non monitorati.
 
-1. Selezionare un set di scalabilità non integro. Seguire le istruzioni per installare l'agente di monitoraggio mediante un'area di lavoro popolata esistente o crearne una nuova. Assicurarsi di impostare il [piano tariffario](security-center-pricing.md)dell'area di lavoro se non è impostato.
 
-   ![Installare Microsoft Monitoring Agent](./media/security-center-virtual-machine-recommendations/install-mms.png)
+### <a name="containers"></a>Contenitori
 
-Per impostare nuovi set di scalabilità per installare automaticamente i Microsoft Monitoring Agent:
-1. Passare a Criteri di Azure e fare clic su **Definizioni**.
+Quando si apre la scheda **contenitori** , a seconda dell'ambiente, è possibile che venga visualizzato uno dei tre tipi di risorse seguenti:
 
-1. Cercare i criteri **distribuisci log Analytics Agent per i set di scalabilità di macchine virtuali Windows** e fare clic su di esso.
+![Host contenitore](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png) Host contenitore-macchine virtuali che eseguono Docker 
 
-1. Fare clic su **Assegna**.
+![Servizio Kubernetes](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png) Cluster Azure Kubernetes Service (AKS)
 
-1. Impostare l'**ambito** e l'**area di lavoro Log Analytics** e fare clic su **Assegna**.
+![Registro contenitori](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png) Registri di Azure Container Registry (ACR): visualizzati solo quando si usa il piano tariffario standard e quando si dispone del bundle di Container Registry di Azure abilitato.
 
-Se si desidera impostare tutti i set di scalabilità esistenti affinché installino Microsoft Monitoring Agent, in Criteri di Azure passare a **Correzione** e applicare i criteri esistenti ai set di scalabilità esistenti.
+Per istruzioni su come usare le funzionalità di sicurezza del contenitore, vedere [monitoraggio della sicurezza dei contenitori](monitor-container-security.md).
+
+I vantaggi del bundle di Container Registry di Azure sono illustrati [qui](azure-container-registry-integration.md)
+
+I vantaggi del bundle di servizi Kubernetes sono descritti [qui](azure-kubernetes-service-integration.md)
+
+[scheda contenitori ![](./media/security-center-virtual-machine-recommendations/container-recommendations-all-types.png)](./media/security-center-virtual-machine-recommendations/container-recommendations-all-types.png#lightbox)
+
+Per visualizzare le raccomandazioni per una risorsa specifica nell'elenco, fare clic su tale risorsa.
+
+#### <a name="visibility-into-container-registries"></a>Visibilità nei registri contenitori
+
+Se ad esempio si fa clic sul Registro di sistema ASC-demo ACR dall'elenco illustrato nella figura precedente, viene visualizzata la pagina dei dettagli:
+
+[![consigli per un registro ACR specifico](./media/security-center-virtual-machine-recommendations/acr-registry-recs-list.png)](./media/security-center-virtual-machine-recommendations/acr-registry-recs-list.png#lightbox)
+
+
+#### <a name="visibility-into-containers-hosted-on-iaas-linux-machines"></a>Visibilità dei contenitori ospitati nei computer IaaS Linux
+
+Quando si fa clic su una delle macchine virtuali che eseguono Docker, verrà visualizzata la pagina dei dettagli con le informazioni correlate ai contenitori nel computer, ad esempio la versione di Docker e il numero di immagini in esecuzione nell'host.
+
+![Suggerimenti per una VM che esegue Docker](./media/security-center-virtual-machine-recommendations/docker-recommendation.png)
+
+
+#### <a name="security-recommendations-based-on-cis-benchmark-for-docker"></a>Raccomandazioni sulla sicurezza basate sul benchmark CIS per Docker
+
+Il Centro sicurezza analizza le configurazioni di Docker e mostra le configurazioni errate, fornendo un elenco di tutte le regole non riuscite che sono state valutate. Visualizza inoltre linee guida per consentire di risolvere rapidamente questi problemi e risparmiare tempo. Il Centro sicurezza valuta costantemente le configurazioni di Docker e ne visualizza lo stato più recente.
+
+![Scheda dei contenitori](./media/security-center-container-recommendations/container-cis-benchmark.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

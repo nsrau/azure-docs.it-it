@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2020
+ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: ea9df341fcc76a38364e590f8541e6a85d7ec466
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 52d5628698d1f945a7f672595ee7ce4739b6d13c
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77211009"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444367"
 ---
 # <a name="allow-lab-creator-to-pick-location-for-the-lab-in-azure-lab-services"></a>Consenti a Lab Creator di selezionare la posizione per il Lab in Azure Lab Services
 In Azure Lab Services, un proprietario dell'account Lab può consentire ai creatori di Lab (educatori) di scegliere una località per il Lab creato. Questo percorso può essere diverso dalla posizione dell'account Lab. Un percorso è un gruppo di aree di Azure. Ad esempio, Stati Uniti percorso è un gruppo di aree, ad esempio Stati Uniti orientali, Stati Uniti occidentali e così via. 
@@ -73,6 +73,8 @@ In precedenza, i prezzi erano basati sulle dimensioni della macchina virtuale sc
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti:
 
-- [Creare e gestire lab come proprietario](how-to-manage-classroom-labs.md)
-- [Configurare e pubblicare modelli come proprietario](how-to-create-manage-template.md)
-- [Configurare e controllare l'uso di un lab come proprietario](how-to-configure-student-usage.md)
+- [Connettere la rete del Lab a una rete virtuale peer](how-to-connect-peer-virtual-network.md)
+- [Alleghi una raccolta di immagini condivise a un Lab](how-to-attach-detach-shared-image-gallery.md)
+- [Aggiungere un utente come proprietario del Lab](how-to-add-user-lab-owner.md)
+- [Visualizzare le impostazioni del firewall per un Lab](how-to-configure-firewall-settings.md)
+- [Configurare altre impostazioni per un Lab](how-to-configure-lab-accounts.md)

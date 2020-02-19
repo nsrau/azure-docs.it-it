@@ -3,12 +3,12 @@ title: Matrice di supporto di Mab & System Center DPM
 description: Questo articolo riepiloga il supporto di backup di Azure quando si usa Backup di Microsoft Azure Server (MAB) o System Center DPM per eseguire il backup delle risorse locali e delle macchine virtuali di Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 211a7e39dc9cda9e4bd96e3a66924b2195524be7
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 9441f7ce9069cd85475877f37abe669f3c4fd516
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111457"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444027"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matrice di supporto per il backup con Backup di Microsoft Azure server o System Center DPM
 
@@ -70,9 +70,9 @@ Backup di Azure può eseguire il backup di istanze di DPM/MAB che eseguono uno d
 
 **Scenario** | **DPM/MAB**
 --- | ---
-**Server di Backup di Microsoft Azure in una macchina virtuale di Azure** | Windows Server 2012 R2.<br/><br/> Windows 2016 datacenter.<br/><br/> Windows 2019 datacenter.<br/><br/> Si consiglia di iniziare con un'immagine del Marketplace.<br/><br/> Standard a2 minimo con due core e 3,5 GB di RAM.
-**DPM in una macchina virtuale di Azure** | System Center 2012 R2 con Update 3 o versioni successive.<br/><br/> Sistema operativo Windows [richiesto da System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Si consiglia di iniziare con un'immagine del Marketplace.<br/><br/> Standard a2 minimo con due core e 3,5 GB di RAM.
-**Server di Backup di Microsoft Azure in locale** | Sistemi operativi a 64 bit supportati:<br/><br/> MAB V3 e versioni successive: Windows Server 2019 (standard, Datacenter, Essentials). <br/><br/> MAB V2 e versioni successive: Windows Server 2016 (standard, Datacenter, Essentials).<br/><br/> Tutte le versioni di MAB: Windows Server 2012 R2.<br/><br/>Tutte le versioni di MAB: Windows Storage Server 2012 R2.
+**Server di Backup di Microsoft Azure in una macchina virtuale di Azure** |  Windows 2016 datacenter.<br/><br/> Windows 2019 datacenter.<br/><br/> Si consiglia di iniziare con un'immagine del Marketplace.<br/><br/> Standard_A4_v2 minimo con quattro core e 8 GB di RAM.
+**DPM in una macchina virtuale di Azure** | System Center 2012 R2 con Update 3 o versioni successive.<br/><br/> Sistema operativo Windows [richiesto da System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Si consiglia di iniziare con un'immagine del Marketplace.<br/><br/> Standard_A4_v2 minimo con quattro core e 8 GB di RAM.
+**Server di Backup di Microsoft Azure in locale** |  MAB V3 e versioni successive: Windows Server 2016 o Windows Server 2019
 **DPM in locale** | Server fisico/macchina virtuale Hyper-V: System Center 2012 SP1 o versione successiva.<br/><br/> VM VMware: System Center 2012 R2 con aggiornamento 5 o versione successiva.
 
 >[!NOTE]

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
-ms.openlocfilehash: 695b87540178fb5c1012a095c2a86937a189ef24
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: dfb133f9aa3dd9b76f8b4ea4c6188cfaf9a67b75
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133755"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444112"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Configurare un Lab per insegnare data science con i notebook Python e Jupyter
 
@@ -30,7 +30,7 @@ Per configurare questo Lab, è necessario disporre di una sottoscrizione di Azur
 
 ### <a name="lab-account-settings"></a>Impostazioni dell'account Lab
 
-Abilitare le impostazioni descritte nella tabella seguente per l'account Lab. Per altre informazioni su come abilitare le immagini del Marketplace, vedere [specificare le immagini del Marketplace disponibili per gli autori del Lab](how-to-configure-lab-accounts.md#specify-marketplace-images-available-to-lab-creators).
+Abilitare le impostazioni descritte nella tabella seguente per l'account Lab. Per altre informazioni su come abilitare le immagini del Marketplace, vedere [specificare le immagini del Marketplace disponibili per gli autori del Lab](specify-marketplace-images.md).
 
 | Impostazione dell'account Lab | Istruzioni |
 | ------------------- | ------------ |

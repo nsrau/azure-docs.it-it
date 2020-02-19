@@ -10,15 +10,15 @@ ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: ef5cc0fb561d385a1b1d7b4c14db8c10343508cf
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
-ms.translationtype: HT
+ms.openlocfilehash: 80204b6f156981ab3ecb8f348f3ce7ea077a6836
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133658"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443534"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Panoramica dei tipi di classi - Azure Lab Services
 
@@ -28,7 +28,7 @@ Azure Lab Services consente di configurare rapidamente ambienti di lab per le cl
 
 È possibile configurare un lab incentrato sul Deep Learning nell'elaborazione del linguaggio naturale con Azure Lab Services. L'elaborazione del linguaggio naturale è una forma di intelligenza artificiale che dota i computer di strumenti di traduzione, riconoscimento vocale e altre funzionalità di comprensione del linguaggio. Gli studenti che frequentano una classe di elaborazione del linguaggio naturale lavorano su una macchina virtuale Linux per apprendere come applicare gli algoritmi di rete neurale al fine di sviluppare modelli di Deep Learning usati per l'analisi del linguaggio umano scritto.
 
-Per informazioni dettagliate su come configurare questo tipo di lab, vedere [Configurare un lab incentrato sul Deep Learning nell'elaborazione del linguaggio naturale con Azure Lab Services](class-type-deep-learning-natural-processing.md).
+Per informazioni dettagliate su come configurare questo tipo di Lab, vedere [configurare un lab focalizzato sull'apprendimento avanzato nell'elaborazione del linguaggio naturale con Azure Lab Services](class-type-deep-learning-natural-processing.md).
 
 ## <a name="shell-scripting-on-linux"></a>Script della shell in Linux
 
@@ -36,7 +36,7 @@ Per informazioni dettagliate su come configurare questo tipo di lab, vedere [Con
 
 Gli studenti che frequentano queste classi di scripting lavorano su una macchina virtuale Linux per apprendere le nozioni di base di Linux e acquisire familiarità con gli script della shell bash. La macchina virtuale Linux viene fornita con accesso tramite Desktop remoto abilitato e con gli editor di testo [gedit](https://help.gnome.org/users/gedit/stable/) e [Visual Studio Code](https://code.visualstudio.com/) installati.
 
-Per informazioni dettagliate su come configurare questo tipo di lab, vedere [Script della shell in Linux](class-type-shell-scripting-linux.md).
+Per informazioni dettagliate su come configurare questo tipo di Lab, vedere script della [Shell in Linux](class-type-shell-scripting-linux.md).
 
 ## <a name="ethical-hacking"></a>Hacking etico
 
@@ -44,22 +44,22 @@ Per informazioni dettagliate su come configurare questo tipo di lab, vedere [Scr
 
 In un corso di hacking etico gli studenti possono apprendere tecniche moderne per la difesa dalle vulnerabilità. Ogni studente ottiene una macchina virtuale host Windows Server con due macchine virtuali annidate, una con l'immagine [Metasploitable3](https://github.com/rapid7/metasploitable3) e l'altra con l'immagine [Kali Linux](https://www.kali.org/). La macchina virtuale Metasploitable viene usata per i test sugli expoit.  La macchina virtuale Kali Linux fornisce l'accesso agli strumenti necessari per le attività forensi.
 
-Per informazioni dettagliate su come configurare questo tipo di lab, vedere [Configurare un lab per un corso di hacking etico](class-type-ethical-hacking.md).
+Per informazioni dettagliate su come configurare questo tipo di Lab, vedere [configurare un Lab per insegnare una classe di hacker etici](class-type-ethical-hacking.md).
 
 ## <a name="database-management"></a>Gestione di database
-I concetti relativi ai database sono uno dei corsi introduttivi offerti nella maggior parte delle facoltà di scienze informatiche. È possibile configurare un lab per una lezionedi gestione di database di base in Azure Lab Services. Ad esempio, è possibile configurare un modello di macchina virtuale in un lab con un server di database [MySQL](https://www.mysql.com/) o un server [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019).
+I concetti relativi ai database sono uno dei corsi introduttivi che hanno insegnato nella maggior parte dei reparti di informatica dell'Università. È possibile configurare un Lab per una classe di gestione di database di base in Azure Lab Services. Ad esempio, è possibile configurare un modello di macchina virtuale in un Lab con un server di database [MySQL](https://www.mysql.com/) o un server [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) .
 
-Per informazioni dettagliate su come configurare questo tipo di lab, vedere [Configurare un lab per spiegare la gestione dei database relazionali](class-type-database-management.md).
+Per informazioni dettagliate su come configurare questo tipo di Lab, vedere [configurare un Lab per insegnare la gestione dei database per i database relazionali](class-type-database-management.md).
 
-## <a name="python-and-jupyter-notebooks"></a>Python e Jupyter Notebook
-È possibile configurare un computer modello in Azure Lab Services con gli strumenti necessari per insegnare agli studenti come usare [Jupyter Notebook](http://jupyter-notebook.readthedocs.io). Jupyter Notebooks è un progetto open source che consente di combinare facilmente testo RTF e codice sorgente [Python](https://www.python.org/) eseguibile in un'unica area di disegno denominata notebook. L'esecuzione di un notebook comporta un record lineare di input e output.  Questi output possono includere testo, tabelle di informazioni, grafici a dispersione e altro ancora.
+## <a name="python-and-jupyter-notebooks"></a>Notebook Python e Jupyter
+È possibile configurare un computer modello in Azure Lab Services con gli strumenti necessari per insegnare agli studenti come usare i [notebook di Jupyter](http://jupyter-notebook.readthedocs.io). Jupyter Notebooks è un progetto open source che consente di combinare facilmente testo RTF e codice sorgente [Python](https://www.python.org/) eseguibile in un'unica area di disegno denominata notebook. L'esecuzione di un notebook comporta un record lineare di input e output.  Questi output possono includere testo, tabelle di informazioni, grafici a dispersione e altro ancora.
 
-Per informazioni dettagliate su come configurare questo tipo di lab, vedere [Configurare un lab per spiegare il data science con Python e Jupyter Notebook](class-type-jupyter-notebook.md).
+Per informazioni dettagliate su come configurare questo tipo di Lab, vedere [configurare un Lab per insegnare Data Science con i notebook Python e Jupyter](class-type-jupyter-notebook.md).
 
 ## <a name="mobile-app-development-with-android-studio"></a>Sviluppo di app per dispositivi mobili con Android Studio
-È possibile configurare un lab in Azure Lab Services per impartire una lezione di sviluppo di applicazioni per dispositivi mobili introduttiva. Questa lezione è incentrata sulle applicazioni per dispositivi mobili Android che possono essere pubblicate nel [Google Play Store](https://play.google.com/store/apps).  Gli studenti imparano a usare [Android Studio](https://developer.android.com/studio) per creare applicazioni.  Per testare l'applicazione a livello locale viene usato l'[Emulatore di Visual Studio per Android](https://visualstudio.microsoft.com/vs/msft-android-emulator/).
+È possibile configurare un Lab in Azure Lab Services per insegnare a una classe di sviluppo di applicazioni per dispositivi mobili introduttiva. Questa classe è incentrata sulle applicazioni per dispositivi mobili Android che possono essere pubblicate nel [Google Play Store](https://play.google.com/store/apps).  Gli studenti imparano a usare [Android Studio](https://developer.android.com/studio) per creare applicazioni.  [Visual Studio Emulator for Android](https://visualstudio.microsoft.com/vs/msft-android-emulator/) viene usato per testare l'applicazione in locale.
 
-Per informazioni dettagliate su come configurare questo tipo di lab, vedere [Configurare un lab per spiegare lo sviluppo di applicazioni per dispositivi mobili con Android Studio](class-type-mobile-dev-android-studio.md).
+Per informazioni dettagliate su come configurare questo tipo di Lab, vedere [configurare un Lab per insegnare allo sviluppo di applicazioni per dispositivi mobili con Android Studio](class-type-mobile-dev-android-studio.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

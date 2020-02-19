@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: ac31783f0eb270823b71c86cc8d7f0975d3a586a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 29b8a32989b5a1d60792fb5678f7ba8a9f12daba
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452272"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443806"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Esecuzione di runbook in un ruolo di lavoro ibrido per runbook
 
@@ -60,7 +60,7 @@ Per impostazione predefinita il ruolo di lavoro ibrido per runbook usa Sistema l
 
 Il nome utente per le credenziali deve essere in uno dei formati seguenti:
 
-* dominio\nome utente
+* dominio\nomeutente
 * username@domain
 * nome utente (per gli account locali nel computer locale)
 
@@ -86,7 +86,7 @@ Per usare un'identità gestita per le risorse di Azure in un ruolo di lavoro ibr
 1. Creare una macchina virtuale di Azure
 2. [Configurare le identità gestite per le risorse di Azure nella macchina virtuale](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm)
 3. [Concedere alla macchina virtuale l'accesso a un gruppo di risorse in Gestione risorse](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager) esercitazione-Windows-VM-Access-ARM. MD # Get-an-access-token-using-the-VMS-System-Assigned-Managed-Identity-and-use-it-to-call-Azure-Resource-Manager)
-4. [Installare il ruolo di lavoro ibrido per runbook](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) nella macchina virtuale.
+4. [Installare il ruolo di lavoro ibrido per runbook](automation-windows-hrw-install.md) nella macchina virtuale.
 
 Dopo aver completato i passaggi precedenti, è possibile usare `Connect-AzureRmAccount -Identity` nel runbook per l'autenticazione alle risorse di Azure. Questa configurazione riduce la necessità di usare un account RunAs e di gestire il certificato per l'account RunAs.
 

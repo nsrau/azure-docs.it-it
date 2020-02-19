@@ -3,15 +3,15 @@ title: Impostazioni del firewall per Azure Lab Services
 description: Informazioni su come determinare l'indirizzo IP pubblico e l'intervallo di numeri di porta delle macchine virtuali in un Lab in modo che le informazioni possano essere aggiunte alle regole del firewall.
 author: emaher
 ms.author: enewman
-ms.date: 12/12/2019
+ms.date: 02/14/2020
 ms.topic: article
 ms.service: lab-services
-ms.openlocfilehash: da1614e4a3e02ed91ef2d3c59ac4eb3eac0dcc7c
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: fbd45af0c9b94f04fdaad9d9b5c8214a91a8db91
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75692771"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443457"
 ---
 # <a name="firewall-settings-for-azure-lab-services"></a>Impostazioni del firewall per Azure Lab Services
 
@@ -24,14 +24,24 @@ Ogni Lab usa un singolo indirizzo IP pubblico e più porte.  Tutte le macchine v
 
 ## <a name="find-public-ip-for-a-lab"></a>Trovare un indirizzo IP pubblico per un Lab
 
-Gli indirizzi IP pubblici per ogni Lab sono elencati nel pannello **tutti** i Lab dell'account Lab di Lab Services.  Per istruzioni su come trovare il pannello **tutti i Lab** , vedere come gestire i Lab [in un account Lab](how-to-manage-lab-accounts.md#view-and-manage-labs-in-the-lab-account).  
+Gli indirizzi IP pubblici per ogni Lab sono elencati nella pagina **tutti** i Lab dell'account Lab di Lab Services.  Per istruzioni su come trovare la pagina **tutti i Lab** , vedere come gestire i Lab [in un account Lab](how-to-manage-lab-accounts.md#view-and-manage-labs-in-the-lab-account).  
 
 > [!div class="mx-imgBorder"]
-> pannello ![tutti i Lab](../media/how-to-configure-firewall-settings/all-labs-properties.png)
+> ![pagina tutti i Lab](../media/how-to-configure-firewall-settings/all-labs-properties.png)
 
 >[!NOTE]
 >Se il computer modello per il Lab non è ancora pubblicato, l'indirizzo IP pubblico non verrà visualizzato.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 A questo punto si conosce l'indirizzo IP pubblico per il Lab.  È possibile creare regole in ingresso e in uscita per il firewall dell'organizzazione per l'indirizzo IP pubblico e l'intervallo di porte 49152-65535.  Una volta aggiornate le regole, gli studenti possono accedere alle VM senza il firewall di rete che blocca l'accesso.
+
+## <a name="next-steps"></a>Passaggi successivi
+Vedere gli articoli seguenti:
+
+- [Consenti a Lab Creator di selezionare la posizione del Lab](allow-lab-creator-pick-lab-location.md)
+- [Connettere la rete del Lab a una rete virtuale peer](how-to-connect-peer-virtual-network.md)
+- [Alleghi una raccolta di immagini condivise a un Lab](how-to-attach-detach-shared-image-gallery.md)
+- [Aggiungere un utente come proprietario del Lab](how-to-add-user-lab-owner.md)
+- [Visualizzare le impostazioni del firewall per un Lab](how-to-configure-firewall-settings.md)
+- [Configurare altre impostazioni per un Lab](how-to-configure-lab-accounts.md)

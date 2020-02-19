@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 59ac2f74d4753c1f647bedfa2c402e729e25ee62
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6e629f3c83d847cf20eccbe7a3fb0d3f444dac62
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847810"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430330"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configurare i requisiti di complessità delle password in Azure Active Directory B2C
 
@@ -46,10 +46,10 @@ Se si usano criteri personalizzati, è possibile [configurare la complessità de
 
 ### <a name="comparison-chart"></a>Grafico di confronto
 
-| Complessità | Description |
+| Complessità | Descrizione |
 | --- | --- |
 | Semplice | Una password con un numero di caratteri compreso tra 8 e 64. |
-| Strong | Una password con un numero di caratteri compreso tra 8 e 64. Richiede almeno tre dei quattro tipi di carattere seguenti: lettere minuscole, lettere maiuscole, numeri e simboli. |
+| Assoluta | Una password con un numero di caratteri compreso tra 8 e 64. Richiede almeno tre dei quattro tipi di carattere seguenti: lettere minuscole, lettere maiuscole, numeri e simboli. |
 | Personalizzato | Questa opzione offre il massimo controllo sulle regole di complessità delle password.  Consente infatti di configurare una lunghezza personalizzata  o di accettare password solo numeriche (PIN). |
 
 ## <a name="custom-options"></a>Opzioni personalizzate
@@ -73,7 +73,7 @@ Consente di controllare i requisiti di lunghezza della password.
 Consente di controllare i diversi tipi di carattere usati nella password.
 
 - **2 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** (2 di 4: carattere minuscolo, carattere maiuscolo, numero (0-9), simbolo): garantisce che la password contenga almeno due tipi di carattere, ad esempio un numero e un carattere minuscolo.
-- **3 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** (3 di 4: carattere minuscolo, carattere maiuscolo, numero (0-9), simbolo): garantisce che la password contenga almeno tre tipi di carattere, ad esempio un numero, un carattere minuscolo e un carattere maiuscolo.
+- **3 di 4: carattere minuscolo, carattere maiuscolo, numero (0-9), il simbolo** garantisce che la password contenga almeno tre tipi di caratteri. ad esempio un numero, un carattere minuscolo e un carattere maiuscolo.
 - **4 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** (4 di 4: carattere minuscolo, carattere maiuscolo, numero (0-9), simbolo): garantisce che la password contenga tutti i quattro tipi di carattere.
 
     > [!NOTE]

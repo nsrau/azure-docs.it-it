@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: f1f425a6e3c66a72c7632cfea16d78ea6cc0d319
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 560575ca7f51218e472abecb4319f4a3db69b1ff
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201153"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77431163"
 ---
 # <a name="speech-service-supported-regions"></a>Aree supportate del servizio riconoscimento vocale
 
@@ -44,7 +44,7 @@ Se si usa l' [SDK per la sintesi vocale](speech-sdk.md), le aree vengono specifi
 
 Le aree disponibili per il **riconoscimento finalità** tramite Speech SDK sono le seguenti:
 
-| Regione globale | Region           | Parametro Speech SDK |
+| Regione globale | Region           | Identificatore area |
 | ------------- | ---------------- | -------------------- |
 | Asia          | Asia orientale        | `eastasia`           |
 | Asia          | Asia sud-orientale   | `southeastasia`      |
@@ -65,7 +65,7 @@ Questo è un sottoinsieme delle aree di pubblicazione supportate per il [servizi
 
 [Speech SDK](speech-sdk.md) supporta le funzionalità di **Assistente vocale** in queste aree:
 
-| Region         | Parametro Speech SDK |
+| Region         | Identificatore area |
 | -------------- | -------------------- |
 | Stati Uniti occidentali        | `westus`             |
 | Stati Uniti occidentali 2      | `westus2`            |

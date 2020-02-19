@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9e03ba960ab6542198372d75de7e0d34bf8d9e1b
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: aec46a1914fa2361ea15ba34dd1510cfe53a4dc0
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513321"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443840"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -67,12 +67,12 @@ Il computer registrato per Gestione aggiornamenti in più di un'area di lavoro d
 
 ### <a name="supported-client-types"></a>Tipi di client supportati
 
-Nella tabella seguente sono elencati i sistemi operativi supportati per le valutazioni degli aggiornamenti. L'applicazione di patch richiede un ruolo di lavoro ibrido per Runbook. Per informazioni sui requisiti del ruolo di lavoro ibrido per Runbook, vedere le guide all'installazione per l'installazione di un ruolo [di lavoro](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)ibrido per [Runbook](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker)
+Nella tabella seguente sono elencati i sistemi operativi supportati per le valutazioni degli aggiornamenti. L'applicazione di patch richiede un ruolo di lavoro ibrido per Runbook. Per informazioni sui requisiti del ruolo di lavoro ibrido per Runbook, vedere le guide all'installazione per l'installazione di un ruolo [di lavoro](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)ibrido per [Runbook](automation-windows-hrw-install.md)
 
 |Sistema operativo  |Note  |
 |---------|---------|
 |Windows Server 2019 (Datacenter/datacenter core/standard)<br><br>Windows Server 2016 (Datacenter/datacenter core/standard)<br><br>Windows Server 2012 R2 (Datacenter/standard)<br><br>Windows Server 2012 || 
-|Windows Server 2008 R2 (RTM e SP1 Standard)| Gestione aggiornamenti supporta solo l'esecuzione di valutazioni per questo sistema operativo, l'applicazione di patch non è supportata perché il ruolo di [lavoro ibrido per Runbook](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) non è supportato per Windows Server 2008 R2. |
+|Windows Server 2008 R2 (RTM e SP1 Standard)| Gestione aggiornamenti supporta solo l'esecuzione di valutazioni per questo sistema operativo, l'applicazione di patch non è supportata perché il ruolo di [lavoro ibrido per Runbook](automation-windows-hrw-install.md) non è supportato per Windows Server 2008 R2. |
 |CentOS 6 (x86/x64) e 7 (x64)      | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti. L'applicazione di patch basata sulla classificazione richiede `yum` per restituire i dati di sicurezza che CentOS non ha nelle versioni RTM. Per altre informazioni sull'applicazione di patch basata sulla classificazione su CentOS, vedere [classificazioni degli aggiornamenti in Linux](automation-view-update-assessments.md#linux-2).          |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
@@ -96,7 +96,7 @@ Nella tabella seguente sono elencati i sistemi operativi non supportati:
 
 Le informazioni seguenti descrivono i requisiti del client specifici del sistema operativo. Per ulteriori indicazioni, vedere [pianificazione della rete](#ports).
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a>WINDOWS
 
 Gli agenti Windows devono essere configurati per comunicare con un server WSUS oppure devono avere accesso a Microsoft Update.
 
@@ -155,13 +155,13 @@ Per altre informazioni sulla modalità di aggiornamento dei Management Pack per 
 
 La tabella seguente descrive le origini connesse supportate da questa soluzione:
 
-| Origine connessa | Supportato | Description |
+| Origine connessa | Supportato | Descrizione |
 | --- | --- | --- |
-| Agenti Windows |Sì |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Windows e quindi avvia l'installazione degli aggiornamenti necessari. |
+| Agenti di Windows |Sì |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Windows e quindi avvia l'installazione degli aggiornamenti necessari. |
 | Agenti Linux |Sì |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Linux e quindi avvia l'installazione degli aggiornamenti necessari nelle distribuzioni supportate. |
 | Gruppo di gestione di Operations Manager |Sì |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti in un gruppo di gestione connesso.<br/><br/>Non è necessaria una connessione diretta dall'agente Operations Manager ai log di monitoraggio di Azure. I dati vengono inoltrati dal gruppo di gestione all'area di lavoro Log Analytics. |
 
-### <a name="collection-frequency"></a>Frequenza della raccolta
+### <a name="collection-frequency"></a>Frequenza di raccolta
 
 Per ogni computer Windows gestito viene eseguita un'analisi due volte al giorno. Ogni 15 minuti viene chiamata l'API Windows per eseguire una query su data/ora dell'ultimo aggiornamento e determinare se lo stato è cambiato. Se lo stato è cambiato, viene avviata un'analisi della conformità.
 
@@ -175,7 +175,7 @@ L'utilizzo medio dei dati da parte dei log di monitoraggio di Azure per un compu
 
 I seguenti indirizzi sono necessari e specifici per Gestione aggiornamenti. La comunicazione verso questi indirizzi avviene sulla porta 443.
 
-|Azure Public  |Azure per enti pubblici  |
+|Azure Public  |Azure Government  |
 |---------|---------|
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
@@ -212,12 +212,12 @@ Selezionare **Aggiornamenti mancanti** per visualizzare l'elenco di aggiornament
 
 Nelle tabelle che seguono sono riportate le classificazioni degli aggiornamenti in Gestione aggiornamenti, con una definizione per ogni classificazione.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a>WINDOWS
 
-|Classificazione  |Description  |
+|Classificazione  |Descrizione  |
 |---------|---------|
 |Aggiornamenti critici     | Un aggiornamento per un problema specifico che risolve un bug critico non correlato alla sicurezza.        |
-|Aggiornamenti per la sicurezza     | Un aggiornamento per un problema specifico del prodotto correlato alla sicurezza.        |
+|Aggiornamenti della protezione     | Un aggiornamento per un problema specifico del prodotto correlato alla sicurezza.        |
 |Aggiornamenti cumulativi     | Un set cumulativo di aggiornamenti rapidi, contenuti nello stesso pacchetto per facilitarne la distribuzione.        |
 |Feature Pack     | Nuove funzionalità del prodotto distribuite di fuori di una versione del prodotto.        |
 |Service Pack     | Un set cumulativo di aggiornamenti rapidi applicati a un'applicazione.        |
@@ -227,7 +227,7 @@ Nelle tabelle che seguono sono riportate le classificazioni degli aggiornamenti 
 
 ### <a name="linux-2"></a>Linux
 
-|Classificazione  |Description  |
+|Classificazione  |Descrizione  |
 |---------|---------|
 |Aggiornamenti critici e della sicurezza     | Aggiornamenti per un problema specifico o specifico del prodotto, correlato alla sicurezza.         |
 |Altri aggiornamenti     | Tutti gli altri aggiornamenti che non sono critici per natura o che non sono aggiornamenti della sicurezza.        |

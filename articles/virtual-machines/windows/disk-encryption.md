@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 73a505ce68ed046eba011d3b36991616f441506e
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: bc15ee42fd7ef8e41b332104b28af808c336789f
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77206303"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430409"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Crittografia lato server di Azure Managed Disks
 
@@ -58,7 +58,7 @@ Per revocare l'accesso alle chiavi gestite dal cliente, vedere [Azure Key Vault 
 
 Attualmente sono supportate solo le aree seguenti:
 
-- Disponibile come offerta GA nelle aree Stati Uniti orientali, Stati Uniti occidentali 2 e Stati Uniti centro-meridionali.
+- Disponibile come offerta GA negli Stati Uniti orientali, Stati Uniti occidentali 2, Stati Uniti centro-meridionali, Regno Unito meridionale aree.
 - Disponibile come anteprima pubblica nelle aree Stati Uniti centro-occidentali, Stati Uniti orientali 2, Canada centrale ed Europa settentrionale.
 
 ### <a name="restrictions"></a>Restrizioni

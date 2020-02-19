@@ -1,6 +1,6 @@
 ---
-title: Come aggiungere un utente come proprietario del Lab in Azure Lab Services
-description: Questo articolo illustra come un amministratore può aggiungere un utente come proprietario di un Lab.
+title: Come aggiungere altri proprietari a un Lab in Azure Lab Services
+description: Questo articolo illustra come un amministratore può aggiungere un utente come proprietario di un Lab in Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,19 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2019
+ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: 9e007ee6c95843b7e8ef9d7a701237034811489e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9302cadf0b900c9faac382bad86b51cea7d828fb
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480853"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443517"
 ---
-# <a name="how-to-add-a-user-as-an-owner-of-a-classroom-lab-in-azure-lab-services"></a>Come aggiungere un utente come proprietario di un Lab della classe in Azure Lab Services
-Questo articolo illustra come aggiungere un utente come proprietario di un Lab in Azure Lab Services.
+# <a name="how-to-add-additional-owners-to-an-existing-lab-in-azure-lab-services"></a>Come aggiungere altri proprietari a un lab esistente in Azure Lab Services
+Questo articolo illustra come un amministratore può aggiungere altri proprietari a un lab esistente.
 
 ## <a name="add-user-to-the-reader-role-for-the-lab-account"></a>Aggiungere un utente al ruolo Reader per l'account Lab
+Per aggiungere un utente come proprietario aggiuntivo a un lab esistente, è innanzitutto necessario concedere all'utente le autorizzazioni di **lettura** per l'account Lab.
+
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Scegliere **Tutti i servizi** dal menu a sinistra. Cercare **Lab Services**, quindi selezionarlo.
 3. Selezionare l' **account Lab** nell'elenco. 

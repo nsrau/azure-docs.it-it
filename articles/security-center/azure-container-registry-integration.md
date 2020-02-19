@@ -12,24 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: bb004d536d30d62116866581daeef9b42c23d470
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 7601a5f8abefd88de0f9a3682341c5366eec3fb0
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76936370"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77431062"
 ---
 # <a name="azure-container-registry-integration-with-security-center-preview"></a>Integrazione di Azure Container Registry con Centro sicurezza (anteprima)
 
 Azure Container Registry (ACR) è un servizio di registro Docker privato gestito che archivia e gestisce le immagini del contenitore per le distribuzioni di Azure in un registro centrale. Si basa sul registro Docker open source 2,0.
 
-Se si usa il livello standard del Centro sicurezza di Azure, è possibile aggiungere il bundle dei registri contenitori. Questa funzionalità facoltativa offre una maggiore visibilità sulle vulnerabilità delle immagini nei registri basati su ARM. Abilitare o disabilitare il bundle a livello di sottoscrizione per coprire tutti i registri in una sottoscrizione. Questa funzionalità viene addebitata per ogni immagine, non per analisi, come illustrato nella [pagina dei prezzi](security-center-pricing.md). 
-
-L'abilitazione del bundle dei registri contenitori garantisce che il Centro sicurezza sia pronto per l'analisi delle immagini che vengono inserite nel registro di sistema. Le analisi sono a livello di immagine: il Centro sicurezza non analizza il registro di sistema, analizza le immagini archiviate nel registro di sistema. 
+Se si usa il livello standard del Centro sicurezza di Azure, è possibile aggiungere il bundle dei registri contenitori. Questa funzionalità facoltativa offre una maggiore visibilità sulle vulnerabilità delle immagini nei registri basati su ARM. Abilitare o disabilitare il bundle a livello di sottoscrizione per coprire tutti i registri in una sottoscrizione. Questa funzionalità viene addebitata per ogni immagine, come illustrato nella [pagina dei prezzi](security-center-pricing.md). L'abilitazione del bundle dei registri contenitori garantisce che il Centro sicurezza sia pronto per l'analisi delle immagini che vengono inserite nel registro di sistema. 
 
 Ogni volta che viene eseguito il push di un'immagine nel registro, il Centro sicurezza analizza automaticamente tale immagine. Per attivare l'analisi di un'immagine, eseguirne il push nel repository.
 
-Una volta completata l'analisi, in genere dopo circa 10 minuti, i risultati sono disponibili nelle raccomandazioni del Centro sicurezza, ad esempio:
+Al termine dell'analisi, in genere dopo circa 10 minuti, i risultati sono disponibili nelle raccomandazioni del Centro sicurezza, come indicato di seguito:
 
 [![raccomandazione del Centro sicurezza di Azure di esempio sulle vulnerabilità individuate in un'immagine ospitata in Azure Container Registry (ACR)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/17/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 305ad1da28de899f801b9b8af58628c6c067a5d7
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
-ms.translationtype: HT
+ms.openlocfilehash: f402effe40042740e74220d177c54963f6c45916
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425137"
+ms.locfileid: "77444010"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creare un avviso metrica con un modello di Resource Manager
 
@@ -1510,14 +1510,14 @@ az group deployment create \
 
 ## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>Modello per un avviso di metrica che monitora più risorse
 
-Le sezioni precedenti descrivono modelli di esempio di Azure Resource Manager per creare avvisi delle metriche per il monitoraggio di una singola risorsa. Ora Monitoraggio di Azure supporta il monitoraggio di più risorse con una sola regola di avviso per la metrica. Questa funzionalità è attualmente supportata solo nel cloud pubblico di Azure e solo per le macchine virtuali, i database SQL, i pool elastici SQL e i dispositivi databox Edge.
+Le sezioni precedenti descrivono modelli di esempio di Azure Resource Manager per creare avvisi delle metriche per il monitoraggio di una singola risorsa. Monitoraggio di Azure ora supporta il monitoraggio di più risorse (dello stesso tipo) con una singola regola di avviso di metrica, per le risorse presenti nella stessa area di Azure. Questa funzionalità è attualmente supportata solo nel cloud pubblico di Azure e solo per le macchine virtuali, i database SQL Server, i pool elastici di SQL Server e i dispositivi databox Edge. Inoltre, questa funzionalità è disponibile solo per le metriche della piattaforma e non è supportata per le metriche personalizzate.
 
 Le regole di avviso con soglie dinamiche possono anche creare soglie personalizzate per centinaia di serie di metriche (persino di tipi diversi) alla volta, riducendo così il numero di regole di avviso da gestire.
 
 Questa sezione descrive i modelli di Azure Resource Manager per tre scenari per il monitoraggio di più risorse con una singola regola.
 
 - Monitoraggio di tutte le macchine virtuali (in un'area di Azure) in uno o più gruppi di risorse.
-- Monitoraggio di tutte le macchine virtuali (in un'area di Azure) in una sottoscrizione
+- Monitoraggio di tutte le macchine virtuali (in un'area di Azure) in una sottoscrizione.
 - Monitoraggio di un elenco di macchine virtuali (in un'area di Azure) in una sottoscrizione.
 
 ### <a name="static-threshold-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>Avviso con soglia statica su tutte le macchine virtuali in uno o più gruppi di risorse

@@ -1,22 +1,24 @@
 ---
-title: Autorizzazioni per i repository
-description: Creare un token con autorizzazioni con ambito per repository specifici in un registro per eseguire il pull o il push di immagini
+title: Autorizzazioni per i repository in Azure Container Registry
+description: Creare un token con autorizzazioni con ambito per repository specifici in un registro di sistema per eseguire il pull o il push di immagini oppure eseguire altre azioni
 ms.topic: article
-ms.date: 10/31/2019
-ms.openlocfilehash: cf36a49ffd6c04897e6f44b844f0c813d0992b18
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 02/13/2020
+ms.openlocfilehash: 7d390bf4d97561e374c70f184534ac4f98a40611
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454918"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444300"
 ---
-# <a name="repository-scoped-permissions-in-azure-container-registry"></a>Autorizzazioni con ambito repository in Azure Container Registry 
+# <a name="create-a-token-with-repository-scoped-permissions"></a>Creare un token con autorizzazioni con ambito repository
 
-Azure Container Registry supporta diverse [Opzioni di autenticazione](container-registry-authentication.md) che usano identità con [accesso basato sui ruoli](container-registry-roles.md) a un intero registro. Tuttavia, per determinati scenari, potrebbe essere necessario fornire l'accesso solo a *repository* specifici in un registro di sistema. 
+Questo articolo descrive come creare token e mappe dell'ambito per gestire le autorizzazioni con ambito repository nel registro contenitori. Grazie alla creazione di token, un proprietario del registro di sistema può fornire agli utenti o ai servizi un accesso limitato a un determinato periodo di tempo ai repository per eseguire il pull o il push di immagini o eseguire altre azioni. Un token fornisce autorizzazioni più specifiche rispetto ad altre [Opzioni di autenticazione](container-registry-authentication.md)del registro di sistema, che hanno come ambito le autorizzazioni per un intero registro. 
 
-Questo articolo illustra come creare e usare un token di accesso che dispone delle autorizzazioni per eseguire azioni solo su repository specifici in un registro di sistema. Con un token di accesso, è possibile fornire agli utenti o ai servizi un accesso limitato al tempo ai repository per eseguire il pull o il push di immagini o eseguire altre azioni. 
+Gli scenari per la creazione di un token includono:
 
-Vedere [informazioni sulle autorizzazioni con ambito repository](#about-repository-scoped-permissions), più avanti in questo articolo, per informazioni di base sui concetti e gli scenari relativi ai token.
+* Consenti ai dispositivi Internet con i singoli token di effettuare il pull di un'immagine da un repository
+* Fornire un'organizzazione esterna con le autorizzazioni per un repository specifico 
+* Limitare l'accesso al repository a diversi gruppi di utenti dell'organizzazione. Ad esempio, fornire l'accesso in lettura e scrittura agli sviluppatori che creano immagini destinate a repository specifici e accesso in lettura ai team distribuiti da tali repository.
 
 > [!IMPORTANT]
 > Questa funzionalità è attualmente in anteprima e [si applicano alcune limitazioni](#preview-limitations). Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
@@ -24,50 +26,73 @@ Vedere [informazioni sulle autorizzazioni con ambito repository](#about-reposito
 ## <a name="preview-limitations"></a>Limiti di anteprima
 
 * Questa funzionalità è disponibile solo in un registro contenitori **Premium** . Per informazioni sui limiti e i livelli di servizio del registro di sistema, vedere [sku container Registry di Azure](container-registry-skus.md).
-* Attualmente non è possibile assegnare autorizzazioni con ambito repository a un oggetto Azure Active Directory, ad esempio un'entità servizio o un'identità gestita.
+* Attualmente non è possibile assegnare autorizzazioni con ambito repository a un'identità di Azure Active Directory, ad esempio un'entità servizio o un'identità gestita.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="concepts"></a>Concetti
 
-* **Interfaccia** della riga di comando di Azure: questo articolo richiede un'installazione locale dell'interfaccia della riga di comando di Azure (versione 2.0.76 o successiva). Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
-* **Docker** : per eseguire l'autenticazione con il registro di sistema, è necessaria anche un'installazione locale di Docker. Docker offre istruzioni di installazione per sistemi [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
-* **Registro contenitori con repository** : se non è presente, creare un registro contenitori nella sottoscrizione di Azure. Ad esempio usare il [portale di Azure](container-registry-get-started-portal.md) oppure l'[interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md). 
+Per configurare le autorizzazioni con ambito repository, è necessario creare un *token* con una *mappa ambito*associata. 
 
-  A scopo di test, eseguire il [push](container-registry-get-started-docker-cli.md) o l' [importazione](container-registry-import-images.md) di una o più immagini di esempio nel registro di sistema. Gli esempi in questo articolo si riferiscono alle immagini seguenti in due repository: `samples/hello-world:v1` e `samples/nginx:v1`. 
+* Un **token** insieme a una password generata consente all'utente di eseguire l'autenticazione con il registro di sistema. È possibile impostare una data di scadenza per una password di token o disabilitare un token in qualsiasi momento.  
 
-## <a name="create-an-access-token"></a>Creare un token di accesso
+  Dopo l'autenticazione con un token, l'utente o il servizio può eseguire una o più *azioni* nell'ambito di uno o più repository.
 
-Creare un token usando il comando [AZ ACR token create][az-acr-token-create] . Quando si crea un token, specificare uno o più repository e azioni associate in ogni repository oppure specificare un mapping dell'ambito esistente con tali impostazioni.
+  |Azione  |Descrizione  | Esempio |
+  |---------|---------|--------|
+  |`content/delete`    | Rimuovere i dati dal repository  | Eliminare un repository o un manifesto |
+  |`content/read`     |  Leggere i dati dal repository |  Effettuare il pull di un artefatto |
+  |`content/write`     |  Scrivere i dati nel repository     | Usare con `content/read` per eseguire il push di un artefatto |
+  |`metadata/read`    | Leggere i metadati dal repository   | Elencare tag o manifesti |
+  |`metadata/write`     |  Scrivere metadati nel repository  | Abilitare o disabilitare le operazioni di lettura, scrittura o eliminazione |
 
-### <a name="create-access-token-and-specify-repositories"></a>Creare il token di accesso e specificare i repository
+* Una **mappa ambito** raggruppa le autorizzazioni del repository che si applicano a un token e può essere riapplicata ad altri token. Ogni token è associato a una singola mappa dell'ambito. 
 
-Nell'esempio seguente viene creato un token di accesso con le autorizzazioni per eseguire `content/write` e `content/read` azioni sul repository di `samples/hello-world` e l'azione `content/read` nel repository di `samples/nginx`. Per impostazione predefinita, il comando genera due password. 
+   Con una mappa ambito:
 
-Questo esempio imposta lo stato del token su `enabled` (impostazione predefinita), ma è possibile aggiornare il token in qualsiasi momento e impostare lo stato su `disabled`.
+    * Configurare più token con autorizzazioni identiche per un set di repository
+    * Aggiornare le autorizzazioni del token quando si aggiungono o rimuovono le azioni del repository nella mappa dell'ambito o si applica una mappa di ambito diversa 
+
+  Azure Container Registry fornisce anche diverse mappe di ambito definite dal sistema che è possibile applicare, con autorizzazioni fisse in tutti i repository.
+
+Nell'immagine seguente viene illustrata la relazione tra token e mappe dell'ambito. 
+
+![Token del registro di sistema e mappe dell'ambito](media/container-registry-repository-scoped-permissions/token-scope-map-concepts.png)
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* **Interfaccia** della riga di comando di Azure: i comandi di Azure per creare e gestire i token sono disponibili nell'interfaccia della riga di comando di Azure versione 2.0.76 o successiva Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+* **Docker** : per eseguire l'autenticazione con il registro di sistema per eseguire il pull o il push di immagini, è necessaria un'installazione locale di Docker. Docker offre istruzioni di installazione per sistemi [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+* **Registro contenitori** : se non è già presente, creare un registro contenitori Premium nella sottoscrizione di Azure o aggiornare un registro di sistema esistente. Ad esempio usare il [portale di Azure](container-registry-get-started-portal.md) oppure l'[interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md). 
+
+## <a name="create-token---cli"></a>Crea token-CLI
+
+### <a name="create-token-and-specify-repositories"></a>Creare il token e specificare i repository
+
+Creare un token usando il comando [AZ ACR token create][az-acr-token-create] . Quando si crea un token, è possibile specificare uno o più repository e le azioni associate in ogni repository. Non è necessario che i repository siano ancora presenti nel registro di sistema. Per creare un token specificando una mappa dell'ambito esistente, vedere la sezione successiva.
+
+Nell'esempio seguente viene creato un token nel *Registro* di sistema Registry con le autorizzazioni seguenti per il repository `samples/hello-world`: `content/write` e `content/read`. Per impostazione predefinita, il comando imposta lo stato del token predefinito su `enabled`, ma è possibile aggiornare lo stato in modo che `disabled` in qualsiasi momento.
 
 ```azurecli
 az acr token create --name MyToken --registry myregistry \
-  --repository samples/hello-world content/write content/read \
-  --repository samples/nginx content/read --status enabled
+  --repository samples/hello-world \
+  content/write content/read
 ```
 
-L'output Mostra i dettagli sul token, incluse le password generate e la mappa dell'ambito. È consigliabile salvare le password in un luogo sicuro da usare in un secondo momento con `docker login`. Le password non possono essere recuperate nuovamente, ma è possibile generarne di nuove.
-
-L'output Mostra anche che viene creata automaticamente una mappa ambito, denominata `MyToken-scope-map`. È possibile usare la mappa ambito per applicare le stesse azioni del repository ad altri token. In alternativa, aggiornare la mappa dell'ambito in un secondo momento per modificare le autorizzazioni del token.
+L'output Mostra i dettagli sul token, incluse due password generate. È consigliabile salvare le password in un luogo sicuro da usare in un secondo momento per l'autenticazione. Le password non possono essere recuperate nuovamente, ma è possibile generarne di nuove.
 
 ```console
 {
-  "creationDate": "2019-10-22T00:15:34.066221+00:00",
+  "creationDate": "2020-01-18T00:15:34.066221+00:00",
   "credentials": {
     "certificates": [],
     "passwords": [
       {
-        "creationTime": "2019-10-22T00:15:52.837651+00:00",
+        "creationTime": "2020-01-18T00:15:52.837651+00:00",
         "expiry": null,
         "name": "password1",
         "value": "uH54BxxxxK7KOxxxxRbr26dAs8JXxxxx"
       },
       {
-        "creationTime": "2019-10-22T00:15:52.837651+00:00",
+        "creationTime": "2020-01-18T00:15:52.837651+00:00",
         "expiry": null,
         "name": "password2",
         "value": "kPX6Or/xxxxLXpqowxxxxkA0idwLtmxxxx"
@@ -85,62 +110,98 @@ L'output Mostra anche che viene creata automaticamente una mappa ambito, denomin
   "type": "Microsoft.ContainerRegistry/registries/tokens"
 ```
 
-### <a name="create-a-scope-map-and-associated-token"></a>Creare una mappa ambito e un token associato
+L'output include i dettagli sull'ambito Mappa del comando creato. È possibile usare la mappa ambito, denominata `MyToken-scope-map`, per applicare le stesse azioni del repository ad altri token. In alternativa, aggiornare la mappa dell'ambito in un secondo momento per modificare le autorizzazioni dei token associati.
 
-In alternativa, specificare una mappa dell'ambito con i repository e le azioni associate durante la creazione di un token. Per creare una mappa dell'ambito, usare il comando [AZ ACR scope-map create][az-acr-scope-map-create] .
+### <a name="create-token-and-specify-scope-map"></a>Crea token e specifica mappa ambito
 
-Il comando di esempio seguente crea un mapping dell'ambito con le stesse autorizzazioni usate nell'esempio precedente. Consente di `content/write` e `content/read` azioni sul repository di `samples/hello-world` e l'azione `content/read` nel repository `samples/nginx`:
+Un metodo alternativo per creare un token consiste nel specificare una mappa dell'ambito esistente. Se non si dispone già di una mappa ambito, crearne prima una specificando i repository e le azioni associate. Specificare quindi la mappa dell'ambito durante la creazione di un token. 
+
+Per creare una mappa dell'ambito, usare il comando [AZ ACR scope-map create][az-acr-scope-map-create] . Il comando seguente crea un mapping dell'ambito con le stesse autorizzazioni per il repository `samples/hello-world` usato in precedenza. 
 
 ```azurecli
 az acr scope-map create --name MyScopeMap --registry myregistry \
-  --repository samples/hello-world content/write content/read \
-  --repository samples/nginx content/read \
+  --repository samples/hello-world \
+  content/write content/read \
   --description "Sample scope map"
 ```
 
-L'output è simile al seguente:
-
-```console
-{
-  "actions": [
-    "repositories/samples/hello-world/content/write",
-    "repositories/samples/nginx/content/read"
-  ],
-  "creationDate": "2019-10-22T05:07:35.194413+00:00",
-  "description": "Sample scope map.",
-  "id": "/subscriptions/fxxxxxxxx-adbd-4cb4-c864-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry/scopeMaps/MyScopeMap",
-  "name": "MyScopeMap",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myresourcegroup",
-  "scopeMapType": "UserDefined",
-  "type": "Microsoft.ContainerRegistry/registries/scopeMaps"
-```
-
-Eseguire [AZ ACR token create][az-acr-token-create] per creare un token associato alla mappa dell'ambito *MyScopeMap* . Per impostazione predefinita, il comando genera due password. Questo esempio imposta lo stato del token su `enabled` (impostazione predefinita), ma è possibile aggiornare il token in qualsiasi momento e impostare lo stato su `disabled`.
+Eseguire [AZ ACR token create][az-acr-token-create] per creare un token, specificando la mappa dell'ambito *MyScopeMap* . Come nell'esempio precedente, il comando imposta lo stato del token predefinito su `enabled`.
 
 ```azurecli
-az acr token create --name MyToken --registry myregistry --scope-map MyScopeMap --status enabled
+az acr token create --name MyToken \
+  --registry myregistry \
+  --scope-map MyScopeMap
 ```
 
-L'output Mostra i dettagli sul token, incluse le password generate e la mappa dell'ambito applicata. È consigliabile salvare le password in un luogo sicuro da usare in un secondo momento con `docker login`. Le password non possono essere recuperate nuovamente, ma è possibile generarne di nuove.
+L'output Mostra i dettagli sul token, incluse due password generate. È consigliabile salvare le password in un luogo sicuro da usare in un secondo momento per l'autenticazione. Le password non possono essere recuperate nuovamente, ma è possibile generarne di nuove.
 
-## <a name="generate-passwords-for-token"></a>Genera password per il token
+## <a name="create-token---portal"></a>Crea token-portale
 
-Se le password sono state create al momento della creazione del token, procedere [con l'autenticazione con il registro di sistema](#authenticate-using-token).
+È possibile utilizzare il portale di Azure per creare token e mappe dell'ambito. Come per l'`az acr token create` comando CLI, è possibile applicare una mappa ambito esistente o creare una mappa ambito quando si crea un token specificando uno o più repository e le azioni associate. Non è necessario che i repository siano ancora presenti nel registro di sistema. 
 
-Se non si ha una password del token o si vuole generare nuove password, eseguire il comando [AZ ACR token Credential generate][az-acr-token-credential-generate] .
+Nell'esempio seguente viene creato un token e viene creata una mappa dell'ambito con le autorizzazioni seguenti per il repository `samples/hello-world`: `content/write` e `content/read`.
 
-L'esempio seguente genera una nuova password per il token creato con un periodo di scadenza di 30 giorni. Archivia la password nella variabile di ambiente TOKEN_PWD. Questo esempio è formattato per la shell bash.
+1. Nel portale passare al registro contenitori.
+1. In **Servizi**selezionare **token (anteprima) > + Aggiungi**.
+  ![creare un token nel portale](media/container-registry-repository-scoped-permissions/portal-token-add.png)
+1. Immettere un nome di token.
+1. In **mapping ambito**selezionare **Crea nuovo**.
+1. Configurare la mappa ambito:
+    1. Immettere un nome e una descrizione per la mappa ambito. 
+    1. In **repository**immettere `samples/hello-world`e in **autorizzazioni**Selezionare `content/read` e `content/write`. Quindi selezionare **+ Aggiungi**.  
+    ![creare una mappa ambito nel portale](media/container-registry-repository-scoped-permissions/portal-scope-map-add.png)
 
-```azurecli
-TOKEN_PWD=$(az acr token credential generate \
-  --name MyToken --registry myregistry --days 30 \
-  --password1 --query 'passwords[0].value' --output tsv)
+    1. Dopo l'aggiunta di repository e autorizzazioni, selezionare **Aggiungi** per aggiungere la mappa dell'ambito.
+1. Accettare lo **stato** del token predefinito **abilitato** e quindi selezionare **Crea**.
+
+Dopo che il token è stato convalidato e creato, i dettagli del token vengono visualizzati nella schermata **token** .
+
+### <a name="add-token-password"></a>Aggiungi password token
+
+Generare una password dopo aver creato un token. Per eseguire l'autenticazione con il registro di sistema, il token deve essere abilitato e deve avere una password valida.
+
+È possibile generare una o due password e impostare una data di scadenza per ciascuna di esse. 
+
+1. Nel portale passare al registro contenitori.
+1. In **Servizi**selezionare **token (anteprima)** e selezionare un token.
+1. Nei dettagli del token selezionare **Password1** o **password2**e selezionare l'icona Genera.
+1. Nella schermata password, facoltativamente, impostare una data di scadenza per la password e selezionare **genera**.
+1. Dopo aver generato una password, copiarla e salvarla in una posizione sicura. Non è possibile recuperare una password generata dopo aver chiuso la schermata, ma è possibile generarne una nuova.
+
+    ![Creazione della password del token nel portale](media/container-registry-repository-scoped-permissions/portal-token-password.png)
+
+## <a name="authenticate-with-token"></a>Eseguire l'autenticazione con il token
+
+Quando un utente o un servizio utilizza un token per l'autenticazione con il registro di sistema di destinazione, fornisce il nome del token come nome utente e una delle password generate. Il metodo di autenticazione dipende dall'azione o dalle azioni configurate associate al token.
+
+|Azione  |Come eseguire l'autenticazione  |
+  |---------|---------|
+  |`content/delete`    | `az acr repository delete` nell'interfaccia della riga di comando di Azure |
+  |`content/read`     |  `docker login`<br/><br/>`az acr login` nell'interfaccia della riga di comando di Azure  |
+  |`content/write`     |  `docker login`<br/><br/>`az acr login` nell'interfaccia della riga di comando di Azure     |
+  |`metadata/read`    | `az acr repository show`<br/><br/>`az acr repository show-tags`<br/><br/>`az acr repository show-manifests` nell'interfaccia della riga di comando di Azure   |
+  |`metadata/write`     |  `az acr repository untag`<br/><br/>`az acr repository update` nell'interfaccia della riga di comando di Azure |
+
+## <a name="examples-use-token"></a>Esempi: usare il token
+
+Gli esempi seguenti usano il token creato in precedenza in questo articolo per eseguire operazioni comuni su un repository: immagini push e pull, Elimina immagini ed elenca i tag del repository. Il token è stato configurato inizialmente con le autorizzazioni push (`content/write` e `content/read` azioni) nel repository di `samples/hello-world`.
+
+### <a name="pull-and-tag-test-images"></a>Immagini di test pull e tag
+
+Per gli esempi seguenti, estrarre le immagini `hello-world` e `alpine` dall'hub Docker e contrassegnarle per il registro e il repository.
+
+```bash
+docker pull hello-world
+docker pull alpine
+docker tag hello-world myregistry.azurecr.io/samples/hello-world:v1
+docker tag hello-world myregistry.azurecr.io/samples/alpine:v1
 ```
 
-## <a name="authenticate-using-token"></a>Eseguire l'autenticazione tramite token
+### <a name="authenticate-using-token"></a>Eseguire l'autenticazione tramite token
 
-Eseguire `docker login` per l'autenticazione con il registro di sistema usando le credenziali del token. Immettere il nome del token come nome utente e specificare una delle password. L'esempio seguente è formattato per la shell bash e fornisce i valori usando le variabili di ambiente.
+Eseguire `docker login` per l'autenticazione con il registro di sistema, specificare il nome del token come nome utente e specificare una delle password. Il token deve avere lo stato `Enabled`.
+
+L'esempio seguente è formattato per la shell bash e fornisce i valori usando le variabili di ambiente.
 
 ```bash
 TOKEN_NAME=MyToken
@@ -155,109 +216,206 @@ L'output dovrebbe visualizzare l'autenticazione riuscita:
 Login Succeeded
 ```
 
-## <a name="verify-scoped-access"></a>Verificare l'accesso con ambito
+### <a name="push-images-to-registry"></a>Eseguire il push delle immagini nel registro
 
-È possibile verificare che il token fornisca autorizzazioni con ambito per i repository nel registro di sistema. In questo esempio i comandi di `docker pull` seguenti vengono completati correttamente per eseguire il pull delle immagini disponibili nei repository `samples/hello-world` e `samples/nginx`:
+Dopo aver eseguito l'accesso, provare a eseguire il push delle immagini con tag nel registro di sistema. Poiché il token ha le autorizzazioni per eseguire il push delle immagini nel repository `samples/hello-world`, il push seguente ha esito positivo:
 
-```console
-docker pull myregistry.azurecr.io/samples/hello-world:v1
-docker pull myregistry.azurecr.io/samples/nginx:v1
+```bash
+docker push myregistry.azurecr.io/samples/hello-world:v1
 ```
 
-Poiché il token di esempio consente l'azione `content/write` solo nel repository `samples/hello-world`, `docker push` riesce a tale repository, ma non riesce per `samples/nginx`:
+Il token non ha le autorizzazioni per il repository `samples/alpine`, quindi il tentativo di push seguente ha esito negativo con un errore simile a `requested access to the resource is denied`:
 
-```console
-# docker push succeeds
-docker pull myregistry.azurecr.io/samples/hello-world:v1
-
-# docker push fails
-docker pull myregistry.azurecr.io/samples/nginx:v1
+```bash
+docker push myregistry.azurecr.io/samples/alpine:v1
 ```
 
-## <a name="update-scope-map-and-token"></a>Aggiornare la mappa e il token dell'ambito
+### <a name="change-pushpull-permissions"></a>Modificare le autorizzazioni push/pull
 
-Per aggiornare le autorizzazioni del token, aggiornare le autorizzazioni nella mappa dell'ambito associata usando [AZ ACR scope-Map Update][az-acr-scope-map-update]. Ad esempio, per aggiornare *MyScopeMap* per rimuovere l'azione `content/write` nel repository `samples/hello-world`:
+Per aggiornare le autorizzazioni di un token, aggiornare le autorizzazioni nella mappa dell'ambito associata. La mappa di ambito aggiornata viene applicata immediatamente a tutti i token associati. 
+
+Ad esempio, aggiornare `MyToken-scope-map` con `content/write` e `content/read` azioni sul repository `samples/alpine` e rimuovere l'azione `content/write` nel repository di `samples/hello-world`.  
+
+Per usare l'interfaccia della riga di comando di Azure, eseguire [AZ ACR scope-Map Update][az-acr-scope-map-update] per aggiornare la mappa dell'ambito:
 
 ```azurecli
-az acr scope-map update --name MyScopeMap --registry myregistry \
-  --remove samples/hello-world content/write
+az acr scope-map update \
+  --name MyScopeMap \
+  --registry myregistry \
+  --add samples/alpine content/write content/read \
+  --remove samples/hello-world content/write 
 ```
 
-Se la mappa dell'ambito è associata a più di un token, il comando Aggiorna l'autorizzazione di tutti i token associati.
+Nel portale di Azure:
 
-Se si vuole aggiornare un token con una mappa di ambito diversa, eseguire [AZ ACR token Update][az-acr-token-update]. Ad esempio:
+1. Passare al registro contenitori.
+1. In **Servizi**selezionare **mappe ambito (anteprima)** e selezionare la mappa ambito da aggiornare.
+1. In **repository**immettere `samples/alpine`e in **autorizzazioni**Selezionare `content/read` e `content/write`. Quindi selezionare **+ Aggiungi**.
+1. In **repository**selezionare `samples/hello-world` e in **autorizzazioni**deselezionare `content/write`. Selezionare quindi **Salva**.
+
+Dopo aver aggiornato la mappa dell'ambito, il push seguente viene eseguito correttamente:
+
+```bash
+docker push myregistry.azurecr.io/samples/alpine:v1
+```
+
+Poiché la mappa dell'ambito ha solo l'autorizzazione `content/read` per il repository `samples/hello-world`, un tentativo push al repository `samples/hello-world` ora non riesce:
+ 
+```bash
+docker push myregistry.azurecr.io/samples/hello-world:v1
+```
+
+Il pull di immagini da entrambi i repository ha esito positivo, perché la mappa dell'ambito fornisce autorizzazioni `content/read` per entrambi i repository:
+
+```bash
+docker pull myregistry.azurecr.io/samples/alpine:v1
+docker pull myregistry.azurecr.io/samples/hello-world:v1
+```
+### <a name="delete-images"></a>Eliminare le immagini
+
+Aggiornare la mappa dell'ambito aggiungendo l'azione `content/delete` al repository `alpine`. Questa azione consente l'eliminazione di immagini nel repository o l'eliminazione dell'intero repository.
+
+Per brevità, viene visualizzato solo il comando [AZ ACR scope-Map Update][az-acr-scope-map-update] per aggiornare la mappa dell'ambito:
+
+```azurecli
+az acr scope-map update \
+  --name MyScopeMap \
+  --registry myregistry \
+  --add samples/alpine content/delete
+``` 
+
+Per aggiornare la mappa dell'ambito usando il portale, vedere la sezione precedente.
+
+Usare il comando [AZ ACR repository Delete][az-acr-repository-delete] seguente per eliminare il repository `samples/alpine`. Per eliminare immagini o repository, il token non esegue l'autenticazione tramite `docker login`. Al contrario, passare il nome e la password del token al comando. L'esempio seguente usa le variabili di ambiente create in precedenza nell'articolo:
+
+```azurecli
+az acr repository delete \
+  --name myregistry --repository samples/alpine \
+  --username $TOKEN_NAME --password $TOKEN_PWD
+```
+
+### <a name="show-repo-tags"></a>Mostra tag del repository 
+
+Aggiornare la mappa dell'ambito aggiungendo l'azione `metadata/read` al repository `hello-world`. Questa azione consente di leggere i dati del manifesto e dei tag nel repository.
+
+Per brevità, viene visualizzato solo il comando [AZ ACR scope-Map Update][az-acr-scope-map-update] per aggiornare la mappa dell'ambito:
+
+```azurecli
+az acr scope-map update \
+  --name MyScopeMap \
+  --registry myregistry \
+  --add samples/hello-world metadata/read 
+```  
+
+Per aggiornare la mappa dell'ambito usando il portale, vedere la sezione precedente.
+
+Per leggere i metadati nel repository `samples/hello-world`, eseguire il comando [AZ ACR repository Show-manifests][az-acr-repository-show-manifests] o [AZ ACR repository Show-Tags][az-acr-repository-show-tags] . 
+
+Per leggere i metadati, il token non esegue l'autenticazione tramite `docker login`. Al contrario, passare il nome e la password del token a uno dei comandi. L'esempio seguente usa le variabili di ambiente create in precedenza nell'articolo:
+
+```azurecli
+az acr repository show-tags \
+  --name myregistry --repository samples/hello-world \
+  --username $TOKEN_NAME --password $TOKEN_PWD
+```
+
+Esempio di output:
+
+```console
+[
+  "v1"
+]
+```
+## <a name="manage-tokens-and-scope-maps"></a>Gestire i token e le mappe dell'ambito
+
+### <a name="list-scope-maps"></a>Elenca mappe ambito
+
+Per elencare tutte le mappe dell'ambito configurate in un registro di sistema, usare il comando [AZ ACR scope-map list][az-acr-scope-map-list] o la schermata **scope Maps (Preview)** nel portale. Ad esempio,
+
+```azurecli
+az acr scope-map list \
+  --registry myregistry --output table
+```
+
+L'output Mostra le mappe dell'ambito definite e diverse mappe dell'ambito definite dal sistema che è possibile usare per configurare i token:
+
+```
+NAME                 TYPE           CREATION DATE         DESCRIPTION
+-------------------  -------------  --------------------  ------------------------------------------------------------
+_repositories_admin  SystemDefined  2020-01-20T09:44:24Z  Can perform all read, write and delete operations on the ...
+_repositories_pull   SystemDefined  2020-01-20T09:44:24Z  Can pull any repository of the registry
+_repositories_push   SystemDefined  2020-01-20T09:44:24Z  Can push to any repository of the registry
+MyScopeMap           UserDefined    2019-11-15T21:17:34Z  Sample scope map
+```
+
+### <a name="show-token-details"></a>Mostra dettagli token
+
+Per visualizzare i dettagli di un token, ad esempio il relativo stato e le date di scadenza della password, eseguire il comando [AZ ACR token Show][az-acr-token-show] oppure selezionare il token nella schermata **Tokens (anteprima)** nel portale. Ad esempio,
+
+```azurecli
+az acr scope-map show \
+  --name MyScopeMap --registry myregistry
+```
+
+Usare il comando [AZ ACR token list][az-acr-token-list] o la schermata **Tokens (anteprima)** nel portale per elencare tutti i token configurati in un registro. Ad esempio,
+
+```azurecli
+az acr token list --registry myregistry --output table
+```
+
+### <a name="generate-passwords-for-token"></a>Genera password per il token
+
+Se non si ha una password del token o si vuole generare nuove password, eseguire il comando [AZ ACR token Credential generate][az-acr-token-credential-generate] . 
+
+Nell'esempio seguente viene generato un nuovo valore per Password1 per *il token token,* con un periodo di scadenza di 30 giorni. Archivia la password nella variabile di ambiente `TOKEN_PWD`. Questo esempio è formattato per la shell bash.
+
+```azurecli
+TOKEN_PWD=$(az acr token credential generate \
+  --name MyToken --registry myregistry --days 30 \
+  --password1 --query 'passwords[0].value' --output tsv)
+```
+
+Per usare la portale di Azure per generare una password del token, vedere la procedura descritta in [creare token-portale](#create-token---portal) più indietro in questo articolo.
+
+### <a name="update-token-with-new-scope-map"></a>Aggiorna token con nuova mappa ambito
+
+Se si vuole aggiornare un token con una mappa di ambito diversa, eseguire [AZ ACR token Update][az-acr-token-update] e specificare la nuova mappa dell'ambito. Ad esempio,
 
 ```azurecli
 az acr token update --name MyToken --registry myregistry \
   --scope-map MyNewScopeMap
 ```
 
-Dopo l'aggiornamento di un token o di una mappa dell'ambito associata a un token, le modifiche alle autorizzazioni diventano effettive al successivo `docker login` o ad altra autenticazione tramite il token.
+Nella schermata **token (anteprima)** del portale selezionare il token e in **mapping ambito**Selezionare un'altra mappa dell'ambito.
 
-Dopo l'aggiornamento di un token, è possibile che si desideri generare nuove password per accedere al registro di sistema. Eseguire [AZ ACR token Credential generate][az-acr-token-credential-generate]. Ad esempio:
+> [!TIP]
+> Dopo l'aggiornamento di un token con una nuova mappa ambito, potrebbe essere necessario generare nuove password per i token. Usare il comando [AZ ACR token Credential generate][az-acr-token-credential-generate] o rigenerare una password del token nel portale di Azure.
+
+## <a name="disable-or-delete-token"></a>Disabilitare o eliminare il token
+
+Potrebbe essere necessario disabilitare temporaneamente l'uso delle credenziali del token per un utente o un servizio. 
+
+Usando l'interfaccia della riga di comando di Azure, eseguire il comando [AZ ACR token Update][az-acr-token-update] per impostare il `status` su `disabled`:
 
 ```azurecli
-az acr token credential generate \
-  --name MyToken --registry myregistry --days 30
+az acr token update --name MyToken --registry myregistry \
+  --status disabled
 ```
 
-## <a name="about-repository-scoped-permissions"></a>Informazioni sulle autorizzazioni con ambito repository
+Nel portale selezionare il token nella schermata **Tokens (anteprima)** e selezionare **disabled** in **status**.
 
-### <a name="concepts"></a>Concetti
+Per eliminare un token per invalidare l'accesso in modo permanente da chiunque usi le credenziali, eseguire il comando [AZ ACR token Delete][az-acr-token-delete] . 
 
-Per configurare le autorizzazioni con ambito repository, è possibile creare un *token di accesso* e una *mappa ambito* associata usando i comandi nell'interfaccia della riga di comando di Azure.
+```azurecli
+az acr token delete --name MyToken --registry myregistry
+```
 
-* Un **token di accesso** è una credenziale utilizzata con una password per l'autenticazione con il registro di sistema. Gli elementi associati a ogni token sono le *azioni* consentite con ambito per uno o più repository. È possibile impostare una data di scadenza per ogni token. 
-
-* Le **azioni** in ogni repository specificato includono uno o più dei seguenti elementi.
-
-  |Azione  |DESCRIZIONE  |
-  |---------|---------|
-  |`content/read`     |  Leggere i dati dal repository. Ad esempio, effettuare il pull di un elemento.  |
-  |`metadata/read`    | Leggere i metadati dal repository. Ad esempio, elencare i tag o visualizzare i metadati del manifesto.   |
-  |`content/write`     |  Scrivere i dati nel repository. Usare con `content/read` per eseguire il push di un elemento.    |
-  |`metadata/write`     |  Scrivere i metadati nel repository. Ad esempio, aggiornare gli attributi del manifesto.  |
-  |`content/delete`    | Rimuovere i dati dal repository. Ad esempio, eliminare un repository o un manifesto. |
-
-* Una **mappa dell'ambito** è un oggetto del registro di sistema che raggruppa le autorizzazioni del repository applicate a un token oppure può essere riapplicato ad altri token. Se non si applica una mappa ambito durante la creazione di un token, viene creata automaticamente una mappa ambito per salvare le impostazioni di autorizzazione. 
-
-  Una mappa ambito consente di configurare più utenti con accesso identico a un set di repository. Azure Container Registry fornisce anche mappe dell'ambito definite dal sistema che è possibile applicare quando si creano i token di accesso.
-
-Nell'immagine seguente viene riepilogata la relazione tra token e mappe dell'ambito. 
-
-![Mapping dell'ambito del registro di sistema e token](media/container-registry-repository-scoped-permissions/token-scope-map-concepts.png)
-
-### <a name="scenarios"></a>Scenari
-
-Gli scenari per l'uso di un token di accesso includono:
-
-* Fornire ai dispositivi di tutti i token singoli per eseguire il pull di un'immagine da un repository
-* Fornire un'organizzazione esterna con le autorizzazioni per un repository specifico 
-* Limitare l'accesso al repository a gruppi di utenti specifici nell'organizzazione. Ad esempio, fornire l'accesso in lettura e scrittura agli sviluppatori che creano immagini destinate a repository specifici e accesso in lettura ai team distribuiti da tali repository.
-
-### <a name="authentication-using-token"></a>Autenticazione tramite token
-
-Usare un nome di token come nome utente e una delle password associate per l'autenticazione con il registro di destinazione. Il metodo di autenticazione dipende dalle azioni configurate.
-
-### <a name="contentread-or-contentwrite"></a>contenuto/lettura o contenuto/scrittura
-
-Se il token consente solo `content/read` o `content/write` azioni, fornire le credenziali del token in uno dei flussi di autenticazione seguenti:
-
-* Eseguire l'autenticazione con Docker usando `docker login`
-* Eseguire l'autenticazione con il registro di sistema usando il comando [AZ ACR login][az-acr-login] nell'interfaccia della riga di comando di Azure
-
-Dopo l'autenticazione, il token consente le azioni configurate nel repository o nei repository con ambito. Se, ad esempio, il token consente l'azione `content/read` su un repository, le operazioni di `docker pull` sono consentite nelle immagini del repository.
-
-#### <a name="metadataread-metadatawrite-or-contentdelete"></a>metadati/lettura, metadati/scrittura o contenuto/eliminazione
-
-Se il token consente le azioni `metadata/read`, `metadata/write`o `content/delete` in un repository, le credenziali del token devono essere fornite come parametri con i comandi [AZ ACR repository][az-acr-repository] correlati nell'interfaccia della riga di comando di Azure.
-
-Ad esempio, se `metadata/read` azioni sono consentite in un repository, passare le credenziali del token durante l'esecuzione del comando [AZ ACR repository Show-Tags][az-acr-repository-show-tags] per elencare i tag.
+Nel portale selezionare il token nella schermata **Tokens (anteprima)** e selezionare **Ignora**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per gestire le mappe di ambito e i token di accesso, usare comandi aggiuntivi nei gruppi di comandi [AZ ACR scope-map][az-acr-scope-map] e [AZ ACR token][az-acr-token] .
-* Vedere [Panoramica dell'autenticazione](container-registry-authentication.md) per gli scenari per l'autenticazione con un registro contenitori di Azure con un account amministratore o un'identità Azure Active Directory.
+* Per gestire le mappe e i token dell'ambito, usare comandi aggiuntivi nei gruppi di comandi [AZ ACR scope-map][az-acr-scope-map] e [AZ ACR token][az-acr-token] .
+* Vedere [Panoramica dell'autenticazione](container-registry-authentication.md) per altre opzioni per l'autenticazione con un registro contenitori di Azure, tra cui l'uso di un'identità di Azure Active Directory, un'entità servizio o un account amministratore.
 
 
 <!-- LINKS - External -->
@@ -267,12 +425,18 @@ Ad esempio, se `metadata/read` azioni sono consentite in un repository, passare 
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [az-acr-repository]: /cli/azure/acr/repository/
 [az-acr-repository-show-tags]: /cli/azure/acr/repository/#az-acr-repository-show-tags
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository/#az-acr-repository-show-manifests
+[az-acr-repository-delete]: /cli/azure/acr/repository/#az-acr-repository-delete
 [az-acr-scope-map]: /cli/azure/acr/scope-map/
 [az-acr-scope-map-create]: /cli/azure/acr/scope-map/#az-acr-scope-map-create
+[az-acr-scope-map-list]: /cli/azure/acr/scope-map/#az-acr-scope-map-show
+[az-acr-scope-map-show]: /cli/azure/acr/scope-map/#az-acr-scope-map-list
 [az-acr-scope-map-update]: /cli/azure/acr/scope-map/#az-acr-scope-map-update
 [az-acr-scope-map-list]: /cli/azure/acr/scope-map/#az-acr-scope-map-list
 [az-acr-token]: /cli/azure/acr/token/
 [az-acr-token-show]: /cli/azure/acr/token/#az-acr-token-show
+[az-acr-token-list]: /cli/azure/acr/token/#az-acr-token-list
+[az-acr-token-delete]: /cli/azure/acr/token/#az-acr-token-delete
 [az-acr-token-create]: /cli/azure/acr/token/#az-acr-token-create
 [az-acr-token-update]: /cli/azure/acr/token/#az-acr-token-update
 [az-acr-token-credential-generate]: /cli/azure/acr/token/credential/#az-acr-token-credential-generate

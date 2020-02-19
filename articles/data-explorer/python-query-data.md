@@ -7,24 +7,26 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 2c32e67bb2b47a24036a341ea4e1b83037abbaee
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: ebd65f2dcbb0040b764290627bbfd2901aa9a7d3
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827526"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443976"
 ---
 # <a name="query-data-using-the-azure-data-explorer-python-library"></a>Eseguire query sui dati usando la libreria di Esplora dati di Azure per Python
 
-Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora i dati di Azure mette a disposizione una [libreria client per i dati per Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Questa libreria consente di eseguire query sui dati dal codice. In questo articolo viene stabilita una connessione a una tabella nel *cluster della Guida* configurata per facilitare l'apprendimento. Si eseguirà quindi una query in tale cluster e si riceveranno i risultati.
+Questo articolo illustra come eseguire query sui dati usando il Esplora dati di Azure. Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria.
+
+Esplora i dati di Azure mette a disposizione una [libreria client per i dati per Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Questa libreria consente di eseguire query sui dati dal codice. Connettersi a una tabella nel *cluster della Guida* che è stato configurato per facilitare l'apprendimento. È possibile eseguire una query su una tabella del cluster e restituire i risultati.
 
 Questo articolo è disponibile anche come [notebook di Azure](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un account di posta elettronica dell'organizzazione che sia membro di Azure Active Directory
+* [Python 3.4 +](https://www.python.org/downloads/)
 
-* [Python](https://www.python.org/downloads/) installato nel computer di sviluppo
+* Un account di posta elettronica dell'organizzazione che sia membro di Azure Active Directory
 
 ## <a name="install-the-data-library"></a>Installare la libreria per i dati
 
@@ -75,7 +77,7 @@ KCSB.authority_id = AAD_TENANT_ID
 
 ## <a name="connect-to-azure-data-explorer-and-execute-a-query"></a>Connettersi a Esplora dati di Azure ed eseguire una query
 
-Eseguire una query sul cluster e archiviare l'output in un frame di dati. Quando viene eseguito, questo codice restituisce un messaggio simile al seguente: *Per accedere, usare un Web browser per aprire la pagina https://microsoft.com/devicelogin e immettere il codice F3W4VWZDM per eseguire l'autenticazione*. Seguire i passaggi per l'accesso, quindi tornare per eseguire il blocco di codice successivo.
+Eseguire una query sul cluster e archiviare l'output in un frame di dati. Quando viene eseguito questo codice, restituisce un messaggio simile al seguente: *Per accedere, usare un web browser per aprire la pagina https://microsoft.com/devicelogin e immettere il codice F3W4VWZDM per l'autenticazione*. Seguire i passaggi per l'accesso, quindi tornare per eseguire il blocco di codice successivo.
 
 ```python
 KUSTO_CLIENT = KustoClient(KCSB)

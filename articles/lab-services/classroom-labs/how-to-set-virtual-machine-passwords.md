@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: d89d506d8912706bbdb802801b16d01036ecb8e2
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 99c6ee5d58655350d14add61530fae647a675508
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583607"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443228"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurare e gestire il pool di macchine virtuali 
 Questo articolo illustra come eseguire le attività seguenti:
@@ -76,7 +76,7 @@ Un proprietario del Lab (insegnante) può impostare o reimpostare la password pe
 ### <a name="set-password-at-the-time-of-lab-creation"></a>Impostare la password al momento della creazione del Lab
 Un proprietario del Lab (insegnante) può impostare una password per le macchine virtuali nel Lab nella pagina **credenziali macchina virtuale** della procedura guidata di creazione Lab.
 
-![Nuova finestra del Lab](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
+![Finestra New lab](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
 
 Abilitando/disabilitando l'opzione **Usa la stessa password per tutte le macchine virtuali** in questa pagina, un insegnante può scegliere di usare la stessa password per tutte le macchine virtuali nel Lab o consentire agli studenti di impostare le password per le proprie macchine virtuali. Per impostazione predefinita, questa impostazione è abilitata per tutte le immagini del sistema operativo Windows e Linux, ad eccezione di Ubuntu. Quando questa impostazione è disabilitata, agli studenti verrà richiesto di impostare una password quando tenteranno di connettersi alla macchina virtuale per la prima volta. 
 
@@ -96,6 +96,9 @@ Il creatore del Lab (insegnante/professore) può connettersi a una macchina virt
  Per connettersi alla macchina virtuale studente, posizionare il mouse sulla macchina virtuale nell'elenco e selezionare il pulsante computer.  
 
 ![Pulsante Connetti a macchina virtuale studente](../media/how-to-set-virtual-machine-passwords/connect-student-vm.png)
+
+> [!NOTE]
+> Quando il professore avvia la macchina virtuale e vi si connette, la quota Student non è interessata. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni sulle altre opzioni di utilizzo degli studenti che possono essere configurate da un proprietario del Lab, vedere l'articolo relativo alla configurazione dell'utilizzo da parte [degli studenti](how-to-configure-student-usage.md).

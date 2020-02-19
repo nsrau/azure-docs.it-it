@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 8d43965e87ab57d9f0c79c6661a761b06ccb7073
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 50e050a05fd364a4b1f880e3501b04274ffd360c
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76902110"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444231"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Creare un database e un cluster di Esplora dati di Azure tramite Python
 
@@ -24,15 +24,19 @@ ms.locfileid: "76902110"
 > * [Python](create-cluster-database-python.md)
 > * [Modello ARM](create-cluster-database-resource-manager.md)
 
-Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per analisi in tempo reale su volumi elevati di dati in streaming da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. In questo articolo vengono creati un cluster e un database usando Python.
+In questo articolo viene creato un cluster e un database di Azure Esplora dati usando Python. Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per l'analisi in tempo reale di volumi elevati di dati in streaming provenienti da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, creare prima di tutto un cluster e creare uno o più database in tale cluster. Inserire quindi i dati in un database in modo che sia possibile eseguire query su di essi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
+* [Python 3.4 +](https://www.python.org/downloads/).
+
+* [Un'applicazione Azure ad e un'entità servizio che possono accedere alle risorse](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Ottiene i valori per `Directory (tenant) ID`, `Application ID`e `Client Secret`.
 
 ## <a name="install-python-package"></a>Installa pacchetto Python
 
-Per installare il pacchetto di Python per Esplora dati di Azure (Kusto), aprire un prompt dei comandi con un percorso contenente Python. Eseguire questo comando:
+Per installare il pacchetto di Python per Esplora dati di Azure (Kusto), aprire un prompt dei comandi con un percorso contenente Python. Eseguire il comando seguente:
 
 ```
 pip install azure-common
@@ -82,8 +86,8 @@ Per eseguire gli esempi in questo articolo, è necessario un Azure AD applicazio
    |---|---|---|
    | cluster_name | *mykustocluster* | Nome del cluster.|
    | sku_name | *Standard_D13_v2* | SKU usato per il cluster. |
-   | Livello | *Standard* | Livello SKU. |
-   | capacità | *number* | Numero di istanze del cluster. |
+   | livello | *Standard* | Livello SKU. |
+   | capacity | *number* | Numero di istanze del cluster. |
    | resource_group_name | *testrg* | Il nome del gruppo di risorse in cui verrà creato il cluster. |
 
     > [!NOTE]
@@ -124,7 +128,7 @@ Se il risultato contiene `provisioningState` con il valore `Succeeded`, il clust
    |**Impostazione** | **Valore consigliato** | **Descrizione campo**|
    |---|---|---|
    | cluster_name | *mykustocluster* | Nome del cluster in cui verrà creato il database.|
-   | database_name | *mykustodatabase* | Nome del database.|
+   | database_name | *mykustodatabase* | Il nome del database.|
    | resource_group_name | *testrg* | Il nome del gruppo di risorse in cui verrà creato il cluster. |
    | soft_delete_period | *3650 giorni, 0:00:00* | Periodo di tempo in cui i dati verranno mantenuti disponibili in modo che sia possibile eseguire una query. |
    | hot_cache_period | *3650 giorni, 0:00:00* | Periodo di tempo in cui i dati verranno conservati nella cache. |

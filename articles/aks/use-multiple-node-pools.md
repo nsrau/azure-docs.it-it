@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/14/2020
 ms.author: mlearned
-ms.openlocfilehash: 20cef402a81ef348d4492daf05e6b16a8d9f709f
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: e77710fe446810ec566ebc7088d802f0721806d2
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77365169"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443925"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creare e gestire più pool di nodi per un cluster in Azure Kubernetes Service (AKS)
 
@@ -483,7 +483,7 @@ az aks nodepool add \
 > [!NOTE]
 > È anche possibile usare il parametro `--tags` quando si usa il comando [AZ AKS nodepool Update][az-aks-nodepool-update] e durante la creazione del cluster. Durante la creazione del cluster, il parametro `--tags` applica il tag al pool di nodi iniziale creato con il cluster. Tutti i nomi di tag devono rispettare le limitazioni nei [tag use per organizzare le risorse di Azure][tag-limitation]. L'aggiornamento di un pool di nodi con il parametro `--tags` Aggiorna tutti i valori di tag esistenti e aggiunge eventuali nuovi tag. Se, ad esempio, nel pool di nodi sono presenti *Dept = it* e *CostCenter = 9999* per i tag e l'aggiornamento è stato eseguito con *Team = Dev* e *CostCenter = 111* per i tag, nodepool avrebbe *Dept = it*, *CostCenter = 111*e *Team = Dev* per i tag.
 
-L'output di esempio seguente del comando [AZ AKS nodepool list][az-aks-nodepool-list] Mostra che *taggednodepool* sta *creando* nodi con il *tag*specificato:
+L'output di esempio seguente del comando [AZ AKS nodepool list][az-aks-nodepool-list] Mostra che *tagnodepool* sta *creando* nodi con il *tag*specificato:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster

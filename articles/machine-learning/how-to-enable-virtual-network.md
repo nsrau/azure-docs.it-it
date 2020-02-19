@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: fd358801b5fe84aac754b5a975234688a707e544
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 6e5571604e6154408f2005ab4804b4270041e4cf
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169953"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444350"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteggere i processi di sperimentazione e inferenza di Azure ML in una rete virtuale di Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Questo articolo fornisce inoltre informazioni dettagliate sulle *impostazioni di
 > [!WARNING]
 > Microsoft non supporta l'uso di Azure Machine Learning Designer o di Machine Learning automatizzato (da studio) con risorse all'interno di una rete virtuale.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 + Area di [lavoro](how-to-manage-workspace.md)Azure Machine Learning.
 
@@ -134,13 +134,14 @@ Per usare un'istanza di calcolo Azure Machine Learning o un cluster di calcolo i
 > * Se si intende inserire più istanze di calcolo o cluster in una rete virtuale, potrebbe essere necessario richiedere un aumento della quota per una o più risorse.
 > * Se anche gli account di archiviazione di Azure per l'area di lavoro sono protetti in una rete virtuale, devono trovarsi nella stessa rete virtuale del Azure Machine Learning istanza di calcolo o del cluster. 
 
-Il Machine Learning istanza di calcolo o il cluster alloca automaticamente altre risorse di rete nel gruppo di risorse che contiene la rete virtuale. Per ogni istanza di calcolo o cluster, il servizio alloca le risorse seguenti:
-
-* Un gruppo di sicurezza di rete
-* Un indirizzo IP pubblico
-* Un bilanciamento del carico
-
-Queste risorse sono limitate in base alle [quote delle risorse](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) della sottoscrizione.
+> [!TIP]
+> Il Machine Learning istanza di calcolo o il cluster alloca automaticamente altre risorse di rete nel gruppo di risorse che contiene la rete virtuale. Per ogni istanza di calcolo o cluster, il servizio alloca le risorse seguenti:
+> 
+> * Un gruppo di sicurezza di rete
+> * Un indirizzo IP pubblico
+> * Un bilanciamento del carico
+> 
+> Queste risorse sono limitate in base alle [quote delle risorse](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) della sottoscrizione.
 
 
 ### <a id="mlcports"></a> Porte richieste
@@ -500,6 +501,10 @@ Quando si usa il firewall di Azure, è necessario configurare una regola di rete
 Quando si aggiunge la regola, impostare il __protocollo__ su Any e le porte da `*`.
 
 Per altre informazioni sulla configurazione di una regola di rete, vedere [distribuire e configurare il firewall di Azure](/azure/firewall/tutorial-firewall-deploy-portal#configure-a-network-rule).
+
+## <a name="use-azure-container-registry"></a>Usare Registro Azure Container
+
+Quando si usa una rete virtuale con Azure Machine Learning, __non__ inserire il container Registry di Azure per l'area di lavoro nella rete virtuale. Questa configurazione non è supportata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

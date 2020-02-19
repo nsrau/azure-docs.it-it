@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 10/18/2019
+ms.date: 01/08/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 14e33bf77144e4cd5728ec85d3012dc0ba717ece
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: fb8bebb46903366c5e51497e3011a20b4a981e6d
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945646"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77442617"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Distribuire e configurare Firewall di Azure in una rete ibrida con Azure PowerShell
 
@@ -64,7 +64,7 @@ Vedere la sezione [creare le route](#create-the-routes) in questo articolo per v
 >[!NOTE]
 >Connettività diretta al Firewall di Azure. Se AzureFirewallSubnet apprende una route predefinita alla rete locale tramite BGP è necessario sostituirla con una route UDR 0.0.0.0/0 con il valore **NextHopType** impostato come **Internet** per mantenere connettività diretta a Internet.
 >
->Firewall di Azure non supporta al momento il tunneling forzato. Se la configurazione richiede il tunneling forzato in una rete locale ed è possibile determinare i prefissi IP di destinazione per le destinazioni Internet, è possibile configurare questi intervalli con la rete locale come hop successivo tramite una route definita dall'utente in AzureFirewallSubnet. In alternativa, per definire queste route, è possibile usare BGP.
+>Il firewall di Azure può essere configurato per supportare il tunneling forzato. Per altre informazioni, vedere [tunneling forzato del firewall di Azure](forced-tunneling.md).
 
 >[!NOTE]
 >Il traffico tra reti virtuali direttamente con peering viene instradato direttamente anche se una route definita dall'utente punta al firewall di Azure come gateway predefinito. Per inviare il traffico da subnet a subnet al firewall in questo scenario, una route definita dall'utente deve contenere il prefisso di rete subnet di destinazione in modo esplicito su entrambe le subnet.

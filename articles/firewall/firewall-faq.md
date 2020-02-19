@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.author: victorh
-ms.openlocfilehash: 8b55f31f12ab1057ac2e0f625a0285b6518cc44a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 78269461bf01d61bffeed504b0168b4913c6e131
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845765"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77442990"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -23,7 +23,7 @@ Firewall di Azure è un servizio di sicurezza di rete gestito basato sul cloud c
 ## <a name="what-capabilities-are-supported-in-azure-firewall"></a>Quali funzionalità sono supportate nel Firewall di Azure?
 
 * Firewall con stato come servizio
-* Disponibilità elevata predefinita con scalabilità cloud senza limitazioni
+* Disponibilità elevata e scalabilità cloud senza limiti
 * Filtro dei nomi di dominio completi
 * Tag FQDN
 * Regole di filtro per il traffico di rete
@@ -88,7 +88,7 @@ Vedere [prezzi di Azure firewall](https://azure.microsoft.com/pricing/details/az
 
 È possibile usare i metodi di *deallocazione* e *allocazione* di Azure PowerShell.
 
-Ad esempio:
+Ad esempio,
 
 ```azurepowershell
 # Stop an existing firewall
@@ -125,7 +125,7 @@ Sì. Tuttavia, la configurazione di UdR per reindirizzare il traffico tra subnet
 
 ## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>Azure firewall SNAT in uscita tra le reti private?
 
-Il firewall di Azure non SNAT quando l'indirizzo IP di destinazione è un intervallo IP privato per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Se l'organizzazione usa un intervallo di indirizzi IP pubblici per le reti private, il firewall di Azure SNATs il traffico verso uno degli indirizzi IP privati del firewall in AzureFirewallSubnet.
+Il firewall di Azure non SNAT quando l'indirizzo IP di destinazione è un intervallo IP privato per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Se l'organizzazione usa un intervallo di indirizzi IP pubblici per le reti private, il firewall di Azure SNATs il traffico verso uno degli indirizzi IP privati del firewall in AzureFirewallSubnet. È possibile configurare il firewall di Azure in modo che **non** SNAT l'intervallo di indirizzi IP pubblici. Per altre informazioni, vedere gli [intervalli di indirizzi IP privati SNAT del firewall di Azure](snat-private-range.md).
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>Il tunneling o il concatenamento forzato a un'appliance virtuale di rete è supportato?
 

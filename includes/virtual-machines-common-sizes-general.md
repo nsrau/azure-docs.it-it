@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn;joelpell
 ms.custom: include file
-ms.openlocfilehash: cfb35f6eeae6d74eea8dab96fa336fb6700eb7a7
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 3fc20288f4ec80c85bd0109799d5ed45b504d359
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77123229"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430114"
 ---
 Le dimensioni delle macchine virtuali di utilizzo generico offrono un rapporto CPU-memoria equilibrato. Soluzione ideale per test e sviluppo, database medio-piccoli e server Web con traffico da medio a ridotto. Questo articolo offre informazioni sul numero di vCPU, dischi dati e schede di rete, oltre che sulla velocità effettiva di archiviazione per ogni dimensione di questo raggruppamento.
 
@@ -159,11 +159,11 @@ Archiviazione Premium: supportata
 
 Caching archiviazione Premium: supportato
 
-Le dimensioni della serie DSv2 vengono eseguite su Intel® Xeon® 8171M 2.1 GHz (Skylake) o sui processori Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) o Intel® Xeon® E5-2673 V3 2,4 GHz (Haswell) con la tecnologia Intel Turbo Boost 2,0 e utilizzano archiviazione Premium.
+Le dimensioni della serie DSv2 vengono eseguite su Intel® Xeon® 8171M 2.1 GHz (Skylake) o Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) o i processori Intel® Xeon® E5-2673 V3 2,4 GHz (Haswell) con la tecnologia Intel Turbo Boost 2,0 e usano archiviazione Premium.
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS1_v2 |1 |3.5 |7 |4 |4000 / 32 (43) |3200/48 |2 / 750 |
+| Standard_DS1_v2 |1 |3,5 |7 |4 |4000 / 32 (43) |3200/48 |2 / 750 |
 | Standard_DS2_v2 |2 |7 |14 |8 |8000 / 64 (86) |6400/96 |2 / 1500 |
 | Standard_DS3_v2 |4 |14 |28 |16 |16000/128 (172) |12800/192 |4 / 3000 |
 | Standard_DS4_v2 |8 |28 |56 |32 |32000/256 (344) |25600/384 |8 / 6000 |
@@ -181,7 +181,7 @@ Le dimensioni della serie DSv2 vengono eseguite su Intel® Xeon® 8171M 2.1 GHz 
 
 | Dimensione           | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/Mbps di lettura/Mbps di scrittura | Numero massimo di dischi dati | Velocità effettiva: operazioni di I/O al secondo | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
-| Standard_D1_v2 | 1    | 3.5         | 50                     | 3000 / 46 / 23                                             | 4              | 4x500            | 2 / 750                                      |
+| Standard_D1_v2 | 1    | 3,5         | 50                     | 3000 / 46 / 23                                             | 4              | 4x500            | 2 / 750                                      |
 | Standard_D2_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 8              | 8x500            | 2 / 1500                                     |
 | Standard_D3_v2 | 4    | 14          | 200                    | 12000 / 187 / 93                                           | 16             | 16x500           | 4 / 3000                                       |
 | Standard_D4_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 32             | 32x500           | 8 / 6000                                       |
