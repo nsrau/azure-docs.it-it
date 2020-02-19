@@ -4,16 +4,16 @@
   items:
     - name: Informazioni su Terraform in Azure
       href: terraform-overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Installare e configurare Terraform
-      href: /azure/virtual-machines/linux/terraform-install-configure
+      href: terraform-install-configure.md
       maintainContext: true
     - name: Creare una configurazione Terraform
       href: terraform-create-configuration.md
     - name: Creare una macchina virtuale Linux
-      href: /azure/virtual-machines/linux/terraform-create-complete-vm
+      href: terraform-create-complete-vm.md
       maintainContext: true
 - name: Esercitazioni
   items:
@@ -35,8 +35,6 @@
           href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
     - name: Infrastruttura
       items:
-        - name: Creare una macchina virtuale Terraform con identità gestite per le risorse di Azure abilitate
-          href: terraform-vm-managed-identities-for-azure-resources.md
         - name: Creare un cluster di VM con moduli Terraform
           href: terraform-create-vm-cluster-module.md
         - name: Creare un cluster di macchine virtuali con Terraform e HCL
@@ -73,7 +71,7 @@
   items:
     - name: Modelli di configurazione
       href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: Registro moduli per Azure
       href: 'https://registry.terraform.io/modules/Azure'
