@@ -6,7 +6,7 @@
       href: backup-overview.md
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/backup/'
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Eseguire il backup di una macchina virtuale - Portale
@@ -88,9 +88,9 @@
       items:
         - name: Panoramica
           href: backup-azure-recovery-services-vault-overview.md
-        - name: Create
+        - name: Creazione
           href: backup-create-rs-vault.md
-        - name: Delete
+        - name: Eliminazione
           href: backup-azure-delete-vault.md
         - name: Spostamento
           href: backup-azure-move-recovery-services-vault.md
@@ -114,7 +114,7 @@
               href: backup-azure-vms-encryption.md
             - name: Configurare backup coerenti con le app di macchine virtuali di Azure che eseguono Linux
               href: backup-azure-linux-app-consistent.md
-        - name: Restore
+        - name: Ripristino
           items:
             - name: Ripristinare macchine virtuali di Azure nel portale
               href: backup-azure-arm-restore-vms.md
@@ -134,7 +134,7 @@
           href: backup-azure-sql-database.md
         - name: Backup
           href: backup-sql-server-database-azure-vms.md
-        - name: Restore
+        - name: Ripristino
           href: restore-sql-database-azure-vm.md
         - name: Gestione
           href: manage-monitor-sql-database-backup.md
@@ -148,7 +148,7 @@
               href: backup-configure-vault.md
             - name: Eseguire un backup dello stato del sistema Windows Server
               href: backup-azure-system-state.md
-        - name: Restore
+        - name: Ripristino
           items:
             - name: Ripristinare i file da Azure in Windows Server
               href: backup-azure-restore-windows-server.md
@@ -162,7 +162,7 @@
           items:
             - name: Backup
               href: backup-afs.md
-            - name: Restore
+            - name: Ripristino
               href: restore-afs.md
             - name: Gestione
               href: manage-afs-backup.md
@@ -170,7 +170,7 @@
           items:
             - name: Backup
               href: backup-afs-cli.md
-            - name: Restore
+            - name: Ripristino
               href: restore-afs-cli.md
             - name: Gestione
               href: manage-afs-backup-cli.md
@@ -178,17 +178,25 @@
           items:
             - name: Backup
               href: backup-azure-afs-automation.md
-            - name: Restore
+            - name: Ripristino
               href: restore-afs-powershell.md
             - name: Gestione
               href: manage-afs-powershell.md
+        - name: Con l'API REST
+          items:
+            - name: Backup
+              href: backup-azure-file-share-rest-api.md
+            - name: Ripristino
+              href: restore-azure-file-share-rest-api.md
+            - name: Gestione
+              href: manage-azure-file-share-rest-api.md
     - name: Backup di database SAP HANA in VM di Azure
       items:
         - name: Panoramica
           href: sap-hana-db-about.md
         - name: Backup
           href: backup-azure-sap-hana-database.md
-        - name: Restore
+        - name: Ripristino
           href: sap-hana-db-restore.md
         - name: Gestione
           href: sap-hana-db-manage.md

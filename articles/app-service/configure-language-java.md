@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f6f334ed6b84d4688849b6dfd8cb1f79f8db57bf
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
-ms.translationtype: HT
+ms.openlocfilehash: e5beb60107b3632da336a20f167e1c2f5b53140a
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443895"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461267"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configurare un'app Java Windows per il servizio app Azure
 
@@ -29,6 +29,7 @@ Questa guida fornisce i concetti chiave e le istruzioni per gli sviluppatori Jav
 In caso contrario, il metodo di distribuzione dipenderà dal tipo di archivio:
 
 - Per distribuire file con estensione war in Tomcat, usare l'endpoint `/api/wardeploy/` per eseguire il comando POST per il file di archivio. Per altre informazioni su questa API, vedere [questa documentazione](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
+- Per distribuire i file con estensione jar in Java SE, usare l'endpoint `/api/zipdeploy/` del sito Kudu. Per altre informazioni su questa API, vedere [questa documentazione](https://docs.microsoft.com/azure/app-service/deploy-zip#rest).
 
 Non distribuire il. War mediante FTP. Lo strumento FTP è stato progettato per caricare script di avvio, dipendenze o altri file di runtime. Non è la scelta ottimale per la distribuzione di app Web.
 
@@ -287,6 +288,10 @@ Per modificare la `server.xml` di Tomcat o altri file di configurazione, prender
 
 Riavviare infine il servizio app. Le distribuzioni devono passare a `D:\home\site\wwwroot\webapps` come prima.
 
+## <a name="configure-java-se"></a>Configurare Java SE
+
+Quando si esegue un. Applicazione JAR in Java SE in Windows, `server.port` viene passata come opzione della riga di comando all'avvio dell'applicazione. È possibile risolvere manualmente la porta HTTP dalla variabile di ambiente, `HTTP_PLATFORM_PORT`. Il valore di questa variabile di ambiente sarà la porta HTTP su cui l'applicazione deve essere in ascolto. 
+
 ## <a name="java-runtime-statement-of-support"></a>Istruzione di supporto del runtime Java
 
 ### <a name="jdk-versions-and-maintenance"></a>Versioni di JDK e manutenzione
@@ -300,6 +305,8 @@ Ai pacchetti JDK supportati vengono automaticamente applicate patch con cadenza 
 ### <a name="security-updates"></a>Aggiornamenti della protezione
 
 Le patch e le correzioni per le principali vulnerabilità della sicurezza verranno rilasciate da Azul Systems non appena disponibili. Una vulnerabilità "principale" viene definita da un punteggio di base pari o superiore a 9,0 in [NIST Common Vulnerability Scoring System, versione 2](https://nvd.nist.gov/cvss.cfm).
+
+Tomcat 8,0 ha raggiunto la [fine del ciclo di vita (EOL) a partire dal 30 settembre 2018](https://tomcat.apache.org/tomcat-80-eol.html). Mentre il runtime è ancora avialable nel servizio app Azure, Azure non applica gli aggiornamenti della sicurezza a Tomcat 8,0. Se possibile, eseguire la migrazione delle applicazioni a Tomcat 8,5 o 9,0. Sia Tomcat 8,5 che 9,0 sono disponibili nel servizio app Azure. Per ulteriori informazioni, vedere il [sito Tomcat ufficiale](https://tomcat.apache.org/whichversion.html) . 
 
 ### <a name="deprecation-and-retirement"></a>Deprecazione e ritiro
 

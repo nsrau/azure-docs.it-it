@@ -6,23 +6,18 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 69fe4b98c26ac2f67fc777b754f3bc391e3b71b5
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: f23ac2d693492695c398893c103d5a77a0e93129
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023056"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461471"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Aggiungere notifiche push all'app Xamarin.Forms
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-> [!NOTE]
-> Visual Studio App Center supporta servizi end-to-end e integrati fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono usare i servizi **Build**, **Test** e **Distribute** per configurare una pipeline di integrazione e distribuzione continue. Dopo la distribuzione dell'app, gli sviluppatori possono monitorarne lo stato e l'utilizzo tramite i servizi **Analytics** e **Diagnostics** e interagire con gli utenti tramite il servizio **Push**. Gli sviluppatori possono anche usare il servizio **Auth** per autenticare gli utenti e il servizio **Data** per salvare e sincronizzare i dati dell'app nel cloud.
->
-> Per integrare i servizi cloud nelle applicazioni per dispositivi mobili, iscriversi ad [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc).
-
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 In questa esercitazione vengono aggiunte notifiche push a tutti i progetti creati nella [guida introduttiva per Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md), in modo che a ogni inserimento di record venga inviata una notifica push a tutti i client multipiattaforma.
 
@@ -78,7 +73,7 @@ Dopo aver configurato il back-end con FCM, è possibile aggiungere componenti e 
 
 #### <a name="implementing-the-firebase-instance-id-service"></a>Implementazione del servizio Instance ID di Firebase
 
-1. Aggiungere una nuova classe denominata `FirebaseRegistrationService` al progetto **Droid**, quindi assicurarsi che le istruzioni `using` seguenti siano presenti all'inizio del file:
+1. Aggiungere una nuova classe denominata **al progetto**Droid`FirebaseRegistrationService`, quindi assicurarsi che le istruzioni `using` seguenti siano presenti all'inizio del file:
 
     ```csharp
     using System.Threading.Tasks;
@@ -121,7 +116,7 @@ Dopo aver configurato il back-end con FCM, è possibile aggiungere componenti e 
 
 #### <a name="registering-with-the-azure-notification-hub"></a>Registrazione con l'Hub di notifica di Azure
 
-1. Aggiungere una nuova classe denominata `AzureNotificationHubService` al progetto **Droid**, quindi assicurarsi che le istruzioni `using` seguenti siano presenti all'inizio del file:
+1. Aggiungere una nuova classe denominata **al progetto**Droid`AzureNotificationHubService`, quindi assicurarsi che le istruzioni `using` seguenti siano presenti all'inizio del file:
 
     ```csharp
     using System;
@@ -164,7 +159,7 @@ Dopo aver configurato il back-end con FCM, è possibile aggiungere componenti e 
 
 #### <a name="displaying-the-contents-of-a-push-notification"></a>Visualizzazione del contenuto di una notifica push
 
-1. Aggiungere una nuova classe denominata `FirebaseNotificationService` al progetto **Droid**, quindi assicurarsi che le istruzioni `using` seguenti siano presenti all'inizio del file:
+1. Aggiungere una nuova classe denominata **al progetto**Droid`FirebaseNotificationService`, quindi assicurarsi che le istruzioni `using` seguenti siano presenti all'inizio del file:
 
     ```csharp
     using Android.App;

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30f8111e1d8c9bd76e7b55dd958256f8892b9058
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
-ms.translationtype: HT
+ms.openlocfilehash: d7c8bdb7236ed0a3a12bae5050e564afe0b68cde
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77442021"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461233"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Compilare un endpoint SCIM e configurare il provisioning utenti con Azure Active Directory (Azure AD)
 
@@ -1445,6 +1445,16 @@ Una volta avviato il ciclo iniziale, è possibile selezionare i **log di provisi
 
 Se si sta creando un'applicazione che verrà usata da più di un tenant, è possibile renderla disponibile nella raccolta di applicazioni Azure AD. In questo modo è più semplice per le organizzazioni individuare l'applicazione e configurare il provisioning. La pubblicazione dell'app nella raccolta Azure AD e l'esecuzione del provisioning per altri è facile. Consultare i passaggi [qui](../develop/howto-app-gallery-listing.md) Microsoft collaborerà con l'utente per integrare l'applicazione nella raccolta, testare l'endpoint e rilasciare la [documentazione](../saas-apps/tutorial-list.md) di onboarding per l'uso da parte dei clienti. 
 
+### <a name="gallery-onboarding-checklist"></a>Elenco di controllo per l'onboarding della raccolta
+Seguire l'elenco di controllo riportato di seguito per assicurarsi che l'applicazione sia stata caricata rapidamente e che i clienti abbiano un'esperienza di distribuzione senza problemi. Le informazioni verranno raccolte dall'utente durante l'onboarding alla raccolta. 
+> [!div class="checklist"]
+> * [Supporto di SCIM 2,0](https://tools.ietf.org/html/draft-wahl-scim-profile-00) (obbligatorio)
+> * Supporta almeno 25 richieste al secondo per ogni tenant (obbligatorio)
+> * Supporto individuazione schema (scelta consigliata)
+> * Supportare la concessione del codice di autorizzazione OAuth o un token di lunga durata, come descritto di seguito (obbligatorio)
+> * Stabilire un punto di contatto tecnico e di supporto per supportare il caricamento della raccolta di post del cliente (obbligatorio)
+> * Documentare l'endpoint SCIM pubblicamente (scelta consigliata) 
+
 
 ### <a name="authorization-for-provisioning-connectors-in-the-application-gallery"></a>Autorizzazione per il provisioning dei connettori nella raccolta di applicazioni
 La specifica SCIM non definisce uno schema specifico di SCIM per l'autenticazione e l'autorizzazione. Si basa sull'uso di standard di settore esistenti. Il client di provisioning Azure AD supporta due metodi di autorizzazione per le applicazioni nella raccolta. 
@@ -1471,6 +1481,17 @@ Procedure consigliate (consigliato ma non obbligatorio):
 **Token di porta OAuth di lunga durata:** Se l'applicazione non supporta il flusso di concessione del codice di autorizzazione OAuth, è anche possibile generare un bearer token OAuth di lunga durata che può essere usato da un amministratore per configurare l'integrazione del provisioning. Il token deve essere perpetuo, altrimenti il processo di provisioning viene [messo in quarantena](application-provisioning-quarantine-status.md) quando il token scade. Il token deve essere di dimensioni inferiori a 1 KB.  
 
 Per ulteriori metodi di autenticazione e autorizzazione, informare Microsoft su [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
+
+### <a name="gallery-go-to-market-launch-check-list"></a>Elenco di controllo di avvio per l'avvio del mercato della raccolta
+Per favorire la comprensione e la richiesta dell'integrazione congiunta, è consigliabile aggiornare la documentazione esistente e amplificare l'integrazione nei canali di marketing.  Di seguito è riportato un set di attività di elenco di controllo che è consigliabile completare per supportare l'avvio
+
+* **Conformità a vendite e supporto clienti.** Assicurati che i team di vendita e di supporto siano consapevoli e possano comunicare con le funzionalità di integrazione. Brief Your Sales and Support Team, fornire domande frequenti e includere l'integrazione nei materiali di vendita. 
+* **Post di Blog e/o premere release.** Creazione di un post di Blog o di una versione di stampa che descriva l'integrazione congiunta, i vantaggi e le procedure per iniziare. [Esempio: Imprivata e Azure Active Directory premere Release](https://www.imprivata.com/company/press/imprivata-introduces-iam-cloud-platform-healthcare-supported-microsoft) 
+* **Social Media.** Sfrutta i social media come Twitter, Facebook o LinkedIn per promuovere l'integrazione con i tuoi clienti. Assicurarsi di includere @AzureAD per poter reinviare il post. [Esempio: post di Twitter imprivato](https://twitter.com/azuread/status/1123964502909779968)
+* **Sito Web di marketing.** Consente di creare o aggiornare le pagine di marketing (ad esempio, pagina di integrazione, pagina dei partner, pagina dei prezzi e così via) per includere la disponibilità dell'integrazione congiunta. [Esempio: pagina di integrazione di Pingboard](https://pingboard.com/org-chart-for), [pagina di integrazione di Smartsheet](https://www.smartsheet.com/marketplace/apps/microsoft-azure-ad), pagina dei prezzi di [Monday.com](https://monday.com/pricing/) 
+* **Documentazione tecnica.** È possibile creare un articolo di Help Center o una documentazione tecnica su come iniziare a usare i clienti. [Esempio: invio + Microsoft Azure Active Directory integrazione.](https://envoy.help/en/articles/3453335-microsoft-azure-active-directory-integration/
+) 
+* **Comunicazione del cliente.** Avvisa i clienti della nuova integrazione tramite la comunicazione dei clienti (newsletter mensili, campagne di posta elettronica, note sulla versione del prodotto). 
 
 ### <a name="allow-ip-addresses-used-by-the-azure-ad-provisioning-service-to-make-scim-requests"></a>Consenti indirizzi IP usati dal servizio di provisioning Azure AD per eseguire richieste SCIM
 

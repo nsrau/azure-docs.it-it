@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/27/2019
-ms.openlocfilehash: b64b0f32b7e8d94115facf43646a5a030697d80f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cf79a670db4e2729c6e0a5fb7112cdc6114f465a
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444423"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460706"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copiare dati in e da Archiviazione tabelle di Azure usando Azure Data Factory
 
@@ -39,7 +39,7 @@ Questo connettore di archiviazione tabelle di Azure è supportato per le attivit
 
 In particolare, il connettore Tabella di Azure supporta la copia dei dati usando sia l'autenticazione basata sulla chiave dell'account sia l'autenticazione basata sulla firma di accesso condiviso del servizio.
 
-## <a name="get-started"></a>Inizia oggi stesso
+## <a name="get-started"></a>Attività iniziali
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -51,7 +51,7 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà usate pe
 
 È possibile creare un servizio collegato di Archiviazione di Azure usando la chiave dell'account, che garantisce l'accesso globale all'archiviazione dalla data factory. Sono supportate le proprietà seguenti.
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **AzureTableStorage**. |Sì |
 | connectionString | Specificare le informazioni necessarie per connettersi all'archiviazione per la proprietà connectionString. <br/>È anche possibile inserire la chiave dell'account in Azure Key Vault e rimuovere la configurazione di `accountKey` dalla stringa di connessione. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. |Sì |
@@ -120,7 +120,7 @@ Una firma di accesso condiviso fornisce accesso delegato controllato alle risors
 
 Per usare l'autenticazione basata sulla firma di accesso condiviso, sono supportate le proprietà seguenti.
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **AzureTableStorage**. |Sì |
 | sasUri | Specificare l'URI SAS dell'URI della firma di accesso condiviso alla tabella. <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire il token SAS in Azure Key Vault per sfruttare la rotazione automatica e rimuovere la parte del token. Vedere gli esempi seguenti e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. | Sì |
@@ -191,7 +191,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati in e da Tabella di Azure, impostare la proprietà type del set di dati su **AzureTable**. Sono supportate le proprietà seguenti.
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su **AzureTable**. |Sì |
 | tableName |Nome della tabella nell'istanza del database di Archiviazione tabelle a cui fa riferimento il servizio collegato. |Sì |
@@ -231,7 +231,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Tabella di Azure, impostare il tipo di origine nell'attività di copia su **AzureTableSource**. Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti.
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **AzureTableSource**. |Sì |
 | AzureTableSourceQuery |Usare la query di Archiviazione tabelle personalizzata per leggere i dati. Vedere gli esempi nella sezione seguente. |No |
@@ -239,13 +239,16 @@ Per copiare dati da Tabella di Azure, impostare il tipo di origine nell'attivit�
 
 ### <a name="azuretablesourcequery-examples"></a>esempi di azureTableSourceQuery
 
-Se la colonna della tabella di Azure è di tipo datetime:
+>[!NOTE]
+>Il timeout dell'operazione di query della tabella di Azure è di 30 secondi come [applicato dal servizio tabelle di Azure](https://docs.microsoft.com/rest/api/storageservices/setting-timeouts-for-table-service-operations). Informazioni su come ottimizzare la query dalla [progettazione per l'esecuzione di query su](../storage/tables/table-storage-design-for-query.md) un articolo.
+
+In Azure Data Factory, se si desidera filtrare i dati in base a una colonna di tipo DateTime, fare riferimento a questo esempio:
 
 ```json
 "azureTableSourceQuery": "LastModifiedTime gt datetime'2017-10-01T00:00:00' and LastModifiedTime le datetime'2017-10-02T00:00:00'"
 ```
 
-Se la colonna della tabella di Azure è di tipo string:
+Se si desidera filtrare i dati in base a una colonna di tipo stringa, fare riferimento a questo esempio:
 
 ```json
 "azureTableSourceQuery": "LastModifiedTime ge '201710010000_0000' and LastModifiedTime le '201710010000_9999'"
@@ -257,7 +260,7 @@ Se si usa un parametro della pipeline, eseguire il cast del valore datetime al f
 
 Per copiare dati in Tabella di Azure, impostare il tipo di sink nell'attività di copia su **AzureTableSink**. Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti.
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del sink dell'attività di copia deve essere impostata su **AzureTableSink**. |Sì |
 | azureTableDefaultPartitionKeyValue |Valore predefinito della chiave di partizione che può essere usato dal sink. |No |
@@ -331,13 +334,13 @@ Quando si spostano i dati da e verso Tabella di Azure, i seguenti [mapping defin
 | Tipo di dati di Tabella di Azure | Tipo di dati provvisorio di Data Factory | Dettagli |
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |Una matrice di byte di dimensioni fino a 64 KB. |
-| Edm.Boolean |bool |Valore booleano. |
-| Edm.DateTime |Data e ora |Un valore a 64 bit espresso come Coordinated Universal Time (UTC). L'intervallo DateTime supportato inizia a mezzanotte del 1 gennaio 1601 D.C. (C.E.), UTC. L'intervallo termina il 31 dicembre 9999. |
+| Edm.Boolean |bool |Valore Boolean. |
+| Edm.DateTime |Datetime |Un valore a 64 bit espresso come Coordinated Universal Time (UTC). L'intervallo DateTime supportato inizia a mezzanotte del 1 gennaio 1601 D.C. (C.E.), UTC. L'intervallo termina il 31 dicembre 9999. |
 | Edm.Double |double |Un valore a virgola mobile a 64 bit. |
-| Edm.Guid |GUID |Un identificatore univoco globale a 128 bit. |
+| Edm.Guid |Guid |Un identificatore univoco globale a 128 bit. |
 | Edm.Int32 |Int32 |Un valore integer a 32 bit. |
-| Edm.Int64 |Int64 |Un valore integer a 64 bit. |
-| Edm.String |string |Un valore con codifica UTF-16. I valori string possono avere dimensioni fino a 64 KB. |
+| Edm.Int64 |Int64 |Integer a 64 bit. |
+| Edm.String |String |Un valore con codifica UTF-16. I valori string possono avere dimensioni fino a 64 KB. |
 
 ## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
 

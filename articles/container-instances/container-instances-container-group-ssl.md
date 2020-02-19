@@ -1,16 +1,16 @@
 ---
-title: Abilitare SSL in un gruppo di contenitori
-description: Creare un endpoint SSL o TLS per un gruppo di contenitori in esecuzione in istanze di contenitore di Azure
+title: Abilitare SSL con il contenitore sidecar
+description: Creare un endpoint SSL o TLS per un gruppo di contenitori in esecuzione in istanze di contenitore di Azure eseguendo nginx in un contenitore sidecar
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: 541d53a9a9530f7ac80227dbae598b3da2691301
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 02/14/2020
+ms.openlocfilehash: 524e997cf6c7c464cc352048b1abf4be119d2f37
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773064"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460553"
 ---
-# <a name="enable-an-ssl-endpoint-in-a-container-group"></a>Abilitare un endpoint SSL in un gruppo di contenitori
+# <a name="enable-an-ssl-endpoint-in-a-sidecar-container"></a>Abilitare un endpoint SSL in un contenitore sidecar
 
 Questo articolo illustra come creare un [gruppo di contenitori](container-instances-container-groups.md) con un contenitore di applicazioni e un contenitore sidecar che esegue un provider SSL. Impostando un gruppo di contenitori con un endpoint SSL separato, si abilitano le connessioni SSL per l'applicazione senza modificare il codice dell'applicazione.
 
@@ -18,7 +18,9 @@ Si configura un gruppo di contenitori di esempio costituito da due contenitori:
 * Un contenitore di applicazioni che esegue una semplice app Web usando l'immagine pubblica Microsoft [ACI-HelloWorld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) . 
 * Un contenitore sidecar che esegue l'immagine pubblica [nginx](https://hub.docker.com/_/nginx) , configurata per l'uso di SSL. 
 
-In questo esempio, il gruppo di contenitori espone solo la porta 443 per Nginx con il relativo indirizzo IP pubblico. Nginx instrada le richieste HTTPS all'app Web complementare, che è in ascolto interna sulla porta 80. È possibile adattare l'esempio per le app contenitore che restano in attesa su altre porte. Vedere i [passaggi successivi](#next-steps) per altri approcci per l'abilitazione di SSL in un gruppo di contenitori.
+In questo esempio, il gruppo di contenitori espone solo la porta 443 per Nginx con il relativo indirizzo IP pubblico. Nginx instrada le richieste HTTPS all'app Web complementare, che è in ascolto interna sulla porta 80. È possibile adattare l'esempio per le app contenitore che restano in attesa su altre porte. 
+
+Vedere i [passaggi successivi](#next-steps) per altri approcci per l'abilitazione di SSL in un gruppo di contenitori.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -38,7 +40,7 @@ openssl req -new -newkey rsa:2048 -nodes -keyout ssl.key -out ssl.csr
 
 Seguire le istruzioni per aggiungere le informazioni di identificazione. Per nome comune, immettere il nome host associato al certificato. Quando viene richiesta una password, premere INVIO senza digitare per ignorare l'aggiunta di una password.
 
-Eseguire il comando seguente per creare il certificato autofirmato (file con estensione CRT) dalla richiesta del certificato. Ad esempio:
+Eseguire il comando seguente per creare il certificato autofirmato (file con estensione CRT) dalla richiesta del certificato. Ad esempio,
 
 ```console
 openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
@@ -50,7 +52,7 @@ Verranno ora visualizzati tre file nella directory: la richiesta di certificato 
 
 ### <a name="create-nginx-configuration-file"></a>Creare il file di configurazione Nginx
 
-In questa sezione viene creato un file di configurazione per Nginx per l'uso di SSL. Per iniziare, copiare il testo seguente in un nuovo file denominato`nginx.conf`. In Azure Cloud Shell, è possibile usare Visual Studio Code per creare il file nella directory di lavoro:
+In questa sezione viene creato un file di configurazione per Nginx per l'uso di SSL. Per iniziare, copiare il testo seguente in un nuovo file denominato `nginx.conf`. In Azure Cloud Shell, è possibile usare Visual Studio Code per creare il file nella directory di lavoro:
 
 ```console
 code nginx.conf
@@ -85,7 +87,7 @@ http {
 
         # Protect against the BEAST attack by not using SSLv3 at all. If you need to support older browsers (IE6) you may need to add
         # SSLv3 to the list of protocols below.
-        ssl_protocols              TLSv1 TLSv1.1 TLSv1.2;
+        ssl_protocols              TLSv1.2;
 
         # Ciphers set to best allow protection from Beast, while providing forwarding secrecy, as defined by Mozilla - https://wiki.mozilla.org/Security/Server_Side_TLS#Nginx
         ssl_ciphers                ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:ECDHE-RSA-RC4-SHA:ECDHE-ECDSA-RC4-SHA:AES128:AES256:RC4-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!3DES:!MD5:!PSK;
@@ -125,9 +127,9 @@ http {
 Base64: codificare il file di configurazione Nginx, il certificato SSL e la chiave SSL. Nella sezione successiva si immetterà il contenuto codificato in un file YAML usato per distribuire il gruppo di contenitori.
 
 ```console
-cat nginx.conf | base64 -w 0 > base64-nginx.conf
-cat ssl.crt | base64 -w 0 > base64-ssl.crt
-cat ssl.key | base64 -w 0 > base64-ssl.key
+cat nginx.conf | base64 > base64-nginx.conf
+cat ssl.crt | base64 > base64-ssl.crt
+cat ssl.key | base64 > base64-ssl.key
 ```
 
 ## <a name="deploy-container-group"></a>Distribuire un gruppo di contenitori
@@ -216,17 +218,18 @@ Per una distribuzione corretta, l'output è simile al seguente:
 ```console
 Name          ResourceGroup    Status    Image                                                    IP:ports             Network    CPU/Memory       OsType    Location
 ------------  ---------------  --------  -------------------------------------------------------  -------------------  ---------  ---------------  --------  ----------
-app-with-ssl  myresourcegroup  Running   mcr.microsoft.com/azuredocs/nginx, aci-helloworld        52.157.22.76:443     Public     1.0 core/1.5 gb  Linux     westus
+app-with-ssl  myresourcegroup  Running   nginx, mcr.microsoft.com/azuredocs/aci-helloworld        52.157.22.76:443     Public     1.0 core/1.5 gb  Linux     westus
 ```
 
 ## <a name="verify-ssl-connection"></a>Verificare la connessione SSL
 
-Per visualizzare l'applicazione in esecuzione, passare all'indirizzo IP nel browser. Ad esempio, l'indirizzo IP illustrato in questo esempio è `52.157.22.76`. È necessario usare `https://<IP-ADDRESS>` per visualizzare l'applicazione in esecuzione, a causa della configurazione del server nginx. I tentativi di connessione con `http://<IP-ADDRESS>` hanno esito negativo.
+Usare il browser per passare all'indirizzo IP pubblico del gruppo di contenitori. L'indirizzo IP illustrato in questo esempio è `52.157.22.76`, quindi l'URL è **https://52.157.22.76** . È necessario usare HTTPS per visualizzare l'applicazione in esecuzione, a causa della configurazione del server nginx. I tentativi di connessione tramite HTTP hanno esito negativo.
 
 ![Screenshot del browser che mostra l'applicazione in esecuzione in un'istanza di contenitore di Azure](./media/container-instances-container-group-ssl/aci-app-ssl-browser.png)
 
 > [!NOTE]
-> Poiché in questo esempio viene utilizzato un certificato autofirmato e non uno da un'autorità di certificazione, nel browser viene visualizzato un avviso di sicurezza quando si esegue la connessione al sito tramite HTTPS. Si tratta di un comportamento previsto.
+> Poiché in questo esempio viene utilizzato un certificato autofirmato e non uno da un'autorità di certificazione, nel browser viene visualizzato un avviso di sicurezza quando si esegue la connessione al sito tramite HTTPS. Per passare alla pagina, potrebbe essere necessario accettare l'avviso o modificare le impostazioni del browser o del certificato. Si tratta di un comportamento previsto.
+
 >
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -239,6 +242,4 @@ Se si distribuisce il gruppo di contenitori in una [rete virtuale di Azure](cont
 
 * [Proxy di Funzioni di Azure](../azure-functions/functions-proxies.md)
 * [Gestione API di Azure](../api-management/api-management-key-concepts.md)
-* [Gateway applicazione Azure](../application-gateway/overview.md)
-
-Per usare un gateway applicazione, vedere un [modello di distribuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet)di esempio.
+* [Gateway applicazione Azure](../application-gateway/overview.md) : vedere un [modello di distribuzione](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet)di esempio.

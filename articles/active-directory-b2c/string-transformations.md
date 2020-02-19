@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/05/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 69091fbcc2b6789abc7825632a56197427d34e4c
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 06323ba8f623bc80a355be69ed9571ee32dd69e6
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77045354"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461216"
 ---
 # <a name="string-claims-transformations"></a>Trasformazioni di attestazioni di stringa
 
@@ -126,7 +126,7 @@ Crea un'attestazione di stringa dal parametro di input specificato nei criteri.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | Valore | string | Stringa da impostare |
+| InputParameter | value | string | Stringa da impostare |
 | OutputClaim | createdClaim | string | Tipo attestazione generato dopo che questa trasformazione di attestazioni è stato richiamato con il valore specificato nel parametro di input. |
 
 Usare questa trasformazione di attestazioni per impostare un valore ClaimType di stringa.
@@ -157,7 +157,7 @@ Determina se un'attestazione di stringa è uguale a un'altra. Il risultato è un
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Tipo della prima attestazione di cui eseguire il confronto. |
 | InputClaim | inputClaim2 | string | Tipo della seconda attestazione di cui eseguire il confronto. |
-| InputParameter | operator | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
+| InputParameter | operatore | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
 | InputParameter | ignoreCase | boolean | Specifica se il confronto deve ignorare l'uso di maiuscole e minuscole nelle stringhe da confrontare. |
 | OutputClaim | outputClaim | boolean | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
 
@@ -197,7 +197,7 @@ Determina se un valore di attestazione è uguale al valore del parametro di inpu
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Tipo della prima attestazione di cui eseguire il confronto. |
-| InputParameter | operator | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
+| InputParameter | operatore | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
 | InputParameter | compareTo | string | Confronto tra le stringhe con valori Ordinal e OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | boolean | Specifica se il confronto deve ignorare l'uso di maiuscole e minuscole nelle stringhe da confrontare. |
 | OutputClaim | outputClaim | boolean | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
@@ -239,8 +239,8 @@ Crea una stringa casuale tramite il generatore di numeri casuali. Se il generato
 | InputParameter | randomGeneratorType | string | Specifica il valore casuale da generare `GUID` (ID univoco globale) o `INTEGER` (numero). |
 | InputParameter | stringFormat | string | [Facoltativo] Formatta il valore casuale. |
 | InputParameter | base64 | boolean | [Facoltativo] Converte il valore casuale in base 64. Se si applica il formato della stringa, il valore successivo è codificato in formato base64. |
-| InputParameter | maximumNumber | INT | [Facoltativo] Solo per elementi randomGeneratorType di tipo `INTEGER`. Specificare il numero massimo. |
-| InputParameter | seed  | INT | [Facoltativo] Solo per elementi randomGeneratorType di tipo `INTEGER`. Specifica il valore di inizializzazione per il valore casuale. Nota: uno stesso valore di inizializzazione genera la stessa sequenza di numeri casuali. |
+| InputParameter | maximumNumber | int | [Facoltativo] Solo per elementi randomGeneratorType di tipo `INTEGER`. Specificare il numero massimo. |
+| InputParameter | seed  | int | [Facoltativo] Solo per elementi randomGeneratorType di tipo `INTEGER`. Specifica il valore di inizializzazione per il valore casuale. Nota: uno stesso valore di inizializzazione genera la stessa sequenza di numeri casuali. |
 | OutputClaim | outputClaim | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. Valore casuale. |
 
 L'esempio seguente genera un ID univoco globale. Questa trasformazione di attestazioni viene usata per creare un nome UPN casuale (nome dell'entità utente).
@@ -523,9 +523,9 @@ Pulisce il valore di una determinata attestazione.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| OutputClaim | claim_to_null | string | Attestazione il cui valore deve essere NULL. |
+| OutputClaim | claim_to_null | string | Il valore dell'attestazione è impostato su NULL. |
 
-Usare questa trasformazione di attestazioni per rimuovere i dati non necessari dall'elenco di proprietà delle attestazioni. Il cookie di sessione, di conseguenza, sarà di dimensioni minori. L'esempio seguente rimuove il valore del tipo di attestazione `TermsOfService`.
+Usare questa trasformazione attestazione per rimuovere i dati non necessari dal contenitore delle proprietà delle attestazioni, in modo che il cookie di sessione risulteranno inferiori. L'esempio seguente rimuove il valore del tipo di attestazione `TermsOfService`.
 
 ```XML
 <ClaimsTransformation Id="SetTOSToNull" TransformationMethod="NullClaim">
@@ -749,8 +749,8 @@ Estrae parti di un tipo di attestazione stringa, a partire dal carattere in corr
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string | Tipo di attestazione, che contiene la stringa. |
-| InputParameter | startIndex | INT | Posizione iniziale in base zero del carattere di una sottostringa in questa istanza. |
-| InputParameter | length | INT | Numero di caratteri nella sottostringa. |
+| InputParameter | startIndex | int | Posizione iniziale in base zero del carattere di una sottostringa in questa istanza. |
+| InputParameter | length | int | Numero di caratteri nella sottostringa. |
 | OutputClaim | outputClaim | boolean | Stringa equivalente alla sottostringa di lunghezza che inizia in corrispondenza di startIndex in questa istanza oppure Empty se startIndex è uguale alla lunghezza di questa istanza e la lunghezza è zero. |
 
 Ad esempio, ottenere il prefisso del paese del numero di telefono.  

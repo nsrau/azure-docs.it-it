@@ -6,21 +6,16 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.openlocfilehash: fe5ced96a74bfbfbacf3ce1874d64711f6db7449
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 566b6db829c9694a7e5e83cc25695e71ada0bc8d
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668753"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461454"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Come usare Node.js SDK per App per dispositivi mobili
 
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
-
-> [!NOTE]
-> Visual Studio App Center supporta servizi end-to-end e integrati fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono usare i servizi **Build**, **Test** e **Distribute** per configurare una pipeline di integrazione e distribuzione continue. Dopo la distribuzione dell'app, gli sviluppatori possono monitorarne lo stato e l'utilizzo tramite i servizi **Analytics** e **Diagnostics** e interagire con gli utenti tramite il servizio **Push**. Gli sviluppatori possono anche usare il servizio **Auth** per autenticare gli utenti e il servizio **Data** per salvare e sincronizzare i dati dell'app nel cloud.
->
->  Per integrare i servizi cloud nelle applicazioni per dispositivi mobili, iscriversi ad [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc).
 
 Questo articolo fornisce informazioni dettagliate ed esempi sull'uso di un back-end Node.js nella funzionalità App per dispositivi mobili del servizio app di Azure.
 
@@ -103,7 +98,7 @@ Visual Studio 2015 richiede un'estensione per lo sviluppo di applicazioni Node.j
 1. Aprire la finestra di dialogo **Nuovo progetto** da **File** > **Nuovo** > **Progetto**.
 1. Espandere **Modelli** > **JavaScript** > **Node.js**.
 1. Selezionare **Applicazione Express 4 Node.js di base**.
-1. Immettere il nome del progetto. Selezionare **OK**.
+1. Immettere il nome del progetto. Scegliere **OK**.
 
    ![Nuovo progetto di Visual Studio 2015][1]
 1. Fare clic con il pulsante destro del mouse sul nodo **npm** e scegliere **Installa nuovi pacchetti npm**.
@@ -189,7 +184,7 @@ var mobile = azureMobileApps({ homePage: true });
 
 Node.js Server SDK (azure-mobile-apps) offre diversi meccanismi per esporre le tabelle dati archiviate nel database SQL di Azure come API Web. Offre cinque operazioni:
 
-| Operazione | Description |
+| Operazione | Descrizione |
 | --- | --- |
 | GET /tables/*tablename* |Ottenere tutti i record nella tabella. |
 | GET /tables/*tablename*/:id |Ottenere un record specifico nella tabella. |
@@ -295,7 +290,7 @@ Node.js SDK per App per dispositivi mobili usa il [pacchetto mssql per Node.js] 
 
       ![Configurare SQL Server Express per TCP/IP][3]
 
-   g. Selezionare **OK**. Selezionare **OK** nella finestra di dialogo popup.
+   g. Scegliere **OK**. Selezionare **OK** nella finestra di dialogo popup.
 
    h. Fare clic su **Servizi di SQL Server** nel menu ad albero.
 
@@ -308,19 +303,19 @@ Node.js SDK per App per dispositivi mobili usa il [pacchetto mssql per Node.js] 
    1. Fare clic con il pulsante destro del mouse sull'istanza in Esplora oggetti e scegliere **Proprietà**.
    1. Selezionare la pagina **Sicurezza** .
    1. Assicurarsi che l'opzione **Autenticazione di SQL Server e di Windows** sia selezionata.
-   1. Selezionare **OK**.
+   1. Scegliere **OK**.
 
       ![Configurare l'autenticazione di SQL Server Express][4]
    1. Espandere **Sicurezza** > **Account di accesso** in Esplora oggetti.
    1. Fare clic con il pulsante destro del mouse su **Account di accesso** e scegliere **Nuovo account accesso**.
    1. Immettere un nome account di accesso. Selezionare **Autenticazione di SQL Server**. Immettere una password e quindi immetterla di nuovo in **Conferma password**. La password deve soddisfare i requisiti di complessità di Windows.
-   1. Selezionare **OK**.
+   1. Scegliere **OK**.
 
       ![Aggiungere un nuovo utente a SQL Server Express][5]
    1. Fare clic con il pulsante destro del mouse sul nuovo account di accesso e scegliere **Proprietà**.
    1. Selezionare la pagina **Ruoli server**.
    1. Selezionare la casella di controllo accanto al ruolo server **dbcreator**.
-   1. Selezionare **OK**.
+   1. Scegliere **OK**.
    1. Chiudere SQL Server 2015 Management Studio.
 
 Prendere nota del nome utente e della password selezionati. Potrebbe essere necessario assegnare autorizzazioni o ruoli del server aggiuntivi a seconda dei requisiti di database specifici.
@@ -367,7 +362,7 @@ module.exports = {
 
 Quasi tutte le impostazioni nel file azureMobile.js hanno un'impostazione app equivalente nel [Azure portal]. Usare l'elenco seguente per configurare l'app in **Impostazioni app**:
 
-| Impostazione app | Impostazione in azureMobile.js | Description | Valori validi |
+| Impostazione app | Impostazione in azureMobile.js | Descrizione | Valori validi |
 |:--- |:--- |:--- |:--- |
 | **MS_MobileAppName** |name |Nome dell'app |string |
 | **MS_MobileLoggingLevel** |logging.level |Livello log minimo di messaggi da registrare |error, warning, info, verbose, debug, silly |
@@ -397,7 +392,7 @@ Per modificare la maggior parte delle impostazioni dell'app, è necessario riavv
 L'uso del database SQL di Azure come archivio dati è identico in tutti i tipi di applicazione del Servizio app di Azure. Se non è già stato fatto, seguire questa procedura per creare un back-end di App per dispositivi mobili:
 
 1. Accedere al [Azure portal].
-1. Nella parte superiore sinistra della finestra selezionare **+NUOVO** > **Web e dispositivi mobili** > **App per dispositivi mobili** e quindi specificare un nome per il back-end di App per dispositivi mobili.
+1. Nell'angolo in alto a sinistra della finestra selezionare il pulsante **+ nuovo** > **Web e dispositivi mobili** > **app per dispositivi mobili**e quindi specificare un nome per il back-end delle app per dispositivi mobili.
 1. Nella casella **Gruppo di risorse** immettere lo stesso nome dell'app.
 1. Viene selezionato il piano di servizio app predefinito. Per modificare il piano di servizio App:
 
@@ -410,7 +405,7 @@ L'uso del database SQL di Azure come archivio dati è identico in tutti i tipi d
    d. Fare clic sul pulsante **Seleziona**.
 
    e. Nel riquadro **Piano di servizio app** fare clic su **OK**.
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 L'operazione di provisioning di un back-end di App per dispositivi mobili può richiedere alcuni minuti. Dopo avere eseguito il provisioning del back-end di App per dispositivi mobili, nel portale si apre il riquadro **Impostazioni** relativo al back-end di App per dispositivi mobili.
 
@@ -421,11 +416,11 @@ L'operazione di provisioning di un back-end di App per dispositivi mobili può r
 
 1. Nel nuovo back-end di App per dispositivi mobili selezionare **Impostazioni** > **App per dispositivi mobili** > **Dati** >  **+Aggiungi**.
 1. Nel riquadro **Aggiungi connessione dati** selezionare **Database SQL - Configura le impostazioni obbligatorie** > **Crea un nuovo database**. Immettere il nome del nuovo database nella casella **Nome**.
-1. Selezionare **Server**. Nel riquadro **Nuovo server** immettere un nome di server univoco nella casella **Nome server** e specificare un account di accesso amministratore server e una password idonei. Verificare che l'opzione **Consenti ai servizi di Azure di accedere al server** sia selezionata. Selezionare **OK**.
+1. Selezionare **Server**. Nel riquadro **Nuovo server** immettere un nome di server univoco nella casella **Nome server** e specificare un account di accesso amministratore server e una password idonei. Verificare che l'opzione **Consenti ai servizi di Azure di accedere al server** sia selezionata. Scegliere **OK**.
 
    ![Creare un database SQL di Azure][6]
 1. Nel riquadro **Nuovo database** selezionare **OK**.
-1. Nel pannello **Aggiungi connessione dati** selezionare **Stringa di connessione** e immettere l'account di accesso e la password specificati al momento della creazione del database. Se si usa un database esistente, fornire le credenziali di accesso per il database. Selezionare **OK**.
+1. Nel pannello **Aggiungi connessione dati** selezionare **Stringa di connessione** e immettere l'account di accesso e la password specificati al momento della creazione del database. Se si usa un database esistente, fornire le credenziali di accesso per il database. Scegliere **OK**.
 1. Nel riquadro **Aggiungi connessione dati** selezionare **OK** per creare il database.
 
 <!--- END OF ALTERNATE INCLUDE -->

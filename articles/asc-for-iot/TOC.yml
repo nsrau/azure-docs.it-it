@@ -18,7 +18,7 @@
           href: iot-hub-integration.md
         - name: Agenti di sicurezza
           href: security-agents.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Eseguire l'onboarding del Centro sicurezza di Azure per IoT nell'hub IoT
@@ -77,6 +77,8 @@
       href: how-to-security-data-access.md
     - name: Analizzare un dispositivo
       href: how-to-investigate-device.md
+    - name: Connettersi ad Azure Sentinel
+      href: how-to-configure-with-sentinel.md
     - name: Personalizzare la soluzione
       href: how-to-customize-solution.md
 - name: Risorse

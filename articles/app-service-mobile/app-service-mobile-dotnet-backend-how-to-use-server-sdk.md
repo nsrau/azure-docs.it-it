@@ -8,20 +8,15 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.openlocfilehash: 019979307f6dff1dba2ef5f661a971f330b8a9cd
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: cafb0a7e2bf0fbce82448236a2da98079144121e
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668867"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461539"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
-
-> [!NOTE]
-> Visual Studio App Center supporta servizi end-to-end e integrati fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono usare i servizi **Build**, **Test** e **Distribute** per configurare una pipeline di integrazione e distribuzione continue. Dopo la distribuzione dell'app, gli sviluppatori possono monitorarne lo stato e l'utilizzo tramite i servizi **Analytics** e **Diagnostics** e interagire con gli utenti tramite il servizio **Push**. Gli sviluppatori possono anche usare il servizio **Auth** per autenticare gli utenti e il servizio **Data** per salvare e sincronizzare i dati dell'app nel cloud.
->
-> Per integrare i servizi cloud nelle applicazioni per dispositivi mobili, iscriversi ad [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc).
 
 Questo argomento mostra come usare l'SDK del server back-end .NET in scenari chiave di App per dispositivi mobili del servizio app di Azure. Azure Mobile Apps SDK aiuta a lavorare con i client mobili dall'applicazione ASP.NET.
 
@@ -52,7 +47,7 @@ Installare il carico di lavoro di Azure tramite il Programma di installazione di
 1. Aprire la finestra di dialogo **Nuovo progetto** (da **File** > **Nuovo** > **Progetto...** ).
 2. Espandere **Visual C#** e selezionare **Web**.
 3. Selezionare **ASP.NET Web Application (.NET Framework)** (Applicazione Web ASP.NET - .NET Framework).
-4. Immettere il nome del progetto. Fare quindi clic su **OK**.
+4. Immettere il nome del progetto. Fare quindi clic su **OK**,
 5. Selezionare **App per dispositivi mobili di Azure** dall'elenco dei modelli.
 6. Fare clic su **OK** per creare la soluzione.
 7. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Pubblica...** , quindi scegliere **Servizio app** come destinazione di pubblicazione.
@@ -65,8 +60,8 @@ Installare [Azure SDK per .NET][4] (versione 2.9.0 o successiva) per creare un p
 1. Aprire la finestra di dialogo **Nuovo progetto** (da **File** > **Nuovo** > **Progetto...** ).
 2. Espandere **Modelli** > **Visual C#** e selezionare **Web**.
 3. Selezionare **Applicazione Web ASP.NET**.
-4. Immettere il nome del progetto. Fare quindi clic su **OK**.
-5. In *Modelli ASP.NET 4.5.2*selezionare **App mobile di Azure**. Selezionare **Host nel cloud** per creare un back-end mobile nel cloud in cui è possibile pubblicare questo progetto.
+4. Immettere il nome del progetto. Fare quindi clic su **OK**,
+5. In *Modelli ASP.NET 4.5.2* selezionare **App mobile di Azure**. Selezionare **Host nel cloud** per creare un back-end mobile nel cloud in cui è possibile pubblicare questo progetto.
 6. Fare clic su **OK**.
 
 ## <a name="install-sdk"></a>Procedura: Scaricare e inizializzare l'SDK
@@ -129,12 +124,12 @@ I metodi di estensione usati sono:
 I pacchetti di estensione basati su NuGet seguenti forniscono diverse funzionalità per dispositivi mobili che l'applicazione può usare. È possibile abilitare le estensioni durante l'inizializzazione usando l'oggetto **MobileAppConfiguration** .
 
 * [Microsoft.Azure.Mobile.Server.Quickstart] Supporta la configurazione di base di app per dispositivi mobili. Viene aggiunta alla configurazione chiamando il metodo di estensione **UseDefaultConfiguration** durante l'inizializzazione. Questa estensione include le estensioni seguenti: pacchetti Notifications, Authentication, Entity, Tables, Crossdomain e Home. Questo pacchetto viene usato da Avvio rapido di App per dispositivi mobili disponibile nel portale di Azure.
-* [Microsoft.Azure.Mobile.Server.Home](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) Implementa la pagina predefinita *this mobile app is up and running* per la radice del sito Web. Viene aggiunta alla configurazione chiamando il metodo di estensione **AddMobileAppHomeController**.
+* [Microsoft.Azure.Mobile.Server.Home](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) Implementa la pagina predefinita *this mobile app is up and running* per la radice del sito Web. Viene aggiunta alla configurazione chiamando il metodo di estensione **AddMobileAppHomeController** .
 * [Microsoft.Azure.Mobile.Server.Tables](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) include le classi per usare i dati e configura la pipeline dei dati. Viene aggiunta alla configurazione chiamando il metodo di estensione **AddTables** .
 * [Microsoft.Azure.Mobile.Server.Entity](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) consente a Entity Framework di accedere ai dati nel database SQL. Viene aggiunta alla configurazione chiamando il metodo di estensione **AddTablesWithEntityFramework** .
 * [Microsoft.Azure.Mobile.Server.Authentication] Consente l'autenticazione e configura il middleware OWIN usato per convalidare i token. Viene aggiunta alla configurazione chiamando i metodi di estensione **AddAppServiceAuthentication** e **IAppBuilder**.**UseAppServiceAuthentication**.
 * [Microsoft.Azure.Mobile.Server.Notifications] Consente le notifiche push e definisce un endpoint di registrazione push. Viene aggiunta alla configurazione chiamando il metodo di estensione **AddPushNotifications** .
-* [Microsoft.Azure.Mobile.Server.CrossDomain](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) Crea un controller che fornisce i dati ai Web browser legacy dall'app per dispositivi mobili. Viene aggiunta alla configurazione chiamando il metodo di estensione **MapLegacyCrossDomainController**.
+* [Microsoft.Azure.Mobile.Server.CrossDomain](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) Crea un controller che fornisce i dati ai Web browser legacy dall'app per dispositivi mobili. Viene aggiunta alla configurazione chiamando il metodo di estensione **MapLegacyCrossDomainController** .
 * [Microsoft.Azure.Mobile.Server.Login] offre il metodo AppServiceLoginHandler.CreateToken(), che è un metodo statico usato negli scenari di autenticazione personalizzati.
 
 ## <a name="publish-server-project"></a>Procedura: Pubblicare il progetto server
@@ -164,7 +159,7 @@ Definire un controller tabelle per esporre una tabella SQL ai client per disposi
 2. Configurare un riferimento a tabella nella classe DbContext per dispositivi mobili.
 3. Creare un controller tabelle.
 
-Un oggetto di trasferimento dei dati è un oggetto C# normale che eredita `EntityData`.  ad esempio:
+Un oggetto di trasferimento dei dati è un oggetto C# normale che eredita `EntityData`.  Ad esempio,
 
     public class TodoItem : EntityData
     {
@@ -201,7 +196,7 @@ Se Azure SDK è installato, ora è possibile creare un controller tabelle per il
    * Nell'elenco a discesa **Classe modello** selezionare il nuovo oggetto di trasferimento dei dati.
    * Nell'elenco a discesa **DbContext** selezionare la classe DbContext di Servizi mobili.
    * Viene automaticamente creato il nome Controller.
-4. Fare clic su **Aggiungi**.
+4. Fare clic su **Add**.
 
 Il progetto server di Avvio rapido contiene un esempio di **TodoItemController**semplice.
 
@@ -347,7 +342,7 @@ Il codice seguente chiama il metodo di estensione **GetAppServiceIdentityAsync**
 
 Aggiungere un'istruzione using per `System.Security.Principal` per fornire il metodo di estensione **GetAppServiceIdentityAsync**.
 
-### <a name="authorize"></a>Procedura: Limitare l'accesso ai dati per gli utenti autorizzati
+### <a name="authorize"></a>Procedura: Limitare l’accesso ai dati per gli utenti autorizzati
 Nella sezione precedente, è stato illustrato come recuperare l'ID utente di un utente autenticato. È possibile limitare l'accesso ai dati e ad altre risorse in base a questo valore. Ad esempio, l'aggiunta di una colonna userId alle tabelle e l'applicazione di filtri ai risultati delle query in base all'ID utente sono modi semplici per limitare i dati restituiti solo agli utenti autorizzati. Il codice seguente restituisce righe di dati solo quando il SID corrisponde al valore nella colonna UserId nella tabella TodoItem:
 
     // Get the SID of the current user.

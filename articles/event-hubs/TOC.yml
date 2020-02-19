@@ -10,7 +10,7 @@
       href: event-hubs-capture-overview.md
     - name: Hub eventi Dedicato
       href: event-hubs-dedicated-overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Creare un hub eventi
@@ -50,7 +50,7 @@
           href: event-hubs-python-get-started-send.md
         - name: JavaScript (azure/event-hubs versione 2)
           href: event-hubs-node-get-started-send.md
-        - name: .NET Framework (Microsoft.Azure.EventHubs)
+        - name: .NET Framework (Microsoft.ServiceBus)
           href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Acquisire eventi
       items:
@@ -60,7 +60,7 @@
           href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
         - name: Leggere i dati acquisiti con Python (azure-eventhub versione 5)
           href: get-started-capture-python-v2.md
-        - name: Leggere i dati acquisiti con Python (azure-eventhub versione 1)
+        - name: Leggere i dati acquisiti con Python (azure-eventhub version 1)
           href: event-hubs-capture-python.md
     - name: Eseguire lo streaming in Hub eventi per Apache Kafka
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md

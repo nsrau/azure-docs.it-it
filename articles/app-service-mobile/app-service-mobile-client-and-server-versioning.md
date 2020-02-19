@@ -6,18 +6,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.openlocfilehash: 4d0b301dee363c2338cb13a9fc09ee17549467eb
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: f24ae0a48b835785a2e000210f3609b82d42d0f6
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668848"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461556"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Controllo delle versioni client e server in App per dispositivi mobili e Servizi mobili
-> [!NOTE]
-> Visual Studio App Center supporta servizi end-to-end e integrati fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono usare i servizi **Build**, **Test** e **Distribute** per configurare una pipeline di integrazione e distribuzione continue. Dopo la distribuzione dell'app, gli sviluppatori possono monitorarne lo stato e l'utilizzo tramite i servizi **Analytics** e **Diagnostics** e interagire con gli utenti tramite il servizio **Push**. Gli sviluppatori possono anche usare il servizio **Auth** per autenticare gli utenti e il servizio **Data** per salvare e sincronizzare i dati dell'app nel cloud.
->
-> Per integrare i servizi cloud nelle applicazioni per dispositivi mobili, iscriversi ad [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc).
 
 La versione più recente di Servizi mobili di Azure è la funzionalità **App per dispositivi mobili** del Servizio app di Azure.
 
@@ -29,7 +25,7 @@ Nota: ogni volta che in questo documento si fa riferimento a un back-end di *Ser
 ## <a name="header-specification"></a>Specifica di intestazione
 La chiave `ZUMO-API-VERSION` può essere specificata nell'intestazione HTTP o nella stringa di query. Il valore è una stringa di versione nel formato **x.y.z**.
 
-ad esempio:
+Ad esempio,
 
 GET https://service.azurewebsites.net/tables/TodoItem
 
@@ -62,9 +58,9 @@ Il controllo della versione è incluso nelle seguenti versioni dell’SDK del se
 | Node.js |[azure-mobile-apps)](https://www.npmjs.com/package/azure-mobile-apps) |2.0.0 |
 
 ### <a name="behavior-of-mobile-apps-backends"></a>Comportamento dei back-end di app per dispositivi mobili
-| ZUMO-API-VERSION | Valore di MS_SkipVersionCheck | Response |
+| ZUMO-API-VERSION | Valore di MS_SkipVersionCheck | Risposta |
 | --- | --- | --- |
-| x.y.z o Null |Vero |200 - OK |
+| x.y.z o Null |True |200 - OK |
 | Null |False/Non specificato |400 - Richiesta non valida |
 | 1.x.y |False/Non specificato |400 - Richiesta non valida |
 | 2.0.0-2.x.y |False/Non specificato |200 - OK |

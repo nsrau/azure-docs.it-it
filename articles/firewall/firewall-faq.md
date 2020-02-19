@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 01/29/2020
+ms.date: 02/18/2020
 ms.author: victorh
-ms.openlocfilehash: 78269461bf01d61bffeed504b0168b4913c6e131
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
-ms.translationtype: HT
+ms.openlocfilehash: 39c08a568a60c905394eec23dd27d5dd32ff0112
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77442990"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460468"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -129,7 +129,9 @@ Il firewall di Azure non SNAT quando l'indirizzo IP di destinazione è un interv
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>Il tunneling o il concatenamento forzato a un'appliance virtuale di rete è supportato?
 
-Il tunneling forzato non è attualmente supportato. Connettività diretta al Firewall di Azure. Se AzureFirewallSubnet apprende una route predefinita alla rete locale tramite BGP è necessario sostituirla con una route UDR 0.0.0.0/0 con il valore **NextHopType** impostato come **Internet** per mantenere connettività diretta a Internet.
+Il tunneling forzato è supportato. Per altre informazioni, vedere il [tunneling forzato del firewall di Azure (anteprima)](forced-tunneling.md). 
+
+Connettività diretta al Firewall di Azure. Se AzureFirewallSubnet apprende una route predefinita alla rete locale tramite BGP è necessario sostituirla con una route UDR 0.0.0.0/0 con il valore **NextHopType** impostato come **Internet** per mantenere connettività diretta a Internet.
 
 Se la configurazione richiede il tunneling forzato in una rete locale ed è possibile determinare i prefissi IP di destinazione per le destinazioni Internet, è possibile configurare questi intervalli con la rete locale come hop successivo tramite una route definita dall'utente in AzureFirewallSubnet. In alternativa, per definire queste route, è possibile usare BGP.
 
@@ -166,7 +168,7 @@ No. Il firewall di Azure non necessita di una subnet maggiore di/26.
 
 ## <a name="how-can-i-increase-my-firewall-throughput"></a>Come è possibile aumentare la velocità effettiva del firewall?
 
-La capacità di velocità effettiva iniziale del firewall di Azure è 2,5-3 Gbps. Attualmente, la scalabilità orizzontale si basa solo sull'utilizzo della CPU. In alcuni casi, un firewall con regole di rete non viene ridimensionato per aumentare la velocità effettiva, perché le regole di rete non influiscono significativamente sull'utilizzo della CPU. Se è necessaria una velocità effettiva superiore per il firewall, contattare il supporto tecnico per aumentare la capacità di velocità effettiva iniziale del firewall.
+La capacità di velocità effettiva iniziale del firewall di Azure è 2,5-3 Gbps. Attualmente, la scalabilità orizzontale è basata sull'utilizzo della CPU e sulla velocità effettiva. In alcuni casi, un firewall con regole di rete non viene ridimensionato per aumentare la velocità effettiva, perché le regole di rete non influiscono significativamente sull'utilizzo della CPU. Se è necessaria una velocità effettiva superiore per il firewall, contattare il supporto tecnico per aumentare la capacità di velocità effettiva iniziale del firewall.
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Quanto tempo è necessario per la scalabilità orizzontale del firewall di Azure?
 

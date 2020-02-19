@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Azure Batch
       href: batch-technical-overview.md
-- name: Guide introduttive
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Eseguire un processo Batch - Interfaccia della riga di comando
@@ -55,7 +55,7 @@
       href: high-availability-disaster-recovery.md
     - name: Variabili di ambiente del runtime attività
       href: batch-compute-node-environment-variables.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Gestire gli account Batch
       items:
@@ -71,6 +71,8 @@
           href: batch-aad-auth.md
         - name: Azure AD con la gestione di Batch
           href: batch-aad-auth-management.md
+        - name: Accedere in modo sicuro a Key Vault con Batch
+          href: credential-access-key-vault.md
     - name: Uso di pacchetti dell'applicazione
       href: batch-application-packages.md
     - name: Creare e gestire i pool
@@ -172,7 +174,7 @@
           href: batch-rendering-architectures.md
     - name: Elaborazione dati con Batch e Data Factory
       href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/batch

@@ -5,19 +5,14 @@ ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
 ms.tgt_pltfrm: mobile-multiple
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.openlocfilehash: d85ac89a4226b545419cea3413a04f4013a073be
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 73fdf7f09ebb5073829f9787917946e8053f8e12
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668714"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461437"
 ---
-# <a name="getting-started"> </a>Informazioni su App per dispositivi mobili nel servizio app di Azure
-
-> [!NOTE]
-> Visual Studio App Center supporta servizi end-to-end e integrati fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono usare i servizi **Build**, **Test** e **Distribute** per configurare una pipeline di integrazione e distribuzione continue. Dopo la distribuzione dell'app, gli sviluppatori possono monitorarne lo stato e l'utilizzo tramite i servizi **Analytics** e **Diagnostics** e interagire con gli utenti tramite il servizio **Push**. Gli sviluppatori possono anche usare il servizio **Auth** per autenticare gli utenti e il servizio **Data** per salvare e sincronizzare i dati dell'app nel cloud.
->
-> Per integrare i servizi cloud nelle applicazioni per dispositivi mobili, iscriversi ad [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc).
+# <a name="getting-started"> </a>Informazioni sulle app per dispositivi mobili nel servizio app Azure
 
 Il servizio app di Azure è un'offerta di [piattaforma distribuita come servizio ](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) interamente gestita per sviluppatori professionisti. Il servizio offre un set completo di funzionalità per scenari Web, per dispositivi mobili e di integrazione. 
 
@@ -80,7 +75,7 @@ Le funzionalità della piattaforma seguenti sono utili per i siti di produzione 
 Per iniziare a usare App per dispositivi mobili nel servizio app di Azure, completare l'[esercitazione introduttiva]. L'esercitazione illustra le nozioni di base della creazione di un back-end e un client per dispositivi mobili di propria scelta, nonché l'integrazione dell'autenticazione, della sincronizzazione offline e delle notifiche push. È possibile completare l'esercitazione più volte, una per ogni applicazione client.
 
 Per altre informazioni su App per dispositivi mobili, vedere la [mappa di apprendimento].
-Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Informazioni sul servizio app di Azure].
+Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Servizio app di Azure].
 
 <!-- URLs. -->
 [Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
@@ -103,4 +98,4 @@ Per altre informazioni sulla piattaforma del servizio app di Azure, vedere [Info
 [ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md
 [ambienti del servizio app]: ../app-service/environment/intro.md
 [mappa di apprendimento]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
-[Informazioni sul servizio app di Azure]: ../app-service/overview.md
+[Servizio app di Azure]: ../app-service/overview.md

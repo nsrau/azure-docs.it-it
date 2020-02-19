@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2019
+ms.date: 02/18/2020
 ms.author: mlottner
-ms.openlocfilehash: 6adb918bbc6d4718be8518019394582a6a843fb8
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 70396cdcaf8b6e2ac66619290eea35a7b260cd9a
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664845"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461250"
 ---
 # <a name="tutorial-configure-security-agents"></a>Esercitazione: configurare gli agenti di sicurezza
 
@@ -108,7 +108,7 @@ Per usare un valore di proprietà predefinito, rimuovere la proprietà dall'ogge
     }
     ```
 
-1. Fare clic su **Salva**
+1. Fare clic su **Save**.
 
 ### <a name="using-a-default-value"></a>Uso di un valore predefinito
 
@@ -120,33 +120,32 @@ La tabella seguente contiene le proprietà controllabili del Centro sicurezza di
 
 I valori predefiniti sono disponibili nello schema appropriato in [GitHub](https\://aka.ms/iot-security-module-default).
 
-| name| Status | Valori validi| Valori predefiniti| Description |
+| Name| Stato | Valori validi| Valori predefiniti| Descrizione |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |highPriorityMessageFrequency|Obbligatorio: false |Valori validi: durata nel formato ISO 8601 |Valore predefinito: PT7M |Intervallo di tempo massimo prima dell'invio dei messaggi con priorità alta.|
 |lowPriorityMessageFrequency |Obbligatorio: false|Valori validi: durata nel formato ISO 8601 |Valore predefinito: PT5H |Tempo massimo prima dell'invio dei messaggi con priorità bassa.| 
 |snapshotFrequency |Richiedi: false|Valori validi: durata nel formato ISO 8601 |Valore predefinito PT13H |Intervallo di tempo per la creazione di snapshot dello stato del dispositivo.| 
 |maxLocalCacheSizeInBytes |Obbligatorio: false |Valori validi: |Valore predefinito: 2560000, maggiore di 8192 | Archiviazione massima (in byte) consentita per la cache dei messaggi di un agente. Quantità massima di spazio consentito per l'archiviazione dei messaggi nel dispositivo prima dell'invio dei messaggi.| 
 |maxMessageSizeInBytes |Obbligatorio: false |Valori validi: un numero positivo maggiore di 8192, minore di 262144 |Valore predefinito: 204800 |Dimensione massima consentita di un agente per il messaggio cloud. Questa impostazione consente di controllare la quantità massima di dati inviati in ogni messaggio. |
-|eventPriority $ {EventName} |Obbligatorio: false |Valori validi: High, low, off |Valori predefiniti: |Priorità di ogni evento generato dall'agente | 
+|eventPriority${EventName} |Obbligatorio: false |Valori validi: High, low, off |Valori predefiniti: |Priorità di ogni evento generato dall'agente | 
 
 ### <a name="supported-security-events"></a>Eventi di sicurezza supportati
 
-|Nome evento| PropertyName | Default value| Evento snapshot| Stato dettagli  |
+|Nome evento| PropertyName | Default Value| Evento snapshot| Stato dettagli  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|Evento di diagnostica|eventPriorityDiagnostic| Off| Falso| Eventi di diagnostica correlati agli agenti. Utilizzare questo evento per la registrazione dettagliata.| 
-|Errore di configurazione |eventPriorityConfigurationError |Basse |Falso |L'agente non è riuscito ad analizzare la configurazione. Verificare la configurazione in base allo schema.| 
-|Statistiche eventi eliminati |eventPriorityDroppedEventsStatistics |Basse |Vero|Statistiche evento correlate agli agenti. |
-|Statistiche messaggio|eventPriorityMessageStatistics |Basse |Vero |Statistiche messaggi correlati all'agente. |
-|Hardware connesso|eventPriorityConnectedHardware |Basse |Vero |Snapshot di tutti i componenti hardware connessi al dispositivo.|
-|Porte in ascolto|eventPriorityListeningPorts |Alte |Vero |Snapshot di tutte le porte di ascolto aperte sul dispositivo.|
-|Creazione processo |eventPriorityProcessCreate |Basse |Falso |Controlla la creazione del processo nel dispositivo.|
-|Terminazione processo|eventPriorityProcessTerminate |Basse |Falso |Controlla la terminazione del processo nel dispositivo.| 
-|Informazioni di sistema |eventPrioritySystemInformation |Basse |Vero |Uno snapshot delle informazioni di sistema (ad esempio, sistema operativo o CPU).| 
-|Utenti locali| eventPriorityLocalUsers |Alte |Vero|Snapshot degli utenti locali registrati nel sistema. |
-|Login|  eventPriorityLogin |Alte|Falso|Controllare gli eventi di accesso al dispositivo (account di accesso locali e remoti).|
-|Creazione della connessione |eventPriorityConnectionCreate|Basse|Falso|Controlla le connessioni TCP create da e verso il dispositivo. |
-|Configurazione del firewall| eventPriorityFirewallConfiguration|Basse|Vero|Snapshot della configurazione del firewall del dispositivo (regole del firewall). |
-|Baseline del sistema operativo| eventPriorityOSBaseline| Basse|Vero|Snapshot del controllo della linea di base del sistema operativo del dispositivo.|
+|Evento di diagnostica|eventPriorityDiagnostic| Disattivata| False| Eventi di diagnostica correlati agli agenti. Utilizzare questo evento per la registrazione dettagliata.| 
+|Errore di configurazione |eventPriorityConfigurationError |Bassa |False |L'agente non è riuscito ad analizzare la configurazione. Verificare la configurazione in base allo schema.| 
+|Statistiche eventi eliminati |eventPriorityDroppedEventsStatistics |Bassa |True|Statistiche evento correlate agli agenti. |
+|Hardware connesso|eventPriorityConnectedHardware |Bassa |True |Snapshot di tutti i componenti hardware connessi al dispositivo.|
+|Porte in ascolto|eventPriorityListeningPorts |Alta |True |Snapshot di tutte le porte di ascolto aperte sul dispositivo.|
+|Creazione processo |eventPriorityProcessCreate |Bassa |False |Controlla la creazione del processo nel dispositivo.|
+|Terminazione processo|eventPriorityProcessTerminate |Bassa |False |Controlla la terminazione del processo nel dispositivo.| 
+|Informazioni sistema |eventPrioritySystemInformation |Bassa |True |Uno snapshot delle informazioni di sistema (ad esempio, sistema operativo o CPU).| 
+|Utenti locali| eventPriorityLocalUsers |Alta |True|Snapshot degli utenti locali registrati nel sistema. |
+|Accesso|  eventPriorityLogin |Alta|False|Controllare gli eventi di accesso al dispositivo (account di accesso locali e remoti).|
+|Creazione della connessione |eventPriorityConnectionCreate|Bassa|False|Controlla le connessioni TCP create da e verso il dispositivo. |
+|Configurazione del firewall| eventPriorityFirewallConfiguration|Bassa|True|Snapshot della configurazione del firewall del dispositivo (regole del firewall). |
+|Baseline del sistema operativo| eventPriorityOSBaseline| Bassa|True|Snapshot del controllo della linea di base del sistema operativo del dispositivo.|
 |
  
 

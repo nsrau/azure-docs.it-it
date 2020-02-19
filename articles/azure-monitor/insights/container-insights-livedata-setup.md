@@ -3,12 +3,12 @@ title: Configurare monitoraggio di Azure per i dati dinamici dei contenitori (an
 description: Questo articolo descrive come configurare la visualizzazione in tempo reale dei log del contenitore (stdout/stderr) ed eventi senza usare kubectl con monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 91f035b98a57fd9a37203cc48b3cc5d685967a13
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: f19071ca642cd229cbd7d49b4eab90c970672eee
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251788"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459923"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Come configurare la funzionalità dati in tempo reale (anteprima)
 
@@ -48,7 +48,7 @@ Il portale di Azure richiede di convalidare le credenziali di accesso per un clu
 
 ## <a name="using-clustermonitoringuser-with-rbac-enabled-clusters"></a>Uso di clusterMonitoringUser con cluster abilitati per RBAC
 
-Per eliminare la necessità di applicare modifiche di configurazione aggiuntive per consentire l'associazione di regole utente Kubernetes **clusterUser** l'accesso alla funzionalità dati in tempo reale (anteprima) dopo aver abilitato l'autorizzazione [RBAC](#configure-kubernetes-rbac-authorization) , AKS ha aggiunto una nuova associazione di ruoli del cluster Kubernetes denominata **clusterMonitoringUser**. Questa associazione di ruoli del cluster dispone di tutte le autorizzazioni necessarie predefinite per accedere all'API Kubernetes e agli endpoint per l'utilizzo della funzionalità dati in tempo reale (anteprima). 
+Per eliminare la necessità di applicare modifiche di configurazione aggiuntive per consentire l'associazione del ruolo utente Kubernetes **clusterUser** l'accesso alla funzionalità dati in tempo reale (anteprima) dopo aver abilitato l'autorizzazione [RBAC](#configure-kubernetes-rbac-authorization) , AKS ha aggiunto una nuova associazione di ruoli del cluster Kubernetes denominata **clusterMonitoringUser**. Questa associazione di ruoli del cluster dispone di tutte le autorizzazioni necessarie predefinite per accedere all'API Kubernetes e agli endpoint per l'utilizzo della funzionalità dati in tempo reale (anteprima).
 
 Per usare la funzionalità dati in tempo reale (anteprima) con questo nuovo utente, è necessario essere un membro del ruolo [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) sulla risorsa cluster AKS. Il monitoraggio di Azure per i contenitori, se abilitato, è configurato per l'autenticazione con questo utente per impostazione predefinita. Se l'associazione di ruolo clusterMonitoringUser non esiste in un cluster, per l'autenticazione viene usato **clusterUser** .
 

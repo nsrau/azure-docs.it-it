@@ -264,7 +264,7 @@
       items:
         - name: Informazioni su Apache Spark in HDInsight
           href: ./spark/apache-spark-overview.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       items:
         - name: Creare un cluster Apache Spark - Portale
           href: ./spark/apache-spark-jupyter-spark-sql-use-portal.md
@@ -412,7 +412,7 @@
       items:
         - name: Informazioni su Apache Hadoop in HDInsight
           href: ./hadoop/apache-hadoop-introduction.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       items:
         - name: Creare un cluster Apache Hadoop - Portale
           href: ./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md
@@ -535,7 +535,7 @@
       items:
         - name: Informazioni su Apache Kafka in HDInsight
           href: ./kafka/apache-kafka-introduction.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       items:
         - name: Creare un cluster Apache Kafka - Portale
           href: ./kafka/apache-kafka-get-started.md
@@ -604,7 +604,7 @@
       items:
         - name: Informazioni su Apache HBase in HDInsight
           href: ./hbase/apache-hbase-overview.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       items:
         - name: Eseguire query su Apache HBase - Apache Phoenix
           href: ./hbase/apache-hbase-query-with-phoenix.md
@@ -676,7 +676,7 @@
       items:
         - name: Informazioni su Interactive Query in HDInsight
           href: ./interactive-query/apache-interactive-query-get-started.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       items:
         - name: Eseguire query Apache Hive - Apache Zeppelin
           href: ./interactive-query/hdinsight-connect-hive-zeppelin.md
@@ -756,7 +756,7 @@
       items:
         - name: Informazioni su ML Services in HDInsight
           href: ./r-server/r-server-overview.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       items:
         - name: Processo di esempio - RStudio Server
           href: ./r-server/machine-learning-services-quickstart-job-rstudio.md
@@ -790,7 +790,7 @@
       items:
         - name: Informazioni su Apache Storm in HDInsight
           href: ./storm/apache-storm-overview.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       items:
         - name: Creare una topologia Apache Storm in HDInsight
           href: ./storm/apache-storm-quickstart.md
@@ -852,6 +852,8 @@
           href: ./domain-joined/hdinsight-use-oozie-domain-joined-clusters.md
     - name: Concetti
       items:
+        - name: Linee guida generali sulla sicurezza aziendale
+          href: ./domain-joined/general-guidelines.md
         - name: Pianificare cluster ESP
           href: ./domain-joined/apache-domain-joined-architecture.md
         - name: Architettura della rete virtuale di HDInsight
@@ -864,6 +866,8 @@
           href: ./hdinsight-service-tags.md
         - name: Crittografia del disco con chiavi gestite dal cliente
           href: ./disk-encryption.md
+        - name: Sincronizzazione LDAP in Ranger e Apache Ambari
+          href: ./domain-joined/ldap-sync.md
     - name: Procedure
       items:
         - name: Usare il broker di identità per la gestione delle credenziali

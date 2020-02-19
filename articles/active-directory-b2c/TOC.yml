@@ -7,7 +7,7 @@
       href: overview.md
     - name: Panoramica degli aspetti tecnici e delle funzionalità
       href: technical-overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Configurare l'accesso - ASP.NET
@@ -60,7 +60,7 @@
           href: authorization-code-flow.md
         - name: Flusso implicito
           href: implicit-flow-single-page-application.md
-        - name: Tokens
+        - name: Token
           href: tokens-overview.md
         - name: Richiedere il token di accesso
           href: access-tokens.md
@@ -276,7 +276,7 @@
                       href: social-transformations.md
                     - name: StringCollection
                       href: stringcollection-transformations.md
-                    - name: string
+                    - name: String
                       href: string-transformations.md
                 - name: Predicati
                   href: predicates.md
@@ -351,6 +351,12 @@
           href: view-usage-reports.md
         - name: Gestione account
           href: manage-user-accounts-graph-api.md
+        - name: Distribuire con Azure Pipelines
+          href: deploy-custom-policies-devops.md
+          displayName: 'azure devops, ci/cd, cicd, custom policy, policies'
+        - name: Gestire i criteri con PowerShell
+          href: manage-custom-policies-powershell.md
+          displayName: 'scripting, scripts, psh, custom policy'
     - name: Log di controllo
       href: view-audit-logs.md
     - name: Gestire gli utenti - Portale di Azure
