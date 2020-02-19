@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c5b9c1d294cd984ca3cf062d3b657239995e5908
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 3361f4723c5a9776cb156417e57d609175d11621
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75752238"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446848"
 ---
 Gli snapshot incrementali (anteprima) sono backup temporizzati per i dischi gestiti che, quando vengono eseguiti, sono costituiti solo da tutte le modifiche apportate dopo l'ultimo snapshot. Quando si tenta di scaricare o utilizzare in altro modo uno snapshot incrementale, viene utilizzato il VHD completo. Questa nuova funzionalità per gli snapshot dei dischi gestiti può consentire loro di essere più conveniente, perché non è più necessario archiviare l'intero disco con ogni singolo snapshot, a meno che non si scelga di. Analogamente agli snapshot regolari, è possibile usare gli snapshot incrementali per creare un disco gestito completo o, per creare uno snapshot regolare.
 
@@ -23,7 +23,7 @@ Gli snapshot incrementali offrono inoltre una funzionalità differenziale, dispo
 
 ## <a name="restrictions"></a>Restrizioni
 
-- Gli snapshot incrementali sono attualmente disponibili solo nelle aree Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-occidentali, Canada orientale, Canada centrale ed Europa settentrionale.
+- Gli snapshot incrementali sono attualmente disponibili solo nelle aree Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-occidentali, Canada orientale, Canada centrale, Europa settentrionale, Sud Asia orientale.
 - Attualmente non è possibile creare snapshot incrementali dopo aver modificato le dimensioni di un disco.
 - Non è attualmente possibile spostare gli snapshot incrementali tra le sottoscrizioni.
 - Attualmente, è possibile generare solo URI SAS di un massimo di cinque snapshot di una particolare famiglia di snapshot in un determinato momento.
@@ -74,7 +74,7 @@ foreach ($snapshot in $snapshots)
 $incrementalSnapshots
 ```
 
-## <a name="cli"></a>Interfaccia della riga di comando
+## <a name="cli"></a>CLI
 
 È possibile creare uno snapshot incrementale con l'interfaccia della riga di comando di Azure. sarà necessaria la versione più recente dell'interfaccia della riga di comando di Azure. 
 
