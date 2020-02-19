@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 58882f7569e26ebcba237158db2eb23e76bcd015
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 18c53a53a57b3ddca1168fc1075ae09bcd86f000
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765087"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462497"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Eseguire la replica dei dati in Database di Azure per MySQL
 
@@ -28,7 +28,7 @@ Per gli scenari di migrazione, usare il [servizio migrazione del database di Azu
 ## <a name="limitations-and-considerations"></a>Limitazioni e considerazioni
 
 ### <a name="data-not-replicated"></a>Dati non replicati
-Il [*database di sistema mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) sul server master non viene replicato. Le modifiche agli account e alle autorizzazioni sul server master non vengono replicate. Se si crea un account sul server master e questo deve accedere al server di replica, creare manualmente lo stesso account sul lato del server di replica. Per informazioni sulle tabelle contenute nel database di sistema, vedere la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-database.html).
+Il [*database di sistema mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) sul server master non viene replicato. Le modifiche agli account e alle autorizzazioni sul server master non vengono replicate. Se si crea un account sul server master e questo deve accedere al server di replica, creare manualmente lo stesso account sul lato del server di replica. Per informazioni sulle tabelle contenute nel database di sistema, vedere la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html).
 
 ### <a name="requirements"></a>Requisiti
 - Nel server master deve essere installata almeno la versione 5.6 di MySQL. 

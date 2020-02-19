@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: 05b099eebcbb7b8f77357c9dcf3a4d567d3886d6
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 3b423a25b6b13ad543ef4a74bc0335ce19f5766d
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75553070"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461808"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configurare un gruppo di failover per il database SQL di Azure
 
@@ -33,7 +33,7 @@ Considerare i prerequisiti seguenti:
 
 ### <a name="create-failover-group"></a>Crea gruppo di failover
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 Creare il gruppo di failover e aggiungervi il database singolo usando il portale di Azure.
 
 
@@ -53,7 +53,7 @@ Creare il gruppo di failover e aggiungervi il database singolo usando il portale
         
     ![Aggiungi database SQL al gruppo di failover](media/sql-database-single-database-failover-group-tutorial/add-sqldb-to-failover-group.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Creare il gruppo di failover e aggiungervi il database singolo usando PowerShell. 
 
    ```powershell-interactive
@@ -107,7 +107,7 @@ Creare il gruppo di failover e aggiungervi il database singolo usando PowerShell
 
 Testare il failover del gruppo di failover usando il portale di Azure o PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Testare il failover del gruppo di failover usando il portale di Azure. 
 
@@ -129,7 +129,7 @@ Testare il failover del gruppo di failover usando il portale di Azure.
 1. Esaminare il server primario e il server secondario. Se il failover ha avuto esito positivo, i due server dovrebbero avere ruoli scambiati. 
 1. Selezionare di nuovo **failover** per riportare i server ai ruoli originariamente. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Failover di test del gruppo di failover usando PowerShell.  
 
@@ -200,7 +200,7 @@ Considerare i prerequisiti seguenti:
 
 Creare il gruppo di failover per il pool elastico usando il portale di Azure o PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 Creare il gruppo di failover e aggiungervi il pool elastico usando il portale di Azure.
 
 1. Selezionare **Azure SQL** nel menu a sinistra nel [portale di Azure](https://portal.azure.com). Se **SQL di Azure** non è presente nell'elenco, selezionare **tutti i servizi**, quindi digitare Azure SQL nella casella di ricerca. (Facoltativo) Selezionare la stella accanto ad **Azure SQL** per aggiungerlo ai Preferiti e come elemento del riquadro di spostamento sinistro. 
@@ -221,7 +221,7 @@ Creare il gruppo di failover e aggiungervi il pool elastico usando il portale di
         
 1. Selezionare **Seleziona** per applicare le impostazioni del pool elastico al gruppo di failover e quindi selezionare **Crea** per creare il gruppo di failover. L'aggiunta del pool elastico al gruppo di failover avvierà automaticamente il processo di replica geografica. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Creare il gruppo di failover e aggiungervi il pool elastico usando PowerShell. 
 
@@ -271,7 +271,7 @@ Creare il gruppo di failover e aggiungervi il pool elastico usando PowerShell.
 
 Failover di test del pool elastico usando il portale di Azure o PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Eseguire il failover del gruppo di failover sul server secondario e quindi eseguire il failback utilizzando il portale di Azure. 
 
@@ -293,7 +293,7 @@ Eseguire il failover del gruppo di failover sul server secondario e quindi esegu
 1. Esaminare il server primario, il server secondario. Se il failover ha avuto esito positivo, i due server dovrebbero avere ruoli scambiati. 
 1. Selezionare di nuovo **failover** per non riuscire a ripristinare le impostazioni originali del gruppo di failover. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Failover di test del gruppo di failover usando PowerShell.
 
@@ -353,7 +353,7 @@ Considerare i prerequisiti seguenti:
 
 Se [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)non è stato configurato, è possibile creare il gateway di rete virtuale primario con il portale di Azure o PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Creare il gateway di rete virtuale primario usando il portale di Azure. 
 
@@ -381,7 +381,7 @@ Creare il gateway di rete virtuale primario usando il portale di Azure.
     | **Posizione**| Il percorso in cui si trova l'istanza gestita secondaria e la rete virtuale secondaria.   |
     | **Rete virtuale**| Selezionare la rete virtuale per l'istanza gestita secondaria. |
     | **Indirizzo IP pubblico**| Selezionare **Crea nuovo**. |
-    | **Nome indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP. |
+    | **Nome dell'indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP. |
     | &nbsp; | &nbsp; |
 
 1. Lasciare gli altri valori predefiniti e quindi selezionare **Verifica + crea** per esaminare le impostazioni per il gateway di rete virtuale.
@@ -390,7 +390,7 @@ Creare il gateway di rete virtuale primario usando il portale di Azure.
 
 1. Selezionare **Crea** per creare il nuovo gateway di rete virtuale. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Creare il gateway di rete virtuale primario usando PowerShell. 
 
@@ -426,7 +426,7 @@ Creare il gateway di rete virtuale primario usando PowerShell.
 
 Creare il gateway di rete virtuale secondario usando il portale di Azure o PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 Ripetere i passaggi nella sezione precedente per creare la subnet della rete virtuale e il gateway per l'istanza gestita secondaria. Compilare i campi obbligatori per configurare il gateway per l'istanza gestita secondaria. 
 
    La tabella seguente mostra i valori necessari per il gateway per l'istanza gestita secondaria:
@@ -442,12 +442,12 @@ Ripetere i passaggi nella sezione precedente per creare la subnet della rete vir
    | **Posizione**| Il percorso in cui si trova l'istanza gestita secondaria e la rete virtuale secondaria.   |
    | **Rete virtuale**| Selezionare la rete virtuale creata nella sezione 2, ad esempio `vnet-sql-mi-secondary`. |
    | **Indirizzo IP pubblico**| Selezionare **Crea nuovo**. |
-   | **Nome indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP, ad esempio `secondary-gateway-IP`. |
+   | **Nome dell'indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP, ad esempio `secondary-gateway-IP`. |
    | &nbsp; | &nbsp; |
 
    ![Impostazioni del gateway secondario](media/sql-database-managed-instance-failover-group-tutorial/settings-for-secondary-gateway.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Creare il gateway di rete virtuale secondario usando PowerShell. 
 
@@ -488,7 +488,7 @@ Creare connessioni tra i due gateway usando il portale di Azure o PowerShell.
 
 La chiave condivisa utilizzata per entrambe le connessioni deve essere la stessa per ogni connessione. 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 Creare connessioni tra i due gateway usando il portale di Azure. 
 
 1. Selezionare **Crea una risorsa** dal [portale di Azure](https://portal.azure.com).
@@ -510,7 +510,7 @@ Creare connessioni tra i due gateway usando il portale di Azure.
 
 1. Nella scheda **Riepilogo** esaminare le impostazioni per la connessione bidirezionale e quindi selezionare **OK** per creare la connessione. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Creare connessioni tra i due gateway usando PowerShell. 
 
@@ -546,7 +546,7 @@ Creare connessioni tra i due gateway usando PowerShell.
 ### <a name="create-the-failover-group"></a>Creare il gruppo di failover 
 Creare il gruppo di failover per le istanze gestite usando il portale di Azure o PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Creare il gruppo di failover per le istanze gestite utilizzando portale di Azure. 
 
@@ -562,7 +562,7 @@ Creare il gruppo di failover per le istanze gestite utilizzando portale di Azure
 
 1. Una volta completata la distribuzione del gruppo di failover, si tornerà alla pagina del **gruppo di failover** . 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Creare il gruppo di failover per le istanze gestite usando PowerShell. 
 
@@ -588,11 +588,11 @@ Creare il gruppo di failover per le istanze gestite usando PowerShell.
 
 Testare il failover del gruppo di failover usando il portale di Azure o PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Testare il failover del gruppo di failover usando il portale di Azure. 
 
-1. Passare all'istanza gestita all'interno del [portale di Azure](https://portal.azure.com) e selezionare **gruppi di failover dell'istanza** in impostazioni. 
+1. Passare all'istanza gestita _secondaria_ all'interno del [portale di Azure](https://portal.azure.com) e selezionare **gruppi di failover dell'istanza** in impostazioni. 
 1. Verificare quale istanza gestita è la primaria e quale istanza gestita è la replica secondaria. 
 1. Selezionare **failover** e quindi fare clic su **Sì** nell'avviso relativo alle sessioni TDS disconnesse. 
 
@@ -602,9 +602,9 @@ Testare il failover del gruppo di failover usando il portale di Azure.
 
    ![Istanze gestite con ruoli passati dopo il failover](media/sql-database-managed-instance-failover-group-tutorial/mi-switched-after-failover.png)
 
-1. Selezionare di nuovo **failover** per eseguire il failback dell'istanza primaria al ruolo primario. 
+1. Passare alla nuova istanza gestita _secondaria_ e selezionare di nuovo **failover** per non restituire l'istanza primaria al ruolo primario. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Failover di test del gruppo di failover usando PowerShell. 
 
@@ -652,7 +652,7 @@ Il formato dell'endpoint del listener è `fog-name.database.windows.net`ed è vi
 
 ![Stringa di connessione del gruppo di failover](media/sql-database-configure-failover-group/find-failover-group-connection-string.png)
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 - La rimozione di un gruppo di failover per un database singolo o in pool non interrompe la replica e non elimina il database replicato. È necessario arrestare manualmente la replica geografica ed eliminare il database dal server secondario se si desidera aggiungere di nuovo un database singolo o in pool a un gruppo di failover dopo che è stato rimosso. Se non si riesce a eseguire alcuna operazione, è possibile che venga generato un errore simile a `The operation cannot be performed due to multiple errors` quando si tenta di aggiungere il database al gruppo di failover. 
 

@@ -8,18 +8,20 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: bc90ecb029afe70ed61e94a727c67c53bb968b96
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: e2ba5301b81b1a6f5de696ab4587cd8ff43e3c68
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212551"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462565"
 ---
 # <a name="adjust-capacity-in-azure-cognitive-search"></a>Modificare la capacità in Azure ricerca cognitiva
 
-Prima di eseguire il [provisioning di un servizio di ricerca](search-create-service-portal.md) e il blocco in un piano tariffario specifico, è necessario attendere alcuni minuti per comprendere il ruolo delle repliche e delle partizioni di un servizio, se sono necessarie partizioni proporzionali più grandi o più veloci e come è possibile configurare il servizio per il carico previsto.
+Prima di eseguire il [provisioning di un servizio di ricerca](search-create-service-portal.md) e il blocco in un piano tariffario specifico, è necessario attendere alcuni minuti per comprendere il ruolo delle repliche e delle partizioni in un servizio e come è possibile modificare un servizio per gestire picchi e cali nella richiesta di risorse.
 
-La capacità è una funzione del [livello scelto](search-sku-tier.md) (i livelli determinano le caratteristiche hardware) e la combinazione di replica e partizione necessaria per i carichi di lavoro proiettati. Questo articolo è incentrato sulle combinazioni di replica e di partizione e sulle interazioni.
+La capacità è una funzione del [livello scelto](search-sku-tier.md) (i livelli determinano le caratteristiche hardware) e la combinazione di replica e partizione necessaria per i carichi di lavoro proiettati. A seconda del livello e della dimensione della regolazione, l'aggiunta o la riduzione della capacità può richiedere da 15 minuti a diverse ore. 
+
+Quando si modifica l'allocazione delle repliche e delle partizioni, è consigliabile usare la portale di Azure. Il portale impone limiti per le combinazioni consentite che sono inferiori ai limiti massimi di un livello. Tuttavia, se è necessario un approccio di provisioning basato su script o basato su codice, l' [Azure PowerShell](search-manage-powershell.md) o l' [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/services) sono soluzioni alternative.
 
 ## <a name="terminology-replicas-and-partitions"></a>Terminologia: repliche e partizioni
 
@@ -28,15 +30,17 @@ La capacità è una funzione del [livello scelto](search-sku-tier.md) (i livelli
 |*Partitions* | Offre l'archiviazione degli indici e l'I/O per le operazioni di lettura e scrittura, ad esempio durante la compilazione o l'aggiornamento di un indice. Ogni partizione dispone di una condivisione dell'indice totale. Se si allocano tre partizioni, l'indice è suddiviso in terze parti. |
 |*Repliche* | Istanze del servizio di ricerca, utilizzate principalmente per il bilanciamento di carico delle operazioni di query. Ogni replica è una copia di un indice. Se si allocano tre repliche, saranno disponibili tre copie di un indice per la manutenzione delle richieste di query.|
 
-## <a name="how-to-allocate-replicas-and-partitions"></a>Come allocare repliche e partizioni
+## <a name="when-to-add-nodes"></a>Quando aggiungere nodi
 
 Inizialmente, a un servizio viene allocato un livello minimo di risorse costituito da una partizione e una replica. 
 
-Un singolo servizio deve disporre di risorse sufficienti per gestire tutti i carichi di lavoro (indicizzazione e query). Nessuno dei due carichi di lavoro viene eseguito in background. È possibile pianificare l'indicizzazione per i periodi in cui le richieste di query sono naturalmente meno frequenti, ma il servizio non assegna priorità a un'attività rispetto a un'altra.
-
-Quando si modifica l'allocazione delle repliche e delle partizioni, è consigliabile usare la portale di Azure. Il portale impone limiti per le combinazioni consentite che sono inferiori ai limiti massimi di un livello. Tuttavia, se è necessario un approccio di provisioning basato su script o basato su codice, l' [Azure PowerShell](search-manage-powershell.md) o l' [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/services) sono soluzioni alternative.
+Un singolo servizio deve disporre di risorse sufficienti per gestire tutti i carichi di lavoro (indicizzazione e query). Nessuno dei due carichi di lavoro viene eseguito in background. È possibile pianificare l'indicizzazione per i periodi in cui le richieste di query sono naturalmente meno frequenti, ma il servizio non assegna priorità a un'attività rispetto a un'altra. Inoltre, una certa quantità di ridondanza smussa le prestazioni delle query quando i servizi o i nodi vengono aggiornati internamente.
 
 Come regola generale, le applicazioni di ricerca tendono a avere più repliche rispetto alle partizioni, in particolare quando le operazioni del servizio sono distorte per i carichi di lavoro di query. La sezione relativa alla [disponibilità elevata](#HA) spiega perché.
+
+L'aggiunta di più repliche o partizioni aumenta il costo di esecuzione del servizio. Assicurarsi di controllare il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/) per comprendere le implicazioni di fatturazione dell'aggiunta di altri nodi. Il [grafico seguente](#chart) può essere utile per fare riferimento incrociato al numero di unità di ricerca necessarie per una configurazione specifica.
+
+## <a name="how-to-allocate-replicas-and-partitions"></a>Come allocare repliche e partizioni
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) e selezionare il servizio di ricerca.
 
@@ -114,7 +118,7 @@ Attualmente, non esiste alcun meccanismo incorporato per il ripristino di emerge
 
 ## <a name="estimate-replicas"></a>Stimare le repliche
 
-In un servizio di produzione è necessario allocare tre repliche per finalità del contratto di servizio. Se si verifica un rallentamento delle prestazioni delle query, un rimedio consiste nell'aggiungere repliche in modo da portare online copie aggiuntive dell'indice per supportare carichi di lavoro di query di dimensioni maggiori e per bilanciare il carico delle richieste su più repliche.
+In un servizio di produzione è necessario allocare tre repliche per finalità del contratto di servizio. Se si verifica un rallentamento delle prestazioni delle query, è possibile aggiungere repliche in modo da portare online copie aggiuntive dell'indice per supportare carichi di lavoro di query di dimensioni maggiori e per bilanciare il carico delle richieste su più repliche.
 
 Non sono disponibili linee guida sul numero di repliche necessarie per gestire i carichi di query. Le prestazioni delle query variano a seconda della complessità della query e dei carichi di lavoro in competizione. Sebbene l'aggiunta di repliche consenta certamente di migliorare le prestazioni, il risultato non è strettamente lineare. L'aggiunta di tre repliche, infatti, non garantisce una velocità effettiva triplicata.
 
@@ -122,7 +126,7 @@ Per informazioni aggiuntive sulla stima di query al secondo per la soluzione, ve
 
 ## <a name="estimate-partitions"></a>Stima partizioni
 
-Il [livello scelto](search-sku-tier.md) determina la velocità e le dimensioni della partizione e ogni livello viene ottimizzato in base a un set di caratteristiche che si adattano a diversi scenari. Se si sceglie un livello superiore, potrebbe essere necessario un minor numero di partizioni rispetto a S1.
+Il [livello scelto](search-sku-tier.md) determina la velocità e le dimensioni della partizione e ogni livello viene ottimizzato in base a un set di caratteristiche che si adattano a diversi scenari. Se si sceglie un livello superiore, potrebbe essere necessario un minor numero di partizioni rispetto a S1. Una delle domande a cui è necessario rispondere attraverso test autoindirizzati consiste nel fatto che una partizione più grande e costosa produce prestazioni migliori rispetto a due partizioni meno economiche in un servizio di cui è stato effettuato il provisioning a un livello inferiore.
 
 Le applicazioni di ricerca che richiedono l'aggiornamento dei dati quasi in tempo reale avranno bisogno in proporzione di più partizioni che repliche. L'aggiunta di partizioni distribuisce le operazioni di lettura/scrittura su un numero più ampio di risorse di calcolo. Offre inoltre più spazio su disco per l'archiviazione di documenti e indici aggiuntivi.
 

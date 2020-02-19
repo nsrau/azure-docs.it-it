@@ -6,24 +6,19 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 32e0584478031226ed52d6ed5f6849f7ad6d3cfe
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 52e91d900ce0f22862904695ba8adf463219c469
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668904"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461590"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Come usare Azure Mobile Apps SDK per Android
-
-> [!NOTE]
-> Visual Studio App Center supporta servizi end-to-end e integrati fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono usare i servizi **Build**, **Test** e **Distribute** per configurare una pipeline di integrazione e distribuzione continue. Dopo la distribuzione dell'app, gli sviluppatori possono monitorarne lo stato e l'utilizzo tramite i servizi **Analytics** e **Diagnostics** e interagire con gli utenti tramite il servizio **Push**. Gli sviluppatori possono anche usare il servizio **Auth** per autenticare gli utenti e il servizio **Data** per salvare e sincronizzare i dati dell'app nel cloud.
->
-> Per integrare i servizi cloud nelle applicazioni per dispositivi mobili, iscriversi ad [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc).
 
 Questa guida illustra come usare Android SDK del client per le App per dispositivi mobili di Azure per implementare scenari comuni, ad esempio:
 
 * L'esecuzione di query sui dati, come inserimento, aggiornamento ed eliminazione.
-* L'autenticazione.
+* Autenticazione.
 * La gestione degli errori.
 * La personalizzazione del client.
 
@@ -106,7 +101,7 @@ MobileServiceClient mClient = new MobileServiceClient(
 
 Per il client è anche necessario l'accesso all'attività o al contesto (il parametro `this` nell'esempio).  La costruzione MobileServiceClient deve avvenire nel metodo `onCreate()` dell'attività a cui si fa riferimento nel file `AndroidManifest.xml`.
 
-Come procedura consigliata, è opportuno astrarre le comunicazioni del server nella relativa classe (modello singleton).  In questo caso, è consigliabile passare l'attività nel costruttore per configurare il servizio in modo appropriato.  ad esempio:
+Come procedura consigliata, è opportuno astrarre le comunicazioni del server nella relativa classe (modello singleton).  In questo caso, è consigliabile passare l'attività nel costruttore per configurare il servizio in modo appropriato.  Ad esempio,
 
 ```java
 package com.example.appname.services;
@@ -159,8 +154,8 @@ Azure Mobile Apps SDK fondamentalmente fornisce accesso ai dati archiviati in SQ
 Per accedere ai dati dalle tabelle di SQL Azure, definire le classi di dati client che corrispondono alle tabelle nel back-end dell'app per dispositivi mobili. Negli esempi di questo argomento si presuppone l'uso di una tabella denominata **MyDataTable** con le colonne seguenti:
 
 * id
-* text
-* complete
+* testo
+* completo
 
 L'oggetto lato client tipizzato corrispondente si trova in un file denominato **MyDataTable.java**:
 
@@ -205,7 +200,7 @@ Una tabella del back-end di App per dispositivi mobili di Azure definisce cinque
 * `byte[] version`: rappresentata in genere come stringa, anche la versione viene impostata dal server.
 * `boolean deleted`: indica che il record è stato eliminato, ma non ancora definitivamente.  Non usare `deleted` come proprietà nella classe.
 
-Il campo `id` è obbligatorio.  I campi `updatedAt` e `version` vengono usati per la sincronizzazione offline, rispettivamente per la sincronizzazione incrementale e per la risoluzione dei conflitti.  Il campo `createdAt` è un campo di riferimento e non viene usato dal client.  I nomi sono nomi delle proprietà usati per la trasmissione in rete e non sono modificabili.  Tuttavia, è possibile creare un mapping tra l'oggetto e i nomi "in transito" usando la libreria [Gson][3] .  ad esempio:
+Il campo `id` è obbligatorio.  I campi `updatedAt` e `version` vengono usati per la sincronizzazione offline, rispettivamente per la sincronizzazione incrementale e per la risoluzione dei conflitti.  Il campo `createdAt` è un campo di riferimento e non viene usato dal client.  I nomi sono nomi delle proprietà usati per la trasmissione in rete e non sono modificabili.  Tuttavia, è possibile creare un mapping tra l'oggetto e i nomi "in transito" usando la libreria [Gson][3] .  Ad esempio,
 
 ```java
 package com.example.zumoappname;
@@ -290,9 +285,9 @@ MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToD
 
 Ottenere prima di tutto un riferimento alla tabella.  Eseguire quindi una query sul riferimento alla tabella.  Una query è qualsiasi combinazione di:
 
-* Una [clausola di filtro](#filtering) `.where()`.
-* Una [clausola di ordinamento](#sorting) `.orderBy()`.
-* Una [clausola di selezione campo](#selection) `.select()`.
+* Clausola di [filtro](#filtering)`.where()`.
+* Clausola di [ordinamento](#sorting)`.orderBy()`.
+* Clausola `.select()` [selezione campo](#selection).
 * `.skip()` e `.top()` per i [risultati di paging](#paging).
 
 Le clausole devono essere presentate nell'ordine precedente.
@@ -322,7 +317,7 @@ List<ToDoItem> result = mToDoTable
     .get();
 ```
 
-**mToDoTable** è il riferimento alla tabella del servizio mobile creata in precedenza.
+**mToDoTable** è il riferimento alla tabella di Servizi mobili creata in precedenza.
 
 Definire un filtro con la chiamata al metodo **where** sul riferimento alla tabella. Il metodo **where** è seguito da un metodo **field**, seguito a sua volta da un metodo che specifica il predicato logico. I possibili metodi di predicato includono **eq** (uguale a), **ne** (non uguale a), **gt** (maggiore di), **ge** (maggiore o uguale a), **lt** (minore di), **le** (minore o uguale a). Questi metodi consentono di confrontare campi numerici e campi stringa con valori specifici,
 
@@ -454,7 +449,7 @@ Una richiesta per tutti i record con questo metodo crea un minimo di due richies
 
 ### <a name="chaining"></a>Procedura: Concatenare metodi di query
 
-I metodi usati per eseguire query su tabelle di back-end possono essere concatenati. Il concatenamento dei metodi di query consente di selezionare colonne specifiche di righe filtrate ordinate e sottoposte a paging. È possibile creare filtri logici complessi.  Ogni metodo di query restituisce un oggetto Query. Per terminare la serie di metodi ed eseguire effettivamente la query, chiamare il metodo **execute** . ad esempio:
+I metodi usati per eseguire query su tabelle di back-end possono essere concatenati. Il concatenamento dei metodi di query consente di selezionare colonne specifiche di righe filtrate ordinate e sottoposte a paging. È possibile creare filtri logici complessi.  Ogni metodo di query restituisce un oggetto Query. Per terminare la serie di metodi ed eseguire effettivamente la query, chiamare il metodo **execute** . Ad esempio,
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -524,7 +519,7 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 }
 ```
 
-Eseguire l'override del metodo **getView** dell'adattatore. ad esempio:
+Eseguire l'override del metodo **getView** dell'adattatore. Ad esempio,
 
 ```java
     @Override
@@ -911,7 +906,7 @@ Per abilitare l'autenticazione nell'app, è necessario eseguire quattro passaggi
 * Limitare le autorizzazioni per la tabella solo agli utenti autenticati nel back-end del servizio app.
 * Aggiungere codice di autenticazione all'app.
 
-È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. Per modificare le richieste, è anche possibile usare il SID di un utente autenticato.  Per altre informazioni, vedere [Introduzione all'autenticazione in Servizi mobili] e la documentazione sulle procedure dell'SDK del server.
+È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. Per modificare le richieste, è anche possibile usare il SID di un utente autenticato.  Per altre informazioni, vedere [Introduzione all'autenticazione] e la documentazione sulle procedure dell'SDK del server.
 
 ### <a name="caching"></a>Autenticazione: flusso server
 
@@ -994,7 +989,7 @@ dependencies {
 }
 ```
 
-È possibile ottenere l'ID dell'utente connesso da un oggetto **MobileServiceUser** usando il metodo **getUserId**. Per un esempio di come usare Futures per chiamare le API di accesso asincrone, vedere [Introduzione all'autenticazione in Servizi mobili].
+È possibile ottenere l'ID dell'utente connesso da un oggetto **MobileServiceUser** usando il metodo **getUserId**. Per un esempio di come usare Futures per chiamare le API di accesso asincrone, vedere [Introduzione all'autenticazione].
 
 > [!WARNING]
 > Lo schema URL indicato rispetta la distinzione tra maiuscole e minuscole.  Assicurarsi che tutte le occorrenze di `{url_scheme_of_you_app}` rispettino questa distinzione.
@@ -1298,7 +1293,7 @@ Questo codice deve essere eseguito prima di creare un riferimento al client per 
 [ASCII control codes C0 and C1]: https://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Mobile Services SDK for Android]: https://go.microsoft.com/fwlink/p/?LinkID=717033
 [Azure portal]: https://portal.azure.com
-[Introduzione all'autenticazione in Servizi mobili]: app-service-mobile-android-get-started-users.md
+[Introduzione all'autenticazione]: app-service-mobile-android-get-started-users.md
 [1]: https://static.javadoc.io/com.google.code.gson/gson/2.8.5/com/google/gson/JsonObject.html
 [2]: https://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
 [3]: https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5

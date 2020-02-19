@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: 2ee3e661d6c01aa2e4f37ac9a70e00be5da5f794
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 2/18/2020
+ms.openlocfilehash: 1c9b4b1099bda69764aa7a1a5a984a6316e1047d
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975636"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462412"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-performance-options"></a>Opzioni per le prestazioni di database di Azure per PostgreSQL – iperscalabilità (CITUS)
 
@@ -25,30 +25,33 @@ ms.locfileid: "74975636"
 | Calcolo, vcore       | 4, 8, 16, 32, 64      | 4, 8, 16, 32, 64      |
 | Memoria per vCore, GiB | 8                     | 4                     |
 | Dimensioni di archiviazione, TiB     | 0,5, 1,2             | 0,5, 1,2             |
-| Tipo di risorse di archiviazione          | Utilizzo generico (SSD) | Utilizzo generico (SSD) |
-| Operazioni di I/O al secondo                  | Fino a 3 IOPS/GiB      | Fino a 3 IOPS/GiB      |
+| Tipo di archiviazione          | Utilizzo generico (SSD) | Utilizzo generico (SSD) |
+| IOPS                  | Fino a 3 IOPS/GiB      | Fino a 3 IOPS/GiB      |
 
 
-## <a name="regions"></a>Aree
+## <a name="regions"></a>Regioni
 I gruppi di server iperscalare (CITUS) sono disponibili nelle aree di Azure seguenti:
 
 * Americhe:
-    * Canada centrale *
-    * Stati Uniti Orientali
+    * Canada centrale
+    * Stati Uniti centrali
+    * Stati Uniti orientali
     * Stati Uniti orientali 2
-    * Stati Uniti centro-settentrionali *
+    * Stati Uniti centro-settentrionali
     * Stati Uniti occidentali 2
 * Asia Pacifico:
-    * Australia orientale *
+    * Australia orientale
+    * Giappone orientale
+    * Corea centrale
     * Asia sud-orientale
 * Europa
     * Europa settentrionale
     * Regno Unito meridionale
     * Europa occidentale
 
-Le aree con un asterisco (\*) non supportano ancora la [disponibilità elevata](concepts-hyperscale-high-availability.md).
+Alcune di queste aree potrebbero non essere attivate inizialmente in tutte le sottoscrizioni di Azure. Se si vuole usare un'area dall'elenco precedente e non visualizzarla nella sottoscrizione o se si vuole usare un'area non presente nell'elenco, aprire una [richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="pricing"></a>Prezzi
+## <a name="pricing"></a>Pricing
 Per le informazioni più aggiornate sui prezzi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/postgresql/).
 Per visualizzare il costo per la configurazione desiderata, il [portale di Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) Mostra il costo mensile nella scheda **Configura** in base alle opzioni selezionate. Se non è disponibile una sottoscrizione di Azure, è possibile usare il calcolatore dei prezzi di Azure per ottenere una stima. Nel sito Web del [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/) selezionare **Aggiungi elementi**, espandere la categoria **database** e scegliere **database di Azure per PostgreSQL – iperscala (CITUS)** per personalizzare le opzioni.
  

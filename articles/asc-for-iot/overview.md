@@ -7,7 +7,6 @@ documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
-ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
 ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
@@ -15,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 6a4fc842113218294b3e2ab449e27cfa94c5cfd3
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 1c85f0205f568f065a7959a9b33890b2117e45a0
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766530"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462225"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Introduzione al Centro sicurezza di Azure per IoT
 
 Unifica la gestione della sicurezza e Abilita l'analisi e il rilevamento delle minacce end-to-end nei carichi di lavoro cloud ibridi e nella tua soluzione Azure. 
 
-## <a name="secure-your-entire-iot-solution-from-iot-devices-to-azure-cloud"></a>Proteggi la tua intera soluzione Internet delle cose da dispositivi Internet in Azure.
+## <a name="secure-your-entire-iot-solution-from-iot-devices-to-azure-cloud"></a>Proteggi la tua intera soluzione Internet delle cose da dispositivi Internet in Azure
 
 È possibile scegliere tra la soluzione senza agente senza problemi o sfruttare la sicurezza completa basata su agenti, il Centro sicurezza di Azure per le cose offre funzionalità di prevenzione e analisi delle minacce per ogni dispositivo, IoT Edge e Hub.
 
@@ -38,7 +37,7 @@ Il Centro sicurezza di Azure per gli Internet semplifica la protezione del caric
 
 ### <a name="unified-visibility-and-control"></a>Visibilità e controllo unificati
 
-Ottieni una visualizzazione unificata della sicurezza in tutti i tuoi carichi di lavoro locali e cloud, inclusa la soluzione Azure IoT. Carica i nuovi dispositivi e applica i criteri di sicurezza nei tuoi carichi di lavoro (dispositivi foglia, dispositivi Microsoft Edge, hub Internet) per garantire la conformità agli standard di sicurezza e al miglioramento del comportamento di sicurezza. 
+Ottieni una visualizzazione unificata della sicurezza in tutti i tuoi carichi di lavoro locali e cloud, tra cui la tua soluzione Azure. Carica i nuovi dispositivi e applica i criteri di sicurezza nei tuoi carichi di lavoro (dispositivi foglia, dispositivi Microsoft Edge, hub Internet) per garantire la conformità agli standard di sicurezza e al miglioramento del comportamento di sicurezza. 
 
 ### <a name="adaptive-threat-prevention"></a>Prevenzione delle minacce adattiva
 
@@ -46,7 +45,7 @@ Usa il Centro sicurezza di Azure per monitorare in modo continuo la sicurezza di
 
 ### <a name="intelligent-threat-detection-and-response"></a>Rilevamento intelligente delle minacce e risposta
 
-Usa l'analisi avanzata e il Microsoft Intelligent Security Graph per ottenere un vantaggio per gli attacchi informatici in continua evoluzione. L'analisi comportamentale incorporata e l'apprendimento automatico identificano gli attacchi e gli exploit zero-day. Monitora la tua soluzione IoT per individuare attacchi imminenti e attività successive alla violazione. Semplifica l'analisi e la correzione dei dispositivi con strumenti interattivi e Intelligence per le minacce contestuale.
+Usa l'analisi avanzata e il Microsoft Intelligent Security Graph per ottenere un vantaggio per gli attacchi informatici in continua evoluzione. L'analisi comportamentale incorporata e l'apprendimento automatico identificano gli attacchi e gli exploit zero-day. Monitora la tua soluzione Internet per gli attacchi in ingresso e le attività post-violazione. Semplifica l'analisi e la correzione dei dispositivi con strumenti interattivi e Intelligence per le minacce contestuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

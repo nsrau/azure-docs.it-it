@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/15/2020
-ms.openlocfilehash: 5846e9516548032595c1ce072d1dae8dcce9d39e
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
-ms.translationtype: HT
+ms.openlocfilehash: 353e00f902a7314e5e5b7c8ee03e8b925a510b26
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443602"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462327"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Monitorare le operazioni e le attività di Azure ricerca cognitiva
 
@@ -52,7 +52,7 @@ Le pagine a schede incorporate nella pagina Panoramica segnalano l'utilizzo dell
 
 Se è necessario prendere decisioni in merito al [livello da usare per i carichi di lavoro di produzione](search-sku-tier.md) o per stabilire se occorre [modificare il numero di repliche e partizioni attive](search-capacity-planning.md), queste metriche sono utili perché indicano con quale velocità vengono utilizzate le risorse e se la configurazione corrente è adeguata per gestire il carico esistente.
 
-Gli avvisi relativi all'archiviazione non sono attualmente disponibili. il consumo di spazio di archiviazione non viene aggregato o registrato nella tabella **AzureMetrics** di monitoraggio di Azure. È necessario creare una soluzione personalizzata che genera notifiche correlate alle risorse, in cui il codice controlla le dimensioni di archiviazione e gestisce la risposta. Per altre informazioni sulle metriche di archiviazione, vedere [ottenere le statistiche del servizio](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response).
+Gli avvisi relativi all'archiviazione non sono attualmente disponibili. il consumo di spazio di archiviazione non viene aggregato o registrato nella tabella **AzureMetrics** di monitoraggio di Azure. È necessario [creare una soluzione personalizzata](https://docs.microsoft.com/azure/azure-monitor/insights/solutions-creating) che genera notifiche correlate alle risorse, in cui il codice controlla le dimensioni di archiviazione e gestisce la risposta. Per altre informazioni sulle metriche di archiviazione, vedere [ottenere le statistiche del servizio](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response).
 
 Per il monitoraggio visivo nel portale, la scheda **utilizzo** Mostra la disponibilità delle risorse rispetto ai [limiti](search-limits-quotas-capacity.md) correnti imposti dal livello di servizio. 
 

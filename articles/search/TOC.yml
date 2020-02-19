@@ -323,10 +323,10 @@
       items:
         - name: Nozioni fondamentali
           href: search-monitor-usage.md
-        - name: Monitorare l'attività di query
-          href: search-monitor-queries.md
         - name: Registrazione diagnostica
           href: search-monitor-logs.md
+        - name: Monitorare l'attività di query
+          href: search-monitor-queries.md
         - name: Analisi del traffico di ricerca
           href: search-traffic-analytics.md
     - name: Risolvere problemi

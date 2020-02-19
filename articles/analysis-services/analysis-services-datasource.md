@@ -4,15 +4,15 @@ description: Descrive le origini dati e i connettori supportati per i modelli di
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/20/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4a99bfe8d8235400f9122423aa4592fc6898abc1
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: f65d8fa2c2e522c718c637e32defc4c56fca8364
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922279"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461658"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origini dati supportate in Azure Analysis Services
 
@@ -23,7 +23,7 @@ Le origini dati e i connettori visualizzati in recuperare dati o importazione gu
 |Origine dati  |In memoria  |DirectQuery  |Note |
 |---------|---------|---------|---------|
 |Database SQL di Azure      |   Sì      |    Sì      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
-|SQL Data Warehouse di Azure      |   Sì      |   Sì       |<sup>[2](#azprovider)</sup>|
+|Analisi delle sinapsi di Azure (SQL Data Warehouse)      |   Sì      |   Sì       |<sup>[2](#azprovider)</sup>|
 |Archiviazione BLOB di Azure      |   Sì       |    No      | <sup>[1](#tab1400a)</sup> |
 |Archiviazione tabelle di Azure     |   Sì       |    No      | <sup>[1](#tab1400a)</sup>|
 |Azure Cosmos DB     |  Sì        |  No        |<sup>[1](#tab1400a)</sup> |
@@ -120,7 +120,7 @@ Per le origini dati cloud:
 
 ## <a name="oauth-credentials"></a>Credenziali OAuth
 
-Per i modelli tabulari con livello di compatibilità 1400 e superiore con la modalità in memoria, il database SQL di Azure, Azure SQL Data Warehouse, Dynamics 365 e l'elenco SharePoint supportano le credenziali OAuth. Azure Analysis Services gestisce l'aggiornamento del token per le origini dati OAuth per evitare timeout per le operazioni di aggiornamento con esecuzione prolungata. Per generare token validi, impostare le credenziali tramite SSMS.
+Per i modelli tabulari con livello di compatibilità 1400 e superiore con la modalità in memoria, il database SQL di Azure, Azure sinapsi Analytics (SQL Data Warehouse), Dynamics 365 e SharePoint List supportano le credenziali OAuth. Azure Analysis Services gestisce l'aggiornamento del token per le origini dati OAuth per evitare timeout per le operazioni di aggiornamento con esecuzione prolungata. Per generare token validi, impostare le credenziali tramite SSMS.
 
 La modalità di query diretta non è supportata con le credenziali OAuth.
 

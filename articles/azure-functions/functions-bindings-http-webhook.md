@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.openlocfilehash: ebf0728184a5fc104e3e1e7d8a199fec328dbdc0
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 29b5e9c7673b4a730a41bf7cf2b1c4a2a86209ed
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210175"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462106"
 ---
 # <a name="azure-functions-http-triggers-and-bindings-overview"></a>Cenni preliminari sulle associazioni e sui trigger HTTP di funzioni di Azure
 
@@ -27,7 +27,7 @@ Per impostazione predefinita, il codice in questo articolo è la sintassi di .NE
 
 ### <a name="functions-2x-and-higher"></a>Funzioni 2. x e versioni successive
 
-Per utilizzare il trigger e le associazioni è necessario fare riferimento al pacchetto appropriato. Il pacchetto NuGet viene usato per le librerie di classi .NET mentre l'estensione aggrega tutti gli altri tipi di applicazioni.
+Per utilizzare il trigger e le associazioni è necessario fare riferimento al pacchetto appropriato. Il pacchetto NuGet viene usato per le librerie di classi .NET mentre il bundle di estensione viene usato per tutti gli altri tipi di applicazioni.
 
 | Lingua:                                        | Aggiungi da...                                   | Note 
 |-------------------------------------------------|---------------------------------------------|-------------|

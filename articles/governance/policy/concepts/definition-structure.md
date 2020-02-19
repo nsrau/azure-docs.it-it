@@ -3,12 +3,12 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Viene descritto come vengono usate le definizioni dei criteri per stabilire le convenzioni per le risorse di Azure nell'organizzazione.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: b98702161753a996cd8a6751670308a78dc36b7c
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: d30097badd3ab9ee5a328f17d0e3e91254a89185
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169763"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462003"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -65,7 +65,7 @@ Ad esempio, la notazione JSON seguente illustra un criterio che limita i punti i
 
 Tutti gli esempi di criteri di Azure sono disponibili in [esempi di criteri di Azure](../samples/index.md).
 
-## <a name="mode"></a>Mode
+## <a name="mode"></a>Modalità
 
 La **modalità** viene configurata in base al fatto che i criteri siano destinati a una proprietà Azure Resource Manager o a una proprietà del provider di risorse.
 
@@ -111,6 +111,12 @@ Un parametro presenta le proprietà seguenti, usate nella definizione di criteri
 - `metadata`: definisce le sottoproprietà utilizzate principalmente dal portale di Azure per visualizzare informazioni descrittivo:
   - `description`: spiegazione della funzione utilizzata per il parametro. Può essere usata per fornire esempi di valori accettabili.
   - `displayName`: il nome descrittivo visualizzato nel portale per il parametro.
+  - `version`: (facoltativo) tiene traccia dei dettagli sulla versione del contenuto di una definizione dei criteri.
+
+    > [!NOTE]
+    > Il servizio criteri di Azure usa le proprietà `version`, `preview`e `deprecated` per fornire il livello di modifica a una definizione di criteri incorporata o a un'iniziativa e uno stato. Il formato del `version` è: `{Major}.{Minor}.{Patch}`. Gli stati specifici, ad esempio _deprecato_ o _Anteprima_, vengono aggiunti alla proprietà `version` o in un'altra proprietà come **valore booleano**.
+
+  - `category`: (facoltativo) determina in quale categoria portale di Azure viene visualizzata la definizione dei criteri.
   - `strongType`: (facoltativo) usato durante l'assegnazione della definizione dei criteri tramite il portale. Fornisce un elenco con riconoscimento del contesto. Per altre informazioni, vedere [strongType](#strongtype).
   - `assignPermissions`: (facoltativo) impostare su _true_ per avere portale di Azure creare assegnazioni di ruolo durante l'assegnazione dei criteri. Questa proprietà è utile nel caso in cui si desideri assegnare autorizzazioni al di fuori dell'ambito di assegnazione. È disponibile un'assegnazione di ruolo per ogni definizione di ruolo nel criterio (o per definizione di ruolo in tutti i criteri dell'iniziativa). Il valore del parametro deve essere una risorsa o un ambito valido.
 - `defaultValue`: (facoltativo) imposta il valore del parametro in un'assegnazione se non viene specificato alcun valore.
@@ -259,7 +265,7 @@ Quando si usano le condizioni **match** e **notMatch** , fornire `#` per trovare
 
 In un **\[\*\]** valore del campo della matrice di alias, ogni elemento della matrice viene valutato singolarmente con gli elementi Logical **e** between. Per ulteriori informazioni, vedere [valutazione della \[\*\] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
-### <a name="fields"></a>Campi
+### <a name="fields"></a>Fields
 
 Le condizioni vengono formate usando i campi. Un campo rappresenta le proprietà nel payload delle richieste di risorse e descrive lo stato della risorsa.
 
@@ -316,7 +322,7 @@ Nell'esempio seguente, `concat` viene usato per creare una ricerca nei campi di 
 }
 ```
 
-### <a name="value"></a>valore
+### <a name="value"></a>Valore
 
 Le condizioni possono essere formate anche usando **value**. **value** controlla le condizioni rispetto a [parametri](#parameters), [funzioni di modello supportate](#policy-functions) o valori letterali.
 **value** è associato a qualsiasi [condizione](#conditions) supportata.
@@ -663,7 +669,7 @@ L'elenco degli alias è in costante crescita. Per scoprire quali alias sono attu
 
 ### <a name="understanding-the--alias"></a>Informazioni sull'alias [*]
 
-Molti degli alias disponibili hanno una versione che viene visualizzata come nome "normale" e un'altra con **\[\*\]** collegato. Ad esempio:
+Molti degli alias disponibili hanno una versione che viene visualizzata come nome "normale" e un'altra con **\[\*\]** collegato. Ad esempio,
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

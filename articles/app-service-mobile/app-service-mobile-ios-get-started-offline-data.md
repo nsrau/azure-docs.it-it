@@ -6,20 +6,15 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 66897263ff9c7d71c64d04fcc6860b96bf59588c
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: d943213814b999f101a541abb0195a9fdd5a7423
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668489"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459175"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Sincronizzare offline le app per dispositivi mobili iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-
-> [!NOTE]
-> Visual Studio App Center supporta servizi end-to-end e integrati fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono usare i servizi **Build**, **Test** e **Distribute** per configurare una pipeline di integrazione e distribuzione continue. Dopo la distribuzione dell'app, gli sviluppatori possono monitorarne lo stato e l'utilizzo tramite i servizi **Analytics** e **Diagnostics** e interagire con gli utenti tramite il servizio **Push**. Gli sviluppatori possono anche usare il servizio **Auth** per autenticare gli utenti e il servizio **Data** per salvare e sincronizzare i dati dell'app nel cloud.
->
-> Per integrare i servizi cloud nelle applicazioni per dispositivi mobili, iscriversi ad [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc).
 
 ## <a name="overview"></a>Panoramica
 Questa esercitazione illustra come eseguire la sincronizzazione offline con la funzionalità App per dispositivi mobili di Servizio app di Azure per iOS. La sincronizzazione offline consente agli utenti finali di usare un'app per dispositivi mobili per visualizzare, aggiungere o modificare dati anche in assenza di una connessione di rete. Le modifiche vengono archiviate in un database locale. Quando il dispositivo viene connesso nuovamente alla rete, le modifiche vengono sincronizzate con il back-end remoto.
@@ -37,7 +32,7 @@ In **QSTodoService.m** (Objective-C) o **ToDoTableViewController.swift** (Swift)
 
  Per ottenere un riferimento a una tabella di sincronizzazione, usare il metodo **syncTableWithName** su `MSClient`. Per rimuovere la funzionalità di sincronizzazione offline, usare invece **tableWithName**.
 
-Prima di poter eseguire qualsiasi operazione su tabella, è necessario inizializzare l'archivio locale. Di seguito è riportato il codice pertinente.
+Prima di poter eseguire qualsiasi operazione su tabella, è necessario inizializzare l'archivio locale. Di seguito si riporta il codice pertinente:
 
 * **Objective-C**: Nel metodo **QSTodoService.init**:
 
@@ -159,9 +154,9 @@ Quando si usa la funzionalità di sincronizzazione offline, definire le tre tabe
 | Attributo | Type |
 | --- | --- |
 | id | Valore integer 64 |
-| itemId | Stringa |
-| properties | Dati binari |
-| table | Stringa |
+| itemId | String |
+| connessione | Binary Data |
+| tabella | String |
 | tableKind | Integer 16 |
 
 
@@ -171,9 +166,9 @@ Quando si usa la funzionalità di sincronizzazione offline, definire le tre tabe
 
 | Attributo | Type |
 | --- | --- |
-| id |Stringa |
+| id |String |
 | operationId |Valore integer 64 |
-| properties |Dati binari |
+| connessione |Binary Data |
 | tableKind |Integer 16 |
 
  **MS_TableConfig**
@@ -182,24 +177,24 @@ Quando si usa la funzionalità di sincronizzazione offline, definire le tre tabe
 
 | Attributo | Type |
 | --- | --- |
-| id |Stringa |
-| key |Stringa |
+| id |String |
+| key |String |
 | keyType |Valore integer 64 |
-| table |Stringa |
-| value |Stringa |
+| tabella |String |
+| value |String |
 
 ### <a name="data-table"></a>Tabella dati
 
 **TodoItem**
 
-| Attributo | Type | Note |
+| Attributo | Type | Nota |
 | --- | --- | --- |
 | id | Stringa, contrassegnata come obbligatoria |chiave primaria nell'archivio remoto |
-| complete | boolean | campo elemento ToDo |
-| text |Stringa |campo elemento ToDo |
+| completo | Boolean | campo elemento ToDo |
+| testo |String |campo elemento ToDo |
 | createdAt | Data | (facoltativo) viene mappato alla proprietà di sistema **createdAt** |
 | updatedAt | Data | (facoltativo) viene mappato alla proprietà di sistema **updatedAt** |
-| version | Stringa | (facoltativo) viene usato per il rilevamento dei conflitti, viene mappato a version |
+| version | String | (facoltativo) viene usato per il rilevamento dei conflitti, viene mappato a version |
 
 ## <a name="setup-sync"></a>Modificare il comportamento di sincronizzazione dell'app
 In questa sezione si modifica l'app in modo che non esegua la sincronizzazione all'avvio o quando si inseriscono e si aggiornano elementi, bensì solo quando si seleziona il pulsante di aggiornamento.
@@ -258,7 +253,7 @@ Verrà visualizzato un indicatore di avanzamento.
 
 7. Visualizzare nuovamente i dati di **TodoItem**. Gli elementi attività nuovi e modificati dovrebbero essere a questo punto visualizzati.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Per supportare la funzionalità di sincronizzazione offline è stata usata l'interfaccia `MSSyncTable` ed è stato inizializzato `MSClient.syncContext` con un archivio locale. In questo caso l'archivio locale era un database basato su Core Data.
 
 Quando si usa un archivio locale Core Data, è necessario definire varie tabelle con le [proprietà di sistema corrette](#review-core-data).
@@ -269,7 +264,7 @@ Quando l'archivio locale è stato sincronizzato con il server, è stato usato il
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]
-* [Cloud Cover: Sincronizzazione offline in Servizi mobili di Azure]\(Il video è relativo a Servizi mobili, ma la sincronizzazione offline delle app per dispositivi mobili funziona in modo analogo.\)
+* [Cloud cover: sincronizzazione offline in servizi mobili di Azure] \(il video riguarda servizi mobili, ma la sincronizzazione offline delle app per dispositivi mobili funziona in modo analogo.\)
 
 <!-- URLs. -->
 

@@ -5,17 +5,17 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 68a830f344023967f07ab809d67833f99e4e2958
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 2/18/2020
+ms.openlocfilehash: 0e2eb4ab13319779ae209e58253c6a5f2ccb75da
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977608"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462429"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Usare il portale di Azure per configurare gli avvisi sulle metriche per database di Azure per PostgreSQL-iperscalabilità (CITUS)
 
-Questo articolo mostra come configurare avvisi di Database di Azure per PostgreSQL usando il portale di Azure. È possibile ricevere un avviso in base alle metriche di monitoraggio per i servizi di Azure.
+Questo articolo mostra come configurare avvisi di Database di Azure per PostgreSQL usando il portale di Azure. È possibile ricevere un avviso in base alle [metriche di monitoraggio](concepts-hyperscale-monitoring.md) per i servizi di Azure.
 
 Verrà impostato un avviso da attivare quando il valore di una metrica specificata supera una soglia. L'avviso viene attivato quando la condizione viene soddisfatta per la prima volta e continua a essere attivata in seguito.
 
@@ -26,7 +26,7 @@ Verrà impostato un avviso da attivare quando il valore di una metrica specifica
 
 È possibile configurare regole di avviso e ottenere informazioni su di esse tramite:
 * [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [interfaccia della riga di comando di Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Interfaccia della riga di comando di Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
 * [API REST di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Creare una regola di avviso in base a una metrica dal portale di Azure
@@ -81,13 +81,31 @@ Verrà impostato un avviso da attivare quando il valore di una metrica specifica
 
     Dopo pochi minuti l'avviso è funzionante e si attiva come descritto in precedenza.
 
-## <a name="manage-your-alerts"></a>Gestire gli avvisi
+### <a name="managing-alerts"></a>Gestione degli avvisi
 
 Dopo aver creato un avviso, è possibile selezionarlo ed eseguire le azioni seguenti:
 
 * Visualizzare un grafico che mostra la soglia della metrica e i valori effettivi del giorno precedente in relazione all'avviso.
 * Scegliere l'opzione **Modifica** o **Elimina** per la regola di avviso.
 * Scegliere l'opzione **Disabilita** o **Abilita** per l'avviso per interrompere temporaneamente o riprendere la ricezione delle notifiche.
+
+## <a name="suggested-alerts"></a>Avvisi consigliati
+
+### <a name="disk-space"></a>Spazio su disco
+
+Il monitoraggio e gli avvisi sono importanti per tutti i gruppi di server di produzione iperscala (CITUS). Per il corretto funzionamento del database PostgreSQL sottostante è necessario lo spazio libero su disco. Se il disco si riempie, il nodo del server di database passerà offline e rifiuterà l'avvio fino a quando non sarà disponibile spazio. A questo punto, è necessaria una richiesta di supporto tecnico Microsoft per risolvere il problema.
+
+Si consiglia di impostare gli avvisi di spazio su disco in ogni nodo di ogni gruppo di server, anche per l'utilizzo non di produzione. Gli avvisi di utilizzo dello spazio su disco forniscono l'avviso di anticipo necessario per intervenire e garantire l'integrità dei nodi. Per ottenere risultati ottimali, provare una serie di avvisi al 75%, 85% e 95% di utilizzo. Le percentuali da scegliere dipendono dalla velocità di inserimento dei dati, perché l'inserimento rapido dei dati riempie il disco più velocemente.
+
+Quando il disco si avvicina al limite di spazio, provare queste tecniche per ottenere maggiore spazio libero:
+
+* Esaminare i criteri di conservazione dei dati. Spostare i dati meno recenti nell'archiviazione a freddo, se possibile.
+* Prendere in considerazione l' [aggiunta di nodi](howto-hyperscale-scaling.md#add-worker-nodes) al gruppo di server e il ribilanciamento delle partizioni. Il ribilanciamento distribuisce i dati tra più computer.
+* Si consiglia di [aumentare la capacità](howto-hyperscale-scaling.md#increase-vcores) dei nodi del ruolo di lavoro. Ogni thread di lavoro può avere fino a 2 TiB di archiviazione. Tuttavia, l'aggiunta di nodi deve essere tentata prima di ridimensionare i nodi perché l'aggiunta di nodi viene completata più velocemente.
+
+### <a name="cpu-usage"></a>utilizzo di CPU
+
+Il monitoraggio dell'utilizzo della CPU è utile per stabilire una linea di base per le prestazioni. Ad esempio, è possibile notare che l'utilizzo della CPU è in genere pari al 40-60%. Se l'utilizzo della CPU inizia improvvisamente al passaggio del 95%, è possibile riconoscere un'anomalia. L'utilizzo della CPU può riflettere la crescita organica, ma potrebbe anche rivelare una query randagia. Quando si crea un avviso CPU, impostare una granularità di aggregazione lunga per rilevare aumenti prolungati e ignorare i picchi momentanei.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sulla [configurazione dei webhook negli avvisi](../azure-monitor/platform/alerts-webhooks.md).

@@ -6,16 +6,16 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 122e1f69e952acc00aba3cad2d75cb87b8fd08ee
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8caf502db91ab09eea48fc8a902dacf6bf40f24c
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421580"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462208"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controllo degli accessi in base al ruolo in Automazione di Azure
 
-Il controllo degli accessi in base al ruolo consente di gestire gli accessi per le risorse di Azure. Con il [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) è possibile separare i compiti all'interno del team e concedere a utenti, gruppi e applicazioni solo il livello di accesso necessario per svolgere le proprie attività. È possibile concedere l'accesso in base al ruolo agli utenti tramite il portale di Azure, gli strumenti da riga di comando di Azure o le API di gestione di Azure.
+Il controllo degli accessi in base al ruolo consente di gestire gli accessi per le risorse di Azure. Con il [controllo degli accessi in base al ruolo](../role-based-access-control/overview.md) è possibile separare i compiti all'interno del team e concedere a utenti, gruppi e applicazioni solo il livello di accesso necessario per svolgere le proprie attività. È possibile concedere agli utenti l'accesso basato sui ruoli usando il portale di Azure, gli strumenti da riga di comando di Azure o le API di gestione di Azure.
 
 ## <a name="roles-in-automation-accounts"></a>Ruoli negli account di Automazione
 
@@ -24,9 +24,9 @@ In Automazione di Azure l'accesso viene concesso assegnando il ruolo Controllo d
 | **Ruolo** | **Descrizione** |
 |:--- |:--- |
 | Proprietario |Il ruolo Proprietario consente l'accesso a tutte le risorse e le azioni in un account di Automazione, inclusa la possibilità di concedere l'accesso ad altri utenti e gruppi e ad altre applicazioni per gestire l'account di Automazione. |
-| Collaboratore |Il ruolo Collaboratore consente di gestire tutto, tranne la modifica delle autorizzazioni di accesso di altri utenti a un account di automazione. |
+| Contributor |Il ruolo Collaboratore consente di gestire tutto, tranne la modifica delle autorizzazioni di accesso di altri utenti a un account di automazione. |
 | Reader |Il ruolo Lettore consente di visualizzare tutte le risorse in un account di automazione, ma non di apportare modifiche. |
-| Operatore di automazione |Il ruolo Operatore di automazione consente di visualizzare le proprietà e il nome del runbook e di creare e gestire i processi per tutti i runbook in un account di Automazione. Questo ruolo è utile per proteggere le risorse dell'account di automazione, come asset delle credenziali e runbook, dalla visualizzazione o dalla modifica, consentendo però ai membri dell'organizzazione di eseguire i runbook. |
+| Operatore di automazione |Il ruolo Operatore di automazione consente di visualizzare le proprietà e il nome del runbook e di creare e gestire i processi per tutti i runbook in un account di Automazione. Questo ruolo è utile se si vuole proteggere le risorse dell'account di automazione, ad esempio gli asset delle credenziali e manuali operativi, da visualizzare o modificare ma consentire ai membri dell'organizzazione di eseguire questi manuali operativi. |
 |Operatore processo di automazione|Il ruolo Operatore processo di automazione consente di creare e gestire i processi per tutti i runbook in un account di Automazione.|
 |Operatore runbook di automazione|Il ruolo Operatore runbook di automazione consente di visualizzare il nome e le proprietà di un runbook.|
 | Collaboratore di Log Analytics | Il ruolo Collaboratore di Log Analytics consente di leggere tutti i dati di monitoraggio e di modificare le impostazioni di monitoraggio. La modifica delle impostazioni di monitoraggio include l'aggiunta di estensioni delle VM alle VM, la lettura delle chiavi dell'account di archiviazione per potere configurare la raccolta di log dall'Archiviazione di Azure, la creazione e la configurazione degli account di Automazione, l'aggiunta di soluzioni e la configurazione di Diagnostica di Azure in tutte le risorse di Azure.|
@@ -43,11 +43,11 @@ Nelle tabelle seguenti vengono descritte le autorizzazioni specifiche assegnate 
 
 Un proprietario può gestire tutto, compresi gli accessi. La tabella seguente illustra le autorizzazioni concesse per il ruolo:
 
-|Azioni|Description|
+|Azioni|Descrizione|
 |---|---|
 |Microsoft.Automation/automationAccounts/|Può creare e gestire ogni tipo di risorsa.|
 
-### <a name="contributor"></a>Collaboratore
+### <a name="contributor"></a>Contributor
 
 Un collaboratore può gestire tutto a eccezione degli accessi. La tabella seguente illustra le autorizzazioni concesse e negate per il ruolo:
 
@@ -84,7 +84,7 @@ Il ruolo Operatore di automazione può creare e gestire i processi, oltre che le
 |Microsoft.Automation/automationAccounts/jobs/write|Crea processi.|
 |Microsoft.Automation/automationAccounts/jobSchedules/read|Ottiene una pianificazione del processo di Automazione di Azure.|
 |Microsoft.Automation/automationAccounts/jobSchedules/write|Crea una pianificazione del processo di Automazione di Azure.|
-|Microsoft.Automation/automationAccounts/linkedWorkspace/read|Ottiene l'area di lavoro collegata all'account di Automazione.|
+|Microsoft.Automation/automationAccounts/linkedWorkspace/read|Ottenere l'area di lavoro collegata all'account di automazione.|
 |Microsoft.Automation/automationAccounts/read|Ottiene un account di Automazione di Azure.|
 |Microsoft.Automation/automationAccounts/runbooks/read|Ottiene un runbook di Automazione di Azure.|
 |Microsoft.Automation/automationAccounts/schedules/read|Ottiene un asset della pianificazione di Automazione di Azure.|
@@ -132,7 +132,7 @@ Un collaboratore di Log Analytics può leggere tutti i dati di monitoraggio e mo
 |**Actions**  |**Descrizione**  |
 |---------|---------|
 |*/lettura|Legge risorse di tutti i tipi, eccetto i segreti.|
-|Microsoft.Automation/automationAccounts/*|Gestisce gli account di Automazione.|
+|Microsoft.Automation/automationAccounts/*|Gestire gli account di automazione.|
 |Microsoft.ClassicCompute/virtualMachines/extensions/*|Crea e gestisce le estensioni macchina virtuale.|
 |Microsoft.ClassicStorage/storageAccounts/listKeys/action|Elenca le chiavi dell'account di archiviazione classico.|
 |Microsoft.Compute/virtualMachines/extensions/*|Crea e gestisce le estensioni macchina virtuale classiche.|
@@ -204,7 +204,7 @@ Un amministratore Accesso utenti può gestire l'accesso degli utenti alle risors
 |Microsoft.Authorization/*|Gestire l'autorizzazione|
 |Microsoft.Support/*|Creare e gestire ticket di supporto|
 
-## <a name="onboarding"></a>Implementazione
+## <a name="onboarding"></a>Onboarding
 
 Le tabelle seguenti illustrano le autorizzazioni minime necessarie per l'onboarding delle macchine virtuali per le soluzioni Rilevamento modifiche o Gestione aggiornamenti.
 
@@ -212,23 +212,21 @@ Le tabelle seguenti illustrano le autorizzazioni minime necessarie per l'onboard
 
 |**Azione**  |**Autorizzazione**  |**Ambito minimo**  |
 |---------|---------|---------|
-|Scrivere una nuova distribuzione      | Microsoft.Resources/deployments/*          |Sottoscrizione          |
-|Scrivere un nuovo gruppo di risorse      | Microsoft.Resources/subscriptions/resourceGroups/write        | Sottoscrizione          |
+|Scrivere una nuova distribuzione      | Microsoft.Resources/deployments/*          |Subscription          |
+|Scrivere un nuovo gruppo di risorse      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscription          |
 |Creare una nuova area di lavoro predefinita      | Microsoft.OperationalInsights/workspaces/write         | Gruppo di risorse         |
 |Creare un nuovo account      |  Microsoft.Automation/automationAccounts/write        |Gruppo di risorse         |
 |Collegare un'area di lavoro e un account      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Area di lavoro</br>Account di Automazione
-|Creare una soluzione      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Gruppo di risorse          |
-|Creare un'estensione MMA      | Microsoft.Compute/virtualMachines/write         | Macchina virtuale         |
+|Creare un'estensione MMA      | Microsoft.Compute/virtualMachines/write         | Virtual Machine         |
 |Creare una ricerca salvata      | Microsoft.OperationalInsights/workspaces/write          | Area di lavoro         |
 |Creare una configurazione di ambito      | Microsoft.OperationalInsights/workspaces/write          | Area di lavoro         |
-|Collegare una soluzione a una configurazione di ambito      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Soluzione         |
 |Controllo dello stato di onboarding - Leggere l'area di lavoro      | Microsoft.OperationalInsights/workspaces/read         | Area di lavoro         |
 |Controllo dello stato di onboarding - Leggere la proprietà dell'area di lavoro collegata dell'account     | Microsoft.Automation/automationAccounts/read      | Account di Automazione        |
 |Controllo dello stato di onboarding - Leggere la soluzione      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Soluzione         |
-|Controllo dello stato di onboarding - Leggere la VM      | Microsoft.Compute/virtualMachines/read         | Macchina virtuale         |
+|Controllo dello stato di onboarding - Leggere la VM      | Microsoft.Compute/virtualMachines/read         | Virtual Machine         |
 |Controllo dello stato di onboarding - Leggere l'account      | Microsoft.Automation/automationAccounts/read  |  Account di Automazione   |
-| Verifica dell'area di lavoro di onboarding per la VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Sottoscrizione         |
-| Registrare il provider di Log Analytics |Microsoft.Insights/register/action | Sottoscrizione|
+| Verifica dell'area di lavoro di onboarding per la VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Subscription         |
+| Registrare il provider di Log Analytics |Microsoft.Insights/register/action | Subscription|
 
 <sup>1</sup> questa autorizzazione è necessaria per l'onboarding tramite l'esperienza del portale VM.
 
@@ -236,21 +234,19 @@ Le tabelle seguenti illustrano le autorizzazioni minime necessarie per l'onboard
 
 |**Azione**  |**Autorizzazione** |**Ambito minimo**  |
 |---------|---------|---------|
-|Creare una nuova distribuzione     | Microsoft.Resources/deployments/*        | Sottoscrizione         |
-|Creare un nuovo gruppo di risorse     | Microsoft.Resources/subscriptions/resourceGroups/write         | Sottoscrizione        |
+|Creare una nuova distribuzione     | Microsoft.Resources/deployments/*        | Subscription         |
+|Creare un nuovo gruppo di risorse     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscription        |
 |Pannello AutomationOnboarding - Creare una nuova area di lavoro     |Microsoft.OperationalInsights/workspaces/write           | Gruppo di risorse        |
 |Pannello AutomationOnboarding - Leggere un'area di lavoro collegata     | Microsoft.Automation/automationAccounts/read        | Account di Automazione       |
 |Pannello AutomationOnboarding - Leggere una soluzione     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | Soluzione        |
 |Pannello AutomationOnboarding - Leggere un'area di lavoro     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read        | Area di lavoro        |
 |Creare un collegamento per un'area di lavoro e un account     | Microsoft.OperationalInsights/workspaces/write        | Area di lavoro        |
 |Scrivere un account per Shoebox      | Microsoft.Automation/automationAccounts/write        | Account        |
-|Creare una soluzione      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write        | Gruppo di risorse         |
 |Creare/Modificare una ricerca salvata     | Microsoft.OperationalInsights/workspaces/write        | Area di lavoro        |
 |Creare/Modificare una configurazione di ambito     | Microsoft.OperationalInsights/workspaces/write        | Area di lavoro        |
-|Collegare una soluzione a una configurazione di ambito      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Soluzione         |
-| Registrare il provider di Log Analytics |Microsoft.Insights/register/action | Sottoscrizione|
+| Registrare il provider di Log Analytics |Microsoft.Insights/register/action | Subscription|
 |**Passaggio 2: Caricare più VM**     |         |         |
-|Pannello VMOnboarding - Creare un'estensione MMA     | Microsoft.Compute/virtualMachines/write           | Macchina virtuale        |
+|Pannello VMOnboarding - Creare un'estensione MMA     | Microsoft.Compute/virtualMachines/write           | Virtual Machine        |
 |Creare/Modificare una ricerca salvata     | Microsoft.OperationalInsights/workspaces/write           | Area di lavoro        |
 |Creare/Modificare una configurazione di ambito  | Microsoft.OperationalInsights/workspaces/write   | Area di lavoro|
 
@@ -263,49 +259,49 @@ La gestione degli aggiornamenti copre più servizi per fornire il proprio serviz
 |Account di Automazione     | Collaboratore di Log Analytics       | Account di Automazione        |
 |Account di Automazione    | Collaboratore macchine virtuali        | Gruppo di risorse per l'account        |
 |Area di lavoro Log Analytics     | Collaboratore di Log Analytics| Area di lavoro Log Analytics        |
-|Area di lavoro Log Analytics |Lettore di Log Analytics| Sottoscrizione|
+|Area di lavoro Log Analytics |Lettore di Log Analytics| Subscription|
 |Soluzione     |Collaboratore di Log Analytics         | Soluzione|
-|Macchina virtuale     | Collaboratore macchine virtuali        | Macchina virtuale        |
+|Virtual Machine     | Collaboratore macchine virtuali        | Virtual Machine        |
 
 ## <a name="configure-rbac-for-your-automation-account"></a>Configurare il controllo degli accessi in base al ruolo per l'account di Automazione
 
-La sezione seguente illustra come configurare il controllo degli accessi in base al ruolo nell'account di Automazione tramite il [portale](#configure-rbac-using-the-azure-portal) e [PowerShell](#configure-rbac-using-powershell)
+La sezione seguente illustra come configurare RBAC nell'account di automazione tramite il [portale](#configure-rbac-using-the-azure-portal) e [PowerShell](#configure-rbac-using-powershell).
 
 ### <a name="configure-rbac-using-the-azure-portal"></a>Configurare il controllo degli accessi in base al ruolo mediante il portale di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) e aprire l'account di Automazione nella pagina Account di automazione.
-2. Fare clic sul controllo **Controllo di accesso (IAM)** nell'angolo superiore sinistro. Verrà visualizzata la pagina **Controllo di accesso (IAM)** , in cui è possibile aggiungere nuovi utenti, gruppi e applicazioni per gestire il proprio account di Automazione e visualizzare i ruoli esistenti che possono essere configurati per l'account di Automazione.
+2. Fare clic su controllo di **accesso (IAM)** nell'angolo superiore sinistro per aprire la pagina controllo di accesso (IAM). È possibile usare questa pagina per aggiungere nuovi utenti, gruppi e applicazioni per gestire l'account di automazione e visualizzare i ruoli esistenti che possono essere configurati per l'account di automazione.
 3. Fare clic sulla scheda **Assegnazioni di ruolo**.
 
    ![Pulsante Accesso](media/automation-role-based-access-control/automation-01-access-button.png)
 
 #### <a name="add-a-new-user-and-assign-a-role"></a>Aggiungere un nuovo utente e assegnare un ruolo
 
-1. Nella pagina **Controllo di accesso (IAM)** fare clic su **+ Aggiungi un'assegnazione di ruolo** per aprire la pagina **Aggiungi un'assegnazione di ruolo**, in cui è possibile aggiungere un utente, un gruppo o un'applicazione cui assegnare un ruolo.
+1. Nella pagina controllo di accesso (IAM) fare clic su **+ Aggiungi assegnazione ruolo**. Questa azione apre la pagina Aggiungi assegnazione ruolo in cui è possibile aggiungere un utente, un gruppo o un'applicazione e assegnare un ruolo corrispondente.
 
 2. Selezionare un ruolo dall'elenco di ruoli disponibili. È possibile scegliere uno qualsiasi dei ruoli predefiniti disponibili supportati da un account di Automazione oppure un ruolo personalizzato definito dall'utente.
 
-3. Digitare il nome utente dell'utente a cui si vogliono concedere le autorizzazioni nel campo **Seleziona**. Selezionare l'utente dall'elenco e fare clic su **Salva**.
+3. Digitare il nome utente dell'utente a cui si desidera concedere le autorizzazioni nel campo **Seleziona** . Scegliere l'utente dall'elenco e fare clic su **Salva**.
 
-   ![Aggiungere utenti](media/automation-role-based-access-control/automation-04-add-users.png)
+   ![Aggiungi utenti](media/automation-role-based-access-control/automation-04-add-users.png)
 
-   L'utente verrà ora aggiunto nella pagina **Utenti** con il ruolo selezionato assegnato
+   A questo punto dovrebbe essere visualizzato l'utente aggiunto alla pagina utenti, con il ruolo selezionato assegnato.
 
    ![Elencare gli utenti](media/automation-role-based-access-control/automation-05-list-users.png)
 
-   È anche possibile assegnare un ruolo all'utente dalla pagina **Ruoli** .
-4. Fare clic su **Ruoli** nella pagina **Controllo di accesso (IAM)** per aprire la pagina **Ruoli**. Da qui è possibile visualizzare il nome del ruolo e il numero di utenti e gruppi assegnati al ruolo.
+   È anche possibile assegnare un ruolo all'utente dalla pagina ruoli.
+4. Fare clic su **ruoli** nella pagina controllo di accesso (IAM) per aprire la pagina ruoli. È possibile visualizzare il nome del ruolo e il numero di utenti e gruppi assegnati a tale ruolo.
 
     ![Assegnare un ruolo dalla pagina Utenti](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
 
    > [!NOTE]
-   > Il controllo degli accessi in base al ruolo può essere impostato solo nell'ambito dell'account di Automazione e in nessun'altra risorsa al di sotto dell'account di Automazione.
+   > È possibile impostare il controllo degli accessi in base al ruolo solo nell'ambito dell'account di automazione e non in una risorsa al di sotto dell'account di automazione.
 
 #### <a name="remove-a-user"></a>Rimuovere un utente
 
 È possibile rimuovere l'autorizzazione di accesso per un utente che non gestisce l'account di Automazione o che non lavora più per l'organizzazione. Ecco la procedura da seguire per rimuovere un utente:
 
-1. Nella pagina **Controllo di accesso (IAM)** selezionare l'utente che si vuole rimuovere e fare clic su **Rimuovi**.
+1. Nella pagina controllo di accesso (IAM) selezionare l'utente da rimuovere e fare clic su **Rimuovi**.
 2. Fare clic sul pulsante **Rimuovi** nel pannello dei dettagli dell'assegnazione.
 3. Fare clic su **Sì** per confermare la rimozione.
 
@@ -313,9 +309,9 @@ La sezione seguente illustra come configurare il controllo degli accessi in base
 
 ### <a name="configure-rbac-using-powershell"></a>Configurare il controllo degli accessi in base al ruolo mediante PowerShell
 
-L'accesso in base al ruolo per un account di Automazione può essere configurato anche con i [cmdlet di Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) seguenti:
+È anche possibile configurare l'accesso in base al ruolo a un account di automazione usando i [cmdlet di Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)seguenti:
 
-[Get-AzureRmRoleDefinition](/previous-versions/azure/mt603792(v=azure.100)) elenca tutti i ruoli di Controllo degli accessi in base al ruolo disponibili in Azure Active Directory. È possibile usare questo comando con la proprietà **Name** per elencare tutte le azioni che possono essere eseguite da un ruolo specifico.
+[Get-AzureRmRoleDefinition](/previous-versions/azure/mt603792(v=azure.100)) elenca tutti i ruoli di Controllo degli accessi in base al ruolo disponibili in Azure Active Directory. È possibile utilizzare questo cmdlet con il parametro *Name* per elencare tutte le azioni che possono essere eseguite da un ruolo specifico.
 
 ```azurepowershell-interactive
 Get-AzureRmRoleDefinition -Name 'Automation Operator'
@@ -334,8 +330,9 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzureRmRoleAssignment](/previous-versions/azure/mt619413(v=azure.100)) elenca le assegnazioni di ruolo di Controllo degli accessi in base al ruolo di Azure AD nell'ambito specificato. Senza parametri, questo comando restituisce tutte le assegnazioni del ruolo eseguite nell'ambito della sottoscrizione. Usare il parametro **ExpandPrincipalGroups** per elencare le assegnazioni di accesso per l'utente specificato e per i gruppi di cui l'utente è membro.
-    **Esempio:** usare il comando seguente per elencare tutti gli utenti e i relativi ruoli all'interno di un account di automazione.
+[Get-AzureRmRoleAssignment](/previous-versions/azure/mt619413(v=azure.100)) elenca le assegnazioni di ruolo di Controllo degli accessi in base al ruolo di Azure AD nell'ambito specificato. Senza parametri, questo cmdlet restituisce tutte le assegnazioni di ruolo eseguite nella sottoscrizione. Usare il parametro *ExpandPrincipalGroups* per elencare le assegnazioni di accesso per l'utente specificato e i gruppi a cui l'utente appartiene.
+
+**Esempio:** Usare il cmdlet seguente per elencare tutti gli utenti e i relativi ruoli all'interno di un account di automazione.
 
 ```azurepowershell-interactive
 Get-AzureRMRoleAssignment -scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
@@ -355,8 +352,9 @@ ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
 ObjectType         : User
 ```
 
-[New-AzureRmRoleAssignment](/previous-versions/azure/mt603580(v=azure.100)) consente di assegnare l'accesso a utenti, gruppi e applicazioni in un determinato ambito.
-    **Esempio:** usare il comando seguente per assegnare il ruolo "Operatore di automazione" a un utente nell'ambito dell'account di Automazione.
+Usare [New-AzureRmRoleAssignment](/previous-versions/azure/mt603580(v=azure.100)) per assegnare l'accesso a utenti, gruppi e applicazioni a un ambito specifico.
+    
+**Esempio:** usare il comando seguente per assegnare il ruolo "Operatore di automazione" a un utente nell'ambito dell'account di Automazione.
 
 ```azurepowershell-interactive
 New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName 'Automation operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
@@ -377,56 +375,56 @@ ObjectType         : User
 ```
 
 Usare [Remove-AzureRmRoleAssignment](/previous-versions/azure/mt603781(v=azure.100)) per rimuovere l'accesso di un utente, un'applicazione o un gruppo specificato da un determinato ambito.
-    **Esempio:** usare il comando seguente per rimuovere l'utente dal ruolo "Operatore di automazione" nell'ambito dell'account di Automazione.
+
+**Esempio:** usare il comando seguente per rimuovere l'utente dal ruolo "Operatore di automazione" nell'ambito dell'account di Automazione.
 
 ```azurepowershell-interactive
 Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
-Negli esempi precedenti sostituire l'**ID di accesso**, l'**ID sottoscrizione**, il **nome del gruppo di risorse** e il **nome dell'account di Automazione** con i dettagli del proprio account. Scegliere **Sì** quando viene richiesto di confermare se si vuole rimuovere un'assegnazione di ruolo per un utente.
+Negli esempi precedenti sostituire l'ID di accesso di un utente che si vuole rimuovere, "SubscriptionID", "nome del gruppo di risorse" e il nome dell'account di automazione "con i dettagli dell'account. Scegliere **Sì** quando viene richiesto di confermare prima di continuare a rimuovere le assegnazioni di ruolo utente.
 
-### <a name="user-experience-for-automation-operator-role---automation-account"></a>Esperienza utente per il ruolo Operatore di automazione - Account di Automazione
+### <a name="user-experience-for-automation-operator-role---automation-account"></a>Esperienza utente per il ruolo Operatore di automazione-account di automazione
 
-Quando un utente assegnato al ruolo Operatore di automazione nell'ambito dell'account di Automazione visualizza l'account di Automazione a cui è stato assegnato, può vedere solo l'elenco delle pianificazioni, dei runbook e dei processi di runbook creati nell'account di Automazione, ma non le relative definizioni. L'utente può avviare, arrestare, sospendere, riprendere o pianificare il processo del runbook, ma non avrà accesso ad altre risorse di Automazione, tra cui configurazioni, gruppi di ruoli di lavoro ibridi o nodi DSC.
+Quando un utente assegnato al ruolo Operatore di automazione nell'ambito dell'account di automazione Visualizza l'account di automazione a cui è assegnato, l'utente può solo visualizzare l'elenco di manuali operativi, i processi Runbook e le pianificazioni creati nell'account di automazione. Questo utente non può visualizzare le definizioni di questi elementi. L'utente può avviare, arrestare, sospendere, riprendere o pianificare il processo Runbook. Tuttavia, l'utente non ha accesso ad altre risorse di automazione, ad esempio configurazioni, gruppi di lavoro ibridi o nodi DSC.
 
 ![Nessun accesso alle risorse](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
 
-## <a name="configure-rbac-for-runbooks"></a>Configurare il controllo degli accessi in base al ruolo per i runbook
+## <a name="configure-rbac-for-runbooks"></a>Configurare RBAC per manuali operativi
 
-Automazione di Azure consente di assegnare il controllo degli accessi in base al ruolo a specifici runbook. Per farlo, eseguire lo script seguente per aggiungere un utente a un runbook specifico. Lo script seguente può essere eseguito da un amministratore dell'account di Automazione o da un amministratore del tenant.
+Automazione di Azure consente di assegnare RBAC a manuali operativi specifici. Per eseguire questa operazione, eseguire lo script seguente per aggiungere un utente a un Runbook specifico. Questo script può essere eseguito da un amministratore dell'account di automazione o da un amministratore tenant.
 
 ```azurepowershell-interactive
-$rgName = "<Resource Group Name>" # Resource Group name for the Automation Account
-$automationAccountName ="<Automation Account Name>" # Name of the Automation Account
+$rgName = "<Resource Group Name>" # Resource Group name for the Automation account
+$automationAccountName ="<Automation account name>" # Name of the Automation account
 $rbName = "<Name of Runbook>" # Name of the runbook
 $userId = "<User ObjectId>" # Azure Active Directory (AAD) user's ObjectId from the directory
 
-# Gets the Automation Account resource
+# Gets the Automation account resource
 $aa = Get-AzureRmResource -ResourceGroupName $rgName -ResourceType "Microsoft.Automation/automationAccounts" -ResourceName $automationAccountName
 
 # Get the Runbook resource
 $rb = Get-AzureRmResource -ResourceGroupName $rgName -ResourceType "Microsoft.Automation/automationAccounts/runbooks" -ResourceName "$automationAccountName/$rbName"
 
-# The Automation Job Operator role only needs to be ran once per user.
+# The Automation Job Operator role only needs to be run once per user.
 New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Job Operator" -Scope $aa.ResourceId
 
 # Adds the user to the Automation Runbook Operator role to the Runbook scope
 New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Runbook Operator" -Scope $rb.ResourceId
 ```
 
-Dopo l'esecuzione fare in modo che l'utente acceda al portale di Azure e visualizzi **Tutte le risorse**. Nell'elenco mostrato il runbook aggiunto è indicato come **Operatore runbook di Automazione** per.
+Una volta eseguito lo script, chiedere all'utente di accedere al portale di Azure e visualizzare **tutte le risorse**. Nell'elenco l'utente può visualizzare il Runbook per cui è stato aggiunto come operatore Runbook di automazione.
 
 ![Controllo degli accessi in base al ruolo del runbook nel portale](./media/automation-role-based-access-control/runbook-rbac.png)
 
 ### <a name="user-experience-for-automation-operator-role---runbook"></a>Esperienza dell'utente per il ruolo Operatore di automazione - Runbook
 
-Quando un utente, che è assegnato al ruolo Operatore di automazione nell'ambito del runbook, visualizza un runbook a cui è assegnato, può solo avviare il runbook e visualizzare i processi del runbook.
+Quando un utente assegnato al ruolo Operatore di automazione nell'ambito Runbook Visualizza un Runbook assegnato, l'utente può solo avviare il Runbook e visualizzare i processi Runbook.
 
 ![Ha accesso solo all'avvio](media/automation-role-based-access-control/automation-only-start.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sulle diverse modalità disponibili per configurare il controllo degli accessi in base al ruolo per Automazione di Azure, vedere [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
-* Per informazioni dettagliate sulle diverse modalità di avvio dei runbook, vedere [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md)
-* Per informazioni sui diversi tipi di runbook, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md)
-
+* Per informazioni sui modi per configurare il controllo degli accessi in base al ruolo per automazione di Azure, vedere [Manage RBAC with Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+* Per informazioni dettagliate sui modi per avviare un Runbook, vedere [avvio di un Runbook](automation-starting-a-runbook.md).
+* Per informazioni sui tipi di Runbook, vedere [tipi di Runbook di automazione di Azure](automation-runbook-types.md).

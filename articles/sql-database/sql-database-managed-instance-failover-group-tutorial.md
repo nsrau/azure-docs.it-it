@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 08/27/2019
-ms.openlocfilehash: b7c406c1d7f55b364d72b2b5626b3c17a34d8338
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: bf83155e971061f22e5f5fc33d216b58621c9249
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552764"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462650"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Esercitazione: aggiungere un'istanza gestita di database SQL a un gruppo di failover
 
@@ -36,13 +36,13 @@ Aggiungere un'istanza gestita di database SQL a un gruppo di failover. In questo
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 Per completare questa esercitazione, accertarsi di avere: 
 
 - Una sottoscrizione di Azure. [Creare un account gratuito](https://azure.microsoft.com/free/) se non ne è già disponibile uno.
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Per completare l'esercitazione, verificare che siano disponibili gli elementi seguenti:
 
 - Una sottoscrizione di Azure. [Creare un account gratuito](https://azure.microsoft.com/free/) se non ne è già disponibile uno.
@@ -55,7 +55,7 @@ Per completare l'esercitazione, verificare che siano disponibili gli elementi se
 In questo passaggio si creeranno il gruppo di risorse e l'istanza gestita primaria per il gruppo di failover usando il portale di Azure o PowerShell. 
 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal) 
+# <a name="portal"></a>[Portale](#tab/azure-portal) 
 
 Creare il gruppo di risorse e l'istanza gestita primaria usando il portale di Azure. 
 
@@ -75,7 +75,7 @@ Creare il gruppo di risorse e l'istanza gestita primaria usando il portale di Az
 1. Lasciare i valori predefiniti per le altre impostazioni e selezionare **Verifica + crea** per esaminare le impostazioni dell'istanza gestita. 
 1. Selezionare **Crea** per creare l'istanza gestita primaria. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Creare il gruppo di risorse e l'istanza gestita primaria usando PowerShell. 
 
@@ -405,7 +405,7 @@ Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
 ## <a name="2---create-secondary-virtual-network"></a>2-creare una rete virtuale secondaria
 Se si usa il portale di Azure per creare un'istanza gestita, è necessario creare la rete virtuale separatamente perché è necessario che la subnet dell'istanza gestita primaria e secondaria non disponga di intervalli sovrapposti. Se si usa PowerShell per configurare l'istanza gestita, procedere con il passaggio 3. 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal) 
+# <a name="portal"></a>[Portale](#tab/azure-portal) 
 Per verificare l'intervallo di subnet della rete virtuale primaria, attenersi alla procedura seguente:
 1. Nella [portale di Azure](https://portal.azure.com)passare al gruppo di risorse e selezionare la rete virtuale per l'istanza primaria. 
 1. Selezionare **subnet** in **Impostazioni** e prendere nota dell' **intervallo di indirizzi**. L'intervallo di indirizzi della subnet della rete virtuale per l'istanza gestita secondaria non può sovrapporsi a questo. 
@@ -433,7 +433,7 @@ Per creare una rete virtuale, seguire questa procedura:
 
     ![Valori della rete virtuale secondaria](media/sql-database-managed-instance-failover-group-tutorial/secondary-virtual-network.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Questo passaggio è necessario solo se si sta usando il portale di Azure per distribuire l'istanza gestita. Procedere al passaggio 3 Se si usa PowerShell. 
 
@@ -446,7 +446,7 @@ La seconda istanza gestita deve:
 - Essere vuoto. 
 - Avere una subnet e un intervallo IP diversi rispetto all'istanza gestita primaria. 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal) 
+# <a name="portal"></a>[Portale](#tab/azure-portal) 
 
 Creare l'istanza gestita secondaria usando il portale di Azure. 
 
@@ -482,7 +482,7 @@ Creare l'istanza gestita secondaria usando il portale di Azure.
 1. Selezionare **Verifica + crea** per esaminare le impostazioni per l'istanza gestita secondaria. 
 1. Selezionare **Crea** per creare un'istanza gestita secondaria. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Creare l'istanza gestita secondaria usando PowerShell. 
 
@@ -734,7 +734,7 @@ Affinché due istanze gestite partecipino a un gruppo di failover, è necessario
 Questo articolo illustra la procedura per creare i due gateway VPN e connetterli, ma è possibile passare alla creazione del gruppo di failover se è stato configurato ExpressRoute. 
 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Creare il gateway per la rete virtuale dell'istanza gestita primaria usando il portale di Azure. 
 
@@ -763,7 +763,7 @@ Creare il gateway per la rete virtuale dell'istanza gestita primaria usando il p
     | **Posizione**| Il percorso in cui si trova l'istanza gestita primaria e la rete virtuale primaria.   |
     | **Rete virtuale**| Selezionare la rete virtuale creata nella sezione 2, ad esempio `vnet-sql-mi-primary`. |
     | **Indirizzo IP pubblico**| Selezionare **Crea nuovo**. |
-    | **Nome indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP, ad esempio `primary-gateway-IP`. |
+    | **Nome dell'indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP, ad esempio `primary-gateway-IP`. |
     | &nbsp; | &nbsp; |
 
 1. Lasciare gli altri valori predefiniti e quindi selezionare **Verifica + crea** per esaminare le impostazioni per il gateway di rete virtuale.
@@ -773,7 +773,7 @@ Creare il gateway per la rete virtuale dell'istanza gestita primaria usando il p
 1. Selezionare **Crea** per creare il nuovo gateway di rete virtuale. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Creare il gateway per la rete virtuale dell'istanza gestita primaria usando PowerShell. 
 
@@ -828,7 +828,7 @@ Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
 In questo passaggio, creare il gateway per la rete virtuale dell'istanza gestita secondaria usando il portale di Azure, 
 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Usando il portale di Azure, ripetere i passaggi della sezione precedente per creare la subnet della rete virtuale e il gateway per l'istanza gestita secondaria. Compilare i campi obbligatori per configurare il gateway per l'istanza gestita secondaria. 
 
@@ -845,13 +845,13 @@ Usando il portale di Azure, ripetere i passaggi della sezione precedente per cre
    | **Posizione**| Il percorso in cui si trova l'istanza gestita secondaria e la rete virtuale secondaria.   |
    | **Rete virtuale**| Selezionare la rete virtuale creata nella sezione 2, ad esempio `vnet-sql-mi-secondary`. |
    | **Indirizzo IP pubblico**| Selezionare **Crea nuovo**. |
-   | **Nome indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP, ad esempio `secondary-gateway-IP`. |
+   | **Nome dell'indirizzo IP pubblico**| Immettere un nome per l'indirizzo IP, ad esempio `secondary-gateway-IP`. |
    | &nbsp; | &nbsp; |
 
    ![Impostazioni del gateway secondario](media/sql-database-managed-instance-failover-group-tutorial/settings-for-secondary-gateway.png)
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Creare il gateway per la rete virtuale dell'istanza gestita secondaria usando PowerShell. 
 
@@ -908,7 +908,7 @@ Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
 In questo passaggio viene creata una connessione bidirezionale tra i due gateway delle due reti virtuali. 
 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Connettere i due gateway usando il portale di Azure. 
 
@@ -933,7 +933,7 @@ Connettere i due gateway usando il portale di Azure.
 1. Nella scheda **Riepilogo** esaminare le impostazioni per la connessione bidirezionale e quindi selezionare **OK** per creare la connessione. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Connettere i due gateway usando PowerShell. 
 
@@ -967,7 +967,7 @@ Questa parte dell'esercitazione usa il cmdlet di PowerShell seguente:
 In questo passaggio si creerà il gruppo di failover e si aggiungeranno entrambe le istanze gestite. 
 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 Creare il gruppo di failover usando il portale di Azure. 
 
 
@@ -984,7 +984,7 @@ Creare il gruppo di failover usando il portale di Azure.
 1. Una volta completata la distribuzione del gruppo di failover, si tornerà alla pagina del **gruppo di failover** . 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Creare il gruppo di failover usando PowerShell. 
 
    ```powershell-interactive
@@ -1010,11 +1010,11 @@ Questa parte dell'esercitazione usa il cmdlet di PowerShell seguente:
 In questo passaggio si verificherà un errore nel gruppo di failover nel server secondario e quindi si eseguirà il failback utilizzando il portale di Azure. 
 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 Failover di test con il portale di Azure. 
 
 
-1. Passare all'istanza gestita all'interno del [portale di Azure](https://portal.azure.com) e selezionare **gruppi di failover dell'istanza** in impostazioni. 
+1. Passare all'istanza gestita _secondaria_ all'interno del [portale di Azure](https://portal.azure.com) e selezionare **gruppi di failover dell'istanza** in impostazioni. 
 1. Verificare quale istanza gestita è la primaria e quale istanza gestita è la replica secondaria. 
 1. Selezionare **failover** e quindi fare clic su **Sì** nell'avviso relativo alle sessioni TDS disconnesse. 
 
@@ -1024,10 +1024,10 @@ Failover di test con il portale di Azure.
 
    ![Istanze gestite con ruoli passati dopo il failover](media/sql-database-managed-instance-failover-group-tutorial/mi-switched-after-failover.png)
 
-1. Selezionare di nuovo **failover** per eseguire il failback dell'istanza primaria al ruolo primario. 
+1. Passare alla nuova istanza gestita _secondaria_ e selezionare di nuovo **failover** per non restituire l'istanza primaria al ruolo primario. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Failover di test con PowerShell. 
 
    ```powershell-interactive
@@ -1076,14 +1076,14 @@ Questa parte dell'esercitazione usa i cmdlet di PowerShell seguenti:
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Pulire le risorse eliminando prima di tutto l'istanza gestita, il cluster virtuale, le eventuali risorse rimanenti e infine il gruppo di risorse. 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 1. Passare al gruppo di risorse nel [portale di Azure](https://portal.azure.com). 
-1. Selezionare l'istanza o le istanze gestite e quindi fare clic su **Elimina**. Digitare `yes` nella casella di testo per confermare che si desidera eliminare la risorsa e quindi selezionare **Elimina**. Questo processo può richiedere del tempo per il completamento in background e, fino a quando non viene eseguito, non sarà possibile eliminare il *cluster virtuale* o altre risorse dipendenti. Monitorare l'eliminazione nella scheda attività per confermare che l'istanza gestita è stata eliminata. 
-1. Una volta eliminata l'istanza gestita, eliminare il *cluster virtuale* selezionandolo nel gruppo di risorse e quindi scegliendo **Elimina**. Digitare `yes` nella casella di testo per confermare che si desidera eliminare la risorsa e quindi selezionare **Elimina**. 
-1. Eliminare eventuali risorse rimanenti. Digitare `yes` nella casella di testo per confermare che si desidera eliminare la risorsa e quindi selezionare **Elimina**. 
-1. Eliminare il gruppo di risorse selezionando **Elimina gruppo di risorse**, digitando il nome del gruppo di risorse, `myResourceGroup`e quindi facendo clic su **Elimina**. 
+1. Selezionare l'istanza o le istanze gestite, quindi selezionare **Elimina**. Digitare `yes` nella casella di testo per confermare che si vuole eliminare la risorsa, quindi selezionare **Elimina**. Questo processo può richiedere del tempo per il completamento in background e, fino a quando non viene eseguito, non sarà possibile eliminare il *cluster virtuale* o altre risorse dipendenti. Monitorare l'eliminazione nella scheda Attività per verificare che l'istanza gestita sia stata eliminata. 
+1. Una volta eliminata l'istanza gestita, eliminare il *cluster virtuale* selezionandolo nel gruppo di risorse e quindi scegliendo **Elimina**. Digitare `yes` nella casella di testo per confermare che si vuole eliminare la risorsa, quindi selezionare **Elimina**. 
+1. Eliminare eventuali risorse rimanenti. Digitare `yes` nella casella di testo per confermare che si vuole eliminare la risorsa, quindi selezionare **Elimina**. 
+1. Eliminare il gruppo di risorse selezionando **Elimina gruppo di risorse**, digitando il relativo nome, `myResourceGroup`, quindi selezionando **Elimina**. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Sarà necessario rimuovere due volte il gruppo di risorse. Quando si rimuove il gruppo di risorse la prima volta, verranno rimossi l'istanza gestita e i cluster virtuali, ma l'operazione non verrà completata e verrà visualizzato il messaggio di errore `Remove-AzResourceGroup : Long running operation failed with status 'Conflict'.`. Eseguire una seconda volta il comando Remove-AzResourceGroup per rimuovere tutte le risorse residue e il gruppo di risorse.
 
@@ -1104,7 +1104,7 @@ Questa parte dell'esercitazione usa il cmdlet di PowerShell seguente:
 
 ## <a name="full-script"></a>Script completo
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 [!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-managed-instance-to-failover-group-az-ps.ps1 "Add managed instance to a failover group")]
 
 Questo script usa i comandi seguenti. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
@@ -1136,7 +1136,7 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 | [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | Esegue un failover di un gruppo di failover dell'istanza gestita. | 
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Rimuove un gruppo di risorse. | 
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal) 
+# <a name="portal"></a>[Portale](#tab/azure-portal) 
 
 Non sono disponibili script per la portale di Azure.
 

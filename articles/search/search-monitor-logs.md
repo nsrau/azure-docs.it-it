@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/11/2020
-ms.openlocfilehash: 2849dc94f1c45dda3da09120adebba6e004eb96b
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/18/2020
+ms.openlocfilehash: 86e869bc08552ea11728c508486a4784eccf4042
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77211178"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462361"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Raccogliere e analizzare i dati di log per Azure ricerca cognitiva
 
-I log di diagnostica o operativi forniscono informazioni approfondite sulle operazioni dettagliate di Azure ricerca cognitiva e sono utili per il monitoraggio dei processi del servizio e del carico di lavoro. Internamente, i log esistono nel back-end per un breve periodo di tempo, sufficiente per indagini e analisi se si crea un ticket di supporto. Tuttavia, se si desidera la direzione automatica sui dati operativi, è necessario configurare un'impostazione di diagnostica per specificare la posizione in cui vengono raccolte le informazioni di registrazione. 
+I log di diagnostica o operativi forniscono informazioni approfondite sulle operazioni dettagliate di Azure ricerca cognitiva e sono utili per il monitoraggio dei processi del servizio e del carico di lavoro. Internamente, i log esistono nel back-end per un breve periodo di tempo, sufficiente per indagini e analisi se si crea un ticket di supporto. Tuttavia, se si desidera la direzione automatica sui dati operativi, è necessario configurare un'impostazione di diagnostica per specificare la posizione in cui vengono raccolte le informazioni di registrazione.
 
 La configurazione dei log è utile per la diagnostica e la conservazione della cronologia operativa. Dopo aver abilitato la registrazione, è possibile eseguire query o creare report per l'analisi strutturata.
 
@@ -25,9 +25,9 @@ Nella tabella seguente sono elencate le opzioni per la raccolta e la conservazio
 
 | Resource | Utilizzato per |
 |----------|----------|
-| [Invia a area di lavoro Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Eventi registrati e metriche di query in base agli schemi seguenti. Gli eventi vengono registrati in un'area di lavoro Log Analytics. Utilizzando Log Analytics, è possibile eseguire query per restituire informazioni dettagliate. Per altre informazioni, vedere [Introduzione ai log di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Archivia con archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Eventi registrati e metriche di query in base agli schemi seguenti. Gli eventi vengono registrati in un contenitore BLOB e archiviati in file JSON. I log possono essere abbastanza granulari (in base all'ora/minuto), utili per la ricerca di un evento imprevisto specifico, ma non per l'analisi aperta. Usare un editor JSON per visualizzare un file di log.|
-| [Flusso a hub eventi](https://docs.microsoft.com/azure/event-hubs/) | Eventi registrati e metriche di query, basati sugli schemi documentati in questo articolo. Scegliere questa opzione come servizio di raccolta dati alternativo per i log di dimensioni molto grandi. |
+| [Invia a area di lavoro Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Gli eventi e le metriche vengono inviati a un'area di lavoro Log Analytics, su cui è possibile eseguire query nel portale per restituire informazioni dettagliate. Per informazioni introduttive, vedere Introduzione [ai log di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Archivia con archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Gli eventi e le metriche vengono archiviati in un contenitore BLOB e archiviati in file JSON. I log possono essere abbastanza granulari (in base all'ora/minuto), utili per la ricerca di un evento imprevisto specifico, ma non per l'analisi aperta. Usare un editor JSON per visualizzare un file di log non elaborato o Power BI per aggregare e visualizzare i dati di log.|
+| [Flusso a hub eventi](https://docs.microsoft.com/azure/event-hubs/) | Gli eventi e le metriche vengono trasmessi a un servizio Hub eventi di Azure. Scegliere questa opzione come servizio di raccolta dati alternativo per i log di dimensioni molto grandi. |
 
 I log di monitoraggio di Azure e l'archiviazione BLOB sono disponibili come servizio gratuito, in modo che sia possibile provarli senza costi aggiuntivi per la durata della sottoscrizione di Azure. L'iscrizione e l'uso di Application Insights sono gratuiti purché le dimensioni dei dati dell'applicazione non superino determinati limiti (vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/monitor/) per informazioni dettagliate).
 
@@ -37,11 +37,11 @@ Se si usa Log Analytics o archiviazione di Azure, è possibile creare le risorse
 
 + [Creare un'area di lavoro di log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 
-+ Se è necessario un archivio di log, [creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) .
++ [Creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
 
-## <a name="create-a-log"></a>Creazione di un log
+## <a name="enable-data-collection"></a>Abilitare la raccolta di dati
 
-Le impostazioni di diagnostica definiscono la raccolta dei dati. Un'impostazione specifica come e cosa viene raccolto. 
+Le impostazioni di diagnostica specificano come vengono raccolti gli eventi e le metriche registrate.
 
 1. Selezionare **Impostazioni di diagnostica** in **Monitoraggio**.
 
@@ -49,26 +49,47 @@ Le impostazioni di diagnostica definiscono la raccolta dei dati. Un'impostazione
 
 1. Selezionare **+ Aggiungi impostazione di diagnostica**
 
-1. Scegliere i dati da esportare: log, metriche o entrambi. È possibile raccogliere dati in un account di archiviazione, un'area di lavoro di log Analytics o trasmetterli a hub eventi.
-
-   È consigliabile usare log Analytics perché è possibile eseguire una query nell'area di lavoro nel portale.
-
-   Se si usa anche l'archiviazione BLOB, i contenitori e i BLOB verranno creati in base alle esigenze quando si esportano i dati di log.
+1. Controllare **log Analytics**, selezionare l'area di lavoro e selezionare **OperationLogs** e **AllMetrics**.
 
    ![Configurare la raccolta dati](./media/search-monitor-usage/configure-storage.png "Configurare la raccolta dei dati")
 
 1. Salvare l'impostazione.
 
-1. Testare creando o eliminando oggetti (crea eventi del log) e inviando query (genera metriche). 
+1. Dopo aver abilitato la registrazione, usare il servizio di ricerca per iniziare a generare log e metriche. Prima che le metriche e gli eventi registrati diventino disponibili, l'operazione verrà eseguita.
 
-Nell'archivio BLOB, i contenitori vengono creati solo quando è presente un'attività da registrare o misurare. I dati che vengono copiati in un account di archiviazione vengono formattati come JSON e inseriti in due contenitori:
+Per Log Analytics, saranno necessari alcuni minuti prima che i dati siano disponibili, dopo i quali è possibile eseguire query kusto per restituire i dati. Per altre informazioni, vedere [monitorare le richieste di query](search-monitor-logs.md).
 
-* insights-logs-operationlogs: per i log relativi al traffico ricerca
-* insights-metrics-pt1m: per le metriche
+Per l'archiviazione BLOB, è necessaria un'ora prima che i contenitori vengano visualizzati nell'archivio BLOB. È presente un BLOB ogni ora per ciascun contenitore. I contenitori vengono creati solo quando è presente un'attività da registrare o misurare. I dati che vengono copiati in un account di archiviazione vengono formattati come JSON e inseriti in due contenitori:
 
-**Richiede un'ora prima che i contenitori vengano visualizzati nell'archivio BLOB. È presente un BLOB, all'ora, per ogni contenitore.**
++ insights-logs-operationlogs: per i log relativi al traffico ricerca
++ insights-metrics-pt1m: per le metriche
 
-I log vengono archiviati per ogni ora in cui si verifica l'attività. Il percorso seguente è un esempio di un file di log creato il 12 2020 gennaio alle 9:00. dove ogni `/` è una cartella: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2020/m=01/d=12/h=09/m=00/name=PT1H.json`
+## <a name="query-log-information"></a>Informazioni sul log di query
+
+Nei log di diagnostica, due tabelle contengono log e metriche per Azure ricerca cognitiva: **AzureDiagnostics** e **AzureMetrics**.
+
+1. In **monitoraggio**selezionare **log**.
+
+1. Immettere **AzureMetrics** nella finestra query. Eseguire questa semplice query per acquisire familiarità con i dati raccolti in questa tabella. Scorrere la tabella per visualizzare le metriche e i valori. Si noti il numero di record nella parte superiore e se il servizio raccoglie le metriche per un certo periodo di tempo, potrebbe essere necessario modificare l'intervallo di tempo per ottenere un set di dati gestibile.
+
+   ![Tabella AzureMetrics](./media/search-monitor-usage/azuremetrics-table.png "Tabella AzureMetrics")
+
+1. Immettere la query seguente per restituire un set di risultati tabulare.
+
+   ```
+   AzureMetrics
+    | project MetricName, Total, Count, Maximum, Minimum, Average
+   ```
+
+1. Ripetere i passaggi precedenti, a partire da **AzureDiagnostics** per restituire tutte le colonne a scopo informativo, seguito da una query più selettiva che estrae informazioni più interessanti.
+
+   ```
+   AzureDiagnostics
+   | project OperationName, resultSignature_d, DurationMs, Query_s, Documents_d, IndexName_s
+   | where OperationName == "Query.Search" 
+   ```
+
+   ![Tabella AzureDiagnostics](./media/search-monitor-usage/azurediagnostics-table.png "Tabella AzureDiagnostics")
 
 ## <a name="log-schema"></a>Schema del log
 
@@ -123,7 +144,7 @@ Per la metrica **query di ricerca al secondo** , il valore minimo è il valore m
 
 Per le **query di ricerca limitate, percentuale**, minimo, massimo, medio e totale, hanno lo stesso valore: la percentuale di query di ricerca che sono state limitate, dal numero totale di query di ricerca in un minuto.
 
-## <a name="view-log-files"></a>Visualizzare i file di log
+## <a name="view-raw-log-files"></a>Visualizza file di log non elaborati
 
 L'archiviazione BLOB viene utilizzata per l'archiviazione dei file di log. È possibile usare qualsiasi editor JSON per visualizzare il file di log. Se non ne è già disponibile uno, è consigliabile usare [Visual Studio Code](https://code.visualstudio.com/download).
 

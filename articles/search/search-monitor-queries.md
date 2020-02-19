@@ -7,25 +7,25 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/12/2020
-ms.openlocfilehash: 346a44f02667976d95125b72371b6e33715ee4b1
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/18/2020
+ms.openlocfilehash: a3a313ef9cd74ba901f5a6a2d82a18e3c21145dc
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77211152"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462523"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Monitorare le richieste di query in Azure ricerca cognitiva
 
-Questo articolo illustra come misurare le prestazioni e il volume delle query usando le metriche. Viene inoltre illustrato come raccogliere i termini di input utilizzati nelle query: informazioni necessarie quando è necessario valutare l'utilità e l'efficacia del corpus di ricerca.
+Questo articolo illustra come misurare le prestazioni e il volume delle query usando le metriche e la registrazione diagnostica. Viene inoltre illustrato come raccogliere i termini di input utilizzati nelle query: informazioni necessarie quando è necessario valutare l'utilità e l'efficacia del corpus di ricerca.
 
-I dati cronologici che vengono inseriti in metriche vengono conservati per 30 giorni. Per un periodo di conservazione più lungo o per creare report sui dati operativi e sulle stringhe di query, assicurarsi di abilitare un' [impostazione di diagnostica](search-monitor-logs.md) che specifichi un'opzione di archiviazione.
+I dati cronologici che vengono inseriti in metriche vengono conservati per 30 giorni. Per un periodo di conservazione più lungo o per creare report sui dati operativi e sulle stringhe di query, assicurarsi di abilitare un' [impostazione di diagnostica](search-monitor-logs.md) che specifichi un'opzione di archiviazione per rendere permanente le metriche e gli eventi registrati.
 
-Le condizioni che ottimizzano l'integrità delle misurazioni dei dati includono:
+Le condizioni che ottimizzano l'integrità della misurazione dei dati includono:
 
 + Usare un servizio fatturabile, ovvero un servizio creato a livello Basic o standard. Il servizio gratuito è condiviso da più sottoscrittori, che introduce una certa quantità di volatilità quando i carichi cambiano.
 
-+ Usare una singola replica, se possibile, in modo che i calcoli siano limitati a un solo computer. Se si usano più repliche, le metriche delle query vengono calcolate in modo medio tra più nodi, alcune delle quali potrebbero essere più veloci. Se si ottimizzano le prestazioni delle query, un singolo nodo fornisce un ambiente più stabile per il test.
++ Usare una singola replica e una partizione, se possibile, per creare un ambiente indipendente e isolato. Se si usano più repliche, le metriche delle query vengono calcolate in modo medio tra più nodi, il che può ridurre la precisione dei risultati. Analogamente, più partizioni comportano la suddivisione dei dati, con il potenziale che alcune partizioni potrebbero avere dati diversi se è in corso l'indicizzazione. Quando si ottimizzano le prestazioni delle query, un singolo nodo e una partizione offrono un ambiente più stabile per il test.
 
 > [!Tip]
 > Con codice e Application Insights aggiuntivi sul lato client, è anche possibile acquisire i dati click-through per ottenere informazioni più approfondite su ciò che attrae l'interesse degli utenti dell'applicazione. Per altre informazioni, vedere [Analisi del traffico di ricerca](search-traffic-analytics.md).
@@ -116,6 +116,45 @@ Per un'esplorazione più approfondita, aprire Esplora metriche dal menu **monito
 
 1. Esegue lo zoom avanti in un'area di interesse sul grafico a linee. Posizionare il puntatore del mouse all'inizio dell'area, fare clic e tenendo premuto il pulsante sinistro del mouse, trascinare l'altro lato dell'area e rilasciare il pulsante. Il grafico ingrandirà tale intervallo di tempo.
 
+## <a name="identify-strings-used-in-queries"></a>Identificare le stringhe usate nelle query
+
+Quando si Abilita la registrazione diagnostica, il sistema acquisisce le richieste di query nella tabella **AzureDiagnostics** . Come prerequisito, è necessario avere già abilitato la [registrazione diagnostica](search-monitor-logs.md), specificando un'area di lavoro di log Analytics o un'altra opzione di archiviazione.
+
+1. Nella sezione monitoraggio selezionare **registri** per aprire una finestra di query vuota in log Analytics.
+
+1. Eseguire l'espressione seguente per eseguire una ricerca nella query. operazioni di ricerca, restituendo un set di risultati tabulare costituito dal nome dell'operazione, dalla stringa di query, dall'indice sottoposto a query e dal numero di documenti trovati. Le ultime due istruzioni escludono le stringhe di query costituite da una ricerca vuota o non specificata, su un indice di esempio, che riduce il rumore nei risultati.
+
+   ```
+   AzureDiagnostics
+   | project OperationName, Query_s, IndexName_s, Documents_d
+   | where OperationName == "Query.Search"
+   | where Query_s != "?api-version=2019-05-06&search=*"
+   | where IndexName_s != "realestate-us-sample-index"
+   ```
+
+1. Facoltativamente, impostare un filtro colonne in *Query_s* per eseguire la ricerca su una sintassi o una stringa specifica. Ad esempio, è possibile filtrare *è uguale a* `?api-version=2019-05-06&search=*&%24filter=HotelName`).
+
+   ![Stringhe di query registrate](./media/search-monitor-usage/log-query-strings.png "Stringhe di query registrate")
+
+Sebbene questa tecnica funzioni per l'analisi ad hoc, la creazione di un report consente di consolidare e presentare le stringhe di query in un layout in modo più favorevole all'analisi.
+
+## <a name="identify-long-running-queries"></a>Identificare le query con esecuzione prolungata
+
+Aggiungere la colonna Duration per ottenere i numeri per tutte le query, non solo per quelli che vengono prelevati come metrica. L'ordinamento di questi dati consente di visualizzare le query che hanno più tempo per il completamento.
+
+1. Nella sezione monitoraggio selezionare **log** per eseguire una query per informazioni sul log.
+
+1. Eseguire la query seguente per restituire le query, ordinate in base alla durata in millisecondi. Le query con esecuzione prolungata sono nella parte superiore.
+
+   ```
+   AzureDiagnostics
+   | project OperationName, resultSignature_d, DurationMs, Query_s, Documents_d, IndexName_s
+   | where OperationName == "Query.Search"
+   | sort by DurationMs
+   ```
+
+   ![Ordina query per durata](./media/search-monitor-usage/azurediagnostics-table-sortby-duration.png "Ordina query per durata")
+
 ## <a name="create-a-metric-alert"></a>Creare un avviso per la metrica
 
 Un avviso di metrica stabilisce una soglia in corrispondenza della quale si riceverà una notifica o si attiverà un'azione correttiva che è possibile definire in anticipo. 
@@ -144,31 +183,9 @@ Quando si esegue il push dei limiti di una particolare configurazione della part
 
 Se è stata specificata una notifica di posta elettronica, si riceverà un messaggio di posta elettronica da "Microsoft Azure" con una riga dell'oggetto "Azure: Activated Severity: 3 `<your rule name>`".
 
-## <a name="query-strings-used-in-queries"></a>Stringhe di query utilizzate nelle query
+<!-- ## Report query data
 
-Quando si Abilita la registrazione diagnostica, il sistema acquisisce le richieste di query nella tabella **AzureDiagnostics** . Come prerequisito, è necessario avere già abilitato la [registrazione diagnostica](search-monitor-logs.md), specificando un'area di lavoro di log Analytics o un'altra opzione di archiviazione.
-
-1. Nella sezione monitoraggio selezionare **registri** per aprire una finestra di query vuota in log Analytics.
-
-1. Eseguire l'espressione seguente per eseguire una ricerca nella query. operazioni di ricerca, restituendo un set di risultati tabulari costituito dal nome dell'operazione, dalla stringa di query, dall'indice sottoposto a query e dal numero di documenti trovati. Le ultime due istruzioni escludono le stringhe di query costituite da una ricerca vuota o non specificata, su un indice di esempio, che riduce il rumore nei risultati.
-
-   ```
-    AzureDiagnostics 
-     | project OperationName, Query_s, IndexName_s, Documents_d 
-     | where OperationName == "Query.Search"
-     | where Query_s != "?api-version=2019-05-06&search=*"
-     | where IndexName_s != "realestate-us-sample-index"
-   ```
-
-1. Facoltativamente, impostare un filtro colonne in *Query_s* per eseguire la ricerca su una sintassi o una stringa specifica. Ad esempio, è possibile filtrare *è uguale a* `?api-version=2019-05-06&search=*&%24filter=HotelName`).
-
-   ![Stringhe di query registrate](./media/search-monitor-usage/log-query-strings.png "Stringhe di query registrate")
-
-Sebbene questa tecnica funzioni per l'analisi ad hoc, la creazione di un report consente di consolidare e presentare le stringhe di query in un layout in modo più favorevole all'analisi.
-
-## <a name="report-query-data"></a>Report dati query
-
-Power BI è uno strumento di creazione di report analitici che è possibile usare per i dati di log archiviati nell'archiviazione BLOB o in un'area di lavoro di Log Analytics.
+Power BI is an analytical reporting tool useful for visualizing data, including log information. If you are collecting data in Blob storage, a Power BI template makes it easy to spot anomalies or trends. Use this link to download the template. -->
 
 ## <a name="next-steps"></a>Passaggi successivi
 

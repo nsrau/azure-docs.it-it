@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 4ae2cc33275702a0d549f4e994a597614191b3e3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 70545020899b69508a4cedb0fd7cf5495c847104
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444868"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462446"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Elaborazione di database serverless con Azure Cosmos DB e Funzioni di Azure
 
@@ -19,7 +19,7 @@ L'elaborazione senza server consiste nella possibilità di concentrarsi sulle si
 
 Grazie all'integrazione nativa tra [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) e Funzioni di Azure, è possibile creare trigger database, associazioni di input e output direttamente dall'account di Azure Cosmos DB. Con Funzioni di Azure e Azure Cosmos DB, è possibile creare e distribuire app senza server guidate da eventi con accesso a bassa latenza a dati dettagliati per una base utenti globale.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Funzioni di Azure e Azure Cosmos DB consentono di integrare i database e le app senza server nei modi seguenti:
 
@@ -148,10 +148,4 @@ Ora bisogna davvero collegare Funzioni di Azure e Azure Cosmos DB:
 
 * [Creare un trigger di funzioni di Azure per Cosmos DB nel portale di Azure](https://aka.ms/cosmosdbtriggerportalfunc)
 * [Create an Azure Functions HTTP trigger with an Azure Cosmos DB input binding](https://aka.ms/cosmosdbinputbind) (Creare un trigger HTTP di Funzioni di Azure con un'associazione di input di Azure Cosmos DB)
-* [Associazioni e trigger di Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb.md)
-
-
- 
-
-
-
+* [Associazioni e trigger di Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md)

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
-ms.openlocfilehash: bd70cfb58c9d89f1d454537721e22f36b1fd3d3e
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
-ms.translationtype: HT
+ms.openlocfilehash: 2f5269587d222be9a1628b72c1f3f0dc1b105f3c
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77429293"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461744"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-preview"></a>Importa chiavi HSM protette per Key Vault (anteprima)
 
@@ -52,13 +52,13 @@ Nella tabella seguente sono elencati i prerequisiti relativi alla modalità BYOK
 | Sottoscrizione di Azure |Per creare un insieme di credenziali delle chiavi di Azure, è necessaria una sottoscrizione di Azure: [Iscriversi per una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) |
 | Un insieme di credenziali delle chiavi (SKU Premium) per importare chiavi HSM protette |Per altre informazioni su livelli di servizio e funzionalità per l'insieme di credenziali delle chiavi di Azure, vedere il sito Web relativo ai [prezzi dell'insieme di credenziali delle chiavi di Azure](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Un modulo di protezione hardware dall'elenco HSM supportato insieme allo strumento BYOK e alle istruzioni fornite dal fornitore del modulo di protezione hardware | È necessario avere accesso a un modulo di protezione hardware e a una conoscenza operativa di base della HSM. Vedere [HSM supportati](#supported-hsms). |
-| Versione 2.0.82 o successiva dell'interfaccia della riga di comando di Azure | Per altre informazioni, vedere [installare l'interfaccia della](/cli/azure/install-azure-cli?view=azure-cli-latest) riga di comando di Azure.|
+| Versione 2.1.0 o successiva dell'interfaccia della riga di comando di Azure | Per altre informazioni, vedere [installare l'interfaccia della](/cli/azure/install-azure-cli?view=azure-cli-latest) riga di comando di Azure.|
 
 ## <a name="supported-hsms"></a>HSM supportati
 
 |Nome del fornitore del modulo di protezione hardware|Modelli HSM supportati|Ulteriori dettagli|
 |---|---|---|
-|Thales|Famiglia SafeNet Luna HSM 7 con firmware versione 7,3 o successiva| [Documentazione e strumento SafeNet Luna BYOK](https://safenet.gemalto.com/blah-blah)|
+|Thales|Famiglia SafeNet Luna HSM 7 con firmware versione 7,3 o successiva| [Documentazione e strumento SafeNet Luna BYOK](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
 
 
 > [!NOTE]

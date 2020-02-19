@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: 5d3aba2f6010ba16656be96433c521d2adae4c58
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 3e5fd2315a5d352ed5abee9253b5c84eea3b73a9
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169168"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462276"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Creare una risorsa di servizi cognitivi usando l'interfaccia della riga di comando di Azure
 
@@ -72,11 +72,11 @@ az group create \
 
 ### <a name="choose-a-cognitive-service-and-pricing-tier"></a>Scegliere un servizio cognitivo e un piano tariffario
 
-Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio che si vuole usare, oltre al [piano tariffario](https://azure.microsoft.com/pricing/details/cognitive-services/) (o SKU) desiderato. Questa e altre informazioni vengono usate come parametri durante la creazione della risorsa.
+Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio che si vuole usare, oltre al piano [tariffario](https://azure.microsoft.com/pricing/details/cognitive-services/) (o SKU) desiderato. Questa e altre informazioni vengono usate come parametri durante la creazione della risorsa.
 
 ### <a name="multi-service"></a>Multi-servizio
 
-| Servizio                    | Tipo                      |
+| Service                    | Tipo                      |
 |----------------------------|---------------------------|
 | Più servizi. Per ulteriori informazioni, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/) .            | `CognitiveServices`     |
 
@@ -84,9 +84,9 @@ Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio c
 > [!NOTE]
 > Molti dei servizi cognitivi di seguito hanno un livello gratuito che è possibile usare per provare il servizio. Per usare il livello gratuito, usare `F0` come SKU per la risorsa.
 
-### <a name="vision"></a>Visione artificiale
+### <a name="vision"></a>Visione
 
-| Servizio                    | Tipo                      |
+| Service                    | Tipo                      |
 |----------------------------|---------------------------|
 | Visione artificiale            | `ComputerVision`          |
 | Visione personalizzata-stima | `CustomVision.Prediction` |
@@ -95,9 +95,9 @@ Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio c
 | Riconoscimento modulo            | `FormRecognizer`          |
 | Riconoscimento input penna             | `InkRecognizer`           |
 
-### <a name="search"></a>Cerca
+### <a name="search"></a>Ricerca
 
-| Servizio            | Tipo                  |
+| Service            | Tipo                  |
 |--------------------|-----------------------|
 | Suggerimenti automatici Bing   | `Bing.Autosuggest.v7` |
 | Ricerca personalizzata Bing | `Bing.CustomSearch`   |
@@ -105,26 +105,26 @@ Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio c
 | Ricerca Bing        | `Bing.Search.v7`      |
 | Controllo ortografico Bing   | `Bing.SpellCheck.v7`  |
 
-### <a name="speech"></a>Voce
+### <a name="speech"></a>Sintesi vocale
 
-| Servizio            | Tipo                 |
+| Service            | Tipo                 |
 |--------------------|----------------------|
 | Servizi Voce    | `SpeechServices`     |
 | Riconoscimento vocale | `SpeakerRecognition` |
 
-### <a name="language"></a>Lingua
+### <a name="language"></a>Lingua:
 
-| Servizio            | Tipo                |
+| Service            | Tipo                |
 |--------------------|---------------------|
 | Informazioni sui moduli | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
 | QnA Maker          | `QnAMaker`          |
-| Analisi del testo     | `TextAnalytics`     |
+| Text Analytics     | `TextAnalytics`     |
 | Traduzione testuale   | `TextTranslation`   |
 
 ### <a name="decision"></a>Decisione
 
-| Servizio           | Tipo               |
+| Service           | Tipo               |
 |-------------------|--------------------|
 | Rilevamento anomalie  | `AnomalyDetector`  |
 | Content Moderator | `ContentModerator` |
@@ -195,10 +195,10 @@ Se si vuole eseguire la pulizia e la rimozione di una risorsa di servizi cogniti
 Per rimuovere il gruppo di risorse e le risorse associate, usare il comando AZ Group Delete.
 
 ```azurecli-interactive
-az group delete --name storage-resource-group
+az group delete --name cognitive-services-resource-group
 ```
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Autenticare le richieste a Servizi cognitivi di Azure](authentication.md)
 * [Che cosa sono i servizi cognitivi di Azure?](Welcome.md)

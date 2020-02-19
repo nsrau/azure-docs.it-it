@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: f17b4ee0e4ce79cd12a6fda6f056b4e63b4161c9
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: fac6c29d5371c536c20eca58d90ee5d54d7e90d1
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76991032"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462667"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Risoluzione dei nomi per le risorse in reti virtuali di Azure
 
@@ -55,10 +55,10 @@ Oltre alla risoluzione dei nomi DNS pubblici, Azure offre la risoluzione dei nom
 >
 >
 
-### <a name="features"></a>database elastico
+### <a name="features"></a>Funzionalità
 
 La risoluzione dei nomi fornita da Azure presenta le caratteristiche seguenti:
-* Semplicità d'uso. Non è richiesta alcuna configurazione.
+* Semplicità d'uso. Nessuna configurazione richiesta.
 * Disponibilità elevata. Non è necessario creare e gestire i cluster dei server DNS propri.
 * Possibilità di usare il servizio in combinazione con i propri server DNS per risolvere i nomi host locali e quelli di Azure.
 * Possibilità di usare la risoluzione dei nomi tra istanze del ruolo e macchine virtuali presenti nello stesso servizio cloud, senza la necessità di un nome di dominio completo.
@@ -105,8 +105,7 @@ Sono disponibili alcuni pacchetti di memorizzazione nella cache DNS diversi, tra
 
 > [!NOTE]
 > Il pacchetto dnsmasq è solo una delle numerose cache DNS disponibili per Linux. Prima di usarlo, assicurarsi che sia adatto alle esigenze specifiche e verificare che non siano installate altre cache.
->
->
+
     
 ### <a name="client-side-retries"></a>Ripetizione di tentativi sul lato client
 
@@ -169,8 +168,7 @@ Se l'inoltro delle query ad Azure non soddisfa le esigenze specifiche, sarà nec
 * Essere protetta dagli accessi provenienti da Internet per attenuare i rischi rappresentati da agenti esterni.
 
 > [!NOTE]
-> Per ottenere prestazioni ottimali, quando si usano le macchine virtuali di Azure come server DNS è necessario disabilitare IPv6. È consigliabile assegnare un [indirizzo IP pubblico](virtual-network-public-ip-address.md) a ogni macchina virtuale del server DNS. Per altre analisi delle prestazioni e ottimizzazioni quando si usa Windows Server come proprio server DNS, vedere [Name resolution performance of a recursive Windows DNS Server 2012 R2](https://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx) (Prestazioni di risoluzione dei nomi di un server DNS Windows 2012 R2).
-> 
+> Per ottenere prestazioni ottimali, quando si usano le macchine virtuali di Azure come server DNS è necessario disabilitare IPv6. È consigliabile assegnare un [indirizzo IP pubblico](virtual-network-public-ip-address.md) a ogni macchina virtuale del server DNS. 
 > 
 
 ### <a name="web-apps"></a>App Web

@@ -3,19 +3,14 @@ title: Autenticazione e autorizzazione
 description: Riferimento concettuale e panoramica della funzionalità di autenticazione/autorizzazione per app Azure servizio, in particolare per le app per dispositivi mobili.
 ms.topic: article
 ms.date: 10/01/2016
-ms.openlocfilehash: 2c3bc1f9563a5657d7574020fc908f23a711391c
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 4a9ef62178b9a58fa8703413a09114a617d1d239
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668520"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459464"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Autenticazione e autorizzazione nel servizio app di Azure per app per dispositivi mobili
-
-> [!NOTE]
-> Visual Studio App Center supporta servizi end-to-end e integrati fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono usare i servizi **Build**, **Test** e **Distribute** per configurare una pipeline di integrazione e distribuzione continue. Dopo la distribuzione dell'app, gli sviluppatori possono monitorarne lo stato e l'utilizzo tramite i servizi **Analytics** e **Diagnostics** e interagire con gli utenti tramite il servizio **Push**. Gli sviluppatori possono anche usare il servizio **Auth** per autenticare gli utenti e il servizio **Data** per salvare e sincronizzare i dati dell'app nel cloud.
->
-> Per integrare i servizi cloud nelle applicazioni per dispositivi mobili, iscriversi ad [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc).
 
 Questo articolo descrive le procedure di autenticazione e autorizzazione durante lo sviluppo di app per dispositivi mobili native con un back-end del servizio app. Il servizio app offre funzionalità integrate di autenticazione e autorizzazione, in modo che le app per dispositivi mobili possano consentire l'accesso agli utenti senza modificare il codice del servizio app. Fornisce un modo semplice per proteggere l'applicazione e utilizzare dati per-utente. 
 

@@ -6,20 +6,15 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 741d286126bedb8b92828486927283fa9887658e
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 1c9fba3c13cc6e5476377d59130a95a2edaa324d
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668474"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459192"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Come usare il client gestito per App per dispositivi mobili di Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
-
-> [!NOTE]
-> Visual Studio App Center supporta servizi end-to-end e integrati fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono usare i servizi **Build**, **Test** e **Distribute** per configurare una pipeline di integrazione e distribuzione continue. Dopo la distribuzione dell'app, gli sviluppatori possono monitorarne lo stato e l'utilizzo tramite i servizi **Analytics** e **Diagnostics** e interagire con gli utenti tramite il servizio **Push**. Gli sviluppatori possono anche usare il servizio **Auth** per autenticare gli utenti e il servizio **Data** per salvare e sincronizzare i dati dell'app nel cloud.
->
-> Per integrare i servizi cloud nelle applicazioni per dispositivi mobili, iscriversi ad [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc).
 
 ## <a name="overview"></a>Panoramica
 Questa guida illustra come eseguire scenari comuni usando la libreria client gestita per App per dispositivi mobili del servizio app di Azure in app Windows e Xamarin. Se non si ha familiarità con le app per dispositivi mobili, si consiglia di completare prima l'esercitazione di [introduzione alle app per dispositivi mobili][1] . In questa Guida, l'attenzione è posta sull'SDK gestito sul lato client. Per ulteriori informazioni sugli SDK lato server per le app per dispositivi mobili, vedere la documentazione per [.NET Server SDK][2] o [node. js Server SDK][3].
@@ -89,7 +84,7 @@ var client = new MobileServiceClient("MOBILE_APP_URL");
 Nel codice precedente sostituire `MOBILE_APP_URL` con l'URL del back-end dell'App per dispositivi mobili, che si trova nel pannello relativo al back-end dell'App per dispositivi mobili nel [Azure portal]. L'oggetto MobileServiceClient deve essere un singleton.
 
 ## <a name="work-with-tables"></a>Usare le tabelle
-Nella sezione seguente viene illustrato come cercare e recuperare i record e modificare i dati all'interno della tabella.  Vengono trattati gli argomenti seguenti:
+Nella sezione seguente viene illustrato come cercare e recuperare i record e modificare i dati all'interno della tabella.  Vengono trattati i seguenti argomenti:
 
 * [Creare un riferimento alla tabella](#instantiating)
 * [Eseguire query sui dati](#querying)
@@ -135,7 +130,7 @@ Questa sezione descrive come eseguire query nel back-end di App per dispositivi 
 > Viene usata una dimensione di pagina basata sul server, per evitare la restituzione di tutte le righe.  Grazie al paging le richieste predefinite di set di dati di grandi dimensioni non hanno conseguenze negative sul servizio.  Per restituire più di 50 righe, usare i metodi `Skip` e `Take`, come descritto in [Restituire i dati in pagine](#paging).
 
 ### <a name="filtering"></a>Procedura: Filtrare i dati restituiti
-Il codice seguente illustra come filtrare i dati includendo una clausola `Where` in una query. Restituisce tutti gli elementi da `todoTable` per i quali la proprietà `Complete` è uguale a `false`. La funzione [Dove] applica un predicato di filtro di riga alla query sulla tabella.
+Il codice seguente illustra come filtrare i dati includendo una clausola `Where` in una query. Restituisce tutti gli elementi da `todoTable` per i quali la proprietà `Complete` è uguale a `false`. La funzione [Where] applica un predicato di filtro di riga alla query sulla tabella.
 
 ```csharp
 // This query filters out completed TodoItems and items without a timestamp.
@@ -246,7 +241,7 @@ In un'app reale è possibile usare query simili all'esempio precedente con un co
 
 
 ### <a name="selecting"></a>Procedura: Selezionare colonne specifiche
-È possibile specificare il set di proprietà da includere nei risultati aggiungendo alla query una clausola [Selezionare] . Ad esempio, nel codice seguente viene illustrato come selezionare un solo campo e come selezionare e formattare più campi:
+È possibile specificare il set di proprietà da includere nei risultati aggiungendo alla query una clausola [Select] . Ad esempio, nel codice seguente viene illustrato come selezionare un solo campo e come selezionare e formattare più campi:
 
 ```csharp
 // Select one field -- just the Text
@@ -368,14 +363,14 @@ jo.Add("id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
 await table.DeleteAsync(jo);
 ```
 
-Quando si esegue una richiesta di eliminazione, è necessario specificare un ID. Altre proprietà non vengono passate al servizio o vengono ignorate nel servizio. Il risultato di una chiamata `DeleteAsync` equivale in genere a `null`. È possibile ottenere l'ID da passare dal risultato della chiamata `InsertAsync` . Quando si tenta di eliminare un elemento senza specificare il campo `id`, viene generata un'eccezione `MobileServiceInvalidOperationException`.
+Quando si esegue una richiesta di eliminazione, è necessario specificare un ID. Altre proprietà non vengono passate al servizio o vengono ignorate nel servizio. Il risultato di una chiamata `DeleteAsync` equivale in genere a `null`. È possibile ottenere l'ID da passare dal risultato della chiamata `InsertAsync` . Quando si tenta di eliminare un elemento senza specificare il campo `MobileServiceInvalidOperationException`, viene generata un'eccezione `id`.
 
 ### <a name="optimisticconcurrency"></a>Procedura: Usare la concorrenza ottimistica per la risoluzione dei conflitti
 È possibile che due o più client scrivano modifiche nello stesso elemento contemporaneamente. Se non viene rilevato un conflitto, l'ultima scrittura sovrascrive tutti gli aggiornamenti precedenti. **controllo della concorrenza ottimistica** presuppone che per ogni transazione sia possibile eseguire il commit, quindi non procede al blocco delle risorse.  Prima di effettuare il commit di una transazione, il controllo della concorrenza ottimistica verifica che i dati non siano stati modificati da un'altra transazione. Se i dati sono stati modificati, verrà eseguito il rollback di tale transazione.
 
 App per dispositivi mobili supporta il controllo della concorrenza ottimistica tenendo traccia delle modifiche apportate a ogni elemento, usando la colonna di proprietà di sistema `version` definita per ogni tabella nel back-end di App per dispositivi mobili. Ogni volta che un record viene aggiornato, App per dispositivi mobili imposta la proprietà `version` per quel record su un nuovo valore. Durante ogni richiesta di aggiornamento, la proprietà `version` del record inclusa nella richiesta viene confrontata con la stessa proprietà relativa al record sul server. Se la versione passata con la richiesta non corrisponde a quella del back-end, la libreria client genera un'eccezione `MobileServicePreconditionFailedException<T>` . Il tipo incluso nell'eccezione corrisponde al record del back-end contenente la versione dei server del record. L'applicazione può quindi usare questa informazione per decidere se eseguire nuovamente la richiesta di aggiornamento con il valore `version` corretto dal back-end per effettuare il commit delle modifiche.
 
-Per abilitare la concorrenza ottimistica, definire una colonna sulla classe di tabella per la proprietà di sistema `version` . ad esempio:
+Per abilitare la concorrenza ottimistica, definire una colonna sulla classe di tabella per la proprietà di sistema `version` . Ad esempio,
 
 ```csharp
 public class TodoItem
@@ -613,7 +608,7 @@ var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Ne
 Questo formato è una chiamata tipizzata al metodo, che richiede che il tipo restituito **MarkAllResult** sia definito. Sono supportati sia i metodi tipizzati, sia quelli non tipizzati.
 
 Il metodo InvokeApiAsync() antepone "/api/" all'API che si desidera chiamare, a meno che l'API non inizi con una "/".
-ad esempio:
+Ad esempio,
 
 * `InvokeApiAsync("completeAll",...)` chiama /api/completeAll nel back-end
 * `InvokeApiAsync("/.auth/me",...)` chiama /.auth/me nel back-end
@@ -621,14 +616,14 @@ ad esempio:
 È possibile utilizzare InvokeApiAsync per chiamare qualsiasi API Web, tra cui le API Web che non sono definite con App per dispositivi mobili di Azure.  Quando si utilizza InvokeApiAsync(), le intestazioni appropriate, incluse le intestazioni di autenticazione, vengono inviate con la richiesta.
 
 ## <a name="authentication"></a>Autenticare gli utenti
-App per dispositivi mobili supporta l'autenticazione e l'autorizzazione di utenti di app tramite diversi provider di identità esterni: Facebook, Google, Microsoft Account, Twitter e Azure Active Directory. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione negli script del server. Per altre informazioni, vedere l'esercitazione [Aggiungere l'autenticazione all'app Xamarin.Forms].
+App per dispositivi mobili supporta l'autenticazione e l'autorizzazione di utenti di app tramite diversi provider di identità esterni: Facebook, Google, Microsoft Account, Twitter e Azure Active Directory. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione negli script del server. Per altre informazioni, vedere l'esercitazione [Aggiungere l'autenticazione all'app].
 
 Sono supportati due flussi di autenticazione: flusso *gestito dal client* e flusso *gestito dal server*. Il flusso gestito dal server è il processo di autenticazione più semplice, poiché si basa sull'interfaccia di autenticazione Web del provider. Il flusso gestito dal client assicura una maggiore integrazione con funzionalità specifiche del dispositivo, poiché si basa su SDK specifici del provider e del dispositivo.
 
 > [!NOTE]
 > Nelle app di produzione è consigliabile usare un flusso gestito dal client.
 
-Per configurare l'autenticazione, è necessario registrare l'app con uno o più provider di identità.  Il provider di identità genera un ID client e un segreto client per l'app.  Questi valori vengono quindi impostati nel back-end per abilitare l'autenticazione/l'autorizzazione del Servizio app di Azure.  Per altre informazioni, seguire le istruzioni dettagliate dell'esercitazione [Aggiungere l'autenticazione all'app Xamarin.Forms].
+Per configurare l'autenticazione, è necessario registrare l'app con uno o più provider di identità.  Il provider di identità genera un ID client e un segreto client per l'app.  Questi valori vengono quindi impostati nel back-end per abilitare l'autenticazione/l'autorizzazione del Servizio app di Azure.  Per altre informazioni, seguire le istruzioni dettagliate dell'esercitazione [Aggiungere l'autenticazione all'app].
 
 Questo articolo descrive gli argomenti seguenti:
 
@@ -896,7 +891,7 @@ private async void InitNotificationsAsync()
 }
 ```
 
-Se si effettua il push a WNS, è necessario [ottenere un SID pacchetto di Microsoft Store](#package-sid) (vedere sotto).  Per ulteriori informazioni sulle app di Windows, compresa la modalità di registrazione per le registrazioni del modello, vedere [Aggiungere notifiche push all'app Xamarin.Forms].
+Se si effettua il push a WNS, è necessario [ottenere un SID pacchetto di Microsoft Store](#package-sid) (vedere sotto).  Per ulteriori informazioni sulle app di Windows, compresa la modalità di registrazione per le registrazioni del modello, vedere [Aggiungere notifiche push all'app].
 
 La richiesta di tag dal client non è supportata.  Le richieste di tag vengono eliminate automaticamente dalla registrazione.
 Se si desidera registrare il dispositivo con tag, creare un'API personalizzata che usa l'API di hub di notifica per eseguire la registrazione automaticamente.  Effettuare una chiamata all'API personalizzata invece che al metodo `RegisterNativeAsync()`.
@@ -1036,9 +1031,9 @@ public class MyHandler : DelegatingHandler
 [11]: http://www.symbolsource.org/Public/Wiki/Using
 [12]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
-[Aggiungere l'autenticazione all'app Xamarin.Forms]: app-service-mobile-windows-store-dotnet-get-started-users.md
+[Aggiungere l'autenticazione all'app]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]: app-service-mobile-offline-data-sync.md
-[Aggiungere notifiche push all'app Xamarin.Forms]: app-service-mobile-windows-store-dotnet-get-started-push.md
+[Aggiungere notifiche push all'app]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [Register your app to use a Microsoft account login]: ../app-service/configure-authentication-provider-microsoft.md
 [Come configurare il servizio app per l'account di accesso di Active Directory]: ../app-service/configure-authentication-provider-aad.md
 
@@ -1060,11 +1055,11 @@ public class MyHandler : DelegatingHandler
 [OrderByDescending]: https://msdn.microsoft.com/library/azure/dn250568(v=azure.10).aspx
 [ReadAsync]: https://msdn.microsoft.com/library/azure/mt691741(v=azure.10).aspx
 [Take]: https://msdn.microsoft.com/library/azure/dn250574(v=azure.10).aspx
-[Selezionare]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
+[Select]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
 [Skip]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
-[Dove]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
+[Where]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
 [Azure portal]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx

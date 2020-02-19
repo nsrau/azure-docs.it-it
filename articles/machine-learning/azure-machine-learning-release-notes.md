@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 33b3f9292a2fd185ea5487c0111dc294a6f163cf
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 11b8ade765a2b1c1ee25421073983b96c34e5d15
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030813"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462174"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
@@ -23,10 +23,53 @@ In questo articolo vengono fornite informazioni sulle versioni Azure Machine Lea
 
 Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei problemi noti](resource-known-issues.md).
 
+## <a name="2020-02-18"></a>2020-02-18
+
+### <a name="azure-machine-learning-sdk-for-python-v111rc0"></a>Azure Machine Learning SDK per Python v 1.1.1 RC0
+
++ **Correzioni di bug e miglioramenti**
+  + **azure-cli-ml**
+    + La profilatura di un'istanza singola è stata corretta per produrre una raccomandazione ed è stata resa disponibile in Core SDK.
+  + **azureml-automl-Core**
+    + La registrazione degli errori è stata migliorata.
+  + **azureml-automl-Runtime**
+    + Correzione del problema relativo alla previsione quando il set di dati contiene i chicchi brevi con gap di ora estesa.
+    + Correzione del problema quando è attivato l'orizzonte massimo automatico e la colonna della data contiene date in formato stringa. È stata aggiunta una conversione corretta e un errore ragionevole se non è possibile eseguire la conversione in data
+    + Uso di NumPy e SciPy nativi per la serializzazione e la deserializzazione dei dati intermedi per FileCacheStore (usato per le esecuzioni AutoML locali)
+    + Correzione di un bug in cui le esecuzioni figlio non riuscite potevano rimanere bloccate nello stato di esecuzione.
+  + **azureml-CLI-comune**
+    + La profilatura di un'istanza singola è stata corretta per produrre una raccomandazione ed è stata resa disponibile in Core SDK.
+  + **azureml-Core**
+    + Aggiunta `--grant-workspace-msi-access` come parametro aggiuntivo per l'interfaccia della riga di comando dell'archivio dati per la registrazione del contenitore BLOB di Azure, che consente di registrare un contenitore BLOB che si trova dietro un VNet
+    + La profilatura di un'istanza singola è stata corretta per produrre una raccomandazione ed è stata resa disponibile in Core SDK.
+    + Correzione del problema in aks.py _deploy
+    + Convalida l'integrità dei modelli caricati per evitare errori di archiviazione invisibile all'utente.
+  + **azureml-interpreta**
+    + Aggiunta di eccezioni di tipo azureml a azureml-Interpret
+    + correzione della serializzazione DeepScoringExplainer per i modelli keras
+  + **azureml-pipeline-Core**
+    + Il notebook dei punteggi batch della pipeline ora usa ParallelRunStep
+  + **azureml-pipeline-passaggi**
+    + Il `AutoMLStep` è stato spostato nel pacchetto di `azureml-pipeline-steps`. Il `AutoMLStep` è stato deprecato all'interno `azureml-train-automl-runtime`.
+  + **azureml-contrib-pipeline-passaggi**
+    + Il parametro facoltativo side_inputs aggiunto a ParallelRunStep. Questo parametro può essere usato per montare la cartella nel contenitore. I tipi attualmente supportati sono DataReference e PipelineData.
+  + **azureml-tensorboard**
+    + aggiornamento di azureml-tensorboard per supportare tensorflow 2,0
+  + **azureml-Train-automl-client**
+    + correzione del problema di override di FeaturizationConfig che filtra la configurazione conteggi personalizzata.
+  + **azureml-Train-automl-Runtime**
+    + Il `AutoMLStep` è stato spostato nel pacchetto di `azureml-pipeline-steps`. Il `AutoMLStep` è stato deprecato all'interno `azureml-train-automl-runtime`.
+  + **azureml-Train-Core**
+    + Supporto di PyTorch versione 1,4 in PyTorch Estimator
+  
 ## <a name="2020-02-04"></a>2020-02-04
 
 ### <a name="azure-machine-learning-sdk-for-python-v110rc0"></a>Azure Machine Learning SDK per Python v 1.1.0 RC0
 
++ **Modifiche di rilievo**
+  + **Controllo delle versioni semantico 2.0.0**
+    + A partire dalla versione 1,1 Azure ML Python SDK adotta il controllo delle versioni semantico 2.0.0. [Altre informazioni](https://semver.org/). Tutte le versioni successive seguiranno un nuovo schema di numerazione e un contratto di controllo delle versioni semantico. 
+  
 + **Correzioni di bug e miglioramenti**
   + **azureml-automl-Runtime**
     + Maggiore velocità di conteggi.
@@ -118,8 +161,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
     + Aggiunta di informazioni CreatedBy a oggetti modello e servizio. È possibile accedere a tramite <var>. created_by
     + Correzione di ContainerImage. Run (), che non stava impostando correttamente la porta HTTP del contenitore docker.
     + Rendere `azureml-dataprep` facoltativo per `az ml dataset register` comando CLI
-  + **azureml-dataprep**
-    + Correzione di un bug in cui TabularDataset. to_pandas_dataframe avrebbe erroneamente eseguito il fallback a un lettore alternativo e visualizzerà un avviso.
+    + Correzione di un bug in cui `TabularDataset.to_pandas_dataframe` verrebbe erroneamente eseguito il fallback a un lettore alternativo e visualizzerà un avviso.
   + **azureml-explain-Model**
     + rinvia la dipendenza Shap a interpretate-community da azureml-interpreta
   + **azureml-pipeline-Core**
@@ -180,7 +222,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
     + Correzione per il caricamento di RunConfigurations da percorsi relativi.
     + Quando si chiama `keep_columns` o `drop_columns` che comporta l'eliminazione di una colonna timeseries, le funzionalità corrispondenti verranno eliminate anche per il set di dati.
   + **azureml-interpreta**
-    + Versione aggiornata di interpreta-community per 0.2.0
+    + versione aggiornata di interpreta-community per 0.2.0
   + **azureml-pipeline-passaggi**
     + Valori supportati documentati per `runconfig_pipeline_params` per i passaggi della pipeline di Azure Machine Learning.
   + **azureml-pipeline-Core**

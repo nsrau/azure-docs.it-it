@@ -6,23 +6,18 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: f68b4f8477d5b21a7107270370af387a7e88756e
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 705ebb5809840155e6bbf3f8eef091eb95f63e63
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668941"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461641"
 ---
 # <a name="add-authentication-to-your-android-app"></a>Aggiungere l'autenticazione all'app Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-> [!NOTE]
-> Visual Studio App Center supporta servizi end-to-end e integrati fondamentali per lo sviluppo di app per dispositivi mobili. Gli sviluppatori possono usare i servizi **Build**, **Test** e **Distribute** per configurare una pipeline di integrazione e distribuzione continue. Dopo la distribuzione dell'app, gli sviluppatori possono monitorarne lo stato e l'utilizzo tramite i servizi **Analytics** e **Diagnostics** e interagire con gli utenti tramite il servizio **Push**. Gli sviluppatori possono anche usare il servizio **Auth** per autenticare gli utenti e il servizio **Data** per salvare e sincronizzare i dati dell'app nel cloud.
->
-> Per integrare i servizi cloud nelle applicazioni per dispositivi mobili, iscriversi ad [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc).
-
-## <a name="summary"></a>Summary
-Questa esercitazione spiega come aggiungere l'autenticazione al progetto introduttivo TodoList in Android tramite un provider di identità supportato. Questa esercitazione è basata sull'esercitazione [Introduzione alle app per dispositivi mobili], che deve essere completata per prima.
+## <a name="summary"></a>Riepilogo
+Questa esercitazione spiega come aggiungere l'autenticazione al progetto introduttivo TodoList in Android tramite un provider di identità supportato. Questa esercitazione è basata sull'esercitazione relativa alla [Introduzione ad App per dispositivi mobili] , che deve essere completata per prima.
 
 ## <a name="register"></a>Registrare l'app per l'autenticazione e configurare Servizio app di Azure
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
@@ -39,12 +34,12 @@ L'autenticazione sicura richiede la definizione di un nuovo schema URL per l'app
 
 4. Fare clic su **OK**.
 
-5. Fare clic su **Salva**
+5. Fare clic su **Save**.
 
 ## <a name="permissions"></a>Limitare le autorizzazioni agli utenti autenticati
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-* In Android Studio aprire il progetto completato con l'esercitazione [Introduzione alle app per dispositivi mobili]. Dal menu **Run** fare clic su **Run app** e verificare che, dopo l'avvio dell'app, venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzata).
+* In Android Studio aprire il progetto completato con l'esercitazione [Introduzione ad App per dispositivi mobili]. Dal menu **Run** fare clic su **Run app** e verificare che, dopo l'avvio dell'app, venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzata).
 
      Questa eccezione viene generata perché l'app tenta di accedere al back-end come utente non autenticato, mentre la tabella *TodoItem* richiede ora l'autenticazione.
 
@@ -76,5 +71,5 @@ Dopo aver completato questa esercitazione sull'autenticazione di base, provare a
 
 
 <!-- URLs. -->
-[Introduzione alle app per dispositivi mobili]: app-service-mobile-android-get-started.md
+[Introduzione ad App per dispositivi mobili]: app-service-mobile-android-get-started.md
 [Azure portal]: https://portal.azure.com/

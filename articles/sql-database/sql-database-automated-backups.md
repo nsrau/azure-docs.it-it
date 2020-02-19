@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: f460bc3e4809b8a1cbabe1161c888255a7a484db
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 16ee8c1e271f0aa3e6565322f9a4a422dd90b8b8
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157517"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461774"
 ---
 # <a name="automated-backups"></a>Backup automatizzati
 
@@ -81,10 +81,14 @@ I backup precedenti al periodo di memorizzazione vengono eliminati automaticamen
 
 Il database SQL di Azure calcolerà il totale di archiviazione di backup in conservazione come valore cumulativo. Ogni ora, questo valore viene segnalato alla pipeline di fatturazione di Azure, che è responsabile dell'aggregazione di questo utilizzo orario per calcolare il consumo alla fine di ogni mese. Dopo l'eliminazione del database, l'utilizzo diminuisce in base all'età dei backup. Quando i backup diventano più vecchi del periodo di memorizzazione, la fatturazione viene arrestata. 
 
+   > [!IMPORTANT]
+   > I backup di un database vengono conservati per il periodo di memorizzazione specificato, anche se il database è stato eliminato. Durante l'eliminazione e la ricreazione di un database è spesso possibile risparmiare sui costi di archiviazione e di calcolo, ma è possibile che i costi di archiviazione di backup vengano incrementati in quanto si mantiene un backup per il periodo di memorizzazione specificato (ovvero 7 giorni al minimo) per ogni database eliminato, ogni volta che viene eliminato. 
 
-### <a name="monitoring-consumption"></a>Monitoraggio dell'utilizzo
 
-Ogni tipo di backup (completo, differenziale e di log) viene segnalato nel pannello Monitoraggio database come metrica separata. Il diagramma seguente illustra come monitorare il consumo di spazio di archiviazione dei backup.  
+
+### <a name="monitor-consumption"></a>Monitorare l'utilizzo
+
+Ogni tipo di backup (completo, differenziale e di log) viene segnalato nel pannello Monitoraggio database come metrica separata. Il diagramma seguente illustra come monitorare il consumo di spazio di archiviazione dei backup per un singolo database. Questa funzionalità non è attualmente disponibile per le istanze gestite.
 
 ![Monitorare il consumo di backup del database nel pannello Monitoraggio database del portale di Azure](media/sql-database-automated-backup/backup-metrics.png)
 
@@ -105,6 +109,7 @@ Il consumo di spazio di archiviazione di backup eccedente dipenderà dal carico 
 
 ## <a name="storage-costs"></a>Costi di archiviazione
 
+Il prezzo per l'archiviazione varia se si usa il modello DTU o il modello vCore. 
 
 ### <a name="dtu-model"></a>Modello DTU
 
@@ -120,11 +125,14 @@ Si supponga che il database abbia accumulato 744 GB di spazio di archiviazione d
 
 Ora, un esempio più complesso. Si supponga che la conservazione del database sia aumentata fino a 14 giorni a metà del mese e che, in teoria, il numero totale di archiviazione dei backup sia pari a 1488 GB. Il database SQL segnala 1 GB di utilizzo per le ore 1-372 e quindi segnala l'utilizzo come 2 GB per le ore 373-744. Questa operazione verrebbe aggregata in modo da essere una fattura finale di 1116 GB/mo. 
 
-È possibile usare l'analisi dei costi della sottoscrizione di Azure per determinare la spesa corrente per l'archiviazione di backup.
+### <a name="monitor-costs"></a>Monitorare i costi
+
+Per informazioni sui costi di archiviazione dei backup, vedere **Gestione costi e fatturazione** dalla portale di Azure, selezionare **Gestione costi**, quindi selezionare **analisi dei costi**. Selezionare la sottoscrizione desiderata come **ambito**, quindi filtrare per il periodo di tempo e il servizio a cui si è interessati. 
+
+Aggiungere un filtro per **nome servizio**, quindi scegliere **database SQL** dall'elenco a discesa. Usare il filtro **sottocategoria contatore** per scegliere il contatore di fatturazione per il servizio. Per un singolo database o un pool elastico, scegliere **spazio di archiviazione di backup ripristino temporizzato del pool singolo/elastico**. Per un'istanza gestita, scegliere **mi ripristino temporizzato backup storage**. Anche le sottocategorie di **archiviazione** e di **calcolo** possono interessare, anche se non sono associate ai costi di archiviazione di backup. 
 
 ![Analisi dei costi di archiviazione di backup](./media/sql-database-automated-backup/check-backup-storage-cost-sql-mi.png)
 
-Per comprendere i costi di archiviazione di backup per l'istanza gestita, ad esempio, passare alla sottoscrizione in portale di Azure e aprire il pannello analisi dei costi. Selezionare la sottocategoria del contatore **ripristino temporizzato backup storage** per visualizzare il costo di backup e le previsioni di addebito correnti. È anche possibile includere altre sottocategorie di contatori come l' **istanza gestita per utilizzo generico-archiviazione** o **istanza gestita per utilizzo generico-calcolo quinta generazione** per confrontare i costi di archiviazione di backup con altre categorie di costi.
 
 ## <a name="backup-retention"></a>Conservazione backup
 
@@ -169,13 +177,13 @@ Quando si esegue la migrazione del database da un livello di servizio basato su 
 
 Per modificare il periodo di conservazione dei backup ripristino temporizzato usando il portale di Azure, passare all'oggetto server di cui si desidera modificare il periodo di memorizzazione nel portale e quindi selezionare l'opzione appropriata in base all'oggetto server che si sta modificando.
 
-#### <a name="single-database--elastic-poolstabsingle-database"></a>[Database singolo e pool elastici](#tab/single-database)
+#### <a name="single-database--elastic-pools"></a>[Database singolo e pool elastici](#tab/single-database)
 
 La modifica della conservazione dei backup ripristino temporizzato per i singoli database SQL di Azure viene eseguita a livello di server. Le modifiche apportate a livello di server si applicano ai database in tale server. Per modificare ripristino temporizzato per il server di database SQL di Azure da portale di Azure, passare al pannello panoramica del server, fare clic su Gestisci backup nel menu di navigazione, quindi fare clic su Configura conservazione sulla barra di spostamento.
 
 ![Modificare il portale di Azure per il recupero temporizzato](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 
-#### <a name="managed-instancetabmanaged-instance"></a>[Istanza gestita](#tab/managed-instance)
+#### <a name="managed-instance"></a>[Istanza gestita](#tab/managed-instance)
 
 La modifica della conservazione dei backup di ripristino temporizzato per l'istanza gestita di database SQL viene eseguita a livello di singolo database. Per modificare la conservazione dei backup di ripristino temporizzato per un database dell'istanza da portale di Azure, passare al pannello panoramica del singolo database e quindi fare clic su Configura conservazione backup nella barra di spostamento.
 
@@ -201,7 +209,7 @@ Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup
 PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
 ```
 
-#### <a name="request-body"></a>Request Body
+#### <a name="request-body"></a>Corpo richiesto
 
 ```json
 {
