@@ -6,12 +6,12 @@ ms.author: jaiello
 ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: b1a1caf985e9693e261684c1edb21184071ebfc8
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e9aeb7234f5b840d790f6358bab2426462cc7986
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845913"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210226"
 ---
 # <a name="create-your-first-powershell-function-in-azure"></a>Creare la prima funzione di PowerShell in Azure
 
@@ -61,7 +61,7 @@ Il modello di progetto Funzioni di Azure in Visual Studio Code crea un progetto 
 1. Scegliere **Trigger HTTP** come modello per la prima funzione, usare `HTTPTrigger` come nome della funzione e scegliere il livello di autorizzazione **Funzione**.
 
     > [!NOTE]
-    > Il livello di autorizzazione **Funzione** richiede un valore di [chiave di funzione](functions-bindings-http-webhook.md#authorization-keys) quando si chiama l'endpoint della funzione in Azure. Questo rende più difficile per chiunque chiamare la funzione.
+    > Il livello di autorizzazione **Funzione** richiede un valore di [chiave di funzione](functions-bindings-http-webhook-trigger.md#authorization-keys) quando si chiama l'endpoint della funzione in Azure. Questo rende più difficile per chiunque chiamare la funzione.
 
 1. Quando richiesto, scegliere **Aggiungi a area di lavoro**.
 

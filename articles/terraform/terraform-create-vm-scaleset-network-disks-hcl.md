@@ -3,12 +3,12 @@ title: 'Esercitazione: Creare un set di scalabilità di macchine virtuali di Azu
 description: Informazioni su come usare Terraform per configurare e controllare le versioni di un set di scalabilità di macchine virtuali di Azure.
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 6dcdad21eef003fe773a2c6ea3cb8a69b9175ecb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e445d5e6ae4b7fc4528c6d61ee2bc86870827b1
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369474"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472231"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-using-terraform"></a>Esercitazione: Creare un set di scalabilità di macchine virtuali di Azure tramite Terraform
 
@@ -30,7 +30,7 @@ Questa esercitazione illustra come usare [Azure Cloud Shell](/azure/cloud-shell/
 
 - **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
-- **Installare Terraform**: Seguire le indicazioni nell'articolo su [Terraform e configurazione dell'accesso ad Azure](/azure/virtual-machines/linux/terraform-install-configure)
+- **Installare Terraform**: Seguire le indicazioni nell'articolo su [Terraform e configurazione dell'accesso ad Azure](terraform-install-configure.md)
 
 - **Creare una coppia di chiavi SSH**: Per altre informazioni, vedere [Come creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 

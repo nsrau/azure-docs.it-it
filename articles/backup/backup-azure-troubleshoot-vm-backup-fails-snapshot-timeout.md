@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 47adda38bb39a95fe9abc0775a1822d677f19dab
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 0a4d7f152e555ed89bd0a6aee0a7bc83b9815492
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513848"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469137"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -64,6 +64,7 @@ Questo errore si verifica quando uno degli errori di estensione inserisce la mac
 
 - Questo problema può verificarsi se è presente un blocco sul gruppo di risorse del punto di ripristino che impedisce la pulizia automatica dei punti di ripristino.
 - Questo problema può verificarsi anche se vengono attivate più operazioni di backup al giorno. Attualmente si consiglia un solo backup al giorno, perché i punti di ripristino istantaneo vengono conservati per 1-5 giorni per la conservazione dello snapshot configurato e solo 18 il RPs istantaneo può essere associato a una macchina virtuale in un determinato momento. <br>
+- Il numero di punti di ripristino tra le raccolte di punti di ripristino e i gruppi di risorse per una macchina virtuale non può superare i 18. Per creare un nuovo punto di ripristino, eliminare i punti di ripristino esistenti.
 
 Azione consigliata:<br>
 Per risolvere il problema, rimuovere il blocco sul gruppo di risorse della macchina virtuale e ripetere l'operazione per attivare la pulizia.

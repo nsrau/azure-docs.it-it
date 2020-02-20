@@ -1,21 +1,19 @@
 ---
 title: Informazioni e uso degli ambiti di Gestione costi di Azure
 description: Questo articolo consente di comprendere gli ambiti di fatturazione e di gestione delle risorse disponibili in Azure e offre informazioni su come usare gli ambiti in Gestione costi e le API.
-services: cost-management
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/17/2019
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: micflan
+ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 58bd1d3e3fb27344706b23866a68c7e1363e7ec2
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 5e7d01c5383898fb14f57188cd1bee7ea64e8263
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75990138"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200966"
 ---
 # <a name="understand-and-work-with-scopes"></a>Informazioni e utilizzo degli ambiti
 

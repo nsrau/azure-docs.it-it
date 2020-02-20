@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: e99a0e8e42bcfb5c7967a9cb1c91631bacbea53a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f4109359adaaeae0a1ba027ac04439ff60b5a939
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980067"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467182"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Archiviare i log delle risorse di Azure nell'account di archiviazione
 I [log della piattaforma](platform-logs-overview.md) in Azure, inclusi i log attività e i log delle risorse di Azure, forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono.  Questo articolo descrive come raccogliere i log della piattaforma in un account di archiviazione di Azure per conservare i dati per l'archiviazione.
@@ -33,7 +33,7 @@ Inviare i log della piattaforma all'archiviazione e ad altre destinazioni creand
 
 
 ## <a name="collect-data-from-compute-resources"></a>Raccogliere dati dalle risorse di calcolo
-Le impostazioni di diagnostica raccolgono i log delle risorse per le risorse di calcolo di Azure come qualsiasi altra risorsa, ma non il sistema operativo guest o i carichi di lavoro. Per raccogliere questi dati, installare l' [agente di diagnostica di Azure di Windows](diagnostics-extension-overview.md). Per informazioni dettagliate, vedere [archiviare e visualizzare i dati di diagnostica in archiviazione di Azure](diagnostics-extension-to-storage.md) .
+Le impostazioni di diagnostica raccolgono i log delle risorse per le risorse di calcolo di Azure come qualsiasi altra risorsa, ma non il sistema operativo guest o i carichi di lavoro. Per raccogliere questi dati, installare l' [agente di diagnostica di Azure di Windows](diagnostics-extension-overview.md). 
 
 
 ## <a name="schema-of-platform-logs-in-storage-account"></a>Schema dei log della piattaforma nell'account di archiviazione

@@ -3,12 +3,12 @@ title: Aggiungere un binding della coda di archiviazione di Azure alla funzione 
 description: Integrare una coda di Archiviazione di Azure con una funzione Python usando un binding di output.
 ms.date: 01/15/2020
 ms.topic: quickstart
-ms.openlocfilehash: 14a381d13da052fd67679ed17bbb6b6711f7a0e6
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: f5527e0e636c3f8c9ee3723570ed9811f0df3641
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715362"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198480"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Aggiungere un binding della coda di archiviazione di Azure alla funzione Python
 
@@ -28,10 +28,10 @@ Quando è stata creata un'app per le funzioni in Azure nell'argomento di avvio r
     func azure functionapp fetch-app-settings <app_name>
     ```
     
-1. Aprire *local.settings.json* e copiare il valore denominato`AzureWebJobsStorage`, che corrisponde alla stringa di connessione dell'account di archiviazione. Il nome `AzureWebJobsStorage` e la stringa di connessione si usano in altre sezioni di questo articolo.
+1. Aprire *local.settings.json* e copiare il valore denominato `AzureWebJobsStorage`, che corrisponde alla stringa di connessione dell'account di archiviazione. Il nome `AzureWebJobsStorage` e la stringa di connessione si usano in altre sezioni di questo articolo.
 
 > [!IMPORTANT]
-> Poiché *local.settings.json* contiene i segreti scaricati da Azure, escludere sempre questo file dal controllo del codice sorgente. Il file con estensione *gitignore* creato con un progetto di funzioni locali esclude il file per impostazione predefinita.
+> Poiché *local.settings.json* contiene i segreti scaricati da Azure, escludere sempre questo file dal controllo del codice sorgente. Il file con estensione *gitignore* creato con un progetto di funzioni locale esclude il file per impostazione predefinita.
 
 ## <a name="add-an-output-binding-to-functionjson"></a>Aggiungere un binding di output a function.json
 
@@ -156,7 +156,7 @@ Si noti che *non* è necessario scrivere codice per l'autenticazione, ottenendo 
 1. Al termine, arrestare l'host con **CTRL**+**C**.
 
 > [!TIP]
-> Durante l'avvio, l'host scarica e installa l'[estensione di binding di archiviazione](functions-bindings-storage-blob.md#packages---functions-2x-and-higher) e altre estensioni di binding Microsoft. Questa installazione si verifica perché le estensioni di binding vengono abilitate per impostazione predefinita nel file *host.json* con le proprietà seguenti:
+> Durante l'avvio, l'host scarica e installa l'[estensione di binding di archiviazione](functions-bindings-storage-blob.md#add-to-your-functions-app) e altre estensioni di binding Microsoft. Questa installazione si verifica perché le estensioni di binding vengono abilitate per impostazione predefinita nel file *host.json* con le proprietà seguenti:
 >
 > ```json
 > {
@@ -176,19 +176,19 @@ Quando la funzione genera una risposta HTTP per il Web browser, chiama anche `ms
 
 1. Aprire il file *local.setting.json* del progetto di funzione e copiare il valore della stringa di connessione. In un terminale o una finestra di comando eseguire il comando seguente per creare una variabile di ambiente denominata `AZURE_STORAGE_CONNECTION_STRING`, incollando la stringa di connessione specifica al posto di `<connection_string>`. Questa variabile di ambiente implica che non è necessario fornire la stringa di connessione a ogni comando successivo usando l'argomento `--connection-string`.
 
-    # <a name="bashtabbash"></a>[Bash](#tab/bash)
+    # <a name="bash"></a>[Bash](#tab/bash)
     
     ```bash
     AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     $env:AZURE_STORAGE_CONNECTION_STRING = "<connection_string>"
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```cmd
     set AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
@@ -198,19 +198,19 @@ Quando la funzione genera una risposta HTTP per il Web browser, chiama anche `ms
     
 1. (Facoltativo) Usare il comando [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) per visualizzare le code di archiviazione dell'account. L'output di questo comando dovrebbe includere una coda denominata `outqueue`, che è stata creata quando la funzione ha scritto il primo messaggio in tale coda.
     
-    # <a name="bashtabbash"></a>[Bash](#tab/bash)
+    # <a name="bash"></a>[Bash](#tab/bash)
     
     ```bash
     az storage queue list --output tsv
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     az storage queue list --output tsv
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```cmd
     az storage queue list --output tsv
@@ -219,21 +219,21 @@ Quando la funzione genera una risposta HTTP per il Web browser, chiama anche `ms
     ---
 
 
-1. Usare il comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) per visualizzare i messaggi in questa coda, che dovrebbe essere il primo nome usato per il test della funzione in precedenza. Il comando recupera il primo messaggio nella coda in [codifica base64](functions-bindings-storage-queue.md#encoding), quindi è anche necessario decodificare il messaggio per visualizzarlo come testo.
+1. Usare il comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) per visualizzare i messaggi in questa coda, che dovrebbe essere il primo nome usato per il test della funzione in precedenza. Il comando recupera il primo messaggio nella coda in [codifica base64](functions-bindings-storage-queue.md#encoding), quindi è anche necessario decodificarlo per visualizzarlo come testo.
 
-    # <a name="bashtabbash"></a>[Bash](#tab/bash)
+    # <a name="bash"></a>[Bash](#tab/bash)
     
     ```bash
     echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}')))
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     Poiché è necessario dereferenziare la raccolta di messaggi e decodificare da base64, eseguire PowerShell e usare il comando di PowerShell.
 
@@ -251,13 +251,13 @@ Ora che la funzione è stata testata in locale ed è stato verificato che ha scr
     
 1. Come nell'argomento di avvio rapido precedente, usare un browser o un CURL per testare la funzione ridistribuita.
 
-    # <a name="browsertabbrowser"></a>[Browser](#tab/browser)
+    # <a name="browser"></a>[Browser](#tab/browser)
     
     Copiare l'**URL di richiamo** completo visualizzato nell'output del comando publish nella barra degli indirizzi di un browser, aggiungendo il parametro di query `&name=Azure`. Nel browser dovrebbe essere visualizzato un output simile a quello visualizzato quando è stata eseguita la funzione in locale.
 
     ![Output della funzione eseguita in Azure in un browser](./media/functions-create-first-function-python/function-test-cloud-browser.png)
 
-    # <a name="curltabcurl"></a>[curl](#tab/curl)
+    # <a name="curl"></a>[curl](#tab/curl)
     
     Eseguire [curl](https://curl.haxx.se/) con l'**URL di richiamo**, aggiungendo il parametro `&name=Azure`. L'output del comando dovrebbe essere il testo "Hello Azure".
     

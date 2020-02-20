@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
-ms.openlocfilehash: 1141731697c9f649a4a8d4052cd550605049b52e
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 1e26af6c4bf86cfd412df7435379e610ffd69e85
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606944"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367427"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Esercitazione: Creare entità servizio e assegnazioni di ruolo con PowerShell
 
@@ -28,7 +28,7 @@ In questa esercitazione si apprenderà come:
 > * Creare un'assegnazione di ruolo in Desktop virtuale Windows.
 > * Accedere a Desktop virtuale Windows usando l'entità servizio.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di creare entità servizio e assegnazioni di ruolo, è necessario eseguire tre operazioni:
 
@@ -38,7 +38,7 @@ Prima di creare entità servizio e assegnazioni di ruolo, è necessario eseguire
     Install-Module AzureAD
     ```
 
-2. [Scaricare e importare il modulo PowerShell di Desktop virtuale Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview).
+2. [Scaricare e importare il modulo PowerShell di Desktop virtuale Windows](/powershell/windows-virtual-desktop/overview/).
 
 3. Seguire tutte le istruzioni di questo articolo nella stessa sessione di PowerShell. Il processo potrebbe non funzionare se si interrompe la sessione di PowerShell chiudendo la finestra e riaprendola in un secondo momento.
 
@@ -80,7 +80,7 @@ Ecco le tre credenziali da annotare e i cmdlet che è necessario eseguire per re
 
 Successivamente, è necessario creare un'assegnazione di ruolo in modo che l'entità servizio possa accedere a Desktop virtuale Windows. Assicurarsi di accedere con un account che abbia le autorizzazioni per creare assegnazioni di ruolo.
 
-Prima di tutto, [scaricare e importare il modulo Desktop virtuale Windows di PowerShell](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) da usare nella sessione di PowerShell, se non è già stato fatto.
+Prima di tutto, [scaricare e importare il modulo Desktop virtuale Windows di PowerShell](/powershell/windows-virtual-desktop/overview/) da usare nella sessione di PowerShell, se non è già stato fatto.
 
 Eseguire i cmdlet di PowerShell seguenti per connettersi a Desktop virtuale Windows e visualizzare i tenant.
 

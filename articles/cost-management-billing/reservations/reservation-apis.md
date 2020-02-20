@@ -2,21 +2,18 @@
 title: API per l'automazione delle prenotazioni di Azure | Microsoft Docs
 description: Informazioni sulle API di Azure utilizzabili per ottenere informazioni sulle prenotazioni a livello di codice.
 author: yashesvi
-manager: yashesvi
+ms.reviewer: yashesvi
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 992e46cd8f10ff3c434f34a9f90c777870f3ada4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c2e590f011c92df6aa942e8e1fc799023f15750f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75995819"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200351"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API per l'automazione delle prenotazioni di Azure
 

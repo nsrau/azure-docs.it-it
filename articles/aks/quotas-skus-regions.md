@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: mlearned
-ms.openlocfilehash: a8b561780e2e81499d211252648aeef86561cb9b
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 1bb928f8e7a1f56c4b6b437f260d875662bff60f
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658509"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469835"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Quote, restrizioni sulle dimensioni delle macchine virtuali e disponibilità delle aree in Azure Kubernetes Service (AKS)
 
@@ -33,7 +33,7 @@ Tutte le altre limitazioni relative alla rete, al calcolo e all'archiviazione si
 
 ## <a name="restricted-vm-sizes"></a>Dimensioni delle macchine virtuali limitate
 
-Ogni nodo in un cluster AKS contiene una quantità fissa di risorse di calcolo, ad esempio vCPU e memoria. Se un nodo AKS contiene risorse di calcolo insufficienti, i pod potrebbero non funzionare correttamente. Per assicurarsi che i pod del *sistema Kube* richiesti e le applicazioni possano essere pianificati in modo affidabile, non usare gli SKU di VM seguenti in AKS:
+Ogni nodo in un cluster AKS contiene una quantità fissa di risorse di calcolo, ad esempio vCPU e memoria. Se un nodo AKS contiene risorse di calcolo insufficienti, i pod potrebbero non funzionare correttamente. Per assicurarsi che i pod del *sistema Kube* richiesti e le applicazioni possano essere pianificati in modo affidabile, **non usare gli SKU di VM seguenti in AKS**:
 
 - Standard_A0
 - Standard_A1
@@ -45,7 +45,7 @@ Ogni nodo in un cluster AKS contiene una quantità fissa di risorse di calcolo, 
 
 Per altre informazioni sui tipi di VM e le relative risorse di calcolo, vedere [dimensioni delle macchine virtuali in Azure][vm-skus].
 
-## <a name="region-availability"></a>Disponibilità in base all'area
+## <a name="region-availability"></a>Aree di disponibilità
 
 Per l'elenco più recente di dove è possibile distribuire ed eseguire i cluster, vedere la pagina relativa alla [disponibilità dell'area AKS][region-availability].
 

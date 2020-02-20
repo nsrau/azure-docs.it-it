@@ -3,12 +3,12 @@ title: 'Esercitazione: Creare un cluster Kubernetes con il servizio Azure Kubern
 description: Esercitazione che illustra come creare un cluster Kubernetes con il servizio Azure Kubernetes e Terraform
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: e04abdab2893e76a65615635ae9937797be89855
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: eb8619418cf6d42f600499bb5a12322adce6f44b
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708275"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472248"
 ---
 # <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>Esercitazione: Creare un cluster Kubernetes con il servizio Azure Kubernetes usando Terraform
 
@@ -25,7 +25,7 @@ In questa esercitazione si apprenderà come eseguire le attività seguenti:
 
 - **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
-- **Configurare Terraform**: Seguire le indicazioni nell'articolo su [Terraform e configurazione dell'accesso ad Azure](/azure/virtual-machines/linux/terraform-install-configure)
+- **Configurare Terraform**: Seguire le indicazioni nell'articolo su [Terraform e configurazione dell'accesso ad Azure](terraform-install-configure.md)
 
 - **Entità servizio di Azure**: seguire le indicazioni riportate nella sezione relativa a **Creare l'entità servizio** nell'articolo [Creare entità servizio di Azure con l'interfaccia della riga di comando di Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Prendere nota dei valori di appId, displayName, password e tenant.
 

@@ -3,12 +3,12 @@ title: Esercitazione - Creare un modello Terraform di base in Azure con Yeoman
 description: Informazioni su come creare un modello Terraform di base in Azure con Yeoman.
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: ba81d0ee797fd879fdadc3a6b25ca8f310383f61
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 82c3f5e640789547abb716b55959e1821a61e6d0
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159159"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472146"
 ---
 # <a name="tutorial-create-a-terraform-base-template-in-azure-using-yeoman"></a>Esercitazione: Creare un modello Terraform di base in Azure con Yeoman
 
@@ -21,11 +21,11 @@ In questo articolo si apprenderà come eseguire le attività seguenti:
 > * Eseguire il modulo Terraform con un file Docker.
 > * Eseguire il modulo Terraform in modalità nativa in Azure Cloud Shell.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 - **Visual Studio Code**: [scaricare Visual Studio Code](https://code.visualstudio.com/download) per la piattaforma in uso.
-- **Terraform**: [installare Terraform](/azure/virtual-machines/linux/terraform-install-configure ) per eseguire il modulo creato da Yeoman.
+- **Terraform**: [installare Terraform](terraform-install-configure.md) per eseguire il modulo creato da Yeoman.
 - **Docker**: [installare Docker](https://www.docker.com/get-started) per eseguire il modulo creato dal generatore Yeoman.
 - **Linguaggio di programmazione Go**: [installare Go](https://golang.org/) in quanto i test case generati da Yeoman sono codice in cui viene usato il linguaggio Go.
 

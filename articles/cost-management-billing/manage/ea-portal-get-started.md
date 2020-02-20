@@ -1,19 +1,18 @@
 ---
 title: Introduzione ad Azure Enterprise Portal
 description: Questo articolo illustra come i clienti con un Contratto Enterprise di Azure (Azure EA, Azure Enterprise Agreement) usano Azure Enterprise Portal.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/04/2020
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: boalcsva
-ms.openlocfilehash: 516b3704daee885541cec49b0ee374e050dd4b22
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.reviewer: boalcsva
+ms.openlocfilehash: e1c6eac81968ef6ecbc12ec52415c2aa9680f3e1
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023345"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200830"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Introduzione ad Azure Enterprise Portal
 
@@ -235,7 +234,7 @@ Per il trasferimento degli account tenere a mente queste importanti informazioni
   - Da un account aziendale o dell'istituto di istruzione a un altro account aziendale o dell'istituto di istruzione.
   - Da un account Microsoft a un account aziendale o dell'istituto di istruzione.
   - Da un account Microsoft a un altro account Microsoft.
-  
+
     L'account di destinazione deve essere un account Azure commerciale valido per essere idoneo per il trasferimento. Per i nuovi account viene chiesto di creare un account Azure commerciale durante l'accesso ad Azure Enterprise Portal. Per gli account esistenti, è necessario creare prima una nuova sottoscrizione di Azure perché l'account sia idoneo.
 
 - Non è possibile eseguire un trasferimento da un account aziendale o dell'istituto di istruzione a un account Microsoft.
@@ -285,7 +284,7 @@ I proprietari di account possono visualizzare e gestire le sottoscrizioni. È po
 
 Se si creano sottoscrizioni diverse per ogni ambiente applicativo, si proteggono tutti gli ambienti.
 
-- È anche possibile assegnare un account di amministratore del servizio diverso per ogni sottoscrizione. 
+- È anche possibile assegnare un account di amministratore del servizio diverso per ogni sottoscrizione.
 - È possibile associare le sottoscrizioni a un numero qualsiasi di servizi.
 - Il proprietario dell'account crea le sottoscrizioni e assegna un account amministratore del servizio a ogni sottoscrizione nel proprio account.
 
@@ -309,7 +308,7 @@ Per aggiungere una sottoscrizione:
 1. Selezionare **Sottoscrizioni** e quindi selezionare la sottoscrizione creata.
 1. Selezionare **Modifica i dettagli della sottoscrizione**.
 1. Modificare i valori di **Nome sottoscrizione** e **Amministratore del servizio**, quindi selezionare il segno di spunta.
-  
+
    Il nome della sottoscrizione viene visualizzato nei report. È il nome del progetto associato alla sottoscrizione nel portale di sviluppo.
 
 Per visualizzare le nuove sottoscrizioni nell'elenco, possono essere necessarie fino a 24 ore. Dopo aver creato una sottoscrizione, è possibile:
@@ -509,14 +508,14 @@ Azure Enterprise Portal offre due tipi di sottoscrizioni per i clienti aziendali
 - Microsoft Azure Enterprise, ideale per:
   - Tutti gli scopi di produzione
   - Prezzi migliori in base all'uso dell'infrastruttura
-  
+
   Per altre informazioni, [contattare un rappresentante di Azure](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
 - Sviluppo/test Enterprise, ideale per:
   - Tutti i carichi di lavoro di sviluppo/test per i team
   - Singoli carichi di lavoro di sviluppo/test da medi a pesanti
   - Accesso a speciali immagini MSDN e tariffe per servizi preferenziali
-  
+
   Per altre informazioni, vedere l'[offerta Sviluppo/test Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/).
 
 ### <a name="is-it-possible-to-transfer-subscription-ownership-to-another-account"></a>È possibile trasferire la proprietà di una sottoscrizione a un altro account?

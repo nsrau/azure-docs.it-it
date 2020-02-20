@@ -1,24 +1,17 @@
 ---
 title: Esaminare l'utilizzo delle risorse di Azure con l'API REST | Microsoft Docs
 description: Informazioni su come usare le API REST di Azure per esaminare l'uso delle risorse di servizio di Azure.
-services: billing
-documentationcenter: na
 author: lleonard-msft
-manager: ''
-editor: ''
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: eb444f090c1b2047e3d71c1b2ec52699a61bd880
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f421ddc7cd509527053b099c7e4e538ab84b814e
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75989306"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200572"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Esaminare l'utilizzo di risorse di Azure usando l'API REST
 
@@ -41,7 +34,7 @@ Authorization: Bearer
 
 Il parametro `{subscriptionGuid}` è obbligatorio e deve contenere un ID di sottoscrizione che può essere letto usando le credenziali fornite nel token API. Il `{reportName}`
 
-Gli argomenti seguenti sono obbligatori: 
+Gli argomenti seguenti sono obbligatori:
 
 |Intestazione della richiesta|Descrizione|  
 |--------------------|-----------------|  
@@ -93,7 +86,7 @@ Il valore di
 
 ## <a name="filtering-reports"></a>Filtraggio di report
 
-Le sezioni `filter` e `dimensions` del corpo della richiesta durante la creazione di un report consentono di concentrarsi sui costi per tipo di risorsa specifico. Il corpo della richiesta precedente mostra come filtrare le risorse in base all’area. 
+Le sezioni `filter` e `dimensions` del corpo della richiesta durante la creazione di un report consentono di concentrarsi sui costi per tipo di risorsa specifico. Il corpo della richiesta precedente mostra come filtrare le risorse in base all’area.
 
 ### <a name="get-all-compute-usage"></a>Ottenere tutti gli utilizzi di calcolo
 
@@ -105,9 +98,9 @@ Usare la dimensione `ResourceType` per creare report dei costi delle macchine vi
         "name": "ResourceType",
         "operator": "In",
         "values": [
-                "Microsoft.ClassicCompute/virtualMachines", 
+                "Microsoft.ClassicCompute/virtualMachines",
                 "Microsoft.Compute/virtualMachines"
-        ] 
+        ]
     }
 }
 ```
@@ -123,7 +116,7 @@ Usare la dimensione `ResourceType` per creare report dei costi del database SQL 
         "operator": "In",
         "values": [
                 "Microsoft.Sql/servers"
-        ] 
+        ]
     }
 }
 ```

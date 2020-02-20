@@ -1,21 +1,21 @@
 ---
 title: Distribuire l'immagine del contenitore da Azure Container Registry
-description: Informazioni su come distribuire i contenitori in Istanze di Azure Container usando le immagini contenitore in un Registro Azure Container.
+description: Informazioni su come distribuire i contenitori in istanze di contenitore di Azure estraendo le immagini del contenitore da un registro contenitori di Azure.
 services: container-instances
 ms.topic: article
-ms.date: 12/30/2019
+ms.date: 02/18/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0d39c83646357cf9426239d28e445c4791ddceb0
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bcb1b02b8a2605a42acbe7f33973bef315ca6f54
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981678"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468916"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Eseguire la distribuzione in Istanze di Azure Container da Registro Azure Container
 
-[Registro Azure Container](../container-registry/container-registry-intro.md) è un servizio gestito di registro contenitori usato per archiviare immagini di un contenitore Docker privato. Questo articolo illustra come distribuire in Istanze di Azure Container immagini del contenitore archiviate in un Registro Azure Container.
+[Registro Azure Container](../container-registry/container-registry-intro.md) è un servizio gestito di registro contenitori usato per archiviare immagini di un contenitore Docker privato. Questo articolo descrive come eseguire il pull delle immagini del contenitore archiviate in un registro contenitori di Azure durante la distribuzione in istanze di contenitore di Azure. Per configurare l'accesso al registro di sistema, è consigliabile creare un Azure Active Directory entità servizio e la password e archiviare le credenziali di accesso in Azure Key Vault.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -28,6 +28,9 @@ ms.locfileid: "75981678"
 In uno scenario di produzione in cui si fornisce l'accesso a servizi e applicazioni "Head", è consigliabile configurare l'accesso al registro di sistema tramite un' [entità servizio](../container-registry/container-registry-auth-service-principal.md). Un'entità servizio consente di fornire il [controllo degli accessi in base al ruolo](../container-registry/container-registry-roles.md) alle immagini del contenitore. Ad esempio, è possibile configurare un'entità servizio con accesso pull-only a un registro.
 
 Azure Container Registry offre [Opzioni di autenticazione](../container-registry/container-registry-authentication.md)aggiuntive.
+
+> [!NOTE]
+> Non è possibile eseguire l'autenticazione in Azure Container Registry per eseguire il pull delle immagini durante la distribuzione del gruppo di contenitori usando un' [identità gestita](container-instances-managed-identity.md) configurata nello stesso gruppo di contenitori.
 
 Nella sezione seguente vengono creati un insieme di credenziali delle chiavi e un'entità servizio di Azure e le credenziali dell'entità servizio vengono archiviate nell'insieme. 
 
@@ -78,7 +81,7 @@ az keyvault secret set \
     --value $(az ad sp show --id http://$ACR_NAME-pull --query appId --output tsv)
 ```
 
-È stato creato un insieme di credenziali delle chiavi di Azure e vi sono stati archiviati due segreti:
+È stato creato un insieme di credenziali delle chiavi di Azure e sono stati archiviati due segreti:
 
 * `$ACR_NAME-pull-usr`: ID dell'entità servizio, da usare come **nome utente** del registro contenitori.
 * `$ACR_NAME-pull-pwd`: password dell'entità servizio, da usare come **password** del registro contenitori.

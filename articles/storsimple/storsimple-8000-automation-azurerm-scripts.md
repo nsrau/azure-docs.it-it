@@ -1,17 +1,17 @@
 ---
-title: Usare script di Azure Resource Manager per gestire i dispositivi StorSimple
+title: Usare gli script di PowerShell per AzureRM per gestire i dispositivi StorSimple
 description: Informazioni su come usare gli script di Azure Resource Manager per automatizzare i processi di StorSimple
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: d1c98aa8c9b635f08bb14db2bde5485640a5d24d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 03a5ef49b2d58d351d882b30b5d11e4a5ba90264
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276638"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471959"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Usare gli script basati su Azure Resource Manager SDK per gestire i dispositivi StorSimple
 
@@ -25,7 +25,7 @@ Gli script di esempio seguenti sono disponibili per l'automazione di diversi pro
 
 #### <a name="table-of-azure-resource-manager-sdk-based-sample-scripts"></a>Tabella degli script di esempio basati su Azure Resource Manager SDK
 
-| Script di Azure Resource Manager                    | Description                                                                                                                                                                                                       |
+| Script di Azure Resource Manager                    | Descrizione                                                                                                                                                                                                       |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Authorize-ServiceEncryptionRollover.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Authorize-ServiceEncryptionRollover.ps1)          | Questo script consente di autorizzare il dispositivo StorSimple a modificare la chiave di crittografia dei dati del servizio.                                                                                                           |
 | [Create-StorSimpleCloudAppliance.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Create-StorSimpleCloudAppliance.ps1)              | Questo script crea un'appliance cloud StorSimple 8010 o 8020. L'appliance cloud può essere quindi configurata e registrata con il servizio Gestore dati StorSimple.                                                       |
@@ -97,7 +97,7 @@ Lo script usato in questo esempio elenca tutti i processi in un dispositivo Stor
 
     ```
 
-### <a name="sample-output"></a>Output di esempio
+### <a name="sample-output"></a>Output dell'esempio:
 
 L'output seguente viene visualizzato quando viene eseguito lo script di esempio. L'output contiene tutti i processi eseguiti in un dispositivo registrato avviati il 25 settembre 2017 e completati entro il 2 ottobre 2017.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: girobins
-ms.openlocfilehash: b90fc6f1f50ec2ea75619188cca36f78061f28df
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 013ebdcdbac41825c10a1362f73ab4c94052400d
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326797"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469936"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>Clausola SELECT in Azure Cosmos DB
 
@@ -76,9 +76,9 @@ La sintassi di `SELECT *` è valida solo se la clausola FROM ha dichiarato esatt
   
    `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
-L'esempio di query SELECT seguente restituisce `address` da `Families` il cui `id` corrisponde a `AndersenFamily`:
+L'esempio di query SELECT seguente restituisce `address` da `Families` il cui `id` corrisponde `AndersenFamily`:
 
 ```sql
     SELECT f.address
@@ -168,6 +168,50 @@ I risultati sono:
         "name": "AndersenFamily"
       }
     }]
+```
+## <a name="reserved-keywords-and-special-characters"></a>Parole chiave riservate e caratteri speciali
+
+Se i dati contengono proprietà con lo stesso nome delle parole chiave riservate, ad esempio "Order" o "Group", le query eseguite su questi documenti comporteranno errori di sintassi. Per eseguire correttamente la query, è necessario includere in modo esplicito la proprietà in `[]` carattere.
+
+Ad esempio, di seguito è riportato un documento con una proprietà denominata `order` e una proprietà `price($)` contenente caratteri speciali:
+
+```json
+{
+  "id": "AndersenFamily",
+  "order": [
+     {
+         "orderId": "12345",
+         "productId": "A17849",
+         "price($)": 59.33
+     }
+  ],
+  "creationDate": 1431620472,
+  "isRegistered": true
+}
+```
+
+Se si eseguono query che includono la proprietà `order` o `price($)`, verrà visualizzato un errore di sintassi.
+
+```sql
+SELECT * FROM c where c.order.orderid = "12345"
+```
+```sql
+SELECT * FROM c where c.order.price($) > 50
+```
+Il risultato è:
+
+`
+Syntax error, incorrect syntax near 'order'
+`
+
+È necessario riscrivere le stesse query come indicato di seguito:
+
+```sql
+SELECT * FROM c WHERE c["order"].orderId = "12345"
+```
+
+```sql
+SELECT * FROM c WHERE c["order"]["price($)"] > 50
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

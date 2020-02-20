@@ -5,12 +5,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: Informazioni su come configurare Azure Dev Spaces per l'uso di un controller di ingresso NGINX personalizzato e configurare HTTPS usando il controller di ingresso
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.openlocfilehash: a6fcc6bfd7f3bd682cd67b58312a83c23e2a3b1b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c6158c3229f4cb81df69b05c6973425c346a2046
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483167"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77466876"
 ---
 # <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>Usare un controller di ingresso NGINX personalizzato e configurare HTTPS
 
@@ -53,6 +53,13 @@ Creare uno spazio dei nomi Kubernetes per il controller di ingresso NGINX e inst
 kubectl create ns nginx
 helm install nginx stable/nginx-ingress --namespace nginx --version 1.27.0
 ```
+
+> [!NOTE]
+> L'esempio precedente crea un endpoint pubblico per il controller di ingresso. Se invece è necessario usare un endpoint privato per il controller di ingresso, aggiungere il *comando--set controller. Service. Annotations. Service\\. beta\\. kubernetes\\. io/Azure-Load-Balancer-Internal "= true* parametro per il comando *Helm install* . Ad esempio,
+> ```console
+> helm install nginx stable/nginx-ingress --namespace nginx --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.27.0
+> ```
+> Questo endpoint privato viene esposto all'interno della rete virtuale in cui è distribuito il cluster AKS.
 
 Ottenere l'indirizzo IP del servizio controller di ingresso NGINX usando [kubectl Get][kubectl-get].
 
@@ -238,7 +245,7 @@ Aggiornare l'applicazione di esempio usando `helm`:
 helm upgrade bikesharing . --namespace dev --atomic
 ```
 
-Passare all'applicazione di esempio nello spazio figlio *dev/azureuser1* . si noterà che si viene reindirizzati per l'uso di HTTPS. Si noti inoltre che la pagina viene caricata, ma il browser mostra alcuni errori. L'apertura della console del browser mostra che l'errore si riferisce a una pagina HTTPS che tenta di caricare le risorse HTTP. Ad esempio:
+Passare all'applicazione di esempio nello spazio figlio *dev/azureuser1* . si noterà che si viene reindirizzati per l'uso di HTTPS. Si noti inoltre che la pagina viene caricata, ma il browser mostra alcuni errori. L'apertura della console del browser mostra che l'errore si riferisce a una pagina HTTPS che tenta di caricare le risorse HTTP. Ad esempio,
 
 ```console
 Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/devsignin' was loaded over HTTPS, but requested an insecure resource 'http://azureuser1.s.dev.gateway.nginx.MY_CUSTOM_DOMAIN/api/user/allUsers'. This request has been blocked; the content must be served over HTTPS.

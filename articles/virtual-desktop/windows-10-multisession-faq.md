@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: helohr
-ms.openlocfilehash: 543514683ff96449bfe0e5a21c525834f61f3027
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: e2fa30772082f4d2f7c02add61412432233e3f04
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367140"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470573"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Domande frequenti su Windows 10 Enterprise multisessione
 
@@ -28,7 +28,7 @@ Il numero di sessioni interattive che possono essere attive contemporaneamente s
  
 ## <a name="why-does-my-application-report-windows-10-enterprise-multi-session-as-a-server-operating-system"></a>Perché l'applicazione segnala Windows 10 Enterprise multisessione come sistema operativo server?
 
-Windows 10 Enterprise Multisession è un'edizione virtuale di Windows 10 Enterprise. Una delle differenze consiste nel fatto che questo sistema operativo segnala il [ProductType](/windows/desktop/cimwin32prov/win32-operatingsystem/) come avente un valore pari a 3, ovvero lo stesso valore di Windows Server. Questa proprietà mantiene il sistema operativo compatibile con gli strumenti di gestione RDSH esistenti, le applicazioni RDSH con più sessioni e le ottimizzazioni delle prestazioni del sistema di basso livello per gli ambienti RDSH. Alcuni programmi di installazione dell'applicazione possono bloccare l'installazione in più sessioni di Windows 10, a seconda che rilevino che ProductType sia impostato su client. Se l'app non viene installata, contattare il fornitore dell'applicazione per una versione aggiornata. 
+Windows 10 Enterprise Multisession è un'edizione virtuale di Windows 10 Enterprise. Una delle differenze consiste nel fatto che questo sistema operativo segnala il [ProductType](/windows/win32/cimwin32prov/win32-operatingsystem) come avente un valore pari a 3, ovvero lo stesso valore di Windows Server. Questa proprietà mantiene il sistema operativo compatibile con gli strumenti di gestione RDSH esistenti, le applicazioni RDSH con più sessioni e le ottimizzazioni delle prestazioni del sistema di basso livello per gli ambienti RDSH. Alcuni programmi di installazione dell'applicazione possono bloccare l'installazione in più sessioni di Windows 10, a seconda che rilevino che ProductType sia impostato su client. Se l'app non viene installata, contattare il fornitore dell'applicazione per una versione aggiornata. 
  
 ## <a name="can-i-run-windows-10-enterprise-multi-session-on-premises"></a>È possibile eseguire la multisessione Enterprise di Windows 10 in locale?
 

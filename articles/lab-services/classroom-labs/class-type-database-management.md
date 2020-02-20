@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
-ms.openlocfilehash: 92152652ca264cace12d3f780ebec0f80bb2048a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4c375487b30595251753021033c98cf0ca1e8dd7
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233766"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469919"
 ---
 # <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>Configurare un Lab per insegnare la gestione dei database per i database relazionali
 
@@ -32,7 +32,7 @@ Per configurare questo Lab, è necessario disporre di una sottoscrizione di Azur
 
 ### <a name="lab-account-settings"></a>Impostazioni dell'account Lab
 
-Abilitare le impostazioni descritte nella tabella seguente per l'account Lab. Per altre informazioni su come abilitare le immagini del Marketplace, vedere [specificare le immagini del Marketplace disponibili per gli autori del Lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#specify-marketplace-images-available-to-lab-creators).
+Abilitare le impostazioni descritte nella tabella seguente per l'account Lab. Per altre informazioni su come abilitare le immagini del Marketplace, vedere [specificare le immagini del Marketplace disponibili per gli autori del Lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
 
 | Impostazione dell'account Lab | Istruzioni |
 | ------------------- | ------------ |
@@ -63,7 +63,7 @@ Di seguito è riportato un esempio di una possibile stima dei costi per questa c
 
 Per ulteriori informazioni sui prezzi, vedere [Azure Lab Services prezzi](https://azure.microsoft.com/pricing/details/lab-services/).
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 
 Questo articolo illustra i passaggi necessari per creare un Lab per i concetti di base sulla gestione dei database usando MySQL e SQL Server. È possibile utilizzare una configurazione simile per altre classi di database.
 

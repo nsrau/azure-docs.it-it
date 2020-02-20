@@ -1,20 +1,20 @@
 ---
 title: Panoramica | Mappe di Microsoft Azure
 description: Questo articolo illustra i servizi e le funzionalità di Mappe di Microsoft Azure e descrive come usarli nelle applicazioni.
-author: walsehgal
-ms.author: v-musehg
-ms.date: 02/11/2020
+author: farah-alyasari
+ms.author: v-faalya
+ms.date: 01/15/2020
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e01bfec9edbe1e868a3e3244e3cb6d1e1a46561d
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: b375ea8fdebd876bdc7ecf157a4cebd5e614dfd0
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190348"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443718"
 ---
 # <a name="what-is-azure-maps"></a>Informazioni su Mappe di Azure
 
@@ -45,13 +45,13 @@ Il video seguente spiega Mappe di Azure in modo approfondito:
 
 Azure Maps Web SDK consente di personalizzare le mappe interattive con contenuto e immagini personali È possibile usare questa mappa interattiva per le applicazioni Web o per dispositivi mobili. Il controllo mappa usa WebGL, per poter eseguire il rendering di set di dati di grandi dimensioni con prestazioni elevate. Sviluppare con l'SDK usando JavaScript o TypeScript.
 
-![Mappa di esempio di cambiamenti della popolazione](media/about-azure-maps/Introduction_WebMapControl.png)
+![Mappa di esempio di cambiamenti della popolazione](media/about-azure-maps/intro_web_map_control.png)
 
 ### <a name="android-sdk"></a>Android SDK
 
 Usare Android SDK di Mappe di Azure per creare applicazioni per dispositivi mobili che usano le mappe. 
 
-![Esempi di mappa in un dispositivo mobile](media/about-azure-maps/AndroidSDK.png)
+![Esempi di mappa in un dispositivo mobile](media/about-azure-maps/android_sdk.png)
 
 ## <a name="services-in-azure-maps"></a>Servizi di Mappe di Azure
 
@@ -73,7 +73,7 @@ Per altre informazioni sul servizio, vedere la [documentazione dell'API Mobility
 
 Il servizio di rendering consente agli sviluppatori di creare applicazioni Web e per dispositivi mobili con funzioni di mapping. Offre grafica raster di alta qualità, disponibile in 19 livelli di zoom, oppure mappe in formato vettoriale completamente personalizzabili.
 
-![Esempio di mappa dal servizio di rendering](media/about-azure-maps/Introduction_Map.png)
+![Esempio di mappa dal servizio di rendering](media/about-azure-maps/intro_map.png)
 
 Il servizio di rendering offre ora le API per consentire agli sviluppatori di lavorare con immagini satellitari in anteprima. Per altre informazioni, vedere la [documentazione dell'API di rendering](https://docs.microsoft.com/rest/api/maps/render).
 
@@ -81,7 +81,7 @@ Il servizio di rendering offre ora le API per consentire agli sviluppatori di la
 
 Il servizio di pianificazione percorso contiene potenti calcoli geometrici applicati alle infrastrutture del mondo reale e prevede indicazioni stradali diverse a seconda della modalità di trasporto. Il servizio consente agli sviluppatori di calcolare le indicazioni stradali per diverse modalità di trasporto, come l'auto, la bicicletta, l'autocarro o il percorso pedonale. Il servizio tiene anche in considerazione parametri di input, ad esempio le condizioni di traffico, le limitazioni di peso o il trasporto di materiale pericoloso.
 
-![Esempio di una mappa dal servizio di pianificazione percorso](media/about-azure-maps/Introduction_Route.png)
+![Esempio di una mappa dal servizio di pianificazione percorso](media/about-azure-maps/intro_route.png)
 
 Il servizio di pianificazione percorso offre un'anteprima delle funzionalità avanzate, ad esempio: 
 
@@ -95,7 +95,7 @@ Per informazioni dettagliate sulle funzionalità di pianificazione dei percorsi,
 
 Il servizio di ricerca consente agli sviluppatori di offrire funzionalità per la ricerca di indirizzi, località, punti di interesse, elenchi di aziende per nome o categoria e altre informazioni geografiche. Include la funzionalità di [geodecodifica](https://en.wikipedia.org/wiki/Reverse_geocoding), ovvero può convertire le coordinate di latitudine e longitudine in indirizzi e incroci stradali.
 
-![Esempio di una ricerca su una mappa](media/about-azure-maps/Introduction_Search.png)
+![Esempio di una ricerca su una mappa](media/about-azure-maps/intro_search.png)
 
 Il servizio di ricerca offre anche funzionalità avanzate come:
 
@@ -149,7 +149,7 @@ Il servizio informazioni sul traffico è costituito da più servizi Web utilizza
 * Flusso del traffico: dati sulla velocità e sui tempi di percorrenza osservati in tempo reale per tutte le strade principali della rete.
 * Eventi imprevisti del traffico: visualizzazione aggiornata di ingorghi e incidenti nella rete stradale.
 
-![Esempio di una mappa con informazioni sul traffico](media/about-azure-maps/Introduction_Traffic.png)
+![Esempio di una mappa con informazioni sul traffico](media/about-azure-maps/intro_traffic.png)
 
 Per altre informazioni, vedere la [documentazione delle API per il traffico](https://docs.microsoft.com/rest/api/maps/traffic).
 

@@ -1,19 +1,18 @@
 ---
 title: Informazioni su come viene applicato lo sconto per la prenotazione ad Esplora dati di Azure
 description: Informazioni su come viene applicato lo sconto per la prenotazione al contatore di ricarico di Esplora dati di Azure.
-services: data-explorer
 author: avneraa
 ms.author: avnera
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 11/03/2019
-ms.openlocfilehash: 88ab9c475d417bc935cf5d2d67f1678794fb74d1
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/12/2020
+ms.openlocfilehash: ab107a0afe8be1d95de8dafb21f239e6da733271
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75995624"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199331"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Informazioni su come viene applicato lo sconto per la prenotazione ad Esplora dati di Azure
 
@@ -36,23 +35,23 @@ Lo sconto per la prenotazione viene applicato al consumo di ricarico di Esplora 
 ## <a name="examples"></a>Esempi
 
 Gli esempi seguenti mostrano come viene applicato lo sconto per la capacità riservata di Esplora dati di Azure a seconda del numero di unità di ricarico acquistate e dei tempi di esecuzione.
-Per le dimensioni del cluster motore, ad esempio: **2 macchine virtuali D11_v2**, gli addebiti su richiesta totali sono per quattro unità del contatore di ricarico di Esplora dati di Azure all'ora. 
+Per le dimensioni del cluster motore, ad esempio: **2 macchine virtuali D11_v2**, gli addebiti su richiesta totali sono per quattro unità del contatore di ricarico di Esplora dati di Azure all'ora.
 
-**Scenario 1** 
+**Scenario 1**
 
 Si acquista capacità riservata di Esplora dati di Azure per 8 unità di ricarico di Esplora dati di Azure. Si esegue un cluster motore di due macchine virtuali D13_v2 con un totale di 16 core che copre 16 unità di ricarico di Esplora dati di Azure all'ora e corrisponde al resto degli attributi della prenotazione. Viene addebitata la tariffa con pagamento in base al consumo per 8 core di utilizzo delle risorse di calcolo di Esplora dati di Azure e si ottiene lo sconto di prenotazione per un'ora di utilizzo di otto core dell'unità di ricarico di Esplora dati di Azure.
 
 Per gli altri esempi, si presuppone che la capacità riservata di Esplora dati di Azure acquistata sia per cluster di Esplora dati di Azure da 16 core e che gli altri attributi della prenotazione corrispondano al cluster di Esplora dati di Azure in esecuzione.
 
-**Scenario 2** 
+**Scenario 2**
 
 Si eseguono due cluster motore di Esplora dati di Azure con otto core ciascuno per un'ora in due diverse aree geografiche. Viene applicato lo sconto di prenotazione di 16 core sia per il cluster sia per le 16 unità di ricarico di Esplora dati di Azure usate.
 
-**Scenario 3** 
+**Scenario 3**
 
 Si esegue un cluster motore di Esplora dati di Azure a 16 core dalle 13:00 alle 13:30. Si esegue un altro cluster motore di Esplora dati di Azure a 16 core dalle 13:30 alle 14:00. A entrambi i database viene applicato lo sconto sulla prenotazione.
 
-**Scenario 4** 
+**Scenario 4**
 
 Si esegue un cluster motore di Esplora dati di Azure a 16 core dalle 13:00 alle 13:45. Si esegue un altro cluster motore di Esplora dati di Azure a 16 core dalle 13:30 alle 14:00. Viene addebitata la tariffa con pagamento in base al consumo per la sovrapposizione di 15 minuti. Lo sconto sulla prenotazione viene applicato all'utilizzo del ricarico di Esplora dati di Azure per il resto del tempo.
 

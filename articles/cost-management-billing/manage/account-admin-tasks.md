@@ -2,21 +2,18 @@
 title: Attività di amministratore account nel portale di Azure
 description: Descrive come eseguire operazioni di pagamento nel portale di Azure
 author: bandersmsft
-manager: judupont
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 2f858fa7715145d55cf1c978b9c368e1f6586dce
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 5d48f6e02719bbf647cdbf800550d73ce83a018f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132125"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201000"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Attività di amministratore account nel portale di Azure
 
@@ -25,35 +22,35 @@ Questo articolo illustra come eseguire le attività seguenti nel portale di Azur
 - Rimuovere il limite di spesa per la sottoscrizione
 - Aggiungere crediti alla sottoscrizione di Azure in Open
 
-Per eseguire una di queste attività, è necessario avere il ruolo di amministratore account. 
+Per eseguire una di queste attività, è necessario avere il ruolo di amministratore account.
 
 ## <a name="navigate-to-your-subscriptions-payment-methods"></a>Passare ai metodi di pagamento della sottoscrizione
 
-1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore account. 
+1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore account.
 
 1. Cercare **Gestione dei costi e fatturazione**.
-    
+
     ![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione ](./media/account-admin-tasks/search-bar.png)
 
-1. Nell'elenco **Sottoscrizioni personali** selezionare la sottoscrizione a cui si vuole aggiungere la carta di credito. 
-   
+1. Nell'elenco **Sottoscrizioni personali** selezionare la sottoscrizione a cui si vuole aggiungere la carta di credito.
+
    ![Screenshot che mostra la griglia delle sottoscrizioni personali in visualizzazione panoramica](./media/account-admin-tasks/cost-management-billing-overview-x.png)
-   
+
    > [!NOTE]
-   > Se non vengono visualizzate alcune sottoscrizioni, è possibile che la directory della sottoscrizione sia stata modificata in un determinato momento. Per queste sottoscrizioni, è necessario passare alla directory originale (la directory in cui è stata effettuata l'iscrizione iniziale). Quindi, ripetere il passaggio 2. 
+   > Se non vengono visualizzate alcune sottoscrizioni, è possibile che la directory della sottoscrizione sia stata modificata in un determinato momento. Per queste sottoscrizioni, è necessario passare alla directory originale (la directory in cui è stata effettuata l'iscrizione iniziale). Quindi, ripetere il passaggio 2.
 
 1. Selezionare **Metodi di pagamento**.
 
     ![Screenshot che mostra il pannello dei metodi di pagamento selezionato.](./media/account-admin-tasks/subscription-payment-methods-blade.png)
 
-Qui è possibile aggiungere una nuova carta di credito, modificare il metodo di pagamento attivo, modificare i dettagli della carta di credito ed eliminare carte di credito. 
+Qui è possibile aggiungere una nuova carta di credito, modificare il metodo di pagamento attivo, modificare i dettagli della carta di credito ed eliminare carte di credito.
 
 ### <a name="change-active-payment-method"></a>Modificare il metodo di pagamento attivo
 
 È possibile modificare il metodo di pagamento attivo aggiungendo una nuova carta di credito o scegliendone una già salvata. Per modificare il metodo di pagamento attivo impostando una nuova carta di credito:
 
 1. Nell'angolo in alto a sinistra selezionare "+" per aggiungere una carta di credito.
-    
+
     ![Screenshot che mostra il segno più](./media/account-admin-tasks/subscription-payment-methods-plus.png)
 
 1. Immettere i dettagli della carta di credito nel modulo a destra.
@@ -111,7 +108,7 @@ Per ricevere l'approvazione di un pagamento con fattura, vedere l'articolo conte
 
 ### <a name="edit-invoice-payment-address"></a>Modificare l'indirizzo di fatturazione
 
-Per modificare l'indirizzo associato al metodo di pagamento con fattura, fare clic su **Fattura** nell'elenco dei metodi di pagamento per la sottoscrizione. A destra verrà visualizzato il modulo dell'indirizzo. 
+Per modificare l'indirizzo associato al metodo di pagamento con fattura, fare clic su **Fattura** nell'elenco dei metodi di pagamento per la sottoscrizione. A destra verrà visualizzato il modulo dell'indirizzo.
 
 ## <a name="remove-spending-limit"></a>Rimuovere il limite di spesa
 
@@ -124,15 +121,15 @@ Il limite di spesa non è disponibile per le sottoscrizioni con piani di impegno
 
     ![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione ](./media/account-admin-tasks/search-bar.png)
 
-1. Nell'elenco **Sottoscrizioni personali** selezionare la sottoscrizione di Visual Studio Enterprise. 
+1. Nell'elenco **Sottoscrizioni personali** selezionare la sottoscrizione di Visual Studio Enterprise.
 
    ![Screenshot che mostra la griglia delle sottoscrizioni personali in visualizzazione panoramica](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
 
     > [!NOTE]
     > Se non vengono visualizzate alcune sottoscrizioni di Visual Studio, è possibile che la directory della sottoscrizione sia stata modificata in un determinato momento. Per queste sottoscrizioni, è necessario passare alla directory originale (la directory in cui è stata effettuata l'iscrizione iniziale). Quindi, ripetere il passaggio 2.
-    
+
 1. Nella visualizzazione panoramica della sottoscrizione fare clic sul banner arancione per rimuovere il limite di spesa.
-    
+
     ![Screenshot che mostra il banner per la rimozione del limite di spesa](./media/account-admin-tasks/msdn-remove-spending-limit-banner-x.png)
 
 1. Scegliere se si vuole rimuovere il limite di spesa per un periodo illimitato o solo per il periodo di fatturazione corrente.
@@ -152,15 +149,15 @@ Se si dispone di una sottoscrizione di Licenze Azure in Open, è possibile aggiu
 
     ![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione ](./media/account-admin-tasks/search-bar.png)
 
-1. Nell'elenco **Sottoscrizioni personali** selezionare la sottoscrizione di Azure in Open. 
+1. Nell'elenco **Sottoscrizioni personali** selezionare la sottoscrizione di Azure in Open.
 
     ![Screenshot che mostra la griglia delle sottoscrizioni personali in visualizzazione panoramica](./media/account-admin-tasks/cost-management-overview-aio-x.png)
 
    > [!NOTE]
    > Se non vengono visualizzate le proprie sottoscrizioni, è possibile che la relativa directory sia stata modificata in un determinato momento. È necessario passare alla directory originale della sottoscrizione (la directory in cui è stata effettuata l'iscrizione iniziale). Quindi, ripetere il passaggio 2.
-    
+
 1. Selezionare **Cronologia crediti**.
-    
+
     ![Screenshot che mostra la cronologia dei crediti](./media/account-admin-tasks/aio-credit-history-blade.png)
 
 1. Nell'angolo in alto a sinistra selezionare "+" per aggiungere altri crediti.
@@ -168,7 +165,7 @@ Se si dispone di una sottoscrizione di Licenze Azure in Open, è possibile aggiu
     ![Screenshot che mostra il pulsante per l'aggiunta di crediti](./media/account-admin-tasks/aio-credit-history-plus.png)
 
 1. Selezionare un tipo di metodo di pagamento dall'elenco a discesa. È possibile aggiungere un codice Product Key o acquistare crediti con una carta di credito.
-    
+
     ![Screenshot che mostra l'elenco a discesa dei metodi di pagamento nel pannello Aggiungi crediti](./media/account-admin-tasks/add-credits-select-payment-method.png)
 
 1. Se si sceglie il codice Product Key:

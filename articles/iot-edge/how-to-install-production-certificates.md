@@ -8,12 +8,12 @@ ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fe46e968aa2dcebaa483cd38fd2e050ccfe43054
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: d9f715a6ab43206d02107f6335e9b4c0bb4266e0
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77149899"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471007"
 ---
 # <a name="install-production-certificates-on-an-iot-edge-device"></a>Installare i certificati di produzione in un dispositivo IoT Edge
 
@@ -30,7 +30,7 @@ Per altre informazioni sui diversi tipi di certificati e sui relativi ruoli in u
 >[!NOTE]
 >Il termine "CA radice" usato in questo articolo si riferisce al certificato pubblico dell'autorità superiore della catena di certificati per la soluzione Internet delle cose. Non è necessario utilizzare la radice del certificato di un'autorità di certificazione con diffusore o la radice dell'autorità di certificazione dell'organizzazione. In molti casi, si tratta in realtà di un certificato pubblico CA intermedio.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Un dispositivo IoT Edge, in esecuzione in [Windows](how-to-install-iot-edge-windows.md) o [Linux](how-to-install-iot-edge-linux.md).
 * Disporre di un certificato dell'autorità di certificazione (CA) radice, autofirmato o acquistato da un'autorità di certificazione commerciale attendibile come Baltimora, Verisign, DigiCert o GlobalSign.
@@ -68,24 +68,24 @@ Ad esempio, se sono stati usati gli script di esempio per [creare i certificati 
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-3. Impostare le proprietà del **certificato** nel file config. YAML sull'URI del file del certificato e dei file di chiave nel dispositivo IOT Edge. Rimuovere il carattere `#` prima delle proprietà del certificato per rimuovere il commento dalle quattro righe. Verificare che la riga **certificati:** non includa spazi vuoti precedenti e che gli elementi nidificati siano rientrati in due spazi. Ad esempio,
+3. Impostare le proprietà del **certificato** nel file config. YAML sul percorso completo dei file di certificato e di chiave nel dispositivo IOT Edge. Rimuovere il carattere `#` prima delle proprietà del certificato per rimuovere il commento dalle quattro righe. Verificare che la riga **certificati:** non includa spazi vuoti precedenti e che gli elementi nidificati siano rientrati in due spazi. Ad esempio:
 
    * Windows:
 
       ```yaml
       certificates:
-        device_ca_cert: "file:///c:/path/device-ca.cert.pem"
-        device_ca_pk: "file:///c:/path/device-ca.key.pem"
-        trusted_ca_certs: "file:///c:/path/root-ca.root.ca.cert.pem"
+        device_ca_cert: "c:\\<path>\\device-ca.cert.pem"
+        device_ca_pk: "c:\\<path>\\device-ca.key.pem"
+        trusted_ca_certs: "c:\\<path>\\root-ca.root.ca.cert.pem"
       ```
 
    * Linux:
 
       ```yaml
       certificates:
-        device_ca_cert: "file:///path/device-ca.cert.pem"
-        device_ca_pk: "file:///path/device-ca.key.pem"
-        trusted_ca_certs: "file:///path/root-ca.root.ca.cert.pem"
+        device_ca_cert: "<path>/device-ca.cert.pem"
+        device_ca_pk: "<path>/device-ca.key.pem"
+        trusted_ca_certs: "<path>/root-ca.root.ca.cert.pem"
       ```
 
 4. Nei dispositivi Linux, assicurarsi che l'utente **iotedge** disponga delle autorizzazioni di lettura per la directory che contiene i certificati.

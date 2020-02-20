@@ -2,24 +2,21 @@
 title: Organizzare la fattura in base alle esigenze - Azure
 description: Informazioni su come organizzare i costi nella fattura.
 author: amberbhargava
-manager: amberb
-editor: banders
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 7f3a5232f8c5bfbf3f2e81ba52607406f8a038b4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c9cb1d7d1dcc6e7872b22d8c58fe44b9bce25f13
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76843889"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200745"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>Organizzare i costi personalizzando l'account di fatturazione
 
-L'account di fatturazione per il Contratto del cliente Microsoft offre la flessibilità necessaria per organizzare i costi in base alle esigenze, a seconda che si tratti di un ambiente di reparto, progetto o sviluppo. 
+L'account di fatturazione per il Contratto del cliente Microsoft offre la flessibilità necessaria per organizzare i costi in base alle esigenze, a seconda che si tratti di un ambiente di reparto, progetto o sviluppo.
 
 Questo articolo descrive come usare il portale di Azure per organizzare i costi. Questo articolo si applica a un account di fatturazione per un Contratto del cliente Microsoft. [Verificare di avere accesso a un Contratto del cliente Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
@@ -33,7 +30,7 @@ Nell'account di fatturazione per un Contratto del cliente Microsoft, per organiz
 
 Un profilo di fatturazione rappresenta una fattura e le informazioni di fatturazione correlate, come i metodi di pagamento e l'indirizzo di fatturazione. Viene generata una fattura mensile all'inizio del mese per ogni profilo di fatturazione incluso nell'account. La fattura contiene gli addebiti per l'utilizzo di Azure e per altri acquisti eseguiti nel corso del mese precedente.
 
-Quando si esegue l'iscrizione ad Azure, insieme all'account di fatturazione viene creato automaticamente un profilo di fatturazione. È possibile creare profili di fatturazione aggiuntivi per organizzare i costi in più fatture mensili. 
+Quando si esegue l'iscrizione ad Azure, insieme all'account di fatturazione viene creato automaticamente un profilo di fatturazione. È possibile creare profili di fatturazione aggiuntivi per organizzare i costi in più fatture mensili.
 
 > [!IMPORTANT]
 >
@@ -41,9 +38,9 @@ Quando si esegue l'iscrizione ad Azure, insieme all'account di fatturazione vien
 
 ### <a name="invoice-section"></a>Sezione della fattura
 
-Una sezione della fattura rappresenta un raggruppamento di costi all'interno della fattura. Per ogni profilo di fatturazione dell'account viene creata automaticamente una sezione della fattura. È possibile creare sezioni aggiuntive per organizzare i costi in base alle esigenze. Ogni sezione della fattura visualizza gli addebiti relativi al mese di riferimento. 
+Una sezione della fattura rappresenta un raggruppamento di costi all'interno della fattura. Per ogni profilo di fatturazione dell'account viene creata automaticamente una sezione della fattura. È possibile creare sezioni aggiuntive per organizzare i costi in base alle esigenze. Ogni sezione della fattura visualizza gli addebiti relativi al mese di riferimento.
 
-L'immagine seguente illustra una fattura con due sezioni, Engineering e Marketing. Nella fattura sono visualizzati il riepilogo e il dettaglio degli addebiti per ogni sezione. I prezzi indicati nell'immagine sono solo a scopo esemplificativo e non rappresentano i prezzi effettivi dei servizi di Azure. 
+L'immagine seguente illustra una fattura con due sezioni, Engineering e Marketing. Nella fattura sono visualizzati il riepilogo e il dettaglio degli addebiti per ogni sezione. I prezzi indicati nell'immagine sono solo a scopo esemplificativo e non rappresentano i prezzi effettivi dei servizi di Azure.
 
 ![Immagine che illustra una fattura con sezioni](./media/mca-section-invoice/mca-invoice-with-sections.png)
 
@@ -79,7 +76,7 @@ Per creare una sezione della fattura, è necessario essere un **proprietario del
 
    ![Screenshot che mostra la ricerca di Gestione dei costi e fatturazione nel portale](./media/mca-section-invoice/search-cmb.png)
 
-3. Selezionare **Profili di fatturazione** dal riquadro a sinistra. Selezionare un profilo di fatturazione dall'elenco. La nuova sezione verrà visualizzata nella fattura del profilo di fatturazione selezionato. 
+3. Selezionare **Profili di fatturazione** dal riquadro a sinistra. Selezionare un profilo di fatturazione dall'elenco. La nuova sezione verrà visualizzata nella fattura del profilo di fatturazione selezionato.
 
    [![Screenshot che visualizza l'elenco dei profili di fatturazione](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
 
@@ -87,7 +84,7 @@ Per creare una sezione della fattura, è necessario essere un **proprietario del
 
    [![Screenshot che illustra l'aggiunta di sezioni della fattura](./media/mca-section-invoice/mca-list-invoice-sections.png)](./media/mca-section-invoice/mca-list-invoice-sections-zoomed-in.png#lightbox)
 
-5. Immettere un nome per la sezione della fattura. 
+5. Immettere un nome per la sezione della fattura.
 
    [![Screenshot che illustra la pagina di creazione della sezione della fattura](./media/mca-section-invoice/mca-create-invoice-section.png)](./media/mca-section-invoice/mca-create-invoice-section-zoomed-in.png#lightbox)
 
@@ -152,13 +149,13 @@ Dopo aver personalizzato l'account di fatturazione in base alle esigenze, è pos
 
 6. Selezionare la sezione della fattura per collegare gli addebiti correlati alla sottoscrizione. Gli addebiti verranno visualizzati in questa sezione della fattura del profilo di fatturazione.
 
-7. Selezionare un piano di Azure e immettere un nome descrittivo per la sottoscrizione. 
+7. Selezionare un piano di Azure e immettere un nome descrittivo per la sottoscrizione.
 
 9. Fare clic su **Crea**.  
 
 ### <a name="link-existing-subscriptions-and-products"></a>Collegare sottoscrizioni e prodotti esistenti
 
-Se si hanno già sottoscrizioni di Azure o altri prodotti, ad esempio Azure Marketplace e risorse di origine delle app, è possibile spostarli dalla sezione della fattura in cui si trovano a un'altra sezione, per riorganizzare i costi. 
+Se si hanno già sottoscrizioni di Azure o altri prodotti, ad esempio Azure Marketplace e risorse di origine delle app, è possibile spostarli dalla sezione della fattura in cui si trovano a un'altra sezione, per riorganizzare i costi.
 
 > [!IMPORTANT]
 >
@@ -212,7 +209,7 @@ Si supponga ora di aver creato un altro profilo di fatturazione e di aver usato 
 |---------|---------|---------|
 |1,84 per TB/mese per i primi 50 TB    | 50 TB        | 92  |
 |1,77 per TB/mese per i 450 TB successivi    |  0 TB         | 0,0  |
-|Totale     |     50 TB  | 92 
+|Totale     |     50 TB  | 92
 
 `Charges for the second billing profile`
 
@@ -220,17 +217,17 @@ Si supponga ora di aver creato un altro profilo di fatturazione e di aver usato 
 |---------|---------|---------|
 |1,84 per TB/mese per i primi 50 TB    | 50 TB        | 92  |
 |1,77 per TB/mese per i 450 TB successivi    |  0 TB         | 0,0  |
-|Totale     |     50 TB  | 92 
+|Totale     |     50 TB  | 92
 
 L'addebito totale per l'uso di 100 TB di dati in questo scenario è di **184** USD (92 * 2).
 
 ### <a name="azure-reservation-benefits-might-not-apply-to-all-subscriptions"></a>I vantaggi delle prenotazioni di Azure potrebbero non applicarsi per tutte le sottoscrizioni
 
-Le prenotazioni di Azure con ambito condiviso vengono applicate alle sottoscrizioni in un unico profilo di fatturazione e non sono condivise tra profili di fatturazione. 
+Le prenotazioni di Azure con ambito condiviso vengono applicate alle sottoscrizioni in un unico profilo di fatturazione e non sono condivise tra profili di fatturazione.
 
 ![Immagine grafica con informazioni relative all'applicazione di prenotazioni per strutture di account di fatturazione diverse](./media/mca-section-invoice/mca-reservations-benefits-by-bg.png)
 
-Nell'immagine precedente, Contoso ha due sottoscrizioni. Il vantaggio della prenotazione di Azure viene applicato in modo diverso a seconda della struttura dell'account di fatturazione. Nello scenario a sinistra, il vantaggio della prenotazione viene applicato a entrambe le sottoscrizioni fatturate al profilo di fatturazione del reparto Engineering. Nello scenario a destra, il vantaggio della prenotazione viene applicato solo a Subscription 1 (Sottoscrizione 1), dato che è la sola sottoscrizione fatturata al profilo di fatturazione del reparto Engineering. 
+Nell'immagine precedente, Contoso ha due sottoscrizioni. Il vantaggio della prenotazione di Azure viene applicato in modo diverso a seconda della struttura dell'account di fatturazione. Nello scenario a sinistra, il vantaggio della prenotazione viene applicato a entrambe le sottoscrizioni fatturate al profilo di fatturazione del reparto Engineering. Nello scenario a destra, il vantaggio della prenotazione viene applicato solo a Subscription 1 (Sottoscrizione 1), dato che è la sola sottoscrizione fatturata al profilo di fatturazione del reparto Engineering.
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificare l'accesso a un Contratto del cliente Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

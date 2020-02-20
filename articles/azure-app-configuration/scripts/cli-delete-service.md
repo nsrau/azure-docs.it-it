@@ -15,12 +15,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 9f18cb79e4c160271fbb3855b1fc6e05589cf854
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 62628b611c7df7aa0515cbb2cc938b02977e510e
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899432"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467663"
 ---
 # <a name="delete-an-azure-app-configuration-store"></a>Eliminare un archivio di Configurazione app di Azure
 
@@ -31,10 +31,6 @@ Questo script di esempio elimina un'istanza di Configurazione app di Azure.
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
-
-È prima necessario installare l'estensione dell'interfaccia della riga di comando di Configurazione app di Azure eseguendo il comando seguente:
-
-        az extension add -n appconfig
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -53,7 +49,7 @@ Questo script usa i comandi seguenti per eliminare un archivio di Configurazione
 
 | Comando | Note |
 |---|---|
-| [az appconfig delete](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-delete) | Elimina una risorsa archivio di Configurazione app. |
+| [az appconfig delete](/cli/azure/appconfig#az-appconfig-delete) | Elimina una risorsa archivio di Configurazione app. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

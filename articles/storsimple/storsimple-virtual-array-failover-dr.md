@@ -1,5 +1,5 @@
 ---
-title: Ripristino di emergenza per l'array virtuale StorSimple e failover del dispositivo | Microsoft Docs
+title: Failover e ripristino di emergenza per l'array virtuale StorSimple
 description: Scoprire di più su come eseguire il failover di StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19a676f4187af2d358934539e4ca29dbc5c25897
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 464fa05f658dd6e6e25d79f8840ceeb939383149
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190632"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467216"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Ripristino di emergenza e failover del dispositivo per l'array virtuale StorSimple tramite il portale di Azure
 
@@ -44,7 +44,7 @@ Il ripristino di emergenza viene orchestrato tramite la funzionalità di failove
 
 ## <a name="prerequisites-for-device-failover"></a>Prerequisiti per il failover del dispositivo
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerequisiti
 
 Per il failover del dispositivo, verificare che siano soddisfatti i prerequisiti seguenti:
 

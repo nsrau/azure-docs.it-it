@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: fd8be170f0f4388ee711881dde16923b9547f21f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 98d1a9c3dd86972990ae896d156be6c6aedfff77
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606924"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367396"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Esercitazione: Creare un pool di host per convalidare gli aggiornamenti dei servizi
 
@@ -20,12 +20,12 @@ I pool di host sono una raccolta di una o più macchine virtuali identiche all'i
 
 Per garantire il funzionamento delle app con gli aggiornamenti più recenti, il pool di host di convalida deve essere il più simile possibile ai pool di host nell'ambiente di produzione. Gli utenti devono connettersi al pool di host di convalida con la stessa frequenza con cui si connettono al pool di host di produzione. Se nel pool di host sono attivi i test automatizzati, è necessario includere i test automatizzati anche nel pool di host di convalida.
 
-È possibile eseguire il debug dei problemi nel pool di host di convalida con [la funzionalità di diagnostica](diagnostics-role-service.md) o gli [articoli di risoluzione dei problemi del Desktop virtuale Windows](https://docs.microsoft.com/Azure/virtual-desktop/troubleshoot-set-up-overview).
+È possibile eseguire il debug dei problemi nel pool di host di convalida con [la funzionalità di diagnostica](diagnostics-role-service.md) o gli [articoli di risoluzione dei problemi del Desktop virtuale Windows](troubleshoot-set-up-overview.md).
 
 >[!NOTE]
 > È consigliabile conservare il pool di host di convalida per testare tutti gli aggiornamenti futuri.
 
-Prima di iniziare, [scaricare e importare il modulo PowerShell del Desktop virtuale Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview), se non è già stato fatto. Successivamente, eseguire il cmdlet seguente per accedere al proprio account:
+Prima di iniziare, [scaricare e importare il modulo PowerShell del Desktop virtuale Windows](/powershell/windows-virtual-desktop/overview/), se non è già stato fatto. Successivamente, eseguire il cmdlet seguente per accedere al proprio account:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"

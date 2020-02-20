@@ -4,14 +4,14 @@ description: In questo argomento di avvio rapido viene illustrato come distribui
 keywords: ansible, azure, devops, modello di soluzione, macchina virtuale, Identità gestite per le risorse di azure, centos, red hat
 ms.topic: quickstart
 ms.date: 04/30/2019
-ms.openlocfilehash: ebd01411ff27b0e95be21ef147098a90b6f62742
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: cc3a6c1f0ef36b51b62e6aa58f317aee13149589
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156323"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193787"
 ---
-# <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Guida introduttiva: Distribuire il modello di soluzione Ansible per Azure in CentOS
+# <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Avvio rapido: Distribuire il modello di soluzione Ansible per Azure in CentOS
 
 Il modello di soluzione Ansible per Azure è progettato per configurare un'istanza di Ansible in una macchina virtuale CentOS insieme ad Ansible e a una suite di strumenti configurati per funzionare con Azure. Gli strumenti comprendono:
 
@@ -19,7 +19,7 @@ Il modello di soluzione Ansible per Azure è progettato per configurare un'istan
 - **Interfaccia della riga di comando di Azure 2.0 (CLI)** : l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/?view=azure-cli-latest) è un comando multipiattaforma per la gestione delle risorse di Azure. 
 - **Identità gestite per le risorse di Azure**: la funzionalità delle [identità gestite per le risorse di Azure](/azure/active-directory/managed-identities-azure-resources/overview) risolve il problema della sicurezza delle credenziali dell'applicazione cloud.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 
@@ -85,4 +85,4 @@ Il modello di soluzione Ansible per Azure è progettato per configurare un'istan
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"] 
-> [Guida introduttiva: Configurare una macchina virtuale Linux in Azure tramite Ansible](/azure/virtual-machines/linux/ansible-create-vm)
+> [Avvio rapido: Configurare una macchina virtuale Linux in Azure tramite Ansible](./ansible-create-vm.md)

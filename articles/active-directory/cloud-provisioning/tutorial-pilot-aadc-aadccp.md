@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f47f55252c6274360f200a4bce0ed0b739e3d8a3
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: e0bd53b72c334b35daea0864acf61cc432c272ae
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77166576"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77442123"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Creare un progetto pilota per il provisioning cloud di una foresta di AD sincronizzata esistente 
 
@@ -99,7 +99,7 @@ Il servizio di sincronizzazione di Azure AD Connect sincronizza le modifiche ril
  2. Nella pagina **Descrizione** immettere quanto segue e fare clic su **Avanti**:
 
     **Nome:** assegnare un nome significativo alla regola<br>
-    **Descrizione:** aggiungere una descrizione significativa<br> 
+    **Descrizione:** aggiungere una descrizione significativa<br>
     **Connected System** (Sistema connesso): scegliere il connettore AAD per cui si sta scrivendo la regola di sincronizzazione personalizzata<br>
     **Connected System Object Type** (Tipo di oggetto sistema connesso): Utente<br>
     **Metaverse Object Type** (Tipo di oggetto metaverse): Persona<br>

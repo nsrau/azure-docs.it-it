@@ -7,19 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.date: 12/23/2019
-ms.openlocfilehash: 57b4440a29dde470f91bbaae091bf65a0d2a1b51
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.date: 02/14/2020
+ms.openlocfilehash: 0b746963cea5a950ba47d8b4dfeb074cb0910436
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552271"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471024"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Aggiungere librerie Apache Hive personalizzate durante la creazione del cluster HDInsight
 
 Informazioni su come precaricare le librerie [Apache Hive](https://hive.apache.org/) in HDInsight. Questo documento contiene informazioni sull'uso di un'Azione Script per precaricare le librerie durante la creazione del cluster. Le librerie aggiunte usando i passaggi descritti in questo documento sono disponibili a livello globale in hive. non è necessario usare [Add jar](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) per caricarle.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Quando si crea un cluster, è possibile usare un'azione script per modificare i nodi del cluster quando vengono creati. Lo script in questo documento accetta un solo parametro, ovvero la posizione delle librerie. Questa posizione deve essere in un Account di archiviazione di Azure e le librerie devono essere archiviate come file con estensione jar.
 
@@ -33,7 +33,7 @@ L'uso dell'azione script in questo articolo rende disponibili le librerie quando
 
 [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
-**Requisiti**
+### <a name="requirements"></a>Requisiti
 
 * Gli script devono essere applicati ai **nodi head** e ai **nodi di lavoro**.
 
@@ -50,19 +50,22 @@ L'uso dell'azione script in questo articolo rende disponibili le librerie quando
 
 ## <a name="create-a-cluster-using-the-script"></a>Creare un cluster usando lo script
 
-1. Avviare il provisioning di un cluster usando la procedura descritta in effettuare il provisioning di [cluster HDInsight in Linux](hdinsight-hadoop-provision-linux-clusters.md), ma non completare il provisioning. È anche possibile usare Azure PowerShell o HDInsight .NET SDK per creare un cluster con questo script. Per altre informazioni sull'uso di questi metodi, vedere [Personalizzare i cluster HDInsight con azioni script](hdinsight-hadoop-customize-cluster-linux.md). Per la portale di Azure, è necessario selezionare l'opzione **Vai a esperienza di creazione classica** e quindi **personalizzata (dimensioni, impostazioni, app)** .
+1. Avviare il provisioning di un cluster usando la procedura descritta in effettuare il provisioning di [cluster HDInsight in Linux](hdinsight-hadoop-provision-linux-clusters.md), ma non completare il provisioning. È anche possibile usare Azure PowerShell o HDInsight .NET SDK per creare un cluster con questo script. Per altre informazioni sull'uso di questi metodi, vedere [Personalizzare i cluster HDInsight con azioni script](hdinsight-hadoop-customize-cluster-linux.md). Per il portale di Azure, nella scheda **configurazione e prezzi** selezionare l' **azione + Aggiungi script**.
 
 1. Per l' **archiviazione**, se l'account di archiviazione contenente la libreria di file jar sarà diverso dall'account usato per il cluster, completare gli **account di archiviazione aggiuntivi**.
 
 1. Per le **azioni script**, fornire le seguenti informazioni:
 
-    |Proprietà |Valore |
+    |Proprietà |valore |
     |---|---|
     |Tipo di script|- Personalizzato|
     |Nome|Librerie |
     |URI script Bash|`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`|
     |Tipo/i di nodo|Head, ruolo di lavoro|
     |Parametri|immettere l'indirizzo WASB per l'account di archiviazione e il contenitore che contiene i file con estensione jar. Ad esempio: `wasbs://libs@mystorage.blob.core.windows.net/`.|
+
+    > [!NOTE]
+    > Per Apache Spark 2,1, usare questo URI dello script bash: `https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v00.sh`.
 
 1. Continuare il provisioning del cluster come descritto in [Effettuare il provisioning dei cluster HDInsight in Linux](hdinsight-hadoop-provision-linux-clusters.md).
 

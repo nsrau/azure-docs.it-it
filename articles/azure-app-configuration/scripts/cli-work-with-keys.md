@@ -15,12 +15,12 @@ ms.workload: azure-app-configuration
 ms.date: 11/08/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 366485c8c735af5689e1b2c2e63eb192218f5ce0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 931c2f738556404e2d58381f7152acb0613a057b
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433569"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468151"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Usare coppie chiave-valore in un archivio di Configurazione app di Azure
 
@@ -31,10 +31,6 @@ Questo script di esempio crea un nuova coppia chiave-valore in un archivio di Co
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
-
-È prima necessario installare l'estensione dell'interfaccia della riga di comando di Configurazione app di Azure eseguendo il comando seguente:
-
-        az extension add -n appconfig
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -89,9 +85,9 @@ Questo script usa i comandi seguenti per eseguire operazioni sulle coppie chiave
 
 | Comando | Note |
 |---|---|
-| [az appconfig kv set](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-set) | Crea o aggiorna una coppia chiave-valore. |
-| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-list) | Elenca le coppie chiave-valore in un archivio di Configurazione app. |
-| [az appconfig kv delete](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-delete) | Elimina una coppia chiave-valore. |
+| [az appconfig kv set](/cli/azure/appconfig/kv#az-appconfig-kv-set) | Crea o aggiorna una coppia chiave-valore. |
+| [az appconfig kv list](/cli/azure/appconfig/kv#az-appconfig-kv-list) | Elenca le coppie chiave-valore in un archivio di Configurazione app. |
+| [az appconfig kv delete](/cli/azure/appconfig/kv#az-appconfig-kv-delete) | Elimina una coppia chiave-valore. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

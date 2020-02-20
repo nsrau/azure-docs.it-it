@@ -1,25 +1,20 @@
 ---
 title: Scenario di budget per la gestione dei costi e la fatturazione di Azure | Microsoft Docs
 description: Informazioni su come usare Automazione di Azure per arrestare le macchine virtuali in base a specifiche soglie di budget.
-services: billing
-documentationcenter: ''
 author: bandersmsft
-manager: dougeby
-editor: ''
+ms.reviewer: adwise
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
-ms.workload: billing
-ms.date: 10/01/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: e183a622910c7690b566537311661789253efbfb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: ae17ecc72bb1e6af1b79d4a2952c2f78dce4b5bd
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75992725"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200983"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gestire i costi con i budget di Azure
 

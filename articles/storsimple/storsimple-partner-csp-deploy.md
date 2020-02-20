@@ -1,5 +1,5 @@
 ---
-title: Panoramica di Microsoft Azure StorSimple e del Cloud Solutions Provider Program | Microsoft Docs
+title: Distribuire un array virtuale StorSimple per il Cloud Solution Provider Program
 description: Panoramica di StorSimple e del programma CSP per i partner StorSimple.
 services: storsimple
 documentationcenter: NA
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 0dac86a696599a391cb243ad11e16931e00b8921
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f1927a67127766c72be463c283225135b2a2aad
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60629993"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77466910"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Distribuire un array virtuale StorSimple per il Cloud Solution Provider Program
 
@@ -40,11 +40,11 @@ Prima di iniziare, assicurarsi di:
 
 Se si aggiunge un cliente, viene automaticamente creata una sottoscrizione. Per aggiungere un cliente e creare automaticamente una sottoscrizione, eseguire i passaggi seguenti nel portale per i partner.
 
-1. Andare al [Centro per i partner](https://partnercenter.microsoft.com/) e accedere usando le credenziali di CSP. Fare clic su **Dashboard**.
+1. Andare al [Centro per i partner](https://partnercenter.microsoft.com/) e accedere usando le credenziali di CSP. Scegliere **Dashboard**.
 
      ![Dashboard nel Centro per i partner](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. Nel riquadro a sinistra, fare clic su **Clienti**. Nel riquadro a destra, fare clic su **Aggiungi clienti**. Immettere i dettagli del cliente. Fare clic su **Avanti: Le sottoscrizioni** per creare una sottoscrizione clienti.
+2. Nel riquadro a sinistra, fare clic su **Clienti**. Nel riquadro a destra, fare clic su **Aggiungi clienti**. Immettere i dettagli del cliente. Fare clic su **Successivo: Sottoscrizioni** per creare una sottoscrizione del cliente.
 
     ![Aggiungere un cliente](./media/storsimple-partner-csp-deploy/image2.png)
 
@@ -77,7 +77,7 @@ Se si aggiunge un cliente, viene automaticamente creata una sottoscrizione. Per 
 
 In alcuni casi, si potrebbe disporre di un cliente esistente e potrebbe essere necessario aggiungere una sottoscrizione. Per aggiungere una sottoscrizione a un cliente esistente, eseguire i passaggi seguenti nel portale per i partner.
 
-1. Andare al [Centro per i partner](https://partnercenter.microsoft.com/) e accedere usando le credenziali di CSP. Fare clic su **Dashboard**.
+1. Andare al [Centro per i partner](https://partnercenter.microsoft.com/) e accedere usando le credenziali di CSP. Scegliere **Dashboard**.
 
      ![Dashboard nel Centro per i partner](./media/storsimple-partner-csp-deploy/image1.png)
                               
@@ -103,5 +103,5 @@ In alcuni casi, si potrebbe disporre di un cliente esistente e potrebbe essere n
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Se hai altre domande su StorSimple in CSP, passare a [StorSimple per CSP: domande frequenti](storsimple-partner-csp-faq.md).
+- Per altre domande su StorSimple per CSP, passare a [StorSimple per CSP: domande frequenti](storsimple-partner-csp-faq.md).
 - Se si è pronti a distribuire StorSimple, andare a [Distribuire StorSimple per CSP](storsimple-partner-csp-deploy.md).

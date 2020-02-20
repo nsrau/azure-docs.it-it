@@ -3,12 +3,12 @@ title: Connettere la funzione Java ad archiviazione di Azure
 description: Informazioni su come connettere una funzione Java attivata da HTTP ad archiviazione di Azure usando il binding dell'output di archiviazione code.
 ms.date: 10/14/2019
 ms.topic: quickstart
-ms.openlocfilehash: 98f49338f0df935347a26798aceccb80f9f43f50
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 72e3aad15ea8ef922d89a67891e223b65473b909
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926906"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198548"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Connettere la funzione Java ad archiviazione di Azure
 
@@ -18,7 +18,7 @@ Questo articolo illustra come integrare la funzione creata nel [precedente artic
 
 La maggior parte dei binding richiede una stringa di connessione archiviata che verrà usata da Funzioni per accedere al servizio associato. Per semplificare questa connessione, usare l'account di archiviazione creato con l'app per le funzioni. La connessione a questo account è già archiviata in un'impostazione dell'app denominata `AzureWebJobsStorage`.  
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare con questo articolo, completare i passaggi della [parte 1 dell'argomento di avvio rapido su Java](functions-create-first-java-maven.md).
 
@@ -118,7 +118,7 @@ mvn azure-functions:run
 ```
 
 > [!NOTE]  
-> Poiché sono stati abilitati i bundle di estensioni nel file host.json, durante l'avvio è stata scaricata e configurata l'[estensione di binding di archiviazione](functions-bindings-storage-blob.md#packages---functions-2x-and-higher), nonché altre estensioni di binding di Microsoft.
+> Poiché sono stati abilitati i bundle di estensioni nel file host.json, durante l'avvio è stata scaricata e configurata l'[estensione di binding di archiviazione](functions-bindings-storage-blob.md#add-to-your-functions-app), nonché altre estensioni di binding di Microsoft.
 
 Come prima, attivare la funzione dalla riga di comando usando cURL in una nuova finestra del terminale:
 

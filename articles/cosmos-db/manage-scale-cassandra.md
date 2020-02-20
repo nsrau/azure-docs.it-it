@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: thvankra
-ms.openlocfilehash: 668e9ddadf151a86be0d8c09fc91b4c70db12f3a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: e2967a6d12fba2d81dad9de31e7476a027a39d1c
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210788"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468831"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Ridimensionare in modo elastico un account di API Cassandra Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Sono disponibili diverse opzioni per esplorare la natura elastica dell'API Azure
 
 Azure Cosmos DB restituirà errori con limitazione della frequenza (429) se i client utilizzano più risorse (UR/sec) rispetto al valore di cui è stato effettuato il provisioning. L'API Cassandra di Azure Cosmos DB converte queste eccezioni in errori di overload per il protocollo nativo Cassandra. 
 
-Se il sistema non è sensibile alla latenza, potrebbe essere sufficiente gestire la velocità effettiva, limitando l'utilizzo di tentativi. Vedere l' [esempio di codice Java](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) per informazioni su come gestire la limitazione della frequenza in modo trasparente usando l' [estensione Azure Cosmos DB](https://github.com/Azure/azure-cosmos-cassandra-extensions) per i [criteri di ripetizione dei tentativi di Cassandra](https://docs.datastax.com/drivers/java/2.0/com/datastax/driver/core/policies/RetryPolicy.html) in Java. È anche possibile usare l' [estensione Spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) per gestire la limitazione della frequenza.
+Se il sistema non è sensibile alla latenza, potrebbe essere sufficiente gestire la velocità effettiva, limitando l'utilizzo di tentativi. Vedere l' [esempio di codice Java](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) per informazioni su come gestire la limitazione della frequenza in modo trasparente usando l' [estensione Azure Cosmos DB](https://github.com/Azure/azure-cosmos-cassandra-extensions) per i [criteri di ripetizione dei tentativi di Cassandra](https://docs.datastax.com/en/developer/java-driver/4.4/manual/core/retries/) in Java. È anche possibile usare l' [estensione Spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) per gestire la limitazione della frequenza.
 
 ## <a name="manage-scaling"></a>Gestisci scalabilità
 

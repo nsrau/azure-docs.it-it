@@ -5,12 +5,12 @@ ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions01
-ms.openlocfilehash: edb947f0748c186e146bce5f4dbe9d0b95a2568d
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 9c97606b21a6e98494fffb689567aaab6e2f0621
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846495"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210192"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Creare una funzione in Linux tramite un contenitore personalizzato
 
@@ -256,7 +256,7 @@ In questa esercitazione verranno illustrate le procedure per:
     docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
     ```
     
-1. Quando l'immagine è in esecuzione in un contenitore locale, aprire un browser all'indirizzo `http://localhost:8080`, che dovrebbe visualizzare l'immagine segnaposto indicata di seguito. L'immagine viene visualizzata a questo punto perché la funzione è in esecuzione nel contenitore locale, allo stesso modo che in Azure, il che significa che è protetta da una chiave di accesso, definita nel file *function.json* con la proprietà `"authLevel": "function"`. Tuttavia, il contenitore non è stato ancora pubblicato in un'app per le funzioni in Azure, quindi la chiave non è ancora disponibile. Se si vuole eseguire il test in locale, arrestare Docker, impostare la proprietà di autorizzazione su `"authLevel": "anonymous"`, ricompilare l'immagine e riavviare Docker. Quindi reimpostare `"authLevel": "function"` in *function.json*. Per altre informazioni, vedere [Chiavi di autorizzazione](functions-bindings-http-webhook.md#authorization-keys).
+1. Quando l'immagine è in esecuzione in un contenitore locale, aprire un browser all'indirizzo `http://localhost:8080`, che dovrebbe visualizzare l'immagine segnaposto indicata di seguito. L'immagine viene visualizzata a questo punto perché la funzione è in esecuzione nel contenitore locale, allo stesso modo che in Azure, il che significa che è protetta da una chiave di accesso, definita nel file *function.json* con la proprietà `"authLevel": "function"`. Tuttavia, il contenitore non è stato ancora pubblicato in un'app per le funzioni in Azure, quindi la chiave non è ancora disponibile. Se si vuole eseguire il test in locale, arrestare Docker, impostare la proprietà di autorizzazione su `"authLevel": "anonymous"`, ricompilare l'immagine e riavviare Docker. Quindi reimpostare `"authLevel": "function"` in *function.json*. Per altre informazioni, vedere [Chiavi di autorizzazione](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
     ![Immagine segnaposto che indica che il contenitore è in esecuzione in locale](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
@@ -370,7 +370,7 @@ Con l'immagine distribuita nell'app per le funzioni in Azure, è ora possibile r
 
 1. Recuperare l'URL della funzione con la chiave di accesso (funzione) usando il portale di Azure o l'interfaccia della riga di comando di Azure con il comando `az rest`.
 
-    # <a name="portaltabportal"></a>[Portale](#tab/portal)
+    # <a name="portal"></a>[Portale](#tab/portal)
 
     1. Accedere al portale di Azure, quindi individuare l'app per le funzioni immettendo il relativo nome nella casella **Cerca** nella parte superiore della pagina. Nei risultati selezionare la risorsa **Servizio app**.
 
@@ -387,7 +387,7 @@ Con l'immagine distribuita nell'app per le funzioni in Azure, è ora possibile r
     > [!NOTE]  
     > Poiché l'app per le funzioni viene distribuita come contenitore, non è possibile apportare modifiche al codice della funzione nel portale. È invece necessario aggiornare il progetto nell'immagine locale, eseguire di nuovo il push dell'immagine nel registro e quindi ripetere la distribuzione in Azure. È possibile configurare la distribuzione continua in una sezione successiva.
     
-    # <a name="azure-clitabazurecli"></a>[Interfaccia della riga di comando di Azure](#tab/azurecli)
+    # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azurecli)
 
     1. Creare una stringa di URL nel formato seguente, sostituendo `<subscription_id>`, `<resource_group>` e `<app_name>` rispettivamente con l'ID sottoscrizione di Azure, il gruppo di risorse dell'app per le funzioni e il nome dell'app per le funzioni:
 
@@ -877,19 +877,19 @@ In un browser usare lo stesso URL di prima per richiamare la funzione. Il browse
 
 1. Aprire il file *local.setting.json* del progetto di funzione e copiare il valore della stringa di connessione. In un terminale o una finestra di comando eseguire il comando seguente per creare una variabile di ambiente denominata `AZURE_STORAGE_CONNECTION_STRING`, incollando la stringa di connessione specifica al posto di `<connection_string>`. Questa variabile di ambiente implica che non è necessario fornire la stringa di connessione a ogni comando successivo usando l'argomento `--connection-string`.
 
-    # <a name="bashtabbash"></a>[Bash](#tab/bash)
+    # <a name="bash"></a>[Bash](#tab/bash)
     
     ```bash
     AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     $env:AZURE_STORAGE_CONNECTION_STRING = "<connection_string>"
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```cmd
     set AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
@@ -899,19 +899,19 @@ In un browser usare lo stesso URL di prima per richiamare la funzione. Il browse
     
 1. (Facoltativo) Usare il comando [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) per visualizzare le code di archiviazione dell'account. L'output di questo comando dovrebbe includere una coda denominata `outqueue`, che è stata creata quando la funzione ha scritto il primo messaggio in tale coda.
     
-    # <a name="bashtabbash"></a>[Bash](#tab/bash)
+    # <a name="bash"></a>[Bash](#tab/bash)
     
     ```azurecli
     az storage queue list --output tsv
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```azurecli
     az storage queue list --output tsv
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```azurecli
     az storage queue list --output tsv
@@ -921,19 +921,19 @@ In un browser usare lo stesso URL di prima per richiamare la funzione. Il browse
 
 1. Usare il comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) per visualizzare i messaggi in questa coda, che dovrebbe essere il primo nome usato per il test della funzione in precedenza. Il comando recupera il primo messaggio nella coda in [codifica base64](functions-bindings-storage-queue.md#encoding), quindi è anche necessario decodificarlo per visualizzarlo come testo.
 
-    # <a name="bashtabbash"></a>[Bash](#tab/bash)
+    # <a name="bash"></a>[Bash](#tab/bash)
     
     ```bash
     echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}')))
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     Poiché è necessario dereferenziare la raccolta di messaggi e decodificare da base64, eseguire PowerShell e usare il comando di PowerShell.
 

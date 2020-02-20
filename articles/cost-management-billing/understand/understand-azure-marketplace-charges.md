@@ -1,23 +1,20 @@
 ---
 title: Informazioni sugli addebiti per i servizi esterni di Azure | Documentazione Microsoft
 description: Informazioni sulla fatturazione di servizi esterni, noti in precedenza come Marketplace, in Azure.
-author: jureid
-manager: jureid
+author: bandersmsft
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 02/13/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f94b79e03cf97275ec4dacf17e097e1678e81d10
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: ce385de408d4b0a8cf1531f762a126a6b9b2c126
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75989423"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199076"
 ---
 # <a name="understand-your-azure-external-services-charges"></a>Informazioni sugli addebiti per i servizi esterni di Azure
 I servizi esterni vengono pubblicati da fornitori di software di terze parti in Azure Marketplace. Ad esempio, SendGrid è un servizio esterno che è possibile acquistare in Azure, ma che non viene pubblicato da Microsoft. Alcuni prodotti Microsoft vengono venduti anche tramite Azure Marketplace.

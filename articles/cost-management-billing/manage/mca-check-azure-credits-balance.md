@@ -2,21 +2,18 @@
 title: Tenere traccia del saldo dei crediti Azure per un Contratto del cliente Microsoft
 description: Informazioni su come controllare il saldo dei crediti Azure per un Contratto del cliente Microsoft.
 author: bandersmsft
-manager: amberb
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/13/2019
 ms.author: banders
-ms.openlocfilehash: c8ea083e216331904c9d5741b97f69b7f5a8249a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e65637f20d14b93c212b1af2f20695ff5dfeb350
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75991334"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199688"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Tenere traccia del saldo dei crediti Azure per un Contratto del cliente Microsoft
 
@@ -28,7 +25,7 @@ Questo articolo di applica a un account di fatturazione per un Contratto del cli
 
 ## <a name="check-your-credit-balance"></a>Controllare il saldo dei crediti
 
-### <a name="azure-portaltabportal"></a>[Azure portal](#tab/portal)
+### <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -99,7 +96,7 @@ Questo articolo di applica a un account di fatturazione per un Contratto del cli
 
     ![Screenshot dell'elenco dei crediti per un account di fatturazione](./media/mca-check-azure-credits-balance/mca-account-credit-list.png)
 
-### <a name="rest-apitabrest"></a>[REST API](#tab/rest)
+### <a name="rest-api"></a>[REST API](#tab/rest)
 
 Per ottenere il saldo del credito per l'account di fatturazione a livello di codice, è possibile usare le API di [fatturazione ](https://docs.microsoft.com/rest/api/billing/) e di [utilizzo di Azure](https://docs.microsoft.com/rest/api/consumption/).
 

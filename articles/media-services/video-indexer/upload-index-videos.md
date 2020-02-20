@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/13/2020
+ms.date: 02/18/2020
 ms.author: juliako
-ms.openlocfilehash: b0a4f390a3a897d14adc2944195b0c51148de495
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 245eabdf4d77682c87062c2581239a554112d748
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209274"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468763"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
@@ -123,6 +123,10 @@ Usare questo parametro se registrazioni non elaborate o esterne contengono rumor
 - `VideoOnly`-indicizzare ed estrarre informazioni dettagliate usando solo video (ignorando l'audio)
 - `Default`: indicizzare ed estrarre informazioni dettagliate usando audio e video
 - `DefaultWithNoiseReduction`: indicizzare ed estrarre informazioni dettagliate sia dall'audio che dal video, applicando gli algoritmi di riduzione del rumore al flusso audio
+
+> [!NOTE]
+> Video Indexer copre fino a due tracce di audio. Se sono presenti più tracce audio nel file, verranno considerate come una traccia.<br/>
+Se si desidera indicizzare le tracce separatamente, sarà necessario estrarre il file audio pertinente e indicizzarlo come `AudioOnly`.
 
 Il prezzo dipende dall'opzione di indicizzazione selezionata.  
 

@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: beea911c9bb938458d8bd12e091e6c908ebb1566
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: efd4a9333b5fb02c18b2f6a6d0f8ce58bfb8f220
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185683"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472384"
 ---
 # <a name="tutorial-create-an-ai-enrichment-pipeline-using-c-and-the-net-sdk"></a>Esercitazione: creare una pipeline di arricchimento AI con C# e .NET SDK
 
@@ -30,7 +30,7 @@ In questa esercitazione si usa .NET SDK per le attività seguenti:
 
 L'output è un indice di ricerca full-text in Ricerca cognitiva di Azure. È possibile migliorare l'indice con altre funzionalità standard, ad esempio [sinonimi](search-synonyms.md), [profili di punteggio](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analizzatori](search-analyzers.md) e [filtri](search-filters.md).
 
-Questa esercitazione viene eseguita con il servizio gratuito, ma il numero di transazioni gratuite è limitato a 20 documenti al giorno. Se si vuole eseguire l'esercitazione più di una volta al giorno, usare un set di file più piccolo in modo da far rientrare più esecuzioni.
+Questa esercitazione viene eseguita con il servizio gratuito, ma il numero di transazioni gratuite è limitato a 20 documenti al giorno. Se si desidera eseguire questa esercitazione più di una volta nello stesso giorno, eliminare l'indicizzatore per reimpostare il contatore.
 
 > [!NOTE]
 > Se si espande l'ambito aumentando la frequenza di elaborazione, aggiungendo più documenti oppure aggiungendo altri algoritmi di intelligenza artificiale, sarà necessario collegare una risorsa fatturabile di Servizi cognitivi. Gli addebiti si accumulano quando si chiamano le API in Servizi cognitivi e per l'estrazione di immagini come parte della fase di cracking dei documenti in Ricerca cognitiva di Azure. Non sono previsti addebiti per l'estrazione di testo dai documenti.
@@ -39,7 +39,7 @@ Questa esercitazione viene eseguita con il servizio gratuito, ma il numero di tr
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 In questa esercitazione vengono usati i servizi, gli strumenti e i dati seguenti. 
 
@@ -85,7 +85,7 @@ La pipeline di arricchimento effettua il pull da origini dati di Azure. I dati d
 
 Esistono altri modi per specificare la stringa di connessione, ad esempio una firma di accesso condiviso. Per altre informazioni sulle credenziali dell'origine dati, vedere [Indicizzazione in Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md#Credentials).
 
-## <a name="set-up-your-environment"></a>Configurazione dell'ambiente
+## <a name="set-up-your-environment"></a>Configurare l'ambiente
 
 Iniziare aprendo Visual Studio e creando un nuovo progetto di app console che può essere eseguito in .NET Core.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: de644e49d998ad260532078de5c93c482cbc6fbc
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: b48aab918b477f5c689a50ca476b0b1336642f0f
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029492"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471857"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Domande frequenti su Azure Network Watcher
 Il servizio [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) offre una suite di strumenti per monitorare, diagnosticare, visualizzare le metriche e abilitare o disabilitare i log per le risorse in una rete virtuale di Azure. Questo articolo risponde a domande comuni sul servizio.
@@ -75,8 +75,11 @@ L'acquisizione di pacchetti, la risoluzione dei problemi di connessione e le fun
 ### <a name="what-are-resource-limits-on-network-watcher"></a>Che cosa sono i limiti delle risorse per Network Watcher?
 Per tutti i limiti, vedere la pagina relativa ai [limiti del servizio](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#network-watcher-limits) .  
 
-### <a name="why-is-only-one-instance-of-network-watcher-allowed-per-region"></a>Perché è consentita una sola istanza di Network Watcher per area?
+### <a name="why-is-only-one-instance-of-network-watcher-allowed-per-region"></a>Perché è consentita una sola istanza di Network Watcher per area? 
 Network Watcher deve essere abilitata una sola volta per una sottoscrizione per il funzionamento delle funzionalità, non si tratta di un limite di servizio.
+
+### <a name="how-can-i-manage-the-network-watcher-resource"></a>Come è possibile gestire la risorsa Network Watcher? 
+La risorsa Network Watcher rappresenta il servizio back-end per Network Watcher ed è completamente gestita da Azure. I clienti non devono gestirlo. Operazioni come lo spostamento non sono supportate nella risorsa. Tuttavia, [la risorsa può essere eliminata](https://docs.microsoft.com/azure/network-watcher/network-watcher-create#delete-a-network-watcher-in-the-portal). 
 
 ## <a name="nsg-flow-logs"></a>Log di flusso NSG
 

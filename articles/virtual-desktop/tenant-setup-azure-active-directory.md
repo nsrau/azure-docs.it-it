@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: 70cabc75ebdeb7ed6d7ffd000419295fce6303de
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f38f0cec336061c97daa02798e94d98844d76ea2
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459516"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368782"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Esercitazione: Creare un tenant in Desktop virtuale Windows
 
@@ -121,7 +121,7 @@ Per trovare l'ID sottoscrizione di Azure:
 
 Dopo aver concesso le autorizzazioni al servizio Desktop virtuale Windows per eseguire query su Azure Active Directory e aver assegnato il ruolo TenantCreator a un account utente, è possibile creare il tenant di Desktop virtuale Windows.
 
-Prima di tutto, [scaricare e importare il modulo Desktop virtuale Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) da usare nella sessione di PowerShell, se non è già stato fatto.
+Prima di tutto, [scaricare e importare il modulo Desktop virtuale Windows](/powershell/windows-virtual-desktop/overview/) da usare nella sessione di PowerShell, se non è già stato fatto.
 
 Accedere a Desktop virtuale Windows usando l'account utente TenantCreator con questo cmdlet:
 

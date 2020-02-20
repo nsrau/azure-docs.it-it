@@ -1,26 +1,18 @@
 ---
 title: API per clienti Enterprise per la fatturazione di Azure | Microsoft Docs
 description: Informazioni sulle API di creazione di report che consentono ai clienti Enterprise di Azure di estrarre i dati sull'uso a livello di codice.
-services: ''
-documentationcenter: ''
 author: mumami
-manager: mumami
-editor: ''
 tags: billing
-ms.assetid: 3e817b43-0696-400c-a02e-47b7817f9b77
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: billing
-ms.date: 10/01/2019
+ms.date: 02/14/2020
 ms.author: banders
-ms.openlocfilehash: 513dac3a1cdcefa7a49116ea02af5410265af3ec
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a5a158ce67d2d0c7dd947f7b35a96d12429c8ec9
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75991997"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200677"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Panoramica delle API di creazione di report per i clienti Enterprise
 Le API di creazione di report consentono ai clienti Enterprise di Azure di estrarre i dati di fatturazione e sull'uso a livello di codice per inserirli negli strumenti di analisi preferiti. I clienti Enterprise hanno sottoscritto un [Contratto Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) con Azure per concludere impegni monetari negoziati e ottenere l'accesso alla determinazione dei prezzi personalizzata per le risorse di Azure.

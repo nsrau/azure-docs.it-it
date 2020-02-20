@@ -8,21 +8,21 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 559d8cb25624c1d8bebb2969fbeeb80bdcc020e6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6393c1eeaaa72d653704fcc52442bfb326dc2cdd
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73479743"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472333"
 ---
 #   <a name="entity-recognition-cognitive-skill"></a>Competenza cognitiva Riconoscimento delle entità
 
 La competenza **Riconoscimento delle entità** estrae le entità di tipi diversi dal testo. Questa competenza usa i modelli di Machine Learning forniti da [Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Servizi cognitivi.
 
 > [!NOTE]
-> Se si espande l'ambito aumentando la frequenza di elaborazione, aggiungendo più documenti oppure aggiungendo altri algoritmi di intelligenza artificiale, sarà necessario [collegare una risorsa fatturabile di Servizi cognitivi](cognitive-search-attach-cognitive-services.md). Gli addebiti aumentano quando si chiamano le API nei servizi cognitivi e per l'estrazione di immagini come parte della fase di cracking del documento in Azure ricerca cognitiva. Non sono previsti addebiti per l'estrazione di testo dai documenti.
+> Se si espande l'ambito aumentando la frequenza di elaborazione, aggiungendo più documenti oppure aggiungendo altri algoritmi di intelligenza artificiale, sarà necessario [collegare una risorsa fatturabile di Servizi cognitivi](cognitive-search-attach-cognitive-services.md). Gli addebiti si accumulano quando si chiamano le API in Servizi cognitivi e per l'estrazione di immagini come parte della fase di cracking dei documenti in Ricerca cognitiva di Azure. Non sono previsti addebiti per l'estrazione di testo dai documenti.
 >
-> L'esecuzione delle competenze predefinite viene addebitata secondo gli attuali [prezzi con pagamento in base al consumo dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). I prezzi per l'estrazione delle immagini sono descritti nella [pagina dei prezzi di Azure ricerca cognitiva](https://go.microsoft.com/fwlink/?linkid=2042400).
+> L'esecuzione delle competenze predefinite viene addebitata secondo gli attuali [prezzi con pagamento in base al consumo dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). I prezzi per l'estrazione di immagini sono descritti nella [pagina dei prezzi di Ricerca cognitiva di Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -37,8 +37,8 @@ I parametri fanno distinzione tra maiuscole e minuscole e sono tutti facoltativi
 
 | Nome parametro     | Descrizione |
 |--------------------|-------------|
-| Categorie    | Matrice di categorie che devono essere estratte.  Possibili tipi di categorie: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Se non vengono fornite categorie, vengono restituiti tutti i tipi.|
-|defaultLanguageCode |  Codice lingua del testo di input. Sono supportate le lingue seguenti: `de, en, es, fr, it`|
+| categorie    | Matrice di categorie che devono essere estratte.  Possibili tipi di categorie: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Se non vengono fornite categorie, vengono restituiti tutti i tipi.|
+|defaultLanguageCode |  Codice lingua del testo di input. Sono supportate le seguenti lingue: `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans`. Non tutte le categorie di entità sono supportate per tutte le lingue. vedere la nota seguente.|
 |minimumPrecision | Immettere un valore compreso tra 0 e 1. Se il Punteggio di confidenza (nell'output del `namedEntities`) è inferiore a questo valore, l'entità non viene restituita. Il valore predefinito è 0. |
 |includeTypelessEntities | Impostare su `true` se si desidera riconoscere entità note che non rientrano nelle categorie correnti. Le entità riconosciute vengono restituite nel campo `entities` output complesso. Ad esempio, "Windows 10" è un'entità nota (un prodotto), ma dal momento che "prodotti" non è una categoria supportata, questa entità verrebbe inclusa nel campo di output entità. Il valore predefinito è `false` |
 
@@ -47,18 +47,18 @@ I parametri fanno distinzione tra maiuscole e minuscole e sono tutti facoltativi
 
 | Nome input      | Descrizione                   |
 |---------------|-------------------------------|
-| languageCode  | facoltativo. Il valore predefinito è `"en"`.  |
-| text          | Testo da analizzare.          |
+| languageCode  | Facoltativa. Il valore predefinito è `"en"`.  |
+| testo          | Testo da analizzare.          |
 
 ## <a name="skill-outputs"></a>Output competenze
 
 > [!NOTE]
-> non tutte le categorie di entità sono supportate per tutte le lingue. Solo _en_, _es_ supportano l'estrazione dei tipi `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`.
+> non tutte le categorie di entità sono supportate per tutte le lingue. I tipi di categoria di entità `"Person"`, `"Location"`e `"Organization"` sono supportati per l'elenco completo delle lingue precedenti. Solo _de_, _en_, _es_, _fr_e _zh-Hans_ supportano l'estrazione dei tipi `"Quantity"`, `"Datetime"`, `"URL"`e `"Email"`. Per ulteriori informazioni, vedere [supporto per lingue e aree per la API analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support).  
 
 | Nome output     | Descrizione                   |
 |---------------|-------------------------------|
 | persons      | Una matrice di stringhe in cui ogni stringa rappresenta il nome di una persona. |
-| locations  | Una matrice di stringhe in cui ogni stringa rappresenta il nome una posizione. |
+| posizioni  | Una matrice di stringhe in cui ogni stringa rappresenta il nome una posizione. |
 | organizations  | Una matrice di stringhe in cui ogni stringa rappresenta un'organizzazione. |
 | quantities  | Una matrice di stringhe in cui ogni stringa rappresenta una quantità. |
 | dateTimes  | Una matrice di stringhe in cui ogni stringa rappresenta un valore DateTime (come viene visualizzato nel testo). |
@@ -114,7 +114,7 @@ I parametri fanno distinzione tra maiuscole e minuscole e sono tutti facoltativi
 }
 ```
 
-##  <a name="sample-output"></a>Output di esempio
+##  <a name="sample-output"></a>Output dell'esempio:
 
 ```json
 {
@@ -194,4 +194,4 @@ Se il codice della lingua per il documento non è supportato, viene restituito u
 ## <a name="see-also"></a>Vedere anche
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
-+ [Come definire un insieme di competenze](cognitive-search-defining-skillset.md)
++ [Come definire un set di competenze](cognitive-search-defining-skillset.md)

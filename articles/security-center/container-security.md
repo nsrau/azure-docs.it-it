@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: ef87d8d02e6d7800435cab207a88197ef7c94b7c
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: c18751d315af6da1a4b2f06aaca28c84746b7be5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77430993"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470769"
 ---
 # <a name="container-security-in-security-center"></a>Sicurezza del contenitore nel centro sicurezza
 
@@ -71,9 +71,9 @@ Le minacce vengono rilevate a livello di host e del cluster AKS. Per informazion
 ## <a name="container-security-faq"></a>Domande frequenti sulla sicurezza del contenitore
 
 ### <a name="what-types-of-images-can-azure-security-center-scan"></a>Quali tipi di immagini possono essere analizzati dal centro sicurezza di Azure?
-Il Centro sicurezza analizza le immagini basate sul sistema operativo Linux. 
+Il Centro sicurezza analizza le immagini basate sul sistema operativo Linux che forniscono l'accesso alla Shell. 
 
-Lo scanner Qualys non supporta le immagini "senza distribuzione" che contengono solo l'applicazione e le relative dipendenze di Runtime.
+Lo scanner Qualys non supporta immagini estremamente minimaliste come immagini [Scratch di Docker](https://hub.docker.com/_/scratch/) o immagini "senza distribuzione" che contengono solo l'applicazione e le relative dipendenze di runtime (senza gestione pacchetti, Shell o sistema operativo).
 
 ### <a name="how-does-we-scan-azure-security-center-scan-an-image"></a>Come si analizza il Centro sicurezza di Azure per analizzare un'immagine?
 L'immagine viene estratta dal registro di sistema. Viene quindi eseguito in una sandbox isolata con lo scanner Qualys che estrae un elenco di vulnerabilità note.

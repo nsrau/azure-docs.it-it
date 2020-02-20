@@ -3,21 +3,18 @@ title: Visualizzare e scaricare la fattura di Microsoft Azure
 description: Descrive come visualizzare e scaricare la fattura di Microsoft Azure.
 keywords: fatturazione, scaricare la fatture, fattura di Azure, uso di Azure
 author: bandersmsft
-manager: jureid
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 0f413d38565202d379c81570b5cb169c2ed8effe
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 691d27acebf238e84265870e8c01976bfc2412b2
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75987824"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200266"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Visualizzare e scaricare la fattura di Microsoft Azure
 
@@ -87,7 +84,7 @@ Per rifiutare esplicitamente di ricevere la fattura tramite posta elettronica, s
 <!-- Does following section apply to MPA too? -->
 ## <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Ricevere le fatture del Contratto del cliente Microsoft tramite posta elettronica
 
-Se si ha un account di fatturazione per il Contratto del cliente Microsoft, è possibile acconsentire esplicitamente a ricevere la fattura tramite posta elettronica. Tutti gli utenti con ruolo proprietario, collaboratore, lettore o responsabile delle fatture in un profilo di fatturazione riceveranno la fattura tramite posta elettronica. 
+Se si ha un account di fatturazione per il Contratto del cliente Microsoft, è possibile acconsentire esplicitamente a ricevere la fattura tramite posta elettronica. Tutti gli utenti con ruolo proprietario, collaboratore, lettore o responsabile delle fatture in un profilo di fatturazione riceveranno la fattura tramite posta elettronica.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -109,11 +106,11 @@ Se si ha un account di fatturazione per il Contratto del cliente Microsoft, è p
 
 ## <a name="opt-out-of-getting-your-microsoft-customer-agreement-invoices-in-email"></a>Rifiutare esplicitamente di ricevere le fatture del Contratto del cliente Microsoft tramite posta elettronica
 
-Per rifiutare esplicitamente di ricevere la fattura tramite posta elettronica, seguire i passaggi precedenti e fare clic su **Rifiuta esplicitamente**. Tutti gli utenti con ruolo proprietario, collaboratore, lettore o responsabile delle fatture in un profilo di fatturazione vengono esclusi dalla ricezione della fattura tramite posta elettronica. 
+Per rifiutare esplicitamente di ricevere la fattura tramite posta elettronica, seguire i passaggi precedenti e fare clic su **Rifiuta esplicitamente**. Tutti gli utenti con ruolo proprietario, collaboratore, lettore o responsabile delle fatture in un profilo di fatturazione vengono esclusi dalla ricezione della fattura tramite posta elettronica.
 
 ## <a name="give-others-access-to-your-microsoft-customer-agreement-invoices"></a>Consentire ad altri utenti l'accesso alle fatture del Contratto del cliente Microsoft
 
-È possibile concedere ad altri utenti l'accesso per la visualizzazione, il download e il pagamento delle fatture, assegnando a tali utenti il ruolo di gestione fatture per un profilo di fatturazione. Se si è acconsentito esplicitamente ad ottenere la fattura tramite posta elettronica, anche questi utenti ricevono le fatture tramite posta elettronica. 
+È possibile concedere ad altri utenti l'accesso per la visualizzazione, il download e il pagamento delle fatture, assegnando a tali utenti il ruolo di gestione fatture per un profilo di fatturazione. Se si è acconsentito esplicitamente ad ottenere la fattura tramite posta elettronica, anche questi utenti ricevono le fatture tramite posta elettronica.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 

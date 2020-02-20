@@ -1,26 +1,19 @@
 ---
 title: Iscriversi ad Azure con un account Office 365 | Microsoft Docs
 description: Informazioni su come creare una sottoscrizione di Azure tramite un account di Office 365
-services: ''
-documentationcenter: ''
 author: JiangChen79
-manager: adpick
-editor: ''
+ms.reviewer: adwise
 tags: billing,top-support-issue
-ms.assetid: 129cdf7a-2165-483d-83e4-8f11f0fa7f8b
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 612c9d3e66a54e248c011e8dbedec2e2291b6a8f
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 265d9bcafa7caf9af0f8c4c7f33de044fa02349c
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75988123"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199586"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Iscriversi a una sottoscrizione di Azure con il proprio account di Office 365
 Se si dispone di un abbonamento a Office 365, è possibile usare l'account di Office 365 per creare una sottoscrizione di Azure. Accedere al [portale di Azure](https://portal.azure.com/) usando il nome utente e la password di Office 365. Se si vuole configurare le macchine virtuali o usare altri servizi di Azure, è necessario ottenere una sottoscrizione di Azure. È possibile condividere la sottoscrizione di Azure con altri utenti e [usare controllo degli accessi in base al ruolo per gestire l'accesso alle risorse e alla sottoscrizione di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)

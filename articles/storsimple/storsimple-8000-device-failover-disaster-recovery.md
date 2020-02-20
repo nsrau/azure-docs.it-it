@@ -1,5 +1,5 @@
 ---
-title: Failover e ripristino di emergenza di StorSimple per dispositivi serie 8000| Microsoft Docs
+title: Failover e ripristino di emergenza per dispositivi StorSimple serie 8000
 description: Informazioni su come eseguire il failover del dispositivo StorSimple su se stesso, su un altro dispositivo fisico o su un'applicazione cloud.
 services: storsimple
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 079a2f153f257040d1899a33c9e255d633e526ad
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c1acc084d5abe3385fe311873dfd64c9009e83f2
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60576373"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468593"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Failover e ripristino di emergenza per dispositivi StorSimple serie 8000
 
@@ -50,8 +50,8 @@ In una serie StorSimple 8000, i criteri di backup sono associati ai backup. Se s
 
 Si supponga che siano disponibili due criteri di backup, *defaultPol* e *customPol*:
 
-* *defaultPol*: Un solo volume, *vol1*, esecuzione giornaliera a partire 10:30 PM.
-* *customPol*: Quattro volumi, *vol1*, *vol2*, *vol3*, *vol4*, esecuzione giornaliera a partire dalle 22:00.
+* *defaultPol*: un solo volume, *vol1*, con esecuzione giornaliera a partire dalle 22:30.
+* *customPol*: quattro volumi, *vol1*, *vol2*, *vol3* e *vol4*, con esecuzione giornaliera a partire dalle 22:00.
 
 In questo caso StorSimple darà priorità alla coerenza per arresto anomalo del sistema e userà *customPol* perché include più volumi. Per il ripristino dei dati viene usato il backup più recente per questo criterio. Per altre informazioni su come creare e gestire i criteri di backup, passare a [Use the StorSimple Device Manager service to manage backup policies](storsimple-8000-manage-backup-policies-u2.md) (usare il servizio di gestione dispositivi StorSimple per gestire i criteri di backup).
 
@@ -106,21 +106,21 @@ Se si prevede di effettuare failover/failback di test, si consiglia di testare i
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-D: **Cosa accade se il ripristino di emergenza non riesce o viene eseguito solo parzialmente?**
+D. **Cosa accade se il ripristino di emergenza non riesce o viene eseguito solo parzialmente?**
 
-R. Se il ripristino di emergenza non riesce, si consiglia di tentare nuovamente. Il secondo processo di failover del dispositivo è a conoscenza dello stato di avanzamento del processo precedente e si avvia da quel punto in poi.
+A. Se il ripristino di emergenza non riesce, si consiglia di tentare nuovamente. Il secondo processo di failover del dispositivo è a conoscenza dello stato di avanzamento del processo precedente e si avvia da quel punto in poi.
 
-D: **È possibile eliminare un dispositivo mentre è in corso il failover?**
+D. **È possibile eliminare un dispositivo mentre è in corso il failover?**
 
-R. Non è possibile eliminare un dispositivo durante un ripristino di emergenza. Il dispositivo può essere eliminato solo al termine del processo. È possibile monitorare lo stato del processo di failover del dispositivo nel pannello **Processi**.
+A. Non è possibile eliminare un dispositivo durante un ripristino di emergenza. Il dispositivo può essere eliminato solo al termine del processo. È possibile monitorare lo stato del processo di failover del dispositivo nel pannello **Processi**.
 
-D: **Quando viene avviata l'operazione di Garbage Collection nel dispositivo di origine, in modo da eliminare i dati locali sul dispositivo di origine?**
+D. **Quando viene avviata l'operazione di Garbage Collection nel dispositivo di origine, in modo da eliminare i dati locali sul dispositivo di origine?**
 
-R. L'operazione di Garbage Collection sul dispositivo di origine verrà attivata solo una volta ripulito il dispositivo. La pulizia riguarda gli oggetti sottoposti a failover dal dispositivo di origine, come volumi, oggetti di backup (non dati), contenitori di volumi e criteri.
+A. L'operazione di Garbage Collection sul dispositivo di origine verrà attivata solo una volta ripulito il dispositivo. La pulizia riguarda gli oggetti sottoposti a failover dal dispositivo di origine, come volumi, oggetti di backup (non dati), contenitori di volumi e criteri.
 
-D: **Cosa accade se il processo di eliminazione associato ai contenitori di volumi nel dispositivo di origine non riesce?**
+D. **Cosa accade se il processo di eliminazione associato ai contenitori di volumi nel dispositivo di origine non riesce?**
 
-R.  Se il processo di eliminazione non riesce, è possibile eliminare manualmente i contenitori di volumi. Nel pannello **Dispositivi** selezionare il dispositivo di origine e fare clic su **Contenitori dei volumi**. Selezionare i contenitori di volumi precedentemente sottoposti a failover e fare clic sul pulsante di **eliminazione**in fondo al pannello. Dopo avere eliminato dal dispositivo di origine tutti i contenitori dei volumi sottoposti a failover, è possibile avviare il failback. Per altre informazioni, visitare [Eliminare un contenitore del volume](storsimple-8000-manage-volume-containers.md#delete-a-volume-container).
+A.  Se il processo di eliminazione non riesce, è possibile eliminare manualmente i contenitori di volumi. Nel pannello **Dispositivi** selezionare il dispositivo di origine e fare clic su **Contenitori dei volumi**. Selezionare i contenitori di volumi precedentemente sottoposti a failover e fare clic sul pulsante di **eliminazione**in fondo al pannello. Dopo avere eliminato dal dispositivo di origine tutti i contenitori dei volumi sottoposti a failover, è possibile avviare il failback. Per altre informazioni, visitare [Eliminare un contenitore del volume](storsimple-8000-manage-volume-containers.md#delete-a-volume-container).
 
 ## <a name="business-continuity-disaster-recovery-bcdr"></a>Ripristino di emergenza di continuità aziendale (BCDR)
 

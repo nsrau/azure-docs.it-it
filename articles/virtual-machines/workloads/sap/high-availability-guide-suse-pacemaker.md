@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 32865b84de2dc1c1f8a3fd6beca80a2659f1e3d9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 74c8c7dfc2beda2d242bc21e12293dc6f3c1cffe
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75370766"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470837"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configurazione di Pacemaker su SUSE Linux Enterprise Server in Azure
 
@@ -60,6 +60,9 @@ Eseguire i comandi seguenti in tutte le **macchine virtuali di destinazione iSCS
 
    <pre><code>sudo zypper update
    </code></pre>
+
+   > [!NOTE]
+   > Potrebbe essere necessario riavviare il sistema operativo dopo l'aggiornamento o l'aggiornamento del sistema operativo. 
 
 1. Rimuovere i pacchetti.
 
@@ -517,7 +520,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
 Il dispositivo STONITH usa un'entità servizio per l'autorizzazione in Microsoft Azure. Per creare un'entità servizio, seguire questa procedura.
 
-1. Vai a <https://portal.azure.com>
+1. Passare a <https://portal.azure.com>.
 1. Aprire il pannello Azure Active Directory  
    Passare a Proprietà e annotare l'ID directory. Si tratta dell'**ID tenant**.
 1. Fare clic su Registrazioni per l'app
@@ -568,7 +571,7 @@ Assegnare all'entità servizio il ruolo personalizzato "Linux Fence Agent Role" 
 1. Fare clic su Aggiungi assegnazione ruolo
 1. Selezionare il ruolo "Linux Fence Agent Role".
 1. Immettere il nome dell'applicazione creata in precedenza
-1. Fai clic su Salva.
+1. Fare clic su Salva.
 
 Ripetere la procedura precedente per il secondo nodo del cluster.
 

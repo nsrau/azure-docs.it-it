@@ -1,5 +1,5 @@
 ---
-title: Estensione macchina virtuale di monitoraggio di Azure per Linux
+title: Estensione macchina virtuale di Log Analytics per Linux
 description: Distribuire l'agente di Log Analytics nella macchina virtuale Linux usando un'estensione macchina virtuale.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,20 +12,20 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/06/2019
+ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: a431ae8130e258664328fa32a364eb76c28ea811
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 9ddac229fc38a91a8b97b24dc2807080b2295758
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544736"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468780"
 ---
-# <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale di monitoraggio di Azure per Linux
+# <a name="log-analytics-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale di Log Analytics per Linux
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
-Log di monitoraggio di Azure offre funzionalità di monitoraggio, avviso e correzione degli avvisi in risorse cloud e locali. L'estensione macchina virtuale agente di Log Analytics per Linux è pubblicata e supportata da Microsoft. L'estensione installa l'agente di Log Analytics in macchine virtuali di Azure e registra le macchine virtuali in un'area di lavoro Log Analytics esistente. Questo documento illustra in dettaglio le piattaforme, le configurazioni e le opzioni di distribuzione supportate per l'estensione macchina virtuale di monitoraggio di Azure per Linux.
+Log di monitoraggio di Azure offre funzionalità di monitoraggio, avviso e correzione degli avvisi in risorse cloud e locali. L'estensione della macchina virtuale Log Analytics per Linux è pubblicata e supportata da Microsoft. L'estensione installa l'agente di Log Analytics in macchine virtuali di Azure e registra le macchine virtuali in un'area di lavoro Log Analytics esistente. Questo documento descrive in dettaglio le piattaforme, le configurazioni e le opzioni di distribuzione supportate per l'estensione macchina virtuale di Log Analytics per Linux.
 
 >[!NOTE]
 >Nel quadro della transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, l'Agente OMS per Windows o Linux verrà indicato come agente di Log Analytics per Windows e agente di Log Analytics per Linux.
@@ -39,11 +39,11 @@ Log di monitoraggio di Azure offre funzionalità di monitoraggio, avviso e corre
 Per informazioni dettagliate sulle distribuzioni Linux supportate, vedere l'articolo [Panoramica dell'agente log Analytics](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) .
 
 ### <a name="agent-and-vm-extension-version"></a>Versione dell'estensione della macchina virtuale e dell'agente
-La tabella seguente fornisce un mapping della versione dell'estensione della macchina virtuale di monitoraggio di Azure e del bundle degli agenti Log Analytics per ogni versione. È incluso un collegamento alle note sulla versione per la versione bundle agenti di Log Analytics. Le note sulla versione includono i dettagli sulle correzioni di bug e sulle nuove funzionalità disponibili per una determinata versione degli agenti.  
+La tabella seguente contiene informazioni sull'associazione tra la versione delle estensioni di macchina virtuale di Log Analytics e del bundle dell'agente di Log Analytics per ogni versione. È incluso un collegamento alle note sulla versione per la versione bundle agenti di Log Analytics. Le note sulla versione includono i dettagli sulle correzioni di bug e sulle nuove funzionalità disponibili per una determinata versione degli agenti.  
 
-| Versione dell'estensione della macchina virtuale Linux di monitoraggio di Azure | Versione bundle agenti Log Analytics | 
+| Versione delle estensioni di macchina virtuale di Log Analytics per Linux | Versione bundle agenti Log Analytics | 
 |--------------------------------|--------------------------|
-| 1.12.15 | [1.12.15-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.12.15-0) |
+| 1.12.25 | [1.12.15-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.12.15-0) |
 | 1.11.15 | [1.11.0-9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
 | 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
 | 1.9.1 | [1.9.0-0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.9.0-0) |
@@ -62,7 +62,7 @@ La tabella seguente fornisce un mapping della versione dell'estensione della mac
 | 1.3.127.7 | [1.3.5-127](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent-201705-v1.3.5-127)|
 | 1.3.18.7 | [1.3.4-15](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent-201704-v1.3.4-15)|  
 
-### <a name="azure-security-center"></a>Centro sicurezza Azure
+### <a name="azure-security-center"></a>Centro sicurezza di Azure
 
 Il Centro sicurezza di Azure effettua automaticamente il provisioning dell'agente di Log Analytics e lo connette a un'area di lavoro Log Analytics predefinita creata dal Centro sicurezza di Azure nella sottoscrizione di Azure. Se si usa il Centro sicurezza di Azure, non completare i passaggi inclusi in questo documento. In caso contrario, si sovrascriverà l'area di lavoro configurata e si interromperà la connessione al Centro sicurezza di Azure.
 
@@ -100,11 +100,10 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione agente di L
 
 >[!NOTE]
 >Lo schema indicato sopra presuppone che deve essere inserito a livello radice del modello. Se è stato inserito all'interno della risorsa macchina virtuale nel modello, le proprietà `type` e `name` devono essere modificate, come descritto [più avanti](#template-deployment).
->
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Nome | Valore/Esempio |
+| Name | Valore/Esempio |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
@@ -186,7 +185,7 @@ az vm extension set \
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risolvere i problemi
+### <a name="troubleshoot"></a>Risoluzione dei problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite l'interfaccia della riga di comando di Azure. Per visualizzare lo stato di distribuzione delle estensioni per una determinata VM, eseguire il comando seguente nell'interfaccia della riga di comando di Azure.
 
@@ -202,7 +201,7 @@ L'output dell'esecuzione dell'estensione viene registrato nel file seguente:
 
 ### <a name="error-codes-and-their-meanings"></a>Codici di errore e relativi significati
 
-| Codice di errore | Significato | Azione possibile |
+| Codice errore | Significato | Azione possibile |
 | :---: | --- | --- |
 | 9 | Chiamata Enable anomala | [Aggiornare l'agente Linux di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) all'ultima versione disponibile. |
 | 10 | La macchina virtuale è già connessa a un'area di lavoro Log Analytics | Per connettere la macchina virtuale all'area di lavoro specificata nello schema dell'estensione, impostare stopOnMultipleConnections su false nelle impostazioni pubbliche o rimuovere questa proprietà. Questa macchina virtuale viene fatturata una volta per ogni area di lavoro a cui è connessa. |

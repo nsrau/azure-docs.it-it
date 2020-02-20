@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/13/2020
+ms.date: 02/18/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4c150d874d56e3de495b0682bee979d13304a01d
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 77fc6070010791bf96c944114929eba95842c9d4
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77202216"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471696"
 ---
 In anteprima, i dischi gestiti con dischi condivisi abilitati sono soggetti alle limitazioni seguenti:
 
@@ -26,4 +26,4 @@ In anteprima, i dischi gestiti con dischi condivisi abilitati sono soggetti alle
 - I set di disponibilità e i set di scalabilità di macchine virtuali possono essere usati solo con `FaultDomainCount` impostati su 1.
 - Il supporto di backup di Azure e Azure Site Recovery non è ancora disponibile.
 
-Se si è interessati a provare i dischi condivisi, [iscriversi per l'anteprima](https://aka.ms/shareddisksignup).
+Se si è interessati a provare i dischi condivisi, [iscriversi per l'anteprima](https://aka.ms/AzureSharedDiskPreviewSignUp).

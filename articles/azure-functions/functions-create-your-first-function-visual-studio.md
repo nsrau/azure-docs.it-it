@@ -5,12 +5,12 @@ ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 07/19/2019
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: 6d09453db0fdf8c09ad6d90c63b27f48508302be
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b343adeed5abeecdf55f71f8bc4298659a106e09
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230702"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198395"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Creare la prima funzione con Visual Studio
 
@@ -20,7 +20,7 @@ Questo articolo spiega come usare Visual Studio 2019 per creare e testare in loc
 
 ![Risposta localhost della funzione nel browser](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, è innanzitutto necessario installare [Visual Studio 2019](https://azure.microsoft.com/downloads/). Assicurarsi che sia installato anche il carico di lavoro **Sviluppo di Azure**.
 
@@ -32,7 +32,7 @@ Per completare questa esercitazione, è innanzitutto necessario installare [Visu
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-Visual Studio crea un progetto e una classe che contiene il codice boilerplate per il tipo di funzione trigger HTTP. L'attributo `FunctionName` del metodo imposta il nome della funzione, che per impostazione predefinita è `HttpTrigger`. L'attributo `HttpTrigger` specifica che la funzione è attivata da una richiesta HTTP. Il codice boilerplate invia una risposta HTTP che include un valore presente nel corpo della richiesta o nella stringa di query.
+Visual Studio crea un progetto e una classe che contiene il codice boilerplate per il tipo di funzione trigger HTTP. L'attributo `FunctionName` del metodo imposta il nome della funzione, che per impostazione predefinita è `Function1`. L'attributo `HttpTrigger` specifica che la funzione è attivata da una richiesta HTTP. Il codice boilerplate invia una risposta HTTP che include un valore presente nel corpo della richiesta o nella stringa di query.
 
 È possibile espandere le funzionalità della funzione usando binding di input e output tramite l'applicazione degli attributi appropriati al metodo. Per altre informazioni, vedere la sezione [Trigger e associazioni](functions-dotnet-class-library.md#triggers-and-bindings) di [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-dotnet-class-library.md).
 

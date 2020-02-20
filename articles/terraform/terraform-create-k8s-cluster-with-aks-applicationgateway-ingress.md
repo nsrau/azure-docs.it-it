@@ -3,12 +3,12 @@ title: 'Esercitazione: Creare un controller del traffico in ingresso del gateway
 description: Esercitazione che illustra come creare un cluster Kubernetes con il servizio Azure Kubernetes con il gateway applicazione come controller di ingresso
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: da9768c8b2ad854b116ef1b9eab801661f547bfa
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: b16b0a40d14ecde87b2637976299d05d37d706f3
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772866"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472265"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Esercitazione: Creare un controller di ingresso del gateway applicazione nel servizio Azure Kubernetes
 
@@ -29,7 +29,7 @@ In questa esercitazione si apprenderà come eseguire le attività seguenti:
 
 - **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
-- **Configurare Terraform**: Seguire le indicazioni nell'articolo su [Terraform e configurazione dell'accesso ad Azure](/azure/virtual-machines/linux/terraform-install-configure)
+- **Configurare Terraform**: Seguire le indicazioni nell'articolo su [Terraform e configurazione dell'accesso ad Azure](terraform-install-configure.md)
 
 - **Gruppo di risorse di Azure**: se non è già disponibile, [creare un gruppo di risorse di Azure](/azure/azure-resource-manager/manage-resource-groups-portal#create-resource-groups) da usare per la demo. Prendere nota del nome e della posizione del gruppo di risorse perché questi valori vengono usati nella demo.
 

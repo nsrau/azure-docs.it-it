@@ -8,16 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 09/17/2019
-ms.openlocfilehash: 3e0fddc03ad880d36876276827198b0ac180a00d
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: f03797a8c7df1609a32f934bc090c7adc899aa9a
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076366"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198923"
 ---
 # <a name="what-is-interactive-query-in-azure-hdinsight"></a>Che cos'è Interactive Query in Azure HDInsight
 
-Interactive Query (chiamato anche Apache Hive LLAP o [Low Latency Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP)) è un [tipo di cluster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types) di Azure HDInsight. Interactive Query supporta la memorizzazione nella cache in memoria, che rende le query Apache Hive più veloci e molto più interattive. I clienti usano Interactive Query per eseguire query sui dati archiviati in archiviazione di Azure e in Azure Data Lake Storage in modo estremamente veloce. Le query interattive permettono agli sviluppatori e ai data scientist di lavorare con maggiore facilità con i Big Data usando gli strumenti BI che preferiscono. HDInsight Interactive Query supporta diversi strumenti per accedere ai Big Data con facilità.
+Interactive Query (chiamato anche Apache Hive LLAP o [Low Latency Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP)) è un [tipo di cluster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-type) di Azure HDInsight. Interactive Query supporta la memorizzazione nella cache in memoria, che rende le query Apache Hive più veloci e molto più interattive. I clienti usano Interactive Query per eseguire query sui dati archiviati in archiviazione di Azure e in Azure Data Lake Storage in modo estremamente veloce. Le query interattive permettono agli sviluppatori e ai data scientist di lavorare con maggiore facilità con i Big Data usando gli strumenti BI che preferiscono. HDInsight Interactive Query supporta diversi strumenti per accedere ai Big Data con facilità.
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 

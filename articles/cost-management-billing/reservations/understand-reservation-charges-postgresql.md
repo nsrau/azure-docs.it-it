@@ -8,17 +8,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2019
-ms.openlocfilehash: 2f1843690861a463c634f523e82facffc72b6743
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/13/2020
+ms.openlocfilehash: e0dc7780ee570ce2d731bedf9ef56be606088a1f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75995507"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199297"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-postgresql-single-server"></a>Come viene applicato uno sconto per la prenotazione a un server singolo di Database di Azure per PostgreSQL
 
-Dopo avere acquistato capacità riservata per un server singolo di Database di Azure per PostgreSQL, lo sconto per la prenotazione viene automaticamente applicato ai database di server singoli di Database di Azure per PostgreSQL che corrispondono agli attributi e alla quantità della prenotazione. Una prenotazione copre solo i costi di calcolo di un server singolo di Database di Azure per PostgreSQL. Per l'archiviazione e la rete vengono addebitate le tariffe normali. 
+Dopo avere acquistato capacità riservata per un server singolo di Database di Azure per PostgreSQL, lo sconto per la prenotazione viene automaticamente applicato ai database di server singoli di Database di Azure per PostgreSQL che corrispondono agli attributi e alla quantità della prenotazione. Una prenotazione copre solo i costi di calcolo di un server singolo di Database di Azure per PostgreSQL. Per l'archiviazione e la rete vengono addebitate le tariffe normali.
 
 ## <a name="how-reservation-discount-is-applied"></a>Come viene applicato lo sconto per la prenotazione
 

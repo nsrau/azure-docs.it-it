@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
-ms.openlocfilehash: 1f3dd1fa4b70fcdbec7e62c84bbfc1df14d3502e
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: e2b3ceba7a3673caa38e09f6b4dfa296fd063cfe
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425086"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467914"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Risoluzione dei problemi di Diagnostica di Azure
 Questo articolo contiene informazioni sulla risoluzione dei problemi relativi all'uso di Diagnostica di Azure. Per altre informazioni su Diagnostica di Azure, vedere la [panoramica di Diagnostica di Azure](diagnostics-extension-overview.md).
@@ -297,5 +297,5 @@ Nell'esperienza del portale per le macchine virtuali vengono visualizzati per im
 
 - Se i dati nella risorsa di archiviazione contengono i nomi dei contatori in lingua inglese. Se i nomi dei contatori non sono in inglese, il grafico delle metriche del portale non riesce a riconoscerli. **Prevenzione**: modificare la lingua del computer impostando l'inglese per gli account di sistema. A tale scopo, selezionare **Pannello di controllo** > **Area geografica** > **Opzioni di amministrazione** > **Copia impostazioni**. Deselezionare quindi **Schermata iniziale e account di sistema** affinché la lingua personalizzata non venga applicata all'account di sistema.
 
-- Se si usano caratteri jolly (\*) nei nomi dei contatori delle prestazioni, il portale non può correlare il contatore configurato e il contatore raccolto quando i contatori delle prestazioni vengono inviato al sink di archiviazione di Azure. **Mitigazione**: per assicurarsi che è possibile usare i caratteri jolly e fare in modo che il portale espanda (\*), indirizzare i contatori di prestazioni al sink di ["Monitoraggio di Azure"](diagnostics-extension-schema.md#diagnostics-extension-111).
+- Se si usano caratteri jolly (\*) nei nomi dei contatori delle prestazioni, il portale non può correlare il contatore configurato e il contatore raccolto quando i contatori delle prestazioni vengono inviato al sink di archiviazione di Azure. **Mitigazione**: per assicurarsi che sia possibile usare i caratteri jolly e che il portale Espandi il (\*), indirizzare i contatori delle prestazioni al sink di monitoraggio di Azure.
 
