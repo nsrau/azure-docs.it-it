@@ -5,17 +5,17 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: language-understanding
+ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
-ms.date: 01/23/2020
 ms.author: diberry
-ms.openlocfilehash: e4bba00d6506684a3baf345806bdaa340f6970ca
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 070de0f65e890c38acd5075286b349e95cd19f3b
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76909212"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77371787"
 ---
 Usare la libreria client di creazione di LUIS (Language Understanding) per Node.js per:
 
@@ -47,7 +47,7 @@ Usando la chiave e l'area della chiave, creare due variabili di ambiente per l'a
 
 Usare le istruzioni per il sistema operativo in uso.
 
-#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+#### <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 setx LUIS_AUTHORING_KEY <replace-with-your-luis-authoring-key
@@ -56,7 +56,7 @@ setx LUIS_AUTHORING_ENDPOINT <replace-with-your-luis-authoring-endpoint>
 
 Dopo aver aggiunto la variabile di ambiente, riavviare la finestra della console.
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+#### <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
@@ -65,7 +65,7 @@ export LUIS_AUTHORING_ENDPOINT=<replace-with-your-luis-authoring-endpoint>
 
 Dopo avere aggiunto la variabile di ambiente, eseguire `source ~/.bashrc` dalla finestra della console per rendere effettive le modifiche.
 
-#### <a name="macostabunix"></a>[macOS](#tab/unix)
+#### <a name="macos"></a>[macOS](#tab/unix)
 
 Modificare `.bash_profile` e aggiungere la variabile di ambiente:
 

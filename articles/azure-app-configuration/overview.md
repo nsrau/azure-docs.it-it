@@ -6,18 +6,16 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: overview
 ms.date: 02/24/2019
-ms.openlocfilehash: 22ebfc53405149358b0a2a03cd256a78db5d1910
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 67a76d3b347ef750b639225a009cc6968cb84c6f
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899341"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467556"
 ---
 # <a name="what-is-azure-app-configuration"></a>Informazioni su Configurazione app di Azure
 
 Configurazione app di Azure è un servizio per la gestione centralizzata delle impostazioni delle applicazioni e dei flag di funzionalità. I programmi moderni, specialmente quelli eseguiti nel cloud, hanno in genere molti componenti che sono distribuiti per natura. Disseminare le impostazioni di configurazione tra questi componenti può generare errori difficili da risolvere durante la distribuzione di un'applicazione. Configurazione app consente di archiviare tutte le impostazioni dell'applicazione e di proteggerne gli accessi in un'unica posizione.
-
-Configurazione app è attualmente in anteprima pubblica. È gratuita durante il periodo di anteprima. È possibile effettuare l'iscrizione nel [portale di Azure](https://portal.azure.com).
 
 ## <a name="why-use-app-configuration"></a>Perché usare Configurazione app
 

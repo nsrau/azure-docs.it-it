@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9c7e49fe522859f97f00f760822d5eef60db5f69
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b291d5babb0680f5f1a742efcf624a82c804de68
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228849"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460008"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Che cos'è Apache Storm in Azure HDInsight?
 
@@ -42,7 +42,7 @@ Storm in HDInsight offre le funzionalità seguenti:
 
     Per una soluzione di esempio che si integra con i servizi di Azure, vedere [Elaborare eventi di Hub eventi con Apache Storm in HDInsight](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub).
 
-Per un elenco delle società che usano Apache Storm per le loro soluzioni di analisi in tempo reale, vedere l'articolo relativo alle [società che usano Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
+Per un elenco delle società che usano Apache Storm per le loro soluzioni di analisi in tempo reale, vedere l'articolo relativo alle [società che usano Apache Storm](https://storm.apache.org/Powered-By.html).
 
 Per iniziare a usare Storm, vedere [Creare e monitorare una topologia Apache Storm in Azure HDInsight](apache-storm-quickstart.md).
 
@@ -118,7 +118,7 @@ Di seguito sono descritti alcuni scenari comuni in cui è possibile usare Storm 
 
 Per informazioni sugli scenari reali, vedere il documento [How companies are using Apache Storm](https://storm.apache.org/Powered-By.html) (Uso di Apache Storm nelle aziende).
 
-## <a name="development"></a>Sviluppo.
+## <a name="development"></a>Sviluppo
 
 Gli sviluppatori .NET possono progettare e implementare topologie in C# usando Strumenti Azure Data Lake per Visual Studio. È inoltre possibile creare topologie ibride che usano componenti Java e C#.
 

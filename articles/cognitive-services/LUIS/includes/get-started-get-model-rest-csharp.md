@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: 7800edafca46a2210b9552299605d54c9db07f1f
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: e4f995e888d261e1a1a7cb1e63d0d222c165060f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76966884"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368451"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -29,8 +29,6 @@ ms.locfileid: "76966884"
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
 ## <a name="change-model-programmatically"></a>Cambiare il modello a livello di codice
-
-Usare C# per aggiungere all'applicazione un'[API](https://aka.ms/luis-apim-v3-authoring) entità basata su Machine Learning.
 
 1. Creare una nuova applicazione console destinata al linguaggio C#, con un nome di progetto e di cartella `model-with-rest`.
 

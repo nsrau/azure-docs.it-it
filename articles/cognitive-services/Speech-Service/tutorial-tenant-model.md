@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 02ae140568150b0db8ebdea065ee683e4f4eec9c
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: a83ed5c9cec994c1bc4cadd5cf6208c159823658
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189009"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469018"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Esercitazione: Creare un modello di tenant (anteprima)
 
@@ -81,7 +81,7 @@ Dopo che l'amministratore ha abilitato il modello di tenant per l'organizzazione
    > I clienti aziendali di Office 365 in America del Nord sono idonei per la creazione di un modello di tenant (inglese). Per i clienti di Customer Lockbox, Customer Key o Office 365 Government, questa funzionalità non è disponibile. Per determinare se si è un cliente di Customer Lockbox o Customer Key, vedere:
    > * [Customer Lockbox](/microsoft-365/compliance/customer-lockbox-requests)
    > * [Customer Key](/microsoft-365/compliance/customer-key-overview)
-   > * [Office 365 Government](/microsoft-365/government)
+   > * [Office 365 Government](https://www.microsoft.com/microsoft-365/government)
 
 1. Selezionare **Acconsenti esplicitamente** .
 

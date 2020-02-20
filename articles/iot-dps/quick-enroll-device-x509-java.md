@@ -9,14 +9,14 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 4be7dc3e93b61f036a4167347a45725eff185f04
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a2787a0d5f372562f32c4d8adca3ed195d1befd5
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969712"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461969"
 ---
-# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Guida introduttiva: Registrare i dispositivi X.509 nel servizio Device Provisioning con Java
+# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Avvio rapido: Registrare i dispositivi X.509 nel servizio Device Provisioning con Java
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
@@ -28,7 +28,7 @@ Anche se Java Service SDK funziona su computer sia Windows che Linux, questo art
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Installare [Java SE Development Kit 8](https://aka.ms/azure-jdks).
 * Installare [Maven 3](https://maven.apache.org/download.cgi). È possibile verificare la versione di Maven corrente eseguendo:
@@ -149,7 +149,7 @@ La procedura seguente illustra come aggiungere i dettagli del provisioning del d
     mvn install -DskipTests
     ```
 
-   Questo comando scarica il pacchetto Maven [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) nel computer. Questo pacchetto include i file binari per Java Service SDK, necessari al codice di esempio per la compilazione. Se si è eseguito lo strumento _generatore di certificati X.509_ nella sezione precedente, questo pacchetto sarà già scaricato nel computer. 
+   Questo comando scarica il pacchetto Maven [`com.microsoft.azure.sdk.iot.provisioning.service`](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) nel computer. Questo pacchetto include i file binari per Java Service SDK, necessari al codice di esempio per la compilazione. Se si è eseguito lo strumento _generatore di certificati X.509_ nella sezione precedente, questo pacchetto sarà già scaricato nel computer. 
 
 3. Eseguire l'esempio usando questi comandi nella finestra di comando:
 
