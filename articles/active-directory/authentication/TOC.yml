@@ -11,8 +11,8 @@
       href: tutorial-enable-sspr.md
     - name: Abilitare Azure Multi-Factor Authentication
       href: tutorial-enable-azure-mfa.md
-    - name: Abilitare l'integrazione locale della reimpostazione della password self-service
-      href: tutorial-enable-writeback.md
+    - name: Abilitare il writeback delle password nell'ambiente locale
+      href: tutorial-enable-sspr-writeback.md
     - name: Integrazione di Azure Identity Protection
       href: tutorial-risk-based-sspr-mfa.md
 - name: Concetti
@@ -68,8 +68,6 @@
           href: howto-sspr-deployment.md
         - name: Preregistrare i dati di autenticazione
           href: howto-sspr-authenticationdata.md
-        - name: Abilitare il writeback delle password
-          href: howto-sspr-writeback.md
         - name: Reimpostazione della password self-service per client Windows
           href: howto-sspr-windows.md
     - name: Multi-Factor Authentication basata sul cloud

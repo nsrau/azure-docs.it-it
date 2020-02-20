@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f5737dccca6baa2dc2c1d98233b80d871cf86007
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ea1cae1f5a30d4cd76df39fec43f3818178fc213
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974709"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484197"
 ---
-# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Guida introduttiva: Configurare il servizio Device Provisioning in hub IoT con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Avvio rapido: Configurare il servizio Device Provisioning in hub IoT con l'interfaccia della riga di comando di Azure
 
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questo argomento di avvio rapido illustra l'uso dell'interfaccia della riga di comando di Azure per creare un hub IoT e un servizio Device Provisioning in hub IoT e collegare i due servizi tra loro. 
 
@@ -64,7 +64,7 @@ az iot dps create --name my-sample-dps --resource-group my-sample-resource-group
 ```
 
 > [!TIP]
-> L'esempio crea un servizio di provisioning nella località Stati Uniti occidentali. Per un elenco delle località disponibili, è possibile eseguire il comando `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` oppure passare alla pagina [Stato di Azure](https://azure.microsoft.com/status/) e cercare "Servizio Device Provisioning". Nei comandi è possibile specificare le località nel formato a una o più parole, ad esempio westus, West US, WEST US e così via. Il valore non distingue tra maiuscole e minuscole. Se si usa il formato a più parole per specificare la località, racchiudere il valore tra virgolette, ad esempio `-- location "West US"`.
+> L'esempio crea un servizio di provisioning nella località Stati Uniti occidentali. Per un elenco delle località disponibili, è possibile eseguire il comando `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` oppure passare alla pagina [Stato di Azure](https://azure.microsoft.com/status/) e cercare "Servizio Device Provisioning". Nei comandi è possibile specificare le località nel formato a una o più parole, ad esempio westus, Stati Uniti occidentali, Stati Uniti occidentali e così via. Il valore non distingue tra maiuscole e minuscole. Se si usa il formato a più parole per specificare la località, racchiudere il valore tra virgolette, ad esempio `--location "West US"`.
 >
 
 ## <a name="get-the-connection-string-for-the-iot-hub"></a>Ottenere la stringa di connessione dell'hub IoT

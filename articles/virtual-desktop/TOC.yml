@@ -154,3 +154,5 @@
       href: 'https://windowsvirtualdesktop.uservoice.com/forums/921118-general'
     - name: Roadmap di Microsoft 365
       href: 'https://aka.ms/wvdroadmap'
+    - name: Modelli di Gestione risorse di Azure
+      href: 'https://github.com/Azure/RDS-Templates/tree/master/wvd-templates'

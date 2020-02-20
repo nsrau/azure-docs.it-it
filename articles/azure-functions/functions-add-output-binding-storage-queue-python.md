@@ -3,12 +3,12 @@ title: Aggiungere un binding della coda di archiviazione di Azure alla funzione 
 description: Integrare una coda di Archiviazione di Azure con una funzione Python usando un binding di output.
 ms.date: 01/15/2020
 ms.topic: quickstart
-ms.openlocfilehash: f5527e0e636c3f8c9ee3723570ed9811f0df3641
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 6cea44dca666bbf002de6e2b7dd283f49ac7bd5a
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198480"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485166"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Aggiungere un binding della coda di archiviazione di Azure alla funzione Python
 
@@ -100,7 +100,7 @@ Per scrivere in una coda di Archiviazione di Azure da questa funzione, aggiunger
 
 In questo caso, `msg` viene assegnato alla funzione come argomento di output. Per un tipo `queue`, è necessario specificare anche il nome della coda in `queueName` e fornire il *nome* della connessione di Archiviazione di Azure (da *local.settings.json*) in `connection`.
 
-Per altre informazioni sui dettagli dei binding, vedere [Concetti su trigger e binding di Funzioni di Azure](functions-triggers-bindings.md) e la [configurazione dell'output della coda](functions-bindings-storage-queue.md#output---configuration).
+Per altre informazioni sui dettagli dei binding, vedere [Concetti su trigger e binding di Funzioni di Azure](functions-triggers-bindings.md) e la [configurazione dell'output della coda](functions-bindings-storage-queue-output.md#configuration).
 
 ## <a name="add-code-to-use-the-output-binding"></a>Aggiungere il codice per usare il binding di output
 
@@ -219,7 +219,7 @@ Quando la funzione genera una risposta HTTP per il Web browser, chiama anche `ms
     ---
 
 
-1. Usare il comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) per visualizzare i messaggi in questa coda, che dovrebbe essere il primo nome usato per il test della funzione in precedenza. Il comando recupera il primo messaggio nella coda in [codifica base64](functions-bindings-storage-queue.md#encoding), quindi è anche necessario decodificarlo per visualizzarlo come testo.
+1. Usare il comando [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) per visualizzare i messaggi in questa coda, che dovrebbe essere il primo nome usato per il test della funzione in precedenza. Il comando recupera il primo messaggio nella coda in [codifica base64](functions-bindings-storage-queue-trigger.md#encoding), quindi è anche necessario decodificarlo per visualizzarlo come testo.
 
     # <a name="bash"></a>[Bash](#tab/bash)
     
