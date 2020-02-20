@@ -1,4 +1,4 @@
-- name: Documentazione di Configurazione app di Azure (anteprima)
+- name: Documentazione di Configurazione app di Azure
   href: index.yml
 - name: Panoramica
   items:
@@ -59,6 +59,8 @@
   items:
     - name: Archivio chiave-valore
       href: concept-key-value.md
+    - name: Crittografare con chiavi gestite dal cliente
+      href: concept-customer-managed-keys.md
     - name: Snapshot temporizzato
       href: concept-point-time-snapshot.md
     - name: Gestione delle funzionalità
@@ -67,14 +69,18 @@
       href: concept-github-action.md
     - name: Gestione degli eventi
       href: concept-app-configuration-event.md
+    - name: Authentication
+      items:
+        - name: Integrazione con l'identità gestita di Azure
+          href: howto-integrate-azure-managed-service-identity.md
+        - name: Abilitare l'accesso con Azure Active Directory
+          href: concept-enable-rbac.md
     - name: Disponibilità elevata
       items:
         - name: Resilienza e ripristino di emergenza
           href: concept-disaster-recovery.md
 - name: Guide pratiche
   items:
-    - name: Integrazione con l'identità gestita di Azure
-      href: howto-integrate-azure-managed-service-identity.md
     - name: Importare o esportare dati di configurazione
       href: howto-import-export-data.md
     - name: Indirizzare gli eventi a un endpoint personalizzato
@@ -86,7 +92,7 @@
     - name: Configurazione
       items:
         - name: Interfaccia della riga di comando di Azure
-          href: 'https://docs.microsoft.com/cli/azure/ext/appconfig/appconfig?view=azure-cli-latest'
+          href: 'https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest'
         - name: Provider .NET Core
           href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
         - name: Generatore di .NET Framework

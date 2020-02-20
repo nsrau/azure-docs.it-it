@@ -264,7 +264,7 @@
       items:
         - name: Informazioni su Apache Spark in HDInsight
           href: ./spark/apache-spark-overview.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       items:
         - name: Creare un cluster Apache Spark - Portale
           href: ./spark/apache-spark-jupyter-spark-sql-use-portal.md
@@ -412,7 +412,7 @@
       items:
         - name: Informazioni su Apache Hadoop in HDInsight
           href: ./hadoop/apache-hadoop-introduction.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       items:
         - name: Creare un cluster Apache Hadoop - Portale
           href: ./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md
@@ -529,13 +529,15 @@
               href: ./hadoop/troubleshoot-lost-key-vault-access.md
             - name: Eccezione di archiviazione WASBS
               href: ./hadoop/troubleshoot-wasbs-storage-exception.md
+            - name: Gestire lo spazio su disco
+              href: ./hadoop/troubleshoot-disk-space.md
 - name: Apache Kafka
   items:
     - name: Panoramica
       items:
         - name: Informazioni su Apache Kafka in HDInsight
           href: ./kafka/apache-kafka-introduction.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       items:
         - name: Creare un cluster Apache Kafka - Portale
           href: ./kafka/apache-kafka-get-started.md
@@ -604,7 +606,7 @@
       items:
         - name: Informazioni su Apache HBase in HDInsight
           href: ./hbase/apache-hbase-overview.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       items:
         - name: Eseguire query su Apache HBase - Apache Phoenix
           href: ./hbase/apache-hbase-query-with-phoenix.md
@@ -676,7 +678,7 @@
       items:
         - name: Informazioni su Interactive Query in HDInsight
           href: ./interactive-query/apache-interactive-query-get-started.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       items:
         - name: Eseguire query Apache Hive - Apache Zeppelin
           href: ./interactive-query/hdinsight-connect-hive-zeppelin.md
@@ -756,7 +758,7 @@
       items:
         - name: Informazioni su ML Services in HDInsight
           href: ./r-server/r-server-overview.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       items:
         - name: Processo di esempio - RStudio Server
           href: ./r-server/machine-learning-services-quickstart-job-rstudio.md
@@ -790,7 +792,7 @@
       items:
         - name: Informazioni su Apache Storm in HDInsight
           href: ./storm/apache-storm-overview.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       items:
         - name: Creare una topologia Apache Storm in HDInsight
           href: ./storm/apache-storm-quickstart.md
@@ -884,6 +886,8 @@
           href: ./hdinsight-sync-aad-users-to-cluster.md
         - name: Gestire i cluster con la sicurezza aziendale
           href: ./domain-joined/apache-domain-joined-manage.md
+        - name: Gestire l'accesso SSH
+          href: ./domain-joined/ssh-domain-accounts.md
         - name: Protezione dei dati
           href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
         - name: Risolvere problemi
