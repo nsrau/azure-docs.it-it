@@ -3,14 +3,16 @@ author: yashar
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 11-20-2018
-ms.openlocfilehash: 9a7de2b41c8016bdb7849cdef428d6f54a8ccf64
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 02-18-2020
+ms.openlocfilehash: aebe8f05bd1a3607da6d1153c87490891fc6b299
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005464"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471457"
 ---
+Quando si acquista un'istanza di macchina virtuale riservata, è possibile scegliere di ottimizzare la flessibilità delle dimensioni dell'istanza o la priorità della capacità. Per altre informazioni sull'impostazione o sulla modifica dell'impostazione di ottimizzazione per le istanze di VM riservate, vedere [modificare l'impostazione di ottimizzazione per le istanze di VM riservate](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
+
 Con un'istanza di macchina virtuale riservata ottimizzata per la flessibilità delle dimensioni dell'istanza, la prenotazione acquistata può essere applicata alle dimensioni delle macchine virtuali (VM) nello stesso gruppo di flessibilità delle dimensioni dell'istanza. Se ad esempio si acquista una prenotazione per le dimensioni di una macchina virtuale elencate nella serie DSv2, ad esempio Standard_DS5_v2, lo sconto di prenotazione può essere applicato alle altre quattro dimensioni elencate nello stesso gruppo di flessibilità delle dimensioni dell'istanza:
 
 - Standard_DS1_v2
@@ -22,7 +24,7 @@ Lo sconto per le prenotazioni non si applica tuttavia alle dimensioni delle VM e
 
 All'interno del gruppo di flessibilità delle dimensioni dell'istanza, il numero di macchine virtuali a cui si applica lo sconto della prenotazione dipende dalle dimensioni della macchina virtuale selezionate quando si acquista una prenotazione. Dipende anche dalle dimensioni delle macchine virtuali in esecuzione. La colonna ratio confronta il footprint relativo per ogni dimensione di macchina virtuale in tale gruppo di flessibilità delle dimensioni dell'istanza. Usare il valore di rapporto per calcolare come viene applicato lo sconto per la prenotazione alle macchine virtuali in esecuzione.
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 Gli esempi seguenti usano le dimensioni e i rapporti nella tabella della serie DSv2.
 

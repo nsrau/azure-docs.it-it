@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: rezas
-ms.openlocfilehash: dcbc03257b8bfeacda700f60f2724f2d02ec147d
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 4732304384b8c221ae7c8d99da7f714613ad9050
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048279"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472112"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Comprendere e richiamare metodi diretti dall'hub IoT
 
@@ -36,7 +36,7 @@ I metodi diretti vengono implementati nel dispositivo. Per creare correttamente 
 > Quando si richiama un metodo diretto in un dispositivo, i valori e i nomi di proprietà possono contenere solo caratteri alfanumerici stampabili US-ASCII, ad eccezione dei seguenti: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
 > 
 
-I metodi diretti sono sincroni e possono avere esito positivo o negativo dopo il periodo di timeout (valore predefinito: 30 secondi, impostabile fino a 300 secondi). Risultano utili negli scenari interattivi in cui si vuole che il dispositivo agisca esclusivamente se è online e riceve comandi, ad esempio nel caso dell'accensione di una luce da un telefono. In questi scenari l'esito positivo o negativo deve essere immediato, in modo che il servizio cloud possa agire in base al risultato il prima possibile. Il dispositivo può restituire un corpo del messaggio come risultato del metodo, ma non è necessario che il metodo esegua questa operazione. Nelle chiamate ai metodi non esiste alcuna garanzia di ordinamento o semantica di concorrenza.
+I metodi diretti sono sincroni e possono avere esito positivo o negativo dopo il periodo di timeout (valore predefinito: 30 secondi, impostabile tra 5 e 300 secondi). Risultano utili negli scenari interattivi in cui si vuole che il dispositivo agisca esclusivamente se è online e riceve comandi, ad esempio nel caso dell'accensione di una luce da un telefono. In questi scenari l'esito positivo o negativo deve essere immediato, in modo che il servizio cloud possa agire in base al risultato il prima possibile. Il dispositivo può restituire un corpo del messaggio come risultato del metodo, ma non è necessario che il metodo esegua questa operazione. Nelle chiamate ai metodi non esiste alcuna garanzia di ordinamento o semantica di concorrenza.
 
 I metodi diretti supportano solo HTTPS lato cloud e solo MQTT o AMQP lato dispositivo.
 
@@ -166,7 +166,7 @@ La sezione seguente è per il protocollo AMQP.
 
 Il dispositivo riceve richieste di metodi diretti tramite la creazione di un collegamento di ricezione sull'indirizzo `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`.
 
-Il messaggio AMQP arriva sul collegamento di ricezione che rappresenta la richiesta del metodo. Contiene le sezioni seguenti:
+Il messaggio AMQP arriva sul collegamento di ricezione che rappresenta la richiesta del metodo. Sono incluse le sezioni seguenti:
 
 * La proprietà ID di correlazione, contenente un ID richiesta che deve essere passato con la relativa risposta del metodo.
 

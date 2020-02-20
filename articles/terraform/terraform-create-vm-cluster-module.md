@@ -3,12 +3,12 @@ title: Esercitazione - Creare un cluster di macchine virtuali di Azure con Terra
 description: Informazioni su come usare moduli Terraform per creare un cluster di macchine virtuali Windows in Azure
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 3ddc80e8f5a81e89e4574ff6524055f12a4a618a
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: d17a0d7c26cc1a16ab73350fe6e8c28ba4af6ff2
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185554"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472205"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-using-the-module-registry"></a>Esercitazione: Creare un cluster di macchine virtuali di Azure con Terraform con il registro modulo
 
@@ -25,9 +25,9 @@ Per altre informazioni su Terraform, vedere la [documentazione di Terraform](htt
 ## <a name="set-up-authentication-with-azure"></a>Configurare l'autenticazione con Azure
 
 > [!TIP]
-> Se si [usano le variabili di ambiente di Terraform](/azure/virtual-machines/linux/terraform-install-configure) o si esegue questa esercitazione in [Azure Cloud Shell](/azure/cloud-shell/overview), ignorare questo passaggio.
+> Se si [usano le variabili di ambiente di Terraform](terraform-install-configure.md) o si esegue questa esercitazione in [Azure Cloud Shell](/azure/cloud-shell/overview), ignorare questo passaggio.
 
- Vedere [Installare Terraform e configurare l'accesso ad Azure](/azure/virtual-machines/linux/terraform-install-configure) per creare un'entità servizio di Azure. Usare questa entità servizio per compilare un nuovo file `azureProviderAndCreds.tf` in una directory vuota con il codice seguente:
+ Vedere [Installare Terraform e configurare l'accesso ad Azure](terraform-install-configure.md) per creare un'entità servizio di Azure. Usare questa entità servizio per compilare un nuovo file `azureProviderAndCreds.tf` in una directory vuota con il codice seguente:
 
 ```hcl
 variable subscription_id {}

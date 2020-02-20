@@ -7,19 +7,31 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/04/2019
-ms.openlocfilehash: d4263b8b338f057893c9dfcda1541fc338c2577f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 02/17/2020
+ms.openlocfilehash: 3f8ff3cbc24f6e3a7e0eccf1b18e01941c9584b9
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894268"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471181"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analizzare i log per Apache Kafka in HDInsight
 
 Informazioni su come usare i log di monitoraggio di Azure per analizzare i log generati da Apache Kafka in HDInsight.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+## <a name="logs-location"></a>Percorso dei log
+
+I log Apache Kafka nel cluster si trovano in `/var/log/kafka`. I registri Kafka non vengono salvati né salvati in permanenza tra i cicli di vita del cluster, indipendentemente dal fatto che vengano usati i dischi gestiti. La tabella seguente illustra i log disponibili.
+
+|File di log |Descrizione |
+|---|---|
+|Kafka. out|stdout e stderr del processo Kafka. In questo file sono disponibili i log di avvio e arresto di Kafka.|
+|Server. log|Log del server Kafka principale. Tutti i log del broker Kafka si concludono qui.|
+|controller. log|Log del controller se il broker funge da controller.|
+|StateChange. log|Tutti gli eventi di modifica dello stato ai broker vengono registrati in questo file.|
+|Kafka-GC. log|Statistiche di Garbage Collection Kafka.|
 
 ## <a name="enable-azure-monitor-logs-for-apache-kafka"></a>Abilitare i log di monitoraggio di Azure per Apache Kafka
 
@@ -82,7 +94,7 @@ I passaggi per abilitare i log di monitoraggio di Azure per HDInsight sono gli s
 
     È anche possibile immettere `*` per cercare tutti i tipi registrati. Questi log sono attualmente disponibili per le query:
 
-    | Tipo di log | Description |
+    | Tipo di log | Descrizione |
     | ---- | ---- |
     | log\_kafkaserver\_CL | Kafka broker server.log |
     | log\_kafkacontroller\_CL | Kafka broker controller.log |

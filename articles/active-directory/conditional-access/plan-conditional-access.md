@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 266fa2403ef96e808a0c1f1eb46b4f7065c06252
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 3c8c5e3c2552101437bfed17906f94861e676568
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185895"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468438"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Procedura: pianificare la distribuzione dell'accesso condizionale in Azure Active Directory
 
@@ -31,6 +31,9 @@ Se sono richieste funzionalità aggiuntive, può anche essere necessario ottener
 Esistono due tipi di criteri di accesso condizionale: baseline e standard. Un [criterio di base](baseline-protection.md) è un criterio di accesso condizionale predefinito. L'obiettivo di questi criteri è assicurarsi di disporre almeno del livello di base della sicurezza abilitato. Criteri di base. I criteri di base sono disponibili in tutte le edizioni di Azure AD e forniscono solo opzioni di personalizzazione limitate. Se uno scenario richiede una maggiore flessibilità, disabilitare i criteri di base e implementare i requisiti in criteri standard personalizzati.
 
 In un criterio di accesso condizionale standard è possibile personalizzare tutte le impostazioni per modificare i criteri in base ai requisiti aziendali. I criteri standard richiedono una licenza di Azure AD Premium P1.
+
+>[!NOTE]
+> È consigliabile usare Azure AD criteri di accesso condizionale basato su dispositivo per ottenere l'applicazione migliore dopo l'autenticazione iniziale del dispositivo. Sono incluse le sessioni di chiusura se il dispositivo non è conforme e il flusso del codice del dispositivo.
 
 ## <a name="draft-policies"></a>Disegnare i criteri
 
@@ -131,7 +134,7 @@ L'ampia diffusione dei dispositivi supportati per l'accesso alle risorse cloud o
 
 ### <a name="require-approved-client-apps"></a>Richiedere app client approvate
 
-Una delle prime decisioni da prendere per gli scenari BYOD (Bring Your Own Device) è se gestire l'intero dispositivo o solo i dati al suo interno. I dipendenti usano dispositivi mobili sia per le attività personali che per quelle aziendali. È importante assicurarsi che i dipendenti siano produttivi e al contempo evitare la perdita di dati. Con l'accesso condizionale Azure Active Directory (Azure AD), è possibile limitare l'accesso alle app cloud alle app client approvate che possono proteggere i dati aziendali. Per altre informazioni, vedere [come richiedere app client approvate per l'accesso alle app cloud con accesso condizionale](app-based-conditional-access.md).
+Una delle prime decisioni da prendere per gli scenari BYOD (Bring Your Own Device) è se gestire l'intero dispositivo o solo i dati al suo interno. I dipendenti usano dispositivi mobili per le attività personali e aziendali. È importante assicurarsi che i dipendenti siano produttivi e al contempo evitare la perdita di dati. Con l'accesso condizionale Azure Active Directory (Azure AD), è possibile limitare l'accesso alle app cloud alle app client approvate che possono proteggere i dati aziendali. Per altre informazioni, vedere [come richiedere app client approvate per l'accesso alle app cloud con accesso condizionale](app-based-conditional-access.md).
 
 ### <a name="block-legacy-authentication"></a>Bloccare l'autenticazione legacy
 

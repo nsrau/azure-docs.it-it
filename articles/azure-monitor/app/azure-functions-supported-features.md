@@ -8,45 +8,47 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5688bd92e63016e195726488bd9ff9ed039c5795
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ce8fcc827afdf0102a459f2c6b58db45eff72fa0
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928414"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467388"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Application Insights per le funzionalità supportate di Funzioni di Azure
 
 Funzioni di Azure offre l'[integrazione predefinita](../../azure-functions/functions-monitoring.md) con Application Insights che è disponibile tramite l'interfaccia ILogger. Di seguito è riportato un elenco delle funzionalità attualmente supportate. Per un'[introduzione](../../azure-functions/functions-monitoring.md#enable-application-insights-integration), vedere la guida di Funzioni di Azure.
 
-## <a name="supported-features"></a>Funzionalità supportate
+Per ulteriori informazioni sulle versioni di runtime, vedere [qui](../../azure-functions/functions-versions.md).
 
-| Funzioni di Azure                       | V1                | V2 (Ignite 2018)  | 
+## <a name="supported-features"></a>Caratteristiche supportate
+
+| Funzioni di Azure                       | V1                | V2 & V3   | 
 |-----------------------------------    |---------------    |------------------ |
 | **Application Insights .NET SDK**   | **2.5.0**       | **2.9.1**         |
 | | | | 
 | **Raccolta automatica di**        |                 |                   |               
-| &bull; Richieste                     | SÌ             | SÌ               | 
-| &bull; Eccezioni                   | SÌ             | SÌ               | 
-| &bull; Contatori delle prestazioni         | SÌ             | SÌ               |
+| &bull; Richieste                     | Sì             | Sì               | 
+| &bull; Eccezioni                   | Sì             | Sì               | 
+| &bull; Contatori delle prestazioni         | Sì             | Sì               |
 | &bull; Dipendenze                   |                   |                   |               
-| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | SÌ               | 
-| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | SÌ               | 
-| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | SÌ               | 
-| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | SÌ               | 
+| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Sì               | 
+| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Sì               | 
+| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | Sì               | 
+| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | Sì               | 
 | | | | 
 | **Funzionalità supportate**                |                   |                   |               
-| &bull; QuickPulse/LiveMetrics       | SÌ             | SÌ               | 
-| &nbsp;&nbsp;&nbsp;&mdash; Canale di controllo sicuro|                 | SÌ               | 
-| &bull; Campionamento                     | SÌ             | SÌ               | 
-| &bull; Heartbeat                   |                 | SÌ               | 
+| &bull; QuickPulse/LiveMetrics       | Sì             | Sì               | 
+| &nbsp;&nbsp;&nbsp;&mdash; Canale di controllo sicuro|                 | Sì               | 
+| &bull; Campionamento                     | Sì             | Sì               | 
+| &bull; Heartbeat                   |                 | Sì               | 
 | | | | 
 | **Correlazione**                       |                   |                   |               
-| &bull; ServiceBus                     |                   | SÌ               | 
-| &bull; EventHub                       |                   | SÌ               | 
+| &bull; ServiceBus                     |                   | Sì               | 
+| &bull; EventHub                       |                   | Sì               | 
 | | | | 
 | **Configurabile**                      |                   |                   |           
-| &bull;Completamente configurabile.<br/>Per istruzioni, vedere [Funzioni di Azure](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852).<br/>Per tutte le opzioni, vedere [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration).               |                   | SÌ                   | 
+| &bull;Completamente configurabile.<br/>Per istruzioni, vedere [Funzioni di Azure](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852).<br/>Per tutte le opzioni, vedere [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration).               |                   | Sì                   | 
 
 
 ## <a name="performance-counters"></a>Contatori delle prestazioni

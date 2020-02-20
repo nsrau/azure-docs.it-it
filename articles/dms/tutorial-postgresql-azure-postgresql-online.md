@@ -1,7 +1,7 @@
 ---
-title: 'Esercitazione: eseguire la migrazione di PostgreSQL online al database di Azure per PostgreSQL'
+title: "Esercitazione: eseguire la migrazione di PostgreSQL in database di Azure per PostgreSQL online tramite l'interfaccia della riga di comando"
 titleSuffix: Azure Database Migration Service
-description: Informazioni su come eseguire la migrazione online da PostgreSQL locale in Database di Azure per PostgreSQL con Servizio Migrazione del database di Azure.
+description: Informazioni su come eseguire una migrazione in linea da PostgreSQL locale al database di Azure per PostgreSQL usando il servizio migrazione del database di Azure tramite l'interfaccia della riga di comando.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -11,15 +11,15 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: ee5863497ce067d2ff056c3fc1c64b00d3004cd8
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/17/2020
+ms.openlocfilehash: c9cea6041c7f4d91295072121c62ba028e5ad937
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76903931"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470939"
 ---
-# <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Esercitazione: Eseguire la migrazione di PostgreSQL a Database di Azure per PostgreSQL online con il Servizio Migrazione del database
+# <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Esercitazione: eseguire la migrazione di PostgreSQL in database di Azure per PostgreSQL online con DMS tramite l'interfaccia della riga di comando
 
 È possibile usare Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di PostgreSQL locale a [Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/) con tempi di inattività minimi. In altre parole, la migrazione può essere eseguita con tempi di inattività minimi per l'applicazione. In questa esercitazione si esegue la migrazione del database di esempio **DVD Rental** da un'istanza locale di PostgreSQL 9.6 a Database di Azure per PostgreSQL usando l'attività di migrazione online in Servizio Migrazione del database di Azure.
 
@@ -38,7 +38,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > [!IMPORTANT]
 > Per un'esperienza di migrazione ottimale, Microsoft consiglia di creare un'istanza del Servizio Migrazione del database di Azure nella stessa area di Azure del database di destinazione. Lo spostamento dei dati tra regioni o aree geografiche può rallentare il processo di migrazione e causare errori.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, è necessario:
 
@@ -46,7 +46,7 @@ Per completare questa esercitazione, è necessario:
 
     Inoltre, la versione di PostgreSQL in locale deve corrispondere alla versione del Database di Azure per PostgreSQL. Ad esempio, per PostgreSQL 9.5.11.5 è possibile solo eseguire la migrazione al Database di Azure per PostgreSQL 9.5.11 e non alla versione 9.6.7.
 
-* [Creare un'istanza nel Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).  
+* [Creare un'istanza nel database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) o [creare un server di database di Azure per PostgreSQL-iperscalabilità (CITUS)](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal).
 * Creare una Rete virtuale di Microsoft Azure per il servizio migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che fornisce la connettività da sito a sito ai server di origine locali usando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Per ulteriori informazioni sulla creazione di una rete virtuale, vedere la [documentazione relativa alla rete virtuale](https://docs.microsoft.com/azure/virtual-network/)e, in particolare, gli articoli introduttivi con informazioni dettagliate.
 
     > [!NOTE]
@@ -100,7 +100,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
 
 2. Creare un database vuoto nell'ambiente di destinazione, ovvero il Database di Azure per PostgreSQL.
 
-    Per informazioni dettagliate su come connettersi e creare un database, vedere l'articolo [Creare un database di Azure per il server PostgreSQL nel portale di Azure](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).
+    Per informazioni dettagliate su come connettersi e creare un database, vedere l'articolo [creare un database di Azure per il server PostgreSQL nel portale di Azure](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) o [creare un server di database di Azure per PostgreSQL-iperscalabilità (Citus) nel portale di Azure](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal).
 
 3. Importare lo schema nel database di destinazione che è stato creato mediante il ripristino del file di dump dello schema.
 
@@ -189,6 +189,9 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
        ---------------  ------
        whl              dms
        ```
+
+      > [!IMPORTANT]
+      > Assicurarsi che la versione dell'estensione sia superiore a 0.11.0.
 
    * È possibile visualizzare in qualsiasi momento tutti i comandi supportati nel Servizio Migrazione del database eseguendo:
 
@@ -358,7 +361,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
    ```
 
-   OPPURE
+   o
 
     ```
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output
@@ -374,7 +377,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
 
 Nel file di output ci sono diversi parametri che indicano lo stato di avanzamento della migrazione. Ad esempio vedere il file di output seguente:
 
-    ```
+  ```
     "output": [                                 Database Level
           {
             "appliedChanges": 0,        //Total incremental sync applied after full load
@@ -449,7 +452,7 @@ Nel file di output ci sono diversi parametri che indicano lo stato di avanzament
       },
       "resourceGroup": "PostgresDemo",
       "type": "Microsoft.DataMigration/services/projects/tasks"
-    ```
+  ```
 
 ## <a name="cutover-migration-task"></a>Attività di migrazione cutover
 

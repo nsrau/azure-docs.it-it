@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: ef0eed330dd7a5b338cdbf36a159d1f046d3939d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a028a0b5d79b2c79f1da336f033d3e8cac21a2e2
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76020955"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77474202"
 ---
 Raccolta immagini condivise è un servizio che consente di creare struttura e organizzazione in base alle immagini gestite. Le raccolte di immagini condivise forniscono:
 
 - Replica globale gestita delle immagini.
 - Controllo delle versioni e raggruppamento di immagini per una gestione più semplice.
-- Immagini a disponibilità elevata con account di archiviazione con ridondanza della zona (ZRS) in aree che supportano zone di disponibilità. L'archiviazione con ridondanza della zona offre una resilienza migliore in caso di errori specifici di una zona.
+- Immagini a disponibilità elevata con account di archiviazione con ridondanza della zona (ZRS) in aree che supportano zone di disponibilità. ZRS offre una migliore resilienza per gli errori di zona.
 - Condivisione tra sottoscrizioni e anche tra Active Directory tenant (AD) usando il controllo degli accessi in base al ruolo.
 - Ridimensionare le distribuzioni con le repliche di immagini in ogni area.
 
@@ -31,7 +31,7 @@ Se si dispone di un numero elevato di immagini gestite che è necessario gestire
 
 La funzionalità Raccolta di immagini condivise presenta più tipi di risorse:
 
-| Gruppi | Description|
+| Risorsa | Descrizione|
 |----------|------------|
 | **Immagine gestita** | Un'immagine di base che può essere usata da sola o usata per creare una **versione dell'immagine** in una raccolta di immagini. Le immagini gestite vengono create da VM [generalizzate](#generalized-and-specialized-images) . Un'immagine gestita è un tipo speciale di disco rigido virtuale che può essere usato per creare più macchine virtuali e può ora essere sfruttato per creare versioni di immagini condivise. |
 | **Snapshot** | Copia di un disco rigido virtuale che può essere utilizzato per creare una **versione dell'immagine**. Gli snapshot possono essere ricavati da una VM [specializzata](#generalized-and-specialized-images) (uno che non è stato generalizzato), quindi usati singolarmente o con snapshot di dischi dati, per creare una versione di immagine specializzata.
@@ -49,7 +49,7 @@ Le definizioni di immagine sono un raggruppamento logico per le versioni di un'i
 
 Esistono tre parametri per ogni definizione di immagine usati in combinazione- **autore**, **offerta** e **SKU**. Questi vengono usati per trovare una definizione di immagine specifica. È possibile avere versioni delle immagini che condividono uno o due, ma non tutti e tre i valori.  Di seguito, un esempio di tre definizioni di immagini con i relativi valori:
 
-|Definizione delle immagini|Editore|Offerta|SKU|
+|Definizione delle immagini|Editore|Offerta|Sku|
 |---|---|---|---|
 |myImage1|Contoso|Finanza|Back-end|
 |myImage2|Contoso|Finanza|Front-end|
@@ -96,11 +96,11 @@ Le aree di origine sono elencate nella tabella seguente. Tutte le aree pubbliche
 | Australia centrale     | Cina orientale        | India meridionale        | Europa occidentale        |
 | Australia centrale 2   | Cina orientale 2      | Asia sud-orientale     | Regno Unito meridionale           |
 | Australia orientale        | Cina settentrionale       | Giappone orientale         | Regno Unito occidentale            |
-| Australia sudorientale   | Cina settentrionale 2     | Giappone occidentale         | US DoD (area centrale)     |
+| Australia sud-orientale   | Cina settentrionale 2     | Giappone occidentale         | US DoD (area centrale)     |
 | Brasile meridionale          | Asia orientale         | Corea centrale      | US DoD (area orientale)        |
 | Canada centrale        | Stati Uniti orientali           | Corea meridionale        | US Gov Arizona     |
 | Canada orientale           | Stati Uniti orientali 2         | Stati Uniti centro-settentrionali   | US Gov Texas       |
-| India centrale         | Stati Uniti orientali 2 EUAP    | Europa settentrionale       | Governo degli Stati Uniti - Virginia    |
+| India centrale         | Stati Uniti orientali 2 EUAP    | Europa settentrionale       | US Gov Virginia    |
 | Stati Uniti centrali            | Francia centrale    | Stati Uniti centro-meridionali   | India occidentale         |
 | Stati Uniti centrali EUAP       | Francia meridionale      | Stati Uniti centro-occidentali    | Stati Uniti occidentali            |
 |                       |                   |                    | Stati Uniti occidentali 2          |
@@ -148,9 +148,9 @@ Le aree in cui la versione di immagini condivise viene replicata possono essere 
 
 Poiché la raccolta di immagini condivise, la definizione di immagine e la versione dell'immagine sono tutte risorse, possono essere condivise usando i controlli RBAC nativi di Azure predefiniti. Utilizzando il controllo degli accessi in base al ruolo è possibile condividere queste risorse con altri utenti, entità servizio e gruppi. È anche possibile condividere l'accesso a utenti esterni al tenant in cui sono stati creati. Una volta che un utente ha accesso alla versione dell'immagine condivisa, può distribuire una VM o un set di scalabilità di macchine virtuali.  Di seguito è riportata la matrice di condivisione che consente all'utente di riconoscere a cosa ha accesso:
 
-| Condivisi con l'utente     | Raccolta immagini condivisa | Definizione delle immagini | Versione dell'immagine |
+| Condivisi con l'utente     | Raccolta di immagini condivise | Definizione delle immagini | Versione dell'immagine |
 |----------------------|----------------------|--------------|----------------------|
-| Raccolta immagini condivisa | Sì                  | Sì          | Sì                  |
+| Raccolta di immagini condivise | Sì                  | Sì          | Sì                  |
 | Definizione delle immagini     | No                   | Sì          | Sì                  |
 
 Per un'esperienza ottimale, è consigliabile condividere a livello di raccolta. Non è consigliabile condividere le singole versioni dell'immagine. Per altre informazioni su RBAC, vedere [gestire l'accesso alle risorse di Azure con RBAC](../articles/role-based-access-control/role-assignments-portal.md).
@@ -159,7 +159,7 @@ Le immagini possono anche essere condivise, su larga scala, anche tra i tenant u
 
 ## <a name="billing"></a>Fatturazione
 Non sono previsti addebiti aggiuntivi per l'uso del servizio Raccolta di immagini condivise. Vengono addebitate le risorse seguenti:
-- Costi di archiviazione per le versioni di immagini condivise. Il costo dipende dal numero di repliche della versione dell'immagine e dal numero di aree in cui la versione viene replicata. Ad esempio, se si dispone di 2 immagini ed entrambe vengono replicate in 3 aree, si verrà modificati per 6 dischi gestiti in base alla relativa dimensione. Per ulteriori informazioni, vedere [Managed disks prezzi](https://azure.microsoft.com/pricing/details/managed-disks/).
+- Costi di archiviazione per le versioni di immagini condivise. Il costo dipende dal numero di repliche della versione dell'immagine e dal numero di aree in cui la versione viene replicata. Se, ad esempio, si hanno 2 immagini e entrambe vengono replicate in 3 aree, verranno addebitati 6 dischi gestiti in base alla relativa dimensione. Per ulteriori informazioni, vedere [Managed disks prezzi](https://azure.microsoft.com/pricing/details/managed-disks/).
 - Addebiti per l'uscita di rete per la replica della prima versione immagine dall'area di origine alle aree replicate. Le repliche successive vengono gestite all'interno dell'area, quindi non sono previsti addebiti aggiuntivi. 
 
 ## <a name="updating-resources"></a>Aggiornamento delle risorse
@@ -167,12 +167,12 @@ Non sono previsti addebiti aggiuntivi per l'uso del servizio Raccolta di immagin
 Una volta creato, è possibile apportare alcune modifiche alle risorse della raccolta immagini. Sono limitati a:
  
 Raccolta di immagini condivise:
-- Description
+- Descrizione
 
 Definizione delle immagini:
 - VCPU consigliati
 - Memoria consigliata
-- Description
+- Descrizione
 - Data di scadenza
 
 Versione immagine:

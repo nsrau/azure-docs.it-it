@@ -1,5 +1,5 @@
 ---
-title: Estensione macchina virtuale di monitoraggio di Azure per Windows
+title: Estensione macchina virtuale Log Analytics per Windows
 description: Distribuire l'agente di Log Analytics nella macchina virtuale Windows usando un'estensione macchina virtuale.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,42 +14,40 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/30/2020
 ms.author: akjosh
-ms.openlocfilehash: 604be42ec74f75e3aa9c790092ed83aee4ad25e1
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 85b97f31e77736603bd0dc7003d4dbfb91a694dc
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76907015"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470701"
 ---
-# <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Estensione macchina virtuale di monitoraggio di Azure per Windows
+# <a name="log-analytics-virtual-machine-extension-for-windows"></a>Estensione macchina virtuale Log Analytics per Windows
 
-Log di monitoraggio di Azure offre funzionalità di monitoraggio tra risorse cloud e locali. L'estensione macchina virtuale dell'agente di Log Analytics per Windows viene pubblicata e supportata da Microsoft. L'estensione installa l'agente di Log Analytics in macchine virtuali di Azure e registra le macchine virtuali in un'area di lavoro Log Analytics esistente. Questo documento illustra in dettaglio le piattaforme, le configurazioni e le opzioni di distribuzione supportate per l'estensione macchina virtuale di monitoraggio di Azure per Windows.
+Log di monitoraggio di Azure offre funzionalità di monitoraggio tra risorse cloud e locali. L'estensione macchina virtuale dell'agente di Log Analytics per Windows viene pubblicata e supportata da Microsoft. L'estensione installa l'agente di Log Analytics in macchine virtuali di Azure e registra le macchine virtuali in un'area di lavoro Log Analytics esistente. Questo documento descrive in dettaglio le piattaforme, le configurazioni e le opzioni di distribuzione supportate per l'estensione macchina virtuale Log Analytics per Windows.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
-
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="operating-system"></a>Sistema operativo
 
 Per informazioni dettagliate sui sistemi operativi Windows supportati, vedere l'articolo [Panoramica dell'agente log Analytics](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) .
 
 ### <a name="agent-and-vm-extension-version"></a>Versione dell'estensione della macchina virtuale e dell'agente
-Nella tabella seguente viene fornito un mapping della versione dell'estensione della macchina virtuale di monitoraggio di Windows Azure e del bundle di agenti Log Analytics per ogni versione. 
+La tabella seguente fornisce un mapping della versione dell'estensione della macchina virtuale Windows Log Analytics e del bundle di agenti Log Analytics per ogni versione. 
 
-| Log Analytics versione bundle agente Windows | Versione dell'estensione della macchina virtuale Windows di monitoraggio di Azure | Data di rilascio | Note sulla versione |
+| Log Analytics versione bundle agente Windows | Versione dell'estensione della macchina virtuale Log Analytics Windows | Data di rilascio | Note sulla versione |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
 | 10.20.18018 | 1.0.18018 | Ottobre 2019 | <ul><li> Correzioni di bug e miglioramenti della stabilizzazione secondari </li></ul> |
 | 10.20.18011 | 1.0.18011 | Luglio 2019 | <ul><li> Correzioni di bug e miglioramenti della stabilizzazione secondari </li><li> Aumento della MaxExpressionDepth a 10000 </li></ul> |
 | 10.20.18001 | 1.0.18001 | Giugno 2019 | <ul><li> Correzioni di bug e miglioramenti della stabilizzazione secondari </li><li> Aggiunta della possibilità di disabilitare le credenziali predefinite quando si crea una connessione proxy (supporto per WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) </li></ul>|
 | 10.19.13515 | 1.0.13515 | Marzo 2019 | <ul><li>Correzioni di stabilizzazione secondarie </li></ul> |
-| 10.19.10006 | N/D | 2018 dicembre | <ul><li> Correzioni di stabilizzazione secondarie </li></ul> | 
-| 8.0.11136 | N/D | 2018 settembre |  <ul><li> Aggiunta del supporto per il rilevamento della modifica dell'ID risorsa nello spostamento della macchina virtuale </li><li> Aggiunta del supporto per la creazione di report di ID risorsa quando si usa un'installazione non di estensione </li></ul>| 
-| 8.0.11103 | N/D |  Aprile 2018 | |
+| 10.19.10006 | n/d | 2018 dicembre | <ul><li> Correzioni di stabilizzazione secondarie </li></ul> | 
+| 8.0.11136 | n/d | 2018 settembre |  <ul><li> Aggiunta del supporto per il rilevamento della modifica dell'ID risorsa nello spostamento della macchina virtuale </li><li> Aggiunta del supporto per la creazione di report di ID risorsa quando si usa un'installazione non di estensione </li></ul>| 
+| 8.0.11103 | n/d |  Aprile 2018 | |
 | 8.0.11081 | 1.0.11081 | Nov 2017 | | 
 | 8.0.11072 | 1.0.11072 | 2017 settembre | |
 | 8.0.11049 | 1.0.11049 | 2017 feb | |
 
-### <a name="azure-security-center"></a>Centro sicurezza Azure
+### <a name="azure-security-center"></a>Centro sicurezza di Azure
 
 Il Centro sicurezza di Azure effettua automaticamente il provisioning dell'agente di Log Analytics e lo connette all'area di lavoro predefinita Log Analytics della sottoscrizione di Azure. Se si usa il Centro sicurezza di Azure, non completare i passaggi inclusi in questo documento. In caso contrario, si sovrascriverà l'area di lavoro configurata e si interromperà la connessione al Centro sicurezza di Azure.
 
@@ -96,7 +94,8 @@ Il codice JSON seguente mostra lo schema per l'estensione dell'agente di Log Ana
 
 \* Nell'API di Log Analytics, workspaceId è denominato consumerId.
 
-> [Nota] Per altre proprietà, vedere Azure [Connect Windows Computes to Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
+> [!NOTE]
+> Per altre proprietà, vedere [connettere i computer Windows a monitoraggio di](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows)Azure.
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 
@@ -107,7 +106,7 @@ Le estensioni macchina virtuale di Azure possono essere distribuite con i modell
 
 Il codice JSON per un'estensione della macchina virtuale può essere nidificato nella risorsa della macchina virtuale o posizionato nel livello radice o nel livello superiore di un modello JSON di Resource Manager. Il posizionamento di JSON influisce sul valore del nome e tipo di risorsa. Per altre informazioni, vedere [Set name and type for child resources](../../azure-resource-manager/templates/child-resource-name-type.md) (Impostare il nome e il tipo per le risorse figlio). 
 
-Nell'esempio seguente si presuppone che l'estensione di monitoraggio di Azure sia annidata all'interno della risorsa della macchina virtuale. Quando la risorsa di estensione viene nidificata, JSON viene inserito nell'oggetto `"resources": []` della macchina virtuale.
+L'esempio seguente presuppone che l'estensione Log Analytics sia annidata all'interno della risorsa della macchina virtuale. Quando la risorsa di estensione viene nidificata, JSON viene inserito nell'oggetto `"resources": []` della macchina virtuale.
 
 
 ```json
@@ -181,7 +180,7 @@ Set-AzVMExtension -ExtensionName "MicrosoftMonitoringAgent" `
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risolvere i problemi
+### <a name="troubleshoot"></a>Risolvere problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite il modulo Azure PowerShell. Per visualizzare lo stato di distribuzione delle estensioni per una determinata VM, eseguire questo comando nel modulo Azure PowerShell.
 

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.openlocfilehash: 2250e41bffc26bd9ae59dfc652a06d08016d227a
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.date: 02/17/2020
+ms.openlocfilehash: 016107248399e84b7a82a656c9d590c3cbe0cdbe
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053799"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77466927"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Eseguire una query Apache Hive tramite il driver JDBC in HDInsight
 
@@ -25,7 +25,7 @@ Per altre informazioni sull'interfaccia Hive JDBC, vedere [HiveJDBCInterface](ht
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster in HDInsight Hadoop. Per crearne uno, vedere [Introduzione all'uso di Hadoop in HDInsight](apache-hadoop-linux-tutorial-get-started.md).
+* Un cluster in HDInsight Hadoop. Per crearne uno, vedere [Introduzione all'uso di Hadoop in HDInsight](apache-hadoop-linux-tutorial-get-started.md). Verificare che il servizio HiveServer2 sia in esecuzione.
 * [Java Developer Kit (JDK) versione 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html) o successiva.
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL è un'applicazione client JDBC.
 
@@ -37,7 +37,7 @@ Le connessioni JDBC a un cluster HDInsight in Azure vengono effettuate sulla por
 
 Sostituire `CLUSTERNAME` con il nome del cluster HDInsight.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Quando si stabilisce la connessione, è necessario usare il nome amministratore e la password del cluster HDInsight per l'autenticazione nel gateway cluster. Durante la connessione dai client JDBC come SQuirreL SQL, è necessario immettere il nome amministratore e la password nelle impostazioni del client.
 
@@ -71,9 +71,9 @@ SQuirreL SQL è un client JDBC che può essere usato per eseguire in modalità r
 
 5. Nella finestra di dialogo di aggiunta del driver aggiungere le informazioni seguenti:
 
-    |Proprietà | Value |
+    |Proprietà | Valore |
     |---|---|
-    |name|Hive|
+    |Name|Hive|
     |URL di esempio|JDBC: hive2://localhost: 443/default; transportMode = HTTP; SSL = true; httpPath =/hive2|
     |Percorso di classe aggiuntivo|Usare il pulsante **Aggiungi** per aggiungere tutti i file jar scaricati in precedenza.|
     |Nome classe|org. Apache. hive. JDBC. HiveDriver|
@@ -88,12 +88,12 @@ SQuirreL SQL è un client JDBC che può essere usato per eseguire in modalità r
 
 7. Usare i valori seguenti per la finestra di dialogo **Aggiungi alias** :
 
-    |Proprietà |Value |
+    |Proprietà |Valore |
     |---|---|
-    |name|Hive in HDInsight|
+    |Name|Hive in HDInsight|
     |Driver|Usare l'elenco a discesa per selezionare il driver **hive** .|
     |URL|JDBC: hive2://CLUSTERNAME.azurehdinsight.net: 443/default; transportMode = HTTP; SSL = true; httpPath =/hive2. Sostituire **CLUSTERNAME** con il nome del cluster HDInsight.|
-    |User Name|nome dell'account di accesso per il cluster HDInsight. Il valore predefinito è **admin**.|
+    |Nome utente|nome dell'account di accesso per il cluster HDInsight. Il valore predefinito è **admin**.|
     |Password|password per l'account di accesso del cluster.|
 
     ![finestra di dialogo Aggiungi alias con parametri](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-addalias-dialog.png)
@@ -117,9 +117,9 @@ SQuirreL SQL è un client JDBC che può essere usato per eseguire in modalità r
 
 ## <a name="connect-from-an-example-java-application"></a>Connettersi da un'applicazione Java di esempio
 
-Un esempio dell'uso di un client Java per query Hive in HDInsight è disponibile all'indirizzo [ https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Seguire le istruzioni del repository per compilare ed eseguire l'esempio.
+Un esempio dell'uso di un client Java per query Hive in HDInsight è disponibile all'indirizzo [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Seguire le istruzioni del repository per compilare ed eseguire l'esempio.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="unexpected-error-occurred-attempting-to-open-an-sql-connection"></a>Errore imprevisto durante il tentativo di aprire una connessione SQL
 

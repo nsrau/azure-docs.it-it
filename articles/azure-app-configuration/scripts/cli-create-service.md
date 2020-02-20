@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 01/24/2020
 ms.author: lcozzens
-ms.openlocfilehash: 7cc8454ca8dc8d6313e1cf353292adb47b15ef47
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 11f3aec10aed0dc8bc0c9831d563dca2b0c1a6fb
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898725"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468355"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Creare un archivio di Configurazione app di Azure
 
@@ -24,10 +24,6 @@ Questo esempio di script crea una nuova istanza di Configurazione app di Azure i
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
-
-È prima necessario installare l'estensione dell'interfaccia della riga di comando di Configurazione app di Azure eseguendo il comando seguente:
-
-        az extension add -n appconfig
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -71,8 +67,8 @@ Questo script usa i comandi seguenti per creare un nuovo gruppo di risorse e un 
 | Comando | Note |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az appconfig create](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-create) | Crea una risorsa archivio di Configurazione app. |
-| [az appconfig credential list](/cli/azure/ext/appconfig/appconfig/credential?view=azure-cli-latest) | Elenca le chiavi di accesso per un archivio di Configurazione app. |
+| [az appconfig create](/cli/azure/appconfig#az-appconfig-create) | Crea una risorsa archivio di Configurazione app. |
+| [az appconfig credential list](/cli/azure/appconfig/credential#az-appconfig-credential-list) | Elenca le chiavi di accesso per un archivio di Configurazione app. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

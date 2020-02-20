@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 11/07/2019
+ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: e9d5a137247c072516c0b25d7f6147ef48fec248
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 1cf4cc9cf4d98dfca59e01cc264549af3a4d5cb4
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839799"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471789"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Usare le pianificazioni della manutenzione per gestire gli aggiornamenti e la manutenzione dei servizi
 
@@ -49,7 +49,7 @@ Anche se la pianificazione della manutenzione non è disponibile nell'area selez
 
 ## <a name="view-a-maintenance-schedule"></a>Visualizzare una pianificazione della manutenzione 
 
-### <a name="portal"></a>di Microsoft Azure
+### <a name="portal"></a>Portal
 
 Per impostazione predefinita, a tutte le istanze di Azure SQL Data Warehouse create di recente viene applicata una finestra di manutenzione primaria e secondaria di otto ore durante la distribuzione. Come indicato in precedenza, è possibile modificare le finestre non appena la distribuzione è completa. Nessuna manutenzione verrà eseguita al di fuori delle finestre di manutenzione specificate senza preavviso.
 
@@ -63,7 +63,7 @@ Per visualizzare la pianificazione della manutenzione applicata al data warehous
 
 ## <a name="change-a-maintenance-schedule"></a>Modificare una pianificazione della manutenzione 
 
-### <a name="portal"></a>di Microsoft Azure
+### <a name="portal"></a>Portal
 Una pianificazione della manutenzione può essere aggiornata o modificata in qualsiasi momento. Se per l'istanza selezionata è in corso un ciclo di manutenzione attivo, le impostazioni verranno salvate. Diventeranno attive durante il successivo periodo di manutenzione identificato. [Altre informazioni](https://docs.microsoft.com/azure/service-health/resource-health-overview) sul monitoraggio del data warehouse durante un evento di manutenzione attiva. 
 
 ### <a name="identifying-the-primary-and-secondary-windows"></a>Identificazione delle finestre primarie e secondarie
@@ -73,7 +73,7 @@ Le finestre primarie e secondarie devono avere intervalli di giorni separati. Un
 Per modificare la pianificazione della manutenzione per il data warehouse, completare i passaggi seguenti:
 1.  Accedere al [portale di Azure](https://portal.azure.com/).
 2.  Selezionare il data warehouse che si vuole aggiornare. La pagina viene aperta nel pannello Panoramica. 
-3.  Aprire la pagina delle impostazioni di pianificazione di manutenzione selezionando il collegamento di **riepilogo Pianificazione della manutenzione (anteprima)** nel pannello Panoramica. In alternativa, selezionare l'opzione **Pianificazione della manutenzione** nel menu delle risorse a sinistra.  
+3.  Aprire la pagina per le impostazioni della pianificazione di manutenzione selezionando il collegamento **Riepilogo pianificazione manutenzione** nel pannello panoramica. In alternativa, selezionare l'opzione **Pianificazione della manutenzione** nel menu delle risorse a sinistra.  
 
     ![Opzioni del pannello Panoramica](media/sql-data-warehouse-maintenance-scheduling/maintenance-change-option.png)
 

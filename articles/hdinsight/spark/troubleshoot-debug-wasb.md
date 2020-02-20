@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 02/07/2020
-ms.openlocfilehash: 1256575eea7ee80b41a875c6bcd9b281b98aa360
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.date: 02/18/2020
+ms.openlocfilehash: f1707c7f8d6324678c8bf5a470bbded1e58c719e
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163850"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470718"
 ---
 # <a name="debug-wasb-file-operations-in-azure-hdinsight"></a>Operazioni di debug di file WASB in Azure HDInsight
 
@@ -26,19 +26,17 @@ Un log prodotto sarà simile al seguente:
 
 ## <a name="turn-on-wasb-debug-log-for-file-operations"></a>Attivare il log di debug di WASB per le operazioni sui file
 
-1. Da un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net`, dove `CLUSTERNAME` è il nome del cluster Spark.
+1. Da un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net/#/main/services/SPARK2/configs`, dove `CLUSTERNAME` è il nome del cluster Spark.
 
-1. Passare a **Spark2** > **configs** > **Advanced Spark2-log4j-Properties**.
+1. Passare a **Advanced spark2-log4j-Properties**.
 
-1. Modificare `log4j.appender.console.Threshold=INFO` in `log4j.appender.console.Threshold=DEBUG`.
+    1. Modificare `log4j.appender.console.Threshold=INFO` in `log4j.appender.console.Threshold=DEBUG`.
+
+    1. Aggiungere `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG`.
 
 1. Passare a **Advanced livy2-log4j-Properties**.
 
-1. Aggiungere la proprietà seguente:
-
-    ```
-    log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG
-    ```
+    Aggiungere `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG`.
 
 1. Salvare le modifiche.
 

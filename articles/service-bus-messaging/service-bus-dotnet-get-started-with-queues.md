@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 60428e3c5be4ac994f83f44c4492ebd80ee65da7
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 5718106aee0e60d111398efdb839945c2c7a8a06
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760982"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471738"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introduzione alle code del bus di servizio
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -204,6 +204,7 @@ Per ricevere i messaggi inviati, creare un'altra applicazione **Console (.NET Co
 1. In *Program.cs*aggiungere le istruzioni `using` seguenti all'inizio della definizione dello spazio dei nomi, prima della dichiarazione di classe:
 
     ```csharp
+    using System;
     using System.Text;
     using System.Threading;
     using System.Threading.Tasks;
@@ -220,18 +221,23 @@ Per ricevere i messaggi inviati, creare un'altra applicazione **Console (.NET Co
 
     Immettere la stringa di connessione per lo spazio dei nomi come variabile `ServiceBusConnectionString`. Immettere il nome della coda.
 
-1. Sostituire il contenuto predefinito di `Main()` con la riga di codice seguente:
+1. Sostituire il metodo `Main()` con il codice seguente:
 
     ```csharp
-    public static async Task Main(string[] args)
-    {    
+    static void Main(string[] args)
+    {
+        MainAsync().GetAwaiter().GetResult();
+    }
+
+    static async Task MainAsync()
+    {
         queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
 
         Console.WriteLine("======================================================");
         Console.WriteLine("Press ENTER key to exit after receiving all the messages.");
         Console.WriteLine("======================================================");
 
-        // Register the queue message handler and receive messages in a loop
+        // Register QueueClient's MessageHandler and receive messages in a loop
         RegisterOnMessageHandlerAndReceiveMessages();
 
         Console.ReadKey();

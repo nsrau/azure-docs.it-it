@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: a5ad4cbd11d6468413a43576e2156ee807067aa8
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: a2f3dbf58363331cf6b1b05e759d246e68e7e7a5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153350"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471211"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Usare PowerShell per gestire directory, file e ACL in Azure Data Lake Storage Gen2 (anteprima)
 
@@ -25,7 +25,7 @@ Questo articolo illustra come usare PowerShell per creare e gestire directory, f
 
  | [mapping da Gen1 a Gen2 per](#gen1-gen2-map) [inviare commenti e suggerimenti](https://github.com/Azure/azure-powershell/issues)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 > [!div class="checklist"]
 > * Una sottoscrizione di Azure. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -339,7 +339,7 @@ In questo esempio, l'utente proprietario e il gruppo proprietario hanno solo le 
 
 Usare il cmdlet `Get-AzDataLakeGen2Item` per ottenere l'ACL di una directory o di un file. Usare quindi il cmdlet `New-AzDataLakeGen2ItemAclObject` per creare una nuova voce ACL. Usare il cmdlet `Update-AzDataLakeGen2Item` per applicare il nuovo ACL.
 
-In questo esempio viene assegnata all'utente un'autorizzazione di scrittura ed esecuzione per una directory.
+In questo esempio viene assegnata un'autorizzazione di scrittura ed esecuzione a un gruppo per una directory.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -370,7 +370,7 @@ Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirna
 
 ```
 
-In questo esempio viene assegnata all'utente un'autorizzazione di scrittura ed esecuzione su un file.
+In questo esempio viene assegnata un'autorizzazione di scrittura ed esecuzione del gruppo per un file.
 
 ```powershell
 $filesystemName = "my-file-system"

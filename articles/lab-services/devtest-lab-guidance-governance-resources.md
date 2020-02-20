@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: dc65d368eb4c1beb57099cb6c16fb33bbe5c1f79
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8bb00c770c61a0a5462a01ae552bd7e40a7cdb36
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981498"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470650"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Governance dell'infrastruttura di Azure DevTest Labs - Risorse
 Questo articolo descrive l'allineamento e la gestione delle risorse di DevTest Labs all'interno dell'organizzazione. 
@@ -38,7 +38,7 @@ Prima che un'organizzazione inizi a usare Azure per lo sviluppo generico di appl
 
 La **prima procedura consigliata** consiste nell'esaminare la tassonomia Azure delle organizzazioni, in cui vengono definite le divisioni tra le sottoscrizioni di sviluppo e produzione. Nel diagramma seguente la tassonomia consigliata consente una separazione logica degli ambienti di sviluppo/test e produzione. Con questo approccio, un'organizzazione può introdurre codici di fatturazione per tenere traccia dei costi associati a ogni ambiente separatamente. Per altre informazioni, vedere [Governance prescrittiva per le sottoscrizioni](/azure/architecture/cloud-adoption/appendix/azure-scaffold). È anche possibile usare [tag di Azure](../azure-resource-manager/management/tag-resources.md) per organizzare le risorse ai fini di monitoraggio e fatturazione.
 
-La **seconda procedura consigliata** consiste nell'abilitare la sottoscrizione di DevTest nel portale di Azure Enterprise. Consente a un'organizzazione di eseguire i sistemi operativi client che non sono in genere disponibili in una sottoscrizione di Azure Enterprise. Usare quindi il software aziendale, con pagamento per le sole risorse di calcolo, senza preoccuparsi delle licenze. In questo modo la fatturazione per i servizi designati, incluse le immagini delle raccolte in IaaS, ad esempio Microsoft SQL Server, è basata esclusivamente sulle risorse consumate. Sono disponibili informazioni dettagliate sulla sottoscrizione di Azure DevTest [qui](https://azure.microsoft.com/offers/ms-azr-0148p/) per i clienti Enterprise Agreement (EA) e [qui](https://azure.microsoft.com/offers/ms-azr-0023p/) per i clienti con pagamento in base al consumo.
+La **seconda procedura consigliata** consiste nell'abilitare la sottoscrizione di DevTest nel portale di Azure Enterprise. Consente a un'organizzazione di eseguire i sistemi operativi client che non sono in genere disponibili in una sottoscrizione di Azure Enterprise. Usare quindi il software aziendale in cui si paga solo per le risorse di calcolo e non si preoccupano delle licenze. In questo modo la fatturazione per i servizi designati, incluse le immagini delle raccolte in IaaS, ad esempio Microsoft SQL Server, è basata esclusivamente sulle risorse consumate. Sono disponibili informazioni dettagliate sulla sottoscrizione di Azure DevTest [qui](https://azure.microsoft.com/offers/ms-azr-0148p/) per i clienti Enterprise Agreement (EA) e [qui](https://azure.microsoft.com/offers/ms-azr-0023p/) per i clienti con pagamento in base al consumo.
 
 ![Allineamento di risorse alle sottoscrizioni](./media/devtest-lab-guidance-governance/resource-alignment-with-subscriptions.png)
 

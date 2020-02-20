@@ -3,12 +3,12 @@ title: Esercitazione - Creare una topologia di rete ibrida hub-spoke con Terrafo
 description: Esercitazione che illustra come creare un'intera architettura di riferimento di rete ibrida in Azure usando Terraform
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 90a60fc4fe98397c903e3e8a460806d6a2edb908
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 6f156dd90b83ceaf5749c8c2acebae35bcb54a92
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159027"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472180"
 ---
 # <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-in-azure-using-terraform"></a>Esercitazione: Creare una topologia di rete ibrida hub-spoke con Terraform in Azure
 
@@ -26,11 +26,11 @@ Questa esercitazione illustra le attività seguenti:
 > * Usare Terraform per stabilire gateway e connessioni tra la rete locale e la rete di Azure
 > * Usare Terraform per creare peering reti virtuali alle reti spoke
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - **Sottoscrizione di Azure**: se ancora non si dispone di una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
-- **Installare e configurare Terraform**: per eseguire il provisioning di macchine virtuali e altra infrastruttura in Azure, [installare e configurare Terraform](/azure/virtual-machines/linux/terraform-install-configure).
+- **Installare e configurare Terraform**: per eseguire il provisioning di macchine virtuali e altra infrastruttura in Azure, [installare e configurare Terraform](terraform-install-configure.md).
 
 ## <a name="hub-and-spoke-topology-architecture"></a>Architettura della topologia hub-spoke
 

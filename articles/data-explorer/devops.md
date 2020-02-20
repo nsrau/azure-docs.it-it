@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/05/2019
-ms.openlocfilehash: 6394d7149bd4e80f0a17a59a6259eedf4c806fd4
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 1e44a7e71858f028b798720c5505eacbfe8c2332
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188169"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472044"
 ---
 # <a name="azure-devops-task-for-azure-data-explorer"></a>Attività DevOps di Azure per Azure Esplora dati
 
@@ -22,7 +22,7 @@ ms.locfileid: "77188169"
 
 Questo documento descrive un semplice esempio di uso dell'attività **comandi di Azure Esplora dati – admin** per distribuire le modifiche dello schema nel database. Per le pipeline CI/CD complete, vedere la [documentazione di Azure DevOps](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops#vsts).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * Installazione del cluster di Esplora dati di Azure:
@@ -42,7 +42,7 @@ Creare le cartelle di esempio seguenti (*funzioni*, *criteri*e *tabelle*) nel re
 ![Creare cartelle](media/devops/create-folders.png)
 
 > [!TIP]
-> Quando si crea un flusso di lavoro personalizzato, è consigliabile rendere il codice idempotente. Utilizzare, ad esempio, [. Create-merge table](/azure/kusto/management/create-table-command#create-merge-table) anziché [. Create Table](/azure/kusto/management/create-table-command)e utilizzare la funzione [. Create-o-ALTER](/azure/kusto/management/functions#create-or-alter-function) invece della funzione [. Create](/azure/kusto/management/functions#create-function) .
+> Quando si crea un flusso di lavoro personalizzato, è consigliabile rendere il codice idempotente. Utilizzare, ad esempio, [. Create-merge table](/azure/kusto/management/create-table-command#create-merge-table) anziché [. Create Table](/azure/kusto/management/create-table-command)e utilizzare la funzione [. Create-o-ALTER](/azure/kusto/management/create-alter-function) invece della funzione [. Create](/azure/kusto/management/create-function) .
 
 ## <a name="create-a-release-pipeline"></a>Creare una pipeline di versione
 
@@ -101,7 +101,7 @@ Creare le cartelle di esempio seguenti (*funzioni*, *criteri*e *tabelle*) nel re
     |**Chiave dell'app dell'entità servizio**     |    Immettere la chiave dell'app AAD (creata come prerequisito)    |
     |**ID tenant AAD**    |      Immettere il tenant di AAD (ad esempio microsoft.com, contoso.com...)    |
 
-    Selezionare **la casella di controllo Consenti a tutte le pipeline di utilizzare questa connessione** . Selezionare **OK**.
+    Selezionare **la casella di controllo Consenti a tutte le pipeline di utilizzare questa connessione** . Scegliere **OK**.
 
     ![Aggiungi connessione al servizio](media/devops/add-service-connection.png)
 

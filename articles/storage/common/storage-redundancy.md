@@ -10,12 +10,12 @@ ms.date: 02/10/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 076708cdc32b0547fe34f714798b4a7a963296fe
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 038e53251bd81552fd3379f2d7645570fbcda4ef
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462633"
+ms.locfileid: "77471347"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -61,12 +61,12 @@ La tabella seguente illustra i tipi di account di archiviazione che supportano Z
 
 |    Tipo di account di archiviazione    |    Aree supportate    |    Servizi supportati    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-|    Utilizzo generico v2<sup>1</sup>    | Asia sudorientale<br /> Europa settentrionale<br />  Europa occidentale<br /> Francia centrale<br /> Giappone orientale<br /> Regno Unito meridionale<br /> Stati Uniti centrali<br /> Stati Uniti Orientali<br /> Stati Uniti orientali 2<br /> Stati Uniti occidentali 2    |    BLOB in blocchi<br /> BLOB di pagine<sup>2</sup><br /> Condivisioni file (standard)<br /> Tabelle<br /> Code<br /> |
-|    BlockBlobStorage<sup>1</sup>    | Europa occidentale<br /> Stati Uniti Orientali    |    Solo BLOB in blocchi    |
-|    FileStorage    | Europa occidentale<br /> Stati Uniti Orientali    |    Solo File di Azure    |
+|    Utilizzo generico v2<sup>1</sup>    | Asia sudorientale<br /> Europa settentrionale<br />  Europa occidentale<br /> Francia centrale<br /> Giappone orientale<br /> Regno Unito meridionale<br /> Stati Uniti centrali<br /> Stati Uniti orientali<br /> Stati Uniti orientali 2<br /> Stati Uniti occidentali 2    |    BLOB in blocchi<br /> BLOB di pagine<sup>2</sup><br /> Condivisioni file (standard)<br /> Tabelle<br /> Code<br /> |
+|    BlockBlobStorage<sup>1</sup>    | Europa occidentale<br /> Stati Uniti orientali    |    Solo BLOB in blocchi    |
+|    FileStorage    | Europa occidentale<br /> Stati Uniti orientali    |    Solo File di Azure    |
 
 <sup>1</sup> il livello archivio non è attualmente supportato per gli account ZRS.<br />
-<sup>2</sup> i dischi di Azure per le macchine virtuali, inclusi i dischi gestiti e non gestiti, supportano solo con ridondanza locale. Non supportano ZRS o GZRS. Per altre informazioni sui dischi gestiti, vedere [prezzi per Azure Managed disks](https://azure.microsoft.com/pricing/details/managed-disks).
+<sup>2</sup> i dischi di Azure per le macchine virtuali, inclusi i dischi gestiti e non gestiti, supportano solo con ridondanza locale. Non supportano ZRS o GZRS. Per altre informazioni sui dischi gestiti, vedere [prezzi per Azure Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 Per informazioni sulle aree che supportano ZRS, vedere **supporto dei servizi in base all'area** in [zone di disponibilità di Azure](../../availability-zones/az-overview.md).
 
@@ -110,7 +110,7 @@ GZRS e RA-GZRS sono attualmente disponibili per l'anteprima nelle aree seguenti:
 - Europa settentrionale
 - Europa occidentale
 - Regno Unito meridionale
-- Stati Uniti Orientali
+- Stati Uniti orientali
 - Stati Uniti orientali 2
 - Stati Uniti centrali
 

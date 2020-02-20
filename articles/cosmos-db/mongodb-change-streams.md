@@ -7,16 +7,19 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: srchi
-ms.openlocfilehash: fbfce1c107fcf4b6f7d0b5f590a8ddfa64e69190
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: ec1ec1a8a80953f8988355341ee7128bd29b982d
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184728"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467778"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Modificare i flussi nell'API Azure Cosmos DB per MongoDB
 
 Il supporto del [feed delle modifiche](change-feed.md) nell'API Azure Cosmos DB per MongoDB è disponibile tramite l'API Change Streams. Usando l'API Change Streams, le applicazioni possono ottenere le modifiche apportate alla raccolta o agli elementi in una singola partizione. In seguito è possibile eseguire ulteriori azioni in base ai risultati. Le modifiche apportate agli elementi nella raccolta vengono acquisite nell'ordine in cui sono state modificate e il tipo di ordinamento è garantito per ogni chiave di partizione.
+
+> [!NOTE]
+> Per usare i flussi delle modifiche, creare l'account con la versione 3,6 dell'API Azure Cosmos DB per MongoDB o una versione successiva. Se si eseguono gli esempi del flusso di modifiche rispetto a una versione precedente, è possibile che venga visualizzato l'errore `Unrecognized pipeline stage name: $changeStream`. 
 
 Nell'esempio seguente viene illustrato come ottenere i flussi delle modifiche in tutti gli elementi della raccolta. Questo esempio crea un cursore per controllare gli elementi quando vengono inseriti, aggiornati o sostituiti. Per ottenere i flussi delle modifiche sono necessari la fase $match, la fase $project e l'opzione fullDocument. Il monitoraggio delle operazioni di eliminazione mediante flussi di modifiche non è attualmente supportato. Come soluzione alternativa, è possibile aggiungere un marcatore Soft sugli elementi da eliminare. Ad esempio, è possibile aggiungere un attributo nell'elemento denominato "Deleted" e impostarlo su "true" e impostare una durata (TTL) per l'elemento, in modo che sia possibile eliminarlo automaticamente e tenerne traccia.
 

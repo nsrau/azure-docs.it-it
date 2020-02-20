@@ -5,18 +5,18 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: Informazioni su come configurare Azure Dev Spaces per l'uso di un controller di ingresso traefik personalizzato e configurare HTTPS usando il controller di ingresso
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.openlocfilehash: db9afc3a5e33d1a12246c2af80428137043aa242
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2ac43f00e2fa7ecf792469c2140bbbfee4bb57cf
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438479"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471398"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Usare un controller di ingresso traefik personalizzato e configurare HTTPS
 
 Questo articolo illustra come configurare Azure Dev Spaces per l'uso di un controller di ingresso traefik personalizzato. Questo articolo illustra anche come configurare il controller di ingresso personalizzato per l'uso di HTTPS.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. Se non si ha un account, è possibile [crearne uno gratuito][azure-account-create].
 * [L'interfaccia della riga di comando di Azure installata][az-cli].
@@ -53,6 +53,13 @@ Creare uno spazio dei nomi Kubernetes per il controller di ingresso traefik e in
 kubectl create ns traefik
 helm install traefik stable/traefik --namespace traefik --set kubernetes.ingressClass=traefik --set kubernetes.ingressEndpoint.useDefaultPublishedService=true --version 1.85.0
 ```
+
+> [!NOTE]
+> L'esempio precedente crea un endpoint pubblico per il controller di ingresso. Se invece è necessario usare un endpoint privato per il controller di ingresso, aggiungere il comando *--set service. Annotations. Service\\. beta\\. kubernetes\\. io/Azure-Load-Balancer-Internal "= true* parametro per il comando *Helm install* .
+> ```console
+> helm install traefik stable/traefik --namespace traefik --set kubernetes.ingressClass=traefik --set kubernetes.ingressEndpoint.useDefaultPublishedService=true --set service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.85.0
+> ```
+> Questo endpoint privato viene esposto all'interno della rete virtuale in cui è distribuito il cluster AKS.
 
 Ottenere l'indirizzo IP del servizio controller di ingresso traefik usando [kubectl Get][kubectl-get].
 

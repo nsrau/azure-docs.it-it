@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0351721283df68fde910ae16b16d567954c3e6fb
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b32df50715d5e7276861e0696df1bd6ceb3f684e
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707902"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471993"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-azure-cli"></a>Aggiungere o rimuovere assegnazioni di ruolo usando RBAC di Azure e l'interfaccia della riga di comando
 
@@ -44,7 +44,7 @@ Per ottenere l'ID oggetto per un utente di Azure AD, è possibile usare [AZ ad U
 az ad user show --id "{email}" --query objectId --output tsv
 ```
 
-### <a name="group"></a>Group
+### <a name="group"></a>Gruppo
 
 Per ottenere l'ID oggetto per un gruppo di Azure AD, è possibile usare [AZ ad Group Show](/cli/azure/ad/group#az-ad-group-show) o [AZ ad Group List](/cli/azure/ad/group#az-ad-group-list).
 
@@ -52,7 +52,7 @@ Per ottenere l'ID oggetto per un gruppo di Azure AD, è possibile usare [AZ ad G
 az ad group show --group "{name}" --query objectId --output tsv
 ```
 
-### <a name="application"></a>Richiesta
+### <a name="application"></a>Applicazione
 
 Per ottenere l'ID oggetto per un'entità servizio Azure AD (identità usata da un'applicazione), è possibile usare il comando [AZ ad SP list](/cli/azure/ad/sp#az-ad-sp-list). Per un'entità servizio, usare l'ID oggetto e **non** l'ID applicazione.
 
@@ -157,7 +157,7 @@ az role assignment create --role "Reader" --assignee annm@example.com --subscrip
 
 ### <a name="user-at-a-management-group-scope"></a>Utente presso un ambito del gruppo di gestione
 
-Per aggiungere un'assegnazione di ruolo per un utente a un ambito del gruppo di gestione, usare [AZ Role Assignment create](/cli/azure/role/assignment#az-role-assignment-create). Per ottenere l'ID del gruppo di gestione, è possibile trovarlo nel pannello **gruppi di gestione** della portale di Azure oppure è possibile usare il comando [AZ Account Management-Group List](/cli/azure/ext/managementgroups/account/management-group#ext-managementgroups-az-account-management-group-list).
+Per aggiungere un'assegnazione di ruolo per un utente a un ambito del gruppo di gestione, usare [AZ Role Assignment create](/cli/azure/role/assignment#az-role-assignment-create). Per ottenere l'ID del gruppo di gestione, è possibile trovarlo nel pannello **gruppi di gestione** della portale di Azure oppure è possibile usare il comando [AZ Account Management-Group List](/cli/azure/account/management-group#az-account-management-group-list).
 
 ```azurecli
 az role assignment create --role <role_name_or_id> --assignee <assignee> --scope /providers/Microsoft.Management/managementGroups/<group_id>
@@ -205,7 +205,7 @@ Nell'esempio seguente viene rimosso il ruolo *Reader* dal gruppo *Ann Mack Team*
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --subscription 00000000-0000-0000-0000-000000000000
 ```
 
-Nell'esempio seguente viene rimosso il ruolo *Lettura fatturazione* dall'utente *Alain\@example.com* nell'ambito del gruppo di gestione. Per ottenere l'ID del gruppo di gestione, è possibile usare il comando [AZ Account Management-Group List](/cli/azure/ext/managementgroups/account/management-group#ext-managementgroups-az-account-management-group-list).
+Nell'esempio seguente viene rimosso il ruolo *Lettura fatturazione* dall'utente *Alain\@example.com* nell'ambito del gruppo di gestione. Per ottenere l'ID del gruppo di gestione, è possibile usare il comando [AZ Account Management-Group List](/cli/azure/account/management-group#az-account-management-group-list).
 
 ```azurecli
 az role assignment delete --assignee alain@example.com --role "Billing Reader" --scope /providers/Microsoft.Management/managementGroups/marketing-group

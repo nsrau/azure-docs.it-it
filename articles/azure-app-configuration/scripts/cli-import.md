@@ -15,12 +15,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: bb661e6d4497a85cf2ef445fc39774e93a04cc99
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: b0704c6262451cef615355e871ce7f26005b3132
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899411"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467671"
 ---
 # <a name="import-to-an-azure-app-configuration-store"></a>Importare in un archivio di Configurazione app di Azure
 
@@ -31,10 +31,6 @@ Questo script di esempio importa le impostazioni di coppie chiave-valore in un a
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando di Azure in locale, per questo articolo è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Per eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
-
-È prima necessario installare l'estensione dell'interfaccia della riga di comando di Configurazione app di Azure eseguendo il comando seguente:
-
-        az extension add -n appconfig
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -53,7 +49,7 @@ Questo script usa i comandi seguenti per importare un archivio di Configurazione
 
 | Comando | Note |
 |---|---|
-| [az appconfig kv import](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-import) | Importa una risorsa archivio di Configurazione app. |
+| [az appconfig kv import](/cli/azure/appconfig/kv#az-appconfig-kv-import) | Importa una risorsa archivio di Configurazione app. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

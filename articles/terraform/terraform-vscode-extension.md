@@ -3,27 +3,27 @@ title: Esercitazione - Configurare l'estensione Azure Terraform di Visual Studio
 description: Questo articolo illustra come installare e usare l'estensione Azure Terraform in Visual Studio Code.
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 7f2f15c3a45480b8922f34e191fb965d5e83d9fa
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: fcb47024fd26f061ca4475b01d00f1ae13303b61
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159225"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472282"
 ---
 # <a name="tutorial-configure-the-azure-terraform-visual-studio-code-extension"></a>Esercitazione: Configurare l'estensione Azure Terraform di Visual Studio Code
 
 L'estensione Azure Terraform di Visual Studio Code consente di lavorare con Terraform dall'editor. Con tale estensione, è possibile creare, testare ed eseguire configurazioni Terraform. L'estensione inoltre supporta la visualizzazione Diagramma risorse.
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 > [!div class="checklist"]
 > * Automatizzare il provisioning dei servizi di Azure con Terraform.
 > * Installare e usare l'estensione Terraform di Visual Studio Code per i servizi di Azure.
 > * Usare Visual Studio Code per scrivere, definire ed eseguire i piani Terraform.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 - **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
-- **Terraform**: [installare e configurare Terraform](/azure/virtual-machines/linux/terraform-install-configure).
+- **Terraform**: [installare e configurare Terraform](terraform-install-configure.md).
 
 - **Visual Studio Code**: installare la versione di [Visual Studio Code](https://code.visualstudio.com/download) appropriata per l'ambiente.
 
@@ -198,7 +198,7 @@ Quando si è soddisfatti dei risultati del *piano* di Terraform, è possibile es
 
 Per verificare se il nuovo gruppo di risorse di Azure è stato creato correttamente:
 
-1. Aprire il Portale di Azure.
+1. Aprire il portale di Azure.
 
 1. Nel riquadro di spostamento a sinistra selezionare **Gruppi di risorse**.
 

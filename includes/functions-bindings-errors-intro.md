@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 8573a915c572885b53437843b114aa987be4c66b
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 629de079f7cc7d95d10f8ff951a47b8b8fc62dad
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198454"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77474157"
 ---
 Gli errori generati in funzioni di Azure possono provenire da una qualsiasi delle origini seguenti:
 
@@ -37,6 +37,6 @@ I trigger seguenti hanno il supporto di ripetizione dei tentativi incorporato:
 * [Archiviazione code di Azure](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Bus di servizio Azure (coda/argomento)](../articles/azure-functions/functions-bindings-service-bus.md)
 
-Per impostazione predefinita, questi trigger ritentano le richieste fino a cinque volte. Dopo il quinto tentativo, i trigger di archiviazione code di Azure e del bus di servizio di Azure scrivono un messaggio in una [coda non elaborabile](..\articles\azure-functions\functions-bindings-storage-queue.md#trigger---poison-messages).
+Per impostazione predefinita, questi trigger ritentano le richieste fino a cinque volte. Dopo il quinto tentativo, i trigger di archiviazione code di Azure e del bus di servizio di Azure scrivono un messaggio in una [coda non elaborabile](..\articles\azure-functions\functions-bindings-storage-queue-trigger.md#poison-messages).
 
 È necessario implementare manualmente i criteri di ripetizione dei tentativi per tutti gli altri tipi di trigger o associazioni. Le implementazioni manuali possono includere la scrittura di informazioni sugli errori in una [coda di messaggi non elaborabili](..\articles\azure-functions\functions-bindings-storage-blob-trigger.md#poison-blobs). Scrivendo in una coda non elaborabile, si ha la possibilità di ritentare le operazioni in un secondo momento. Questo approccio è identico a quello usato dal trigger di archiviazione BLOB.

@@ -1,5 +1,5 @@
 ---
-title: Gestire i contenitori dei volumi StorSimple nel dispositivo StorSimple serie 8000 | Microsoft Docs
+title: Gestire i contenitori dei volumi per i dispositivi StorSimple serie 8000
 description: Viene illustrato come usare la pagina dei contenitori dei volumi del servizio Gestione dispositivi StorSimple per aggiungere, modificare o eliminare un contenitore del volume.
 services: storsimple
 documentationcenter: NA
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 7e1a5ac2c2b734c77fc3dbe788206f8c75044953
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cbdad3c68848ce552811ee658bb29df74a6fad19
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60724744"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467029"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-volume-containers"></a>Usare il servizio Gestione dispositivi StorSimple per gestire i contenitori dei volumi StorSimple
 
@@ -33,7 +33,7 @@ Un contenitore del volume ha i seguenti attributi:
 * **Volumi** : i volumi StorSimple a livelli o aggiunti in locale all'interno del contenitore del volume. 
 * **Crittografia** : una chiave di crittografia che può essere definita per ogni contenitore del volume. Questa chiave viene utilizzata per crittografare i dati inviati dal dispositivo StorSimple nel cloud. Una chiave a livello militare AES-256 bit viene utilizzata con la chiave immesso dall'utente. Per proteggere i dati, è consigliabile abilitare sempre la crittografia di archiviazione cloud.
 * **Account di archiviazione**: account di archiviazione di Azure usato per archiviare i dati. Tutti i volumi che risiedono in un contenitore di volumi condividono questo account di archiviazione. È possibile scegliere un account di archiviazione da un elenco esistente o creare un nuovo account quando si crea il contenitore del volume e quindi specificare le credenziali di accesso per l'account.
-* **Larghezza di banda cloud** : larghezza di banda usata dal dispositivo quando i dati dal dispositivo vengono inviati al cloud. È possibile applicare un controllo della larghezza di banda specificando un valore compreso tra 1 e 1.000 Mbps quando si crea questo contenitore. Se si vuole che il dispositivo usi tutti larghezza di banda disponibile, impostare questo campo su **Illimitata**. È inoltre possibile creare e applicare un modello di larghezza di banda per l'allocazione della larghezza di banda in base alla pianificazione.
+* **Larghezza di banda cloud** : larghezza di banda usata dal dispositivo quando i dati dal dispositivo vengono inviati al cloud. È possibile applicare un controllo della larghezza di banda specificando un valore compreso tra 1 e 1.000 Mbps quando si crea questo contenitore. Se si desidera che il dispositivo usi tutta la larghezza di banda disponibile, impostare questo campo su **Illimitata**. È inoltre possibile creare e applicare un modello di larghezza di banda per l'allocazione della larghezza di banda in base alla pianificazione.
 
 La procedura seguente illustra come usare il pannello **Contenitori dei volumi** di StorSimple per completare le operazioni comuni seguenti:
 

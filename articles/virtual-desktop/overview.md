@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 01/27/2020
 ms.author: helohr
-ms.openlocfilehash: 168a345427be47dc1c33f43be1af47daa8f638ef
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 6cb8362b2de1f8345f693b00df021afe84f2d5a5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772776"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471772"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Informazioni su Desktop virtuale Windows 
 
@@ -72,7 +72,7 @@ Si prevede l'aggiunta di supporto per i seguenti sistemi operativi, assicurarsi 
 
 L'infrastruttura richiede quanto segue per supportare Desktop virtuale Windows:
 
-* Un'istanza di [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
+* Un'istanza di [Azure Active Directory](/azure/active-directory/)
 * Un'istanza di Windows Server Active Directory sincronizzata con Azure Active Directory. È possibile eseguire la configurazione con uno degli elementi seguenti:
   * Azure AD Connect (per le organizzazioni ibride)
   * Azure AD Domain Services (per le organizzazioni ibride o cloud)
@@ -80,7 +80,7 @@ L'infrastruttura richiede quanto segue per supportare Desktop virtuale Windows:
   
 Le macchine virtuali Azure che create per Desktop virtuale Windows devono essere:
 
-* [Aggiunte a un dominio standard](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) oppure [aggiunte ad AD ibrido](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Le macchine virtuali non possono essere aggiunte ad Azure AD.
+* [Aggiunte a un dominio standard](../active-directory-domain-services/active-directory-ds-comparison.md) oppure [aggiunte ad AD ibrido](../active-directory/devices/hybrid-azuread-join-plan.md). Le macchine virtuali non possono essere aggiunte ad Azure AD.
 * In esecuzione su una delle [immagini del sistema operativo supportate](#supported-virtual-machine-os-images) seguenti.
 
 >[!NOTE]

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/14/2019
 ms.author: helohr
-ms.openlocfilehash: f6a8e4b9129018686aa5833a2ac260075e5627f9
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 5db60160540fc59465e13bd2e68680f49ee0aa2b
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367622"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470888"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurare la connessione all'app MSIX
 
@@ -178,7 +178,7 @@ Se l'app usa un certificato che non è pubblico o è autofirmato, di seguito vie
 5. Se il programma di installazione chiede se si vuole consentire all'app di apportare modifiche al dispositivo, selezionare **Sì**.
 6. Selezionare **colloca tutti i certificati nel seguente archivio**, quindi selezionare **Sfoglia**.
 7. Quando viene visualizzata la finestra Seleziona archivio certificati, selezionare **persone attendibili**, quindi fare clic su **OK**.
-8. Fare clic su **Fine**.
+8. Selezionare **Fine**.
 
 ## <a name="prepare-powershell-scripts-for-msix-app-attach"></a>Preparare gli script di PowerShell per la connessione all'app MSIX
 
@@ -407,7 +407,7 @@ Per installare i file di licenza, è necessario usare uno script di PowerShell c
 
 Di seguito viene illustrato come configurare le licenze per l'utilizzo offline: 
 
-1. Scaricare il pacchetto dell'app, le licenze e i Framework necessari da Microsoft Store for business. Sono necessari sia il file di licenza codificato che quello non codificato. Le istruzioni dettagliate per il download sono disponibili [qui](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app/).
+1. Scaricare il pacchetto dell'app, le licenze e i Framework necessari da Microsoft Store for business. Sono necessari sia il file di licenza codificato che quello non codificato. Le istruzioni dettagliate per il download sono disponibili [qui](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
 2. Aggiornare le variabili seguenti nello script per il passaggio 3:
       1. `$contentID` è il valore ContentID del file di licenza non codificato (con estensione XML). È possibile aprire il file di licenza in un editor di testo di propria scelta.
       2. `$licenseBlob` è l'intera stringa per il BLOB di licenze nel file di licenza codificato (. bin). È possibile aprire il file di licenza codificato in un editor di testo di propria scelta. 

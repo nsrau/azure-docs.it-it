@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 4259868ff3b3c9ca9f9818532acd7e865e0300d7
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 525eba8a5a4e891526eb32a24287ea3887ee6743
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77205689"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77474258"
 ---
 Per creare e gestire macchine virtuali (VM) in modo coerente e scalabile, è in genere consigliabile una certa parte di automazione. Sono disponibili numerosi strumenti e soluzioni che consentono di automatizzare l'intero ciclo di vita di distribuzione e gestione dell'infrastruttura di Azure. Questo articolo presenta alcuni degli strumenti di automazione dell'infrastruttura che è possibile usare in Azure. Questi strumenti sono in genere associati a uno degli approcci seguenti:
 
@@ -48,7 +48,7 @@ Viene illustrato come:
 
 Viene illustrato come:
 
-- [Deploy Puppet from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2?tab=Overview) (Distribuire Puppet da Azure Marketplace).
+- [Deploy Puppet from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Puppet.puppet-agent-windows-asm?tab=Overview) (Distribuire Puppet da Azure Marketplace).
 
 
 ## <a name="cloud-init"></a>cloud-init
@@ -99,8 +99,8 @@ Viene illustrato come:
 
 Viene illustrato come:
 
-- [Installare e configurare Terraform con Azure](../articles/virtual-machines/linux/terraform-install-configure.md).
-- [Creare un'infrastruttura di Azure con Terraform](../articles/virtual-machines/linux/terraform-create-complete-vm.md).
+- [Installare e configurare Terraform con Azure](../articles/terraform/terraform-install-configure.md).
+- [Creare un'infrastruttura di Azure con Terraform](../articles/terraform/terraform-create-complete-vm.md).
 
 
 ## <a name="azure-automation"></a>Automazione di Azure

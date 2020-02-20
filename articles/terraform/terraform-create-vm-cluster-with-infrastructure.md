@@ -3,12 +3,12 @@ title: 'Esercitazione: Creare un cluster di macchine virtuali di Azure con Terra
 description: Usare Terraform e HCL per creare un cluster di macchine virtuali Linux con bilanciamento del carico in Azure
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 1ff13f05a5be463ed7477b4bbbc3e1f977a04a75
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 39e9857ad0119c08e949bbe5f6accb07432f3469
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665367"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470871"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-and-hcl"></a>Esercitazione: Creare un cluster di macchine virtuali di Azure con Terraform e HCL
 
@@ -28,11 +28,11 @@ Si apprenderà come eseguire le attività seguenti:
 ## <a name="1-set-up-azure-authentication"></a>1. Configurare l'autenticazione di Azure
 
 > [!NOTE]
-> Se si usano le [variabili di ambiente di Terraform](/azure/virtual-machines/linux/terraform-install-configure) o si esegue questa esercitazione in [Azure Cloud Shell](terraform-cloud-shell.md), ignorare questo passaggio.
+> Se si usano le [variabili di ambiente di Terraform](terraform-install-configure.md) o si esegue questa esercitazione in [Azure Cloud Shell](terraform-cloud-shell.md), ignorare questo passaggio.
 
 In questa sezione vengono generati un'entità servizio di Azure e due file di configurazione contenenti le credenziali dell'entità di sicurezza.
 
-1. [Configurare un'entità servizio Azure AD](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) per consentire a Terraform di eseguire il provisioning di risorse in Azure. Durante la creazione dell'entità servizio, prendere nota dei valori per l'ID sottoscrizione, i tenant, l'ID app e la password.
+1. [Configurare un'entità servizio Azure AD](terraform-install-configure.md#set-up-terraform-access-to-azure) per consentire a Terraform di eseguire il provisioning di risorse in Azure. Durante la creazione dell'entità servizio, prendere nota dei valori per l'ID sottoscrizione, i tenant, l'ID app e la password.
 
 2. Aprire un prompt dei comandi.
 

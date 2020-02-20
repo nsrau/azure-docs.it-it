@@ -7,12 +7,12 @@ ms.author: brysmith
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 1be97f9754733561111cedcf95fe237b7788583e
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: b929dd8979ecf587872092af2fa44e5ae03626d1
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122556"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472486"
 ---
 # <a name="tutorial-convert-ml-experimental-code-to-production-code"></a>Esercitazione: Convertire il codice sperimentale di ML in codice di produzione
 
@@ -409,4 +409,4 @@ Ora che si è appreso come eseguire la conversione da un esperimento al codice d
 
 > [!div class="nextstepaction"]
 > [Monitorare le esecuzioni e le metriche di esperimenti di Azure ML](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)
-> [Monitorare e raccogliere i dati dagli endpoint del servizio Web ML](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insight)
+> [Monitorare e raccogliere i dati dagli endpoint del servizio Web ML](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights)
