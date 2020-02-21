@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
-ms.openlocfilehash: 9c5534f2df4a375daf355d74f788b7f610f92919
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 15a2d58d2fc14c370c41d5454d62c74a5b66ad42
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162158"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77499970"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Archiviare i backup del database SQL di Azure per un massimo di 10 anni
 
@@ -28,7 +28,13 @@ Molte applicazioni sono vincolate da ragioni normative, di conformità o altri s
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Funzionamento della conservazione a lungo termine del database SQL
 
-La conservazione dei backup a lungo termine consente di sfruttare i backup di database completi che vengono [creati automaticamente](sql-database-automated-backups.md) per abilitare il recupero temporizzato. Se è configurato un criterio LTR, questi backup vengono copiati in BLOB diversi per l'archiviazione a lungo termine. L'operazione di copia è un processo in background che non ha alcun effetto sulle prestazioni del carico di lavoro del database. I backup di LTR vengono conservati per un periodo di tempo impostato dal criterio LTR. Il criterio LTR per ogni database SQL può anche specificare la frequenza con cui vengono creati i backup di LTR. Per abilitare tale flessibilità è possibile definire i criteri utilizzando una combinazione di quattro parametri: conservazione backup settimanale (W), conservazione backup mensile (M), conservazione backup annuale (Y) e settimana dell'anno (WeekOfYear). Se si specifica W, verrà copiato nella risorsa di archiviazione a lungo termine un backup ogni settimana. Se si specifica M, verrà copiato nella risorsa di archiviazione a lungo termine un backup nella prima settimana di ogni mese. Se si specifica Y, verrà copiato nella risorsa di archiviazione a lungo termine un backup nella settimana specificata dal valore WeekOfYear. Ogni backup verrà conservato nella risorsa di archiviazione a lungo termine per il periodo specificato da questi parametri. Eventuali modifiche del criterio LTR si applicano ai backup futuri. Se, ad esempio, il WeekOfYear specificato si trova nel passato quando il criterio è configurato, il primo backup di LTR verrà creato l'anno successivo. 
+La conservazione dei backup a lungo termine consente di sfruttare i backup di database completi che vengono [creati automaticamente](sql-database-automated-backups.md) per abilitare il recupero temporizzato. Se è configurato un criterio LTR, questi backup vengono copiati in BLOB diversi per l'archiviazione a lungo termine. La copia è un processo in background che non ha alcun effetto sulle prestazioni del carico di lavoro del database. Il criterio LTR per ogni database SQL può anche specificare la frequenza con cui vengono creati i backup di LTR.
+
+Per abilitare LTR, è possibile definire un criterio utilizzando una combinazione di quattro parametri: conservazione backup settimanale (W), conservazione backup mensile (M), conservazione backup annuale (Y) e settimana dell'anno (WeekOfYear). Se si specifica W, verrà copiato nella risorsa di archiviazione a lungo termine un backup ogni settimana. Se si specifica M, il primo backup di ogni mese verrà copiato nell'archiviazione a lungo termine. Se si specifica Y, verrà copiato nella risorsa di archiviazione a lungo termine un backup nella settimana specificata dal valore WeekOfYear. Se il WeekOfYear specificato si trova nel passato quando il criterio è configurato, il primo backup di LTR verrà creato nell'anno seguente. Ogni backup verrà mantenuto nell'archiviazione a lungo termine in base ai parametri dei criteri configurati durante la creazione del backup di LTR.
+
+> [!NOTE]
+> Qualsiasi modifica ai criteri LTR si applica solo ai backup futuri. Se ad esempio si modifica la conservazione dei backup settimanali, la conservazione mensile dei backup (M) o la conservazione annuale dei backup (Y), la nuova impostazione di conservazione verrà applicata solo ai nuovi backup. La conservazione dei backup esistenti non verrà modificata. Se si intende eliminare i backup di LTR obsoleti prima della scadenza del periodo di conservazione, sarà necessario [eliminare manualmente i backup](https://docs.microsoft.com/azure/sql-database/sql-database-long-term-backup-retention-configure#delete-ltr-backups).
+> 
 
 Esempi di criteri di LTR:
 
@@ -75,7 +81,7 @@ Per informazioni su come configurare la conservazione a lungo termine usando il 
 
 ## <a name="restore-database-from-ltr-backup"></a>Ripristinare il database dal backup di LTR
 
-Per ripristinare un database dalla risorsa di archiviazione per la conservazione a lungo termine, selezionare un backup specifico in base al relativo timestamp. Il database può essere ripristinato in qualsiasi server esistente all'interno della stessa sottoscrizione del database originale. Per informazioni su come ripristinare il database da un backup di LTR usando il portale di Azure o PowerShell, vedere [gestire la conservazione dei backup a lungo termine del database SQL di Azure](sql-database-long-term-backup-retention-configure.md).
+Per ripristinare un database dalla risorsa di archiviazione per la conservazione a lungo termine, selezionare un backup specifico in base al relativo timestamp. Il database può essere ripristinato in qualsiasi server esistente all'interno della stessa sottoscrizione del database originale. Per informazioni su come ripristinare il database da un backup di LTR, usando il portale di Azure o PowerShell, vedere [gestire la conservazione dei backup a lungo termine del database SQL di Azure](sql-database-long-term-backup-retention-configure.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,31 +1,26 @@
 ---
-title: Domande frequenti sulla configurazione di app Azure | Microsoft Docs
+title: Domande frequenti sulla configurazione di app Azure
 description: Domande frequenti sulla configurazione di app Azure
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 02/19/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 4bcd8f042563fa381832fd629061a822f71e844a
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 60ba0a7723861d6e642a23418dda6a1daa57f14e
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467590"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523493"
 ---
 # <a name="azure-app-configuration-faq"></a>Domande frequenti sulla configurazione di app Azure
 
-Questo articolo descrive le domande frequenti sulla configurazione app Azure.
+Questo articolo fornisce le risposte alle domande frequenti sulla configurazione app Azure.
 
 ## <a name="how-is-app-configuration-different-from-azure-key-vault"></a>In che modo la configurazione delle app è diversa da Azure Key Vault?
 
-La configurazione dell'app è progettata per un set di casi di utilizzo distinti: consente agli sviluppatori di gestire le impostazioni dell'applicazione e controllare la disponibilità delle funzionalità. Mira a semplificare molte delle attività di utilizzo di dati di configurazione complessi.
+La configurazione delle app consente agli sviluppatori di gestire le impostazioni dell'applicazione e controllare la disponibilità delle funzionalità Mira a semplificare molte delle attività di utilizzo di dati di configurazione complessi.
 
 La configurazione dell'app supporta:
 
@@ -62,7 +57,7 @@ Al contrario, la configurazione di app Azure consente di definire le impostazion
 
 ## <a name="how-should-i-store-configurations-for-multiple-environments-test-staging-production-and-so-on"></a>Come è possibile archiviare le configurazioni per più ambienti (test, gestione temporanea, produzione e così via)?
 
-Attualmente si controlla chi può accedere alla configurazione dell'app a un livello per archivio. Usare un archivio separato per ogni ambiente che richiede autorizzazioni diverse. Questo approccio offre l'isolamento di sicurezza migliore.
+Si controllano gli utenti che possono accedere alla configurazione dell'app a un livello per archivio. Usare un archivio separato per ogni ambiente che richiede autorizzazioni diverse. Questo approccio fornisce l'isolamento di sicurezza migliore.
 
 ## <a name="what-are-the-recommended-ways-to-use-app-configuration"></a>Quali sono le modalità consigliate per usare la configurazione delle app?
 
@@ -70,9 +65,14 @@ Vedere [procedure consigliate](./howto-best-practices.md).
 
 ## <a name="how-much-does-app-configuration-cost"></a>Quanto costa la configurazione dell'app?
 
-Sono disponibili due piani tariffari: 1) un livello gratuito e 2) un livello standard.
+Sono disponibili due piani tariffari: 
 
-Se è stato creato un archivio prima dell'introduzione del livello standard, questo viene spostato automaticamente al livello gratuito al momento della disponibilità generale. È possibile scegliere di eseguire l'aggiornamento al livello standard o rimanere sul livello gratuito se soddisfa le proprie esigenze.
+- Livello gratuito
+- Livello standard.
+
+Se è stato creato un archivio prima dell'introduzione del livello standard, questo viene spostato automaticamente al livello gratuito al momento della disponibilità generale. È possibile scegliere di eseguire l'aggiornamento al livello standard o rimanere nel livello gratuito.
+
+Non è possibile effettuare il downgrade di un archivio dal livello standard al livello gratuito. È possibile creare un nuovo archivio nel livello gratuito e quindi importare i dati di configurazione in tale archivio.
 
 ## <a name="which-app-configuration-tier-should-i-use"></a>Quale livello di configurazione dell'app è consigliabile usare?
 

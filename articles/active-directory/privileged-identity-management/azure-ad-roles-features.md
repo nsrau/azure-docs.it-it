@@ -16,18 +16,19 @@ ms.date: 12/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69c633dd3e28047d542e16a58211f997669188f0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3f7bc881cee362103fc611cbf8a094e07ad50699
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896419"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77499032"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Funzionalità di gestione per i ruoli di Azure AD in Privileged Identity Management
 
 L'esperienza di gestione per i ruoli Azure AD in Privileged Identity Management è stata aggiornata per unificare il modo in cui vengono gestiti Azure AD ruoli e i ruoli delle risorse di Azure. In precedenza, Privileged Identity Management per i ruoli delle risorse di Azure includeva due funzionalità chiave che non erano disponibili per i ruoli di Azure AD.
 
 Con l'aggiornamento attualmente implementato, i due vengono uniti in un'unica esperienza di gestione e, in questo modo, si ottiene la stessa funzionalità per i ruoli di Azure AD come per i ruoli delle risorse di Azure. Questo articolo informa le funzionalità aggiornate e tutti i requisiti.
+
 
 ## <a name="time-bound-assignments"></a>Assegnazioni con scadenza
 

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: b60b117b10ac9ade6f685acf788e942ff7a2c93c
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 39eacbb9a87fa18cc6ef92e319fbfbd3e415337b
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188761"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525516"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Effettuare il provisioning della velocità effettiva per contenitori e database
 
@@ -60,11 +60,10 @@ Tutti i contenitori creati all'interno di un database con la velocità effettiva
 
 Se il carico di lavoro in una partizione logica utilizza un livello di velocità effettiva superiore rispetto a quello allocato a una specifica partizione logica, le operazioni risulteranno limitate in termini di velocità. Quando si verifica una limitazione della frequenza, è possibile aumentare la velocità effettiva per l'intero database o ripetere le operazioni. Per altre informazioni sul partizionamento, vedere [Partizioni logiche](partition-data.md).
 
-I contenitori in un database con velocità effettiva condivisa condividono la velocità effettiva (UR/sec) allocata al database. In un database di velocità effettiva condivisa:
+I contenitori in un database con velocità effettiva condivisa condividono la velocità effettiva (UR/sec) allocata al database. È possibile avere fino a quattro contenitori con almeno 400 ur/sec nel database. Ogni nuovo contenitore dopo i primi quattro richiederà almeno 100 ur/sec. Se, ad esempio, si dispone di un database di velocità effettiva condivisa con otto contenitori, le UR/sec minime del database saranno 800 ur/sec.
 
-* È possibile avere fino a quattro contenitori con almeno 400 ur/sec nel database. Ogni nuovo contenitore dopo i primi quattro richiederà almeno 100 ur/sec. Se, ad esempio, si dispone di un database di velocità effettiva condivisa con otto contenitori, le UR/sec minime del database saranno 800 ur/sec.
-
-* È possibile avere un massimo di 25 contenitori nel database. Se sono già presenti più di 25 contenitori in un database di velocità effettiva condivisa, non sarà possibile creare contenitori aggiuntivi fino a quando il numero di contenitori non è inferiore a 25.
+> [!NOTE]
+> In un database con velocità effettiva condivisa è possibile avere un massimo di 25 contenitori nel database. Se sono già presenti più di 25 contenitori in un database di velocità effettiva condivisa, non sarà possibile creare contenitori aggiuntivi fino a quando il numero di contenitori non è inferiore a 25.
 
 Se i carichi di lavoro comportano l'eliminazione e la ricreazione di tutte le raccolte in un database, è consigliabile eliminare il database vuoto e ricreare un nuovo database prima della creazione della raccolta. L'immagine seguente mostra in che modo una partizione fisica può ospitare una o più partizioni logiche che appartengono a contenitori diversi all'interno di un database:
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 10/02/2019
 ms.author: juliako
-ms.openlocfilehash: 3520b7d6b0fd67fdbff3e1dd78d038f36ad5f0af
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: dc3b122ab7f4a243f3a4ecd6f220caa00beb044e
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133428"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505782"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3
 
@@ -79,7 +79,7 @@ In caso di sviluppo di un servizio video basato sulle [API legacy di Servizi mul
 * Nella versione V2, i file di metadati di [input](../previous/media-services-input-metadata-schema.md) e [output](../previous/media-services-output-metadata-schema.md) XML vengono generati come risultato di un processo di codifica. In V3, il formato dei metadati è stato modificato da XML a JSON. 
 
 > [!NOTE]
-> Esaminare le convenzioni di denominazione applicate alle [risorse di servizi multimediali V3](media-services-apis-overview.md#naming-conventions). Esaminare anche i [BLOB di denominazione](assets-concept.md#naming-blobs).
+> Esaminare le convenzioni di denominazione applicate alle [risorse di servizi multimediali V3](media-services-apis-overview.md#naming-conventions). Esaminare anche i [BLOB di denominazione](assets-concept.md#naming).
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Gap di funzionalità rispetto alle API v2
 

@@ -6,18 +6,18 @@ author: martincoetzer
 manager: CelesteDG
 tags: azuread
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: martinco
 ms.reviewer: arvindha
-ms.openlocfilehash: 10bd6f1f8582ba048a3f77ff329d90f1b4463675
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 28abe2dfa5a1a13ba09e20202180cb5e47d94072
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066421"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522433"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Pianificare l'applicazione cloud HR per Azure Active Directory il provisioning degli utenti
 
@@ -80,7 +80,7 @@ Per configurare l'app HR cloud per Azure AD l'integrazione del provisioning degl
 
 È anche necessaria una licenza di sottoscrizione valida Azure AD Premium P1 o superiore per ogni utente che verrà originata dall'app Cloud HR ed eseguito il provisioning in Active Directory o Azure AD. Il numero di licenze non corrette possedute nell'app HR cloud potrebbe causare errori durante il provisioning dell'utente.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
 - Azure AD l'accesso amministratore globale per configurare l'agente di provisioning Azure AD Connect.
 - Un'istanza di test e produzione dell'app HR cloud.
@@ -92,7 +92,7 @@ Per configurare l'app HR cloud per Azure AD l'integrazione del provisioning degl
 
 | **Risorse** | **Collegamento e descrizione** |
 |:-|:-|
-| Videos | [Che cos'è il provisioning utenti in Active Directory di Azure?](https://youtu.be/_ZjARPpI6NI) |
+| Video | [Che cos'è il provisioning utenti in Active Directory di Azure?](https://youtu.be/_ZjARPpI6NI) |
 | | [Come distribuire il provisioning utenti in Active Directory di Azure](https://youtu.be/pKzyts6kfrw) |
 | Esercitazioni | [Elenco delle esercitazioni sull'integrazione di app SaaS con Azure AD](../saas-apps/tutorial-list.md) |
 | | [Esercitazione: configurare la giornata lavorativa per il provisioning utenti automatico](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
@@ -178,7 +178,7 @@ In base alla decisione scelta, scegliere uno degli scenari di distribuzione:
 
 Si consiglia la configurazione di produzione seguente:
 
-|Requisito|Indicazione|
+|Requisito|Recommendation|
 |:-|:-|
 |Numero di agenti di provisioning Azure AD Connect da distribuire|Due (per la disponibilità elevata e il failover)
 |Numero di app del connettore di provisioning da configurare|Un'app per dominio figlio|
@@ -192,7 +192,7 @@ Questo scenario implica il provisioning degli utenti dall'app Cloud HR ai domini
 
 Si consiglia la configurazione di produzione seguente:
 
-|Requisito|Indicazione|
+|Requisito|Recommendation|
 |:-|:-|
 |Numero di agenti di provisioning di Azure AD Connect da distribuire in locale|Due per foresta Active Directory non contigua|
 |Numero di app del connettore di provisioning da configurare|Un'app per dominio figlio|
@@ -396,7 +396,7 @@ L'agente di provisioning di Azure AD Connect installato in Windows Server crea l
 
 Azure AD servizio di provisioning non genera report, esegue analisi o fornisce informazioni dettagliate oltre 30 giorni, perché il servizio non archivia, elabora o mantiene i dati oltre i 30 giorni.
 
-### <a name="troubleshoot"></a>Risoluzione dei problemi
+### <a name="troubleshoot"></a>Risolvere problemi
 
 Per risolvere eventuali problemi che potrebbero verificarsi durante il provisioning, vedere gli articoli seguenti:
 

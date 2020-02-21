@@ -1,5 +1,6 @@
 ---
-title: Funzionalità di sicurezza usate con macchine virtuali di Azure-sicurezza di Azure | Microsoft Docs
+title: Funzionalità di sicurezza usate con le macchine virtuali di Azure
+titleSuffix: Azure security
 description: Questo articolo offre informazioni generali sulle funzionalità di sicurezza principali di Azure che possono essere usate con Macchine virtuali di Azure.
 services: security
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: 6c01df071f263f7080f6c89b539d9a40aeff282f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 3cbe7788ca7486022513fabdca682cbb78615281
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792627"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500390"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Informazioni generali sulla sicurezza di Macchine virtuali di Azure
 Questo articolo fornisce una panoramica delle funzionalità di sicurezza principali di Azure che possono essere usate con le macchine virtuali.
@@ -74,7 +75,7 @@ Altre informazioni:
 
 Le protezioni con crittografia e autenticazione possono essere migliorate aumentando la sicurezza delle chiavi. È possibile semplificare la gestione e la sicurezza di chiavi e segreti critici archiviandoli nell'insieme di credenziali delle chiavi di Azure.
 
-Key Vault ti permette di archiviare le chiavi in moduli di protezione hardware certificati per gli standard FIPS 140-2 livello 2. Le chiavi di crittografia di SQL Server per backup o [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx) possono essere tutte archiviate nell'insieme di credenziali delle chiavi con qualsiasi chiave o segreto delle applicazioni. Le autorizzazioni e l'accesso per questi elementi protetti vengono gestiti tramite [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+L'insieme di credenziali delle chiavi consente di archiviare le chiavi in moduli di protezione hardware certificati per gli standard FIPS 140-2 livello 2. Le chiavi di crittografia di SQL Server per backup o [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx) possono essere tutte archiviate nell'insieme di credenziali delle chiavi con qualsiasi chiave o segreto delle applicazioni. Le autorizzazioni e l'accesso per questi elementi protetti vengono gestiti tramite [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 Altre informazioni:
 
@@ -92,7 +93,7 @@ Altre informazioni:
 * [Crittografia dischi di Azure per macchine virtuali IaaS](/azure/security/azure-security-disk-encryption-overview)
 * [Guida introduttiva: Crittografare una macchina virtuale IaaS Windows con Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 
-## <a name="virtual-machine-backup"></a>Backup di macchine virtuali
+## <a name="virtual-machine-backup"></a>Backup di una macchina virtuale
 
 Backup di Azure è una soluzione scalabile che consente di proteggere i dati delle applicazioni senza investimenti di capitale e con costi operativi minimi. Gli errori delle applicazioni possono danneggiare i dati e gli errori umani possono comportare l'introduzione di bug nelle applicazioni. Con Backup di Azure, le macchine virtuali che eseguono Windows e Linux sono protette.
 
@@ -146,7 +147,7 @@ Altre informazioni:
 * [Domande frequenti sul Centro sicurezza di Azure](/azure/security-center/security-center-faq)
 * [Pianificazione e gestione del Centro sicurezza di Azure](/azure/security-center/security-center-planning-and-operations-guide)
 
-## <a name="compliance"></a>Adeguamento
+## <a name="compliance"></a>Conformità
 
 Macchine virtuali di Azure ha ottenuto le certificazioni per FISMA, FedRAMP, HIPAA, PCI DSS Livello 1 e altri importanti programmi di conformità. La certificazione consente alle applicazioni di Azure di soddisfare i requisiti di conformità e all'azienda di rispondere a un'ampia gamma di requisiti normativi locali e internazionali.
 
@@ -159,7 +160,7 @@ Altre informazioni:
 
 Il confidential computing non fa tecnicamente parte dell'ambito della sicurezza delle macchine virtuali. L'argomento relativo alla sicurezza delle macchine virtuali appartiene tuttavia alla categoria di più alto livello della sicurezza di calcolo, in cui è incluso anche il confidential computing.
 
-Con il confidential computing si ha la sicurezza che i dati "in chiaro", necessari per un'elaborazione efficiente, siano protetti all'interno di un ambiente di esecuzione attendibile (https://en.wikipedia.org/wiki/Trusted_execution_environment ), noto anche come enclave, di cui è illustrato un esempio di seguito.  
+Con il confidential computing si ha la sicurezza che i dati "in chiaro", necessari per un'elaborazione efficiente, siano protetti all'interno di un ambiente di esecuzione attendibile (https://en.wikipedia.org/wiki/Trusted_execution_environment), noto anche come enclave, di cui è illustrato un esempio di seguito.  
 
 Gli ambienti di esecuzione attendibili impediscono qualsiasi tentativo di visualizzare operazioni o dati interni dall'esterno, anche con un debugger. Consentono inoltre l'accesso ai dati solo a codice autorizzato. Se il codice è stato modificato o manomesso, le operazioni vengono negate e l'ambiente viene disabilitato. Gli ambienti di esecuzione attendibili applicano queste protezioni a tutto il ciclo di esecuzione del codice in essi contenuto.
 

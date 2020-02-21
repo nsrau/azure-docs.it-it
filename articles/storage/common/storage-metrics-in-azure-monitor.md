@@ -8,12 +8,12 @@ ms.date: 09/05/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 62e2e3f1a80cef04dc778d5a1950cca97d79dcb0
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: f4c76539f6b14c3fb5ad5dba8fc8c8df514edfe4
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748371"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526842"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Metriche di Archiviazione di Azure in Monitoraggio di Azure
 
@@ -334,13 +334,13 @@ Archiviazione di Azure fornisce le metriche seguenti relative alla capacità in 
 
 ### <a name="account-level"></a>Livello di account
 
-| Nome misurazione | Description |
+| Nome misurazione | Descrizione |
 | ------------------- | ----------------- |
 | UsedCapacity | Quantità di risorse di archiviazione usata dall'account di archiviazione. Per gli account di archiviazione Standard, corrisponde alla somma della capacità usata da BLOB, tabelle, file e code. Per gli account di archiviazione Premium e gli account di archiviazione BLOB corrisponde a BlobCapacity. <br/><br/> Unità: byte <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
 
 ### <a name="blob-storage"></a>Archiviazione BLOB
 
-| Nome misurazione | Description |
+| Nome misurazione | Descrizione |
 | ------------------- | ----------------- |
 | BlobCapacity | Totale di risorse di archiviazione BLOB usato nell'account di archiviazione. <br/><br/> Unità: byte <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 <br/> Dimensioni: **BlobType**e **BlobTier** ([definizione](#metrics-dimensions)) |
 | BlobCount    | Numero di oggetti BLOB archiviati nell'account di archiviazione. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 <br/> Dimensioni: **BlobType**e **BlobTier** ([definizione](#metrics-dimensions)) |
@@ -349,7 +349,7 @@ Archiviazione di Azure fornisce le metriche seguenti relative alla capacità in 
 
 ### <a name="table-storage"></a>Archiviazione tabelle
 
-| Nome misurazione | Description |
+| Nome misurazione | Descrizione |
 | ------------------- | ----------------- |
 | TableCapacity | Quantità di archiviazione tabelle usata dall'account di archiviazione. <br/><br/> Unità: byte <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
 | TableCount   | Numero di tabelle nell'account di archiviazione. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
@@ -357,7 +357,7 @@ Archiviazione di Azure fornisce le metriche seguenti relative alla capacità in 
 
 ### <a name="queue-storage"></a>Archiviazione code
 
-| Nome misurazione | Description |
+| Nome misurazione | Descrizione |
 | ------------------- | ----------------- |
 | QueueCapacity | Quantità di archiviazione code usata dall'account di archiviazione. <br/><br/> Unità: byte <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
 | QueueCount   | Numero di code nell'account di archiviazione. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
@@ -365,7 +365,7 @@ Archiviazione di Azure fornisce le metriche seguenti relative alla capacità in 
 
 ### <a name="file-storage"></a>Archiviazione file
 
-| Nome misurazione | Description |
+| Nome misurazione | Descrizione |
 | ------------------- | ----------------- |
 | FileCapacity | Quantità di archiviazione file usata dall'account di archiviazione. <br/><br/> Unità: byte <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
 | FileCount   | Numero di file nell'account di archiviazione. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
@@ -377,10 +377,10 @@ Le metriche di transazione vengono generate su per tutte le richieste a un accou
 
 Archiviazione di Azure fornisce le metriche seguenti relative alle transazioni in Monitoraggio di Azure.
 
-| Nome misurazione | Description |
+| Nome misurazione | Descrizione |
 | ------------------- | ----------------- |
 | Transazioni | Numero di richieste eseguite in un servizio di archiviazione o nell'operazione API specificata. Questo numero include le richieste con esito positivo e negativo, oltre alle richieste che hanno restituito errori. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensioni applicabili: ResponseType, GeoType, ApiName e Authentication ([definizione](#metrics-dimensions))<br/> Esempio di valore: 1024 |
-| Ingresso | Quantità di dati in ingresso. Questo numero include i dati in ingresso da un client esterno in Archiviazione di Azure, oltre ai dati in ingresso in Azure. <br/><br/> Unità: byte <br/> Tipo di aggregazione: totale <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Esempio di valore: 1024 |
+| Dati in ingresso | Quantità di dati in ingresso. Questo numero include i dati in ingresso da un client esterno in Archiviazione di Azure, oltre ai dati in ingresso in Azure. <br/><br/> Unità: byte <br/> Tipo di aggregazione: totale <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Esempio di valore: 1024 |
 | Egress | Quantità di dati in uscita. Questo numero include i dati in uscita da un client esterno verso Archiviazione di Azure, oltre ai dati in uscita in Azure. Questo numero non rispecchia quindi dati in uscita fatturabili. <br/><br/> Unità: byte <br/> Tipo di aggregazione: totale <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Esempio di valore: 1024 |
 | SuccessServerLatency | Tempo medio necessario per l'elaborazione di una richiesta con esito positivo da parte di Archiviazione di Azure. Questo valore non include la latenza di rete specificata in SuccessE2ELatency. <br/><br/> Unità: millisecondi <br/> Tipo di aggregazione: media <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Esempio di valore: 1024 |
 | SuccessE2ELatency | Latenza end-to-end media di richieste con esito positivo effettuate in un servizio di archiviazione o nell'operazione API specificata. Questo valore include il tempo di elaborazione necessario in Archiviazione di Azure per leggere la richiesta, inviare la risposta e ricevere il riconoscimento della risposta. <br/><br/> Unità: millisecondi <br/> Tipo di aggregazione: media <br/> Dimensioni applicabili: GeoType, ApiName e Authentication ([definizione](#metrics-dimensions)) <br/> Esempio di valore: 1024 |
@@ -390,12 +390,13 @@ Archiviazione di Azure fornisce le metriche seguenti relative alle transazioni i
 
 Archiviazione di Azure supporta le dimensioni seguenti per le metriche in Monitoraggio di Azure.
 
-| Nome della dimensione | Description |
+| Nome della dimensione | Descrizione |
 | ------------------- | ----------------- |
 | **BlobType** | Tipo di BLOB solo per le metriche relative ai BLOB. I valori supportati sono **BlockBlob**, **PageBlob**e **Azure Data Lake storage**. Il BLOB di aggiunta è incluso in BlockBlob. |
 | **BlobTier** | Archiviazione di Azure offre diversi livelli di accesso, che consentono di archiviare i dati degli oggetti BLOB nel modo più conveniente possibile. Vedere altri dettagli nel [livello BLOB di archiviazione di Azure](../blobs/storage-blob-storage-tiers.md). I valori supportati includono: <br/> <li>A **caldo**: livello frequente</li> <li>**Cool**: livello cool</li> <li>**Archivio**: livello archivio</li> <li>**Premium**: livello Premium per BLOB in blocchi</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: tipi di livello per il BLOB di pagine Premium</li> <li>**Standard**: tipo di livello per il BLOB di pagine standard</li> <li>**Untiered**: tipo di livello per l'account di archiviazione per utilizzo generico V1</li> |
 | **GeoType** | Transazione da un cluster primario o secondario. I valori disponibili includono **primario** e **secondario**. È applicabile all'archiviazione con ridondanza geografica e accesso in lettura durante la lettura di oggetti da un tenant secondario. |
-| **ResponseType** | Tipo di risposta della transazione. I valori disponibili includono: <br/><br/> <li>**ServerOtherError**: tutti gli altri errori sul lato server, ad eccezione di quelli descritti </li> <li>**ServerBusyError**: richiesta autenticata che ha restituito un codice di stato HTTP 503. </li> <li>**ServerTimeoutError**: richiesta autenticata con timeout che ha restituito un codice di stato HTTP 500. Il timeout si è verificato a causa di un errore del server. </li> <li>**AuthorizationError**: richiesta autenticata che ha avuto esito negativo a causa di un accesso non autorizzato ai dati o di un errore di autorizzazione. </li> <li>**NetworkError**: richiesta autenticata che ha avuto esito negativo a causa di errori di rete. Questo errore si verifica in genere quando un cliente chiude prematuramente una connessione prima della scadenza del timeout. </li> <li>**ClientThrottlingError**: errore di limitazione lato client. </li> <li>**ClientTimeoutError**: richiesta autenticata con timeout che ha restituito un codice di stato HTTP 500. Se il timeout di rete o il timeout della richiesta del client è impostato su un valore inferiore rispetto a quanto previsto dal servizio di archiviazione, si tratta di un timeout previsto. In caso contrario, viene segnalato come ServerTimeoutError. </li> <li>**ClientOtherError**: tutti gli altri errori lato client tranne quelli descritti. </li> <li>**Operazione riuscita**: richiesta riuscita</li> <li> **SuccessWithThrottling**: richiesta riuscite quando un client SMB viene limitato al primo tentativo ma ha esito positivo dopo i tentativi.</li> |
+| **ResponseType** | Tipo di risposta della transazione. I valori disponibili includono: <br/><br/> <li>**ServerOtherError**: tutti gli altri errori sul lato server, ad eccezione di quelli descritti </li> <li>**ServerBusyError**: richiesta autenticata che ha restituito un codice di stato HTTP 503. </li> <li>**ServerTimeoutError**: richiesta autenticata con timeout che ha restituito un codice di stato HTTP 500. Il timeout si è verificato a causa di un errore del server. </li> <li>**AuthorizationError**: richiesta autenticata che ha avuto esito negativo a causa di un accesso non autorizzato ai dati o di un errore di autorizzazione. </li> <li>**NetworkError**: richiesta autenticata che ha avuto esito negativo a causa di errori di rete. Questo errore si verifica in genere quando un cliente chiude prematuramente una connessione prima della scadenza del timeout. </li>  <li>**ClientAccountBandwidthThrottlingError**: la richiesta è limitata alla larghezza di banda per superare i [limiti di scalabilità degli account di archiviazione](scalability-targets-standard-account.md).</li><li>**ClientAccountRequestThrottlingError**: la richiesta è limitata alla frequenza di richieste per il superamento dei [limiti di scalabilità degli account di archiviazione](scalability-targets-standard-account.md).<li>**ClientThrottlingError**: altro errore di limitazione lato client. ClientAccountBandwidthThrottlingError e ClientAccountRequestThrottlingError sono esclusi.</li> <li>**ClientTimeoutError**: richiesta autenticata con timeout che ha restituito un codice di stato HTTP 500. Se il timeout di rete o il timeout della richiesta del client è impostato su un valore inferiore rispetto a quanto previsto dal servizio di archiviazione, si tratta di un timeout previsto. In caso contrario, viene segnalato come ServerTimeoutError.</li> </li> <li>**ClientOtherError**: tutti gli altri errori lato client tranne quelli descritti. </li> <li>**Operazione riuscita**: richiesta riuscita</li> <li> **SuccessWithThrottling**: richiesta riuscite quando un client SMB viene limitato al primo tentativo ma ha esito positivo dopo i tentativi.</li> |
+| **ResponseType** | Tipo di risposta della transazione. I valori disponibili includono: <br/><br/> <li>**ServerOtherError**: tutti gli altri errori sul lato server, ad eccezione di quelli descritti </li> <li>**ServerBusyError**: richiesta autenticata che ha restituito un codice di stato HTTP 503. </li> <li>**ServerTimeoutError**: richiesta autenticata con timeout che ha restituito un codice di stato HTTP 500. Il timeout si è verificato a causa di un errore del server. </li> <li>**AuthorizationError**: richiesta autenticata che ha avuto esito negativo a causa di un accesso non autorizzato ai dati o di un errore di autorizzazione. </li> <li>**NetworkError**: richiesta autenticata che ha avuto esito negativo a causa di errori di rete. Questo errore si verifica in genere quando un cliente chiude prematuramente una connessione prima della scadenza del timeout. </li>  <li>**ClientAccountBandwidthThrottlingError**: la richiesta è limitata alla larghezza di banda per superare i [limiti di scalabilità degli account di archiviazione](scalability-targets-standard-account.md).</li><li>**ClientAccountRequestThrottlingError**: la richiesta è limitata alla frequenza di richieste per il superamento dei [limiti di scalabilità degli account di archiviazione]().<li>**ClientThrottlingError**: altro errore di limitazione lato client. ClientAccountBandwidthThrottlingError e ClientAccountRequestThrottlingError sono esclusi.</li> <li>**ClientTimeoutError**: richiesta autenticata con timeout che ha restituito un codice di stato HTTP 500. Se il timeout di rete o il timeout della richiesta del client è impostato su un valore inferiore rispetto a quanto previsto dal servizio di archiviazione, si tratta di un timeout previsto. In caso contrario, viene segnalato come ServerTimeoutError.</li> </li> <li>**ClientOtherError**: tutti gli altri errori lato client tranne quelli descritti. </li> <li>**Operazione riuscita**: richiesta riuscita</li> <li> **SuccessWithThrottling**: richiesta riuscite quando un client SMB viene limitato al primo tentativo ma ha esito positivo dopo i tentativi.</li> |
 | **ApiName** | Nome dell'operazione. Ad esempio: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> Per i nomi di tutte le operazioni, vedere questo [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 | **autenticazione** | Tipo Authentication usato nelle transazioni. I valori disponibili includono: <br/> <li>**AccountKey**: la transazione viene autenticata con la chiave dell'account di archiviazione.</li> <li>**SAS**: la transazione viene autenticata con firme di accesso condiviso.</li> <li>**OAuth**: la transazione viene autenticata con i token di accesso OAuth.</li> <li>**Anonimo**: la transazione viene richiesta in modo anonimo. Non include le richieste preliminari.</li> <li>**AnonymousPreflight**: la transazione è una richiesta preliminare.</li> |
 
@@ -405,7 +406,7 @@ Per le dimensioni che supportano metriche, è necessario specificare il valore r
 
 Le metriche legacy sono disponibili in parallelo rispetto alle metriche gestite da Monitoraggio di Azure. Il supporto rimane invariato fino al termine del servizio relativo alle metriche legacy da parte di Archiviazione di Azure.
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Domande frequenti
 
 **Le nuove metriche supportano l'account di archiviazione classico?**
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 8cebe02ebc638ba62fceec80dff2c6724ccf92c8
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 58b60a0eee8ab407709f33911d3c6b13ffbf301a
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212290"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498369"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Come ricompilare un indice in Azure ricerca cognitiva
 
@@ -33,7 +33,7 @@ Eliminare e ricreare un indice se si verifica una delle condizioni seguenti.
 | Assegnare un analizzatore a un campo | Gli [analizzatori](search-analyzers.md) vengono definiti in un indice e quindi assegnati ai campi. È possibile aggiungere una nuova definizione di analizzatore a un indice in qualsiasi momento, ma è possibile *assegnare* un analizzatore solo quando il campo viene creato. Questo vale per entrambe le proprietà **analyzer** e **indexAnalyzer**. La proprietà **searchAnalyzer** è un'eccezione perché è possibile assegnare questa proprietà a un campo esistente. |
 | Aggiornare o eliminare una definizione di analizzatore in un indice | Non è possibile eliminare o modificare una configurazione di analizzatore esistente (analizzatore, tokenizer, filtro di token o filtro di caratteri) nell'indice a meno che non si ricompili l'intero indice. |
 | Aggiungere un campo a uno strumento suggerimenti | Se esiste già un campo e lo si vuole aggiungere a un costrutto [Suggesters](index-add-suggesters.md), è necessario ricompilare l'indice. |
-| Eliminare un campo | Per rimuovere fisicamente tutte le tracce di un campo è necessario ricompilare l'indice. Se la ricompilazione immediata non è una soluzione pratica, è possibile modificare il codice dell'applicazione per disabilitare l'accesso al campo "eliminato". Fisicamente la definizione del campo e i contenuti rimangono nell'indice fino alla successiva ricompilazione, quando si applica uno schema che omette il campo in questione. |
+| Eliminare un campo | Per rimuovere fisicamente tutte le tracce di un campo è necessario ricompilare l'indice. Quando una ricompilazione immediata non è praticabile, è possibile modificare il codice dell'applicazione per disabilitare l'accesso al campo "eliminato" oppure utilizzare il [$Select parametro di query](search-query-odata-select.md) per scegliere i campi che sono rappresentati nel set di risultati. Fisicamente la definizione del campo e i contenuti rimangono nell'indice fino alla successiva ricompilazione, quando si applica uno schema che omette il campo in questione. |
 | Cambiare i livelli | Se è necessaria una maggiore capacità, non è disponibile alcun aggiornamento sul posto nel portale di Azure. È necessario creare un nuovo servizio e gli indici devono essere compilati da zero nel nuovo servizio. Per semplificare l'automazione di questo processo, è possibile usare il codice di esempio **index-backup-restore** in questo [repository di esempio di Azure ricerca cognitiva .NET](https://github.com/Azure-Samples/azure-search-dotnet-samples). Questa app eseguirà il backup dell'indice in una serie di file JSON e quindi ricreerà l'indice in un servizio di ricerca specificato.|
 
 ## <a name="update-conditions"></a>Condizioni di aggiornamento
@@ -52,9 +52,11 @@ Quando si aggiunge un nuovo campo, ai documenti indicizzati esistenti viene asse
 
 ## <a name="how-to-rebuild-an-index"></a>Come ricompilare un indice
 
-Durante lo sviluppo, lo schema dell'indice cambia di frequente. È possibile pianificarlo creando indici che possono essere eliminati, ricreati e ricaricati rapidamente con un set di dati rappresentativo di piccole dimensioni. 
+Durante lo sviluppo, lo schema dell'indice cambia di frequente. È possibile pianificarlo creando indici che possono essere eliminati, ricreati e ricaricati rapidamente con un set di dati rappresentativo di piccole dimensioni.
 
 Per le applicazioni già in produzione è consigliabile creare un nuovo indice da eseguire affiancato a un indice esistente per evitare tempi di inattività delle query. Il codice dell'applicazione fornisce il reindirizzamento al nuovo indice.
+
+L'indicizzazione non viene eseguita in background e il servizio bilancia l'indicizzazione aggiuntiva rispetto alle query in corso. Durante l'indicizzazione, è possibile [monitorare le richieste di query](search-monitor-queries.md) nel portale per assicurarsi che le query vengano completate in modo tempestivo.
 
 1. Determinare se è necessaria una ricompilazione. Se si aggiungono solo campi o si modifica una parte dell'indice non correlata ai campi, potrebbe essere sufficiente [aggiornare la definizione](https://docs.microsoft.com/rest/api/searchservice/update-index) senza eliminarla, ricrearla e ricaricarla completamente.
 
@@ -75,9 +77,13 @@ Quando si carica l'indice, l'indice invertito di ogni campo viene popolato con t
 > [!NOTE]
 > Se i requisiti in termini di contratto di servizio sono rigorosi, può essere consigliabile effettuare il provisioning di un nuovo servizio appositamente per questa attività, mentre le operazioni di sviluppo e indicizzazione avvengono in completo isolamento da un indice di produzione. Un servizio separato viene eseguito nel proprio hardware, eliminando qualsiasi possibilità di conflitto di risorse. Al termine dello sviluppo, è possibile lasciare invariato il nuovo indice, reindirizzando le query al nuovo endpoint e all'indice oppure eseguire il codice terminato per pubblicare un indice modificato nel servizio ricerca cognitiva di Azure originale. Attualmente non è disponibile alcun meccanismo per spostare in un altro servizio un indice pronto per l'uso.
 
-## <a name="check-for-updates"></a>Verificare la disponibilità di aggiornamenti
+## <a name="check-for-updates"></a>Verificare gli aggiornamenti
 
 È possibile iniziare a eseguire query su un indice subito dopo il caricamento del primo documento. Se si conosce l'ID di un documento, l'[API REST di ricerca documenti](https://docs.microsoft.com/rest/api/searchservice/lookup-document) restituisce il documento specifico. Per un test su più larga scala, è possibile aspettare che l'indice venga caricato completamente e quindi usare le query per verificare il contesto che ci si aspetta di vedere.
+
+È possibile usare [Esplora ricerche](search-explorer.md) o uno strumento di test Web come [post](search-get-started-postman.md) per verificare la presenza di contenuto aggiornato.
+
+Se è stato aggiunto o rinominato un campo, usare [$Select](search-query-odata-select.md) per restituire il campo: `search=*&$select=document-id,my-new-field,some-old-field&$count=true`
 
 ## <a name="see-also"></a>Vedere anche
 

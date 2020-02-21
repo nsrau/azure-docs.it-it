@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: 2869384d4f4072e1e71ab0a69af81edc68e7a5b7
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 2ef3cbc83cd67647709a53fee2c32b444c5d86f4
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77366253"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526128"
 ---
 # <a name="what-is-automated-machine-learning"></a>Informazioni sulle funzionalità automatizzate di Machine Learning
 
@@ -141,8 +141,8 @@ Considerare i modelli sottoposti a training seguenti e le relative precisioni di
 
 | Modello | Accuratezza del training | Accuratezza test |
 |-------|----------------|---------------|
-| A | 99,9% | 95% |
-| B | 87% | 87% |
+| Una | 99,9% | 95% |
+| b | 87% | 87% |
 | C | 99,9% | 45% |
 
 Considerando il modello **a**, si verifica un malinteso comune che se l'accuratezza dei test sui dati non visualizzati è inferiore alla precisione di training, il modello viene sovramontato. Tuttavia, l'accuratezza dei test deve essere sempre inferiore alla precisione del training e la distinzione tra adattamento e adattamento rispetto a quello appropriato è *molto* meno accurata. 
@@ -215,7 +215,7 @@ Con Azure Machine Learning, è possibile usare il Machine Learning automatico pe
 
 Azure Machine Learning offre due esperienze per l'uso di ML automatizzato
 
-* Per i clienti con esperienza di codice, [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py) 
+* Per i clienti con esperienza di codice, [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
 
 * Per i clienti con esperienza limitata o senza codice, Azure Machine Learning Studio all' [https://ml.azure.com](https://ml.azure.com/)  
 

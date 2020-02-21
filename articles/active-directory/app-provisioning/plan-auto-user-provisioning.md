@@ -5,19 +5,19 @@ services: active-directory
 author: martincoetzer
 manager: CelesteDG
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0860c2e7b5be686ad5577436f41b321164853a0
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 0d2f284fddfc49632e467adbf5877856b40a81dd
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066512"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522411"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Pianificare una distribuzione automatica del provisioning utenti
 
@@ -70,7 +70,7 @@ Questo articolo usa i termini seguenti:
 | Risorse| Collegamento e descrizione |
 | - | - |
 | Webinar on demand| [Gestire le applicazioni aziendali con Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Informazioni su come Azure AD possibile ottenere l'accesso Single Sign-on alle applicazioni SaaS aziendali e procedure consigliate per il controllo dell'accesso. |
-| Videos| [Che cos'è il provisioning utenti in Active Directory di Azure?](https://youtu.be/_ZjARPpI6NI) <br> [Come distribuire il provisioning utenti in Active Directory di Azure?](https://youtu.be/pKzyts6kfrw) <br> [Integrazione di Salesforce con Azure AD: come automatizzare il provisioning degli utenti](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
+| Video| [Che cos'è il provisioning utenti in Active Directory di Azure?](https://youtu.be/_ZjARPpI6NI) <br> [Come distribuire il provisioning utenti in Active Directory di Azure?](https://youtu.be/pKzyts6kfrw) <br> [Integrazione di Salesforce con Azure AD: come automatizzare il provisioning degli utenti](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | Corsi online| SkillUp online: [gestione delle identità](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Informazioni su come integrare Azure AD con molte applicazioni SaaS e proteggere l'accesso degli utenti a tali applicazioni. |
 | Documentazione| [Autenticazione moderna con Azure Active Directory per le applicazioni Web (riferimento per gli sviluppatori) 1 ° edizione](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Si tratta di una guida autorevole e approfondita per la creazione di soluzioni di autenticazione Active Directory per questi nuovi ambienti. |
 | Esercitazioni| Vedere l' [elenco delle esercitazioni sull'integrazione di app Saas con Azure ad](../saas-apps/tutorial-list.md). |
@@ -293,7 +293,7 @@ Gli amministratori devono controllare il report di riepilogo del provisioning pe
 
 Si consiglia di assumere la proprietà di e di utilizzare questi report in una cadenza che soddisfi i requisiti dell'organizzazione. Azure AD mantiene la maggior parte dei dati di controllo per 30 giorni.
 
-### <a name="troubleshoot"></a>Risoluzione dei problemi
+### <a name="troubleshoot"></a>Risolvere problemi
 
 Per risolvere eventuali problemi che possono verificarsi durante il provisioning, vedere i collegamenti seguenti:
 

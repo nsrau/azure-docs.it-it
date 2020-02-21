@@ -16,16 +16,21 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6251c1576d38b191ca1cba48075cc869c48d004
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 3f087ffe824a198c578f076857cca7fdf0f0a60c
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048116"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498688"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Configurare ruoli personalizzati di Azure AD in Privileged Identity Management
 
 Un amministratore del ruolo con privilegi può modificare le impostazioni del ruolo che si applicano a un utente quando viene attivata l'assegnazione a un ruolo personalizzato e per altri amministratori di applicazioni che assegnano ruoli personalizzati.
+
+> [!NOTE]
+> I ruoli personalizzati di Azure AD non sono integrati nei ruoli della directory predefiniti durante la fase di anteprima. Non appena la funzionalità sarà disponibile a livello generale, la gestione dei ruoli verrà eseguita nell'esperienza dei ruoli predefiniti. Se viene visualizzato il banner seguente, questi ruoli devono essere gestiti [nell'esperienza dei ruoli incorporati](pim-how-to-activate-role.md) e questo articolo non si applica:
+>
+> [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 ## <a name="open-role-settings"></a>Aprire le impostazioni del ruolo
 
@@ -95,7 +100,7 @@ Se si vuole richiedere l'approvazione per attivare un ruolo, seguire questa proc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Attivare un ruolo personalizzato di Azure AD](azure-ad-custom-roles-assign.md)
+- [Attivare un ruolo personalizzato di Azure AD](azure-ad-custom-roles-activate.md)
 - [Assegnare un ruolo personalizzato di Azure AD](azure-ad-custom-roles-assign.md)
 - [Rimuovere o aggiornare un'assegnazione di ruolo personalizzato di Azure AD](azure-ad-custom-roles-update-remove.md)
 - [Definizioni dei ruoli in Azure AD](../users-groups-roles/directory-assign-admin-roles.md)

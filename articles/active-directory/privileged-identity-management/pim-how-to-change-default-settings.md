@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/05/2020
+ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a409d71ff3eae3bc62527a0669a74696246a50cd
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 77132ae9a10eda7170ac56f2b7c65a3ebcde8d6d
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048079"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77499002"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurare le impostazioni del ruolo Azure AD in Privileged Identity Management
 
@@ -32,11 +32,11 @@ A partire da novembre 2019, la parte Azure AD ruoli di Privileged Identity Manag
 1. Accedere al [portale di Azure](https://portal.azure.com/) con un utente appartenente al ruolo di [amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
 1. Aprire **Azure AD Privileged Identity Management**. Se si dispone di un banner nella parte superiore della pagina Panoramica, seguire le istruzioni riportate nella scheda **nuova versione** di questo articolo. In caso contrario, seguire le istruzioni riportate nella scheda **versione precedente** .
 
-    ![Nuova versione dei ruoli Azure AD](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+  [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 Attenersi alla procedura descritta in questo articolo per approvare o negare le richieste di Azure AD ruoli.
 
-# <a name="new-versiontabnew"></a>[Nuova versione](#tab/new)
+# <a name="new-version"></a>[Nuova versione](#tab/new)
 
 ## <a name="open-role-settings"></a>Aprire le impostazioni del ruolo
 
@@ -46,15 +46,15 @@ Per aprire le impostazioni per un ruolo di Azure AD seguire questa procedura.
 gt
 1. Aprire **Azure AD Privileged Identity Management** &gt; **Azure ad ruoli** &gt; **impostazioni del ruolo**.
 
-    ![Pagina impostazioni ruolo che elenca i ruoli delle risorse di Azure](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
+    ![Pagina impostazioni ruolo che elenca Azure AD ruoli](./media/pim-how-to-change-default-settings/role-settings.png)
 
 1. Selezionare il ruolo di cui si desidera configurare le impostazioni.
 
-    ![Pagina dei dettagli dell'impostazione del ruolo che elenca diverse impostazioni di assegnazione e attivazione](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+    ![Pagina dei dettagli dell'impostazione del ruolo che elenca diverse impostazioni di assegnazione e attivazione](./media/pim-how-to-change-default-settings/role-settings-page.png)
 
 1. Selezionare **modifica** per aprire la pagina impostazioni ruolo.
 
-    ![Pagina Modifica impostazioni ruolo con le opzioni per aggiornare le impostazioni di assegnazione e attivazione](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+    ![Pagina Modifica impostazioni ruolo con le opzioni per aggiornare le impostazioni di assegnazione e attivazione](./media/pim-how-to-change-default-settings/role-settings-edit.png)
 
     Nella pagina delle impostazioni di ogni ruolo sono presenti numerose impostazioni che è possibile configurare.
 
@@ -66,18 +66,18 @@ Quando si configurano le impostazioni per un ruolo è possibile scegliere tra du
 
 | | |
 | --- | --- |
-| **Consenti le assegnazioni idonee permanenti** | Gli amministratori delle risorse possono assegnare un'assegnazione idonea permanente. |
-| **Scadenza delle assegnazioni attive dopo** | Gli amministratori delle risorse possono richiedere che per tutte le assegnazioni idonee venga specificata una data di inizio e fine. |
+| **Consenti le assegnazioni idonee permanenti** | Gli amministratori globali e gli amministratori dei ruoli con privilegi possono assegnare un'assegnazione idonea permanente. |
+| **Scadenza delle assegnazioni attive dopo** | Gli amministratori globali e gli amministratori dei ruoli con privilegi possono richiedere che tutte le assegnazioni idonee dispongano di una data di inizio e di fine specificata. |
 
 L'utente può scegliere una delle opzioni di durata dell'assegnazione **attiva**:
 
 | | |
 | --- | --- |
-| **Consenti l'assegnazione permanente attiva** | Gli amministratori delle risorse possono assegnare un'assegnazione attiva permanente. |
-| **Scadenza delle assegnazioni attive dopo** | Gli amministratori delle risorse possono richiedere che per tutte le assegnazioni attive venga specificata una data di inizio e fine. |
+| **Consenti l'assegnazione permanente attiva** | Gli amministratori globali e gli amministratori dei ruoli con privilegi possono assegnare un'assegnazione attiva permanente. |
+| **Scadenza delle assegnazioni attive dopo** | Gli amministratori globali e gli amministratori dei ruoli con privilegi possono richiedere che tutte le assegnazioni attive abbiano una data di inizio e di fine specificata. |
 
 > [!NOTE]
-> Tutte le assegnazioni con una data di fine specificata possono essere rinnovate dagli amministratori delle risorse. Inoltre, gli utenti possono avviare richieste self-service per [estendere o rinnovare le assegnazioni di ruolo](pim-resource-roles-renew-extend.md).
+> Tutte le assegnazioni con una data di fine specificata possono essere rinnovate dagli amministratori globali e dai ruoli con privilegi. Inoltre, gli utenti possono avviare richieste self-service per [estendere o rinnovare le assegnazioni di ruolo](pim-resource-roles-renew-extend.md).
 
 ## <a name="require-multi-factor-authentication"></a>Richiedi autenticazione a più fattori
 
@@ -87,13 +87,13 @@ Privileged Identity Management offre inoltre l'imposizione facoltativa di Azure 
 
 In alcuni casi, potrebbe essere necessario assegnare un utente a un ruolo per un breve periodo di tempo (ad esempio, un giorno). In questo caso, gli utenti assegnati non devono richiedere l'attivazione. In questo scenario, Privileged Identity Management non può applicare l'autenticazione a più fattori quando l'utente usa l'assegnazione di ruolo perché è già attiva nel ruolo dal momento in cui viene assegnata.
 
-Per assicurarsi che l'amministratore delle risorse che soddisfi l'assegnazione sia chi dichiara di essere, è possibile applicare l'autenticazione a più fattori nell'assegnazione attiva selezionando la casella di controllo **richiedi multi-factor authentication su assegnazione attiva** .
+Per assicurarsi che l'amministratore che esegue l'assegnazione sia colui che dichiara di essere, è possibile applicare l'autenticazione a più fattori per l'assegnazione attiva controllando la casella **richiedi multi-factor authentication in assegnazione attiva** .
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>Richiedi il servizio Multi-Factor Authentication all'attivazione
 
 È possibile richiedere agli utenti idonei per un ruolo di dimostrare chi sta usando Azure Multi-Factor Authentication prima di poter attivare. L'autenticazione a più fattori garantisce che l'utente sia quello che afferma di essere con una ragionevole certezza. L'imposizione di questa opzione consente di proteggere risorse critiche in situazioni di potenziale compromissione dell'account utente.
 
-Per richiedere l'autenticazione a più fattori prima dell'attivazione, selezionare la casella **richiedi multi-factor authentication on Activation** .
+Per richiedere l'autenticazione a più fattori prima dell'attivazione, selezionare la casella **richiedi multi-factor authentication all'attivazione** nella scheda assegnazione dell' **impostazione modifica ruolo**.
 
 Per altre informazioni, vedere [Autenticazione a più fattori e Privileged Identity Management](pim-how-to-require-mfa.md).
 
@@ -121,7 +121,7 @@ Se si vuole richiedere l'approvazione per attivare un ruolo, seguire questa proc
 
 1. Dopo aver specificato le impostazioni di tutti i ruoli, selezionare **Aggiorna** per salvare le modifiche.
 
-# <a name="previous-versiontabprevious"></a>[Versione precedente](#tab/previous)
+# <a name="previous-version"></a>[Versione precedente](#tab/previous)
 
 ## <a name="open-role-settings"></a>Aprire le impostazioni del ruolo
 

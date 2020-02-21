@@ -1,30 +1,30 @@
 ---
-title: Che cos'è il punteggio sicuro di identità? - Azure Active Directory
-description: Come è possibile utilizzare il punteggio sicuro di identità per aumentare la sicurezza della directory
+title: Che cos'è il Punteggio di sicurezza identità? -Azure Active Directory
+description: Come è possibile usare il Punteggio sicuro per l'identità per migliorare il comportamento di sicurezza della directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 02/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cdff2305914ca6e4144f7784d1a60026a1d27c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f75dea2cffbe710bf2778ceab5eacc91ffcca9c
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65988709"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523110"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Informazioni su Identity Secure Score in Azure Active Directory
 
-Quanto è sicuro il proprio tenant di Azure AD? Se non si sa come rispondere a questa domanda, questo articolo illustra come il punteggio sicuro di identità consente di monitorare e migliorare le condizioni di sicurezza di identità.
+Quanto è sicuro il proprio tenant di Azure AD? Se non si è in grado di rispondere a questa domanda, in questo articolo viene illustrato come il Punteggio sicuro di identità consente di monitorare e migliorare il comportamento di sicurezza delle identità.
 
 ## <a name="what-is-an-identity-secure-score"></a>Che cos'è un punteggio Identity Secure Score?
 
-Il punteggio sicuro di identità è compreso tra 1 e 223 che funziona come un indicatore per come allineati con cui si hanno le procedure consigliate di Microsoft per sicurezza. Ogni azione miglioramento punteggio sicuro di identità personalizzata in base a una configurazione specifica.  
+Il Punteggio di sicurezza identità è un numero compreso tra 1 e 223 che funge da indicatore per l'allineamento con le procedure consigliate di Microsoft per la sicurezza. Ogni azione di miglioramento nel punteggio di identità sicuro è adattata alla configurazione specifica.  
 
 ![Punteggio di sicurezza](./media/identity-secure-score/identity-secure-score-overview.png)
 
@@ -36,27 +36,27 @@ Il punteggio consente di:
 
 È possibile accedere al punteggio e alle informazioni correlate nel dashboard Identity Secure Score. In questo dashboard sono visibili:
 
-- Il punteggio sicuro di identità
-- Un grafico di confronto che mostra come la tua identità secure score confronta con altri tenant nella stessa del settore e dimensioni simili
-- Un grafico di tendenza che mostra come il punteggio di sicuro di identità è cambiato nel tempo
-- Un elenco di possibili miglioramenti da apportare
+- Punteggio di identità sicuro
+- Un grafico di confronto che Mostra come il Punteggio di identità sicuro viene confrontato con altri tenant nello stesso settore e dimensioni simili
+- Un grafico di tendenza che Mostra come il Punteggio di identità sicuro è cambiato nel tempo
+- Un elenco di possibili miglioramenti
 
 Applicando le azioni di miglioramento, è possibile:
 
-- Migliorare le condizioni di sicurezza e il punteggio relativo alla
-- Sfrutta le funzionalità disponibili per l'organizzazione nell'ambito dei propri investimenti di identità
+- Migliorare la postura di sicurezza e il Punteggio
+- Sfrutta le funzionalità disponibili per la tua organizzazione come parte degli investimenti per le identità
 
 ## <a name="how-do-i-get-my-secure-score"></a>Come si ottiene il punteggio di sicurezza?
 
-Il punteggio sicuro di identità è disponibile in tutte le edizioni di Azure Active Directory. Per accedere al punteggio, passare al [dashboard di panoramica di Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/IdentitySecureScore).
+Il Punteggio di sicurezza identità è disponibile in tutte le edizioni di Azure AD. Le organizzazioni possono accedere al proprio punteggio di identità sicuro dalla **portale di Azure** > **Azure Active Directory** > **sicurezza** > il **Punteggio sicuro dell'identità**.
 
 ## <a name="how-does-it-work"></a>Come funziona?
 
-Ogni 48 ore, Azure esamina la configurazione di sicurezza e confronta le impostazioni con le raccomandazioni sulle procedure consigliate. In base al risultato di questa versione di valutazione, un nuovo punteggio viene calcolato per la directory. È possibile che la configurazione di sicurezza non è completamente allineata con le procedure consigliate e le azioni di analisi utilizzo software vengono soddisfatte solo parzialmente. In questi scenari, si assegnerà solo in una parte del punteggio di massima disponibile per il controllo.
+Ogni 48 ore, Azure esamina la configurazione di sicurezza e confronta le impostazioni con le raccomandazioni sulle procedure consigliate. In base al risultato della valutazione, viene calcolato un nuovo punteggio per la directory. È possibile che la configurazione di sicurezza non sia completamente allineata con le procedure consigliate e che le azioni di miglioramento siano parzialmente soddisfatte. In questi scenari verrà assegnata solo una parte del punteggio massimo disponibile per il controllo.
 
-Ogni raccomandazione viene misurata in base alla specifica configurazione di Azure AD. Se si siano utilizzando i prodotti di terze parti per consentire una procedura consigliata, è possibile indicare questa configurazione nelle impostazioni di un'azione di analisi utilizzo software. È anche possibile impostare le raccomandazioni da ignorare se non si applicano all'ambiente. Una raccomandazione ignorata non influisce sul calcolo del punteggio.
+Ogni raccomandazione viene misurata in base alla specifica configurazione di Azure AD. Se si utilizzano prodotti di terze parti per consentire una raccomandazione di procedure consigliate, è possibile indicare questa configurazione nelle impostazioni di un'azione di miglioramento. È anche possibile impostare raccomandazioni da ignorare se non si applicano all'ambiente. Una raccomandazione ignorata non influisce sul calcolo del punteggio.
 
-![Ignorare o contrassegnare azione come coperto da terze parti](./media/identity-secure-score/identity-secure-score-ignore-or-third-party-reccomendations.png)
+![Ignorare o contrassegnare l'azione come coperta da terze parti](./media/identity-secure-score/identity-secure-score-ignore-or-third-party-reccomendations.png)
 
 ## <a name="how-does-it-help-me"></a>A cosa serve?
 
@@ -76,9 +76,9 @@ Identity Secure Score può essere usato dai ruoli seguenti:
 - Amministratore della sicurezza
 - Ruoli con autorizzazioni di lettura per la sicurezza
 
-### <a name="how-are-controls-scored"></a>Modo in cui sono assegnati dei punteggi controlli?
+### <a name="how-are-controls-scored"></a>Come vengono assegnati i controlli?
 
-I controlli possono essere classificati in due modi. Alcuni sono assegnati dei punteggi in modo binario - otterrai 100% del punteggio se si dispone della funzionalità o impostazione configurata in base un Consiglio. Altri punteggi vengono calcolati come percentuale della configurazione del totale. Ad esempio, se l'indicazione di miglioramento indicato si ottengono punti 30 è proteggere tutti gli utenti con autenticazione a più fattori e avere solo 5 da 100 utenti totali protetti, si sarebbe un punteggio parziale circa 2 di quanto accade (5 protetti / totale di 100 * 30 pts max = 2 punteggio parziale pts) .
+I controlli possono essere classificati in due modi. Per alcuni viene assegnato un punteggio in modalità binaria: si ottiene il 100% del punteggio se la funzionalità o l'impostazione è configurata in base alle raccomandazioni. Gli altri punteggi vengono calcolati come percentuale della configurazione totale. Se, ad esempio, la raccomandazione di miglioramento indica che si otterranno 30 punti se si proteggono tutti gli utenti con l'autenticazione a più fattori e si dispone solo di 5 di 100 utenti totali protetti, verrà assegnato un punteggio parziale circa 2 punti (5 protected/100 Total * 30 max pts = 2 PTS partial score).
 
 ### <a name="what-does-not-scored-mean"></a>Cosa significa [Not Scored] (Non conteggiato)?
 
@@ -90,30 +90,30 @@ Il punteggio viene calcolato una volta al giorno (circa all'1:00 PST). Se si app
 
 ### <a name="my-score-changed-how-do-i-figure-out-why"></a>Da cosa si può capire perché il punteggio è cambiato?
 
-Visitare il [Centro sicurezza di Microsoft 365](https://security.microsoft.com/), in cui è disponibile il punteggio di sicuro Microsoft completato. È possibile visualizzare facilmente tutte le modifiche a proprio punteggio sicuro esaminando le modifiche dettagliate nella scheda Cronologia.
+Visita il [Centro sicurezza di Microsoft 365](https://security.microsoft.com/), dove troverai il Punteggio Microsoft Secure completo. È possibile visualizzare facilmente tutte le modifiche apportate al Punteggio sicuro esaminando le modifiche approfondite nella scheda cronologia.
 
-### <a name="does-the-secure-score-measure-my-risk-of-getting-breached"></a>Il punteggio sicuro misura il rischio di introduzione violati?
+### <a name="does-the-secure-score-measure-my-risk-of-getting-breached"></a>Il Punteggio sicuro misura il rischio di essere violato?
 
-In breve, no. Il punteggio sicuro non è da considerarsi una misura assoluta del modo in cui probabilmente devono ottenere violato. Esprime la misura in cui sono state adottate funzionalità che mitigano il rischio di una violazione. Nessun servizio può garantire che sarà non violare il punteggio sicuro non deve essere interpretato come una garanzia in alcun modo.
+In breve, no. Il Punteggio sicuro non esprime una misura assoluta della probabilità che si ottenga una violazione. Esprime la misura in cui sono state adottate funzionalità che mitigano il rischio di una violazione. Nessun servizio può garantire che non venga violato e che il Punteggio sicuro non venga interpretato come una garanzia in alcun modo.
 
 ### <a name="how-should-i-interpret-my-score"></a>Come interpretare il punteggio?
 
-Si ricevono punti quando si configurano funzionalità di sicurezza consigliate o si eseguono attività correlate alla sicurezza, ad esempio la lettura dei report. Per alcune azioni viene calcolato un punteggio per il completamento parziale, come l'abilitazione dell'autenticazione a più fattori (MFA) per gli utenti. Il punteggio relativo alla protezione direttamente è rappresentativo dei servizi di sicurezza Microsoft che è utilizzare. Tenere presente che sicurezza deve essere bilanciata con facilità di utilizzo. Tutti i controlli di sicurezza hanno un certo impatto sugli utenti. I controlli con un impatto ridotto non devono avere praticamente alcun effetto sulle operazioni quotidiane degli utenti.
+Si ricevono punti quando si configurano funzionalità di sicurezza consigliate o si eseguono attività correlate alla sicurezza, ad esempio la lettura dei report. Per alcune azioni viene calcolato un punteggio per il completamento parziale, come l'abilitazione dell'autenticazione a più fattori (MFA) per gli utenti. Il Punteggio sicuro è direttamente rappresentativo dei servizi di sicurezza Microsoft usati. Tenere presente che la sicurezza deve essere bilanciata con l'usabilità. Tutti i controlli di sicurezza hanno un certo impatto sugli utenti. I controlli con un impatto ridotto non devono avere praticamente alcun effetto sulle operazioni quotidiane degli utenti.
 
-Per visualizzare la cronologia di punteggio, vedere la [Centro sicurezza di Microsoft 365](https://security.microsoft.com/) ed esaminare il punteggio di sicuro Microsoft complessivo. È possibile esaminare le modifiche apportate a complessivo delle punteggio sicura da facendo clic su Visualizza cronologia. Scegliere una data specifica per vedere quali controlli sono stati abilitati per quel giorno e i punti guadagnati per ognuno di essi.
+Per visualizzare la cronologia dei punteggi, passare al [Centro sicurezza Microsoft 365](https://security.microsoft.com/) ed esaminare il Punteggio globale Microsoft sicuro. È possibile fare clic su Visualizza cronologia per esaminare le modifiche apportate al Punteggio sicuro generale. Scegliere una data specifica per vedere quali controlli sono stati abilitati per quel giorno e i punti guadagnati per ognuno di essi.
 
 ### <a name="how-does-the-identity-secure-score-relate-to-the-office-365-secure-score"></a>In che modo il punteggio Identity Secure Score è correlato al punteggio Office 365 Secure Score?
 
-Il [Microsoft secure score](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score) contiene cinque categorie di punteggio e distinta controllo:
+Il [Punteggio Microsoft Secure](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score) contiene cinque categorie di controllo e Punteggio distinte:
 
 - Identità
-- Dati
+- data
 - Dispositivi
 - Infrastruttura
 - App
 
-Il punteggio di sicuro identità rappresenta la parte relativa all'identità del punteggio protetto di Microsoft. Questa sovrapposizione significa che le raccomandazioni per l'identità secure score e il punteggio di identità di Microsoft è gli stessi.
+Il Punteggio Identity Secure rappresenta la parte Identity del Punteggio Microsoft Secure. Questa sovrapposizione significa che le raccomandazioni per il Punteggio di sicurezza identità e il Punteggio di identità in Microsoft sono le stesse.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Scopri di più sul punteggio protetto Microsoft](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score)
+[Scopri di più su Microsoft Secure Score](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score)

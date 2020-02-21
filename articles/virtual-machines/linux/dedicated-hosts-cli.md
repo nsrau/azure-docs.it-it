@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: b301012425e0a2590fa5ac22985abe9c96fbd419
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: ab9d7128748e99b75b7e1a7187a7958e18300759
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834930"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483483"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Distribuire macchine virtuali in host dedicati usando l'interfaccia della riga di comando di Azure
  
@@ -27,7 +27,7 @@ Assicurarsi di aver installato l'interfaccia della riga di comando di Azure vers
 ## <a name="limitations"></a>Limitazioni
 
 - I set di scalabilità di macchine virtuali non sono attualmente supportati negli host dedicati.
-- La versione iniziale supporta la serie di VM seguente: DSv3 e ESv3. 
+- La versione iniziale supporta la serie di VM seguente: DSv3, ESv3, FSv2, LSv2 e MSv2. 
  
 
 ## <a name="create-resource-group"></a>Creare un gruppo di risorse 
@@ -97,7 +97,7 @@ az vm host create \
 
 
  
-## <a name="create-a-virtual-machine"></a>Crea una macchina virtuale 
+## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale 
 Creare una macchina virtuale in un host dedicato usando [AZ VM create](/cli/azure/vm#az-vm-create). Se durante la creazione del gruppo host è stata specificata una zona di disponibilità, è necessario usare la stessa area durante la creazione della macchina virtuale.
 
 ```bash
@@ -277,4 +277,4 @@ az group delete -n myDHResourceGroup
 
 - È anche possibile creare host dedicati usando il [portale di Azure](dedicated-hosts-portal.md).
 
-- È disponibile un [modello di esempio](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), che usa sia le zone che i domini di errore per la resilienza massima in un'area.
+- È disponibile un modello di esempio [, che](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)USA sia le zone che i domini di errore per la resilienza massima in un'area.

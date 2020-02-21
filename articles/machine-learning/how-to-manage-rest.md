@@ -9,18 +9,18 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/31/2020
-ms.openlocfilehash: 6d6e7d564722d1c2ad4713dd1d39e7cba5ed0605
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: e1e19f985c9aa02759c6fff3c634c216c7ef42ef
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964956"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525550"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Creazione, esecuzione ed eliminazione di risorse di Azure ML con REST
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Esistono diversi modi per gestire le risorse di Azure ML. È possibile usare il [portale](https://portal.azure.com/), l' [interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)o [Python SDK](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py). In alternativa, è possibile scegliere l'API REST. L'API REST usa verbi HTTP in modo standard per creare, recuperare, aggiornare ed eliminare le risorse. L'API REST funziona con qualsiasi linguaggio o strumento in grado di effettuare richieste HTTP. La struttura semplice di REST lo rende spesso una scelta ottimale negli ambienti di scripting e nell'automazione MLOps. 
+Esistono diversi modi per gestire le risorse di Azure ML. È possibile usare il [portale](https://portal.azure.com/), l' [interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)o [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). In alternativa, è possibile scegliere l'API REST. L'API REST usa verbi HTTP in modo standard per creare, recuperare, aggiornare ed eliminare le risorse. L'API REST funziona con qualsiasi linguaggio o strumento in grado di effettuare richieste HTTP. La struttura semplice di REST lo rende spesso una scelta ottimale negli ambienti di scripting e nell'automazione MLOps. 
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -32,7 +32,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 > * Usare le richieste DELETE per pulire le risorse 
 > * Usare l'autorizzazione basata su chiavi per assegnare punteggi ai modelli distribuiti
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Una **sottoscrizione di Azure** per cui si dispone di diritti amministrativi. Se non si dispone di tale sottoscrizione, provare a usare la [sottoscrizione gratuita o a pagamento personale](https://aka.ms/AMLFree)
 - [Area di lavoro di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
@@ -201,9 +201,9 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 
 Si noti che per elencare gli esperimenti il percorso inizia con `history/v1.0` durante l'elenco dei modelli, il percorso inizia con `modelmanagement/v1.0`. L'API REST è divisa in diversi gruppi operativi, ognuno con un percorso distinto. La documentazione di riferimento dell'API nei collegamenti seguenti elenca le operazioni, i parametri e i codici di risposta per le varie operazioni.
 
-|Area|Path|Riferimenti|
+|Area|Path|Riferimento|
 |-|-|-|
-|Artefatti|artefatto/v 2.0/|[Informazioni di riferimento sulle API REST](https://docs.microsoft.com/rest/api/azureml/artifacts)|
+|Elementi|artefatto/v 2.0/|[Informazioni di riferimento sulle API REST](https://docs.microsoft.com/rest/api/azureml/artifacts)|
 |Archivi dati|archivio dati/v 1.0/|[Informazioni di riferimento sulle API REST](https://docs.microsoft.com/rest/api/azureml/datastores)|
 |Ottimizzazione di iperparametri|iperguida/v 1.0/|[Informazioni di riferimento sulle API REST](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
 |Modelli|Modelmanagement/v 1.0/|[Informazioni di riferimento sulle API REST](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodels)|

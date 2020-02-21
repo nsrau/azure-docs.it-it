@@ -14,12 +14,12 @@ ms.date: 11/13/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a28a4ccbaa256133b785d2238657093ba40ea11f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 530eebea19d9e53f85a0079d6fba91c615ee6dd1
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024195"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498894"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configurare gli avvisi di sicurezza per i ruoli di Azure AD in Privileged Identity Management
 
@@ -32,11 +32,11 @@ A partire da novembre 2019, la parte Azure AD ruoli di Privileged Identity Manag
 1. Accedere al [portale di Azure](https://portal.azure.com/) con un utente appartenente al ruolo di [amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
 1. Aprire **Azure AD Privileged Identity Management**. Se si dispone di un banner nella parte superiore della pagina Panoramica, seguire le istruzioni riportate nella scheda **nuova versione** di questo articolo. In caso contrario, seguire le istruzioni riportate nella scheda **versione precedente** .
 
-    ![Nuova versione dei ruoli Azure AD](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+  [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 Eseguire la procedura descritta in questo articolo per esaminare gli avvisi di sicurezza per i ruoli Azure AD.
 
-# <a name="new-versiontabnew"></a>[Nuova versione](#tab/new)
+# <a name="new-version"></a>[Nuova versione](#tab/new)
 
 ![Ruoli di Azure AD-riquadro avvisi che elenca gli avvisi e la gravità](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
@@ -52,7 +52,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Severity** | Basse |
+| **Severity** | Basso |
 | **Perché viene visualizzato questo avviso?** | Se sono presenti utenti a cui sono stati assegnati ruoli con privilegi non necessari, le probabilità di un attacco aumentano. Inoltre, gli utenti malintenzionati possono passare più facilmente inosservati in account che non sono attivamente in uso. |
 | **Come correggerlo?** | Esaminare gli utenti nell'elenco e rimuoverli dai ruoli con privilegi che non sono necessari. |
 | **Prevenzione** | Assegnare ruoli con privilegi solo agli utenti che dispongono di una giustificazione aziendale. </br>Pianificare [verifiche di accesso](pim-how-to-start-security-review.md) regolari per determinare se gli utenti hanno ancora bisogno dell'accesso. |
@@ -64,7 +64,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Severity** | Basse |
+| **Severity** | Basso |
 | **Perché viene visualizzato questo avviso?** | Senza l'autenticazione a più fattori, gli utenti compromessi possono attivare ruoli con privilegi. |
 | **Come correggerlo?** | Esaminare l'elenco dei ruoli e [richiedere l'autenticazione](pim-how-to-change-default-settings.md) a più fattori per ogni ruolo. |
 | **Prevenzione** | [Richiedere l'autenticazione a più fattori](pim-how-to-change-default-settings.md) per ogni ruolo.  |
@@ -74,7 +74,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Severity** | Basse |
+| **Severity** | Basso |
 | **Perché viene visualizzato questo avviso?** | L'organizzazione Azure AD corrente non ha Azure AD Premium P2. |
 | **Come correggerlo?** | Esaminare le informazioni sulle [edizioni di Azure AD](../fundamentals/active-directory-whatis.md). Eseguire l'aggiornamento ad Azure AD Premium P2. |
 
@@ -82,7 +82,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Severity** | Medio |
+| **Severity** | Media |
 | **Perché viene visualizzato questo avviso?** | Gli account in un ruolo con privilegi non hanno modificato la password negli ultimi 90 giorni. Questi account potrebbero essere account di servizio o condivisi che non vengono mantenuti aggiornati e sono vulnerabili agli attacchi. |
 | **Come correggerlo?** | Esaminare gli account nell'elenco. Se l'accesso non è più necessario, rimuovere gli account dai ruoli con privilegi. |
 | **Prevenzione** | Assicurarsi che per gli account condivisi venga eseguita la rotazione di password complesse quando cambiano gli utenti che conoscono la password. </br>Esaminare regolarmente gli account con ruoli con privilegi usando le [verifiche di accesso](pim-how-to-start-security-review.md) e rimuovere le assegnazioni di ruolo che non sono più necessarie. |
@@ -93,7 +93,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Severity** | Alte |
+| **Severity** | Alto |
 | **Perché viene visualizzato questo avviso?** | Le assegnazioni di ruolo con privilegi eseguite all'esterno di Privileged Identity Management non sono monitorate correttamente e possono indicare un attacco attivo. |
 | **Come correggerlo?** | Esaminare gli utenti nell'elenco e rimuoverli dai ruoli con privilegi assegnati al di fuori della Privileged Identity Management. |
 | **Prevenzione** | Individuare la posizione in cui gli utenti vengono assegnati ai ruoli con privilegi al di fuori della Privileged Identity Management e proibire le assegnazioni future. |
@@ -103,7 +103,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Severity** | Basse |
+| **Severity** | Basso |
 | **Perché viene visualizzato questo avviso?** | L'amministratore globale è il ruolo con privilegi più elevati. Se un amministratore globale è compromesso, l'autore dell'attacco ottiene l'accesso a tutte le relative autorizzazioni, in modo da mettere a rischio l'intero sistema. |
 | **Come correggerlo?** | Esaminare gli utenti nell'elenco e rimuovere quelli che non richiedono assolutamente il ruolo di amministratore globale. </br>Assegnare invece ruoli con privilegi più bassi a questi utenti. |
 | **Prevenzione** | Assegnare agli utenti il ruolo con privilegi minimo di cui hanno bisogno. |
@@ -116,7 +116,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Severity** | Basse |
+| **Severity** | Basso |
 | **Perché viene visualizzato questo avviso?** | L'attivazione ripetuta dello stesso ruolo con privilegi da parte dello stesso utente è indicativa di un attacco. |
 | **Come correggerlo?** | Esaminare gli utenti nell'elenco e verificare che la [durata di attivazione](pim-how-to-change-default-settings.md) dei ruoli con privilegi sia sufficiente per consentire agli utenti di eseguire le proprie attività. |
 | **Prevenzione** | Verificare che la [durata di attivazione](pim-how-to-change-default-settings.md) dei ruoli con privilegi sia sufficiente per consentire agli utenti di eseguire le proprie attività.</br>[Richiedere l'autenticazione](pim-how-to-change-default-settings.md) a più fattori per i ruoli con privilegi che dispongono di account condivisi da più amministratori. |
@@ -135,7 +135,7 @@ Personalizzare le impostazioni per i diversi avvisi adattandole all'ambiente e a
 
 ![Impostazione della pagina per un avviso per abilitare e configurare le impostazioni](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
 
-# <a name="previous-versiontabprevious"></a>[Versione precedente](#tab/previous)
+# <a name="previous-version"></a>[Versione precedente](#tab/previous)
 
 ![Ruoli di Azure AD-riquadro avvisi che elenca gli avvisi e la gravità](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
@@ -151,7 +151,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Severity** | Basse |
+| **Severity** | Basso |
 | **Perché viene visualizzato questo avviso?** | Se sono presenti utenti a cui sono stati assegnati ruoli con privilegi non necessari, le probabilità di un attacco aumentano. Inoltre, gli utenti malintenzionati possono passare più facilmente inosservati in account che non sono attivamente in uso. |
 | **Come correggerlo?** | Esaminare gli utenti nell'elenco e rimuoverli dai ruoli con privilegi che non sono necessari. |
 | **Prevenzione** | Assegnare ruoli con privilegi solo agli utenti che dispongono di una giustificazione aziendale. </br>Pianificare [verifiche di accesso](pim-how-to-start-security-review.md) regolari per determinare se gli utenti hanno ancora bisogno dell'accesso. |
@@ -163,7 +163,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Severity** | Basse |
+| **Severity** | Basso |
 | **Perché viene visualizzato questo avviso?** | Senza l'autenticazione a più fattori, gli utenti compromessi possono attivare ruoli con privilegi. |
 | **Come correggerlo?** | Esaminare l'elenco dei ruoli e [richiedere l'autenticazione](pim-how-to-change-default-settings.md) a più fattori per ogni ruolo. |
 | **Prevenzione** | [Richiedere l'autenticazione a più fattori](pim-how-to-change-default-settings.md) per ogni ruolo.  |
@@ -173,7 +173,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Severity** | Basse |
+| **Severity** | Basso |
 | **Perché viene visualizzato questo avviso?** | L'organizzazione Azure AD corrente non ha Azure AD Premium P2. |
 | **Come correggerlo?** | Esaminare le informazioni sulle [edizioni di Azure AD](../fundamentals/active-directory-whatis.md). Eseguire l'aggiornamento ad Azure AD Premium P2. |
 
@@ -181,7 +181,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Severity** | Medio |
+| **Severity** | Media |
 | **Perché viene visualizzato questo avviso?** | Gli account in un ruolo con privilegi non hanno modificato la password negli ultimi 90 giorni. Questi account potrebbero essere account di servizio o condivisi che non vengono mantenuti aggiornati e sono vulnerabili agli attacchi. |
 | **Come correggerlo?** | Esaminare gli account nell'elenco. Se l'accesso non è più necessario, rimuovere gli account dai ruoli con privilegi. |
 | **Prevenzione** | Assicurarsi che per gli account condivisi venga eseguita la rotazione di password complesse quando cambiano gli utenti che conoscono la password. </br>Esaminare regolarmente gli account con ruoli con privilegi usando le [verifiche di accesso](pim-how-to-start-security-review.md) e rimuovere le assegnazioni di ruolo che non sono più necessarie. |
@@ -192,7 +192,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Severity** | Alte |
+| **Severity** | Alto |
 | **Perché viene visualizzato questo avviso?** | Le assegnazioni di ruolo con privilegi eseguite all'esterno di Privileged Identity Management non sono monitorate correttamente e possono indicare un attacco attivo. |
 | **Come correggerlo?** | Esaminare gli utenti nell'elenco e rimuoverli dai ruoli con privilegi assegnati al di fuori della Privileged Identity Management. |
 | **Prevenzione** | Individuare la posizione in cui gli utenti vengono assegnati ai ruoli con privilegi al di fuori della Privileged Identity Management e proibire le assegnazioni future. |
@@ -202,7 +202,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Severity** | Basse |
+| **Severity** | Basso |
 | **Perché viene visualizzato questo avviso?** | L'amministratore globale è il ruolo con privilegi più elevati. Se un amministratore globale è compromesso, l'autore dell'attacco ottiene l'accesso a tutte le relative autorizzazioni, in modo da mettere a rischio l'intero sistema. |
 | **Come correggerlo?** | Esaminare gli utenti nell'elenco e rimuovere quelli che non richiedono assolutamente il ruolo di amministratore globale. </br>Assegnare invece ruoli con privilegi più bassi a questi utenti. |
 | **Prevenzione** | Assegnare agli utenti il ruolo con privilegi minimo di cui hanno bisogno. |
@@ -215,7 +215,7 @@ In questa sezione vengono elencati tutti gli avvisi di sicurezza per i ruoli di 
 
 | | |
 | --- | --- |
-| **Severity** | Basse |
+| **Severity** | Basso |
 | **Perché viene visualizzato questo avviso?** | L'attivazione ripetuta dello stesso ruolo con privilegi da parte dello stesso utente è indicativa di un attacco. |
 | **Come correggerlo?** | Esaminare gli utenti nell'elenco e verificare che la [durata di attivazione](pim-how-to-change-default-settings.md) dei ruoli con privilegi sia sufficiente per consentire agli utenti di eseguire le proprie attività. |
 | **Prevenzione** | Verificare che la [durata di attivazione](pim-how-to-change-default-settings.md) dei ruoli con privilegi sia sufficiente per consentire agli utenti di eseguire le proprie attività.</br>[Richiedere l'autenticazione](pim-how-to-change-default-settings.md) a più fattori per i ruoli con privilegi che dispongono di account condivisi da più amministratori. |

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: e29ac6671d71ea02b432c9843541796984737c8b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 51b9c827d453eef2e2e75e1aa5222204eaa38d0e
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459619"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525533"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Rilevamento anomalie in Analisi di flusso di Azure
 
@@ -21,6 +21,12 @@ Analisi di flusso di Azure, disponibile sia nel cloud che in Azure IoT Edge, off
 I modelli di Machine Learning presuppongono una serie temporale con campionamento uniforme. Se la serie temporale non è uniforme, è possibile inserire un passaggio di aggregazione con una finestra a cascata prima di chiamare il rilevamento anomalie.
 
 Al momento, le operazioni di Machine Learning non supportano le tendenze stagionali o le correlazioni multivariabili.
+
+## <a name="anomaly-detection-using-machine-learning-in-azure-stream-analytics"></a>Rilevamento di anomalie con machine learning in analisi di flusso di Azure
+
+Il video seguente illustra come rilevare un'anomalia in tempo reale usando le funzioni di Machine Learning in analisi di flusso di Azure. 
+
+> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Real-Time-ML-Based-Anomaly-Detection-In-Azure-Stream-Analytics/player]
 
 ## <a name="model-behavior"></a>Comportamento del modello
 
@@ -125,7 +131,7 @@ La tabella seguente include le osservazioni sulla velocità effettiva per un sin
 
 | Dimensioni cronologia (eventi) | Durata finestra (MS) | Totale eventi di input al secondo |
 | --------------------- | -------------------- | -------------------------- |
-| 60 | 55 | 2,200 |
+| 60 | 55 | 2\.200 |
 | 600 | 728 | 1\.650 |
 | 6000 | 10.910 | 1\.100 |
 
@@ -147,12 +153,6 @@ Il codice di esempio per eseguire le configurazioni non partizionate sopra è di
 
 ### <a name="identifying-bottlenecks"></a>Identificazione di colli di bottiglia
 Usare il riquadro metriche nel processo di analisi di flusso di Azure per identificare i colli di bottiglia nella pipeline. Esaminare **gli eventi di input/output** per la velocità effettiva e il ["ritardo della filigrana"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) o **gli eventi con backlog** per verificare se il processo è in grado di mantenere la frequenza di input. Per le metriche dell'hub eventi, cercare **le richieste limitate** e modificare di conseguenza le unità di soglia. Per Cosmos DB metrica, esaminare il **numero massimo di ur/sec utilizzati per ogni intervallo di chiavi di partizione** in velocità effettiva per assicurarsi che gli intervalli di chiavi di partizione siano utilizzati in modo uniforme. Per il database SQL di Azure, monitorare IO e **CPU**del **log** .
-
-## <a name="anomaly-detection-using-machine-learning-in-azure-stream-analytics"></a>Rilevamento di anomalie con machine learning in analisi di flusso di Azure
-
-Il video seguente illustra come rilevare un'anomalia in tempo reale usando le funzioni di Machine Learning in analisi di flusso di Azure. 
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Anomaly-detection-using-machine-learning-in-Azure-Stream-Analytics/player]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

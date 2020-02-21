@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: 56cbae7ae56c4b482ac6de201c7a2c8aacb81e59
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 44bbd7eab80ecb1cbfef9738e42b4070dff31180
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048602"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77506055"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurare le chiavi gestite dal cliente per l'account Azure Cosmos con Azure Key Vault
 
@@ -61,7 +61,7 @@ Per informazioni su come abilitare queste proprietà in un'istanza di Azure Key 
 
    ![Selezione delle autorizzazioni corrette](./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png)
 
-1. In **Seleziona entità**selezionare **Nessuno selezionato**. Quindi, cercare **Azure Cosmos DB** entità e selezionarla. Infine, scegliere **Seleziona** nella parte inferiore. Se l'entità **Azure Cosmos DB** non è presente nell'elenco, potrebbe essere necessario registrare nuovamente il provider di risorse **Microsoft. DocumentDB** come descritto nella sezione [registrare il provider di risorse](#register-resource-provider) di questo articolo.
+1. In **Seleziona entità**selezionare **Nessuno selezionato**. Quindi, cercare l'entità **Azure Cosmos DB** e selezionarla (per facilitarne l'individuazione, è anche possibile eseguire la ricerca in base all'ID entità: `a232010e-820c-4083-83bb-3ace5fc29d0b` per qualsiasi area di Azure, ad eccezione delle aree di Azure per enti pubblici in cui l'ID principale è `57506a73-e302-42a9-b869-6f12d9ec29e9`). Infine, scegliere **Seleziona** nella parte inferiore. Se l'entità **Azure Cosmos DB** non è presente nell'elenco, potrebbe essere necessario registrare nuovamente il provider di risorse **Microsoft. DocumentDB** come descritto nella sezione [registrare il provider di risorse](#register-resource-provider) di questo articolo.
 
    ![Selezionare l'entità di Azure Cosmos DB](./media/how-to-setup-cmk/portal-akv-add-ap.png)
 

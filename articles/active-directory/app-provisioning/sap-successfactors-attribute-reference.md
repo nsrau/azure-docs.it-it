@@ -7,19 +7,19 @@ documentationcenter: na
 manager: jodadzie
 ms.assetid: afb77f2d-5ddd-4c2e-a840-09021b0efef1
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: 6f7497e62be0036c13d5c33fa82301469df16f26
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 00b16f969525e7b802c008ba247ecba015875689
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066187"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522357"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>Informazioni di riferimento sugli attributi di SAP SuccessFactors
 
@@ -67,7 +67,7 @@ La tabella seguente acquisisce l'elenco degli attributi SuccessFactors supportat
 | 34 | Utente                                   | nickname                     | Lettura           |
 | 35 | Utente                                   | state                        | Lettura           |
 | 36 | Utente                                   | timeZone                     | Lettura           |
-| 37 | Utente                                   | nomeutente                     | Lettura           |
+| 37 | Utente                                   | username                     | Lettura           |
 | 38 | Utente                                   | zipCode                      | Lettura           |
 | 39 | PerPhone                               | areaCode                     | Lettura           |
 | 40 | PerPhone                               | countryCode                  | Lettura           |
@@ -127,9 +127,9 @@ La tabella seguente fornisce il mapping predefinito degli attributi tra gli attr
 | 7  | Utente                                   | city                     | l                                       | ND                                                                                           |
 | 8  | Utente                                   | country                  | co                                      | ND                                                                                           |
 | 9  | Utente                                   | state                    | st                                      | ND                                                                                           |
-| 10 | Utente                                   | nomeutente                 | samAccountName                          | ND                                                                                           |
+| 10 | Utente                                   | username                 | samAccountName                          | ND                                                                                           |
 | 11 | Utente                                   | zipCode                  | postalCode                              | ND                                                                                           |
-| 12 | PerEmail                               | emailAddress             | posta                                    | ND                                                                                           |
+| 12 | PerEmail                               | emailAddress             | mail                                    | ND                                                                                           |
 | 13 | EmpJob                                 | jobTitle                 | title                                   | ND                                                                                           |
 | 14 | EmpJob                                 | managerId                | manager                                 | ND                                                                                           |
 | 15 | EmpJob\.Company\.CountryOfRegistration | twoCharCountryCode       | c                                       | ND                                                                                           |

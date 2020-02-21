@@ -5,22 +5,22 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 02/19/2020
 ms.author: helohr
-ms.openlocfilehash: e2fa30772082f4d2f7c02add61412432233e3f04
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 426ca10893e6858722b58422400582e4940287e2
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470573"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484605"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Domande frequenti su Windows 10 Enterprise multisessione
 
-Questo articolo risponde alle domande frequenti e illustra le procedure consigliate per la multisessione Enterprise di Windows 10.
+Questo articolo risponde alle domande frequenti e spiega le procedure consigliate per la multisessione Enterprise di Windows 10.
  
-## <a name="what-is-windows-10-enterprise-multi-session"></a>Che cos'è Windows 10 Enterprise multisessione? 
+## <a name="what-is-windows-10-enterprise-multi-session"></a>Che cos'è Windows 10 Enterprise multisessione?
 
-Windows 10 Enterprise Multi-Session, in precedenza noto come Windows 10 Enterprise for Virtual Desktops (EVD), è un nuovo host sessione Desktop remoto che consente più sessioni interattive simultanee, che in precedenza potevano essere eseguite solo da Windows Server. Questa funzionalità offre agli utenti un'esperienza familiare di Windows 10, anche se può trarre vantaggio dai vantaggi economici della multisessione e utilizzare licenze Windows per utente esistenti anziché licenze CAL (Client Access License) di RDS. Per ulteriori informazioni sulle licenze e i prezzi, vedere [prezzi di desktop virtuali Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/). 
+Windows 10 Enterprise Multi-Session, in precedenza noto come Windows 10 Enterprise for Virtual Desktops (EVD), è una nuova host sessione Desktop remoto che consente più sessioni interattive simultanee. In precedenza, solo Windows Server poteva eseguire questa operazione. Questa funzionalità offre agli utenti un'esperienza familiare di Windows 10, anche se può trarre vantaggio dai vantaggi economici della multisessione e utilizzare licenze Windows per utente esistenti anziché licenze CAL (Client Access License) di RDS. Per ulteriori informazioni sulle licenze e i prezzi, vedere [prezzi di desktop virtuali Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/). 
  
 ## <a name="how-many-users-can-simultaneously-have-an-interactive-session-on-windows-10-enterprise-multi-session"></a>Quanti utenti possono simultaneamente una sessione interattiva in più sessioni di Windows 10 Enterprise?
 
@@ -71,6 +71,31 @@ Per altre informazioni su come configurare un contenitore del profilo FSLogix, v
 ## <a name="which-license-do-i-need-to-access-windows-10-enterprise-multi-session"></a>Quale licenza è necessario per accedere a multisessione Enterprise di Windows 10?
 
 Per un elenco completo delle licenze applicabili, vedere [prezzi di desktop virtuali Windows](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+
+## <a name="why-do-my-apps-disappear-after-i-sign-out"></a>Perché le mie app scompaiono dopo la disconnessione?
+
+Ciò si verifica perché si usa la multisessione Enterprise di Windows 10 con una soluzione di gestione dei profili come FSLogix. La soluzione amministratore o profilo ha configurato il sistema in modo da eliminare i profili utente quando gli utenti si disconnettersi. Questa configurazione significa che quando il sistema elimina il profilo utente dopo la disconnessione, vengono rimosse anche tutte le app installate durante la sessione. Se si vogliono usare le app installate, è necessario chiedere all'amministratore di effettuare il provisioning di queste app per tutti gli utenti nell'ambiente desktop virtuale di Windows.
+
+## <a name="how-do-i-make-sure-apps-dont-disappear-when-users-sign-out"></a>Ricerca per categorie assicurarsi che le app non scompaiano quando gli utenti si disconnettersi?
+
+La maggior parte degli ambienti virtualizzati viene configurata per impostazione predefinita per impedire agli utenti di installare app aggiuntive nei rispettivi profili. Per assicurarsi che un'app non scompaia quando l'utente si disconnette da desktop virtuale di Windows, è necessario effettuare il provisioning dell'app per tutti i profili utente nell'ambiente in uso. Per altre informazioni sul provisioning delle app, vedere le risorse seguenti:
+
+- [Pubblicare app predefinite nel desktop virtuale di Windows](publish-apps.md)
+- [Opzioni della riga di comando per la manutenzione del pacchetto dell'app DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
+- [Add-AppxProvisionedPackage](https://docs.microsoft.com/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
+
+## <a name="how-do-i-make-sure-users-dont-download-and-install-apps-from-the-microsoft-store"></a>Ricerca per categorie assicurarsi che gli utenti non scarichino e installino le app dal Microsoft Store?
+
+È possibile disabilitare l'app Microsoft Store per assicurarsi che gli utenti non scarichino app aggiuntive oltre alle app già sottoposte a provisioning.
+
+Per disabilitare l'app dello Store:
+
+1. Creare una nuova Criteri di gruppo.
+2. Selezionare **Configurazione Computer** > **modelli amministrativi** > **componenti di Windows**.
+3. Selezionare **Store**.
+4. Selezionare **Store Application**.
+5. Selezionare **disabilitato**, quindi fare clic su **OK**.
+6. Selezionare **Applica**.
  
 ## <a name="next-steps"></a>Passaggi successivi
 

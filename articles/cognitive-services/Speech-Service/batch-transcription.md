@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: dc473c814cdd69204cddd976bc77f19b5db567b1
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 6d5ec5f798617d03072ec5931b0d1d3623df3d42
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200079"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500006"
 ---
 # <a name="how-to-use-batch-transcription"></a>Come usare la trascrizione batch
 
@@ -87,14 +87,55 @@ I parametri di configurazione vengono forniti in formato JSON:
 
 Usare queste proprietà facoltative per configurare la trascrizione:
 
-| Parametro | Descrizione |
-|-----------|-------------|
-| `ProfanityFilterMode` | Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `None` che disabilita i filtri del contenuto volgare, `Masked` che sostituisce il contenuto volgare con gli asterischi, `Removed` che rimuove tutto il contenuto volgare dal risultato, o `Tags` che aggiunge tag "contenuti volgari". L'impostazione predefinita è `Masked`. |
-| `PunctuationMode` | Specifica come gestire la punteggiatura nei risultati del riconoscimento. I valori accettati sono `None` che consente di disattivare la punteggiatura, `Dictated` che implica la punteggiatura esplicita, `Automatic` che permette al decodificatore di occuparsi della punteggiatura, o `DictatedAndAutomatic` che implica segni di punteggiatura dettata o automatica. |
-| `AddWordLevelTimestamps` | Specifica se i timestamp a livello di parola devono essere aggiunti all'output. I valori accettati sono `true`, che abilita i timestamp a livello di parola, e `false` (valore predefinito), che li disabilita. |
-| `AddSentiment` | Specifica che il sentimento deve essere aggiunto all'espressione. I valori accettati sono `true` che Abilita il sentimento per enunciato e `false` (valore predefinito) per disabilitarlo. |
-| `AddDiarization` | Specifica che l'analisi della fase di esecuzione deve essere eseguita nell'input che dovrebbe essere canale mono contenente due voci. I valori accettati sono `true` che consentono di eseguire la `false` (valore predefinito) e di disabilitarlo. Richiede anche che `AddWordLevelTimestamps` sia impostato su true.|
-|`TranscriptionResultsContainerUrl`|URL facoltativo con firma di accesso condiviso del [servizio](../../storage/common/storage-sas-overview.md) per un contenitore scrivibile in Azure. Il risultato verrà archiviato in questo contenitore.
+:::row:::
+   :::column span="1":::
+      **Parametro**
+   :::column-end:::
+   :::column span="2":::
+      **Descrizione**
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `ProfanityFilterMode`
+   :::column-end:::
+   :::column span="2":::
+      Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `None` per disabilitare il filtro volgare, `Masked` per sostituire la volgarità con gli asterischi, `Removed` rimuovere tutta la profanità dal risultato o `Tags` aggiungere i tag "volgarità". L'impostazione predefinita è `Masked`.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `PunctuationMode`
+   :::column-end:::
+   :::column span="2":::
+      Specifica come gestire la punteggiatura nei risultati del riconoscimento. I valori accettati sono `None` per disabilitare la punteggiatura, `Dictated` per implicare la punteggiatura esplicita (pronunciata), `Automatic` per consentire al decodificatore di trattare la punteggiatura o `DictatedAndAutomatic` di usare la punteggiatura automatica e dettata. L'impostazione predefinita è `DictatedAndAutomatic`.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `AddWordLevelTimestamps`
+   :::column-end:::
+   :::column span="2":::
+      Specifica se i timestamp a livello di parola devono essere aggiunti all'output. I valori accettati sono `true` per abilitare i timestamp a livello di parola e `false` (valore predefinito) per disabilitarlo.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `AddSentiment`
+   :::column-end:::
+   :::column span="2":::
+      Specifica che il sentimento deve essere aggiunto all'espressione. I valori accettati sono `true` per abilitare il sentimento per enunciato e `false` (valore predefinito) per disabilitarlo.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `AddDiarization`
+   :::column-end:::
+   :::column span="2":::
+      Specifica che l'analisi della fase di esecuzione deve essere eseguita nell'input che dovrebbe essere canale mono contenente due voci. I valori accettati sono `true` abilitazione della `false` (valore predefinito) per disabilitarla. Richiede anche che `AddWordLevelTimestamps` sia impostato su true.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `TranscriptionResultsContainerUrl`
+   :::column-end:::
+   :::column span="2":::
+      URL facoltativo con firma di accesso condiviso del [servizio](../../storage/common/storage-sas-overview.md) per un contenitore scrivibile in Azure. Il risultato verrà archiviato in questo contenitore.
+:::row-end:::
 
 ### <a name="storage"></a>Archiviazione
 

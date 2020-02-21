@@ -6,7 +6,7 @@ documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a01f7f48dd93983edf4be4b797f62afede273c66
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: dd78c78a711b64c58290f09eb2ee52263375002f
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066668"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522510"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Scrittura di espressioni per il mapping degli attributi in Azure Active Directory
 Quando si configura il provisioning in un'applicazione SaaS, come mapping degli attributi è possibile specificare il mapping di espressioni. Per questo tipo di mapping è necessario scrivere un'espressione analoga a uno script, che permette di trasformare i dati utente in formati più idonei all'applicazione SaaS.
@@ -29,7 +29,7 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 * L'intera espressione deve essere definita in termini di funzioni, che sono costituite da un nome seguito da argomenti racchiusi tra parentesi: <br>
   *FunctionName(`<<argument 1>>`,`<<argument N>>`)*
-* È possibile annidare le funzioni in altre funzioni. Ad esempio, <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
+* È possibile annidare le funzioni in altre funzioni. Ad esempio: <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * È possibile passare tre tipi diversi di argomenti nelle funzioni:
   
   1. Attributi, che devono essere racchiusi tra parentesi quadre. Ad esempio: [NomeAttributo]
@@ -48,10 +48,10 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |String |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **suffix** |Obbligatoria |String |Stringa da aggiungere alla fine del valore di origine. |
+| **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **suffix** |Obbligatoria |string |Stringa da aggiungere alla fine del valore di origine. |
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -66,7 +66,7 @@ In altre parole, restituisce 0 in tutti i casi tranne quando i bit corrispondent
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **value1** |Obbligatoria |num |Valore numerico che deve essere unire con and con value2|
 | **Value2** |Obbligatoria |num |Valore numerico che deve essere unire con and con value1|
@@ -83,9 +83,9 @@ BitAnd(&HF, &HF7)
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **expression** |Obbligatoria | espressione | Qualsiasi espressione valida |
+| **expression** |Obbligatoria | expression | Qualsiasi espressione valida |
 
 **Esempio:**<br>
 CBool ([attribute1] = [attribute2])                                                                    
@@ -99,10 +99,10 @@ Restituisce True se entrambi gli attributi hanno lo stesso valore.
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source1 … sourceN** | Obbligatoria | String |Obbligatorio, numero variabile di volte. In genere è il nome dell'attributo dell'oggetto di origine. |
-| **defaultValue** | Facoltativa | String | Valore predefinito da utilizzare quando tutti i valori di origine sono NULL. Può essere una stringa vuota ("").
+| **source1 … sourceN** | Obbligatoria | string |Obbligatorio, numero variabile di volte. In genere è il nome dell'attributo dell'oggetto di origine. |
+| **defaultValue** | Facoltativo | string | Valore predefinito da utilizzare quando tutti i valori di origine sono NULL. Può essere una stringa vuota ("").
 
 ---
 ### <a name="converttobase64"></a>ConvertToBase64
@@ -112,9 +112,9 @@ Restituisce True se entrambi gli attributi hanno lo stesso valore.
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |String |Stringa da convertire in base 64|
+| **source** |Obbligatoria |string |Stringa da convertire in base 64|
 
 **Esempio:**<br>
 ConvertToBase64("Hello world!")                                                                                                        
@@ -128,9 +128,9 @@ Restituisce "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |String |Stringa da convertire in esadecimale UTF8|
+| **source** |Obbligatoria |string |Stringa da convertire in esadecimale UTF8|
 
 **Esempio:**<br>
 ConvertToUTF8Hex("Hello world!")                                                                                                         
@@ -144,7 +144,7 @@ Restituisce 48656C6C6F20776F726C6421
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **attribute** |Obbligatoria |attributo |Attributo multivalore che avrà elementi conteggiati|
 
@@ -156,7 +156,7 @@ Restituisce 48656C6C6F20776F726C6421
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **value** |Obbligatoria | numeric, Reference o Boolean | può essere un valore numerico, un attributo di riferimento o un valore booleano. |
 
@@ -172,7 +172,7 @@ Restituisce "CN = Joe, DC = contoso, DC = com"
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **value** |Obbligatoria | Data | Data di annuncio da convertire nel tipo DateTime |
 
@@ -189,11 +189,11 @@ Restituisce un valore di data/ora che rappresenta 2012-01-01 23:00:00
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |String |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **inputFormat** |Obbligatoria |String |Formato previsto del valore source. Per informazioni sui formati supportati, vedere [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-| **outputFormat** |Obbligatoria |String |Formato della data di output. |
+| **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **inputFormat** |Obbligatoria |string |Formato previsto del valore source. Per informazioni sui formati supportati, vedere [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **outputFormat** |Obbligatoria |string |Formato della data di output. |
 
 ---
 ### <a name="guid"></a>Guid
@@ -209,12 +209,12 @@ Restituisce un valore di data/ora che rappresenta 2012-01-01 23:00:00
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **value1** |Obbligatoria |String |Stringa da cercare |
-| **Value2** |Obbligatoria |String |Stringa da trovare |
-| **start** |Facoltativa |Integer |Posizione iniziale per trovare la sottostringa|
-| **compareType** |Facoltativa |Enum |Può essere vbTextCompare o vbBinaryCompare |
+| **value1** |Obbligatoria |string |Stringa da cercare |
+| **Value2** |Obbligatoria |string |Stringa da trovare |
+| **start** |Facoltativo |Integer |Posizione iniziale per trovare la sottostringa|
+| **compareType** |Facoltativo |Enum |Può essere vbTextCompare o vbBinaryCompare |
 
 **Esempio:**<br>
 InStr("The quick brown fox","quick")                                                                             
@@ -231,9 +231,9 @@ Restituisce 7
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **expression** |Obbligatoria |espressione |Espressione da valutare |
+| **expression** |Obbligatoria |expression |Espressione da valutare |
 
 **Esempio:**<br>
 IsNull([displayName])                                                                                                
@@ -248,9 +248,9 @@ La funzione inversa di questa funzione è denominata IsPresent.
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **expression** |Obbligatoria |espressione |Espressione da valutare |
+| **expression** |Obbligatoria |expression |Espressione da valutare |
 
 **Esempio:**<br>
 IsNullOrEmpty ([displayName])                                               
@@ -264,9 +264,9 @@ Restituisce true se l'attributo non è presente o è una stringa vuota
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **expression** |Obbligatoria |espressione |Espressione da valutare |
+| **expression** |Obbligatoria |expression |Espressione da valutare |
 
 **Esempio:**<br>
 Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])
@@ -279,9 +279,9 @@ Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager])
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **expression** |Obbligatoria |espressione |Espressione da valutare |
+| **expression** |Obbligatoria |expression |Espressione da valutare |
 
 ---
 ### <a name="item"></a>Elemento
@@ -291,7 +291,7 @@ Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager])
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **attribute** |Obbligatoria |Attributo |Attributo multivalore da cercare |
 | **index** |Obbligatoria |Integer | Indice di un elemento nella stringa multivalore|
@@ -309,13 +309,13 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **separator** |Obbligatoria |String |Stringa usata per separare i valori di origine quando sono concatenati in una stringa. Può essere "" se non sono necessari separatori. |
-| **source1 … sourceN** |Obbligatorio per un numero variabile di volte |String |Valori stringa da unire. |
+| **separator** |Obbligatoria |string |Stringa usata per separare i valori di origine quando sono concatenati in una stringa. Può essere "" se non sono necessari separatori. |
+| **source1 … sourceN** |Obbligatorio per un numero variabile di volte |string |Valori stringa da unire. |
 
 ---
-### <a name="left"></a>A sinistra
+### <a name="left"></a>Left
 **Funzione:**<br> Left (stringa, NumChars)
 
 **Descrizione:**<br> La funzione Left restituisce un numero di caratteri specificato a partire da sinistra di una stringa. Se numChars = 0, restituisce una stringa vuota.
@@ -325,7 +325,7 @@ Se string contiene un numero di caratteri inferiore al numero specificato in num
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **Stringa** |Obbligatoria |Attributo | Stringa da cui restituire i caratteri |
 | **NumChars** |Obbligatoria |Integer | Numero che identifica il numero di caratteri da restituire dall'inizio (sinistra) della stringa|
@@ -342,9 +342,9 @@ Restituisce "Joh"
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |String |Corrisponde in genere al nome dell'attributo. |
+| **source** |Obbligatoria |string |Corrisponde in genere al nome dell'attributo. |
 | **start** |Obbligatoria |integer |Indice nella stringa **source** che indica il punto di inizio della sottostringa. L'indice del primo carattere della stringa sarà pari a 1, quello del secondo carattere a 2 e così via. |
 | **length** |Obbligatoria |integer |Lunghezza della sottostringa. Se la lunghezza eccede la stringa **source**, la funzione restituirà una sottostringa dall'indice **start** fino alla fine della stringa **source**. |
 
@@ -356,19 +356,19 @@ Restituisce "Joh"
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |String | In genere un attributo nome o cognome. |
+| **source** |Obbligatoria |string | In genere un attributo nome o cognome. |
 
 ---
 ### <a name="not"></a>Not
 **Funzione:**<br> Not(source)
 
-**Descrizione:**<br> Inverte il valore booleano di **source**. Se il valore **source** è "*True*", restituirà "*False*". In caso contrario, restituirà "*True*".
+**Descrizione:**<br> Inverte il valore booleano di **source**. Se il valore di **source** è "*True*", restituisce "*False*". In caso contrario, restituisce "*True*".
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **source** |Obbligatoria |Stringa booleana |I valori previsti per **source** sono "True" o "False". |
 
@@ -380,9 +380,9 @@ Restituisce "Joh"
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **value** |Obbligatoria | String | Stringa data/ora nel formato supportato. Per i formati supportati, vedere https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
+| **value** |Obbligatoria | string | Stringa data/ora nel formato supportato. Per i formati supportati, vedere https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
 
 **Esempio:**<br>
 * Esempio di giornata lavorativa <br>
@@ -402,7 +402,7 @@ Restituisce "Joh"
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **attribute** |Obbligatoria |Attributo multivalore |Attributo multivalore in cui vengono rimossi i duplicati|
 
@@ -411,7 +411,7 @@ RemoveDuplicates([proxyAddresses])
 Restituisce un attributo proxyAddress purificato in cui sono stati rimossi tutti i valori duplicati
 
 ---
-### <a name="replace"></a>Sostituire
+### <a name="replace"></a>Replace
 **Funzione:**<br> Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Descrizione:**<br>
@@ -422,7 +422,7 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
   * Sostituisce tutte le occorrenze di **oldValue** in **source** con **replacementValue**
 * Se vengono forniti **oldValue** e **template**:
   
-  * Sostituisce tutte le occorrenze di **oldValue** in **template** con il valore **source**.
+  * Sostituisce tutte le occorrenze di **oldValue** in **template** con il valore **source**
 * Se vengono forniti **regexPattern** e **replacementValue**:
 
   * La funzione applica **regexPattern** alla stringa **source** ed è possibile usare i nomi del gruppo di regex per creare la stringa per **replacementValue**
@@ -436,15 +436,15 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |String |In genere è il nome dell'attributo dell'oggetto **source**. |
-| **oldValue** |Facoltativa |String |Valore da sostituire in **source** o **template**. |
-| **regexPattern** |Facoltativa |String |Modello Regex per il valore da sostituire in **source**. Se invece si usa **replacementPropertyName**, corrisponde al modello usato per estrarre il valore da **replacementPropertyName**. |
-| **regexGroupName** |Facoltativa |String |Nome del gruppo in **regexPattern**. Solo se si usa **replacementPropertyName**, il valore di questo gruppo verrà estratto come **replacementValue** da **replacementPropertyName**. |
-| **replacementValue** |Facoltativa |String |Nuovo valore con cui sostituire il precedente. |
-| **replacementAttributeName** |Facoltativa |String |Nome dell'attributo da usare per il valore di sostituzione |
-| **template** |Facoltativa |String |Se viene fornito il valore **template**, il valore **oldValue** verrà cercato in template e sostituito con il valore di **source**. |
+| **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto **source**. |
+| **oldValue** |Facoltativo |string |Valore da sostituire in **source** o **template**. |
+| **regexPattern** |Facoltativo |string |Criterio di espressione regolare per il valore da sostituire in **source**. Se invece si usa **replacementPropertyName**, corrisponde al modello usato per estrarre il valore da **replacementPropertyName**. |
+| **regexGroupName** |Facoltativo |string |Nome del gruppo in **regexPattern**. Solo se si usa **replacementPropertyName**, il valore di questo gruppo verrà estratto come **replacementValue** da **replacementPropertyName**. |
+| **replacementValue** |Facoltativo |string |Nuovo valore con cui sostituire il precedente. |
+| **replacementAttributeName** |Facoltativo |string |Nome dell'attributo da usare per il valore di sostituzione |
+| **template** |Facoltativo |string |Se viene fornito il valore **template**, il valore **oldValue** verrà cercato in template e sostituito con il valore di **source**. |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -461,9 +461,9 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN** |Sono necessari almeno 2 argomenti, nessun limite superiore |String | Elenco delle regole di generazione di valori univoci da valutare. |
+| **uniqueValueRule1  … uniqueValueRuleN** |Sono necessari almeno 2 argomenti, nessun limite superiore |string | Elenco delle regole di generazione di valori univoci da valutare. |
 
 
 ---
@@ -474,22 +474,22 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **[appRoleAssignments]** |Obbligatoria |String |Oggetto **[appRoleAssignments]** . |
+| **[appRoleAssignments]** |Obbligatoria |string |Oggetto **[appRoleAssignments]** . |
 
 ---
-### <a name="split"></a>Dividi
+### <a name="split"></a>Split
 **Funzione:**<br> Split(source, delimiter)
 
 **Descrizione:**<br> Divide una stringa in una matrice multi-valore usando il carattere di delimitazione specificato.
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |String |**source** da aggiornare. |
-| **delimiter** |Obbligatoria |String |Specifica il carattere che verrà usato per dividere la stringa (esempio: ",") |
+| **source** |Obbligatoria |string |**source** da aggiornare. |
+| **delimiter** |Obbligatoria |string |Specifica il carattere che verrà usato per dividere la stringa (esempio: ",") |
 
 ---
 ### <a name="stripspaces"></a>StripSpaces
@@ -499,24 +499,24 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |String |**source** da aggiornare. |
+| **source** |Obbligatoria |string |**source** da aggiornare. |
 
 ---
 ### <a name="switch"></a>Opzione
 **Funzione:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
-**Descrizione:**<br> Se il valore di **source** corrisponde al parametro **key**, verrà restituito un parametro **value** per tale **key**. Se il valore di **source** non corrisponde ad alcuna chiave, verrà restituito un valore **defaultValue**.  I parametri **key** e **value** devono essere sempre accoppiati. Le funzioni prevedono sempre un numero pari di parametri. La funzione non deve essere usata per gli attributi referenziali, ad esempio Manager. 
+**Descrizione:**<br> Quando il valore **source** corrisponde a **key**, verrà restituito un parametro **value** per tale oggetto **key**. Se il valore del parametro **source** non corrisponde ad alcuna chiave, verrà restituito **defaultValue**.  I parametri **key** e **value** devono essere sempre accoppiati. Le funzioni prevedono sempre un numero pari di parametri. La funzione non deve essere usata per gli attributi referenziali, ad esempio Manager. 
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |String |**Source** da aggiornare. |
-| **defaultValue** |Facoltativa |String |Valore predefinito da usare se l'origine non corrisponde ad alcuna chiave. Può essere una stringa vuota (""). |
-| **key** |Obbligatoria |String |Parametro **key** con cui confrontare il valore di **source**. |
-| **value** |Obbligatoria |String |Valore di sostituzione per il valore **source** corrispondente al parametro key. |
+| **source** |Obbligatoria |string |**Source** da aggiornare. |
+| **defaultValue** |Facoltativo |string |Valore predefinito da usare se l'origine non corrisponde ad alcuna chiave. Può essere una stringa vuota (""). |
+| **key** |Obbligatoria |string |Parametro **key** con cui confrontare il valore di **source**. |
+| **value** |Obbligatoria |string |Valore di sostituzione per il valore **source** corrispondente al parametro key. |
 
 ---
 ### <a name="tolower"></a>ToLower
@@ -526,10 +526,10 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |String |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **Impostazioni cultura** |Facoltativa |String |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
+| **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **Impostazioni cultura** |Facoltativo |string |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
 
 ---
 ### <a name="toupper"></a>ToUpper
@@ -539,10 +539,10 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatoria |String |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **Impostazioni cultura** |Facoltativa |String |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
+| **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **Impostazioni cultura** |Facoltativo |string |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
 
 ---
 ### <a name="word"></a>Word
@@ -556,11 +556,11 @@ Se la stringa contiene meno delle parole specificate in number o se non contiene
 
 **Parametri:**<br> 
 
-| Name | Obbligatorio/Ripetuto | Type | Note |
+| Nome | Obbligatorio/Ripetuto | Type | Note |
 | --- | --- | --- | --- |
 | **Stringa** |Obbligatoria |Attributo multivalore |Stringa da cui restituire una parola.|
 | **WordNumber** |Obbligatoria | Integer | Numero che identifica il numero di parola da restituire|
-| **delimitatori** |Obbligatoria |String| Stringa che rappresenta i delimitatori da usare per identificare le parole|
+| **delimitatori** |Obbligatoria |string| Stringa che rappresenta i delimitatori da usare per identificare le parole|
 
 **Esempio:**<br>
 Word ("The Quick Brown Fox", 3, "")                                                                                       

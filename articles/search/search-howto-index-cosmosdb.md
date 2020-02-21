@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/02/2020
-ms.openlocfilehash: ef136345c7c41c720efd3c79923b6ce646de41e2
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d1723b6c5d56554fbff576f6a07e37455845bda4
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75642166"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498638"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Come indicizzare i dati Cosmos DB usando un indicizzatore in Azure ricerca cognitiva 
 
@@ -29,13 +29,13 @@ Questo articolo illustra come configurare un [indicizzatore](search-indexer-over
 
 Poiché la terminologia può creare confusione, vale la pena notare che [Azure Cosmos DB indicizzazione](https://docs.microsoft.com/azure/cosmos-db/index-overview) e l' [indicizzazione di Azure ricerca cognitiva](search-what-is-an-index.md) sono operazioni distinte, univoche per ogni servizio. Prima di avviare l'indicizzazione di Azure ricerca cognitiva, è necessario che il database di Azure Cosmos DB esista già e che contenga dati.
 
-L'indicizzatore Cosmos DB in Azure ricerca cognitiva può eseguire la ricerca per indicizzazione di [Azure Cosmos DB elementi](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) a cui si accede tramite protocolli
+L'indicizzatore Cosmos DB in Azure ricerca cognitiva può eseguire la ricerca per indicizzazione di [Azure Cosmos DB elementi](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) a cui si accede tramite protocolli 
 
-+ Per l' [API SQL](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference), disponibile a livello generale, è possibile usare il [portale](#cosmos-indexer-portal), l' [API REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)o [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet).
++ Per l' [API SQL](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference), disponibile a livello generale, è possibile usare il [portale](#cosmos-indexer-portal), l' [API REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)o [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet) per creare l'origine dati e l'indicizzatore.
 
-+ Per l'API [MongoDB (anteprima)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) e l' [API Gremlin (anteprima)](https://docs.microsoft.com/azure/cosmos-db/graph-introduction), è possibile usare il [portale](#cosmos-indexer-portal) o l' [API REST versione 2019-05-06-Preview](search-api-preview.md) in una chiamata a [create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) per creare l'indicizzatore.
++ Per l' [API MongoDB (anteprima)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction), è possibile usare il [portale](#cosmos-indexer-portal) o l' [API REST versione 2019-05-06-Preview](search-api-preview.md) per creare l'origine dati e l'indicizzatore.
 
-+ Per [API Cassandra (anteprima)](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction), è possibile usare solo l' [API REST versione 2019-05-06-Preview](search-api-preview.md) in una chiamata a [create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) .
++ Per [API Cassandra (anteprima)](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction) e l' [API Gremlin (anteprima)](https://docs.microsoft.com/azure/cosmos-db/graph-introduction), è possibile usare solo l' [API REST versione 2019-05-06-Preview](search-api-preview.md) per creare l'origine dati e l'indicizzatore.
 
 
 > [!Note]
@@ -173,7 +173,7 @@ Per creare un'origine dati, formulare una richiesta POST:
 
 Il corpo della richiesta contiene la definizione dell'origine dati, che deve includere i campi seguenti:
 
-| Campo   | Description |
+| Campo   | Descrizione |
 |---------|-------------|
 | **nome** | Obbligatorio. Scegliere un nome qualsiasi per rappresentare l'oggetto origine dati. |
 |**type**| Obbligatorio. Deve essere `cosmosdb`. |

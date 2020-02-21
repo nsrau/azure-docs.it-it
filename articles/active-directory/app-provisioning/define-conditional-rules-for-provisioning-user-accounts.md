@@ -6,7 +6,7 @@ documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41a4eb565f49b75b64cc072d3017c41000154e2a
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e48388d4e15923c1f3e66321132197670b30c6b9
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066824"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522561"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisioning dell'applicazione basato su attributi con filtri per la definizione dell'ambito
 Questo articolo spiega come usare i filtri di ambito per definire regole basate su attributi per determinare gli utenti per i quali viene eseguito il provisioning per un'applicazione.
@@ -107,7 +107,7 @@ I filtri di ambito sono configurati come parte dei mapping degli attributi per o
 
 10. In **Titolo filtro di ambito** aggiungere un nome per il filtro di ambito.
 
-11. Scegliere **OK**.
+11. Selezionare **OK**.
 
 12. Selezionare di nuovo **OK** nella schermata **Filtri di ambito**. Facoltativamente, ripetere i passaggi da 6 a 11 per aggiungere un altro filtro di ambito.
 
@@ -118,7 +118,7 @@ I filtri di ambito sono configurati come parte dei mapping degli attributi per o
 
 
 ## <a name="common-scoping-filters"></a>Filtri di ambito comuni
-| Attributo di destinazione| Operatore | Valore | Descrizione|
+| Target Attribute| Operatore | valore | Descrizione|
 |----|----|----|----|
 |userPrincipalName|CORRISPONDENZA REGEX|.\*@domain.com |Tutti gli utenti con userPrincipal che dispone del @domain.com di dominio saranno nell'ambito del provisioning|
 |userPrincipalName|NON CORRISPONDENZA REGEX|.\*@domain.com|Tutti gli utenti con userPrincipal che dispone del dominio @domain.com saranno fuori dall'ambito per il provisioning|

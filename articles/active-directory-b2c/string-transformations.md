@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/05/2020
+ms.date: 02/20/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 06323ba8f623bc80a355be69ed9571ee32dd69e6
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: df0bd87fffba8ed70c60da358b38079d3d017c76
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461216"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505634"
 ---
 # <a name="string-claims-transformations"></a>Trasformazioni di attestazioni di stringa
 
@@ -34,7 +34,8 @@ Confronta due attestazioni e genera un'eccezione se non sono uguali in base agli
 | InputClaim | inputClaim2 | string | Tipo della seconda attestazione di cui eseguire il confronto. |
 | InputParameter | stringComparison | string | Confronto tra le stringhe con valori Ordinal e OrdinalIgnoreCase. |
 
-La trasformazione dell'asserzione **AssertStringClaimsAreEqual** viene sempre eseguita da un [profilo tecnico di convalida](validation-technical-profile.md) chiamato da un [profilo tecnico autocertificato](self-asserted-technical-profile.md). I metadati del profilo tecnico autocertificato **UserMessageIfClaimsTransformationStringsAreNotEqual** controllano il messaggio di errore inviato all'utente.
+La trasformazione delle attestazioni **AssertStringClaimsAreEqual** viene sempre eseguita da un [profilo tecnico di convalida](validation-technical-profile.md) chiamato da un [profilo tecnico autocertificato](self-asserted-technical-profile.md)o da un [DisplayConrtol](display-controls.md). I metadati `UserMessageIfClaimsTransformationStringsAreNotEqual` di un profilo tecnico autocertificato controllano il messaggio di errore visualizzato all'utente.
+
 
 ![Esecuzione di AssertStringClaimsAreEqual](./media/string-transformations/assert-execution.png)
 
@@ -122,11 +123,11 @@ Usare questa trasformazione per cambiare le maiuscole/minuscole di qualsiasi str
 
 ## <a name="createstringclaim"></a>CreateStringClaim
 
-Crea un'attestazione di stringa dal parametro di input specificato nei criteri.
+Crea un'attestazione stringa dal parametro di input specificato nella trasformazione.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | value | string | Stringa da impostare |
+| InputParameter | Valore | string | Stringa da impostare |
 | OutputClaim | createdClaim | string | Tipo attestazione generato dopo che questa trasformazione di attestazioni è stato richiamato con il valore specificato nel parametro di input. |
 
 Usare questa trasformazione di attestazioni per impostare un valore ClaimType di stringa.
@@ -157,7 +158,7 @@ Determina se un'attestazione di stringa è uguale a un'altra. Il risultato è un
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Tipo della prima attestazione di cui eseguire il confronto. |
 | InputClaim | inputClaim2 | string | Tipo della seconda attestazione di cui eseguire il confronto. |
-| InputParameter | operatore | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
+| InputParameter | operator | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
 | InputParameter | ignoreCase | boolean | Specifica se il confronto deve ignorare l'uso di maiuscole e minuscole nelle stringhe da confrontare. |
 | OutputClaim | outputClaim | boolean | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
 
@@ -197,7 +198,7 @@ Determina se un valore di attestazione è uguale al valore del parametro di inpu
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Tipo della prima attestazione di cui eseguire il confronto. |
-| InputParameter | operatore | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
+| InputParameter | operator | string | I valori possibili sono: `EQUAL` o `NOT EQUAL`. |
 | InputParameter | compareTo | string | Confronto tra le stringhe con valori Ordinal e OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | boolean | Specifica se il confronto deve ignorare l'uso di maiuscole e minuscole nelle stringhe da confrontare. |
 | OutputClaim | outputClaim | boolean | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
@@ -239,8 +240,8 @@ Crea una stringa casuale tramite il generatore di numeri casuali. Se il generato
 | InputParameter | randomGeneratorType | string | Specifica il valore casuale da generare `GUID` (ID univoco globale) o `INTEGER` (numero). |
 | InputParameter | stringFormat | string | [Facoltativo] Formatta il valore casuale. |
 | InputParameter | base64 | boolean | [Facoltativo] Converte il valore casuale in base 64. Se si applica il formato della stringa, il valore successivo è codificato in formato base64. |
-| InputParameter | maximumNumber | int | [Facoltativo] Solo per elementi randomGeneratorType di tipo `INTEGER`. Specificare il numero massimo. |
-| InputParameter | seed  | int | [Facoltativo] Solo per elementi randomGeneratorType di tipo `INTEGER`. Specifica il valore di inizializzazione per il valore casuale. Nota: uno stesso valore di inizializzazione genera la stessa sequenza di numeri casuali. |
+| InputParameter | maximumNumber | INT | [Facoltativo] Solo per elementi randomGeneratorType di tipo `INTEGER`. Specificare il numero massimo. |
+| InputParameter | seed  | INT | [Facoltativo] Solo per elementi randomGeneratorType di tipo `INTEGER`. Specifica il valore di inizializzazione per il valore casuale. Nota: uno stesso valore di inizializzazione genera la stessa sequenza di numeri casuali. |
 | OutputClaim | outputClaim | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. Valore casuale. |
 
 L'esempio seguente genera un ID univoco globale. Questa trasformazione di attestazioni viene usata per creare un nome UPN casuale (nome dell'entità utente).
@@ -517,6 +518,42 @@ L'esempio seguente cerca il nome di dominio in una delle raccolte inpuParameters
 - Attestazioni di output:
     - **outputClaim**:  c7026f88-4299-4cdb-965d-3f166464b8a9
 
+Quando `errorOnFailedLookup` parametro di input è impostato su `true`, la trasformazione delle attestazioni **LookupValue** viene sempre eseguita da un [profilo tecnico di convalida](validation-technical-profile.md) chiamato da un [profilo tecnico autocertificato](self-asserted-technical-profile.md)o da un [DisplayConrtol](display-controls.md). I metadati `LookupNotFound` di un profilo tecnico autocertificato controllano il messaggio di errore visualizzato all'utente.
+
+![Esecuzione di AssertStringClaimsAreEqual](./media/string-transformations/assert-execution.png)
+
+L'esempio seguente cerca il nome di dominio in una delle raccolte inpuParameters. La trasformazione delle attestazioni Cerca il nome di dominio nell'identificatore e ne restituisce il valore (ID applicazione) o genera un messaggio di errore.
+
+```XML
+ <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="domainName" TransformationClaimType="inputParameterId" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="contoso.com" DataType="string" Value="13c15f79-8fb1-4e29-a6c9-be0d36ff19f1" />
+    <InputParameter Id="microsoft.com" DataType="string" Value="0213308f-17cb-4398-b97e-01da7bd4804e" />
+    <InputParameter Id="test.com" DataType="string" Value="c7026f88-4299-4cdb-965d-3f166464b8a9" />
+    <InputParameter Id="errorOnFailedLookup" DataType="boolean" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="domainAppId" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Esempio
+
+- Attestazioni di input:
+    - **inputParameterId**: Live.com
+- Parametri di input:
+    - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
+    - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
+    - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **errorOnFailedLookup**: true
+- Errore:
+    - Non sono state trovate corrispondenze per il valore dell'attestazione di input nell'elenco di ID parametro di input e errorOnFailedLookup è true.
+
+
 ## <a name="nullclaim"></a>NullClaim
 
 Pulisce il valore di una determinata attestazione.
@@ -749,8 +786,8 @@ Estrae parti di un tipo di attestazione stringa, a partire dal carattere in corr
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string | Tipo di attestazione, che contiene la stringa. |
-| InputParameter | startIndex | int | Posizione iniziale in base zero del carattere di una sottostringa in questa istanza. |
-| InputParameter | length | int | Numero di caratteri nella sottostringa. |
+| InputParameter | startIndex | INT | Posizione iniziale in base zero del carattere di una sottostringa in questa istanza. |
+| InputParameter | length | INT | Numero di caratteri nella sottostringa. |
 | OutputClaim | outputClaim | boolean | Stringa equivalente alla sottostringa di lunghezza che inizia in corrispondenza di startIndex in questa istanza oppure Empty se startIndex è uguale alla lunghezza di questa istanza e la lunghezza è zero. |
 
 Ad esempio, ottenere il prefisso del paese del numero di telefono.  

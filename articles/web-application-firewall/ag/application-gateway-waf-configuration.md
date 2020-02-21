@@ -4,15 +4,15 @@ description: Questo articolo fornisce informazioni sui limiti delle dimensioni d
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/17/2019
+ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: cfde1355ef5e5a2f9033456ac4089ce3ca3f9d72
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 7244788bbc7431c7f26363b2852babb72d5697e9
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839962"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526791"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limiti ed elenchi di esclusione delle dimensioni delle richieste del Web Application Firewall
 
@@ -26,7 +26,7 @@ Gli elenchi di esclusione di Web Application firewall consentono agli utenti di 
 
 Gli attributi seguenti possono essere aggiunti agli elenchi di esclusione in base al nome. I valori del campo scelto non vengono valutati rispetto alle regole WAF, ma i relativi nomi sono ancora (vedere l'esempio 1 riportato di seguito, il valore dell'intestazione User-Agent è escluso dalla valutazione WAF). Gli elenchi di esclusione rimuovono l'ispezione del valore del campo.
 
-* Request Headers
+* Intestazioni richiesta
 * Cookie della richiesta
 * Il nome dell'attributo della richiesta (args) può essere aggiunto come elemento di esclusione, ad esempio:
 
@@ -91,7 +91,13 @@ Se quindi l'URL `http://www.contoso.com/?user%281%29=fdafdasfda` viene passato a
 Web application firewall consente agli utenti di configurare i limiti di dimensioni di richiesta entro i limiti inferiori e superiori. Sono disponibili le seguenti due configurazioni di limiti di dimensioni:
 
 - Il campo dimensioni massime del corpo della richiesta è specificato in kilobyte e controlla il limite complessivo delle dimensioni della richiesta, esclusi i caricamenti di file. Questo campo può variare da un minimo di 1 kB a un valore massimo di 128 kB. Il valore predefinito per le dimensioni del corpo della richiesta è 128 kB.
-- Il campo limite di caricamento file è specificato in MB e determina le dimensioni massime consentite per il caricamento file. Questo campo può avere un valore minimo di 1 MB e uno massimo di 500 MB per le istanze SKU di grandi dimensioni, mentre lo SKU medio non può superare i 100 MB. Il valore predefinito per il limite di caricamento file è 100 MB.
+- Il campo limite di caricamento file è specificato in MB e determina le dimensioni massime consentite per il caricamento file. Questo campo può avere un valore minimo di 1 MB e i valori massimi seguenti:
+
+   - 100 MB per i gateway WAF medi V1
+   - 500 MB per gateway WAF di grandi dimensioni V1
+   - 750 MB per i gateway WAF V2 
+
+ Il valore predefinito per il limite di caricamento file è 100 MB.
 
 Web application firewall offre anche una funzione configurabile per attivare o disattivare l'ispezione del corpo della richiesta. Per impostazione predefinita, viene abilitata l'ispezione del corpo della richiesta. Se l'ispezione del corpo della richiesta è disattivata, WAF non valuta il contenuto del corpo del messaggio HTTP. In questi casi, WAF continua applicare le regole WAF su intestazioni, cookie e URI. Se l'ispezione del corpo della richiesta è stata disattivata, il campo dimensioni massime del corpo di richiesta non è applicabile e non può essere impostato. La disattivazione dell'ispezione del corpo della richiesta consente l'invio a WAF di messaggi superiori a 128 KB, ma non vengono analizzate eventuali vulnerabilità nel corpo del messaggio.
 

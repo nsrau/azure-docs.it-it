@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: d2313bfc47026ed9655d0ca25f0a0fdf3f86d8a5
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 5db86c09cd104b2a68431ccbe24128a24ebd2ad4
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191075"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500420"
 ---
 # <a name="what-is-azure-private-link-service"></a>Che cos'è il servizio di collegamento privato di Azure?
 
@@ -98,7 +98,7 @@ L'azione di approvazione delle connessioni può essere automatizzata tramite la 
 
 ## <a name="getting-connection-information-using-tcp-proxy-v2"></a>Recupero delle informazioni di connessione tramite il proxy TCP V2
 
-Quando si usa il servizio di collegamento privato, l'indirizzo IP di origine dei pacchetti provenienti dall'endpoint privato è NAT (Network Address translated) sul lato del provider di servizi usando l'IP NAT allocato dalla rete virtuale del provider. Di conseguenza, le applicazioni ricevono l'indirizzo IP NAT allocato anziché l'indirizzo IP di origine effettivo dei consumer del servizio. Se l'applicazione richiede un indirizzo IP di origine effettivo dal lato consumer, è possibile abilitare il protocollo proxy nel servizio e recuperare le informazioni dall'intestazione del protocollo proxy. Oltre all'indirizzo IP di origine, l'intestazione del protocollo proxy contiene anche il LinkID dell'endpoint privato. Una combinazione di indirizzo IP di origine e LinkID può consentire ai provider di servizi di identificare in modo univoco gli utenti. Per ulteriori informazioni sul protocollo proxy, vedere qui. 
+Quando si usa il servizio di collegamento privato, l'indirizzo IP di origine dei pacchetti provenienti dall'endpoint privato è NAT (Network Address translated) sul lato del provider di servizi usando l'IP NAT allocato dalla rete virtuale del provider. Di conseguenza, le applicazioni ricevono l'indirizzo IP NAT allocato anziché l'indirizzo IP di origine effettivo dei consumer del servizio. Se l'applicazione richiede un indirizzo IP di origine effettivo dal lato consumer, è possibile abilitare il protocollo proxy nel servizio e recuperare le informazioni dall'intestazione del protocollo proxy. Oltre all'indirizzo IP di origine, l'intestazione del protocollo proxy contiene anche il LinkID dell'endpoint privato. Una combinazione di indirizzo IP di origine e LinkID può consentire ai provider di servizi di identificare in modo univoco gli utenti. Per ulteriori informazioni sul protocollo proxy, vedere [qui](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt). 
 
 Queste informazioni vengono codificate usando un vettore TLV (Type-Length-Value) personalizzato come indicato di seguito:
 

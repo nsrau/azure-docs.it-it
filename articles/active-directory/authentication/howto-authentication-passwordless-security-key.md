@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 02/12/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 826b8e923575db3d6c6aee7ead230f87f1efb50e
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8d5ff722d4a035113af8528ed8adb396b01c81eb
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848443"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77504938"
 ---
-# <a name="enable-passwordless-security-key-sign-in-preview"></a>Abilitare l'accesso alla chiave di sicurezza senza password (anteprima)
+# <a name="enable-passwordless-security-key-sign-in-preview"></a>Abilitare l'accesso senza password per la chiave di sicurezza (anteprima)
 
 Per le aziende che usano oggi le password e hanno un ambiente PC condiviso, le chiavi di sicurezza forniscono agli utenti un modo semplice per eseguire l'autenticazione senza immettere un nome utente o una password. Le chiavi di sicurezza forniscono una maggiore produttività per i ruoli di lavoro e offrono una maggiore sicurezza.
 
@@ -26,7 +26,7 @@ Questo documento è incentrato sull'abilitazione dell'autenticazione senza passw
 
 |     |
 | --- |
-| Le chiavi di sicurezza di FIDO2 sono una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzionalità in anteprima, vedere [Condizioni Supplementari per l'Utilizzo delle Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Le chiavi di sicurezza di FIDO2 sono una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
 ## <a name="requirements"></a>Requisiti
@@ -40,7 +40,9 @@ Per usare le chiavi di sicurezza per l'accesso a servizi e app Web, è necessari
 
 ## <a name="prepare-devices-for-preview"></a>Preparare i dispositivi per l'anteprima
 
-I dispositivi con cui si eseguirà il pilota devono eseguire Windows 10 versione 1809 o successiva. L'esperienza migliore è in Windows 10 versione 1903 o successiva.
+Azure AD i dispositivi aggiunti con cui si esegue il progetto pilota devono eseguire Windows 10 versione 1809 o successiva. L'esperienza migliore è in Windows 10 versione 1903 o successiva.
+
+Azure AD ibrido dispositivi aggiunti devono eseguire Windows 10 Insider Build 18945 o versione successiva.
 
 ## <a name="enable-passwordless-authentication-method"></a>Abilita metodo di autenticazione con password
 
@@ -68,7 +70,7 @@ Le funzionalità di registrazione per i metodi di autenticazione con password si
 1. Scegliere **dispositivo USB** o **dispositivo NFC**.
 1. Preparare la chiave e scegliere **Avanti**.
 1. Verrà visualizzata una casella per chiedere all'utente di creare/immettere un PIN per la chiave di sicurezza, quindi eseguire il gesto necessario per la chiave, ovvero biometrica o touch.
-1. L'utente verrà restituito all'esperienza di registrazione combinata e chiederà di fornire un nome significativo per la chiave in modo che l'utente possa identificare quello che ha più. Fare clic su **Next** (Avanti).
+1. L'utente verrà restituito all'esperienza di registrazione combinata e chiederà di fornire un nome significativo per la chiave in modo che l'utente possa identificare quello che ha più. Fare clic su **Avanti**.
 1. Fare clic su **fine** per completare il processo.
 
 ## <a name="sign-in-with-passwordless-credential"></a>Accedi con credenziali senza password
@@ -79,13 +81,13 @@ Nell'esempio seguente un utente ha già eseguito il provisioning della chiave di
 
 ## <a name="troubleshooting-and-feedback"></a>Risoluzione dei problemi e commenti e suggerimenti
 
-Per condividere commenti e suggerimenti o riscontrare problemi durante l'anteprima di questa funzionalità, è possibile condividerla tramite l'app hub di feedback di Windows.
+Per condividere commenti e suggerimenti o riscontrare problemi durante l'anteprima di questa funzionalità, condividere tramite l'app Windows Feedback hub usando la procedura seguente:
 
 1. Avviare **feedback Hub** e assicurarsi di aver eseguito l'accesso.
 1. Inviare commenti e suggerimenti nella categorizzazione seguente:
-   1. Categoria: sicurezza e privacy
-   1. Sottocategoria: FIDO
-1. Per acquisire i log, usare l'opzione: **ricrea il problema**
+   - Categoria: sicurezza e privacy
+   - Sottocategoria: FIDO
+1. Per acquisire i log, utilizzare l'opzione per **ricreare il problema**
 
 ## <a name="known-issues"></a>Problemi noti
 
@@ -95,7 +97,7 @@ Il provisioning e il deprovisioning dell'amministratore delle chiavi di sicurezz
 
 ### <a name="upn-changes"></a>Modifiche UPN
 
-Se l'UPN di un utente viene modificato, non è più possibile modificare le chiavi di sicurezza di FIDO2 per tenere conto della modifica. La risoluzione consiste nel reimpostare il dispositivo e l'utente deve registrare di nuovo le chiavi di sicurezza FIDO2.
+Si sta lavorando per supportare una funzionalità che consente la modifica dell'UPN nei dispositivi ibridi Azure AD aggiunti e Azure AD. Se l'UPN di un utente viene modificato, non è più possibile modificare le chiavi di sicurezza di FIDO2 per tenere conto della modifica. La risoluzione consiste nel reimpostare il dispositivo e l'utente deve eseguire di nuovo la registrazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

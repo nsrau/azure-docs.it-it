@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
-ms.openlocfilehash: ea7c695ddb92d441018503839b974c1f4bb33473
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 673cda4005d9c985d8d6ee5ef1d28a3d8c241ac0
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77047854"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482885"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Monitoraggio di Azure per le macchine virtuali domande frequenti disponibili a livello generale (GA)
 
@@ -24,7 +24,9 @@ Queste domande frequenti sulla disponibilità generale riguardano le modifiche c
 
 Con questo aggiornamento, Monitoraggio di Azure per le macchine virtuali i dati sulle prestazioni vengono archiviati nella stessa tabella *InsightsMetrics* di [monitoraggio di Azure per i contenitori](container-insights-overview.md), semplificando l'esecuzione di query sui due set di dati. Inoltre, è possibile archiviare set di dati più diversi che non è stato possibile archiviare nella tabella usata in precedenza. 
 
-Nella prossima settimana o due verranno aggiornate anche le visualizzazioni delle prestazioni per l'uso della nuova tabella.
+Le visualizzazioni delle prestazioni ora usano i dati archiviati nella tabella *InsightsMetrics* .  Se non è ancora stato eseguito l'aggiornamento per usare la soluzione VMInsights più recente nell'area di lavoro, i grafici non visualizzeranno più informazioni.  È possibile eseguire l'aggiornamento dalla pagina **introduttiva** come descritto di seguito.
+
+Con questo aggiornamento, Monitoraggio di Azure per le macchine virtuali dati sulle prestazioni vengono archiviati nella stessa tabella *InsightsMetrics* di [monitoraggio di Azure per i contenitori](container-insights-overview.md) , semplificando l'esecuzione di query sui due set di dati. È anche possibile archiviare set di dati più diversi che non è stato possibile archiviare nella tabella usata in precedenza. 
 
 Ci rendiamo conto che la richiesta di aggiornamento da parte dei clienti esistenti causa un'alterazione del flusso di lavoro, motivo per cui abbiamo scelto di eseguire questa operazione ora in anteprima pubblica anziché in un secondo momento dopo GA.
 
@@ -34,6 +36,8 @@ Ci rendiamo conto che la richiesta di aggiornamento da parte dei clienti esisten
 È stata rilasciata una nuova soluzione, denominata VMInsights, che include funzionalità aggiuntive per la raccolta di dati insieme a una nuova posizione per archiviare questi dati nell'area di lavoro Log Analytics. 
 
 In passato, la soluzione ServiceMap è stata abilitata nell'area di lavoro e i contatori delle prestazioni sono stati impostati nell'area di lavoro Log Analytics per inviare i dati alla tabella *Perf* . Questa nuova soluzione invia i dati a una tabella denominata *InsightsMetrics* usata anche da monitoraggio di Azure per i contenitori. Questo schema di tabella consente di archiviare metriche e set di dati del servizio aggiuntivi che non sono compatibili con il formato di tabella delle *prestazioni* .
+
+I grafici delle prestazioni sono stati aggiornati per usare i dati archiviati nella tabella *InsightsMetrics* . È possibile eseguire l'aggiornamento per usare la tabella *InsightsMetrics* dalla pagina **introduttiva** come descritto di seguito.
 
 
 ## <a name="how-do-i-upgrade"></a>Ricerca per categorie l'aggiornamento?

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 02/20/2020
 ms.author: victorh
-ms.openlocfilehash: 39c08a568a60c905394eec23dd27d5dd32ff0112
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
-ms.translationtype: MT
+ms.openlocfilehash: 41cc058d09c3bca114ba5a469f23a27ff88fed19
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77460468"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505788"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -88,7 +88,7 @@ Vedere [prezzi di Azure firewall](https://azure.microsoft.com/pricing/details/az
 
 È possibile usare i metodi di *deallocazione* e *allocazione* di Azure PowerShell.
 
-Ad esempio,
+Ad esempio:
 
 ```azurepowershell
 # Stop an existing firewall
@@ -117,7 +117,7 @@ Per i limiti del servizio firewall di Azure, vedere [sottoscrizione di Azure e l
 
 ## <a name="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-two-spoke-virtual-networks"></a>Firewall di Azure in una rete virtuale hub può inoltrare e filtrare il traffico di rete tra due reti virtuali spoke?
 
-Sì, è possibile usare il Firewall di Azure in una rete virtuale hub per instradare e filtrare il traffico tra due reti virtuali spoke. Le subnet in ognuna delle reti virtuali spoke devono avere il routing definito dall'utente che punta verso il Firewall di Azure come gateway predefinito per il corretto funzionamento di questo scenario.
+Sì, è possibile usare il Firewall di Azure in una rete virtuale hub per instradare e filtrare il traffico tra due reti virtuali spoke. Per il corretto funzionamento di questo scenario, le subnet in ognuna delle reti virtuali spoke devono avere un UDR che punta al firewall di Azure come gateway predefinito.
 
 ## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Firewall di Azure può inoltrare e filtrare il traffico di rete tra subnet della stessa rete virtuale o di reti virtuali con peering?
 
@@ -168,11 +168,11 @@ No. Il firewall di Azure non necessita di una subnet maggiore di/26.
 
 ## <a name="how-can-i-increase-my-firewall-throughput"></a>Come è possibile aumentare la velocità effettiva del firewall?
 
-La capacità di velocità effettiva iniziale del firewall di Azure è 2,5-3 Gbps. Attualmente, la scalabilità orizzontale è basata sull'utilizzo della CPU e sulla velocità effettiva. In alcuni casi, un firewall con regole di rete non viene ridimensionato per aumentare la velocità effettiva, perché le regole di rete non influiscono significativamente sull'utilizzo della CPU. Se è necessaria una velocità effettiva superiore per il firewall, contattare il supporto tecnico per aumentare la capacità di velocità effettiva iniziale del firewall.
+La capacità di velocità effettiva iniziale del firewall di Azure è 2,5-3 Gbps ed è scalabile fino a 30 Gbps. Scalabilità orizzontale in base all'utilizzo della CPU e alla velocità effettiva. Contattare il supporto tecnico per aumentare la capacità di velocità effettiva del firewall se il firewall non esegue la scalabilità orizzontale per soddisfare le proprie esigenze ed è necessaria una capacità di velocità effettiva superiore.
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Quanto tempo è necessario per la scalabilità orizzontale del firewall di Azure?
 
-Attualmente sono necessari da cinque a sette minuti per la scalabilità orizzontale del firewall di Azure. Se sono presenti picchi che richiedono una scalabilità automatica più veloce, contattare il supporto tecnico per aumentare la capacità di velocità effettiva iniziale del firewall.
+Sono necessari da cinque a sette minuti per la scalabilità orizzontale del firewall di Azure. Contattare il supporto tecnico per aumentare la capacità di velocità effettiva iniziale del firewall se sono presenti picchi che richiedono una scalabilità automatica più veloce.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Il firewall di Azure consente l'accesso alle Active Directory per impostazione predefinita?
 

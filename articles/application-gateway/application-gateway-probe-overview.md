@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 01/28/2020
+ms.date: 02/20/2020
 ms.author: victorh
-ms.openlocfilehash: 5c25f591d1011d2efd66851cafd67ceef8b56637
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a4427c05d16a42879d37fdbd2e8b8be9095fcc9b
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766823"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505900"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Panoramica del monitoraggio dell'integrità del gateway applicazione
 
@@ -59,7 +59,7 @@ Una volta specificati, i criteri di corrispondenza possono essere associati alla
 
 ### <a name="default-health-probe-settings"></a>Impostazioni del probe di integrità predefinito
 
-| Proprietà probe | Valore | Description |
+| Proprietà probe | valore | Descrizione |
 | --- | --- | --- |
 | URL probe |http://127.0.0.1:\<port\>/ |Percorso URL |
 | Interval |30 |Il tempo di attesa in secondi prima di inviare il probe di integrità successivo.|
@@ -85,7 +85,7 @@ I probe personalizzati consentono un controllo più granulare sul monitoraggio d
 
 La tabella seguente fornisce le definizioni delle proprietà di un probe di integrità personalizzato.
 
-| Proprietà probe | Description |
+| Proprietà probe | Descrizione |
 | --- | --- |
 | Nome |Nome del probe. Questo nome viene usato per fare riferimento al probe nelle impostazioni HTTP back-end |
 | Protocollo |Protocollo usato per inviare il probe. Il probe usa il protocollo definito nelle impostazioni HTTP del back-end. |
@@ -101,9 +101,11 @@ La tabella seguente fornisce le definizioni delle proprietà di un probe di inte
 
 ## <a name="nsg-considerations"></a>Considerazioni sui gruppi di sicurezza di rete
 
-Se è presente un gruppo di sicurezza di rete (NSG) in una subnet del gateway applicazione, gli intervalli di porte 65503-65534 devono essere aperti nella subnet del gateway applicazione per il traffico in ingresso. Tali porte sono necessarie per il corretto funzionamento dell'API di integrità back-end.
+È necessario consentire il traffico Internet in ingresso sulle porte TCP 65503-65534 per lo SKU del gateway applicazione **V1 e le** porte TCP 65200-65535 per lo SKU V2 con la subnet di destinazione come tag del servizio **GatewayManager** e di origine. Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure.
 
-Inoltre, non è possibile bloccare la connettività Internet in uscita ed è necessario autorizzare il traffico in ingresso proveniente dal tag AzureLoadBalancer.
+Inoltre, la connettività Internet in uscita non può essere bloccata ed è necessario consentire il traffico in ingresso proveniente dal tag **AzureLoadBalancer** .
+
+Per altre informazioni, vedere [Panoramica della configurazione del gateway applicazione](configuration-overview.md#network-security-groups-on-the-application-gateway-subnet).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver acquisito familiarità con il monitoraggio dell'integrità del gateway applicazione, è possibile configurare un [probe di integrità personalizzato](application-gateway-create-probe-portal.md) nel portale di Azure oppure un [probe di integrità personalizzato](application-gateway-create-probe-ps.md) usando PowerShell e il modello di distribuzione Azure Resource Manager.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3361f4723c5a9776cb156417e57d609175d11621
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 083051fd621194d39d0092046e187e0809fd62d9
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77446848"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77520723"
 ---
 Gli snapshot incrementali (anteprima) sono backup temporizzati per i dischi gestiti che, quando vengono eseguiti, sono costituiti solo da tutte le modifiche apportate dopo l'ultimo snapshot. Quando si tenta di scaricare o utilizzare in altro modo uno snapshot incrementale, viene utilizzato il VHD completo. Questa nuova funzionalità per gli snapshot dei dischi gestiti può consentire loro di essere più conveniente, perché non è più necessario archiviare l'intero disco con ogni singolo snapshot, a meno che non si scelga di. Analogamente agli snapshot regolari, è possibile usare gli snapshot incrementali per creare un disco gestito completo o, per creare uno snapshot regolare.
 
@@ -21,10 +21,15 @@ Esistono alcune differenze tra uno snapshot incrementale e uno snapshot regolare
 
 Gli snapshot incrementali offrono inoltre una funzionalità differenziale, disponibile in modo univoco per i dischi gestiti. Consentono di ottenere le modifiche tra due snapshot incrementali degli stessi dischi gestiti, fino al livello di blocco. È possibile usare questa funzionalità per ridurre il footprint dei dati durante la copia degli snapshot tra le aree.
 
-## <a name="restrictions"></a>Restrizioni
+### <a name="supported-regions"></a>Aree supportate
 
-- Gli snapshot incrementali sono attualmente disponibili solo nelle aree Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-occidentali, Canada orientale, Canada centrale, Europa settentrionale, Sud Asia orientale.
-- Attualmente non è possibile creare snapshot incrementali dopo aver modificato le dimensioni di un disco.
+Attualmente sono supportate solo le aree seguenti:
+
+- Disponibile come offerta GA nelle aree Stati Uniti centro-occidentali, Canada orientale, Canada centrale.
+- Disponibile come anteprima pubblica nelle aree Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Europa settentrionale, Sud Asia orientale.
+
+## <a name="restrictions"></a>Restrizioni
+- Attualmente non è possibile creare snapshot incrementali dopo aver modificato le dimensioni di un disco (solo durante l'anteprima).
 - Non è attualmente possibile spostare gli snapshot incrementali tra le sottoscrizioni.
 - Attualmente, è possibile generare solo URI SAS di un massimo di cinque snapshot di una particolare famiglia di snapshot in un determinato momento.
 - Non è possibile creare uno snapshot incrementale per un disco specifico al di fuori della sottoscrizione del disco.

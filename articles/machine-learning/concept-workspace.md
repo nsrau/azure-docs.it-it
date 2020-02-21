@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
-ms.openlocfilehash: 82ae0cab2d3dd7c65371e7a5bfec506e484fcdd2
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 03bc49c24e3c2d32e97f3e5e03bd39da63428a6e
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169781"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505569"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Che cos'è un'area di lavoro Azure Machine Learning?
 
@@ -77,6 +77,9 @@ Le attività di Machine Learning leggono e/o scrivono elementi nell'area di lavo
 | Eseguire l'aggiornamento a Enterprise Edition    | **&check;** | **&check;**  | |     |
 | Creare e gestire risorse di calcolo    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
 | Creare una VM notebook |   | **&check;** | |     |
+
+> [!WARNING]
+> Non è supportato lo stato di un'area di lavoro di Azure Machine Learning in una sottoscrizione diversa o di trasferimento della sottoscrizione proprietaria a un nuovo tenant. Questa operazione può causare errori.
 
 ## <a name='create-workspace'></a>Creare un'area di lavoro
 

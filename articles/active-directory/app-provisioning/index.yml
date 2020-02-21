@@ -5,19 +5,19 @@ metadata:
   title: Documentazione sul provisioning di applicazioni
   description: Il provisioning di app di Azure Active Directory consente di creare e gestire automaticamente le identità utente nelle app cloud (SaaS). Azure AD offre anche il provisioning con applicazioni per le risorse umane basate sul cloud. Di seguito sono riportati argomenti di avvio rapido, esercitazioni e indicazioni su come gestire e distribuire il provisioning di app cloud e risorse umane.
   ms.service: active-directory
-  ms.subservice: app-mgmt
+  ms.subservice: app-provisioning
   ms.workload: identity
   ms.topic: landing-page
   ms.date: 02/06/2020
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 02d9ee235de798e0c6095e0cbf60c08eabec53cd
-  ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+  ms.openlocfilehash: 0b6b3829f4111c57e20f495be962357832a5bfcd
+  ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 02/07/2020
-  ms.locfileid: "77065502"
+  ms.lasthandoff: 02/21/2020
+  ms.locfileid: "77522467"
 landingContent:
 - title: Effettuare il provisioning di utenti e gruppi in un'app cloud
   linkLists:

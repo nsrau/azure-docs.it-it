@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 975117ad5c58bed77002a33f0dc5370d0f1c17e2
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: b05eefb2a0e516772390f898c22e723b08973338
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931475"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484452"
 ---
 # <a name="protected-web-api-code-configuration"></a>API Web protetta: configurazione del codice
 
@@ -108,7 +108,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 Il middleware viene aggiunto all'API Web da questa istruzione:
 
 ```csharp
- services.AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
+ services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
+         .AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
 ```
 
  Attualmente, i modelli di ASP.NET Core creano API Web di Azure Active Directory (Azure AD) che confirmano gli utenti all'interno dell'organizzazione o di qualsiasi organizzazione. Non eseguono l'accesso agli utenti con account personali. Tuttavia, è possibile modificare i modelli per usare l'endpoint della piattaforma di identità Microsoft aggiungendo questo codice a Startup.cs:
@@ -153,7 +154,7 @@ I passaggi di convalida vengono acquisiti nei validator, forniti dalla libreria 
 
 Questa tabella descrive i validator:
 
-| Convalida | Description |
+| Componente di convalida | Descrizione |
 |---------|---------|
 | **ValidateAudience** | Garantisce che il token sia per l'applicazione che convalida il token per l'utente. |
 | **ValidateIssuer** | Garantisce che il token sia stato emesso da un servizio token di sicurezza attendibile, vale a dire che è un utente attendibile. |

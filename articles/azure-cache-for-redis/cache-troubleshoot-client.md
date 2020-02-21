@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: abb73f93116fae217f527e0a9faaf61e2b42ba6c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ace953fcb278604cb64eef463753f0f2622d3d24
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433366"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523340"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Risolvere i problemi relativi al lato client di cache di Azure per Redis
 
@@ -51,7 +51,7 @@ Nell'eccezione precedente, esistono diversi problemi interessanti:
 - Si noti che nella sezione `IOCP` e nella sezione `WORKER` è presente un valore `Busy` maggiore del valore `Min`. Questa differenza significa che è necessario modificare le impostazioni di `ThreadPool`.
 - È anche possibile osservare `in: 64221` Questo valore indica che sono stati ricevuti 64.211 byte a livello di socket del kernel del client ma che non sono stati letti dall'applicazione. Questa differenza indica in genere che l'applicazione (ad esempio, StackExchange. Redis) non legge i dati dalla rete con la stessa velocità con cui il server lo invia all'utente.
 
-È possibile [configurare le impostazioni di `ThreadPool`](https://gist.github.com/JonCole/e65411214030f0d823cb) per assicurarsi che il pool di thread venga scalato rapidamente in scenari con picchi.
+È possibile [configurare le impostazioni di `ThreadPool`](cache-faq.md#important-details-about-threadpool-growth) per assicurarsi che il pool di thread venga scalato rapidamente in scenari con picchi.
 
 ## <a name="high-client-cpu-usage"></a>Utilizzo elevato della CPU client
 

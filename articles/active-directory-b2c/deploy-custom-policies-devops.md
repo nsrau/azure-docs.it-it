@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 21fde69f404ee535bfe0019a91843297b1752a92
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 8649537a2992ba11a2b664a9b36207e06c8b1274
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77463141"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498544"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Distribuire criteri personalizzati con Azure Pipelines
 
@@ -31,10 +31,11 @@ Sono necessari tre passaggi principali per abilitare Azure Pipelines per gestire
 > [!IMPORTANT]
 > La gestione di Azure AD B2C criteri personalizzati con una pipeline di Azure usa attualmente le operazioni di **Anteprima** disponibili nell'Microsoft Graph API `/beta` endpoint. L'uso di queste API nelle applicazioni di produzione non è supportato. Per ulteriori informazioni, vedere il [riferimento all'endpoint dell'API REST di Microsoft Graph beta](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Azure ad B2C tenant](tutorial-create-tenant.md)e credenziali per un utente nella directory con il ruolo di [amministratore dei criteri B2C Framework dell'esperienza](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
 * [Criteri personalizzati](custom-policy-get-started.md) caricati nel tenant
+* [App di gestione](microsoft-graph-get-started.md) registrata nel tenant con i criteri di autorizzazione dell'API Microsoft Graph *. ReadWrite. TrustFramework*
 * [Pipeline di Azure](https://azure.microsoft.com/services/devops/pipelines/)e accesso a un [progetto Azure DevOps Services][devops-create-project]
 
 ## <a name="client-credentials-grant-flow"></a>Flusso di concessione delle credenziali client
@@ -43,47 +44,11 @@ Lo scenario descritto di seguito consente di usare le chiamate da servizio a ser
 
 ## <a name="register-an-application-for-management-tasks"></a>Registrare un'applicazione per le attività di gestione
 
-Per iniziare, creare una registrazione dell'applicazione che gli script di PowerShell eseguiti da Azure Pipelines utilizzeranno per comunicare con Azure AD B2C. Se si dispone già di una registrazione dell'applicazione usata per le attività di automazione, è possibile passare alla sezione [concedere le autorizzazioni](#grant-permissions) .
+Come indicato nei [prerequisiti](#prerequisites), è necessaria la registrazione di un'applicazione che gli script di PowerShell, eseguiti da Azure Pipelines, possono usare per accedere alle risorse nel tenant.
 
-### <a name="register-application"></a>Registrare l'applicazione
+Se si dispone già di una registrazione dell'applicazione usata per le attività di automazione, assicurarsi che sia stata concessa l'autorizzazione **Microsoft Graph** > **policy** > **policy. ReadWrite. TrustFramework** all'interno delle **autorizzazioni API** della registrazione dell'app.
 
-[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
-
-### <a name="grant-permissions"></a>Concedere le autorizzazioni
-
-Successivamente, concedere all'applicazione l'autorizzazione per usare l'API Microsoft Graph per leggere e scrivere criteri personalizzati nel tenant di Azure AD B2C.
-
-#### <a name="applications"></a>[Applicazioni](#tab/applications/)
-
-1. Nella pagina Panoramica dell' **app registrata** selezionare **Impostazioni**.
-1. In **accesso all'API**selezionare **autorizzazioni necessarie**.
-1. Selezionare **Aggiungi**, quindi **selezionare un'API**.
-1. Selezionare **Microsoft Graph**, quindi **selezionare**.
-1. In **Autorizzazioni applicazione**selezionare **lettura e scrittura dei criteri del Framework di attendibilità dell'organizzazione**.
-1. Selezionare **Seleziona**, quindi **fine**.
-1. Selezionare **Concedi autorizzazioni** e quindi selezionare **Sì**. Potrebbero essere necessari alcuni minuti per la propagazione completa delle autorizzazioni.
-
-#### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
-
-1. Selezionare **registrazioni app (anteprima)** , quindi selezionare l'applicazione Web che deve avere accesso all'API Microsoft Graph. Ad esempio, *managementapp1*.
-1. In **Gestisci** selezionare **Autorizzazioni API**.
-1. In **Autorizzazioni configurate** selezionare **Aggiungi un'autorizzazione**.
-1. Selezionare la scheda **API Microsoft** , quindi selezionare **Microsoft Graph**.
-1. Selezionare **Autorizzazioni applicazione**.
-1. Espandere **criteri** e selezionare **policy. ReadWrite. TrustFramework**.
-1. Selezionare **Aggiungi autorizzazioni**. Come indicato, attendere alcuni minuti prima di procedere con il passaggio successivo.
-1. Selezionare **Concedi consenso amministratore per (nome del tenant)** .
-1. Selezionare l'account amministratore attualmente connesso oppure accedere con un account nel tenant di Azure AD B2C a cui sia stato assegnato almeno il ruolo di *amministratore applicazione cloud*.
-1. Selezionare **Accetto**.
-1. Selezionare **Aggiorna**, quindi verificare che "concesso per..." viene visualizzato in **stato**. La propagazione delle autorizzazioni potrebbe richiedere alcuni minuti.
-
-* * *
-
-### <a name="create-client-secret"></a>Crea segreto client
-
-Per eseguire l'autenticazione con Azure AD B2C, lo script di PowerShell deve specificare un segreto client creato per l'applicazione.
-
-[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
+Per istruzioni sulla registrazione di un'applicazione di gestione, vedere [manage Azure ad B2C with Microsoft Graph](microsoft-graph-get-started.md).
 
 ## <a name="configure-an-azure-repo"></a>Configurare un repository di Azure
 
@@ -166,7 +131,7 @@ Con il repository inizializzato e popolato con i file dei criteri personalizzati
 1. Selezionare la scheda **variabili** .
 1. Aggiungere le variabili seguenti in **variabili pipeline** e impostare i relativi valori come specificato:
 
-    | Name | Valore |
+    | Nome | valore |
     | ---- | ----- |
     | `clientId` | **ID applicazione (client)** dell'applicazione registrata in precedenza. |
     | `clientSecret` | Valore del **segreto client** creato in precedenza. <br /> Modificare il tipo di variabile in **segreto** (selezionare l'icona di blocco). |
@@ -200,7 +165,7 @@ Aggiungere quindi un'attività per distribuire un file di criteri.
 
         ```PowerShell
         # After
-        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/contosob2cpolicies/B2CAssets/TrustFrameworkBase.xml
+        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/TrustFrameworkBase.xml
         ```
 
 1. Selezionare **Save (Salva** ) per salvare il processo dell'agente.

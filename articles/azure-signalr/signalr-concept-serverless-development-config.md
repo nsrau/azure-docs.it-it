@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.openlocfilehash: f86a63315798d982f7e78fd1ff293061daf50132
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e1157a695d34c75b237391427b37365421366ef8
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786776"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523171"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Sviluppo e configurazione di funzioni di Azure con il servizio Azure SignalR
 
@@ -27,11 +27,11 @@ Nella portale di Azure individuare la pagina delle *Impostazioni* della risorsa 
 
 ![Modalità del servizio SignalR](media/signalr-concept-azure-functions/signalr-service-mode.png)
 
-## <a name="azure-functions-development"></a>Sviluppo di funzioni di Azure
+## <a name="azure-functions-development"></a>Sviluppo di Funzioni di Azure
 
-Un'applicazione in tempo reale senza server compilata con funzioni di Azure e il servizio Azure SignalR richiede in genere due funzioni di Azure:
+Un'applicazione serverless in tempo reale compilata con Funzioni di Azure e con il servizio Azure SignalR richiede in genere due istanze di Funzioni di Azure:
 
-* Funzione "Negotiate" chiamata dal client per ottenere un token di accesso del servizio SignalR e un URL dell'endpoint di servizio validi
+* Una funzione "negotiate" che il client chiama per ottenere un token di accesso valido e del servizio SignalR e un URL dell'endpoint di servizio
 * Una o più funzioni che inviano messaggi o gestiscono l'appartenenza ai gruppi
 
 ### <a name="negotiate-function"></a>Negotiate-funzione
@@ -40,7 +40,7 @@ Un'applicazione client richiede un token di accesso valido per la connessione al
 
 Usare una funzione di Azure attivata da HTTP e l'associazione di input di *SignalRConnectionInfo* per generare l'oggetto informazioni di connessione. La funzione deve avere una route HTTP che termina in `/negotiate`.
 
-Per ulteriori informazioni su come creare la funzione Negotiate, vedere la Guida di [riferimento dell'associazione di input *SignalRConnectionInfo* ](../azure-functions/functions-bindings-signalr-service.md#input).
+Per ulteriori informazioni su come creare la funzione Negotiate, vedere la Guida di [riferimento dell'associazione di input *SignalRConnectionInfo* ](../azure-functions/functions-bindings-signalr-service-input.md).
 
 Per informazioni su come creare un token autenticato, vedere l'articolo relativo all' [uso dell'autenticazione del servizio app](#using-app-service-authentication).
 
@@ -50,7 +50,7 @@ Usare l'associazione di output di *SignalR* per inviare messaggi ai client conne
 
 Gli utenti possono essere aggiunti a uno o più gruppi. È anche possibile usare l'associazione di output di *SignalR* per aggiungere o rimuovere utenti da e verso gruppi.
 
-Per altre informazioni, vedere riferimento dell'associazione di output di [ *SignalR* ](../azure-functions/functions-bindings-signalr-service.md#output).
+Per altre informazioni, vedere riferimento dell'associazione di output di [ *SignalR* ](../azure-functions/functions-bindings-signalr-service-output.md).
 
 ### <a name="signalr-hubs"></a>Hub SignalR
 

@@ -3,12 +3,12 @@ title: Matrice di supporto di Backup di Azure
 description: Informazioni riepilogative su impostazioni e limiti del supporto per il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 37347e6febdfc3500c218238606fc96463da631c
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 15c2fdfbe63dd73e665a4bac01dd2cd1b1144949
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76936241"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505860"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per backup di Azure
 
@@ -78,8 +78,9 @@ Ecco cosa è supportato se si vuole eseguire il backup di computer Linux:
 --- | ---
 **Backup diretto del computer locale che esegue Linux** | Non supportato. L'agente MARS può essere installato solo nei computer Windows.
 **Uso dell'estensione Agent per eseguire il backup di una macchina virtuale di Azure che esegue Linux** | Backup coerente con l'app tramite [script personalizzati](backup-azure-linux-app-consistent.md).<br/><br/> Ripristino a livello di file.<br/><br/> Ripristino tramite creazione di una VM da un punto di ripristino o da disco.
-**Uso di DPM per eseguire il backup in locale o in una VM di Azure che esegue Linux** | Backup coerente con i file delle macchine virtuali guest Linux in Hyper-V e VMWare.<br/><br/> Ripristino di VM di VM guest Hyper-V e VMWare Linux.<br/><br/> Backup coerente con i file non disponibile per la macchina virtuale di Azure.
-**Uso di MAB per eseguire il backup di un computer locale o di una VM di Azure che esegue Linux** | Backup coerente con i file delle macchine virtuali guest Linux in Hyper-V e VMWare.<br/><br/> Ripristino di VM di VM guest Hyper-V e VMWare Linux.<br/><br/> Backup coerente con i file non disponibile per le VM di Azure.
+**Uso di DPM per eseguire il backup di computer locali che eseguono Linux** | Backup coerente con i file delle macchine virtuali guest Linux in Hyper-V e VMWare.<br/><br/> Ripristino di VM di VM guest Hyper-V e VMWare Linux.
+**Uso di MAB per eseguire il backup di computer locali che eseguono Linux** | Backup coerente con i file delle macchine virtuali guest Linux in Hyper-V e VMWare.<br/><br/> Ripristino di VM di VM guest Hyper-V e VMWare Linux.
+**Uso di Mab o DPM per eseguire il backup di macchine virtuali Linux di Azure** | Non supportato.
 
 ## <a name="daylight-saving-time-support"></a>Supporto per l'ora legale
 
@@ -137,7 +138,7 @@ Backup supporta la compressione del traffico di backup, come riepilogato nella t
 **Impostazione** | **Limiti**
 --- | ---
 **Numero massimo di punti di ripristino per istanza protetta (computer o carico di lavoro)** | 9\.999
-**Tempo di scadenza massimo per un punto di ripristino** | Senza limiti
+**Tempo di scadenza massimo per un punto di ripristino** | Nessun limite
 **Frequenza massima di backup per DPM/MAB** | Ogni 15 minuti per SQL Server<br/><br/> Una volta all'ora per altri carichi di lavoro
 **Frequenza massima di backup nell'insieme di credenziali** | **Computer Windows locali o macchine virtuali di Azure che eseguono Mars:** Tre al giorno<br/><br/> **DPM/MAB:** Due al giorno<br/><br/> **Backup delle macchine virtuali di Azure:** Uno al giorno
 **Conservazione del punto di ripristino** | Giornaliera, settimanale, mensile, annuale

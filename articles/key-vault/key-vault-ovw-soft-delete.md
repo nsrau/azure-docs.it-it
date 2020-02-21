@@ -6,12 +6,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/19/2019
-ms.openlocfilehash: 26bd6c8b31bd16c058c5cb35cab086117b9f8cc5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 8559dc357d34d505d45cd0a6491183345ae5cf61
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845804"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526587"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Panoramica di eliminazione temporanea di Azure Key Vault
 
@@ -34,15 +34,13 @@ Gli insiemi di credenziali delle chiavi di Azure sono risorse tracciate, gestite
 
 ### <a name="soft-delete-behavior"></a>Comportamento della funzione di eliminazione temporanea
 
-Con questa funzionalità, l'operazione di eliminazione eseguita su un insieme di credenziali delle chiavi o su un oggetto di un insieme di credenziali delle chiavi è di fatto un'operazione di eliminazione temporanea, poiché in realtà le risorse vengono mantenute per un periodo di memorizzazione specifico (90 giorni), seppur risultino apparentemente eliminate. Il servizio offre anche un meccanismo per il ripristino dell'oggetto eliminato, essenzialmente annullando l'operazione di eliminazione. 
+Quando l'eliminazione temporanea è abilitata, le risorse contrassegnate come risorse eliminate vengono mantenute per un periodo di tempo specificato (90 giorni per impostazione predefinita). Il servizio offre anche un meccanismo per il ripristino dell'oggetto eliminato, essenzialmente annullando l'operazione di eliminazione.
 
-L'eliminazione temporanea è ora attiva per impostazione predefinita per gli insiemi di credenziali delle chiavi appena creati. Può essere disabilitata tramite l' [interfaccia](key-vault-soft-delete-cli.md) della riga di comando di Azure o [Azure PowerShell](key-vault-soft-delete-powershell.md).
+Quando si crea un nuovo insieme di credenziali delle chiavi, l'eliminazione temporanea è abilitata per impostazione predefinita. È possibile creare un insieme di credenziali delle chiavi senza eliminare temporaneamente l'interfaccia della riga di comando di [Azure](key-vault-soft-delete-cli.md) o [Azure PowerShell](key-vault-soft-delete-powershell.md). Quando l'eliminazione temporanea è abilitata in un insieme di credenziali delle chiavi, non è possibile disabilitarla
 
-Il periodo di memorizzazione predefinito è 90 giorni, ma è possibile impostare l'intervallo dei criteri di conservazione su un valore compreso tra 7 e 90 giorni attraverso la portale di Azure. Il criterio Ripulisci conservazione protezione usa lo stesso intervallo. 
+Il periodo di memorizzazione predefinito è 90 giorni, ma durante la creazione dell'insieme di credenziali delle chiavi è possibile impostare l'intervallo dei criteri di conservazione su un valore compreso tra 7 e 90 giorni attraverso la portale di Azure. Il criterio Ripulisci conservazione protezione usa lo stesso intervallo. Una volta impostato, l'intervallo dei criteri di conservazione non può essere modificato.
 
-Quando l'eliminazione temporanea è stata impostata in un insieme di credenziali delle chiavi, non può essere disabilitata e l'intervallo dei criteri di conservazione non può essere modificato. 
-
-Non è possibile riutilizzare il nome di un insieme di credenziali delle chiavi che è stato eliminato temporaneamente finché non viene superato il periodo di conservazione. 
+Non è possibile riutilizzare il nome di un insieme di credenziali delle chiavi che è stato eliminato temporaneamente finché non viene superato il periodo di conservazione.
 
 ### <a name="purge-protection"></a>Ripulisci protezione 
 
