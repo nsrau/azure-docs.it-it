@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e28403d905a25e9e792b3b1f31b79c39cd7728b
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
-ms.translationtype: MT
+ms.openlocfilehash: 25b569377fd5408f40df080ad63fdfea720a8f9e
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522093"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77506560"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Abilitare la chiave di sicurezza senza password accesso alle risorse locali con Azure Active Directory (anteprima)
 
@@ -33,7 +33,7 @@ Azure Active Directory (AD) può emettere ticket di concessione ticket (TGT) Ker
 
 Nel Active Directory locale viene creato un Azure AD oggetto server Kerberos, che viene quindi pubblicato in modo sicuro in Azure Active Directory. L'oggetto non è associato ad alcun server fisico. Si tratta semplicemente di una risorsa che può essere usata da Azure Active Directory per generare TGT Kerberos per la Dominio di Active Directory.
 
-![Ricezione di un ticket di concessione ticket (TGT) da Azure AD e servizi di dominio Active Directory](./media/howto-authentication-passwordless-on-premises/fido2-ticket-granting-ticket-exchange-process.png)
+![Recupero di TGT e PRT da Azure AD e servizi di dominio Active Directory](./media/howto-authentication-passwordless-on-premises/fido2-tgt-exchange-process.png)
 
 1. L'utente accede al dispositivo Windows 10 con una chiave di sicurezza FIDO2 ed esegue l'autenticazione per Azure AD.
 1. Azure AD controlla la directory di una chiave del server Kerberos corrispondente al dominio AD locale dell'utente.
