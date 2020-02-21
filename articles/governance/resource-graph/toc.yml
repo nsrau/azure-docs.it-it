@@ -5,7 +5,7 @@
     - name: Che cos'è Azure Resource Graph?
       displayName: 'Resource Manager, query language, rbac, permissions'
       href: overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Eseguire la prima query - Portale di Azure
@@ -44,7 +44,7 @@
     - name: Istruzioni per le richieste con limitazioni
       displayName: 'pagination, batching, throttling, parallel'
       href: ./concepts/guidance-for-throttled-requests.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Ottenere le modifiche delle risorse
       displayName: 'resource, change, history, snapshot, details'
@@ -52,7 +52,7 @@
 - name: Risolvere problemi
   displayName: 'errors, violation'
   href: ./troubleshoot/general.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/ext/resource-graph/graph
@@ -78,6 +78,8 @@
       href: /rest/api/azure-resourcegraph/
     - name: OpenAPI
       href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01'
+    - name: Tabelle e tipi di risorsa di Resource Graph
+      href: ./reference/supported-tables-resources.md
 - name: Risorse
   items:
     - name: Roadmap per Azure

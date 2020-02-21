@@ -1,0 +1,63 @@
+### YamlMime:Landing
+title: Servizi multimediali di Azure v2 (legacy)
+summary: Non saranno aggiunte nuove funzionalità a Servizi multimediali v2. Esplorare l'ultima versione, Servizi multimediali v3.
+metadata:
+  title: Documentazione di Servizi multimediali di Azure v2
+  description: Informazioni su come riprodurre in streaming in modo sicuro video live o on demand di alta qualità con Servizi multimediali v2.
+  services: media-services
+  ms.service: media-services
+  ms.subservice: 
+  ms.topic: landing-page
+  ms.collection: collection
+  author: Juliako
+  ms.author: juliako
+  ms.date: 02/18/2020
+  ms.openlocfilehash: c222a7c0603e9b57518993216711076659b51e4c
+  ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 02/20/2020
+  ms.locfileid: "77500774"
+landingContent:
+- title: Informazioni su Azure Media Services v2
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Panoramica di Servizi multimediali di Azure v2
+      url: media-services-overview.md
+    - text: Eseguire la migrazione a Servizi multimediali v3
+      url: https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3
+  - linkListType: whats-new
+    links:
+    - text: Novità di Servizi multimediali v2
+      url: media-services-release-notes.md
+  - linkListType: concept
+    links:
+    - text: Componenti legacy
+      url: legacy-components.md
+- title: Streaming live
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Panoramica
+      url: media-services-manage-channels-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creare un account di Servizi multimediali con il portale
+      url: media-services-portal-create-account.md
+    - text: Connessione a livello di codice
+      url: media-services-use-aad-auth-to-access-ams-api.md
+    - text: Trasmettere in tempo reale con il portale di Azure
+      url: media-services-portal-live-passthrough-get-started.md
+    - text: Trasmettere in tempo reale con .NET
+      url: media-services-dotnet-live-encode-with-onpremises-encoders.md
+- title: Distribuire video su richiesta
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Usare il portale di Azure
+      url: media-services-portal-vod-get-started.md
+    - text: Usare .NET
+      url: media-services-dotnet-get-started.md
+    - text: Usare REST
+      url: media-services-rest-get-started.md

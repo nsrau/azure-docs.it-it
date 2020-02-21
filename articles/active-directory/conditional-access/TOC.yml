@@ -6,12 +6,14 @@
       href: overview.md
 - name: Avvi rapidi
   items:
-    - name: Richiedere MFA per app specifiche
-      href: app-based-mfa.md
     - name: Richiedere l'accettazione delle condizioni per l'utilizzo
       href: require-tou.md
     - name: Bloccare l'accesso quando viene rilevato un rischio nella sessione
       href: app-sign-in-risk.md
+- name: Esercitazioni
+  items:
+    - name: Richiedere Azure Multi-Factor Authentication
+      href: /authentication/tutorial-enable-azure-mfa.md?toc=/azure/conditional-access/toc.json&bc=/azure/conditional-access/breadcrumb/toc.json
 - name: Concetti
   expanded: false
   items:

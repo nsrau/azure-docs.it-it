@@ -2,14 +2,14 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/13/2020
+ms.date: 02/19/2020
 ms.author: dacoulte
-ms.openlocfilehash: 1f949a5c13393758d69223fa49e9e84d91e27310
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 21f4e4234025ab4b9bb14a1e1338aa4b748ef1a6
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77371204"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77495088"
 ---
 |Nome |Descrizione |Effetto/i |Versione |Source (Sorgente) |
 |---|---|---|---|
@@ -22,6 +22,8 @@ ms.locfileid: "77371204"
 |[Aggiungi tag e relativo valore dal gruppo di risorse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9ea02ca2-71db-412d-8b00-7c7ca9fcd32d) |Aggiunge il tag specificato con il relativo valore dal gruppo di risorse quando viene creata o aggiornata una risorsa in cui manca questo tag. Non modifica i tag delle risorse create prima dell'applicazione di questo criterio finché tali risorse non vengono modificate. Sono disponibili nuovi criteri dell'effetto 'modify' che supportano la correzione dei tag nelle risorse esistenti (vedere https://aka.ms/modifydoc). |append |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_Append.json)
 |[Eredita un tag dal gruppo di risorse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcd3aa116-8754-49c9-a813-ad46512ece54) |Aggiunge o sostituisce il tag e il valore specificati del gruppo di risorse padre quando una risorsa viene creata o aggiornata. È possibile correggere le risorse esistenti attivando un'attività di correzione. |modify |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_AddOrReplace_Modify.json)
 |[Eredita un tag dal gruppo di risorse se mancante](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea3f2387-9b95-492a-a190-fcdc54f7b070) |Aggiunge il tag specificato con il relativo valore dal gruppo di risorse padre quando una risorsa in cui manca questo tag viene creata o aggiornata. È possibile correggere le risorse esistenti attivando un'attività di correzione. Se il tag esiste con un valore diverso, non verrà modificato. |modify |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_Add_Modify.json)
+|[Eredita un tag dalla sottoscrizione](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb27a0cbd-a167-4dfa-ae64-4337be671140) |Aggiunge o sostituisce il tag e il valore specificati della sottoscrizione che li contiene quando una risorsa viene creata o aggiornata. È possibile correggere le risorse esistenti attivando un'attività di correzione. |modify |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_AddOrReplace_FromSubscription.json)
+|[Eredita un tag dalla sottoscrizione se mancante](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F40df99da-1232-49b1-a39a-6da8d878f469) |Aggiunge il tag specificato con il relativo valore della sottoscrizione che li contiene quando una risorsa in cui manca questo tag viene creata o aggiornata. È possibile correggere le risorse esistenti attivando un'attività di correzione. Se il tag esiste con un valore diverso, non verrà modificato. |modify |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_Add_FromSubscription.json)
 |[Richiedi tag specificato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F871b6d14-10aa-478d-b590-94f262ecfa99) |Impone l'esistenza di un tag. Non si applica ai gruppi di risorse. |deny |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/RequireTag_Deny.json)
 |[Richiedi tag specificato sui gruppi di risorse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F96670d01-0a4d-4649-9c89-2d3abc0a5025) |Impone l'esistenza di un tag sui gruppi di risorse. |deny |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/ResourceGroupRequireTag_Deny.json)
 |[Richiedi tag e relativo valore](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1e30110a-5ceb-460c-a204-c1c3969c6d62) |Applica un tag obbligatorio e il relativo valore. Non si applica ai gruppi di risorse. |deny |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/RequireTagAndValue_Deny.json)

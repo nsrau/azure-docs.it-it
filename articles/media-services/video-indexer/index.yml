@@ -1,52 +1,71 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentazione di Video Indexer di Servizi multimediali di Azure
+### YamlMime:Landing
+title: Informazioni su Video Indexer di Servizi multimediali di Azure
+summary: Video Indexer di Servizi multimediali di Azure è un'applicazione cloud basata su Analisi Servizi multimediali di Azure, Ricerca cognitiva di Azure, Servizi cognitivi (ad esempio API Viso, Microsoft Translator, API Visione artificiale e Servizio di riconoscimento vocale personalizzato). Consente di estrarre informazioni dettagliate dai video tramite i modelli audio e video di Video Indexer.
 metadata:
-  title: Documentazione di Video Indexer di Servizi multimediali di Azure | Microsoft Docs
-  description: Informazioni su Video Indexer.
+  title: Documentazione di Video Indexer di Servizi multimediali di Azure
+  description: Video Indexer di Servizi multimediali di Azure è un'applicazione cloud basata su Analisi Servizi multimediali di Azure, Ricerca cognitiva di Azure, Servizi cognitivi (ad esempio API Viso, Microsoft Translator, API Visione artificiale e Servizio di riconoscimento vocale personalizzato). Consente di estrarre informazioni dettagliate dai video tramite i modelli audio e video di Video Indexer.
   services: media-services
-  author: juliako
-  manager: femila
   ms.service: media-services
-  ms.subservice: video-indexer
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: 
   ms.topic: landing-page
-  ms.date: 03/11/2019
+  ms.collection: collection
+  author: Juliako
   ms.author: juliako
-abstract:
-  description: 'Video Indexer di Servizi multimediali di Azure è un''applicazione cloud basata su Analisi Servizi multimediali di Azure, Ricerca cognitiva di Azure, Servizi cognitivi (ad esempio API Viso, Microsoft Translator, API Visione artificiale e Servizio di riconoscimento vocale personalizzato). Consente di estrarre informazioni dettagliate dai video tramite i modelli audio e video di Video Indexer.<br/>Per comprendere quando è opportuno usare Video Indexer invece dei set di impostazioni di analisi di Servizi multimediali, vedere il <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">documento di confronto</a>.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 2
-        items:
-          - href: video-indexer-overview.md
-            html: <p>Video Indexer incorpora tecnologie di intelligenza artificiale per contenuti multimediali per semplificare l'estrazione di informazioni dettagliate dai video.</p>
-            image:
-              src: media/index/AMSIcons-media_servicesV3.svg
-            title: Informazioni su Video Indexer di Servizi multimediali di Azure
-  - title: Guide introduttive di 5 minuti
-    items:
-      - type: paragraph
-        text: 'Accedere al sito Web di Video Indexer e caricare il primo video:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/AMSIcons-media_analytics.svg
-            text: Estrarre informazioni dettagliate
-            href: /azure/media-services/video-indexer/video-indexer-get-started
-  - title: Esercitazioni dettagliate
-    items:
-      - type: paragraph
-        text: 'Informazioni su come estrarre informazioni dettagliate dai video con l''API Video Indexer:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/AMSIcons-media_analytics.svg
-            text: Estrarre informazioni dettagliate
-            href: /azure/media-services/video-indexer/video-indexer-use-apis
+  ms.date: 02/18/2020
+  ms.openlocfilehash: a3e1ec7b97d76287614b4e154143899acf7fd902
+  ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 02/20/2020
+  ms.locfileid: "77485115"
+landingContent:
+- title: Video Indexer di Servizi multimediali di Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni su Video Indexer
+      url: video-indexer-overview.md
+    - text: Confrontare i set di impostazioni di Servizi multimediali v3 e di Video Indexer
+      url: compare-video-indexer-with-media-services-presets.md
+    - text: Domande frequenti
+      url: faq.md
+    - text: User Voice
+      url: https://cognitive.uservoice.com/forums/598144-video-indexer
+  - linkListType: whats-new
+    links:
+    - text: Novità di Video Indexer
+      url: release-notes.md
+- title: Introduzione
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Iscriversi e caricare un video
+      url: video-indexer-get-started.md
+    - text: Invitare gli utenti
+      url: invite-users.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creare un account connesso ad Azure
+      url: connect-to-azure.md
+    - text: Usare l'API Video Indexer
+      url: video-indexer-use-apis.md
+    - text: Caricare e indicizzare i video
+      url: upload-index-videos.md
+    - text: Esaminare l'output prodotto dall'API
+      url: video-indexer-output-json-v2.md
+    - text: Incorporare i widget di Video Indexer nelle app
+      url: video-indexer-embed-widgets.md
+  - linkListType: sample
+    links:
+    - text: Esempi di codice
+      url: https://github.com/Azure-Samples/media-services-video-indexer
+- title: Personalizzare i modelli di contenuto
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Personalizzare un modello di marchi
+      url: customize-brands-model-with-website.md
+    - text: Personalizzare un modello linguistico
+      url: customize-language-model-with-website.md
+    - text: Personalizzare un modello di persona
+      url: customize-person-model-with-website.md

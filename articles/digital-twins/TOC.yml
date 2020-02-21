@@ -72,54 +72,47 @@
     - name: Libreria client di funzioni definite dall'utente
       href: reference-user-defined-functions-client-library.md
 - name: Risorse
+  expanded: true
   items:
+    - name: Risorse per sviluppatori
+      items:
+        - name: Visualizzatore grafi di Gemelli digitali di Azure
+          href: 'https://github.com/Azure/azure-digital-twins-graph-viewer'
+        - name: 'Esempi di Gemelli digitali di Azure per C# (.NET)'
+          href: 'https://github.com/Azure-Samples/digital-twins-samples-csharp'
+        - name: API REST per Gemelli digitali di Azure
+          href: 'https://docs.westcentralus.azuresmartspaces.net/management/swagger'
+    - name: Prezzi e disponibilità
+      items:
+        - name: Prezzi
+          href: 'https://azure.microsoft.com/pricing/details/digital-twins/'
+        - name: Calcolatore prezzi
+          href: 'https://azure.microsoft.com/pricing/calculator/'
+        - name: Aree di disponibilità
+          href: 'https://azure.microsoft.com/regions/services/'
     - name: Opzioni di supporto tecnico e assistenza
-      href: /azure/iot-fundamentals/iot-support-help
-    - name: 'Esempi di Gemelli digitali di Azure per C# (.NET)'
-      href: 'https://github.com/Azure-Samples/digital-twins-samples-csharp'
-    - name: API REST per Gemelli digitali di Azure
-      href: 'https://docs.westcentralus.azuresmartspaces.net/management/swagger'
-    - name: Prezzi
-      href: 'https://azure.microsoft.com/pricing/details/digital-twins/'
-    - name: Calcolatore prezzi
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Visualizzatore grafi di Gemelli digitali di Azure
-      href: 'https://github.com/Azure/azure-digital-twins-graph-viewer'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-digital-twins'
+      items:
+        - name: Opzioni di supporto tecnico di Azure
+          href: 'https://azure.microsoft.com/support/options/'
+        - name: Opzioni di supporto e assistenza di Azure IoT
+          href: 'https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help'
+        - name: Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/azure-digital-twins'
+        - name: Forum MSDN
+          href: 'https://social.msdn.microsoft.com/Forums/home?category=&forum=&filter=&sort=relevancedesc&brandIgnore=true&searchTerm=Azure+Digital+Twins'
+        - name: Esempi di codice di Azure IoT
+          href: 'https://docs.microsoft.com/samples/browse/?term=iot'
+    - name: Feedback e forum
+      items:
+        - name: Forum MSDN
+          href: 'https://social.msdn.microsoft.com/Forums/home?category=&forum=&filter=&sort=relevancedesc&brandIgnore=true&searchTerm=Azure+Digital+Twins'
+        - name: Richieste e suggerimenti relativi ai prodotti
+          href: 'https://feedback.azure.com/forums/916621-azure-digital-twins'
     - name: Casi di successo dei clienti
-      href: 'https://blogs.microsoft.com/iot/2018/09/24/announcing-azure-digital-twins-create-digital-replicas-of-spaces-and-infrastructure-using-cloud-ai-and-iot/'
-    - name: Centro per sviluppatori Azure IoT
-      href: 'https://azure.microsoft.com/develop/iot/'
-    - name: Roadmap per Azure
+      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc'
+    - name: Video di Azure
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=digital-twins&sort=newest'
+    - name: Video di Channel 9
+      href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22'
+    - name: Aggiornamenti di Azure IoT
       href: 'https://azure.microsoft.com/roadmap/?category=iot'
-    - name: Video
-      href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true'
-- name: Risorse correlate
-  items:
-    - name: Soluzioni
-      items:
-        - name: Acceleratori di soluzioni IoT
-          href: /azure/iot-suite
-        - name: IoT Central
-          href: /azure/iot-central/iot-support-help
-    - name: Servizi della piattaforma
-      items:
-        - name: Hub IoT
-          href: /azure/iot-hub
-        - name: Plug and Play IoT
-          href: /azure/iot-pnp
-        - name: Servizio Device Provisioning in hub IoT
-          href: /azure/iot-dps
-        - name: Mappe
-          href: /azure/azure-maps
-        - name: SDK per servizi
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: Soluzioni Edge
-      items:
-        - name: IoT Edge
-          href: /azure/iot-edge
-        - name: IoT SDK per dispositivi
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

@@ -53,6 +53,8 @@
           href: cache-how-to-premium-vnet.md
         - name: Configurare la replica geografica
           href: cache-how-to-geo-replication.md
+        - name: Risparmiare con la capacità riservata
+          href: cache-reserved-pricing.md
         - name: Eseguire la migrazione dal Servizio cache gestita
           href: cache-migrate-to-redis.md
     - name: Automatizzare
@@ -113,7 +115,7 @@
           href: cache-how-to-scale.md
         - name: Usare il cluster Redis per ridurre/aumentare il numero di istanze
           href: cache-how-to-premium-clustering.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=redis-cache'

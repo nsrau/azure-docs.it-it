@@ -6,14 +6,14 @@
   items:
     - name: Che cos'è Data Science Virtual Machine (DSVM)?
       href: overview.md
-    - name: Che cos'è la Data Science Virtual Machine con intelligenza artificiale geografica?
+    - name: Che cos'è Data Science Virtual Machine con intelligenza artificiale geografica?
       href: geo-ai-dsvm-overview.md
-    - name: Strumenti inclusi nella DSVM
+    - name: Strumenti inclusi nella Data Science Virtual Machine
       href: tools-included.md
 - name: Avvi rapidi
   expanded: true
   items:
-    - name: Creare una Data Science Virtual Machine Windows
+    - name: Creare una macchina virtuale data science Windows
       href: provision-vm.md
     - name: Creare una Data Science Virtual Machine Ubuntu
       href: dsvm-ubuntu-intro.md
@@ -63,11 +63,11 @@
       href: 'https://stackoverflow.com/search?q=dsvm'
     - name: Guida per sviluppatori R
       href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
-    - name: DSVM Ubuntu
+    - name: Data Science Virtual Machine Ubuntu
       href: reference-ubuntu-vm.md
-    - name: DSVM CentOS
+    - name: Data Science Virtual Machine CentOS
       href: reference-centos-vm.md
     - name: Note sulla versione
       href: release-notes.md

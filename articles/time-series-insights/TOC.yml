@@ -136,24 +136,47 @@
         - name: Client SDK JavaScript
           href: 'https://github.com/microsoft/tsiclient/blob/master/docs/API.md'
 - name: Risorse
+  expanded: true
   items:
-    - name: Opzioni di supporto tecnico e assistenza
-      href: /azure/iot-fundamentals/iot-support-help
     - name: Richieste di dati del cliente
       href: time-series-insights-customer-data-requests.md
-    - name: Roadmap per Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=iot'
-    - name: Prezzi
-      href: 'https://azure.microsoft.com/pricing/details/time-series-insights/'
-    - name: Calcolatore prezzi
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Aree di disponibilità
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureTimeSeriesInsights'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
-    - name: Opzioni di supporto
-      href: 'https://azure.microsoft.com/support/options/'
-    - name: Video
+    - name: Risorse per sviluppatori
+      items:
+        - name: Esempi di codice di Azure Time Series Insights
+          href: 'https://github.com/Azure-Samples/Azure-Time-Series-Insights/'
+        - name: Client SDK JavaScript
+          href: 'https://github.com/Microsoft/tsiclient'
+        - name: Esempi di client ospitati
+          href: 'https://tsiclientsample.azurewebsites.net/'
+        - name: Esempi di codice di Azure IoT
+          href: 'https://docs.microsoft.com/samples/browse/?term=iot'
+    - name: Prezzi e disponibilità
+      items:
+        - name: Prezzi
+          href: 'https://azure.microsoft.com/pricing/details/time-series-insights/'
+        - name: Calcolatore prezzi
+          href: 'https://azure.microsoft.com/pricing/calculator/'
+        - name: Aree di disponibilità
+          href: 'https://azure.microsoft.com/regions/services/'
+    - name: Opzioni di supporto tecnico e assistenza
+      items:
+        - name: Opzioni di supporto tecnico di Azure
+          href: 'https://azure.microsoft.com/support/options/'
+        - name: Opzioni di supporto e assistenza di Azure IoT
+          href: 'https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help'
+        - name: Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
+        - name: Forum MSDN
+          href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights'
+    - name: Feedback e forum
+      items:
+        - name: Forum MSDN
+          href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights'
+        - name: Richieste e suggerimenti relativi ai prodotti
+          href: 'https://feedback.azure.com/forums/906859-azure-time-series-insights'
+    - name: Video di Azure
       href: 'https://azure.microsoft.com/resources/videos/index/?services=time-series-insights'
+    - name: Video di Channel 9
+      href: 'https://channel9.msdn.com/Search?term=time%20series%20insights'
+    - name: Aggiornamenti di Azure IoT
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'

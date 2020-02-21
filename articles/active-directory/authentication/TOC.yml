@@ -130,10 +130,14 @@
       items:
         - name: Distribuzione senza password
           href: howto-authentication-passwordless-deployment.md
-        - name: Chiavi di sicurezza senza password
-          href: howto-authentication-passwordless-security-key.md
-        - name: "Accesso senza password in Windows\_10"
-          href: howto-authentication-passwordless-security-key-windows.md
+        - name: Chiavi di sicurezza FIDO2 senza password
+          items:
+            - name: Abilitare le chiavi di sicurezza FIDO2 per il tenant
+              href: howto-authentication-passwordless-security-key.md
+            - name: Accedere a dispositivi Windows 10
+              href: howto-authentication-passwordless-security-key-windows.md
+            - name: Accesso SSO alle risorse locali
+              href: howto-authentication-passwordless-security-key-on-premises.md
         - name: Accesso tramite telefono senza password
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello for Business

@@ -7,7 +7,7 @@
       href: overview.md
     - name: Panoramica degli aspetti tecnici e delle funzionalità
       href: technical-overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Configurare l'accesso - ASP.NET
@@ -60,7 +60,7 @@
           href: authorization-code-flow.md
         - name: Flusso implicito
           href: implicit-flow-single-page-application.md
-        - name: Token
+        - name: Tokens
           href: tokens-overview.md
         - name: Richiedere il token di accesso
           href: access-tokens.md
@@ -81,6 +81,9 @@
         - name: Registrare un provider di servizi SAML
           href: connect-with-saml-service-providers.md
           displayName: 'SP, RP, service provider, connect'
+        - name: Registrare un'applicazione Graph
+          href: microsoft-graph-get-started.md
+          displayName: 'migrate, migration, microsoft graph'
         - name: Aggiungere un'applicazione API Web
           href: add-web-application.md
         - name: Aggiungere un'applicazione client nativa
@@ -276,7 +279,7 @@
                       href: social-transformations.md
                     - name: StringCollection
                       href: stringcollection-transformations.md
-                    - name: String
+                    - name: string
                       href: string-transformations.md
                 - name: Predicati
                   href: predicates.md
@@ -377,8 +380,6 @@
       items:
         - name: Eseguire la migrazione di utenti
           href: user-migration.md
-        - name: Eseguire la migrazione di utenti con identità esterne
-          href: migrate-social-identities.md
 - name: Informazioni di riferimento
   items:
     - name: Note sulla versione di Identity Experience Framework
@@ -392,9 +393,11 @@
       displayName: 'cookies, SameSite'
     - name: Codici di errore
       href: error-codes.md
+    - name: Operazioni dell'API Microsoft Graph
+      href: microsoft-graph-operations.md
     - name: Aree di disponibilità e residenza dei dati
       href: data-residency.md
-    - name: Abilitare la fatturazione
+    - name: Modello di fatturazione
       href: billing.md
     - name: Gestione delle minacce
       href: threat-management.md

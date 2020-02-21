@@ -6,7 +6,7 @@
       href: backup-overview.md
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/backup/'
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Eseguire il backup di una macchina virtuale - Portale
@@ -88,9 +88,9 @@
       items:
         - name: Panoramica
           href: backup-azure-recovery-services-vault-overview.md
-        - name: Creazione
+        - name: Create
           href: backup-create-rs-vault.md
-        - name: Eliminazione
+        - name: Delete
           href: backup-azure-delete-vault.md
         - name: Spostamento
           href: backup-azure-move-recovery-services-vault.md
@@ -114,7 +114,7 @@
               href: backup-azure-vms-encryption.md
             - name: Configurare backup coerenti con le app di macchine virtuali di Azure che eseguono Linux
               href: backup-azure-linux-app-consistent.md
-        - name: Ripristino
+        - name: Restore
           items:
             - name: Ripristinare macchine virtuali di Azure nel portale
               href: backup-azure-arm-restore-vms.md
@@ -134,7 +134,7 @@
           href: backup-azure-sql-database.md
         - name: Backup
           href: backup-sql-server-database-azure-vms.md
-        - name: Ripristino
+        - name: Restore
           href: restore-sql-database-azure-vm.md
         - name: Gestione
           href: manage-monitor-sql-database-backup.md
@@ -148,7 +148,7 @@
               href: backup-configure-vault.md
             - name: Eseguire un backup dello stato del sistema Windows Server
               href: backup-azure-system-state.md
-        - name: Ripristino
+        - name: Restore
           items:
             - name: Ripristinare i file da Azure in Windows Server
               href: backup-azure-restore-windows-server.md
@@ -162,7 +162,7 @@
           items:
             - name: Backup
               href: backup-afs.md
-            - name: Ripristino
+            - name: Restore
               href: restore-afs.md
             - name: Gestione
               href: manage-afs-backup.md
@@ -170,7 +170,7 @@
           items:
             - name: Backup
               href: backup-afs-cli.md
-            - name: Ripristino
+            - name: Restore
               href: restore-afs-cli.md
             - name: Gestione
               href: manage-afs-backup-cli.md
@@ -178,7 +178,7 @@
           items:
             - name: Backup
               href: backup-azure-afs-automation.md
-            - name: Ripristino
+            - name: Restore
               href: restore-afs-powershell.md
             - name: Gestione
               href: manage-afs-powershell.md
@@ -186,7 +186,7 @@
           items:
             - name: Backup
               href: backup-azure-file-share-rest-api.md
-            - name: Ripristino
+            - name: Restore
               href: restore-azure-file-share-rest-api.md
             - name: Gestione
               href: manage-azure-file-share-rest-api.md
@@ -196,7 +196,7 @@
           href: sap-hana-db-about.md
         - name: Backup
           href: backup-azure-sap-hana-database.md
-        - name: Ripristino
+        - name: Restore
           href: sap-hana-db-restore.md
         - name: Gestione
           href: sap-hana-db-manage.md
@@ -281,23 +281,23 @@
         - name: Configurare report di Backup di Azure
           items:
             - name: Configurare report di Backup di Azure
-              href: backup-azure-configure-reports.md
-            - name: Modello di dati per i report di Backup di Azure
-              href: backup-azure-reports-data-model.md
-            - name: Modello di dati di Log Analytics per Backup di Azure
-              href: backup-azure-log-analytics-data-model.md
+              href: configure-reports.md
         - name: Configurare eventi di diagnostica per insiemi di credenziali di Servizi di ripristino
           items:
             - name: Uso delle impostazioni di diagnostica per gli insiemi di credenziali di Servizi di ripristino
               href: backup-azure-diagnostic-events.md
             - name: Modello di dati di Log Analytics per eventi di diagnostica specifici delle risorse
-              href: backup-azure-log-analytics-new-data-model.md
+              href: backup-azure-reports-data-model.md
+            - name: Modello di dati di Log Analytics per Backup di Azure (modalità Diagnostica di Azure)
+              href: backup-azure-diagnostics-mode-data-model.md
     - name: Automazione
       items:
         - name: Criteri di Azure predefiniti per Backup di Azure
           items:
             - name: Abilitare automaticamente il backup durante la creazione di macchine virtuali con Criteri di Azure
               href: backup-azure-auto-enable-backup.md
+            - name: Configurare le impostazioni di diagnostica dell'insieme di credenziali su larga scala
+              href: azure-policy-configure-diagnostics.md
         - name: PowerShell
           items:
             - name: Macchine virtuali di Azure nel portale di Azure

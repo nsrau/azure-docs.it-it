@@ -77,7 +77,9 @@
       href: application-provisioning-configure-api.md
 - name: Informazioni di riferimento
   items:
-    - name: Scelta di un metodo di provisioning
+    - name: Conformità al protocollo SCIM 2.0
+      href: application-provisioning-config-problem-scim-compatibility.md
+    - name: Scegliere un metodo di provisioning
       href: isv-automatic-provisioning-multi-tenant-apps.md
     - name: Provisioning HR nel cloud
       items:
