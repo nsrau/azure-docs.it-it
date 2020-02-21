@@ -2,17 +2,17 @@
 title: Schema di eventi di Mappe di Azure di Griglia di eventi di Azure
 description: Descrive le proprietà e lo schema disponibili per gli eventi di Mappe di Azure con Griglia di eventi di Azure
 services: event-grid
-author: walsehgal
+author: femila
 ms.service: event-grid
 ms.topic: reference
 ms.date: 02/08/2019
-ms.author: v-musehg
-ms.openlocfilehash: 74a3674e632f8dc3f0755bc2ad48376708c7966f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: femila
+ms.openlocfilehash: 9acef524521e8fac6ce6f8f61e5ff3fbbb81d18d
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861855"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486360"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-maps"></a>Schema di eventi di Griglia di eventi di Azure per Mappe di Azure
 
@@ -22,7 +22,7 @@ Questo articolo illustra le proprietà e lo schema per gli eventi di Mappe di Az
 
 Un account di Mappe di Azure genera i tipi di eventi seguenti:
 
-| Tipo evento | DESCRIZIONE |
+| Tipo di evento | Descrizione |
 | ---------- | ----------- |
 | Microsoft.Maps.GeofenceEntered | Generato quando le coordinate ricevute sono state spostate dall'esterno all'interno di un determinato recinto virtuale |
 | Microsoft.Maps.GeofenceExited | Generato quando le coordinate ricevute sono state spostate dall'interno all'esterno di un determinato recinto virtuale |
@@ -102,9 +102,9 @@ L'esempio seguente illustra lo schema di **GeofenceResult**
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | Type | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| topic | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
 | subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
 | eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
 | eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
@@ -115,48 +115,48 @@ Un evento presenta i seguenti dati di primo livello:
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | apiCategory | string | Categoria API dell'evento. |
 | apiName | string | Nome API dell'evento. |
 | issues | object | Elenca i problemi riscontrati durante l'elaborazione. Se vengono restituiti problemi, la risposta non includerà geometrie. |
-| responseCode | number | Codice di risposta HTTP |
+| responseCode | d'acquisto | Codice di risposta HTTP |
 | geometries | object | Elenca le geometrie del recinto che contengono la posizione della coordinata o si sovrappongono a searchBuffer intorno alla posizione. |
 
 L'oggetto error viene restituito quando si verifica un errore nell'API Mappe. L'oggetto error ha le proprietà seguenti:
 
-| Proprietà | Type | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | error | ErrorDetails |Questo oggetto viene restituito quando si verifica un errore nell'API Mappe  |
 
 L'oggetto ErrorDetails viene restituito quando si verifica un errore nell'API Mappe. L'oggetto ErrorDetails ha le proprietà seguenti:
 
-| Proprietà | Type | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| code | string | Codice di stato HTTP. |
+| codice | string | Codice di stato HTTP. |
 | message | string | Se disponibile, una descrizione leggibile dell'errore. |
 | innererror | InnerError | Se disponibile, un oggetto contenente informazioni specifiche del servizio relative all'errore. |
 
 InnerError è un oggetto contenente informazioni specifiche del servizio relative all'errore. L'oggetto InnerError ha le proprietà seguenti: 
 
-| Proprietà | Type | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| code | string | Messaggio di errore. |
+| codice | string | Messaggio di errore. |
 
 L'oggetto geometries elenca gli ID delle geometrie dei recinti virtuali che sono scaduti rispetto all'ora utente nella richiesta. L'oggetto geometries include elementi di geometria con le proprietà seguenti: 
 
-| Proprietà | Type | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 |:-------- |:---- |:----------- |
 | deviceid | string | ID del dispositivo. |
 | distance | string | <p>Distanza dalla coordinata al bordo più vicino del recinto virtuale. Un valore positivo indica che la coordinata è all'esterno del recinto virtuale. Se la coordinata è all'esterno del recinto virtuale, ma più lontana del valore di searchBuffer dal bordo del recinto virtuale più vicino, il valore è 999. Un valore negativo indica che la coordinata è all'interno del recinto virtuale. Se la coordinata è all'interno del poligono, ma più lontana del valore di searchBuffer dal bordo del recinto virtuale più vicino, il valore è -999. Un valore pari a 999 indica che è molto probabile che la coordinata sia all'esterno del recinto virtuale. Un valore pari a -999 indica che è molto probabile che la coordinata sia all'interno del recinto virtuale.<p> |
 | geometryid |string | ID univoco che identifica la geometria del recinto virtuale. |
-| nearestlat | number | Latitudine del punto più vicino della geometria. |
-| nearestlon | number | Longitudine del punto più vicino della geometria. |
+| nearestlat | d'acquisto | Latitudine del punto più vicino della geometria. |
+| nearestlon | d'acquisto | Longitudine del punto più vicino della geometria. |
 | udId | string | ID univoco restituito dal servizio di caricamento utente durante il caricamento di un recinto virtuale. Non verrà incluso nell'API POST di geofencing. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | expiredGeofenceGeometryId | string[] | Elenca gli ID delle geometrie del recinto virtuale che sono scaduti rispetto all'ora utente nella richiesta. |
 | geometries | geometries[] |Elenca le geometrie del recinto che contengono la posizione della coordinata o si sovrappongono a searchBuffer intorno alla posizione. |

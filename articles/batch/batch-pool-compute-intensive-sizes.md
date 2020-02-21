@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: labrenne
-ms.openlocfilehash: 17cd9db1e86a66630d3b93c8295915933abb1ec2
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 22ee4aad6d2aabcc26dd97e50a2c716cb14be67a
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023600"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483585"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Usare istanze GPU o RDMA nei pool di Batch
 
@@ -42,9 +42,9 @@ Le funzionalità RDMA o GPU delle dimensioni a elevato utilizzo di calcolo in Ba
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Pool Linux - Configurazione della macchina virtuale
 
-| Dimensioni | Funzionalità | Sistemi operativi | Requisiti software | Impostazioni pool |
+| Dimensione | Funzionalità | Sistemi operativi | Requisiti software | Impostazioni pool |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3 e ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS o<br/>HPC basato su CentOS<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Driver Linux RDMA | Abilitare la comunicazione tra i nodi, disabilitare l'esecuzione di attività simultanee |
+| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3 e ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS o<br/>HPC basato su CentOS<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Driver Linux RDMA | Abilitare la comunicazione tra i nodi, disabilitare l'esecuzione di attività simultanee |
 | [Serie NC, NCv2, NCv3 e NDv2](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla (varia in base alla serie) | Ubuntu 16.04 LTS o<br/>CentOS 7.3 o 7.4<br/>(Azure Marketplace) | Driver NVIDIA CUDA o CUDA Toolkit | N/D | 
 | [Serie NV e NVv2](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS o<br/>CentOS 7.3<br/>(Azure Marketplace) | Driver NVIDIA GRID | N/D |
 
@@ -52,9 +52,9 @@ Le funzionalità RDMA o GPU delle dimensioni a elevato utilizzo di calcolo in Ba
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Pool Windows - Configurazione della macchina virtuale
 
-| Dimensioni | Funzionalità | Sistemi operativi | Requisiti software | Impostazioni pool |
+| Dimensione | Funzionalità | Sistemi operativi | Requisiti software | Impostazioni pool |
 | -------- | ------ | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3 e ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2 o<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 o versioni successive oppure<br/> Intel MPI 5<br/><br/>Driver Windows RDMA | Abilitare la comunicazione tra i nodi, disabilitare l'esecuzione di attività simultanee |
+| [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3 e ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2 o<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 o versioni successive oppure<br/> Intel MPI 5<br/><br/>Driver Windows RDMA | Abilitare la comunicazione tra i nodi, disabilitare l'esecuzione di attività simultanee |
 | [Serie NC, NCv2, NCv3, ND e NDv2](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla (varia in base alla serie) | Windows Server 2016 oppure <br/>2012 R2 (Azure Marketplace) | Driver NVIDIA CUDA o CUDA Toolkit| N/D | 
 | [Serie NV e NVv2](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Windows Server 2016 oppure<br/>2012 R2 (Azure Marketplace) | Driver NVIDIA GRID | N/D |
 
@@ -66,9 +66,9 @@ Le funzionalità RDMA o GPU delle dimensioni a elevato utilizzo di calcolo in Ba
 > Le dimensioni serie N non sono supportate nei pool di Batch con la configurazione Servizi cloud.
 >
 
-| Dimensioni | Funzionalità | Sistemi operativi | Requisiti software | Impostazioni pool |
+| Dimensione | Funzionalità | Sistemi operativi | Requisiti software | Impostazioni pool |
 | -------- | ------- | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, 2012 o<br/>2008 R2 (famiglia del sistema operativo guest) | Microsoft MPI 2012 R2 o versioni successive oppure<br/>Intel MPI 5<br/><br/>Driver Windows RDMA | Abilitare la comunicazione tra i nodi,<br/> disabilitare l'esecuzione di attività simultanee |
+| [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md) | RDMA | Windows Server 2016, 2012 R2, 2012 o<br/>2008 R2 (famiglia del sistema operativo guest) | Microsoft MPI 2012 R2 o versioni successive oppure<br/>Intel MPI 5<br/><br/>Driver Windows RDMA | Abilitare la comunicazione tra i nodi,<br/> disabilitare l'esecuzione di attività simultanee |
 
 ## <a name="pool-configuration-options"></a>Opzioni di configurazione pool
 
@@ -103,10 +103,10 @@ Per eseguire applicazioni CUDA in un pool di nodi NC di Windows, è necessario i
 
 1. Scaricare un pacchetto di installazione per i driver GPU in Windows Server 2016 dal [sito Web di NVIDIA](https://www.nvidia.com/Download/index.aspx), ad esempio la [versione 411.82](https://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Salvare il file in locale usando un nome breve, ad esempio *GPUDriverSetup.exe*.
 2. Creare un file zip del pacchetto.
-3. Caricare il pacchetto nell'account Batch. Per istruzioni, vedere il materiale sussidiario sui [pacchetti di applicazioni](batch-application-packages.md). Specificare un ID applicazione, ad esempio *GPUDriver*, e una versione, ad esempio *411.82*.
+3. Caricare il pacchetto nell'account Batch. Per istruzioni, vedere il materiale sussidiario sui [pacchetti di applicazioni](batch-application-packages.md). Specificare un ID applicazione, ad esempio *GPUDriver*, e una versione, ad esempio *411,82*.
 1. Usando l'API Batch o il portale di Azure, creare un pool nella configurazione della macchina virtuale con il numero di nodi e la scalabilità desiderati. La tabella seguente illustra le impostazioni di esempio per installare i driver NVIDIA GPU automaticamente usando un'attività di avvio:
 
-| Impostazione | Valore |
+| Impostazione | valore |
 | ---- | ----- | 
 | **Tipo di immagine** | Marketplace (Linux/Windows) |
 | **Autore** | MicrosoftWindowsServer |
@@ -114,7 +114,7 @@ Per eseguire applicazioni CUDA in un pool di nodi NC di Windows, è necessario i
 | **Sku** | 2016-Datacenter |
 | **Dimensioni nodo** | NC6 Standard |
 | **Riferimenti ai pacchetti dell'applicazione** | GPUDriver, versione 411.82 |
-| **Attività di avvio abilitate** | Vero<br>**Riga di comando** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Identità utente**: utente automatico pool, amministratore<br/>**Attendere il completamento dell'operazione**: True
+| **Attività di avvio abilitate** | True<br>**Riga di comando** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Identità utente**: utente automatico pool, amministratore<br/>**Attendere il completamento dell'operazione**: True
 
 ## <a name="example-nvidia-gpu-drivers-on-a-linux-nc-vm-pool"></a>Esempio: driver GPU NVIDIA in un pool di macchine virtuali NC Linux
 
@@ -127,7 +127,7 @@ Per eseguire applicazioni CUDA in un pool di nodi NC di Linux, si devono install
 4. Creare un account in un'area che supporta le VM NC.
 5. Usando l'API Batch o il portale di Azure, creare un pool [usando l'immagine personalizzata](batch-sig-images.md) e con il numero di nodi e la scalabilità desiderati. La tabella seguente illustra le impostazioni di esempio del pool per l'immagine:
 
-| Impostazione | Valore |
+| Impostazione | valore |
 | ---- | ---- |
 | **Tipo di immagine** | Immagine personalizzata |
 | **Immagine personalizzata** | *Nome dell'immagine* |
@@ -139,20 +139,19 @@ Per eseguire applicazioni CUDA in un pool di nodi NC di Linux, si devono install
 Per eseguire le applicazioni Windows MPI in un pool di nodi di macchine virtuali di Azure H16r, è necessario configurare l'estensione HpcVmDrivers e installare [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi). Di seguito è riportata la procedura di esempio per distribuire un'immagine personalizzata di Windows Server 2016 con il software e i driver necessari:
 
 1. Distribuire una macchina virtuale di Azure H16r che esegue Windows Server 2016. È ad esempio possibile creare la macchina virtuale nell'area Stati Uniti occidentali. 
-2. Aggiungere l'estensione HpcVmDrivers alla macchina virtuale [eseguendo un comando di Azure PowerShell](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances
-) da un computer client che si connette alla sottoscrizione di Azure o usando Azure Cloud Shell. 
+2. Aggiungere l'estensione HpcVmDrivers alla macchina virtuale [eseguendo un comando di Azure PowerShell](../virtual-machines/sizes-hpc.md) da un computer client che si connette alla sottoscrizione di Azure o usando Azure Cloud Shell. 
 1. Stabilire una connessione Desktop remoto alla macchina virtuale.
 1. Scaricare il [pacchetto di installazione](https://www.microsoft.com/download/details.aspx?id=57467) (MSMpiSetup.exe) per la versione più recente di Microsoft MPI e installare Microsoft MPI.
 1. Seguire i passaggi per creare un' [immagine della raccolta di immagini condivise](batch-sig-images.md) per batch.
 1. Usando le API o portale di Azure batch, creare un pool [usando la raccolta di immagini condivise](batch-sig-images.md) e con il numero di nodi e la scalabilità desiderati. La tabella seguente illustra le impostazioni di esempio del pool per l'immagine:
 
-| Impostazione | Valore |
+| Impostazione | valore |
 | ---- | ---- |
 | **Tipo di immagine** | Immagine personalizzata |
 | **Immagine personalizzata** | *Nome dell'immagine* |
 | **SKU agente nodo** | batch.node.windows amd64 |
 | **Dimensioni nodo** | H16r Standard |
-| **Comunicazione tra nodi abilitata** | Vero |
+| **Comunicazione tra nodi abilitata** | True |
 | **Numero massimo di attività per ogni nodo** | 1 |
 
 ## <a name="example-intel-mpi-on-a-linux-h16r-vm-pool"></a>Esempio: Intel MPI in un pool di macchine virtuali H16r Linux
@@ -161,14 +160,14 @@ Per eseguire le applicazioni MPI in un pool di nodi Linux della serie H, è poss
 
 Usando l'API Batch o il portale di Azure, creare un pool usando questa immagine, con il numero di nodi e la scalabilità desiderati. La tabella seguente illustra le impostazioni di esempio del pool:
 
-| Impostazione | Valore |
+| Impostazione | valore |
 | ---- | ---- |
 | **Tipo di immagine** | Marketplace (Linux/Windows) |
 | **Autore** | OpenLogic |
 | **Offerta** | CentOS-HPC |
 | **Sku** | 7.4 |
 | **Dimensioni nodo** | H16r Standard |
-| **Comunicazione tra nodi abilitata** | Vero |
+| **Comunicazione tra nodi abilitata** | True |
 | **Numero massimo di attività per ogni nodo** | 1 |
 
 ## <a name="next-steps"></a>Passaggi successivi

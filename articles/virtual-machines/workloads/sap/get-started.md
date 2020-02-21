@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/13/2020
+ms.date: 02/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83144738124b223e305b6c0d3ad1065f5dae408e
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: f49240c29b4ec0a5fa1cb38861da3d4060db2f82
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212607"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525445"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usare Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -119,8 +119,9 @@ Per informazioni sull'integrazione dei servizi di Azure nei componenti SAP, vede
 - [Azure Data Factory offre l'integrazione di dati SAP HANA e Business Warehouse](https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration)
 
 
-## <a name="change-log"></a>Registro delle modifiche
+## <a name="change-log"></a>Registro modifiche
 
+- 02/20/2020: modificare la [disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure nella Guida](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) a più SID di SLES per aggiungere un collegamento alla guida del cluster SUSE a più SID
 - 02/13/2020: modificare la disponibilità [elevata delle macchine virtuali di Azure per SAP NetWeaver in RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel) e la [disponibilità elevata delle macchine virtuali di Azure per SAP NetWeaver in RHEL con Azure NetApp files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) per allineare i timeout delle risorse del cluster alle raccomandazioni per il timeout di Red Hat
 - 02/11/2020: rilascio di [SAP Hana sulla migrazione di istanze large di Azure alle macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-large-instance-virtual-machine-migration)
 - 02/07/2020: modificare [la connettività degli endpoint pubblici per le macchine virtuali con ILB standard di Azure negli scenari di disponibilità elevata di SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) per aggiornare la schermata di esempio NSG

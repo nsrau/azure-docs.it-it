@@ -6,12 +6,12 @@ author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 01/29/2020
-ms.openlocfilehash: ac06521df38bdc91ca717d888c73cd541576014d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 73905483850a47a9d036bef1b9e1ee60d3484555
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905460"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484588"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Analizzare dati JSON e Avro in Analisi di flusso di Azure
 
@@ -63,7 +63,7 @@ FROM input
 
 Il risultato è:
 
-|DeviceID|Lat|Lungo|Temperatura|Versione|
+|ID dispositivo|Lat|long|Temperatura|Versione|
 |-|-|-|-|-|
 |12345|47|122|80|1.2.45|
 
@@ -80,7 +80,7 @@ FROM input
 
 Il risultato è:
 
-|DeviceID|Lat|Lungo|
+|ID dispositivo|Lat|long|
 |-|-|-|
 |12345|47|122|
 
@@ -123,7 +123,7 @@ WHERE
 
 Il risultato è:
 
-|DeviceID|Sensorename|AlertMessage|
+|ID dispositivo|Sensorename|AlertMessage|
 |-|-|-|
 |12345|Umidità|Avviso: sensore sopra la soglia|
 
@@ -144,7 +144,7 @@ CROSS APPLY GetRecordProperties(event.SensorReadings) AS sensorReading
 
 Il risultato è:
 
-|DeviceID|Sensorename|AlertMessage|
+|ID dispositivo|Sensorename|AlertMessage|
 |-|-|-|
 |12345|Temperatura|80|
 |12345|Umidità|70|
@@ -167,6 +167,38 @@ WITH Stage0 AS
 
 SELECT DeviceID, PropertyValue AS Temperature INTO TemperatureOutput FROM Stage0 WHERE PropertyName = 'Temperature'
 SELECT DeviceID, PropertyValue AS Humidity INTO HumidityOutput FROM Stage0 WHERE PropertyName = 'Humidity'
+```
+
+### <a name="parse-json-record-in-sql-reference-data"></a>Analizza record JSON nei dati di riferimento SQL
+Quando si usa il database SQL di Azure come dati di riferimento nel processo, è possibile avere una colonna con dati in formato JSON. Di seguito è illustrato un esempio.
+
+|ID dispositivo|data|
+|-|-|
+|12345|{"Key": "value1"}|
+|54321|{"Key": "value2"}|
+
+È possibile analizzare il record JSON nella colonna di *dati* scrivendo una semplice funzione JavaScript definita dall'utente.
+
+```javascript
+function parseJson(string) {
+return JSON.parse(string);
+}
+```
+
+È quindi possibile creare un passaggio nella query di analisi di flusso, come illustrato di seguito, per accedere ai campi dei record JSON.
+
+ ```SQL
+ WITH parseJson as
+ (
+ SELECT DeviceID, udf.parseJson(sqlRefInput.Data) as metadata,
+ FROM sqlRefInput
+ )
+ 
+ SELECT metadata.key
+ INTO output
+ FROM streamInput
+ JOIN parseJson 
+ ON streamInput.DeviceID = parseJson.DeviceID
 ```
 
 ## <a name="array-data-types"></a>Tipi di dati matrice
@@ -291,7 +323,7 @@ LEFT JOIN DynamicCTE M ON M.smKey = 'Manufacturer' and M.DeviceId = i.DeviceId A
 
 Il risultato è:
 
-|deviceId|Lat|Lungo|smVersion|smManufacturer|
+|deviceId|Lat|long|smVersion|smManufacturer|
 |-|-|-|-|-|
 |12345|47|122|1.2.45|ABC|
 

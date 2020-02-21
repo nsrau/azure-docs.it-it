@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 270b3f0fe7c654d2bf059784e872b7dbe97a6068
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
-ms.translationtype: MT
+ms.openlocfilehash: c93460797fc1cf953d467e2739d71c5a2a9b74ed
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190483"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486169"
 ---
 # <a name="virtual-network-service-tags"></a>Tag del servizio di rete virtuale 
 <a name="network-service-tags"></a>
@@ -52,7 +52,7 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 | **AzureBackup** |Backup di Azure.<br/><br/>*Nota:* Questo tag presenta una dipendenza sui tag di **archiviazione** e **AzureActiveDirectory** . | In uscita | No | Sì |
 | **AzureBotService** | Servizio Azure bot. | In uscita | No | No |
 | **AzureCloud** | Tutti [gli indirizzi IP pubblici del Data Center](https://www.microsoft.com/download/details.aspx?id=56519). | In uscita | Sì | Sì |
-| **AzureCognitiveSearch** | Azure ricerca cognitiva (se si usano gli indicizzatori con un insieme di competenze). | Entrambe | No | No |
+| **AzureCognitiveSearch** | Ricerca cognitiva di Azure. <br/><br/>Questo tag o gli indirizzi IP trattati da questo tag possono essere utilizzati per concedere agli indicizzatori l'accesso sicuro alle origini dati. Per altri dettagli, vedere la [documentazione sulla connessione dell'indicizzatore](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors) . | In ingresso | No | No |
 | **AzureConnectors** | Connettori delle app per la logica di Azure per le connessioni Probe/back-end. | In ingresso | Sì | Sì |
 | **AzureContainerRegistry** | Container Registry di Azure. | In uscita | Sì | Sì |
 | **AzureCosmosDB** | Azure Cosmos DB. | In uscita | Sì | Sì |

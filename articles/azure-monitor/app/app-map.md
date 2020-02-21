@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 006ea071ce1ab0354ecf191cdde2e031255ef4ce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cc7d58f0557e620c273043af8ffb2e8ec4d8ec87
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407677"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485149"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mappa delle applicazioni: valutare le applicazioni distribuite
 
@@ -236,11 +236,11 @@ Uno scenario in cui potrebbe essere necessario eseguire l'override del valore pe
 
 Per altre informazioni su come eseguire l'override della proprietà del nome del ruolo cloud con gli inizializzatori di telemetria, vedere [aggiungere proprietà: ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se si verificano problemi nel far funzionare come previsto la mappa delle applicazioni, provare questa procedura:
 
-### <a name="general"></a>Informazioni di carattere generale
+### <a name="general"></a>Generale
 
 1. Assicurarsi di usare un SDK supportato ufficialmente. Gli SDK non supportati/community potrebbero non supportare la correlazione.
 
@@ -276,6 +276,6 @@ Per inviare commenti e suggerimenti, usare l'apposita opzione del feedback.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni sul funzionamento della correlazione in Application Insights, vedere l' [articolo correlazione dei dati di telemetria](https://docs.microsoft.com/azure/application-insights/application-insights-correlation).
+* Per altre informazioni sul funzionamento della correlazione in Application Insights, vedere l' [articolo correlazione dei dati di telemetria](correlation.md).
 * L' [esperienza di diagnostica delle transazioni end-to-end](transaction-diagnostics.md) mette in correlazione i dati di telemetria sul lato server da tutti i Application Insights componenti monitorati in una singola visualizzazione.
 * Per gli scenari di correlazione avanzati in ASP.NET Core e ASP.NET, vedere l'articolo [tenere traccia delle operazioni personalizzate](custom-operations-tracking.md) .

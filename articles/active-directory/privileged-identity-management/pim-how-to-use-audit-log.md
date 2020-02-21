@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/13/2019
+ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d46036efa04b4e0225cad6e8a70cd31ad3c10bd
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a4a2eccc02d13bf5a2dfc8bf3ceb7887e4962489
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024178"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498520"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Visualizzare la cronologia di controllo per i ruoli Azure AD in PIM
 
@@ -32,9 +32,9 @@ A partire da novembre 2019, la parte Azure AD ruoli di Privileged Identity Manag
 1. Accedere al [portale di Azure](https://portal.azure.com/) con un utente appartenente al ruolo di [amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
 1. Aprire **Azure AD Privileged Identity Management**. Se si dispone di un banner nella parte superiore della pagina Panoramica, seguire le istruzioni riportate nella scheda **nuova versione** di questo articolo. In caso contrario, seguire le istruzioni riportate nella scheda **versione precedente** .
 
-    ![Nuova versione dei ruoli Azure AD](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+    [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
-# <a name="new-versiontabnew"></a>[Nuova versione](#tab/new)
+# <a name="new-version"></a>[Nuova versione](#tab/new)
 
 Per visualizzare la cronologia di controllo per i ruoli di Azure AD, attenersi alla seguente procedura.
 
@@ -50,7 +50,7 @@ Il controllo delle risorse offre una visualizzazione di tutte le attività assoc
 
 1. Filtrare la cronologia usando una data predefinita o un intervallo personalizzato.
 
-    ![Elenco di controllo delle risorse con filtri](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    ![Elenco di controllo delle risorse con filtri](media/pim-how-to-use-audit-log/resource-audit.png)
 
 ## <a name="view-my-audit"></a>Visualizzare Controllo personale
 
@@ -66,9 +66,9 @@ Controllo personale consente di visualizzare l'attività del ruolo personale.
 
 1. Filtrare la cronologia usando una data predefinita o un intervallo personalizzato.
 
-    ![Elenco di controllo per l'utente corrente](media/azure-pim-resource-rbac/my-audit-time.png)
+    ![Elenco di controllo per l'utente corrente](media/pim-how-to-use-audit-log/audit-time-span.png)
 
-# <a name="previous-versiontabprevious"></a>[Versione precedente](#tab/previous)
+# <a name="previous-version"></a>[Versione precedente](#tab/previous)
 
 ## <a name="view-audit-history"></a>Visualizzare la cronologia di controllo
 
@@ -88,9 +88,9 @@ Per visualizzare la cronologia di controllo per i ruoli di Azure AD, attenersi a
 
     Nella parte inferiore della pagina viene visualizzata una tabella con informazioni su ogni azione nella cronologia di controllo disponibile. Le colonne hanno i significati seguenti:
 
-    | Colonna | Description |
+    | Colonna | Descrizione |
     | --- | --- |
-    | Durata | Quando si è verificata l'azione. |
+    | Tempo | Quando si è verificata l'azione. |
     | Richiedente | Utente che ha richiesto l'attivazione o la modifica del ruolo. Se il valore è **Azure System**, controllare la cronologia di controllo di Azure per altre informazioni. |
     | Azione | Azioni eseguite dal richiedente. Le azioni possono includere Assign, Unassign, Activate, disactivate o AddedOutsidePIM. |
     | Membro | Utente che sta attivando o assegnata a un ruolo. |

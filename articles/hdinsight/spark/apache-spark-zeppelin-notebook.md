@@ -5,25 +5,24 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/05/2019
-ms.openlocfilehash: 75811382867b93c778641ece42971018eff39949
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: hdinsightactive
+ms.date: 02/18/2020
+ms.openlocfilehash: c5c8a41aef92876ceaa66fb23c01c6ece1609f91
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664641"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484809"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Usare i notebook di Apache Zeppelin con cluster Apache Spark in Azure HDInsight
 
 I cluster HDInsight Spark includono notebook [Apache Zeppelin](https://zeppelin.apache.org/) che possono essere usati per eseguire processi [Apache Spark](https://spark.apache.org/). Questo articolo illustra come usare il notebook Zeppelin in un cluster HDInsight.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-* Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Un cluster Apache Spark in HDInsight. Per istruzioni, vedere [Creazione dei cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* Schema URI per l'archiviazione primaria del cluster. Questo è `wasb://` per l'archiviazione BLOB di Azure, `abfs://` per Azure Data Lake Storage Gen2 o `adl://` per Azure Data Lake Storage Gen1. Se il trasferimento sicuro è abilitato per l'archiviazione BLOB, l'URI viene `wasbs://`.  Per ulteriori informazioni, vedere anche [richiedere il trasferimento sicuro in archiviazione di Azure](../../storage/common/storage-require-secure-transfer.md) .
+* Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* Schema URI per l'archiviazione primaria del cluster. Questo è `wasb://` per l'archiviazione BLOB di Azure, `abfs://` per Azure Data Lake Storage Gen2 o `adl://` per Azure Data Lake Storage Gen1. Se il trasferimento sicuro è abilitato per l'archiviazione BLOB, l'URI viene `wasbs://`.  Per altre informazioni, vedere [richiedere il trasferimento sicuro in archiviazione di Azure](../../storage/common/storage-require-secure-transfer.md) .
 
 ## <a name="launch-an-apache-zeppelin-notebook"></a>Avviare un notebook di Apache Zeppelin
 
@@ -72,7 +71,7 @@ I cluster HDInsight Spark includono notebook [Apache Zeppelin](https://zeppelin.
     hvac.registerTempTable("hvac")
     ```
 
-    Premere **MAIUSC + INVIO** oppure selezionare il pulsante **Riproduci** per il paragrafo per eseguire il frammento di codice. Lo stato nell’angolo destro del paragrafo deve passare da PRONTO, IN ATTESA, IN ESECUZIONE, a COMPLETATO. L'output viene visualizzato nella parte inferiore dello stesso paragrafo. Nella schermata è simile al seguente:
+    Premere **MAIUSC + INVIO** oppure selezionare il pulsante **Riproduci** per il paragrafo per eseguire il frammento di codice. Lo stato nell'angolo destro del paragrafo deve passare da PRONTO, IN ATTESA, IN ESECUZIONE, a COMPLETATO. L'output viene visualizzato nella parte inferiore dello stesso paragrafo. Nella schermata è simile al seguente:
 
     ![Creare una tabella temporanea da dati non elaborati](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "Crea una tabella temporanea dai dati non elaborati")
 
@@ -154,7 +153,7 @@ Il notebook verrà così salvato come file JSON nel percorso di download dell'ut
 
 ## <a name="livy-session-management"></a>Gestione delle sessioni di Livy
 
-Quando si esegue il primo paragrafo di codice nel notebook Zeppelin, nel cluster HDInsight Spark viene creata una nuova sessione di Livy. Tale sessione sarà condivisa da tutti i notebook Zeppelin creati successivamente. Se la sessione di Livy viene terminata per qualche motivo (riavvio del cluster e così via), non sarà possibile eseguire processi dal notebook Zeppelin.
+Quando si esegue il primo paragrafo di codice nel notebook Zeppelin, nel cluster HDInsight Spark viene creata una nuova sessione di Livy. Tale sessione sarà condivisa da tutti i notebook Zeppelin creati successivamente. Se per qualche motivo la sessione di Livio viene terminata (riavvio del cluster e così via), non sarà possibile eseguire i processi dal notebook Zeppelin.
 
 In tal caso, per poter eseguire processi dal notebook Zeppelin è prima necessario seguire questa procedura.  
 
@@ -168,9 +167,44 @@ In tal caso, per poter eseguire processi dal notebook Zeppelin è prima necessar
 
 3. Eseguire una cella di codice da un notebook Zeppelin esistente. Verrà così creata una nuova sessione di Livy nel cluster HDInsight.
 
-## <a name="seealso"></a>Vedere anche
+## <a name="general-information"></a>Informazioni generali
 
-* [Panoramica: Apache Spark su Azure HDInsight](apache-spark-overview.md)
+### <a name="validate-service"></a>Convalida servizio
+
+Per convalidare il servizio da Ambari, passare a `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` dove CLUSTERname è il nome del cluster.
+
+Per convalidare il servizio dalla riga di comando, connettersi tramite SSH al nodo head. Passare dall'utente allo Zeppelin usando il comando `sudo su zeppelin`. Comandi di stato:
+
+|Comando |Descrizione |
+|---|---|
+|`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh status`|Stato del servizio.|
+|`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh --version`|Versione del servizio.|
+|`ps -aux | grep zeppelin`|Identificare PID.|
+
+### <a name="log-locations"></a>Percorsi di log
+
+|Service |Path |
+|---|---|
+|Zeppelin-server|/usr/hdp/current/zeppelin-server/|
+|Log del server|/var/log/zeppelin|
+|Interprete della configurazione, Shiro, site. XML, log4j|/usr/HDP/Current/Zeppelin-server/conf o/etc/Zeppelin/conf|
+|Directory PID|/var/run/zeppelin|
+
+### <a name="enable-debug-logging"></a>Abilitazione della registrazione di debug
+
+1. Passare a `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` dove CLUSTERname è il nome del cluster.
+
+1. Passare a **configurazioni** > **Advanced Zeppelin-log4j-Properties** > **log4j_properties_content**.
+
+1. Modificare `log4j.appender.dailyfile.Threshold = INFO` in `log4j.appender.dailyfile.Threshold = DEBUG`.
+
+1. Aggiungere `log4j.logger.org.apache.zeppelin.realm=DEBUG`.
+
+1. Salvare le modifiche e riavviare il servizio.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+[Panoramica: Apache Spark su Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenari
 
@@ -192,7 +226,7 @@ In tal caso, per poter eseguire processi dal notebook Zeppelin è prima necessar
 * [Usare pacchetti esterni con i notebook Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](apache-spark-jupyter-notebook-install-locally.md)
 
-### <a name="manage-resources"></a>Gestire risorse
+### <a name="manage-resources"></a>Gestione di risorse
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](apache-spark-resource-manager.md)
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](apache-spark-job-debugging.md)

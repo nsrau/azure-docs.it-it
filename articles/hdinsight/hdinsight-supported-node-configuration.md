@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 278639b27d821e8d6440248a1add43bcd9de22c6
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: e75146266568001d8fee7be26898ac8bdfffb7fc
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775226"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484787"
 ---
 # <a name="what-are-the-default-and-recommended-node-configurations-for-azure-hdinsight"></a>Quali sono le configurazioni del nodo predefinite e consigliate per Azure HDInsight?
 
@@ -30,7 +30,7 @@ Gli unici tipi di cluster con dischi dati sono i cluster Kafka e HBase con la fu
 
 Nella tabella seguente sono riepilogate le specifiche di tutti i tipi di VM consigliati in questo documento.
 
-| Dimensioni              | vCPU | Memoria: GiB | GiB di archiviazione temporanea (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/Mbps di lettura/Mbps di scrittura | Velocità effettiva/disco di dati massimo: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+| Dimensione              | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/Mbps di lettura/Mbps di scrittura | Velocità effettiva/disco di dati massimo: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D3_v2 | 4    | 14          | 200                    | 12000 / 187 / 93                                           | 16/16x500           | 4 / 3000                                       |
 | Standard_D4_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 32/32X500           | 8 / 6000                                       |
@@ -44,16 +44,16 @@ Nella tabella seguente sono riepilogate le specifiche di tutti i tipi di VM cons
 
 Per altri dettagli sulle specifiche di ogni tipo di macchina virtuale, vedere i documenti seguenti:
 
-* [Dimensioni delle macchine virtuali per utilizzo generico: dv2 serie 1-5](../virtual-machines/linux/sizes-general.md#dv2-series)
-* [Dimensioni delle macchine virtuali con ottimizzazione per la memoria: dv2 serie 11-15](../virtual-machines/linux/sizes-memory.md#dv2-series-11-15)
-* [Dimensioni delle macchine virtuali per utilizzo generico: AV2 serie 1-8](../virtual-machines/linux/sizes-general.md#av2-series)
+* [Dimensioni delle macchine virtuali per utilizzo generico: dv2 serie 1-5](../virtual-machines/dv2-dsv2-series.md)
+* [Dimensioni delle macchine virtuali con ottimizzazione per la memoria: dv2 serie 11-15](../virtual-machines/dv2-dsv2-series-memory.md)
+* [Dimensioni delle macchine virtuali per utilizzo generico: AV2 serie 1-8](../virtual-machines/av2-series.md)
 
 ### <a name="all-supported-regions-except-brazil-south-and-japan-west"></a>Tutte le aree supportate eccetto Brasile meridionale e Giappone occidentale
 
 > [!Note]
 > Per ottenere l'identificatore dello SKU da usare in PowerShell e in altri script, aggiungere `Standard_` all'inizio di tutti gli SKU di VM nelle tabelle seguenti. Ad esempio, `D12_v2` diventerà `Standard_D12_v2`.
 
-| Tipo di cluster | Hadoop | hbase | Query interattiva | Storm | Spark | ML Server | Kafka |
+| Tipo di cluster | Hadoop | hbase | Interactive Query | Storm | Spark | ML Server | Kafka |
 |---|---|---|---|---|---|---|---|
 | Head: dimensioni VM predefinite | D12_v2 | D12_v2 | D13_v2 | A4_v2 | D12_v2, <br/>D13_v2 * | D12_v2 | D3_v2 |
 | Head: dimensioni minime consigliate per le macchine virtuali | D5_v2 | D3_v2 | D13_v2 | A4_v2 | D12_v2, <br/>D13_v2 * | D12_v2 | D3_v2 |
@@ -68,7 +68,7 @@ Per altri dettagli sulle specifiche di ogni tipo di macchina virtuale, vedere i 
 
 ### <a name="brazil-south-and-japan-west-only"></a>Solo Brasile meridionale e Giappone occidentale
 
-| Tipo di cluster | Hadoop | hbase | Query interattiva | Storm | Spark | ML Services |
+| Tipo di cluster | Hadoop | hbase | Interactive Query | Storm | Spark | ML Services |
 |---|---|---|---|---|---|---|
 | Head: dimensioni VM predefinite | D12 | D12 | D13 | A4_v2 | D12 | D12 |
 | Head: dimensioni minime consigliate per le macchine virtuali | D5_v2 | D3_v2 | D13_v2 | A4_v2 | D12_v2 | D12_v2 |

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 15302eb4f89c854210d4fc1aba292c57d4757278
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ee35f26f9433f6ab342c7dce105638122b9d7717
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231352"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486261"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestazioni e scalabilità in Funzioni permanenti (Funzioni di Azure)
 
@@ -251,7 +251,7 @@ Quando si intende usare Funzioni permanenti per un'applicazione di produzione, �
 > [!TIP]
 > A differenza dello schema fan-out, le operazioni fan-in sono limitate a un'unica macchina virtuale. Se l'applicazione usa il modello fan-out, fan-in ed è necessario rispettare le prestazioni in ambito fan-in, è possibile applicare lo schema fan-out della funzione di attività tra più [orchestrazioni secondarie](durable-functions-sub-orchestrations.md).
 
-La tabella seguente mostra i valori *massimi* di velocità effettiva per gli scenari descritti in precedenza. "Istanza" si riferisce a una singola istanza di una funzione dell'agente di orchestrazione in esecuzione in un'unica macchina virtuale di piccole dimensioni ([A1](../../virtual-machines/windows/sizes-previous-gen.md#a-series)) in Servizio app di Azure. In tutti i casi si presuppone che le [sessioni estese](#orchestrator-function-replay) siano abilitate. I risultati effettivi possono variare a seconda delle operazioni della CPU o di I/O eseguite dal codice della funzione.
+La tabella seguente mostra i valori *massimi* di velocità effettiva per gli scenari descritti in precedenza. "Istanza" si riferisce a una singola istanza di una funzione dell'agente di orchestrazione in esecuzione in un'unica macchina virtuale di piccole dimensioni ([A1](../../virtual-machines/sizes-previous-gen.md)) in Servizio app di Azure. In tutti i casi si presuppone che le [sessioni estese](#orchestrator-function-replay) siano abilitate. I risultati effettivi possono variare a seconda delle operazioni della CPU o di I/O eseguite dal codice della funzione.
 
 | Scenario | Velocità effettiva massima |
 |-|-|

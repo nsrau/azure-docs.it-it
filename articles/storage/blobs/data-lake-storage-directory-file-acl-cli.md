@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: e833ca92004c678808ec5e294de2df7c90121be7
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: ce2b4200496938e6cffb935207df8c7027eaf37a
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75835119"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486135"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Usare l'interfaccia della riga di comando di Azure per gestire directory, file e ACL in Azure Data Lake Storage Gen2 (anteprima)
 
@@ -24,7 +24,7 @@ Questo articolo illustra come usare l'interfaccia della [riga di comando di Azur
 > L'estensione `storage-preview` descritta in questo articolo è attualmente disponibile in anteprima pubblica.
 
 [Esempio](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#adls-gen2-support) | il [mapping di Gen1 a Gen2](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2) | [inviare commenti e suggerimenti](https://github.com/Azure/azure-cli-extensions/issues)
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 > [!div class="checklist"]
 > * Una sottoscrizione di Azure. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -77,7 +77,7 @@ Un file system funge da contenitore per i file. È possibile crearne uno usando 
 In questo esempio viene creato un file system denominato `my-file-system`.
 
 ```azurecli
-az storage container create --name my-file-system
+az storage container create --name my-file-system --account-name mystorageaccount
 ```
 
 ## <a name="create-a-directory"></a>Creare una directory
@@ -239,6 +239,12 @@ Questo esempio imposta l'ACL in una directory per l'utente proprietario, il grup
 az storage blob directory access set -a "user::rw-,group::rw-,other::-wx" -d my-directory -c my-file-system --account-name mystorageaccount
 ```
 
+In questo esempio viene impostato l'ACL *predefinito* in una directory per l'utente proprietario, il gruppo proprietario o altri utenti, quindi viene stampato l'ACL nella console.
+
+```azurecli
+az storage blob directory access set -a "default:user::rw-,group::rw-,other::-wx" -d my-directory -c my-file-system --account-name mystorageaccount
+```
+
 Usare il comando `az storage blob access set` per impostare l'ACL di un **file**. 
 
 In questo esempio viene impostato l'ACL in un file per l'utente proprietario, il gruppo proprietario o altri utenti, quindi viene stampato l'ACL nella console.
@@ -299,7 +305,7 @@ Questo esempio Mostra tutti i metadati definiti dall'utente per la directory den
 az storage blob directory metadata show -c my-file-system -d my-directory --account-name mystorageaccount
 ```
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Esempio](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview)
 * [Mapping tra Gen1 e Gen2](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)

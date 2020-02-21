@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 83884447e9856b5e3db26e4829ccbd3ab1baed13
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 715415929afaad36e4854e75a2b7b5360d22a6bf
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549088"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486343"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Come usare Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
@@ -223,7 +223,7 @@ static void Main(string[] args)
 
 ## <a name="input-and-output-bindings"></a>Associazioni di input e output
 
-Le associazioni di input offrono una modalità dichiarativa per rendere disponibili nel codice i dati dei servizi di Azure o di terze parti. Le associazioni di output garantiscono un modo per aggiornare i dati. L' [articolo introduttivo](webjobs-sdk-get-started.md) illustra un esempio di ciascuna di esse.
+Le associazioni di input offrono una modalità dichiarativa per rendere disponibili nel codice i dati dei servizi di Azure o di terze parti. Le associazioni di output garantiscono un modo per aggiornare i dati. L'articolo [introduttivo](webjobs-sdk-get-started.md) illustra un esempio di ciascuna di esse.
 
 È possibile usare un valore restituito del metodo per un'associazione di output applicando l'attributo al valore restituito del metodo. Vedere l'esempio in [uso del valore restituito della funzione di Azure](../azure-functions/functions-bindings-return-value.md).
 
@@ -453,7 +453,7 @@ static async Task Main()
 }
 ```
 
-Per altri dettagli, vedere l'articolo sull' [associazione dell'archiviazione delle code](../azure-functions/functions-bindings-storage-queue.md#hostjson-settings) .
+Per altri dettagli, vedere l'articolo sull' [associazione dell'archiviazione delle code](../azure-functions/functions-bindings-storage-queue-trigger.md#hostjson-properties) .
 
 #### <a name="version-2x"></a>Versione 2. *x*
 
@@ -524,7 +524,7 @@ static async Task Main()
 }
 ```
 
-Per altri dettagli, vedere l'articolo sull' [associazione del bus di servizio](../azure-functions/functions-bindings-service-bus.md#hostjson-settings) .
+Per altri dettagli, vedere l'articolo sull' [associazione del bus di servizio](../azure-functions/functions-bindings-service-bus-output.md#hostjson-settings) .
 
 ### <a name="configuration-for-other-bindings"></a>Configurazione per altre associazioni
 
@@ -680,11 +680,11 @@ Per altre informazioni, vedere [Associazione in fase di esecuzione](../azure-fun
 
 La documentazione di funzioni di Azure fornisce informazioni di riferimento su ogni tipo di binding. In ogni articolo di riferimento dell'associazione sono disponibili le informazioni seguenti. Questo esempio è basato sulla coda di archiviazione.
 
-* [Pacchetti](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x). Il pacchetto che è necessario installare per includere il supporto per l'associazione in un progetto di webjobs SDK.
-* [Esempi](../azure-functions/functions-bindings-storage-queue.md#trigger). Esempi di codice. L' C# esempio di libreria di classi si applica a webjobs SDK. Omettere solo l'attributo `FunctionName`.
-* [Attributi](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes-and-annotations). Attributi da utilizzare per il tipo di associazione.
-* [Configurazione](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration). Spiegazioni delle proprietà degli attributi e dei parametri del costruttore.
-* [Utilizzo](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Tipi a cui è possibile eseguire l'associazione e informazioni sul funzionamento dell'associazione. Ad esempio: algoritmo di polling, elaborazione di una coda non elaborabile.
+* [Pacchetti](../azure-functions/functions-bindings-storage-queue.md). Il pacchetto che è necessario installare per includere il supporto per l'associazione in un progetto di webjobs SDK.
+* [Esempi](../azure-functions/functions-bindings-storage-queue-trigger.md). Esempi di codice. L' C# esempio di libreria di classi si applica a webjobs SDK. Omettere solo l'attributo `FunctionName`.
+* [Attributi](../azure-functions/functions-bindings-storage-queue-trigger.md#attributes-and-annotations). Attributi da utilizzare per il tipo di associazione.
+* [Configurazione](../azure-functions/functions-bindings-storage-queue-trigger.md#configuration). Spiegazioni delle proprietà degli attributi e dei parametri del costruttore.
+* [Utilizzo](../azure-functions/functions-bindings-storage-queue-trigger.md#usage). Tipi a cui è possibile eseguire l'associazione e informazioni sul funzionamento dell'associazione. Ad esempio: algoritmo di polling, elaborazione di una coda non elaborabile.
   
 Per un elenco di articoli di riferimento sull'associazione, vedere "binding supportati" nell'articolo [trigger e associazioni](../azure-functions/functions-triggers-bindings.md#supported-bindings) per funzioni di Azure. In tale elenco, i binding HTTP, webhook e griglia di eventi sono supportati solo da funzioni di Azure, non da webjobs SDK.
 
@@ -745,7 +745,7 @@ Alcuni trigger dispongono del supporto integrato per la gestione della concorren
 
 * **QueueTrigger**. Impostare `JobHostConfiguration.Queues.BatchSize` su `1`.
 * **ServiceBusTrigger**. Impostare `ServiceBusConfiguration.MessageOptions.MaxConcurrentCalls` su `1`.
-* **FileTrigger**. Impostare `FileProcessor.MaxDegreeOfParallelism` su `1`.
+* **Filetrigger**. Impostare `FileProcessor.MaxDegreeOfParallelism` su `1`.
 
 È possibile usare queste impostazioni per assicurarsi che la funzione viene eseguita come singleton in una singola istanza. Per assicurarsi che venga eseguita una sola istanza della funzione quando l'app Web viene scalata in orizzontale a più istanze, applicare un blocco singleton a livello di listener sulla funzione (`[Singleton(Mode = SingletonMode.Listener)]`). I blocchi del listener vengono acquisiti all'avvio del JobHost. Se tutte e tre le istanze aumentate vengono avviate nello stesso momento, una sola istanza acquisisce il blocco e viene avviato un solo listener.
 
@@ -815,7 +815,7 @@ I filtri funzione (anteprima) offrono un modo per personalizzare la pipeline di 
 
 ## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
 
-Si consiglia il Framework di registrazione sviluppato per ASP.NET. L' [articolo introduttivo](webjobs-sdk-get-started.md) illustra come usarlo. 
+Si consiglia il Framework di registrazione sviluppato per ASP.NET. L'articolo [introduttivo](webjobs-sdk-get-started.md) illustra come usarlo. 
 
 ### <a name="log-filtering"></a>Filtro del log
 
@@ -829,7 +829,7 @@ Ogni log creato da un'istanza `ILogger` ha `Category` e `Level` associati. [`Log
 |Avviso     | 3 |
 |Errore       | 4 |
 |Critico    | 5 |
-|Nessuno        | 6 |
+|nessuno        | 6 |
 
 È possibile filtrare in modo indipendente ogni categoria in un particolare [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel). Ad esempio, si potrebbe voler vedere tutti i log per l'elaborazione del trigger del log ma solo `Error` e superiori per tutto il resto.
 
@@ -1002,4 +1002,4 @@ Questo articolo ha fornito frammenti di codice che illustrano come gestire scena
 [`ConfigureServices`]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
 [`ITelemetryInitializer`]: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
 [`TelemetryConfiguration`]: /dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
-[`JobHostConfiguration`]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs
+[JobHostConfiguration]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs

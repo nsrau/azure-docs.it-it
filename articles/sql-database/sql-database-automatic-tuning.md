@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/06/2019
-ms.openlocfilehash: 34f102b43de669b5ea03324db47ac4dfcb554133
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: eefaaa59a3dc0f0900666bc697f64e4f405a0d74
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190752"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498713"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ottimizzazione automatica nel database SQL di Azure
 
@@ -82,8 +82,8 @@ Le opzioni di ottimizzazione automatica possono essere abilitate o disabilitate 
 > [!IMPORTANT]
 > A partire da marzo, 2020 le modifiche apportate alle impostazioni predefinite di Azure per l'ottimizzazione automatica diverranno effettive come segue:
 > - Le nuove impostazioni predefinite di Azure verranno FORCE_LAST_GOOD_PLAN = Enabled, CREATE_INDEX = disabled e DROP_INDEX = disabled.
-> - I server esistenti senza preferenze di ottimizzazione automatica configurati verranno configurati automaticamente con le nuove impostazioni predefinite di Azure. Si applica a tutti i clienti che attualmente dispongono di ottimizzazione automatica in uno stato non definito.
-> - I nuovi server creati verranno automaticamente configurati con le nuove impostazioni predefinite di Azure (a differenza di quanto avviene in precedenza quando la configurazione dell'ottimizzazione automatica era in uno stato non definito durante la creazione del nuovo server).
+> - I server esistenti senza preferenze di ottimizzazione automatica configurata verranno automaticamente configurati per EREDITAre le nuove impostazioni predefinite di Azure. Questo vale per tutti i clienti che dispongono attualmente di impostazioni server per l'ottimizzazione automatica in uno stato non definito.
+> - I nuovi server creati verranno automaticamente configurati in modo da EREDITAre le nuove impostazioni predefinite di Azure (a differenza di quanto prima quando la configurazione dell'ottimizzazione automatica era in uno stato non definito durante la creazione di un nuovo server).
 >
 
 Il metodo consigliato per la configurazione dell'ottimizzazione automatica è quello che prevede la configurazione delle opzioni di ottimizzazione automatica in un server e l'eredità delle impostazioni per i database appartenenti al server padre, poiché questo metodo semplifica la gestione delle opzioni di ottimizzazione automatica per un numero elevato di database.

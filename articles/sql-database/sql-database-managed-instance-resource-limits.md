@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 11/27/2019
-ms.openlocfilehash: eed0ed96efdc84697797c50578e11eee37d4d495
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 02/18/2020
+ms.openlocfilehash: 6e6d4ea6c96949a60677bcf3bf40a53ec3a251c7
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201731"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526859"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse dell'istanza gestita di database SQL di Azure
 
@@ -96,7 +96,7 @@ Istanza gestita ha due livelli di servizio: [per utilizzo generico](sql-database
 
 In per utilizzo generico livello di servizio ogni file di database sta ottenendo IOPS e velocità effettiva dedicati che dipendono dalle dimensioni del file. I file più grandi ricevono un numero maggiore di IOPS e velocità effettiva. Le caratteristiche di i/o dei file di database sono illustrate nella tabella seguente:
 
-| Dimensione del file           | GiB 0-128 | 128-256 GiB | 256-512 GiB | 0,5-1 TiB    | 1-2 TiB    | 2-4 TiB | 4-8 TiB |
+| Dimensione del file | > = 0 e < = 128 GiB | > 128 e < = 256 GiB | > 256 e < = 512 GiB | > 0,5 e < = 1 TiB    | > 1 e < = 2 TiB    | > 2 e < = 4 TiB | > 4 e < = 8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
 | IOPS per file       | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500   |
 | Velocità effettiva per file | 100 MiB/s | 125 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 

@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: f6819ddce777a5740ef1f5f9ab887a0646c4e464
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: e53db645875646b1e021cc0d3d760677e1128c0c
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122339"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486377"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gestione dei modelli, distribuzione e monitoraggio con Azure Machine Learning
 
@@ -89,7 +89,7 @@ Viene inoltre fornita la configurazione della piattaforma di distribuzione di de
 
 Quando viene creata l'immagine, vengono aggiunti anche i componenti necessari per Azure Machine Learning. Ad esempio, gli asset necessari per eseguire il servizio Web e interagire con IoT Edge.
 
-#### <a name="batch-scoring"></a>Punteggio batch
+#### <a name="batch-scoring"></a>Assegnazione dei punteggi batch
 Il Punteggio batch è supportato tramite pipeline ML. Per ulteriori informazioni, vedere [stime batch in Big Data](how-to-use-parallel-run-step.md).
 
 #### <a name="real-time-web-services"></a>Servizi Web in tempo reale
@@ -114,7 +114,7 @@ Per ulteriori informazioni, vedere [deploy Models](how-to-deploy-and-where.md).
 
 Per ulteriori informazioni, vedere [deploy Models](how-to-deploy-and-where.md).
 
-### <a name="analytics"></a>Analisi
+### <a name="analytics"></a>Analytics
 
 Microsoft Power BI supporta l'uso di modelli di apprendimento automatico per l'analisi dei dati. Per ulteriori informazioni, vedere [integrazione di Azure Machine Learning in Power BI (anteprima)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
@@ -138,6 +138,19 @@ Il monitoraggio consente di comprendere quali dati vengono inviati al modello e 
 Queste informazioni consentono di comprendere la modalità di utilizzo del modello. I dati di input raccolti possono essere utili anche per il training di versioni future del modello.
 
 Per altre informazioni, vedere [Come abilitare la raccolta dei dati dei modelli](how-to-enable-data-collection.md).
+
+## <a name="retrain-your-model-on-new-data"></a>Ripetere il training del modello con nuovi dati
+
+Spesso è necessario aggiornare il modello o anche ripetere il training da zero, quando si ricevono nuove informazioni. In alcuni casi, la ricezione di nuovi dati è una parte prevista del dominio. In altri casi, come illustrato in [rilevare la tendenza dei dati (anteprima) sui set di dati](how-to-monitor-datasets.md), le prestazioni del modello possono peggiorare in modo simile alle modifiche apportate a un particolare sensore, modifiche ai dati naturali, ad esempio gli effetti stagionali, o funzionalità che si spostano in relazione ad altre funzionalità. 
+
+Non esiste alcuna risposta universale a "Ricerca per categorie sa se devo ripetere il training?" Tuttavia, gli strumenti di monitoraggio e di eventi di Azure ML descritti in precedenza sono ottimi punti di partenza per l'automazione. Dopo aver deciso di ripetere il training, è necessario: 
+
+- Pre-elabora i dati usando un processo ripetibile e automatizzato
+- Eseguire il training del nuovo modello
+- Confrontare gli output del nuovo modello con quelli del vecchio modello
+- Usare i criteri predefiniti per scegliere se sostituire il modello precedente 
+
+Un tema dei passaggi precedenti consiste nel fatto che la ripetizione del training dovrebbe essere automatizzata, non ad hoc. [Azure Machine Learning pipeline](concept-ml-pipelines.md) rappresentano una valida soluzione per la creazione di flussi di lavoro relativi alla preparazione, al training, alla convalida e alla distribuzione dei dati. Leggere ripetere il training dei [modelli con Azure Machine Learning Designer (anteprima)](how-to-retrain-designer.md) per vedere come le pipeline e il Azure machine learning designer rientrino in uno scenario di ripetizione del training. 
 
 ## <a name="automate-the-ml-lifecycle"></a>Automatizzare il ciclo di vita del ML 
 

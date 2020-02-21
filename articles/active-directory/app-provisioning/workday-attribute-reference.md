@@ -7,25 +7,25 @@ documentationcenter: na
 manager: jodadzie
 ms.assetid: afb77f2d-5ddd-4c2e-a840-09021b0efef1
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: d193fdd5336ab32b10038ee170aee22a7cea88fd
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 54b4eaf483fd6817fe73c87962d5f26533a2b507
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066057"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77521932"
 ---
 # <a name="workday-attribute-reference"></a>Informazioni di riferimento sugli attributi di Workday
 
 La tabella seguente acquisisce l'elenco degli attributi della giornata lavorativa e le espressioni XPATH corrispondenti che vengono spedite insieme al connettore app per il provisioning in ingresso della giornata lavorativa. 
 
-| \# | Name                                  | Espressione dell'API giorni lavorativi                                                                                                                                                                                                                                                                                                                                                                                       |
+| \# | Nome                                  | Espressione dell'API giorni lavorativi                                                                                                                                                                                                                                                                                                                                                                                       |
 |----|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1  | Attivo                                | WD: Worker/WD: Worker\_data/WD: Employment\_data/WD: stato\_di lavoro\_data/WD: Active/text\(\)                                                                                                                                                                                                                                                                                                                     |
 | 2  | AddressLine2Data                      | WD: Worker/WD: Worker\_data/WD: Employment\_data/WD: position\_data/WD: business\_site\_Summary\_data/WD: Address\_data/WD: Address\_line\_data\[@wd:Type=' ADDRESS\_LINE\_2'\]/text\(\)                                                                                                                                                                                                                             |
@@ -58,7 +58,7 @@ La tabella seguente acquisisce l'elenco degli attributi della giornata lavorativ
 | 29 | LocationIdentifier                    | WD: Worker/WD: Worker\_data/WD: Employment\_data/WD: position\_data/WD: business\_site\_Summary\_data/WD: location\_Reference/WD: ID\[@wd:type=' location\_ID '\]/text\(\)                                                                                                                                                                                                                                            |
 | 30 | ManagerReference                      | WD: Worker/WD: Worker\_data/WD: Management\_Chain\_data/WD: Worker\_supervisione\_Management\_Chain\_data\[position\(\)= 1\]/WD.: Management\_Chain\_data\[Last\(\)= position\(\)\]/WD.: Manager\_Reference/WD: ID\[@wd:type=' WID '\]/text\(\)                                                                                                                                                                            |
 | 31 | MiddleName                            | WD: Worker/WD: Worker\_data/WD: Personal\_data/WD: Name\_data/WD: Legal\_Name\_data/WD: Name\_detail\_data/WD: Middle\_Name/text\(\)                                                                                                                                                                                                                                                                                |
-| 32 | Dispositivi mobili                                | WD: Worker/WD: Worker\_data/WD: Personal\_data/WD: Contact\_data/WD: Phone\_data\[translate\(String\(WD: Phone\_Device\_Type\_Reference/@wd:Descriptor\),' abcdefghijklmnopqrstuvwxyz ',' ABCDEFGHIJKLMNOPQRSTUVWXYZ '\)=' MOBILE ' e translate\(String\(WD: Usage\_data/WD: Type\_data/WD: Type\_Reference/@wd:Descriptor,' abcdefghijklmnopqrstuvwxyz ',' ABCDEFGHIJKLMNOPQRSTUVWXYZ '\)=' WORK '\]/@wd:Formatted\_Phone\)    |
+| 32 | Mobile                                | WD: Worker/WD: Worker\_data/WD: Personal\_data/WD: Contact\_data/WD: Phone\_data\[translate\(String\(WD: Phone\_Device\_Type\_Reference/@wd:Descriptor\),' abcdefghijklmnopqrstuvwxyz ',' ABCDEFGHIJKLMNOPQRSTUVWXYZ '\)=' MOBILE ' e translate\(String\(WD: Usage\_data/WD: Type\_data/WD: Type\_Reference/@wd:Descriptor,' abcdefghijklmnopqrstuvwxyz ',' ABCDEFGHIJKLMNOPQRSTUVWXYZ '\)=' WORK '\]/@wd:Formatted\_Phone\)    |
 | 33 | Comune                          | WD: Worker/WD: Worker\_data/WD: Employment\_data/WD: position\_data/WD: business\_site\_Summary\_data/WD: Address\_data/WD: Municipal/text\(\)                                                                                                                                                                                                                                                                   |
 | 34 | PositionID                            | WD: Worker/WD: Worker\_data/WD: Employment\_data/WD: position\_data/WD: position\_ID/text\(\)                                                                                                                                                                                                                                                                                                                     |
 | 35 | PositionTitle                         | WD: Worker/WD: Worker\_data/WD: Employment\_data/WD: position\_data/WD: position\_title/text\(\)                                                                                                                                                                                                                                                                                                                  |

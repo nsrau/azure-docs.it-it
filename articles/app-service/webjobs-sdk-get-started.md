@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 11df1557fdcad059910dd2a87e9056e19a90bf01
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e2b61b87707a732d3b7c27f97b9ca5fcf82b4bf3
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75640839"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483042"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introduzione ad Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
@@ -19,7 +19,7 @@ Questo articolo illustra come usare Visual Studio 2019 per creare un progetto di
 
 Questo articolo illustra come distribuire processi Web come app console .NET Core. Per distribuire processi Web come app console .NET Framework, vedere [processi Web come app console .NET Framework](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps). Se si è interessati a webjobs SDK versione 2. x, che supporta solo .NET Framework, vedere [sviluppare e distribuire processi Web con Visual Studio-app Azure Service](webjobs-dotnet-deploy-vs.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Installare Visual Studio 2019](/visualstudio/install/) con il carico di lavoro **sviluppo di Azure** . Se si ha già Visual Studio ma non tale carico di lavoro, aggiungere il carico di lavoro selezionando **Strumenti > Ottieni strumenti e funzionalità**.
 
@@ -177,7 +177,7 @@ A partire dalla versione 3. x, è necessario installare in modo esplicito l'este
 
    L'attributo `QueueTrigger` indica al runtime di chiamare questa funzione quando viene scritto un nuovo messaggio in una coda di archiviazione di Azure denominata `queue`. Il contenuto del messaggio nella coda viene passato al codice del metodo nel parametro `message`. Nel corpo del metodo vengono elaborati i dati del trigger. In questo esempio, il codice registra semplicemente il messaggio.
 
-   Il parametro `message` non deve necessariamente essere una stringa. È possibile eseguire l'associazione anche a un oggetto JSON, una matrice di byte o un oggetto [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage). [Vedere l'utilizzo del trigger della coda](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Ogni tipo di associazione (come code, BLOB o tabelle) presenta un diverso set di tipi di parametri a cui è possibile eseguire l'associazione.
+   Il parametro `message` non deve necessariamente essere una stringa. È possibile eseguire l'associazione anche a un oggetto JSON, una matrice di byte o un oggetto [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage). [Vedere l'utilizzo del trigger della coda](../azure-functions/functions-bindings-storage-queue-trigger.md#usage). Ogni tipo di associazione (come code, BLOB o tabelle) presenta un diverso set di tipi di parametri a cui è possibile eseguire l'associazione.
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
@@ -185,7 +185,7 @@ L'emulatore di archiviazione di Azure eseguito in locale non include tutte le fu
 
 1. Aprire **Esplora server** in Visual Studio e accedere ad Azure. Fare clic con il pulsante destro del mouse sul nodo **Azure** e quindi scegliere **Connessione alla sottoscrizione di Microsoft Azure**.
 
-   ![Accedere a Azure](./media/webjobs-sdk-get-started/sign-in.png)
+   ![Accedere ad Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
 1. Nel nodo **Azure** in **Esplora server** fare clic con il pulsante destro del mouse su **Archiviazione** e quindi scegliere **Crea account di archiviazione**.
 
@@ -273,7 +273,7 @@ In questa sezione si compila e si esegue il progetto in locale e si attiva la fu
 
    Dato che è stato usato l'attributo `QueueTrigger` nella funzione `ProcessQueueMessage`, il runtime di WeJobs SDK avviato è in ascolto di messaggi nella coda, trova un nuovo messaggio nella coda denominata *queue* e chiama la funzione.
 
-   A causa del [backoff esponenziale del polling delle code](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm), prima che il runtime trovi il messaggio e richiami la funzione possono trascorrere fino a 2 minuti. Questo tempo di attesa può essere ridotto con l'esecuzione in [modalità di sviluppo](webjobs-sdk-how-to.md#host-development-settings).
+   A causa del [backoff esponenziale del polling delle code](../azure-functions/functions-bindings-storage-queue-trigger.md#polling-algorithm), prima che il runtime trovi il messaggio e richiami la funzione possono trascorrere fino a 2 minuti. Questo tempo di attesa può essere ridotto con l'esecuzione in [modalità di sviluppo](webjobs-sdk-how-to.md#host-development-settings).
 
    L'output della console è simile al seguente:
 
@@ -326,7 +326,7 @@ In questa sezione si configura la registrazione in Application Insights prima de
 
 1. Se la casella **Impostazioni applicazione** non contiene una chiave di strumentazione di Application Insights, aggiungere quella copiata in precedenza. La presenza o meno della chiave di strumentazione dipende da come è stata creata l'app del servizio app.
 
-   |Nome  |Valore  |
+   |Nome  |valore  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {instrumentation key} |
 
@@ -436,7 +436,7 @@ Durante la distribuzione, si crea un'istanza del servizio app in cui eseguire le
 1. Aggiornare la pagina **Coda**. Il nuovo messaggio non sarà presente perché è stato elaborato dalla funzione eseguita in Azure.
 
    > [!TIP]
-   > Quando si esegue il test in Azure, usare la [modalità di sviluppo](webjobs-sdk-how-to.md#host-development-settings) in modo da richiamare immediatamente la funzione trigger della coda ed evitare i ritardi causati dal [backoff esponenziale del polling delle code](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm).
+   > Quando si esegue il test in Azure, usare la [modalità di sviluppo](webjobs-sdk-how-to.md#host-development-settings) in modo da richiamare immediatamente la funzione trigger della coda ed evitare i ritardi causati dal [backoff esponenziale del polling delle code](../azure-functions/functions-bindings-storage-queue-trigger.md#polling-algorithm).
 
 ### <a name="view-logs-in-application-insights"></a>Visualizzare i log in Application Insights
 

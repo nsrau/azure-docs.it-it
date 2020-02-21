@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 12/18/2019
+ms.date: 02/19/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7798cb86606c206f027a1014802770a74aba909a
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: ba5af060a02e8525320f005b5d1c80534c5ca4ea
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160378"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483925"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codici di errore Autenticazione di Azure AD e autorizzazione
 
@@ -133,7 +133,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS50180 | WindowsIntegratedAuthMissing: è necessaria l'autenticazione integrata di Windows. Abilitare il tenant per Seamless SSO. |
 | AADSTS50187 | DeviceInformationNotProvided: il servizio non è stato in grado di eseguire l'autenticazione del dispositivo. |
 | AADSTS50196 | LoopDetected-è stato rilevato un ciclo client. Controllare la logica dell'app per assicurarsi che la memorizzazione nella cache dei token venga implementata e che le condizioni di errore siano gestite correttamente.  L'app ha effettuato troppe richieste in un periodo troppo breve, a indicare che si trova in uno stato di errore o che richiede i token in maniera abusiva. |
-| AADSTS50199 | CmsiInterrupt: è necessaria l'interazione dell'utente per l'autenticazione.  Poiché si tratta di un errore di "interaction_required", il client deve eseguire l'autenticazione interattiva.  Questo problema si verifica perché è stata usata una visualizzazione di sistema per richiedere un token per un'applicazione nativa. è necessario che all'utente venga chiesto se si tratta effettivamente dell'app a cui si intende accedere.|
+| AADSTS50199 | CmsiInterrupt: per motivi di sicurezza, è richiesta la conferma dell'utente per questa richiesta.  Poiché si tratta di un errore di "interaction_required", il client deve eseguire l'autenticazione interattiva.  Questo problema si verifica perché è stata usata una visualizzazione di sistema per richiedere un token per un'applicazione nativa. è necessario che all'utente venga chiesto se si tratta effettivamente dell'app a cui si intende accedere.|
 | AADSTS51000 | RequiredFeatureNotEnabled: la funzionalità è disabilitata. |
 | AADSTS51001 | DomainHintMustbePresent: deve essere presente il suggerimento di dominio con l'ID di sicurezza locale o l'UPN locale. |
 | AADSTS51004 | UserAccountNotInDirectory: l'account utente non è presente nella directory. |

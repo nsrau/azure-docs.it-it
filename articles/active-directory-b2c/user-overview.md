@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f9573f4d226df4eb6068af679f2eb45dc87c7e40
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f34fe324f22be41d8cdff0df67777bc254bbc290
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840061"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484265"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Panoramica degli account utente in Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Sono disponibili i tipi di account seguenti:
 - **Account guest**: un account guest può essere solo un account Microsoft o un utente di Azure AD che può essere usato per accedere alle applicazioni o gestire i tenant.
 - **Account del consumer** : un account utente viene usato da un utente delle applicazioni registrate con Azure ad B2C. Gli account utente possono essere creati da:
   - Utente che attraversa un flusso utente di iscrizione in un'applicazione Azure AD B2C
-  - Utilizzo di Azure AD API Graph
+  - Uso dell'API Microsoft Graph
   - Uso del portale di Azure
 
 ## <a name="work-account"></a>Account aziendale
@@ -76,12 +76,12 @@ Per invitare un utente guest è anche possibile usare l'[API Graph di Microsoft]
 
 ## <a name="consumer-user"></a>Utente consumer
 
-L'utente consumer può accedere ad applicazioni protette da Azure AD B2C, ma non alle risorse di Azure, ad esempio il portale di Azure. Può usare un account locale o account federati come ad esempio Facebook o Twitter. Un account utente viene creato usando un [flusso utente di iscrizione o accesso](user-flow-overview.md), usando il Azure ad API Graph o usando il portale di Azure.
+L'utente consumer può accedere ad applicazioni protette da Azure AD B2C, ma non alle risorse di Azure, ad esempio il portale di Azure. Può usare un account locale o account federati come ad esempio Facebook o Twitter. Un account utente viene creato usando un [flusso utente di iscrizione o di accesso](user-flow-overview.md), usando l'API Microsoft Graph o l'portale di Azure.
 
 È possibile specificare i dati raccolti quando viene creato un account consumer usando attributi utente personalizzati. Per altre informazioni, vedere [Definire attributi personalizzati in Azure Active Directory B2C](user-flow-custom-attributes.md).
 
-Per creare un account consumer di Azure AD B2C è possibile usare le informazioni contenute nella sezione **Creare account utente consumer** di [Usare l'API Graph di Azure AD](manage-user-accounts-graph-api.md). Per gestire le proprietà dell'account è possibile usare le informazioni contenute nella sezione **Aggiornare gli account utente consumer** dello stesso articolo.
+Per ulteriori informazioni sulla gestione degli account utente, vedere [manage Azure ad B2C user accounts with Microsoft Graph](manage-user-accounts-graph-api.md).
 
 ### <a name="migrate-consumer-user-accounts"></a>Migrare gli account utente consumer
 
-Può essere necessario eseguire la migrazione degli account utente consumer esistenti da qualsiasi provider di identità ad Azure AD B2C. Per altre informazioni, vedere [Migrazione degli utenti](user-migration.md) oppure [Eseguire la migrazione di utenti con identità dei social network](migrate-social-identities.md).
+Può essere necessario eseguire la migrazione degli account utente consumer esistenti da qualsiasi provider di identità ad Azure AD B2C. Per altre informazioni, vedere [migrare gli utenti a Azure ad B2C](user-migration.md).

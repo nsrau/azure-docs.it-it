@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 02/19/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b1489ce6bee2ce25ffb268ef20cc8fa587664619
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f4265659df786cf0a972b6dcf4f122bfc68535c1
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848928"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483279"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account Microsoft usando criteri personalizzati in Azure Active Directory B2C
 
@@ -24,12 +24,12 @@ ms.locfileid: "76848928"
 
 Questo articolo illustra come abilitare l'accesso per gli utenti da un account Microsoft usando [criteri personalizzati](custom-policy-overview.md) in Azure Active Directory B2C (Azure ad B2C).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](custom-policy-get-started.md).
 - Se non si ha già un account Microsoft, crearne uno all'indirizzo [https://www.live.com/](https://www.live.com/).
 
-## <a name="add-an-application"></a>Aggiungere un'applicazione
+## <a name="register-an-application"></a>Registrare un'applicazione
 
 Per abilitare l'accesso per gli utenti con una account Microsoft, è necessario registrare un'applicazione all'interno del tenant di Azure AD. Il tenant di Azure AD non corrisponde al tenant di Azure AD B2C.
 
@@ -46,6 +46,19 @@ Per abilitare l'accesso per gli utenti con una account Microsoft, è necessario 
 1. Fare clic su **nuovo segreto client**
 1. Immettere una **Descrizione** per il segreto, ad esempio il *segreto client dell'applicazione MSA*, quindi fare clic su **Aggiungi**.
 1. Registrare la password dell'applicazione visualizzata nella colonna **valore** . Questo valore verrà usato nella sezione successiva.
+
+## <a name="configuring-optional-claims"></a>Configurazione di attestazioni facoltative
+
+Se si desidera ottenere le attestazioni `family_name` e `given_name` da Azure AD, è possibile configurare attestazioni facoltative per l'applicazione nell'interfaccia utente del portale di Azure o nel manifesto dell'applicazione. Per altre informazioni, vedere [How to provide optional Claims to your Azure ad app](../active-directory/develop/active-directory-optional-claims.md).
+
+1. Accedere al [portale di Azure](https://portal.azure.com). Cercare e selezionare **Azure Active Directory**.
+1. Nella sezione **Gestisci** selezionare **registrazioni app**.
+1. Selezionare nell'elenco l'applicazione per la quale si desidera configurare attestazioni facoltative.
+1. Nella sezione **Gestisci** selezionare **configurazione token (anteprima)** .
+1. Selezionare **Aggiungi attestazione facoltativa**.
+1. Selezionare il tipo di token che si desidera configurare.
+1. Selezionare le attestazioni facoltative da aggiungere.
+1. Fare clic su **Aggiungi**.
 
 ## <a name="create-a-policy-key"></a>Creare una chiave dei criteri
 
@@ -94,10 +107,12 @@ Per consentire agli utenti di accedere con una account Microsoft, è necessario 
             <Key Id="client_secret" StorageReferenceId="B2C_1A_MSASecret" />
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" />
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="oid" />
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
+            <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
             <OutputClaim ClaimTypeReferenceId="email" />
           </OutputClaims>
           <OutputClaimsTransformations>

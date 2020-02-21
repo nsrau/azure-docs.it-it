@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2019
 ms.author: memildin
-ms.openlocfilehash: 0096bccf76e81f2bca1a449cea2474cb5266fabc
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: f4f6cf01502070ea63eaf0083aba33ff213534a4
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443585"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500254"
 ---
 # <a name="the-enhanced-secure-score-preview"></a>Punteggio sicuro migliorato (anteprima) 
 
@@ -65,15 +65,15 @@ Ad esempio, il controllo di sicurezza denominato "Applica aggiornamenti del sist
 
 Il potenziale per il controllo di sicurezza "Applica aggiornamenti del sistema" nella schermata precedente Mostra "2% (1 punto)". Ciò significa che se si esegue il monitoraggio e l'aggiornamento di tutte le raccomandazioni in questo controllo, il punteggio aumenterà del 2% (in questo caso, un punto). Per semplicità, i valori nella colonna "aumento potenziale" dell'elenco di raccomandazioni vengono arrotondati a numeri interi. Le descrizioni comandi mostrano i valori esatti:
 
+* **Punteggio massimo** : il numero massimo di punti che è possibile ottenere completando tutte le raccomandazioni all'interno di un controllo. Il Punteggio massimo per un controllo indica il significato relativo del controllo. Usare i valori dei punteggi massimi per valutare i problemi da usare per primi. 
 * **Potenziale aumento** : i punti rimanenti disponibili all'interno del controllo. Per aggiungere questi punti al Punteggio sicuro, correggere tutte le raccomandazioni del controllo. Nell'esempio precedente, l'unico punto visualizzato per il controllo è effettivamente 0,96 punti.
 * **Punteggio corrente** : punteggio corrente per questo controllo. Ogni controllo contribuisce a raggiungere il punteggio totale. In questo esempio, il controllo contribuisce a 5,04 punti al totale. 
-* **Punteggio massimo** : somma dei due valori precedenti.
 
 ### <a name="calculations---understanding-your-score"></a>Calcoli-comprensione del Punteggio
 
 |Metrica|Formula ed esempio|
 |-|-|
-|**Punteggio corrente del controllo di sicurezza**|<br>![equazione per il calcolo del punteggio corrente di un controllo di sicurezza](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Ogni singolo controllo di sicurezza contribuisce a raggiungere il Punteggio di sicurezza. Ogni risorsa interessata da una raccomandazione all'interno del controllo contribuisce alla valutazione del punteggio corrente del controllo. Il punteggio corrente per ogni controllo è una misura dello stato delle risorse *all'interno* del controllo.<br>![descrizioni comando che mostrano i valori utilizzati durante il calcolo del punteggio corrente del controllo di sicurezza](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>In questo esempio, il punteggio massimo di 6 verrebbe diviso per 78 perché è la somma delle risorse integre e non integre.<br>6/78 = 0,0769<br>Il punteggio corrente viene moltiplicato per il numero di risorse integre (74):<br>0,0769 * 74 = **5,69**<br><br>|
+|**Punteggio corrente del controllo di sicurezza**|<br>![equazione per il calcolo del punteggio corrente di un controllo di sicurezza](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Ogni singolo controllo di sicurezza contribuisce a raggiungere il Punteggio di sicurezza. Ogni risorsa interessata da una raccomandazione all'interno del controllo contribuisce alla valutazione del punteggio corrente del controllo. Il punteggio corrente per ogni controllo è una misura dello stato delle risorse *all'interno* del controllo.<br>![descrizioni comando che mostrano i valori utilizzati durante il calcolo del punteggio corrente del controllo di sicurezza](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>In questo esempio, il punteggio massimo di 6 verrebbe diviso per 78 perché è la somma delle risorse integre e non integre.<br>6/78 = 0,0769<br>Moltiplicando il numero di risorse integre (4) si ottiene il punteggio corrente:<br>0,0769 * 4 = **0,31**<br><br>|
 |**Punteggio di sicurezza**<br>Singola sottoscrizione|<br>![Equazione per il calcolo del Punteggio sicuro corrente](media/secure-score-security-controls/secure-score-equation.png)<br><br>![Punteggio sicuro di una singola sottoscrizione con tutti i controlli abilitati](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>In questo esempio è presente una singola sottoscrizione con tutti i controlli di sicurezza disponibili (un punteggio massimo potenziale di 60 punti). Il Punteggio Mostra 28 punti di un possibile 60 e i restanti 32 punti vengono riflessi nelle cifre "potenziale aumento del punteggio" dei controlli di sicurezza.<br>![Elenco di controlli e il potenziale aumento del Punteggio](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
 |**Punteggio di sicurezza**<br>Più sottoscrizioni|<br>Viene aggiunto il punteggio corrente per tutte le risorse in tutte le sottoscrizioni e il calcolo è quindi uguale a quello di una singola sottoscrizione<br><br>Quando si visualizzano più sottoscrizioni, il Punteggio sicuro valuta tutte le risorse all'interno di tutti i criteri abilitati e raggruppa il loro effetto combinato sul punteggio massimo del controllo di sicurezza.<br>![Punteggio sicuro per più sottoscrizioni con tutti i controlli abilitati](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>Il punteggio combinato **non** è una media; piuttosto, si tratta della posizione valutata dello stato di tutte le risorse in tutte le sottoscrizioni.<br>Anche in questo caso, se si passa alla pagina raccomandazioni e si aggiungono i punti potenziali disponibili, si noterà che si tratta della differenza tra il punteggio corrente (24) e il punteggio massimo disponibile (60).|
 ||||

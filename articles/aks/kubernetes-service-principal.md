@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mlearned
-ms.openlocfilehash: 1b0d3dec3925518922c5f668560889edd6f5de0b
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 62fc95ed7179dc4188c0c40e4c15aa9940bf2eb5
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867174"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524240"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entità servizio con il servizio Azure Kubernetes
 
@@ -70,6 +70,9 @@ az aks create \
     --client-secret <password>
 ```
 
+> [!NOTE]
+> Se si usa un'entità servizio esistente con un segreto personalizzato, assicurarsi che il segreto non sia più lungo di 190 byte.
+
 Se si distribuisce un cluster servizio Azure Kubernetes mediante il portale di Azure, nella pagina *Authentication* (Autenticazione) della finestra di dialogo **Create Kubernetes cluster** (Crea cluster Kubernetes) scegliere **Configure service principal** (Configura entità servizio). Selezionare **Use existing** (Usa esistente) e specificare i valori seguenti:
 
 - **ID client dell'entità servizio** è l'*appId*
@@ -102,7 +105,7 @@ Se si usa Azure Container Registry (ACR) come archivio immagini del contenitore,
 - Creare un [ruolo personalizzato][rbac-custom-role] e definire le autorizzazioni per i ruoli seguenti:
   - *Microsoft.Network/virtualNetworks/subnets/join/action*
   - *Microsoft.Network/virtualNetworks/subnets/read*
-  - *Microsoft.Network/virtualNetworks/subnets/write*
+  - *Microsoft. Network/virtualNetworks/subnet/scrittura*
   - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
@@ -140,7 +143,7 @@ Quando si usano entità di servizio Azure Kubernetes e di Azure AD, ricordare le
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 Le credenziali dell'entità servizio per un cluster AKS vengono memorizzate nella cache dall'interfaccia della riga di comando di Azure. Se queste credenziali sono scadute, si verificano errori durante la distribuzione dei cluster AKS. Il messaggio di errore seguente quando si esegue [AZ AKS create][az-aks-create] può indicare un problema con le credenziali dell'entità servizio memorizzata nella cache:
 

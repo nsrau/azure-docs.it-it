@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d8bdae5a860eb19741aa321606feb3f0825740a9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6451c5d32fffc0290592a2489c9cdc99be1b7b7c
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847303"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483296"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: domande frequenti
 
@@ -59,7 +59,7 @@ No. Gli ambiti predefiniti usati per il gruppo di provider di identità di socia
 
 ### <a name="does-my-application-have-to-be-run-on-azure-for-it-work-with-azure-ad-b2c"></a>Per essere compatibile con Azure AD B2C, un'applicazione deve essere eseguita in Azure?
 
-No, l'applicazione può essere ospitata ovunque (nel cloud o in locale). Per interagire con Azure AD B2C è sufficiente la possibilità di inviare e ricevere richieste HTTP su endpoint accessibili pubblicamente.
+No, l'applicazione può essere ospitata ovunque (nel cloud o in locale). Per interagire con Azure AD B2C deve avere la possibilità di inviare e ricevere richieste HTTP su endpoint accessibili pubblicamente.
 
 ### <a name="i-have-multiple-azure-ad-b2c-tenants-how-can-i-manage-them-on-the-azure-portal"></a>Nel caso di più tenant Azure AD B2C, come è possibile gestirli nel portale di Azure?
 
@@ -86,15 +86,17 @@ Attualmente non è possibile modificare il campo "Da:" del messaggio di posta el
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Come si esegue la migrazione di nomi utente, password e profili esistenti dal database personale in Azure AD B2C?
 
-È possibile usare l'API Graph di Azure AD per creare lo strumento di migrazione. Vedere il [Guida alla migrazione degli utenti](user-migration.md) per informazioni dettagliate.
+È possibile usare l'API Microsoft Graph per scrivere lo strumento di migrazione. Vedere il [Guida alla migrazione degli utenti](user-migration.md) per informazioni dettagliate.
 
 ### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>Qual è il flusso di password utente usato per gli account locali in Azure AD B2C?
 
-Il flusso di password utente di AAD B2C per gli account locali si basa sui criteri di Azure AD. L'iscrizione ad Azure AD B2C, i flussi di iscrizione o di accesso e di reset delle password utenti usano un livello di complessità sicuro e le password non scadono. Per altre informazioni dettagliate, vedere [Criteri password in Azure AD](/previous-versions/azure/jj943764(v=azure.100)) . Per informazioni su blocchi automatici e password degli account, vedere [Gestire le minacce alle risorse e ai dati in Azure Active Directory B2C](threat-management.md).
+Il flusso di password utente di AAD B2C per gli account locali si basa sui criteri di Azure AD. L'iscrizione ad Azure AD B2C, i flussi di iscrizione o di accesso e di reset delle password utenti usano un livello di complessità sicuro e le password non scadono. Per informazioni dettagliate, vedere [criteri e restrizioni per le password in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
+
+Per informazioni su blocchi automatici e password degli account, vedere [Gestire le minacce alle risorse e ai dati in Azure Active Directory B2C](threat-management.md).
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>È possibile usare Azure AD Connect per eseguire la migrazione in Azure AD B2C delle identità utente archiviate in Active Directory locale?
 
-No, Azure AD Connect non è progettato per funzionare con Azure AD B2C. È consigliabile usare l'[API Graph di Azure AD](manage-user-accounts-graph-api.md) per la migrazione dell'utente. Vedere il [Guida alla migrazione degli utenti](user-migration.md) per informazioni dettagliate.
+No, Azure AD Connect non è progettato per funzionare con Azure AD B2C. Prendere in considerazione l'uso dell' [API Microsoft Graph](manage-user-accounts-graph-api.md) per la migrazione degli utenti. Vedere il [Guida alla migrazione degli utenti](user-migration.md) per informazioni dettagliate.
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>L'applicazione può aprire le pagine di Azure AD B2C all'interno di un iFrame?
 
@@ -134,7 +136,7 @@ Per eliminare il tenant di Azure AD B2C, seguire questa procedura.
 
 È possibile usare l'esperienza di **applicazioni** correnti o la nuova esperienza Unified **registrazioni app (Preview)** . [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[Applicazioni](#tab/applications/)
+#### <a name="applications"></a>[Applicazioni](#tab/applications/)
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come *amministratore della sottoscrizione*. Usare lo stesso account aziendale o dell'Istituto di istruzione o lo stesso account Microsoft usato per iscriversi ad Azure.
 1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
@@ -155,7 +157,7 @@ Per eliminare il tenant di Azure AD B2C, seguire questa procedura.
 1. Selezionare **Azure Active Directory** dal menu a sinistra.
 1. Nella pagina **Overview (panoramica** ) selezionare **Delete directory (Elimina directory**). Seguire le istruzioni visualizzate per completare il processo.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come *amministratore della sottoscrizione*. Usare lo stesso account aziendale o dell'Istituto di istruzione o lo stesso account Microsoft usato per iscriversi ad Azure.
 1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.

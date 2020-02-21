@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 01/09/2020
-ms.openlocfilehash: 32b3135f805cc6c68d8cd9d6fa2b6f957cd140ad
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 7b6bd33346df9496c4c30353b68c11bdd7fad7a2
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444146"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486394"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sicurezza aziendale per Azure Machine Learning
 
@@ -26,7 +26,7 @@ Quando si usa un servizio cloud, una procedura consigliata consiste nel limitare
 > [!NOTE]
 > Le informazioni contenute in questo articolo funzionano con Azure Machine Learning Python SDK versione 1.0.83.1 o successiva.
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 La funzionalità autenticazione a più fattori è supportata se Azure Active Directory (Azure AD) è configurata per l'utilizzo. Ecco il processo di autenticazione:
 
@@ -46,7 +46,7 @@ Azure Machine Learning supporta due forme di autenticazione per i servizi Web: c
 |Metodo di autenticazione|Descrizione|Istanze di Azure Container|Servizio Azure Kubernetes|
 |---|---|---|---|
 |Chiave|Le chiavi sono statiche e non è necessario aggiornarle. Le chiavi possono essere rigenerate manualmente.|Disattivata per impostazione predefinita| Abilitato per impostazione predefinita|
-|Token|I token scadono dopo un periodo di tempo specificato ed è necessario aggiornarli.| Non disponibile| Disattivata per impostazione predefinita |
+|token|I token scadono dopo un periodo di tempo specificato ed è necessario aggiornarli.| Non disponibile| Disattivata per impostazione predefinita |
 
 Per esempi di codice, vedere la [sezione autenticazione del servizio Web](how-to-setup-authentication.md#web-service-authentication).
 
@@ -55,12 +55,12 @@ Per esempi di codice, vedere la [sezione autenticazione del servizio Web](how-to
 È possibile creare più aree di lavoro, ciascuna delle quali può essere condivisa da più utenti. Quando si condivide un'area di lavoro, è possibile controllarne l'accesso assegnando questi ruoli agli utenti:
 
 * Proprietario
-* Contributor
+* Collaboratore
 * Reader
 
 Nella tabella seguente sono elencate alcune delle principali operazioni di Azure Machine Learning e i ruoli che possono eseguirli:
 
-| Operazione Azure Machine Learning | Proprietario | Contributor | Reader |
+| Operazione Azure Machine Learning | Proprietario | Collaboratore | Reader |
 | ---- |:----:|:----:|:----:|
 | Creare un'area di lavoro | ✓ | ✓ | |
 | Condividere l'area di lavoro | ✓ | |  |
@@ -86,20 +86,20 @@ A ogni area di lavoro è associata anche un'identità gestita assegnata dal sist
 
 Per altre informazioni sulle identità gestite, vedere [identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-| Resource | Autorizzazioni |
+| Risorsa | Autorizzazioni |
 | ----- | ----- |
-| Area di lavoro | Contributor |
+| Area di lavoro | Collaboratore |
 | Account di archiviazione | Collaboratore dati BLOB di archiviazione |
 | Insieme di credenziali delle chiavi | Accesso a tutte le chiavi, segreti, certificati |
-| Registro Azure Container | Contributor |
-| Gruppo di risorse che contiene l'area di lavoro | Contributor |
-| Gruppo di risorse che contiene l'insieme di credenziali delle chiavi (se diverso da quello che contiene l'area di lavoro) | Contributor |
+| Registro Azure Container | Collaboratore |
+| Gruppo di risorse che contiene l'area di lavoro | Collaboratore |
+| Gruppo di risorse che contiene l'insieme di credenziali delle chiavi (se diverso da quello che contiene l'area di lavoro) | Collaboratore |
 
 Non è consigliabile che gli amministratori revocano l'accesso dell'identità gestita alle risorse indicate nella tabella precedente. È possibile ripristinare l'accesso tramite l'operazione di risincronizzazione delle chiavi.
 
 Azure Machine Learning crea un'applicazione aggiuntiva (il nome inizia con `aml-` o `Microsoft-AzureML-Support-App-`) con accesso a livello di collaboratore nella sottoscrizione per ogni area dell'area di lavoro. Se, ad esempio, si dispone di un'area di lavoro negli Stati Uniti orientali e una in Europa settentrionale nella stessa sottoscrizione, verranno visualizzate due di queste applicazioni. Queste applicazioni consentono Azure Machine Learning di gestire le risorse di calcolo.
 
-## <a name="network-security"></a>sicurezza rete
+## <a name="network-security"></a>Sicurezza di rete
 
 Azure Machine Learning si basa su altri servizi di Azure per le risorse di calcolo. Le risorse di calcolo (destinazioni di calcolo) vengono usate per eseguire il training e la distribuzione dei modelli. È possibile creare queste destinazioni di calcolo in una rete virtuale. Ad esempio, è possibile usare Data Science Virtual Machine di Azure per eseguire il training di un modello e quindi distribuire il modello in AKS.  
 
@@ -112,6 +112,7 @@ Per ulteriori informazioni, vedere [come eseguire esperimenti e inferenza in una
 > [!IMPORTANT]
 > Se l'area di lavoro contiene dati sensibili, è consigliabile impostare il [flag di hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) durante la creazione dell'area di lavoro. Consente di controllare la quantità di dati raccolti da Microsoft a scopo di diagnostica e di abilitare la crittografia aggiuntiva negli ambienti gestiti da Microsoft.
 
+Per altre informazioni sul funzionamento della crittografia dei dati inattivi in Azure, vedere la pagina relativa [alla crittografia dei dati](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)inattivi di Azure.
 
 #### <a name="azure-blob-storage"></a>Archivio BLOB di Azure
 
@@ -189,7 +190,9 @@ Il disco del sistema operativo per ogni nodo di calcolo archiviato in archiviazi
 
 Ogni macchina virtuale dispone anche di un disco temporaneo locale per le operazioni del sistema operativo. Se lo si desidera, è possibile utilizzare il disco per organizzare i dati di training. Il disco è crittografato per impostazione predefinita per le aree di lavoro con il parametro `hbi_workspace` impostato su `TRUE`. Questo ambiente è di breve durata solo per la durata dell'esecuzione e il supporto della crittografia è limitato solo alle chiavi gestite dal sistema.
 
-Per altre informazioni sul funzionamento della crittografia dei dati inattivi in Azure, vedere la pagina relativa [alla crittografia dei dati](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)inattivi di Azure.
+#### <a name="azure-databricks"></a>Azure Databricks
+
+Azure Databricks possono essere utilizzate nelle pipeline Azure Machine Learning. Per impostazione predefinita, il file System databricks (DBFS) usato da Azure Databricks viene crittografato con una chiave gestita da Microsoft. Per configurare Azure Databricks per l'uso delle chiavi gestite dal cliente, vedere [configurare chiavi gestite dal cliente in base all'impostazione predefinita (radice) DBFS](/azure/databricks/security/customer-managed-keys-dbfs).
 
 ### <a name="encryption-in-transit"></a>Crittografia in transito
 
@@ -251,9 +254,9 @@ I dettagli della richiesta di assegnazione dei punteggi vengono archiviati in Ap
 * UserAgent
 * ComputeType
 * RequestUrl
-* Codice di stato
+* StatusCode
 * RequestId
-* Durata
+* Duration
 
 > [!IMPORTANT]
 > Alcune azioni nell'area di lavoro Azure Machine Learning non registrano le informazioni nel log attività. Ad esempio, l'inizio di un'esecuzione del training e la registrazione di un modello non vengono registrate.

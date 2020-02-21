@@ -1,5 +1,6 @@
 ---
-title: 'Riferimento: CentOS DSVM'
+title: 'Informazioni di riferimento: CentOS Data Science Virtual Machine'
+titleSuffix: Azure Data Science Virtual Machine
 description: Informazioni dettagliate sugli strumenti inclusi nel Data Science Virtual Machine CentOS
 author: gvashishtha
 ms.service: machine-learning
@@ -7,12 +8,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 0f71a8af2f7d2cfbfe43c0cfcc84cc7c08109c32
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: db49a9f5e0e6675d93cb58d6af9c92fac21e8b74
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493710"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525839"
 ---
 # <a name="reference-centos-linux-data-science-virtual-machine"></a>Riferimento: CentOS (Linux) Data Science Virtual Machine
 
@@ -100,7 +101,7 @@ conda install <package> -n py35
 
 Se si usa un'interfaccia grafica o è configurato X11 Forwarding, è possibile immettere il comando **pycharm** per aprire l'IDE PyCharm di Python. È possibile usare gli editor di testo predefiniti. È inoltre possibile usare Spyder, un IDE Python incluso nelle distribuzioni di Anaconda Python. Spyder richiede un desktop con interfaccia grafica o X11 Forwarding. Nel desktop con interfaccia grafica è disponibile un collegamento a Spyder.
 
-## <a name="jupyter-notebook"></a>Jupyter Notebook
+## <a name="jupyter-notebook"></a>Notebook Jupyter
 
 La distribuzione Anaconda include anche Jupyter Notebook, un ambiente per condividere codice e analisi. Accedere a Jupyter Notebook tramite JupyterHub. Per eseguire l'accesso, usare il nome utente e la password locali di Linux.
 
@@ -235,7 +236,7 @@ Per informazioni su come distribuire i modelli in R e Python in Azure Machine Le
 
 ## <a name="machine-learning-tools"></a>Strumenti di Machine Learning
 
-La DSVM include alcuni strumenti e algoritmi di Machine Learning precompilati e preinstallati localmente. Le aree includono:
+La DSVM include alcuni strumenti e algoritmi di Machine Learning precompilati e preinstallati localmente. incluse le seguenti:
 
 * **Microsoft cognitive Toolkit**: un toolkit di apprendimento avanzato.
 * **Vowpal Wabbit**: algoritmo di apprendimento rapido online.
@@ -308,7 +309,7 @@ Per altre informazioni su XGBoost, vedere la [documentazione di XGBoost](https:/
 
 ### <a name="rattle"></a>Rattle
 
-Rattle (*R* *A*nalytical *T*ool *T*o *L*earn *E*asily) usa la funzionalità di esplorazione e modellazione dei dati basate su GUI. Rattle:
+Rattle (*R* *A*analitici *t*OOL *t*o *L*guadagno *e*asily) usa l'esplorazione e la modellazione dei dati basata su GUI. Rattle:
 - Presenta riepiloghi statistici e visivi dei dati.
 - Trasforma i dati che possono essere modellati rapidamente.
 - Crea modelli con e senza supervisione dai dati.

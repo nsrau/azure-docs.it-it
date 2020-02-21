@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 146dbdbf2f4e107e81515ce83188fa48c52aef36
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 355909052a711773545114179cd5d1ca01811cec
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714865"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485081"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica della configurazione del gateway applicazione
 
@@ -25,7 +25,7 @@ Questa immagine illustra un'applicazione con tre listener. I primi due sono list
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Rete virtuale di Azure e subnet dedicata
 
@@ -210,7 +210,7 @@ Per una regola basata sul percorso, aggiungere più impostazioni HTTP back-end c
 
 Se il reindirizzamento è configurato per una regola di base, tutte le richieste sul listener associato vengono reindirizzate alla destinazione. Si tratta di un reindirizzamento *globale* . Se il reindirizzamento è configurato per una regola basata sul percorso, vengono reindirizzate solo le richieste in un'area specifica del sito. Un esempio è un'area del carrello acquisti indicata da */cart/\** . Si tratta del reindirizzamento *basato sul percorso* .
 
-Per altre informazioni sui reindirizzamenti, vedere [Panoramica del reindirizzamento del gateway applicazione](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
+Per altre informazioni sui reindirizzamenti, vedere [Panoramica del reindirizzamento del gateway applicazione](redirect-overview.md).
 
 #### <a name="redirection-type"></a>Tipo di Reindirizzamento
 
@@ -227,24 +227,24 @@ Scegliere listener come destinazione di reindirizzamento per reindirizzare il tr
 ![Finestra di dialogo componenti gateway applicazione](./media/configuration-overview/configure-redirection.png)
 
 Per ulteriori informazioni sul Reindirizzamento da HTTP a HTTPS, vedere:
-- [Reindirizzamento da HTTP a HTTPS tramite il portale di Azure](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal)
-- [Reindirizzamento da HTTP a HTTPS tramite PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell)
-- [Reindirizzamento da HTTP a HTTPS usando l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
+- [Reindirizzamento da HTTP a HTTPS tramite il portale di Azure](redirect-http-to-https-portal.md)
+- [Reindirizzamento da HTTP a HTTPS tramite PowerShell](redirect-http-to-https-powershell.md)
+- [Reindirizzamento da HTTP a HTTPS usando l'interfaccia della riga di comando di Azure](redirect-http-to-https-cli.md)
 
 ##### <a name="external-site"></a>Sito esterno
 
 Scegliere sito esterno quando si desidera reindirizzare il traffico sul listener associato a questa regola a un sito esterno. È possibile scegliere di includere la stringa di query dalla richiesta originale nella richiesta che viene trasmessa alla destinazione di reindirizzamento. Non è possibile inviare il percorso al sito esterno che era presente nella richiesta originale.
 
 Per ulteriori informazioni sul reindirizzamento, vedere:
-- [Reindirizzare il traffico a un sito esterno tramite PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-external-site-powershell)
-- [Reindirizzare il traffico a un sito esterno tramite l'interfaccia della riga di comando](https://docs.microsoft.com/azure/application-gateway/redirect-external-site-cli)
+- [Reindirizzare il traffico a un sito esterno tramite PowerShell](redirect-external-site-powershell.md)
+- [Reindirizzare il traffico a un sito esterno tramite l'interfaccia della riga di comando](redirect-external-site-cli.md)
 
 #### <a name="rewrite-the-http-header-setting"></a>Riscrivere l'impostazione dell'intestazione HTTP
 
 Questa impostazione consente di aggiungere, rimuovere o aggiornare le intestazioni di richiesta e risposta HTTP mentre i pacchetti di richiesta e risposta vengono spostati tra il client e i pool back-end. Per altre informazioni, vedere:
 
- - [Panoramica delle intestazioni HTTP di riscrittura](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
- - [Configurare la riscrittura dell'intestazione HTTP](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+ - [Panoramica delle intestazioni HTTP di riscrittura](rewrite-http-headers.md)
+ - [Configurare la riscrittura dell'intestazione HTTP](rewrite-http-headers-portal.md)
 
 ## <a name="http-settings"></a>Impostazioni HTTP
 
@@ -252,7 +252,18 @@ Il gateway applicazione instrada il traffico verso i server back-end usando la c
 
 ### <a name="cookie-based-affinity"></a>Affinità basata sui cookie
 
-Questa funzionalità è utile quando si desidera gestire una sessione utente sullo stesso server. I cookie gestiti dal gateway consentono al gateway applicazione di indirizzare il traffico successivo da una sessione utente allo stesso server per l'elaborazione. Questo è importante quando lo stato della sessione viene salvato localmente nel server per una sessione utente. Se l'applicazione non è in grado di gestire l'affinità basata su cookie, non è possibile usare questa funzionalità. Per usarlo, assicurarsi che i client supportino i cookie.
+Applicazione Azure gateway usa i cookie gestiti del gateway per gestire le sessioni utente. Quando un utente invia la prima richiesta al gateway applicazione, imposta un cookie di affinità nella risposta con un valore hash che contiene i dettagli della sessione, in modo che le richieste successive che trasportano il cookie di affinità verranno indirizzate allo stesso server back-end per mantenimento della viscosità. 
+
+Questa funzionalità è utile quando si desidera conservare una sessione utente sullo stesso server e quando lo stato della sessione viene salvato localmente nel server per una sessione utente. Se l'applicazione non è in grado di gestire l'affinità basata su cookie, non è possibile usare questa funzionalità. Per usarlo, assicurarsi che i client supportino i cookie.
+
+A partire dal **17 febbraio 2020**, l'aggiornamento di [Chromium](https://www.chromium.org/Home) [V80](https://chromiumdash.appspot.com/schedule) fornisce un mandato in cui i cookie HTTP senza attributo navigava sullostesso sito devono essere considerati navigava sullostesso sito = LAX. Se il cookie deve essere inviato in un contesto di terze parti, in caso di richieste di condivisione risorse tra le origini (CORS), deve usare "navigava sullostesso sito = None; Proteggere gli attributi e deve essere inviati solo tramite HTTPS. In caso contrario, in uno scenario solo HTTP, il browser non invierà i cookie nel contesto di terze parti. L'obiettivo di questo aggiornamento di Chrome è quello di migliorare la sicurezza ed evitare attacchi di richiesta intersito falsa (CSRF). 
+
+Per supportare questa modifica, il gateway applicazione (tutti i tipi di SKU) inserirà un altro cookie identico denominato **ApplicationGatewayAffinityCORS** , oltre al cookie **ApplicationGatewayAffinity** esistente, che è simile, ma il cookie avrà ora altri due attributi **"navigava sullostesso sito = None; Sicurezza "** aggiunta in modo che la sessione appiccicosa possa essere mantenuta anche per le richieste tra origini.
+
+Si noti che il nome del cookie di affinità predefinito è **ApplicationGatewayAffinity** e può essere modificato dagli utenti. Se si usa un nome di cookie di affinità personalizzato, verrà aggiunto un cookie aggiuntivo con CORS come suffisso, ad esempio **CustomCookieNameCORS**.
+
+> [!NOTE]
+> È obbligatorio che se l'attributo **navigava sullostesso sito = None** è impostato, il cookie deve contenere anche il flag **Secure** e deve essere inviato tramite **https**. Quindi, se è necessaria l'affinità di sessione su CORS, è necessario eseguire la migrazione del carico di lavoro a HTTPS. Per un gateway applicazione, vedere l'articolo relativo all'offload SSL e alla documentazione SSL end-to-end per il gateway applicazione: [Panoramica](ssl-overview.md), [procedure per la configurazione dell'offload SSL](create-ssl-portal.md), [procedure per la configurazione di SSL end-to-end](end-to-end-ssl-portal.md).
 
 ### <a name="connection-draining"></a>Esaurimento delle connessioni
 
@@ -262,7 +273,7 @@ Lo svuotamento delle connessioni consente di rimuovere normalmente i membri del 
 
 Il gateway applicazione supporta sia HTTP che HTTPS per il routing delle richieste ai server back-end. Se si sceglie HTTP, il traffico verso i server back-end non è crittografato. Se la comunicazione non crittografata non è accettabile, scegliere HTTPS.
 
-Questa impostazione combinata con HTTPS nel listener supporta [SSL end-to-end](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Ciò consente di trasmettere in modo sicuro dati sensibili crittografati al back-end. Ogni server back-end nel pool back-end in cui è abilitato SSL end-to-end deve essere configurato con un certificato per consentire la comunicazione protetta.
+Questa impostazione combinata con HTTPS nel listener supporta [SSL end-to-end](ssl-overview.md). Ciò consente di trasmettere in modo sicuro dati sensibili crittografati al back-end. Ogni server back-end nel pool back-end in cui è abilitato SSL end-to-end deve essere configurato con un certificato per consentire la comunicazione protetta.
 
 ### <a name="port"></a>Porta
 
@@ -301,7 +312,7 @@ Si tratta di un collegamento solo interfaccia utente che seleziona le due impost
 
 ### <a name="use-custom-probe"></a>USA Probe personalizzato
 
-Questa impostazione associa un [Probe personalizzato](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe) a un'impostazione http. È possibile associare un solo Probe personalizzato a un'impostazione HTTP. Se non si associa in modo esplicito un probe personalizzato, viene usato il [Probe predefinito](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe-settings) per monitorare l'integrità del back-end. Si consiglia di creare un probe personalizzato per un maggiore controllo sul monitoraggio dello stato dei back-end.
+Questa impostazione associa un [Probe personalizzato](application-gateway-probe-overview.md#custom-health-probe) a un'impostazione http. È possibile associare un solo Probe personalizzato a un'impostazione HTTP. Se non si associa in modo esplicito un probe personalizzato, viene usato il [Probe predefinito](application-gateway-probe-overview.md#default-health-probe-settings) per monitorare l'integrità del back-end. Si consiglia di creare un probe personalizzato per un maggiore controllo sul monitoraggio dello stato dei back-end.
 
 > [!NOTE]
 > Il probe personalizzato non monitora l'integrità del pool back-end, a meno che l'impostazione HTTP corrispondente non sia associata in modo esplicito a un listener.
@@ -335,7 +346,7 @@ Dopo aver creato un pool back-end, è necessario associarlo a una o più regole 
 
 ## <a name="health-probes"></a>Probe di integrità
 
-Per impostazione predefinita, un gateway applicazione monitora l'integrità di tutte le risorse nel back-end. È tuttavia consigliabile creare un probe personalizzato per ogni impostazione HTTP back-end per ottenere un maggiore controllo sul monitoraggio dell'integrità. Per informazioni su come configurare un probe personalizzato, vedere [impostazioni del probe di integrità personalizzato](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe-settings).
+Per impostazione predefinita, un gateway applicazione monitora l'integrità di tutte le risorse nel back-end. È tuttavia consigliabile creare un probe personalizzato per ogni impostazione HTTP back-end per ottenere un maggiore controllo sul monitoraggio dell'integrità. Per informazioni su come configurare un probe personalizzato, vedere [impostazioni del probe di integrità personalizzato](application-gateway-probe-overview.md#custom-health-probe-settings).
 
 > [!NOTE]
 > Dopo aver creato un probe di integrità personalizzato, è necessario associarlo a un'impostazione HTTP back-end. Un probe personalizzato non monitorerà l'integrità del pool back-end, a meno che l'impostazione HTTP corrispondente non sia associata in modo esplicito a un listener usando una regola.

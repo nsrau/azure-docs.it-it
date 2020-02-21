@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2019
+ms.date: 02/18/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd013b44454cc0283ef84d6a978b15400eca8786
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 0d6d621646aaa5c8c44a20cf327cd10fa31990b0
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022495"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484537"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Informazioni sullo schema di Azure AD
 Un oggetto in Azure Active Directory (Azure AD), come qualsiasi directory, è un costrutto di dati di alto livello programmatico che rappresenta elementi come utenti, gruppi e contatti. Quando si crea un nuovo utente o un contatto in Azure AD, si sta creando una nuova istanza di tale oggetto. Queste istanze possono essere differenziate in base alle relative proprietà.
@@ -58,21 +58,24 @@ La tabella seguente elenca gli attributi comuni e il modo in cui sono sincronizz
 
 |Active Directory locale|Tipo di mapping|Azure AD|
 |-----|-----|-----|
-|cn|Direct|commonName
-|countryCode|Direct|countryCode|
-|displayName|Direct|displayName|
+|cn|Connessione diretta|commonName
+|countryCode|Connessione diretta|countryCode|
+|displayName|Connessione diretta|displayName|
 |givenName|Expression|givenName|
-|objectGUID|Direct|sourceAnchorBinary|  
-|userprincipalName|Direct|userPrincipalName|
-|ProxyAdress|Direct|ProxyAddress|
+|objectGUID|Connessione diretta|sourceAnchorBinary|  
+|userprincipalName|Connessione diretta|userPrincipalName|
+|ProxyAdress|Connessione diretta|ProxyAddress|
 
 ## <a name="view-the-schema"></a>Visualizzare lo schema
+> [!WARNING]
+> La configurazione del provisioning cloud crea un'entità servizio. L'entità servizio è visibile nel portale di Azure. Non modificare i mapping degli attributi usando l'esperienza dell'entità servizio nel portale di Azure.  Questa caratteristica non è supportata.
+
 Per visualizzare lo schema e verificarlo, attenersi alla seguente procedura.
 
 1.  Passare a [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 1.  Accedere con l'account amministratore globale.
 1.  A sinistra selezionare **modifica autorizzazioni** e assicurarsi che la **Directory. ReadWrite. All** sia *consentita*.
-1.  Eseguire la query https://graph.microsoft.com/beta/serviceprincipals/? $filter = StartsWith (DisplayName,' Active '). Questa query restituisce un elenco filtrato di entità servizio.
+1.  Eseguire la query https://graph.microsoft.com/beta/serviceprincipals/?$filter = StartsWith (DisplayName,' Active '). Questa query restituisce un elenco filtrato di entità servizio.
 1.  Individuare `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` e prendere nota del valore per `"id"`.
     ```
     "value": [

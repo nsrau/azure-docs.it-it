@@ -2,14 +2,14 @@
 title: Disponibilità delle risorse per area
 description: Disponibilità delle risorse di calcolo e memoria per il servizio Istanze di Azure Container in aree di Azure differenti.
 ms.topic: article
-ms.date: 01/31/2020
+ms.date: 02/19/2020
 ms.author: danlep
-ms.openlocfilehash: 3f64a13331658c1360c9d54f6f57a68c2c91fc6f
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: f429a165fe26cc9fc7aa973231f5a77163feef4a
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117810"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525304"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilità di risorse per Istanze di Azure Container nelle aree di Azure
 
@@ -24,36 +24,39 @@ Per informazioni su quote e altri limiti nelle distribuzioni, vedere [Quote e li
 
 ## <a name="availability---general"></a>Disponibilità - Generale
 
-Per i gruppi di contenitori con Linux e i contenitori basati su Windows Server 2016 [supportati](container-instances-faq.md#what-windows-base-os-images-are-supported) sono disponibili le aree geografiche e le risorse seguenti.
+Le aree e le risorse massime seguenti sono disponibili per i gruppi di contenitori con Linux e i contenitori basati su Windows Server 2016 [supportati](container-instances-faq.md#what-windows-base-os-images-are-supported) .
 
-| Regions | OS | Max CPU (CPU max) | Memoria massima (GB) | Archiviazione (GB) |
+| Regioni | OS | Max CPU (CPU max) | Memoria massima (GB) | Archiviazione (GB) |
 | -------- | -- | :---: | :-----------: | :---: |
 | Brasile meridionale, Canada centrale, India centrale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, India meridionale, Regno Unito meridionale, Europa occidentale, Stati Uniti occidentali, Stati Uniti occidentali 2 | Linux | 4 | 16 | 50 |
 | Australia orientale, Giappone orientale | Linux | 2 | 8 | 50 |
-| Stati Uniti centro-settentrionali | Linux | 2 | 3.5 | 50 |
-| Brasile meridionale, Giappone orientale, Europa occidentale | WINDOWS | 4 | 16 | 20 |
-| Stati Uniti orientali, Stati Uniti occidentali | WINDOWS | 4 | 14 | 20 |
-| Australia orientale, Canada centrale, India centrale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali 2, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, India meridionale, Regno Unito meridionale, Stati Uniti occidentali 2 | WINDOWS | 2 | 3.5 | 20 |
+| Stati Uniti centro-settentrionali | Linux | 2 | 3,5 | 50 |
+| Brasile meridionale, Giappone orientale, Europa occidentale | Windows | 4 | 16 | 20 |
+| Stati Uniti orientali, Stati Uniti occidentali | Windows | 4 | 14 | 20 |
+| Australia orientale, Canada centrale, India centrale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali 2, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, India meridionale, Regno Unito meridionale, Stati Uniti occidentali 2 | Windows | 2 | 3,5 | 20 |
 
 ## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>Disponibilità - Distribuzioni di Windows Server 2019 LTSC, 1809 (anteprima)
 
-Per i gruppi di contenitori con contenitori basati su Windows Server 2019 (anteprima) sono disponibili le aree geografiche e le risorse seguenti.
+Le aree e le risorse massime seguenti sono disponibili per i gruppi di contenitori con i contenitori basati su Windows Server 2019 (anteprima).
 
-| Regions | OS | Max CPU (CPU max) | Memoria massima (GB) | Archiviazione (GB) |
+| Regioni | OS | Max CPU (CPU max) | Memoria massima (GB) | Archiviazione (GB) |
 | -------- | -- | :---: | :-----------: | :---: |
-| Australia orientale, Brasile meridionale, Canada centrale, India centrale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Giappone orientale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, India meridionale, Regno Unito meridionale, Europa occidentale | WINDOWS | 4 | 16 | 20 |
-| Stati Uniti orientali 2, Stati Uniti occidentali 2 | WINDOWS | 2 | 3.5 | 20 |
+| Australia orientale, Brasile meridionale, Canada centrale, India centrale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Giappone orientale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, India meridionale, Regno Unito meridionale, Europa occidentale | Windows | 4 | 16 | 20 |
+| Stati Uniti orientali 2, Stati Uniti occidentali 2 | Windows | 2 | 3,5 | 20 |
 
 
 ## <a name="availability---virtual-network-deployment"></a>Disponibilità-distribuzione rete virtuale
 
-Le aree e le risorse seguenti sono disponibili per un gruppo di contenitori distribuito in una [rete virtuale di Azure](container-instances-vnet.md).
+Le aree e le risorse massime seguenti sono disponibili per un gruppo di contenitori distribuito in una [rete virtuale di Azure](container-instances-vnet.md).
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 ## <a name="availability---gpu-resources-preview"></a>Disponibilità - Risorse della GPU (anteprima)
 
-Per un gruppo di contenitori distribuito con [risorse della GPU](container-instances-gpu.md) (anteprima) sono disponibili le aree geografiche e le risorse seguenti.
+Le aree e le risorse massime seguenti sono disponibili per un gruppo di contenitori distribuito con [risorse GPU](container-instances-gpu.md) (anteprima).
+
+> [!IMPORTANT]
+> Le risorse GPU sono disponibili solo su richiesta. Per richiedere l'accesso alle risorse GPU, inviare una [richiesta di supporto tecnico di Azure][azure-support].
 
 [!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
@@ -63,3 +66,6 @@ Per un gruppo di contenitori distribuito con [risorse della GPU](container-insta
 Segnalare al team se si desidera vedere altre aree geografiche o una maggiore disponibilità delle risorse all'indirizzo [aka.ms/aci/feedback](https://aka.ms/aci/feedback).
 
 Per informazioni sulla risoluzione dei problemi di distribuzione di Istanze di Container, vedere [Risolvere i problemi di distribuzione di Istanze di Azure Container](container-instances-troubleshooting.md).
+
+
+[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

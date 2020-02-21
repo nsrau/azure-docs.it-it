@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: spelluru
-ms.openlocfilehash: 348340516f9332f5492c7ce60c3d164da44a008c
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 15fd3c18d059466c2b2bd5e2431013f393092b4b
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120890"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526230"
 ---
 # <a name="classroom-labs-concepts"></a>Concetti sui lab per le classi
 
@@ -32,7 +32,13 @@ Le ore di quota vengono conteggiate quando lo studente avvia la macchina virtual
 
 ## <a name="schedules"></a>Pianificazioni
 
-Le pianificazioni sono gli intervalli di tempo (una volta o ricorrenti) che un insegnante può creare per la classe. Tutte le macchine virtuali nel Lab vengono avviate automaticamente all'inizio della pianificazione e arrestate alla fine della pianificazione. Le ore di quota non vengono utilizzate quando si esegue una pianificazione.
+Le pianificazioni sono gli intervalli di tempo che un insegnante può creare per la classe, in modo che le macchine virtuali degli studenti siano disponibili per il tempo delle classi.  Le pianificazioni possono essere una sola volta o ricorrenti.  Le ore di quota non vengono utilizzate quando si esegue una pianificazione.
+
+Sono disponibili tre tipi di pianificazioni: standard, solo di avvio e di arresto.
+
+- **Standard**.  Questa pianificazione avvierà tutte le VM studente all'ora di inizio specificata e arresterà tutte le VM studente all'ora di arresto specificata.
+- **Solo avvia**.   Questa pianificazione avvierà tutte le macchine virtuali degli studenti all'ora specificata.  Le macchine virtuali degli studenti non verranno arrestate fino a quando uno studente non arresta la macchina virtuale tramite il portale di Azure Lab Services o si verifica una pianificazione di solo arresto.
+- **Interrompi solo**.  Questa pianificazione arresterà tutte le macchine virtuali degli studenti all'ora specificata.  
 
 ## <a name="template-virtual-machine"></a>Macchina virtuale modello
 
@@ -60,7 +66,7 @@ In genere, gli utenti con il ruolo di docente o trainer online creano i lab per 
 - Specifica chi può accedere al lab.
 - Fornisce il collegamento di registrazione per il lab agli studenti.
 
-### <a name="student"></a>Student
+### <a name="student"></a>Studente
 
 Uno studente esegue le attività seguenti:
 

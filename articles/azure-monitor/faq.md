@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/23/2020
-ms.openlocfilehash: 9f377f93ab8fef2c1ad713da6fcd6c6f14107c3f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 33af9c8f3fbe4de57d65be432f249d4aeb5d3e27
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986819"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485336"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Domande frequenti su monitoraggio di Azure
 
 Queste domande frequenti su Microsoft sono un elenco di domande frequenti su monitoraggio di Azure.
 
-## <a name="general"></a>Informazioni di carattere generale
+## <a name="general"></a>Generale
 
 ### <a name="what-is-azure-monitor"></a>Informazioni su Monitoraggio di Azure
 [Monitoraggio di Azure](overview.md) è un servizio di Azure che offre il monitoraggio delle prestazioni e della disponibilità per le applicazioni e i servizi in Azure, in altri ambienti cloud o in locale. Monitoraggio di Azure raccoglie dati da più origini in una piattaforma dati comune in cui possono essere analizzati per individuare tendenze e anomalie. Le funzionalità avanzate di monitoraggio di Azure consentono di identificare e rispondere rapidamente a situazioni critiche che potrebbero influire sull'applicazione.
@@ -90,7 +90,7 @@ Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilit�
 ### <a name="how-do-i-retrieve-log-data"></a>Ricerca per categorie recuperare i dati di log?
 Tutti i dati vengono recuperati da un'area di lavoro Log Analytics usando una query di log scritta con kusto Query Language (KQL). È possibile scrivere query personalizzate o usare soluzioni e informazioni dettagliate che includono query di log per un'applicazione o un servizio specifico. Vedere [Panoramica delle query di log in monitoraggio di Azure](log-query/log-query-overview.md).
 
-### <a name="what-is-a-log-analytics-workspace"></a>Che cos'è un'area di lavoro di Log Analytics?
+### <a name="what-is-a-log-analytics-workspace"></a>Che cos'è un'area di lavoro Log Analytics?
 Tutti i dati di log raccolti da monitoraggio di Azure vengono archiviati in un'area di lavoro Log Analytics. Un'area di lavoro è essenzialmente un contenitore in cui i dati di log vengono raccolti da diverse origini. È possibile che si disponga di una singola area di lavoro Log Analytics per tutti i dati di monitoraggio o che siano necessari requisiti per più aree di lavoro. Vedere [progettazione della distribuzione dei log di monitoraggio di Azure](platform/design-logs-deployment.md).
 
 ### <a name="can-you-move-an-existing-log-analytics-workspace-to-another-azure-subscription"></a>È possibile spostare un'area di lavoro Log Analytics esistente in un'altra sottoscrizione di Azure?
@@ -273,7 +273,7 @@ In Esplora soluzioni fare clic con il pulsante destro del mouse su `ApplicationI
 
 Un'app desktop che è possibile usare nel server Web IIS per configurare Application Insights nelle app Web. Non raccoglie dati di telemetria: è possibile interromperlo se non si sta configurando un'app. 
 
-[Altre informazioni](app/monitor-performance-live-website-now.md#questions)
+[Altre informazioni](app/monitor-performance-live-website-now.md#questions).
 
 ### <a name="what-telemetry-is-collected-by-application-insights"></a>Quali dati di telemetria vengono raccolti da Application Insights?
 
@@ -319,7 +319,7 @@ Viene cercato l'indirizzo IP (IPv4 o IPv6) del client Web tramite [GeoLite2](htt
 * Per altre informazioni su come vengono raccolti i dati relativi all'indirizzo IP e alla georilevazione in Application Insights fare riferimento a questo [articolo](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
 
 
-È possibile configurare `ClientIpHeaderTelemetryInitializer` per ottenere l'indirizzo IP da un'intestazione diversa. Ad esempio, in alcuni sistemi viene spostato da un proxy, da un bilanciamento del carico o da una rete CDN a `X-Originating-IP`. [Altre informazioni](https://apmtips.com/blog/2016/07/05/client-ip-address/)
+È possibile configurare `ClientIpHeaderTelemetryInitializer` per ottenere l'indirizzo IP da un'intestazione diversa. Ad esempio, in alcuni sistemi viene spostato da un proxy, da un bilanciamento del carico o da una rete CDN a `X-Originating-IP`. [Altre informazioni](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
 È possibile [usare Power BI](app/export-power-bi.md ) per visualizzare i dati di telemetria della richiesta in una mappa.
 
@@ -380,9 +380,9 @@ Usare una singola risorsa per tutti i componenti o i ruoli in un singolo sistema
 | Telemetria di dipendenza |[Installare Status Monitor di Application Insights nel server](app/monitor-performance-live-website-now.md) |Diagnosticare i problemi relativi a database o altri componenti esterni |
 | Ricavare analisi dello stack dalle eccezioni |[Inserire chiamate TrackException nel codice](app/asp-net-exceptions.md) (ma alcune sono segnalate automaticamente) |Rilevare e diagnosticare le eccezioni |
 | Eseguire la ricerca di tracce dei log |[Aggiungere un adattatore di registrazione](app/asp-net-trace-logs.md) |Diagnosticare le eccezioni, problemi di prestazioni |
-| Nozioni di base dell'utilizzo del client: visualizzazioni pagina, sessioni, ... |[Inizializzatore JavaScript nelle pagine Web](app/javascript.md) |Analisi di utilizzo |
-| Metriche personalizzate client |[Rilevamento delle chiamate nelle pagine Web](app/api-custom-events-metrics.md) |Miglioramento dell'esperienza utente |
-| Metriche personalizzate server |[Rilevamento delle chiamate nel server](app/api-custom-events-metrics.md) |Business Intelligence |
+| Nozioni di base dell'utilizzo del client: visualizzazioni pagina, sessioni, ... |[Inizializzatore JavaScript nelle pagine Web](app/javascript.md) |Analisi dell'utilizzo |
+| Metriche personalizzate client |[Rilevamento delle chiamate nelle pagine Web](app/api-custom-events-metrics.md) |Migliorare l'esperienza utente |
+| Metriche personalizzate server |[Rilevamento delle chiamate nel server](app/api-custom-events-metrics.md) |Business intelligence |
 
 ### <a name="why-are-the-counts-in-search-and-metrics-charts-unequal"></a>Perché i conteggi nei grafici di ricerca e di metrica non sono uguali?
 
@@ -697,7 +697,10 @@ Le soglie per i criteri di integrità di Linux seguenti non possono essere modif
 Le regole di avviso definite per ogni criterio di integrità non sono esposte nel portale di Azure. È possibile abilitare o disabilitare una regola di avviso per l'integrità solo nell'[API di monitoraggio del carico di lavoro](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Inoltre, nel portale di Azure non è possibile assegnare un [gruppo di azioni di Monitoraggio di Azure](platform/action-groups.md) per gli avvisi di integrità. È possibile usare solo l'API di impostazione delle notifiche per configurare un gruppo di azioni in modo che venga attivato ogni volta che viene generato un avviso di integrità. Attualmente è possibile assegnare gruppi di azioni a una macchina virtuale, in modo che tutti gli *avvisi di integrità* generati per la macchina virtuale attivino gli stessi gruppi di azioni. A differenza degli avvisi tradizionali di Azure, non è possibile usare un gruppo di azioni distinto per ogni regola di avviso di integrità. Inoltre, quando vengono generati avvisi di integrità, sono supportati solo i gruppi di azioni configurati per inviare notifiche tramite posta elettronica o SMS. 
 
 ### <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>I grafici delle prestazioni della macchina virtuale non contengono alcuni dati o non ne contengono affatto
+I grafici delle prestazioni sono stati aggiornati per l'uso dei dati archiviati nella tabella *InsightsMetrics* .  Per visualizzare i dati in questi grafici, sarà necessario eseguire l'aggiornamento per usare la nuova soluzione VM Insights.  Per ulteriori informazioni, vedere le [domande frequenti su GA](insights/vminsights-ga-release-faq.md) .
+
 Se non compaiono i dati sulle prestazioni nella tabella del disco o in alcuni grafici delle prestazioni, è possibile che i contatori delle prestazioni non siano stati configurati nell'area di lavoro. Per risolvere il problema, eseguire lo [script di PowerShell](insights/vminsights-enable-at-scale-powershell.md#enable-with-powershell) seguente.
+
 
 ### <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>In cosa differisce la funzionalità di mappa di Monitoraggio di Azure per le macchine virtuali da Mapping dei servizi?
 La funzionalità di mappa di Monitoraggio di Azure per le macchine virtuali si basa su Mapping dei servizi, ma presenta le differenze seguenti:

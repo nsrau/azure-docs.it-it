@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/16/2019
+ms.date: 02/20/2020
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5695968973c7446220d8d77b84dfebb4a23ae8c7
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 62a969519ebefaab919505d9c8faae830f55f4c6
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847758"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505630"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accesso ai log di controllo di Azure AD B2C
 
@@ -32,14 +32,14 @@ Gli eventi del log di controllo vengono conservati per **sette giorni**. Se è n
 
 La categoria **B2C** nei log di controllo contiene i tipi di attività seguenti:
 
-|Tipo di attività |Description  |
+|Tipo di attività |Descrizione  |
 |---------|---------|
 |Autorizzazione |Attività relative all'autorizzazione di un utente per accedere alle risorse B2C (ad esempio, un amministratore che accede a un elenco di criteri B2C).         |
 |Directory |Attività relative agli attributi di directory recuperate quando un amministratore accede utilizzando il portale di Azure. |
-|Richiesta | Operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD) sulle applicazioni B2C. |
+|Applicazione | Operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD) sulle applicazioni B2C. |
 |Chiave |Operazioni CRUD sulle chiavi archiviate in un contenitore di chiavi B2C. |
-|Gruppi |Operazioni CRUD sulle risorse B2C. Ad esempio, i criteri e i provider di identità.
-|Autenticazione |Convalida delle credenziali utente e del rilascio dei token.|
+|Risorsa |Operazioni CRUD sulle risorse B2C. Ad esempio, i criteri e i provider di identità.
+|Authentication |Convalida delle credenziali utente e del rilascio dei token.|
 
 Per le attività CRUD sugli oggetti utente, vedere la categoria **Directory principale**.
 
@@ -51,7 +51,7 @@ Questa immagine di esempio dalla portale di Azure Mostra i dati acquisiti quando
 
 Il pannello Dettagli attività contiene le informazioni rilevanti seguenti:
 
-|Sezione|Campo|Description|
+|Sezione|Campo|Descrizione|
 |-------|-----|-----------|
 | Attività | Nome | Quale attività ha avuto luogo. Ad esempio, *emettere un id_token all'applicazione*, che conclude l'accesso utente effettivo. |
 | Azione avviata da (attore) | ObjectId | **ID oggetto** dell'applicazione B2C a cui l'utente sta eseguendo l'accesso. Questo identificatore non è visibile nel portale di Azure, ma è accessibile tramite l'API Microsoft Graph. |
@@ -88,51 +88,15 @@ I log di controllo vengono pubblicati nella stessa pipeline delle altre attivit�
 
 ### <a name="enable-reporting-api-access"></a>Abilitare l'accesso all'API di creazione report
 
-Per consentire l'accesso basato su script o applicazione all'API di creazione di report di Azure AD, è necessaria un'applicazione Azure Active Directory registrata nel tenant Azure AD B2C con le autorizzazioni API seguenti:
+Per consentire l'accesso in base all'applicazione o allo script all'API di creazione report di Azure AD, è necessaria un'applicazione registrata nel tenant Azure AD B2C con le autorizzazioni API seguenti. È possibile abilitare queste autorizzazioni per una registrazione esistente dell'applicazione all'interno del tenant B2C oppure crearne una nuova in modo specifico per l'uso con l'automazione dei log di controllo.
 
-* Microsoft Graph > le autorizzazioni dell'applicazione > AuditLog. Read. All
+* Microsoft Graph > le autorizzazioni dell'applicazione > AuditLog > AuditLog. Read. All
 
-È possibile abilitare queste autorizzazioni per una registrazione Azure Active Directory applicazione esistente all'interno del tenant B2C o crearne una nuova in modo specifico per l'uso con l'automazione dei log di controllo.
+Attenersi alla procedura descritta nell'articolo seguente per registrare un'applicazione con le autorizzazioni necessarie:
 
-Eseguire la procedura seguente per registrare un'applicazione, concedere al Microsoft Graph le autorizzazioni necessarie per l'API e quindi creare un segreto client.
+[Gestire Azure AD B2C con Microsoft Graph](microsoft-graph-get-started.md)
 
-### <a name="register-application-in-azure-active-directory"></a>Registrare l'applicazione in Azure Active Directory
-
-[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
-
-### <a name="assign-api-access-permissions"></a>Assegnare le autorizzazioni di accesso all'API
-
-#### <a name="applicationstabapplications"></a>[Applicazioni](#tab/applications/)
-
-1. Nella pagina Panoramica dell' **app registrata** selezionare **Impostazioni**.
-1. In **accesso all'API**selezionare **autorizzazioni necessarie**.
-1. Selezionare **Aggiungi**, quindi **selezionare un'API**.
-1. Selezionare **Microsoft Graph**, quindi **selezionare**.
-1. In **Autorizzazioni applicazione**selezionare **Leggi tutti i dati del registro di controllo**.
-1. Selezionare il pulsante **Seleziona** e quindi fare clic su **fine**.
-1. Selezionare **Concedi autorizzazioni** e quindi selezionare **Sì**.
-
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)
-
-1. In **Gestisci** selezionare **Autorizzazioni API**.
-1. In **Autorizzazioni configurate** selezionare **Aggiungi un'autorizzazione**.
-1. Selezionare la scheda **API Microsoft** .
-1. Selezionare **Microsoft Graph**.
-1. Selezionare **Autorizzazioni applicazione**.
-1. Espandere **auditlog** e quindi selezionare la casella di controllo **auditlog. Read. All** .
-1. Selezionare **Aggiungi autorizzazioni**. Come indicato, attendere alcuni minuti prima di procedere con il passaggio successivo.
-1. Selezionare **Concedi consenso amministratore per (nome del tenant)** .
-1. Selezionare l'account attualmente connesso se è stato assegnato il ruolo di *amministratore globale* o accedere con un account nel tenant di Azure ad B2C a cui è stato assegnato il ruolo di *amministratore globale* .
-1. Selezionare **Accetto**.
-1. Selezionare **Aggiorna**, quindi verificare che "concesso per..." viene visualizzato in **stato** per l'autorizzazione *auditlog. Read. All* . La propagazione delle autorizzazioni potrebbe richiedere alcuni minuti.
-
-* * *
-
-### <a name="create-client-secret"></a>Crea segreto client
-
-[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
-
-A questo punto si dispone di un'applicazione con l'accesso all'API richiesto, un ID applicazione e una chiave che è possibile usare negli script di automazione. Vedere la sezione script di PowerShell più avanti in questo articolo per un esempio di come è possibile ottenere gli eventi di attività con uno script.
+Dopo aver registrato un'applicazione con le autorizzazioni appropriate, vedere la sezione script di PowerShell più avanti in questo articolo per un esempio di come è possibile ottenere gli eventi di attività con uno script.
 
 ### <a name="access-the-api"></a>Accedere all'API
 
@@ -149,13 +113,14 @@ Lo script di PowerShell seguente mostra un esempio di come eseguire una query su
 È possibile provare questo script nella [Azure cloud Shell](overview.md). Assicurarsi di aggiornarlo con l'ID applicazione, il segreto client e il nome del tenant Azure AD B2C.
 
 ```powershell
-# This script requires the registration of a Web Application in Azure Active Directory:
-# https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api
+# This script requires an application registration that's granted Microsoft Graph API permission
+# https://docs.microsoft.com/azure/active-directory-b2c/microsoft-graph-get-started
 
 # Constants
-$ClientID       = "your-client-application-id-here"       # Insert your application's client ID, a GUID (registered by Global Admin)
+$ClientID       = "your-client-application-id-here"       # Insert your application's client ID, a GUID
 $ClientSecret   = "your-client-application-secret-here"   # Insert your application's client secret
-$tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # Insert your Azure AD B2C tenant; for example, contoso.onmicrosoft.com
+$tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # Insert your Azure AD B2C tenant domain name
+
 $loginURL       = "https://login.microsoftonline.com"
 $resource       = "https://graph.microsoft.com"           # Microsoft Graph API resource URI
 $7daysago       = "{0:s}" -f (get-date).AddDays(-7) + "Z" # Use 'AddMinutes(-5)' to decrement minutes, for example
@@ -258,4 +223,4 @@ Ecco la rappresentazione JSON dell'evento di esempio Activity illustrato in prec
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile automatizzare altre attività amministrative, ad esempio la [gestione degli utenti con .NET](manage-user-accounts-graph-api.md).
+È possibile automatizzare altre attività amministrative, ad esempio, [gestire Azure ad B2C account utente con Microsoft Graph](manage-user-accounts-graph-api.md).

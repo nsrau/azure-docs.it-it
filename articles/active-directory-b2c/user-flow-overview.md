@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 846819c3a05baf4ef1174d4e086f09893e834b2a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: fdc7d9fce3ebce4603369262f164ba72b1e39499
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847797"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484316"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Flussi utente in Azure Active Directory B2C
 
@@ -81,10 +81,8 @@ Un indirizzo di posta elettronica può essere richiesto come parte di un flusso 
 
 In questi casi non è garantita la verifica dell'indirizzo di posta elettronica. Un amministratore tenant può disabilitare la verifica degli indirizzi di posta elettronica nei criteri di base per gli account locali. Anche se la verifica degli indirizzi di posta elettronica è abilitata, gli indirizzi non vengono verificati se provengono da un provider di identità di social networking e non sono stati modificati.
 
-Solo le proprietà **otherMails** e **signInNames** vengono esposte tramite l'API Graph di Active Directory. L'indirizzo di posta elettronica nella proprietà con i dettagli dell'autenticazione avanzata non è disponibile.
+Solo le proprietà **otherMails** e **signInNames** vengono esposte tramite l'API Microsoft Graph. L'indirizzo di posta elettronica nella proprietà con i dettagli dell'autenticazione avanzata non è disponibile.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per creare i flussi utente consigliati, seguire le istruzioni riportate in [esercitazione: creare un flusso utente](tutorial-create-user-flows.md).
-
-

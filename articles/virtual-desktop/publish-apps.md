@@ -1,18 +1,18 @@
 ---
 title: Pubblicare app predefinite nel desktop virtuale di Windows-Azure
-description: Come pubblicare app moderne nel desktop virtuale di Windows.
+description: Come pubblicare app predefinite nel desktop virtuale di Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: 37fc089ab68bfb3cd26e1656ba84610fe8a47bc6
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: e8e8512fa9f6a64fb0db688b7badcb699f6ccaa5
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367261"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484622"
 ---
 # <a name="publish-built-in-apps-in-windows-virtual-desktop"></a>Pubblicare app predefinite nel desktop virtuale di Windows
 

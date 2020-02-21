@@ -1,6 +1,6 @@
 ---
 title: Come funziona l'autenticazione a più fattori di Azure-Azure Active Directory
-description: Azure Multi-Factor Authentication consente di proteggere l'accesso ai dati e alle applicazioni dell'utente, garantendo al tempo stesso una procedura di accesso semplice.
+description: Azure multi-Factor Authentication contribuisce a salvaguardare l'accesso a dati e applicazioni rispondendo alla richiesta degli utenti di poter usare un processo di accesso semplice.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0982f6fb70cd6866af48feab640d5dc36bcb6b28
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 39948214f5bd080be417ed515bea6bff87d3b303
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848681"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484061"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Funzionamento di Azure Multi-Factor Authentication
 
@@ -38,14 +38,14 @@ Multi-Factor Authentication è inclusa in quanto parte delle offerte seguenti:
 
 * **Azure Active Directory Premium** o **Microsoft 365 business** : uso completo di Azure multi-factor authentication usando i criteri di accesso condizionale per richiedere l'autenticazione a più fattori.
 
-* **Azure ad free** o licenze di **Office 365** autonome: usare i [criteri di protezione di base per l'accesso condizionale](../conditional-access/concept-baseline-protection.md) predefinito per richiedere l'autenticazione a più fattori per gli utenti e gli amministratori.
+* **Azure ad free** o licenze di **Office 365** autonome: usare le [impostazioni predefinite di sicurezza](../fundamentals/concept-fundamentals-security-defaults.md) per richiedere l'autenticazione a più fattori per gli utenti e gli amministratori.
 
 * **Amministratori globali di Azure Active Directory**: per proteggere gli account di amministratore globale è disponibile un subset di funzionalità di Azure multi-Factor Authentication.
 
 > [!NOTE]
 > I nuovi clienti non possono più acquistare Azure Multi-Factor Authentication come offerta autonoma valida dal 1 ° settembre 2018. L'autenticazione a più fattori continuerà a essere una funzionalità disponibile nelle licenze di Azure AD Premium.
 
-## <a name="supportability"></a>Supporto
+## <a name="supportability"></a>Facilità di supporto
 
 Poiché la maggior parte degli utenti è abituata a usare le password solo per l'autenticazione, è importante che l'organizzazione si metta in comunicazione con tutti gli utenti per informarli in merito al processo. La consapevolezza può ridurre la probabilità che gli utenti contattino l'help desk per problemi di lieve entità riguardanti l'autenticazione a più fattori. Esistono tuttavia alcuni scenari in cui è necessario disabilitare temporaneamente MFA. Per sapere come gestire questi scenari, usare le linee guida seguenti:
 

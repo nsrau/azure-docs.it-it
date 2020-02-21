@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 04cc45956fc5aedc4c14dfb138be5db02ddec500
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c2361192a612cfd92003b1e3c36e85dbbd9090bb
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847056"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482769"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Uso di attributi personalizzati in criteri personalizzati di modifica del profilo
 
@@ -24,7 +24,7 @@ ms.locfileid: "76847056"
 
 In questo articolo viene creato un attributo personalizzato nella directory Azure Active Directory B2C (Azure AD B2C). Si userà il nuovo attributo come attestazione personalizzata nel percorso utente di modifica del profilo.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Eseguire la procedura descritta nell'articolo [Azure Active Directory B2C: Introduzione ai criteri personalizzati](custom-policy-get-started.md).
 
@@ -34,7 +34,7 @@ La directory di Azure AD B2C include un set predefinito di attributi. Alcuni ese
 * Un provider di identità ha un identificatore utente univoco che deve essere salvato, ad esempio **uniqueUserGUID**.
 * Un percorso utente personalizzato deve rendere permanente lo stato dell'utente, ad esempio **migrationStatus**.
 
-Con Azure AD B2C è possibile estendere il set di attributi archiviati in ogni account utente. Questi attributi possono anche essere scritti e letti usando l' [API Graph di Azure AD](manage-user-accounts-graph-api.md).
+Con Azure AD B2C è possibile estendere il set di attributi archiviati in ogni account utente. È anche possibile leggere e scrivere questi attributi usando l' [API Microsoft Graph](manage-user-accounts-graph-api.md).
 
 Le proprietà di estensione estendono lo schema degli oggetti utente nella directory. I termini *proprietà di estensione*, *attributo personalizzato* e *attestazione personalizzata* fanno riferimento allo stesso concetto nel contesto di questo articolo. Il nome varia in base al contesto, ad esempio applicazione, oggetto o criteri.
 
@@ -295,9 +295,9 @@ Il token ID inviato all'applicazione include la nuova proprietà di estensione c
    extension_<app-guid>_ActivationStatus via Graph API.
    ```
 
-## <a name="reference"></a>Riferimenti
+## <a name="reference"></a>Riferimento
 
-Per una descrizione completa delle proprietà di estensione, vedere l'articolo [Estensioni dello schema della directory | Concetti relativi all'API Graph](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
+Per altre informazioni sulle proprietà di estensione, vedere l'articolo [aggiungere dati personalizzati alle risorse usando le estensioni](https://docs.microsoft.com/graph/extensibility-overview).
 
 > [!NOTE]
 > * Un **TechnicalProfile** è un tipo di elemento, o una funzione, che definisce il nome di un endpoint, metadati e protocollo. L'elemento **TechnicalProfile** definisce i dettagli dello scambio di attestazioni che esegue il Framework dell'esperienza di gestione delle identità. Quando questa funzione viene chiamata in un passaggio di orchestrazione o da un altro elemento **TechnicalProfile**, gli elementi **InputClaims** e **OutputClaims** vengono forniti come parametri dal chiamante.

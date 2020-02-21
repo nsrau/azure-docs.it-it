@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 4214c4eb9fbe1d3e39d1ee16289f30b893b94653
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 35b5a85ea6fba87e785b581a7a20d0c28f312820
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906611"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484146"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Ospitare un sito Web statico in archiviazione di Azure
 
@@ -22,7 +22,7 @@ Questo articolo illustra come abilitare l'hosting di siti web statici usando il 
 
 <a id="portal" />
 
-## <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+## <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Per un'esercitazione dettagliata, vedere [esercitazione: ospitare un sito Web statico nell'archivio BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
 
@@ -38,7 +38,7 @@ Nel riquadro visualizzato accanto alla pagina Panoramica account dell'account di
 
 <a id="cli" />
 
-## <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+## <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 È possibile abilitare l'hosting di siti web statici usando l' [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -72,7 +72,7 @@ Nel riquadro visualizzato accanto alla pagina Panoramica account dell'account di
    In questo esempio si presuppone che siano in esecuzione comandi da Azure Cloud Shell sessione.
 
    ```azurecli-interactive
-   az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name>
+   az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
    ```
 
    * Sostituire il valore segnaposto `<storage-account-name>` con il nome del proprio account di archiviazione.
@@ -102,7 +102,7 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 
 <a id="powershell" />
 
-## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 È possibile abilitare l'hosting di siti web statici usando il modulo Azure PowerShell.
 
@@ -157,6 +157,7 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
     ```powershell
     # upload a file
     set-AzStorageblobcontent -File "<path-to-file>" `
+    -Properties @{ ContentType = "text/html; charset=utf-8";} `
     -Container `$web `
     -Blob "<blob-name>" `
     -Context $ctx

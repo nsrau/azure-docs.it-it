@@ -1,36 +1,35 @@
 ---
-title: Creare un processo pianificato con l'Utilità di pianificazione di Azure - Portale di Azure | Documentazione di Microsoft
-description: Informazioni su come creare, pianificare ed eseguire il primo processo automatizzato con l’utilità di pianificazione di Azure nel portale di Azure
+title: Creare processi pianificati-portale di Azure
+description: Creare, pianificare ed eseguire il primo processo automatizzato nell'portale di Azure usando l'utilità di pianificazione di Azure
 services: scheduler
 ms.service: scheduler
 ms.suite: infrastructure-services
 author: derek1ee
-ms.author: deli
-ms.reviewer: klam
-ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
+ms.author: estfan
+ms.reviewer: klam, estfan, logicappspm
 ms.topic: conceptual
-ms.date: 09/17/2018
-ms.openlocfilehash: 48e03f41fa0a39642330288fc05ef709179b4c62
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 02/29/2020
+ms.openlocfilehash: a9f7169f4b54dfc08612b1d53bfde48154ee2d1d
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300982"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524802"
 ---
-# <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Crea e pianifica il primo processo con l’utilità di pianificazione di Azure - Portale di Azure
+# <a name="create-and-schedule-your-first-job-by-using-azure-scheduler---azure-portal"></a>Creare e pianificare il primo processo usando l'utilità di pianificazione di Azure-portale di Azure
 
 > [!IMPORTANT]
 > [App](../logic-apps/logic-apps-overview.md) per la logica di Azure sostituisce l'utilità di pianificazione di Azure, che sta per [essere ritirata](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Per continuare a usare i processi configurati nell'utilità di pianificazione, [eseguire la migrazione alle app per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) il prima possibile.
 
-Questa esercitazione illustra quanto è facile creare, pianificare, monitorare e gestire un processo. 
+Questa esercitazione illustra quanto è facile creare, pianificare, monitorare e gestire un processo.
 
-Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>.
+Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-## <a name="create-job"></a>Crea processo
+## <a name="create-job"></a>Creare il processo
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).  
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-1. Nel menu principale di Azure scegliere **Crea una risorsa**. Nella casella di ricerca immettere “utilità di pianificazione”. Nell'elenco dei risultati, selezionare **utilità di pianificazione**, quindi scegliere **Crea**.
+1. Nella casella di ricerca di Azure immettere `scheduler` come filtro. Dall'elenco dei risultati selezionare l' **utilità di pianificazione raccolte processi**e selezionare **Crea**.
 
    ![Creare la risorsa dell'Utilità di pianificazione di Microsoft Azure](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
 
@@ -40,7 +39,7 @@ Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/f
 
    | Proprietà | Valore di esempio | Descrizione |
    |----------|---------------|-------------| 
-   | **Name** | getMicrosoft | Il nome del processo | 
+   | **Nome** | getMicrosoft | Il nome del processo | 
    | **Raccolta di processi** | <*nome-raccolta-processi*> | Creare una raccolta di processi o selezionare una raccolta esistente. | 
    | **Sottoscrizione** | <*nome sottoscrizione di Azure*> | Nome della sottoscrizione di Azure | 
    |||| 

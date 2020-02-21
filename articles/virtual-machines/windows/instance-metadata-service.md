@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 25b61b7e21e70c1cd4d27f88a0f5ce965c01c5a5
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: ab4569860d24a397816aa2e6c92f2e90f9a14ed1
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964652"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526538"
 ---
 # <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
 
@@ -32,16 +32,18 @@ L'endpoint è disponibile a un indirizzo IP non instradabile noto (`169.254.169.
 > [!IMPORTANT]
 > Questo servizio è **disponibile a livello generale** in tutte le aree di Azure.  Il servizio riceve regolarmente aggiornamenti per esporre nuove informazioni sulle istanze di macchine virtuali. Questa pagina riflette le [API dei metadati](#metadata-apis) aggiornate disponibili.
 
-## <a name="service-availability"></a>Disponibilità dei servizi
+## <a name="service-availability"></a>Disponibilità del servizio
 
 Il servizio è disponibile a livello generale nelle aree di Azure. Le versioni API potrebbero non essere tutte disponibili in tutte le aree di Azure.
 
-Aree                                        | Disponibilità                                 | Versioni supportate
+Regioni                                        | Disponibilità                                 | Versioni supportate
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/)     | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
-[Azure Cina 21Vianet](https://www.azure.cn/)                                            | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
-[Azure Germania](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
+[Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/)     | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
+[Azure Cina 21Vianet](https://www.azure.cn/)                                            | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
+[Azure Germania](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponibile a livello generale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
+
+La versione 2019-11-01 è attualmente in fase di distribuzione e potrebbe non essere disponibile in tutte le aree.
 
 Questa tabella viene aggiornata quando sono presenti aggiornamenti del servizio e/o sono disponibili nuove versioni supportate.
 
@@ -102,7 +104,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 Per impostazione predefinita, il Servizio metadati dell'istanza restituisce i dati in formato JSON (`Content-Type: application/json`). Tuttavia, API diverse restituiscono dati in formati diversi se necessario.
 La tabella seguente costituisce un riferimento per gli altri formati di dati che le API possono supportare.
 
-API SmartBear Ready! | Formato dati predefinito | Altri formati
+API | Formato dati predefinito | Altri formati
 --------|---------------------|--------------
 /instance | json | text
 /scheduledevents | json | none
@@ -117,7 +119,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > [!NOTE]
 > Per i nodi foglia il `format=json` non funziona. Per queste query `format=text` necessario specificare in modo esplicito se il formato predefinito è JSON.
 
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 
 L'endpoint del Servizio metadati dell'istanza è accessibile solo dall'istanza della macchina virtuale in esecuzione su un indirizzo IP non instradabile. Inoltre, qualsiasi richiesta con intestazione `X-Forwarded-For` viene rifiutata dal servizio.
 È necessario anche che le richieste includano l'intestazione `Metadata: true` per garantire che la richiesta sia stata destinata direttamente e non faccia parte di un reindirizzamento non intenzionale.
@@ -130,7 +132,7 @@ Codice di stato HTTP | Motivo
 ----------------|-------
 200 - OK |
 400 - Richiesta non valida | Manca l'intestazione del `Metadata: true` o il formato non è presente durante l'esecuzione di query su un nodo foglia
-404 - Pagina non trovata | L'elemento richiesto non esiste
+404 - Non trovato | L'elemento richiesto non esiste
 405 - Metodo non consentito | Sono supportate solo le richieste `GET`
 429 - Numero eccessivo di richieste | L'API supporta attualmente un massimo di 5 query al secondo
 500 - Errore del servizio     | Ripetere l'operazione in un secondo momento
@@ -448,10 +450,10 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 
 Le API seguenti sono disponibili tramite l'endpoint dei metadati:
 
-Dati | Description | Versione introdotta
+data | Descrizione | Versione introdotta
 -----|-------------|-----------------------
 attested | Vedere [Dati con attestazione](#attested-data) | 2018-10-01
-identità | Identità gestite per le risorse di Azure. Vedere [Acquisire un token di accesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
+identity | Identità gestite per le risorse di Azure. Vedere [Acquisire un token di accesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 instance | Vedere [API dell'istanza](#instance-api) | 2017-04-02
 scheduledevents | Vedere [Eventi pianificati](scheduled-events.md) | 2017-08-01
 
@@ -462,7 +464,7 @@ Le categorie di calcolo seguenti sono disponibili tramite l'API dell'istanza:
 > [!NOTE]
 > Tramite l'endpoint dei metadati, si accede alle seguenti categorie tramite istanza/calcolo
 
-Dati | Description | Versione introdotta
+data | Descrizione | Versione introdotta
 -----|-------------|-----------------------
 azEnvironment | Ambiente Azure in cui è in esecuzione la macchina virtuale | 2018-10-01
 customData | Questa funzionalità è attualmente disabilitata e verrà aggiornata la documentazione quando diventerà disponibile | 2019-02-01
@@ -495,7 +497,7 @@ Le seguenti categorie di rete sono disponibili tramite l'API dell'istanza:
 > [!NOTE]
 > Tramite l'endpoint dei metadati, si accede alle seguenti categorie tramite istanza/rete/interfaccia
 
-Dati | Description | Versione introdotta
+data | Descrizione | Versione introdotta
 -----|-------------|-----------------------
 ipv4/privateIpAddress | Indirizzo IPv4 locale della macchina virtuale | 2017-04-02
 ipv4/publicIpAddress | Indirizzo IPv4 pubblico della macchina virtuale | 2017-04-02
@@ -721,7 +723,7 @@ AzurePublicCloud
 
 Le aree e i valori dell'ambiente Azure sono elencati di seguito.
 
- Aree | Ambiente Azure
+ Regioni | Ambiente Azure
 ---------|-----------------
 [Tutte le aree globali di Azure con disponibilità a livello generale](https://azure.microsoft.com/regions/)     | AzurePublicCloud
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
@@ -818,7 +820,7 @@ Verification successful
 }
 ```
 
-Dati | Description
+data | Descrizione
 -----|------------
 nonce | Stringa facoltativa fornita dall'utente con la richiesta. Se nella richiesta non è presente l'elemento nonce, viene restituito il timestamp UTC corrente
 piano | [Piano](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) per una macchina virtuale in un'immagine di Azure Marketplace, che contiene nome, prodotto ed editore
@@ -911,7 +913,7 @@ Il profilo di archiviazione di una macchina virtuale è suddiviso in tre categor
 
 L'oggetto di riferimento all'immagine contiene le informazioni seguenti sull'immagine del sistema operativo:
 
-Dati    | Description
+data    | Descrizione
 --------|-----------------
 id      | ID risorsa
 offer   | Offerta dell'immagine della piattaforma o del Marketplace
@@ -921,9 +923,9 @@ version | Versione dell'immagine della piattaforma o del Marketplace
 
 L'oggetto disco del sistema operativo contiene le informazioni seguenti sul disco del sistema operativo usato dalla macchina virtuale:
 
-Dati    | Description
+data    | Descrizione
 --------|-----------------
-Caching | Requisiti per la memorizzazione nella cache
+memorizzazione nella cache | Requisiti per la memorizzazione nella cache
 createOption | Informazioni sul modo in cui è stata creata la macchina virtuale
 diffDiskSettings | Impostazioni disco temporaneo
 diskSizeGB | Dimensioni del disco in GB
@@ -936,9 +938,9 @@ writeAcceleratorEnabled | Indica se writeAccelerator è abilitato sul disco
 
 L'array di dischi dati contiene un elenco di dischi dati collegati alla macchina virtuale. Ogni oggetto disco dati contiene le informazioni seguenti:
 
-Dati    | Description
+data    | Descrizione
 --------|-----------------
-Caching | Requisiti per la memorizzazione nella cache
+memorizzazione nella cache | Requisiti per la memorizzazione nella cache
 createOption | Informazioni sul modo in cui è stata creata la macchina virtuale
 diffDiskSettings | Impostazioni disco temporaneo
 diskSizeGB | Dimensioni del disco in GB
@@ -1021,7 +1023,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/storageP
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Esempi di chiamate del Servizio metadati con diversi linguaggi all'interno della macchina virtuale 
 
-Lingua | Esempio
+Linguaggio | Esempio
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
 Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
@@ -1036,7 +1038,7 @@ Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 Puppet | https://github.com/keirans/azuremetadata
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Domande frequenti
 
 1. Viene visualizzato l'errore `400 Bad Request, Required metadata header not specified`. Che cosa significa?
    * Il Servizio metadati dell'istanza richiede che nella richiesta venga passata l'intestazione `Metadata: true`. Il passaggio di questa intestazione nella chiamata REST consente l'accesso al Servizio metadati dell'istanza.

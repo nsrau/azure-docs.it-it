@@ -12,12 +12,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
-ms.openlocfilehash: 9bb228725d5ad8e3583c73be09c582478f74a1e8
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: b4750ad9fdfa214aa4d7b6a0355c319e7eb1d9c3
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471891"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484401"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Risolvere i problemi relativi a errori di allocazione quando si crea, riavvia o ridimensiona una VM in Azure
 
@@ -87,9 +87,9 @@ Con l'espansione dell'infrastruttura di Azure, viene distribuito hardware di nuo
 
 |Dimensioni/Serie VM legacy|Dimensioni/Serie VM più recenti consigliate|Ulteriori informazioni|
 |----------------------|----------------------------|--------------------|
-|Serie Av1|[Serie Av2](../windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
-|Serie Dv1 o DSv1 (da D1 a D5)|[Serie Dv3 o DSv3](../windows/sizes-general.md#dsv3-series-1)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
-|Serie Dv1 o DSv1 (da D11 a D14)|[Serie Ev3 o ESv3](../windows/sizes-memory.md#ev3-series)|
+|Serie Av1|[Serie Av2](../av2-series.md)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
+|Serie Dv1 o DSv1 (da D1 a D5)|[Serie Dv3 o DSv3](../dv3-dsv3-series.md)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|Serie Dv1 o DSv1 (da D11 a D14)|[Serie Ev3 o ESv3](../ev3-esv3-series.md)|
 |D15v2 o DS15v2|Se si usa il modello di distribuzione di Resource Manager per sfruttare i vantaggi offerti dalle dimensioni maggiori della VM, provare a passare a D16v3/DS16v3 o D32v3/DS32v3. Queste VM sono progettate per l'hardware di generazione più recente. Se si usa il modello di distribuzione di Resource Manager per assicurarsi che l'istanza di VM sia isolata all'hardware dedicato a un singolo cliente, provare a passare alle nuove dimensioni di VM isolate, E64i_v3 o E64is_v3, progettate per l'hardware di generazione più recente. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
 
 ## <a name="allocation-failures-for-large-deployments-more-than-500-cores"></a>Errori di allocazione per distribuzioni di grandi dimensioni (oltre 500 core)

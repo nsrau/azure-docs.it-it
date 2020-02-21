@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7c8bdb7236ed0a3a12bae5050e564afe0b68cde
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
-ms.translationtype: MT
+ms.openlocfilehash: 9a44cf9aa5b3287a01617be6439cd04b9a5caa73
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461233"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484231"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Compilare un endpoint SCIM e configurare il provisioning utenti con Azure Active Directory (Azure AD)
 
@@ -60,10 +60,10 @@ Ogni applicazione richiede attributi diversi per creare un utente o un gruppo. A
 |loginName|userName|userPrincipalName|
 |firstName|name.givenName|givenName|
 |lastName|nome. lastName|lastName|
-|workMail|Messaggi di posta elettronica [digitare EQ "Work"]. Value|Posta|
+|workMail|Messaggi di posta elettronica [digitare EQ "Work"]. Value|Posta elettronica|
 |manager|manager|manager|
 |tag|urn: IETF: params: SCIM: schemas: Extension: 2.0: CustomExtension: Tag|extensionAttribute1|
-|stato|attivo|isSoftDeleted (valore calcolato non archiviato nell'utente)|
+|status|active|isSoftDeleted (valore calcolato non archiviato nell'utente)|
 
 Lo schema definito in precedenza verrebbe rappresentato usando il payload JSON riportato di seguito. Si noti che, oltre agli attributi necessari per l'applicazione, la rappresentazione JSON include gli attributi "ID", "externalId" e "meta" obbligatori.
 
@@ -99,14 +99,14 @@ Lo schema definito in precedenza verrebbe rappresentato usando il payload JSON r
 
 | Utente Azure Active Directory | "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" |
 | --- | --- |
-| IsSoftDeleted |attivo |
+| IsSoftDeleted |active |
 |department|urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Department|
 | displayName |displayName |
 |employeeId|urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: employeeNumber|
 | Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
 | jobTitle |title |
-| posta |emails[type eq "work"].value |
+| mail |emails[type eq "work"].value |
 | mailNickname |externalId |
 | manager |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
@@ -124,9 +124,9 @@ Lo schema definito in precedenza verrebbe rappresentato usando il payload JSON r
 | Gruppo di Azure Active Directory | urn: IETF: params: SCIM: schemas: Core: 2.0: Group |
 | --- | --- |
 | displayName |displayName |
-| posta |emails[type eq "work"].value |
+| mail |emails[type eq "work"].value |
 | mailNickname |displayName |
-| membri |membri |
+| Membri di |Membri di |
 | objectId |externalId |
 | proxyAddresses |emails[type eq "other"].Value |
 
@@ -145,7 +145,7 @@ Esistono diversi endpoint definiti nella RFC SCIM. È possibile iniziare a usare
 
 ## <a name="step-2-understand-the-azure-ad-scim-implementation"></a>Passaggio 2: comprendere l'implementazione di SCIM Azure AD
 > [!IMPORTANT]
-> L'ultimo aggiornamento del comportamento dell'implementazione SCIM di Azure AD è stato eseguito il 18 dicembre 2018. Per informazioni sulle modifiche, vedere [Conformità al protocollo SCIM 2.0 del servizio di provisioning utenti di Azure AD](../manage-apps/application-provisioning-config-problem-scim-compatibility.md).
+> L'ultimo aggiornamento del comportamento dell'implementazione SCIM di Azure AD è stato eseguito il 18 dicembre 2018. Per informazioni sulle modifiche, vedere [Conformità al protocollo SCIM 2.0 del servizio di provisioning utenti di Azure AD](application-provisioning-config-problem-scim-compatibility.md).
 
 Se si compila un'applicazione che supporta un'API di gestione utenti SCIM 2,0, in questa sezione viene descritto in dettaglio il modo in cui viene implementato il client SCIM Azure AD. Viene inoltre illustrato come modellare le risposte e la gestione delle richieste del protocollo SCIM. Una volta implementato l'endpoint SCIM, è possibile testarlo attenendosi alla procedura descritta nella sezione precedente.
 
@@ -560,7 +560,7 @@ Questa sezione fornisce le richieste SCIM di esempio emesse dal client Azure AD 
 * L'aggiornamento alla richiesta PATCH di gruppo deve restituire un *contenuto HTTP 204 senza contenuto* nella risposta. Non è consigliabile restituire un corpo con un elenco di tutti i membri.
 * Non è necessario supportare la restituzione di tutti i membri del gruppo.
 
-#### <a name="create-group"></a>Crea gruppo
+#### <a name="create-group"></a>Creare un gruppo
 
 ##### <a name="request-7"></a>Richiesta
 
@@ -712,7 +712,7 @@ Questa sezione fornisce le richieste SCIM di esempio emesse dal client Azure AD 
 
 *HTTP/1.1 204 nessun contenuto*
 
-#### <a name="delete-group"></a>Elimina gruppo
+#### <a name="delete-group"></a>Eliminare un gruppo
 
 ##### <a name="request-13"></a>Richiesta
 

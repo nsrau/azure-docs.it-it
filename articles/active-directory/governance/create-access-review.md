@@ -15,12 +15,12 @@ ms.date: 02/06/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcb2198ea3f01e923022c205e478167240a01894
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 3e769df186597a88247601f4fc70c48263edc88b
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084439"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483908"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Creare una verifica di accesso dei gruppi e delle applicazioni nelle verifiche di accesso Azure AD
 
@@ -28,7 +28,7 @@ L'accesso a gruppi e applicazioni per dipendenti e utenti guest cambia nel corso
 
 Questo articolo descrive come creare una o più verifiche di accesso per i membri del gruppo o l'accesso alle applicazioni.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Azure AD Premium P2
 - Amministratore globale o Amministratore utenti
@@ -53,7 +53,7 @@ Per altre informazioni, vedere [Requisiti relativi alle licenze](access-reviews-
 
     ![Creare una verifica di accesso - Date di inizio e di fine](./media/create-access-review/start-end-dates.png)
 
-1. Per fare in modo che la verifica di accesso ricorra, modificare l'impostazione della **frequenza** da **una volta a una** **settimana**, ogni **mese**, ogni **trimestre** o **ogni anno**. Usare il dispositivo di scorrimento **durata** o la casella di testo per definire il numero di giorni per cui ogni revisione della serie ricorrente verrà aperta per l'input dai revisori. La durata massima che è possibile impostare per una verifica mensile, ad esempio, è di 27 giorni, per evitare la sovrapposizione delle verifiche.
+1. Per fare in modo che la verifica di accesso ricorra, modificare l'impostazione della **frequenza** da **una volta a una** **settimana**, ogni **mese**, ogni **trimestre**, **semestrale**o **annuale**. Usare il dispositivo di scorrimento **durata** o la casella di testo per definire il numero di giorni per cui ogni revisione della serie ricorrente verrà aperta per l'input dai revisori. La durata massima che è possibile impostare per una verifica mensile, ad esempio, è di 27 giorni, per evitare la sovrapposizione delle verifiche.
 
 1. Usare l'impostazione **Fine** per specificare come terminare la serie di verifiche di accesso ricorrenti. La serie può terminare in tre modi: può essere eseguita in modo continuo per avviare le verifiche per un periodo illimitato o fino a una data specifica oppure terminare dopo che è stato completato un numero definito di occorrenze. Un altro amministratore utente o un altro amministratore globale può arrestare la serie dopo la creazione modificando la data in **Impostazioni**, in modo che termini a tale data.
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: 838d215cb49e526251aff9267dbeb0feb6d5f8df
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 2d1e6e484fd704669951bd37b17356fd3689cc91
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425257"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485183"
 ---
 # <a name="metrics-for-application-gateway"></a>Metriche per il gateway applicazione
 
@@ -22,7 +22,7 @@ Il gateway applicazione pubblica i punti dati, detti metrica, in [monitoraggio d
 
 ### <a name="timing-metrics"></a>Metriche temporali
 
-Il gateway applicazione offre diverse metriche temporali predefinite relative alla richiesta e alla risposta che sono tutte misurate in millisecondi. 
+Il gateway applicazione offre diverse metriche temporali predefinite relative alla richiesta e alla risposta, che sono tutte misurate in millisecondi. 
 
 ![](./media/application-gateway-metrics/application-gateway-metrics.png)
 
@@ -86,7 +86,7 @@ Per il gateway applicazione sono disponibili le metriche seguenti:
 
 - **Unità di capacità correnti**
 
-   Numero di unità di capacità utilizzate. Le unità di capacità misurano i costi in base al consumo addebitati in aggiunta al costo fisso. Esistono tre fattori determinanti per la capacità: unità di calcolo, connessioni permanenti e velocità effettiva. Ogni unità di capacità è composta al massimo: 1 unità di calcolo o 2500 connessioni permanenti o velocità effettiva di 2,22 Mbps.
+   Numero di unità di capacità utilizzate per bilanciare il carico del traffico. Esistono tre fattori determinanti per la capacità: unità di calcolo, connessioni permanenti e velocità effettiva. Ogni unità di capacità è composta al massimo: 1 unità di calcolo o 2500 connessioni permanenti o velocità effettiva di 2,22 Mbps.
 
 - **Unità di calcolo correnti**
 
@@ -98,13 +98,15 @@ Per il gateway applicazione sono disponibili le metriche seguenti:
    
 - **Unità di capacità fatturate stimate**
 
-  Numero di unità di capacità utilizzate per stimare la fatturazione. Si tratta di calcutaed come valore maggiore tra *unità di capacità correnti* e *unità di capacità fatturabili fisse*.  
+  Con lo SKU V2, il modello di determinazione dei prezzi è determinato dal consumo. Le unità di capacità misurano i costi in base al consumo addebitati in aggiunta al costo fisso. *Unità di capacità fatturate stimate* indica il numero di unità di capacità in base alle quali viene stimata la fatturazione. Viene calcolato come valore maggiore tra le *unità di capacità correnti* (unità di capacità necessarie per il bilanciamento del carico del traffico) e le *unità di capacità fatturabili fisse* (unità di capacità minima mantenute provisioning).
 
 - **Richieste non riuscite**
 
-   Numero di richieste non riuscite gestite dal gateway applicazione. Il numero di richieste può essere ulteriormente filtrato per visualizzare il conteggio per ogni combinazione di impostazioni http del pool back-end specifico.
+  Numero di richieste non riuscite gestite dal gateway applicazione. Il numero di richieste può essere ulteriormente filtrato per visualizzare il conteggio per ogni combinazione di impostazioni http del pool back-end specifico.
    
-- **Unità di capacità fatturabili fisse** Numero minimo di unità di capacità di cui è stato effettuato il provisioning in base all'impostazione *minima delle unità di scala* nella configurazione del gateway applicazione.
+- **Unità di capacità fatturabili fisse**
+
+  Il numero minimo di unità di capacità di cui è stato effettuato il provisioning in base all'impostazione *minima delle unità di scala* (un'istanza è convertita in 10 unità di capacità) nella configurazione del gateway applicazione.
    
  - **Nuove connessioni al secondo**
 
@@ -143,7 +145,9 @@ Per il gateway applicazione sono disponibili le metriche seguenti:
 
   Il numero di backend determinati da un probe di integrità non integro. È possibile filtrare in base al pool back-end per visualizzare il numero di host non integri in un pool back-end specifico.
   
-- **Richieste al minuto per host integro** Numero medio di richieste ricevute da ogni membro integro in un pool back-end in un minuto. È necessario specificare il pool back-end usando la dimensione *end di integri* .  
+- **Richieste al minuto per host integro**
+
+  Numero medio di richieste ricevute da ogni membro integro in un pool back-end in un minuto. È necessario specificare il pool back-end usando la dimensione *end di integri* .  
   
 
 ## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Metriche supportate dallo SKU del gateway applicazione V1

@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ef8f1ef381c86b6eec62c96ff6dcf87522de040
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: f1b7e4716e731e6b73e3ac60b64baa71043906fc
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367973"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483755"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Accesso Single Sign-On facile di Azure Active Directory
 
@@ -36,7 +36,7 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 ![Accesso Single Sign-On facile](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->Seamless SSO richiede che il dispositivo dell'utente sia **aggiunto** a un dominio, ma non viene usato in [Azure ad unito](../active-directory-azureadjoin-overview.md) o [Azure ad ibrido aggiunto] (.. /active-directory-azureadjoin-overview.md). Single Sign-on SSO Azure AD Unito in join e Azure AD ibrido funziona in base al [token di aggiornamento primario] (.. /active-directory/devices/concept-primary-refresh-token.md)
+>Seamless SSO richiede che il dispositivo dell'utente sia **aggiunto** a un dominio, ma non viene usato nei dispositivi [Azure AD aggiunti](../devices/concept-azure-ad-join.md) o [Azure ad ibrido aggiunti](../devices/concept-azure-ad-join-hybrid.md) . L'accesso Single Sign-on Azure AD Unito e Azure AD ibrido Unito funziona in base al [token di aggiornamento primario](../devices/concept-primary-refresh-token.md).
 
 ## <a name="key-benefits"></a>Vantaggi principali
 
@@ -78,7 +78,7 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 \*\*\*Richiede una [configurazione aggiuntiva](how-to-connect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
->Per Windows 10, si consiglia di usare il [join per Azure AD](../active-directory-azureadjoin-overview.md) per ottenere risultati ottimali dall'accesso Single Sign-On con Azure AD.
+>Per Windows 10, si consiglia di usare il [join per Azure AD](../devices/concept-azure-ad-join.md) per ottenere risultati ottimali dall'accesso Single Sign-On con Azure AD.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

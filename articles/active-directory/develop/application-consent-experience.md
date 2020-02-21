@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
-ms.openlocfilehash: 82d64895f4bf2ef6eb1fdb248f470f981d1cb426
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: c9b449b65a8f8def9dc28a668cd9ee3671124cb0
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698170"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484503"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Informazioni sulle esperienze di consenso per le applicazioni di Azure AD
 
@@ -29,7 +29,7 @@ Approfondendo il concetto di esperienza di consenso utente per le applicazioni d
 
 Il consenso è il processo con cui un utente autorizza un'applicazione ad accedere per proprio conto a risorse protette. A un amministratore o un utente può essere chiesto il consenso per permettere l'accesso ai dati individuali o a quelli dell'organizzazione.
 
-L'esperienza utente effettiva per la concessione del consenso può variare a seconda dei criteri impostati per il tenant dell'utente, dell'ambito di autorità (o ruolo) dell'utente e del tipo di [autorizzazioni](https://docs.microsoft.com/azure/active-directory/develop/active-directory-permissions) richieste dall'applicazione client. In altre parole, l'esperienza di consenso ricade in parte sotto il controllo degli sviluppatori di applicazioni e degli amministratori del tenant. Gli amministratori hanno la possibilità di impostare e disabilitare i criteri per un tenant o un'app per controllare l'esperienza di consenso nel tenant. Gli sviluppatori di applicazioni possono stabilire quali tipi di autorizzazioni sono richieste e se vogliono fornire agli utenti informazioni dettagliate attraverso il flusso di consenso utente o il flusso di consenso amministratore.
+L'esperienza utente effettiva per la concessione del consenso può variare a seconda dei criteri impostati per il tenant dell'utente, dell'ambito di autorità (o ruolo) dell'utente e del tipo di [autorizzazioni](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent) richieste dall'applicazione client. In altre parole, l'esperienza di consenso ricade in parte sotto il controllo degli sviluppatori di applicazioni e degli amministratori del tenant. Gli amministratori hanno la possibilità di impostare e disabilitare i criteri per un tenant o un'app per controllare l'esperienza di consenso nel tenant. Gli sviluppatori di applicazioni possono stabilire quali tipi di autorizzazioni sono richieste e se vogliono fornire agli utenti informazioni dettagliate attraverso il flusso di consenso utente o il flusso di consenso amministratore.
 
 - Il **flusso di consenso utente** è quello per cui uno sviluppatore di applicazioni indirizza gli utenti all'endpoint di autorizzazione allo scopo di registrare il consenso per il solo utente corrente.
 - Il **flusso di consenso amministratore** è quello per cui uno sviluppatore di applicazioni indirizza gli utenti all'endpoint di consenso amministratore allo scopo di registrare il consenso per l'intero tenant. Per garantire il corretto funzionamento del flusso di consenso amministratore, gli sviluppatori di applicazioni devono inserire l'elenco di tutte le autorizzazioni nella proprietà `RequiredResourceAccess` del manifesto dell'applicazione. Per altre informazioni, vedere [Manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
@@ -42,7 +42,7 @@ La figura e la tabella seguenti includono informazioni sui blocchi predefiniti d
 
 ![Blocchi predefiniti della richiesta di consenso](./media/application-consent-experience/consent_prompt.png)
 
-| # | Componente | Finalità |
+| # | Componente | Scopo |
 | ----- | ----- | ----- |
 | 1 | ID utente | Questo ID rappresenta l'utente per conto del quale l'applicazione client sta richiedendo di accedere a risorse protette. |
 | 2 | Titolo | Il titolo varia a seconda che gli utenti siano inseriti nel flusso di consenso utente o nel flusso di consenso amministratore. Nel flusso di consenso utente il titolo sarà "Autorizzazioni richieste", mentre nel flusso di consenso amministratore conterrà la riga aggiuntiva "Accetta per l'organizzazione". |

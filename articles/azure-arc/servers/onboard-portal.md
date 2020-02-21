@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 12fc29cf12fba6325af3197e727d94b3073ef2ff
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 3f4954b3a33cdd73c1e004ad1e643f9e24abf1e4
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77192311"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485234"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Connetti le macchine ibride ad Azure dalla portale di Azure
 
@@ -183,7 +183,7 @@ Per disconnettere un computer da Azure Arc for Servers (anteprima), seguire ques
 1. Per disinstallare l'agente Linux, eseguire il comando seguente:
 
       ```bash
-      sudo apt purge hybridagent
+      sudo apt purge azcmagent
       ```
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -16,12 +16,12 @@ ms.date: 01/22/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c1b6f5ebffa39d3b735e85df794e37329e3aa2e
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 1ecf3a8819518c674a3d8bd7af55d1a3c6393c42
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548901"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483857"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Aggiungere un'organizzazione connessa in Azure AD gestione dei diritti
 
@@ -96,6 +96,23 @@ Seguire questa procedura per aggiungere una directory o un dominio di Azure AD e
 1. Nella scheda **revisione e creazione** esaminare le impostazioni dell'organizzazione e quindi fare clic su **Crea**.
 
     ![Accedere a Package-Policy-Aggiungi organizzazione connessa-Revisione + creazione scheda](./media/entitlement-management-organization/organization-review-create.png)
+
+## <a name="update-a-connected-organization"></a>Aggiornare un'organizzazione connessa 
+
+Se l'organizzazione connessa diventa un dominio diverso, se si dispone di un nuovo nome per l'organizzazione o si desidera modificare gli sponsor, è possibile aggiornare l'organizzazione connessa.
+
+**Ruolo prerequisiti:** Amministratore globale, amministratore utente o invito Guest
+
+1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
+
+1. Nel menu a sinistra fare clic su **organizzazioni connesse** e quindi fare clic per aprire l'organizzazione connessa.
+
+1. Nella pagina Overview fare clic su **Edit (modifica** ) per modificare il nome o la descrizione dell'organizzazione.  
+
+1. Nella pagina Directory + dominio fare clic su **Aggiorna directory + dominio** per passare a una directory o a un dominio diverso.
+
+1. Nella pagina sponsor fare clic su **Aggiungi sponsor interni** o **aggiungere sponsor esterni** per aggiungere un utente come sponsor.  Per rimuovere uno sponsor, fare clic sullo sponsor e, nel menu a destra, fare clic su **Elimina**.
+
 
 ## <a name="delete-a-connected-organization"></a>Eliminare un'organizzazione connessa
 

@@ -5,13 +5,13 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: 889699ab184b82a7c194043d15358ecdaab5d03d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/20/2020
+ms.openlocfilehash: 96ef09ac081aa328014217592a7fcd3ed6314c0e
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899632"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523765"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resilienza e ripristino di emergenza
 
@@ -27,9 +27,9 @@ L'applicazione carica la configurazione da entrambi gli archivi, primario e seco
 
 ## <a name="failover-between-configuration-stores"></a>Failover tra archivi di configurazione
 
-Dal punto di vista tecnico l'applicazione non sta eseguendo un failover. Sta provando a recuperare contemporaneamente lo stesso set di dati di configurazione da due archivi di Configurazione app. Organizzare il codice in modo che carichi prima dall'archivio secondario e poi dall'archivio primario. Questo approccio garantisce che, quando disponibili, i dati di configurazione nell'archivio primario abbiano sempre la precedenza. Il frammento di codice seguente illustra come implementare questo approccio nell'interfaccia della riga di comando di .NET Core:
+Dal punto di vista tecnico l'applicazione non sta eseguendo un failover. Sta provando a recuperare contemporaneamente lo stesso set di dati di configurazione da due archivi di Configurazione app. Organizzare il codice in modo che carichi prima dall'archivio secondario e poi dall'archivio primario. Questo approccio garantisce che, quando disponibili, i dati di configurazione nell'archivio primario abbiano sempre la precedenza. Il frammento di codice seguente mostra come è possibile implementare questa disposizione in .NET Core:
 
-#### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+#### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -44,7 +44,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
     
 ```
 
-#### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+#### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -70,17 +70,18 @@ Dal portale di Azure è possibile eseguire il push di una modifica in un altro a
 
 1. Passare alla scheda **Importazione/Esportazione** e selezionare **Esporta** > **Configurazione app** > **Destinazione** > **Selezionare una risorsa**.
 
-2. Nel nuovo pannello visualizzato specificare la sottoscrizione, il gruppo di risorse e il nome risorsa dell'archivio secondario e quindi selezionare **Applica**.
+1. Nel pannello nuovo visualizzato specificare la sottoscrizione, il gruppo di risorse e il nome della risorsa dell'archivio secondario, quindi selezionare **applica**.
 
-3. L'interfaccia utente verrà aggiornata in modo che sia possibile scegliere i dati di configurazione da esportare nell'archivio secondario. È possibile lasciare il valore di data e ora predefinito così com'è e impostare sia **Da etichetta** che **A etichetta** sullo stesso valore. Selezionare **Applica**.
+1. L'interfaccia utente verrà aggiornata in modo che sia possibile scegliere i dati di configurazione da esportare nell'archivio secondario. È possibile lasciare il valore di data e ora predefinito così com'è e impostare sia **Da etichetta** che **A etichetta** sullo stesso valore. Selezionare **Applica**.
 
-4. Ripetere i passaggi precedenti per tutte le modifiche di configurazione.
+1. Ripetere i passaggi precedenti per tutte le modifiche di configurazione.
 
 Per automatizzare questo processo di esportazione, usare l'interfaccia della riga di comando di Azure. Il comando seguente mostra come esportare una singola modifica di configurazione dall'archivio primario a quello secondario:
 
+```azurecli
     az appconfig kv export --destination appconfig --name {PrimaryStore} --label {Label} --dest-name {SecondaryStore} --dest-label {Label}
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo articolo si è appreso come migliorare l'applicazione per ottenere la resilienza geografica in fase di esecuzione per Configurazione app. È anche possibile incorporare i dati di configurazione da Configurazione app in fase di compilazione o di distribuzione. Per altre informazioni, vedere [Integrare una pipeline CI/CD](./integrate-ci-cd-pipeline.md).
-
