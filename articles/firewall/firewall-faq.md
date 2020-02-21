@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: victorh
-ms.openlocfilehash: 41cc058d09c3bca114ba5a469f23a27ff88fed19
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
-ms.translationtype: HT
+ms.openlocfilehash: b28d228dd950796265c5412be30e5d7777cf94c6
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505788"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526513"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -137,7 +137,7 @@ Se la configurazione richiede il tunneling forzato in una rete locale ed è poss
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Vi sono restrizioni relative al gruppo di risorse del firewall?
 
-Sì. Il firewall, la subnet, la rete virtuale e l'indirizzo IP pubblico devono trovarsi nello stesso gruppo di risorse.
+Sì. Il firewall, VNet, e l'indirizzo IP pubblico devono trovarsi tutti nello stesso gruppo di risorse.
 
 ## <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Quando si configura DNAT per il traffico di rete in ingresso, è necessario anche configurare una regola di rete corrispondente per consentire tale traffico?
 
