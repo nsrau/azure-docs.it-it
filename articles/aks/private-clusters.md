@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 1/24/2020
+ms.date: 2/21/2020
 ms.author: mlearned
-ms.openlocfilehash: 934dfdb43d6d2e4ccc346b728f0ac4f5febea327
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 08929d5ec05fbeb80eddebfd667fe1e0fde9bff7
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76932588"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544233"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Creare un cluster privato del servizio Kubernetes di Azure (anteprima)
 
@@ -31,13 +31,33 @@ Il piano di controllo o il server API si trova in una sottoscrizione di Azure ge
 * L'interfaccia della riga di comando di Azure versione 2.0.77 o successiva e l'estensione dell'interfaccia della riga di comando di Azure AKS Preview 0.4.18
 
 ## <a name="currently-supported-regions"></a>Aree attualmente supportate
+
+* Australia orientale
+* Australia sud-orientale
+* Brasile meridionale
+* Canada centrale
+* Canada orientale
+* Cenral US
+* Asia orientale
+* Stati Uniti orientali
+* Stati Uniti orientali 2
+* Stati Uniti orientali 2 EUAP
+* Francia centrale
+* Germania settentrionale
+* Giappone orientale
+* Giappone occidentale
+* Corea centrale
+* Corea meridionale
+* Stati Uniti centro-settentrionali
+* Europa settentrionale
+* Europa settentrionale
+* Stati Uniti centro-meridionali
+* Regno Unito meridionale
+* Europa occidentale
 * Stati Uniti occidentali
 * Stati Uniti occidentali 2
 * Stati Uniti orientali 2
-* Canada centrale
-* Europa settentrionale
-* Europa occidentale
-* Australia orientale
+
 
 ## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Installare l'estensione più recente dell'interfaccia della riga di comando di Azure AKS
 
@@ -98,7 +118,7 @@ Dove *--Enable-Private-cluster* è un flag obbligatorio per un cluster privato.
 > Se l'indirizzo CIDR del Bridge Docker (172.17.0.1/16) si scontra con la CIDR della subnet, modificare l'indirizzo del Bridge Docker in modo appropriato.
 
 ## <a name="connect-to-the-private-cluster"></a>Connettersi al cluster privato
-L'endpoint del server API non ha un indirizzo IP pubblico. Di conseguenza, è necessario creare una macchina virtuale (VM) di Azure in una rete virtuale e connettersi al server API. A tale scopo, seguire questa procedura:
+L'endpoint del server API non ha un indirizzo IP pubblico. Di conseguenza, è necessario creare una macchina virtuale (VM) di Azure in una rete virtuale e connettersi al server API. A tale scopo, eseguire le operazioni seguenti:
 
 1. Ottenere le credenziali per la connessione al cluster.
 
@@ -106,7 +126,7 @@ L'endpoint del server API non ha un indirizzo IP pubblico. Di conseguenza, è ne
    az aks get-credentials --name MyManagedCluster --resource-group MyResourceGroup
    ```
 
-1. Effettuare una delle operazioni seguenti:
+1. Eseguire una delle operazioni seguenti:
    * Creare una VM nella stessa rete virtuale del cluster AKS.  
    * Creare una macchina virtuale in una rete virtuale diversa ed esaminarla con la rete virtuale del cluster AKS.
 

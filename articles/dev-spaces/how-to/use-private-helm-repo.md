@@ -8,12 +8,12 @@ ms.topic: conceptual
 description: Usare un repository Helm privato in uno spazio di sviluppo di Azure.
 keywords: Docker, Kubernetes, Azure, AKS, servizio contenitore di Azure, contenitori, Helm
 manager: gwallace
-ms.openlocfilehash: b1579adc00540a429170027b66c5d3e508bcb5d4
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 6036184c43242f2ec2279438950b26dfb53e9bb4
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718737"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538670"
 ---
 # <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Usare un repository Helm privato in Azure Dev Spaces
 
@@ -33,7 +33,7 @@ helm repo update
 Passare alla directory del progetto ed eseguire `azds prep`.
 
 ```cmd
-azds prep --public
+azds prep --enable-ingress
 ```
 
 > [!TIP]

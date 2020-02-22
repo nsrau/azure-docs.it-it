@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: b2c59fd6ee925d531a5a5ff3bb26fdebea025b83
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c5acc9637fe5afe8f7dd32d23fbdbb80373b4f61
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513559"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539383"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Informazioni sul servizio Mobility per le macchine virtuali VMware e i server fisici
 
@@ -21,6 +21,9 @@ Quando si configura il ripristino di emergenza per macchine virtuali VMware e se
 - [Installazione push](#push-installation): Site Recovery installa l'agente di mobilità nel server quando la protezione viene abilitata tramite portale di Azure.
 - Installare manualmente: è possibile installare manualmente il servizio Mobility in ogni computer tramite l' [interfaccia utente](#install-mobility-agent-through-ui) o il [prompt dei comandi](#install-mobility-agent-through-command-prompt).
 - [Distribuzione automatizzata](vmware-azure-mobility-install-configuration-mgr.md): è possibile automatizzare l'installazione con strumenti di distribuzione software, ad esempio Configuration Manager.
+
+> [!NOTE]
+> L'agente di mobilità USA approssimativamente il 6%-10% di memoria nei computer di origine per le macchine virtuali VMware o i computer fisici.
 
 ## <a name="anti-virus-on-replicated-machines"></a>Antivirus nei computer replicati
 
@@ -35,7 +38,7 @@ L'installazione push è parte integrante del processo di[Abilitazione della repl
 
 Le sezioni seguenti illustrano i dettagli del flusso di lavoro dell'installazione push.
 
-### <a name="from-923-versionhttpssupportmicrosoftcomen-inhelp4494485update-rollup-35-for-azure-site-recovery-onwards"></a>Dalla [versione 9,23](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery) e successive
+### <a name="from-923-version-onwards"></a>Dalla [versione 9,23](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery) e successive
 
 Durante l'installazione push dell'agente Mobility vengono eseguiti i passaggi seguenti:
 
@@ -73,7 +76,7 @@ Durante l'installazione push dell'agente Mobility vengono eseguiti i passaggi se
 
     ![Pagina di registrazione del servizio Mobility](./media/vmware-physical-mobility-service-install-manual/mobility3.png)
 
-5. In **Dettagli del server di configurazione**specificare l'indirizzo IP e la passphrase configurati.  
+5. In **Dettagli del server di configurazione**specificare l'indirizzo IP e la passphrase configurati.
 
     ![Pagina di registrazione del servizio Mobility](./media/vmware-physical-mobility-service-install-manual/mobility4.png)
 
@@ -115,7 +118,7 @@ Durante l'installazione push dell'agente Mobility vengono eseguiti i passaggi se
 #### <a name="installation-settings"></a>Impostazioni di installazione
 **Impostazione** | **Dettagli**
 --- | ---
-Uso | UnifiedAgent. exe/role \<MS/MT >/INSTALLLOCATION. \<percorso di installazione >/Platform "VmWare"/Silent
+Utilizzo | UnifiedAgent. exe/role \<MS/MT >/INSTALLLOCATION. \<percorso di installazione >/Platform "VmWare"/Silent
 log di installazione | In %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Role | Parametro di installazione obbligatorio. Specifica se deve essere installato il servizio Mobility o la destinazione master.
 /InstallLocation| Parametro facoltativo. Specifica il percorso di installazione del servizio Mobility (qualsiasi cartella).
@@ -125,7 +128,7 @@ log di installazione | In %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.lo
 #### <a name="registration-settings"></a>Impostazioni di registrazione
 **Impostazione** | **Dettagli**
 --- | ---
-Uso | UnifiedAgentConfigurator. exe/CSEndPoint \<CSIP >/Passphrasefilepath. \<PassphraseFilePath >
+Utilizzo | UnifiedAgentConfigurator. exe/CSEndPoint \<CSIP >/Passphrasefilepath. \<PassphraseFilePath >
 Log di configurazione dell'agente | In %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Parametro obbligatorio. Specifica l'indirizzo IP del server di configurazione. Qualsiasi indirizzo IP valido.
 /PassphraseFilePath |  Mandatory. Percorso della passphrase. Usare qualsiasi percorso file locale o UNC valido.
@@ -154,16 +157,16 @@ Log di configurazione dell'agente | In %ProgramData%\ASRSetupLogs\ASRUnifiedAgen
 #### <a name="installation-settings"></a>Impostazioni di installazione
 **Impostazione** | **Dettagli**
 --- | ---
-Uso | ./install-d \<percorso di installazione >-r \<MS/MT >-v VmWare-q
+Utilizzo | ./install-d \<percorso di installazione >-r \<MS/MT >-v VmWare-q
 -r | Parametro di installazione obbligatorio. Specifica se deve essere installato il servizio Mobility o la destinazione master.
 -d | Parametro facoltativo. Specifica il percorso di installazione del servizio Mobility: /usr/local/ASR.
 -v | Mandatory. Specifica la piattaforma in cui viene installato il servizio Mobility. **VMware** per macchine virtuali VMware/server fisici; **Azure** per macchine virtuali di Azure.
--Q | Facoltativa. Specifica se il programma di installazione deve essere eseguito in modalità non interattiva.
+-q | Facoltativa. Specifica se il programma di installazione deve essere eseguito in modalità non interattiva.
 
 #### <a name="registration-settings"></a>Impostazioni di registrazione
 **Impostazione** | **Dettagli**
 --- | ---
-Uso | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh-i \<CSIP >-P \<PassphraseFilePath >
+Utilizzo | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh-i \<CSIP >-P \<PassphraseFilePath >
 -i | Parametro obbligatorio. Specifica l'indirizzo IP del server di configurazione. Qualsiasi indirizzo IP valido.
 -P |  Mandatory. Percorso completo del file in cui è stata salvata la passphrase. Usare qualsiasi cartella valida.
 

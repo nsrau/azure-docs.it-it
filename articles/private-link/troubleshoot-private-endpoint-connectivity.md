@@ -13,99 +13,99 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: df4ec6ddbba029eb29d2440717697968f8c79302
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: fcc482e6231bbd925fd500a37989052765dede58
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191057"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538535"
 ---
-# <a name="troubleshoot-private-endpoint-connectivity-problems"></a>Risoluzione dei problemi di connettività all'endpoint privato
+# <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Risolvere i problemi di connettività degli endpoint privati di Azure
 
-Questa guida fornisce istruzioni dettagliate per convalidare e diagnosticare la configurazione della connettività degli endpoint privati. 
+Questo articolo fornisce istruzioni dettagliate per convalidare e diagnosticare la configurazione della connettività degli endpoint privati di Azure.
 
-Endpoint privato di Azure è un'interfaccia di rete che si connette privatamente e in modo sicuro a un servizio di collegamento privato. Questa soluzione consente di proteggere i carichi di lavoro in Azure fornendo connettività privata alle risorse dei servizi di Azure dalla rete virtuale. Questa operazione consente di portare i servizi alla rete virtuale. 
+Endpoint privato di Azure è un'interfaccia di rete che si connette privatamente e in modo sicuro a un servizio di collegamento privato. Questa soluzione consente di proteggere i carichi di lavoro in Azure fornendo connettività privata alle risorse dei servizi di Azure dalla rete virtuale. Questa soluzione consente di portare i servizi alla rete virtuale.
 
-Ecco gli scenari di connettività disponibili con gli endpoint privati 
-- rete virtuale dalla stessa area 
+Ecco gli scenari di connettività disponibili con l'endpoint privato:
+
+- rete virtuale dalla stessa area
 - reti virtuali con peering a livello di area
 - reti virtuali con peering globale
-- clienti locali tramite VPN o circuiti Express Route
+- Clienti locali tramite VPN o circuiti ExpressRoute di Azure
 
-## <a name="diagnosing-connectivity-problems"></a>Diagnosi dei problemi di connettività 
-Eseguire i passaggi elencati di seguito per assicurarsi che tutte le configurazioni usuali siano quelle previste per risolvere i problemi di connettività con la configurazione dell'endpoint privato.
+## <a name="diagnose-connectivity-problems"></a>Diagnosticare i problemi di connettività 
 
-1. Esaminare la configurazione dell'endpoint privato esplorando la risorsa 
+Esaminare questi passaggi per assicurarsi che tutte le configurazioni usuali siano quelle previste per risolvere i problemi di connettività con la configurazione dell'endpoint privato.
 
-    a) passare a **collegamento privato**
+1. Esaminare la configurazione dell'endpoint privato esplorando la risorsa.
+
+    a. Passare a **private Link Center**.
 
       ![Centro collegamenti privati](./media/private-endpoint-tsg/private-link-center.png)
 
-    b) selezionare gli endpoint privati dal riquadro di spostamento a sinistra
+    b. Nel riquadro sinistro selezionare **endpoint privati**.
     
       ![Endpoint privati](./media/private-endpoint-tsg/private-endpoints.png)
 
-    c) filtrare e selezionare l'endpoint privato che si desidera diagnosticare
+    c. Filtrare e selezionare l'endpoint privato che si desidera diagnosticare.
 
-    d) esaminare la rete virtuale e le informazioni DNS
+    d. Esaminare la rete virtuale e le informazioni DNS.
+     - Verificare che lo stato della connessione sia **approvato**.
+     - Assicurarsi che la macchina virtuale disponga della connettività alla rete virtuale che ospita gli endpoint privati.
+     - Verificare che siano assegnate le informazioni di FQDN (copia) e l'indirizzo IP privato.
     
-     - Convalida dello stato della connessione **approvata**
-     - Assicurarsi che la macchina virtuale disponga della connettività al VNet che ospita gli endpoint privati
-     - Informazioni di FQDN (copia) e indirizzo IP privato assegnati
+       ![Rete virtuale e configurazione DNS](./media/private-endpoint-tsg/vnet-dns-configuration.png)
     
-       ![Configurazione di VNet e DNS](./media/private-endpoint-tsg/vnet-dns-configuration.png)    
-    
-2. Usare [**monitoraggio di Azure**](https://docs.microsoft.com/azure/azure-monitor/overview) per esaminare il flusso dei dati
+1. Usare [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview) per verificare se i dati vengono propagati.
 
-    a) nella risorsa endpoint privato selezionare **monitoraggio**
-     - Selezionare i dati o i dati e verificare se i dati vengono propagati durante il tentativo di connessione all'endpoint privato. Si prevede un ritardo di circa 10 minuti.
+    a. Nella risorsa endpoint privato selezionare **monitoraggio**.
+     - Consente **di selezionare i dati in** uscita o in **uscita**. 
+     - Verificare se i dati vengono propagati quando si tenta di connettersi all'endpoint privato. Si prevede un ritardo di circa 10 minuti.
     
        ![Verificare la telemetria dell'endpoint privato](./media/private-endpoint-tsg/private-endpoint-monitor.png)
 
-3. Usare la risoluzione dei problemi di connessione della macchina virtuale da **Network Watcher**
+1.  Usare la **risoluzione dei problemi di connessione della macchina virtuale** da Azure Network Watcher.
 
-    a) selezionare la macchina virtuale client
+    a. Selezionare la macchina virtuale client.
 
-    b) selezionare la sezione **risoluzione dei problemi di connessione** , scheda **connessione in uscita**
+    b. Selezionare **risoluzione dei problemi di connessione**, quindi selezionare la scheda **connessioni in uscita** .
     
       ![Network Watcher test delle connessioni in uscita](./media/private-endpoint-tsg/network-watcher-outbound-connection.png)
     
-    c) selezionare **usa Network Watcher per la traccia della connessione dettagliata**
+    c. Selezionare **usa Network Watcher per traccia dettagliata della connessione**.
     
       ![Risoluzione dei problemi di connessione Network Watcher](./media/private-endpoint-tsg/network-watcher-connection-troubleshoot.png)
 
-    d) selezionare **test per nome di dominio completo**
-     - Incollare il nome di dominio completo dalla risorsa endpoint privato
-     - Fornire una porta (*in genere 443 per archiviazione di Azure o Cosmos, 1336 per SQL...* )
+    d. Selezionare **test per nome di dominio completo**.
+     - Incollare il nome di dominio completo dalla risorsa endpoint privato.
+     - Specificare una porta. In genere, usare 443 per archiviazione di Azure o Azure Cosmos DB e 1336 per SQL.
 
-    e) fare clic su **test** e convalidare i risultati del test
+    e. Selezionare **test**e convalidare i risultati del test.
     
       ![Risultati del test Network Watcher](./media/private-endpoint-tsg/network-watcher-test-results.png)
     
         
-4. La risoluzione DNS dai risultati del test deve avere lo stesso indirizzo IP privato assegnato all'endpoint privato
+1. La risoluzione DNS dai risultati del test deve avere lo stesso indirizzo IP privato assegnato all'endpoint privato.
 
-    a) se le impostazioni DNS non sono corrette, eseguire le operazioni seguenti
-     - Uso della zona privata: 
-       - Assicurarsi che la macchina virtuale client VNet sia associata alla zona privata
-       - Esaminare il record della zona DNS privato esistente, creare se non esiste
-    
-     - Uso di DNS personalizzato:
-       - Verificare le impostazioni DNS del cliente e verificare che la configurazione DNS sia corretta.
-       Per informazioni aggiuntive [, vedere Panoramica degli endpoint privati-configurazione DNS](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration) .
+    a. Se le impostazioni DNS non sono corrette, attenersi alla procedura seguente:
+     - Se si usa una zona privata: 
+       - Assicurarsi che la rete virtuale della VM client sia associata alla zona privata.
+       - Verificare che sia presente il record della zona DNS privata. Se non esiste, crearlo.
+     - Se si usa il DNS personalizzato:
+       - Verificare le impostazioni DNS personalizzate e verificare che la configurazione DNS sia corretta.
+       Per istruzioni, vedere [Cenni preliminari sugli endpoint privati: configurazione DNS](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
 
-    b) se la connettività ha esito negativo a causa di NSG/UdR
-     - Esaminare le regole in uscita NSG e creare regole in uscita appropriate per consentire il traffico
+    b. Se la connettività ha esito negativo a causa di gruppi di sicurezza di rete (gruppi) o route definite dall'utente:
+     - Esaminare le regole in uscita NSG e creare le regole in uscita appropriate per consentire il traffico.
     
        ![Regole in uscita NSG](./media/private-endpoint-tsg/nsg-outbound-rules.png)
 
-5. Se la connessione ha convalidato i risultati, il problema di connettività potrebbe essere correlato ad altri aspetti come segreti, token, password a livello di applicazione.
-   - In questo caso, rivedere la configurazione della risorsa di collegamento privato associata all'endpoint privato. Vedere la [Guida alla risoluzione dei problemi del collegamento privato](troubleshoot-private-link-connectivity.md). 
+1. Se la connessione ha convalidato i risultati, il problema di connettività potrebbe essere correlato ad altri aspetti come segreti, token e password a livello di applicazione.
+   - In questo caso, esaminare la configurazione della risorsa di collegamento privato associata all'endpoint privato. Per ulteriori informazioni, vedere la [Guida alla risoluzione dei problemi del collegamento privato di Azure](troubleshoot-private-link-connectivity.md).
 
-6. Se il problema non è ancora risolto, contattare il team di [supporto di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) e il problema di connettività esiste ancora. 
+1. Se il problema non è ancora risolto, contattare il team di [supporto di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) ed esiste ancora un problema di connettività.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
  * [Creare un endpoint privato nella subnet aggiornata (portale di Azure)](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)
-
- * [Guida alla risoluzione dei problemi di collegamento privato](troubleshoot-private-link-connectivity.md)
+ * [Guida alla risoluzione dei problemi del collegamento privato di Azure](troubleshoot-private-link-connectivity.md)

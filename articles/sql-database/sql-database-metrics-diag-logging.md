@@ -10,32 +10,32 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 11/16/2019
-ms.openlocfilehash: f5ed3ee9b0e7e7218a519baa56cda443fddab105
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.date: 02/21/2020
+ms.openlocfilehash: 880967fd48d82aaa15c6e3c08d36ec02eee60ead
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522618"
+ms.locfileid: "77544301"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metriche del database SQL di Azure e registrazione diagnostica
 
-In questo argomento si apprenderà come configurare la registrazione dei dati di telemetria di diagnostica per il database SQL di Azure tramite le portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure, l'API REST di monitoraggio di Azure e Azure Resource Manager modello. Questi dati di diagnostica possono essere usati per misurare l'utilizzo delle risorse e le statistiche di esecuzione delle query.
+Questo articolo illustra come configurare la registrazione dei dati di telemetria di diagnostica per i database SQL di Azure tramite l'portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure, l'API REST di monitoraggio di Azure e il modello di Azure Resource Manager. Questi dati di diagnostica possono essere usati per misurare l'utilizzo delle risorse e le statistiche di esecuzione delle query.
 
-I database singoli, i database in pool di pool elastici e i database dell'istanza in un'istanza gestita possono trasmettere log di diagnostica e metriche per facilitare il monitoraggio delle prestazioni. È possibile configurare un database per trasmettere l'utilizzo delle risorse, i ruoli di lavoro e le sessioni e connettività ad una delle seguenti risorse di Azure:
+I database singoli, i database in pool e i database di istanze gestite possono trasmettere le metriche e i log di diagnostica per semplificare il monitoraggio delle prestazioni. È possibile configurare un database SQL di Azure per trasmettere l'utilizzo delle risorse, i ruoli di lavoro e le sessioni e la connettività a una delle risorse di Azure seguenti:
 
-- **Analisi SQL di Azure**: per ottenere un monitoraggio intelligente dei database SQL di Azure che includa i report delle prestazioni, gli avvisi e i suggerimenti di mitigazione dei rischi.
-- **Hub eventi di Azure**: per integrare i dati di telemetria del database SQL con soluzioni di monitoraggio personalizzate o pipeline attive.
-- **Archiviazione di Azure**: per archiviare enormi quantità di dati di telemetria a un costo nettamente inferiore.
+- **Analisi SQL di Azure**: ottenere un monitoraggio intelligente dei database che include report sulle prestazioni, avvisi e consigli per la mitigazione
+- **Hub eventi di Azure**: integrare i dati di telemetria del database con soluzioni di monitoraggio personalizzate o pipeline Hot
+- **Archiviazione di Azure**: archivia enormi quantità di dati di telemetria per una frazione del prezzo
 
-    ![Architecture](./media/sql-database-metrics-diag-logging/architecture.png)
+![Architettura](./media/sql-database-metrics-diag-logging/architecture.png)
 
 Per altre informazioni sulle categorie di metriche e di log supportate dai vari servizi di Azure, vedere:
 
 - [Panoramica delle metriche in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 - [Panoramica dei log di diagnostica di Azure](../azure-monitor/platform/platform-logs-overview.md)
 
-Questo articolo fornisce indicazioni che consentono di abilitare la telemetria della diagnostica per i database SQL di Azure, i pool elastici e le istanze gestite. Può anche aiutare a configurare Analisi SQL di Azure come strumento di monitoraggio per la visualizzazione dei dati di telemetria diagnostica del database.
+Questo articolo fornisce indicazioni che consentono di abilitare la telemetria di diagnostica per tutti i database SQL di Azure.
 
 ## <a name="enable-logging-of-diagnostics-telemetry"></a>Abilitare la registrazione dei dati di telemetria diagnostica
 
@@ -55,13 +55,11 @@ Quando si abilitano le metriche e la registrazione diagnostica, è necessario sp
 
 È possibile eseguire il provisioning di una nuova risorsa di Azure o selezionare una risorsa esistente. Dopo aver selezionato una risorsa, usando l'opzione delle **impostazioni di diagnostica**, specificare i dati da raccogliere.
 
-## <a name="supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases"></a>Registrazione diagnostica supportata per i database SQL di Azure e i database dell'istanza
+## <a name="supported-diagnostic-logging-for-azure-sql-databases"></a>Registrazione diagnostica supportata per i database SQL di Azure
 
-Abilitare le metriche e la registrazione diagnostica nei database SQL, visto che non sono abilitati per impostazione predefinita.
+Abilitare le metriche e la registrazione diagnostica nei database SQL. La registrazione diagnostica non è abilitata per impostazione predefinita. È possibile impostare i database SQL di Azure per raccogliere i dati di telemetria della diagnostica seguenti:
 
-È possibile configurare i database SQL di Azure e i database dell'istanza per raccogliere i dati di telemetria di diagnostica seguenti:
-
-| Dati di telemetria di monitoraggio per database | Supporto dei database singoli e in pool | Supporto del database dell'istanza |
+| Dati di telemetria di monitoraggio per database | Supporto dei database singoli e in pool | Supporto database istanza gestita |
 | :------------------- | ----- | ----- |
 | [Metriche di base](#basic-metrics): contiene DTU/percentuale CPU, limite DTU/CPU, percentuale lettura dati fisici, percentuale scrittura log, riuscito/non riuscito/bloccato dalle connessioni firewall, percentuale sessioni, percentuale ruoli di lavoro, spazio di archiviazione, percentuale di archiviazione e percentuale di archiviazione XTP. | Sì | No |
 | [Istanza e app avanzate](#advanced-metrics): contiene i dati del database di sistema tempdb e le dimensioni del file di log e il file di log percentuale del tempdb utilizzati. | Sì | No |
@@ -76,15 +74,17 @@ Abilitare le metriche e la registrazione diagnostica nei database SQL, visto che
 | [Sqlinsights](#intelligent-insights-dataset): contiene Intelligent Insights le prestazioni di un database. Per altre informazioni, vedere [Intelligent Insights](sql-database-intelligent-insights.md). | Sì | Sì |
 
 > [!IMPORTANT]
-> I pool elastici e le istanze gestite presentano dati di telemetria di diagnostica distinti da quelli contenuti. È importante tenere presente che i dati di telemetria di diagnostica sono configurati separatamente per ognuna di queste risorse, come descritto di seguito.
+> I pool elastici e le istanze gestite presentano dati di telemetria di diagnostica distinti da quelli contenuti. È importante tenere presente che i dati di telemetria di diagnostica sono configurati separatamente per ognuna di queste risorse.
+>
+> Per abilitare lo streaming dei log di controllo, vedere [configurare il controllo per il database e i](sql-database-auditing.md#subheading-2) [log di controllo nei log di monitoraggio di Azure e in hub eventi di Azure](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+>
+> Non è possibile configurare le impostazioni di diagnostica per i **database di sistema**, ad esempio database master, msdb, Model, Resoure e tempdb.
 
-> [!NOTE]
-> - Per abilitare lo streaming dei log di controllo, vedere [configurare il controllo per il database](sql-database-auditing.md#subheading-2)e [controllare i log nei log di monitoraggio di Azure e hub eventi di Azure](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
-> - Non è possibile configurare le impostazioni di diagnostica per i **database di sistema**, ad esempio database master, msdb, Model, Resoure e tempdb.
+## <a name="configure-diagnostic-logging-by-using-the-azure-portal"></a>Configurare la registrazione diagnostica usando il portale di Azure
 
-## <a name="azure-portal"></a>Portale di Azure
+Per configurare la trasmissione dei dati di telemetria di diagnostica, è possibile usare il menu **impostazioni di diagnostica** per ogni database di istanza singolo, in pool o gestito in portale di Azure. Inoltre, la telemetria diagnostica può essere configurata separatamente per i contenitori di database: pool elastici e istanze gestite. 
 
-Per configurare la trasmissione dei dati di telemetria di diagnostica, è possibile usare il menu **impostazioni di diagnostica** per ogni database singolo, in pool o istanza in portale di Azure. Inoltre, la telemetria diagnostica può essere configurata separatamente per i contenitori di database: pool elastici e istanze gestite. È possibile impostare le destinazioni seguenti per trasmettere i dati di telemetria di diagnostica: archiviazione di Azure, Hub eventi di Azure e log di monitoraggio di Azure.
+È possibile impostare le destinazioni seguenti per trasmettere i dati di telemetria di diagnostica: archiviazione di Azure, Hub eventi di Azure e log di monitoraggio di Azure.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-elastic-pools"></a>Configurare il flusso di dati di telemetria di diagnostica per i pool elastici
 
@@ -92,64 +92,61 @@ Per configurare la trasmissione dei dati di telemetria di diagnostica, è possib
 
 È possibile impostare una risorsa di pool elastico per raccogliere i dati di telemetria di diagnostica seguenti:
 
-| Risorsa | Dati di telemetria di monitoraggio |
+| Resource | Dati di telemetria di monitoraggio |
 | :------------------- | ------------------- |
 | **Pool elastico** | Le [metriche di base](sql-database-metrics-diag-logging.md#basic-metrics) contengono la percentuale di EDTU/CPU, il limite di EDTU/CPU, la percentuale di lettura dei dati fisici, la percentuale di scrittura del log, la percentuale di sessioni, la percentuale di ruoli di lavoro, l'archiviazione, la percentuale di archiviazione, il limite di archiviazione |
 
-Per configurare il flusso di dati di telemetria di diagnostica per i pool elastici e i database in pool elastici, è necessario configurare separatamente **entrambi** gli elementi seguenti:
+Per configurare il flusso di dati di telemetria di diagnostica per i pool elastici e i database in pool, è necessario configurare separatamente ciascuno separatamente:
 
-- Abilitare la trasmissione dei dati di telemetria di diagnostica per un pool elastico **e**
+- Abilitare la trasmissione dei dati di telemetria di diagnostica per un pool elastico
 - Abilitare la trasmissione della telemetria di diagnostica per ogni database in un pool elastico
 
-Questo perché il pool elastico è un contenitore di database i cui dati di telemetria sono separati da singoli dati di telemetria.
+Il contenitore del pool elastico ha i propri dati di telemetria separati dai dati di telemetria di ogni singolo database.
 
 Per abilitare il flusso di dati di telemetria della diagnostica per una risorsa di pool elastico, procedere come segue:
 
 1. Passare alla risorsa del **pool elastico** in portale di Azure.
-1. Selezionare **Impostazioni di diagnostica**.
-1. Selezionare **Abilita diagnostica** se non ci sono impostazioni precedenti oppure selezionare **Modifica l'impostazione** per modificare un'impostazione precedente.
+2. Selezionare **Impostazioni di diagnostica**.
+3. Selezionare **Abilita diagnostica** se non ci sono impostazioni precedenti oppure selezionare **Modifica l'impostazione** per modificare un'impostazione precedente.
 
    ![Abilitare la diagnostica per i pool elastici](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-enable.png)
 
-1. Immettere un nome di impostazione per il proprio riferimento.
-1. Selezionare una risorsa di destinazione per il flusso dei dati di diagnostica: **archivia in un account di archiviazione**, trasmette **a un hub eventi**o **Invia a log Analytics**.
-1. Per log Analytics, selezionare **Configura** e crea una nuova area di lavoro selezionando **+ Crea nuova area**di lavoro oppure selezionare un'area di lavoro esistente.
-1. Selezionare la casella di controllo per la telemetria di diagnostica del pool elastico: metriche di **base** .
+4. Immettere un nome di impostazione per il proprio riferimento.
+5. Selezionare una risorsa di destinazione per il flusso dei dati di diagnostica: **archivia in un account di archiviazione**, trasmette **a un hub eventi**o **Invia a log Analytics**.
+6. Per log Analytics, selezionare **Configura** e crea una nuova area di lavoro selezionando **+ Crea nuova area**di lavoro oppure selezionare un'area di lavoro esistente.
+7. Selezionare la casella di controllo per la telemetria di diagnostica del pool elastico: metriche di **base** .
    ![configurare la diagnostica per i pool elastici](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 
-1. Selezionare **Salva**.
-1. Inoltre, configurare la trasmissione dei dati di telemetria di diagnostica per ogni database all'interno del pool elastico che si vuole monitorare attenendosi alla procedura descritta nella sezione successiva.
+8. Selezionare **Salva**.
+9. Inoltre, configurare la trasmissione dei dati di telemetria di diagnostica per ogni database all'interno del pool elastico che si vuole monitorare attenendosi alla procedura descritta nella sezione successiva.
 
 > [!IMPORTANT]
-> Oltre a configurare la telemetria di diagnostica per un pool elastico, è anche necessario configurare la telemetria di diagnostica per ogni database nel pool elastico, come descritto di seguito.
+> Oltre a configurare la telemetria di diagnostica per un pool elastico, è anche necessario configurare la telemetria di diagnostica per ogni database nel pool elastico.
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>Configurare la trasmissione di dati di telemetria di diagnostica per database singolo o database in un pool elastico
+### <a name="configure-streaming-of-diagnostics-telemetry-for-single-databases-and-pooled-database"></a>Configurare il flusso di dati di telemetria di diagnostica per database singoli e database in pool
 
    ![Icona del database SQL](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
 
 Per abilitare la trasmissione della telemetria di diagnostica per database singoli o in pool, seguire questa procedura:
 
 1. Passare alla risorsa del **database SQL** di Azure.
-1. Selezionare **Impostazioni di diagnostica**.
-1. Selezionare **Abilita diagnostica** se non ci sono impostazioni precedenti oppure selezionare **Modifica l'impostazione** per modificare un'impostazione precedente.
-   - È possibile creare fino a tre connessioni parallele per lo streaming dei dati di telemetria diagnostica.
-   - Selezionare **Aggiungi impostazioni di diagnostica** per configurare lo streaming parallelo dei dati di diagnostica in più risorse.
+2. Selezionare **Impostazioni di diagnostica**.
+3. Selezionare **Abilita diagnostica** se non ci sono impostazioni precedenti oppure selezionare **Modifica l'impostazione** per modificare un'impostazione precedente. È possibile creare fino a tre connessioni parallele per lo streaming dei dati di telemetria diagnostica. 
+4. Selezionare **Aggiungi impostazioni di diagnostica** per configurare lo streaming parallelo dei dati di diagnostica in più risorse.
 
    ![Abilitare la diagnostica per i database singoli, in pool o dell'istanza](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
 
-1. Immettere un nome di impostazione per il proprio riferimento.
-1. Selezionare una risorsa di destinazione per il flusso dei dati di diagnostica: **archivia in un account di archiviazione**, trasmette **a un hub eventi**o **Invia a log Analytics**.
-1. Per l'esperienza di monitoraggio standard basata su eventi, selezionare le caselle di controllo seguenti per la telemetria del log di diagnostica del database: **Sqlinsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errors**, **DatabaseWaitStatistics**, **timeouts**, **Blocks**e **Deadlocks**.
-1. Per un'esperienza di monitoraggio avanzata basata su un minuto, selezionare la casella di controllo per le metriche di **base** .
-   ![configurare la diagnostica per database singoli, in pool o di istanza](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
-1. Selezionare **Salva**.
-1. Ripetere questi passaggi per ogni database che si desidera monitorare.
+5. Immettere un nome di impostazione per il proprio riferimento.
+6. Selezionare una risorsa di destinazione per il flusso dei dati di diagnostica: **archivia in un account di archiviazione**, trasmette **a un hub eventi**o **Invia a log Analytics**.
+7. Per l'esperienza di monitoraggio standard basata su eventi, selezionare le caselle di controllo seguenti per la telemetria del log di diagnostica del database: **Sqlinsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errors**, **DatabaseWaitStatistics**, **timeouts**, **Blocks**e **Deadlocks**.
+8. Per un'esperienza di monitoraggio avanzata basata su un minuto, selezionare la casella di controllo per le metriche di **base** .
 
-> [!NOTE]
-> Per abilitare lo streaming dei log di controllo, vedere [configurare il controllo per il database](sql-database-auditing.md#subheading-2)e [controllare i log nei log di monitoraggio di Azure e hub eventi di Azure](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+   ![Configurare la diagnostica per i database singoli, in pool o dell'istanza](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
+9. Selezionare **Salva**.
+10. Ripetere questi passaggi per ogni database che si desidera monitorare.
 
 > [!TIP]
-> Ripetere questi passaggi per ogni database SQL di Azure che si desidera monitorare.
+> Ripetere questi passaggi per ogni database singolo e in pool che si desidera monitorare.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-managed-instances"></a>Configurare la trasmissione del flusso di dati di telemetria della diagnostica per le istanze gestite
 
@@ -157,37 +154,37 @@ Per abilitare la trasmissione della telemetria di diagnostica per database singo
 
 È possibile impostare una risorsa di istanza gestita per raccogliere i dati di telemetria della diagnostica seguenti:
 
-| Risorsa | Dati di telemetria di monitoraggio |
+| Resource | Dati di telemetria di monitoraggio |
 | :------------------- | ------------------- |
-| **Istanza gestita** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance) contiene il numero di vCore, la percentuale CPU media, le richieste IO, i byte letti/scritti, lo spazio di archiviazione riservato e lo spazio di archiviazione usato. |
+| **Istanza gestita** | [ResourceUsageStats](#resource-usage-stats-for-managed-instances) contiene il numero di vCore, la percentuale CPU media, le richieste IO, i byte letti/scritti, lo spazio di archiviazione riservato e lo spazio di archiviazione usato. |
 
-Per configurare il flusso di dati di telemetria di diagnostica per i database di istanze e istanze gestite, sarà necessario configurare separatamente **entrambi** gli elementi seguenti:
+Per configurare il flusso di dati di telemetria di diagnostica per i database di istanze e istanze gestite, sarà necessario configurare separatamente ciascuno di essi:
 
-- Abilitare la trasmissione dei dati di telemetria di diagnostica per l'istanza gestita **e**
+- Abilitare lo streaming dei dati di telemetria di diagnostica per l'istanza gestita
 - Abilitare la trasmissione della telemetria di diagnostica per ogni database dell'istanza
 
-Questo perché l'istanza gestita è un contenitore di database con i relativi dati di telemetria distinti da una singola telemetria del database dell'istanza.
+Il contenitore di istanze gestite ha i propri dati di telemetria distinti dalla telemetria del database di ogni istanza.
 
 Per abilitare la trasmissione del flusso di dati di telemetria della diagnostica per una risorsa di istanza gestita, seguire questa procedura:
 
 1. Passare alla risorsa **istanza gestita** in portale di Azure.
-1. Selezionare **Impostazioni di diagnostica**.
-1. Selezionare **Abilita diagnostica** se non ci sono impostazioni precedenti oppure selezionare **Modifica l'impostazione** per modificare un'impostazione precedente.
+2. Selezionare **Impostazioni di diagnostica**.
+3. Selezionare **Abilita diagnostica** se non ci sono impostazioni precedenti oppure selezionare **Modifica l'impostazione** per modificare un'impostazione precedente.
 
    ![Abilitare la diagnostica per l'istanza gestita](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
 
-1. Immettere un nome di impostazione per il proprio riferimento.
-1. Selezionare una risorsa di destinazione per il flusso dei dati di diagnostica: **archivia in un account di archiviazione**, trasmette **a un hub eventi**o **Invia a log Analytics**.
-1. Per log Analytics, selezionare **Configura** e crea una nuova area di lavoro selezionando **+ Crea nuova area**di lavoro oppure usare un'area di lavoro esistente.
-1. Selezionare la casella di controllo per la telemetria di diagnostica dell'istanza: **ResourceUsageStats**.
+4. Immettere un nome di impostazione per il proprio riferimento.
+5. Selezionare una risorsa di destinazione per il flusso dei dati di diagnostica: **archivia in un account di archiviazione**, trasmette **a un hub eventi**o **Invia a log Analytics**.
+6. Per log Analytics, selezionare **Configura** e crea una nuova area di lavoro selezionando **+ Crea nuova area**di lavoro oppure usare un'area di lavoro esistente.
+7. Selezionare la casella di controllo per la telemetria di diagnostica dell'istanza: **ResourceUsageStats**.
 
    ![Configurare la diagnostica per l'istanza gestita](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
-1. Selezionare **Salva**.
-1. Inoltre, configurare la trasmissione dei dati di telemetria di diagnostica per ogni database di istanza all'interno dell'istanza gestita che si desidera monitorare attenendosi alla procedura descritta nella sezione successiva.
+8. Selezionare **Salva**.
+9. Inoltre, configurare la trasmissione dei dati di telemetria di diagnostica per ogni database di istanza all'interno dell'istanza gestita che si desidera monitorare attenendosi alla procedura descritta nella sezione successiva.
 
 > [!IMPORTANT]
-> Oltre a configurare la telemetria di diagnostica per un'istanza gestita, è necessario anche configurare la telemetria di diagnostica per ogni database dell'istanza, come descritto di seguito.
+> Oltre a configurare la telemetria di diagnostica per un'istanza gestita, è anche necessario configurare la telemetria di diagnostica per ogni database dell'istanza.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>Configurare il flusso di dati di telemetria di diagnostica per i database dell'istanza
 
@@ -196,24 +193,24 @@ Per abilitare la trasmissione del flusso di dati di telemetria della diagnostica
 Per abilitare lo streaming dei dati di telemetria di diagnostica per i database di istanza, seguire questa procedura:
 
 1. Passare alla risorsa **database dell'istanza** all'interno di istanza gestita.
-1. Selezionare **Impostazioni di diagnostica**.
-1. Selezionare **Abilita diagnostica** se non ci sono impostazioni precedenti oppure selezionare **Modifica l'impostazione** per modificare un'impostazione precedente.
+2. Selezionare **Impostazioni di diagnostica**.
+3. Selezionare **Abilita diagnostica** se non ci sono impostazioni precedenti oppure selezionare **Modifica l'impostazione** per modificare un'impostazione precedente.
    - È possibile creare fino a tre (3) connessioni parallele per lo streaming dei dati di telemetria diagnostica.
    - Selezionare **+Add diagnostic setting** (Aggiungi impostazione di diagnostica) per configurare flussi paralleli di dati di diagnostica in più risorse.
 
    ![Abilitare la diagnostica per i database dell'istanza](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
-1. Immettere un nome di impostazione per il proprio riferimento.
-1. Selezionare una risorsa di destinazione per il flusso dei dati di diagnostica: **archivia in un account di archiviazione**, trasmette **a un hub eventi**o **Invia a log Analytics**.
-1. Selezionare le caselle di controllo per la telemetria di diagnostica del database: **Sqlinsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** ed **Errors**.
+4. Immettere un nome di impostazione per il proprio riferimento.
+5. Selezionare una risorsa di destinazione per il flusso dei dati di diagnostica: **archivia in un account di archiviazione**, trasmette **a un hub eventi**o **Invia a log Analytics**.
+6. Selezionare le caselle di controllo per la telemetria di diagnostica del database: **Sqlinsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**ed **Errors**.
    ![configurare la diagnostica per i database di istanza](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
-1. Selezionare **Salva**.
-1. Ripetere questi passaggi per ogni database di istanza che si desidera monitorare.
+7. Selezionare **Salva**.
+8. Ripetere questi passaggi per ogni database di istanza che si desidera monitorare.
 
 > [!TIP]
 > Ripetere questi passaggi per ogni database di istanza che si desidera monitorare.
 
-### <a name="powershell"></a>PowerShell
+### <a name="configure-diagnostic-logging-by-using-powershell"></a>Configurare la registrazione diagnostica tramite PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -271,12 +268,12 @@ Specificare l'ID risorsa dell'area di lavoro \<$WSID\> come parametro quando si 
 
    Sostituire \<subID\> con l'ID abbonamento, \<RG_NAME\> con il nome del gruppo di risorse e \<WS_NAME\> con il nome dell'area di lavoro.
 
-### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+### <a name="configure-diagnostic-logging-by-using-the-azure-cli"></a>Configurare la registrazione diagnostica usando l'interfaccia della riga di comando di Azure
 
 È possibile abilitare le metriche e la registrazione diagnostica con l'interfaccia della riga di comando di Azure.
 
-> [!NOTE]
-> Gli script per abilitare la registrazione diagnostica sono supportati per l'interfaccia della riga di comando di Azure versione 1.0. Si noti che la versione 2.0 dell'interfaccia della riga di comando non è supportata in questo momento.
+> [!IMPORTANT]
+> Gli script per abilitare la registrazione diagnostica sono supportati per l'interfaccia della riga di comando di Azure versione 1.0. La versione 2.0 dell'interfaccia della riga di comando di Azure non è supportata in questo momento.
 
 - Per abilitare la memorizzazione dei log di diagnostica in un account di archiviazione, usare questo comando:
 
@@ -306,7 +303,7 @@ Specificare l'ID risorsa dell'area di lavoro \<$WSID\> come parametro quando si 
 
 È possibile combinare questi parametri per abilitare più opzioni di output.
 
-### <a name="rest-api"></a>API REST
+### <a name="configure-diagnostic-logging-by-using-the-rest-api"></a>Configurare la registrazione diagnostica usando l'API REST
 
 Informazioni su come [modificare le impostazioni di diagnostica usando l'API REST di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings).
 
@@ -314,17 +311,17 @@ Informazioni su come [modificare le impostazioni di diagnostica usando l'API RES
 
 Informazioni su come [abilitare le impostazioni di diagnostica durante la creazione di risorse con un modello di Resource Manager](../azure-monitor/platform/diagnostic-settings-template.md).
 
-## <a name="stream-into-azure-sql-analytics"></a>Streaming in Analisi SQL di Azure
+## <a name="stream-metrics-and-diagnostic-logs-into-azure-sql-analytics"></a>Trasmettere le metriche e i log di diagnostica in Analisi SQL di Azure
 
-Analisi SQL di Azure è una soluzione cloud che monitora le prestazioni dei database SQL di Azure, dei pool elastici e delle istanze gestite su larga scala e tra più abbonamenti. Può aiutare a raccogliere e visualizzare le metriche sulle prestazioni del Database SQL di Azure e ha la funzionalità di intelligence integrata per la risoluzione dei problemi.
+Analisi SQL di Azure è una soluzione cloud che monitora le prestazioni di database singoli, pool elastici, istanze gestite e database di istanze su larga scala e in più sottoscrizioni. Può aiutare a raccogliere e visualizzare le metriche sulle prestazioni del Database SQL di Azure e ha la funzionalità di intelligence integrata per la risoluzione dei problemi.
 
 ![Panoramica di Analisi SQL di Azure](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
-I log di diagnostica e le metriche del database SQL possono essere trasmessi in Analisi SQL di Azure con l'opzione **Invia a Log Analytics** integrata nella scheda delle impostazioni di diagnostica nel portale. È anche possibile abilitare log Analytics usando un'impostazione di diagnostica tramite i cmdlet di PowerShell, l'interfaccia della riga di comando di Azure o l'API REST di monitoraggio di Azure.
+I log di diagnostica e le metriche del database SQL possono essere trasmessi in Analisi SQL di Azure usando l'opzione **Invia a log Analytics** predefinita nella scheda Impostazioni di diagnostica della portale di Azure. È anche possibile abilitare log Analytics usando le impostazioni di diagnostica tramite i cmdlet di PowerShell, l'interfaccia della riga di comando di Azure o l'API REST di monitoraggio di Azure.
 
 ### <a name="installation-overview"></a>Panoramica dell'installazione
 
-È possibile monitorare una flotta del database SQL con Analisi SQL di Azure. Eseguire i passaggi seguenti:
+È possibile monitorare una raccolta di database SQL di Azure con Analisi SQL di Azure attenendosi alla procedura seguente:
 
 1. Creare una soluzione Analisi SQL di Azure da Azure Marketplace.
 2. Creare un'area di lavoro di monitoraggio nella soluzione.
@@ -332,7 +329,7 @@ I log di diagnostica e le metriche del database SQL possono essere trasmessi in 
 
 Se si usano pool elastici o istanze gestite, è necessario anche configurare la trasmissione del flusso di dati di telemetria della diagnostica provenienti da queste risorse.
 
-### <a name="create-azure-sql-analytics-resource"></a>Creare una risorsa di Analisi SQL di Azure
+### <a name="create-an-azure-sql-analytics-resource"></a>Creare una risorsa Analisi SQL di Azure
 
 1. Cercare Analisi SQL di Azure in Azure Marketplace e selezionarla.
 
@@ -348,20 +345,18 @@ Se si usano pool elastici o istanze gestite, è necessario anche configurare la 
 
 ### <a name="configure-databases-to-record-metrics-and-diagnostics-logs"></a>Configurare i database per registrare le metriche e i log di diagnostica
 
-Il modo più semplice per configurare la posizione in cui i database registrano le metriche consiste nell'usare il portale di Azure. Come descritto in precedenza, passare alla risorsa del database SQL nel portale di Azure e selezionare **Impostazioni di diagnostica**.
+Il modo più semplice per configurare la posizione in cui i database registrano le metriche consiste nell'usare il portale di Azure. Passare alla risorsa del database nel portale di Azure e selezionare **impostazioni di diagnostica**.
 
-Se si usano pool elastici o istanze gestite, è necessario anche configurare le impostazioni di diagnostica in queste risorse per abilitare il flusso di dati di telemetria della diagnostica da trasmettere nell'area di lavoro.
+### <a name="use-azure-sql-analytics-for-monitoring-and-alerting"></a>Usare Analisi SQL di Azure per il monitoraggio e l'invio di avvisi
 
-### <a name="use-the-sql-analytics-solution-for-monitoring-and-alerting"></a>Usare la soluzione analisi SQL per il monitoraggio e l'invio di avvisi
+È possibile usare analisi SQL come dashboard gerarchico per visualizzare le risorse del database SQL.
 
-È possibile utilizzare SQL Analytics come un dashboard gerarchico per visualizzare le risorse del database SQL.
-
-- Per informazioni su come usare la soluzione Analisi SQL, vedere [Monitorare un database SQL usando la soluzione Analisi SQL](../log-analytics/log-analytics-azure-sql.md).
-- Per informazioni su come configurare gli avvisi per il database SQL e l'istanza gestita basata su SQL Analytics, vedere [creazione di avvisi per il database SQL e l'istanza gestita](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts).
+- Per informazioni su come usare Analisi SQL di Azure, vedere [monitorare il database SQL tramite analisi SQL](../log-analytics/log-analytics-azure-sql.md).
+- Per informazioni su come configurare gli avvisi per in SQL Analytics, vedere [creazione di avvisi per database, pool elastici e istanze gestite](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts).
 
 ## <a name="stream-into-event-hubs"></a>Trasmettere un flusso a Hub eventi
 
-È possibile trasmettere i log di diagnostica e le metriche del database SQL in hub eventi tramite l'opzione integrata **Trasmetti a un hub eventi** nel portale di Azure. È anche possibile abilitare l'ID regola del bus di servizio usando un'impostazione di diagnostica tramite i cmdlet PowerShell, l'interfaccia della riga di comando di Azure o l'API REST di Monitoraggio di Azure.
+È possibile trasmettere i log di diagnostica e le metriche del database SQL in hub eventi tramite l'opzione integrata **Trasmetti a un hub eventi** nel portale di Azure. È anche possibile abilitare l'ID regola del bus di servizio usando le impostazioni di diagnostica tramite i cmdlet di PowerShell, l'interfaccia della riga di comando di Azure o l'API REST di monitoraggio di Azure.
 
 ### <a name="what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs"></a>Cosa fare con le metriche e i log di diagnostica in Hub eventi
 
@@ -386,7 +381,7 @@ Dopo aver eseguito lo streaming dei dati selezionati in Hub eventi, sarà possib
 
 ## <a name="stream-into-storage"></a>Streaming in Archiviazione
 
-È possibile archiviare i log di diagnostica e le metriche del database SQL in Archiviazione di Azure usando l'opzione **Archivia in un account di archiviazione** integrata nel portale di Azure. È anche possibile abilitare Archiviazione usando un'impostazione di diagnostica tramite i cmdlet PowerShell, l'interfaccia della riga di comando di Azure o l'API REST di Monitoraggio di Azure.
+È possibile archiviare le metriche e i log di diagnostica in archiviazione di Azure usando l'opzione **archivio predefinito in un account di archiviazione** nell'portale di Azure. È anche possibile abilitare l'archiviazione usando le impostazioni di diagnostica tramite i cmdlet di PowerShell, l'interfaccia della riga di comando di Azure o l'API REST di monitoraggio di Azure.
 
 ### <a name="schema-of-metrics-and-diagnostics-logs-in-the-storage-account"></a>Schema delle metriche e dei log di diagnostica nell'account di archiviazione
 
@@ -416,13 +411,16 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ## <a name="data-retention-policy-and-pricing"></a>Criteri di conservazione dei dati e prezzi
 
-Se si seleziona Hub eventi o un account di archiviazione, è possibile specificare criteri di conservazione. Questi criteri eliminano i dati antecedenti a un periodo selezionato. Se si specifica Log Analytics, i criteri di conservazione dipendono dal piano tariffario selezionato. In questo caso, le unità gratuite fornite di inserimento dati possono consentire di monitorare gratuitamente più database ogni mese. Qualsiasi utilizzo dei dati di telemetria di diagnostica che superano le unità gratuite può generare dei costi. Si noti che i database attivi con carichi di lavoro più pesanti inseriscono più dati rispetto ai database inattivi. Per altre informazioni, vedere [prezzi di log Analytics](https://azure.microsoft.com/pricing/details/monitor/).
+Se si seleziona Hub eventi o un account di archiviazione, è possibile specificare criteri di conservazione. Questi criteri eliminano i dati antecedenti a un periodo selezionato. Se si specifica Log Analytics, i criteri di conservazione dipendono dal piano tariffario selezionato. In questo caso, le unità gratuite fornite di inserimento dati possono consentire di monitorare gratuitamente più database ogni mese. Qualsiasi utilizzo dei dati di telemetria di diagnostica che superano le unità gratuite può generare dei costi. 
 
-Se si usa Analisi SQL di Azure, è possibile monitorare il consumo di inserimento dati nella soluzione selezionando **Area di lavoro di OMS** nel menu di spostamento di Analisi SQL di Azure e quindi scegliendo **Utilizzo** e **Costi stimati**.
+> [!IMPORTANT]
+> I database attivi con carichi di lavoro più pesanti inseriscono più dati rispetto ai database inattivi. Per altre informazioni, vedere [prezzi di log Analytics](https://azure.microsoft.com/pricing/details/monitor/).
+
+Se si usa Analisi SQL di Azure, è possibile monitorare il consumo di inserimento dei dati selezionando **area di lavoro OMS** nel menu di navigazione di analisi SQL di Azure, quindi selezionando **utilizzo** e **costi stimati**.
 
 ## <a name="metrics-and-logs-available"></a>Le metriche e i log disponibili
 
-Il monitoraggio della telemetria disponibile per il database SQL di Azure, i pool elastici e l'istanza gestita sono descritti di seguito. I dati di telemetria di monitoraggio raccolti all'interno di analisi SQL possono essere usati per lo sviluppo di applicazioni e analisi personalizzate usando il linguaggio di [query log di monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) .
+Il monitoraggio della telemetria disponibile per i singoli database, i pool elastici e l'istanza gestita sono documentati in questa sezione dell'articolo. I dati di telemetria di monitoraggio raccolti all'interno di analisi SQL possono essere usati per lo sviluppo di applicazioni e analisi personalizzate usando il linguaggio di [query log di monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) .
 
 ## <a name="basic-metrics"></a>Metriche di base
 
@@ -437,11 +435,11 @@ Per informazioni dettagliate sulle metriche di base per risorsa, vedere le tabel
 |---|---|
 |Pool elastico|Percentuale eDTU, eDTU usata, limite eDTU, percentuale CPU, percentuale lettura dati fisici, percentuale scrittura log, percentuale sessioni, percentuale ruoli di lavoro, risorsa di archiviazione, percentuale di archiviazione, limite di archiviazione, percentuale di archiviazione XTP |
 
-### <a name="basic-metrics-for-azure-sql-databases"></a>Metriche di base per i database SQL di Azure
+### <a name="basic-metrics-for-single-and-pooled-databases"></a>Metriche di base per database singoli e in pool
 
 |**Risorsa**|**Metriche**|
 |---|---|
-|Database SQL di Azure|Percentuale DTU, DTU usata, limite DTU, percentuale CPU, percentuale lettura dati fisici, percentuale scrittura log, riuscito/non riuscito/bloccato dalle connessioni firewall, percentuale sessioni, percentuale ruoli di lavoro, risorsa di archiviazione, percentuale di archiviazione, percentuale di archiviazione XTP, deadlock |
+|Database singolo e in pool|Percentuale DTU, DTU usata, limite DTU, percentuale CPU, percentuale lettura dati fisici, percentuale scrittura log, riuscito/non riuscito/bloccato dalle connessioni firewall, percentuale sessioni, percentuale ruoli di lavoro, risorsa di archiviazione, percentuale di archiviazione, percentuale di archiviazione XTP, deadlock |
 
 ## <a name="advanced-metrics"></a>Metriche avanzate
 
@@ -455,9 +453,9 @@ Per informazioni dettagliate sulle metriche avanzate, vedere la tabella seguente
 
 ## <a name="basic-logs"></a>Log di base
 
-I dettagli dei dati di telemetria disponibili per tutti i log sono descritti nelle tabelle seguenti. Vedere [registrazione diagnostica supportata](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) per comprendere quali log sono supportati per una particolare versione del database: database SQL singolo, in pool o istanza di Azure.
+I dettagli dei dati di telemetria disponibili per tutti i log sono descritti nelle tabelle seguenti. Vedere [registrazione diagnostica supportata](#supported-diagnostic-logging-for-azure-sql-databases) per comprendere quali log sono supportati per una particolare versione del database: database SQL singolo, in pool o istanza di Azure.
 
-### <a name="resource-usage-stats-for-managed-instance"></a>Statistiche sull'utilizzo delle risorse per l'istanza gestita
+### <a name="resource-usage-stats-for-managed-instances"></a>Statistiche sull'utilizzo delle risorse per le istanze gestite
 
 |Proprietà|Descrizione|
 |---|---|
@@ -467,7 +465,7 @@ I dettagli dei dati di telemetria disponibili per tutti i log sono descritti nel
 |Type|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Sempre: ResourceUsageStats |
-|Risorsa|Nome della risorsa |
+|Resource|Nome della risorsa |
 |ResourceType|Nome del tipo di risorsa. Sempre: MANAGEDINSTANCES |
 |SubscriptionId|GUID dell'abbonamento per il database |
 |ResourceGroup|Nome del gruppo di risorse per il database |
@@ -493,7 +491,7 @@ I dettagli dei dati di telemetria disponibili per tutti i log sono descritti nel
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: QueryStoreRuntimeStatistics |
 |OperationName|Nome dell'operazione. Always: QueryStoreRuntimeStatisticsEvent |
-|Risorsa|Nome della risorsa |
+|Resource|Nome della risorsa |
 |ResourceType|Nome del tipo di risorsa. Always: SERVERS/DATABASES |
 |SubscriptionId|GUID dell'abbonamento per il database |
 |ResourceGroup|Nome del gruppo di risorse per il database |
@@ -544,7 +542,7 @@ Altre informazioni sui [dati delle statistiche di runtime di Query Store](https:
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: QueryStoreWaitStatistics |
 |OperationName|Nome dell'operazione. Always: QueryStoreWaitStatisticsEvent |
-|Risorsa|Nome della risorsa |
+|Resource|Nome della risorsa |
 |ResourceType|Nome del tipo di risorsa. Always: SERVERS/DATABASES |
 |SubscriptionId|GUID dell'abbonamento per il database |
 |ResourceGroup|Nome del gruppo di risorse per il database |
@@ -582,7 +580,7 @@ Altre informazioni sui [dati delle statistiche di attesa di Query Store](https:/
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: Errors |
 |OperationName|Nome dell'operazione. Always: ErrorEvent |
-|Risorsa|Nome della risorsa |
+|Resource|Nome della risorsa |
 |ResourceType|Nome del tipo di risorsa. Always: SERVERS/DATABASES |
 |SubscriptionId|GUID dell'abbonamento per il database |
 |ResourceGroup|Nome del gruppo di risorse per il database |
@@ -593,7 +591,7 @@ Altre informazioni sui [dati delle statistiche di attesa di Query Store](https:/
 |Message|Messaggio di errore in testo normale |
 |user_defined_b|È il bit di errore definito dall'utente |
 |error_number_d|Codice di errore |
-|Gravità|Gravità dell'errore |
+|Severity|Gravità dell'errore |
 |state_d|Stato dell'errore |
 |query_hash_s|Hash di query della query non riuscita, se disponibile |
 |query_plan_hash_s|Hash del piano di query della query non riuscita, se disponibile |
@@ -611,7 +609,7 @@ Altre informazioni sui [messaggi di errore di SQL Server](https://docs.microsoft
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: DatabaseWaitStatistics |
 |OperationName|Nome dell'operazione. Always: DatabaseWaitStatisticsEvent |
-|Risorsa|Nome della risorsa |
+|Resource|Nome della risorsa |
 |ResourceType|Nome del tipo di risorsa. Always: SERVERS/DATABASES |
 |SubscriptionId|GUID dell'abbonamento per il database |
 |ResourceGroup|Nome del gruppo di risorse per il database |
@@ -640,7 +638,7 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: Timeouts |
 |OperationName|Nome dell'operazione. Always: TimeoutEvent |
-|Risorsa|Nome della risorsa |
+|Resource|Nome della risorsa |
 |ResourceType|Nome del tipo di risorsa. Always: SERVERS/DATABASES |
 |SubscriptionId|GUID dell'abbonamento per il database |
 |ResourceGroup|Nome del gruppo di risorse per il database |
@@ -663,7 +661,7 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: Blocks |
 |OperationName|Nome dell'operazione. Always: BlockEvent |
-|Risorsa|Nome della risorsa |
+|Resource|Nome della risorsa |
 |ResourceType|Nome del tipo di risorsa. Always: SERVERS/DATABASES |
 |SubscriptionId|GUID dell'abbonamento per il database |
 |ResourceGroup|Nome del gruppo di risorse per il database |
@@ -687,7 +685,7 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: Deadlocks |
 |OperationName|Nome dell'operazione. Always: DeadlockEvent |
-|Risorsa|Nome della risorsa |
+|Resource|Nome della risorsa |
 |ResourceType|Nome del tipo di risorsa. Always: SERVERS/DATABASES |
 |SubscriptionId|GUID dell'abbonamento per il database |
 |ResourceGroup|Nome del gruppo di risorse per il database |
@@ -707,7 +705,7 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 |Type|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: AutomaticTuning |
-|Risorsa|Nome della risorsa |
+|Resource|Nome della risorsa |
 |ResourceType|Nome del tipo di risorsa. Always: SERVERS/DATABASES |
 |SubscriptionId|GUID dell'abbonamento per il database |
 |ResourceGroup|Nome del gruppo di risorse per il database |

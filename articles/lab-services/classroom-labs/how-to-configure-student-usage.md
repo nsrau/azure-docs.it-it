@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 80e8bc47f6e6293d70bbc9fae888abdf5527fe93
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 9fda1295bcdcd44b8a92c101c2aa445197ce6d4a
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169214"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539189"
 ---
 # <a name="add-and-manage-lab-users"></a>Aggiungere e gestire gli utenti del lab
 Questo articolo descrive come aggiungere utenti al lab, registrarli al lab, controllare il numero di ore in cui possono usare la macchina virtuale e altro ancora. 
@@ -35,7 +35,7 @@ Questo articolo descrive come aggiungere utenti al lab, registrarli al lab, cont
     ![Aggiungere gli indirizzi di posta elettronica degli utenti](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. Selezionare **Salva**. Gli indirizzi di posta elettronica degli utenti e i relativi stati (registrati o no) saranno visualizzati nell'elenco. 
 
-    ![Elenco utenti](../media/how-to-configure-student-usage/users-list-new.png)
+    ![Elenco utenti](../media/how-to-configure-student-usage/list-of-added-users.png)
 
     > [!NOTE]
     > Nell'elenco verranno visualizzati i nomi degli utenti dopo la registrazione nel lab. Il nome visualizzato nell'elenco viene costruito usando il nome e il cognome dell'utente nella Azure Active Directory. 
@@ -101,11 +101,14 @@ Se l'opzione **Limita l'accesso** è abilitata per il lab, solo gli utenti inclu
 2. Nella finestra di dialogo **registrazione utente** selezionare **fine**. 
 4. Inviare il **collegamento di registrazione** a uno studente in modo che lo studente possa registrarsi per la classe. 
 
-## <a name="view-users-registered-with-the-lab"></a>Visualizzare gli utenti che hanno eseguito la registrazione per il lab
+## <a name="view-registered-users"></a>Visualizza utenti registrati
 
-Selezionare **Utenti** nel menu a sinistra per visualizzare l'elenco di utenti registrati al lab. 
+1. Accedere al [sito Web di Azure Lab Services](https://labs.azure.com). 
+2. Selezionare **Accedi** e immettere le credenziali. Azure Lab Services supporta gli account aziendali e gli account Microsoft.
+3. Nella pagina **My labs** (I miei lab) selezionare il lab per il quale si vuole tenere traccia dell'utilizzo. 
+4. Selezionare **Utenti** nel menu a sinistra oppure il riquadro **Utenti**. Verranno visualizzati gli studenti che hanno eseguito la registrazione per il lab.  
 
-![Elenco di utenti registrati al lab](../media/how-to-configure-student-usage/students-registered.png)
+    ![Utenti registrati](../media/tutorial-track-usage/registered-users.png)
 
 ## <a name="set-quotas-for-users"></a>Impostare quote per gli utenti
 È possibile impostare quote per utente usando la procedura seguente: 
@@ -115,7 +118,7 @@ Selezionare **Utenti** nel menu a sinistra per visualizzare l'elenco di utenti r
 3. Nella pagina **quota per utente** specificare il numero di ore da assegnare a ogni utente (studente) al di fuori dell'ora della classe pianificata, quindi selezionare **Salva**.
 
     ![Quota per user (Quota per utente)](../media/how-to-configure-student-usage/quota-per-user.png)    
-5. Nella barra degli strumenti sono ora visualizzati i valori modificati: **quota per utente: \<numero di ore >** . 
+5. Nella barra degli strumenti sono ora visualizzati i valori modificati: **quota per utente: \<numero di ore >** e anche nell'elenco utenti.
 
     ![Quota per utente: dopo](../media/how-to-configure-student-usage/quot-per-user-after.png)
 
@@ -125,7 +128,7 @@ Selezionare **Utenti** nel menu a sinistra per visualizzare l'elenco di utenti r
 ## <a name="set-additional-quota-for-a-specific-user"></a>Impostare una quota aggiuntiva per un utente specifico
 È possibile specificare una quota aggiuntiva per un utente. Questa quota è aggiunta al set di quote comune per tutti gli utenti nella sezione precedente. Se, ad esempio, si imposta la quota per tutti gli utenti su 10 ore e si imposta una quota aggiuntiva di 5 ore per un utente specifico, gli utenti ottengono 15 (10 + 5) ore di quota. Se si modifica la quota comune in un secondo momento, ad Say 15, l'utente ottiene 20 (15 + 5) ore di quota. Tenere presente che questa quota complessiva si trova al di fuori dell'ora pianificata. Il tempo impiegato da uno studente in una macchina virtuale Lab durante l'orario di pianificazione non viene conteggiato in base a questa quota. 
 
-A questo scopo, attenersi alla procedura seguente:
+A tale scopo, eseguire la procedura seguente:
 
 1. Selezionare un utente (studente) nell'elenco degli utenti nella pagina **utenti** .
 2. Selezionare quindi **Adjust quota** dalla barra degli strumenti. 

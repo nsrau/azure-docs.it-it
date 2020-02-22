@@ -3,12 +3,12 @@ title: Correggere le risorse non conformi
 description: Questa guida illustra la correzione di risorse non conformi ai criteri in criteri di Azure.
 ms.date: 09/09/2019
 ms.topic: how-to
-ms.openlocfilehash: 341a325aa7a82c8b1f6366c3a674848c60a8fb5e
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: e3db0f5f8ae1be4a6ab6eb281801958bfb816228
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873047"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544182"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Correggere le risorse non conformi con Criteri di Azure
 
@@ -143,7 +143,7 @@ Per creare un'**attività di correzione**, seguire questa procedura:
 
    ![Correzione: selezionare le risorse da correggere](../media/remediate-resources/select-resources.png)
 
-1. Avviare l'attività di correzione dopo che le risorse sono state filtrate facendo clic su **Correggi**. Verrà aperta la scheda **Attività di correzione** della pagina di conformità dei criteri per mostrare lo stato di avanzamento delle attività.
+1. Avviare l'attività di correzione dopo che le risorse sono state filtrate facendo clic su **Correggi**. Nella pagina conformità criteri verrà visualizzata la scheda **attività di monitoraggio e aggiornamento** per visualizzare lo stato dell'avanzamento delle attività. Le distribuzioni create dall'attività di correzione iniziano immediatamente.
 
    ![Correzione-stato delle attività di correzione](../media/remediate-resources/task-progress.png)
 

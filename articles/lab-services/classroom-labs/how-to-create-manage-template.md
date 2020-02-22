@@ -11,23 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 08fbe9565356dc1b7db952fdd265770fef600ca8
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: fcf31fcc266358911612c25e0b73a0a9de696b1d
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989043"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539025"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Creare e gestire un modello per le classi in Azure Lab Services
 Un modello in un lab è un'immagine della macchina virtuale di base da cui vengono create tutte le macchine virtuali di tutti gli utenti. Configurare la macchina virtuale modello con tutte le caratteristiche che si vuole fornire agli utenti del lab. È possibile specificare un nome e una descrizione del modello che verranno visualizzati dagli utenti del lab. Quindi, pubblicare il modello per rendere disponibili agli utenti del lab le istanze della macchina virtuale modello. Quando si pubblica un modello, Azure Lab Services crea le macchine virtuali nel lab usando il modello. Il numero di macchine virtuali create in questo processo corrisponde al numero massimo di utenti consentiti nel lab, che è possibile impostare nei criteri di utilizzo del lab. Tutte le macchine virtuali hanno la stessa configurazione del modello.
 
 Questo articolo descrive come creare e gestire un modello di macchina virtuale in un lab per le classi di Azure Lab Services. 
 
-## <a name="publish-a-template-while-creating-a-classroom-lab"></a>Pubblicare un modello durante la creazione di un lab per le classi
-Per informazioni su come pubblicare un modello durante la creazione di un Lab in aula, vedere [creare un Lab in aula](how-to-manage-classroom-labs.md#create-a-classroom-lab)
- 
 ## <a name="set-or-update-template-title-and-description"></a>Impostare o aggiornare il titolo e la descrizione del modello
 Seguire questa procedura per impostare il titolo e la descrizione per la prima volta e aggiornarli in un secondo momento. 
 
@@ -50,23 +47,24 @@ Usare la procedura seguente per aggiornare una macchina virtuale modello.
 1. Seguire i passaggi della sezione successiva per **pubblicare** la macchina virtuale del modello aggiornata. 
 
 ## <a name="publish-the-template-vm"></a>Pubblicare la macchina virtuale modello  
-Se si non pubblica il modello durante la creazione del lab, è possibile pubblicarlo in un secondo momento. Prima della pubblicazione, è possibile connettersi al modello di macchina virtuale e aggiornarlo con qualsiasi software. Quando si pubblica un modello, Azure Lab Services crea le macchine virtuali nel lab usando il modello. Il numero di macchine virtuali create in questo processo è il numero di macchine virtuali specificate durante la pubblicazione per la prima volta o per quanto specificato nella pagina del pool di macchine virtuali. Tutte le macchine virtuali hanno la stessa configurazione del modello. 
+In questo passaggio viene pubblicata la macchina virtuale del modello. Quando si pubblica la macchina virtuale del modello, Azure Lab Services crea macchine virtuali nel Lab usando il modello. Tutte le macchine virtuali hanno la stessa configurazione del modello.
+
 
 1. Nella pagina **modello** selezionare **pubblica** sulla barra degli strumenti. 
-1. Nella finestra di messaggio **Pubblicare il modello** esaminare il messaggio e selezionare **Pubblica**. Questo processo può richiedere tempo a seconda del numero di macchine virtuali che vengono create.
 
-    ![Pulsante Publish](../media/how-to-create-manage-template/publish-button.png)
+    ![Pulsante per la pubblicazione del modello](../media/tutorial-setup-classroom-lab/template-page-publish-button.png)
 
-    > [!IMPORTANT]
-    > Non è possibile annullare la pubblicazione di un modello, dopo che questo è stato pubblicato. Tuttavia, è possibile ripubblicare il modello. 
-1. È possibile visualizzare lo stato del processo di pubblicazione nella pagina modello. Attendere che lo stato del modello si imposti su **Pubblicato**. 
+    > [!WARNING]
+    > L'operazione di pubblicazione non può essere annullata. 
+2. Nella pagina **Publish template** (Pubblica modello) immettere il numero di macchine virtuali da creare nel lab, quindi selezionare **Publish** (Pubblica). 
 
-    ![Stato della pubblicazione](../media/how-to-create-manage-template/publish-status.png)
-1. Passare alla pagina **Macchine virtuali** e verificare che vengano visualizzate macchine virtuali con lo stato **Non assegnato**. Queste macchine virtuali non sono ancora assegnate agli studenti. Attendere finché le macchine virtuali non vengono create. Devono essere nello stato **Arrestato**. In questa pagina è possibile avviare la macchina virtuale di uno studente, connettersi alla macchina virtuale, arrestare la macchina virtuale ed eliminare la macchina virtuale. In questa pagina è possibile avviare le macchine virtuali o consentire agli studenti di avviarle. 
+    ![Pubblicazione del modello: numero di VM](../media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
+3. Nella pagina viene visualizzato lo **stato di pubblicazione** del modello. Questo processo può richiedere fino a un'ora. 
+
+    ![Pubblicazione del modello - stato](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
+4. Attendere il completamento della pubblicazione e quindi passare alla pagina del **pool di macchine virtuali** selezionando **macchine virtuali** nel menu a sinistra oppure selezionando il riquadro **macchine virtuali** . Verificare che vengano visualizzate macchine virtuali con lo stato **Non assegnato**. Queste macchine virtuali non sono ancora assegnate agli studenti. Devono essere nello stato **Arrestato**. In questa pagina è possibile avviare la macchina virtuale di uno studente, connettersi alla macchina virtuale, arrestare la macchina virtuale ed eliminare la macchina virtuale. In questa pagina è possibile avviare le macchine virtuali o consentire agli studenti di avviarle. 
 
     ![Macchine virtuali nello stato arrestato](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
-
-
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti:
 

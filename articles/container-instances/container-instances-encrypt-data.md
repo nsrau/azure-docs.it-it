@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: 14a51ce103d831bcf1dfd52c892102f72531a4c8
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 41c7fc7380ca2b58326c4a35a3b5fdab1c64c4a3
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934314"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544318"
 ---
 # <a name="encrypt-deployment-data"></a>Crittografare i dati della distribuzione
 
@@ -27,8 +27,8 @@ I dati in ACI vengono crittografati e decrittografati usando la crittografia AES
 |    |    Chiavi gestite da Microsoft     |     Chiavi gestite dal cliente     |
 |----|----|----|
 |    Operazioni di crittografia/decrittografia    |    Azure    |    Azure    |
-|    Archiviazione chiavi    |    Archivio chiavi Microsoft    |    Azure Key Vault    |
-|    Responsabilità della rotazione delle chiavi    |    Microsoft    |    Customer    |
+|    Archiviazione chiavi    |    Archivio chiavi Microsoft    |    Insieme di credenziali chiave di Azure    |
+|    Responsabilità della rotazione delle chiavi    |    Microsoft    |    Cliente    |
 |    Accesso alle chiavi    |    Solo Microsoft    |    Microsoft, cliente    |
 
 Il resto del documento illustra i passaggi necessari per crittografare i dati di distribuzione ACI con la chiave (chiave gestita dal cliente). 
@@ -89,7 +89,7 @@ I criteri di accesso dovrebbero ora essere visualizzati nei criteri di accesso d
 > La crittografia dei dati di distribuzione con una chiave gestita dal cliente è disponibile nella versione più recente dell'API (2019-12-01) attualmente in fase di implementazione. Specificare questa versione dell'API nel modello di distribuzione. In caso di problemi, rivolgersi al supporto tecnico di Azure.
 
 Una volta configurati i criteri di accesso e la chiave dell'insieme di credenziali delle chiavi, aggiungere le proprietà seguenti al modello di distribuzione ACI. Per altre informazioni sulla distribuzione di risorse ACI con un modello [, vedere l'esercitazione: distribuire un gruppo multicontenitore usando un modello di gestione risorse](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
-* In `resources`impostare `apiVersion` su `2012-12-01`.
+* In `resources`impostare `apiVersion` su `2019-12-01`.
 * Nella sezione Proprietà gruppo di contenitori del modello di distribuzione aggiungere un `encryptionProperties`, che contiene i valori seguenti:
   * `vaultBaseUrl`: il nome DNS dell'insieme di credenziali delle chiavi è reperibile nel pannello panoramica della risorsa key Vault nel portale
   * `keyName`: il nome della chiave generata in precedenza

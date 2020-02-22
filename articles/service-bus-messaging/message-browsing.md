@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 7ad10ad2d4393c1d25a835d0ff8cd0b98ed25879
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 6156557d10210535b287aa516070c0b5da416512
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756397"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539366"
 ---
 # <a name="message-browsing"></a>Esplorazione dei messaggi
 
@@ -34,7 +34,7 @@ Il metodo Peek restituisce anche i messaggi che erano bloccati e vengono attualm
 
 ## <a name="peek-apis"></a>API Peek
 
-I metodi [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) e [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) esistono in tutte le librerie client .NET e Java e in tutti gli oggetti ricevitori: **MessageReceiver**, **MessageSession**, **QueueClient** e **SubscriptionClient**. Il metodo Peek funziona in tutte le code e le sottoscrizioni e nelle rispettive code di messaggi non recapitabili.
+I metodi [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) e [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) sono disponibili in tutte le librerie client .NET e Java e in tutti gli oggetti Receiver: **MessageReceiver**, **MessageSession**. Il metodo Peek funziona in tutte le code e le sottoscrizioni e nelle rispettive code di messaggi non recapitabili.
 
 Se viene chiamato ripetutamente, il metodo Peek enumera tutti i messaggi presenti nel log della coda o della sottoscrizione in ordine di numero di sequenza, dal numero più basso a quello più alto. Questo è l'ordine in cui i messaggi sono stati accodati e non quello in cui i messaggi potrebbero essere recuperati.
 

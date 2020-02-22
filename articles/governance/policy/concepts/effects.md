@@ -3,12 +3,12 @@ title: Comprendere il funzionamento degli effetti
 description: Le definizioni di criteri di Azure hanno diversi effetti che determinano la modalità di gestione e di segnalazione della conformità.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2b588cfb7c13a63e3fa5d3a65d9ccb24a2e854fd
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 502c8a87c4e915ebd1fd764915daa9c89a307097
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972802"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544131"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
@@ -28,7 +28,7 @@ Questi effetti sono attualmente supportati in una definizione dei criteri:
 
 ## <a name="order-of-evaluation"></a>Ordine di valutazione
 
-Le richieste di creare o aggiornare una risorsa tramite Azure Resource Manager vengono valutate per prima cosa da Criteri di Azure. Criteri di Azure crea un elenco di tutte le assegnazioni che si applicano alla risorsa e quindi valuta la risorsa rispetto a ogni definizione. Criteri di Azure elabora diversi effetti prima di passare la richiesta al provider di risorse appropriato. Questa operazione impedisce l'elaborazione non necessaria da parte di un provider di risorse quando una risorsa non soddisfa i controlli di governance designati di criteri di Azure.
+Le richieste di creazione o aggiornamento di una risorsa tramite Azure Resource Manager vengono valutate prima in base ai criteri di Azure. Criteri di Azure crea un elenco di tutte le assegnazioni che si applicano alla risorsa e quindi valuta la risorsa rispetto a ogni definizione. Criteri di Azure elabora diversi effetti prima di passare la richiesta al provider di risorse appropriato. Questa operazione impedisce l'elaborazione non necessaria da parte di un provider di risorse quando una risorsa non soddisfa i controlli di governance designati di criteri di Azure.
 
 - **Disabled** viene verificato per primo, per determinare se valutare la regola dei criteri.
 - Vengono quindi valutate le **aggiunte** e le **modifiche** . Poiché potrebbe modificare la richiesta, una modifica apportata potrebbe impedire l'attivazione di un controllo o di un effetto negato.
@@ -158,10 +158,10 @@ La matrice di proprietà **Operations** consente di modificare diversi tag in mo
 
 Per la proprietà **Operation** sono disponibili le opzioni seguenti:
 
-|Operazione |Description |
+|Operazione |Descrizione |
 |-|-|
 |addOrReplace |Aggiunge il tag e il valore definiti alla risorsa, anche se il tag esiste già con un valore diverso. |
-|Aggiungi |Aggiunge il tag e il valore definiti alla risorsa. |
+|Add |Aggiunge il tag e il valore definiti alla risorsa. |
 |Rimuovi |Rimuove il tag definito dalla risorsa. |
 
 ### <a name="modify-examples"></a>Modificare esempi
@@ -210,7 +210,7 @@ Esempio 2: rimuovere il tag `env` e aggiungere il tag `environment` o sostituire
 }
 ```
 
-## <a name="deny"></a>Deny
+## <a name="deny"></a>Nega
 
 Deny viene usato per impedire una richiesta di risorse che non corrisponde agli standard definiti tramite una definizione dei criteri e che genera un errore della richiesta.
 
@@ -331,7 +331,8 @@ Analogamente a AuditIfNotExists, una definizione dei criteri DeployIfNotExists e
 
 ### <a name="deployifnotexists-evaluation"></a>Valutazione di DeployIfNotExists
 
-DeployIfNotExists viene eseguito dopo che un provider di risorse ha gestito una richiesta di creazione o aggiornamento di risorse e ha restituito un codice di stato con esito positivo. Una distribuzione di modello si verifica se non ci sono risorse correlate o se le risorse definite da **ExistenceCondition** non restituiscono true.
+DeployIfNotExists viene eseguito circa 15 minuti dopo che un provider di risorse ha gestito una richiesta di creazione o aggiornamento della risorsa e ha restituito un codice di stato di esito positivo. Una distribuzione di modello si verifica se non ci sono risorse correlate o se le risorse definite da **ExistenceCondition** non restituiscono true.
+La durata della distribuzione dipende dalla complessità delle risorse incluse nel modello.
 
 Durante un ciclo di valutazione, le definizioni dei criteri con un effetto DeployIfNotExists che corrispondono alle risorse vengono contrassegnate come non conformi, ma non vengono eseguite azioni sulla risorsa stessa.
 
@@ -539,7 +540,7 @@ Esempio: regola di controllo dell'ammissione di Gatekeeper V2 per consentire sol
 
 ## <a name="layering-policies"></a>Livelli dei criteri
 
-Una risorsa potrebbe essere interessata da diverse assegnazioni. Queste assegnazioni possono essere nello stesso ambito o in ambiti diversi. È anche probabile che ognuna di queste assegnazioni abbia un effetto diverso definito. La condizione e l'effetto per ogni criterio vengono valutati in modo indipendente. Ad esempio:
+Una risorsa potrebbe essere interessata da diverse assegnazioni. Queste assegnazioni possono essere nello stesso ambito o in ambiti diversi. È anche probabile che ognuna di queste assegnazioni abbia un effetto diverso definito. La condizione e l'effetto per ogni criterio vengono valutati in modo indipendente. Ad esempio,
 
 - Criterio 1
   - Limita la posizione delle risorse a "westus"

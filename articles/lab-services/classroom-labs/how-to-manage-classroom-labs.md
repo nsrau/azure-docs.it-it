@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: ad7fd664f0dce08e4482b4fb2cba2831208396fc
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: ac990141ccc694ed7460763e84126d9fefdbb609
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264832"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539451"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gestire i lab per le classi in Azure Lab Services 
 Questo articolo descrive come creare ed eliminare un lab per le classi, nonché come visualizzare tutti i lab per le classi in un account lab. 
@@ -41,6 +41,9 @@ Per configurare un lab per le classi in un account del lab, è necessario essere
     6. Selezionare **Salva**.
 
         ![Finestra New lab](../media/tutorial-setup-classroom-lab/new-lab-window.png)
+
+        > [!NOTE]
+        > Viene visualizzata un'opzione per selezionare un percorso per il Lab se l'account Lab è stato configurato in modo da [consentire a Lab Creator di](allow-lab-creator-pick-lab-location.md) selezionare l'opzione posizione Lab. 
 4. Nella pagina **Virtual machine credentials** (Credenziali macchina virtuale) specificare le credenziali predefinite per tutte le VM del lab.
     1. Specificare il **nome dell'utente** per tutte le macchine virtuali del lab.
     2. Specificare la **password** dell'utente. 
@@ -52,12 +55,14 @@ Per configurare un lab per le classi in un account del lab, è necessario essere
         Un insegnante può scegliere di usare la stessa password per tutte le macchine virtuali nel Lab o consentire agli studenti di impostare le password per le macchine virtuali. Per impostazione predefinita, questa impostazione è abilitata per tutte le immagini Windows e Linux, ad eccezione di Ubuntu. Quando si seleziona macchina virtuale **Ubuntu** , questa impostazione è disabilitata, quindi agli studenti verrà richiesto di impostare una password quando accedono per la prima volta.  
 
         ![Finestra New lab](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
-        > [!IMPORTANT]
-        > Prendere nota del nome utente e della password perché non verranno più visualizzati.    
     4. Quindi, selezionare **Avanti** nella pagina **credenziali macchina virtuale** . 
-5. Nella pagina **Lab policies** (Criteri del lab) immettere il numero di ore allocate per ogni utente (**quota per ogni utente**) al di fuori del tempo pianificato per il lab e quindi selezionare **Fine**. 
+5. Nella pagina **Lab Policy** seguire questa procedura:
+    1. Immettere il numero di ore assegnate per ogni utente (**quota per ogni utente**) al di fuori dell'ora pianificata per il Lab. 
+    2. Per l'opzione **di arresto automatico delle macchine virtuali** , specificare se si desidera che la macchina virtuale venga arrestata automaticamente quando l'utente si disconnette. È anche possibile specificare per quanto tempo la macchina virtuale deve attendere che l'utente si riconnetta prima di arrestarsi automaticamente. Per ulteriori informazioni, vedere [Enable Automatic Shutdown of VM on Disconnect](how-to-enable-shutdown-disconnect.md).
+    3. Selezionare quindi **fine**. 
 
-    ![Quota per ogni utente](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+        ![Quota per ogni utente](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+    
 5. Dovrebbe essere visualizzata la schermata seguente, che mostra lo stato di creazione della VM modello. La creazione del modello nel lab richiede fino a 20 minuti. 
 
     ![Stato di creazione della VM modello](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
@@ -90,12 +95,12 @@ Per configurare un lab per le classi in un account del lab, è necessario essere
     2. Per avviare tutte le VM contemporaneamente, selezionare **Start all** (Avvia tutte) sulla barra degli strumenti. 
     3. Per avviare una specifica VM, selezionare la freccia in già in **Status** (Stato) e quindi selezionare **Start** (Avvia). Per avviare una VM, è anche possibile selezionarla nella prima colonna e quindi selezionare **Start** (Avvia) sulla barra degli strumenti.                
 
-### <a name="vm-sizes"></a>Dimensioni delle VM  
+### <a name="vm-sizes"></a>Dimensioni delle macchine virtuali  
 
-| Dimensioni | Core | RAM | Description | 
+| Dimensione | Core | RAM | Descrizione | 
 | ---- | ----- | --- | ----------- | 
 | Piccola | 2 | 3,5 GB | Queste dimensioni sono ideali per la riga di comando, l'apertura del Web browser, i server Web con traffico ridotto, i database di piccole e medie dimensioni. |
-| Medio | 4 | 7 GB | Queste dimensioni sono ideali per database relazionali, Caching in memoria e analisi | 
+| Media | 4 | 7 GB | Queste dimensioni sono ideali per database relazionali, Caching in memoria e analisi | 
 | Media (virtualizzazione annidata) | 4 | 16 GB | Queste dimensioni sono ideali per database relazionali, Caching in memoria e analisi. Questa dimensione supporta anche la virtualizzazione nidificata. <p>Questa dimensione può essere usata in scenari in cui ogni studente necessita di più macchine virtuali. Gli insegnanti possono usare la virtualizzazione annidata per configurare alcune macchine virtuali nidificate di piccole dimensioni all'interno della macchina virtuale. </p> |
 | Grande | 8 | 32 GB | Queste dimensioni sono ideali per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale, database di grandi dimensioni, cache di memoria di grandi dimensioni. Questa dimensione supporta anche la virtualizzazione nidificata |  
 | GPU piccola (visualizzazione) | 6 | 56 GB | Queste dimensioni sono ideali per la visualizzazione remota, lo streaming, i giochi e la codifica tramite Framework come OpenGL e DirectX. | 

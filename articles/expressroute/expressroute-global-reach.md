@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 02/20/2020
 ms.author: cherylmc
-ms.openlocfilehash: e01b311d10dcf4216bfeea77ce8919f64ea2ef28
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: f574576044b7e4ddd34289b5cc45fe5ca353f180
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74080335"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538505"
 ---
 # <a name="expressroute-global-reach"></a>Copertura globale di ExpressRoute
 ExpressRoute è uno strumento privato e resiliente per connettere le reti locali a Microsoft Cloud. È possibile accedere a molti servizi cloud Microsoft, ad esempio Azure e Office 365, dal data center privato o dalla rete aziendale. Ad esempio, una delle succursali potrebbe essere a San Francisco con un circuito ExpressRoute nella Silicon Valley e un'altra succursale potrebbe trovarsi a Londra con un circuito ExpressRoute nella stessa città. Entrambi le succursali possono disporre di connettività ad alta velocità alle risorse di Azure negli Stati Uniti occidentali e nel Regno Unito meridionale. Tuttavia, le succursali non possono scambiare dati direttamente tra loro. In altre parole, 10.0.1.0/24 può inviare dati a 10.0.3.0/24 e a 10.0.4.0/24 ma NON a 10.0.2.0/24.
@@ -28,18 +28,19 @@ Copertura globale di ExpressRoute è progettata per integrare l'implementazione 
 
 ![caso d'uso][3]
 
-## <a name="availability"></a>Availability 
+## <a name="availability"></a>Disponibilità 
 Il servizio Copertura globale di ExpressRoute è attualmente supportato nei paesi seguenti.
 
 * Australia
 * Canada
-* Francia
-* Germania
+* France
+* Germany
 * Hong Kong - R.A.S.
 * Irlanda
-* Giappone
-* Corea del Sud
+* Japan
+* Korea
 * Paesi Bassi
+* Nuova Zelanda
 * Singapore
 * Svizzera
 * Regno Unito

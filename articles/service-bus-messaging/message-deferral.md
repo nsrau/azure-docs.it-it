@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 249cf7414143f59540d198bb460d8b215f6a7664
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 5e32c461902c1e340c6cece22669a59847e660cd
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756352"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538397"
 ---
 # <a name="message-deferral"></a>Differimento di messaggi
 
@@ -36,7 +36,7 @@ L'API è [BrokeredMessage. posticipate](/dotnet/api/microsoft.servicebus.messagi
 
 I messaggi rinviati rimangono nella coda principale insieme a tutti gli altri messaggi attivi (a differenza dei messaggi non recapitabili che rimangono in una coda secondaria), ma non possono essere più ricevuti usando le normali funzioni Receive/ReceiveAsync. I messaggi rinviati possono essere individuati tramite l'[esplorazione dei messaggi](message-browsing.md) se un'applicazione ne perde traccia.
 
-Per recuperare un messaggio rinviato, il proprietario deve ricordarsi il [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) perché è quello che rinvia il messaggio. Qualsiasi ricevitore che conosce il SequenceNumber di un messaggio rinviato può successivamente ricevere il messaggio in modo esplicito con `Receive(sequenceNumber)`. Per le code, è possibile usare le sottoscrizioni [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient), argomento che usano [SubscriptionClient](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient).
+Per recuperare un messaggio rinviato, il proprietario deve ricordarsi il [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) perché è quello che rinvia il messaggio. Qualsiasi ricevitore che conosce il SequenceNumber di un messaggio rinviato può successivamente ricevere il messaggio in modo esplicito con `Receive(sequenceNumber)`.
 
 Se non è possibile elaborare un messaggio perché una determinata risorsa che deve gestirlo non è temporaneamente disponibile ma l'elaborazione del messaggio non deve essere sospesa sommariamente, per mettere da parte quel messaggio per alcuni minuti, memorizzare il **SequenceNumber** in un [messaggio pianificato](message-sequencing.md) da pubblicare dopo qualche minuto e recuperare di nuovo il messaggio rinviato quando arriva il messaggio pianificato. Se un gestore di messaggi dipende da un database per tutte le operazioni e quel database è temporaneamente non disponibile, è preferibile non usare il differimento, ma sospendere completamente la ricezione dei messaggi finché il database non sarà di nuovo disponibile.
 

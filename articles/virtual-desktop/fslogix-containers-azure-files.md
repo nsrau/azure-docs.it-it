@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 7b67569ee821fee837f4fa63a1d71e622a0370a5
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 49a63be8e8ac3752006d531f4541cb3c2904c3e3
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472469"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539621"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contenitori di profili FSLogix e file di Azure
 
@@ -87,7 +87,7 @@ Desktop virtuale di Windows offre il controllo completo sulle dimensioni, il tip
 Per assicurarsi che l'ambiente desktop virtuale di Windows segua le procedure consigliate:
 
 - File di Azure account di archiviazione deve trovarsi nella stessa area delle VM host sessione.
-- File di Azure le autorizzazioni devono corrispondere alle autorizzazioni descritte nei [contenitori dei profili dei requisiti](/fslogix/overview#requirements).
+- File di Azure le autorizzazioni devono corrispondere alle autorizzazioni descritte nei [contenitori dei profili dei requisiti](/fslogix/fslogix-storage-config-ht).
 - Ogni pool di host deve essere compilato con la stessa macchina virtuale di tipo e dimensioni basata sulla stessa immagine master.
 - Ogni macchina virtuale del pool host deve trovarsi nello stesso gruppo di risorse per agevolare la gestione, la scalabilità e l'aggiornamento.
 - Per ottenere prestazioni ottimali, la soluzione di archiviazione e il contenitore del profilo FSLogix devono trovarsi nello stesso percorso data center.

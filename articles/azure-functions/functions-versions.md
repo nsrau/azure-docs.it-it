@@ -3,21 +3,21 @@ title: Panoramica delle versioni del runtime per Funzioni di Azure
 description: La soluzione Funzioni di Azure supporta più versioni del runtime. Informazioni sulle differenze tra le versioni e su come scegliere quella più adatta alle proprie esigenze.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 0138af15c89a4792b9ccb73a8b761577fad36c5e
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 21722d66129224038df20a0a1ef2bff989221224
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290377"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539502"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Panoramica delle versioni del runtime per Funzioni di Azure
 
 Le versioni principali del runtime di funzioni di Azure sono correlate alla versione di .NET su cui si basa il Runtime. La tabella seguente indica la versione corrente del runtime, il livello di rilascio e la versione .NET correlata. 
 
-| Versione del runtime | Livello di versione<sup>1</sup> | Versione di .NET | 
+| Versione runtime | Livello di versione<sup>1</sup> | Versione di .NET | 
 | --------------- | ------------- | ------------ |
-| 3.x | Disponibilità a livello generale | .NET Core 3,1 | 
-| 2.x | Disponibilità a livello generale | .NET Core 2.2 |
+| 3.x | GA | .NET Core 3,1 | 
+| 2.x | GA | .NET Core 2.2 |
 | 1.x | GA<sup>2</sup> | .NET Framework 4,6<sup>3</sup> |
 
 <sup>1</sup> le versioni GA sono supportate per gli scenari di produzione.   
@@ -38,7 +38,7 @@ Per altre informazioni, vedere [Linguaggi supportati](supported-languages.md).
 
 ## <a name="creating-1x-apps"></a>Esegui in una versione specifica
 
-Per impostazione predefinita, le app per le funzioni create nel portale di Azure e dall'interfaccia della riga di comando di Azure sono impostate sulla versione 2. x. Questa versione può essere modificata in base alle esigenze. È possibile modificare la versione di runtime solo in 1. x dopo aver creato l'app per le funzioni, ma prima di aggiungere qualsiasi funzione.  Lo stato di un passaggio compreso tra 2. x e 3. x è consentito anche per le app con funzioni, ma è comunque consigliabile eseguire prima il test in una nuova app.
+Per impostazione predefinita, le app per le funzioni create nel portale di Azure e dall'interfaccia della riga di comando di Azure sono impostate sulla versione 3. x. Questa versione può essere modificata in base alle esigenze. È possibile modificare la versione di runtime solo in 1. x dopo aver creato l'app per le funzioni, ma prima di aggiungere qualsiasi funzione.  Lo stato di un passaggio compreso tra 2. x e 3. x è consentito anche per le app con funzioni, ma è comunque consigliabile eseguire prima il test in una nuova app.
 
 ## <a name="migrating-from-1x-to-later-versions"></a>Migrazione da 1. x a versioni successive
 
@@ -202,7 +202,7 @@ Nella tabella seguente sono indicati i binding supportati in ogni versione del r
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere le seguenti risorse:
+Per ulteriori informazioni, vedere le seguenti risorse:
 
 * [Scrivere codici per Funzioni di Azure e testarle in locale](functions-run-local.md)
 * [Come specificare le versioni del runtime per Funzioni di Azure](set-runtime-version.md)

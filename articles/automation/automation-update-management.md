@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: aec46a1914fa2361ea15ba34dd1510cfe53a4dc0
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: e7a86f3a709566bcf18241ce3c329c0355be2743
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443840"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539553"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -115,7 +115,7 @@ Per Linux, il computer deve avere accesso a un repository degli aggiornamenti. I
 
 Per informazioni su come installare l'agente di Log Analytics per Linux e scaricare la versione più recente, vedere [log Analytics Agent per Linux](https://github.com/microsoft/oms-agent-for-linux). Per informazioni su come installare l'agente di Log Analytics per Windows, vedere [connettere computer Windows a monitoraggio di Azure](../log-analytics/log-analytics-windows-agent.md).
 
-Le macchine virtuali create dalle immagini di Red Hat Enterprise Linux su richiesta (RHEL) disponibili in Azure Marketplace vengono registrate per accedere a [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) distribuito in Azure. Tutte le altre distribuzioni di Linux devono essere aggiornate dal repository di file online della distribuzione usando i metodi supportati della distribuzione.
+Le macchine virtuali create dalle immagini di Red Hat Enterprise Linux su richiesta (RHEL) disponibili in Azure Marketplace vengono registrate per accedere a [Red Hat Update Infrastructure (RHUI)](../virtual-machines/workloads/redhat/redhat-rhui.md) distribuito in Azure. Tutte le altre distribuzioni di Linux devono essere aggiornate dal repository di file online della distribuzione usando i metodi supportati della distribuzione.
 
 ## <a name="permissions"></a>Autorizzazioni
 
@@ -184,7 +184,7 @@ I seguenti indirizzi sono necessari e specifici per Gestione aggiornamenti. La c
 
 Per i computer Windows, è necessario consentire il traffico anche a tutti gli endpoint necessari per Windows Update. È possibile trovare un elenco aggiornato degli endpoint necessari nei [problemi relativi a http/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Se si dispone di un [server di Windows Update](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)locale, è necessario consentire anche il traffico al server specificato nella [chiave WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
-Per i computer Red Hat Linux, vedere [indirizzi IP per i server per la distribuzione di contenuti di RHUI per gli](../virtual-machines/linux/update-infrastructure-redhat.md#the-ips-for-the-rhui-content-delivery-servers) endpoint richiesti. Per altre distribuzioni Linux, vedere la documentazione del provider.
+Per i computer Red Hat Linux, vedere [indirizzi IP per i server per la distribuzione di contenuti di RHUI per gli](../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers) endpoint richiesti. Per altre distribuzioni Linux, vedere la documentazione del provider.
 
 Per altre informazioni sulle porte richieste dal ruolo di lavoro ibrido per runbook, vedere [Porte del ruolo di lavoro ibrido](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 

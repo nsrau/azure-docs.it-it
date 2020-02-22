@@ -1,29 +1,26 @@
 ---
 title: File di SharePoint-QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Aggiungere origini dati di SharePoint protette alla Knowledge base per arricchire la Knowledge base con domande e risposte che possono essere protette con Active Directory.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/24/2019
-ms.author: diberry
-ms.openlocfilehash: e28f144c33cbdf253603cb38ca56a4d304afd474
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/20/2020
+ms.openlocfilehash: ec77d3ac217991ff191d80249bc86805e7c8ba35
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843293"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544165"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Aggiungere un'origine dati di SharePoint protetta alla Knowledge base
 
-Aggiungere origini dati di SharePoint protette alla Knowledge base per arricchire la Knowledge base con domande e risposte che possono essere protette con Active Directory.
+Aggiungere origini dati di SharePoint protette basate su cloud alla Knowledge base per arricchire la Knowledge base con domande e risposte che possono essere protette con Active Directory.
 
 Quando si aggiunge un documento SharePoint protetto alla Knowledge base, come QnA Maker Manager, è necessario richiedere Active Directory autorizzazione per QnA Maker. Una volta che questa autorizzazione viene fornita da gestione Active Directory per QnA Maker per l'accesso a SharePoint, non è necessario specificarla nuovamente. Ogni ulteriore documento aggiuntivo alla Knowledge base non richiede l'autorizzazione se si trova nella stessa risorsa di SharePoint.
 
 Se il gestore QnA Maker Knowledge base non è il Active Directory Manager, sarà necessario comunicare con il gestore Active Directory per completare questo processo.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+QnA Maker utilizza Microsoft Graph per le autorizzazioni. Se SharePoint è locale, non sarà possibile estrarre da SharePoint perché Microsoft Graph non sarà in grado di determinare le autorizzazioni.
 
 ## <a name="add-supported-file-types-to-knowledge-base"></a>Aggiungere tipi di file supportati alla Knowledge base
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: ed477dddeb499023f4803929d9433ed37c302159
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: c3291746558dbec2147ebea24eadd0febd317033
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212491"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539536"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Tracciare i messaggi da un dispositivo al cloud di Azure IoT con la traccia distribuita (anteprima)
 
@@ -308,8 +308,8 @@ Dopo l'abilitazione, il supporto della traccia distribuita per l'hub IoT seguir�
 1. Il dispositivo IoT invia il messaggio all'hub IoT.
 1. Il messaggio arriva al gateway dell'hub IoT.
 1. L'hub IoT cerca `tracestate` nelle proprietà dell'applicazione del messaggio e verifica che sia nel formato corretto.
-1. In caso affermativo, l'hub IoT genera e registra `trace-id` e `span-id` nei log di diagnostica di Monitoraggio di Azure nella categoria `DiagnosticIoTHubD2C`.
-1. Al termine dell'elaborazione del messaggio, l'hub IoT genera un altro `span-id` e lo registra nella categoria `trace-id` con l'elemento `DiagnosticIoTHubIngress` esistente.
+1. In tal caso, l'hub Internet genera una `trace-id` univoca globale per il messaggio, un `span-id` per il "hop" e li registra nei log di diagnostica di monitoraggio di Azure in base all'operazione `DiagnosticIoTHubD2C`.
+1. Al termine dell'elaborazione del messaggio, l'hub Internet genera un altro `span-id` e lo registra insieme al `trace-id` esistente nell'operazione `DiagnosticIoTHubIngress`.
 1. Se è abilitato il routing del messaggio, l'hub IoT lo scrive nell'endpoint personalizzato e registra un altro `span-id` con lo stesso `trace-id` nella categoria `DiagnosticIoTHubEgress`.
 1. I passaggi sopra descritti vengono ripetuti per ogni messaggio generato.
 
