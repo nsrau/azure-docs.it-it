@@ -1,22 +1,22 @@
 ### YamlMime:Hub
 title: Documentazione di Servizi cognitivi di Azure
 summary: Informazioni su come creare algoritmi intelligenti e supportati nelle app, nei siti Web e nei bot per vedere, ascoltare, parlare, comprendere e interpretare le esigenze degli utenti.
+brand: azure
 metadata:
   title: Documentazione di Servizi cognitivi di Azure
   description: Informazioni su come creare algoritmi intelligenti e supportati nelle app, nei siti Web e nei bot per vedere, ascoltare, parlare, comprendere e interpretare le esigenze degli utenti.
   ms.service: cognitive-services
   ms.topic: hub-page
-  brand: azure
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 11/04/2019
-  ms.openlocfilehash: e0fc6aaaedc5eff98017eb62187575ab9afbba59
-  ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+  ms.date: 01/21/2020
+  ms.openlocfilehash: f39f2a6360363131eb346f613cf0f7a25910404a
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 01/14/2020
-  ms.locfileid: "75945191"
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77560763"
 highlightedContent:
   items:
   - title: Informazioni su Servizi cognitivi
@@ -71,7 +71,7 @@ conceptualContent:
     links:
     - url: ./immersive-reader/index.yml
       itemType: overview
-      text: Strumento di lettura immersiva
+      text: Strumento di lettura immersiva (anteprima)
     - url: ./luis/index.yml
       itemType: overview
       text: Language Understanding (LUIS)
@@ -87,7 +87,7 @@ conceptualContent:
   - title: Sintesi vocale
     summary: Converti il parlato in testo e il testo in parlato simile al linguaggio naturale. Traduci da una lingua a un'altra e consenti la verifica voce e il riconoscimento del parlante.
     links:
-    - url: ./speech-service/index.md
+    - url: ./speech-service/index.yml
       itemType: overview
       text: Servizio Voce
     - url: ./speaker-recognition/home.md
