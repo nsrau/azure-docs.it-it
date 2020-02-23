@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Ottenere la finalità con le API REST - LUIS'
+title: 'Avvio rapido: Ottenere la finalità con le API REST - LUIS'
 titleSuffix: Azure Cognitive Services
 description: In questo avvio rapido dell'API REST si usa un'app LUIS pubblica disponibile per stabilire l'intenzione di un utente partendo da un testo discorsivo.
 services: cognitive-services
@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/18/2019
+ms.date: 02/14/2020
 ms.author: diberry
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 81e3003db9baa4c5df646241d77e01840bcdf21d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a3f8013804a2c3f4864719861eea1510c9d849d3
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505868"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368398"
 ---
-# <a name="quickstart-get-intent-with-rest-apis"></a>Guida introduttiva: Ottenere la finalità con le API REST
+# <a name="quickstart-change-model-with-rest-apis"></a>Avvio rapido: Cambiare il modello con le API REST
 
 In questa guida introduttiva si aggiungono espressioni di esempio in un'app Travel Agent e si esegue il training dell'app. Le espressioni di esempio sono costituite da testo utente discorsivo di cui è stato eseguito il mapping a una finalità. Fornendo espressioni di esempio per le finalità, si insegna all'app LUIS quale tipo di testo specificato dall'utente appartiene a un determinato tipo di finalità.
 

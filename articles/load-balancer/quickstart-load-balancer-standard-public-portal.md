@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 4a5775be66f95fb69db761c2356a61f80068bc75
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: eab8298362bfb3ad790d13fcbf47e0fe624ed3fd
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843872"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470191"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Avvio rapido: Creare una risorsa Load Balancer per bilanciare il carico delle macchine virtuali con il portale di Azure
 
@@ -46,10 +46,14 @@ In questa sezione verrà creata una risorsa Load Balancer che consente di bilanc
     | Nome                   | *myLoadBalancer*                                   |
     | Region         | Selezionare **Europa occidentale**.                                        |
     | Type          | Selezionare **Pubblica**.                                        |
-    | SKU           | Selezionare **Standard** o **Basic**. Microsoft consiglia di scegliere Standard per i carichi di lavoro di produzione.  |
+    | SKU           | Selezionare **Standard** o **Basic**. Microsoft consiglia di scegliere Standard per i carichi di lavoro di produzione. |
     | Indirizzo IP pubblico | Selezionare **Crea nuovo**. Se si vuole usare un indirizzo IP pubblico esistente, selezionare **Usa esistente** |
-    | Nome dell'indirizzo IP pubblico              | Digitare *myPublicIP* nella casella di testo.   |
+    | Nome dell'indirizzo IP pubblico              | Digitare *myPublicIP* nella casella di testo.   Usare ```-SKU Basic``` per creare un indirizzo IP pubblico Basic. Gli indirizzi IP pubblici Basic non sono compatibili con Load Balancer **Standard**. Per i carichi di lavoro di produzione è consigliabile usare il livello **Standard**.|
     | Zona di disponibilità | Digitare *con ridondanza della zona* per creare una risorsa Load Balancer resiliente. Per creare una risorsa Load Balancer di zona, selezionare una zona specifica tra 1, 2 o 3 |
+
+> [!IMPORTANT]
+> Il resto di questa guida di avvio rapido presuppone che durante il precedente processo di selezione dello SKU venga scelto lo SKU **Standard**.
+
 
 3. Nella scheda **Rivedi e crea** selezionare **Crea**.   
 

@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 894c9d34f3e9874a51f5939021f908ac4ecaaaa9
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 531e9dbec55c5a6a305b321df7a11067c0ade92a
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156484"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446223"
 ---
 > [!NOTE]
 > Speech SDK per Unity supporta Windows Desktop (x86 e x64) o la piattaforma UWP (Universal Windows Platform) (x86, x64, ARM/ARM64), Android (x86, ARM32/64) e iOS (simulatore x64, ARM32 e ARM64).
@@ -90,7 +90,7 @@ Per aggiungere il codice di script di esempio per il progetto Unity, seguire que
 
 1. Individuare e sostituire la stringa `YourSubscriptionKey` con la chiave di sottoscrizione del servizio Voce.
 
-1. Trovare e sostituire inoltre la stringa `YourServiceRegion` con il "Parametro Speech SDK" dell'[area](https://aka.ms/speech/sdkregion) associata alla sottoscrizione. ad esempio `westus` per la sottoscrizione di valutazione gratuita.
+1. Trovare e sostituire la stringa `YourServiceRegion` con l'**identificatore di area** corrispondente all'[area](https://aka.ms/speech/sdkregion) associata alla sottoscrizione. ad esempio `westus` per la sottoscrizione di valutazione gratuita.
 
 1. Salvare le modifiche allo script.
 

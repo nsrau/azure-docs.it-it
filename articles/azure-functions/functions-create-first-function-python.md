@@ -4,12 +4,12 @@ description: Creare e distribuire codice Python serverless nel cloud con Funzion
 ms.date: 02/11/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: a781e10cee4cf433de5e837490d901020a875205
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 16d4d5627ea297d825092009511915f5b6e734b6
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157891"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212442"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-that-responds-to-http-requests"></a>Avvio rapido: Creare una funzione Python in Azure che risponde alle richieste HTTP
 
@@ -36,7 +36,7 @@ In questo articolo vengono usati gli strumenti da riga di comando per creare una
 In una cartella appropriata eseguire i comandi seguenti per creare e attivare un ambiente virtuale denominato `.venv`. Assicurarsi di usare Python 3.7 che è supportato da Funzioni di Azure.
 
 
-# <a name="bashtabbash"></a>[Bash](#tab/bash)
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```bash
 python -m venv .venv
@@ -52,7 +52,7 @@ Se Python non ha installato il pacchetto venv nella distribuzione Linux, eseguir
 sudo apt-get install python3-venv
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 py -m venv .venv
@@ -62,7 +62,7 @@ py -m venv .venv
 .venv\scripts\activate
 ```
 
-# <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+# <a name="cmd"></a>[Cmd](#tab/cmd)
 
 ```cmd
 py -m venv .venv
@@ -97,7 +97,7 @@ In Funzioni di Azure un progetto di funzione è un contenitore per una o più fu
     cd LocalFunctionProj
     ```
     
-1. Aggiungere una funzione al progetto usando il comando seguente, in cui l'argomento `--name` è il nome univoco della funzione e l'argomento `--template` specifica il trigger della funzione. `func new` crea una sottocartella corrispondente al nome della funzione che contiene un file di codice appropriato per il linguaggio scelto del progetto e un file di configurazione denominato *function.json*.
+1. Aggiungere una funzione al progetto usando il comando seguente, in cui l'argomento `--name` specifica il nome univoco della funzione (in questo caso, HttpExample) e l'argomento `--template` specifica il trigger HTTP della funzione. Questo comando `func new` crea una sottocartella corrispondente al nome della funzione che contiene un file di codice appropriato per il linguaggio scelto del progetto e un file di configurazione denominato *function.json*.
 
     ```
     func new --name HttpExample --template "HTTP trigger"
@@ -167,7 +167,7 @@ Per il trigger HTTP, la funzione riceve i dati della richiesta nella variabile `
 }
 ```
 
-Ogni binding richiede una direzione, un tipo e un nome univoco. Il trigger HTTP dispone di un'associazione di input di tipo [`httpTrigger`](functions-bindings-http-webhook.md#trigger) e di un'associazione di output di tipo [`http`](functions-bindings-http-webhook.md#output).
+Ogni binding richiede una direzione, un tipo e un nome univoco. Il trigger HTTP dispone di un'associazione di input di tipo [`httpTrigger`](functions-bindings-http-webhook-trigger.md) e di un'associazione di output di tipo [`http`](functions-bindings-http-webhook-output.md).
 
 
 ## <a name="run-the-function-locally"></a>Eseguire la funzione in locale
@@ -269,14 +269,14 @@ Functions in msdocs-azurefunctions-qs:
 
 Poiché la funzione usa un trigger HTTP, è possibile richiamarla eseguendo una richiesta HTTP al relativo URL nel browser o con uno strumento come curl. In entrambe i casi, il parametro URL `code` è la chiave di funzione univoca che autorizza la chiamata all'endpoint della funzione.
 
-# <a name="browsertabbrowser"></a>[Browser](#tab/browser)
+# <a name="browser"></a>[Browser](#tab/browser)
 
 Copiare l'**URL di richiamo** completo visualizzato nell'output del comando publish nella barra degli indirizzi di un browser, aggiungendo il parametro di query `&name=Azure`. Nel browser dovrebbe essere visualizzato un output simile a quello visualizzato quando è stata eseguita la funzione in locale.
 
 ![Output della funzione eseguita in Azure in un browser](./media/functions-create-first-function-python/function-test-cloud-browser.png)
 
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curl"></a>[curl](#tab/curl)
 
 Eseguire [curl](https://curl.haxx.se/) con l'**URL di richiamo**, aggiungendo il parametro `&name=Azure`. L'output del comando dovrebbe essere il testo "Hello Azure".
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 50a7854688164383bff08bfe55d356fe32239812
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 0cd2bb54bb436beaa933195b88bc6f13a1b23e6f
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846526"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470429"
 ---
 # <a name="quickstart-create-a-load-balancer-using-azure-powershell"></a>Avvio rapido: Creare una risorsa Load Balancer con Azure PowerShell
 
@@ -68,7 +68,10 @@ $publicIp = New-AzPublicIpAddress `
  -zone 1
 ```
 
-Usare ```-SKU Basic``` per creare un indirizzo IP pubblico Basic. Microsoft consiglia di usare il livello Standard per i carichi di lavoro di produzione.
+Usare ```-SKU Basic``` per creare un indirizzo IP pubblico Basic. Gli indirizzi IP pubblici Basic non sono compatibili con Load Balancer **Standard**. Per i carichi di lavoro di produzione è consigliabile usare il livello **Standard**.
+
+> [!IMPORTANT]
+> Il resto di questa guida di avvio rapido presuppone che durante il precedente processo di selezione dello SKU venga scelto lo SKU **Standard**.
 
 ## <a name="create-load-balancer"></a>Crea servizio di bilanciamento del carico
 
@@ -161,6 +164,9 @@ $lb = New-AzLoadBalancer `
 ```
 
 Usare ```-SKU Basic``` per creare una risorsa Load Balancer Basic. Microsoft consiglia di usare il livello Standard per i carichi di lavoro di produzione.
+
+> [!IMPORTANT]
+> Il resto di questa guida di avvio rapido presuppone che durante il precedente processo di selezione dello SKU venga scelto lo SKU **Standard**.
 
 ## <a name="create-network-resources"></a>Creare risorse di rete
 Prima di distribuire alcune macchine virtuali e testare il servizio di bilanciamento del carico, è necessario creare le risorse di rete virtuale di supporto, ovvero la rete virtuale e le schede di interfaccia di rete virtuale. 

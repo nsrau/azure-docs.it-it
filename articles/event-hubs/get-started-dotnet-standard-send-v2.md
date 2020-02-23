@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 022af5ce0774ff106a29a2ef0bcf3fe11acfda15
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: d7d697e3ea4b1b683275d53f6e407396f474b37b
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187208"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462021"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-core-azuremessagingeventhubs"></a>Inviare e ricevere eventi da Hub eventi di Azure - .NET Core (Azure.Messaging.EventHubs) 
 Questa guida di avvio rapido illustra come inviare e ricevere eventi da un hub eventi con la libreria .NET Core **Azure.Messaging.EventHubs**. 
@@ -28,10 +28,10 @@ Questa guida di avvio rapido illustra come inviare e ricevere eventi da un hub e
 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Se non si ha familiarità con Hub eventi di Azure, vedere [Panoramica di Hub eventi](event-hubs-about.md) prima di procedere con questa guida di avvio rapido. 
 
-Per completare questa guida di avvio rapido è necessario soddisfare i prerequisiti seguenti:
+Per completare questa guida introduttiva è necessario soddisfare i prerequisiti seguenti:
 
 - **Sottoscrizione di Microsoft Azure**. Per usare i servizi di Azure, tra cui Hub eventi di Azure, è necessaria una sottoscrizione.  Se non si ha un account Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/free/) oppure usare i vantaggi della sottoscrizione di MSDN per la [creazione di un account](https://azure.microsoft.com).
 - **Microsoft Visual Studio 2019**. La libreria client di Hub eventi di Azure usa le nuove funzionalità introdotte in C# 8.0.  È comunque possibile usare la libreria con le versioni precedenti di C#, ma alcune funzionalità non saranno disponibili.  Per abilitare queste funzionalità, è necessario scegliere [.NET Core 3.0 come destinazione](/dotnet/standard/frameworks#how-to-specify-target-frameworks) oppure [specificare la versione del linguaggio](/dotnet/csharp/language-reference/configure-language-version#override-a-default) che si vuole usare (8.0 o versione successiva). Se si usa Visual Studio, le versioni precedenti a Visual Studio 2019 non sono compatibili con gli strumenti necessari per la compilazione di progetti in C# 8.0. Visual Studio 2019, inclusa l'edizione Community gratuita, può essere scaricato [qui](https://visualstudio.microsoft.com/vs/)
@@ -132,7 +132,7 @@ In questo argomento di avvio rapido si usa una risorsa di archiviazione di Azure
 
 1. Nella finestra Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione **EventHubQuickStart**, scegliere **Aggiunti** e selezionare **Nuovo progetto**. 
 1. Selezionare **App console (.NET Core)** , quindi **Avanti**. 
-1. Scegliere **EventHubsReceiver** per **Nome progetto** e selezionare **Crea**. 
+1. Immettere **EventHubsReceiver** per **Nome progetto** e selezionare **Crea**. 
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Aggiungere il pacchetto NuGet di Hub eventi
 

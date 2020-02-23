@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 8ef24630d255876c45d9cbc072fc989288f2ac5f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: fdbd002ac946f3ac3a1a67980905d4ed6f5510c5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76837256"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470344"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Avvio rapido: Creare un'istanza di Load Balancer Standard per bilanciare il carico delle macchine virtuali tramite l'interfaccia della riga di comando di Azure
 
@@ -58,7 +58,10 @@ Per creare un indirizzo IP pubblico di zona nella zona 1 usare:
   az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard --zone 1
 ```
 
- Usare ```--sku basic``` per creare un indirizzo IP pubblico Basic. Il livello Basic non supporta le zone di disponibilità. Microsoft consiglia di scegliere SKU Standard per i carichi di lavoro di produzione.
+Usare ```-SKU Basic``` per creare un indirizzo IP pubblico Basic. Gli indirizzi IP pubblici Basic non sono compatibili con Load Balancer **Standard**. Per i carichi di lavoro di produzione è consigliabile usare il livello **Standard**.
+
+> [!IMPORTANT]
+> Il resto di questa guida di avvio rapido presuppone che durante il precedente processo di selezione dello SKU venga scelto lo SKU **Standard**.
 
 ## <a name="create-azure-load-balancer"></a>Creare un'istanza di Azure Load Balancer
 
@@ -81,6 +84,9 @@ Usare il comando [az network lb create](https://docs.microsoft.com/cli/azure/net
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool       
   ```
+
+> [!IMPORTANT]
+> Il resto di questa guida di avvio rapido presuppone che durante il precedente processo di selezione dello SKU venga scelto lo SKU **Standard**.
 
 ### <a name="create-the-health-probe"></a>Creare il probe di integrità
 

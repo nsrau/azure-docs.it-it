@@ -9,49 +9,28 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 538e04d7ae4f6528c26762a8efac06d02b4f86bc
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 3bc5dc754509260591acf7c5d5809d5e85794d9b
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083743"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471925"
 ---
-# <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Guida introduttiva: Comunicare con un'applicazione del dispositivo in Node.js tramite i flussi dispositivo dell'hub IoT (anteprima)
+# <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Avvio rapido: Comunicare con un'applicazione del dispositivo in Node.js tramite i flussi dispositivo dell'hub IoT (anteprima)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
-L'hub IoT di Microsoft Azure attualmente supporta i flussi dispositivo come [funzionalità di anteprima](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+In questa guida di avvio rapido si esegue un'applicazione sul lato servizio e si configura la comunicazione tra un dispositivo e il servizio usando flussi del dispositivo. I flussi del dispositivo dell'hub IoT di Azure consentono alle applicazioni di servizio e del dispositivo di comunicare in modo sicuro e adatto al firewall. Durante l'anteprima pubblica, l'SDK Node.js supporta solo flussi del dispositivo sul lato servizio. Di conseguenza, questa guida introduttiva illustra solo le istruzioni per eseguire l'applicazione sul lato servizio.
 
-I [flussi dispositivo dell'hub IoT](./iot-hub-device-streams-overview.md) consentono alle applicazioni del servizio e del dispositivo di comunicare in modo sicuro e di facile integrazione con i firewall. Durante l'anteprima pubblica, l'SDK Node.js supporta solo i flussi dispositivo sul lato servizio. Di conseguenza, questa guida introduttiva illustra solo le istruzioni per eseguire l'applicazione sul lato servizio. Eseguire da una delle guide di avvio rapido seguenti un'applicazione sul lato dispositivo associata:
+## <a name="prerequisites"></a>Prerequisites
 
-* [Comunicare con le applicazioni del dispositivo in C tramite i flussi dispositivo dell'hub IoT](./quickstart-device-streams-echo-c.md)
+* Completamento di [Comunicare con app del dispositivo in C tramite i flussi del dispositivo dell'hub IoT](./quickstart-device-streams-echo-c.md) o [Comunicare con app del dispositivo in C# tramite i flussi del dispositivo dell'hub IoT](./quickstart-device-streams-echo-csharp.md).
 
-* [Comunicare con le applicazioni del dispositivo in C# tramite i flussi dispositivo dell'hub IoT](./quickstart-device-streams-echo-csharp.md)
+* Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-L'applicazione Node.js sul lato servizio di questa guida introduttiva presenta le funzionalità seguenti:
+* [Node.js 10+](https://nodejs.org).
 
-* Crea un flusso dispositivo in un dispositivo IoT.
-
-* Legge l'input dalla riga di comando e lo invia all'applicazione del dispositivo che lo invia di nuovo all'applicazione sul lato servizio.
-
-Il codice illustra il processo di avvio di un flusso dispositivo, nonché come usarlo per inviare e ricevere dati.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-
-## <a name="prerequisites"></a>Prerequisiti
-
-L'anteprima dei flussi dispositivo è attualmente supportata solo per gli hub IoT creati nelle aree seguenti:
-
-  * Stati Uniti centrali
-  * Stati Uniti centrali EUAP
-  * Europa settentrionale
-  * Asia sud-orientale
-
-Per eseguire l'applicazione sul lato servizio in questo argomento di avvio rapido è necessario Node.js v10.x.x o versioni successive nel computer di sviluppo.
-
-È possibile scaricare Node.js per più piattaforme da [Nodejs.org](https://nodejs.org).
+* [Un progetto Node.js di esempio](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
 
 È possibile verificare la versione corrente di Node.js installata nel computer di sviluppo tramite il comando seguente:
 
@@ -59,19 +38,31 @@ Per eseguire l'applicazione sul lato servizio in questo argomento di avvio rapid
 node --version
 ```
 
-Eseguire questo comando per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
+L'hub IoT di Microsoft Azure supporta attualmente i flussi dispositivo come [funzionalità in anteprima](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+> [!IMPORTANT]
+> L'anteprima dei flussi dispositivo è attualmente supportata solo per gli hub IoT creati nelle aree seguenti:
+>
+> * Stati Uniti centrali
+> * Stati Uniti centrali EUAP
+> * Europa settentrionale
+> * Asia sud-orientale
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+### <a name="add-azure-iot-extension"></a>Aggiungere l'estensione Azure IoT
+
+Eseguire questo comando per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi dell'hub IoT, di IoT Edge e del servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
 ```
 
-Se non è già stato fatto, scaricare il progetto Node.js di esempio da https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip ed estrarre l'archivio ZIP.
-
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
 Se è stata completata la precedente [Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-node.md), è possibile ignorare questo passaggio.
 
-[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registrare un dispositivo
 
@@ -79,7 +70,7 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
 È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa guida introduttiva si usa Azure Cloud Shell per registrare un dispositivo simulato.
 
-1. Eseguire il comando seguente in Azure Cloud Shell per creare l'identità del dispositivo.
+1. Eseguire questo comando in Azure Cloud Shell per creare l'identità del dispositivo.
 
    **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
@@ -109,13 +100,20 @@ In questa sezione verranno eseguite sia l'applicazione sul lato dispositivo sia 
 
 Come indicato in precedenza, l'SDK Node.js dell'hub IoT supporta solo i flussi dispositivo sul lato servizio. Per l'applicazione sul lato dispositivo usare uno dei programmi del dispositivo associati disponibili in questi argomenti di avvio rapido:
 
-   * [Comunicare con le applicazioni del dispositivo in C tramite i flussi dispositivo dell'hub IoT](./quickstart-device-streams-echo-c.md)
+* [Comunicare con le applicazioni del dispositivo in C tramite i flussi dispositivo dell'hub IoT](./quickstart-device-streams-echo-c.md)
 
-   * [Comunicare con le applicazioni del dispositivo in C# tramite i flussi dispositivo dell'hub IoT](./quickstart-device-streams-echo-csharp.md)
+* [Comunicare con le applicazioni del dispositivo in C# tramite i flussi dispositivo dell'hub IoT](./quickstart-device-streams-echo-csharp.md)
 
 Prima di procedere al passaggio successivo verificare che l'applicazione sul lato dispositivo sia in esecuzione.
 
 ### <a name="run-the-service-side-application"></a>Eseguire l'applicazione sul lato servizio
+
+L'applicazione Node.js sul lato servizio di questa guida introduttiva presenta le funzionalità seguenti:
+
+* Crea un flusso dispositivo in un dispositivo IoT.
+* Legge l'input dalla riga di comando e lo invia all'applicazione del dispositivo che lo invia di nuovo all'applicazione sul lato servizio.
+
+Il codice illustrerà il processo di avvio di un flusso dispositivo, nonché come usarlo per inviare e ricevere dati.
 
 Supponendo che l'applicazione sul lato dispositivo sia in esecuzione, attenersi alla procedura seguente in una finestra terminale locale per eseguire l'applicazione sul lato servizio in Node.js:
 

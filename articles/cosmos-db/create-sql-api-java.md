@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/31/2019
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 8c2ae82bae8457a1c715f160994c7a0da94193ff
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: bd7801c84860ddba3c3991bce9352c595adb123f
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134500"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469045"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Avvio rapido: Compilare un'app Java per gestire i dati dell'API SQL di Azure Cosmos DB
 
@@ -69,15 +69,17 @@ git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
 
 Questo passaggio è facoltativo. Per scoprire in che modo le risorse del database vengono create nel codice, è possibile esaminare i frammenti di codice seguenti. Altrimenti è possibile passare direttamente a [Esecuzione dell'app](#run-the-app). 
 
+### <a name="managing-database-resources-using-the-synchronous-sync-api"></a>Gestione delle risorse del database con l'API sincrona
+
 * Inizializzazione di `CosmosClient`. L'oggetto `CosmosClient` fornisce una rappresentazione logica lato client per il servizio di database Azure Cosmos. Questo client viene usato per configurare ed eseguire richieste nel servizio.
     
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateSyncClient)]
 
-* Creazione di CosmosDatabase.
+* Creazione di `CosmosDatabase`.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateDatabaseIfNotExists)]
 
-* Creazione di CosmosContainer.
+* Creazione di `CosmosContainer`.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateContainerIfNotExists)]
 
@@ -85,13 +87,41 @@ Questo passaggio è facoltativo. Per scoprire in che modo le risorse del databas
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateItem)]
    
-* Le letture dei punti vengono eseguite usando i metodi `getItem` e `read`
+* Le letture dei punti vengono eseguite con il metodo `readItem`.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=ReadItem)]
 
 * Le query SQL su JSON vengono eseguite usando il metodo `queryItems`.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=QueryItems)]
+
+### <a name="managing-database-resources-using-the-asynchronous-async-api"></a>Gestione delle risorse del database con l'API asincrona
+
+* Le chiamate all'API asincrona restituiscono immediatamente un risultato, senza attendere una risposta dal server. Tenendo in considerazione questa caratteristica, i frammenti di codice seguenti mostrano gli schemi progettuali appropriati per completare tutte le precedenti attività di gestione con l'API asincrona.
+
+* Inizializzazione di `CosmosAsyncClient`. L'oggetto `CosmosAsyncClient` fornisce una rappresentazione logica lato client per il servizio di database Azure Cosmos. Questo client viene usato per configurare ed eseguire richieste asincrone sul servizio.
+    
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=CreateAsyncClient)]
+
+* Creazione di `CosmosAsyncDatabase`.
+
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=CreateDatabaseIfNotExists)]
+
+* Creazione di `CosmosAsyncContainer`.
+
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=CreateContainerIfNotExists)]
+
+* Come nel caso dell'API sincrona, la creazione di elementi viene eseguita con il metodo `createItem`. Questo esempio illustra come inviare in modo efficiente numerose richieste `createItem` effettuando la sottoscrizione di un flusso reattivo che invia le richieste e stampa le notifiche. Dato che questo semplice esempio viene terminato quando viene completata l'esecuzione, si usano istanze di `CountDownLatch` affinché il programma non venga terminato durante la creazione di elementi. **Il blocco in caso di chiamate asincrone non è la procedura di programmazione asincrona corretta. In casi d'uso realistici, le richieste vengono generate da un ciclo main() con esecuzione illimitata e non è necessario il latch per le chiamate asincrone.**
+
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=CreateItem)]
+   
+* Come nel caso dell'API sincrona, le letture dei punti vengono eseguite con il metodo `readItem`.
+
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=ReadItem)]
+
+* Come nel caso dell'API sincrona, le query SQL su JSON vengono eseguite con il metodo `queryItems`.
+
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=QueryItems)]
 
 ## <a name="run-the-app"></a>Eseguire l'app
 
@@ -109,10 +139,10 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
     mvn package
     ```
 
-3. Nella finestra del terminale Git usare il comando seguente per avviare l'applicazione Java (sostituire YOUR_COSMOS_DB_HOSTNAME con il valore URI tra virgolette del portale e sostituire YOUR_COSMOS_DB_MASTER_KEY con la chiave primaria tra virgolette del portale)
+3. Nella finestra del terminale Git usare il comando seguente per avviare l'applicazione Java, sostituendo SYNCASYNCMODE con `sync` o `async` (a seconda del codice di esempio che si vuole eseguire), YOUR_COSMOS_DB_HOSTNAME con il valore URI del portale tra virgolette e YOUR_COSMOS_DB_MASTER_KEY con la chiave primaria del portale tra virgolette.
 
     ```bash
-    mvn exec:java -DACCOUNT_HOST=YOUR_COSMOS_DB_HOSTNAME -DACCOUNT_KEY=YOUR_COSMOS_DB_MASTER_KEY
+    mvn exec:java@SYNCASYNCMODE -DACCOUNT_HOST=YOUR_COSMOS_DB_HOSTNAME -DACCOUNT_KEY=YOUR_COSMOS_DB_MASTER_KEY
 
     ```
 

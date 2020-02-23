@@ -5,22 +5,33 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 12/06/2019
+ms.date: 02/18/2020
 ms.author: victorh
-ms.openlocfilehash: cf8e6ca3a532dea29a413b1afdfc684ac8f08f17
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 0ba2ce30cee3ff7e3a9f71b4f1b0928fa84e775d
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74869562"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443151"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>Che cos'è Anteprima di Gestione firewall di Azure?
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-Anteprima di Gestione firewall di Azure è un servizio di gestione della sicurezza che fornisce funzionalità di gestione dei criteri di sicurezza e delle route per i perimetri di sicurezza basati sul cloud. Funziona con [Hub rete WAN virtuale](../virtual-wan/virtual-wan-about.md#resources), una risorsa gestita da Microsoft che consente di creare facilmente architetture hub-spoke. Quando i criteri di sicurezza e routing vengono associati a un hub di questo tipo, quest'ultimo viene definito *[hub virtuale protetto](secured-virtual-hub.md)* . 
+Anteprima di Gestione firewall di Azure è un servizio di gestione della sicurezza che fornisce funzionalità di gestione dei criteri di sicurezza e delle route per i perimetri di sicurezza basati sul cloud. 
 
-![firewall-manager](media/overview/firewallmanagerv3.png)
+Gestione firewall può garantire la gestione della sicurezza per due tipi di architettura di rete:
+
+- **Hub virtuale protetto**
+
+   Un [hub di rete WAN virtuale di Azure](../virtual-wan/virtual-wan-about.md#resources) è una risorsa gestita da Microsoft che consente di creare facilmente architetture hub-spoke. Quando i criteri di sicurezza e routing vengono associati a un hub di questo tipo, quest'ultimo viene definito *[hub virtuale protetto](secured-virtual-hub.md)* . 
+- **Rete virtuale hub**
+
+   È una rete virtuale di Azure standard creata e gestita dall'utente. Quando a un hub di questo tipo sono associati criteri di sicurezza, l'hub è definito *rete virtuale hub*. Attualmente sono supportati solo criteri firewall di Azure. È possibile eseguire il peering di reti virtuali spoke contenenti i servizi e i server del carico di lavoro, nonché gestire firewall in reti virtuali autonome non connesse tramite peering a spoke.
+
+Per un confronto dettagliato delle architetture di tipo *hub virtuale protetto* e *rete virtuale hub*, vedere [Informazioni sulle opzioni disponibili per l'architettura di Gestione firewall di Azure](vhubs-and-vnets.md).
+
+![firewall-manager](media/overview/firewallmanagerv5.png)
 
 ## <a name="azure-firewall-manager-preview-features"></a>Funzionalità di Anteprima di Gestione firewall di Azure
 
@@ -38,6 +49,8 @@ Anteprima di Gestione firewall di Azure offre le funzionalità seguenti:
 
 Oltre a Firewall di Azure, è possibile integrare i provider di terze parti per la security come servizio (SECaas) per fornire una protezione di rete aggiuntiva alle connessioni di rete virtuale e branch per Internet.
 
+Questa funzionalità è disponibile solo con distribuzioni di tipo hub virtuale protetto.
+
 - Filtro del traffico da VNet a Internet (V2I)
 
    - Filtrare il traffico di rete virtuale in uscita con provider di sicurezza di terze parti preferito.
@@ -51,32 +64,29 @@ Per altre informazioni su provider di sicurezza attendibili, vedere [Che cosa so
 
 ### <a name="centralized-route-management"></a>Gestione centralizzata della route
 
-È possibile instradare facilmente il traffico all'hub protetto per filtrare e accedere senza il bisogno di impostare route definite dall'utente alle reti virtuali spoke. È possibile usare provider di terze parti per il filtro del traffico da branch a Internet (B2I), affiancato con Firewall di Azure per il filtro da branch a rete virtuale (B2V), da rete virtuale a rete virtuale (V2V) e da rete virtuale a Internet (V2I). È anche possibile usare provider di terze parti per filtrare il traffico V2I, purché Firewall di Azure non sia necessario per B2V o V2V. 
+È possibile instradare facilmente il traffico all'hub protetto per filtrare e accedere senza il bisogno di impostare route definite dall'utente alle reti virtuali spoke. 
+
+Questa funzionalità è disponibile solo con distribuzioni di tipo hub virtuale protetto.
+
+È possibile usare provider di terze parti per il filtro del traffico da branch a Internet (B2I), affiancato con Firewall di Azure per il filtro da branch a rete virtuale (B2V), da rete virtuale a rete virtuale (V2V) e da rete virtuale a Internet (V2I). È anche possibile usare provider di terze parti per filtrare il traffico V2I, purché Firewall di Azure non sia necessario per B2V o V2V. 
 
 ## <a name="region-availability"></a>Aree di disponibilità
 
-Le aree seguenti sono supportate per l'anteprima pubblica:
-
-- Europa occidentale,Europa settentrionale, Francia centrale, Francia meridionale, Regno Unito meridionale, Regno Unito occidentale
-- Australia orientale, Australia centrale, Australia centrale 2, Australia sud-orientale
-- Canada centrale
-- Stati Uniti orientali, Stati Uniti occidentali, Stati Uniti orientali 2, Stati Uniti occidentali 2, Stati Uniti centrali, Stati Uniti centro-settentrionali 2 e Stati Uniti centro-occidentali
-
-I criteri di Firewall di Azure possono essere creati solo in queste aree, ma possono essere usati in più aree. Ad esempio, è possibile creare un criterio all'interno degli Stati Uniti occidentali e usarlo negli Stati Uniti orientali. 
+I criteri firewall di Azure possono essere usati in tutte le aree. Ad esempio, è possibile creare un criterio all'interno degli Stati Uniti occidentali e usarlo negli Stati Uniti orientali. 
 
 ## <a name="known-issues"></a>Problemi noti
 
 Anteprima di Gestione firewall di Azure presenta i problemi noti seguenti:
 
-|Problema  |DESCRIZIONE  |Mitigazione  |
+|Problema  |Descrizione  |Strategia di riduzione del rischio  |
 |---------|---------|---------|
-|Le reti virtuali centrali create manualmente non sono supportate|Attualmente, Gestione firewall di Azure supporta le reti create con hub virtuali. Non è ancora supportato l'uso di reti virtuali dell'hub create manualmente.|Per il momento, usare Gestione firewall di Azure con reti hub-spoke create con hub virtuali.<br>Correzione in corso.
 |Limitazioni relative al filtro di terze parti|Il filtro del traffico V2I con provider di terze parti non è supportato con Firewall di Azure B2V e V2V.|Analisi momentaneamente in corso.|
 |La suddivisione del traffico non è supportata al momento|Office 365 e la suddivisione del traffico PaaS pubblico di Azure non sono supportati al momento. Di conseguenza, se si seleziona un provider di terze parti per V2I o B2I, vengono inviati tramite il servizio partner anche tutti i PaaS pubblici di Azure e il traffico di Office 365.|Al momento è in corso un'analisi della suddivisione del traffico nell'hub.
-|Un hub per ciascun'area|Non è possibile disporre di più di un hub per area|Creare più reti WAN virtuali in un'area.|
+|Un unico hub virtuale protetto per area|Non è possibile avere più hub virtuali protetti per area.|Creare più reti WAN virtuali in un'area.|
 |I criteri di base devono trovarsi nella stessa area dei criteri locali|Creare tutti i criteri locali nella stessa area dei criteri di base. È comunque possibile applicare un criterio creato in un'area in un hub protetto di un'altra area.|Analisi momentaneamente in corso.|
 |Comunicazione tra hub non funzionante con l'hub virtuale protetto|La comunicazione tra hub virtuali protetti non è ancora supportata.|Analisi momentaneamente in corso.|
 |Tutti gli hub virtuali protetti che condividono la stessa rete WAN virtuale devono risiedere nello stesso gruppo di risorse.|Questo comportamento è attualmente allineato agli hub di rete WAN virtuale.|Creare più reti WAN virtuali per consentire la creazione di hub virtuali protetti in gruppi di risorse diversi.|
+|I gruppi IP non sono supportati nei criteri firewall|I gruppi IP sono in anteprima pubblica e non sono attualmente supportati con regole del firewall tradizionali.|Correzione in corso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

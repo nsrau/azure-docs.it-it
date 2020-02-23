@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: API Tabella con Node.js - Azure Cosmos DB'
+title: 'Avvio rapido: API Tabella con Node.js - Azure Cosmos DB'
 description: Questa guida introduttiva illustra come usare l'API Tabelle di Azure Cosmos DB per creare un'applicazione con il portale di Azure e Node.js
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 08/06/2019
 ms.author: sngun
-ms.openlocfilehash: ec2c943bfaecc1170889b1a7247d7532700d47bc
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: f317b7b5f3ab60f466054f2043027b13e8396abc
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990119"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212814"
 ---
-# <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app di API Tabella con Node.js e Azure Cosmos DB
+# <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app di API Tabella con Node.js e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -24,19 +24,13 @@ ms.locfileid: "68990119"
 > * [Python](create-table-python.md)
 > 
 
-Questa guida introduttiva mostra come usare Node.js e l'[API Tabelle](table-introduction.md) di Azure Cosmos DB per creare un'app clonando un esempio di GitHub. La guida introduttiva illustra anche come creare un account Azure Cosmos DB e come usare Esplora dati per creare tabelle e entità nel portale di Azure basato sul Web.
+In questa guida di avvio rapido si crea un account dell'API Tabella di Azure Cosmos DB e si usano Esplora dati e un'app Node.js clonata da GitHub per creare tabelle ed entità. Azure Cosmos DB è un servizio di database modello che consente di creare ed eseguire rapidamente query su database di documenti, tabelle, valori chiave e grafi, con funzionalità di scalabilità orizzontale e distribuzione globale.
 
-Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave/valore, colonne ampie e grafici, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
+## <a name="prerequisites"></a>Prerequisites
 
-## <a name="prerequisites"></a>Prerequisiti
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
-
-Eseguire anche queste operazioni:
-
-* [Node.js](https://nodejs.org/en/) 0.10.29 o versione successiva
-* [Git](https://git-scm.com/)
+- Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). In alternativa, è possibile [provare gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure. È anche possibile usare l'[Emulatore di Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) con l'URI `https://localhost:8081` e la chiave `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
+- [Node.js 0.10.29+](https://nodejs.org/).
+- [Git](https://git-scm.com/downloads).
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 
@@ -80,23 +74,23 @@ A questo punto è possibile clonare un'app Table da GitHub, impostare la stringa
 
 Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di connessione e copiarle nell'app. Questo consente all'app di comunicare con il database ospitato. 
 
-1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Stringa di connessione**. 
+1. Nell'account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com/) selezionare **Stringa di connessione**. 
 
     ![Visualizzare e copiare le informazioni necessarie sulla stringa di connessione nel riquadro Stringa di connessione](./media/create-table-nodejs/connection-string.png)
 
-2. Copiare la STRINGA DI CONNESSIONE PRIMARIA usando il pulsante Copia a destra.
+2. Copiare il valore di STRINGA DI CONNESSIONE PRIMARIA usando il pulsante Copia a destra.
 
-3. Aprire il file app.config e incollare il valore connectionString nella riga 3. 
+3. Aprire il file *app.config* e incollare il valore in connectionString nella riga 3. 
 
     > [!IMPORTANT]
     > Se l'endpoint usa documents.azure.com, ovvero si dispone di un account di anteprima, è necessario creare un [nuovo account dell'API di tabella](#create-a-database-account) per lavorare con l'SDK dell'API di tabella disponibile a livello generale.
     >
 
-3. Salvare il file app.config.
+3. Salvare il file *app.config*.
 
 L'app è stata aggiornata con tutte le informazioni necessarie per comunicare con Azure Cosmos DB. 
 
-## <a name="run-the-app"></a>Esecuzione dell'app
+## <a name="run-the-app"></a>Eseguire l'app
 
 1. Nella finestra del terminale Git eseguire il comando `cd` per passare alla cartella storage-table-java-getting-started.
 
@@ -104,13 +98,13 @@ L'app è stata aggiornata con tutte le informazioni necessarie per comunicare co
     cd "C:\git-samples\storage-table-node-getting-started"
     ```
 
-2. Eseguire quindi il comando seguente per installare i moduli [azure], [node-uuid], [nconf] e [async] in locale e per salvare una voce per tali moduli nel file package.json
+2. Eseguire questo comando per installare i moduli [azure], [node-uuid], [nconf] e [async] in locale e per salvare una voce per tali moduli nel file *package.json*:
 
    ```
    npm install azure-storage node-uuid async nconf --save
    ```
 
-2. Nella finestra del terminale Git eseguire i comandi seguenti per avviare l'applicazione Node.
+2. Nella finestra del terminale Git eseguire questi comandi per eseguire l'applicazione Node.js:
 
     ```
     node ./tableSample.js 
@@ -130,7 +124,7 @@ L'app è stata aggiornata con tutte le informazioni necessarie per comunicare co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido si è appreso come creare un account Azure Cosmos DB, come creare una tabella con Esplora dati e come eseguire un'app.  È ora possibile eseguire query sui dati tramite l'API di tabella.  
+In questa guida di avvio rapido si è appreso come creare un account Azure Cosmos DB, come creare una tabella con Esplora dati e come eseguire un'app Node.js per aggiungere i dati della tabella.  È ora possibile eseguire query sui dati tramite l'API di tabella.  
 
 > [!div class="nextstepaction"]
 > [Importare i dati delle tabelle nell'API Tabelle](table-import.md)

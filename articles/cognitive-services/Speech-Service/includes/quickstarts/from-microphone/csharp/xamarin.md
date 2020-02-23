@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 3f315f29eab107c9e0e145bd25db71a8cb8b2ace
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: ed37e4f5b84431355b63b3d59b0e49b78eaeed86
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156074"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446227"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -48,13 +48,13 @@ Il progetto helloworld comune contiene implementazioni indipendenti dalla piatta
 1. Nel gestore `OnRecognitionButtonClicked` del file di origine individuare la stringa `YourSubscriptionKey` e sostituirla con la chiave di sottoscrizione.
 
 
-1. Nel gestore `OnRecognitionButtonClicked` individuare la stringa `YourServiceregion` e sostituirla con il "Parametro Speech SDK" dell'[area](https://aka.ms/speech/sdkregion) associata alla sottoscrizione. Ad esempio, usare `westus` per la sottoscrizione di valutazione gratuita.
+1. Nel gestore `OnRecognitionButtonClicked` trovare la stringa `YourServiceregion` e sostituirla con l'**identificatore di area** corrispondente all'[area](https://aka.ms/speech/sdkregion) associata alla sottoscrizione. Ad esempio, usare `westus` per la sottoscrizione di valutazione gratuita.
 
 1. È quindi necessario creare un [servizio Xamarin](https://docs.microsoft.com/xamarin/android/app-fundamentals/services/creating-a-service/), che viene usato per eseguire una query sulle autorizzazioni del microfono da diversi progetti di piattaforma, ad esempio UWP, Android e iOS. A tale scopo, aggiungere una nuova cartella denominata *Services* nel progetto helloworld e creare un nuovo file di origine C# al suo interno. È possibile fare clic con il pulsante destro del mouse sulla cartella *Services*, quindi scegliere **Aggiungi** > **Nuovo elemento** > **File di codice**. Rinominare il file `IMicrophoneService.cs` e inserirvi tutto il codice del frammento seguente:
 
    [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld/Services/IMicrophoneService.cs)]
 
-#### <a name="androidtabx-android"></a>[Android](#tab/x-android)
+#### <a name="android"></a>[Android](#tab/x-android)
 ## <a name="add-sample-code-for-the-helloworldandroid-project"></a>Aggiungere il codice di esempio per il progetto `helloworld.Android`
 
 Aggiungere ora il codice C# che definisce la parte specifica di Android dell'applicazione.
@@ -75,7 +75,7 @@ Aggiungere ora il codice C# che definisce la parte specifica di Android dell'app
    <uses-permission android:name="android.permission.RECORD_AUDIO" />
    ```
    
-#### <a name="iostabios"></a>[iOS](#tab/ios)
+#### <a name="ios"></a>[iOS](#tab/ios)
 ## <a name="add-sample-code-for-the-helloworldios-project"></a>Aggiungere il codice di esempio per il progetto `helloworld.iOS`
 
 Aggiungere ora il codice C# che definisce la parte specifica di iOS dell'applicazione. Creare inoltre configurazioni specifiche del dispositivo Apple nel progetto helloworld.iOS.
@@ -100,7 +100,7 @@ Aggiungere ora il codice C# che definisce la parte specifica di iOS dell'applica
 
 1. Se la compilazione è per PC Windows, è necessario stabilire una connessione con il dispositivo Mac tramite **Strumenti** > **iOS** > **Associa a Mac**. Per abilitare la connessione con il dispositivo Mac, seguire le istruzioni guidate fornite da Visual Studio.
 
-#### <a name="uwptabhelloworlduwp"></a>[UWP](#tab/helloworlduwp)
+#### <a name="uwp"></a>[UWP](#tab/helloworlduwp)
 ## <a name="add-sample-code-for-the-helloworlduwp-project"></a>Aggiungere il codice di esempio per il progetto `helloworld.UWP`
 
 ## <a name="add-sample-code-for-the-helloworlduwp-project"></a>Aggiungere il codice di esempio per il progetto helloworld.UWP
