@@ -397,8 +397,6 @@
       items:
         - name: Riprodurre contenuti multimediali con i lettori esistenti
           href: media-services-playback-content-with-existing-players.md
-        - name: Riprodurre contenuti multimediali con Media Player
-          href: media-services-develop-video-players.md
         - name: Altre opzioni di riproduzione
           items:
             - name: Applicazione Smooth Streaming di Windows Store

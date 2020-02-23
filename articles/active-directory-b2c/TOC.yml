@@ -350,8 +350,6 @@
         - name: Monitoraggio di Azure
           href: azure-monitor.md
           displayName: 'log, logs, logging, usage, events'
-        - name: Esportare il report sull'utilizzo
-          href: view-usage-reports.md
         - name: Gestione account
           href: manage-user-accounts-graph-api.md
         - name: Distribuire con Azure Pipelines
