@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 51e3bddef75bcf41b8c7a4d9693b622429130217
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 4750673eb60529d812e4df71de9203d4d59a0cc9
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930463"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212266"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Esercitazione: Distribuzione di moduli di protezione hardware in una rete virtuale esistente con l'interfaccia della riga di comando
 
@@ -36,7 +36,7 @@ L'architettura di una tipica distribuzione in più aree a disponibilità elevata
 
 L'esercitazione è incentrata sull'integrazione di una coppia di moduli di protezione hardware e del necessario gateway ExpressRoute (subnet 1 nella figura sopra) in una rete virtuale esistente (rete virtuale 1 nella figura sopra).  Tutte le altre risorse sono risorse standard di Azure. Lo stesso processo di integrazione può essere usato per i moduli di protezione hardware nella subnet 4 della rete virtuale 3 della figura sopra.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 HSM dedicato di Azure non è attualmente disponibile nel portale di Azure. L'interazione con il servizio avverrà interamente tramite riga di comando o con PowerShell. In questa esercitazione verrà usata l'interfaccia della riga di comando in Azure Cloud Shell. Se non si ha familiarità con l'interfaccia della riga di comando di Azure, seguire le istruzioni introduttive disponibili nell'[introduzione all'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 
@@ -232,20 +232,13 @@ A questo punto, sono state allocate tutte le risorse per una distribuzione a dis
 
 ## <a name="delete-or-clean-up-resources"></a>Eliminazione o pulizia delle risorse
 
-Se il dispositivo HSM non è più necessario, può essere eliminato come risorsa e tornare a far parte del pool libero. In questo caso, la fonte di preoccupazione è ovviamente costituita dagli eventuali dati sensibili dei clienti presenti nel dispositivo. Per rimuovere i dati sensibili dei clienti, è necessario eseguire il ripristino delle impostazioni predefinite del dispositivo con il client Gemalto. Vedere la guida dell'amministratore di Gemalto per il dispositivo SafeNet Network Luna 7 e considerare i comandi seguenti nell'ordine indicato.
-
-1. `hsm factoryReset -f`
-2. `sysconf config factoryReset -f -service all`
-3. `my file clear -f`
-4. `my public-key clear -f`
-5. `syslog rotate`
-
+Se il dispositivo HSM non è più necessario, può essere eliminato come risorsa e tornare a far parte del pool libero. In questo caso, la fonte di preoccupazione è ovviamente costituita dagli eventuali dati sensibili dei clienti presenti nel dispositivo. Il modo migliore per azzerare un dispositivo consiste nell'usare tre volte una password errata per l'amministratore del modulo di protezione hardware. Si noti che non si tratta dell'amministratore dell'appliance ma dell'amministratore effettivo del modulo di protezione hardware. Come misura di sicurezza per proteggere il materiale della chiave, non è possibile eliminare il dispositivo come una risorsa di Azure finché si trova nello stato azzerato.
 
 > [!NOTE]
 > In caso di problemi con la configurazione del dispositivo Gemalto, contattare il [supporto tecnico di Gemalto](https://safenet.gemalto.com/technical-support/).
 
 
-Se le risorse di questo gruppo di risorse non sono più necessarie, è possibile rimuoverle tutte con il comando seguente:
+Se tutte le risorse di questo gruppo di risorse non sono più necessarie, è possibile rimuoverle tutte con il comando seguente:
 
 ```azurecli
 az group deployment delete \

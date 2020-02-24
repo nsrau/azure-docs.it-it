@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2f605d5adda913fa465b43a85bd027458959c122
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 63c531cc0e600d82df74154adb212be76ba9b4de
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928101"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368548"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Esercitazione: Distribuzione di moduli di protezione hardware in una rete virtuale esistente con PowerShell
 
@@ -38,7 +38,7 @@ L'esercitazione è incentrata sull'integrazione di una coppia di moduli di prote
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 HSM dedicato di Azure non è attualmente disponibile nel portale di Azure, di conseguenza l'interazione con il servizio avverrà interamente tramite riga di comando o con PowerShell. In questa esercitazione verrà usato PowerShell in Azure Cloud Shell. Se non si ha familiarità con PowerShell, seguire le istruzioni introduttive disponibili nell'[introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
@@ -245,17 +245,18 @@ A questo punto, sono state allocate tutte le risorse per una distribuzione a dis
 
 ## <a name="delete-or-clean-up-resources"></a>Eliminazione o pulizia delle risorse
 
-Se il dispositivo HSM non è più necessario, può essere eliminato come risorsa e tornare a far parte del pool libero. In questo caso, la fonte di preoccupazione è ovviamente costituita dagli eventuali dati sensibili dei clienti presenti nel dispositivo. Per rimuovere i dati sensibili dei clienti, è necessario eseguire il ripristino delle impostazioni predefinite del dispositivo con il client Gemalto. Vedere la guida dell'amministratore di Gemalto per il dispositivo SafeNet Network Luna 7 e considerare i comandi seguenti nell'ordine indicato.
-
-1. `hsm factoryReset -f`
-2. `sysconf config factoryReset -f -service all`
-3. `my file clear -f`
-4. `my public-key clear -f`
-5. `syslog rotate`
-
+Se il dispositivo HSM non è più necessario, può essere eliminato come risorsa e tornare a far parte del pool libero. In questo caso, la fonte di preoccupazione è ovviamente costituita dagli eventuali dati sensibili dei clienti presenti nel dispositivo. Il modo migliore per azzerare un dispositivo consiste nell'usare tre volte una password errata per l'amministratore del modulo di protezione hardware. Si noti che non si tratta dell'amministratore dell'appliance ma dell'amministratore effettivo del modulo di protezione hardware. Come misura di sicurezza per proteggere il materiale della chiave, non è possibile eliminare il dispositivo come una risorsa di Azure finché si trova nello stato azzerato.
 
 > [!NOTE]
 > In caso di problemi con la configurazione del dispositivo Gemalto, contattare il [supporto tecnico di Gemalto](https://safenet.gemalto.com/technical-support/).
+
+Se si vuole rimuovere solo la risorsa del modulo di protezione hardware in Azure, è possibile usare il comando seguente sostituendo le variabili "$" con parametri univoci:
+
+```powershel
+
+Remove-AzureRmResource -Resourceid ` /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName
+
+```
 
 Se le risorse di questo gruppo di risorse non sono più necessarie, è possibile rimuoverle tutte con il comando seguente:
 

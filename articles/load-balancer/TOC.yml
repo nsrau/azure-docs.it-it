@@ -64,6 +64,8 @@
   items:
     - name: Aggiornare Load Balancer pubblico Basic a Load Balancer pubblico Standard
       href: upgrade-basic-standard.md
+    - name: Aggiornare Load Balancer interno Basic a Load Balancer interno Standard
+      href: upgrade-basicInternal-standard.md
     - name: Configurare le regole in uscita
       items:
         - name: Interfaccia della riga di comando di Azure

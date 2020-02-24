@@ -1,41 +1,38 @@
 ---
-title: "Esercitazione: Usare l'anteprima di Gestione firewall di Azure per proteggere la rete cloud tramite il portale di Azure"
-description: In questa esercitazione viene illustrato come proteggere la rete cloud con Gestione firewall di Azure usando il portale di Azure.
+title: 'Esercitazione: Proteggere la rete WAN virtuale con Gestione firewall di Azure (anteprima)'
+description: In questa esercitazione viene illustrato come proteggere la rete WAN virtuale con Gestione firewall di Azure usando il portale di Azure.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 10/27/2019
+ms.date: 02/18/2020
 ms.author: victorh
-ms.openlocfilehash: d2ebfd6003c0bc2b47636be1e38f47e554cc6988
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3dc94a8be265682fbe2128f2e5870dfdf5850a2d
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510035"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443058"
 ---
-# <a name="tutorial-secure-your-cloud-network-with-azure-firewall-manager-preview-using-the-azure-portal"></a>Esercitazione: Proteggere la rete cloud con l'anteprima di Gestione firewall di Azure usando il portale di Azure
+# <a name="tutorial-secure-your-virtual-wan-using-azure-firewall-manager-preview"></a>Esercitazione: Proteggere la rete WAN virtuale con Gestione firewall di Azure (anteprima) 
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-Usando l'anteprima di Gestione firewall di Azure, è possibile creare hub protetti per proteggere il traffico di rete cloud destinato a indirizzi IP privati, a PaaS di Azure e a Internet. Il routing del traffico verso il firewall è automatizzato, pertanto non è necessario creare route definite dall'utente.
+Gestione firewall di Azure (anteprima) consente di creare hub virtuali protetti per proteggere il traffico di rete cloud destinato a indirizzi IP privati, a PaaS di Azure e a Internet. Il routing del traffico verso il firewall è automatizzato, pertanto non è necessario creare route definite dall'utente.
 
 ![proteggere la rete cloud](media/secure-cloud-network/secure-cloud-network.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+Gestione firewall supporta anche un'architettura di rete virtuale hub. Per un confronto delle architetture di tipo hub virtuale protetto e rete virtuale hub, vedere [Informazioni sulle opzioni disponibili per l'architettura di Gestione firewall di Azure](vhubs-and-vnets.md).
 
-> [!IMPORTANT]
-> L'anteprima di Gestione firewall di Azure deve essere abilitata in modo esplicito con il comando di PowerShell `Register-AzProviderFeature`.
+In questa esercitazione verranno illustrate le procedure per:
 
-Dal prompt dei comandi di PowerShell eseguire questi comandi:
-
-```azure-powershell
-connect-azaccount
-Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
-```
-Sono necessari fino a 30 minuti per completare la registrazione della funzionalità. Eseguire questo comando per controllare lo stato della registrazione:
-
-`Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
+> [!div class="checklist"]
+> * Creare la rete virtuale spoke
+> * Creare un hub virtuale protetto
+> * Connettere le reti virtuali hub e spoke
+> * Creare un criterio firewall e proteggere l'hub
+> * Instradare il traffico all'hub
+> * Testare il firewall
 
 ## <a name="create-a-hub-and-spoke-architecture"></a>Creare un'architettura hub-spoke
 
@@ -147,11 +144,11 @@ Per testare le regole del firewall, è necessario distribuire un paio di server.
 
    |Impostazione  |Valore  |
    |---------|---------|
-   |Resource group     |**FW-Manager**|
+   |Gruppo di risorse     |**FW-Manager**|
    |Nome macchina virtuale     |**Jump-Srv**|
    |Region     |**(USA) Stati Uniti orientali**|
    |Nome utente amministratore     |**azureuser**|
-   |Password     |**Azure123456!**|
+   |Password     |Digitare la password|
 
 4. In **Regole porta in ingresso** selezionare **Consenti porte selezionate** per **Porte in ingresso pubbliche**.
 5. In **Selezionare le porte in ingresso** selezionare **RDP (3389)** .

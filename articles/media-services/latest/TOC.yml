@@ -99,6 +99,8 @@
         - name: Endpoint di streaming
           displayName: 'origin, packager, cdn'
           href: streaming-endpoint-concept.md
+        - name: Ridimensionamento dello streaming con la rete CDN
+          href: scale-streaming-cdn.md
         - name: Localizzatori di streaming
           displayName: URLs
           href: streaming-locators-concept.md
@@ -228,6 +230,8 @@
           href: cli-create-transform.md
         - name: Creare i processi - Interfaccia della riga di comando
           href: cli-create-jobs.md
+        - name: Processi con più output di trasformazione
+          href: job-multiple-transform-outputs.md
     - name: Codificare contenuti
       items:
         - name: HTTPS come input del processo - .NET

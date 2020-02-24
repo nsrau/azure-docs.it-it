@@ -347,7 +347,7 @@
           href: contractsafe-saml2-sso-tutorial.md
         - name: ContractWorks
           href: contractworks-tutorial.md
-        - name: Control
+        - name: Controllo
           href: control-tutorial.md
         - name: Convene
           href: convene-tutorial.md
@@ -355,7 +355,7 @@
           href: convercent-tutorial.md
         - name: Coralogix
           href: coralogix-tutorial.md
-        - name: Cornerstone OnDemand
+        - name: cornerstone ondemand
           href: cornerstone-ondemand-tutorial.md
         - name: CorpTax
           href: corptax-tutorial.md
@@ -389,7 +389,7 @@
           href: deskradar-tutorial.md
         - name: DigiCert
           href: digicert-tutorial.md
-        - name: Direct
+        - name: Connessione diretta
           href: direct-tutorial.md
         - name: Discovery Benefits SSO
           href: discovery-benefits-sso-tutorial.md
@@ -489,7 +489,7 @@
           href: experience-cloud-tutorial.md
         - name: Explanation-Based Auditing System
           href: explanation-based-auditing-system-tutorial.md
-        - name: Expiration Reminder
+        - name: Promemoria di scadenza
           href: expiration-reminder-tutorial.md
         - name: EZOfficeInventory
           href: ezofficeinventory-tutorial.md
@@ -761,7 +761,7 @@
           href: jobbadmin-tutorial.md
         - name: JOBHUB
           href: jobhub-tutorial.md
-        - name: Jobscience
+        - name: jobscience
           href: jobscience-tutorial.md
         - name: JobScore
           href: jobscore-tutorial.md
@@ -853,7 +853,7 @@
           href: litmos-tutorial.md
         - name: LockPath Keylight
           href: keylight-tutorial.md
-        - name: LogicMonitor
+        - name: logicmonitor
           href: logicmonitor-tutorial.md
         - name: LoginRadius
           href: lr-tutorial.md
@@ -963,7 +963,7 @@
           href: netsuite-tutorial.md
         - name: New Relic
           href: new-relic-tutorial.md
-        - name: New Relic (Limited Release)
+        - name: New Relic (versione limitata)
           href: new-relic-limited-release-tutorial.md
         - name: Nexonia
           href: nexonia-tutorial.md
@@ -1053,7 +1053,7 @@
           href: peakon-tutorial.md
         - name: Pega Systems
           href: pegasystems-tutorial.md
-        - name: People
+        - name: Persone
           href: people-tutorial.md
         - name: Peoplecart
           href: peoplecart-tutorial.md
@@ -1337,6 +1337,8 @@
           href: spaceiq-tutorial.md
         - name: Spacio
           href: spacio-tutorial.md
+        - name: Splashtop
+          href: splashtop-tutorial.md
         - name: Splunk Enterprise and Splunk Cloud
           href: splunkenterpriseandsplunkcloud-tutorial.md
         - name: Spotinst

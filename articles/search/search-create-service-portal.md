@@ -8,16 +8,16 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/10/2020
-ms.openlocfilehash: bd4798ba4faa1808ecafb6d09eee09ba734c293d
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 3bc3edcd0e75d8f6e3e4d6f9b200032909318040
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121697"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209359"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Avvio rapido: Creare un servizio Ricerca cognitiva di Azure nel portale
 
-Ricerca cognitiva di Azure è una risorsa autonoma usata per aggiungere un'esperienza di ricerca alle app personalizzate. Ricerca cognitiva di Azure si integra facilmente con altri servizi di Azure, ma è possibile usarlo anche come componente autonomo oppure integrarlo con le app nei server di rete o con il software in esecuzione in altre piattaforme cloud.
+Ricerca cognitiva di Azure è una risorsa autonoma usata per aggiungere un'esperienza di ricerca alle app personalizzate. Ricerca cognitiva di Azure si integra facilmente con altri servizi di Azure, con le app dei server di rete o con il software in esecuzione in altre piattaforme cloud.
 
 In questo articolo verrà illustrato come creare una risorsa nel [portale di Azure](https://portal.azure.com/).
 
@@ -45,18 +45,18 @@ Se sono disponibili più sottoscrizioni, sceglierne una per il servizio di ricer
 
 ## <a name="set-a-resource-group"></a>Impostare un gruppo di risorse
 
-Un gruppo di risorse è necessario e utile per la gestione a livello globale delle risorse, inclusi i costi. Un gruppo di risorse può essere costituito da un servizio o da più servizi usati in combinazione. Se, ad esempio, si usa Ricerca cognitiva di Azure per l'indicizzazione di un database di Azure Cosmos DB, è possibile inserire i due servizi nello stesso gruppo di risorse per agevolarne la gestione. 
+Un gruppo di risorse è un contenitore con risorse correlate per la soluzione Azure. È obbligatorio per il servizio di ricerca. È utile anche per la gestione a livello globale delle risorse, inclusi i costi. Un gruppo di risorse può essere costituito da un servizio o da più servizi usati in combinazione. Se, ad esempio, si usa Ricerca cognitiva di Azure per l'indicizzazione di un database di Azure Cosmos DB, è possibile inserire i due servizi nello stesso gruppo di risorse per agevolarne la gestione. 
 
 Se non si combinano le risorse in un singolo gruppo o se i gruppi di risorse esistenti sono riempiti con risorse usate in soluzioni non correlate, creare un nuovo gruppo di risorse solo per la risorsa Ricerca cognitiva di Azure. 
 
 ![Creare un nuovo gruppo di risorse](./media/search-create-service-portal/new-resource-group.png "Creare un nuovo gruppo di risorse")
 
-Nel tempo, è possibile tenere traccia dei costi correnti e previsti a livello globale, come illustrato nello screenshot, oppure scorrere verso il basso per visualizzare i costi per le singole risorse. Lo screenshot seguente mostra il tipo di informazioni sui costi che è possibile prevedere quando si combinano più risorse in un unico gruppo.
+Nel tempo, è possibile tenere traccia dei costi correnti e previsti a livello globale oppure visualizzare i costi per le singole risorse. Lo screenshot seguente mostra il tipo di informazioni sui costi che è possibile prevedere quando si combinano più risorse in un unico gruppo.
 
 ![Gestire i costi a livello di gruppo di risorse](./media/search-create-service-portal/resource-group-cost-management.png "Gestire i costi a livello di gruppo di risorse")
 
 > [!TIP]
-> I gruppi di risorse semplificano la pulizia, in quanto l'eliminazione di un gruppo elimina anche i servizi al suo interno. Per i progetti prototipo che usano più servizi, l'inserimento di tutti gli elementi nello stesso gruppo di risorse ne semplifica l'eliminazione al termine del progetto.
+> I gruppi di risorse semplificano la pulizia, in quanto eliminando un gruppo verranno eliminati tutti i servizi al suo interno. Per i progetti prototipo che usano più servizi, l'inserimento di tutti gli elementi nello stesso gruppo di risorse ne semplifica l'eliminazione al termine del progetto.
 
 ## <a name="name-the-service"></a>Assegnare un nome al servizio
 
@@ -65,10 +65,10 @@ In Dettagli istanza fornire un nome per il servizio nel campo **URL**. Questo no
 Requisiti per i nomi di servizio:
 
 * Deve essere univoco all'interno dello spazio dei nomi search.windows.net
-* lunghezza compresa tra 2 e 60 caratteri
-* È possibile usare lettere minuscole, cifre o trattini ("-")
-* Non può contenere un trattino ("-") nei primi 2 caratteri o nell'ultimo carattere
-* Non deve contenere trattini consecutivi ("--")
+* Deve avere una lunghezza compresa tra 2 e 60 caratteri
+* È necessario usare lettere minuscole, cifre o trattini ("-")
+* Non usare trattini ("-") nei primi 2 caratteri o come ultimo carattere
+* Non è possibile usare trattini consecutivi ("--") indipendentemente dalla posizione
 
 > [!TIP]
 > Se si prevede di usare più servizi, è consigliabile includere l'area o la località nel nome del servizio come convenzione di denominazione. I servizi all'interno della stessa area possono scambiare dati gratuitamente, quindi se Ricerca cognitiva di Azure si trova nell'area Stati Uniti occidentali e in quest'area sono presenti altri servizi, un nome come `mysearchservice-westus` può consentire di evitare di dover visualizzare la pagina delle proprietà per decidere come combinare o collegare le risorse.
@@ -79,7 +79,7 @@ Ricerca cognitiva di Azure, in qualità di servizio di Azure, può essere ospita
 
 È possibile ridurre al minimo o evitare i costi per la larghezza di banda scegliendo la stessa posizione per più servizi. Se, ad esempio, si esegue l'indicizzazione dei dati forniti da un altro servizio di Azure (Archiviazione di Azure, Azure Cosmos DB, database SQL di Azure), creando il servizio Ricerca cognitiva di Azure nella stessa area è possibile evitare i costi relativi alla larghezza di banda, in quanto non vengono addebitati costi per i dati in uscita quando i servizi si trovano nella stessa area.
 
-Se inoltre si usano arricchimenti tramite intelligenza artificiale, creare il servizio nella stessa area di Servizi cognitivi. *Per l'arricchimento tramite intelligenza artificiale, Ricerca cognitiva di Azure e Servizi cognitivi devono trovarsi nella stessa area*.
+Se si usano arricchimenti tramite intelligenza artificiale, creare il servizio di ricerca nella stessa area di Servizi cognitivi. *Per l'arricchimento tramite intelligenza artificiale, Ricerca cognitiva di Azure e Servizi cognitivi devono trovarsi nella stessa area*.
 
 > [!Note]
 > L'area India centrale no n è attualmente disponibile per i nuovi servizi. Per i servizi già in India centrale, è possibile aumentare le prestazioni senza alcuna restrizione e il servizio è completamente supportato in tale area. La restrizione in quest'area è temporanea ed è limitata solo ai nuovi servizi. Quando la restrizione non sarà più valida, questa nota verrà rimossa.
@@ -90,7 +90,7 @@ Se inoltre si usano arricchimenti tramite intelligenza artificiale, creare il se
 
 Per carichi di lavoro di produzione viene in genere scelto il piano Basic o Standard, ma la maggior parte dei clienti inizia con il servizio gratuito. Le differenze principali tra i livelli sono la velocità e la dimensione della partizione, nonché i limiti per il numero di oggetti che è possibile creare.
 
-Non è possibile modificare il piano tariffario dopo aver creato il servizio. Se in un secondo momento si vuole passare a un piano tariffario superiore o inferiore, è necessario creare nuovamente il servizio.
+Tenere presente che non è possibile modificare il piano tariffario dopo aver creato il servizio. Se si vuole passare a un piano tariffario superiore o inferiore, è necessario creare nuovamente il servizio.
 
 ## <a name="create-your-service"></a>Creare il servizio
 
@@ -98,7 +98,7 @@ Dopo aver fornito gli input necessari, procedere con la creazione del servizio.
 
 ![Rivedere e creare il servizio](./media/search-create-service-portal/new-service3.png "Rivedere e creare il servizio")
 
-Il servizio, che può essere monitorato tramite le notifiche di Azure, viene distribuito in pochi minuti. Aggiungere il servizio al dashboard per accedervi facilmente in futuro.
+Il servizio viene distribuito entro pochi minuti. È possibile monitorare lo stato di avanzamento tramite le notifiche di Azure. Aggiungere il servizio al dashboard per accedervi facilmente in futuro.
 
 ![Monitorare e aggiungere il servizio](./media/search-create-service-portal/monitor-notifications.png "Monitorare e aggiungere il servizio")
 
