@@ -2,17 +2,17 @@
 title: Informazioni sulle prenotazioni di Azure
 description: Informazioni sulle prenotazioni e sui prezzi di Azure per risparmiare sui costi di macchine virtuali, database SQL, Azure Cosmos DB e altre risorse.
 author: yashesvi
-manager: yashar
+ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 02/18/2020
 ms.author: banders
-ms.openlocfilehash: 10cf5b5a0ec4edda3d3c868cda34352e827604b0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c6a8547235c302f52aacd0e6ae4a8fbf08b538b8
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76841881"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443636"
 ---
 # <a name="what-are-azure-reservations"></a>Informazioni sulle prenotazioni di Azure
 
@@ -37,11 +37,19 @@ Piani di servizio:
 - **vCore riservato del database SQL**: in una prenotazione sono inclusi solo i costi di calcolo. I costi della licenza vengono fatturati separatamente.
 - **SQL data warehouse**: una prenotazione copre la capacità di DWU a elevato utilizzo di calcolo. Non copre invece i costi delle risorse di archiviazione o di rete associate all'utilizzo di SQL Data Warehouse.
 - **Tariffa stamp del servizio app**: una prenotazione copre l'utilizzo di stamp. Non si applica ai ruoli di lavoro, quindi qualsiasi altra risorsa associata allo stamp viene addebitata separatamente.
-- Database di Azure per MySQL
-- Database di Azure per PostgreSQL
-- Database di Azure per MariaDB
-- Esplora dati di Azure
+- **Azure Databricks**: una prenotazione copre solo l'utilizzo di unità Databricks. Gli altri addebiti, ad esempio per il calcolo, l'archiviazione e la rete, vengono applicati separatamente.
+- **Database di Azure per MySQL**: in una prenotazione sono inclusi solo i costi di calcolo. Non sono inclusi gli addebiti per il software, la rete o l'archiviazione associati al server di database MySQL.
+- **Database di Azure per PostgreSQL**: in una prenotazione sono inclusi solo i costi di calcolo. Non sono inclusi gli addebiti per il software, la rete o l'archiviazione associati al server di database PostgreSQL.
+- **Database di Azure per MariaDB**: in una prenotazione sono inclusi solo i costi di calcolo. Non sono inclusi gli addebiti per il software, la rete o l'archiviazione associati al server di database MariaDB.
+- **Esplora dati di Azure**: in una prenotazione sono inclusi gli addebiti di ricarico. Non sono inclusi gli addebiti per il software, la rete o l'archiviazione associati ai cluster.
+- **Managed Disks SSD Premium**: viene effettuata una prenotazione per uno SKU del disco specificato. 
 
+Piani software:
+
+- **SUSE Linux**: una prenotazione copre i costi del piano software. Gli sconti si applicano solo ai contatori SUSE e non all'utilizzo della macchina virtuale.
+- **Piani Red Hat**: una prenotazione copre i costi del piano software. Gli sconti si applicano solo ai contatori RedHat e non all'utilizzo della macchina virtuale.
+- **Soluzione VMware di Azure di CloudSimple**: una prenotazione copre i nodi CloudSimple VMWare. Vengono comunque applicati costi aggiuntivi per il software.
+- **Azure Red Hat OpenShift**: una prenotazione si applica ai costi di OpenShift e non a quelli dell'infrastruttura di Azure.
 
 Per le macchine virtuali Windows e il database SQL, i costi delle licenze possono essere coperti con le offerte di [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).
 

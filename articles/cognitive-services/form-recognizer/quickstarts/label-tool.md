@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 11/14/2019
+ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 8ab673c1a268f5ab663e8f423dd9b60cdfde14ab
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 812680e587ac5c5c8b3d949199a615fcd85fa610
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118365"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485353"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Eseguire il training di un modello di Riconoscimento modulo con le etichette usando lo strumento di etichettatura campioni
 
@@ -22,16 +22,20 @@ In questo argomento di avvio rapido si userà l'API REST Riconoscimento modulo c
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questo argomento di avvio rapido è necessario disporre di quanto segue:
 
 - Un set di almeno sei moduli dello stesso tipo. Questi dati verranno usati per eseguire il training del modello e testare un modulo. Per questa guida di avvio rapido, è possibile usare un [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451). Caricare i file di training nella radice di un contenitore di archiviazione BLOB in un account di archiviazione di Azure.
 
+## <a name="create-a-form-recognizer-resource"></a>Creare una risorsa di riconoscimento modulo
+
+[!INCLUDE [create resource](../includes/create-resource.md)]
+
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurare lo strumento di etichettatura campioni
 
 Per eseguire lo strumento di etichettatura campioni, verrà usato il motore Docker. Per configurare il contenitore Docker, seguire questa procedura. Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).
-1. Installare prima di tutto Docker in un computer host. Il computer host può essere il computer locale ([Windows](https://docs.docker.com/docker-for-windows/), [MacOS](https://docs.docker.com/docker-for-mac/) o [Linux](https://docs.docker.com/install/)). In alternativa, è possibile usare un servizio di hosting Docker in Azure, ad esempio il [servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/index), [Istanze di Azure Container](https://docs.microsoft.com/azure/container-instances/index) oppure un cluster Kubernetes [distribuito in Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). Il computer host deve soddisfare i requisiti hardware seguenti:
+1. Installare prima di tutto Docker in un computer host. Il computer host può essere il computer locale ([Windows](https://docs.docker.com/docker-for-windows/), [macOS](https://docs.docker.com/docker-for-mac/) o [Linux](https://docs.docker.com/install/)). In alternativa, è possibile usare un servizio di hosting Docker in Azure, ad esempio il [servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/index), [Istanze di Azure Container](https://docs.microsoft.com/azure/container-instances/index) oppure un cluster Kubernetes [distribuito in Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). Il computer host deve soddisfare i requisiti hardware seguenti:
 
     | Contenitore | Minima | Consigliato|
     |:--|:--|:--|
@@ -70,7 +74,7 @@ Abilitare CORS nell'account di archiviazione. Selezionare l'account di archiviaz
 
 ## <a name="connect-to-the-sample-labeling-tool"></a>Connettere lo strumento di etichettatura campioni
 
-Lo strumento di etichettatura campioni si connette a un'origine (in cui si trovano i moduli originali) e a una destinazione (la posizione in cui esporta le etichette create e i dati di output).
+Lo strumento di etichettatura campioni si connette a un'origine (in cui si trovano i moduli originali) e a una destinazione (in cui esporta le etichette create e i dati di output).
 
 Le connessioni possono essere configurate e condivise tra progetti. Si basano su un modello di provider estendibile, quindi è possibile aggiungere facilmente nuovi provider di origine/destinazione.
 
@@ -89,7 +93,7 @@ Compilare i campi con i valori seguenti:
 Nello strumento di etichettatura campioni vengono archiviate le configurazioni e le impostazioni dei progetti. Creare un nuovo progetto e compilare i campi con i valori seguenti:
 
 * **Nome visualizzato**: il nome visualizzato del progetto
-* **Token di sicurezza**: alcuni progetti possono includere valori sensibili, ad esempio chiavi di API o altri segreti condivisi. Ogni progetto genererà un token di sicurezza che è possibile usare per crittografare/decrittografare le impostazioni di progetti sensibili. Per trovare i token di sicurezza, in Impostazioni applicazione fare clic sull'icona dell'ingranaggio nell'angolo in basso a sinistra della barra di spostamento sinistra.
+* **Token di sicurezza**: alcuni progetti possono includere valori sensibili, ad esempio chiavi di API o altri segreti condivisi. Ogni progetto genererà un token di sicurezza che è possibile usare per crittografare/decrittografare le impostazioni di progetti sensibili. Per trovare i token di sicurezza in Impostazioni applicazione, fare clic sull'icona dell'ingranaggio nell'angolo in basso della barra di spostamento sinistra.
 * **Connessione protetta**: la connessione ad archiviazione BLOB di Azure creata nel passaggio precedente che si vuole usare per questo progetto.
 * **Percorso cartella** (facoltativo): se i moduli di origine si trovano in una cartella del contenitore BLOB, specificare qui il relativo nome
 * **URI del servizio Riconoscimento modulo**: l'URL dell'endpoint di Riconoscimento modulo.
@@ -165,7 +169,7 @@ Per riprendere il progetto in un secondo momento o in un altro browser, è neces
 Passare alla pagina delle impostazioni del progetto (icona del dispositivo di scorrimento) e prendere nota del nome del token di sicurezza. Passare quindi alle impostazioni dell'applicazione (icona dell'ingranaggio), che visualizzano tutti i token di sicurezza nell'istanza del browser corrente. Trovare il token di sicurezza del progetto e copiarne il nome e il valore della chiave in un posto sicuro.
 
 ### <a name="restore-project-credentials"></a>Ripristinare le credenziali del progetto
-Quando si vuole riprendere il progetto, è prima di tutto necessario creare una connessione allo stesso contenitore di archiviazione BLOB. A questo scopo, eseguire la procedura descritta sopra. Quindi, passare alla pagina di impostazioni dell'applicazione (icona dell'ingranaggio) e verificare se il token di sicurezza del progetto è presente. Se non lo è, aggiungere un nuovo token di sicurezza e sovrascrivere il nome e la chiave del token del passaggio precedente. Quindi fare clic su Save settings (Salva impostazioni). 
+Quando si vuole riprendere il progetto, è prima di tutto necessario creare una connessione allo stesso contenitore di archiviazione BLOB. A questo scopo, ripetere la procedura descritta sopra. Quindi, passare alla pagina di impostazioni dell'applicazione (icona dell'ingranaggio) e verificare se il token di sicurezza del progetto è presente. Se non lo è, aggiungere un nuovo token di sicurezza e sovrascrivere il nome e la chiave del token del passaggio precedente. Quindi fare clic su Save settings (Salva impostazioni). 
 
 ### <a name="resume-a-project"></a>Riprendere un progetto
 Infine, passare alla pagina principale (icona della casa) e fare clic su Open Cloud Project (Apri progetto cloud). Selezionare quindi la connessione all'archiviazione BLOB e il file con estensione *vott* del progetto. L'applicazione caricherà tutte le impostazioni del progetto perché contiene il token di sicurezza.

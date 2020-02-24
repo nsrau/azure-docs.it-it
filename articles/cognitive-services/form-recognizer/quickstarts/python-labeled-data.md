@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 94fafd8b0411c1c7a4032769eec0eb5818844648
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 5469c2512e133d17e4d18cebb64ab9e2a21b1f83
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118152"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482310"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Eseguire il training di un modello di Riconoscimento modulo con le etichette usando l'API REST e Python
 
@@ -22,15 +22,19 @@ In questo argomento di avvio rapido si userà l'API REST Riconoscimento modulo c
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questo argomento di avvio rapido è necessario disporre di quanto segue:
 - [Python](https://www.python.org/downloads/) installato, se si vuole eseguire l'esempio in locale.
 - Un set di almeno sei moduli dello stesso tipo. Questi dati verranno usati per eseguire il training del modello e testare un modulo. Per questa guida di avvio rapido, è possibile usare un [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451). Caricare i file di training nella radice di un contenitore di archiviazione BLOB in un account di archiviazione di Azure.
 
+## <a name="create-a-form-recognizer-resource"></a>Creare una risorsa di riconoscimento modulo
+
+[!INCLUDE [create resource](../includes/create-resource.md)]
+
 ## <a name="set-up-training-data"></a>Configurare i dati di training
 
-Per prima cosa è necessario configurare i dati di input necessari. La funzionalità dei dati etichettati prevede requisiti di input specifici oltre a quelli necessari per eseguire il training di un modello personalizzato. 
+È quindi necessario configurare i dati di input necessari. La funzionalità dei dati etichettati prevede requisiti di input specifici oltre a quelli necessari per eseguire il training di un modello personalizzato. 
 
 Assicurarsi che tutti i documenti di training abbiano lo stesso formato. Se si usano moduli in più formati, organizzarli in sottocartelle basate sul formato comune. Quando si esegue il training, è necessario indirizzare l'API a una sottocartella.
 

@@ -1,24 +1,19 @@
 ---
-title: Esercitazione per l'uso della configurazione dinamica di Configurazione app di Azure in un'app .NET Framework | Microsoft Docs
-description: In questa esercitazione viene illustrato come aggiornare dinamicamente i dati di configurazione per le app .NET Framework
+title: 'Esercitazione su .NET Framework: configurazione dinamica in Configurazione app di Azure'
+description: In questa esercitazione viene illustrato come aggiornare dinamicamente i dati di configurazione per le app .NET Framework con Configurazione app di Azure.
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
-ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7cb76d5836055ce352373fa13449e27d81e84022
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 7ba3eae4ea5557b4bb1b1be4e2c79eab8f6e7988
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185243"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484877"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Esercitazione: Usare la configurazione dinamica in un'app .NET Framework
 
@@ -28,7 +23,7 @@ Per mantenere aggiornate le impostazioni ed evitare un numero eccessivo di chiam
 
 Questa esercitazione mostra come è possibile implementare aggiornamenti dinamici della configurazione nel codice. Si basa sull'app presentata negli argomenti di avvio rapido. Prima di continuare, completare le procedure descritte in [Creare un'app .NET Framework con Configurazione app](./quickstart-dotnet-app.md).
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare l'app .NET Framework per aggiornarne la configurazione in risposta alle modifiche in un archivio di Configurazione app.
@@ -45,7 +40,7 @@ In questa esercitazione si apprenderà come:
 
 6. Selezionare **Configuration Explorer** >  **+ Crea** per aggiungere le coppie chiave-valore seguenti:
 
-    | Chiave | Valore |
+    | Chiave | valore |
     |---|---|
     | TestApp:Settings:Message | Dati di Configurazione app di Azure |
 
@@ -57,7 +52,7 @@ In questa esercitazione si apprenderà come:
 
 1. In **Crea un nuovo progetto** filtrare in base al tipo di progetto **Console** e quindi fare clic su **App console (.NET Framework)** . Fare clic su **Avanti**.
 
-1. In **Configura il nuovo progetto** immettere un nome di progetto. In **Framework** selezionare **.NET Framework 4.7.1** o versione successiva. Fare clic su **Create**(Crea).
+1. In **Configura il nuovo progetto** immettere un nome di progetto. In **Framework** selezionare **.NET Framework 4.7.1** o versione successiva. Fare clic su **Crea**.
 
 ## <a name="reload-data-from-app-configuration"></a>Ricaricare i dati di Configurazione app
 1. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**. Nella scheda **Sfoglia** cercare il pacchetto NuGet *Microsoft.Extensions.Configuration.AzureAppConfiguration* e aggiungerlo al progetto. Se non è possibile trovarlo, selezionare la casella di controllo **Includi versione preliminare**.
@@ -138,7 +133,7 @@ In questa esercitazione si apprenderà come:
 
 1. Selezionare **Configuration Explorer** e aggiornare i valori delle chiavi seguenti:
 
-    | Chiave | Valore |
+    | Chiave | valore |
     |---|---|
     | TestApp:Settings:Message | Dati di Configurazione app di Azure - Aggiornati |
 

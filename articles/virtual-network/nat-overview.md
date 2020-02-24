@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 98d77f43c990dd00dd5e5d616b2fdee44fb8a2f6
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 1bdd6552c3d418d761ffaf1df4ebb769421693f5
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77431418"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484996"
 ---
 # <a name="what-is-virtual-network-nat-public-preview"></a>Che cos'è NAT di rete virtuale (anteprima pubblica)?
 
@@ -189,7 +189,7 @@ Durante l'anteprima pubblica, i prezzi vengono scontati del 50%.
 
 NAT è supportato tramite i normali canali di assistenza.
 
-## <a name="feedback"></a>Feedback
+## <a name="feedback"></a>Commenti e suggerimenti
 
 Ci interessa sapere come possiamo migliorare il servizio. Gli utenti sono invitati a condividere il loro [feedback sull'anteprima pubblica](https://aka.ms/natfeedback).  E possono proporre nuove funzionalità o esprimere un voto in [UserVoice per NAT](https://aka.ms/natuservoice).
 
@@ -199,7 +199,6 @@ Ci interessa sapere come possiamo migliorare il servizio. Gli utenti sono invita
 - La famiglia di indirizzi IPv4 è supportata.  NAT non interagisce con la famiglia di indirizzi IPv6.
 - Il gruppo di sicurezza di rete su subnet o scheda di interfaccia di rete non viene rispettato per i flussi in uscita verso endpoint pubblici tramite NAT.
 - La registrazione del flusso del gruppo di sicurezza di rete non è supportato con l'uso di NAT.
-- Se una rete virtuale include più subnet, è necessario configurare un'istanza di NAT diversa per ognuna.
 - NAT non può estendersi in più reti virtuali.
 
 ## <a name="next-steps"></a>Passaggi successivi

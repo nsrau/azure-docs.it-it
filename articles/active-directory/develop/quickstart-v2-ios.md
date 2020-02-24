@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 4dea0feb5d5a1cb42640b1fc05bb185e970ae8af
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: c9eb8b3d909313470ee9febdc5b1c37eea834b08
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084489"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484044"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Avvio rapido: Accesso utenti e chiamata dell'API Microsoft Graph da un'app iOS o macOS
 
@@ -34,8 +34,8 @@ Questo avvio rapido si applica sia alle app iOS che alle app macOS. Alcuni passa
 > * macOS 10.12+
 
 > [!div renderon="docs"]
-> ## <a name="register-and-download-your-quickstart-app"></a>Registrare e scaricare l'app della guida introduttiva
-> Per avviare l'applicazione della guida introduttiva sono disponibili due opzioni:
+> ## <a name="register-and-download-your-quickstart-app"></a>Registrare e scaricare l'app dell'avvio rapido
+> Per avviare l'applicazione dell'avvio rapido sono disponibili due opzioni:
 > * [Rapida] [Opzione 1: Registrare e configurare automaticamente l'app e quindi scaricare l'esempio di codice](#option-1-register-and-auto-configure-your-app-and-then-download-the-code-sample)
 > * [Manuale] [Opzione 2: Registrare e configurare manualmente l'applicazione e il codice di esempio](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
@@ -91,6 +91,14 @@ In una finestra del terminale passare alla cartella con il codice di esempio sca
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
+> 1. Modificare **ViewController.swift** e sostituire la riga che inizia con 'let kAuthority' con il frammento di codice seguente:
+>    ```swift
+>    let kAuthority = "Enter_the_Authority_Endpoint_Host_HereEnter_the_Tenant_Info_Here"
+>    ```
+> 1. Modificare **ViewController.swift** e sostituire la riga che inizia con 'let kGraphEndpoint' con il frammento di codice seguente:
+>    ```swift
+>    let kGraphEndpoint = "Enter_the_MS_Graph_Endpoint_Host_Here"
+>    ```
 > 1. Aprire le impostazioni del progetto. Nella sezione **Identità** immettere l'**Identificatore del bundle** immesso nel portale.
 > 1. Solo per iOS, fare clic con il pulsante destro del mouse su **Info.plist** e scegliere **Apri come** > **Codice sorgente**.
 > 1. Solo per iOS, nel nodo radice dict sostituire `CFBundleURLSchemes` con il valore di ***ID bundle*** immesso nel portale.
@@ -117,6 +125,16 @@ In una finestra del terminale passare alla cartella con il codice di esempio sca
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
+> 1. Se si sta creando un'app per [cloud nazionali Azure AD](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints), sostituire la riga che inizia con 'let kGraphEndpoint' e 'let kAuthority' con gli endpoint corretti. Per l'accesso globale, usare i valori predefiniti:
+>     ```objective-c
+>     let kGraphEndpoint = "https://graph.microsoft.com/"
+>     let kAuthority = "https://login.microsoftonline.com/common"
+>     ```
+> 1. Gli altri endpoint sono documentati [qui](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints). Per eseguire ad esempio l'avvio rapido con Azure AD Germania, seguire questa procedura:
+>     ```objective-c
+>     let kGraphEndpoint = "https://graph.microsoft.de/"
+>     let kAuthority = "https://login.microsoftonline.de/common"
+>     ```
 > 1. Aprire le impostazioni del progetto. Nella sezione **Identità** immettere l'**Identificatore del bundle** immesso nel portale.
 > 1. Solo per iOS, fare clic con il pulsante destro del mouse su **Info.plist** e scegliere **Apri come** > **Codice sorgente**.
 > 1. Solo per iOS, nel nodo radice dict sostituire `Enter_the_bundle_Id_Here` con il valore di ***ID bundle*** usato nel portale.
@@ -137,7 +155,7 @@ In una finestra del terminale passare alla cartella con il codice di esempio sca
 
 ## <a name="more-information"></a>Altre informazioni
 
-Leggere queste sezioni per altre informazioni su questa guida introduttiva.
+Leggere queste sezioni per altre informazioni su questo avvio rapido.
 
 ### <a name="get-msal"></a>Ottenere MSAL
 

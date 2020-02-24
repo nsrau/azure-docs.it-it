@@ -2,20 +2,16 @@
 title: Scambi e rimborsi in modalità self-service per le prenotazioni di Azure
 description: Informazioni su come scambiare le prenotazioni di Azure o chiederne il rimborso.
 author: yashesvi
-manager: yashesvi
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 5f0c0c50ffd639109fdbb90c76e4ec036a8bc975
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 393db5d2e14e047ade04e0b688582e272c6ca44f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76773888"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200436"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Scambi e rimborsi in modalità self-service per le prenotazioni di Azure
 
@@ -72,12 +68,10 @@ Azure prevede i seguenti criteri per gli annullamenti, gli scambi e i rimborsi.
 - Non sono previste penali né limiti annuali per gli scambi.
 
 **Criteri di rimborso**
-- Se si annulla una prenotazione, potrebbe essere applicata una penale per la risoluzione anticipata del 12%.
-- Il rimborso ricevuto per un annullamento corrisponde al saldo ripartito rimanente meno la penale per la risoluzione del 12%. Per annullare, andare alla prenotazione nel portale di Azure e selezionare **Rimborso**.
+- In futuro può essere prevista una penale per la terminazione del 12% per gli annullamenti. Al momento questa penalità non viene addebitata.
 - L'importo del rimborso totale non può superare 50.000 USD in una sequenza di 12 mesi.
 - I rimborsi vengono calcolati in base al prezzo più basso, tra quello di acquisto o quello corrente della prenotazione.
-- Solo i proprietari delle prenotazioni possono elaborare un rimborso. [Informazioni su come aggiungere o modificare gli utenti che possono gestire una prenotazione](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
-- Microsoft si riserva il diritto di addebitare una penale del 12% per eventuali restituzioni. La penale non viene addebitata al momento, ma lo sarà in futuro.
+- Solo i proprietari degli ordini di prenotazioni possono elaborare un rimborso. [Informazioni su come aggiungere o modificare gli utenti che possono gestire una prenotazione](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Archiviazione non Premium di Exchange per archiviazione Premium
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 11/13/2019
+ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 476763e1cb354edb8cdc4cbbae0d3aa7017faa16
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 342ae7e42c85ad661c04ba4ebb6629673f4af4dc
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118754"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482277"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Avvio rapido: Estrarre le informazioni sul layout e sul testo usando l'API REST Riconoscimento modulo con Python
 
@@ -22,7 +22,7 @@ In questo argomento di avvio rapido si userà l'API REST Riconoscimento modulo d
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questo argomento di avvio rapido è necessario disporre di quanto segue:
 - [Python](https://www.python.org/downloads/) installato, se si vuole eseguire l'esempio in locale.
@@ -85,7 +85,7 @@ https://cognitiveservice/formrecognizer/v2.0-preview/layout/operations/54f0b076-
 
 ## <a name="get-the-layout-results"></a>Ottenere i risultati del layout
 
-Dopo aver chiamato l'API **Analyze Layout**, chiamare l'API **[Get Analyze Layout Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** per ottenere lo stato dell'operazione e i dati estratti. Aggiungere il codice seguente in fondo allo script Python. Viene usato il valore dell'ID operazione in una nuova chiamata API. Questo script chiama l'API a intervalli regolari finché non vengono ottenuti i risultati. Si consiglia un intervallo di almeno un secondo.
+Dopo aver chiamato l'API **Analyze Layout**, chiamare l'API **[Get Analyze Layout Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** per ottenere lo stato dell'operazione e i dati estratti. Aggiungere il codice seguente in fondo allo script Python. In questo codice deve essere usato il valore dell'ID operazione in una nuova chiamata API. Questo script chiama l'API a intervalli regolari finché non vengono ottenuti i risultati. Si consiglia un intervallo di almeno un secondo.
 
 ```python
 n_tries = 10
