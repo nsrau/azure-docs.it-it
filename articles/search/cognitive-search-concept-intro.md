@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: e6ee75f4a7e00e8c21079e1336756db20221750f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6d75e48443fd8622ca2ae7ff05fe81184c4b2b16
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76838004"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472435"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introduzione all'intelligenza artificiale nella ricerca cognitiva di Azure
 
@@ -131,7 +131,7 @@ Gli indici vengono generati da uno schema dell'indice che definisce i campi, gli
 + [Esercitazione (richieste HTTP)](cognitive-search-tutorial-blob.md)
 + [Esempio: Creazione di una competenza personalizzata per l'arricchimento tramite intelligenza artificiale (C#)](cognitive-search-create-custom-skill-example.md)
 
-Il servizio gratuito è consigliabile a scopi formativi, ma tenere presente che il numero di transazioni gratuite è limitato a 20 documenti al giorno. Per eseguire la guida di avvio rapido e l'esercitazione nello stesso giorno, usare un set di file più piccolo (10 documenti), in modo da far rientrare entrambi gli esercizi, oppure eliminare l'indicizzatore usato nella guida di avvio rapido o nell'esercitazione per azzerare il contatore.
+Il servizio gratuito è consigliabile a scopi formativi, ma tenere presente che il numero di transazioni gratuite è limitato a 20 documenti al giorno. Per eseguire più volte le lezioni, eliminare e ricreare l'indicizzatore per azzerare il contatore.
 
 **Passaggio 3: Esaminare l'API**
 

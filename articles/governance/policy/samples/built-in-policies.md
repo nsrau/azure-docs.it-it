@@ -1,20 +1,20 @@
 ---
 title: Elenco di definizioni di criteri predefiniti
 description: Elenco di definizioni di criteri predefiniti per Criteri di Azure. Le categorie includono Tag, Conformità alle normative, Key Vault, Kubernetes, Configurazione guest e altro ancora.
-ms.date: 01/31/2020
+ms.date: 02/15/2020
 ms.topic: sample
-ms.openlocfilehash: a672089dd45169b59bfb87ff3b612bc029c02448
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 06c913bdccd8b35970a195f6ee658ce7b1d97a7b
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77170039"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77371214"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definizioni di criteri predefiniti di Criteri di Azure
 
 Questa pagina è un indice delle definizioni di criteri predefiniti di Criteri di Azure.
 
-Il nome di ogni criterio predefinito include un collegamento all'origine della definizione di criteri nel [repository di GitHub su Criteri di Azure](https://github.com/Azure/azure-policy). Le definizioni predefinite sono raggruppate in base alla proprietà **categoria** nei **metadati**. Per passare a una **categoria** specifica, usare il menu sul lato destro della pagina. Altrimenti, premere <kbd>CTRL</kbd>-<kbd>F</kbd> per usare la funzionalità di ricerca del browser.
+Il nome di ogni criterio predefinito include un collegamento all'origine della definizione di criterio nel portale di Azure. Usare il collegamento nella colonna **Origine** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy). Le definizioni predefinite sono raggruppate in base alla proprietà **categoria** nei **metadati**. Per passare a una **categoria** specifica, usare il menu sul lato destro della pagina. Altrimenti, premere <kbd>CTRL</kbd>-<kbd>F</kbd> per usare la funzionalità di ricerca del browser.
 
 [!INCLUDE [azure-policy-samples-policies-index](../../../../includes/azure-policy-samples-policies-index.md)]
 

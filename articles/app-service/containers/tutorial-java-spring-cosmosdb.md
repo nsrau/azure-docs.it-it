@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: a3e9c05fbe68bf1b03f45d045afd8754753fecd3
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 5109c33acf4a92a3227fe79d6d2c997a54adec08
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688821"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425273"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Esercitazione: Creare un'app Web Java Spring Boot con il Servizio app di Azure in Linux e Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Questa esercitazione illustra il processo di creazione, configurazione, distribu
 
 ![Applicazione Spring Boot che archivia i dati in Azure Cosmos DB](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un database Cosmos DB.
@@ -31,7 +31,7 @@ In questa esercitazione si apprenderà come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview) installata nel computer. 
 * [Git](https://git-scm.com/)
@@ -173,7 +173,7 @@ Se vengono visualizzate eccezioni al posto del messaggio "Started TodoApplicatio
 
 ## <a name="configure-azure-deployment"></a>Configurare la distribuzione di Azure
 
-Aprire il file `pom.xml` nella directory `initial/spring-boot-todo` e aggiungere il seguente [plug-in Maven per la configurazione del servizio app di Azure](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
+Aprire il file `pom.xml` nella directory `initial/spring-boot-todo` e aggiungere la configurazione seguente del [plug-in dell'app Web di Azure per Maven](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
 
 ```xml    
 <plugins> 

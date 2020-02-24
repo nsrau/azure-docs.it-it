@@ -5,26 +5,26 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 10/03/2019
-ms.openlocfilehash: 8c5fe1970857a04c7b237a101ac228dea024815b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive,mvc
+ms.date: 02/12/2020
+ms.openlocfilehash: 5eb6788a558e4429296731f1693edd18bf92f98f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494503"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198889"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Esercitazione: Caricare i dati ed eseguire query in un cluster Apache Spark in Azure HDInsight
 
 In questa esercitazione si apprenderà come creare un frame di dati da un file CSV e come eseguire query interattive Spark SQL in un cluster [Apache Spark](https://spark.apache.org/) in Azure HDInsight. In Spark un frame di dati è una raccolta distribuita di dati organizzati in colonne denominate. Dal punto di vista concettuale in frame di dati equivale a una tabella in un database relazionale o a un frame di dati in R/Python.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Creare un frame di dati da un file csv
 > * Eseguire query sul frame di dati
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Un cluster Apache Spark in HDInsight. Vedere [Creare un cluster Apache Spark](./apache-spark-jupyter-spark-sql-use-portal.md).
 
@@ -60,7 +60,9 @@ Le applicazioni possono creare frame di dati direttamente da file o cartelle nel
 
     ![Stato della query Spark SQL interattiva](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Stato della query Spark SQL interattiva")
 
-2. Eseguire il codice seguente per creare un frame di dati e una tabella temporanea (**hvac**).
+1. Prendere nota dell'ID di sessione restituito. Nell'immagine precedente l'ID sessione è 0. Se si vuole, è possibile recuperare i dettagli della sessione passando a `https://CLUSTERNAME.azurehdinsight.net/livy/sessions/ID/statements` dove CLUSTERNAME è il nome del cluster Spark e ID è il numero dell'ID sessione.
+
+1. Eseguire il codice seguente per creare un frame di dati e una tabella temporanea (**hvac**).
 
     ```python
     # Create a dataframe and table from sample data

@@ -2,18 +2,18 @@
 title: Preparare i computer per la migrazione con Azure Migrate
 description: Informazioni su come preparare i computer locali per la migrazione con Azure Migrate.
 ms.topic: tutorial
-ms.date: 12/10/2019
+ms.date: 02/17/2020
 ms.custom: MVC
-ms.openlocfilehash: c3c10321e8d49ac6ecfe80024d23f24711298651
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: adbe9e4b30bf57e8a2038b970306c126035abbe1
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028744"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426249"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparare i computer locali per la migrazione ad Azure
 
-Questo articolo descrive come preparare i computer locali prima di iniziare la migrazione ad Azure con [Migrazione del server di Azure Migrate](migrate-services-overview.md#azure-migrate-server-migration-tool).
+Questo articolo descrive come preparare i computer locali prima di iniziare la migrazione ad Azure con [Azure Migrate: Migrazione del server](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
 In questo articolo si apprenderà come:
@@ -40,7 +40,7 @@ In questo articolo si apprenderà come:
 
 ## <a name="check-whats-supported"></a>Verificare che cosa è supportato
 
-- Per le macchine virtuali VMware, Migrazione del server di Azure Migrate supporta la [migrazione senza agente o basata su agente](server-migrate-overview.md). Verificare il [supporto e i requisiti per la migrazione](migrate-support-matrix-vmware-migration.md) delle VM VMware.
+- Per le macchine virtuali VMware, Migrazione del server supporta la [migrazione senza agente o basata su agente](server-migrate-overview.md). Verificare il [supporto e i requisiti per la migrazione](migrate-support-matrix-vmware-migration.md) delle VM VMware.
 - Verificare il [supporto e i requisiti per la migrazione](migrate-support-matrix-hyper-v-migration.md) per Hyper-V.
 - Verificare il [supporto e i requisiti per la migrazione](migrate-support-matrix-physical-migration.md) per computer fisici locali o altri server virtualizzati. 
 

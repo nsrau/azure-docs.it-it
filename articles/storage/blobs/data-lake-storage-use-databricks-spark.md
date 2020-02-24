@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: e26ae4d384b1718b1cdb12abbda82aad22afde4d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0c18c39ced40505a87af8907a65aa16aae978838
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462583"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471874"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Esercitazione: Azure Data Lake Storage Gen2, Azure Databricks e Spark
 
@@ -129,7 +129,7 @@ Usare AzCopy per copiare i dati dal file con estensione *csv* all'account Data L
 
    * Sostituire il valore segnaposto `<storage-account-name>` con il nome del proprio account di archiviazione.
 
-   * Sostituire il segnaposto `<container-name>` con il nome che si vuole assegnare al contenitore.
+   * Sostituire il segnaposto `<container-name>` con il nome di un contenitore presente nel proprio account di archiviazione.
 
 ## <a name="create-a-container-and-mount-it"></a>Creare un contenitore e montarlo
 
@@ -161,20 +161,7 @@ In questa sezione si creeranno un contenitore e una cartella nell'account di arc
     extra_configs = configs)
     ```
 
-18. In questo blocco di codice sostituire i valori segnaposto `appId`, `password`, `tenant` e `storage-account-name` con i valori raccolti completando i prerequisiti di questa esercitazione. Sostituire il valore segnaposto `container-name` con il nome assegnato al contenitore nel passaggio precedente.
-
-Usare questi valori per sostituire i segnaposto menzionati.
-
-   * `appId` e `password` provengono dall'app che è stata registrata con Active Directory durante la creazione di un'entità servizio.
-
-   * `tenant-id` proviene dalla sottoscrizione.
-
-   * `storage-account-name` è il nome dell'account di archiviazione Azure Data Lake Storage Gen2.
-
-   * Sostituire il segnaposto `container-name` con il nome che si vuole assegnare al contenitore.
-
-   > [!NOTE]
-   > In un ambiente di produzione è consigliabile archiviare la password in Azure Databricks. Aggiungere quindi una chiave di ricerca al blocco di codice invece della password. Per alcuni esempi di questo approccio, vedere l'articolo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) nel sito Web di Azure Databricks.
+18. In questo blocco di codice sostituire i valori segnaposto `appId`, `password`, `tenant` e `storage-account-name` con i valori raccolti completando i prerequisiti di questa esercitazione. Sostituire il valore segnaposto `container-name` con il nome del contenitore.
 
 19. Premere **MAIUSC + INVIO** per eseguire il codice in questo blocco.
 

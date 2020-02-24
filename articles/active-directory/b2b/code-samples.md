@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3a43ce4c560e89d88594d173aae7b2ad2db99ee
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 03a7a9c0c9ed308944b57e7659fefa81178af78b
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74273101"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368138"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Codici ed esempi di PowerShell per Collaborazione B2B in Azure Active Directory
 
@@ -26,7 +26,7 @@ ms.locfileid: "74273101"
 
 1. Preparare il file CSV. Creare un nuovo file CSV e denominarlo invitations.csv. In questo esempio il file viene salvato in C:\Dati e contiene le informazioni seguenti:
   
-   NOME                  |  InvitedUserEmailAddress
+   Nome                  |  InvitedUserEmailAddress
    --------------------- | --------------------------
    Invitato B2B di Gmail     | b2binvitee@gmail.com
    Invitato B2B di Outlook   | b2binvitee@outlook.com
@@ -56,7 +56,7 @@ Tale cmdlet invia un invito a indirizzi di posta elettronica presenti nel file i
 - Invio di messaggi ai destinatari di copia per conoscenza o eliminazione completa dei messaggi di posta elettronica
 
 ## <a name="code-sample"></a>Esempio di codice
-Questo esempio illustra come chiamare l'API di invito, in modalità "solo app", per ottenere l'URL di riscatto per la risorsa a cui si vuole invitare l'utente B2B. L'obiettivo consiste nell'inviare un messaggio di posta elettronica di invito personalizzato. Il messaggio di posta può essere composto con un client HTTP ed è quindi possibile personalizzarne l'aspetto e inviarlo tramite l'API Graph.
+Questo esempio illustra come chiamare l'API di invito, in modalità "solo app", per ottenere l'URL di riscatto per la risorsa a cui si vuole invitare l'utente B2B. L'obiettivo consiste nell'inviare un messaggio di posta elettronica di invito personalizzato. Il messaggio di posta può essere composto con un client HTTP ed è quindi possibile personalizzarne l'aspetto e inviarlo tramite l'API Microsoft Graph.
 
 ```csharp
 namespace SampleInviteApp
@@ -70,12 +70,12 @@ namespace SampleInviteApp
     class Program
     {
         /// <summary>
-        /// Microsoft graph resource.
+        /// Microsoft Graph resource.
         /// </summary>
         static readonly string GraphResource = "https://graph.microsoft.com";
  
         /// <summary>
-        /// Microsoft graph invite endpoint.
+        /// Microsoft Graph invite endpoint.
         /// </summary>
         static readonly string InviteEndPoint = "https://graph.microsoft.com/v1.0/invitations";
  
@@ -173,14 +173,14 @@ namespace SampleInviteApp
         }
  
         /// <summary>
-        /// Get the access token for our application to talk to microsoft graph.
+        /// Get the access token for our application to talk to Microsoft Graph.
         /// </summary>
-        /// <returns>Returns the access token for our application to talk to microsoft graph.</returns>
+        /// <returns>Returns the access token for our application to talk to Microsoft Graph.</returns>
         private static string GetAccessToken()
         {
             string accessToken = null;
  
-            // Get the access token for our application to talk to microsoft graph.
+            // Get the access token for our application to talk to Microsoft Graph.
             try
             {
                 AuthenticationContext testAuthContext =

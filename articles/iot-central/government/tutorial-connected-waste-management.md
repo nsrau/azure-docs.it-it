@@ -7,12 +7,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 6b8458ce41a1bdacddc4102e8282bbc638d4c01c
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 274d725a0e7987c8cb15363ba276aec7ebc541d5
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016494"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426361"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Esercitazione: Creare un'applicazione di gestione rifiuti connessa in IoT Central
 
@@ -129,7 +129,7 @@ L'applicazione **Gestione rifiuti connessa** include un modello di dispositivo c
 
 Per visualizzare il modello di dispositivo:
 
-1. Fare clic su **Modelli di dispositivo** nel riquadro di spostamento sinistro dell'applicazione in IoT Central. 
+1. Fare clic su **Modelli di dispositivo** nel riquadro sinistro dell'applicazione in IoT Central. 
 
     ![Modello di dispositivo](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
@@ -177,7 +177,7 @@ L'applicazione **Gestione rifiuti connessa** è dotata di due dispositivi simula
 
 ### <a name="to-view-the-devices"></a>Per visualizzare i dispositivi:
 
-1. Passare a **Dispositivi** nel riquadro di spostamento a sinistra di IoT Central. 
+1. Passare a **Dispositivo** nel riquadro sinistro di IoT Central. 
 
    ![Dispositivi](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices.png)
 
@@ -202,7 +202,7 @@ In Azure IoT Central è possibile creare regole per monitorare automaticamente i
 L'applicazione **Gestione rifiuti connessa** ha quattro regole di esempio.
 
 ### <a name="to-view-rules"></a>Per visualizzare le regole:
-1. Passare a **Regole** nel riquadro di spostamento a sinistra di IoT Central.
+1. Passare a **Regole** nel riquadro sinistro di IoT Central.
 
    ![Regole](./media/tutorial-connectedwastemanagement/connectedwastemanagement-rules.png)
 
@@ -231,13 +231,13 @@ Quando la **condizione** configurata viene soddisfatta, si dovrebbe ricevere un 
 > L'applicazione invierà un messaggio ogni volta che viene soddisfatta una condizione. Selezionare **Disabilita** se non si vogliono più ricevere messaggi di posta elettronica dalla regola automatica. 
   
 Per creare una nuova regola: 
-1. Selezionare **+ Nuovo** in **Regole** nel riquadro di spostamento a sinistra.
+1. Selezionare **+Nuovo** in **Regole** nel riquadro sinistro.
 
 ## <a name="configure-jobs"></a>Configurare i processi
 
 In IoT Central i processi consentono di attivare gli aggiornamenti delle proprietà del dispositivo o cloud su più dispositivi. Oltre alle proprietà, è possibile usare i processi anche per attivare i comandi di dispositivo su più dispositivi. IoT Central automatizzerà il flusso di lavoro. 
 
-1. Passare a **Processi** nel riquadro di spostamento a sinistra. 
+1. Passare a **Processi** nel riquadro sinistro. 
 2. Fare clic su **+ Nuovo** e configurare uno o più processi. 
 
 
