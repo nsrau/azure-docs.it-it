@@ -5,21 +5,21 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 02/13/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: f9277fae00471bf67682015e017ae6dfa351ad65
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 35ca071cd8495611f0f350511ef9406f82c5be23
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422870"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209427"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Esercitazione: Creare un'associazione ExpressRoute con la rete WAN virtuale di Azure
 
 Questa esercitazione illustra come usare la rete WAN virtuale per connettersi alle risorse in Azure in un circuito ExpressRoute. Per altre informazioni sulla rete WAN virtuale e sulle risorse WAN, vedere la [panoramica sulla rete WAN virtuale](virtual-wan-about.md).
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare una rete WAN virtuale
@@ -40,6 +40,8 @@ Prima di iniziare la configurazione, verificare di soddisfare i criteri seguenti
 
 * Ottenere un intervallo di indirizzi IP per l'area dell'hub. L'hub è una rete virtuale che viene creata e usata dalla rete WAN virtuale. L'intervallo di indirizzi specificati per l'hub non può sovrapporsi ad alcuna delle reti virtuali esistenti a cui ci si connette. Inoltre non può sovrapporsi agli intervalli di indirizzi a cui ci si connette in locale. Se non si ha familiarità con gli intervalli degli indirizzi IP disponibili nella configurazione della rete locale, coordinarsi con qualcuno che possa fornire tali dettagli.
 
+* Per la connessione al gateway dell'hub, è necessario un circuito ExpressRoute Premium.
+
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="openvwan"></a>Creare una rete WAN virtuale
@@ -58,7 +60,7 @@ In un browser passare al [portale di Azure](https://portal.azure.com) e accedere
    * **Nome** - Digitare il nome da usare per la rete WAN.
    * **Tipo** - Selezionare **Standard**. Non è possibile creare un gateway ExpressRoute tramite lo SKU Basic.
 4. Dopo aver completato i campi, selezionare **Rivedi e crea**.
-5. Al termine della convalida, selezionare **Crea** per creare la rete WAN virtuale.
+5. Al termine della convalida selezionare **Crea** per creare la rete WAN virtuale.
 
 ## <a name="hub"></a>Creare un hub virtuale e un gateway
 
@@ -103,7 +105,7 @@ In questa sezione si crea la connessione di peering tra l'hub e una rete virtual
 
 ## <a name="connectcircuit"></a>Connettere il circuito al gateway hub
 
-Una volta creato il gateway, è possibile connettervi un [circuito ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Si noti che i circuiti Premium di ExpressRoute che si trovano in posizioni supportate da ExpressRoute a copertura globale, possono connettersi a un gateway ExpressRoute della rete WAN virtuale.
+Una volta creato il gateway, è possibile connettervi un [circuito ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md). I circuiti Premium di ExpressRoute che si trovano in località supportate da Copertura globale per ExpressRoute, possono connettersi a un gateway ExpressRoute della rete WAN virtuale.
 
 ### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>Per la connessione del circuito al gateway hub
 

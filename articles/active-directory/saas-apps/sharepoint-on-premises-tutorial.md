@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 7feb62bb3e38452a441c505107569457d7c90a3f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 60ff8769192191ba112008e7baee23740147dfe9
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233460"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367025"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Esercitazione: Integrazione di Azure Active Directory con SharePoint locale
 
@@ -185,7 +185,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con SharePoint locale, segu
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -202,11 +202,11 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
     b. Nel campo **Nome utente** digitare `brittasimon@yourcompanydomain.extension`.  
-    Ad esempio: BrittaSimon@contoso.com
+    Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
 ### <a name="create-an-azure-ad-security-group-in-the-azure-portal"></a>Creare un gruppo di sicurezza di Azure AD nel portale di Azure
 
@@ -218,7 +218,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Creare un gruppo di sicurezza di Azure AD](./media/sharepoint-on-premises-tutorial/newgroup.png)
 
-3. Compilare **Tipo di gruppo**, **Nome gruppo**, **Descrizione gruppo**, **Tipo di appartenenza**. Fare clic sulla freccia per selezionare i membri e quindi cercare o fare clic sul membro che si desidera aggiungere al gruppo. Fare clic su **Seleziona** per aggiungere i membri selezionati e quindi fare clic su **Crea**.
+3. Compilare **Tipo di gruppo**, **Nome gruppo**, **Descrizione gruppo**, **Tipo di appartenenza**. Fare clic sulla freccia per selezionare i membri e quindi cercare o fare clic sul membro che si vuole aggiungere al gruppo. Fare clic su **Seleziona** per aggiungere i membri selezionati e quindi fare clic su **Crea**.
 
     ![Creare un gruppo di sicurezza di Azure AD](./media/sharepoint-on-premises-tutorial/addingmembers.png)
 
@@ -263,7 +263,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 9. A questo punto, in Required Settings (Impostazioni necessarie), fare clic su **Concedi autorizzazioni** e quindi fare clic su Sì per concedere le autorizzazioni.
 
-    ![Concedere le autorizzazioni](./media/sharepoint-on-premises-tutorial/grantpermission.png)
+    ![Concessione di autorizzazioni](./media/sharepoint-on-premises-tutorial/grantpermission.png)
 
     > [!NOTE]
     > Verificare nel riquadro delle notifiche se sono state concesse le autorizzazioni.  In caso contrario, AzureCP non funzionerà correttamente e non sarà possibile configurare SharePoint locale con gruppi di sicurezza di Azure Active Directory.
@@ -330,7 +330,7 @@ Gli utenti possono ora accedere a SharePoint 2016 con identità di Azure AD, ma 
 
 Non essendo previste convalide per i valori cercati, possono verificarsi errori di ortografia o la scelta accidentale del tipo errato di attestazione da assegnare, ad esempio l'attestazione **SurName**. Questo può impedire agli utenti di accedere correttamente alle risorse.
 
-Per assistenza in questo scenario, esiste una soluzione open source denominata [AzureCP](https://yvand.github.io/AzureCP/) che fornisce un provider di attestazioni personalizzate per SharePoint 2016. Tale soluzione userà Azure AD Graph per risolvere quanto immesso dagli utenti ed eseguirà la convalida. Altre informazioni su [AzureCP](https://yvand.github.io/AzureCP/).
+Per assistenza in questo scenario, esiste una soluzione open source denominata [AzureCP](https://yvand.github.io/AzureCP/) che fornisce un provider di attestazioni personalizzate per SharePoint 2016. Tale soluzione userà l'API Microsoft Graph per risolvere i valori immessi dagli utenti ed eseguire la convalida. Altre informazioni su [AzureCP](https://yvand.github.io/AzureCP/).
 
 ### <a name="assign-the-azure-ad-security-group-in-the-azure-portal"></a>Assegnare il gruppo di sicurezza di Azure AD nel portale di Azure
 

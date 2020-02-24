@@ -4,15 +4,15 @@ description: Informazioni su Azure Analysis Services, una piattaforma distribuit
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 01/17/2020
+ms.date: 02/20/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f72da87ae53039e825f2102bebb12e59821706f8
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: a61bc852d3042d0bd8828bf89dce6ab6b760d092
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274799"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459685"
 ---
 # <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
 
@@ -103,7 +103,7 @@ Azure Analysis Services è supportato in aree di tutto il mondo. La disponibilit
 |Europa occidentale     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
 |Europa occidentale    |   S8, S9, S8v2, S9v2  |  1  |
 
-### <a name="asia-pacific"></a>Asia/Pacifico 
+### <a name="asia-pacific"></a>Asia Pacifico 
 
 |Region  | Piani supportati | Repliche delle query (solo piani Standard) |
 |---------|---------|:---------:|
@@ -138,7 +138,7 @@ Azure Analysis Services è compatibile con molte funzionalità avanzate già dis
 
 I modelli tabulari sono supportati in entrambe le modalità in memoria e DirectQuery. I modelli tabulari nella modalità in memoria (impostazione predefinita) supportano più origini dati. Poiché i dati del modello sono estremamente compressi e memorizzati nella cache in memoria, questa modalità offre la risposta alla query più veloce per grandi quantità di dati. Offre anche la massima flessibilità per query e set di dati complessi. Il partizionamento abilita i carichi incrementali, aumenta la parallelizzazione e riduce l'utilizzo di memoria. Altre funzionalità di modellazione di dati avanzate, come le tabelle calcolate, e tutte le funzioni DAX sono supportate. I modelli in memoria devono essere aggiornati (elaborati) per aggiornare i dati memorizzati nella cache dalle origini dati. Con il supporto dell'entità servizio di Azure, le operazioni di aggiornamento automatico tramite PowerShell, TOM, TMSL e REST offrono la flessibilità necessaria per assicurare che i dati del modello siano sempre aggiornati. 
 
-La modalità DirectQuery* sfrutta il database relazionale back-end per l'esecuzione di query e l'archiviazione. I set di dati di dimensioni molto grandi in singole origini di dati di SQL Server, SQL Server Data Warehouse, database SQL di Azure, Azure SQL Data Warehouse, Oracle e Teradata sono supportati. I set di dati back-end possono superare la memoria delle risorse del server disponibile. Gli scenari di aggiornamento del modello di dati complessi non sono necessari. Esistono anche alcune restrizioni, ad esempio tipi di origini dati limitati, limitazioni della formula DAX e alcune funzionalità avanzate di modellazione di dati non supportate. Prima di determinare la modalità migliore, vedere [Modalità DirectQuery](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular).
+La modalità DirectQuery* sfrutta il database relazionale back-end per l'esecuzione di query e l'archiviazione. I set di dati di dimensioni molto grandi in singole origini dati di SQL Server, SQL Server Data Warehouse, database SQL di Azure, Azure Synapse Analytics (SQL Data Warehouse), Oracle e Teradata sono supportati. I set di dati back-end possono superare la memoria delle risorse del server disponibile. Gli scenari di aggiornamento del modello di dati complessi non sono necessari. Esistono anche alcune restrizioni, ad esempio tipi di origini dati limitati, limitazioni della formula DAX e alcune funzionalità avanzate di modellazione di dati non supportate. Prima di determinare la modalità migliore, vedere [Modalità DirectQuery](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular).
 
 \* La disponibilità delle funzionalità dipende dal livello.
 

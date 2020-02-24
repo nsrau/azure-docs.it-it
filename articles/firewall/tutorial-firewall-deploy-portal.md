@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/28/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be39449c1c11acdbdc99bd96f917c51eebda44ae
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 38ee180fa59fec6619010a3ded1f6837a5ca5239
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195785"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77371346"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure
 
@@ -34,7 +34,7 @@ Per questa esercitazione viene creata una singola rete virtuale semplificata con
 
 ![Infrastruttura di rete dell'esercitazione](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare un ambiente di rete di test
@@ -61,7 +61,7 @@ Il gruppo di risorse contiene tutte le risorse per l'esercitazione.
 3. In **Nome del gruppo di risorse** immettere *Test-FW-RG*.
 4. In **Sottoscrizione** selezionare la propria sottoscrizione.
 5. In **Località del gruppo di risorse** selezionare una località. Tutte le successive risorse create devono trovarsi nella stessa località.
-6. Selezionare **Create** (Crea).
+6. Selezionare **Crea**.
 
 ### <a name="create-a-vnet"></a>Creare una rete virtuale
 
@@ -104,7 +104,7 @@ Creare ora le macchine virtuali per il jump server e il server del carico di lav
 
    |Impostazione  |Valore  |
    |---------|---------|
-   |Resource group     |**Test-FW-RG**|
+   |Gruppo di risorse     |**Test-FW-RG**|
    |Nome macchina virtuale     |**Srv-Jump**|
    |Region     |Come precedente|
    |Nome utente amministratore     |**azureuser**|
@@ -140,12 +140,12 @@ Distribuire il firewall nella rete virtuale.
 
    |Impostazione  |Valore  |
    |---------|---------|
-   |Subscription     |\<sottoscrizione in uso\>|
-   |Resource group     |**Test-FW-RG** |
-   |NOME     |**Test-FW01**|
-   |Location     |Selezionare la stessa località usata in precedenza|
-   |Scegliere una rete virtuale     |**Use existing** (Usa esistente): **Test-FW-VN**|
-   |Indirizzo IP pubblico     |**Creare un nuovo gruppo di risorse**. L'indirizzo IP pubblico deve essere di tipo SKU Standard.|
+   |Sottoscrizione     |\<sottoscrizione in uso\>|
+   |Gruppo di risorse     |**Test-FW-RG** |
+   |Nome     |**Test-FW01**|
+   |Località     |Selezionare la stessa località usata in precedenza|
+   |Scegliere una rete virtuale     |**Usa esistente**: **Test-FW-VN**|
+   |Indirizzo IP pubblico     |**Aggiungi nuovo**. L'indirizzo IP pubblico deve essere di tipo SKU Standard.|
 
 5. Selezionare **Rivedi e crea**.
 6. Controllare il riepilogo e quindi selezionare **Crea** per creare il firewall.

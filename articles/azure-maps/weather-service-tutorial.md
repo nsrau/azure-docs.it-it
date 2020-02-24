@@ -1,20 +1,20 @@
 ---
 title: 'Esercitazione: Unire i dati dei sensori con i dati delle previsioni meteo usando Azure Notebooks (Python) | Mappe di Microsoft Azure'
 description: Questa esercitazione illustra come unire i dati dei sensori con i dati delle previsioni meteo del servizio meteo di Mappe di Microsoft Azure usando Azure Notebooks (Python).
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/29/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 6d49a305a9b2e02d9e9d743ff8f076f453a08fcb
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: d6b82ec0662745fd9c9a05db28595ff84f57f330
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989621"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208030"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Esercitazione: Unire i dati dei sensori con i dati delle previsioni meteo usando Azure Notebooks (Python)
 
@@ -68,7 +68,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## <a name="request-daily-forecast-data"></a>Richiedere i dati delle previsioni giornaliere
 
-In questo scenario verranno richieste le previsioni giornaliere per ogni posizione dei sensori. Lo script seguente chiama l'[API Daily Forecast](https://aka.ms/AzureMapsWeatherDailyForecast) del servizio meteo di Mappe di Azure per ottenere le previsioni meteo giornaliere per ogni turbina eolica relative ai 15 giorni successivi alla data odierna.
+In questo scenario verranno richieste le previsioni giornaliere per ogni posizione dei sensori. Lo script seguente chiama l'[API delle previsioni giornaliere](https://aka.ms/AzureMapsWeatherDailyForecast) del servizio meteorologico di Mappe di Azure. Questa API restituisce le previsioni meteorologiche per ogni turbina eolica per i 15 giorni successivi dalla data corrente.
 
 
 ```python
@@ -129,7 +129,7 @@ display(Image(poi_range_map))
 ![Posizioni delle turbine](./media/weather-service-tutorial/location-map.png)
 
 
-I dati relativi alle previsioni verranno raggruppati con i dati demo in base all'ID stazione del data center meteorologico. Questo raggruppamento aumenta i dati demo con i dati di previsione. 
+I dati relativi alle previsioni verranno raggruppati con i dati demo in base all'ID stazione del data center meteorologico. Questo raggruppamento aumenta i dati demo con i dati di previsione.
 
 ```python
 # Group forecasted data for all locations

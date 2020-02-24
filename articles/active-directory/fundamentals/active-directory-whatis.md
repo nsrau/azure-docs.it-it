@@ -11,12 +11,12 @@ ms.date: 07/31/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4d32522ef88504b96d262c654dac7c08c292761
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: dd7b412e99526935738c2494d31a16fded7101a6
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76897467"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368026"
 ---
 # <a name="what-is-azure-active-directory"></a>Informazioni su Azure Active Directory
 
@@ -77,7 +77,7 @@ Per una migliore comprensione di Azure AD e della rispettiva documentazione, è 
 |Amministratore dell'account|Il ruolo Amministratore della sottoscrizione classica corrisponde concettualmente al proprietario di fatturazione di una sottoscrizione. Questo ruolo può accedere al [Centro account di Azure](https://account.azure.com/Subscriptions) e consente di gestire tutte le sottoscrizioni di un account. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, di controllo degli accessi in base al ruolo di Azure e di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Amministratore del servizio|Il ruolo Amministratore della sottoscrizione classica consente di gestire tutte le risorse di Azure, incluso l'accesso. Questo ruolo ha un accesso equivalente a quello di un utente cui viene assegnato il ruolo di proprietario nell'ambito della sottoscrizione. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, di controllo degli accessi in base al ruolo di Azure e di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Proprietario|Questo ruolo consente di gestire tutte le risorse di Azure, incluso l'accesso. Si tratta di un ruolo basato su un sistema di autorizzazione più recente definito controllo degli accessi in base al ruolo, che fornisce una gestione con granularità fine dell'accesso alle risorse di Azure. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, di controllo degli accessi in base al ruolo di Azure e di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Amministrazione globale di Azure AD|Questo ruolo di amministratore viene assegnato automaticamente a chiunque abbia creato il tenant di Azure AD. Gli amministratori globali possono eseguire tutte le funzioni amministrative per Azure AD ed eventuali servizi federati con Azure AD, come Exchange Online, SharePoint Online e Skype for Business Online. È possibile avere più amministratori globali ma solo gli amministratori globali possono assegnare ruoli di amministratore, inclusi altri ruoli di amministratore globale, agli utenti.<br><br>**Nota**<br>Questo ruolo di amministratore è definito Amministratore globale nel portale di Azure, ma è definito **Amministratore società** nell'API Microsoft Graph, nell'API Graph di Azure AD e in Azure AD PowerShell.<br><br>Per altre informazioni sui diversi ruoli di amministratore, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).|
+|Amministrazione globale di Azure AD|Questo ruolo di amministratore viene assegnato automaticamente a chiunque abbia creato il tenant di Azure AD. Gli amministratori globali possono eseguire tutte le funzioni amministrative per Azure AD ed eventuali servizi federati con Azure AD, come Exchange Online, SharePoint Online e Skype for Business Online. È possibile avere più amministratori globali ma solo gli amministratori globali possono assegnare ruoli di amministratore, inclusi altri ruoli di amministratore globale, agli utenti.<br><br>**Nota**<br>Questo ruolo di amministratore è definito Amministratore globale nel portale di Azure, ma è definito **Amministratore società** nell'API Microsoft Graph e in Azure AD PowerShell.<br><br>Per altre informazioni sui diversi ruoli di amministratore, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).|
 |Account Microsoft|Account personali che forniscono l'accesso ai prodotti e ai servizi cloud Microsoft destinati agli utenti privati, ad esempio Outlook, OneDrive, Xbox LIVE oppure Office 365. L'account Microsoft viene creato e archiviato nel sistema di account delle identità degli utenti gestito da Microsoft.|
 
 ## <a name="which-features-work-in-azure-ad"></a>Funzionalità disponibili in Azure AD

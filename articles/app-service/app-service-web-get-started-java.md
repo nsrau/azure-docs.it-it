@@ -1,6 +1,6 @@
 ---
 title: "Guida introduttiva: Creare un'app Java in Windows"
-description: Distribuire la prima app Hello World Java nel servizio app di Azure in Windows in pochi minuti. Il plug-in Maven per il servizio app semplifica la distribuzione delle app Java.
+description: Distribuire la prima app Hello World Java nel servizio app di Azure in Windows in pochi minuti. Il plug-in di App Web di Azure per Maven semplifica la distribuzione delle app Java.
 keywords: azure, servizio app, web app, windows, java, maven, avvio rapido
 author: msangapu-msft
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
@@ -9,20 +9,20 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: c511ed3f432c8e54a820c01839269712271774bd
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 3cf759294a31fcf90c5a3f4a6cdc68e3c35882e0
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672167"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425368"
 ---
-# <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Guida introduttiva: Creare un'app Java in Servizio app di Azure in Windows
+# <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Avvio rapido: Creare un'app Java in Servizio app di Azure in Windows
 
 > [!NOTE]
 > Questo articolo consente di distribuire un'app nel servizio app in Windows. Per la distribuzione nel servizio app in _Linux_, vedere [Creare un'app Web Java in Linux](./containers/quickstart-java.md).
 >
 
-[Servizio app di Azure](overview.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione.  Questo Avvio rapido illustra come usare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) con il [plug-in Maven per il Servizio app di Azure (anteprima)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) per distribuire un file di archivio Web Java (WAR).
+[Servizio app di Azure](overview.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione.  Questa guida di avvio rapido spiega come usare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) con il [plug-in di App Web di Azure per Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) per distribuire un file di archivio Web Java (WAR).
 
 > [!NOTE]
 > La stessa operazione può essere eseguita anche con gli IDE più comuni come Eclipse e IntelliJ. Consultare i documenti simili in [Avvio rapido di Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) oppure in [Avvio rapido di Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
@@ -95,7 +95,7 @@ Quindi aggiungere la definizione di plug-in seguente all'interno dell'elemento `
 
 Aggiornare i segnaposto seguenti nella configurazione del plug-in:
 
-| Placeholder | DESCRIZIONE |
+| Segnaposto | Descrizione |
 | ----------- | ----------- |
 | `SUBSCRIPTION_ID` | ID univoco della sottoscrizione in cui si vuole distribuire l'app. È possibile trovare l'ID predefinito della sottoscrizione nel Cloud Shell o con l'interfaccia della riga di comando usando il comando `az account show`. Per tutte le sottoscrizioni disponibili, usare il comando `az account list`.|
 | `RESOURCEGROUP_NAME` | Nome del nuovo gruppo di risorse in cui creare l'app. Inserendo tutte le risorse per un'app in un gruppo è possibile gestirle insieme. Ad esempio, eliminando il gruppo di risorse si eliminano tutte le risorse associate all'app. Aggiornare questo valore con un nuovo nome univoco di gruppo di risorse, ad esempio *myResourceGroup*. Questo nome di gruppo di risorse verrà usato per pulire tutte le risorse di Azure in una sezione successiva. |

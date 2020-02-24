@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99b9173c817cc3ecf4b9a34ec6906af0b4de70e6
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: e22bec224d185d0306f2b0032aef929f627c910e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71120763"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367931"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alibaba-cloud-service-role-based-sso"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Alibaba Cloud Service (Role-based SSO)
 
@@ -165,7 +165,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 7. Associare il ruolo Alibaba Cloud RAM (AADrole) all'utente di Azure AD (u2): Per associare il ruolo RAM all'utente di Azure AD, è necessario creare un ruolo in Azure AD seguendo questa procedura:
 
-    a. Accedere ad [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer?spm=a2c63.p38356.879954.9.7d904e167h6Yg9).
+    a. Accedere a [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
     b. Fare clic su **autorizzazioni di modifica** per ottenere le autorizzazioni necessarie per creare un ruolo.
 

@@ -8,16 +8,16 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 1efbe9121fa4d4462f6cb50586143d0752b91cd9
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: f07c4d8b440216cb676484ae2f510b2736b7d17c
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294321"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443908"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Avvio rapido: Creare un'app Java in Servizio app di Azure in Linux
 
-Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questo argomento di avvio rapido illustra come usare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) con il [plug-in Maven per il Servizio app di Azure](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) per distribuire un file di archivio Web (WAR) Java nel sistema operativo Linux.
+Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa guida di avvio rapido illustra come usare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) con il [plug-in di App Web di Azure per Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) per distribuire un file di archivio Web (WAR) Java nel sistema operativo Linux.
 
 > [!NOTE]
 >
@@ -78,7 +78,6 @@ Enter index to use:
 Define value for runtimeStack(Default: TOMCAT 8.5):
 1. TOMCAT 9.0
 2. TOMCAT 8.5 [*]
-3. WILDFLY 14
 Enter index to use:
 Please confirm webapp properties
 AppName : helloworld-1558400876966
@@ -137,9 +136,6 @@ az group delete --name <your resource group name; for example: helloworld-155840
 L'esecuzione del comando può richiedere un minuto.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-> [!div class="nextstepaction"]
-> [Esercitazione: App aziendale Java con PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
 
 > [!div class="nextstepaction"]
 > [Configurare l'app Java](configure-custom-container.md)

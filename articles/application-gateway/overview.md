@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 11/23/2019
 ms.author: victorh
-ms.openlocfilehash: a72e98341ecafcda98cc2fde34cf1f9d4eaff94c
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 1e80fa23519104c3c62f6a0bf5d65cbbe0848ae2
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658271"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443823"
 ---
 # <a name="what-is-azure-application-gateway"></a>Cos'è il gateway applicazione di Azure?
 
@@ -61,7 +61,7 @@ Per altre informazioni, vedere [Che cos'è Azure Web Application Firewall?](../w
 ## <a name="ingress-controller-for-aks"></a>Controller di ingresso per il servizio Azure Kubernetes
 Il controller di ingresso del gateway applicazione consente di usare il gateway applicazione come ingresso per un cluster del [servizio Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/). 
 
-Il controller di ingresso viene eseguito come un pod nel cluster del servizio Azure Kubernetes, utilizza [risorse in ingresso Kubernetes](https://kubernetes.io/docs/concepts/services-networking/ingress/) e le converte in una configurazione del gateway applicazione che consente al gateway di bilanciare il carico del traffico indirizzato ai pod Kubernetes. Il controller di ingresso supporta solo lo SKU gateway applicazione V2. 
+Il controller di ingresso viene eseguito come un pod nel cluster del servizio Azure Kubernetes, utilizza [risorse in ingresso Kubernetes](https://kubernetes.io/docs/concepts/services-networking/ingress/) e le converte in una configurazione del gateway applicazione che consente al gateway di bilanciare il carico del traffico indirizzato ai pod Kubernetes. Il controller di ingresso supporta solo gli SKU gateway applicazione Standard_v2 e WAF_v2. 
 
 Per altre informazioni, vedere [Controller di ingresso del gateway applicazione di Azure](ingress-controller-overview.md).
 

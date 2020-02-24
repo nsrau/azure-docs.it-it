@@ -1,20 +1,20 @@
 ---
 title: 'Esercitazione: Creare un recinto virtuale e monitorare i dispositivi su una mappa | Mappe di Microsoft Azure'
 description: Informazioni su come configurare un recinto virtuale e monitorare i dispositivi in relazione al recinto virtuale usando il servizio spaziale di Mappe di Microsoft Azure.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 932dfb9624177c299997c4f9f184dc5c973d0fa0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e0e918a2508bb65de176b030a73598e221aff676
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899206"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370193"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Esercitazione: Configurare un recinto virtuale con Mappe di Azure
 
@@ -176,7 +176,7 @@ In questa sezione viene creato un gestore eventi che riceve le notifiche. Il ges
 
 Verranno creati due servizi di [App per la logica](https://docs.microsoft.com/azure/event-grid/event-handlers#logic-apps) per gestire gli eventi di ingresso e uscita. Quando vengono attivati gli eventi nelle app per la logica, vengono attivati più eventi in sequenza. Verranno quindi inviati avvisi, in questo caso messaggi di posta elettronica, al direttore dei lavori. La figura seguente illustra la creazione di un'app per la logica per l'evento di ingresso nel recinto virtuale. È possibile crearne un'altra allo stesso modo per l'evento di uscita. È possibile vedere tutti i [gestori di eventi supportati](https://docs.microsoft.com/azure/event-grid/event-handlers) per altre informazioni.
 
-1. Creare un'app per la logica nel portale di Azure
+1. Creare un'app per la logica nel portale di Azure. Selezionare l'app per la logica in Azure Marketplace. Fare quindi clic sul pulsante **Crea**.
 
    ![Creare app per la logica di Azure per gestire gli eventi del recinto virtuale](./media/tutorial-geofence/logic-app.png)
 

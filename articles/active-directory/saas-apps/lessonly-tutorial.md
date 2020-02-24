@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/28/2019
+ms.date: 02/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 727d4ec79b142595e59ff63a4afbcbe4a51c2a6d
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e7911f52d71501324a1b05c290402cc2ee33a706
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77057439"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370422"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lessonly"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Lesson.ly
 
@@ -31,7 +30,7 @@ Questa esercitazione descrive come integrare Lesson.ly con Azure Active Director
 * Abilitare gli utenti per l'accesso automatico a Lesson.ly con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -46,6 +45,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * Lesson.ly supporta l'accesso SSO avviato da **SP**
 * Lesson.ly supporta il provisioning utenti **JIT**
+* Dopo aver configurato Lesson.ly, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-lessonly-from-the-gallery"></a>Aggiunta di Lesson.ly dalla raccolta
 
@@ -83,14 +83,14 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti:
 
-     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<companyname>.lessonly.com/signin`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<companyname>.lessonly.com/auth/saml`
 
     > [!NOTE]
     > Quando si fa riferimento a un nome generico, **nomesocietà** deve essere sostituito da un nome effettivo.
     
-     b. Nella casella di testo **Reply URL (Assertion Customer Service URL)** (URL di risposta (URL del servizio clienti di asserzione)) digitare un URL nel formato seguente: `https://<companyname>.lessonly.com/auth/saml/callback`
+    b. Nella casella di testo **Reply URL (Assertion Customer Service URL)** (URL di risposta (URL del servizio clienti di asserzione)) digitare un URL nel formato seguente: `https://<companyname>.lessonly.com/auth/saml/callback`
 
-     c. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<companyname>.lessonly.com/auth/saml/metadata`
+    c. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<companyname>.lessonly.com/auth/saml/metadata`
     
     > [!NOTE]
     > Poiché questi non sono i valori reali, aggiornarli con i valori effettivi di URL di accesso, URL di risposta e identificatore. Per ottenere questi valori, contattare il [team di supporto clienti di Lessonly.com](mailto:support@lessonly.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -152,7 +152,7 @@ Per configurare l'accesso Single Sign-On sul lato **Lessonly.com**, è necessari
 
 ### <a name="create-lessonly-test-user"></a>Creare l'utente di test di Lesson.ly
 
-Questa sezione descrive come creare un utente chiamato B.Simon in Lessonly.com. Lessonly.com supporta il provisioning JIT, che è abilitato per impostazione predefinita.
+Questa sezione descrive come creare un utente chiamato B.Simon in Lessonly.com. Lessonly.com supporta il provisioning just-in-time, che è abilitato per impostazione predefinita.
 
 Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Lessonly.com verrà creato un nuovo utente, se questo non esiste già.
 
@@ -169,7 +169,7 @@ Quando si fa clic sul riquadro di Lesson.ly nel pannello di accesso, si dovrebbe
 
 - [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 04f9a067e0b7df1f90d181d42bc4dd562aca56b0
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 8020abf3f8ab153d0143ff50d837ebcfbf5bdfba
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026334"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77423721"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Definire un nuovo tipo di dispositivo gateway IoT nell'applicazione Azure IoT Central
 
@@ -30,7 +30,7 @@ Oltre a consentire ai dispositivi downstream di comunicare con l'applicazione Io
 * Rispondere agli aggiornamenti di proprietà scrivibili eseguiti da un operatore. Ad esempio, un operatore potrebbe modificare l'intervallo di invio dei dati di telemetria.
 * Rispondere ai comandi, ad esempio il riavvio del dispositivo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, è necessario [creare un'applicazione Azure IoT Central](./quick-deploy-iot-central.md).
 
@@ -40,7 +40,7 @@ Questa esercitazione usa modelli di dispositivo per un dispositivo **S1 Sensor**
 
 Per creare un modello di dispositivo per un dispositivo **S1 Sensor**:
 
-1. Nel riquadro di spostamento a sinistra selezionare **Modelli di dispositivo**. Selezionare quindi **+** per iniziare ad aggiungere il modello.
+1. Nel riquadro sinistro selezionare **Modelli di dispositivo**. Selezionare quindi **+** per iniziare ad aggiungere il modello.
 
 1. Scorrere verso il basso finché non viene visualizzato il riquadro di **S1 Sensor**. Selezionare il riquadro e quindi selezionare **Avanti: Personalizza**.
 
@@ -48,7 +48,7 @@ Per creare un modello di dispositivo per un dispositivo **S1 Sensor**:
 
 Per creare un modello di dispositivo per un dispositivo ***RS40 Occupancy Sensor**:
 
-1. Nel riquadro di spostamento a sinistra selezionare **Modelli di dispositivo**. Selezionare quindi **+** per iniziare ad aggiungere il modello.
+1. Nel riquadro sinistro selezionare **Modelli di dispositivo**. Selezionare quindi **+** per iniziare ad aggiungere il modello.
 
 1. Scorrere verso il basso finché non viene visualizzato il riquadro del dispositivo ***RS40 Occupancy Sensor**. Selezionare il riquadro e quindi selezionare **Avanti: Personalizza**.
 
@@ -65,7 +65,7 @@ In questa esercitazione si creerà da zero un modello di dispositivo per un disp
 
 Per aggiungere un nuovo modello di dispositivo gateway all'applicazione:
 
-1. Nel riquadro di spostamento a sinistra selezionare **Modelli di dispositivo**. Selezionare quindi **+** per iniziare ad aggiungere il modello.
+1. Nel riquadro sinistro selezionare **Modelli di dispositivo**. Selezionare quindi **+** per iniziare ad aggiungere il modello.
 
 1. Nella pagina **Selezionare il tipo di modello** selezionare il riquadro **Dispositivo IoT** e quindi selezionare **Avanti: Personalizza**.
 

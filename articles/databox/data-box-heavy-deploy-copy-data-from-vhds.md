@@ -1,5 +1,6 @@
 ---
-title: Esercitazione per copiare dati da dischi rigidi virtuali in dischi gestiti con Azure Data Box Heavy | Microsoft Docs
+title: 'Esercitazione: Copiare da dischi rigidi virtuali a dischi gestiti'
+titleSuffix: Azure Data Box Heavy
 description: Informazioni su come copiare in Azure Data Box Heavy i dati di dischi rigidi virtuali relativi a carichi di lavoro di macchine virtuali locali
 services: databox
 author: alkohli
@@ -8,18 +9,18 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: a29cd142b3322c958f70aad8d5cad2bc30b87d76
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 01031159d1894c7cb5f36b48f268186dff21fd22
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67670832"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471330"
 ---
 # <a name="tutorial-use-data-box-heavy-to-import-data-as-managed-disks-in-azure"></a>Esercitazione: Usare Data Box Heavy per importare dati come dischi gestiti in Azure
 
 Questa esercitazione descrive come usare Azure Data Box Heavy per la migrazione di dischi rigidi virtuali locali in dischi gestiti in Azure. I dischi rigidi virtuali di macchine virtuali locali vengono copiati in Data Box Heavy come BLOB di pagine e caricati in Azure come dischi gestiti. Questi dischi gestiti possono quindi essere collegati a macchine virtuali di Azure.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Esaminare i prerequisiti

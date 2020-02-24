@@ -1,5 +1,5 @@
 ---
-title: Connettere reti virtuali con il peering reti virtuali - Esercitazione - Portale di Azure | Microsoft Docs
+title: Connettere reti virtuali con il peering reti virtuali - Esercitazione - Portale di Azure
 description: Questa esercitazione illustra come connettere reti virtuali con il peering di rete virtuale usando il portale di Azure.
 services: virtual-network
 documentationcenter: virtual-network
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 65749182bf93e84c8712409cd16bd3a60184c7ca
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: e95441aab6c8ce7de37ba5f6b08d5f7d54e13347
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016052"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201299"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Esercitazione: Connettere reti virtuali con il peering reti virtuali usando il portale di Azure
 
@@ -34,7 +34,7 @@ Se si preferisce, è possibile completare questa esercitazione usando l'[interfa
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure 
+## <a name="log-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 

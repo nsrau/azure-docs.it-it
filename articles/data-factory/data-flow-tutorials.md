@@ -6,12 +6,12 @@ ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 02/06/2020
-ms.openlocfilehash: 00b51c14a24b525d98e9634a4f416177364228cb
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.openlocfilehash: 1449b34a9bbeb5692d25a5f84c4ee38e6c4e0a33
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77069587"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460536"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Esercitazioni video sul flusso di dati di mapping
 
@@ -69,6 +69,8 @@ Poiché il prodotto viene aggiornato costantemente, alcune caratteristiche prese
 
 [Trasformazione Esiste](http://youtu.be/GS8JVgNBMfs?hd=1)
 
+[Join dinamici e ricerche dinamiche](https://youtu.be/CMOPPie9bXM)
+
 ## <a name="source-and-sink"></a>Origine e sink
 
 [Lettura e scrittura di file JSON](https://www.youtube.com/watch?v=yY5aB7Kdhjg)
@@ -113,7 +115,7 @@ Poiché il prodotto viene aggiornato costantemente, alcune caratteristiche prese
 
 [Dimensioni a modifica lenta di tipo 1: sovrascrittura](http://youtu.be/Rz2zx5GRbrA)
 
-[Dimensioni a modifica lenta di tipo 1: cronologia](http://youtu.be/123CptslKvU)
+[Dimensioni a modifica lenta di tipo 2: cronologia](http://youtu.be/123CptslKvU)
 
 [Caricamento della tabella dei fatti](http://youtu.be/ABG3X9pgFPQ)
 
@@ -136,3 +138,5 @@ Poiché il prodotto viene aggiornato costantemente, alcune caratteristiche prese
 ## <a name="data-flow-expressions"></a>Espressioni del flusso di dati
 
 [Espressioni data/ora](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)
+
+[Suddivisione di matrici e istruzione case](https://www.youtube.com/watch?v=DHNH8ZO7YjI)

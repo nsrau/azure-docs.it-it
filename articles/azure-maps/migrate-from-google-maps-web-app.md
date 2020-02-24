@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 67f9168d2b18a98850588554f77c4a5859f365df
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: b954c812bea6c2abf4376c2cee38a3789461ad01
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086425"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208744"
 ---
 # <a name="migrate-a-web-app-from-google-maps"></a>Eseguire la migrazione di un'app Web da Google Maps
 
@@ -62,7 +62,7 @@ Di seguito sono riportate alcune delle principali differenze tra i Web SDK di Go
 
 ## <a name="web-sdk-side-by-side-examples"></a>Esempi affiancati di Web SDK
 
-Questa raccolta include esempi di codice per ogni piattaforma, ognuno dei quali tratta i casi d'uso comuni. È concepita per semplificare la migrazione dell'applicazione Web da Google Maps V3 JavaScript SDK ad Azure Maps Web SDK. Gli esempi di codice relativi alle applicazioni Web sono forniti in JavaScript. Tuttavia, Mappe di Azure fornisce anche le definizioni TypeScript come opzione aggiuntiva tramite un [modulo NPM](how-to-use-map-control.md).
+Questa raccolta include esempi di codice per ogni piattaforma, ognuno dei quali tratta un caso d'uso comune. È concepita per semplificare la migrazione dell'applicazione Web da Google Maps V3 JavaScript SDK ad Azure Maps Web SDK. Gli esempi di codice relativi alle applicazioni Web sono forniti in JavaScript. Tuttavia, Mappe di Azure fornisce anche le definizioni TypeScript come opzione aggiuntiva tramite un [modulo NPM](how-to-use-map-control.md).
 
 ### <a name="load-a-map"></a>Caricare una mappa
 
@@ -80,7 +80,7 @@ Entrambi gli SDK prevedono la stessa procedura per caricare una mappa:
 - Quando si fa riferimento all'elemento `div` in cui verrà eseguito il rendering della mappa, la classe `Map` in Mappe di Azure richiede solo il valore `id` mentre Google Maps richiede un oggetto `HTMLElement`.
 - Le coordinate in Mappe di Azure sono definite come oggetti Position che possono essere specificati come una matrice di numeri semplice nel formato `[longitude, latitude]`.
 - Il livello di zoom in Mappe di Azure è inferiore di un livello rispetto al livello di zoom in Google Maps. Questa discrepanza è dovuta alla differenza tra le dimensioni del sistema a tessere usato delle due piattaforme.
-- Mappe di Azure non aggiunge alcun controllo di spostamento all'area di disegno della mappa. Di conseguenza, per impostazione predefinita una mappa non dispone di pulsanti di zoom e di pulsanti per lo stile della mappa. Esistono tuttavia controlli per l'aggiunta della selezione dello stile della mappa, pulsanti di zoom, bussola o controllo rotazione e un controllo dell'inclinazione.
+- Mappe di Azure non aggiunge alcun controllo di spostamento all'area di disegno della mappa. Di conseguenza, per impostazione predefinita una mappa non dispone di pulsanti di zoom e di pulsanti per lo stile della mappa. Esistono tuttavia opzioni dei controlli per l'aggiunta della selezione dello stile della mappa, pulsanti di zoom, bussola o controllo rotazione e un controllo dell'inclinazione.
 - In Mappe di Azure viene aggiunto un gestore eventi per monitorare l'evento `ready` dell'istanza della mappa. Questo evento verrà attivato quando la mappa ha completato il caricamento del contesto WebGL e di tutte le risorse necessarie. Al termine del caricamento della mappa aggiungere il codice da eseguire in questo gestore eventi.
 
 Gli esempi di base riportati sotto usano Google Maps per caricare una mappa centrata su New York alle coordinate seguenti: Longitudine: -73.985, latitudine: 40.747 con un livello di zoom della mappa pari a 12.
@@ -212,7 +212,7 @@ Di seguito è riportato un esempio di Google Maps con la lingua impostata su "fr
 
 **Dopo: Mappe di Azure**
 
-Mappe di Azure offre due modi diversi per impostare la lingua e la visualizzazione a livello di area della mappa. La prima opzione consiste nell'aggiungere queste informazioni allo spazio dei nomi *atlas* globale, affinché tutte le istanze di controllo mappa nell'app usino queste impostazioni predefinite. Il codice seguente imposta la lingua su Francese ("fr-FR") e la visualizzazione a livello di area su "automatica":
+Mappe di Azure offre due modi diversi per impostare la lingua e la visualizzazione a livello di area della mappa. La prima opzione prevede di aggiungere queste informazioni allo spazio dei nomi *atlas* globale. Tutte le istanze del controllo mappa nell'app useranno queste impostazioni predefinite. Il codice seguente imposta la lingua su Francese ("fr-FR") e la visualizzazione a livello di area su "automatica":
 
 ```javascript
 atlas.setLanguage('fr-FR');
@@ -246,7 +246,7 @@ Di seguito è riportato un esempio di Mappe di Azure con la lingua impostata su 
 
 ### <a name="setting-the-map-view"></a>Impostare la visualizzazione mappa
 
-Le mappe dinamiche in Mappe di Azure e Google Maps possono essere spostate a livello di codice in nuove posizioni geografiche. A tale scopo, chiamare le funzioni appropriate in JavaScript. L'esempio mostra come visualizzare le immagini aeree satellitari, centrare la mappa su una posizione e modificare il livello di zoom impostandolo su 15 in Google Maps. Vengono usate le coordinate di posizione seguenti: longitudine: -111.0225 e latitudine: 35.0272.
+Le mappe dinamiche in Mappe di Azure e Google Maps possono essere spostate a livello di codice in nuove posizioni geografiche. A tale scopo, chiamare le funzioni appropriate in JavaScript. L'esempio mostra come visualizzare le immagini aeree satellitari, centrare la mappa su una posizione e modificare il livello di zoom. Vengono usate le coordinate di posizione seguenti: longitudine: -111.0225 e latitudine: 35.0272.
 
 > [!NOTE]
 > Google Maps usa tessere con dimensioni di 256 pixel, mentre Mappe di Azure usa tessere più grandi, da 512 pixel. Di conseguenza, Mappe di Azure necessita di un numero di richieste di rete minore per caricare la stessa area mappa di Google Maps. A causa della modalità di funzionamento delle piramidi di tessere nei controlli mappa, è necessario sottrarre di uno il livello di zoom di Google Maps quando si usa Mappe di Azure. Questa operazione aritmetica garantisce che le tessere più grandi di Mappe di Azure eseguano il rendering della stessa area mappa di Google Maps.
@@ -856,7 +856,7 @@ Specificare una singola funzione di callback nel metodo `map.data.setStyle`. All
 
 **Dopo: Mappe di Azure**
 
-GeoJSON è il tipo di dati di base in Mappe di Azure. Importarlo in un'origine dati usando il metodo `datasource.importFromUrl`. Usare un livello bolla fornisce le funzionalità per il rendering di cerchi dimensionati in base alle proprietà delle funzionalità di un'origine dati. Anziché usare una funzione di callback, la logica di business viene convertita in un'espressione e passata nelle opzioni di stile. Le espressioni definiscono il funzionamento della logica di business e possono essere passate in un altro thread e valutate in base ai dati della funzionalità. In Mappe di Azure è possibile aggiungere più origini dati e livelli, ognuno con una logica di business diversa. Questa funzionalità consente di eseguire il rendering di più set di dati sulla mappa in modi diversi.
+GeoJSON è il tipo di dati di base in Mappe di Azure. Importarlo in un'origine dati usando il metodo `datasource.importFromUrl`. Usare un livello bolla. Il livello bolla fornisce le funzionalità per il rendering di cerchi dimensionati in base alle proprietà delle funzionalità di un'origine dati. Anziché usare una funzione di callback, la logica di business viene convertita in un'espressione e passata nelle opzioni di stile. Le espressioni definiscono il funzionamento della logica di business e possono essere passate in un altro thread e valutate in base ai dati della funzionalità. In Mappe di Azure è possibile aggiungere più origini dati e livelli, ognuno con una logica di business diversa. Questa funzionalità consente di eseguire il rendering di più set di dati sulla mappa in modi diversi.
 
 ```html
 <!DOCTYPE html>
@@ -953,7 +953,7 @@ Negli esempi seguenti il codice carica un feed GeoJSON dei dati sismici della se
 
 **Prima: Google Maps**
 
-Usare la libreria MarkerCluster per raggruppare gli indicatori. Le icone del cluster sono esclusivamente immagini contrassegnate con un numero da uno a cinque ospitate nella stessa directory.
+Usare la libreria MarkerCluster per raggruppare gli indicatori. Le icone del cluster sono esclusivamente immagini contrassegnate con un numero da uno a cinque e sono ospitate nella stessa directory.
 
 ```html
 <!DOCTYPE html>

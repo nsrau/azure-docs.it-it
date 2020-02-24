@@ -1,24 +1,24 @@
 ---
 title: 'Esercitazione: Pianificare itinerari per veicoli elettrici con Azure Notebooks (Python) | Mappe di Microsoft Azure'
 description: Pianificare itinerari per veicoli elettrici usando le API di pianificazione di itinerari di Mappe di Microsoft Azure e Azure Notebooks.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: dfc9c045af5347ebd3f15df48d5a5756dd2a9e05
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 22a8561d69dd0eeb22f9fe025f5b792422db2c17
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844752"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208166"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Esercitazione: Pianificare itinerari per veicoli elettrici con Azure Notebooks (Python)
 
-Mappe di Azure è un portfolio di API di servizi geospaziali integrate in modalità nativa in Azure che consentono a sviluppatori, aziende e ISV di creare app con riconoscimento della posizione e soluzioni IoT, di mobilità, di logistica e di localizzazione dei beni. 
+Mappe di Azure è un portfolio di API di servizi geospaziali integrate in modalità nativa in Azure che consentono a sviluppatori, aziende e ISV di creare app con riconoscimento della posizione e soluzioni IoT, di mobilità, di logistica e di rintracciamento asset. 
 
 Le API REST di Mappe di Azure possono essere chiamate da linguaggi come Python e R per scenari di analisi di dati geospaziali e Machine Learning. Mappe di Azure include un set completo di [API di pianificazione di itinerari](https://docs.microsoft.com/rest/api/maps/route) che consente di calcolare gli itinerari tra diversi punti dati in base a varie condizioni, come tipo di veicolo o area raggiungibile. 
 
@@ -74,7 +74,7 @@ Per seguire questa esercitazione, è necessario creare un progetto di Azure Note
 
 1. Una volta completato il caricamento, il file viene visualizzato nella pagina del progetto. Fare doppio clic sul file per aprirlo come notebook di Jupyter.
 
-Per comprendere meglio la funzionalità implementata nel file del notebook, eseguire il codice del notebook una cella alla volta. Per eseguire il codice in ogni cella, selezionare il pulsante **Esegui** nella parte superiore dell'app del notebook.
+Esplorare la funzionalità implementata nel file notebook. Eseguire il codice nel file notebook, una cella alla volta. Per eseguire il codice in ogni cella, selezionare il pulsante **Esegui** nella parte superiore dell'app del notebook.
 
   ![Pulsante Esegui](./media/tutorial-ev-routing/run.png)
 
@@ -156,7 +156,7 @@ boundsData = {
 
 Dopo aver determinato l'area raggiungibile (isocrona) per il veicolo elettrico, è possibile cercare le stazioni di ricarica in tale area. 
 
-Lo script seguente chiama l'[API Post Search Inside Geometry](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) di Mappe di Azure che cerca le stazioni di ricarica per veicoli elettrici entro i limiti dell'area massima raggiungibile dell'auto e quindi analizza la risposta in una matrice di località raggiungibili.
+Lo script seguente chiama l'[API Post Search Inside Geometry](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) di Mappe di Azure Cerca le stazioni di ricarica per veicoli elettrici entro i limiti di distanza massima raggiungibile dell'auto. Lo script analizza quindi la risposta in una matrice di posizioni raggiungibili.
 
 Per cercare stazioni di ricarica per veicoli elettrici entro l'area raggiungibile, eseguire lo script seguente:
 

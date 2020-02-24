@@ -1,5 +1,6 @@
 ---
-title: Esercitazione per copiare dati nell'archiviazione BLOB di Azure Data Box tramite API REST | Microsoft Docs
+title: "Esercitazione: Usare le API REST per copiare nell'archiviazione BLOB"
+titleSuffix: Azure Data Box
 description: Informazioni su come copiare dati nell'archiviazione BLOB di Azure Data Box tramite API REST
 services: databox
 author: alkohli
@@ -8,18 +9,18 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: alkohli
-ms.openlocfilehash: fcd6fc95adc892885fd8471e622ce3b04258d8b5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b7d58bb13644c992894510f26a4848ea80c9df00
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800547"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471840"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Esercitazione: Copiare dati nell'archiviazione BLOB di Azure Data Box tramite API REST  
 
 Questa esercitazione descrive le procedure per connettersi all'archiviazione BLOB di Azure Data Box con API REST tramite *HTTP* o *HTTPS*. Una volta stabilita la connessione, vengono descritti anche i passaggi necessari per copiare i dati nell'archiviazione BLOB di Data Box e preparare Data Box per la spedizione.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Prerequisiti
@@ -96,7 +97,7 @@ Informazioni specifiche per alcune applicazioni sono menzionate in questa sezion
 
 Seguire questa procedura per importare il file `.cer` nell'archivio radice di un client Windows o Linux. In un sistema Windows è possibile usare Windows PowerShell o l'interfaccia utente di Windows Server per importare e installare il certificato nel sistema.
 
-#### <a name="use-windows-powershell"></a>Usare Windows PowerShell
+#### <a name="use-windows-powershell"></a>uso di Windows PowerShell
 
 1. Avviare una sessione di Windows PowerShell come amministratore.
 2. Al prompt dei comandi digitare:
@@ -188,7 +189,7 @@ Usare AzCopy per caricare tutti i file di una cartella nell'archiviazione BLOB i
         --dest-key <key> \
         --recursive
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
 
@@ -213,7 +214,7 @@ Se si vogliono copiare solo le risorse di origine non ancora disponibili nella d
     --recursive \
     --exclude-older
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
 

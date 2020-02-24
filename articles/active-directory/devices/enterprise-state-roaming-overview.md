@@ -1,22 +1,22 @@
 ---
-title: Informazioni su Enterprise State Roaming in Azure Active Directory | Microsoft Docs
-description: Enterprise State Roaming offre agli utenti un'esperienza unificata in tutti i dispositivi Windows e riduce il tempo necessario per la configurazione di un nuovo dispositivo.
+title: Informazioni su Enterprise State Roaming in Azure Active Directory
+description: Enterprise State Roaming offre agli utenti un'esperienza unificata in tutti i dispositivi Windows
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: overview
-ms.date: 06/28/2019
+ms.date: 02/12/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5b60970592180a2353860369e637d4b9a9bb8f9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c22baf0a08718883f0c0c9844cc395f607b5b20d
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481915"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77194280"
 ---
 # <a name="what-is-enterprise-state-roaming"></a>Informazioni su Enterprise State Roaming
 
@@ -28,13 +28,13 @@ Con Windows 10 gli utenti di [Azure Active Directory (Azure AD)](../fundamentals
 
 Enterprise State Roaming è disponibile in più aree di Azure. L'elenco aggiornato delle aree disponibili è riportato nella pagina [Servizi di Azure in base all'area](https://azure.microsoft.com/regions/#services) in Azure Active Directory.
 
-| Articolo | DESCRIZIONE |
+| Articolo | Descrizione |
 | --- | --- |
-| [Abilitare Enterprise State Roaming in Azure Active Directory](enterprise-state-roaming-enable.md) |Il servizio Enterprise State Roaming è disponibile per qualsiasi organizzazione con una sottoscrizione Premium di Azure Active Directory (Azure AD). Per altre informazioni su come ottenere una sottoscrizione di Azure AD, vedere la pagina del [prodotto Azure AD](https://azure.microsoft.com/services/active-directory) . |
-| [Domande frequenti su impostazioni e dati in roaming](enterprise-state-roaming-faqs.md) |Questo argomento fornisce le risposte ad alcune possibili domande degli amministratori IT in merito alle impostazioni e alla sincronizzazione dei dati delle app. |
+| [Abilitare Enterprise State Roaming in Azure Active Directory](enterprise-state-roaming-enable.md) |Il servizio Enterprise State Roaming è disponibile per qualsiasi organizzazione con una sottoscrizione Premium di Azure Active Directory (Azure AD). Per altre informazioni su come ottenere una sottoscrizione di Azure AD, vedere la pagina del [prodotto Azure AD](https://azure.microsoft.com/services/active-directory). |
+| [Domande frequenti su impostazioni e dati in roaming](enterprise-state-roaming-faqs.md) |Questo articolo offre le risposte ad alcune possibili domande degli amministratori IT in merito alle impostazioni e alla sincronizzazione dei dati delle app. |
 | [Criteri di gruppo e impostazioni del software MDM per la sincronizzazione delle impostazioni](enterprise-state-roaming-group-policy-settings.md) |Windows 10 offre impostazioni relative a Criteri di gruppo e ai criteri di gestione di dispositivi mobili per limitare la sincronizzazione delle impostazioni. |
-| [Riferimento alle impostazioni di roaming di Windows 10](enterprise-state-roaming-windows-settings-reference.md) |Di seguito è riportato un elenco completo di tutte le impostazioni di cui verrà effettuato il roaming e/o il backup in Windows 10. |
-| [Risoluzione dei problemi](enterprise-state-roaming-troubleshooting.md) |Questo argomento illustra alcuni passaggi di base per la risoluzione dei problemi e contiene un elenco di problemi noti. |
+| [Riferimento alle impostazioni di roaming di Windows 10](enterprise-state-roaming-windows-settings-reference.md) |Elenco delle impostazioni di cui verrà effettuato il roaming e/o il backup in Windows 10. |
+| [Risoluzione dei problemi](enterprise-state-roaming-troubleshooting.md) |Questo articolo illustra alcuni passaggi di base per la risoluzione dei problemi e contiene un elenco di problemi noti. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

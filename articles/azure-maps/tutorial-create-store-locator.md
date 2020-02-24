@@ -1,20 +1,20 @@
 ---
 title: "Esercitazione: Creare un'applicazione di localizzazione di punti vendita con Mappe di Azure | Microsoft Docs"
-description: In questa esercitazione si apprenderà come creare un'applicazione Web di localizzazione di punti vendita usando Microsoft Azure Maps Web SDK.
-author: walsehgal
-ms.author: v-musehg
+description: Questa esercitazione illustra come creare un'applicazione Web di localizzazione di punti vendita usando Microsoft Azure Maps Web SDK.
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 063f085de875272a7b1ba4f52aeceb8f36114cca
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 5621ed8f9e5d7990ca7b522d6388f855db81618e
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76987006"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209563"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Esercitazione: Creare un localizzatore di punti vendita con Mappe di Azure
 
@@ -381,7 +381,7 @@ Eseguire l'applicazione adesso. Verranno visualizzati il pulsante di ricerca, l'
 
 A questo punto l'interfaccia utente è stata configurata. È ancora necessario aggiungere il codice JavaScript per caricare e analizzare i dati e quindi eseguire il rendering dei dati sulla mappa. Per iniziare, aprire il file *index.js* e aggiungere codice al file, come illustrato nella procedura seguente.
 
-1. Aggiungere opzioni globali per semplificare l'aggiornamento delle impostazioni. Definire inoltre le variabili per la mappa, la finestra popup, l'origine dati, un livello icona, un indicatore HTML che mostra il centro di un'area di ricerca e un'istanza del client del servizio di ricerca di Mappe di Azure.
+1. Aggiungere opzioni globali per semplificare l'aggiornamento delle impostazioni. Definire le variabili per la mappa, la finestra popup, l'origine dati, il livello icona e l'indicatore HTML. Impostare l'indicatore HTML affinché indichi il centro di un'area di ricerca e definire un'istanza del client del servizio di ricerca di Mappe di Azure.
 
     ```JavaScript
     //The maximum zoom level to cluster data point data on the map.
@@ -397,9 +397,9 @@ A questo punto l'interfaccia utente è stata configurata. È ancora necessario a
 
 1. Aggiungere codice al file *index.js*. Il codice seguente inizializza la mappa. È stato aggiunto un [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) per l'attesa del completamento del caricamento della pagina. Sono stati quindi associati gli eventi per monitorare il caricamento della mappa e sono state fornite le funzionalità al pulsante Cerca e al pulsante My Location.
 
-   Quando l'utente seleziona il pulsante di ricerca o quando l'utente preme INVIO dopo avere immesso una posizione nella casella di ricerca, viene avviata una ricerca fuzzy rispetto alla query dell'utente. Passare una matrice di valori ISO 2 relativi ai paesi all'opzione `countrySet` per limitare i risultati della ricerca a tali paesi/aree geografiche. La limitazione dei paesi/aree geografiche in cui eseguire la ricerca consente di migliorare la precisione dei risultati restituiti. 
+   Quando l'utente seleziona il pulsante di ricerca o quando l'utente preme INVIO dopo avere immesso una posizione nella casella di ricerca, viene avviata una ricerca fuzzy in base alla query dell'utente. Passare una matrice di valori ISO 2 relativi ai paesi all'opzione `countrySet` per limitare i risultati della ricerca a tali paesi/aree geografiche. La limitazione dei paesi/aree geografiche in cui eseguire la ricerca consente di migliorare la precisione dei risultati restituiti. 
   
-   Al termine della ricerca, accettare il primo risultato e impostare la fotocamera della mappa su tale area. Quando l'utente seleziona il pulsante My Location, usare l'API per la georilevazione HTML5 incorporata nel browser per recuperare la posizione dell'utente e centrare la mappa rispetto a tale posizione.  
+   Al termine della ricerca, selezionare il primo risultato e impostare la fotocamera della mappa su tale area. Quando l'utente seleziona il pulsante My Location, recuperare la posizione dell'utente tramite l'API di georilevazione HTML5. L'API è incorporata nel browser. Infine, centrare la mappa sulla posizione.  
 
    > [!Tip]
    > Quando si usano finestre popup, è consigliabile creare una singola istanza di `Popup` e riutilizzare l'istanza caricandone il contenuto e la posizione. Per ogni istanza di `Popup` aggiunta al codice, più elementi DOM vengono aggiunti alla pagina. Maggiore il numero di elementi DOM presenti nella pagina, maggiore sarà il numero di elementi di cui il browser deve tenere traccia. Se il numero di elementi è troppo elevato, è possibile che il browser risulti lento.
@@ -527,7 +527,7 @@ A questo punto l'interfaccia utente è stata configurata. È ancora necessario a
     map.markers.add(centerMarker);
     ```
 
-1. Nel listener di eventi `ready` della mappa aggiungere un'origine dati. Effettuare quindi una chiamata per il caricamento e l'analisi del set di dati. Abilitare il clustering sull'origine dati. Il clustering sull'origine dati raggruppa i punti sovrapposti in un cluster. I cluster si separano in singoli punti quando l'utente applica lo zoom avanti. È quindi possibile ottenere un'esperienza utente più fluida e prestazioni migliori.
+1. Nel listener di eventi `ready` della mappa aggiungere un'origine dati. Effettuare quindi una chiamata per il caricamento e l'analisi del set di dati. Abilitare il clustering sull'origine dati. Il clustering sull'origine dati raggruppa i punti sovrapposti in un cluster. I cluster si separano in singoli punti quando l'utente applica lo zoom avanti. Questo comportamento offre un'esperienza utente ottimale e migliora le prestazioni.
 
     ```JavaScript
     //Create a data source, add it to the map, and then enable clustering.

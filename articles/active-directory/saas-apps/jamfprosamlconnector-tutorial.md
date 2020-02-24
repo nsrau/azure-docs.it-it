@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 02/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc99e23e1b885de25bd2159d7916790cad851108
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 1d83dbe756e8e6acdb58861ac359801bc13a63c4
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77150273"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373217"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Jamf Pro
 
@@ -31,7 +31,7 @@ Questa esercitazione descrive come integrare Jamf Pro con Azure Active Directory
 * Abilitare gli utenti per l'accesso automatico a Jamf Pro con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -42,7 +42,10 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
-In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Jamf Pro supporta l'accesso SSO avviato da **SP** e **IdP**.
+In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. 
+
+* Jamf Pro supporta l'accesso SSO avviato da **SP** e **IdP**.
+* Dopo aver configurato Jamf Pro, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="add-jamf-pro-from-the-gallery"></a>Aggiungere Jamf Pro dalla raccolta
 
@@ -147,20 +150,20 @@ In questa sezione si concede a B.Simon l'accesso a Jamf Pro.
 
     ![Pagina Single Sign-On in Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 
-  a. Selezionare **Modifica**.
+    a. Selezionare **Modifica**.
 
-  b. Selezionare la casella di testo **Enable Single Sign-On Authentication** (Abilita autenticazione Single Sign-On).
+    b. Selezionare la casella di testo **Enable Single Sign-On Authentication** (Abilita autenticazione Single Sign-On).
 
-    c. Selezionare **Azure** come opzione nell'elenco a discesa **Identity Provider** (Provider di identità).
+  c. Selezionare **Azure** come opzione nell'elenco a discesa **Identity Provider** (Provider di identità).
 
-    d. Copiare il valore di **ENTITY ID** (ID ENTITÀ) e incollarlo nel campo **Identificatore (ID entità)** nella sezione **Configurazione SAML di base** del portale di Azure.
+  d. Copiare il valore di **ENTITY ID** (ID ENTITÀ) e incollarlo nel campo **Identificatore (ID entità)** nella sezione **Configurazione SAML di base** del portale di Azure.
 
-    > [!NOTE]
-    > Usare questo valore nel campo `<SUBDOMAIN>` per completare l'URL di accesso e l'URL di risposta nella sezione **Configurazione SAML di base** del portale di Azure.
+> [!NOTE]
+> Usare questo valore nel campo `<SUBDOMAIN>` per completare l'URL di accesso e l'URL di risposta nella sezione **Configurazione SAML di base** del portale di Azure.
 
-    e. Selezionare **Metadata URL** (URL metadati) nel menu a discesa **Identity Provider Metadata Source** (Origine metadati del provider di identità). Nel campo visualizzato incollare il valore dell'**URL dei metadati di federazione dell'app** copiato dal portale di Azure.
+  e. Selezionare **Metadata URL** (URL metadati) nel menu a discesa **Identity Provider Metadata Source** (Origine metadati del provider di identità). Nel campo visualizzato incollare il valore dell'**URL dei metadati di federazione dell'app** copiato dal portale di Azure.
 
-    f. (Facoltativo) Modificare il valore di scadenza del token o selezionare Disable SAML token expiration (Disabilita scadenza del token SAML).
+  f. (Facoltativo) Modificare il valore di scadenza del token o selezionare Disable SAML token expiration (Disabilita scadenza del token SAML).
 
 7. Nella stessa pagina scorrere fino alla sezione **User Mapping** (Mapping utente). Seguire quindi questa procedura.
 
@@ -174,9 +177,9 @@ In questa sezione si concede a B.Simon l'accesso a Jamf Pro.
 
     d. Nella stessa pagina scorrere verso il basso fino alla sezione **Security** (Sicurezza) e selezionare **Allow users to bypass the Single Sign-On authentication** (Consenti agli utenti di ignorare l'autenticazione Single Sign-on). In questo modo, gli utenti non vengono reindirizzati alla pagina di accesso del provider di identità per l'autenticazione e possono accedere direttamente a Jamf Pro. Se un utente prova ad accedere a Jamf Pro tramite il provider di identità, l'autenticazione SSO e l'autorizzazione vengono avviate dal provider di identità.
 
-    e. Selezionare **Salva**.
+    e. Selezionare **Save** (Salva).
 
-### <a name="create-a-jamf-pro-test-user"></a>Creare l'utente di test di Jamf Pro
+### <a name="create-a-jamf-pro-test-user"></a>Creare un utente di test di Jamf Pro
 
 Per consentire agli utenti di Azure AD di accedere a Jamf Pro, è necessario effettuarne il provisioning in Jamf Pro. Nel caso di Jamf Pro il provisioning è un'attività manuale.
 
@@ -200,7 +203,7 @@ Per effettuare il provisioning di un account utente, seguire questa procedura:
 
     ![Opzione Create Standard Account (Crea account standard) nella pagina Jamf Pro User Accounts & Groups (Gruppi e account utente di Jamf Pro)](./media/jamfprosamlconnector-tutorial/user3.png)
 
-6. Nella finestra di dialogo **New Account** (Nuovo account) seguire questa procedura.
+6. Nella finestra di dialogo **New Account** (Nuovo account) seguire questa procedura:
 
     ![Opzioni di configurazione del nuovo account nelle impostazioni di sistema di Jamf Pro](./media/jamfprosamlconnector-tutorial/user4.png)
 
@@ -216,7 +219,7 @@ Per effettuare il provisioning di un account utente, seguire questa procedura:
 
     f. Nel campo **VERIFY PASSWORD** (VERIFICA PASSWORD) digitare nuovamente la password dell'utente.
 
-    g. Selezionare **Salva**.
+    g. Selezionare **Save** (Salva).
 
 ## <a name="test-the-sso-configuration"></a>Testare la configurazione dell'accesso Single Sign-On
 
@@ -228,8 +231,8 @@ Quando si seleziona il riquadro di Jamf Pro nel pannello di accesso, si dovrebbe
 
 - [Esercitazioni per l'integrazione di applicazioni SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 - [Provare Jamf Pro con Azure AD](https://aad.portal.azure.com/)

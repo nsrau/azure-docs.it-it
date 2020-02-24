@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 2b5bcd0d3bba914b81e305c88a512645c1a1c258
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 57803ec9889cb6a19dae6d6d1070d8381577aff0
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74108504"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468389"
 ---
 # <a name="import-an-openapi-specification"></a>Importare una specifica OpenAPI
 
 Questo articolo illustra come importare un'API back-end "Specifica OpenAPI" che risiede in https://conferenceapi.azurewebsites.net?format=json. Questa API back-end è fornita da Microsoft e ospitata in Azure. e come testare l'API di Gestione API.
 
 > [!IMPORTANT]
-> Vedere questo [documento](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) per informazioni importanti e suggerimenti correlati all'importazione OpenAPI.
+> Vedere questo [documento](https://azure.microsoft.com/blog/announcing-the-preview-of-openapi-specification-v3-support-in-azure-api-management/) per informazioni importanti e suggerimenti correlati all'importazione OpenAPI.
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Importare un'API back-end "Specifica OpenAPI"
@@ -35,7 +35,7 @@ In questo articolo viene spiegato come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Completare l'argomento di avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
+Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -49,7 +49,7 @@ Completare l'argomento di avvio rapido seguente: [Creare un'istanza di Gestione 
 
     ![Creare un'API](./media/api-management-get-started/create-api.png)
 
-    |Impostazione|Valore|DESCRIZIONE|
+    |Impostazione|Valore|Descrizione|
     |---|---|---|
     |**Specifica OpenAPI**|https://conferenceapi.azurewebsites.net?format=json|Fa riferimento al servizio che implementa l'API e corrisponde all'indirizzo a cui Gestione API inoltra le richieste.|
     |**Nome visualizzato**|*Demo Conference API*|Se si preme TAB dopo avere immesso l'URL del servizio, Gestione API compilerà questo campo in base al contenuto del file JSON. <br/>Questo nome viene visualizzato nel portale per sviluppatori.|

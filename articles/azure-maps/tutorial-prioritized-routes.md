@@ -1,20 +1,20 @@
 ---
 title: 'Esercitazione: Trovare più itinerari per modalità di trasporto | Mappe di Microsoft Azure'
-description: In questa esercitazione si apprenderà come trovare itinerari per diverse modalità di trasporto usando Mappe di Microsoft Azure.
-author: walsehgal
-ms.author: v-musehg
+description: Questa esercitazione illustra come trovare itinerari per diverse modalità di trasporto usando Mappe di Microsoft Azure.
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 73cc2ff49653c91d635d52b79a92d1974bfd895b
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 628a3003cec2cc2ca58f1b133cf3236417dfa94e
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989655"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209495"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Esercitazione: Trovare gli itinerari per diverse modalità di trasporto tramite Mappe di Azure
 
@@ -200,7 +200,11 @@ In questa esercitazione verranno calcolati due itinerari e ne verrà eseguito il
 
 ## <a name="render-routes-prioritized-by-mode-of-travel"></a>Classificare i percorsi in ordine di priorità in base alla modalità di trasporto
 
-Questa sezione illustra come usare l'API del servizio di pianificazione itinerari per trovare più itinerari per raggiungere una destinazione da un determinato punto di partenza, in base alla modalità di trasporto. Il servizio di pianificazione itinerari fornisce le API per pianificare l'itinerario *più veloce*, *più breve*, *più ecologico* o *più entusiasmante* tra due punti, considerando le condizioni di traffico in tempo reale. Consente inoltre agli utenti di pianificare percorsi per il futuro usando il database dei dati storici sul traffico di Azure e fornendo stime della durata dei percorsi per qualsiasi giorno e ora. Per altre informazioni, vedere [Get Route Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) (Ottenere le indicazioni stradali). Tutti i blocchi di codice seguenti devono essere aggiunti **all'interno del listener di eventi del caricamento mappa** per garantire che vengano caricati dopo che la mappa è stata caricata completamente.
+Questa sezione mostra come usare l'API del servizio di pianificazione percorso di Mappe di Azure. L'API di pianificazione percorso consente di trovare più percorsi per raggiungere una destinazione da un determinato punto di partenza, in base alla modalità di trasporto. Il servizio di pianificazione percorso fornisce le API per pianificare il percorso *più veloce*, *più breve*, *più ecologico* o *più interessante*. Non solo le API pianificano i percorsi tra due posizioni, ma prendono in considerazione anche le condizioni di traffico correnti. 
+
+Questa API consente inoltre agli utenti di pianificare percorsi per il futuro tramite il database dei dati storici sul traffico di Azure e stimare le durate dei percorsi per un giorno e un'ora specificati. Per altre informazioni, vedere [Get Route Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) (Ottenere le indicazioni stradali). 
+
+Tutti i blocchi di codice seguenti devono essere aggiunti **all'interno del listener di eventi del caricamento mappa** per garantire che vengano caricati dopo che la mappa è stata caricata completamente.
 
 1. Nella funzione GetMap aggiungere il codice JavaScript seguente.
 
@@ -244,7 +248,7 @@ Questa sezione illustra come usare l'API del servizio di pianificazione itinerar
     });
     ```
 
-    Questo frammento di codice sopra indicato esegue query sul servizio di routing di Mappe di Azure tramite il metodo [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest). La linea dell'itinerario viene estratta dalla raccolta di funzionalità GeoJSON dalla risposta ottenuta usando il metodo `geojson.getFeatures()`. La linea di percorso viene quindi aggiunta all'origine dati. Un indice pari a 0 garantisce che ne venga eseguito il rendering prima di tutte le altre linee nell'origine dati. Il calcolo dell'itinerario per gli autocarri sarà infatti spesso più lento rispetto q quello dell'itinerario per le auto, di conseguenza se la linea dell'itinerario per gli autocarri viene aggiunto all'origine dati dopo quello per le auto, ne verrà eseguito il rendering su quest'ultimo. Alla linea dell'itinerario per gli autocarri vengono aggiunte due proprietà, un colore di tratto con sfumatura blu e uno spessore tratto di 9 pixel.
+    Questo frammento di codice sopra indicato esegue query sul servizio di routing di Mappe di Azure tramite il metodo [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest). La linea dell'itinerario viene estratta dalla raccolta di funzionalità GeoJSON dalla risposta ottenuta usando il metodo `geojson.getFeatures()`. La linea di percorso viene quindi aggiunta all'origine dati. Un indice pari a 0 garantisce che ne venga eseguito il rendering prima di tutte le altre linee nell'origine dati. Questo perché il calcolo del percorso per autocarri in genere sarà più lento rispetto al calcolo del percorso per auto. Se la linea del percorso per autocarri viene aggiunta all'origine dati dopo quella del percorso per auto, il rendering verrà eseguito sopra di essa. Alla linea dell'itinerario per gli autocarri vengono aggiunte due proprietà, un colore di tratto con sfumatura blu e uno spessore tratto di 9 pixel.
 
 3. Aggiungere il codice JavaScript seguente per creare l'itinerario per un'auto e visualizzare i risultati.
 
@@ -270,7 +274,7 @@ Questa sezione illustra come usare l'API del servizio di pianificazione itinerar
 
     ![Percorsi classificati in ordine di priorità con il servizio di pianificazione percorso](./media/tutorial-prioritized-routes/prioritized-routes.png)
 
-    L'itinerario per gli autocarri è blu e più è spesso, mentre l'itinerario per le auto è viola e più sottile. L'itinerario per le auto passa attraverso Washington Lake tramite la I-90, che attraversa i tunnel sotto le zone residenziali e pertanto è interdetto ai carichi di rifiuti pericolosi. L'itinerario per gli autocarri, che specifica il tipo di carico USHazmatClass2, suggerisce correttamente di usare un'autostrada diversa.
+    Il percorso per autocarri è una linea spessa blu e il percorso per auto è una linea sottile viola. Il percorso per le auto passa attraverso Washington Lake tramite la I-90, che attraversa i tunnel sotto le zone residenziali e pertanto è vietato per i carichi di rifiuti pericolosi. Il percorso per autocarri, che specifica il tipo di carico USHazmatClass2, suggerisce di usare un'autostrada diversa.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

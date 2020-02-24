@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 60378632a55fe4578bb376a3a00de5efffc5d275
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 870064406c86e9cef6a45dfbe47c61cdaa9ecab0
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976944"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426310"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurare reti virtuali e firewall di Azure Key Vault
 
@@ -27,7 +27,7 @@ Questo articolo contiene istruzioni dettagliate per configurare reti virtuali e 
 Di seguito viene illustrato come configurare firewall e reti virtuali di Key Vault usando il portale di Azure:
 
 1. Passare all'insieme di credenziali delle chiavi che si vuole proteggere.
-2. Selezionare **Firewall e reti virtuali**.
+2. Selezionare **Rete** e quindi selezionare la scheda **Firewall e reti virtuali**.
 3. Selezionare **Reti selezionate** in **Consenti l'accesso da**.
 4. Per aggiungere reti virtuali esistenti ai firewall e alle regole di rete virtuale, selezionare **+ Aggiungi reti virtuali esistenti**.
 5. Nel nuovo pannello che si apre selezionare la sottoscrizione, le reti virtuali e le subnet a cui consentire l'accesso all'insieme di credenziali delle chiavi. Se per le reti virtuali e le subnet selezionate non sono abilitati endpoint di servizio, confermare di voler abilitare gli endpoint di servizio e selezionare **Abilita**. La modifica può richiedere fino a 15 minuti per diventare operativa.
@@ -36,7 +36,7 @@ Di seguito viene illustrato come configurare firewall e reti virtuali di Key Vau
 
 È anche possibile aggiungere nuove reti virtuali e subnet e poi abilitare gli endpoint di servizio per le reti virtuali e le subnet appena create selezionando **+ Aggiungi nuova rete virtuale**. Seguire quindi le istruzioni.
 
-## <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure 
+## <a name="use-the-azure-cli"></a>Usare l'interfaccia della riga di comando di Azure 
 
 Di seguito viene illustrato come configurare firewall e reti virtuali di Key Vault usando l'interfaccia della riga di comando di Azure
 
