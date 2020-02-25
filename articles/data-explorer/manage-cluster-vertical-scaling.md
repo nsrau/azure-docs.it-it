@@ -1,5 +1,5 @@
 ---
-title: Gestire la scalabilità verticale del cluster (aumento delle prestazioni) in Esplora dati di Azure per soddisfare la richiesta di modifica
+title: Gestire la scalabilità verticale del cluster (aumento delle prestazioni) per soddisfare la domanda in Azure Esplora dati
 description: Questo articolo descrive i passaggi per la scalabilità verticale e orizzontale di un cluster Esplora dati di Azure in base alla richiesta di modifica.
 author: radennis
 ms.author: radennis
@@ -7,18 +7,18 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
-ms.openlocfilehash: 80bbdf3a5d936719b06782cd78d56088b36cb21d
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 95275598febae2b6b0355a7bc3e512490dae500d
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67985471"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560440"
 ---
 # <a name="manage-cluster-vertical-scaling-scale-up-in-azure-data-explorer-to-accommodate-changing-demand"></a>Gestire la scalabilità verticale del cluster (aumento delle prestazioni) in Esplora dati di Azure per soddisfare la richiesta di modifica
 
 Ridimensionare un cluster in modo appropriato è fondamentale per garantire le prestazioni di Esplora dati di Azure. La scelta di dimensioni statiche per un cluster può portare al suo sottoutilizzo o sovrautilizzo e nessuna delle due condizioni è ideale.
 
-Poiché la richiesta in un cluster non può essere prevista con una precisione assoluta, un approccio migliore  consiste nel ridimensionare un cluster, aggiungendo e rimuovendo la capacità e le risorse della CPU con la richiesta di modifica. 
+Poiché la richiesta in un cluster non può essere prevista con una precisione assoluta, un approccio migliore consiste nel *ridimensionare* un cluster, aggiungendo e rimuovendo la capacità e le risorse della CPU con la richiesta di modifica. 
 
 Sono disponibili due flussi di lavoro per la scalabilità di un cluster Esplora dati di Azure:
 
@@ -50,5 +50,5 @@ A questo punto è stata configurata la scalabilità verticale per il cluster Esp
 
 * [Gestire la scalabilità orizzontale del cluster](manage-cluster-horizontal-scaling.md) per aumentare in modo dinamico il numero di istanze in base alle metriche specificate.
 
-* Monitorare l'utilizzo delle risorse seguendo questo articolo: [Monitora le prestazioni, l'integrità e l'utilizzo di Azure Esplora dati con le metriche](using-metrics.md).
+* Monitorare l'utilizzo delle risorse seguendo questo articolo: [monitorare le prestazioni, l'integrità e l'utilizzo di Azure Esplora dati con le metriche](using-metrics.md).
 

@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: d39ffa05448600fe3bd09baf6080aa1565ae19ba
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c7e98c31c0db1db3051ad66df6526dcbddb265c5
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843582"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560423"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Eseguire query sui dati in monitoraggio di Azure con Esplora dati di Azure (anteprima)
 
@@ -23,7 +23,7 @@ Il flusso del proxy del Esplora dati di Azure:
 
 ![Flusso proxy ADX](media/adx-proxy/adx-proxy-flow.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 > [!NOTE]
 > Il proxy ADX è in modalità di anteprima. [Connettersi al proxy](#connect-to-the-proxy) per abilitare la funzionalità proxy ADX per i cluster. Contattare il team di [ADXProxy](mailto:adxproxy@microsoft.com) per qualsiasi domanda.
@@ -34,7 +34,7 @@ Il flusso del proxy del Esplora dati di Azure:
 
     ![Cluster nativo ADX](media/adx-proxy/web-ui-help-cluster.png)
 
-1. Nell'interfaccia utente di Azure Esplora dati (https://dataexplorer.azure.com/clusters) selezionare **Aggiungi cluster**.
+1. Nell'interfaccia utente di Azure Esplora dati (https://dataexplorer.azure.com/clusters)selezionare **Aggiungi cluster**.
 
 1. Nella finestra **Aggiungi cluster** aggiungere l'URL al cluster la o di intelligenza artificiale. 
     

@@ -1,0 +1,85 @@
+### YamlMime:Landing
+title: Documentazione di sintesi vocale
+summary: Sintesi vocale dal servizio di riconoscimento vocale consente a applicazioni, strumenti o dispositivi di convertire testo in sintesi vocale.
+metadata:
+  title: Documentazione di sintesi vocale-esercitazioni e informazioni di riferimento sulle API-servizi cognitivi di Azure | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+  ms.openlocfilehash: 64d8c636aa4b0f8b75ba3a6f92d7792c91a9271d
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.translationtype: MT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77562900"
+landingContent:
+- title: Introduzione
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è la sintesi vocale?
+      url: text-to-speech.md
+  - linkListType: quickstart
+    links:
+    - text: Sintetizzare la voce in un altoparlante
+      url: quickstarts/text-to-speech.md
+    - text: Sintetizzare la voce in un file audio
+      url: quickstarts/text-to-speech-audio-file.md
+    - text: Sintetizzare il riconoscimento vocale con audio a lungo termine
+      url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+- title: Guide dettagliate
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Migliorare la sintesi con SSML
+      url: speech-synthesis-markup.md
+    - text: Migliorare la sintesi con Riconoscimento vocale personalizzato
+      url: how-to-custom-voice.md
+    - text: Sintetizzare la voce con l'API di audio lungo
+      url: long-audio-api.md
+    - text: Ottenere un elenco di voci con REST (Python)
+      url: quickstart-python-get-text-to-speech-voices.md
+    - text: Eseguire la sintesi vocale con REST (Python)
+      url: quickstart-python-text-to-speech.md
+    - text: Migliorare la sintesi con la creazione di contenuto audio
+      url: how-to-audio-content-creation.md
+  - linkListType: concept
+    links:
+    - text: Introduzione a Voce personalizzata
+      url: how-to-custom-voice.md
+    - text: Preparare i dati vocali personalizzati
+      url: how-to-custom-voice-prepare-data.md
+    - text: Creare e usare modelli di Voce personalizzata
+      url: how-to-custom-voice-create-voice.md
+    - text: Registrare esempi vocali
+      url: record-custom-voice-samples.md
+    - text: Linee guida per la denominazione delle parole chiave personalizzate
+      url: speech-devices-sdk-kws-guidelines.md
+    - text: Individuazione di parole chiave personalizzate
+      url: speech-devices-sdk-create-kws.md
+    - text: Controllo di Voce personalizzata
+      url: concepts-gating-overview.md
+    - text: Distribuzione della tecnologia sintetica
+      url: concepts-guidelines-responsible-deployment-synthetic.md
+    - text: Linee guida sulla progettazione di informative
+      url: concepts-disclosure-guidelines.md
+    - text: Schemi progettuali per le informative
+      url: concepts-disclosure-patterns.md
+- title: Riferimento
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Supporto per le lingue
+      url: language-support.md#text-to-speech
+    - text: Prezzi
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+    - text: Codice di comportamento
+      url: https://aka.ms/custom-neural-code-of-conduct
+    - text: Informativa per speaker
+      url: https://aka.ms/disclosure-voice-talent

@@ -1,5 +1,5 @@
 ---
-title: Distribuire un sistema di SAP HANA con scalabilità orizzontale con un nodo standby in macchine virtuali di Azure usando Azure NetApp Files in SUSE Linux Enterprise Server | Microsoft Docs
+title: SAP HANA la scalabilità orizzontale con la modalità standby con Azure NetApp Files su SLES | Microsoft Docs
 description: Guida alla disponibilità elevata per SAP NetWeaver in SUSE Linux Enterprise Server con Azure NetApp Files per le applicazioni SAP
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/10/2020
 ms.author: radeltch
-ms.openlocfilehash: 243bbd431b7332d06a4e14581aa5c02bae2b7cba
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c594ef3a62d45fb68002ec2b21fb89115f7a30af
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896283"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565809"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Distribuire un sistema di SAP HANA con scalabilità orizzontale con un nodo standby in macchine virtuali di Azure usando Azure NetApp Files su SUSE Linux Enterprise Server 
 
@@ -86,7 +86,7 @@ Prima di iniziare, vedere le note e i documenti SAP seguenti:
 * [SAP Hana nei sistemi NetApp con NFS (Network File System)](https://www.netapp.com/us/media/tr-4435.pdf): una guida alla configurazione che contiene informazioni su come configurare SAP HANA utilizzando Azure NFS by NetApp
 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Un metodo per ottenere la disponibilità elevata di HANA consiste nel configurare il failover automatico dell'host. Per configurare il failover automatico dell'host, aggiungere una o più macchine virtuali al sistema HANA e configurarle come nodi standby. Quando si verifica un errore nel nodo attivo, il nodo standby assume automaticamente il valore. Nella configurazione presentata con macchine virtuali di Azure si ottiene il failover automatico usando [NFS in Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).  
 

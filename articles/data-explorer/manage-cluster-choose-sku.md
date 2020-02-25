@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
-ms.openlocfilehash: 8293fd2d84189cc1f1df3564abbfdcbf86e3543e
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 2d078f9715a0cfa171f0c88776a4ab78c15215a8
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186743"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561851"
 ---
 # <a name="select-the-correct-vm-sku-for-your-azure-data-explorer-cluster"></a>Selezionare lo SKU di VM corretto per il cluster di Azure Esplora dati 
 
@@ -27,23 +27,23 @@ Le dimensioni e lo SKU di VM del cluster di gestione dati sono completamente ges
 
 Questo articolo descrive le varie opzioni dello SKU di VM e fornisce i dettagli tecnici che consentono di effettuare la scelta migliore.
 
-## <a name="select-a-cluster-type"></a>Selezionare il tipo di cluster
+## <a name="select-a-cluster-type"></a>Selezionare un tipo di cluster
 
 Azure Esplora dati offre due tipi di cluster:
 
-* **Ambiente di produzione**: I cluster di produzione contengono due nodi per il motore e i cluster di gestione dati e vengono gestiti con il [contratto](https://azure.microsoft.com/support/legal/sla/data-explorer/v1_0/)di servizio di Azure Esplora dati.
+* **Produzione**: i cluster di produzione contengono due nodi per i cluster di gestione dei dati e del motore e vengono gestiti con il [contratto](https://azure.microsoft.com/support/legal/sla/data-explorer/v1_0/)di servizio di Azure Esplora dati.
 
-* **Sviluppo/test (senza SLA)** : I cluster di sviluppo/test includono un singolo nodo D11 V2 per il cluster motore e un singolo nodo D1 per il cluster di gestione dati. Questo tipo di cluster è la configurazione di costo più basso a causa del numero di istanze basso e nessun addebito per il markup del motore. Non esiste alcun contratto di servizio per questa configurazione cluster, perché manca la ridondanza.
+* **Sviluppo/test (nessun contratto**di servizio): i cluster di sviluppo/test includono un singolo nodo D11 V2 per il cluster di motore e un singolo nodo D1 per il cluster di gestione dati. Questo tipo di cluster è la configurazione di costo più basso a causa del numero di istanze basso e nessun addebito per il markup del motore. Non esiste alcun contratto di servizio per questa configurazione cluster, perché manca la ridondanza.
 
 ## <a name="sku-types"></a>Tipi di SKU
 
 Quando si crea un cluster di Esplora dati di Azure, selezionare lo SKU di VM *ottimale* per il carico di lavoro pianificato. È possibile scegliere tra le due famiglie di SKU Esplora dati di Azure seguenti:
 
-* **D V2**: Lo SKU D è ottimizzato per il calcolo e presenta due varianti:
+* **D V2**: lo SKU d è ottimizzato per il calcolo e presenta due varianti:
     * Macchina virtuale stessa
     * VM in bundle con dischi di archiviazione Premium
 
-* **LS**: Lo SKU L è ottimizzato per l'archiviazione. Ha una dimensione SSD molto maggiore rispetto allo SKU D con prezzo analogo.
+* **Ls**: lo SKU L è ottimizzato per l'archiviazione. Ha una dimensione SSD molto maggiore rispetto allo SKU D con prezzo analogo.
 
 Nella tabella seguente sono descritte le differenze principali tra i tipi di SKU disponibili:
  
@@ -51,8 +51,8 @@ Nella tabella seguente sono descritte le differenze principali tra i tipi di SKU
 |---|---|---
 |**SKU di piccole dimensioni**|La dimensione minima è D11 con due core|La dimensione minima è L4 con quattro core |
 |**Disponibilità**|Disponibile in tutte le aree (la versione di DS + PS ha una disponibilità più limitata)|Disponibile in alcune aree geografiche |
-|**Costo per&nbsp;GB di cache per core**|Alta con lo SKU D, bassa con la versione DS + PS|Più basso con l'opzione con pagamento in base al consumo |
-|**Prezzi delle istanze riservate**|Sconto elevato (oltre il&nbsp;55% per un impegno di tre anni)|Sconto inferiore (20&nbsp;% per un impegno di tre anni) |  
+|**Costo per cache&nbsp;GB per core**|Alta con lo SKU D, bassa con la versione DS + PS|Più basso con l'opzione con pagamento in base al consumo |
+|**Prezzi delle istanze riservate**|Sconto elevato (oltre 55&nbsp;percentuale per un impegno di tre anni)|Sconto inferiore (20&nbsp;% per un impegno di tre anni) |  
 
 ## <a name="select-your-cluster-vm"></a>Selezionare la macchina virtuale del cluster 
 
@@ -62,22 +62,22 @@ Con varie opzioni di SKU di VM tra cui scegliere, è possibile ottimizzare i cos
 * Se è necessario ottenere prestazioni ottimali per un volume di query elevato, lo SKU ideale dovrebbe essere ottimizzato per il calcolo. 
 * Se è necessario eseguire query su grandi volumi di dati con un carico di query relativamente inferiore, lo SKU ottimizzato per l'archiviazione può aiutare a ridurre i costi e a garantire prestazioni ottimali.
 
-Poiché il numero di istanze per cluster per gli SKU di piccole dimensioni è limitato, è preferibile usare macchine virtuali di dimensioni maggiori con RAM maggiore. È necessaria una maggiore quantità di RAM per alcuni tipi di query che inseriscono più richieste sulla risorsa RAM, `joins`ad esempio query che usano. Pertanto, quando si considerano le opzioni di scalabilità, è consigliabile aumentare il numero di istanze, anziché aumentare il numero di istanze.
+Poiché il numero di istanze per cluster per gli SKU di piccole dimensioni è limitato, è preferibile usare macchine virtuali di dimensioni maggiori con RAM maggiore. È necessaria una maggiore quantità di RAM per alcuni tipi di query che inseriscono più richieste sulla risorsa RAM, ad esempio query che usano `joins`. Pertanto, quando si considerano le opzioni di scalabilità, è consigliabile aumentare il numero di istanze, anziché aumentare il numero di istanze.
 
 ## <a name="vm-options"></a>Opzioni VM
 
 Nella tabella seguente sono descritte le specifiche tecniche per le macchine virtuali del cluster Esplora dati di Azure:
 
-|**Nome**| **Categoria** | **Dimensioni unità SSD** | **Core** | **RAM** | **Dischi di archiviazione Premium (&nbsp;1 TB)**| **Numero minimo di istanze per cluster** | **Numero massimo di istanze per cluster**
+|**Nome**| **Categoria** | **Dimensioni unità SSD** | **Core** | **RAM** | **Dischi di archiviazione Premium (1&nbsp;TB)**| **Numero minimo di istanze per cluster** | **Numero massimo di istanze per cluster**
 |---|---|---|---|---|---|---|---
-|D11 v2| ottimizzato per il calcolo | 75&nbsp;GB    | 2 | 14&nbsp;GB | 0 | 1 | 8 (ad eccezione dello SKU sviluppo/test, che è 1)
+|D11 V2| ottimizzato per il calcolo | 75&nbsp;GB    | 2 | 14&nbsp;GB | 0 | 1 | 8 (ad eccezione dello SKU sviluppo/test, che è 1)
 |D12 v2| ottimizzato per il calcolo | 150&nbsp;GB   | 4 | 28&nbsp;GB | 0 | 2 | 16
 |D13 v2| ottimizzato per il calcolo | 307&nbsp;GB   | 8 | 56&nbsp;GB | 0 | 2 | 1\.000
 |D14 v2| ottimizzato per il calcolo | 614&nbsp;GB   | 16| 112&nbsp;GB | 0 | 2 | 1\.000
 |DS13 v2 + 1&nbsp;TB&nbsp;PS| ottimizzato per l'archiviazione | 1&nbsp;TB | 8 | 56&nbsp;GB | 1 | 2 | 1\.000
 |DS13 v2 + 2&nbsp;TB&nbsp;PS| ottimizzato per l'archiviazione | 2&nbsp;TB | 8 | 56&nbsp;GB | 2 | 2 | 1\.000
 |DS14 V2 + 3&nbsp;TB&nbsp;PS| ottimizzato per l'archiviazione | 3&nbsp;TB | 16 | 112&nbsp;GB | 2 | 2 | 1\.000
-|PS DS14 v2 +&nbsp;4&nbsp;TB| ottimizzato per l'archiviazione | 4&nbsp;TB | 16 | 112&nbsp;GB | 4 | 2 | 1\.000
+|DS14 V2 + 4&nbsp;TB&nbsp;PS| ottimizzato per l'archiviazione | 4&nbsp;TB | 16 | 112&nbsp;GB | 4 | 2 | 1\.000
 |L4S V1| ottimizzato per l'archiviazione | 650&nbsp;GB | 4 | 32&nbsp;GB | 0 | 2 | 16
 |L8s V1| ottimizzato per l'archiviazione | 1,3&nbsp;TB | 8 | 64&nbsp;GB | 0 | 2 | 1\.000
 |L16s_1| ottimizzato per l'archiviazione | 2,6&nbsp;TB | 16| 128&nbsp;GB | 0 | 2 | 1\.000

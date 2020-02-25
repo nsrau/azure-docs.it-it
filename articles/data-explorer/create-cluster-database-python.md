@@ -1,5 +1,5 @@
 ---
-title: Creare un database e un cluster di Esplora dati di Azure tramite Python
+title: Creare un cluster di Azure Esplora dati & database usando Python
 description: Informazioni su come creare un database e un cluster di Esplora dati di Azure usando Python.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 50e050a05fd364a4b1f880e3501b04274ffd360c
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 8425058c9f6ac5b90c37a99f749a810672b406fc
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444231"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560508"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Creare un database e un cluster di Esplora dati di Azure tramite Python
 
@@ -26,23 +26,23 @@ ms.locfileid: "77444231"
 
 In questo articolo viene creato un cluster e un database di Azure Esplora dati usando Python. Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per l'analisi in tempo reale di volumi elevati di dati in streaming provenienti da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, creare prima di tutto un cluster e creare uno o più database in tale cluster. Inserire quindi i dati in un database in modo che sia possibile eseguire query su di essi.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Python 3.4 +](https://www.python.org/downloads/).
+* [Python 3.4+](https://www.python.org/downloads/).
 
 * [Un'applicazione Azure ad e un'entità servizio che possono accedere alle risorse](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Ottiene i valori per `Directory (tenant) ID`, `Application ID`e `Client Secret`.
 
 ## <a name="install-python-package"></a>Installa pacchetto Python
 
-Per installare il pacchetto di Python per Esplora dati di Azure (Kusto), aprire un prompt dei comandi con un percorso contenente Python. Eseguire il comando seguente:
+Per installare il pacchetto di Python per Esplora dati di Azure (Kusto), aprire un prompt dei comandi con un percorso contenente Python. Eseguire questo comando:
 
 ```
 pip install azure-common
 pip install azure-mgmt-kusto
 ```
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 Per eseguire gli esempi in questo articolo, è necessario un Azure AD applicazione e un'entità servizio che possano accedere alle risorse. Selezionare [Crea un'applicazione Azure ad](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) per creare un'applicazione Azure ad gratuita e aggiungere l'assegnazione di ruolo nell'ambito della sottoscrizione. Viene inoltre illustrato come ottenere le `Directory (tenant) ID`, `Application ID`e `Client Secret`.
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Creare il cluster di Esplora dati di Azure
@@ -86,7 +86,7 @@ Per eseguire gli esempi in questo articolo, è necessario un Azure AD applicazio
    |---|---|---|
    | cluster_name | *mykustocluster* | Nome del cluster.|
    | sku_name | *Standard_D13_v2* | SKU usato per il cluster. |
-   | livello | *Standard* | Livello SKU. |
+   | Livello | *Standard* | Livello SKU. |
    | capacity | *number* | Numero di istanze del cluster. |
    | resource_group_name | *testrg* | Il nome del gruppo di risorse in cui verrà creato il cluster. |
 
@@ -128,7 +128,7 @@ Se il risultato contiene `provisioningState` con il valore `Succeeded`, il clust
    |**Impostazione** | **Valore consigliato** | **Descrizione campo**|
    |---|---|---|
    | cluster_name | *mykustocluster* | Nome del cluster in cui verrà creato il database.|
-   | database_name | *mykustodatabase* | Il nome del database.|
+   | database_name | *mykustodatabase* | Nome del database.|
    | resource_group_name | *testrg* | Il nome del gruppo di risorse in cui verrà creato il cluster. |
    | soft_delete_period | *3650 giorni, 0:00:00* | Periodo di tempo in cui i dati verranno mantenuti disponibili in modo che sia possibile eseguire una query. |
    | hot_cache_period | *3650 giorni, 0:00:00* | Periodo di tempo in cui i dati verranno conservati nella cache. |

@@ -16,12 +16,12 @@ ms.author: arjay
 ms.reviewer: arjay
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f500f662db11aaa63548f7d19ace00553d5159af
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: f2a01b74212e51dd7b5c31ffb59707068211c6d4
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547558"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562225"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Nomi dei prodotti e identificatori dei piani di servizio per le licenze
 
@@ -29,14 +29,14 @@ Quando si gestiscono [le](https://portal.azure.com/#blade/Microsoft_AAD_IAM/Lice
 
 - **Nome prodotto**: usato nei portali di gestione
 - **ID stringa**: utilizzato dai cmdlet di PowerShell 1.0 quando si eseguono operazioni sulle licenze
-- **GUID**: GUID usato da Azure AD Graph e Microsoft Graph
+- **GUID**: GUID usato dall'API Microsoft Graph
 - **Piani di servizio inclusi**: un elenco di piani di servizio nel prodotto che corrispondono all'ID stringa e al GUID
 - **Piani di servizio inclusi (nomi descrittivi)** : un elenco di piani di servizio (nomi descrittivi) nel prodotto che corrispondono all'ID stringa e al GUID
 
 >[!NOTE]
 >Queste informazioni sono accurate a partire dal 20 dicembre 2019.
 
-| Nome del prodotto | ID stringa | GUID | Piani di servizio inclusi | Piani di servizio inclusi (nomi descrittivi) |
+| Nome prodotto | ID stringa | GUID | Piani di servizio inclusi | Piani di servizio inclusi (nomi descrittivi) |
 | --- | --- | --- |--- | --- |
 | AUDIOCONFERENZA | MCOMEETADV | 0c266dff-15dd-4b49-8397-2bb16070ed52 |MCOMEETADV (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40) | AUDIOCONFERENZA (3e26ee1f-8a5f-4D52-aee2-b81ce45c8f40) |
 | AZURE ACTIVE DIRECTORY BASIC  | AAD_BASIC | 2b9c8e7c-319c-43a2-a2a0-48c5c6161de7  | AAD_BASIC (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe) | MICROSOFT AZURE ACTIVE DIRECTORY BASIC (c4da7f8a-5ee2-4C99-a7e1-87d2df57f6fe) |
@@ -79,7 +79,7 @@ Quando si gestiscono [le](https://portal.azure.com/#blade/Microsoft_AAD_IAM/Lice
 | MICROSOFT DYNAMICS CRM ONLINE BASIC   | CRMPLAN2  | 906af65a-2970-46d5-9b58-4e9aa50f0657  | CRMPLAN2 (bf36ca64-95c6-4918-9275-eb9f4ce2c04f)<br/>FLOW_DYN_APPS (7e6d7d78-73de-46ba-83b1-6d25117334ba)<br/>POWERAPPS_DYN_APPS (874fc546-6efe-4d22-90b8-5c4e7aa59f4b) | MICROSOFT DYNAMICS CRM ONLINE BASIC (bf36ca64-95c6-4918-9275-eb9f4ce2c04f)<br/>Microsoft FLOW per DYNAMICS 365 (7e6d7d78-73de-46ba-83b1-6d25117334ba)<br/>POWERAPPS per DYNAMICS 365 (874fc546-6efe-4D22-90b8-5c4e7aa59f4b) |
 | MICROSOFT DYNAMICS CRM ONLINE | CRMSTANDARD   | d17b27af-3f49-4822-99f9-56a661538792  | CRMSTANDARD (f9646fb2-e3b2-4309-95de-dc4833737456)<br/>FLOW_DYN_APPS (7e6d7d78-73de-46ba-83b1-6d25117334ba)<br/>MDM_SALES_COLLABORATION (3413916e-ee66-4071-be30-6f94d4adfeda)<br/>NBPROFESSIONALFORCRM (3e58e97c-9abe-ebab-cd5f-d543d1529634)<br/>POWERAPPS_DYN_APPS (874fc546-6efe-4d22-90b8-5c4e7aa59f4b) | MICROSOFT DYNAMICS CRM ONLINE PROFESSIONAL (f9646fb2-e3b2-4309-95DE-dc4833737456)<br/>Microsoft FLOW per DYNAMICS 365 (7e6d7d78-73de-46ba-83b1-6d25117334ba)<br/>MICROSOFT DYNAMICS MARKETING SALES COLLABORAtion-criteri di IDONEità applicare (3413916e-ee66-4071-be30-6f94d4adfeda)<br/>MICROSOFT SOCIAL ENGAGEMENT PROFESSIONAL-criteri di IDONEità applicabili (3e58e97c-9abe-ebab-cd5f-d543d1529634)<br/>POWERAPPS per DYNAMICS 365 (874fc546-6efe-4D22-90b8-5c4e7aa59f4b) |
 | MS IMAGINE ACADEMY    | IT_ACADEMY_AD | ba9a34de-4489-469d-879c-0f0f145321cd  | IT_ACADEMY_AD (d736def0-1fde-43f0-a5be-e3f8b2de6e41) | MS IMAGINe ACADEMY (d736def0-1fde-43f0-a5be-e3f8b2de6e41) |
-| Office 365 Advanced Compliance | EQUIVIO_ANALYTICS | 1b1b1f7a-8355-43b6-829f-336cfccb744c | LOCKBOX_ENTERPRISE (9f431833-0334-42de-a7dc-70aa40db46db)<br/>INFORMATION_BARRIERS (c4801e8a-cb58-4C35-aca6-f2dcc106f287)<br/>MIP_S_CLP2 (efb0351d-3b08-4503-993D-383af8de41e3)<br/>EQUIVIO_ANALYTICS (4de31727-a228-4ec3-a5bf-8e45b5ca48cc)<br/>PAM_ENTERPRISE (b1188c4c-1b36-4018-B48B-ee07604f6feb)<br/>PREMIUM_ENCRYPTION (617b097b-4B93-4EDE-83de-5f075bb5fb2f) | Customer Lockbox (9f431833-0334-42DE-A7DC-70aa40db46db)<br/>Barriere informative (c4801e8a-cb58-4C35-aca6-f2dcc106f287)<br/>Information Protection per Office 365-Premium (efb0351d-3b08-4503-993D-383af8de41e3)<br/>Office 365 Advanced eDiscovery (4de31727-A228-4EC3-a5bf-8e45b5ca48cc)<br/>Office 365 Privileged Access Management (b1188c4c-1b36-4018-B48B-ee07604f6feb)<br/>Crittografia Premium in Office 365 (617b097b-4B93-4EDE-83de-5f075bb5fb2f) |
+| Conformità avanzata a Office 365 | EQUIVIO_ANALYTICS | 1b1b1f7a-8355-43b6-829f-336cfccb744c | LOCKBOX_ENTERPRISE (9f431833-0334-42de-a7dc-70aa40db46db)<br/>INFORMATION_BARRIERS (c4801e8a-cb58-4C35-aca6-f2dcc106f287)<br/>MIP_S_CLP2 (efb0351d-3b08-4503-993D-383af8de41e3)<br/>EQUIVIO_ANALYTICS (4de31727-a228-4ec3-a5bf-8e45b5ca48cc)<br/>PAM_ENTERPRISE (b1188c4c-1b36-4018-B48B-ee07604f6feb)<br/>PREMIUM_ENCRYPTION (617b097b-4B93-4EDE-83de-5f075bb5fb2f) | Customer Lockbox (9f431833-0334-42DE-A7DC-70aa40db46db)<br/>Barriere informative (c4801e8a-cb58-4C35-aca6-f2dcc106f287)<br/>Information Protection per Office 365-Premium (efb0351d-3b08-4503-993D-383af8de41e3)<br/>Office 365 Advanced eDiscovery (4de31727-A228-4EC3-a5bf-8e45b5ca48cc)<br/>Office 365 Privileged Access Management (b1188c4c-1b36-4018-B48B-ee07604f6feb)<br/>Crittografia Premium in Office 365 (617b097b-4B93-4EDE-83de-5f075bb5fb2f) |
 | Office 365 Advanced Threat Protection (piano 1) | ATP_ENTERPRISE | 4ef96642-f096-40de-a3e9-d83fb2f90211 | ATP_ENTERPRISE (f20fedf3-f3c3-43C3-8267-2bfdd51c0939) | Office 365 Advanced Threat Protection (piano 1) (f20fedf3-f3c3-43C3-8267-2bfdd51c0939) |
 | OFFICE 365 BUSINESS   | O365_BUSINESS | cdd28e44-67e3-425e-be4c-737fab2899d3  | FORMS_PLAN_E1 (159f4cd6-e380-449f-a816-af1a9ef76344)<br/>OFFICE_BUSINESS (094e7854-93fc-4d55-b2c0-3ab5369ebdc1)<br/>ONEDRIVESTANDARD (13696edf-5a08-49f6-8134-03083ed8ba30)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97) | MICROSOFT FORMS (PLAN E1) (159f4cd6-e380-449f-a816-af1a9ef76344)<br/>OFFICE 365 BUSINESS (094e7854-93fc-4D55-B2C0-3ab5369ebdc1)<br/>ONEDRIVESTANDARD (13696edf-5a08-49f6-8134-03083ed8ba30)<br/>OFFICE ONLINE (e95bec33-7c88-4a70-8E19-b10bd9d0c014)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97) |
 | OFFICE 365 BUSINESS   | SMB_BUSINESS  | b214fe43-f5a3-4703-beeb-fa97188220fc  | FORMS_PLAN_E1 (159f4cd6-e380-449f-a816-af1a9ef76344)<br/>OFFICE_BUSINESS (094e7854-93fc-4d55-b2c0-3ab5369ebdc1)<br/>ONEDRIVESTANDARD (13696edf-5a08-49f6-8134-03083ed8ba30)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97) | MICROSOFT FORMS (PLAN E1) (159f4cd6-e380-449f-a816-af1a9ef76344)<br/>OFFICE 365 BUSINESS (094e7854-93fc-4D55-B2C0-3ab5369ebdc1)<br/>ONEDRIVESTANDARD (13696edf-5a08-49f6-8134-03083ed8ba30)<br/>OFFICE ONLINE (e95bec33-7c88-4a70-8E19-b10bd9d0c014)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97) |

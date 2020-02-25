@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: fdcaa7d8eec0065ad9acd76df9918ed7bccc081b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 07537d3d67e41f7e1179a709ffa19f3d84aa4539
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895866"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565826"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Riproduzione di contenuti con i lettori esistenti
 Servizi multimediali di Azure supporta molti formati di streaming noti, ad esempio Smooth Streaming, HTTP Live Streaming (HLS) e MPEG-DASH. Questo argomento descrive i lettori esistenti che possono essere usati per testare i propri flussi.
@@ -60,19 +60,16 @@ Usare il [lettore multimediale di Azure](https://aka.ms/azuremediaplayer) per ri
 
 [https://dashif.org](https://dashif.org)
 
-### <a name="other"></a>Altro
+### <a name="other"></a>Altri
 Per testare gli URL HLS è inoltre possibile usare:
 
 * **Safari** in un dispositivo iOS o
 * **Lettore HLS 3ivx** in un dispositivo Windows.
 
-## <a name="developing-video-players"></a>Sviluppo di lettori video
-Per informazioni su come sviluppare i propri lettori, vedere [Sviluppo di lettori di contenuti video](media-services-develop-video-players.md)
-
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png

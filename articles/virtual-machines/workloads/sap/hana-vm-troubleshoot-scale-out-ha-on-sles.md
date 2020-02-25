@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi di scale-out SAP HANA 2.0 con impostazione HSR-Pacemaker su SLES 12 SPE3 in macchine virtuali Azure | Microsoft Docs
+title: SAP HANA con scalabilità orizzontale HSR-pacemaker con SLES in macchine virtuali di Azure risoluzione dei problemi | Microsoft Docs
 description: Informazioni per verificare e risolvere i problemi relativi a una complessa configurazione di tipo scale-out a disponibilità elevata per SAP HANA, basata su SAP HANA System Replication (HSR) e Pacemaker, su SLES 12 SP3 in esecuzione su macchine virtuali di Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 299fba8a082f19f17ab581a6ac2bfac9fd3f8cf1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fb90bfff72f41d8d7ccc34d3ad6dd0e9206bb88e
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099670"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566234"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verificare e risolvere i problemi di impostazione di tipo scale-out a disponibilità elevata per SAP HANA su SLES 12 SP3 
 
@@ -725,7 +725,7 @@ Transition Summary:
 ## <a name="planned-maintenance"></a>Manutenzione pianificata 
 
 Esistono diversi casi d'uso della manutenzione pianificata. Può ad esempio trattarsi semplicemente di attività di manutenzione dell'infrastruttura, come le modifiche a livello di sistema operativo e configurazione del disco o un aggiornamento di HANA.
-È possibile trovare informazioni aggiuntive nei documenti di SUSE, ad esempio per il tempo di inattività o lo scenario ottimizzato [per][sles-zero-downtime-paper] le [prestazioni SAP Hana SR][sles-12-for-sap]. Questi documenti includono anche esempi di come eseguire manualmente la migrazione di un sito primario.
+È possibile trovare informazioni aggiuntive nei documenti di SUSE, ad esempio per il tempo di [inattività][sles-zero-downtime-paper] o lo [scenario ottimizzato per le prestazioni SAP Hana SR][sles-12-for-sap]. Questi documenti includono anche esempi di come eseguire manualmente la migrazione di un sito primario.
 
 Sono stati eseguiti intensi test interni per verificare il caso d'uso di manutenzione dell'infrastruttura. Per evitare problemi correlati alla migrazione del sito primario, è stato deciso di eseguire sempre la migrazione di un sito primario prima di impostare un cluster in modalità di manutenzione. In questo modo, non è necessario far dimenticare al cluster come era la situazione precedente, ovvero la distinzione tra il sito primario e quello secondario.
 

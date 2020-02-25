@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: cdf07c6a4cb98f17a9bc15934a7be42ba70810f6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f61b6193a0d2082296a17128b41d7220f9b7e05f
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840452"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565894"
 ---
 # <a name="azure-identity-management-security-overview"></a>Informazioni generali sulla sicurezza della gestione delle identità di Azure
 
@@ -38,19 +38,19 @@ L'obiettivo di questo articolo è offrire informazioni generali sulle funzionali
 
 Questo articolo è incentrato sulle seguenti funzionalità principali di gestione delle identità di Azure:
 
-* Single Sign-On
+* Single sign-on
 * Proxy inverso
-* Autenticazione a più fattori
+* Multi-Factor Authentication
 * Controllo degli accessi in base al ruolo (RBAC)
 * Monitoraggio della sicurezza, avvisi e report basati su Machine Learning
-* Gestione di identità e accessi degli utenti
+* Gestione delle identità e dell'accesso degli utenti
 * Registrazione del dispositivo
-* Gestione dell’identità con privilegi
-* Protezione dell’identità
+* Privileged Identity Management
+* Identity Protection
 * Soluzione ibrida di gestione delle identità/Azure AD Connect
 * Verifiche di accesso di Azure AD
 
-## <a name="single-sign-on"></a>Single Sign-On
+## <a name="single-sign-on"></a>Single sign-on
 
 L'accesso SSO consente di accedere a tutte le applicazioni e le risorse necessarie per le attività aziendali effettuando l'accesso una sola volta con un singolo account utente. Dopo aver effettuato l'accesso, è possibile accedere a tutte le applicazioni necessarie senza dover ripetere una seconda volta l'autenticazione (ad esempio, digitando una password).
 
@@ -64,7 +64,7 @@ Altre informazioni:
 
 * [Overview of Single Sign-On](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) (Informazioni generali su Single Sign-On)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../../active-directory/manage-apps/what-is-single-sign-on.md)
-* [Integrare i servizi Single Sign-On di Azure Active Directory nelle app SaaS](../../active-directory/manage-apps/configure-single-sign-on-portal.md)
+* [Integrare i servizi Single Sign-On di Azure Active Directory nelle app SaaS](../../active-directory/manage-apps/configure-single-sign-on-non-gallery-applications.md)
 
 ## <a name="reverse-proxy"></a>Proxy inverso
 
@@ -77,13 +77,13 @@ Altre informazioni:
 * [Delega vincolata Kerberos per l'accesso Single Sign-On alle app con il proxy di applicazione](../../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 * [Utilizzo dell'accesso condizionale](../../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
-## <a name="multi-factor-authentication"></a>Autenticazione a più fattori
+## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
 Azure Multi-Factor Authentication è un metodo di autenticazione che richiede l'uso di più metodi di verifica e aggiunge un secondo livello di sicurezza critico agli accessi e alle transazioni degli utenti. Multi-Factor Authentication permette di proteggere l'accesso ai dati e alle applicazioni, garantendo al tempo stesso agli utenti una procedura di accesso semplice. Offre l'autenticazione avanzata tramite diverse opzioni di verifica, ad esempio una telefonata, un SMS, una notifica o un codice di verifica dell'app per dispositivi mobili e token OAuth di terze parti.
 
 Altre informazioni:
 
-* [Autenticazione a più fattori](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
+* [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 * [Informazioni su Azure Multi-Factor Authentication](/azure/active-directory/authentication/multi-factor-authentication)
 * [Come funziona Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 
@@ -114,7 +114,7 @@ Altre informazioni:
 * [Introduzione ad Azure Active Directory Reporting](/azure/active-directory/active-directory-reporting-getting-started)
 * [Guida alla creazione di report in Azure Active Directory](/azure/active-directory/active-directory-reporting-guide)
 
-## <a name="consumer-identity-and-access-management"></a>Gestione di identità e accessi degli utenti
+## <a name="consumer-identity-and-access-management"></a>Gestione delle identità e dell'accesso degli utenti
 
 Azure Active Directory B2C è un servizio di gestione delle identità globale a disponibilità elevata per le applicazioni rivolte agli utenti, con scalabilità fino a centinaia di milioni di identità. Il servizio può essere integrato tra piattaforme mobili e Web. Gli utenti possono accedere a tutte le applicazioni attraverso esperienze personalizzabili usando gli account dei propri social network esistenti o creando nuove credenziali.
 
@@ -140,7 +140,7 @@ Altre informazioni:
 * [Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows aggiunti a un dominio](/azure/active-directory/active-directory-conditional-access-automatic-device-registration)
 * [Come configurare la registrazione automatica dei dispositivi Windows con Azure Active Directory aggiunti a un dominio](/azure/active-directory/active-directory-conditional-access-automatic-device-registration-setup)
 
-## <a name="privileged-identity-management"></a>Gestione dell’identità con privilegi
+## <a name="privileged-identity-management"></a>Privileged Identity Management
 
 Con Azure Active Directory Privileged Identity Management è possibile gestire, controllare e monitorare le identità con privilegi e l'accesso alle risorse in Azure AD e in altri Servizi online di Microsoft Online Services, come Office 365 o Microsoft Intune.
 
@@ -158,7 +158,7 @@ Altre informazioni:
 * [Che cos'è Azure AD Privileged Identity Management?](../../active-directory/privileged-identity-management/pim-configure.md)
 * [Assegnare ruoli della directory di Azure AD in PIM](../../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
-## <a name="identity-protection"></a>Protezione dell’identità
+## <a name="identity-protection"></a>Identity Protection
 
 Azure AD Identity Protection è un servizio di sicurezza che offre una visualizzazione consolidata dei rilevamenti dei rischi e delle potenziali vulnerabilità che interessano le identità dell'organizzazione. Identity Protection trae vantaggio dalle funzionalità di rilevamento anomalie di Azure AD, disponibili tramite i report di Anomalie dell'attività di Azure AD. Identity Protection introduce anche nuovi tipi di rilevamento del rischio in grado di rilevare le anomalie in tempo reale.
 

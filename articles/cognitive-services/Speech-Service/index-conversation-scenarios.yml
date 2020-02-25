@@ -1,0 +1,55 @@
+### YamlMime:Landing
+title: Documentazione sugli scenari di conversazione
+summary: Esplorare i vari scenari di conversazione, la trascrizione delle conversazioni o la conversazione per più dispositivi.
+metadata:
+  title: Documentazione sugli scenari di conversazione-esercitazioni e informazioni di riferimento sulle API-servizi cognitivi di Azure | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+  ms.openlocfilehash: d6ea318c2745f7d80a49e5fcb1b47381a9f276f7
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.translationtype: MT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77562955"
+landingContent:
+- title: Trascrizione conversazione
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni sulla trascrizione delle conversazioni
+      url: conversation-transcription.md
+  - linkListType: how-to-guide
+    links:
+    - text: Trascrivere una conversazione in tempo reale
+      url: how-to-use-conversation-transcription.md
+    - text: Trascrivere le conversazioni in modo asincrono
+      url: how-to-async-conversation-transcription.md
+    - text: Gestisci scenari Call Center
+      url: call-center-transcription.md
+- title: Conversazione per più dispositivi
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni su conversazione per più dispositivi
+      url: multi-device-conversation.md
+  - linkListType: quickstart
+    links:
+    - text: Avviare a una conversazione e parteciparvi
+      url: quickstarts/multi-device-conversation.md
+- title: Riferimento
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Supporto del linguaggio di trascrizione delle conversazioni
+      url: conversation-transcription.md#language-support
+    - text: Supporto del linguaggio di conversazione per più dispositivi
+      url: multi-device-conversation.md#language-support
+    - text: Prezzi
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/

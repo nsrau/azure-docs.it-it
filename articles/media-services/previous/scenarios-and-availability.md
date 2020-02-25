@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ef8596d8dcc9502f590c55223f207e71f5b91cf6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 4766f22cd84b2aab00f6dcc4064dbeea8018f694
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843940"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77564969"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenari e disponibilità delle funzionalità di Servizi multimediali nei data center
 
@@ -31,9 +31,9 @@ Servizi multimediali di Azure è compatibile con svariati data center in tutto i
 
 Questo argomento illustra scenari comuni per la distribuzione di contenuti [live](#live_scenarios) o su richiesta. e include anche informazioni dettagliate sulla disponibilità delle funzionalità e dei servizi multimediali nei data center.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
 Per iniziare a utilizzare Servizi multimediali di Azure, è necessario disporre di quanto segue:
 
@@ -137,7 +137,7 @@ Per informazioni sulla disponibilità nei data center, vedere la sezione relativ
 
 ## <a name="consuming-content"></a>Utilizzo di contenuto
 
-Servizi multimediali di Azure fornisce gli strumenti necessari per creare applicazioni lettore client avanzate e dinamiche per la maggior parte delle piattaforme, inclusi dispositivi iOS, dispositivi Android, Windows, Windows Phone, Xbox e set-top box. Il seguente argomento fornisce collegamenti a SDK e Player Framework che è possibile usare per sviluppare le proprie applicazioni client in modo che utilizzino i flussi multimediali da Servizi multimediali. Per altre informazioni, vedere [Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md).
+Servizi multimediali di Azure fornisce gli strumenti necessari per creare applicazioni lettore client avanzate e dinamiche per la maggior parte delle piattaforme, inclusi dispositivi iOS, dispositivi Android, Windows, Windows Phone, Xbox e set-top box. 
 
 ## <a name="enabling-azure-cdn"></a>Abilitazione della rete CDN di Azure
 
@@ -179,8 +179,8 @@ I clienti di Servizi multimediali possono scegliere un endpoint di streaming **S
 
 |Nome|Stato|Data center
 |---|---|---|
-|Standard|Disponibilità a livello generale|Tutto|
-|Premium|Disponibilità a livello generale|Tutto|
+|Standard|GA|Tutti|
+|Premium|GA|Tutti|
 
 ### <a name="live-encoding"></a>Codifica live
 
@@ -196,8 +196,8 @@ AMS offre due codificatori su richiesta: **Media Encoder Standard** e **Flusso d
 
 |Nome processore di contenuti multimediali|Stato|Data center
 |---|---|---|
-|Codificatore multimediale standard|Disponibilità a livello generale|Tutto|
-|Flusso di lavoro Premium del codificatore multimediale|Disponibilità a livello generale|Tutti tranne Cina|
+|Codificatore multimediale standard|GA|Tutti|
+|Flusso di lavoro Premium del codificatore multimediale|GA|Tutti tranne Cina|
 
 ### <a name="analytics-media-processors"></a>Processori di contenuti multimediali di analisi
 
@@ -207,12 +207,12 @@ Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e 
 
 |Nome processore di contenuti multimediali|Stato|Data center
 |---|---|---|
-|Rilevamento multimediale volti di Azure|Anteprima|Tutto|
-|Azure Media Indexer|Disponibilità a livello generale|Tutto|
-|Rilevatore multimediale di movimento Azure|Anteprima|Tutto|
-|Riconoscimento ottico dei caratteri multimediale di Azure|Anteprima|Tutto|
-|Azure Media Redactor|Disponibilità a livello generale|Tutto|
-|Anteprime video multimediali di Azure|Anteprima|Tutto|
+|Rilevamento multimediale volti di Azure|Anteprima|Tutti|
+|Azure Media Indexer|GA|Tutti|
+|Rilevatore multimediale di movimento Azure|Anteprima|Tutti|
+|Riconoscimento ottico dei caratteri multimediale di Azure|Anteprima|Tutti|
+|Azure Media Redactor|GA|Tutti|
+|Anteprime video multimediali di Azure|Anteprima|Tutti|
 
 ### <a name="protection"></a>Protezione
 
@@ -222,11 +222,11 @@ Servizi multimediali di Microsoft Azure consente di proteggere i file multimedia
 
 |Crittografia|Stato|Data center|
 |---|---|---| 
-|Archiviazione|Disponibilità a livello generale|Tutto|
-|Chiavi AES-128|Disponibilità a livello generale|Tutto|
-|Fairplay|Disponibilità a livello generale|Tutto|
-|PlayReady|Disponibilità a livello generale|Tutto|
-|Widevine|Disponibilità a livello generale|Tutti tranne Germania, Governo federale e Cina.
+|Archiviazione|GA|Tutti|
+|Chiavi AES-128|GA|Tutti|
+|Fairplay|GA|Tutti|
+|PlayReady|GA|Tutti|
+|Widevine|GA|Tutti tranne Germania, Governo federale e Cina.
 
 ### <a name="reserved-units-rus"></a>Unità riservate
 
@@ -248,9 +248,9 @@ Per altre informazioni, vedere la sezione relativa al [ridimensionamento](#scali
 
 |Nome tipo di unità riservata|Stato|Data center
 |---|---|---|
-|S1|Disponibilità a livello generale|Tutto|
-|S2|Disponibilità a livello generale|Tutti tranne Brasile meridionale e India occidentale|
-|S3|Disponibilità a livello generale|Tutti tranne India occidentale|
+|S1|GA|Tutti|
+|S2|GA|Tutti tranne Brasile meridionale e India occidentale|
+|S3|GA|Tutti tranne India occidentale|
 
 ## <a name="additional-notes"></a>Note aggiuntive
 
@@ -262,6 +262,6 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

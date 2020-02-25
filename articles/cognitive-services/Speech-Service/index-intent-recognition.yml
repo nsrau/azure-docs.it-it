@@ -1,0 +1,45 @@
+### YamlMime:Landing
+title: Documentazione sul riconoscimento preventivo
+summary: Il riconoscimento preventivo con i servizi di riconoscimento vocale e di Language Understanding (LUIS) consente la trascrizione in tempo reale dei flussi audio in testo, identificando allo stesso tempo entità e finalità.
+metadata:
+  title: Documentazione sul riconoscimento preventivo-esercitazioni e informazioni di riferimento sulle API-servizi cognitivi di Azure | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+  ms.openlocfilehash: 278dc182b682615d621bfd8a891cc77591a511f1
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.translationtype: MT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77562845"
+landingContent:
+- title: Introduzione
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Riconoscere la voce, le finalità e le entità
+      url: quickstarts/intent-recognition.md
+- title: Guide dettagliate
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Riconosci gli Intent vocali con LUIS eC#
+      url: how-to-recognize-intents-from-speech-csharp.md
+- title: Riferimento
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Portale di Language Understanding (LUIS)
+      url: https://www.luis.ai
+    - text: Risorse per sviluppatori LUIS
+      url: ../luis/developer-reference-resource.md
+    - text: Supporto per le lingue
+      url: ../luis/luis-language-support.md#languages-supported
+    - text: Prezzi
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services

@@ -1,23 +1,23 @@
 ---
-title: Che cos'è la conversazione multidispositivo (anteprima)-servizio di riconoscimento vocale
+title: Informazioni su conversazione per più dispositivi (anteprima)-servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
-author: ralphe
-manager: cpoulain
+author: IEvangelist
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 1/15/2020
-ms.author: ralphe
-ms.openlocfilehash: 8d73c896f784507c2336a79130ff5f35aa61d30f
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.date: 01/31/2020
+ms.author: dapine
+ms.openlocfilehash: d94b3392d6bd5ab539d49c8a4cfdd568fbbb1cd0
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76268075"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560814"
 ---
-# <a name="what-is-multi-device-conversation-preview"></a>Che cos'è la conversazione per più dispositivi (anteprima)?
+# <a name="about-multi-device-conversation-preview"></a>Informazioni su conversazione per più dispositivi (anteprima)
 
 La **conversazione multi-dispositivo** semplifica la creazione di una conversazione vocale o di testo tra più client e coordina i messaggi inviati tra di essi.
 
@@ -34,7 +34,7 @@ Mentre la [**trascrizione delle conversazioni**](conversation-transcription.md) 
 >[!IMPORTANT]
 > La conversazione su più dispositivi **non supporta l'** invio di file audio tra i client: solo la trascrizione e/o la traduzione.
 
-## <a name="key-features"></a>Caratteristiche principali
+## <a name="key-features"></a>Funzionalità principali
 
 - **Trascrizione in tempo reale** : tutti gli utenti riceveranno una trascrizione della conversazione, in modo da poter seguire il testo in tempo reale o salvarlo per un momento successivo.
 - **Traduzione in tempo reale** : con più di 60 [lingue supportate](language-support.md#text-languages) per la traduzione di testo, gli utenti possono tradurre la conversazione nelle lingue preferite.
@@ -62,7 +62,7 @@ La trascrizione e la traduzione in tempo reale consentono di rendere le conversa
 > [!NOTE]
 > Per un esempio, vedere Translator di [presentazione](https://www.microsoft.com/translator/apps/presentation-translator/), un componente aggiuntivo di PowerPoint che usa il servizio di conversazione per più dispositivi. È possibile scaricarlo [qui](https://www.microsoft.com/download/details.aspx?id=55024).
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Tutti i client utilizzeranno l'SDK vocale per creare o partecipare a una conversazione. L'SDK di riconoscimento vocale interagisce con il servizio di conversazione per più dispositivi, che gestisce la durata di una conversazione, incluso l'elenco dei partecipanti, le lingue selezionate di ogni client e i messaggi inviati.  
 
@@ -98,7 +98,7 @@ Un **partecipante** è un utente che partecipa a una conversazione.
 > [!NOTE]
 > Ogni conversazione può avere fino a 100 partecipanti, di cui 10 possono essere pronunciate contemporaneamente in un determinato momento.
 
-## <a name="language-support"></a>Supporto delle lingue
+## <a name="language-support"></a>Supporto per le lingue
 
 Quando si crea o si aggiunge una conversazione, ogni utente deve scegliere una **lingua primaria**: la lingua in cui verranno pronunciate e invierà messaggi istantanei e anche la lingua in cui verranno visualizzati i messaggi di altri utenti.
 

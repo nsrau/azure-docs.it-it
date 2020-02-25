@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 6ad8726e61f4f8e79cfa9c437b3f0ea876b55e27
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 193227ff98accb31c15e388c810aea7460a2cb5d
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425477"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561664"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-portal"></a>Creare e gestire un collegamento privato per database di Azure per MySQL (anteprima) con il portale
 
@@ -35,39 +35,39 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
 1. Nella parte superiore sinistra della schermata, selezionare **Crea una risorsa** > **Rete** > **Rete virtuale**.
 2. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
-    | Name | Immettere *MyVirtualNetwork*. |
+    | Nome | Immettere *MyVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
     | Subscription | Selezionare la propria sottoscrizione.|
-    | Gruppo di risorse | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
+    | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
     | Location | Selezionare **Europa occidentale**.|
     | Subnet - Nome | Immettere *mySubnet*. |
     | Subnet - Intervallo di indirizzi | Immettere *10.1.0.0/24*. |
     |||
 3. Lasciare le altre impostazioni sui valori predefiniti e selezionare **Crea**.
 
-### <a name="create-virtual-machine"></a>Creazione della macchina virtuale
+### <a name="create-virtual-machine"></a>Creare la macchina virtuale
 
 1. Nella parte superiore sinistra della schermata del portale di Azure selezionare **Crea una risorsa** > **Calcolo** > **Macchina virtuale**.
 
 2. In **Creare una macchina virtuale - Informazioni di base**, immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
     | Subscription | Selezionare la propria sottoscrizione. |
-    | Gruppo di risorse | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.  |
+    | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.  |
     | **DETTAGLI DELL'ISTANZA** |  |
     | Nome macchina virtuale | Immettere *myVm*. |
     | Region | Selezionare **Europa occidentale**. |
     | Opzioni di disponibilità | Lasciare l'impostazione predefinita **Nessuna ridondanza dell'infrastruttura necessaria**. |
-    | Immagine | Selezionare **Windows Server 2019 Datacenter**. |
+    | Image | Selezionare **Windows Server 2019 Datacenter**. |
     | Dimensione | Lasciare l'impostazione predefinita **DS1 Standard v2**. |
     | **ACCOUNT AMMINISTRATORE** |  |
     | Username | Immettere un nome utente a scelta. |
     | Password | Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    | Conferma password | Reimmettere la password. |
+    | Confirm Password | Reimmettere la password. |
     | **REGOLE PORTA IN INGRESSO** |  |
     | Porte in ingresso pubbliche | Lasciare il valore predefinito **Nessuna**. |
     | **RISPARMIA** |  |
@@ -80,7 +80,7 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
 
 1. In **Creare una macchina virtuale - Rete**, selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Rete virtuale | Lasciare l'impostazione predefinita **MyVirtualNetwork**.  |
     | Spazio degli indirizzi | Lasciare l'impostazione predefinita **10.1.0.0/24**.|
@@ -103,11 +103,11 @@ In questa sezione verrà creato un database di Azure per il server MySQL in Azur
 
 1. In **database di Azure per MySQL** fornire queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | **Dettagli del progetto** | |
     | Subscription | Selezionare la propria sottoscrizione. |
-    | Gruppo di risorse | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
+    | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
     | **Dettagli server** |  |
     |Nome server  | Immettere *MyServer*. Se il nome è già usato, creare un nome univoco.|
     | Nome utente amministratore| Immettere un nome amministratore a scelta. |
@@ -117,7 +117,7 @@ In questa sezione verrà creato un database di Azure per il server MySQL in Azur
     | Calcolo e archiviazione| Selezionare il piano tariffario necessario per il server in base al carico di lavoro. |
     |||
  
-7. Scegliere **OK**. 
+7. Selezionare **OK**. 
 8. Selezionare **Rivedi e crea**. Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione. 
 9. Quando viene visualizzato il messaggio Convalida superata, selezionare **Crea**. 
 10. Quando viene visualizzato il messaggio Convalida superata, selezionare Crea. 
@@ -134,31 +134,31 @@ In questa sezione si creerà un server MySQL e si aggiungerà un endpoint privat
 
 1. In **Crea un endpoint privato (anteprima) - Informazioni di base** immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | **Dettagli del progetto** | |
     | Subscription | Selezionare la propria sottoscrizione. |
-    | Gruppo di risorse | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
+    | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
     | **Dettagli istanza** |  |
-    | Name | Immettere *myPrivateEndpoint*. Se il nome è già usato, creare un nome univoco. |
+    | Nome | Immettere *myPrivateEndpoint*. Se il nome è già usato, creare un nome univoco. |
     |Region|Selezionare **Europa occidentale**.|
     |||
 
 5. Selezionare **Avanti: risorsa**.
 6. In **Crea un endpoint privato - Risorsa** immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     |Metodo di connessione  | Selezionare Connettersi a una risorsa di Azure nella directory.|
     | Subscription| Selezionare la propria sottoscrizione. |
     | Tipo di risorsa | Selezionare **Microsoft. DBforMySQL/Servers**. |
-    | Resource |Selezionare *myServer*.|
+    | Risorsa |Selezionare *myServer*.|
     |Sottorisorsa di destinazione |Selezione di *SqlServer*|
     |||
 7. Selezionare **Avanti: configurazione**.
 8. In **Crea un endpoint privato (anteprima) - Configurazione** immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     |**RETE**| |
     | Rete virtuale| Selezionare *MyVirtualNetwork*. |
@@ -172,6 +172,9 @@ In questa sezione si creerà un server MySQL e si aggiungerà un endpoint privat
 2. Quando viene visualizzato il messaggio **Convalida superata**, selezionare **Crea**. 
 
     ![Collegamento privato creato](media/concepts-data-access-and-security-private-link/show-mysql-private-link.png)
+
+    > [!NOTE] 
+    > Il nome di dominio completo nell'impostazione DNS del cliente non viene risolto nell'indirizzo IP privato configurato. Sarà necessario configurare una zona DNS per il nome di dominio completo configurato come illustrato di [seguito](../dns/dns-operations-recordsets-portal.md).
 
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Connettersi a una VM con Desktop remoto (RDP)
 
@@ -193,7 +196,7 @@ Dopo aver creato **myVm**, connettersi alla macchina virtuale da Internet come i
         > [!NOTE]
         > Potrebbe essere necessario selezionare **Altre opzioni** > **Usa un altro account** per specificare le credenziali immesse al momento della creazione della macchina virtuale.
 
-1. Scegliere **OK**.
+1. Selezionare **OK**.
 
 1. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se si riceve un avviso relativo al certificato, selezionare **Sì** oppure **Continua**.
 
@@ -218,7 +221,7 @@ Dopo aver creato **myVm**, connettersi alla macchina virtuale da Internet come i
 
 4. In **nuova connessione**immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Tipo di server| Selezionare **MySQL**.|
     | Nome server| Seleziona *MyServer.privatelink.MySQL.database.Azure.com* |

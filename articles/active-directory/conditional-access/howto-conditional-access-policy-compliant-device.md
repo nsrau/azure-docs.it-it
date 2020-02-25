@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d19cc39147608dafc4576f4c8bad0533ad1b32d
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 90d958d2adc8920e4e6ccbccef20acf20aedca4c
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77521915"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561613"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Accesso condizionale: richiedere i dispositivi conformi
 
@@ -29,7 +29,7 @@ Le organizzazioni che hanno distribuito Microsoft Intune possono usare le inform
 
 Le informazioni di conformità dei criteri vengono trasmesse a Azure AD dove l'accesso condizionale può prendere decisioni per concedere o bloccare l'accesso alle risorse. Altre informazioni sui criteri di conformità del dispositivo sono disponibili nell'articolo [impostare regole sui dispositivi per consentire l'accesso alle risorse dell'organizzazione con Intune](/intune/protect/device-compliance-get-started)
 
-## <a name="create-a-conditional-access-policy"></a>Creare un criterio di accesso condizionale
+## <a name="create-a-conditional-access-policy"></a>Creare criteri di accesso condizionale
 
 La procedura seguente consente di creare un criterio di accesso condizionale per richiedere che i dispositivi che accedono alle risorse siano contrassegnati come conformi ai criteri di conformità di Intune dell'organizzazione.
 
@@ -48,6 +48,9 @@ La procedura seguente consente di creare un criterio di accesso condizionale per
    1. Scegliere **Seleziona**.
 1. Confermare le impostazioni e impostare **Abilita criterio** **su on**.
 1. Selezionare **Crea** per creare per abilitare i criteri.
+
+> [!NOTE]
+> È possibile registrare i nuovi dispositivi in Intune anche se si seleziona Richiedi che i dispositivi **siano contrassegnati come conformi** per **tutti gli utenti** e **tutte le app Cloud** usando la procedura precedente. **Richiedi che il dispositivo sia contrassegnato come controllo conforme** non blocca la registrazione di Intune. 
 
 ### <a name="known-behavior"></a>Comportamento noto
 

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37dc4a618f01022f4963a14aba921edcce9f4b60
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: abb5c6939d8c88db35a776aa8f2c075a4bdcc609
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74268862"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565418"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Informazioni sul modo in cui utenti nell'organizzazione possono invitare utenti guest a un'app
 
@@ -73,7 +73,7 @@ Dopo che un'app è stata configurata per la gestione self-service, i proprietari
 7. Selezionare **Aggiungi** per inviare automaticamente l'invito all'utente guest. Dopo aver inviato l'invito, l'account utente viene automaticamente aggiunto alla directory come guest.
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 La gestione delle app self-service richiede alcuni passaggi di configurazione iniziali, che devono essere eseguiti da un amministratore globale e da un amministratore di Azure AD. Come parte di questa configurazione, è necessario configurare l'app per la gestione self-service e assegnare un gruppo all'app che il proprietario dell'applicazione possa gestire. È anche possibile configurare il gruppo in modo da permettere a chiunque di richiedere l'appartenenza, ma per questa operazione è necessaria l'approvazione di un proprietario del gruppo. Per altre informazioni, vedere [Gestione gruppi self-service](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management). 
 
@@ -105,7 +105,7 @@ La gestione delle app self-service richiede alcuni passaggi di configurazione in
 2. Nel riquadro di spostamento selezionare **Azure Active Directory**.
 3. In **Gestisci** selezionare **Applicazioni aziendali** > **Tutte le applicazioni**.
 4. Nell'elenco delle applicazioni individuare e aprire l'app.
-5. In **Gestisci** selezionare **Single Sign-On** e configurare l'applicazione per l'accesso Single Sign-On. Per informazioni, vedere [Gestire l'accesso Single Sign-On per le app aziendali](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal).
+5. In **Gestisci** selezionare **Single Sign-On** e configurare l'applicazione per l'accesso Single Sign-On. Per informazioni, vedere [Gestire l'accesso Single Sign-On per le app aziendali](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications).
 6. In **Gestisci** selezionare **Self-service** e configurare l'accesso alle app self-service. Per informazioni, vedere [Come usare l'accesso alle app self-service](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to). 
 
     > [!NOTE]
@@ -118,6 +118,6 @@ La gestione delle app self-service richiede alcuni passaggi di configurazione in
 Vedere gli articoli seguenti su Collaborazione B2B di Azure AD:
 
 - [Che cos'è Azure AD B2B Collaboration?](what-is-b2b.md)
-- [Procedura di aggiunta di utenti di Collaborazione B2B ad Azure Active Directory da parte degli amministratori](add-users-administrator.md)
+- [Procedura per aggiungere utenti di Collaborazione B2B ad Azure Active Directory da parte degli amministratori](add-users-administrator.md)
 - [Riscatto dell'invito di Collaborazione B2B](redemption-experience.md)
-- [Licenze per la collaborazione B2B di Azure AD](licensing-guidance.md)
+- [Licenze per la Collaborazione B2B di Azure AD](licensing-guidance.md)

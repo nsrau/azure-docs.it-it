@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/12/2020
-ms.openlocfilehash: d030e44f59d41c32c9a76c0b89c0bce1c8c54a69
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: b9d923b3272f9d8b3da39d7cdb771a766eee4eab
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186847"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561783"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestire cluster Apache Hadoop in HDInsight tramite il portale di Azure
 
@@ -229,18 +229,6 @@ La password viene modificata in tutti i nodi del cluster.
    | Salvare questa azione script... |Lasciare questo campo vuoto. |
 
 6. Selezionare **Crea** per applicare lo script. Al termine dello script, è possibile connettersi al cluster tramite SSH con la nuova password.
-
-## <a name="grantrevoke-access"></a>Concedere/Revocare l'accesso
-
-Per i cluster HDInsight sono disponibili i servizi Web HTTP seguenti (tutti con endpoint RESTful):
-
-- ODBC
-- JDBC
-- Ambari
-- Oozie
-- Templeton
-
-Per impostazione predefinita, a questi servizi è concesso l'accesso. È possibile revocare/concedere l'accesso utilizzando [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
 
 ## <a name="find-the-subscription-id"></a>Trovare l'ID sottoscrizione
 

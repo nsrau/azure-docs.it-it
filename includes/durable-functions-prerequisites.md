@@ -4,16 +4,23 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 11/27/2018
 ms.author: glenga
-ms.openlocfilehash: db7cf0ee5fa7d89e6072249396b3f969c380dfb6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 85fbd7a65fe19e785488714411d671c8ee29ab40
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67179947"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562064"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Completare l'articolo introduttivo:
+# <a name="c"></a>[C#](#tab/csharp)
 
-* [Creare la prima funzione permanente in C#](../articles/azure-functions/durable/durable-functions-create-first-csharp.md)
-* [Creare la prima funzione permanente in JavaScript](../articles/azure-functions/durable/quickstart-js-vscode.md)
+* [Completare l'articolo introduttivo](../articles/azure-functions/durable/durable-functions-create-first-csharp.md)
+* [Clonare o scaricare il progetto di esempio da GitHub](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/precompiled)
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+* [Completare l'articolo introduttivo](../articles/azure-functions/durable/quickstart-js-vscode.md)
+* [Clonare o scaricare il progetto di esempio da GitHub](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/javascript)
+
+---

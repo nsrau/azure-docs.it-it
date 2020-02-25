@@ -1,5 +1,5 @@
 ---
-title: Creare un database e un cluster di Esplora dati di Azure tramite PowerShell
+title: Creare un cluster di Azure Esplora dati & database usando PowerShell
 description: Informazioni su come creare un database e un cluster di Esplora dati di Azure tramite PowerShell
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: d4561d49c37298a2b1a7f6c6542d78c3e19a145c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 690c3e281e65f54f240c70f7a6e5038f54102c99
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978343"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560593"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Creare un database e un cluster di Esplora dati di Azure tramite PowerShell
 
@@ -24,9 +24,9 @@ ms.locfileid: "75978343"
 > * [Python](create-cluster-database-python.md)
 > * [Modello ARM](create-cluster-database-resource-manager.md)  
 
-Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per analisi in tempo reale su volumi elevati di dati in streaming da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. In questo articolo vengono creati un cluster e un database usando PowerShell. È possibile eseguire i cmdlet e gli script di PowerShell in Windows, Linux o [Azure Cloud Shell](../cloud-shell/overview.md) con [Az.Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto) per creare e configurare cluster e database di Esplora dati di Azure.
+Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per l'analisi in tempo reale di volumi elevati di dati in streaming provenienti da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. In questo articolo vengono creati un cluster e un database usando PowerShell. È possibile eseguire i cmdlet e gli script di PowerShell in Windows, Linux o [Azure Cloud Shell](../cloud-shell/overview.md) con [Az.Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto) per creare e configurare cluster e database di Esplora dati di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -68,7 +68,7 @@ I passaggi seguenti non sono necessari se si eseguono i comandi in Azure Cloud S
    |**Impostazione** | **Valore consigliato** | **Descrizione campo**|
    |---|---|---|
    | Nome | *mykustocluster* | Nome del cluster.|
-   | SKU | *D13_v2* | SKU usato per il cluster. |
+   | Sku | *D13_v2* | SKU usato per il cluster. |
    | ResourceGroupName | *testrg* | Il nome del gruppo di risorse in cui verrà creato il cluster. |
 
     Sono disponibili altri parametri facoltativi che è possibile usare, ad esempio la capacità del cluster.

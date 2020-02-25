@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 86e8415cf2076819e23226e5e7878a2c96343f69
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2e2fea90f125cae6de44afbc82dd749a421ff3e2
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789914"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566013"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Creare e gestire i BLOB nell'archiviazione BLOB di Azure usando app per la logica di Azure
 
@@ -23,11 +23,11 @@ Si supponga di avere uno strumento che viene aggiornato in un sito Web di Azure.
 Se non si ha familiarità con le app per la logica, leggere [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per informazioni tecniche specifiche del connettore, vedere le [informazioni di riferimento sul connettore di Archiviazione BLOB di Azure](https://docs.microsoft.com/connectors/azureblobconnector/).
 
 > [!IMPORTANT]
-> Per abilitare l'accesso dalle app per la logica di Azure agli account di archiviazione dietro ai firewall, vedere la sezione [accedere agli account di archiviazione dietro ai firewall](#storage-firewalls) più avanti in questo argomento.
+> Le app per la logica non possono accedere direttamente agli account di archiviazione protetti da firewall se si trovano entrambi nella stessa area. Come soluzione alternativa, è possibile avere le app per la logica e l'account di archiviazione in aree diverse. Per altre informazioni su come abilitare l'accesso dalle app per la logica di Azure agli account di archiviazione dietro ai firewall, vedere la sezione [accedere agli account di archiviazione dietro ai firewall](#storage-firewalls) più avanti in questo argomento.
 
 <a name="blob-storage-limits"></a>
 
-## <a name="limits"></a>limiti
+## <a name="limits"></a>Limiti
 
 * Per impostazione predefinita, le azioni di archiviazione BLOB di Azure possono leggere o scrivere file di *dimensioni di 50 MB o inferiori*. Per gestire file di dimensioni superiori a 50 MB ma fino a 1024 MB, le azioni di archiviazione BLOB di Azure supportano la [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md). L'azione **Ottieni contenuto BLOB** utilizza in modo implicito la suddivisione in blocchi.
 
@@ -37,7 +37,7 @@ Se non si ha familiarità con le app per la logica, leggere [Informazioni su App
 
   * Seguire il trigger con l'azione **Ottieni contenuto BLOB** di archiviazione BLOB di Azure, che legge il file completo e USA in modo implicito la suddivisione in blocchi.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
@@ -121,15 +121,15 @@ Questo esempio ottiene solo i contenuti di un BLOB. Per visualizzare i contenuti
 
 1. Quando viene richiesto di creare la connessione, fornire le seguenti informazioni:
 
-   | Proprietà | Obbligatoria | Value | Description |
+   | Proprietà | Obbligatoria | valore | Descrizione |
    |----------|----------|-------|-------------|
-   | **Connection Name** (Nome connessione) | SÌ | <*nome connessione*> | Nome creato per la connessione |
-   | **Storage Account** | SÌ | <*storage-account*> | Selezionare l'account di archiviazione dall'elenco. |
+   | **Connection Name** (Nome connessione) | Sì | <*nome connessione*> | Nome creato per la connessione |
+   | **Storage Account** | Sì | <*storage-account*> | Selezionare l'account di archiviazione dall'elenco. |
    ||||
 
-   ad esempio:
+   Ad esempio:
 
-   ![Creare una connessione all'account di archiviazione BLOB di Azure](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png)  
+   ![Creare una connessione all'account di archiviazione BLOB di Azure](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png) 
 
 1. Quando si è pronti, selezionare **Crea**
 
@@ -159,9 +159,12 @@ Ecco diverse opzioni per accedere agli account di archiviazione dietro i firewal
 
 <a name="access-other-regions"></a>
 
-### <a name="access-to-storage-accounts-in-other-regions"></a>Accesso agli account di archiviazione in altre aree
+### <a name="problems-accessing-storage-accounts-in-the-same-region"></a>Problemi di accesso agli account di archiviazione nella stessa area
 
-Le app per la logica non possono accedere direttamente agli account di archiviazione con regole del firewall e si trovano nella stessa area. Tuttavia, se si consente l'accesso per gli [indirizzi IP in uscita per i connettori gestiti nella propria area](../logic-apps/logic-apps-limits-and-config.md#outbound), le app per la logica possono accedere agli account di archiviazione in un'area diversa tranne quando si usa il connettore di archiviazione tabelle di Azure o il connettore di archiviazione code di Azure. Per accedere all'archiviazione tabelle o all'archiviazione code, è comunque possibile usare il trigger HTTP predefinito e le azioni.
+Le app per la logica non possono accedere direttamente agli account di archiviazione dietro i firewall quando si trovano nella stessa area. Come soluzione alternativa, inserire le app per la logica in un'area diversa da quella dell'account di archiviazione e concedere l'accesso agli [indirizzi IP in uscita per i connettori gestiti nella propria area](../logic-apps/logic-apps-limits-and-config.md#outbound).
+
+> [!NOTE]
+> Questa soluzione non si applica al connettore di archiviazione tabelle di Azure e al connettore di archiviazione code di Azure. Per accedere all'archiviazione tabelle o all'archiviazione code, usare invece il trigger e le azioni HTTP predefiniti.
 
 <a name="access-trusted-virtual-network"></a>
 

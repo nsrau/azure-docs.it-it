@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: c1e9be605a6f01695f2472ae76a9e5a786388aa0
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 849d1187d6b854d48ad75ab1e55f600407420346
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77206107"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562361"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Endpoint di streaming (Origin) in servizi multimediali di Azure
 
@@ -59,21 +59,21 @@ Per informazioni sul contratto di contratto, vedere [prezzi e contratto di contr
 
 ## <a name="comparing-streaming-types"></a>Confronto tra le tipologie di streaming
 
-Caratteristica|Standard|Premium
+Funzionalità|Standard|Premium
 ---|---|---
 Velocità effettiva |Fino a 600 Mbps e possono fornire una velocità effettiva molto più elevata quando si usa una rete CDN.|200 Mbps per unità di streaming (SU). Può fornire una velocità effettiva molto più elevata quando viene usata una rete CDN.
 RETE CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
 Fatturazione con ripartizione proporzionale| Giornaliera|Giornaliera
 Crittografia dinamica|Sì|Sì
 creazione dinamica dei pacchetti|Sì|Sì
-Scala|Scalabilità automatica fino alla velocità effettiva di destinazione.|SUs aggiuntivo
+Scalabilità|Scalabilità automatica fino alla velocità effettiva di destinazione.|SUs aggiuntivo
 Filtro IP/G20/host personalizzato <sup>1</sup>|Sì|Sì
 Download progressivo|Sì|Sì
 Uso consigliato |Consigliato per la maggior parte dei casi di streaming.|Uso professionale.
 
 <sup>1</sup> usato direttamente sull'endpoint di streaming quando la rete CDN non è abilitata nell'endpoint.<br/>
 
-## <a name="properties"></a>Proprietà
+## <a name="streaming-endpoint-properties"></a>Proprietà dell'endpoint di streaming
 
 Questa sezione fornisce informazioni dettagliate su alcune delle proprietà dell'endpoint di streaming. Per esempi di come creare un nuovo endpoint di streaming e per le descrizioni di tutte le proprietà, vedere [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create) (Endpoint di streaming).
 
@@ -102,7 +102,7 @@ Questa sezione fornisce informazioni dettagliate su alcune delle proprietà dell
     - `media.azure.net`
     - `verifydns.media.azure.net`
 
-  - China:
+  - Cina:
 
     - `mediaservices.chinacloudapi.cn`
     - `verifydns.mediaservices.chinacloudapi.cn`
@@ -130,50 +130,36 @@ Questa sezione fornisce informazioni dettagliate su alcune delle proprietà dell
 
 - `scaleUnits`: fornire capacità in uscita dedicata che può essere acquistata con incrementi di 200 Mbps. Se è necessario passare al tipo **Premium**, regolare `scaleUnits`.
 
-## <a name="working-with-cdn"></a>Uso della rete CDN
+## <a name="why-use-multiple-streaming-endpoints"></a>Perché usare più endpoint di streaming?
 
-Nella maggior parte dei casi, la rete per la distribuzione di contenuti è abilitata. Tuttavia, se si prevede una concorrenza massima inferiore a 500 visualizzatori, è consigliabile disabilitare la rete CDN poiché la rete CDN si adatta meglio alla concorrenza.
+Un singolo endpoint di streaming può trasmettere video sia live che su richiesta e la maggior parte dei clienti USA un solo endpoint di streaming. Questa sezione contiene alcuni esempi dei motivi per cui potrebbe essere necessario usare più endpoint di streaming.
 
-### <a name="considerations"></a>Considerazioni
+* Ogni unità riservata supporta 200 Mbps di larghezza di banda. Se è necessario più di 2.000 Mbps di larghezza di banda (2 Gbps), è possibile usare il secondo endpoint di streaming e il bilanciamento del carico per ottenere una maggiore larghezza di banda.
 
-* L'endpoint di streaming `hostname` e l'URL di streaming rimangono invariati, indipendentemente dal fatto che la rete CDN sia abilitata.
-* Se è necessario testare il contenuto con o senza la rete CDN, creare un altro endpoint di streaming non abilitato per la rete CDN.
+    Tuttavia, la rete CDN è il modo migliore per ottenere la scalabilità orizzontale per il contenuto in streaming, ma se si distribuisce un contenuto così elevato che la rete CDN sta estraendo più di 2 Gbps, è possibile aggiungere altri endpoint di streaming (Origin). In questo caso è necessario distribuire gli URL del contenuto bilanciati tra i due endpoint di streaming. Questo approccio offre una migliore memorizzazione nella cache rispetto al tentativo di inviare richieste a ogni origine in modo casuale, ad esempio tramite Gestione traffico. 
+    
+    > [!TIP]
+    > In genere, se la rete CDN sta effettuando il pull di più di 2 Gbps, un elemento potrebbe non essere configurato correttamente (ad esempio, nessuna schermatura delle origini).
+    
+* Bilanciamento del carico di diversi provider di rete CDN. Ad esempio, è possibile configurare l'endpoint di streaming predefinito per usare la rete CDN Verizon e crearne uno secondo per usare Akamai. Quindi, aggiungere un bilanciamento del carico tra i due per ottenere il bilanciamento del carico di rete CDN. 
 
-### <a name="detailed-explanation-of-how-caching-works"></a>Spiegazione dettagliata del funzionamento della memorizzazione nella cache
+    Tuttavia, i clienti spesso eseguono il bilanciamento del carico tra più provider della rete CDN usando un'unica origine.
+* Streaming di contenuto misto: Live e video on demand. 
 
-Non esiste un valore della larghezza di banda specifico quando si aggiunge la rete CDN perché la quantità di larghezza di banda necessaria per un endpoint di streaming abilitato per la rete CDN varia. Molto dipende dal tipo di contenuto, da quanto è popolare, dalla velocità in bit e dai protocolli. La rete CDN memorizza nella cache solo gli elementi richiesti. Ciò significa che il contenuto popolare verrà servito direttamente dalla rete CDN, purché il frammento video venga memorizzato nella cache. Il contenuto live viene in genere memorizzato nella cache perché molte persone guardano la stessa cosa. Il contenuto su richiesta può essere un po' più complicato perché potrebbe essere presente contenuto popolare e altri non. Se si hanno milioni di asset video in cui nessuno di essi è popolare (solo uno o due visualizzatori alla settimana) ma si hanno migliaia di persone che guardano tutti i video, la rete CDN diventa molto meno efficace. In presenza di questi mancati riscontri nella cache è consigliabile aumentare il carico sull'endpoint di streaming.
+    I modelli di accesso per il contenuto Live e su richiesta sono molto diversi. Il contenuto Live tende a richiedere un numero elevato di richieste per lo stesso contenuto in una sola volta. Il contenuto del video su richiesta (contenuto dell'archivio della coda lunga per l'istanza) ha un basso utilizzo sullo stesso contenuto. Quindi, la memorizzazione nella cache funziona molto bene sul contenuto attivo, ma non anche sul contenuto a lungo termine.
 
-È anche necessario valutare il funzionamento del flusso adattivo. Ogni singolo frammento video viene memorizzato nella cache come entità in sé. Si supponga, ad esempio, la prima volta che un determinato video viene guardato. Se il Visualizzatore Ignora solo pochi secondi qui e qui, solo i frammenti video associati a ciò che l'utente ha guardato vengono memorizzati nella cache nella rete CDN. Con il flusso adattivo, si hanno in genere da 5 a 7 bitrate del video diversi. Se una persona sta osservando una velocità in bit e un altro utente sta osservando una velocità in bit diversa, ognuno di essi viene memorizzato nella cache separatamente nella rete CDN. Anche se due persone stanno osservando la stessa velocità in bit, potrebbero trasmettere flussi su protocolli diversi. Ogni protocollo (HLS, MPEG-DASH, Smooth Streaming) viene memorizzato nella cache separatamente. In conclusione, ogni bitrate e ogni protocollo vengono memorizzati nella cache separatamente; inoltre, vengono memorizzati nella cache solo i frammenti video che sono stati richiesti.
+    Si consideri uno scenario in cui i clienti stanno principalmente controllando i contenuti live, ma solo occasionalmente controllano i contenuti su richiesta e vengono serviti dallo stesso endpoint di streaming. Il basso utilizzo del contenuto su richiesta occupa lo spazio della cache che verrebbe salvato meglio per il contenuto Live. In questo scenario si consiglia di servire il contenuto Live da un endpoint di streaming e il contenuto della coda lunga da un altro endpoint di streaming. Ciò consentirà di migliorare le prestazioni del contenuto dell'evento Live.
+    
+## <a name="scaling-streaming-with-cdn"></a>Ridimensionamento dei flussi con la rete CDN
 
-### <a name="enable-azure-cdn-integration"></a>Abilitare l'integrazione della rete CDN di Azure
+Vedere gli articoli seguenti:
 
-> [!IMPORTANT]
-> Non è possibile abilitare la rete CDN per gli account Azure di valutazione o per studenti.
->
-> L'integrazione della rete CDN è abilitata in tutti i Data Center di Azure, ad eccezione del governo federale e della Cina.
-
-Quando viene eseguito il provisioning di un endpoint di streaming con la rete CDN abilitata, è previsto un tempo di attesa definito in servizi multimediali prima di eseguire l'aggiornamento DNS per eseguire il mapping dell'endpoint di streaming all'endpoint rete CDN.
-
-Se in seguito si desidera disabilitare o abilitare la rete CDN, l'endpoint di streaming deve essere nello stato **interrotto**. L'abilitazione dell'integrazione della rete CDN di Azure e l'attivazione delle modifiche in tutti i POP della rete CDN potrebbero richiedere fino a due ore. Tuttavia, è possibile avviare l'endpoint di streaming e il flusso senza interruzioni dall'endpoint di streaming e, una volta completata l'integrazione, il flusso viene recapitato dalla rete CDN. Durante il periodo di provisioning, l'endpoint di streaming sarà nello stato **iniziale** ed è possibile che si verifichi un calo delle prestazioni.
-
-Quando viene creato l'endpoint di streaming standard, questo viene configurato per impostazione predefinita con Verizon standard. È possibile configurare Premium Verizon o provider Akamai standard usando le API REST.
-
-L'integrazione di Servizi multimediali di Azure con la rete CDN di Azure è implementata nella **rete CDN di Azure da Verizon** per gli endpoint di streaming standard. Gli endpoint di streaming Premium possono essere configurati usando tutti **i provider e i livelli di prezzo della rete CDN di Azure**. 
-
-> [!NOTE]
-> Per informazioni dettagliate sulla rete CDN di Azure, vedere la panoramica della rete [CDN](../../cdn/cdn-overview.md).
-
-### <a name="determine-if-dns-change-was-made"></a>Determinare se è stata apportata la modifica DNS
-
-È possibile determinare se è stata apportata una modifica DNS a un endpoint di streaming (il traffico viene indirizzato alla rete CDN di Azure) usando https://www.digwebinterface.com. Se nei risultati sono presenti nomi di dominio azureedge.net, il traffico viene ora puntato alla rete CDN.
+- [Panoramica della rete CDN](../../cdn/cdn-overview.md)
+- [Ridimensionamento dei flussi con la rete CDN](scale-streaming-cdn.md)
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 
 Consultare l'articolo [Community di Servizi multimediali di Azure](media-services-community.md) per esaminare i diversi modi in cui è possibile porre domande, fornire feedback e ottenere aggiornamenti su Servizi multimediali.
-
-## <a name="see-also"></a>Vedere anche
-
-[Panoramica della rete CDN](../../cdn/cdn-overview.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

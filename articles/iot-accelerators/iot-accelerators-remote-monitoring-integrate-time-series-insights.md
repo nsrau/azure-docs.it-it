@@ -1,19 +1,19 @@
 ---
 title: Integrare Time Series Insights con il monitoraggio remoto - Azure | Microsoft Docs
 description: In questa procedura si apprenderà come configurare Azure Time Series Insights per una soluzione di monitoraggio remoto esistente che non includa già Azure Time Series Insights.
-author: aditidugar
+author: Philmea
 manager: timlt
-ms.author: adugar
+ms.author: philmea
 ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 4cc9b0051eaa12eee07f067352126ad159107a83
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 752529454a5b6293d9cbfdf8378b46947aed5a0e
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61442926"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77564645"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrare Azure Time Series Insights con il monitoraggio remoto
 
@@ -24,11 +24,11 @@ L'acceleratore di soluzioni di monitoraggio remoto ora offre la distribuzione e 
 > [!NOTE]
 > Azure Time Series Insights non è attualmente disponibile nel cloud Azure Cina. Le nuove distribuzioni dell'acceleratore di soluzioni di monitoraggio remoto nel cloud Azure Cina usano Cosmos DB per tutte le operazioni di archiviazione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa procedura, è necessario aver già distribuito una soluzione di monitoraggio remoto:
 
-* [Distribuire l'acceleratore di soluzioni per il monitoraggio remoto](quickstart-remote-monitoring-deploy.md)
+* [Distribuire l'acceleratore di soluzioni di monitoraggio remoto](quickstart-remote-monitoring-deploy.md)
 
 ## <a name="create-a-consumer-group"></a>Creare un gruppo di consumer
 
@@ -57,18 +57,18 @@ Successivamente, distribuire di Azure Time Series Insights come risorsa aggiunti
 
 1. Per creare l'ambiente Azure Time Series Insights, usare i valori nella tabella seguente:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Nome ambiente | Nella schermata seguente viene usato il nome **contorosrmtsi**. Quando si completa questo passaggio, scegliere il proprio nome univoco. |
-    | Sottoscrizione | Selezionare la sottoscrizione di Azure nell'elenco a discesa. |
-    | Gruppo di risorse | **Usa esistente**. Selezionare il nome del gruppo di risorse di monitoraggio remoto esistente. |
-    | Località | In questo esempio viene usata l'area **Stati Uniti orientali**. Creare l'ambiente nella stessa area della soluzione di monitoraggio remoto, se possibile. |
+    | Subscription | Selezionare la sottoscrizione di Azure nell'elenco a discesa. |
+    | Resource group | **Usa esistente**. Selezionare il nome del gruppo di risorse di monitoraggio remoto esistente. |
+    | Location | In questo esempio viene usata l'area **Stati Uniti orientali**. Creare l'ambiente nella stessa area della soluzione di monitoraggio remoto, se possibile. |
     | Sku |**S1** |
     | Capacity | **1** |
 
     ![Creare Azure Time Series Insights](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights-create.png)
 
-1. Fare clic su **Create**(Crea). La creazione dell'ambiente può richiedere qualche minuto.
+1. Fare clic su **Crea**. La creazione dell'ambiente può richiedere qualche minuto.
 
 ## <a name="create-event-source"></a>Creare un'origine evento
 
@@ -86,7 +86,7 @@ Creare una nuova origine evento per la connessione all'hub IoT. Verificare di us
 
 1. Per configurare l'hub IoT come nuova origine evento, usare i valori nella tabella seguente:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Nome origine evento | Nella schermata seguente viene usato il nome **contosorm-iot-hub**. Quando si completa questo passaggio, usare il proprio nome univoco. |
     | Source (Sorgente) | **Hub IoT** |
@@ -101,7 +101,7 @@ Creare una nuova origine evento per la connessione all'hub IoT. Verificare di us
 
     ![Creare un'origine evento](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 
-1. Fare clic su **Create**(Crea).
+1. Fare clic su **Crea**.
 
 ## <a name="configure-the-data-access-policy"></a>Configurare i criteri di accesso ai dati
 
@@ -238,7 +238,7 @@ Configurare l'ambiente della distribuzione `basic` per i microservizi aggiornati
 1. Riavviare i contenitori Docker usando `sudo ./start.sh` dalla macchina virtuale.
 
 > [!NOTE]
-> La configurazione delle variabili di ambiente precedente è valida per il monitoraggio remoto di versioni precedenti alla versione 1.0.2
+> La configurazione precedente delle variabili di ambiente è valida per le versioni di monitoraggio remoto prima di 1.0.2
 
 ### <a name="standard-deployments"></a>Distribuzioni standard
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 11754e8e98e13cffefaf4a8c1fa08bc60d650105
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 7dd49df782115c8c328eed819395209ee7217fd3
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69016555"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566064"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Introduzione alla distribuzione di contenuti su richiesta utilizzando .NET SDK  
 
@@ -27,7 +27,7 @@ ms.locfileid: "69016555"
 
 Questa esercitazione illustra il processo di implementazione di un servizio per la distribuzione di contenuto video on demand (VoD) di base con l'applicazione Servizi multimediali di Azure (AMS) usando Azure Media Services .NET SDK.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare l'esercitazione è necessario quanto segue:
 
@@ -88,7 +88,7 @@ Per avviare l'endpoint di streaming, eseguire queste operazioni:
 
 Quando si usa Servizi multimediali con .NET, è necessario usare la classe **CloudMediaContext** per la maggior parte delle attività di programmazione di Servizi multimediali: connessione all'account di Servizi multimediali, creazione, aggiornamento, accesso ed eliminazione dei seguenti oggetti: asset, file di asset, processi, criteri di accesso, localizzatori e così via.
 
-Sovrascrivere la classe predefinita Program con il codice seguente: Il codice mostra come leggere i valori di connessione dal file App.config e come creare l'oggetto **CloudMediaContext** per connettersi a Servizi multimediali. Per altre informazioni, vedere la [connessione all'API Servizi multimediali](media-services-use-aad-auth-to-access-ams-api.md).
+Sovrascrivere la classe Program predefinita con il codice seguente: il codice mostra come leggere i valori di connessione dal file App.config e come creare l'oggetto **CloudMediaContext** per connettersi a Servizi multimediali. Per altre informazioni, vedere la [connessione all'API Servizi multimediali](media-services-use-aad-auth-to-access-ams-api.md).
 
 Assicurarsi di aggiornare il nome file e il percorso in cui salvare il file multimediale.
 
@@ -152,13 +152,13 @@ La funzione **Main** chiama metodi che verranno definiti più in dettaglio in qu
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Creare un nuovo asset e caricare un file video
 
-In Servizi multimediali i file digitali vengono caricati (o inseriti) in un asset. L'entità **Asset** può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati, oltre ai metadati relativi a questi file.  Dopo aver caricato i file, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming. I file nell'asset sono denominati **File di asset**.
+In Servizi multimediali i file digitali vengono caricati (o inseriti) in un asset. L'entità **Asset** può contenere video, audio, immagini, raccolte di anteprime, tracce di testo e file di sottotitoli codificati, oltre ai metadati relativi a questi file.  Una volta caricati i file, il contenuto viene archiviato in modo sicuro nel cloud per ulteriori operazioni di elaborazione e streaming. I file nell'asset sono denominati **File di asset**.
 
 Il metodo **UploadFile** definito di seguito chiama **CreateFromFile**, definito in .NET SDK Extensions. **CreateFromFile** crea un nuovo asset in cui viene caricato il file di origine specificato.
 
 Il metodo **CreateFromFile** accetta **AssetCreationOptions**, che permette di specificare una delle opzioni di creazione di asset seguenti:
 
-* **None** : non viene usata alcuna crittografia. Rappresenta il valore predefinito. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale.
+* **None** : non viene usata alcuna crittografia. Si tratta del valore predefinito. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale.
   Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione.
 * **StorageEncrypted** : usare questa opzione per crittografare localmente il contenuto non crittografato applicando la crittografia AES (Advanced Encryption Standard) a 256 bit e quindi caricarlo nel servizio Archiviazione di Azure, in cui viene archiviato in forma crittografata. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica, quindi ricrittografati facoltativamente prima di essere ricaricati di nuovo come nuovo asset di output. La crittografia di archiviazione viene usata principalmente quando si vogliono proteggere i file multimediali con input di alta qualità con una crittografia avanzata sul disco locale.
 * **CommonEncryptionProtected** : usare questa opzione per caricare contenuti già crittografati e protetti con Common Encryption o PlayReady DRM (ad esempio, Smooth Streaming protetto con PlayReady DRM).
@@ -190,7 +190,7 @@ Aggiungere il seguente metodo alla classe Program.
 ## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>Codificare il file di origine in un set di file MP4 a velocità in bit adattiva
 Dopo aver inserito gli asset in Servizi multimediali, i file multimediali possono essere codificati, sottoposti a transmux e all'applicazione di filigrana e così via prima di essere distribuiti ai client. Queste attività vengono pianificate ed eseguite in più istanze del ruolo in background per assicurare prestazioni e disponibilità elevate. Queste attività vengono chiamate processi. Ogni processo è formato da attività atomiche che svolgono le procedure effettive nel file di asset.
 
-Come indicato prima, quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Servizi multimediali può creare dinamicamente un pacchetto di un set di file MP4 con bitrate adattivo in uno dei formati seguenti: HTTP Live Streaming (HLS), Smooth Streaming e MPEG DASH.
+Come indicato prima, quando si usa Servizi multimediali di Azure, uno degli scenari più frequenti consiste nella distribuzione di contenuti in streaming a velocità in bit adattiva ai client. Servizi multimediali può creare dinamicamente un pacchetto di un set di file MP4 a velocità in bit adattiva in uno dei formati seguenti: HTTP Live Streaming (HLS), Smooth Streaming e MPEG DASH.
 
 Per sfruttare la creazione dinamica dei pacchetti è necessario codificare o transcodificare il file in formato intermedio (di origine) in un set di file MP4 o Smooth Streaming a bitrate adattivo.  
 
@@ -238,7 +238,7 @@ Aggiungere il seguente metodo alla classe Program.
 
 ## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>Pubblicare l'asset e ottenere gli URL di streaming e di download progressivo
 
-Per eseguire lo streaming o il download di un asset è necessario prima "pubblicarlo" creando un localizzatore. I localizzatori forniscono l'accesso ai file contenuti nell'asset. Servizi multimediali supporta due tipi di localizzatori: OnDemandOrigin, usati per lo streaming dei file multimediali (ad esempio, MPEG DASH, HLS o Smooth Streaming) e localizzatori di firma di accesso condiviso, usati per scaricare i file multimediali.
+Per eseguire lo streaming o il download di un asset è necessario prima "pubblicarlo" creando un localizzatore. I localizzatori forniscono l'accesso ai file contenuti nell'asset. Servizi multimediali supporta due tipi di localizzatori: localizzatori OnDemandOrigin, usati per lo streaming dei file multimediali (ad esempio, MPEG DASH, HLS o Smooth Streaming) e localizzatori di firma di accesso condiviso, usati per scaricare i file multimediali.
 
 ### <a name="some-details-about-url-formats"></a>Alcuni dettagli sui formati di URL
 
@@ -375,16 +375,15 @@ Per eseguire lo streaming del video, incollare l'URL nella casella di testo URL 
 
 Per testare il download progressivo, incollare un URL in un browser (ad esempio, IE, Chrome, Safari).
 
-Per altre informazioni, vedere i seguenti argomenti:
+Per altre informazioni, vedere gli argomenti seguenti:
 
 - [Riproduzione di contenuti con i lettori esistenti](media-services-playback-content-with-existing-players.md)
-- [Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md)
 - [Incorporamento di un flusso video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 
 ## <a name="download-sample"></a>Scaricare un esempio
 L'esempio di codice seguente contiene il codice creato in questa esercitazione: [esempio](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

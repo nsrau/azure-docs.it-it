@@ -1,5 +1,5 @@
 ---
-title: Errore durante la creazione o l'eliminazione di un database o di una tabella in Esplora dati di Azure
+title: Errore durante la creazione o l'eliminazione di un database o di una tabella in Azure Esplora dati
 description: Questo articolo illustra come risolvere i problemi riscontrati durante la creazione e l'eliminazione di database e tabelle in Esplora dati di Azure.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0d221138914230d5455dc0addbe08cdaaed36a0b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67e4c33498b05884fe667a7977ddb40e647ab4c8
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60826255"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562395"
 ---
 # <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Risoluzione dei problemi: Errore durante la creazione o l'eliminazione di un database o di una tabella in Esplora dati di Azure
 
@@ -28,15 +28,15 @@ In Esplora dati di Azure vengono regolarmente usati database e tabelle. Questo a
 
 ## <a name="deleting-or-renaming-a-database"></a>Eliminazione o ridenominazione di un database
 
-Verificare di disporre delle autorizzazioni appropriate. Per eliminare o ridenominare un database è necessario essere un membro del ruolo *Collaboratore* oppure *Proprietario* della sottoscrizione di Azure. Se necessario rivolgersi all'amministratore della sottoscrizione per essere aggiunti al ruolo appropriato.
+Assicurarsi di disporre delle autorizzazioni appropriate. Per eliminare o ridenominare un database è necessario essere un membro del ruolo *Collaboratore* oppure *Proprietario* della sottoscrizione di Azure. Se necessario rivolgersi all'amministratore della sottoscrizione per essere aggiunti al ruolo appropriato.
 
 ## <a name="creating-a-table"></a>Creazione di una tabella
 
-1. Verificare di disporre delle autorizzazioni appropriate. Per creare una tabella è necessario essere un membro del ruolo *Amministratore database* o *Utente database* del database o del ruolo *Collaboratore* oppure *Proprietario* ruolo della sottoscrizione di Azure. Se necessario rivolgersi all'amministratore della sottoscrizione o del cluster per essere aggiunti al ruolo appropriato.
+1. Assicurarsi di disporre delle autorizzazioni appropriate. Per creare una tabella è necessario essere un membro del ruolo *Amministratore database* o *Utente database* del database o del ruolo *Collaboratore* oppure *Proprietario* ruolo della sottoscrizione di Azure. Se necessario rivolgersi all'amministratore della sottoscrizione o del cluster per essere aggiunti al ruolo appropriato.
 
     Per altre informazioni sulle autorizzazioni, vedere [Gestire le autorizzazioni per i database](manage-database-permissions.md).
 
-1. Verificare che non esista già una tabella con lo stesso nome. Se esiste, quindi è possibile: Creare una tabella con un nome diverso. rinominare la tabella esistente (richiede *tabella admin* ruolo); o eliminare la tabella esistente (richiede *amministratore database* ruolo). Usare i comandi seguenti.
+1. Verificare che non esista già una tabella con lo stesso nome. Nel caso in cui esista, è possibile: creare una tabella con un nome diverso; ridenominare la tabella esistente (è necessario il ruolo *Amministratore tabella*); eliminare la tabella esistente (è necessario il ruolo *Amministratore database*). Usare i comandi seguenti.
 
     ```Kusto
     .drop table <TableName>
@@ -46,7 +46,7 @@ Verificare di disporre delle autorizzazioni appropriate. Per eliminare o ridenom
 
 ## <a name="deleting-or-renaming-a-table"></a>Eliminazione o ridenominazione di una tabella
 
-Verificare di disporre delle autorizzazioni appropriate. Per eliminare o rinominare una tabella, è necessario essere un membro del ruolo *Amministratore database* oppure *Amministratore tabella* del database. Se necessario rivolgersi all'amministratore della sottoscrizione o del cluster per essere aggiunti al ruolo appropriato.
+Assicurarsi di disporre delle autorizzazioni appropriate. Per eliminare o rinominare una tabella, è necessario essere un membro del ruolo *Amministratore database* oppure *Amministratore tabella* del database. Se necessario rivolgersi all'amministratore della sottoscrizione o del cluster per essere aggiunti al ruolo appropriato.
 
 Per altre informazioni sulle autorizzazioni, vedere [Gestire le autorizzazioni per i database](manage-database-permissions.md).
 

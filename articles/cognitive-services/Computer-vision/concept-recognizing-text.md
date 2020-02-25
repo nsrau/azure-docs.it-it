@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e37b4c02692575f76582e8f62c3aff00b57424ed
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: a4c90ed12c8023e0b9ebc509b20d8d9224b49f1b
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946292"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566251"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Riconoscere il testo stampato e scritto a mano
 
@@ -26,10 +26,10 @@ Visione artificiale fornisce una serie di servizi che rilevano ed estraggono tes
 
 L'API Read rileva il contenuto di testo in un'immagine usando i modelli di riconoscimento più recenti e converte il testo identificato in un flusso di caratteri leggibile dal computer. È ottimizzato per immagini con un numero elevato di testo, ad esempio documenti digitalizzati digitalmente, e per immagini con molto rumore visivo. Determinerà il modello di riconoscimento da usare per ogni riga di testo, supportando immagini con testo stampato e scritto a mano. L'API Read viene eseguita in modo asincrono perché i documenti di dimensioni maggiori possono richiedere diversi minuti per restituire un risultato.
 
-L'operazione di lettura mantiene i raggruppamenti di righe originali delle parole riconosciute nell'output. Ogni riga include le coordinate del rettangolo di delimitazione e ogni parola all'interno della riga presenta anche le proprie coordinate. Se una parola è stata riconosciuta con una bassa confidenza, vengono trasmesse anche le informazioni. Per altre informazioni, vedere la [documentazione di riferimento](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) per le API.
+L'operazione di lettura mantiene i raggruppamenti di righe originali delle parole riconosciute nell'output. Ogni riga include le coordinate del rettangolo di delimitazione e ogni parola all'interno della riga presenta anche le proprie coordinate. Se una parola è stata riconosciuta con una bassa confidenza, vengono trasmesse anche le informazioni. Per altre informazioni, vedere la [documentazione di riferimento](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) per l'API e leggere l' [anteprima dell'API](https://go.microsoft.com/fwlink/?linkid=2118322) .
 
 > [!NOTE]
-> Questa funzionalità è disponibile solo per testo in lingua inglese.
+> Questa funzionalità è disponibile solo per l'inglese e il testo in spagnolo (anteprima).
 
 ### <a name="image-requirements"></a>Requisiti dell'immagine
 
@@ -94,4 +94,4 @@ L'accuratezza delle operazioni di riconoscimento del testo dipende dalla qualit�
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Seguire la Guida introduttiva all' [OCR (Estrai testo stampato)](./quickstarts/csharp-print-text.md) per implementare il C# riconoscimento del testo in una semplice app.
+Seguire la Guida introduttiva [Estrai testo (lettura)](./QuickStarts/CSharp-hand-text.md) per implementare il riconoscimento C# del testo in una semplice app.

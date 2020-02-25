@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/13/2020
+ms.date: 02/21/2020
 ms.author: radeltch
-ms.openlocfilehash: ed18928237d19e9fad2548ee502f9a24266f12c0
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 015fb6c720fee9ed219ec9ffa2ece14d26bb4ac9
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212883"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566217"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Disponibilità elevata di macchine virtuali di Azure per SAP NetWeaver in Red Hat Enterprise Linux con Azure NetApp Files per le applicazioni SAP
 
@@ -188,7 +188,7 @@ Per prima cosa è necessario creare i volumi Azure NetApp Files. Distribuire le 
          1. Aprire il servizio di bilanciamento del carico, selezionare Pool di indirizzi IP front-end e fare clic su Aggiungi
          1. Immettere il nome del nuovo pool di indirizzi IP front-end, ad esempio front- **end. QAS. ASC**)
          1. Impostare l'assegnazione su statico e immettere l'indirizzo IP (ad esempio **192.168.14.9**)
-         1. Fare clic su OK
+         1. Fare clic su OK.
       1. Indirizzo IP 192.168.14.10 per ASC ERS
          * Ripetere i passaggi precedenti in "a" per creare un indirizzo IP per ERS, ad esempio **192.168.14.10** e front- **end. QAS. ERS**)
    1. Creare i pool back-end
@@ -204,7 +204,7 @@ Per prima cosa è necessario creare i volumi Azure NetApp Files. Distribuire le 
          1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
          1. Immettere il nome del nuovo probe di integrità, ad esempio **integrità. QAS. ASC**)
          1. Selezionare TCP come protocollo, la porta 620**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
-         1. Fare clic su OK
+         1. Fare clic su OK.
       1. Porta 621**01** per ASC ERS
             * Ripetere i passaggi precedenti in "c" per creare un probe di integrità per ERS, ad esempio 621**01** e **Health. QAS. ERS**)
    1. Regole di bilanciamento del carico
@@ -215,7 +215,7 @@ Per prima cosa è necessario creare i volumi Azure NetApp Files. Distribuire le 
          1. Selezionare le **porte a disponibilità elevata**
          1. Aumentare il timeout di inattività a 30 minuti
          1. **Assicurarsi di abilitare l'indirizzo IP mobile**
-         1. Fare clic su OK
+         1. Fare clic su OK.
          * Ripetere i passaggi precedenti per creare regole di bilanciamento del carico per ERS, ad esempio **lb. QAS. ERS**)
 1. In alternativa, se lo scenario richiede il servizio di bilanciamento del carico di base (interno), seguire questa procedura:  
    1. Creare gli indirizzi IP front-end
@@ -223,7 +223,7 @@ Per prima cosa è necessario creare i volumi Azure NetApp Files. Distribuire le 
          1. Aprire il servizio di bilanciamento del carico, selezionare Pool di indirizzi IP front-end e fare clic su Aggiungi
          1. Immettere il nome del nuovo pool di indirizzi IP front-end, ad esempio front- **end. QAS. ASC**)
          1. Impostare l'assegnazione su statico e immettere l'indirizzo IP (ad esempio **192.168.14.9**)
-         1. Fare clic su OK
+         1. Fare clic su OK.
       1. Indirizzo IP 192.168.14.10 per ASC ERS
          * Ripetere i passaggi precedenti in "a" per creare un indirizzo IP per ERS, ad esempio **192.168.14.10** e front- **end. QAS. ERS**)
    1. Creare i pool back-end
@@ -233,13 +233,13 @@ Per prima cosa è necessario creare i volumi Azure NetApp Files. Distribuire le 
          1. Fare clic su Aggiungi una macchina virtuale.
          1. Selezionare il set di disponibilità creato in precedenza per ASC 
          1. Selezionare le macchine virtuali del cluster (A)SCS
-         1. Fare clic su OK
+         1. Fare clic su OK.
    1. Creare i probe di integrità
       1. Porta 620**00** per ASCS
          1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
          1. Immettere il nome del nuovo probe di integrità, ad esempio **integrità. QAS. ASC**)
          1. Selezionare TCP come protocollo, la porta 620**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
-         1. Fare clic su OK
+         1. Fare clic su OK.
       1. Porta 621**01** per ASC ERS
             * Ripetere i passaggi precedenti in "c" per creare un probe di integrità per ERS, ad esempio 621**01** e **Health. QAS. ERS**)
    1. Regole di bilanciamento del carico
@@ -250,7 +250,7 @@ Per prima cosa è necessario creare i volumi Azure NetApp Files. Distribuire le 
          1. Mantenere il protocollo **TCP**, immettere la porta **3200**
          1. Aumentare il timeout di inattività a 30 minuti
          1. **Assicurarsi di abilitare l'indirizzo IP mobile**
-         1. Fare clic su OK
+         1. Fare clic su OK.
       1. Porte aggiuntive per ASCS
          * Ripetere i passaggi precedenti in "d" per le porte**36 00**,**39 00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 e TCP per ASC
       1. Porte aggiuntive per ASCS ERS
@@ -689,6 +689,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
       
     sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
     sudo pcs constraint order g-QAS_ASCS then g-QAS_AERS kind=Optional symmetrical=false
+    sudo pcs constraint order start g-QAS_ASCS then stop g-QAS_AERS symmetrical=false
    
     sudo pcs node unstandby anftstsapcl1
     sudo pcs property set maintenance-mode=false

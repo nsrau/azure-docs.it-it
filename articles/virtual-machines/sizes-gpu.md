@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: 3ee7a2ffed9c2c50829f237fdf4c8d3b5a6f1531
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: d88c76afb3426dce8c68ae4bcda366fe17700aa7
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77538773"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566047"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali ottimizzate per la GPU
 
@@ -31,7 +31,7 @@ Le dimensioni delle macchine virtuali ottimizzate per la GPU sono macchine virtu
 
 - Le dimensioni serie [NV](nv-series.md) e [NVv3](nvv3-series.md) sono ottimizzate e progettate per scenari di visualizzazione remota, streaming, giochi, codifica e VDI usando Framework come OpenGL e DirectX. Queste macchine virtuali hanno GPU NVIDIA Tesla M60.
 
-- [Serie NVv4](nvv4-series.md) Dimensioni delle macchine virtuali ottimizzate e progettate per VDI e la visualizzazione remota. Con le GPU partizionate, NVv4 offre le dimensioni appropriate per i carichi di lavoro che richiedono risorse GPU più piccole. Queste macchine virtuali sono supportate dalla GPU AMD Radeon Instinct MI25.
+- [Serie NVv4](nvv4-series.md) Dimensioni delle macchine virtuali ottimizzate e progettate per VDI e la visualizzazione remota. Con le GPU partizionate, NVv4 offre le dimensioni appropriate per i carichi di lavoro che richiedono risorse GPU più piccole. Queste macchine virtuali sono supportate dalla GPU AMD Radeon Instinct MI25. Le macchine virtuali NVv4 attualmente supportano solo il sistema operativo guest Windows.
 
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemi operativi e driver supportati
 

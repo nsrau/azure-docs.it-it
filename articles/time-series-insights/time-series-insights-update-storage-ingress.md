@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0c7f2de0a454dceeff1946a93801c20ad81ab0ab
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 44c942e43cd4be1d04f56e828e3e17c58713a706
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122513"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77559845"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Archiviazione e ingresso dei dati nella versione di anteprima di Azure Time Series Insights
 
@@ -171,7 +171,7 @@ Time Series Insights anteprima Salva i dati dell'archivio a freddo nell'archivio
 
 ### <a name="data-availability"></a>Disponibilità dei dati
 
-Azure Time Series Insights Visualizza in anteprima le partizioni e indicizza i dati per ottenere prestazioni ottimali delle query. I dati diventano disponibili per eseguire una query dopo l'indicizzazione. La quantità di dati da inserire può influire sulla disponibilità.
+Azure Time Series Insights Visualizza in anteprima le partizioni e indicizza i dati per ottenere prestazioni ottimali delle query. I dati diventeranno disponibili per eseguire una query sia dal sistema caldo (se abilitato) che dall'archivio a freddo dopo che è stato indicizzato. La quantità di dati da inserire può influire sulla disponibilità.
 
 > [!IMPORTANT]
 > Durante l'anteprima, è possibile che si verifichi un periodo di tempo massimo di 60 secondi prima che i dati diventino disponibili. Se si verifica una latenza significativa superiore a 60 secondi, inviare un ticket di supporto tramite la portale di Azure.

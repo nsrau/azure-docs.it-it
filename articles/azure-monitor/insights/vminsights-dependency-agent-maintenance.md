@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: 548a578365b03162396fb8618718ab1e7ce5b081
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 28b7a2b95e8ad23226f92f2b6fba085cc0fa1bfd
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75400807"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565554"
 ---
 # <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Come aggiornare l'agente di dipendenza Monitoraggio di Azure per le macchine virtuali
 
@@ -22,7 +22,7 @@ Dopo la distribuzione iniziale di Monitoraggio di Azure per le macchine virtuali
 
 Dependency Agent per Windows e Linux può essere aggiornato alla versione più recente manualmente o automaticamente in base allo scenario di distribuzione e all'ambiente in cui è in esecuzione il computer. Per aggiornare l'agente, è possibile utilizzare i metodi seguenti.
 
-|Ambiente |Metodo di installazione |Metodo di aggiornamento |
+|Environment |Metodo di installazione |Metodo di aggiornamento |
 |------------|--------------------|---------------|
 |Macchina virtuale di Azure | Estensione della macchina virtuale dell'agente di dipendenza per [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) e [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) | Per impostazione predefinita, Agent viene aggiornato automaticamente a meno che non sia stato configurato il modello di Azure Resource Manager per rifiutare esplicitamente l'impostazione della proprietà *autoUpgradeMinorVersion* su **false**. Aggiornamento per la versione secondaria in cui l'aggiornamento automatico è disabilitato e un aggiornamento della versione principale segue lo stesso metodo: disinstallare e reinstallare l'estensione. |
 | Immagini personalizzate di VM di Azure | Installazione manuale di Dependency Agent per Windows/Linux | L'aggiornamento delle macchine virtuali alla versione più recente dell'agente deve essere eseguito dalla riga di comando che esegue il pacchetto di Windows Installer o il bundle di script di Shell autoestraente e installabile di Linux.|
@@ -39,16 +39,9 @@ Per aggiornare l'agente in una macchina virtuale Windows alla versione più rece
 1. Accedere al computer con un account con diritti amministrativi.
 
 2. Eseguire **installdependencyagent-Windows. exe** per avviare l'installazione guidata di.
+   
+3. Seguire l' **installazione** guidata di Dependency Agent per disinstallare la versione precedente di Dependency Agent, quindi installare la versione più recente.
 
-3. Nella finestra di dialogo **Dependency Agent installazione di 9.9.1** fare **clic su** Accetto il contratto di licenza.
-
-5. Nella finestra di dialogo **Dependency Agent disinstallazione 9.9.0** fare clic su **Avanti**. Nella pagina stato viene visualizzato lo stato di avanzamento della disinstallazione della versione precedente.
-
-6. Nella finestra di dialogo **Dependency Agent disinstallazione 9.9.0** fare clic su **Disinstalla** per procedere con la disinstallazione della versione precedente dal percorso specificato nella finestra di dialogo. 
-
-7. Nella finestra di dialogo **Dependency Agent 9.9.0 Uninstall** lo stato della disinstallazione viene visualizzato e, al termine, viene visualizzata la pagina **completamento Dependency Agent disinstallazione** . Fare clic su **Fine**.
-
-8. Nella finestra di dialogo **Dependency Agent installazione 9.9.1** viene visualizzato lo stato di avanzamento dell'installazione. Quando viene visualizzata la pagina **completamento Dependency Agent disinstallazione** , fare clic su **fine**. 
 
 ### <a name="from-the-command-line"></a>Dalla riga di comando
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 750b49e149907f204b8b15f0b5728ab25f917743
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 2395aa5984de2a9fe41e4778d16aba69bfef5192
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844506"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77559234"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestione dei nomi di dominio personalizzati in Azure Active Directory
 
@@ -90,10 +90,10 @@ Viene restituito un errore nei casi seguenti:
 **D: Perché l'eliminazione del dominio non riesce e genera un errore che indica la presenza di gruppi gestiti da Exchange per il nome di dominio?** <br>
 **R:** Attualmente, il provisioning di determinati gruppi, come gli elenchi distribuiti e i gruppi di sicurezza abilitati alla posta elettronica, viene effettuato da Exchange ed è necessario eseguirne manualmente la pulizia nell'[interfaccia di amministrazione di Exchange](https://outlook.office365.com/ecp/). Potrebbero essere presenti indirizzi proxy residui che si basano sul nome di dominio personalizzato e che dovranno essere aggiornati manualmente con un altro nome di dominio. 
 
-**D: Sono stato eseguito l'accesso come\@amministratore contoso.com ma non è possibile eliminare il nome di dominio "contoso.com"?**<br>
+**D: si è connessi come amministratore\@contoso.com ma non è possibile eliminare il nome di dominio "contoso.com"?**<br>
 **R:** Non è possibile eliminare un nome di dominio personalizzato cui viene fatto riferimento nel nome dell'account utente in uso. Assicurarsi che l'account amministratore globale usi il nome di dominio predefinito iniziale ".onmicrosoft.com", ad esempio admin@contoso.onmicrosoft.com. Accedere con un diverso account amministratore globale, ad esempio admin@contoso.onmicrosoft.com, o con un altro nome di dominio personalizzato come "fabrikam.com", per il quale l'account è admin@fabrikam.com.
 
-**D: Dopo aver fatto clic sul pulsante Elimina dominio, lo stato visualizzato per l'operazione di eliminazione è `In Progress`. Quanto tempo occorre? Che cosa accade se non riesce?**<br>
+**D: è stato fatto clic sul pulsante Elimina dominio per visualizzare `In Progress` stato dell'operazione di eliminazione. Quanto tempo è richiesto? Che cosa accade in caso di errore?**<br>
 **R:** L'operazione di eliminazione di un dominio è un attività asincrona in background che rinomina tutti i riferimenti al nome di dominio. Il completamento dovrebbe richiedere un minuto o due. Se l'eliminazione del dominio non riesce, verificare che non sia presente quanto segue:
 
 * App configurate per il nome di dominio con l'URI identificatore dell'app
@@ -102,12 +102,12 @@ Viene restituito un errore nei casi seguenti:
 
 Se si riscontra che una o più condizioni non sono state soddisfatte, eseguire la pulizia dei riferimenti manualmente e provare a eliminare di nuovo il dominio.
 
-## <a name="use-powershell-or-graph-api-to-manage-domain-names"></a>Usare API Graph o PowerShell per gestire i nomi di dominio
+## <a name="use-powershell-or-the-microsoft-graph-api-to-manage-domain-names"></a>Usare PowerShell o l'API Microsoft Graph per gestire i nomi di dominio
 
-La maggior parte delle attività di gestione per i nomi di dominio in Azure Active Directory può anche essere completata usando Microsoft PowerShell oppure a livello di codice usando l'API Graph di Azure AD.
+La maggior parte delle attività di gestione per i nomi di dominio in Azure Active Directory può essere completata anche con Microsoft PowerShell o a livello di codice tramite l'API Microsoft Graph.
 
 * [Uso di PowerShell per gestire i nomi di dominio in Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#domains)
-* [Uso dell'API Graph per gestire i nomi di dominio in Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
+* [Tipo di risorsa di dominio](https://docs.microsoft.com/graph/api/resources/domain?view=graph-rest-1.0)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

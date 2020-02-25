@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 03/13/2019
+ms.date: 02/21/2020
 ms.author: sngun
-ms.openlocfilehash: 3a7eaabedd6736c107625204f982a530f2bab73d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 514982727509788918c159e07f8061962df32336
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718174"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77558929"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Java SDK di Azure Cosmos DB per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
@@ -42,6 +42,10 @@ SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asi
 |**Runtime minimo supportato**|[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)|
 
 ## <a name="release-notes"></a>Note sulla versione
+
+### <a name="a-name247247"></a><a name="2.4.7"/>2.4.7
+* Corregge il problema di timeout del pool di connessioni.
+* Corregge l'aggiornamento del token di autenticazione per i tentativi interni.
 
 ### <a name="a-name246246"></a><a name="2.4.6"/>2.4.6
 * Il tag del criterio di replica lato client è stato aggiornato in databaseAccount e le letture della configurazione databaseAccount dalla cache.
@@ -259,8 +263,19 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
-| [2.1.3](#2.1.3) |13 marzo, 2018 |--- |
-| [2.1.2](#2.1.2) |9 mar 2018 |--- |
+| [2.4.7](#2.4.7) |20 feb, 2020 |--- |
+| [2.4.6](#2.4.6) |24 gen, 2020 |--- |
+| [2.4.5](#2.4.5) |10 novembre 2019 |--- |
+| [2.4.4](#2.4.4) |24 ottobre 2019 |--- |
+| [2.4.2 Sections](#2.4.2) |26 settembre, 2019 |--- |
+| [2.4.1](#2.4.1) |18 luglio 2019 |--- |
+| [2.4.0](#2.4.0) |04 maggio, 2019 |--- |
+| [2.3.0](#2.3.0) |24 aprile, 2019 |--- |
+| [2.2.3](#2.2.3) |16 aprile 2019 |--- |
+| [2.2.2](#2.2.2) |05 aprile, 2019 |--- |
+| [2.2.0](#2.2.0) |27 mar 2019 |--- |
+| [2.1.3](#2.1.3) |13 marzo, 2019 |--- |
+| [2.1.2](#2.1.2) |9 mar 2019 |--- |
 | [2.1.1](#2.1.1) |13 dicembre 2018 |--- |
 | [2.1.0](#2.1.0) |20 nov, 2018 |--- |
 | [2.0.0](#2.0.0) |21 settembre 2018 |--- |

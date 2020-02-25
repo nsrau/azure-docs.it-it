@@ -4,15 +4,15 @@ description: Informazioni su come eseguire l'integrazione con il firewall di Azu
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6b9633e8a37e665577f1e69e8008a64b7e139c1c
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f24a984a4b3e13039f1f9dcf0be459425c048c41
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513346"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565724"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Blocco di un ambiente del servizio app
 
@@ -41,9 +41,11 @@ Il traffico da e verso un ambiente del servizio app deve rispettare le convenzio
 
 ## <a name="locking-down-inbound-management-traffic"></a>Blocco del traffico di gestione in ingresso
 
-Se alla subnet dell'ambiente del servizio app non è già assegnato un NSG, crearne uno. All'interno di NSG impostare la prima regola per consentire il traffico dal tag del servizio denominato AppServiceManagement sulle porte 454, 455. Questo è tutto ciò che è necessario dagli indirizzi IP pubblici per gestire l'ambiente del servizio app. Gli indirizzi protetti da tale tag di servizio vengono utilizzati solo per amministrare il servizio app Azure. Il traffico di gestione che attraversa queste connessioni viene crittografato e protetto con i certificati di autenticazione. Il traffico tipico in questo canale include elementi come i comandi avviati dal cliente e i probe di integrità. 
+Se alla subnet dell'ambiente del servizio app non è già assegnato un NSG, crearne uno. All'interno di NSG, impostare la prima regola per consentire il traffico dal tag del servizio denominato AppServiceManagement sulle porte 454, 455. La regola per consentire l'accesso dal tag AppServiceManagement è l'unica cosa richiesta dagli indirizzi IP pubblici per la gestione dell'ambiente del servizio app. Gli indirizzi protetti da tale tag di servizio vengono utilizzati solo per amministrare il servizio app Azure. Il traffico di gestione che attraversa queste connessioni viene crittografato e protetto con i certificati di autenticazione. Il traffico tipico in questo canale include elementi come i comandi avviati dal cliente e i probe di integrità. 
 
 Gli ambienti effettuate tramite il portale con una nuova subnet vengono eseguite con un NSG che contiene la regola Consenti per il tag AppServiceManagement.  
+
+L'ambiente del servizio app deve anche consentire le richieste in ingresso dal tag Load Balancer sulla porta 16001. Le richieste provenienti dalla Load Balancer sulla porta 16001 sono controlli Keep-Alive tra i Load Balancer e i front-end dell'ambiente del servizio app. Se la porta 16001 è bloccata, l'ambiente del servizio app non sarà integro.
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Configurazione di Firewall di Azure con l'ambiente del servizio app 
 
@@ -112,7 +114,7 @@ Le informazioni seguenti sono necessarie solo se si vuole configurare un'applian
 
 | Endpoint |
 |----------|
-| Azure SQL |
+| SQL di Azure |
 | Archiviazione di Azure |
 | Hub eventi di Azure |
 
@@ -270,9 +272,24 @@ Linux non è disponibile nelle aree US Gov e pertanto non è elencato come confi
 
 | Endpoint |
 |----------|
-| Azure SQL |
+| SQL di Azure |
 | Archiviazione di Azure |
 | Hub eventi di Azure |
+
+#### <a name="ip-address-dependencies"></a>Dipendenze di indirizzi IP
+
+| Endpoint | Dettagli |
+|----------| ----- |
+| \*:123 | Controllo dell'orologio NTP. Il traffico viene verificato in più endpoint sulla porta 123. |
+| \*:12000 | Questa porta viene usata per alcune attività di monitoraggio del sistema. Se bloccato, alcuni problemi saranno più difficili da valutare, ma l'ambiente del servizio app continuerà a funzionare |
+| 40.77.24.27:80 | Necessaria per monitorare e segnalare i problemi dell'ambiente del servizio app |
+| 40.77.24.27:443 | Necessaria per monitorare e segnalare i problemi dell'ambiente del servizio app |
+| 13.90.249.229:80 | Necessaria per monitorare e segnalare i problemi dell'ambiente del servizio app |
+| 13.90.249.229:443 | Necessaria per monitorare e segnalare i problemi dell'ambiente del servizio app |
+| 104.45.230.69:80 | Necessaria per monitorare e segnalare i problemi dell'ambiente del servizio app |
+| 104.45.230.69:443 | Necessaria per monitorare e segnalare i problemi dell'ambiente del servizio app |
+| 13.82.184.151:80 | Necessaria per monitorare e segnalare i problemi dell'ambiente del servizio app |
+| 13.82.184.151:443 | Necessaria per monitorare e segnalare i problemi dell'ambiente del servizio app |
 
 #### <a name="dependencies"></a>Dependencies ####
 

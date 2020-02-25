@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4db758ce0710f5b8b122feaadaa8b97a90dcb7cb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e3cdf44c2fc4c16bba283b6f884078dd947b1f34
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846861"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77564774"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modello di fatturazione per Azure Active Directory B2C
 
@@ -82,7 +82,7 @@ Il collegamento alla sottoscrizione viene effettuato creando una *risorsa* Azure
 
 Una sottoscrizione collegata a un tenant di Azure AD B2C può essere usata per la fatturazione dell'utilizzo Azure AD B2C o di altre risorse di Azure, incluse risorse Azure AD B2C aggiuntive. La sottoscrizione non può essere usata per aggiungere altri servizi basati su licenza di Azure o licenze di Office 365 nel tenant di Azure AD B2C.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 
 * [Sottoscrizione di Azure](https://azure.microsoft.com/free/)
 * [Azure ad B2C tenant](tutorial-create-tenant.md) che si vuole collegare a una sottoscrizione
@@ -113,7 +113,7 @@ Dopo aver creato la risorsa Azure AD B2C in una sottoscrizione di Azure, verrà 
 * Passare alla sottoscrizione per esaminare le informazioni di fatturazione
 * Ottenere l'ID tenant del tenant Azure AD B2C in formato GUID
 * Passare al tenant di Azure AD B2C.
-* Invia una richiesta di supporto
+* Inviare una richiesta di supporto.
 * Spostare la risorsa del tenant di Azure AD B2C in un'altra sottoscrizione o gruppo di risorse di Azure
 
 ![Pagina Impostazioni risorse B2C nella portale di Azure](./media/billing/portal-02-b2c-resource-overview.png)
@@ -140,4 +140,4 @@ Prima di iniziare lo spostamento, assicurarsi di leggere l'intero articolo per c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Oltre a esaminare i dettagli relativi all'utilizzo e alla fatturazione in una sottoscrizione di Azure selezionata, è possibile esaminare i report dettagliati sull'utilizzo giornaliero usando l'API per la [creazione di report sull'utilizzo](view-usage-reports.md).
+Per le informazioni più aggiornate sui prezzi, vedere [Azure Active Directory B2C prezzi](https://azure.microsoft.com/pricing/details/active-directory-b2c/).

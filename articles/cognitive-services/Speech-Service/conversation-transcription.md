@@ -1,27 +1,27 @@
 ---
-title: Che cos'è la trascrizione delle conversazioni (anteprima)? -Servizio di riconoscimento vocale
+title: Informazioni sulle trascrizioni di conversazione (anteprima)-servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: La trascrizione delle conversazioni è una soluzione di sintesi vocale che combina il riconoscimento vocale, l'identificazione del relatore e l'attribuzione di frasi a ogni altoparlante (anche noto come "diare") per fornire la trascrizione in tempo reale e/o asincrona di qualsiasi conversazione.
 services: cognitive-services
-author: markamos
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 07e3e498a3bd2693b72079a8a731c3d139414c90
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 01/31/2020
+ms.author: dapine
+ms.openlocfilehash: 8e36a5c4d9ce2bc38565d6c9c256ed2cc7efe357
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806287"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561069"
 ---
-# <a name="what-is-conversation-transcription-preview"></a>Che cos'è la trascrizione delle conversazioni (anteprima)?
+# <a name="about-conversation-transcription-preview"></a>Informazioni sulla trascrizione delle conversazioni (anteprima)
 
 La trascrizione delle conversazioni è una soluzione di [sintesi vocale](speech-to-text.md) che combina il riconoscimento vocale, l'identificazione del relatore e l'attribuzione di frasi a ogni altoparlante (anche noto come " _diare_") per fornire la trascrizione in tempo reale e/o asincrona di qualsiasi conversazione. La trascrizione delle conversazioni distingue gli speaker in una conversazione per determinare chi ha detto cosa e quando e rende più semplice per gli sviluppatori l'aggiunta di riconoscimento vocale alle applicazioni che eseguono la messa in funzione del MultiSpeaker.
 
-## <a name="key-features"></a>Caratteristiche principali
+## <a name="key-features"></a>Funzionalità principali
 
 - **Timestamp** : ogni espressione speaker ha un timestamp, in modo che sia possibile trovare facilmente il momento in cui è stata pronunciata una frase.
 - **Trascrizioni leggibili** : la formattazione e la punteggiatura sono state aggiunte automaticamente per garantire che il testo corrisponda esattamente a quanto detto.
@@ -44,7 +44,7 @@ Per rendere le riunioni inclusive per tutti gli utenti, ad esempio i partecipant
 
 I partecipanti alla riunione possono concentrarsi sulla riunione e lasciare la trascrizione delle conversazioni. I partecipanti possono partecipare attivamente alla riunione e proseguire rapidamente con i passaggi successivi, usando la trascrizione anziché prendere nota e potenzialmente mancare qualcosa durante la riunione.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Si tratta di una panoramica di alto livello del funzionamento della trascrizione delle conversazioni.
 
@@ -63,7 +63,7 @@ La trascrizione delle conversazioni offre tre modalità di trascrizione:
 
 I dati audio vengono elaborati in tempo reale per restituire l'identificatore e la trascrizione. Selezionare questa modalità se il requisito della soluzione di trascrizione consiste nel fornire ai partecipanti di conversazioni una visualizzazione della trascrizione in tempo reale della conversazione in corso. Ad esempio, la compilazione di un'applicazione per rendere le riunioni più accessibili da parte di membri sordi e difficili da ascoltare è un caso d'uso ideale per la trascrizione in tempo reale.
 
-### <a name="asynchronous"></a>Asincrono
+### <a name="asynchronous"></a>Asincrona
 
 I dati audio sono batch elaborati per restituire l'identificatore e la trascrizione del altoparlante. Selezionare questa modalità se il requisito della soluzione di trascrizione è fornire un'accuratezza più elevata senza visualizzazione della trascrizione in tempo reale. Se, ad esempio, si desidera compilare un'applicazione per consentire ai partecipanti della riunione di recuperare facilmente riunioni mancanti, utilizzare la modalità di trascrizione asincrona per ottenere risultati di trascrizione ad alta precisione.
 
@@ -71,7 +71,7 @@ I dati audio sono batch elaborati per restituire l'identificatore e la trascrizi
 
 I dati audio vengono elaborati in tempo reale per restituire l'identificatore e la trascrizione del altoparlante. Inoltre, viene creata una richiesta per ottenere una trascrizione ad alta precisione tramite l'elaborazione asincrona. Selezionare questa modalità se l'applicazione ha bisogno di trascrizione in tempo reale, ma richiede anche una trascrizione di accuratezza più elevata da usare in seguito alla conversazione o alla riunione.
 
-## <a name="language-support"></a>Supporto delle lingue
+## <a name="language-support"></a>Supporto per le lingue
 
 Attualmente, la trascrizione delle conversazioni supporta "en-US" e "zh-CN" nelle aree seguenti: *centralus* e *eastasia*. Se è necessario un supporto aggiuntivo per le impostazioni locali, contattare la [funzionalità di trascrizione delle conversazioni](mailto:CTSFeatureCrew@microsoft.com).
 

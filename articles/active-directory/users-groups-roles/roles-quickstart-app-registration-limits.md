@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12803e2f65e17155e8bbcaf4842789adc101b0dd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7acd76ff45f783f614b2a1d3f0d5c10d800a1ea9
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024399"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77559046"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Guida introduttiva: concedere l'autorizzazione per creare registrazioni di app illimitate
 
-In questa Guida introduttiva verrà creato un ruolo personalizzato con l'autorizzazione per creare un numero illimitato di registrazioni per l'app e quindi assegnare tale ruolo a un utente. L'utente assegnato può quindi usare il portale di Azure AD, Azure AD PowerShell, Azure AD API Graph o l'API Microsoft Graph per creare registrazioni di applicazioni. Diversamente dal ruolo predefinito per sviluppatori di applicazioni, questo ruolo personalizzato concede la possibilità di creare un numero illimitato di registrazioni di applicazioni. Il ruolo sviluppatore di applicazioni concede la possibilità, ma il numero totale di oggetti creati è limitato a 250 per impedire che raggiunga [la quota di oggetti a livello di directory](directory-service-limits-restrictions.md).
+In questa Guida introduttiva verrà creato un ruolo personalizzato con l'autorizzazione per creare un numero illimitato di registrazioni per l'app e quindi assegnare tale ruolo a un utente. L'utente assegnato può quindi usare il portale di Azure AD, Azure AD PowerShell o l'API Microsoft Graph per creare registrazioni di applicazioni. Diversamente dal ruolo predefinito per sviluppatori di applicazioni, questo ruolo personalizzato concede la possibilità di creare un numero illimitato di registrazioni di applicazioni. Il ruolo sviluppatore di applicazioni concede la possibilità, ma il numero totale di oggetti creati è limitato a 250 per impedire che raggiunga [la quota di oggetti a livello di directory](directory-service-limits-restrictions.md).
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -141,7 +141,7 @@ POST
 https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
 ```
 
-Body
+Corpo
 
 ```HTTP
 {
@@ -178,7 +178,7 @@ POST
 https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 
-Body
+Corpo
 
 ``` HTTP
 {

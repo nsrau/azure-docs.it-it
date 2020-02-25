@@ -1,23 +1,23 @@
 ---
-title: Disponibilità elevata di SAP HANA in macchine virtuali di Azure su SUSE Linux Enterprise Server | Microsoft Docs
+title: Disponibilità elevata di SAP HANA in macchine virtuali di Azure in SLES | Microsoft Docs
 description: Disponibilità elevata di SAP HANA in macchine virtuali di Azure su SUSE Linux Enterprise Server
 services: virtual-machines-linux
 documentationcenter: ''
-author: MSSedusch
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/06/2019
-ms.author: sedusch
-ms.openlocfilehash: ffa2f937a14aa14750480d1c45498fb4c49fcc30
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.author: radeltch
+ms.openlocfilehash: 65ba7c0d8115e7125f1318e7fdca979cfab02474
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721494"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565843"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Disponibilità elevata di SAP HANA in macchine virtuali di Azure su SUSE Linux Enterprise Server
 
@@ -77,7 +77,7 @@ Leggere prima di tutto i documenti e le note SAP seguenti:
   * Configurazione di un'infrastruttura ottimizzata per le prestazioni per la replica di sistema SAP HANA (SLES for SAP Applications 12 SP1). La guida contiene tutte le informazioni necessarie per configurare la replica di sistema SAP HANA per lo sviluppo locale. Usare la guida per le indicazioni di base.
   * Configurazione di un'infrastruttura ottimizzata per i costi per la replica di sistema SAP HANA (SLES for SAP Applications 12 SP1)
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Per ottenere disponibilità elevata, il sistema SAP HANA viene installato in due macchine virtuali. I dati vengono replicati tramite la replica di sistema HANA.
 
@@ -112,7 +112,7 @@ Per distribuire il modello, seguire questi passaggi:
     - **System Availability**: selezionare **HA**.
     - **Nome utente amministratore e password amministratore**: viene creato un nuovo utente che può essere usato per accedere al computer.
     - **New Or Existing Subnet** (Subnet nuova o esistente): determina se devono essere create una nuova rete virtuale e una nuova subnet o se deve essere usata una subnet esistente. Se è già presente una rete virtuale connessa alla rete locale, selezionare **Esistente**.
-    - **ID subnet**: se si vuole implementare la macchina virtuale in una rete virtuale esistente per cui è stata definita la subnet a cui assegnare la macchina virtuale, denominare l'ID di tale subnet. L'ID in genere ha il formato **/subscriptions/\<ID sottoscrizione>/resourceGroups/\<nome gruppo di risorse>/providers/Microsoft.Network/virtualNetworks/\<nome rete virtuale>/subnets/\<nome subnet>** .
+    - **ID subnet**: se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID in genere ha il formato **/subscriptions/\<ID sottoscrizione>/resourceGroups/\<nome gruppo di risorse>/providers/Microsoft.Network/virtualNetworks/\<nome rete virtuale>/subnets/\<nome subnet>** .
 
 ### <a name="manual-deployment"></a>Distribuzione manuale
 
@@ -582,7 +582,7 @@ Assicurarsi che lo stato del cluster sia corretto e che tutte le risorse siano a
 
 Questa sezione descrive come testare la configurazione. Ogni test presuppone che si usi l'account utente ROOT e che il master SAP HANA sia in esecuzione nella macchina virtuale **hn1-db-0**.
 
-### <a name="test-the-migration"></a>Testare la migrazione
+### <a name="test-the-migration"></a>Test della migrazione
 
 Prima di iniziare il test, assicurarsi che in Pacemaker non vi siano azioni non riuscite (tramite crm_mon - r), non siano presenti vincoli di posizione imprevisti (ad esempio rimasti da un test di migrazione precedente) e che HANA si trovi nello stato di sincronizzazione, ad esempio con SAPHanaSR-showAttr:
 

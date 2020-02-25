@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 3d5b1ab4e72ec759098e9c71515200f89a8dfe82
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: aec8048c7ef2eb0d944cdd2a863e23578f4f87e5
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931201"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561681"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -60,6 +60,17 @@ Se non si dispone di un ruolo che concede autorizzazioni per i livelli di gestio
 
 Attualmente non è disponibile una soluzione relativa al controllo degli accessi in base al ruolo per questo problema. Come soluzione alternativa, è possibile richiedere un URI di firma di accesso condiviso per [connettersi alla risorsa](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
+### <a name="recommended-built-in-rbac-roles"></a>Ruoli RBAC predefiniti predefiniti
+
+Sono disponibili diversi ruoli RBAC predefiniti che possono fornire le autorizzazioni necessarie per usare Storage Explorer. Alcuni di questi ruoli sono:
+- [Proprietario](/azure/role-based-access-control/built-in-roles#owner): consente di gestire tutto, incluso l'accesso alle risorse. **Nota**: questo ruolo fornirà l'accesso alla chiave.
+- [Collaboratore](/azure/role-based-access-control/built-in-roles#contributor): consente di gestire tutto, escluso l'accesso alle risorse. **Nota**: questo ruolo fornirà l'accesso alla chiave.
+- [Reader](/azure/role-based-access-control/built-in-roles#reader): leggere ed elencare le risorse.
+- [Collaboratore account di archiviazione](/azure/role-based-access-control/built-in-roles#storage-account-contributor): gestione completa degli account di archiviazione. **Nota**: questo ruolo fornirà l'accesso alla chiave.
+- [Proprietario dati BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): accesso completo ai contenitori BLOB e ai dati di archiviazione di Azure.
+- [Collaboratore dati BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): lettura, scrittura ed eliminazione di BLOB e contenitori di archiviazione di Azure.
+- [Lettore dati BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): lettura ed elenco di contenitori e BLOB di archiviazione di Azure.
+
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Errore: certificato autofirmato nella catena di certificati (ed errori simili)
 
 Gli errori dei certificati si verificano in genere in una delle situazioni seguenti:
@@ -98,7 +109,7 @@ Le finestre di dialogo di accesso vuote si verificano spesso quando Active Direc
 1. Sulla barra degli strumenti verticale sinistra aprire **Impostazioni**. Nel pannello impostazioni passare ad **applicazione** > **Accedi**. Abilitare l' **accesso tramite il flusso di codice del dispositivo**.
 2. Aprire la finestra di dialogo **Connetti** (tramite l'icona a forma di spina sulla barra verticale a sinistra o selezionando **Aggiungi account** nel pannello account).
 3. Scegliere l'ambiente a cui si vuole accedere.
-4. Selezionare **Accedi**.
+4. Selezionare **Sign in (accedi**).
 5. Seguire le istruzioni visualizzate.
 
 Se non è possibile accedere all'account che si vuole usare perché il browser predefinito è già connesso a un altro account, effettuare una delle operazioni seguenti:
@@ -244,20 +255,20 @@ Se si desidera mantenere le connessioni non danneggiate, è possibile utilizzare
 
 Dopo aver attraversato tutte le connessioni, per tutti i nomi delle connessioni che non sono stati aggiunti, è necessario cancellare i dati danneggiati (se presenti) e aggiungerli nuovamente utilizzando i passaggi standard in Storage Explorer:
 
-# <a name="windowstabwindows"></a>[Windows](#tab/Windows)
+# <a name="windows"></a>[Windows](#tab/Windows)
 
 1. Nel menu **Start** cercare **Gestione credenziali** e aprirlo.
 2. Passare a **Windows credentials**.
 3. In **credenziali generiche**cercare le voci con la chiave di `<connection_type_key>/<corrupted_connection_name>`, ad esempio `StorageExplorer_CustomConnections_Accounts_v1/account1`.
 4. Eliminare queste voci e aggiungere di nuovo le connessioni.
 
-# <a name="macostabmacos"></a>[macOS](#tab/macOS)
+# <a name="macos"></a>[macOS](#tab/macOS)
 
 1. Aprire Spotlight (Command + barra spaziatrice) e cercare **l'accesso Keychain**.
 2. Cercare le voci con la chiave di `<connection_type_key>/<corrupted_connection_name>`, ad esempio `StorageExplorer_CustomConnections_Accounts_v1/account1`.
 3. Eliminare queste voci e aggiungere di nuovo le connessioni.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/Linux)
+# <a name="linux"></a>[Linux](#tab/Linux)
 
 La gestione delle credenziali locali varia a seconda della distribuzione di Linux. Se la distribuzione di Linux non fornisce uno strumento GUI integrato per la gestione delle credenziali locali, è possibile installare uno strumento di terze parti per gestire le credenziali locali. Ad esempio, è possibile usare [cavalluccio](https://wiki.gnome.org/Apps/Seahorse/), uno strumento di interfaccia utente grafica open source per la gestione delle credenziali locali di Linux.
 
@@ -303,13 +314,13 @@ Questi pacchetti sono i requisiti più comuni per Storage Explorer in Linux:
 
 * [Runtime di .NET Core 2,2](/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
 * `libgconf-2-4`
-* `libgnome-keyring0` oppure `libgnome-keyring-dev`
+* `libgnome-keyring0` o `libgnome-keyring-dev`
 * `libgnome-keyring-common`
 
 > [!NOTE]
 > Storage Explorer versione 1.7.0 e versioni precedenti richiedono .NET Core 2,0. Se è installata una versione più recente di .NET Core, è necessario applicare una [patch Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). Se si esegue Storage Explorer 1.8.0 o versione successiva, si dovrebbe essere in grado di usare fino a .NET Core 2,2. Le versioni successive a 2,2 non sono state verificate per funzionare in questo momento.
 
-# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19.04](#tab/1904)
+# <a name="ubuntu-1904"></a>[Ubuntu 19,04](#tab/1904)
 
 1. Scaricare Storage Explorer.
 2. Installare il [runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
@@ -318,7 +329,7 @@ Questi pacchetti sono i requisiti più comuni per Storage Explorer in Linux:
    sudo apt-get install libgconf-2-4 libgnome-keyring0
    ```
 
-# <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
+# <a name="ubuntu-1804"></a>[Ubuntu 18,04](#tab/1804)
 
 1. Scaricare Storage Explorer.
 2. Installare il [runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
@@ -327,7 +338,7 @@ Questi pacchetti sono i requisiti più comuni per Storage Explorer in Linux:
    sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
    ```
 
-# <a name="ubuntu-1604tab1604"></a>[Ubuntu 16.04](#tab/1604)
+# <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Scaricare Storage Explorer.
 2. Installare il [runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
@@ -336,7 +347,7 @@ Questi pacchetti sono i requisiti più comuni per Storage Explorer in Linux:
    sudo apt install libgnome-keyring-dev
    ```
 
-# <a name="ubuntu-1404tab1404"></a>[Ubuntu 14.04](#tab/1404)
+# <a name="ubuntu-1404"></a>[Ubuntu 14.04](#tab/1404)
 
 1. Scaricare Storage Explorer.
 2. Installare il [runtime di .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
@@ -370,4 +381,4 @@ Se il pulsante **Apri in Esplora** sul portale di Azure non funziona, assicurars
 
 Se nessuna di queste soluzioni funziona, [aprire un problema in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Questa operazione può essere eseguita anche selezionando il pulsante **Segnala problema in GitHub** nell'angolo in basso a sinistra.
 
-![Commenti](./media/storage-explorer-troubleshooting/feedback-button.PNG)
+![Commenti e suggerimenti](./media/storage-explorer-troubleshooting/feedback-button.PNG)

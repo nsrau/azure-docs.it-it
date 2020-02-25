@@ -1,5 +1,5 @@
 ---
-title: Creare un database e un cluster di Esplora dati di Azure usando l'interfaccia della riga di comando di Azure
+title: Creare un cluster di Azure Esplora dati & database con l'interfaccia della riga di comando di Azure
 description: Informazioni su come creare un database e un cluster di Esplora dati di Azure tramite l'interfaccia della riga di comando di Azure
 author: radennis
 ms.author: radennis
@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: bd53a8e29254af617b6cfa68935a191a50fc526c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 6b8c2924e50da095c3bc5c7db2d2bf48ef5a27c2
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326777"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561936"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Creare un database e un cluster di Esplora dati di Azure usando l'interfaccia della riga di comando di Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "71326777"
 
 Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per l'analisi in tempo reale di volumi elevati di dati in streaming provenienti da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. Questo articolo illustra come creare un cluster e un database usando l'interfaccia della riga di comando di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questo articolo, è necessaria una sottoscrizione di Azure. Se non se ne ha una, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 

@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 5db86c09cd104b2a68431ccbe24128a24ebd2ad4
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 1ac1feb5e3b179ded5fd8dae47e1859f082ad827
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500420"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565787"
 ---
 # <a name="what-is-azure-private-link-service"></a>Che cos'è il servizio di collegamento privato di Azure?
 
-Il servizio di collegamento privato di Azure è il riferimento al servizio personalizzato che è basato sul collegamento privato di Azure. Il servizio in esecuzione dietro [Azure Load Balancer standard](../load-balancer/load-balancer-standard-overview.md) può essere abilitato per l'accesso ai collegamenti privati, in modo che i consumer del servizio possano accedervi privatamente dalla propria reti virtuali. I clienti possono creare un endpoint privato all'interno della VNet ed eseguirne il mapping a questo servizio. Questo articolo illustra i concetti correlati al lato del provider di servizi. 
+Il servizio Collegamento privato di Azure è il riferimento a un servizio personalizzato basato su Collegamento privato di Azure. Il servizio in esecuzione dietro [Azure Load Balancer standard](../load-balancer/load-balancer-standard-overview.md) può essere abilitato per l'accesso ai collegamenti privati, in modo che i consumer del servizio possano accedervi privatamente dalla propria reti virtuali. I clienti possono creare un endpoint privato all'interno della VNet ed eseguirne il mapping a questo servizio. Questo articolo illustra i concetti correlati al lato del provider di servizi. 
 
 ## <a name="workflow"></a>Flusso di lavoro
 
@@ -111,6 +111,8 @@ Dettagli TLV personalizzati:
 |valore  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
 |  |4        |UINT32 (4 byte) che rappresenta il LINKID dell'endpoint privato. Codificato in formato little endian.|
 
+ > [!NOTE]
+ > Il provider di servizi è responsabile di assicurarsi che il servizio dietro il servizio di bilanciamento del carico standard sia configurato per analizzare l'intestazione del protocollo proxy in base alla [specifica](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) quando il protocollo proxy è abilitato nel servizio di collegamento privato. La richiesta avrà esito negativo se l'impostazione del protocollo proxy è abilitata nel servizio di collegamento privato e il servizio non è configurato per analizzare l'intestazione. Analogamente, la richiesta avrà esito negativo se il servizio prevede un'intestazione del protocollo proxy mentre l'impostazione non è abilitata nel servizio di collegamento privato. Quando è abilitata l'impostazione del protocollo proxy, l'intestazione del protocollo proxy sarà inclusa anche nei Probe di integrità HTTP/TCP dall'host alle macchine virtuali back-end, anche se nell'intestazione non saranno presenti informazioni sul client. 
 
 ## <a name="limitations"></a>Limitazioni
 

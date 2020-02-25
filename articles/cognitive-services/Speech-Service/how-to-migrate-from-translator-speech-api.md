@@ -8,25 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 01/21/2020
 ms.author: aahi
-ms.openlocfilehash: ba9484bd5b04e5a79da53a0bb78877153be42a43
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 75a456c4a297b0465c34b8e0af2e87056ad565b3
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805910"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560899"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Eseguire la migrazione dalla API Traduzione vocale al servizio riconoscimento vocale
 
-Usare questo articolo per eseguire la migrazione delle applicazioni da Microsoft API Traduzione vocale al [servizio di riconoscimento vocale](index.md). Questa guida descrive le differenze tra il servizio di API Traduzione vocale e riconoscimento vocale e suggerisce strategie per la migrazione delle applicazioni.
+Usare questo articolo per eseguire la migrazione delle applicazioni da Microsoft API Traduzione vocale al [servizio di riconoscimento vocale](index.yml). Questa guida descrive le differenze tra il servizio di API Traduzione vocale e riconoscimento vocale e suggerisce strategie per la migrazione delle applicazioni.
 
 > [!NOTE]
 > La chiave di sottoscrizione API Traduzione vocale non verrà accettata dal servizio di riconoscimento vocale. È necessario creare una nuova sottoscrizione del servizio di riconoscimento vocale.
 
 ## <a name="comparison-of-features"></a>Confronto delle funzionalità
 
-| Funzionalità                                           | API Traduzione vocale Microsoft Translator                                  | Servizio Voce | Dettagli                                                                                                                                                                                                                                                                            |
+| Funzionalità                                           | API Traduzione vocale                                  | Servizio Voce | Dettagli                                                                                                                                                                                                                                                                            |
 |---------------------------------------------------|-----------------------------------------------------------------|------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Traduzione in testo                               | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Traduzione in voce                             | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
@@ -35,7 +35,7 @@ Usare questo articolo per eseguire la migrazione delle applicazioni da Microsoft
 | Limite di tempo della connessione                             | 90 minuti                                               | Senza limiti con l'SDK. 10 minuti con una connessione WebSocket.                                                                                                                                                                                                                                                                                   |
 | Chiave di autenticazione nell'intestazione                                | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Più lingue tradotte in una singola richiesta | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| SDK disponibili                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Vedere la [documentazione del servizio vocale](index.md) per gli SDK disponibili.                                                                                                                                                    |
+| SDK disponibili                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Vedere la [documentazione del servizio vocale](index.yml) per gli SDK disponibili.                                                                                                                                                    |
 | Connessioni WebSocket                            | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | API di lingue                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | Il servizio di riconoscimento vocale supporta la stessa gamma di linguaggi descritti nell'articolo di [riferimento sulle lingue dell'API di traduzione](../translator-speech/languages-reference.md) . |
 | Marcatore e filtro per contenuto volgare                       | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
@@ -49,11 +49,11 @@ Usare questo articolo per eseguire la migrazione delle applicazioni da Microsoft
 
 ## <a name="migration-strategies"></a>Strategie di migrazione
 
-Se l'utente o l'organizzazione dispone di applicazioni in fase di sviluppo o produzione che usano la API Traduzione vocale, è necessario aggiornarle per usare il servizio di riconoscimento vocale. Vedere la documentazione del [servizio vocale](index.md) per SDK, esempi di codice ed esercitazioni disponibili. Quando si esegue la migrazione, tenere presente quanto segue:
+Se l'utente o l'organizzazione dispone di applicazioni in fase di sviluppo o produzione che usano la API Traduzione vocale, è necessario aggiornarle per usare il servizio di riconoscimento vocale. Vedere la documentazione del [servizio vocale](index.yml) per SDK, esempi di codice ed esercitazioni disponibili. Quando si esegue la migrazione, tenere presente quanto segue:
 
 * Il servizio riconoscimento vocale non offre un endpoint globale. Determinare se l'applicazione funziona in modo efficiente quando usa un singolo endpoint a livello di area per tutto il traffico. In caso contrario, usare la georilevazione per determinare l'endpoint più efficiente.
 
-* Se l'applicazione usa connessioni di lunga durata e non può usare gli SDK disponibili, è possibile usare una connessione WebSocket. Gestire il limite di timeout di 10 minuti, eseguendo la riconnessione nel momento opportuno.
+* Se l'applicazione usa connessioni di lunga durata e non può usare gli SDK disponibili, è possibile usare una connessione WebSocket. Gestire il limite di timeout di 10 minuti eseguendo la riconnessione nei momenti appropriati.
 
 * Se l'applicazione usa il API Traduzione testuale e API Traduzione vocale per abilitare modelli di traduzione personalizzati, è possibile aggiungere ID di categoria direttamente usando il servizio di riconoscimento vocale.
 
@@ -64,7 +64,7 @@ Se l'utente o l'organizzazione dispone di applicazioni in fase di sviluppo o pro
 * [Prova gratuitamente il servizio vocale](get-started.md)
 * [Avvio rapido: Riconoscimento vocale in un'applicazione della piattaforma UWP con Speech SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
-* [Informazioni sul servizio Voce](overview.md)
+* [Informazioni sul Servizio di riconoscimento vocale](overview.md)
 * [Documentazione per il servizio riconoscimento vocale e l'SDK vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)

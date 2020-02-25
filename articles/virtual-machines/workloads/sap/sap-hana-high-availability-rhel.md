@@ -1,5 +1,5 @@
 ---
-title: Configurare la replica di sistema SAP HANA in Macchine virtuali di Azure (VM) | Microsoft Docs
+title: Disponibilità elevata di SAP HANA in macchine virtuali di Azure in RHEL | Microsoft Docs
 description: Configurare la disponibilità elevata di SAP HANA in Macchine virtuali di Azure (VM).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/28/2020
 ms.author: radeltch
-ms.openlocfilehash: fe4c3d8ea7aee0922ca29b9c0f475bfd9fa3c67a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5e3512ce86bdf96a5e6cfcf0e4459b656a5ac5bc
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76837035"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565860"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Disponibilità elevata di SAP HANA in macchine virtuali di Azure su Red Hat Enterprise Linux
 
@@ -78,7 +78,7 @@ Leggere prima di tutto i documenti e le note SAP seguenti:
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491) (Installazione e configurazione di un cluster Red Hat Enterprise Linux 7.4 e versioni successive a disponibilità elevata in Microsoft Azure)
   * [Install SAP HANA on Red Hat Enterprise Linux for Use in Microsoft Azure](https://access.redhat.com/solutions/3193782) (Installare SAP HANA su Red Hat Enterprise Linux per l'uso in Microsoft Azure)
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Per ottenere disponibilità elevata, il sistema SAP HANA viene installato in due macchine virtuali. I dati vengono replicati tramite la replica di sistema HANA.
 

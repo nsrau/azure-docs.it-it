@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a01ebde09517cbe7f093dd56a8a4116e76e64e38
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 987c3ee7c90eb0bb793b96eb2771efbb258f16a4
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736764"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565503"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Condivisione di account con Azure AD
 
@@ -51,7 +51,7 @@ Gli utenti possono accedere una volta con il proprio account aziendale. Si tratt
 
 Gli account condivisi non solo consentono di aumentare la supervisione e migliorare l'usabilità, ma anche di aumentare la sicurezza. Gli utenti con autorizzazioni per l'uso delle credenziali non visualizzano la password condivisa, ma ottengono autorizzazioni per l'uso della password come parte di un flusso di autenticazione orchestrato. Inoltre, alcune applicazioni con accesso Single Sign-On con password offrono la possibilità di usare Azure AD per eseguire il rollover periodico (aggiornamento) delle password. Il sistema usa le password complesse di grandi dimensioni e ciò incrementa la sicurezza dell'account. L'amministratore può facilmente concedere o revocare l'accesso a un'applicazione e può sapere chi può accedere all'account e chi ha avuto accesso in precedenza.
 
-Azure AD supporta gli account condivisi per qualsiasi piano di licenza Enterprise Mobility Suite (EMS) o Azure AD Premium, in tutti i tipi di applicazioni Single Sign-on basato su password. È possibile condividere gli account per una qualsiasi delle numerose applicazioni già integrate nella raccolta e integrare la propria applicazione con autenticazione tramite password in [app personalizzate con accesso Single Sign-On](../manage-apps/configure-single-sign-on-portal.md).
+Azure AD supporta gli account condivisi per qualsiasi piano di licenza Enterprise Mobility Suite (EMS) o Azure AD Premium, in tutti i tipi di applicazioni Single Sign-On di password. È possibile condividere gli account per una qualsiasi delle numerose applicazioni già integrate nella raccolta e integrare la propria applicazione con autenticazione tramite password in [app personalizzate con accesso Single Sign-On](../manage-apps/configure-single-sign-on-non-gallery-applications.md).
 
 Le funzionalità di Azure AD che consentono la condivisione di account includono:
 
@@ -62,7 +62,7 @@ Le funzionalità di Azure AD che consentono la condivisione di account includono
 * [Dashboard/report sull'utilizzo di app](../active-directory-passwords-get-insights.md)
 * Portali di accesso dell'utente finale
 * [Proxy di app](../manage-apps/application-proxy.md)
-* [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
+* [Marketplace di Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## <a name="sharing-an-account"></a>Condivisione di un account
 

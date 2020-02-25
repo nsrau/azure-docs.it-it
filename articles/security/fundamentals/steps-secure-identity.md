@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: cafa9d6100e03d8315bf5dd19d863ca90aadd4bb
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: e0db8edfdfa380697a1d8d7e262a7a84da2fb7d2
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190900"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565537"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinque passaggi per proteggere l'infrastruttura di identità
 
@@ -35,7 +35,7 @@ Questo elenco di controllo permette di distribuire rapidamente le azioni critich
 Assicurarsi di tenere traccia delle funzionalità e dei passaggi completati durante la lettura di questo elenco di controllo.
 
 > [!NOTE]
-> Molti consigli forniti in questo documento si applicano solo alle applicazioni, configurate per l'uso di Azure Active Directory come provider di identità. La configurazione di app per il Single Sign-On garantisce i vantaggi associati a criteri per le credenziali, rilevamento delle minacce, controllo, registrazione e altre funzionalità aggiunte a queste applicazioni. L'[accesso Single Sign-On tramite Azure Active Directory](../../active-directory/manage-apps/configure-single-sign-on-portal.md) costituisce l'elemento su cui si basano questi consigli.
+> Molti consigli forniti in questo documento si applicano solo alle applicazioni, configurate per l'uso di Azure Active Directory come provider di identità. La configurazione di app per il Single Sign-On garantisce i vantaggi associati a criteri per le credenziali, rilevamento delle minacce, controllo, registrazione e altre funzionalità aggiunte a queste applicazioni. L'[accesso Single Sign-On tramite Azure Active Directory](../../active-directory/manage-apps/configure-single-sign-on-non-gallery-applications.md) costituisce l'elemento su cui si basano questi consigli.
 
 I consigli riportati in questo documento sono allineati con [Identity Secure Score](../../active-directory/fundamentals/identity-secure-score.md), un sistema automatizzato per la valutazione della configurazione di sicurezza dell'identità del tenant di Azure AD. Le organizzazioni possono usare la pagina Identity Secure score nel portale Azure AD per individuare le lacune nella configurazione di sicurezza corrente per assicurarsi che seguano le [procedure](identity-management-best-practices.md) consigliate Microsoft correnti per la sicurezza. L'implementazione di ogni consiglio nella pagina di Secure Score aumenterà il punteggio e consentirà di tenere traccia dello stato di avanzamento. Inoltre, sarà possibile confrontare la propria implementazione con altri settori oppure organizzazioni di dimensioni simili.
 

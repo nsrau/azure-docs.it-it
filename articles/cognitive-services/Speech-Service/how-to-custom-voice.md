@@ -1,5 +1,5 @@
 ---
-title: Che cos'è una voce personalizzata? -Servizio di riconoscimento vocale
+title: Migliorare la sintesi con il servizio di riconoscimento vocale personalizzato
 titleSuffix: Azure Cognitive Services
 description: Custom Voice è un set di strumenti online che ti permettono di creare una voce unica e riconoscibile per il tuo marchio. Per iniziare sono disponibili solo alcuni file audio e le trascrizioni associate. Per iniziare a creare un'esperienza di riconoscimento vocale personalizzata, seguire i collegamenti seguenti.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: dapine
-ms.openlocfilehash: 15d15ce2d4dfc55a51bf21ba005512606cc4997a
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 786cf687e569af172eabfaa9068ae61ffd6b2988
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424967"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562497"
 ---
 # <a name="get-started-with-custom-voice"></a>Introduzione a Voce personalizzata
 

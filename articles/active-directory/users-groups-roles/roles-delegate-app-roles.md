@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 461ee1fc73448f16ba68850d6137fb396c658abd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 251bc1c2277f9e43543f95c49d0b730a5a41c3d9
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024862"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77558979"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegare le autorizzazioni di registrazione all'app in Azure Active Directory
 
@@ -74,7 +74,7 @@ In alcuni casi, le applicazioni aziendali create dalla raccolta di applicazioni 
 
 Azure AD dispone di un set di ruoli di amministratore predefiniti per la concessione dell'accesso per la gestione della configurazione in Azure AD per tutte le applicazioni. Questi ruoli sono la soluzione consigliata per concedere agli esperti IT l'accesso per gestire le autorizzazioni di configurazione delle applicazioni generali senza concedere l'accesso per gestire altre parti di Azure AD non correlate alla configurazione dell'applicazione.
 
-- Amministratore applicazione: gli utenti con questo ruolo possono creare e gestire tutti gli aspetti delle applicazioni aziendali, le registrazioni di applicazioni e le impostazioni del proxy di applicazione. Questo ruolo concede inoltre la possibilità consentire le autorizzazioni delegate e le autorizzazioni dell'applicazione escluse Microsoft Graph e Azure AD Graph. Gli utenti assegnati a questo ruolo non vengono aggiunti come proprietari per la creazione di nuove registrazioni di applicazioni o applicazioni aziendali.
+- Amministratore applicazione: gli utenti con questo ruolo possono creare e gestire tutti gli aspetti delle applicazioni aziendali, le registrazioni di applicazioni e le impostazioni del proxy di applicazione. Questo ruolo consente inoltre di concedere il consenso per le autorizzazioni delegate e le autorizzazioni dell'applicazione escluse Microsoft Graph. Gli utenti assegnati a questo ruolo non vengono aggiunti come proprietari per la creazione di nuove registrazioni di applicazioni o applicazioni aziendali.
 - Amministratore applicazione cloud: gli utenti con questo ruolo hanno le stesse autorizzazioni del ruolo di amministratore dell'applicazione, esclusa la possibilità di gestire il proxy di applicazione. Gli utenti assegnati a questo ruolo non vengono aggiunti come proprietari per la creazione di nuove registrazioni di applicazioni o applicazioni aziendali.
 
 Per ulteriori informazioni e per visualizzare la descrizione di questi ruoli, vedere [available Roles](directory-assign-admin-roles.md#available-roles).

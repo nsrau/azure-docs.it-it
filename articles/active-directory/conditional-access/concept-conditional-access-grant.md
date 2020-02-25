@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 02/21/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89063cc8131c28f20153c6fe9b4c71b58794e609
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: fb098363a6f1b27bd8afa8e68ab14bfa666ea539
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77192116"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561647"
 ---
 # <a name="conditional-access-grant"></a>Accesso condizionale: Concedi
 
@@ -55,13 +55,17 @@ Selezionando questa casella di controllo, gli utenti dovranno eseguire Multi-Fac
 
 Le organizzazioni che hanno distribuito Microsoft Intune possono usare le informazioni restituite dai dispositivi per identificare i dispositivi che soddisfano requisiti di conformità specifici. Le informazioni di conformità dei criteri vengono trasmesse da Intune a Azure AD dove l'accesso condizionale può prendere decisioni per concedere o bloccare l'accesso alle risorse. Per altre informazioni sui criteri di conformità, vedere l'articolo [impostare le regole sui dispositivi per consentire l'accesso alle risorse dell'organizzazione con Intune](https://docs.microsoft.com/intune/protect/device-compliance-get-started).
 
+Un dispositivo può essere contrassegnato come conforme da Intune (per qualsiasi sistema operativo del dispositivo) o da un sistema MDM di terze parti per i dispositivi Windows 10. I sistemi MDM di terze parti per sistemi operativi per dispositivo diversi da Windows 10 non sono supportati.
+
+I dispositivi devono essere registrati in Azure AD prima che possano essere contrassegnati come conformi. Altre informazioni sulla registrazione del dispositivo sono disponibili nell'articolo, [che cos'è un'identità del dispositivo](../devices/overview.md).
+
 ### <a name="require-hybrid-azure-ad-joined-device"></a>Richiedi dispositivo ibrido Azure AD aggiunto
 
 Le organizzazioni possono scegliere di usare l'identità del dispositivo come parte dei criteri di accesso condizionale. Le organizzazioni possono richiedere che i dispositivi siano ibridi Azure AD Uniti con questa casella di controllo. Per altre informazioni sulle identità dei dispositivi, vedere l'articolo [che cos'è un'identità del dispositivo?](../devices/overview.md).
 
 ### <a name="require-approved-client-app"></a>Richiedere app client approvata
 
-Le organizzazioni possono richiedere che venga eseguito un tentativo di accesso alle app Cloud selezionate da un'app client approvata.
+Le organizzazioni possono richiedere che venga eseguito un tentativo di accesso alle app Cloud selezionate da un'app client approvata. Questi APS client approvati supportano i [criteri di protezione delle app di Intune](/intune/app-protection-policy) indipendentemente da qualsiasi soluzione di gestione di dispositivi mobili (MDM).
 
 Questa impostazione è valida solo per le app client seguenti:
 
@@ -102,9 +106,7 @@ Questa impostazione è valida solo per le app client seguenti:
 
 ### <a name="require-app-protection-policy"></a>Richiedere criteri di protezione dell'app
 
-Nei criteri di accesso condizionale è possibile richiedere che un criterio di protezione delle app sia presente nell'app client prima che l'accesso sia disponibile per le app Cloud selezionate. 
-
-![Controllare l'accesso con i criteri di protezione delle app](./media/technical-reference/22.png)
+Nei criteri di accesso condizionale è possibile richiedere che i [criteri di protezione delle app di Intune](/intune/app-protection-policy) siano presenti nell'app client prima che l'accesso sia disponibile per le app Cloud selezionate. 
 
 Questa impostazione è valida solo per le app client seguenti:
 
@@ -118,6 +120,10 @@ Questa impostazione è valida solo per le app client seguenti:
 - Le app per i criteri di protezione delle app supportano la funzionalità di gestione delle applicazioni mobili di Intune con protezione dei criteri.
 - Richiede i requisiti dei **criteri di protezione delle app** :
     - Supporta solo le condizioni della piattaforma per dispositivi iOS e Android.
+
+### <a name="terms-of-use"></a>Condizioni per l'utilizzo
+
+Se l'organizzazione ha creato le condizioni per l'utilizzo, è possibile che siano visibili opzioni aggiuntive sotto i controlli di concessione. Queste opzioni consentono agli amministratori di richiedere il riconoscimento delle condizioni per l'utilizzo come condizione di accesso alle risorse protette dai criteri. Altre informazioni sulle condizioni per l'utilizzo sono disponibili nell'articolo [Azure Active Directory condizioni](terms-of-use.md)per l'utilizzo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

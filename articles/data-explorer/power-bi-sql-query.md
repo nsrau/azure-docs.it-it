@@ -1,5 +1,5 @@
 ---
-title: Visualizzare i dati da Esplora dati di Azure usando una query SQL in Power BI
+title: Visualizzare i dati da Esplora dati di Azure con una query Power BI SQL
 description: 'Questo articolo illustra come usare una delle tre opzioni disponibili per la visualizzazione dei dati in Power BI: una query SQL su un cluster di Azure Esplora dati.'
 author: orspod
 ms.author: orspodek
@@ -7,22 +7,22 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: e4e7858a54f3002a511269a2519135d5ac24ed68
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d402d4c1ee77d0f97d2a5c3bdf43d0cc62aac096
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024074"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560474"
 ---
 # <a name="visualize-data-from-azure-data-explorer-using-a-sql-query-in-power-bi"></a>Visualizzare i dati da Esplora dati di Azure usando una query SQL in Power BI
 
-Esplora dati di Azure è un servizio di esplorazione dei dati rapido e a scalabilità elevata per dati di log e di telemetria. Power BI è una soluzione di analisi aziendale che consente di visualizzare i dati e condividere i risultati all'interno dell'organizzazione.
+Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Power BI è una soluzione di analisi aziendale che consente di visualizzare i dati e condividere i risultati all'interno dell'organizzazione.
 
 Esplora dati di Azure fornisce tre opzioni per la connessione ai dati in Power BI: usare il connettore predefinito, importare una query da Esplora dati di Azure o usare una query SQL. Questo articolo illustra come usare una query SQL per ottenere i dati e visualizzarli in un report Power BI.
 
 Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questo articolo, è necessario quanto segue:
 
@@ -38,7 +38,7 @@ Con Esplora dati di Azure si usa in genere il linguaggio di query nativo, ma è 
 
 1. Nella scheda **Home** di Power BI Desktop selezionare **Recupera dati** e quindi **Altro**.
 
-    ![Ottenere i dati](media/power-bi-sql-query/get-data-more.png)
+    ![Recuperare i dati](media/power-bi-sql-query/get-data-more.png)
 
 1. Cercare *Database SQL di Azure*, selezionare **Database SQL di Azure** e quindi **Connetti**.
 
@@ -52,7 +52,7 @@ Con Esplora dati di Azure si usa in genere il linguaggio di query nativo, ma è 
     |---|---|---|
     | Server | *help.kusto.windows.net* | L'URL del cluster della guida (senza *https://* ). Per altri cluster, l'URL è nel formato *\<ClusterName\>.\<Area\>.kusto.windows.net*. |
     | Database | *Esempi* | Il database di esempio ospitato nel cluster con cui si effettua la connessione. |
-    | Modalità connettività dati | *Importazioneazione* | Determina se Power BI Importa i dati o si connette direttamente all'origine dati. È possibile usare l'una o l'altra opzione con questo connettore. |
+    | Modalità connettività dati | *Importa* | Determina se Power BI Importa i dati o si connette direttamente all'origine dati. È possibile usare l'una o l'altra opzione con questo connettore. |
     | Timeout comando | Lasciare vuoto | Per quanto tempo viene eseguita la query prima che generi un errore di timeout. |
     | Istruzione SQL | Copiare la query sotto questa tabella | L'istruzione SQL che Esplora dati di Azure traduce in una query nativa. |
     | Altre opzioni | Lasciare i valori predefiniti | Queste opzioni non sono applicabili ai cluster di Esplora dati di Azure. |
@@ -66,11 +66,11 @@ Con Esplora dati di Azure si usa in genere il linguaggio di query nativo, ma è 
 
 1. Se non si ha già una connessione al cluster della guida, accedere. Accedere con un account Microsoft e quindi selezionare **Connetti**.
 
-    ![Accedi](media/power-bi-sql-query/sign-in.png)
+    ![Accesso](media/power-bi-sql-query/sign-in.png)
 
 1. Nella schermata **help.kusto.windows.net: Samples** selezionare **Carica**.
 
-    ![Caricare i dati](media/power-bi-sql-query/load-data.png)
+    ![Caricare dati](media/power-bi-sql-query/load-data.png)
 
     La tabella verrà aperta nella finestra principale di Power BI, nella visualizzazione report, in cui è possibile creare report basati sui dati di esempio.
 

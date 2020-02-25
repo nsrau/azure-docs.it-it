@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f56c897fd6f5ce7e5129a4500ecaacbaf0a75f3b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 274ee09ae98dd229b255e58261f462e322be9f89
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895975"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565741"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserimento di annunci sul lato client
 Questo articolo contiene informazioni su come inserire diversi tipi di annunci sul lato client.
@@ -846,9 +846,5 @@ L'esempio seguente illustra come pianificare un annuncio midroll sovrapposto.
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-
-## <a name="see-also"></a>Vedere anche
-[Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md)
-

@@ -1,19 +1,19 @@
 ---
 title: Customer Lockbox per Microsoft Azure
 description: Panoramica tecnica di Customer Lockbox per Microsoft Azure, che consente di controllare l'accesso del provider di servizi cloud quando Microsoft potrebbe dover accedere ai dati dei clienti.
-author: cabailey
+author: TerryLanfear
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.author: cabailey
-manager: barbkess
+ms.author: terrylan
+manager: rkarlin
 ms.date: 11/04/2019
-ms.openlocfilehash: 7c0409d48876a0f830366381c2a46821c4aa03a0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: abc16ae7f7ab8bf15173248a6e7668e689e127de
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466415"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561970"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox per Microsoft Azure
 
@@ -42,37 +42,37 @@ La procedura seguente illustra un flusso di lavoro tipico per una richiesta di C
     - Ambito della risorsa
     - Indica se il richiedente è un'identità isolata o usa l'autenticazione a più fattori
     - Livelli di autorizzazione
-    
+
     In base alla regola JIT, questa richiesta può includere anche un'approvazione dei responsabili approvazione interni di Microsoft. Ad esempio, l'approvatore potrebbe essere il responsabile del supporto tecnico o il responsabile del DevOps.
 
 6. Quando la richiesta richiede l'accesso diretto ai dati dei clienti, viene avviata una richiesta Customer Lockbox. Ad esempio, accesso desktop remoto alla macchina virtuale di un cliente.
-    
+
     La richiesta è ora in uno stato di **notifica del cliente** , in attesa dell'approvazione del cliente prima di concedere l'accesso.
 
 7. Presso l'organizzazione del cliente, l'utente che ha il [ruolo di proprietario](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles) per la sottoscrizione di Azure riceve un messaggio di posta elettronica da Microsoft per notificare la richiesta di accesso in sospeso. Per Customer Lockbox richieste, questa persona è il responsabile approvazione designato.
-    
+
     Posta elettronica di esempio:
-    
+
     ![Azure Customer Lockbox-notifica tramite posta elettronica](./media/customer-lockbox-overview/customer-lockbox-email-notification.png)
 
 8. La notifica tramite posta elettronica contiene un collegamento al pannello **Customer Lockbox** nel portale di Azure. Con questo collegamento, il responsabile approvazione designato accede al portale di Azure per visualizzare le richieste in sospeso che la propria organizzazione ha per Customer Lockbox:
-    
+
     ![Azure Customer Lockbox-pagina di destinazione](./media/customer-lockbox-overview/customer-lockbox-landing-page.png)
-    
+
    La richiesta rimane nella coda del cliente per quattro giorni. Al termine di questo periodo, la richiesta di accesso scadrà automaticamente e non verrà concesso alcun accesso ai tecnici Microsoft.
 
 9. Per ottenere i dettagli della richiesta in sospeso, il responsabile approvazione designato può selezionare la richiesta di archivio protetto dalle **richieste in sospeso**:
-    
+
     ![Azure Customer Lockbox-visualizzare la richiesta in sospeso](./media/customer-lockbox-overview/customer-lockbox-pending-requests.png)
 
 10. Il responsabile approvazione designato può anche selezionare l' **ID richiesta di servizio** per visualizzare la richiesta di ticket di supporto creata dall'utente originale. Queste informazioni forniscono il contesto per i motivi per cui supporto tecnico Microsoft è impegnato e la cronologia del problema segnalato. Ad esempio:
-    
+
     ![Azure Customer Lockbox-visualizzare la richiesta di ticket di supporto](./media/customer-lockbox-overview/customer-lockbox-support-ticket.png)
 
 11. Dopo aver esaminato la richiesta, l'approvatore designato seleziona **approva** o **Nega**:
-    
+
     ![Azure Customer Lockbox-selezionare approva o nega](./media/customer-lockbox-overview/customer-lockbox-approval.png)
-    
+
     In seguito alla selezione:
     - **Approva**: l'accesso viene concesso al tecnico Microsoft. L'accesso viene concesso per un periodo predefinito di otto ore.
     - **Deny**: la richiesta di accesso con privilegi elevati da parte del tecnico Microsoft è stata rifiutata e non vengono eseguite altre azioni.
@@ -113,13 +113,13 @@ Per gli scenari che prevedono l'accesso desktop remoto, è possibile utilizzare 
 
 I servizi seguenti sono ora attualmente disponibili in anteprima per Customer Lockbox:
 
-- Archiviazione di Azure 
+- Archiviazione di Azure
 
-- Database SQL di Azure 
+- Database SQL di Azure
 
-- Esplora dati di Azure 
+- Esplora dati di Azure
 
-- Macchine virtuali (ora che copre anche l'accesso ai dump della memoria e ai dischi gestiti) 
+- Macchine virtuali (ora che copre anche l'accesso ai dump della memoria e ai dischi gestiti)
 
 - Trasferimenti di sottoscrizioni di Azure
 

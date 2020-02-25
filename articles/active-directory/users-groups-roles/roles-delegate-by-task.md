@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa25a1b1d24c034a92a94ac9378bc4bff3947348
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 19afaf743cc594ab17776b990687a442c339ed92
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639922"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77559012"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Ruoli di amministratore dall'attività di amministratore in Azure Active Directory
 
@@ -72,13 +72,13 @@ Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
 Configurare le proprietà aziendali | Amministratore globale | 
 
-## <a name="connect"></a>Connect
+## <a name="connect"></a>Connessione
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
 Autenticazione pass-through | Amministratore globale | 
 Leggere tutta la configurazione | Lettore globale | 
-Single Sign-On | Amministratore globale | 
+Accesso Single Sign-On facile (Seamless SSO) | Amministratore globale | 
 
 ## <a name="connect-health"></a>Connect Health
 
@@ -126,8 +126,8 @@ Leggere le chiavi BitLocker | Ruolo con autorizzazioni di lettura per la sicurez
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
 Fornire il consenso per eventuali autorizzazioni delegate | Amministratore di applicazioni cloud | Amministratore di applicazioni
-Fornire il consenso alle autorizzazioni dell'applicazione senza includere Microsoft Graph o Azure AD Graph | Amministratore di applicazioni cloud | Amministratore di applicazioni
-Fornire il consenso alle autorizzazioni dell'applicazione a Microsoft Graph o Azure AD Graph | Amministratore globale | 
+Il consenso alle autorizzazioni dell'applicazione non include Microsoft Graph | Amministratore di applicazioni cloud | Amministratore di applicazioni
+Consenso alle autorizzazioni dell'applicazione per Microsoft Graph | Amministratore globale | 
 Fornire il consenso alle applicazioni che accedono ai propri dati | Ruolo utente predefinito ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 Creare applicazioni aziendali | Amministratore di applicazioni cloud | Amministratore di applicazioni
 Gestire proxy di applicazione | Amministratore di applicazioni | 
@@ -165,7 +165,7 @@ Aggiornare l'appartenenza al gruppo | Proprietario del gruppo ([vedere la docume
 Aggiornare i proprietari dei gruppi | Proprietario del gruppo ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Amministratore utenti
 Aggiornare proprietà del gruppo | Proprietario del gruppo ([vedere la documentazione](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Amministratore utenti
 
-## <a name="identity-protection"></a>Protezione delle identità
+## <a name="identity-protection"></a>Identity Protection
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
@@ -202,7 +202,7 @@ Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
 Leggere log di accesso | Lettore di report | Ruolo con autorizzazioni di lettura per la sicurezza, amministratore della sicurezza
 
-## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+## <a name="multi-factor-authentication"></a>Autenticazione a più fattori
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
@@ -251,7 +251,7 @@ Configurare le proprietà di reimpostazione della password | Amministratore uten
 Configurare registrazione | Amministratore globale |
 Leggere tutta la configurazione | Amministratore della sicurezza | Amministratore utenti |
 
-## <a name="privileged-identity-management"></a>Gestione dell’identità con privilegi
+## <a name="privileged-identity-management"></a>Privileged Identity Management
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------

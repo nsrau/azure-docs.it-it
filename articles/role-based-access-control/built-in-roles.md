@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/13/2020
+ms.date: 02/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 9858f7ac25f2063e62dce0322f1859a0a7fcf83b
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 63b1adc7b25b732cda147c5c1d11cc37e7b39248
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198667"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562021"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ruoli predefiniti per le risorse di Azure
 
@@ -115,6 +115,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | [Lettore di Log Analytics](#log-analytics-reader) | Il ruolo Lettore di Log Analytics può visualizzare ed eseguire ricerche in tutti i dati di monitoraggio e può visualizzare le impostazioni di monitoraggio, inclusa la visualizzazione della configurazione di Diagnostica di Azure in tutte le risorse di Azure. | 73c42c96-874c-492b-b04d-ab87d138a893 |
 > | [Collaboratore per app per la logica](#logic-app-contributor) | Consente di gestire le app per la logica, ma non di modificarne l'accesso. | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
 > | [Operatore per app per la logica](#logic-app-operator) | Consente di leggere, abilitare e disabilitare le app per la logica, ma non di modificarle o aggiornarle. | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
+> | [Ruolo Collaboratore applicazione gestita](#managed-application-contributor-role) | Consente di creare risorse di applicazioni gestite. | 641177b8-a67a-45b9-a033-47bc880bb21e |
 > | [Ruolo di Operatore applicazione gestita](#managed-application-operator-role) | Consente di leggere ed eseguire azioni sulle risorse dell'applicazione gestita | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | [Lettore applicazioni gestite](#managed-applications-reader) | Consente di leggere le risorse in un accesso di app gestita e JIT richiesta. | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
 > | [Managed Identity Contributor](#managed-identity-contributor) (Collaboratore per identità gestita) | Crea, legge, aggiorna ed elimina l'identità assegnata all'utente | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
@@ -133,9 +134,10 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | [Collaboratore criteri risorse](#resource-policy-contributor) | Utenti con diritti per creare/modificare i criteri delle risorse, creare un ticket di supporto e leggere risorse/gerarchie. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | [Collaboratore raccolte di processi dell'unità di pianificazione](#scheduler-job-collections-contributor) | Consente di gestire le raccolte di processi dell'utilità di pianificazione, ma non di accedervi. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
 > | [Collaboratore servizi di ricerca](#search-service-contributor) | Consente di gestire i servizi di Ricerca, ma non di accedervi. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
-> | [Amministrazione della protezione](#security-admin) | Solo in Centro sicurezza: è possibile visualizzare i criteri di sicurezza e gli stati di sicurezza, modificare i criteri di sicurezza, visualizzare gli avvisi e le raccomandazioni, ignorare gli avvisi e le raccomandazioni | fb1c8493-542b-48eb-b624-b4c8fea62acd |
-> | [Gestore sicurezza (legacy)](#security-manager-legacy) | Questo è un ruolo legacy. Usare invece Amministratore della protezione | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
-> | [Ruolo con autorizzazioni di lettura per la sicurezza](#security-reader) | Solo in Centro sicurezza: è possibile visualizzare raccomandazioni, avvisi, criteri di sicurezza e stati di sicurezza, ma non è possibile apportare modifiche | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
+> | [Amministrazione della protezione](#security-admin) | è possibile visualizzare i criteri di sicurezza e gli stati di sicurezza, modificare i criteri di sicurezza, visualizzare gli avvisi e le raccomandazioni, ignorare gli avvisi e le raccomandazioni. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
+> | [Collaboratore valutazione della sicurezza](#security-assessment-contributor) | Consente di eseguire il push delle valutazioni nel centro sicurezza | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
+> | [Gestore sicurezza (legacy)](#security-manager-legacy) | Questo è un ruolo legacy. Usare invece l'amministratore della sicurezza. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
+> | [Ruolo con autorizzazioni di lettura per la sicurezza](#security-reader) | Consente di visualizzare le raccomandazioni e gli avvisi, visualizzare i criteri di sicurezza, visualizzare gli Stati di sicurezza, ma non apportare modifiche. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | [Collaboratore al ripristino sito](#site-recovery-contributor) | Consente di gestire il servizio Site Recovery ad eccezione della creazione dell'insieme di credenziali e dell'assegnazione di ruolo. | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
 > | [Operatore del ripristino sito](#site-recovery-operator) | Consente di eseguire il failover e il failback ma non di eseguire altre operazioni di gestione di Site Recovery. | 494ae006-db33-4328-bf46-533a6560a3ca |
 > | [Reader di ripristino sito](#site-recovery-reader) | Consente di visualizzare lo stato di Site Recovery ma non di eseguire altre operazioni di gestione. | dbaa88c4-0c30-4179-9fb3-46319faa6149 |
@@ -167,6 +169,8 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | [Virtual Machine User Login](#virtual-machine-user-login) (Accesso utente macchina virtuale) | Consente di visualizzare le macchine virtuali nel portale e di accedere come utente normale. | fb879df8-f326-4884-b1cf-06f3ad86be52 |
 > | [Collaboratore piani Web](#web-plan-contributor) | Consente di gestire i piani Web per i siti Web, ma non di accedervi. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [Collaboratore siti Web](#website-contributor) | Consente di gestire i siti Web (non i piani Web), ma non di accedervi. | de139f84-1756-47ae-9be6-808fbbe84772 |
+> | [Collaboratore cartella di lavoro](#workbook-contributor) | Consente di salvare le cartelle di lavoro condivise. | e8ddcd69-c73f-4f9f-9844-4100522f16ad |
+> | [Lettore cartella di lavoro](#workbook-reader) | Consente di leggere le cartelle di lavoro. | b279062a-9be3-42a0-92ae-8b3cf002ec4d |
 
 
 ## <a name="owner"></a>Proprietario
@@ -346,7 +350,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | Microsoft.ApiManagement/service/restore/action | Ripristinare il servizio Gestione API dal contenitore specificato in un account di archiviazione fornito dall'utente |
 > | Microsoft.ApiManagement/service/updatecertificate/action | Carica il certificato SSL per un servizio Gestione API. |
 > | Microsoft.ApiManagement/service/updatehostname/action | Configura, aggiorna o rimuove i nomi di dominio personalizzati per un servizio Gestione API. |
-> | Microsoft.ApiManagement/service/write | Crea una nuova istanza del servizio Gestione API |
+> | Microsoft.ApiManagement/service/write | Crea o aggiorna l'istanza del servizio gestione API |
 > | Microsoft.Authorization/*/read | Autorizzazione Lettura |
 > | Microsoft.Insights/alertRules/* | Creare e gestire regole di avviso |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Ottiene gli stati di disponibilità per tutte le risorse nell'ambito specificato |
@@ -609,7 +613,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | **Id** | b64e21ea-ac4e-4cdf-9dc9-5b892992bee7 |
 > | **Actions** |  |
 > | Microsoft. HybridCompute/machines/Read | Leggi tutti i computer Azure Arc |
-> | Microsoft. HybridCompute/machines/Write | Scrivere un computer Azure Arc |
+> | Microsoft. HybridCompute/machines/Write | Scrive un computer Azure Arc |
 > | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | Assegnazione di configurazione guest Get. |
 > | **NotActions** |  |
 > | *nessuna* |  |
@@ -626,9 +630,9 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | **Id** | cd570a14-e51a-42ad-bac8-bafd67325302 |
 > | **Actions** |  |
 > | Microsoft. HybridCompute/machines/Read | Leggi tutti i computer Azure Arc |
-> | Microsoft. HybridCompute/machines/Write | Scrivere un computer Azure Arc |
-> | Microsoft. HybridCompute/machines/Delete | Eliminare un computer Azure Arc |
-> | Microsoft. HybridCompute/machines/Riconnetti/azione | Riconnettere un computer Azure Arc |
+> | Microsoft. HybridCompute/machines/Write | Scrive un computer Azure Arc |
+> | Microsoft. HybridCompute/machines/Delete | Elimina un computer Azure Arc |
+> | Microsoft. HybridCompute/machines/Riconnetti/azione | Riconnette un computer Azure Arc |
 > | Microsoft. HybridCompute/*/Read |  |
 > | **NotActions** |  |
 > | *nessuna* |  |
@@ -690,6 +694,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | **Actions** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Elenca la credenziale clusterAdmin di un cluster gestito |
+> | Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action | Recupera il profilo di accesso per un cluster gestito in base al nome del ruolo con un'operazione di elenco delle credenziali |
 > | **NotActions** |  |
 > | *nessuna* |  |
 > | **DataActions** |  |
@@ -1540,6 +1545,8 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | Microsoft.Databox/jobs/listsecrets/action |  |
 > | Microsoft.Databox/jobs/listcredentials/action | Elenca le credenziali non crittografate correlate all'ordine. |
 > | Microsoft.Databox/locations/availableSkus/action | Restituisce l'elenco degli SKU disponibili. |
+> | Microsoft. databox/locations/validateInputs/Action | Questo metodo esegue tutti i tipi di convalida. |
+> | Microsoft. databox/locations/regionConfiguration/Action | Questo metodo restituisce le configurazioni per l'area. |
 > | Microsoft.Databox/locations/validateAddress/action | Convalida l'indirizzo di spedizione e fornisce indirizzi alternativi, se disponibili. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Ottiene gli stati di disponibilità per tutte le risorse nell'ambito specificato |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
@@ -1565,6 +1572,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | Microsoft.EventGrid/eventSubscriptions/write | Crea o aggiorna un sottoscrizione evento |
 > | **NotActions** |  |
 > | *nessuna* |  |
 > | **DataActions** |  |
@@ -1851,6 +1859,8 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | Microsoft.LabServices/labAccounts/createLab/action | Crea un lab in un account del lab. |
 > | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action |  |
 > | Microsoft.LabServices/labAccounts/getRegionalAvailability/action | Ottiene informazioni sulla disponibilità a livello di area per ogni categoria di dimensioni configurata in un account del lab |
+> | Microsoft. LabServices/labAccounts/getPricingAndAvailability/Action | Ottenere i prezzi e la disponibilità di combinazioni di dimensioni, aree geografiche e sistemi operativi per l'account Lab. |
+> | Microsoft. LabServices/labAccounts/getRestrictionsAndUsage/Action | Ottenere restrizioni e utilizzo di base per questa sottoscrizione |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
 > | Microsoft.Support/* | Creare e gestire ticket di supporto |
 > | **NotActions** |  |
@@ -1964,6 +1974,25 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | Microsoft.Web/connections/*/read | Legge le connessioni. |
 > | Microsoft.Web/customApis/*/read | Legge l'API personalizzata. |
 > | Microsoft.Web/serverFarms/read | Ottiene le proprietà per un piano di servizio app |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
+
+## <a name="managed-application-contributor-role"></a>Ruolo Collaboratore applicazione gestita
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrizione** | Consente di creare risorse di applicazioni gestite. |
+> | **Id** | 641177b8-a67a-45b9-a033-47bc880bb21e |
+> | **Actions** |  |
+> | */lettura | Legge risorse di tutti i tipi, eccetto i segreti. |
+> | Microsoft. Solutions/Applications/* |  |
+> | Microsoft.Solutions/register/action | Esegue la registrazione in Microsoft Solutions. |
+> | Microsoft. resources/subscriptions/resourceGroups/* |  |
+> | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
 > | **NotActions** |  |
 > | *nessuna* |  |
 > | **DataActions** |  |
@@ -2337,7 +2366,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrizione** | Solo in Centro sicurezza: è possibile visualizzare i criteri di sicurezza e gli stati di sicurezza, modificare i criteri di sicurezza, visualizzare gli avvisi e le raccomandazioni, ignorare gli avvisi e le raccomandazioni |
+> | **Descrizione** | è possibile visualizzare i criteri di sicurezza e gli stati di sicurezza, modificare i criteri di sicurezza, visualizzare gli avvisi e le raccomandazioni, ignorare gli avvisi e le raccomandazioni. |
 > | **Id** | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
@@ -2358,11 +2387,26 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | **NotDataActions** |  |
 > | *nessuna* |  |
 
+## <a name="security-assessment-contributor"></a>Collaboratore valutazione della sicurezza
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrizione** | Consente di eseguire il push delle valutazioni nel centro sicurezza |
+> | **Id** | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
+> | **Actions** |  |
+> | Microsoft. Security/Assessment/scrittura | Creare o aggiornare valutazioni della sicurezza per la sottoscrizione |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
+
 ## <a name="security-manager-legacy"></a>Gestore sicurezza (legacy)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrizione** | Questo è un ruolo legacy. Usare invece Amministratore della protezione |
+> | **Descrizione** | Questo è un ruolo legacy. Usare invece l'amministratore della sicurezza. |
 > | **Id** | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
@@ -2386,7 +2430,7 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrizione** | Solo in Centro sicurezza: è possibile visualizzare raccomandazioni, avvisi, criteri di sicurezza e stati di sicurezza, ma non è possibile apportare modifiche |
+> | **Descrizione** | Consente di visualizzare le raccomandazioni e gli avvisi, visualizzare i criteri di sicurezza, visualizzare gli Stati di sicurezza, ma non apportare modifiche. |
 > | **Id** | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
@@ -3114,6 +3158,9 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | Microsoft.Compute/locations/* | Creare e gestire percorsi di calcolo |
 > | Microsoft.Compute/virtualMachines/* | Creare e gestire macchine virtuali |
 > | Microsoft.Compute/virtualMachineScaleSets/* | Creare e gestire i set di scalabilità delle macchine virtuali |
+> | Microsoft.Compute/disks/write | Crea un nuovo disco o ne aggiorna uno esistente |
+> | Microsoft.Compute/disks/read | Ottiene le proprietà di un disco |
+> | Microsoft.Compute/disks/delete | Elimina il disco |
 > | Microsoft.DevTestLab/schedules/* |  |
 > | Microsoft.Insights/alertRules/* | Creare e gestire le regole di avviso di Insight |
 > | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Aggiunge un pool di indirizzi back-end del gateway applicazione. Non avvisabile. |
@@ -3214,6 +3261,38 @@ La tabella seguente fornisce una breve descrizione di ogni ruolo predefinito. Fa
 > | Microsoft.Web/serverFarms/join/action |  |
 > | Microsoft.Web/serverFarms/read | Ottiene le proprietà per un piano di servizio app |
 > | Microsoft.Web/sites/* | Creare e gestire siti Web. Per creare un sito sono anche necessarie le autorizzazione di scrittura associate al piano di servizio app |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
+
+## <a name="workbook-contributor"></a>Collaboratore cartella di lavoro
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrizione** | Consente di salvare le cartelle di lavoro condivise. |
+> | **Id** | e8ddcd69-c73f-4f9f-9844-4100522f16ad |
+> | **Actions** |  |
+> | Microsoft. Insights/cartelle di lavoro/scrittura | Creazione o aggiornamento di una cartella di lavoro |
+> | Microsoft. Insights/cartelle di lavoro/eliminazione | Eliminare una cartella di lavoro |
+> | Microsoft. Insights/cartelle di lavoro/lettura | Lettura di una cartella di lavoro |
+> | **NotActions** |  |
+> | *nessuna* |  |
+> | **DataActions** |  |
+> | *nessuna* |  |
+> | **NotDataActions** |  |
+> | *nessuna* |  |
+
+## <a name="workbook-reader"></a>Lettore cartella di lavoro
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrizione** | Consente di leggere le cartelle di lavoro. |
+> | **Id** | b279062a-9be3-42a0-92ae-8b3cf002ec4d |
+> | **Actions** |  |
+> | Microsoft. Insights/cartelle di lavoro/lettura | Lettura di una cartella di lavoro |
 > | **NotActions** |  |
 > | *nessuna* |  |
 > | **DataActions** |  |

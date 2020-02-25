@@ -1,6 +1,6 @@
 ---
 title: Come generare e trasferire chiavi protette dal modulo di protezione hardware per Azure Key Vault - Azure Key Vault | Microsoft Docs
-description: Questo argomento permette di pianificare, generare e quindi trasferire le proprie chiavi HSM protette da usare con l'insieme di credenziali delle chiavi di Azure. Anche noto come BYOK o Bring Your Own Key.
+description: Usare questo articolo per pianificare, generare e trasferire chiavi HSM protette da usare con Azure Key Vault. Noto anche come BYOK (Bring your own key).
 services: key-vault
 author: amitbapat
 manager: devtiw
@@ -9,117 +9,127 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
-ms.openlocfilehash: 2f5269587d222be9a1628b72c1f3f0dc1b105f3c
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 9b8f1065660ea8331853f8804e709134fe682ba7
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461744"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566115"
 ---
-# <a name="import-hsm-protected-keys-to-key-vault-preview"></a>Importa chiavi HSM protette per Key Vault (anteprima)
+# <a name="import-hsm-protected-keys-to-key-vault-preview"></a>Importare chiavi con protezione HSM in Key Vault (anteprima)
 
 > [!NOTE]
-> Questa funzionalità è disponibile in anteprima e solo nelle aree **Stati Uniti orientali 2 EUAP** e **Stati Uniti centrali EUAP** . 
+> Questa funzionalità è disponibile in anteprima e disponibile solo nelle aree di Azure *Stati Uniti orientali 2 EUAP* e *Stati Uniti centrali EUAP*. 
 
-Per una maggiore sicurezza quando si usa Azure Key Vault, è possibile importare o generare chiavi in moduli di protezione hardware (HSM) che non lasciano mai il limite HSM. Questo scenario viene spesso definito con il termine modalità *Bring Your Own Key*o BYOK. Azure Key Vault usa la famiglia nCipher nShield di HSM (FIPS 140-2 livello 2 convalidata) per proteggere le chiavi.
+Per una maggiore sicurezza quando si usa Azure Key Vault, è possibile importare o generare una chiave in un modulo di protezione hardware (HSM); la chiave non lascerà mai il limite del modulo di protezione hardware. Questo scenario viene spesso definito *Bring your own key* (BYOK). Key Vault usa la famiglia nCipher nShield di HSM (FIPS 140-2 livello 2 convalidata) per proteggere le chiavi.
 
-Questo argomento include informazioni utili per pianificare, generare e quindi trasferire le proprie chiavi protette da HSM da usare con l'insieme di credenziali delle chiavi di Azure.
+Usare le informazioni in questo articolo per pianificare, generare e trasferire chiavi HSM protette da usare con Azure Key Vault.
 
 > [!NOTE]
 > Questa funzionalità non è disponibile per Azure Cina 21Vianet. 
 > 
 > Questo metodo di importazione è disponibile solo per [HSM supportati](#supported-hsms). 
 
-Per altre informazioni sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali delle chiavi di Azure?](key-vault-overview.md)  Per un'esercitazione introduttiva che illustra la creazione di un insieme di credenziali delle chiavi per chiavi con protezione HSM, vedere [Che cos'è Azure Key Vault?](key-vault-overview.md).
+Per altre informazioni e per un'esercitazione su come iniziare a usare Key Vault (inclusa la procedura per creare un insieme di credenziali delle chiavi per le chiavi protette da HSM), vedere [che cos'è Azure Key Vault?](key-vault-overview.md).
 
 ## <a name="overview"></a>Panoramica
 
-* Generare una chiave (denominata chiave per lo scambio delle chiavi o KEK) in Key Vault. Deve essere una chiave RSA-HSM con ' Import ' come unica operazione chiave. Solo lo SKU Premium di Key Vault supporta le chiavi RSA-HSM.
-* Scaricare la chiave pubblica di KEK come file con estensione PEM
-* Trasferire la chiave pubblica KEK alla workstation offline connessa al modulo di protezione hardware locale.
-* Dalla workstation offline, usare lo strumento BYOK fornito dal fornitore del modulo di protezione hardware per creare un file BYOK. 
-* La chiave di destinazione viene crittografata con un KEK, che rimane crittografato fino a quando non viene trasferito alla Azure Key Vault HSM. Solo la versione crittografata della chiave lascia il modulo di protezione hardware locale.
-* La chiave KEK generata all'interno del Azure Key Vault HSM e non è esportabile. HSM impone che non esista una versione chiara di KEK all'esterno del Key Vault HSM.
-* KEK deve trovarsi nello stesso insieme di credenziali delle chiavi in cui deve essere importata la chiave di destinazione.
-* Quando il file BYOK viene caricato in Key Vault, Key Vault HSM usa la chiave privata KEK per decrittografare il materiale della chiave di destinazione e importarlo come chiave del modulo di protezione hardware. Questa operazione viene eseguita interamente all'interno Key Vault HSM e la chiave di destinazione rimane sempre nel limite di protezione HSM.
+Ecco una panoramica del processo. I passaggi specifici da completare sono descritti più avanti in questo articolo.
 
-## <a name="prerequisites"></a>Prerequisiti
+* In Key Vault generare una chiave, definita chiave per lo *scambio delle chiavi* (KEK). KEK deve essere una chiave RSA-HSM con solo l'operazione di `import` chiave. Solo Key Vault SKU Premium supporta le chiavi RSA-HSM.
+* Scaricare la chiave pubblica KEK come file con estensione PEM.
+* Trasferire la chiave pubblica KEK a un computer offline connesso a un modulo di protezione hardware locale.
+* Nel computer offline usare lo strumento BYOK fornito dal fornitore del modulo di protezione hardware per creare un file BYOK. 
+* La chiave di destinazione viene crittografata con un KEK, che rimane crittografato fino a quando non viene trasferito al modulo di protezione hardware Key Vault. Solo la versione crittografata della chiave lascia il modulo di protezione hardware locale.
+* Una KEK generata all'interno di un modulo di protezione hardware Key Vault non è esportabile. HSM impone la regola che non esista una versione non chiara di KEK all'esterno di un modulo di protezione hardware Key Vault.
+* KEK deve trovarsi nello stesso insieme di credenziali delle chiavi in cui verrà importata la chiave di destinazione.
+* Quando il file BYOK viene caricato in Key Vault, un modulo di protezione hardware Key Vault usa la chiave privata KEK per decrittografare il materiale della chiave di destinazione e importarlo come chiave del modulo di protezione hardware. Questa operazione viene eseguita interamente all'interno di un modulo di protezione hardware Key Vault. La chiave di destinazione rimane sempre nel limite di protezione HSM.
 
-Nella tabella seguente sono elencati i prerequisiti relativi alla modalità BYOK per l'insieme di credenziali delle chiavi di Azure.
+## <a name="prerequisites"></a>Prerequisites
+
+La tabella seguente elenca i prerequisiti per l'uso di BYOK in Azure Key Vault:
 
 | Requisito | Ulteriori informazioni |
 | --- | --- |
-| Sottoscrizione di Azure |Per creare un insieme di credenziali delle chiavi di Azure, è necessaria una sottoscrizione di Azure: [Iscriversi per una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) |
-| Un insieme di credenziali delle chiavi (SKU Premium) per importare chiavi HSM protette |Per altre informazioni su livelli di servizio e funzionalità per l'insieme di credenziali delle chiavi di Azure, vedere il sito Web relativo ai [prezzi dell'insieme di credenziali delle chiavi di Azure](https://azure.microsoft.com/pricing/details/key-vault/). |
-| Un modulo di protezione hardware dall'elenco HSM supportato insieme allo strumento BYOK e alle istruzioni fornite dal fornitore del modulo di protezione hardware | È necessario avere accesso a un modulo di protezione hardware e a una conoscenza operativa di base della HSM. Vedere [HSM supportati](#supported-hsms). |
-| Versione 2.1.0 o successiva dell'interfaccia della riga di comando di Azure | Per altre informazioni, vedere [installare l'interfaccia della](/cli/azure/install-azure-cli?view=azure-cli-latest) riga di comando di Azure.|
+| Una sottoscrizione di Azure. |Per creare un insieme di credenziali delle chiavi in Azure Key Vault, è necessaria una sottoscrizione di Azure. [Iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/). |
+| Uno SKU Key Vault Premium per importare le chiavi protette dal modulo di protezione hardware |Per ulteriori informazioni sui livelli di servizio e sulle funzionalità di Azure Key Vault, vedere [prezzi Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
+| Un modulo di protezione hardware dall'elenco HSM supportato e da uno strumento BYOK e istruzioni fornite dal fornitore del modulo di protezione hardware | È necessario avere le autorizzazioni per un modulo di protezione hardware e la conoscenza di base di come usare il modulo di protezione hardware. Vedere [HSM supportati](#supported-hsms). |
+| Versione 2.1.0 o successiva dell'interfaccia della riga di comando di Azure | Vedere [installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).|
 
 ## <a name="supported-hsms"></a>HSM supportati
 
-|Nome del fornitore del modulo di protezione hardware|Modelli HSM supportati|Ulteriori dettagli|
+|Nome del fornitore del modulo di protezione hardware|Modelli HSM supportati|Ulteriori informazioni|
 |---|---|---|
 |Thales|Famiglia SafeNet Luna HSM 7 con firmware versione 7,3 o successiva| [Documentazione e strumento SafeNet Luna BYOK](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
 
-
 > [!NOTE]
-> Per importare le chiavi protette da HSM dalla famiglia nCipher nShield di HSM, [usare la procedura BYOK legacy](hsm-protected-keys-legacy.md)
+> Per importare chiavi HSM protette dalla famiglia di HSM nShield di nCipher, usare la [procedura BYOK legacy](hsm-protected-keys-legacy.md).
 
+## <a name="supported-key-types"></a>Tipi di chiave supportati
 
-## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Generare e trasferire la chiave al modulo di protezione hardware dell'insieme di credenziali delle chiavi di Azure
+|Nome della chiave|Tipo di chiave|Dimensioni chiave|Origine|Descrizione|
+|---|---|---|---|---|
+|Chiave scambio chiavi (KEK)|RSA| 2\.048 bit<br />3\.072 bit<br />4\.096 bit|Modulo di protezione hardware Azure Key Vault|Coppia di chiavi RSA supportata da HSM generata in Azure Key Vault|
+|Chiave di destinazione|RSA|2\.048 bit<br />3\.072 bit<br />4\.096 bit|HSM fornitore|Chiave da trasferire al modulo di protezione hardware Azure Key Vault|
 
-Usare i passaggi seguenti per generare e trasferire la chiave in un modulo di protezione hardware Azure Key Vault:
+## <a name="generate-and-transfer-your-key-to-the-key-vault-hsm"></a>Generare e trasferire la chiave nel modulo di protezione hardware Key Vault
+
+Per generare e trasferire la chiave in un modulo di protezione hardware Key Vault:
 
 * [Passaggio 1: generare un KEK](#step-1-generate-a-kek)
-* [Passaggio 2: scaricare la chiave pubblica KEK](#step-2-download-kek-public-key)
+* [Passaggio 2: scaricare la chiave pubblica KEK](#step-2-download-the-kek-public-key)
 * [Passaggio 3: generare e preparare la chiave per il trasferimento](#step-3-generate-and-prepare-your-key-for-transfer)
 * [Passaggio 4: trasferire la chiave a Azure Key Vault](#step-4-transfer-your-key-to-azure-key-vault)
 
 ### <a name="step-1-generate-a-kek"></a>Passaggio 1: generare un KEK
 
-La chiave di scambio delle chiavi (KEK) è una chiave RSA generata nel modulo di protezione hardware Key Vault. Questa chiave viene usata per crittografare la chiave da importare (chiave di destinazione).
+Un KEK è una chiave RSA generata in un modulo di protezione hardware Key Vault. Il KEK viene usato per crittografare la chiave che si vuole importare (la chiave di *destinazione* ).
 
-KEK deve essere:
-1. una chiave **RSA-HSM** (2048 bit o 3072 bit o 4096 bit)
-2. generato nello stesso insieme di credenziali delle chiavi in cui si intende importare la chiave di destinazione
-3. creato con operazioni chiave consentite impostate per l' **importazione**
+La chiave KEK deve essere:
+- Una chiave RSA-HSM (2.048 bit, 3.072 bit o 4.096 bit)
+- generato nello stesso insieme di credenziali delle chiavi in cui si intende importare la chiave di destinazione
+- Creato con operazioni chiave consentite impostate su `import`
 
-Usare il comando [AZ Key Vault Key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) per creare KEK con le operazioni chiave impostate per l'importazione. Annotare l'identificatore di chiave ' Kid ' restituito dal comando seguente. Sarà necessario nel [passaggio 3](#step-3-generate-and-prepare-your-key-for-transfer).
-
+Usare il comando [AZ Key Vault Key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) per creare un KEK con operazioni chiave impostate su `import`. Registrare l'identificatore di chiave (`kid`) restituito dal comando seguente. Il valore `kid` sarà utilizzato nel [passaggio 3](#step-3-generate-and-prepare-your-key-for-transfer).
 
 ```azurecli
 az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --vault-name ContosoKeyVaultHSM
 ```
 
-### <a name="step-2-download-kek-public-key"></a>Passaggio 2: scaricare la chiave pubblica KEK
+### <a name="step-2-download-the-kek-public-key"></a>Passaggio 2: scaricare la chiave pubblica KEK
 
-Usare il comando [AZ Key Vault download](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-download) per scaricare la chiave pubblica KEK in un file con estensione PEM. La chiave di destinazione importata viene crittografata con la chiave pubblica KEK.
+Usare il comando [AZ Key Vault Key Download](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-download) per scaricare la chiave pubblica KEK in un file con estensione PEM. La chiave di destinazione importata viene crittografata usando la chiave pubblica KEK.
 
 ```azurecli
 az keyvault key download --name KEKforBYOK --vault-name ContosoKeyVaultHSM --file KEKforBYOK.publickey.pem
 ```
 
-Trasferire il file KEKforBYOK. PublicKey. pem nella workstation offline. Questo file sarà necessario durante il passaggio successivo.
+Trasferire il file KEKforBYOK. PublicKey. pem nel computer offline. Questo file sarà necessario nel passaggio successivo.
 
 ### <a name="step-3-generate-and-prepare-your-key-for-transfer"></a>Passaggio 3: generare e preparare la chiave per il trasferimento
 
-Consultare la documentazione del fornitore del modulo di protezione hardware per scaricare e installare lo strumento BYOK. Seguire le istruzioni del fornitore del modulo di protezione hardware per generare una chiave di destinazione e quindi creare un pacchetto di trasferimento della chiave (un file BYOK). Lo strumento BYOK utilizzerà l'identificatore di chiave dei file [Step 1](#step-1-generate-a-kek) e KEKforBYOK. PublicKey. pem scaricati nel [passaggio 2](#step-2-download-kek-public-key) per generare una chiave di destinazione crittografata in un file BYOK.
+Consultare la documentazione del fornitore del modulo di protezione hardware per scaricare e installare lo strumento BYOK. Seguire le istruzioni del fornitore del modulo di protezione hardware per generare una chiave di destinazione e quindi creare un pacchetto di trasferimento della chiave (un file BYOK). Lo strumento BYOK utilizzerà la `kid` del [passaggio 1](#step-1-generate-a-kek) e il file KEKforBYOK. PublicKey. pem scaricato nel [passaggio 2](#step-2-download-the-kek-public-key) per generare una chiave di destinazione crittografata in un file BYOK.
 
-Trasferire il file BYOK nella workstation connessa.
+Trasferire il file BYOK nel computer connesso.
 
 > [!NOTE] 
-> La chiave di destinazione deve essere una chiave RSA di dimensione 2048 bit o 3072 bit o 4096 bit. L'importazione di chiavi a curva ellittica non è supportata in questo momento.
-> <br/><strong>Problema noto:</strong> L'importazione della chiave di destinazione RSA 4K da SafeNet Luna HSM ha esito negativo. Quando il problema viene risolto, questo documento verrà aggiornato.
+> L'importazione di chiavi RSA a 1.024 bit non è supportata. Attualmente, l'importazione di una chiave a curva ellittica (EC) non è supportata.
+> 
+> **Problema noto**: l'importazione di una chiave di destinazione RSA 4K da SafeNet Luna HSM ha esito negativo. Quando il problema viene risolto, questo articolo verrà aggiornato.
 
 ### <a name="step-4-transfer-your-key-to-azure-key-vault"></a>Passaggio 4: trasferire la chiave a Azure Key Vault
 
-Per questo passaggio finale, trasferire il pacchetto di trasferimento della chiave (un file BYOK) dalla workstation disconnessa alla workstation connessa a Internet e quindi usare il comando [AZ Key Vault Key Import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) per caricare il file BYOK del modulo di protezione hardware Azure Key Vault per completare l'importazione della chiave.
+Per completare l'importazione della chiave, trasferire il pacchetto di trasferimento della chiave (un file BYOK) dal computer disconnesso al computer connesso a Internet. Usare il comando [AZ Key Vault Key Import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) per caricare il file BYOK nel modulo di protezione hardware Key Vault.
 
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok
 ```
 
-Se il caricamento ha esito positivo, vengono visualizzate le proprietà della chiave appena importata.
+Se il caricamento riesce, l'interfaccia della riga di comando di Azure Visualizza le proprietà della chiave importata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È ora possibile usare questa chiave HSM protetta nell'insieme di credenziali delle chiavi. Per ulteriori informazioni, vedere il [confronto tra](https://azure.microsoft.com/pricing/details/key-vault/)prezzo e funzionalità.
+È ora possibile usare questa chiave HSM protetta nell'insieme di credenziali delle chiavi. Per ulteriori informazioni, vedere [il confronto tra prezzo e funzionalità](https://azure.microsoft.com/pricing/details/key-vault/).
+
+
+

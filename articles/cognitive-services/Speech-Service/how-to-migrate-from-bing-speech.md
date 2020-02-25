@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 01/21/2020
 ms.author: nitinme
-ms.openlocfilehash: c0e1cc2fc1b3d4aed82c5442d2d3e23a1272fab5
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: d6d9cb4dda93523b1136c8cc4cd307ae82c8b674
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805944"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560934"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Eseguire la migrazione dal riconoscimento vocale Bing al servizio riconoscimento vocale
 
@@ -40,18 +40,18 @@ Il servizio riconoscimento vocale è in gran parte simile a Bing Speech, con le 
 Funzionalità | Riconoscimento vocale Bing | Servizio Voce | Dettagli
 -|-|-|-
 C++ SDK | :heavy_minus_sign: | :heavy_check_mark: | Il servizio riconoscimento vocale supporta Windows e Linux.
-Java SDK | :heavy_check_mark: | :heavy_check_mark: | Il servizio di riconoscimento vocale supporta dispositivi Android e vocali.
+SDK per Java | :heavy_check_mark: | :heavy_check_mark: | Il servizio di riconoscimento vocale supporta dispositivi Android e vocali.
 SDK per C# | :heavy_check_mark: | :heavy_check_mark: | Il servizio riconoscimento vocale supporta Windows 10, piattaforma UWP (Universal Windows Platform) (UWP) e .NET Standard 2,0.
 Riconoscimento vocale continuo | 10 minuti | Senza limiti, con SDK | I protocolli WebSocket per i servizi di riconoscimento vocale e di riconoscimento vocale di Bing supportano fino a 10 minuti per chiamata. Tuttavia Speech SDK si riconnette automaticamente in caso di timeout o disconnessione.
 Risultati intermedi o parziali | :heavy_check_mark: | :heavy_check_mark: | Con il protocollo WebSocket o SDK.
 Modelli conversione voce/testo personalizzati | :heavy_check_mark: | :heavy_check_mark: | Riconoscimento vocale Bing richiede una sottoscrizione separata a Riconoscimento vocale personalizzato.
 Caratteri voce personalizzati | :heavy_check_mark: | :heavy_check_mark: | Riconoscimento vocale Bing richiede una sottoscrizione separata al riconoscimento vocale personalizzato.
 Voci 24 kHz | :heavy_minus_sign: | :heavy_check_mark:
-Riconoscimento delle intenzioni tramite sintesi vocale | Richiede una chiamata separata all'API LUIS | Integrato, con SDK |  È possibile usare una chiave LUIS con il servizio di riconoscimento vocale.
+Riconoscimento finalità voce | Richiede una chiamata separata all'API LUIS | Integrato, con SDK |  È possibile usare una chiave LUIS con il servizio di riconoscimento vocale.
 Riconoscimento delle finalità semplice | :heavy_minus_sign: | :heavy_check_mark:
 Trascrizione in batch di file audio lunghi | :heavy_minus_sign: | :heavy_check_mark:
 Modalità di riconoscimento | Manuale tramite l'URI dell'endpoint | Automatico | La modalità di riconoscimento non è disponibile nel servizio di riconoscimento vocale.
-Località dell'endpoint | Globale | A livello di area | Gli endpoint a livello di area migliorano la latenza.
+Località dell'endpoint | Global | Regionale | Gli endpoint a livello di area migliorano la latenza.
 API REST | :heavy_check_mark: | :heavy_check_mark: | Le API REST del servizio di riconoscimento vocale sono compatibili con il riconoscimento vocale Bing (endpoint diverso). Le API REST supportano la sintesi vocale e funzionalità limitate di riconoscimento vocale.
 Protocolli WebSocket | :heavy_check_mark: | :heavy_check_mark: | L'API WebSocket del servizio di riconoscimento vocale è compatibile con il riconoscimento vocale Bing (endpoint diverso). Se possibile, eseguire la migrazione a Speech SDK per semplificare il codice.
 Chiamate API da servizio a servizio | :heavy_check_mark: | :heavy_minus_sign: | Fornito in Riconoscimento vocale Bing tramite la libreria di servizio di C#.
@@ -61,7 +61,7 @@ Il servizio riconoscimento vocale usa un modello di determinazione prezzi basato
 
 ## <a name="migration-strategies"></a>Strategie di migrazione
 
-Se l'utente o l'organizzazione dispone di applicazioni in fase di sviluppo o produzione che usano un Speech API Bing, è necessario aggiornarle per usare il servizio riconoscimento vocale appena possibile. Vedere la [documentazione del servizio vocale](index.md) per SDK, esempi di codice ed esercitazioni disponibili.
+Se l'utente o l'organizzazione dispone di applicazioni in fase di sviluppo o produzione che usano un Speech API Bing, è necessario aggiornarle per usare il servizio riconoscimento vocale appena possibile. Vedere la [documentazione del servizio vocale](index.yml) per SDK, esempi di codice ed esercitazioni disponibili.
 
 Le [API REST](rest-apis.md) del servizio di riconoscimento vocale sono compatibili con le API riconoscimento vocale Bing. Se attualmente si usano le API REST di riconoscimento vocale Bing, è necessario modificare solo l'endpoint REST e passare a una chiave di sottoscrizione del servizio di riconoscimento vocale.
 
@@ -73,7 +73,7 @@ Attualmente, l'SDK vocale supporta C# ([Dettagli qui](https://aka.ms/csspeech)),
 
 Il servizio riconoscimento vocale non offre un endpoint globale. Determinare se l'applicazione funziona in modo efficiente quando usa un singolo endpoint a livello di area per tutto il traffico. In caso contrario, usare la georilevazione per determinare l'endpoint più efficiente. È necessaria una sottoscrizione a un servizio vocale distinto in ogni area in uso.
 
-Se l'applicazione usa connessioni di lunga durata e non può usare un SDK disponibile, è possibile usare una connessione WebSocket. Gestire il limite di timeout di 10 minuti, eseguendo la riconnessione nel momento opportuno.
+Se l'applicazione usa connessioni di lunga durata e non può usare un SDK disponibile, è possibile usare una connessione WebSocket. Gestire il limite di timeout di 10 minuti eseguendo la riconnessione nei momenti appropriati.
 
 Per iniziare a usare Speech SDK:
 
@@ -92,7 +92,7 @@ Per il supporto di riconoscimento vocale, SDK e API, visitare la [pagina del sup
 * [Prova gratuitamente il servizio vocale](get-started.md)
 * [Avvio rapido: Riconoscimento vocale in un'applicazione della piattaforma UWP con Speech SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 * [Note sulla versione del servizio vocale](releasenotes.md)
-* [Informazioni sul servizio Voce](overview.md)
+* [Informazioni sul Servizio di riconoscimento vocale](overview.md)
 * [Documentazione per il servizio riconoscimento vocale e l'SDK vocale](speech-sdk.md#get-the-sdk)

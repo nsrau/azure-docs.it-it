@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/24/2020
+ms.date: 02/20/2020
 ms.author: jgao
-ms.openlocfilehash: a67f360aa08f306d6462342d96f59e06a4d3b501
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: d8212fb55b20f051c6479071010ef4f828792baa
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251856"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561154"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usare gli script di distribuzione nei modelli (anteprima)
 
@@ -29,7 +29,7 @@ Informazioni su come usare gli script di distribuzione nei modelli di risorse di
 I vantaggi dello script di distribuzione:
 
 - Facile da codificare, utilizzare ed eseguire il debug. È possibile sviluppare script di distribuzione negli ambienti di sviluppo preferiti. Gli script possono essere incorporati in modelli o in file di script esterni.
-- È possibile specificare la piattaforma e il linguaggio di scripting. Attualmente, sono supportati solo gli script di distribuzione Azure PowerShell nell'ambiente Linux.
+- È possibile specificare la piattaforma e il linguaggio di scripting. Attualmente sono supportati gli script di distribuzione Azure PowerShell e dell'interfaccia della riga di comando di Azure nell'ambiente Linux.
 - Consente di specificare le identità utilizzate per eseguire gli script. Attualmente è supportata solo l' [identità gestita assegnata dall'utente di Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) .
 - Consente di passare gli argomenti della riga di comando allo script.
 - Può specificare gli output dello script e passarli nuovamente alla distribuzione.
@@ -40,7 +40,7 @@ I vantaggi dello script di distribuzione:
 > [!IMPORTANT]
 > Due risorse dello script di distribuzione, un account di archiviazione e un'istanza del contenitore, vengono create nello stesso gruppo di risorse per l'esecuzione dello script e la risoluzione dei problemi. Queste risorse vengono in genere eliminate dal servizio script quando l'esecuzione dello script di distribuzione si trova in uno stato terminale. Le risorse verranno addebitate fino a quando non vengono eliminate. Per altre informazioni, vedere [Pulisci risorse script di distribuzione](#clean-up-deployment-script-resources).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - **Identità gestita assegnata dall'utente con il ruolo di collaboratore a livello di sottoscrizione**. Questa identità viene usata per eseguire gli script di distribuzione. Per crearne uno, vedere [creare un'identità gestita assegnata dall'utente usando il portale di Azure o l'interfaccia della](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)riga di comando di [Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)oppure [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). È necessario l'ID identità per distribuire il modello. Il formato dell'identità è:
 
@@ -48,16 +48,29 @@ I vantaggi dello script di distribuzione:
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
   ```
 
-  Usare lo script di PowerShell seguente per ottenere l'ID fornendo il nome del gruppo di risorse e il nome dell'identità.
+  Usare l'interfaccia della riga di comando o lo script di PowerShell seguente per ottenere l'ID fornendo il nome del gruppo di risorse e il nome dell'identità.
+
+  # <a name="cli"></a>[CLI](#tab/CLI)
+
+  ```azurecli-interactive
+  echo "Enter the Resource Group name:" &&
+  read resourceGroupName &&
+  echo "Enter the managed identity name:" &&
+  read idName &&
+  az identity show -g jgaoidentity1008rg -n jgaouami --query id
+  ```
+
+  # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
   ```azurepowershell-interactive
   $idGroup = Read-Host -Prompt "Enter the resource group name for the managed identity"
   $idName = Read-Host -Prompt "Enter the name of the managed identity"
 
-  $id = (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name idName).Id
+  (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name $idName).Id
   ```
+  ---
 
-- **Azure PowerShell versione 2.7.0, 2.8.0 o 3.0.0**. Queste versioni non sono necessarie per la distribuzione dei modelli. Queste versioni sono tuttavia necessarie per testare localmente gli script di distribuzione. Vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps). È possibile usare un'immagine Docker preconfigurata.  Vedere [configurare l'ambiente di sviluppo](#configure-development-environment).
+- **Azure PowerShell versione 3.0.0, 2.8.0 o 2.7.0** o l'interfaccia della riga di comando di **Azure versione 2.0.80, 2.0.79, 2.0.78 o 2.0.77**. Queste versioni non sono necessarie per la distribuzione dei modelli. Queste versioni sono tuttavia necessarie per testare localmente gli script di distribuzione. Vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps). È possibile usare un'immagine Docker preconfigurata.  Vedere [configurare l'ambiente di sviluppo](#configure-development-environment).
 
 ## <a name="sample-template"></a>Modello di esempio
 
@@ -67,9 +80,9 @@ Il codice JSON seguente è un esempio.  Lo schema del modello più recente è di
 {
   "type": "Microsoft.Resources/deploymentScripts",
   "apiVersion": "2019-10-01-preview",
-  "name": "myDeploymentScript",
+  "name": "runPowerShellInline",
   "location": "[resourceGroup().location]",
-  "kind": "AzurePowerShell",
+  "kind": "AzurePowerShell", // or "AzureCLI"
   "identity": {
     "type": "userAssigned",
     "userAssignedIdentities": {
@@ -78,7 +91,7 @@ Il codice JSON seguente è un esempio.  Lo schema del modello più recente è di
   },
   "properties": {
     "forceUpdateTag": 1,
-    "azPowerShellVersion": "3.0",
+    "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
     "arguments": "[concat('-name ', parameters('name'))]",
     "scriptContent": "
       param([string] $name)
@@ -102,13 +115,13 @@ Il codice JSON seguente è un esempio.  Lo schema del modello più recente è di
 Dettagli valore proprietà:
 
 - **Identity**: il servizio script di distribuzione usa un'identità gestita assegnata dall'utente per eseguire gli script. Attualmente è supportata solo l'identità gestita assegnata dall'utente.
-- **Kind**: specificare il tipo di script. Attualmente, solo Azure PowerShell script è supportato. Il valore è **AzurePowerShell**.
+- **Kind**: specificare il tipo di script. Attualmente, Azure PowerShell e gli script dell'interfaccia della riga di comando di Azure sono supportati. I valori sono **AzurePowerShell** e **AzureCLI**.
 - **Proprietà forceupdatetag**: la modifica di questo valore tra le distribuzioni di modelli forza la ripetizione dell'esecuzione dello script di distribuzione. Usare la funzione newGuid () o utcNow () che deve essere impostata come defaultValue di un parametro. Per altre informazioni, vedere [Eseguire lo script più di una volta](#run-script-more-than-once).
-- **azPowerShellVersion**: specificare la versione del modulo Azure PowerShell da usare. Lo script di distribuzione supporta attualmente la versione 2.7.0, 2.8.0 e 3.0.0.
+- **azPowerShellVersion**/**azCliVersion**: specificare la versione del modulo da usare. Lo script di distribuzione supporta attualmente Azure PowerShell versione 2.7.0, 2.8.0, 3.0.0 e l'interfaccia della riga di comando di Azure versione 2.0.80, 2.0.79, 2.0.78, 2.0.77.
 - **argomenti**: specificare i valori dei parametri. I valori sono separati da uno spazio.
 - **scriptContent**: specificare il contenuto dello script. Per eseguire uno script esterno, usare invece `primaryScriptUri`. Per esempi, vedere [usare script inline](#use-inline-scripts) e [usare uno script esterno](#use-external-scripts).
-- **primaryScriptUri**: specificare un URL accessibile pubblicamente per lo script di PowerShell primario con l'estensione di file di PowerShell supportata.
-- **supportingScriptUris**: specificare una matrice di URL accessibili pubblicamente per supportare i file di PowerShell che verranno chiamati in `ScriptContent` o `PrimaryScriptUri`.
+- **primaryScriptUri**: specificare un URL accessibile pubblicamente per lo script di distribuzione primario con le estensioni di file supportate.
+- **supportingScriptUris**: specificare una matrice di URL accessibili pubblicamente per supportare i file che vengono chiamati in `ScriptContent` o `PrimaryScriptUri`.
 - **timeout**: specificare il tempo di esecuzione dello script massimo consentito specificato nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Il valore predefinito è **P1D**.
 - **cleanupPreference**. Specificare la preferenza per la pulizia delle risorse di distribuzione quando l'esecuzione dello script si trova in uno stato terminale. L'impostazione predefinita è **sempre**, il che significa eliminare le risorse nonostante lo stato del terminale (riuscito, non riuscito, annullato). Per altre informazioni, vedere [Pulire le risorse dello script di distribuzione](#clean-up-deployment-script-resources).
 - **retentionInterval**: specificare l'intervallo per il quale il servizio conserva le risorse dello script di distribuzione dopo che l'esecuzione dello script di distribuzione raggiunge uno stato terminale. Le risorse dello script di distribuzione verranno eliminate alla scadenza della durata. La durata è basata sul [modello ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Il valore predefinito è **P1D**, che significa sette giorni. Questa proprietà viene utilizzata quando cleanupPreference è impostato su *Onexpirement*. La proprietà *Onexpirement* non è attualmente abilitata. Per altre informazioni, vedere [Pulire le risorse dello script di distribuzione](#clean-up-deployment-script-resources).
@@ -120,11 +133,11 @@ Il modello seguente include una risorsa definita con il tipo di `Microsoft.Resou
 [!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json?range=1-54)]
 
 > [!NOTE]
-> Poiché gli script di distribuzione inline sono racchiusi tra virgolette doppie, le stringhe all'interno degli script di distribuzione devono essere racchiuse tra virgolette singole. Il carattere di escape per PowerShell **&#92;** è. È anche possibile prendere in considerazione l'uso della sostituzione di stringhe come illustrato nell'esempio JSON precedente. Vedere il valore predefinito del parametro Name.
+> Poiché gli script di distribuzione inline sono racchiusi tra virgolette doppie, le stringhe all'interno degli script di distribuzione devono essere racchiuse tra virgolette singole. Il carattere di escape per PowerShell è **&#92;** . È anche possibile prendere in considerazione l'uso della sostituzione di stringhe come illustrato nell'esempio JSON precedente. Vedere il valore predefinito del parametro Name.
 
 Lo script accetta un parametro e genera l'output del valore del parametro. **DeploymentScriptOutputs** viene usato per archiviare gli output.  Nella sezione Outputs (output) la riga **valore** Mostra come accedere ai valori archiviati. `Write-Output` viene utilizzato a scopo di debug. Per informazioni su come accedere al file di output, vedere [debug degli script di distribuzione](#debug-deployment-scripts).  Per le descrizioni delle proprietà, vedere [modello di esempio](#sample-template).
 
-Per eseguire lo script, selezionare **prova** per aprire cloud Shell e quindi incollare il codice seguente nel riquadro della shell.
+Per eseguire lo script, selezionare **prova** per aprire Azure cloud Shell, quindi incollare il codice seguente nel riquadro della shell.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group to be created"
@@ -144,7 +157,7 @@ L'output è simile al seguente:
 
 ## <a name="use-external-scripts"></a>Usare script esterni
 
-Oltre agli script inline, è anche possibile usare file di script esterni. Attualmente sono supportati solo gli script di PowerShell con l'estensione di file **ps1** . Per usare file di script esterni, sostituire `scriptContent` con `primaryScriptUri`. Ad esempio,
+Oltre agli script inline, è anche possibile usare file di script esterni. Sono supportati solo gli script di PowerShell primari con l'estensione di file **ps1** . Per gli script dell'interfaccia della riga di comando, gli script primari possono avere estensioni (o senza estensione), purché gli script siano script bash validi. Per usare file di script esterni, sostituire `scriptContent` con `primaryScriptUri`. Ad esempio:
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -170,11 +183,11 @@ I file di script esterni devono essere accessibili.  Per proteggere i file di sc
 ],
 ```
 
-I file script di supporto possono essere chiamati sia da script inline che da file script primari.
+I file script di supporto possono essere chiamati sia da script inline che da file script primari. Il supporto dei file di script non prevede alcuna restrizione sull'estensione di file.
 
 I file di supporto vengono copiati in azscripts/azscriptinput in fase di esecuzione. Utilizzare il percorso relativo per fare riferimento ai file di supporto da script inline e file script primari.
 
-## <a name="work-with-outputs-from-deployment-scripts"></a>Usare gli output degli script di distribuzione
+## <a name="work-with-outputs-from-powershell-script"></a>Usare gli output dello script di PowerShell
 
 Il modello seguente mostra come passare i valori tra due risorse di deploymentScripts:
 
@@ -185,6 +198,16 @@ Nella prima risorsa definire una variabile denominata **$DeploymentScriptOutputs
 ```json
 reference('<ResourceName>').output.text
 ```
+
+## <a name="work-with-outputs-from-cli-script"></a>Usare gli output dello script dell'interfaccia della riga di comando
+
+Diverso dallo script di distribuzione di PowerShell, il supporto CLI/bash non espone una variabile comune per archiviare gli output di script, ma è presente una variabile di ambiente denominata **AZ_SCRIPTS_OUTPUT_PATH** che archivia il percorso in cui risiede il file di output dello script. Se uno script di distribuzione viene eseguito da un modello di Gestione risorse, questa variabile di ambiente viene impostata automaticamente dalla shell bash.
+
+Gli output dello script di distribuzione devono essere salvati nel percorso AZ_SCRIPTS_OUTPUT_PATH e gli output devono essere un oggetto stringa JSON valido. Il contenuto del file deve essere salvato come coppia chiave-valore. Una matrice di stringhe, ad esempio, viene archiviata come {"risultato": ["foo", "bar"]}.  Archiviare solo i risultati della matrice, ad esempio ["foo", "bar"], non è valido.
+
+[!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-basic-cli.json?range=1-44)]
+
+[JQ](https://stedolan.github.io/jq/) viene usato nell'esempio precedente. Viene fornita con le immagini del contenitore. Vedere [configurare l'ambiente di sviluppo](#configure-development-environment).
 
 ## <a name="debug-deployment-scripts"></a>Debug degli script di distribuzione
 
@@ -264,7 +287,7 @@ L'esecuzione dello script di distribuzione è un'operazione idempotente. Se ness
 
 ## <a name="configure-development-environment"></a>Configurare l'ambiente di sviluppo
 
-Attualmente, lo script di distribuzione supporta Azure PowerShell versione 2.7.0, 2.8.0 e 3.0.0.  Se si dispone di un computer Windows, è possibile installare una delle versioni di Azure PowerShell supportate e iniziare a sviluppare e testare gli script di distribuzione.  Se non si dispone di un computer Windows o se non si ha una di queste versioni Azure PowerShell installate, è possibile usare un'immagine del contenitore Docker preconfigurata. La procedura seguente illustra come configurare l'immagine Docker in Windows. Per Linux e Mac, è possibile trovare le informazioni su Internet.
+È possibile usare un'immagine del contenitore Docker preconfigurata come ambiente di sviluppo dello script di distribuzione. La procedura seguente illustra come configurare l'immagine Docker in Windows. Per Linux e Mac, è possibile trovare le informazioni su Internet.
 
 1. Installare [Docker desktop](https://www.docker.com/products/docker-desktop) nel computer di sviluppo.
 1. Aprire Docker desktop.
@@ -281,7 +304,15 @@ Attualmente, lo script di distribuzione supporta Azure PowerShell versione 2.7.0
     docker pull mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
     ```
 
-    Nell'esempio viene utilizzata la versione 2.7.0.
+    Nell'esempio viene usata la versione di PowerShell 2.7.0.
+
+    Per eseguire il pull di un'immagine dell'interfaccia della riga di comando da un Container Registry Microsoft ():
+
+    ```command
+    docker pull mcr.microsoft.com/azure-cli:2.0.80
+    ```
+
+    Questo esempio usa l'interfaccia della riga di comando 2.0.80. Lo script di distribuzione usa le immagini dei contenitori CLI predefinite disponibili [qui](https://hub.docker.com/_/microsoft-azure-cli).
 
 1. Eseguire l'immagine Docker in locale.
 
@@ -297,12 +328,18 @@ Attualmente, lo script di distribuzione supporta Azure PowerShell versione 2.7.0
 
     **-** significa mantenere attivo l'immagine del contenitore.
 
+    Esempio di interfaccia della riga di comando:
+
+    ```command
+    docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
+    ```
+
 1. Selezionare **Condividi** quando si riceve un messaggio di richiesta.
-1. Eseguire uno script di PowerShell come illustrato nello screenshot seguente (dato che è presente un file HelloWorld. ps1 nella cartella d:\docker).
+1. Lo screenshot seguente illustra come eseguire uno script di PowerShell, dato che è presente un file HelloWorld. ps1 nella cartella d:\docker.
 
     ![Script di distribuzione del modello di Gestione risorse Docker cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
-Una volta testato correttamente lo script PowerShell, è possibile usarlo come script di distribuzione.
+Una volta testato correttamente lo script, è possibile utilizzarlo come script di distribuzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

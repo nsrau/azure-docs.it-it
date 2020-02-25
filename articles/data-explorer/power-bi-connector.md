@@ -1,5 +1,5 @@
 ---
-title: Visualizzare i dati con il connettore Esplora dati di Azure per Power BI
+title: Visualizzare i dati con Azure Esplora dati Connector per Power BI
 description: 'Questo articolo illustra come usare una delle tre opzioni disponibili per la visualizzazione dei dati in Power BI: connettore Power BI per Esplora dati di Azure.'
 author: orspod
 ms.author: orspodek
@@ -7,18 +7,18 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 361ea6ed76207e8e9721f64df61738b6cd9631dc
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a95d45481bed17e46429e3a22dff4b8cc62354a9
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024222"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560491"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Visualizzare i dati con il connettore Esplora dati di Azure per Power BI
 
-Esplora dati di Azure è un servizio di esplorazione dei dati rapido e a scalabilità elevata per dati di log e di telemetria. Power BI è una soluzione di analisi aziendale che consente di visualizzare i dati e condividere i risultati all'interno dell'organizzazione. Esplora dati di Azure fornisce tre opzioni per la connessione ai dati in Power BI: usare il connettore predefinito, importare una query da Esplora dati di Azure o usare una query SQL. Questo articolo illustra come usare il connettore incorporato per ottenere i dati e visualizzarli in un report Power BI. L'uso di Azure Esplora dati connettore nativo per la creazione di Power BI Dashboard è semplice. Il connettore Power BI supporta le [modalità di connettività di query e importazione diretta](https://docs.microsoft.com/power-bi/desktop-directquery-about). È possibile compilare dashboard usando la modalità **importazione** o **DirectQuery** , a seconda dei requisiti di scenario, scalabilità e prestazioni. 
+Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Power BI è una soluzione di analisi aziendale che consente di visualizzare i dati e condividere i risultati all'interno dell'organizzazione. Esplora dati di Azure fornisce tre opzioni per la connessione ai dati in Power BI: usare il connettore predefinito, importare una query da Esplora dati di Azure o usare una query SQL. Questo articolo illustra come usare il connettore incorporato per ottenere i dati e visualizzarli in un report Power BI. L'uso di Azure Esplora dati connettore nativo per la creazione di Power BI Dashboard è semplice. Il connettore Power BI supporta le [modalità di connettività di query e importazione diretta](https://docs.microsoft.com/power-bi/desktop-directquery-about). È possibile compilare dashboard usando la modalità **importazione** o **DirectQuery** , a seconda dei requisiti di scenario, scalabilità e prestazioni. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questo articolo, è necessario quanto segue:
 
@@ -32,7 +32,7 @@ In primo luogo si effettua la connessione al cluster della guida di Esplora dati
 
 1. Nella scheda **Home** di Power BI Desktop selezionare **Recupera dati** e quindi **Altro**.
 
-    ![Ottenere i dati](media/power-bi-connector/get-data-more.png)
+    ![Recuperare i dati](media/power-bi-connector/get-data-more.png)
 
 1. Cercare *azure Esplora dati*, selezionare **Azure Esplora dati** quindi **connettersi**.
 
@@ -65,7 +65,7 @@ In primo luogo si effettua la connessione al cluster della guida di Esplora dati
 
 1. Se non si ha già una connessione al cluster della guida, accedere. Accedere con un account aziendale e quindi selezionare **Connetti**.
 
-    ![Accedi](media/power-bi-connector/sign-in.png)
+    ![Accesso](media/power-bi-connector/sign-in.png)
 
 1. Nella schermata **Strumento di navigazione** espandere il database **Samples**, selezionare **StormEvents** e quindi **Modifica**.
 

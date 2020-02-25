@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 798c80ec2290a96b6f76116120292720c05c9198
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 7d9a401bfbf1f0c63995c8f7773abb6e8e874e7e
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77426259"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561698"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-cli"></a>Creare e gestire un collegamento privato per database di Azure per MySQL (anteprima) con l'interfaccia della riga di comando
 
@@ -20,7 +20,7 @@ Un endpoint privato è il blocco predefinito fondamentale per il collegamento pr
 > [!NOTE]
 > Questa funzionalità è disponibile in tutte le aree di Azure in cui database di Azure per MySQL supporta i piani tariffari per utilizzo generico e con ottimizzazione per la memoria.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -34,7 +34,7 @@ Per poter creare le risorse, è prima necessario creare un gruppo di risorse in 
 az group create --name myResourceGroup --location westeurope
 ```
 
-## <a name="create-a-virtual-network"></a>Creazione di una rete virtuale
+## <a name="create-a-virtual-network"></a>Creare una rete virtuale
 Creare una rete virtuale con il comando [az network vnet create](/cli/azure/network/vnet). Questo esempio crea una rete virtuale predefinita denominata *myVirtualNetwork* con una subnet denominata *mySubnet*:
 
 ```azurecli-interactive
@@ -54,7 +54,7 @@ az network vnet subnet update \
  --vnet-name myVirtualNetwork \
  --disable-private-endpoint-network-policies true
 ```
-## <a name="create-the-vm"></a>Creazione della VM 
+## <a name="create-the-vm"></a>Creare la VM 
 Creare una macchina virtuale con il comando az vm create. Quando richiesto, specificare la password da usare come credenziali di accesso per la macchina virtuale. Questo esempio crea una macchina virtuale denominata *myVM*: 
 ```azurecli-interactive
 az vm create \
@@ -117,6 +117,9 @@ az network private-dns record-set a create --name myserver --zone-name privateli
 az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.mysql.database.azure.com --resource-group myResourceGroup -a <Private IP Address>
 ```
 
+> [!NOTE] 
+> Il nome di dominio completo nell'impostazione DNS del cliente non viene risolto nell'indirizzo IP privato configurato. Sarà necessario configurare una zona DNS per il nome di dominio completo configurato come illustrato di [seguito](../dns/dns-operations-recordsets-portal.md).
+
 ## <a name="connect-to-a-vm-from-the-internet"></a>Connettersi a una VM da Internet
 
 Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
@@ -136,7 +139,7 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
         > [!NOTE]
         > Potrebbe essere necessario selezionare **Altre opzioni** > **Usa un altro account** per specificare le credenziali immesse al momento della creazione della macchina virtuale.
 
-1. Scegliere **OK**.
+1. Selezionare **OK**.
 
 1. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se si riceve un avviso relativo al certificato, selezionare **Sì** oppure **Continua**.
 
@@ -162,10 +165,10 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 
 4. In **nuova connessione**immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
-    | Nome della connessione| Selezionare il nome della connessione scelta.|
-    | HostName | Seleziona *mydemoserver.privatelink.MySQL.database.Azure.com* |
+    | Connection Name (Nome connessione)| Selezionare il nome della connessione scelta.|
+    | nomehost | Seleziona *mydemoserver.privatelink.MySQL.database.Azure.com* |
     | Username | Immettere username come *username@servername* fornito durante la creazione del server MySQL. |
     | Password | Immettere una password specificata durante la creazione del server MySQL. |
     ||

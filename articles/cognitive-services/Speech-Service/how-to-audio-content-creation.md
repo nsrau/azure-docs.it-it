@@ -3,21 +3,21 @@ title: Creazione di contenuto audio-servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: La creazione di contenuti audio è uno strumento online che consente di personalizzare e ottimizzare l'output di sintesi vocale di Microsoft per le app e i prodotti.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: erhopf
-ms.openlocfilehash: b65a39489f0823a411a9dddf79ec3abd1e5ee20d
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 01/31/2020
+ms.author: dapine
+ms.openlocfilehash: aed9c0a72af063c84c0744757772e11c689ac14c
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806206"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561035"
 ---
-# <a name="audio-content-creation"></a>Creazione di contenuti audio
+# <a name="improve-synthesis-with-audio-content-creation"></a>Migliorare la sintesi con la creazione di contenuto audio
 
 La [creazione di contenuti audio](https://aka.ms/audiocontentcreation) è uno strumento online che consente di personalizzare e ottimizzare l'output di sintesi vocale di Microsoft per le app e i prodotti. È possibile usare questo strumento per ottimizzare le voci pubbliche e personalizzate per espressioni naturali più accurate e per gestire l'output nel cloud.
 
@@ -104,7 +104,7 @@ Dopo aver esaminato l'output audio e aver soddisfatto l'ottimizzazione e la rego
 | wav | riff-16kHz-16 bit-mono-PCM | riff-24kHz-16 bit-mono-PCM |
 | mp3 | audio-16kHz-128kbitrate-mono-MP3 | audio-24kHz-160kbitrate-mono-MP3 |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [API Long audio](https://aka.ms/long-audio-api)
 
