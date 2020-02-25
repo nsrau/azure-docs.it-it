@@ -7,7 +7,6 @@ metadata:
   services: container-service
   author: georgewallace
   manager: gwallace
-  ms.service: container-service
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: gwallace
@@ -88,7 +87,7 @@ sections:
               href: /learn/modules/build-and-store-container-images/
       - type: paragraph
         text: <a href="/learn/browse/?products=azure-container-registry%2Cazure-container-instances">Altre risorse di apprendimento interattivo</a>
-  - title: Riferimento
+  - title: Informazioni di riferimento
     items:
       - type: list
         style: cards

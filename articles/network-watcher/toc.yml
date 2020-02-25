@@ -8,7 +8,7 @@
   expanded: true
   items:
     - name: Monitoraggio connessione (anteprima)
-      href: connection-monitor-2-preview.md
+      href: connection-monitor-preview.md
     - name: Diagnosticare un problema di filtro del traffico di una VM - Portale
       href: diagnose-vm-network-traffic-filtering-problem.md
     - name: Diagnosticare un problema di filtro del traffico di una VM - PowerShell
