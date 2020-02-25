@@ -9,15 +9,15 @@ metadata:
   ms.subservice: azure-sentinel
   ms.topic: landing-page
   ms.collection: collection
-  author: rkarlin
-  ms.author: rkarlin
+  author: yelevin
+  ms.author: yelevin
   ms.date: 25/09/2019
-  ms.openlocfilehash: 8f8815645b7dfcdcc5e1ed5212ecd1ec298f8644
-  ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+  ms.openlocfilehash: c52ed5413fbf1fe9f6a328b7160266892ab262a9
+  ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 09/26/2019
-  ms.locfileid: "71316491"
+  ms.lasthandoff: 02/25/2020
+  ms.locfileid: "77582263"
 landingContent:
 - title: Informazioni su Azure Sentinel
   linkLists:
@@ -25,7 +25,7 @@ landingContent:
     links:
     - text: Che cos'è Azure Sentinel?
       url: overview.md
-- title: Attività iniziali
+- title: Introduzione
   linkLists:
   - linkListType: quickstart
     links:

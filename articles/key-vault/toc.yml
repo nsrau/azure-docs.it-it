@@ -72,12 +72,12 @@
       items:
         - name: Panoramica della sicurezza
           href: overview-security.md
+        - name: Baseline di sicurezza
+          href: security-baseline.md
         - name: Scenari di sicurezza
           href: key-vault-ovw-security-worlds.md
         - name: Proteggere l'insieme di credenziali delle chiavi
           href: key-vault-secure-your-key-vault.md
-        - name: Criteri di sicurezza integrati
-          href: key-vault-security-controls.md
     - name: Eliminazione temporanea
       href: key-vault-ovw-soft-delete.md
     - name: Monitoraggio degli eventi di Key Vault

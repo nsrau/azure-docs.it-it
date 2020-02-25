@@ -8,7 +8,7 @@
       href: ./chef-habitat-overview.md
     - name: Informazioni su InSpec in Azure
       href: ./chef-inspec-overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Chef
@@ -21,8 +21,8 @@
     - name: Chef
       items:
         - name: Creare un'app Windows
-          href: /azure/virtual-machines/windows/chef-automation
-- name: riferimento
+          href: ./chef-automation.md
+- name: Informazioni di riferimento
   items:
     - name: Estensione Chef per Azure
       href: 'https://docs.chef.io/azure_portal.html#azure-chef-extension'
