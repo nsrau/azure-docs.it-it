@@ -2,7 +2,7 @@
   items:
     - name: Introduzione ad Azure
       href: azure-operations-guide.md
-    - name: Guide introduttive
+    - name: Avvi rapidi
       items:
         - name: Macchine virtuali
           items:
@@ -21,7 +21,7 @@
         - name: Azure Stack
           items:
             - name: Panoramica della distribuzione di Azure Stack
-              href: ../../azure-stack/azure-stack-deploy-overview.md
+              href: /azure-stack/asdk/asdk-download
         - name: Backup di Azure
           items:
             - name: Eseguire il backup di una macchina virtuale nel portale di Azure
@@ -39,7 +39,7 @@
             - name: Creare e gestire macchine virtuali Linux
               href: ../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Pipeline CI/CD di Jenkins
-              href: ../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+              href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Bilanciare il carico delle macchine virtuali
               href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Creazione di modelli di Gestione risorse di Azure
@@ -48,7 +48,7 @@
               href: ../../backup/tutorial-backup-vm-at-scale.md
     - name: Guide pratiche
       items:
-        - name: 'Come scaricare la fattura e i dati di utilizzo giornalieri di Azure '
+        - name: Come scaricare la fattura e i dati di utilizzo giornalieri di Azure
           href: ../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
     - name: Risorse
       items:
