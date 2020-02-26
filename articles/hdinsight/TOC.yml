@@ -15,7 +15,7 @@
           href: ./hdinsight-administer-use-command-line.md
         - name: Gestire cluster HDInsight - .NET SDK
           href: ./hdinsight-administer-use-dotnet-sdk.md
-        - name: Gestire cluster HDInsight - Powershell
+        - name: Gestire cluster HDInsight - PowerShell
           href: ./hdinsight-administer-use-powershell.md
         - name: Creare cluster con i runbook
           href: ./manage-clusters-runbooks.md
@@ -810,6 +810,8 @@
           href: ./domain-joined/hdinsight-use-oozie-domain-joined-clusters.md
     - name: Concetti
       items:
+        - name: Baseline di sicurezza
+          href: security-baseline.md
         - name: Linee guida generali sulla sicurezza aziendale
           href: ./domain-joined/general-guidelines.md
         - name: Pianificare cluster ESP

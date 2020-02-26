@@ -114,6 +114,8 @@
           href: service-bus-messaging-security-controls.md
 - name: Guide pratiche
   items:
+    - name: Eseguire la migrazione da API Service Manager (classiche) di Azure ad API Resource Manager
+      href: deprecate-service-bus-management.md
     - name: Creare uno spazio dei nomi
       href: service-bus-create-namespace-portal.md
     - name: Sviluppo
@@ -213,7 +215,7 @@
           href: service-bus-messaging-exceptions.md
         - name: Eccezioni di Resource Manager
           href: service-bus-resource-manager-exceptions.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: .NET
       items:

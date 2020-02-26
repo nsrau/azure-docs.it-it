@@ -104,9 +104,9 @@
       href: how-to-assess.md
     - name: Raggruppare i computer per la valutazione
       href: how-to-create-a-group.md
-    - name: Raggruppare i computer tramite visualizzazione delle dipendenze
+    - name: Analizzare le dipendenze dei computer (in base ad agente)
       href: how-to-create-group-machine-dependencies.md
-    - name: Raggruppare i computer tramite visualizzazione delle dipendenze senza agente
+    - name: Analizzare le dipendenze dei computer (senza agente)
       href: how-to-create-group-machine-dependencies-agentless.md
     - name: Creare una valutazione
       href: how-to-create-assessment.md

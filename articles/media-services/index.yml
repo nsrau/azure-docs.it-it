@@ -1,49 +1,110 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentazione su Servizi multimediali di Azure
+### YamlMime:Hub
+title: Documentazione di Servizi multimediali di Azure
+summary: Servizi multimediali di Azure è una piattaforma di flussi di lavoro multimediali, basata sul cloud, che consente di sviluppare soluzioni che richiedono la codifica, la creazione di pacchetti, la protezione del contenuto e la trasmissione di eventi live.
+brand: azure
 metadata:
-  title: Documentazione su Servizi multimediali di Azure | Microsoft Docs
-  description: 'Servizi multimediali di Azure è una piattaforma basata su cloud che consente di creare soluzioni che offrono streaming video di alta qualità, migliorano accessibilità e distribuzione, analizzano il contenuto e molto altro ancora.'
+  title: Documentazione di Servizi multimediali di Azure
+  description: Servizi multimediali di Azure è una piattaforma di flussi di lavoro multimediali, basata sul cloud, che consente di sviluppare soluzioni che richiedono la codifica, la creazione di pacchetti, la protezione del contenuto e la trasmissione di eventi live.
   services: media-services
-  author: juliako
-  manager: femila
   ms.service: media-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 03/11/2019
+  ms.subservice: 
+  ms.topic: hub-page
+  ms.collection: collection
+  author: Juliako
   ms.author: juliako
-abstract:
-  description: 'Servizi multimediali di Azure è una piattaforma di flussi di lavoro multimediali, basata sul cloud, che consente di sviluppare soluzioni che richiedono la codifica, la creazione di pacchetti, la protezione del contenuto e la trasmissione di eventi live. Servizi multimediali di Azure si integra perfettamente con la rete CDN di Azure per la distribuzione su larga scala con i servizi CDN di Akamai e Verizon, permettendo ai clienti di scegliere la soluzione ideale per le loro esigenze, ad esempio per bilanciare il carico tra reti per la distribuzione di contenuti. Video Indexer di Servizi multimediali di Azure consente di estrarre metadati e informazioni dettagliate usando l''intelligenza artificiale con i set di impostazioni predefinite dell''analizzatore di video e audio. Usando l''API Video Indexer, è possibile migliorare facilmente l''accuratezza eseguendo il training dei modelli di intelligenza artificiale forniti con il proprio contenuto.'
-sections:
+  ms.date: 07//2020
+  ms.openlocfilehash: ff7c361b402f38160b2693f2d22670a96881045b
+  ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 02/25/2020
+  ms.locfileid: "77587669"
+highlightedContent:
+  items:
+  - title: Informazioni su Servizi multimediali di Azure v3
+    itemType: overview
+    url: ./latest/media-services-overview.md
+  - title: Concetti relativi a Servizi multimediali di Azure v3
+    itemType: concept
+    url: ./latest/concepts-overview.md
+  - title: Video Indexer di Servizi multimediali di Azure
+    itemType: overview
+    url: ./video-indexer/video-indexer-overview.md
+  - title: Confrontare i set di impostazioni di Servizi multimediali v3 e di Video Indexer
+    itemType: concept
+    url: ./video-indexer/compare-video-indexer-with-media-services-presets.md
+  - title: Informazioni su Servizi multimediali di Azure v2 (legacy)
+    itemType: overview
+    url: ./previous/media-services-overview.md
+  - title: Eseguire la migrazione di Servizi multimediali da v2 a v3
+    itemType: concept
+    url: ./latest/migrate-from-v2-to-v3.md
+  - title: Specifiche di Servizi multimediali di Azure
+    itemType: concept
+    url: media-services-specifications-live-timed-metadata.md
+conceptualContent:
+  items:
+  - title: Sviluppare con l'API Servizi multimediali v3
+    links:
+    - url: ./latest/media-services-apis-overview.md
+      itemType: concept
+      text: Sviluppare con Servizi multimediali v3
+    - url: https://docs.microsoft.com/samples/browse/?products=azure-media-services
+      itemType: sample
+      text: Esempi di codice
+  - title: Streaming live
+    links:
+    - url: ./latest/live-streaming-overview.md
+      itemType: concept
+      text: Streaming live
+    - url: ./latest/recommended-on-premises-live-encoders.md
+      itemType: concept
+      text: Codificatori di streaming live consigliati
+    - url: ./latest/stream-live-tutorial-with-api.md
+      itemType: tutorial
+      text: Streaming live
+  - title: Streaming su richiesta
+    links:
+    - url: ./latest/assets-concept.md
+      itemType: concept
+      text: Caricamento
+    - url: ./latest/encoding-concept.md
+      itemType: concept
+      text: Codifica
+    - url: ./latest/stream-files-tutorial-with-rest.md
+      itemType: tutorial
+      text: Codificare il file remoto e trasmetterlo in streaming
+    - url: ./latest/stream-files-tutorial-with-api.md
+      itemType: tutorial
+      text: Codificare il file caricato e trasmetterlo in streaming
+  - title: Crittografare il contenuto
+    links:
+    - url: ./latest/content-protection-overview.md
+      itemType: concept
+      text: Protezione
+    - url: ./latest/protect-with-aes128.md
+      itemType: tutorial
+      text: Crittografare in modo dinamico il contenuto con AES-128
+    - url: ./latest/protect-with-drm.md
+      itemType: tutorial
+      text: Crittografare in modo dinamico il contenuto con DRM
+  - title: Analizzare il contenuto
+    links:
+    - url: ./latest/analyzing-video-audio-files-concept.md
+      itemType: concept
+      text: Analisi di contenuti multimediali
+    - url: ./latest/analyze-videos-tutorial-with-api.md
+      itemType: tutorial
+      text: Analizzare i video
+additionalContent:
+  sections:
   - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 2
-        items:
-          - href: /azure/media-services/latest/
-            html: '<p>Codificare, creare pacchetti e proteggere il contenuto, trasmettere video on demand in streaming, trasmettere live e analizzare video con Servizi multimediali v3.</p>'
-            image:
-              src: /azure/media-services/latest/media/index/AMSIcons-encoding.svg
-            title: Servizi multimediali di Azure v3
-          - href: /azure/media-services/previous/
-            html: '<p>Codificare, creare pacchetti, proteggere e altro ancora. Questo è il servizio legacy in manutenzione. I clienti sono invitati a eseguire la migrazione a Servizi multimediali v3, che comprende nuove funzionalità e miglioramenti.</p>'
-            image:
-              src: null
-            title: Servizi multimediali di Azure v2 (legacy)
-          - href: /azure/cdn/
-            html: <p>Sfruttare la potenza della rete CDN di Azure per trasmettere contenuti in streaming su larga scala con i servizi di Akamai e Verizon oppure per bilanciare il carico tra più reti per la distribuzione di contenuti.</p>
-            image:
-              src: /azure/cdn/media/index/cdn.svg
-            title: RETE CDN
-          - href: 'https://amp.azure.net/libs/amp/latest/docs/index.html'
-            html: <p>Riprodurre contenuti multimediali da Servizi multimediali di Microsoft Azure su una vasta gamma di browser e dispositivi.</p>
-            image:
-              src: /azure/media-services/latest/media/index/AMSIcons-Player.svg
-            title: Azure Media Player
-          - href: /azure/media-services/video-indexer/
-            html: <p>Estrarre informazioni dettagliate da file audio e video con Video Indexer.</p>
-            image:
-              src: media/index/AMSIcons-media_analytics.svg
-            title: Video Indexer di Servizi multimediali di Azure
+    - title: Archiviazione di Azure
+      summary: Informazioni su BLOB in blocchi e contenitori
+      url: https://docs.microsoft.com/azure/storage/
+    - title: RETE CDN
+      summary: Sfruttare la potenza della rete CDN di Azure per trasmettere contenuti in streaming su larga scala con i servizi di Akamai e Verizon oppure per bilanciare il carico tra più reti per la distribuzione di contenuti
+      url: https://docs.microsoft.com/azure/cdn
+    - title: Griglia di eventi
+      summary: Informazioni su come usare Griglia di eventi di Azure per rispondere a eventi rilevanti
+      url: https://docs.microsoft.com/azure/event-grid/

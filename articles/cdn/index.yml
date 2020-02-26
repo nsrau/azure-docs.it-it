@@ -1,78 +1,68 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentazione della rete CDN di Azure
+summary: La rete di distribuzione dei contenuti di Azure (rete CDN) è una soluzione globale della rete CDN per la distribuzione di contenuti con esigenze elevate di larghezza di banda. Può essere ospitata in Azure o in qualsiasi altra posizione. Con la rete CDN di Azure è possibile memorizzare nella cache gli oggetti statici caricati dall'archivio BLOB di Azure, da un'applicazione Web o da qualsiasi server Web accessibile pubblicamente, tramite il server POP (Point of Presence) più vicino. La rete CDN di Azure consente anche di accelerare il contenuto dinamico, non memorizzabile nella cache, sfruttando varie ottimizzazioni del routing e della rete.
 metadata:
-  title: Documentazione della rete CDN di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-  description: 'La rete di distribuzione dei contenuti di Azure (rete CDN) è una soluzione globale della rete CDN per la distribuzione di contenuti con esigenze elevate di larghezza di banda. Può essere ospitata in Azure o in qualsiasi altra posizione. Con la rete CDN di Azure è possibile memorizzare nella cache gli oggetti statici caricati dall''archivio BLOB di Azure, da un''applicazione Web o da qualsiasi server Web accessibile pubblicamente, tramite il server POP (Point of Presence) più vicino. La rete CDN di Azure consente anche di accelerare il contenuto dinamico, non memorizzabile nella cache, sfruttando varie ottimizzazioni del routing e della rete.'
-  services: cdn
-  author: twooley
-  manager: twooley
+  title: Documentazione della rete CDN di Azure - Esercitazioni e informazioni di riferimento sulle API
+  description: La rete di distribuzione dei contenuti di Azure (rete CDN) è una soluzione globale della rete CDN per la distribuzione di contenuti con esigenze elevate di larghezza di banda. Può essere ospitata in Azure o in qualsiasi altra posizione. Con la rete CDN di Azure è possibile memorizzare nella cache gli oggetti statici caricati dall'archivio BLOB di Azure, da un'applicazione Web o da qualsiasi server Web accessibile pubblicamente, tramite il server POP (Point of Presence) più vicino. La rete CDN di Azure consente anche di accelerare il contenuto dinamico, non memorizzabile nella cache, sfruttando varie ottimizzazioni del routing e della rete.
   ms.service: azure-cdn
   ms.topic: landing-page
-  ms.date: 06/08/2018
-  ms.author: twooley
-abstract:
-  description: 'La rete di distribuzione dei contenuti di Azure (rete CDN) è una soluzione globale della rete CDN per la distribuzione di contenuti con esigenze elevate di larghezza di banda. Può essere ospitata in Azure o in qualsiasi altra posizione. Con la rete CDN di Azure è possibile memorizzare nella cache gli oggetti statici caricati dall''archivio BLOB di Azure, da un''applicazione Web o da qualsiasi server Web accessibile pubblicamente, tramite il server POP (Point of Presence) più vicino. La rete CDN di Azure consente anche di accelerare il contenuto dinamico, non memorizzabile nella cache, sfruttando varie ottimizzazioni del routing e della rete.'
-sections:
-  - title: null
-    items:
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/cdn.svg
-            text: Informazioni sulla rete CDN di Azure
-            href: /azure/cdn/cdn-overview
-  - title: Guide introduttive di 5 minuti
-    items:
-      - type: paragraph
-        text: Informazioni su come abilitare la rete CDN di Azure creando un profilo e un endpoint della rete CDN.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/get-started.svg
-            text: Introduzione alla rete CDN
-            href: /azure/cdn/cdn-create-new-endpoint
-  - title: Esercitazioni dettagliate
-    items:
-      - type: paragraph
-        text: Informazioni su come configurare la rete CDN di Azure per le proprie esigenze.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/cdn/cdn-map-content-to-custom-domain">Aggiungere un dominio personalizzato all'endpoint della rete CDN</a>
-          - html: <a href="/azure/cdn/cdn-custom-ssl">Configurare HTTPS in un dominio personalizzato</a>
-          - html: <a href="/azure/cdn/cdn-caching-rules-tutorial">Impostare le regole di memorizzazione nella cache</a>
-  - title: Video
-    items:
-      - type: paragraph
-        text: Video che illustrano il funzionamento della rete CDN Azure.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/video-library.svg
-            text: Catalogo video della rete CDN di Azure
-            href: 'https://azure.microsoft.com/documentation/videos/index/?services=cdn'
-  - title: Esempi
-    items:
-      - type: paragraph
-        text: Trovare script per gestire le attività comuni.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: '<a href="https://azure.microsoft.com/resources/samples/?service=cdn">Esempi di codice</a>'
-  - title: riferimento
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Riga di comando
-            html: <p><a href="/powershell/module/az.cdn">PowerShell</a></p>
-          - title: Languages
-            html: <p><a href="/dotnet/api/microsoft.azure.management.cdn">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.cdn">Java</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/cdn/">Informazioni di riferimento sulle API REST</a></p>
+  author: asudbring
+  ms.author: allensu
+  ms.date: 02/24/2020
+  ms.openlocfilehash: 7244b5f70468735a0dcced4d9cc9e71c1194350e
+  ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 02/25/2020
+  ms.locfileid: "77582569"
+landingContent:
+- title: Informazioni sulla rete CDN di Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Definizione di rete per la distribuzione di contenuti
+      url: cdn-overview.md
+  - linkListType: video
+    links:
+    - text: Catalogo video della rete CDN di Azure
+      url: https://azure.microsoft.com/documentation/videos/index/?services=cdn
+- title: Introduzione
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creare un profilo e un endpoint della rete CDN di Azure
+      url: cdn-create-new-endpoint.md
+    - text: Integrare un account di archiviazione di Azure con la rete CDN di Azure
+      url: cdn-create-a-storage-account-with-cdn.md
+  - linkListType: tutorial
+    links:
+    - text: Aggiungere un dominio personalizzato all'endpoint della rete CDN di Azure
+      url: cdn-map-content-to-custom-domain.md
+    - text: Configurare HTTPS in un dominio personalizzato della rete CDN di Azure
+      url: cdn-custom-ssl.md
+    - text: Aggiungere una rete CDN di Azure a un'app Web di Servizio app di Azure
+      url: cdn-add-to-web-app.md
+  - linkListType: learn
+    links:
+    - text: Creare una rete per la distribuzione di contenuti per il sito Web con la rete CDN e i servizi BLOB di Azure
+      url: https://docs.microsoft.com/learn/modules/create-cdn-static-resources-blob-storage/
+- title: Monitoraggio
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Monitorare l'integrità delle risorse della rete CDN di Azure
+      url: cdn-resource-health.md
+    - text: Log di diagnostica di Azure - Rete CDN di Azure
+      url: cdn-azure-diagnostic-logs.md
+- title: Report
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Analizzare i modelli di utilizzo della rete CDN di Azure
+      url: cdn-log-analysis.md
+    - text: Report principali da Verizon
+      url: cdn-analyze-usage-patterns.md
+    - text: Report personalizzati di Verizon
+      url: cdn-verizon-custom-reports.md
+    - text: Analizzare le statistiche di utilizzo con i report HTTP avanzati della rete CDN di Azure
+      url: cdn-advanced-http-reports.md

@@ -890,8 +890,8 @@
                   href: log-query/examples.md
                 - name: Esempi di analisi intelligente
                   href: log-query/smart-analytics.md
-                - name: Scrivere query efficaci
-                  href: log-query/log-query-performance.md
+                - name: Ottimizzare le query
+                  href: log-query/query-optimization.md
                 - name: Analizzare i dati di testo
                   href: log-query/parse-text.md
         - name: Flow/App per la logica
