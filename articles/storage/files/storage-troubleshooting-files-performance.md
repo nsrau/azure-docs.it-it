@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 00187051eec27ee7b6b2d4927510a2ab9dee442e
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 09e55abcd97317b87f8a272afa51c6b4ace572e8
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708258"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598086"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Risolvere i problemi relativi alle prestazioni File di Azure
 
@@ -22,7 +22,7 @@ Questo articolo elenca alcuni problemi comuni relativi alle condivisioni file di
 
 ### <a name="cause-1-share-experiencing-throttling"></a>Cause 1: condivisione con limitazione delle richieste
 
-La quota predefinita in una condivisione Premium è 100 GiB, che fornisce 100 IOPS Baseline (con un potenziale aumento fino a 300 per un'ora). Per ulteriori informazioni sul provisioning e la relativa relazione con IOPS, vedere la sezione relativa alle [condivisioni sottoposte a provisioning](storage-files-planning.md#provisioned-shares) nella Guida alla pianificazione.
+La quota predefinita in una condivisione Premium è 100 GiB, che fornisce 100 IOPS Baseline (con un potenziale aumento fino a 300 per un'ora). Per ulteriori informazioni sul provisioning e la relativa relazione con IOPS, vedere la sezione relativa alle condivisioni sottoposte a [provisioning](storage-files-planning.md#understanding-provisioning-for-premium-file-shares) nella Guida alla pianificazione.
 
 Per verificare se la condivisione è stata limitata, è possibile sfruttare le metriche di Azure nel portale.
 
@@ -102,7 +102,7 @@ Si tratta di un problema noto relativo all'implementazione del client SMB in Lin
 
 - Distribuire il carico tra più macchine virtuali.
 - Nella stessa VM usare più punti di montaggio con l'opzione **nosharesock** e distribuire il carico tra questi punti di montaggio.
-- In Linux provare a montare con l'opzione **nostrictsync** per evitare di forzare lo SCARICAmento SMB per ogni chiamata fsync. Per File di Azure, questa opzione non interferisce con i dati Consistentcy, ma può comportare metadati di file non aggiornati nell'elenco di directory (comando**ls-l** ). L'esecuzione di query direttamente sui metadati del file (comando**Stat** ) restituirà i metadati del file più aggiornati.
+- In Linux provare a montare con l'opzione **nostrictsync** per evitare di forzare lo SCARICAmento SMB per ogni chiamata **fsync** . Per File di Azure, questa opzione non interferisce con la coerenza dei dati, ma può comportare metadati di file non aggiornati nell'elenco di directory (comando**ls-l** ). L'esecuzione di query direttamente sui metadati del file (comando**Stat** ) restituirà i metadati del file più aggiornati.
 
 ## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Latenze elevate per carichi di lavoro intensivi dei metadati che coinvolgono numerose operazioni di apertura/chiusura.
 
@@ -160,7 +160,7 @@ I carichi di lavoro che si basano sulla creazione di un numero elevato di file n
 
 ### <a name="workaround"></a>Soluzione alternativa
 
-- Nessuno.
+- No.
 
 ## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Rallentamento delle prestazioni da Windows 8.1 o Server 2012 R2
 
@@ -194,7 +194,7 @@ Maggiore della latenza prevista per l'accesso File di Azure per carichi di lavor
   > [!NOTE]
   > Se la condivisione file è una condivisione file standard, l'elenco a discesa valori dimensione sarà vuoto perché le metriche per condivisione non sono disponibili per le condivisioni file standard. Gli avvisi di limitazione per le condivisioni file standard verranno attivati se una condivisione file all'interno dell'account di archiviazione è limitata e l'avviso non identificherà quale condivisione file è stata limitata. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile disporre di una condivisione file per ogni account di archiviazione. 
 
-8. Definire i **parametri di avviso** (soglia, operatore, granularità e frequenza aggregazione) usati per valutare la regola di avviso della metrica e fare clic su **fine**.
+8. Definire i **parametri di avviso** (soglia, operatore, granularità e frequenza dell'aggregazione) usati per valutare la regola di avviso della metrica e fare clic su **fine**.
 
   > [!TIP]
   > Se si usa una soglia statica, il grafico delle metriche può aiutare a determinare una soglia ragionevole se la condivisione file è attualmente in fase di limitazione. Se si utilizza una soglia dinamica, nel grafico delle metriche verranno visualizzate le soglie calcolate in base ai dati recenti.

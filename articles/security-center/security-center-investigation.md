@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: memildin
-ms.openlocfilehash: 32cc4b01d68ee7a15ae7cfa2259d234cbcd143c4
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: ef1684f11349696c22a290c90469a8d94f922e58
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202055"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603988"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Esaminare gli eventi imprevisti e gli avvisi nel centro sicurezza di Azure (ritirato)
 Questo documento consente di usare la funzionalità di analisi (anteprima) nel centro sicurezza di Azure per analizzare gli eventi imprevisti e gli avvisi relativi alla sicurezza.
@@ -47,7 +47,7 @@ L'utente può passare da un'entità all'altra selezionandole nel grafico. Il gra
 ### <a name="investigation-path"></a>Percorso di indagine
 Quando l'utente si sposta tra entità diverse, il percorso di indagine consente di tenere traccia del contesto dell'indagine e di spostarsi rapidamente. L'evento imprevisto che contiene i risultati dell'indagine è sempre l'evento visualizzato all'estrema sinistra del percorso di indagine.
 
-![`Path`](./media/security-center-investigation/security-center-investigation-fig2.png)
+![Path](./media/security-center-investigation/security-center-investigation-fig2.png)
 
 ### <a name="general-information"></a>Informazioni generali
 Quando un'entità viene presentata nel grafico, le schede mostrano informazioni aggiuntive sull'entità. La scheda **Info** presenta informazioni generali sull'entità da diverse origini di informazioni disponibili.
@@ -64,15 +64,15 @@ La scheda **Entità** mostra tutte le entità correlate raggruppate per tipo. È
 
 ![Entità](./media/security-center-investigation/security-center-investigation-fig4.png)
 
-### <a name="search"></a>Cerca
+### <a name="search"></a>Ricerca
 
 La scheda **Ricerca** presenta tutti i tipi di log disponibili per l'entità. Per ogni tipo di log è possibile visualizzare il numero di record disponibili. La selezione di ogni tipo di log consente di visualizzare la schermata di ricerca. Nella schermata di ricerca è possibile perfezionare la ricerca e usare le diverse funzionalità di ricerca, ad esempio la configurazione degli avvisi. Nella versione corrente la scheda Ricerca è disponibile solo per entità di tipo utenti e computer.
 
-![Cerca](./media/security-center-investigation/security-center-investigation-fig5.png)
+![Ricerca](./media/security-center-investigation/security-center-investigation-fig5.png)
 
 ### <a name="exploration"></a>Esplorazione
 
-La scheda **Esplorazione** consente al responsabile dell'indagine di esaminare i dati correlati ai diversi problemi relativi all'entità. Quando, ad esempio, si esegue un'indagine su un computer, nella scheda Esplorazione viene presentato l'elenco di processi eseguiti in tale computer. In alcuni casi la scheda Esplorazione presenta dati che potrebbero indicare un problema sospetto. Il responsabile dell'indagine può esaminare i dati nella scheda o aprirli nella schermata di ricerca per esaminare set di dati di grandi dimensioni e per usare le opzioni avanzate di ricerca, ad esempio i filtri e l'esportazione in Excel.
+La scheda **Esplorazione** consente al responsabile dell'indagine di esaminare i dati correlati ai diversi problemi relativi all'entità. Ad esempio, quando si esamina un computer, l'elenco dei processi eseguiti su di esso viene visualizzato nella scheda Esplorazione. In alcuni casi, la scheda esplorazione presenta dati che potrebbero indicare un problema sospetto. Il responsabile dell'indagine può esaminare i dati nella scheda o aprirli nella schermata di ricerca per esaminare set di dati di grandi dimensioni e per usare le opzioni avanzate di ricerca, ad esempio i filtri e l'esportazione in Excel.
 
 ![Esplorazione](./media/security-center-investigation/security-center-investigation-fig6.png)
 
@@ -118,6 +118,3 @@ In questo documento è stato descritto come usare la funzionalità Indagine nel 
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti di sicurezza nel Centro sicurezza.
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md). Informazioni su come monitorare l'integrità delle risorse di Azure.
 * [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Informazioni sui diversi tipi di avvisi di sicurezza.
-* [Guida alla risoluzione dei problemi del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Informazioni su come risolvere i problemi comuni nel Centro sicurezza.
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md). Domande frequenti sull'uso del servizio.
-* [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/). Post di blog sulla sicurezza e sulla conformità di Azure.

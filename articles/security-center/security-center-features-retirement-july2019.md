@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: bb8cfae73d84135858733899e6441f564106e9d1
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 456f379e2b3c2ff411b196d45aef4663fddb0fe6
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997225"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604336"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Ritiro delle funzionalità del Centro sicurezza (luglio 2019)
 
@@ -156,7 +156,7 @@ Il Centro sicurezza può abilitare [soluzioni di sicurezza integrate in Azure](h
 
 - [Soluzioni di web application firewall e firewall di nuova generazione](https://docs.microsoft.com/azure/sentinel/connect-data-sources)
 - [Integrazione di soluzioni di sicurezza che supportano il formato di evento comune (CEF)](https://docs.microsoft.com/azure/sentinel/connect-common-event-format)
-- [Analisi avanzata delle minacce Microsoft](https://docs.microsoft.com/azure/sentinel/connect-azure-atp)
+- [Microsoft Advanced Threat Analytics](https://docs.microsoft.com/azure/sentinel/connect-azure-atp)
 - [Azure AD Identity Protection](https://docs.microsoft.com/azure/sentinel/connect-azure-ad-identity-protection)
 
 Al termine del ritiro, non è possibile aggiungere o modificare i tipi di soluzione indicati nell'elenco precedente, dall'interfaccia utente o dall'API. Il Centro sicurezza di Azure non troverà più le nuove istanze di queste soluzioni partner.

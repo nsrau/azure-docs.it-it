@@ -1,5 +1,5 @@
 ---
-title: Connettività degli endpoint pubblici per le macchine virtuali con Load Balancer Standard di Azure in scenari a disponibilità elevata di SAP
+title: Connettività di endpoint pubblici per macchine virtuali di Azure & ILB standard negli scenari a disponibilità elevata di SAP
 description: Connettività degli endpoint pubblici per le macchine virtuali con Load Balancer Standard di Azure in scenari a disponibilità elevata di SAP
 services: virtual-machines-windows,virtual-network,storage,
 documentationcenter: saponazure
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: radeltch
-ms.openlocfilehash: 52179f15829981d59ff060784a49eccef89bb186
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: e0bb959429786bf83be23b1374ef43ce553bf2c7
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77083729"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598681"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Connettività degli endpoint pubblici per le macchine virtuali con Load Balancer Standard di Azure in scenari a disponibilità elevata di SAP
 
@@ -155,19 +155,19 @@ L'architettura avrà un aspetto analogo al seguente:
    1. Selezionare regole, raccolta regole di rete, quindi fare clic su Aggiungi raccolta regole di rete.  
    1. Nome: **MyOutboundRule**, immettere Priority, selezionare azione **Consenti**.  
    1. Servizio: nome **ToAzureAPI**.  Protocollo: selezionare **any**. Indirizzo di origine: immettere l'intervallo per la subnet in cui vengono distribuite le macchine virtuali e Load Balancer Standard ad esempio: **11.97.0.0/24**. Porte di destinazione: immettere <b>*</b>.  
-   1. Salva
+   1. Salvare
    1. Quando si è ancora posizionati nel firewall di Azure, selezionare panoramica. Annotare l'indirizzo IP privato del firewall di Azure.  
 5. Creare una route al firewall di Azure  
    1. In portale di Azure selezionare tutte le risorse, quindi fare clic su Aggiungi, tabella di route, creazione.  
    1. Immettere il nome MyRouteTable, selezionare sottoscrizione, gruppo di risorse e località (corrispondenti al percorso della rete virtuale e del firewall).  
-   1. Salva  
+   1. Salvare  
 
    La regola del firewall avrà un aspetto simile al seguente: ![connessione in uscita con il firewall di Azure](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
 
 6. Creare una route definita dall'utente dalla subnet delle macchine virtuali all'indirizzo IP privato di **MyAzureFirewall**.
    1. Quando si è posizionati nella tabella di route, fare clic su route. Selezionare Aggiungi. 
    1. Nome Route: ToMyAzureFirewall, prefisso Indirizzo: **0.0.0.0/0**. Tipo hop successivo: selezionare appliance virtuale. Indirizzo hop successivo: immettere l'indirizzo IP privato del firewall configurato: **11.97.1.4**.  
-   1. Salva
+   1. Salvare
 
 ## <a name="using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Uso del proxy per le chiamate pacemaker all'API di gestione di Azure
 

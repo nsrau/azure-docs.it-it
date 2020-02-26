@@ -4,12 +4,12 @@ description: Informazioni su come usare le funzionalità di sicurezza in Backup 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: c3c62f8ea7813c14fa6e19d825a5253de18f6639
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7213f26493a118c2cb32f8f9935b4954176b99a2
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172687"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586394"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funzionalità di sicurezza per la protezione dei backup ibridi che usano Backup di Azure
 
@@ -66,12 +66,12 @@ Per utenti dell'**agente di Servizi di ripristino di Azure**:
 
 Per gli utenti che usano il **server di Backup di Azure**:
 
-1. Se il server in cui sono stati eseguiti i backup è ancora disponibile, proteggere di nuovo le origini dati eliminate e usare la funzionalità di ripristino **dei dati per recuperare** i dati da tutti i punti di recupero precedenti.
+1. Se il server in cui sono stati eseguiti i backup è ancora disponibile, proteggere di nuovo le origini dati eliminate e usare la funzionalità di ripristino dei **dati per recuperare** i dati da tutti i punti di recupero precedenti.
 2. Se questo server non è disponibile, scegliere [Ripristinare i dati da un altro server di Backup di Azure](backup-azure-alternate-dpm-server.md) per usare un'altra istanza del server di Backup di Azure per ottenere questi dati.
 
 Per gli utenti di **Data Protection Manager**:
 
-1. Se il server in cui sono stati eseguiti i backup è ancora disponibile, proteggere di nuovo le origini dati eliminate e usare la funzionalità di ripristino **dei dati per recuperare** i dati da tutti i punti di recupero precedenti.
+1. Se il server in cui sono stati eseguiti i backup è ancora disponibile, proteggere di nuovo le origini dati eliminate e usare la funzionalità di ripristino dei **dati per recuperare** i dati da tutti i punti di recupero precedenti.
 2. Se questo server non è disponibile, usare [Aggiungi DPM esterno](backup-azure-alternate-dpm-server.md) per usare un altro server Data Protection Manager per ottenere questi dati.
 
 ## <a name="prevent-attacks"></a>Prevenire gli attacchi
@@ -112,13 +112,13 @@ Le funzionalità di sicurezza descritte in questo articolo offrono meccanismi di
 
 | Operazione | Dettagli errore | Risoluzione |
 | --- | --- | --- |
-| Modifica dei criteri |Non è possibile modificare i criteri di backup. Errore: impossibile eseguire l'operazione corrente a causa di un errore di servizio interno [0x29834]. Ripetere l'operazione in un secondo momento. Se il problema persiste, contattare il supporto tecnico Microsoft. |**Causa:**<br/>Questo errore si verifica quando sono abilitate le impostazioni di sicurezza, si tenta di ridurre il periodo di mantenimento dati al sotto dei valori minimi specificati in precedenza e si usa una versione non supportata. Le versioni supportate sono specificate nella prima nota di questo articolo. <br/>**Azione consigliata**<br/> In questo caso, per procedere con gli aggiornamenti relativi ai criteri è consigliabile impostare un periodo di memorizzazione maggiore del valore minimo specificato (sette giorni per il backup giornaliero, quattro settimane per il backup settimanale, tre settimane per il backup mensile e un anno per il backup annuale). Facoltativamente, per sfruttare tutti gli aggiornamenti della sicurezza un approccio consigliato è l'aggiornamento dell'agente di backup, del server di Backup di Azure e/o di DPM UR. |
-| Modificare la passphrase |Il PIN di sicurezza immesso non è corretto. (ID: 100130) Specificare il PIN di sicurezza corretto per completare questa operazione. |**Causa:**<br/> Questo errore si verifica quando si immette un PIN di sicurezza non valido o scaduto durante l'esecuzione di operazioni critiche, ad esempio la modifica della passphrase. <br/>**Azione consigliata**<br/> Per completare l'operazione, è necessario immettere un PIN di sicurezza valido. Per ottenere il PIN, accedere a portale di Azure e passare a insieme di credenziali di servizi di ripristino > Impostazioni > Proprietà > genera PIN di sicurezza. Usare questo PIN per modificare la passphrase. |
-| Modificare la passphrase |Operazione non riuscita. ID: 120002 |**Causa:**<br/>Questo errore si verifica quando sono abilitate impostazioni di sicurezza, si tenta di modificare la passphrase e si usa una versione non supportata. Le versioni valide sono specificate nella prima nota di questo articolo.<br/>**Azione consigliata**<br/> Per modificare la passphrase, è prima necessario aggiornare l'agente di backup almeno alla versione 2.0.9052, il server di Backup di Azure almeno all'Update 1 e/o DPM almeno a DPM 2012 R2 UR12 o a DPM 2016 UR2 (collegamenti per il download riportati più avanti). Immettere quindi un PIN di sicurezza valido. Per ottenere il PIN, accedere a portale di Azure e passare a insieme di credenziali di servizi di ripristino > Impostazioni > Proprietà > genera PIN di sicurezza. Usare questo PIN per modificare la passphrase. |
+| Modifica dei criteri |Non è possibile modificare i criteri di backup. Errore: impossibile eseguire l'operazione corrente a causa di un errore di servizio interno [0x29834]. Ripetere l'operazione in un secondo momento. Se il problema persiste, contattare il supporto tecnico Microsoft. |**Causa:**<br/>Questo errore si verifica quando sono abilitate le impostazioni di sicurezza, si tenta di ridurre il periodo di mantenimento dati al sotto dei valori minimi specificati in precedenza e si usa una versione non supportata. Le versioni supportate sono specificate nella prima nota di questo articolo. <br/>**Azione consigliata:**<br/> In questo caso, per procedere con gli aggiornamenti relativi ai criteri è consigliabile impostare un periodo di memorizzazione maggiore del valore minimo specificato (sette giorni per il backup giornaliero, quattro settimane per il backup settimanale, tre settimane per il backup mensile e un anno per il backup annuale). Facoltativamente, per sfruttare tutti gli aggiornamenti della sicurezza un approccio consigliato è l'aggiornamento dell'agente di backup, del server di Backup di Azure e/o di DPM UR. |
+| Modificare la passphrase |Il PIN di sicurezza immesso non è corretto. (ID: 100130) Specificare il PIN di sicurezza corretto per completare questa operazione. |**Causa:**<br/> Questo errore si verifica quando si immette un PIN di sicurezza non valido o scaduto durante l'esecuzione di operazioni critiche, ad esempio la modifica della passphrase. <br/>**Azione consigliata:**<br/> Per completare l'operazione, è necessario immettere un PIN di sicurezza valido. Per ottenere il PIN, accedere a portale di Azure e passare a insieme di credenziali di servizi di ripristino > Impostazioni > Proprietà > genera PIN di sicurezza. Usare questo PIN per modificare la passphrase. |
+| Modificare la passphrase |Operazione non riuscita. ID: 120002 |**Causa:**<br/>Questo errore si verifica quando sono abilitate impostazioni di sicurezza, si tenta di modificare la passphrase e si usa una versione non supportata. Le versioni valide sono specificate nella prima nota di questo articolo.<br/>**Azione consigliata:**<br/> Per modificare la passphrase, è prima necessario aggiornare l'agente di backup almeno alla versione 2.0.9052, il server di Backup di Azure almeno all'Update 1 e/o DPM almeno a DPM 2012 R2 UR12 o a DPM 2016 UR2 (collegamenti per il download riportati più avanti). Immettere quindi un PIN di sicurezza valido. Per ottenere il PIN, accedere a portale di Azure e passare a insieme di credenziali di servizi di ripristino > Impostazioni > Proprietà > genera PIN di sicurezza. Usare questo PIN per modificare la passphrase. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Vedere [Get started with Azure Recovery Services vault](backup-azure-vms-first-look-arm.md) (Introduzione all'insieme di credenziali di Servizi di ripristino di Azure) per abilitare queste funzionalità.
 - Vedere [Download the latest Azure Recovery Services agent](https://aka.ms/azurebackup_agent) (Download dell'agente di Servizi di ripristino di Azure più recente) per proteggere i computer Windows e i dati di backup dagli attacchi.
-- Vedere [Download the latest Azure Backup Server](https://aka.ms/latest_azurebackupserver) (Download del server di Backup di Azure più recente) per proteggere i carichi di lavoro e i dati di backup dagli attacchi.
+- Vedere [Download the latest Azure Backup Server](https://support.microsoft.com/help/4457852/microsoft-azure-backup-server-v3) (Download del server di Backup di Azure più recente) per proteggere i carichi di lavoro e i dati di backup dagli attacchi.
 - Vedere [Download UR12 for System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) (Download della versione UR2 per System Center 2012 R2 Data Protection Manager) o [Download UR2 for System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) (Download della versione UR2 per System Center 2016 Data Protection Manager) per proteggere i carichi di lavoro e i dati di backup dagli attacchi.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: aa4e8f165320327788255605470bda789047c347
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: d0f96fe758966a435f8fb8e448e75cbb18b85122
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592504"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604519"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Applicare la crittografia del disco nel Centro sicurezza Azure
 Il Centro sicurezza di Azure suggerisce di applicare la crittografia dischi se sono presenti dischi di VM Windows o Linux che non vengono crittografati con Crittografia dischi di Azure. Crittografia dischi consente di crittografare i dischi delle VM IaaS Windows e Linux.  La crittografia è consigliabile sia per il sistema operativo sia per i volumi di dati della macchina virtuale.
@@ -47,7 +47,7 @@ L'articolo [Crittografare una macchina virtuale IaaS Windows con Azure PowerShel
 
 È possibile usare diversi approcci per le macchine virtuali di Azure. Se si ha buona familiarità con Azure PowerShell o l'interfaccia della riga di comando di Azure, è possibile adottare soluzioni alternative. Per altre informazioni su altri approcci, consultare l'articolo sulla [crittografia dischi di Azure](../security/fundamentals/encryption-overview.md).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 In questo documento è stato illustrato come implementare la raccomandazione "Applicare crittografia dischi" del Centro sicurezza. Per altre informazioni sulla crittografia dischi, vedere gli argomenti seguenti:
 
 * [Crittografia e gestione delle chiavi con l'insieme di credenziali delle chiavi di Azure](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (video, 36 minuti 39 secondi): informazioni su come usare la gestione della crittografia dischi per le VM IaaS e l'insieme di credenziali delle chiavi di Azure per proteggere e salvaguardare i dati.
@@ -59,7 +59,6 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md) : informazioni su come monitorare l'integrità delle risorse di Azure.
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md) : informazioni sul modo in cui le raccomandazioni semplificano la protezione delle risorse di Azure.
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure.
 
 <!--Image references-->

@@ -7,27 +7,25 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9bbeda33f25aec15124bacb605513a3c52c3f07e
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2656716560b981481273c3032fc0c7b1a06be8a2
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699277"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597644"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gestire i server registrati con Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Tutto questo avviene trasformando i sistemi Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) ed è possibile scegliere tutte le cache necessarie in tutto il mondo.
 
 L'articolo seguente illustra come registrare e gestire un server con un servizio di sincronizzazione archiviazione. Per informazioni sulla distribuzione di Sincronizzazione file di Azure end-to-end, vedere [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md).
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Eseguire/annullare la registrazione di un server nel servizio di sincronizzazione archiviazione
 La registrazione di un server in Sincronizzazione file di Azure stabilisce una relazione di trust tra Windows Server e Azure. Questa relazione può quindi essere usata per creare nel server *endpoint server* che rappresentano le cartelle specifiche che dovranno essere sincronizzate con una condivisione file di Azure (denominata anche *endpoint cloud*). 
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisites
 Per registrare un server in un servizio di sincronizzazione archiviazione, è prima necessario preparare il server con i prerequisiti necessari:
 
-* Il server deve eseguire una versione supportata di Windows Server. Per altre informazioni, vedere [Requisiti di sistema e interoperabilità di Sincronizzazione file di Azure](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
+* Il server deve eseguire una versione supportata di Windows Server. Per altre informazioni, vedere [Requisiti di sistema e interoperabilità di Sincronizzazione file di Azure](storage-sync-files-planning.md#windows-file-server-considerations).
 * Verificare che sia stato distribuito un servizio di sincronizzazione archiviazione. Per altre informazioni sulla distribuzione di un servizio di sincronizzazione archiviazione, vedere [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md).
 * Verificare che il server sia connesso a Internet e che Azure sia accessibile.
 * Disabilitare la Configurazione sicurezza avanzata IE per gli amministratori con interfaccia utente di Server Manager.
@@ -151,7 +149,7 @@ Dopo che tutti i dati sono stati richiamati e il server è stato rimosso da tutt
 1. Nel portale di Azure passare alla sezione *Server registrati* del servizio di sincronizzazione archiviazione.
 2. Fare clic con il pulsante destro del mouse sul server per cui si vuole annullare la registrazione e fare clic su "Annulla registrazione server".
 
-    ![Annulla registrazione server](media/storage-sync-files-server-registration/unregister-server-1.png)
+    ![Annullare la registrazione del server](media/storage-sync-files-server-registration/unregister-server-1.png)
 
 ## <a name="ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter"></a>Corretta integrazione di Sincronizzazione file di Azure nel data center 
 Dato che Sincronizzazione file di Azure raramente è l'unico servizio in esecuzione nel data center, potrebbe essere opportuno limitarne l'utilizzo della rete e dello spazio di archiviazione.

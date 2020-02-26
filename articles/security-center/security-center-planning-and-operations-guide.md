@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 239438133dc16630852626c49e8ffda08590976b
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 039a30d23c45471d88132f544c11df813fb4b8e6
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281003"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603731"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guida alla pianificazione e alla gestione del Centro sicurezza di Azure
 Questa guida è destinata a professionisti IT, architetti IT, analisti della sicurezza delle informazioni e amministratori cloud che pianificano l'uso del Centro sicurezza di Azure.
@@ -33,8 +33,7 @@ Nella sezione successiva si apprenderà come pianificare ogni singola area e app
 
 
 > [!NOTE]
-> Per un elenco delle domande comuni che possono risultare utili anche durante la fase di progettazione e di pianificazione, vedere [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) .
->
+> Per un elenco delle domande comuni che possono risultare utili anche durante la fase di progettazione e di pianificazione, vedere [Domande frequenti sul Centro sicurezza di Azure](faq-general.md) .
 
 ## <a name="security-roles-and-access-controls"></a>Ruoli di sicurezza e controlli di accesso
 A seconda delle dimensioni e della struttura dell'organizzazione, il Centro sicurezza di Azure potrebbe essere usato da più utenti e team per l'esecuzione di diverse attività correlate alla sicurezza. Nel diagramma seguente è riportato un esempio di utenti fittizi e dei rispettivi ruoli e responsabilità in materia di sicurezza:
@@ -143,8 +142,7 @@ Microsoft Monitoring Agent per Windows richiede l'uso della porta TCP 443. Veder
 Per disabilitare successivamente la raccolta dati, è possibile usare i criteri di sicurezza. Tuttavia, poiché il Microsoft Monitoring Agent può essere usato da altri servizi di gestione e monitoraggio di Azure, l'agente non verrà disinstallato automaticamente quando si disattiva la raccolta dati nel centro sicurezza. È possibile disinstallare manualmente l'agente se necessario.
 
 > [!NOTE]
-> Per un elenco delle macchine virtuali supportate, vedere [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md).
->
+> Per un elenco delle macchine virtuali supportate, vedere [Domande frequenti sul Centro sicurezza di Azure](faq-vms.md).
 
 ### <a name="workspace"></a>Area di lavoro
 
@@ -212,7 +210,7 @@ Come parte delle operazioni di sicurezza è consigliabile adottare misure preven
 È possibile usare i [controlli delle applicazioni adattivi](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) per limitare le applicazioni che possono essere eseguite nelle macchine virtuali situate in Azure. Tra gli altri vantaggi, questo semplifica la protezione delle macchine virtuali da malware. Usando Machine Learning, il Centro sicurezza analizza i processi in esecuzione nella macchina virtuale per creare regole di inserimento nell'elenco elementi consentiti.
 
 
-## <a name="incident-response"></a>Risposta agli avvenimenti
+## <a name="incident-response"></a>Risposta agli eventi imprevisti
 Il Centro sicurezza rileva le minacce appena si verificano e avvisa l'utente. Le organizzazioni devono monitorare i nuovi avvisi di sicurezza e intraprendere le azioni necessarie per indagare più a fondo o correggere l'attacco. Per altre informazioni sul funzionamento del rilevamento delle minacce nel centro sicurezza, vedere [come il Centro sicurezza di Azure rileva e risponde alle minacce](security-center-alerts-overview.md#detect-threats).
 
 Per quanto offrire una guida alla creazione di un piano di risposta agli eventi imprevisti non rientri nelle finalità di questo articolo, il ciclo di vita della risposta del Centro sicurezza di Microsoft Azure nel cloud verrà usato come base per le fasi della risposta agli eventi imprevisti. Le fasi sono illustrate nel diagramma seguente:
@@ -254,5 +252,5 @@ In questo documento è stato descritto come pianificare l'adozione del Centro si
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md)
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md) : informazioni su come monitorare l'integrità delle risorse di Azure.
 * [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md) : informazioni su come monitorare l'integrità delle soluzioni dei partner.
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
+* [Domande frequenti sul Centro sicurezza di Azure](faq-general.md) : domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure.

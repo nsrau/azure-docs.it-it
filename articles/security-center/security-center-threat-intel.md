@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 97975d72214426907a2ab91f0d3cd98d0ce6734b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 39835d9d73adcbe474d3b70dfced313e18d1a3b3
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693488"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603426"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Mappa degli avvisi di sicurezza e intelligence per le minacce
 Questo articolo illustra come usare la mappa degli avvisi di sicurezza e la mappa dell'intelligence per le minacce basata su eventi di sicurezza del Centro sicurezza di Azure per risolvere i problemi relativi alla sicurezza.
@@ -64,5 +64,3 @@ In questo articolo si è appreso come usare la funzionalità di intelligence per
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md). Informazioni su come monitorare l'integrità delle risorse di Azure.
 * [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Informazioni sui diversi tipi di avvisi di sicurezza.
 * [Guida alla risoluzione dei problemi del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Informazioni su come risolvere i problemi comuni nel Centro sicurezza.
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md). Risposte alle domande frequenti sull'uso del servizio.
-* [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/). Post di blog sulla sicurezza e sulla conformità di Azure.

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
-ms.openlocfilehash: da8c194b7911d2eeda8e0c903cb7412186aacfcb
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: fa41649e002bd4845b95e787c1d0589ed1987588
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638256"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587244"
 ---
 # <a name="sql-database-resource-limits-and-resource-governance"></a>Limiti delle risorse del database SQL e governance delle risorse
 
@@ -27,7 +27,7 @@ Questo articolo offre una panoramica dei limiti delle risorse del database SQL p
 
 ## <a name="maximum-resource-limits"></a>Limiti massimi delle risorse
 
-| Gruppi | Limite |
+| Risorsa | Limite |
 | :--- | :--- |
 | Database per server | 5000 |
 | Numero predefinito di server per sottoscrizione in ogni area | 20 |
@@ -37,14 +37,14 @@ Questo articolo offre una panoramica dei limiti delle risorse del database SQL p
 | N. max pool per server | Limitato dal numero di DTU o vCore. Se ad esempio ogni pool è da 1000 DTU, un server può supportare 54 pool.|
 |||
 
-> [!NOTE]
-> Per ottenere più quote DTU/eDTU, vCore quota o più server rispetto all'importo predefinito, è possibile inviare una nuova richiesta di supporto nella portale di Azure per la sottoscrizione con il tipo di problema "quota". La quota DTU/eDTU e il limite del database per server vincolano il numero di pool elastici per server.
-
 > [!IMPORTANT]
 > Poiché il numero di database si avvicina al limite per server di database SQL, può verificarsi quanto segue:
 >
 > - Latenza in aumento nelle query in esecuzione nel database master.  Ciò include le visualizzazioni delle statistiche di utilizzo delle risorse, ad esempio sys.resource_stats.
 > - Latenza in aumento nelle operazioni di gestione e nel portale di esecuzione del rendering dei punti di visualizzazione che coinvolgono l'enumerazione dei database nel server.
+
+> [!NOTE]
+> Per ottenere più quote DTU/eDTU, vCore quota o più server rispetto alla quantità predefinita, inviare una nuova richiesta di supporto nella portale di Azure. Per altre informazioni, vedere [incremento della quota di richieste per il database SQL di Azure](quota-increase-request.md).
 
 ### <a name="storage-size"></a>Dimensioni dello spazio di archiviazione
 

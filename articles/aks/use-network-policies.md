@@ -2,17 +2,14 @@
 title: Proteggere i pod con criteri di rete nel servizio Azure Kubernetes
 description: Informazioni su come proteggere il traffico che passa da e verso i pod usando i criteri di rete Kubernetes in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: mlearned
-ms.openlocfilehash: 350e553563aa152c61c922727fb87937bedd14b5
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 92e726529f2c81b169dc5ad485148ad8118bbc81
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72928503"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592867"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteggere il traffico tra i pod usando criteri di rete nel servizio Azure Kubernetes
 
@@ -57,7 +54,7 @@ Entrambe le implementazioni usano *iptables* Linux per applicare i criteri speci
 | Piattaforme supportate                      | Linux                      | Linux                       |
 | Opzioni di rete supportate             | Azure CNI                  | Azure CNI e kubenet       |
 | Conformità con la specifica Kubernetes | Tutti i tipi di criteri supportati |  Tutti i tipi di criteri supportati |
-| Funzionalità aggiuntive                      | Nessuno                       | Modello di criteri esteso costituito da criteri di rete globali, da un set di reti globale e da un endpoint host. Per altre informazioni sull'uso dell'interfaccia della riga di comando `calicoctl` per gestire queste funzionalità estese, vedere [riferimento utente calicoctl][calicoctl]. |
+| Funzionalità aggiuntive                      | nessuno                       | Modello di criteri esteso costituito da criteri di rete globali, da un set di reti globale e da un endpoint host. Per altre informazioni sull'uso dell'interfaccia della riga di comando `calicoctl` per gestire queste funzionalità estese, vedere [riferimento utente calicoctl][calicoctl]. |
 | Supporto                                  | Supportato dal team di progettazione e supporto tecnico di Azure | Supporto della community di calice. Per altre informazioni sul supporto a pagamento aggiuntivo, vedere [Opzioni di supporto per Project calice][calico-support]. |
 | Registrazione                                  | Le regole aggiunte/eliminate in IPTables vengono registrate in ogni host in */var/log/Azure-NPM.log* | Per ulteriori informazioni, vedere [log dei componenti di calice][calico-logs] |
 

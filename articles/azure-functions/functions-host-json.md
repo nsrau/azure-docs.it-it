@@ -3,12 +3,12 @@ title: Informazioni di riferimento su host.json per Funzioni di Azure 2.x
 description: Documentazione di riferimento per il file host.json di Funzioni di Azure con il runtime v2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: b9c57378df1510179c5a45b6aa669bab804aca5e
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 949d4f2c5d8c1d8034ccc392915bc40f1f2fddda
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484435"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605130"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>informazioni di riferimento su host. JSON per funzioni di Azure 2. x e versioni successive 
 
@@ -208,7 +208,7 @@ Per altre informazioni sugli snapshot, vedere [eseguire il debug di snapshot sul
 
 ## <a name="cosmosdb"></a>cosmosDb
 
-L'impostazione di configurazione è reperibile in [Trigger e associazioni di Cosmos DB](functions-bindings-cosmosdb-v2.md#host-json).
+L'impostazione di configurazione è reperibile in [Trigger e associazioni di Cosmos DB](functions-bindings-cosmosdb-v2-output.md#host-json).
 
 ## <a name="durabletask"></a>durableTask
 
@@ -216,7 +216,7 @@ L'impostazione di configurazione è reperibile nelle [associazioni per Durable F
 
 ## <a name="eventhub"></a>eventHub
 
-Le impostazioni di configurazione sono reperibili in [Trigger e associazioni di Hub eventi](functions-bindings-event-hubs.md#host-json). 
+Le impostazioni di configurazione sono reperibili in [Trigger e associazioni di Hub eventi](functions-bindings-event-hubs-output.md#host-json). 
 
 ## <a name="extensions"></a>Estensioni
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7d8a7881c00427023e5f174461b3d8b24d83444
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 22576be8dec021f0f18a6e2dda16891ce70d4f13
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121457"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603213"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workplace by Facebook per il provisioning utenti automatico
 
@@ -51,7 +51,7 @@ Quando si esegue la migrazione dell'applicazione, il banner nella sezione relati
 
  
 #### <a name="when-will-these-changes-happen"></a>Quando si verificano queste modifiche?
-Tutte le nuove istanze dell'area di lavoro utilizzeranno già il nuovo metodo di integrazione/autorizzazione. Le integrazioni esistenti verranno migrate gradualmente a febbraio. La migrazione verrà completata per tutti i tenant entro la fine del mese. 
+Tutte le nuove istanze dell'area di lavoro utilizzeranno già il nuovo metodo di integrazione/autorizzazione. Le integrazioni esistenti verranno migrate gradualmente entro il maggio. Il team aziendale ha fornito un'estensione alla scadenza dal 28 febbraio al 1 ° maggio. 
 
 ## <a name="capabilities-supported"></a>Funzionalità supportate
 > [!div class="checklist"]
@@ -60,7 +60,7 @@ Tutte le nuove istanze dell'area di lavoro utilizzeranno già il nuovo metodo di
 > * Mantieni gli attributi utente sincronizzati tra Azure AD e l'area di lavoro di Facebook
 > * [Single Sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/workplacebyfacebook-tutorial) per l'area di lavoro di Facebook (scelta consigliata)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
@@ -135,28 +135,28 @@ Il servizio Azure AD provisioning consente di definire l'ambito di chi verrà es
 
    |Attributo|Type|
    |---|---|
-   |userName|String|
-   |displayName|String|
-   |attivo|Boolean|
+   |userName|string|
+   |displayName|string|
+   |active|Boolean|
    |title|Boolean|
-   |emails[type eq "work"].value|String|
-   |name.givenName|String|
-   |name.familyName|String|
-   |nome. formattato|String|
-   |indirizzi [tipo EQ "lavoro"]. formattato|String|
-   |addresses[type eq "work"].streetAddress|String|
-   |indirizzi [digitare EQ "Work"]. località|String|
-   |indirizzi [digitare EQ "Work"]. Region|String|
-   |indirizzi [digitare EQ "Work"]. Country|String|
-   |addresses[type eq "work"].postalCode|String|
-   |indirizzi [tipo EQ "other"]. formattato|String|
-   |phoneNumbers[type eq "work"].value|String|
-   |phoneNumbers[type eq "mobile"].value|String|
-   |phoneNumbers[type eq "fax"].value|String|
-   |externalId|String|
-   |preferredLanguage|String|
-   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Manager|String|
-   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Department|String|
+   |emails[type eq "work"].value|string|
+   |name.givenName|string|
+   |name.familyName|string|
+   |nome. formattato|string|
+   |indirizzi [tipo EQ "lavoro"]. formattato|string|
+   |addresses[type eq "work"].streetAddress|string|
+   |indirizzi [digitare EQ "Work"]. località|string|
+   |indirizzi [digitare EQ "Work"]. Region|string|
+   |indirizzi [digitare EQ "Work"]. Country|string|
+   |addresses[type eq "work"].postalCode|string|
+   |indirizzi [tipo EQ "other"]. formattato|string|
+   |phoneNumbers[type eq "work"].value|string|
+   |phoneNumbers[type eq "mobile"].value|string|
+   |phoneNumbers[type eq "fax"].value|string|
+   |externalId|string|
+   |preferredLanguage|string|
+   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Manager|string|
+   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: Department|string|
 
 10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

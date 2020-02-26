@@ -2,17 +2,14 @@
 title: Creare nodi virtuali usando il portale nel servizio Azure Kubernetes (AKS)
 description: Informazioni su come usare il portale di Azure per creare un cluster del servizio Azure Kubernetes che usa nodi virtuali per eseguire i pod.
 services: container-service
-author: mlearned
 ms.topic: conceptual
-ms.service: container-service
 ms.date: 05/06/2019
-ms.author: mlearned
-ms.openlocfilehash: 6a50663fd0cc907e0dc97b50decd8b6edbaa42cb
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 664bbdc94963b84e4fed6845dfd23d2407ca3898
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713213"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592561"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Creare e configurare un cluster del servizio Azure Kubernetes per l'uso di nodi virtuali nel portale di Azure
 
@@ -44,7 +41,7 @@ Se il provider viene visualizzato come *NotRegistered*, registrare il provider u
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="regional-availability"></a>Disponibilità a livello di area
+## <a name="regional-availability"></a>Disponibilità internazionale
 
 Per le distribuzioni di nodi virtuali sono supportate le aree seguenti:
 
@@ -71,11 +68,11 @@ La funzionalità dei nodi virtuali dipende molto dal set di funzionalità di ACI
 * [Gli elementi daemonset](concepts-clusters-workloads.md#statefulsets-and-daemonsets) non distribuirà i pod al nodo virtuale
 * I [nodi di Windows Server (attualmente in anteprima in AKS)](windows-container-cli.md) non sono supportati insieme ai nodi virtuali. È possibile usare i nodi virtuali per pianificare i contenitori di Windows Server senza la necessità di nodi di Windows Server in un cluster AKS.
 
-## <a name="sign-in-to-azure"></a>Accedi ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
-## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Container
+## <a name="create-an-aks-cluster"></a>Creare un cluster AKS
 
 Nell'angolo superiore sinistro del portale di Azure, selezionare **Crea una risorsa** > **Servizio Kubernetes**.
 

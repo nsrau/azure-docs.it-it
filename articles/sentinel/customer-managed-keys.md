@@ -3,7 +3,7 @@ title: Configurare chiavi gestite dal cliente in Sentinel di Azure | Microsoft D
 description: Informazioni su come configurare le chiavi gestite dal cliente (CMK) in Sentinel di Azure.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: 4858e2099baa82226766ecfce32b39471c3b96cd
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.author: yelevin
+ms.openlocfilehash: bc2fa02925e7f5c671085eb87ca0431d3fca7691
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845312"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587958"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Configurare la chiave gestita dal cliente di Azure Sentinel
 
@@ -52,7 +52,7 @@ Per eseguire il provisioning di CMK, seguire questa procedura: 
 
 5.  Abilitare CMK in Sentinel di Azure.
 
-6.  Abilitare Azure Sentinel.
+6.  Abilitare Sentinel di Azure.
 
 ### <a name="step-1-create-an-azure-key-vault-and-storing-key"></a>PASSAGGIO 1: creare un Azure Key Vault e archiviare la chiave
 
@@ -91,7 +91,7 @@ Dopo aver ottenuto l'approvazione, verrà richiesto di fornire le informazioni s
 -  Key Vault URL: copiare la chiave "identificatore chiave" fino all'ultima barra:  
     
 
-    ![Identificatore di chiave](./media/customer-managed-keys/key-identifier.png)
+    ![identificatore di chiave](./media/customer-managed-keys/key-identifier.png)
 
     Il team di Sentinel di Azure Abilita la funzionalità CMK di Azure Sentinel per l'area di lavoro specificata.
 

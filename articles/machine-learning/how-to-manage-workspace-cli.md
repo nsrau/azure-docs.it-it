@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 11/05/2019
-ms.openlocfilehash: 715ea6239e070fe5ebb78c2e2766aabf1f491fcc
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 06b890a9186ec38ce3f851c9f36b778ec7549f76
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988159"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77580531"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creare un'area di lavoro per Azure Machine Learning con l'interfaccia della riga di comando
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Questo articolo illustra come creare un'area di lavoro Azure Machine Learning usando l'interfaccia della riga di comando di Azure. L'interfaccia della riga di comando di Azure fornisce comandi per la gestione delle risorse di Azure L'estensione Machine Learning nell'interfaccia della riga di comando fornisce comandi per l'uso di risorse Azure Machine Learning.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una **sottoscrizione di Azure**. Se non si dispone di un, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -59,7 +59,7 @@ L'area di lavoro Azure Machine Learning si basa sui servizi o sulle entità di A
 > [!IMPORTANT]
 > Se non si specifica un servizio di Azure esistente, ne verrà creato uno automaticamente durante la creazione dell'area di lavoro. È sempre necessario specificare un gruppo di risorse.
 
-| Servizio | Parametro per specificare un'istanza esistente |
+| Service | Parametro per specificare un'istanza esistente |
 | ---- | ---- |
 | **Gruppo di risorse di Azure** | `-g <resource-group-name>`
 | **Account di archiviazione di Azure** | `--storage-account <service-id>` |
@@ -344,11 +344,22 @@ az group delete -g <resource-group-name>
 
 Per ulteriori informazioni, vedere la documentazione [AZ ml workspace delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-delete) .
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 ### <a name="resource-provider-errors"></a>Errori del provider di risorse
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+
+### <a name="moving-the-workspace"></a>Trasferimento dell'area di lavoro
+
+> [!WARNING]
+> Non è supportato lo stato di un'area di lavoro di Azure Machine Learning in una sottoscrizione diversa o di trasferimento della sottoscrizione proprietaria a un nuovo tenant. Questa operazione può causare errori.
+
+### <a name="deleting-the-azure-container-registry"></a>Eliminazione del Container Registry di Azure
+
+L'area di lavoro Azure Machine Learning USA Azure Container Registry (ACR) per alcune operazioni. Verrà creata automaticamente un'istanza di ACR quando è necessaria per la prima volta.
+
+[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -2,17 +2,14 @@
 title: Visualizzare i log del controller del servizio Azure Kubernetes
 description: Informazioni su come abilitare e visualizzare i log per il nodo master di Kubernetes nel servizio Azure Kubernetes
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.author: mlearned
-ms.openlocfilehash: dc72a8d448a189918def35da0250d83c81da7fa0
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: f759f15cf98546cb95ba0adb5890885f85ca6aa1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812823"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592789"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Abilitare e controllare i log del nodo master di Kubernetes nel servizio Azure Kubernetes
 
@@ -107,7 +104,7 @@ Per altre informazioni su come eseguire una query e filtrare i dati di log, vede
 
 Per semplificare l'analisi dei dati dei log, la tabella seguente illustra lo schema utilizzato per ogni evento:
 
-| Nome campo               | DESCRIZIONE |
+| Nome campo               | Descrizione |
 |--------------------------|-------------|
 | *resourceId*             | Risorsa di Azure che ha generato il log |
 | *time*                   | Timestamp di quando è stato caricato il log |
@@ -120,7 +117,7 @@ Per semplificare l'analisi dei dati dei log, la tabella seguente illustra lo sch
 
 ## <a name="log-roles"></a>Ruoli di log
 
-| Role                     | Descrizione |
+| Ruolo                     | Descrizione |
 |--------------------------|-------------|
 | *aksService*             | Nome visualizzato nel log di controllo per l'operazione del piano di controllo (da hcpService) |
 | *MasterClient*           | Nome visualizzato nel log di controllo per MasterClientCertificate, il certificato ottenuto da AZ AKS Get-credentials |

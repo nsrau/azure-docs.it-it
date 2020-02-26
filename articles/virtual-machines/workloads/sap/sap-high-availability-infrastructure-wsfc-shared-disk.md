@@ -1,10 +1,10 @@
 ---
-title: Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP con un cluster di failover Windows e dischi condivisi per SAP ASCS/SCS | Microsoft Docs
+title: Infrastruttura di Azure per SAP ASC/SCS con WSFC & disco condiviso | Microsoft Docs
 description: Informazioni su come preparare l'infrastruttura di Azure per la disponibilità elevata di SAP con un cluster di failover Windows e dischi condivisi per un'istanza di SAP ASCS/SCS.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
-ms.author: rclaus
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4de954d55725f36d48d09ac46ef3700787d937b
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 8a49bc979923bf52d099e30615910c5bdb0601b6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647646"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591932"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP con un cluster di failover Windows e dischi condivisi per SAP ASCS/SCS
 
@@ -164,7 +164,7 @@ ms.locfileid: "75647646"
 
 Questo articolo descrive i passaggi per preparare l'infrastruttura di Azure per l'installazione e la configurazione di un sistema SAP a disponibilità elevata in un cluster di failover di Windows usando un *disco condiviso del cluster* come opzione per il clustering di un'istanza di SAP ASCS.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare l'installazione, esaminare questo articolo:
 
@@ -223,7 +223,7 @@ _**Figura 1:** Impostare i parametri di Azure Resource Manager di disponibilità
 >
 
 ## <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Distribuire macchine virtuali con connettività di rete aziendale (cross-premise) da usare in fase di produzione
-Per i sistemi SAP di produzione, distribuire le macchine virtuali di Azure con la [connettività di rete aziendale (cross-premise)][planning-guide-2.2] usando il gateway VPN di Azure o Azure ExpressRoute.
+Per i sistemi SAP di produzione, distribuire le macchine virtuali di Azure con la connettività di rete aziendale usando il gateway VPN di Azure o Azure ExpressRoute.
 
 > [!NOTE]
 > È possibile usare l'istanza di Rete virtuale di Azure. La rete virtuale e la subnet sono già state create e preparate.
@@ -349,7 +349,7 @@ Per configurare il modello a più SID del database, nel modello a più [SID][sap
 
 Il modello dei server applicazioni consente di distribuire due o più macchine virtuali che possono essere usate come istanze del server applicazioni SAP per un sistema SAP. Se, ad esempio, si distribuisce un modello ASCS/SCS per 5 sistemi SAP, è necessario distribuire questo modello cinque volte.
 
-Per configurare il modello a più SID dei server applicazioni, nel [modello a più SID dei server applicazioni][sap-templates-3-tier-multisid-apps-marketplace-image] o nel [modello a più SID dei server applicazioni usando Managed disks][sap-templates-3-tier-multisid-apps-marketplace-image-md], immettere i valori per i parametri seguenti:
+Per configurare il modello a più SID dei server applicazioni, [nel modello a più SID][sap-templates-3-tier-multisid-apps-marketplace-image] dei server applicazioni o nel modello a più SID dei server applicazioni [usando Managed disks][sap-templates-3-tier-multisid-apps-marketplace-image-md], immettere i valori per i parametri seguenti:
 
   -  **Sap System Id**: immettere l'ID del sistema SAP che si vuole installare. L'ID viene usato come prefisso per le risorse distribuite.
   -  **Os Type**: selezionare il sistema operativo delle macchine virtuali.
@@ -373,7 +373,7 @@ Per impostare gli indirizzi IP DNS necessari, attenersi alla procedura seguente:
 
 1. Nel riquadro **Server DSN** del portale di Azure verificare che l'opzione **Server DNS** della rete virtuale sia impostata su **DNS personalizzato**.
 2. Selezionare le impostazioni in base al tipo di rete esistente. Per altre informazioni, vedere le seguenti risorse:
-   * [Connettività di rete aziendale (cross-premise)][planning-guide-2.2]: aggiungere gli indirizzi IP dei server DNS locali.  
+   * aggiungere gli indirizzi IP dei server DNS locali.  
    È possibile estendere i server DNS locali alle macchine virtuali in esecuzione in Azure. In tale scenario è possibile aggiungere gli indirizzi IP delle macchine virtuali di Azure in cui si esegue il servizio DNS.
    * Per le distribuzioni di VM isolate in Azure: distribuire una macchina virtuale aggiuntiva nella stessa istanza di rete virtuale che funge da server DNS. Aggiungere gli indirizzi IP delle macchine virtuali di Azure configurate per l'esecuzione del servizio DNS.
 
@@ -554,7 +554,7 @@ Per aggiungere le voci del Registro di sistema in entrambi i nodi del cluster de
 | --- | --- |
 | Nome variabile |`KeepAliveTime` |
 | Tipo di variabile |REG_DWORD (decimale) |
-| Valore |120000 |
+| valore |120000 |
 | Collegamento alla documentazione |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 **Tabella 3:** modificare il primo parametro TCP/IP
@@ -565,7 +565,7 @@ Aggiungere quindi questa voce del Registro di sistema Windows in entrambi i nodi
 | --- | --- |
 | Nome variabile |`KeepAliveInterval` |
 | Tipo di variabile |REG_DWORD (decimale) |
-| Valore |120000 |
+| valore |120000 |
 | Collegamento alla documentazione |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 **Tabella 4:** modificare il secondo parametro TCP/IP

@@ -3,13 +3,13 @@ title: Limiti e quote della sottoscrizione di Azure
 description: Fornisce un elenco di limiti, quote e vincoli comuni relativi alle sottoscrizioni e ai servizi di Azure. Questo articolo include informazioni su come aumentare i limiti insieme ai valori massimi.
 tags: billing
 ms.topic: conceptual
-ms.date: 02/11/2020
-ms.openlocfilehash: 4b36fcf8d3630ffd9008ad9deee8d0945f901f9b
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/24/2020
+ms.openlocfilehash: 1987d444c49bb5e53950c26c43c1607c8a87be6d
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153894"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592424"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 
@@ -45,7 +45,7 @@ Quando si usano Azure Resource Manager e i gruppi di risorse di Azure, si applic
 
 [!INCLUDE [azure-resource-groups-limits](../../../includes/azure-resource-groups-limits.md)]
 
-## <a name="active-directory-limits"></a>Limiti di Active Directory
+## <a name="active-directory-limits"></a>Limiti relativi ad Active Directory
 
 [!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
 
@@ -294,10 +294,6 @@ Se non diversamente specificato, la tabella è valida per gli SKU v1, v2, Standa
 ## <a name="role-based-access-control-limits"></a>Limiti relativi al controllo degli accessi in base al ruolo
 
 [!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control-limits.md)]
-
-## <a name="scheduler-limits"></a>Limiti relativi all'utilità di pianificazione
-
-[!INCLUDE [scheduler-limits-table](../../../includes/scheduler-limits-table.md)]
 
 ## <a name="service-bus-limits"></a>Limiti relativi al bus di servizio
 

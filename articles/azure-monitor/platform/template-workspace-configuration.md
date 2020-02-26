@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: 936008a074944c79b8b0bab3beaf3a5aaa5ecc12
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 5fb33a592601a0511fa2523ee0cf8114bc66ca99
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77151804"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591961"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gestire Log Analytics area di lavoro con modelli di Azure Resource Manager
 
@@ -38,12 +38,12 @@ Questo articolo presenta esempi di modelli che illustrano alcune configurazioni 
 
 La tabella seguente elenca la versione dell'API per le risorse usate in questo esempio.
 
-| Resource | Tipo di risorsa | Versione dell'API |
+| Risorsa | Tipo di risorsa | Versione dell'API |
 |:---|:---|:---|
 | Area di lavoro   | aree di lavoro    | 2017-03-15-preview |
 | Ricerca      | savedSearches | 2015-03-20 |
 | Origine dati | datasources   | 2015-11-01-preview |
-| Soluzione    | soluzioni     | 2015-11-01-preview |
+| Soluzione    | solutions     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>Creare un'area di lavoro Log Analytics
 
@@ -77,52 +77,52 @@ Per la prenotazione della capacità, si definisce una prenotazione di capacità 
             }
         },
       "pricingTier": {
-      "type": "string",
-      "allowedValues": [
-        "pergb2018",
-        "Free",
-        "Standalone",
-        "PerNode",
-        "Standard",
-        "Premium"
-      ],
-      "defaultValue": "pergb2018",
-      "metadata": {
+        "type": "string",
+        "allowedValues": [
+          "pergb2018",
+          "Free",
+          "Standalone",
+          "PerNode",
+          "Standard",
+          "Premium"
+          ],
+        "defaultValue": "pergb2018",
+        "metadata": {
         "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
-           }
-       },
-        "location": {
-            "type": "String",
-            "allowedValues": [
-              "australiacentral", 
-              "australiaeast", 
-              "australiasoutheast", 
-              "brazilsouth",
-              "canadacentral", 
-              "centralindia", 
-              "centralus", 
-              "eastasia", 
-              "eastus", 
-              "eastus2", 
-              "francecentral", 
-              "japaneast", 
-              "koreacentral", 
-              "northcentralus", 
-              "northeurope", 
-              "southafricanorth", 
-              "southcentralus", 
-              "southeastasia", 
-              "uksouth", 
-              "ukwest", 
-              "westcentralus", 
-              "westeurope", 
-              "westus", 
-              "westus2" 
-            ],
-            "metadata": {
-              "description": "Specifies the location in which to create the workspace."
-            }
         }
+      },
+      "location": {
+        "type": "String",
+        "allowedValues": [
+        "australiacentral", 
+        "australiaeast", 
+        "australiasoutheast", 
+        "brazilsouth",
+        "canadacentral", 
+        "centralindia", 
+        "centralus", 
+        "eastasia", 
+        "eastus", 
+        "eastus2", 
+        "francecentral", 
+        "japaneast", 
+        "koreacentral", 
+        "northcentralus", 
+        "northeurope", 
+        "southafricanorth", 
+        "southcentralus", 
+        "southeastasia", 
+        "uksouth", 
+        "ukwest", 
+        "westcentralus", 
+        "westeurope", 
+        "westus", 
+        "westus2" 
+        ],
+      "metadata": {
+        "description": "Specifies the location in which to create the workspace."
+        }
+      }
     },
     "resources": [
         {
@@ -131,9 +131,8 @@ Per la prenotazione della capacità, si definisce una prenotazione di capacità 
             "apiVersion": "2017-03-15-preview",
             "location": "[parameters('location')]",
             "properties": {
-                "sku": { 
-                    "name": "CapacityReservation",
-                    "capacityReservationLevel": 100
+                "sku": {
+          "name": "[parameters('pricingTier')]"
                 },
                 "retentionInDays": 120,
                 "features": {
@@ -146,6 +145,13 @@ Per la prenotazione della capacità, si definisce una prenotazione di capacità 
        ]
     }
     ```
+
+> [Informazioni] per le impostazioni di prenotazione della capacità, usare queste proprietà in "SKU":
+
+>   "Name": "CapacityReservation",
+
+>   "capacityReservationLevel": 100
+
 
 2. Modificare il modello in base alle esigenze. Rivedere il riferimento del [modello Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) per informazioni sulle proprietà e sui valori supportati. 
 3. Salvare questo file come **deploylaworkspacetemplate.json** in una cartella locale.

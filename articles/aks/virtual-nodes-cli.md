@@ -2,17 +2,14 @@
 title: Creare nodi virtuali usando l'interfaccia della riga di comando di Azure nel servizio Azure Kubernetes
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per creare un cluster del servizio Azure Kubernetes che usa nodi virtuali per eseguire i pod.
 services: container-service
-author: mlearned
 ms.topic: conceptual
-ms.service: container-service
 ms.date: 05/06/2019
-ms.author: mlearned
-ms.openlocfilehash: 2133d1aefe3363a2fb2af73c004e22ba0a0239ca
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 2b726dff1e2c23b94118a11fb6b6ccf1f9622d4d
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901515"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592745"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Creare e configurare un cluster del servizio Azure Kubernetes per l'uso di nodi virtuali tramite l'interfaccia della riga di comando di Azure
 
@@ -44,7 +41,7 @@ Se il provider viene visualizzato come *NotRegistered*, registrare il provider u
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="regional-availability"></a>Disponibilità a livello di area
+## <a name="regional-availability"></a>Disponibilità internazionale
 
 Per le distribuzioni di nodi virtuali sono supportate le aree seguenti:
 
@@ -87,7 +84,7 @@ Un gruppo di risorse di Azure è un gruppo logico in cui le risorse di Azure ven
 az group create --name myResourceGroup --location westus
 ```
 
-## <a name="create-a-virtual-network"></a>Crea una rete virtuale
+## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
 Creare una rete virtuale con il comando [az network vnet create][az-network-vnet-create]. L'esempio seguente crea il nome di rete virtuale *myVnet* con il prefisso di indirizzo *10.0.0.0/8* e una subnet denominata *myAKSSubnet*. Per impostazione predefinita, il prefisso di indirizzo di questa subnet è *10.240.0.0/16*:
 

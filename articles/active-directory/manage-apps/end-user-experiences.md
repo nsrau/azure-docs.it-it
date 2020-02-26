@@ -12,12 +12,12 @@ ms.date: 09/27/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f9ff446bae0a010b12e84172d5af60c6ca81c0e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 72b3e37a423442194b81e3d10ecc7157201ff8be
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896895"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586054"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Esperienze per gli utenti finali per le applicazioni in Azure Active Directory
 
@@ -32,7 +32,7 @@ I metodi che è possibile scegliere per la distribuzione nell'organizzazione son
 
 ## <a name="azure-ad-access-panel"></a>Pannello di accesso di Azure AD
 
-Il pannello di accesso disponibile all'indirizzo https://myapps.microsoft.com è un portale basato sul Web che consente agli utenti finali con account aziendale in Azure Active Directory di visualizzare e avviare applicazioni basate sul cloud per le quali l'amministratore di Azure AD ha concesso i diritti di accesso. Se si è un utente finale con [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), è anche possibile usare le funzionalità di gestione di gruppi in modalità self-service tramite il riquadro di accesso.
+Il pannello di accesso in https://myapps.microsoft.com è un portale basato sul Web che consente a un utente finale con un account aziendale in Azure Active Directory di visualizzare e avviare applicazioni a cui l'amministratore Azure AD ha concesso l'accesso. Se si è un utente finale con [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), è anche possibile usare le funzionalità di gestione di gruppi in modalità self-service tramite il riquadro di accesso.
 
 ![Screenshot che mostra il portale del pannello di accesso Azure AD](media/what-is-single-sign-on/azure-ad-access-panel.png)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: memildin
-ms.openlocfilehash: ca2afaa9f4e01ac56657681ce71e32e3c5375fdf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8aa17f473c550c99d91862754e6a746575aca202
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355636"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604376"
 ---
 # <a name="alert-confidence-score-preview"></a>Punteggio di confidenza degli avvisi (anteprima)
 
@@ -47,14 +47,6 @@ Per visualizzare i dati che hanno contribuito all'attendibilità del Centro sicu
   ![Punteggio di attendibilità sospetto][2]
 
 Usare l'attendibilità del Centro sicurezza per definire le priorità di valutazione degli avvisi nell'ambiente in uso. Il punteggio di attendibilità consente di risparmiare tempo e fatica analizzando automaticamente gli avvisi, applicando procedure consigliate del settore e gli algoritmi intelligenti e funge da analista virtuale per determinare quali minacce sono reali e su cui è necessario concentrare l'attenzione.
-
-
-## <a name="next-steps"></a>Passaggi successivi
-Questo articolo ha illustrato come utilizzare il punteggio di attendibilità per assegnare una priorità alle analisi degli avvisi. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
-
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
-* [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
-
 
 
 <!--Image references-->

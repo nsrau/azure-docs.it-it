@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 1d82261d4b5c1a66498c33610670d7a38acbb197
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 91480b3ba0a2bbd3e8c31adb931f5baabe1b07ce
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152330"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605589"
 ---
 # <a name="execute-python-script-module"></a>Eseguire il modulo di script Python
 
@@ -91,7 +91,7 @@ Il modulo **Execute Python script** contiene codice Python di esempio che è pos
 
     ![Esegui mappa di input Python](media/module/python-module.png)
 
-4. Per includere nuovi pacchetti o codice Python, aggiungere il file compresso contenente queste risorse personalizzate nel **bundle di script**. L'input per il **bundle di script** deve essere un file compresso già caricato nell'area di lavoro. 
+4. Per includere nuovi pacchetti o codice Python, aggiungere il file compresso contenente queste risorse personalizzate nel **bundle di script**. L'input per il **bundle di script** deve essere un file compresso caricato nell'area di lavoro come set di dati di tipo file. 
 
     Qualsiasi file contenuto nell'archivio compresso caricato può essere usato durante l'esecuzione della pipeline. Se l'archivio include una struttura di directory, la struttura viene mantenuta, ma è necessario anteporre una directory denominata **src** al percorso.
 

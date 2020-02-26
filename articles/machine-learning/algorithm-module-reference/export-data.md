@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 11f5bd7f01e142273509ae59ddc19a2557464bde
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 40d8e298237b6110fee04aefbb7b79c5f3bac6f0
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152313"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598613"
 ---
 # <a name="export-data-module"></a>Modulo Export Data
 
 Questo articolo descrive un modulo in Azure Machine Learning Designer (anteprima).
 
-Usare questo modulo per salvare i risultati, i dati intermedi e i dati di lavoro dalle pipeline in destinazioni di archiviazione cloud all'esterno Azure Machine Learning. 
+Usare questo modulo per salvare i risultati, i dati intermedi e i dati di lavoro dalle pipeline nelle destinazioni di archiviazione cloud. 
 
 Questo modulo supporta l'esportazione dei dati nei servizi cloud data seguenti:
 
@@ -29,7 +29,7 @@ Questo modulo supporta l'esportazione dei dati nei servizi cloud data seguenti:
 - Azure Data Lake
 - Azure Data Lake Gen2
 
-Prima di esportare i dati, prima di tutto è necessario registrare un archivio dati nell'area di lavoro Azure Machine Learning. Per altre informazioni, vedere [accedere ai dati nei servizi di archiviazione di Azure](../how-to-access-data.md).
+Prima di esportare i dati, è necessario prima registrare un archivio dati nell'area di lavoro Azure Machine Learning. Per altre informazioni, vedere [accedere ai dati nei servizi di archiviazione di Azure](../how-to-access-data.md).
 
 ## <a name="how-to-configure-export-data"></a>Come configurare i dati di esportazione
 
@@ -41,7 +41,13 @@ Prima di esportare i dati, prima di tutto è necessario registrare un archivio d
 
 1. Per **archivio dati**selezionare un archivio dati esistente dall'elenco a discesa. È anche possibile creare un nuovo archivio dati. Per informazioni, vedere [accesso ai dati nei servizi di archiviazione di Azure](../how-to-access-data.md).
 
-1. Definire il percorso nell'archivio dati in cui scrivere i dati. 
+1. La casella di controllo **Rigenera output**, decide se eseguire il modulo per rigenerare l'output in fase di esecuzione. 
+
+    Per impostazione predefinita, è deselezionata, ovvero se il modulo è stato eseguito con gli stessi parametri in precedenza, il sistema riutilizzerà l'output dell'ultima esecuzione per ridurre il tempo di esecuzione. 
+
+    Se questa opzione è selezionata, il sistema eseguirà di nuovo il modulo per rigenerare l'output.
+
+1. Definire il percorso nell'archivio dati in cui si trovano i dati. Il percorso è un percorso relativo. I percorsi vuoti o i percorsi URL non sono consentiti.
 
 
 1. Per **formato file**selezionare il formato in cui archiviare i dati.

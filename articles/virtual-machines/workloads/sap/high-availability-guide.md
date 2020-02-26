@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fb093312365ce965c6baf3c9f50d74359cec0a7
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 7eb064762824c23f33f5df2a80320651de6d5af2
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647697"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598766"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure
 
@@ -721,7 +721,7 @@ _**Figura 11:** Impostare i parametri di Azure Resource Manager di disponibilit�
 >
 
 ### <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Distribuire macchine virtuali con connettività di rete aziendale (cross-premise) da usare in fase di produzione
-Per i sistemi SAP di produzione, distribuire le macchine virtuali di Azure con la [connettività di rete aziendale (cross-premise)][planning-guide-2.2] usando la VPN da sito a sito di Azure o Azure ExpressRoute.
+Per i sistemi SAP di produzione, distribuire le macchine virtuali di Azure con la connettività di rete aziendale usando la VPN da sito a sito di Azure o Azure ExpressRoute.
 
 > [!NOTE]
 > È possibile usare l'istanza di Rete virtuale di Azure. La rete virtuale e la subnet sono già state create e preparate.
@@ -865,7 +865,7 @@ Per impostare gli indirizzi IP DNS necessari, attenersi alla procedura seguente.
 
 1. Nel pannello **Server DSN** del portale di Azure verificare che l'opzione **Server DNS** della rete virtuale sia impostata su **DNS personalizzato**.
 2. Selezionare le impostazioni in base al tipo di rete esistente. Per altre informazioni, vedere le seguenti risorse:
-   * [Connettività di rete aziendale (cross-premise)][planning-guide-2.2]: aggiungere gli indirizzi IP dei server DNS locali.  
+   * aggiungere gli indirizzi IP dei server DNS locali.  
    È possibile estendere i server DNS locali alle macchine virtuali in esecuzione in Azure. In tale scenario è possibile aggiungere gli indirizzi IP delle macchine virtuali di Azure in cui si esegue il servizio DNS.
    * Per le distribuzioni isolate in Azure: distribuire una macchina virtuale aggiuntiva nella stessa istanza di rete virtuale che funge da server DNS. Aggiungere gli indirizzi IP delle macchine virtuali di Azure configurate per l'esecuzione del servizio DNS.
 
@@ -1046,7 +1046,7 @@ Per aggiungere le voci del Registro di sistema in entrambi i nodi del cluster de
 | --- | --- |
 | Nome variabile |`KeepAliveTime` |
 | Tipo di variabile |REG_DWORD (decimale) |
-| Valore |120000 |
+| valore |120000 |
 | Collegamento alla documentazione |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 _**Tabella 3:** Modificare il primo parametro TCP/IP_
@@ -1057,7 +1057,7 @@ Aggiungere quindi le voci del Registro di sistema Windows in entrambi i nodi del
 | --- | --- |
 | Nome variabile |`KeepAliveInterval` |
 | Tipo di variabile |REG_DWORD (decimale) |
-| Valore |120000 |
+| valore |120000 |
 | Collegamento alla documentazione |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 _**Tabella 4:** Modificare il secondo parametro TCP/IP_

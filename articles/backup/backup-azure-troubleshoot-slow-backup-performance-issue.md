@@ -4,12 +4,12 @@ description: Fornisce indicazioni sulla risoluzione dei problemi per diagnostica
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 01fff1d970a76d0d4d38c2536b41d58a4db301c8
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: f8988d3df7f61d2fce4c8fa5b49e42e872c185b8
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198618"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603148"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Risolvere i problemi di rallentamento delle prestazioni di backup di file e cartelle in Backup di Azure
 
@@ -44,7 +44,7 @@ Prima di iniziare a risolvere i problemi, è consigliabile scaricare e installar
 
 I colli di bottiglia nel computer in cui viene eseguito il backup possono causare ritardi. Ad esempio, i colli di bottiglia possono essere causati dalla capacità del computer di leggere o scrivere su disco o dalla larghezza di banda disponibile per inviare dati in rete.
 
-Per rilevare i colli di bottiglia, Windows fornisce uno strumento predefinito chiamato [Performance Monitor](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon).
+Windows offre uno strumento integrato denominato [Performance Monitor](h https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) (PerfMon) per rilevare questi colli di bottiglia.
 
 Ecco alcuni contatori delle prestazioni e intervalli che possono essere utili per diagnosticare i colli di bottiglia e ottenere backup ottimali.
 

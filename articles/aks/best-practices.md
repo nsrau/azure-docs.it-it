@@ -2,17 +2,14 @@
 title: Procedure consigliate per il servizio Azure Kubernetes
 description: Raccolta delle procedure consigliate per sviluppatori e operatori del cluster per la creazione e la gestione di applicazioni nel servizio Azure Kubernetes
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 12/07/2018
-ms.author: mlearned
-ms.openlocfilehash: 7127894b364ac8f0fe1d87e13150d5522f5473e2
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 627eeffd18a479486e5a682da06bf89cd5f8f0e1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67615970"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596318"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Procedure consigliate per sviluppatori e operatori del cluster per la creazione e la gestione di applicazioni nel servizio Azure Kubernetes
 
@@ -40,7 +37,7 @@ Si consiglia agli operatori di cluster di collaborare con i proprietari di appli
 * [Procedure consigliate per la sicurezza e gli aggiornamenti del cluster](operator-best-practices-cluster-security.md)
     * Protezione dell'accesso al server API, limitazione dell'accesso ai contenitori e gestione degli aggiornamenti e dei riavvii dei nodi.
 * [Procedure consigliate per la gestione e la sicurezza delle immagini del contenitore](operator-best-practices-container-image-management.md)
-    * Include la protezione di immagine e di runtime e compilazioni automatizzate negli aggiornamenti di immagine di base.
+    * Include la protezione dell'immagine e dei runtime e delle compilazioni automatiche sugli aggiornamenti delle immagini di base.
 * [Procedure consigliate per la sicurezza dei pod](developer-best-practices-pod-security.md)
     * Protezione dell'accesso alle risorse, limitazione dell'esposizione delle credenziali e uso di identità dei pod e insiemi di credenziali delle chiavi digitali.
 

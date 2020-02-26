@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: memildin
-ms.openlocfilehash: 96efe5271b91f87e30ba26aabe69a0de76e1a791
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b8b8b05f703a3eb05936ca95e2047a13650914cf
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202404"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604258"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Informazioni sulle raccomandazioni per i contenitori nel Centro sicurezza di Azure
 
@@ -42,9 +42,9 @@ Il Centro sicurezza di Azure offre le funzionalità seguenti per consentire di p
 ## <a name="recommendations"></a>Consigli
 Usare le tabelle seguenti come riferimento per conoscere i contenitori disponibili ospitati in computer IaaS Linux e la valutazione della sicurezza delle loro configurazioni Docker.
 
-| Indicazione | Descrizione | Correzione |
+| Recommendation | Descrizione | Correzione |
 | --- | --- | --- |
-|Correggere le vulnerabilità nelle configurazioni di sicurezza dei contenitori |Correggere le vulnerabilità nelle configurazioni di sicurezza dei contenitori basandosi sulle procedure consigliate per la configurazione.| Per correggere le vulnerabilità nelle configurazioni di sicurezza dei contenitori:<br>1. Esaminare l'elenco delle regole non riuscite.<br>2. Correggere ogni regola secondo le istruzioni specificate.|
+|Correggere le vulnerabilità nelle configurazioni di sicurezza dei contenitori |Correggere le vulnerabilità nelle configurazioni di sicurezza dei contenitori basandosi sulle procedure consigliate per la configurazione.| Per correggere le vulnerabilità nelle configurazioni di sicurezza dei contenitori:<br>1. esaminare l'elenco delle regole non riuscite.<br>2. correggere ogni regola in base alle istruzioni specificate.|
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -59,5 +59,3 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 * [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-protection.md)
 * [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
-

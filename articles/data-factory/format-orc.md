@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 5f83e9bbcdfffdd9b19786012295ff5643116551
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e104c4c8e976207859b75212d5406558f04c6377
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927379"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597491"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Formato ORC in Azure Data Factory
 
@@ -26,10 +26,10 @@ Il formato ORC è supportato per i connettori seguenti [: Amazon S3](connector-a
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati ORC.
 
-| Proprietà         | Description                                                  | Obbligatoria |
+| Proprietà         | Descrizione                                                  | Obbligatoria |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | La proprietà Type del set di dati deve essere impostata su **ORC**. | SÌ      |
-| location         | Impostazioni del percorso dei file. Ogni connettore basato su file ha un tipo di percorso e proprietà supportate in `location`. **Per informazioni dettagliate, vedere l'articolo connettore-> sezione Proprietà set di dati**. | SÌ      |
+| type             | La proprietà Type del set di dati deve essere impostata su **ORC**. | Sì      |
+| posizione         | Impostazioni del percorso dei file. Ogni connettore basato su file ha un tipo di percorso e proprietà supportate in `location`. **Per informazioni dettagliate, vedere l'articolo connettore-> sezione Proprietà set di dati**. | Sì      |
 
 Di seguito è riportato un esempio di set di dati ORC nell'archivio BLOB di Azure:
 
@@ -68,36 +68,37 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà seguenti sono supportate nella sezione ***\*origine\**** dell'attività di copia.
 
-| Proprietà      | Description                                                  | Obbligatoria |
+| Proprietà      | Descrizione                                                  | Obbligatoria |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **OrcSource**. | SÌ      |
+| type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **OrcSource**. | Sì      |
 | storeSettings | Un gruppo di proprietà su come leggere i dati da un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di lettura supportate in `storeSettings`. **Per informazioni dettagliate, vedere l'articolo connettore > sezione proprietà dell'attività di copia**. | No       |
 
 ### <a name="orc-as-sink"></a>ORCO come sink
 
 Le proprietà seguenti sono supportate nella sezione ***\*sink\**** dell'attività di copia.
 
-| Proprietà      | Description                                                  | Obbligatoria |
+| Proprietà      | Descrizione                                                  | Obbligatoria |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **OrcSink**. | SÌ      |
+| type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **OrcSink**. | Sì      |
 | storeSettings | Gruppo di proprietà su come scrivere dati in un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di scrittura supportate in `storeSettings`. **Per informazioni dettagliate, vedere l'articolo connettore > sezione proprietà dell'attività di copia**. | No       |
 
 ## <a name="using-self-hosted-integration-runtime"></a>Uso di Integration Runtime self-hosted
 
 > [!IMPORTANT]
-> Per le copie attivate dal runtime di integrazione self-hosted, ad esempio tra l'archivio dati locale e quello nel cloud, se non si esegue una copia **identica** dei file ORC, è necessario installare **JRE 8 (Java Runtime Environment) a 64 bit o OpenJDK** nel computer del runtime di integrazione. Per informazioni più dettagliate, vedere il paragrafo seguente.
+> Per la copia abilitata da self-hosted Integration Runtime ad esempio tra archivi dati locali e cloud, se non si esegue la copia dei file ORC **così come sono**, è necessario installare il pacchetto **JRE 8 (Java Runtime Environment) o OpenJDK** e **Microsoft Visual C++ 2010 ridistribuibile** di 64 bit nel computer IR. Per altri dettagli, vedere il paragrafo seguente.
 
 Per la copia in esecuzione nel runtime di integrazione self-hosted con la serializzazione/deserializzazione dei file ORC, il file di definizione dell'applicazione (AFD) individua il runtime Java eseguendo prima una ricerca di JRE nel Registro di sistema *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* . In caso di esito negativo, esegue una ricerca di OpenJDK nella variabile di sistema *`JAVA_HOME`* .
 
 - **Per usare JRE**: il runtime di integrazione a 64 bit richiede jre a 64 bit. disponibile [qui](https://go.microsoft.com/fwlink/?LinkId=808605).
-- **Per usare OpenJDK**: è supportato a partire dalla versione 3.13 del runtime di integrazione. Includere jvm.dll in un pacchetto con tutti gli altri assembly necessari di OpenJDK nel computer del runtime di integrazione self-hosted e impostare di conseguenza la variabile di ambiente di sistema JAVA_HOME.
+- **Per usare OpenJDK**: è supportata dalla versione 3,13 di IR. Includere jvm.dll in un pacchetto con tutti gli altri assembly necessari di OpenJDK nel computer del runtime di integrazione self-hosted e impostare di conseguenza la variabile di ambiente di sistema JAVA_HOME.
+- **Per installare Visual C++ 2010 Redistributable Package**: Visual C++ 2010 Redistributable Package non è installato con installazioni di runtime di integrazione self-hosted. disponibile [qui](https://www.microsoft.com/download/details.aspx?id=14632).
 
 > [!TIP]
 > Se si copiano dati da e verso il formato ORC usando Integration Runtime indipendenti e si verifica un errore indicante che si è verificato un errore durante la chiamata a Java, messaggio: **java. lang. OutOfMemoryError: spazio heap Java**, è possibile aggiungere una variabile di ambiente `_JAVA_OPTIONS` nel computer che ospita il runtime di integrazione self-hosted per modificare le dimensioni dell'heap min/max per JVM in modo da consentire
 
 ![Impostare le dimensioni dell'heap JVM nel runtime di integrazione self-hosted](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
-Esempio: impostare la variabile `_JAVA_OPTIONS` con il valore `-Xms256m -Xmx16g`. Il flag `Xms` specifica il pool di allocazione della memoria iniziale per Java Virtual Machine (JVM), mentre `Xmx` specifica il pool di allocazione della memoria massima. JVM verrà quindi avviato con una quantità di memoria pari a `Xms` e potrà usare una quantità massima di memoria pari a `Xmx`. Per impostazione predefinita, Azure Data Factory usa una quantità di memoria minima pari a 64 MB e una quantità di memoria massima pari a 1 GB.
+Esempio: impostare la variabile `_JAVA_OPTIONS` con il valore `-Xms256m -Xmx16g`. Il flag `Xms` specifica il pool di allocazione della memoria iniziale per Java Virtual Machine (JVM), mentre `Xmx` specifica il pool di allocazione della memoria massima. JVM verrà quindi avviato con una quantità di memoria pari a `Xms` e potrà usare una quantità massima di memoria pari a `Xmx`. Per impostazione predefinita, ADF USA min 64 MB e Max 1G.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/20/2020
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: df0bd87fffba8ed70c60da358b38079d3d017c76
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: e220009ec04ce732d99a53432077d681707e28d1
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505634"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585731"
 ---
 # <a name="string-claims-transformations"></a>Trasformazioni di attestazioni di stringa
 
@@ -127,7 +127,7 @@ Crea un'attestazione stringa dal parametro di input specificato nella trasformaz
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | Valore | string | Stringa da impostare |
+| InputParameter | Valore | string | Stringa da impostare. Questo parametro di input supporta le [espressioni di trasformazione delle attestazioni di stringa](string-transformations.md#string-claim-transformations-expressions). |
 | OutputClaim | createdClaim | string | Tipo attestazione generato dopo che questa trasformazione di attestazioni è stato richiamato con il valore specificato nel parametro di input. |
 
 Usare questa trasformazione di attestazioni per impostare un valore ClaimType di stringa.
@@ -297,7 +297,7 @@ Formatta un'attestazione in base alla stringa formato specificata. Questa trasfo
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |string |Elemento ClaimType che funge come parametro {0} del formato della stringa. |
-| InputParameter | stringFormat | string | Formato della stringa, ad esempio il parametro {0}. |
+| InputParameter | stringFormat | string | Formato della stringa, ad esempio il parametro {0}. Questo parametro di input supporta le [espressioni di trasformazione delle attestazioni di stringa](string-transformations.md#string-claim-transformations-expressions).  |
 | OutputClaim | outputClaim | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
 
 Usare questa trasformazione di attestazioni per formattare qualsiasi stringa con un parametro {0}. L'esempio seguente crea un elemento **userPrincipalName**. Tutti i profili tecnici di provider di identità social, ad esempio `Facebook-OAUTH`, chiamano **CreateUserPrincipalName** per generare un elemento **userPrincipalName**.
@@ -333,7 +333,7 @@ Formatta due attestazioni in base alla stringa di formato specificata. Questa tr
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |string | Elemento ClaimType che funge come parametro {0} del formato della stringa. |
 | InputClaim | inputClaim | string | Elemento ClaimType che funge come parametro {1} del formato della stringa. |
-| InputParameter | stringFormat | string | Formato della stringa, ad esempio i parametri {0} e {1}. |
+| InputParameter | stringFormat | string | Formato della stringa, ad esempio i parametri {0} e {1}. Questo parametro di input supporta le [espressioni di trasformazione delle attestazioni di stringa](string-transformations.md#string-claim-transformations-expressions).   |
 | OutputClaim | outputClaim | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
 
 Usare questa trasformazione di attestazioni per formattare qualsiasi stringa con due parametri, {0} e {1}. L'esempio seguente crea un elemento **displayName** con il formato specificato:
@@ -925,3 +925,12 @@ Nell'esempio seguente viene accettata una stringa delimitatore virgola di ruoli 
   - **delimitatore**: ","
 - Attestazioni di output:
   - **outputClaim**: ["admin", "Author", "Reader"]
+  
+## <a name="string-claim-transformations-expressions"></a>Espressioni di trasformazioni di attestazione stringa
+Le espressioni di trasformazioni delle attestazioni in Azure AD B2C criteri personalizzati forniscono informazioni di contesto sull'ID tenant e sull'ID profilo tecnico.
+
+  | Expression | Descrizione | Esempio |
+ | ----- | ----------- | --------|
+ | `{TechnicalProfileId}` | Nome profileId tecnico. | Facebook-OAUTH |
+ | `{RelyingPartyTenantId}` | ID del tenant dei criteri della relying party. | your-tenant.onmicrosoft.com |
+ | `{TrustFrameworkTenantId}` | ID del tenant del framework attendibilità. | your-tenant.onmicrosoft.com |

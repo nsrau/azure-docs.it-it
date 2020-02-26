@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 6ec818ff77664fcc038412f79fffc1e3e05b82f0
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 089fcc89f330e47a09187b5338176bf23fd801bb
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294253"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603758"
 ---
 # <a name="supported-platforms"></a>Piattaforme supportate 
 
@@ -41,7 +41,7 @@ Le sezioni seguenti elencano i sistemi operativi server supportati in cui è pos
 
 ### Sistemi operativi Windows Server<a name="os-windows"></a>
 
-|Sistema operativo|Supportato dal centro sicurezza di Azure|Supporto per l'integrazione con Microsoft Defender ATP|
+|OS|Supportato dal centro sicurezza di Azure|Supporto per l'integrazione con Microsoft Defender ATP|
 |:---|:-:|:-:|
 |Windows Server 2019|✔|X|
 |Windows Server 2016|✔|✔|
@@ -105,8 +105,8 @@ Le risorse PaaS di Azure seguenti sono supportate dal centro sicurezza di Azure:
 * Account Batch
 * Account di Service Fabric
 * Account di Automazione
-* Load Balancer
-* Cerca
+* Bilanciamento del carico
+* Ricerca
 * Spazio dei nomi del bus di servizio
 * Analisi dei flussi
 * Spazio dei nomi dell'hub eventi
@@ -114,7 +114,7 @@ Le risorse PaaS di Azure seguenti sono supportate dal centro sicurezza di Azure:
 * Redis
 * Data Lake Analytics
 * Data Lake Store
-* Key Vault
+* Insieme di credenziali delle chiavi
 
 Per altre informazioni sulle funzionalità supportate per l'elenco precedente di risorse PaaS, vedere [funzionalità supportate di PaaS Services](security-center-services.md#paas-services).
 
@@ -127,5 +127,3 @@ Per altre informazioni sulle funzionalità supportate per l'elenco precedente di
 - Leggere le informazioni su come [pianificare e progettare l'adozione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md).
 - Informazioni sulle [funzionalità disponibili per i diversi ambienti cloud](security-center-services.md).
 - Altre informazioni sul [rilevamento delle minacce per le macchine virtuali & Server nel centro sicurezza di Azure](security-center-alerts-iaas.md).
-- Vedere le [domande frequenti sull'uso del Centro sicurezza di Azure](security-center-faq.md).
-- Vedere i [post di blog sulla sicurezza e sulla conformità di Azure](https://blogs.msdn.com/b/azuresecurity/).

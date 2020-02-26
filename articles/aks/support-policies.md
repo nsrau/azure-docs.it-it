@@ -3,16 +3,15 @@ title: Criteri di supporto per Azure Kubernetes Service (AKS)
 description: Informazioni sui criteri di supporto di Azure Kubernetes Service (AKS), sulla responsabilità condivisa e sulle funzionalità disponibili in anteprima (o Alpha o beta).
 services: container-service
 author: jnoller
-ms.service: container-service
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: 9a68a0d0a288a27d67a9615385391c06be2b662d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a5d90106a85a61cbf499c4c08130392b922a45f0
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767374"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593581"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Criteri di supporto per il servizio Azure Kubernetes
 

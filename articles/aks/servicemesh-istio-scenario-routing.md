@@ -2,17 +2,16 @@
 title: Routing intelligente e versioni canary con Istio nel servizio Azure Container (AKS)
 description: Informazioni su come usare Istio per fornire il routing intelligente e distribuire versioni canary in un cluster del servizio Azure Container (AKS)
 author: paulbouwer
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 48daf2be4a05922982479a86e6574f3aa85d2130
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 4c29658473aaa50168175c76234dfca34fcdad83
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530290"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594139"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Usare il routing intelligente e le versioni canary con Istio nel servizio Azure Container (AKS)
 
@@ -20,7 +19,7 @@ ms.locfileid: "72530290"
 
 Questo articolo illustra come usare la funzionalità di gestione traffico di Istio. Un'app di voto di esempio del servizio Azure Container viene usata per esplorare il routing intelligente e le versioni canary.
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Distribuire l'applicazione
@@ -351,14 +350,14 @@ voting-storage.voting.svc.cluster.local:6379     OK         mTLS       mTLS     
 
 ## <a name="roll-out-a-canary-release-of-the-application"></a>Distribuire una versione canary dell'applicazione
 
-A questo punto è possibile distribuire una nuova versione `2.0` dei componenti `voting-app`, `voting-analytics` e `voting-storage`. Il nuovo componente `voting-storage` usa MySQL invece di redis e i componenti `voting-app` e `voting-analytics` vengono aggiornati per consentire loro di usare questo nuovo componente `voting-storage`.
+A questo punto è possibile distribuire una nuova versione `2.0` dei componenti `voting-app`, `voting-analytics`e `voting-storage`. Il nuovo componente `voting-storage` usa MySQL invece di redis e i componenti `voting-app` e `voting-analytics` vengono aggiornati per consentire loro di usare questo nuovo componente `voting-storage`.
 
 Il componente `voting-app` supporta ora la funzionalità dei flag funzionalità. Il flag delle funzionalità consente di testare la funzionalità della versione canary di Istio per un subset di utenti.
 
 Il diagramma seguente Mostra gli elementi che sono in esecuzione alla fine di questa sezione.
 
-* @No__t_0 della versione del componente `voting-app`, la versione `1.1` del componente `voting-analytics` e della versione `1.0` del componente `voting-storage` sono in grado di comunicare tra loro.
-* @No__t_0 della versione del componente `voting-app`, la versione `2.0` del componente `voting-analytics` e della versione `2.0` del componente `voting-storage` sono in grado di comunicare tra loro.
+* `1.0` della versione del componente `voting-app`, la versione `1.1` del componente `voting-analytics` e della versione `1.0` del componente `voting-storage` sono in grado di comunicare tra loro.
+* `2.0` della versione del componente `voting-app`, la versione `2.0` del componente `voting-analytics` e della versione `2.0` del componente `voting-storage` sono in grado di comunicare tra loro.
 * Le `2.0` della versione del componente `voting-app` sono accessibili solo agli utenti per i quali è impostato un flag di funzionalità specifico. Questa modifica viene gestita tramite un flag di funzionalità tramite un cookie.
 
 ![Componenti dell’app di voto e routing del servizio Azure Container.](media/servicemesh/istio/scenario-routing-components-03.png)

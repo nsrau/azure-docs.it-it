@@ -4,12 +4,12 @@ description: Procedura dettagliata per il ripristino dello stato del sistema di 
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 08/18/2017
-ms.openlocfilehash: 8e256fbac0651b4c237c540151b3377927989d36
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 6d46a091a4e620e26d05735f12a201009663e65d
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172826"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602460"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Ripristinare lo stato del sistema per Windows Server
 
@@ -89,7 +89,7 @@ Include la terminologia utilizzata in questi passaggi:
 6. Nel riquadro Seleziona server di backup selezionare il *computer di origine* dall'elenco di computer visualizzati.
 7. Nel riquadro Seleziona modalità di ripristino scegliere **Stato del sistema** e quindi fare clic su **Avanti**.
 
-    ![Cerca](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Ricerca](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. Nel riquadro **Seleziona volume e data** del Calendario selezionare un punto di ripristino. È possibile ripristinare da qualsiasi punto di ripristino. Le date in **grassetto** indicano la disponibilità di almeno un punto di ripristino. Dopo aver selezionato una data, se sono disponibili più punti di ripristino, scegliere quello appropriato dal menu a discesa **Ora**.
 
@@ -159,7 +159,7 @@ Dopo avere ripristinato lo stato del sistema sotto forma di file tramite l'agent
 Il backup dello stato del sistema include i dati di Active Directory. Seguire questa procedura per ripristinare Active Directory Domain Service (AD DS) dallo stato corrente a uno stato precedente.
 
 1. Riavviare il controller di dominio in Modalità ripristino servizi directory.
-2. Seguire [questa procedura](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx) per usare i cmdlet di Windows Server Backup per ripristinare AD DS.
+2. Seguire [questa procedura](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) per usare i cmdlet di Windows Server Backup per ripristinare AD DS.
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Risolvere i problemi relativi a un ripristino non riuscito dello stato del sistema
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: b20b3c1e4216fe8065fbc8ac24c7d8097903fc5a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5aaaf539c07a7ba2c2463d5bfd1f452853f52379
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686361"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603679"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizzare l'onboarding del Centro sicurezza di Azure con PowerShell
 
@@ -41,7 +41,7 @@ In questo esempio si abiliterà il Centro sicurezza per una sottoscrizione con I
 
 6. Assegnare i [criteri di sicurezza predefiniti](tutorial-security-policy.md) del Centro sicurezza.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di eseguire i cmdlet del Centro sicurezza, è necessario seguire questa procedura:
 
@@ -106,4 +106,3 @@ Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:
 
 * [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.

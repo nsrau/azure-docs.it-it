@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/27/2019
 ms.author: memildin
-ms.openlocfilehash: 81ef598c846d98548be2d3e7647166d655398921
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: c286efcfad78a8f7acf9974605d53ed3cc06a09e
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75912820"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604544"
 ---
 # <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Proteggi le app Web e le API del servizio app Azure
 
@@ -57,12 +57,11 @@ Per disabilitare il monitoraggio e gli elementi consigliati per il servizio app,
 
 
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 Questo articolo descrive come usare le funzionalità di monitoraggio nel Centro sicurezza di Azure. Per altre informazioni sul Centro sicurezza di Azure, vedere gli articoli seguenti:
 
 * [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md): informazioni su come configurare le impostazioni di sicurezza nel Centro sicurezza di Azure.
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Servizi app](security-center-virtual-machine-protection.md#app-services): visualizzare un elenco di ambienti del servizio app con riepiloghi sull'integrità.
 * [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare l'integrità delle soluzioni dei partner.
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure.

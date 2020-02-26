@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: 57d47712fe20fac0bf370a9a100a07a37d7aa753
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 40352b7ae1f3fb6b1178f2dfe70cdca9871c76b7
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996677"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603780"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Migliorare il comportamento di sicurezza con il Centro sicurezza di Azure
 Questo articolo fornisce informazioni utili per migliorare il comportamento di sicurezza. Descrive come usare le funzionalità di monitoraggio nel Centro sicurezza di Azure per verificare che la sicurezza delle risorse sia elevata e monitorare la conformità ai criteri.
@@ -48,8 +48,6 @@ Per altre informazioni su come applicare le raccomandazioni, leggere l'articolo 
 ## <a name="see-also"></a>Vedere anche
 Questo articolo descrive come usare le funzionalità di monitoraggio nel Centro sicurezza di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
 
-* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md): Informazioni su come configurare le impostazioni di sicurezza nel Centro sicurezza di Azure.
-* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): Informazioni su come gestire e rispondere agli avvisi di sicurezza.
-* [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): Informazioni su come monitorare lo stato integrità delle soluzioni dei partner.
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): Domande frequenti sull'uso del servizio.
-* [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/): Post di blog sulla sicurezza e sulla conformità di Azure.
+* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md): informazioni su come configurare le impostazioni di sicurezza nel Centro sicurezza di Azure.
+* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
+* [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare l'integrità delle soluzioni dei partner.

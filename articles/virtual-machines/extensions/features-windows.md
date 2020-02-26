@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 69d08af9fd34728860343db3578f7283802f1611
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 4eb212cb6122803f78b13e6c17a55bac5bc48286
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544753"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587873"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Estensioni e funzionalità della macchina virtuale per Windows
 
@@ -36,13 +36,13 @@ Sono disponibili numerose estensioni della macchina virtuale di Azure, ognuna co
 
 - Applicare le configurazioni dello stato desiderato tramite PowerShell a una macchina virtuale usando l'estensione DSC per Windows. Per altre informazioni, vedere l'argomento relativo all'[Estensione DSC (Desired State Configuration) di Azure](dsc-overview.md).
 - Configurare il monitoraggio di una macchina virtuale con l'estensione della macchina virtuale Log Analytics Agent. Per altre informazioni, vedere [connettere le VM di Azure ai log di monitoraggio di Azure](../../log-analytics/log-analytics-azure-vm-extension.md).
-- Configurare una macchina virtuale di Azure usando Chef. Per altre informazioni, vedere l'argomento [Automazione della distribuzione delle macchine virtuali di Azure con Chef](../windows/chef-automation.md).
+- Configurare una macchina virtuale di Azure usando Chef. Per altre informazioni, vedere l'argomento [Automazione della distribuzione delle macchine virtuali di Azure con Chef](../../chef/chef-automation.md).
 - Configurare il monitoraggio dell'infrastruttura di Azure con l'estensione Datadog. Per altre informazioni, vedere il [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 
 Oltre alle estensioni specifiche del processo, è disponibile un'estensione Script personalizzato per le macchine virtuali Linux e Windows. L'estensione Script personalizzato per Windows consente l'esecuzione di qualsiasi script PowerShell in una macchina virtuale. Gli script personalizzati sono utili per la progettazione di distribuzioni di Azure che richiedono una configurazione in aggiunta a quella offerta dagli strumenti nativi di Azure. Per altre informazioni, vedere [Estensione Script personalizzato per macchine virtuali Windows](custom-script-windows.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per gestire l'estensione nella macchina virtuale, è necessario aver installato l'agente Windows di Azure. Alcune estensioni individuali hanno prerequisiti, ad esempio l'accesso alle risorse o alle dipendenze.
 
@@ -148,7 +148,7 @@ L'esempio seguente illustra l'installazione dell'estensione Microsoft Antimalwar
 
 ![Installare un'estensione antimalware](./media/features-windows/installantimalwareextension.png)
 
-### <a name="azure-resource-manager-templates"></a>Modelli di Azure Resource Manager
+### <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
 
 Le estensioni macchina virtuale possono essere aggiunte a un modello di Azure Resource Manager ed eseguite con la distribuzione del modello. Quando si distribuisce un'estensione con un modello, è possibile creare distribuzioni di Azure completamente configurate. Ad esempio, il codice JSON seguente proviene da un modello di Resource Manager che consente di distribuire un set di macchine virtuali con bilanciamento del carico e un database SQL di Azure, quindi installa un'applicazione .NET Core in ogni macchina virtuale. L'estensione della macchina virtuale gestisce l'installazione del software.
 
@@ -266,7 +266,7 @@ Quando è disponibile un aggiornamento, viene installato nella macchina virtuale
 - Estensioni
 - Contenitore della diagnostica di avvio
 - Segreti del sistema operativo guest
-- Dimensioni VM
+- Dimensioni macchina virtuale
 - Profilo di rete
 
 I server di pubblicazione rendono disponibili gli aggiornamenti nelle varie aree geografiche in momenti diversi, quindi è possibile che le macchine virtuali in aree diverse eseguano versioni diverse.
@@ -421,7 +421,7 @@ Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "
 4. Scegliere **Disinstalla**.
 
 ## <a name="common-vm-extensions-reference"></a>Riferimento alle estensioni della macchina virtuale comuni
-| Nome estensione | Description | Altre informazioni |
+| Nome estensione | Descrizione | Ulteriori informazioni |
 | --- | --- | --- |
 | Estensione Script personalizzato per Windows |Eseguire script su una macchina virtuale di Azure. |[Estensione script personalizzata per Windows](custom-script-windows.md) |
 | Estensione DSC per Windows |Estensione PowerShell DSC (Desired State Configuration) |[Estensione DSC per Windows](dsc-overview.md) |

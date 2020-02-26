@@ -3,12 +3,12 @@ title: Risolvere i problemi di SQL Server backup del database
 description: Informazioni sulla risoluzione dei problemi relativi al backup di database di SQL Server eseguiti su macchine virtuali di Azure con Backup di Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 57630749b53224032c763481d12e33366274f13f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 69cae196e7fad70d75fb12709e5bf0d618bbc81c
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978779"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602316"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Risolvere i problemi di SQL Server backup del database con backup di Azure
 
@@ -43,7 +43,7 @@ Se la VM SQL deve essere registrata nel nuovo insieme di credenziali, è necessa
 
 ### <a name="backup-type-unsupported"></a>Tipo di backup non supportato
 
-| Gravità | Description | Possibili cause | Azione consigliata |
+| Gravità | Descrizione | Possibili cause | Azione consigliata |
 |---|---|---|---|
 | Avviso | Le impostazioni correnti per questo database non supportano determinati tipi di backup presenti nei criteri associati. | <li>Sul database master è possibile eseguire solo un'operazione di backup completo del database. Non è possibile eseguire il backup differenziale o il backup del log delle transazioni. </li> <li>Qualsiasi database nel modello di recupero con registrazione minima non consente il backup dei log delle transazioni.</li> | Modificare le impostazioni del database in modo che tutti i tipi di backup nei criteri siano supportati. In alternativa, modificare i criteri correnti in modo da includere solo i tipi di backup supportati. In caso contrario, i tipi di backup non supportati verranno ignorati durante il backup pianificato oppure il processo di backup non riuscirà per il backup su richiesta.
 
@@ -70,7 +70,7 @@ Se la VM SQL deve essere registrata nel nuovo insieme di credenziali, è necessa
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| Il servizio Backup di Azure non riesce a connettersi all'istanza SQL. | Backup di Azure non è in grado di connettersi all'istanza di SQL Server. | Per restringere le cause principali, utilizzare i dettagli aggiuntivi disponibili nel menu portale di Azure Error. Fare riferimento a [Risolvere i problemi di connessione al motore di database di SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) per correggere l'errore.<br/><ul><li>Se le impostazioni SQL predefinite non consentono le connessioni remote, modificare le impostazioni. Per informazioni sulla modifica delle impostazioni, vedere gli articoli seguenti:<ul><li>[MSSQLSERVER_-1](/previous-versions/sql/sql-server-2016/bb326495(v=sql.130))</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>Se si verificano problemi di accesso, usare i collegamenti seguenti per correggerli:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
+| Il servizio Backup di Azure non riesce a connettersi all'istanza SQL. | Backup di Azure non è in grado di connettersi all'istanza di SQL Server. | Per restringere le cause principali, utilizzare i dettagli aggiuntivi disponibili nel menu portale di Azure Error. Fare riferimento a [Risolvere i problemi di connessione al motore di database di SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) per correggere l'errore.<br/><ul><li>Se le impostazioni SQL predefinite non consentono le connessioni remote, modificare le impostazioni. Per informazioni sulla modifica delle impostazioni, vedere gli articoli seguenti:<ul><li>[MSSQLSERVER_-1](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-1-database-engine-error?view=sql-server-ver15)</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>Se si verificano problemi di accesso, usare i collegamenti seguenti per correggerli:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
 
 ### <a name="usererrorparentfullbackupmissing"></a>UserErrorParentFullBackupMissing
 
@@ -106,7 +106,7 @@ Se la VM SQL deve essere registrata nel nuovo insieme di credenziali, è necessa
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| Il backup del log usato per il ripristino contiene modifiche con registrazione minima delle operazioni bulk. Non è utilizzabile per l'arresto in un punto arbitrario nel tempo in base alle linee guida di SQL. | Quando un database è in modalità di recupero con registrazione minima delle operazioni bulk, i dati tra una transazione con registrazione minima delle operazioni bulk e la transazione di log successiva non possono essere recuperati. | Scegliere un momento diverso per il ripristino. [Altre informazioni](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+| Il backup del log usato per il ripristino contiene modifiche con registrazione minima delle operazioni bulk. Non è utilizzabile per l'arresto in un punto arbitrario nel tempo in base alle linee guida di SQL. | Quando un database è in modalità di recupero con registrazione minima delle operazioni bulk, i dati tra una transazione con registrazione minima delle operazioni bulk e la transazione di log successiva non possono essere recuperati. | Scegliere un momento diverso per il ripristino. [Altre informazioni](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 

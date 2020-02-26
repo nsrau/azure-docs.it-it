@@ -3,12 +3,12 @@ title: Informazioni sul backup di macchine virtuali di Azure
 description: Questo articolo illustra come il servizio backup di Azure esegue il backup delle macchine virtuali di Azure e come seguire le procedure consigliate.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: b38c61adaf334eacb7d85292d4174189d6fddc46
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8ffbf0d0164cbf6f085518d57566b0befde6e124
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75391890"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597253"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Panoramica del backup delle macchine virtuali di Azure
 
@@ -58,12 +58,7 @@ Viene anche eseguito il backup di BEKs. Quindi, se i BEKs vengono persi, gli ute
 
 Backup di Azure acquisisce gli snapshot in base alla pianificazione del backup.
 
-- **Macchine virtuali Windows:** Per le macchine virtuali Windows, il servizio di backup coordina con VSS per eseguire uno snapshot coerente con l'app dei dischi delle macchine virtuali.
-
-  - Per impostazione predefinita, Backup di Azure esegue backup VSS completi. [Altre informazioni](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx)
-  - Per modificare l'impostazione in modo che backup di Azure accetti backup di copia VSS, impostare la chiave del registro di sistema seguente da un prompt dei comandi:
-
-    **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent"/v USEVSSCOPYBACKUP/t REG_SZ/d TRUE/f**
+- **Macchine virtuali Windows:** Per le macchine virtuali Windows, il servizio di backup coordina con VSS per eseguire uno snapshot coerente con l'app dei dischi delle macchine virtuali.  Per impostazione predefinita, backup di Azure esegue un backup VSS completo, troncando i log dell'applicazione, ad esempio SQL Server al momento del backup per ottenere un backup coerente a livello di applicazione.  Se si usa un database di SQL Server nel backup delle macchine virtuali di Azure, è possibile modificare l'impostazione per eseguire un backup di copia VSS (per mantenere i log). Per altre informazioni, vedere [questo articolo](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#troubleshoot-vm-snapshot-issues).
 
 - **Macchine virtuali Linux:** Per eseguire snapshot coerenti con l'app di macchine virtuali Linux, usare il Framework di pre-script e post-script di Linux per scrivere script personalizzati per garantire la coerenza.
 

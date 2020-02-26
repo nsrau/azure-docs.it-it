@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: cfa767a42800ceaf78fe007a8468fe9113a2d412
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 4d65ca8d97e1cca81886259d4f15cc880e45be9c
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558777"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604281"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità dei file nel Centro sicurezza di Azure
 Questa procedura dettagliata fornisce informazioni su come configurare il monitoraggio dell'integrità dei file nel Centro sicurezza di Azure.
@@ -206,7 +206,6 @@ In questo articolo si è appreso come usare il monitoraggio dell'integrità dei 
 * [Monitoraggio dell'integrità della sicurezza](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
 * [Gestione e risposta agli avvisi di sicurezza](security-center-managing-and-responding-alerts.md): informazioni su come gestire gli avvisi di sicurezza e rispondervi.
 * [Monitoraggio delle soluzioni dei partner](security-center-partner-solutions.md): informazioni su come monitorare lo stato di integrità delle soluzioni dei partner.
-* [Domande frequenti sul Centro sicurezza](security-center-faq.md): leggere le domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/): informazioni e notizie aggiornate sulla sicurezza di Azure.
 
 <!--Image references-->

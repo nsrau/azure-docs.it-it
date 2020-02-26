@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f3af350c96d1dd9eaf4773db503acb10d8a08a8f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f382406d164aa7378631753c2cfc85bc69003a4f
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441110"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605083"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnosticare e risolvere i problemi quando si usa il trigger di funzioni di Azure per Cosmos DB
 
@@ -66,7 +66,7 @@ Questo scenario può avere più cause e tutti devono essere controllati:
 
 1. La funzione di Azure è distribuita nella stessa area dell'account Azure Cosmos? Per una latenza di rete ottimale, sia la funzione di Azure che l'account Azure Cosmos devono trovarsi nella stessa area di Azure.
 2. Le modifiche apportate nel contenitore Azure Cosmos sono continue o sporadiche?
-Se sono sporadiche, potrebbe esserci un ritardo tra l'archiviazione delle modifiche e la loro scelta da parte della funzione di Azure. Questo avviene perché internamente, quando controlla la presenza di modifiche nel contenitore Azure Cosmos e non ne trova nessuna in sospeso, il trigger rimane in sospensione per un periodo di tempo configurabile (per impostazione predefinita 5 secondi) prima di controllare la presenza di nuove modifiche (per evitare un consumo di UR elevato). È possibile configurare questo tempo di sospensione tramite l'impostazione `FeedPollDelay/feedPollDelay` nella [configurazione](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) del trigger (si prevede un valore in millisecondi).
+Se sono sporadiche, potrebbe esserci un ritardo tra l'archiviazione delle modifiche e la loro scelta da parte della funzione di Azure. Questo avviene perché internamente, quando controlla la presenza di modifiche nel contenitore Azure Cosmos e non ne trova nessuna in sospeso, il trigger rimane in sospensione per un periodo di tempo configurabile (per impostazione predefinita 5 secondi) prima di controllare la presenza di nuove modifiche (per evitare un consumo di UR elevato). È possibile configurare questo tempo di sospensione tramite l'impostazione `FeedPollDelay/feedPollDelay` nella [configurazione](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) del trigger (si prevede un valore in millisecondi).
 3. Il contenitore Azure Cosmos potrebbe avere una [frequenza limitata](./request-units.md).
 4. È possibile usare l'attributo `PreferredLocations` nel trigger per specificare un elenco delimitato da virgole di aree di Azure per definire un ordine di connessione preferito personalizzato.
 
@@ -93,10 +93,10 @@ Un modo semplice per aggirare questa situazione consiste nell'applicare una `Lea
 Per rielaborare tutti gli elementi di un contenitore dall'inizio:
 1. Arrestare la funzione di Azure se è attualmente in esecuzione. 
 1. Eliminare i documenti nella raccolta di lease (oppure eliminare e ricreare la raccolta di lease in modo che sia vuota)
-1. Impostare l'attributo [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) CosmosDBTrigger nella funzione su true. 
+1. Impostare l'attributo [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) CosmosDBTrigger nella funzione su true. 
 1. Riavviare la funzione di Azure. Verranno ora lette ed elaborate tutte le modifiche dall'inizio. 
 
-Se si imposta [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) su true, la funzione di Azure inizierà a leggere le modifiche dall'inizio della cronologia della raccolta anziché dall'ora corrente. Questa operazione funziona solo quando non sono presenti lease già creati (ad esempio, documenti nella raccolta leases). L'impostazione di questa proprietà su true quando sono già stati creati lease non ha alcun effetto; in questo scenario, quando una funzione viene arrestata e riavviata, inizierà a leggere dall'ultimo checkpoint, come definito nella raccolta Leases. Per eseguire di nuovo l'elaborazione dall'inizio, seguire i passaggi precedenti 1-4.  
+Se si imposta [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) su true, la funzione di Azure inizierà a leggere le modifiche dall'inizio della cronologia della raccolta anziché dall'ora corrente. Questa operazione funziona solo quando non sono presenti lease già creati (ad esempio, documenti nella raccolta leases). L'impostazione di questa proprietà su true quando sono già stati creati lease non ha alcun effetto; in questo scenario, quando una funzione viene arrestata e riavviata, inizierà a leggere dall'ultimo checkpoint, come definito nella raccolta Leases. Per eseguire di nuovo l'elaborazione dall'inizio, seguire i passaggi precedenti 1-4.  
 
 ### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>L'associazione può essere eseguita solo con IReadOnlyList\<Document > o JArray
 
@@ -106,7 +106,7 @@ Per aggirare questa situazione, rimuovere il riferimento NuGet manuale che è st
 
 ### <a name="changing-azure-functions-polling-interval-for-the-detecting-changes"></a>Modifica dell'intervallo di polling della funzione di Azure per le modifiche di rilevamento
 
-Come spiegato in precedenza, [la ricezione delle modifiche richiede troppo tempo](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-to-be-received). la funzione di Azure verrà sospesa per un periodo di tempo configurabile (per impostazione predefinita, 5 secondi) prima di verificare la presenza di nuove modifiche (per evitare un consumo di ur elevato). È possibile configurare questo tempo di sospensione tramite l'impostazione `FeedPollDelay/feedPollDelay` nella [configurazione](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) del trigger (si prevede un valore in millisecondi).
+Come spiegato in precedenza, [la ricezione delle modifiche richiede troppo tempo](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-to-be-received). la funzione di Azure verrà sospesa per un periodo di tempo configurabile (per impostazione predefinita, 5 secondi) prima di verificare la presenza di nuove modifiche (per evitare un consumo di ur elevato). È possibile configurare questo tempo di sospensione tramite l'impostazione `FeedPollDelay/feedPollDelay` nella [configurazione](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) del trigger (si prevede un valore in millisecondi).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

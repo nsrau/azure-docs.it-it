@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.author: memildin
-ms.openlocfilehash: 0bc03385cda8752571482cc3d74c0f3887b4656a
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 72f16463c7dfcd3d76db2d99e1805b0159261a55
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77506191"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603708"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Criteri di sicurezza di Azure monitorati dal centro sicurezza
 
@@ -33,14 +33,10 @@ Per informazioni sulle iniziative predefinite monitorate dal centro sicurezza, v
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo ha illustrato le definizioni dei criteri di sicurezza di criteri di Azure nel centro sicurezza. Per altre informazioni sul centro sicurezza, vedere gli articoli seguenti.
+Questo articolo ha illustrato le definizioni dei criteri di sicurezza di criteri di Azure nel centro sicurezza. Per altre informazioni, vedere gli articoli seguenti.
 
 * [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md): informazioni su come pianificare e comprendere le considerazioni di progettazione nel centro sicurezza di Azure.
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
 * [Gestire e rispondere agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Monitorare le soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare l'integrità delle soluzioni dei partner.
-* [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): risposte alle domande frequenti sull'uso del servizio.
-* [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure.
 * [Criteri di Azure](../governance/policy/overview.md): informazioni su come controllare e gestire le risorse di Azure.
-
-Per altre informazioni sui criteri di Azure, vedere informazioni su [criteri di Azure](../governance/policy/overview.md).

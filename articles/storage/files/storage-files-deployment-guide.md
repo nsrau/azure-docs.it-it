@@ -7,26 +7,26 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3ce754a67643f4506fa825f0780969dc4a06f826
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 38339defc9d06f3e809bc24f957ebbb30abb46d3
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299576"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598783"
 ---
 # <a name="how-to-deploy-azure-files"></a>Come distribuire i file di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il protocollo SMB standard di settore. Questo articolo illustra come distribuire praticamente File di Azure all'interno dell'organizzazione.
 
 È consigliabile leggere [Planning for an Azure Files deployment](storage-files-planning.md) (Pianificazione della distribuzione di File di Azure) prima di seguire la procedura descritta in questo articolo.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 In questo articolo si presuppone che l'utente abbia già completato i passaggi seguenti:
 
 - Creazione di un account di Archiviazione di Azure con le opzioni di resilienza e crittografia desiderate, nell'area desiderata. Vedere [Creare un account di archiviazione](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) per istruzioni dettagliate su come creare un account di archiviazione.
 - Creazione di una condivisione file di Azure con la quota desiderata nell'account di archiviazione. Vedere [Creare una condivisione file](storage-how-to-create-file-share.md) per istruzioni dettagliate su come creare una condivisione file.
 
 ## <a name="transfer-data-into-azure-files"></a>Trasferire i dati in File di Azure
-A volte può essere necessario eseguire la migrazione di condivisioni file esistenti, come quelle archiviate in locale, nella nuova condivisione file di Azure. Questa sezione descrive come spostare i dati in una condivisione file di Azure tramite diversi metodi comuni, presentati in dettaglio nella [guida alla pianificazione](storage-files-planning.md#data-transfer-method)
+A volte può essere necessario eseguire la migrazione di condivisioni file esistenti, come quelle archiviate in locale, nella nuova condivisione file di Azure. Questa sezione descrive come spostare i dati in una condivisione file di Azure tramite diversi metodi comuni, presentati in dettaglio nella [guida alla pianificazione](storage-files-planning.md#migration)
 
 ### <a name="azure-file-sync"></a>Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Tutto questo avviene trasformando i sistemi Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) ed è possibile scegliere tutte le cache necessarie in tutto il mondo.

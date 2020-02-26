@@ -7,19 +7,16 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 0321d253eb1db414dff2acbb704d3d36726010d9
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 207a3a6c59012154d547bbd224782b90e1046c6a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544974"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597967"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Risolvere i problemi di File di Azure in Windows
 
 Questo articolo elenca i problemi comuni correlati a File di Microsoft Azure quando si effettua la connessione da client Windows. L'articolo descrive anche le possibili cause e risoluzioni per tali problemi. Oltre ai passaggi di risoluzione dei problemi in questo articolo, si può anche usare [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) per verificare che l'ambiente client Windows sia conforme ai prerequisiti. AzFileDiagnostics automatizza il rilevamento della maggior parte dei sintomi indicati in questo articolo e consente di configurare l'ambiente in modo da ottenere prestazioni ottimali. È anche possibile trovare queste informazioni nell'articolo che illustra come [risolvere i problemi delle condivisioni File di Azure](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) e indica i passaggi per risolvere problemi di connessione, mapping e montaggio delle condivisioni file di Azure.
-
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 <a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Errore 5 durante il montaggio di una condivisione file di Azure
@@ -250,7 +247,7 @@ Usare una delle soluzioni seguenti:
 
 -   Montare l'unità dallo stesso account utente che contiene l'applicazione. Si può usare uno strumento come PsExec.
 - Passare il nome e la chiave dell'account di archiviazione nei parametri di nome utente e password del comando net use.
-- Usare il comando cmdkey per aggiungere le credenziali in Gestione credenziali. Eseguire il comando da una riga di comando nel contesto dell'account di servizio, tramite un accesso interattivo o mediante RunAs.
+- Usare il comando cmdkey per aggiungere le credenziali in Gestione credenziali. Eseguire questa operazione da una riga di comando nel contesto dell'account del servizio tramite un account di accesso interattivo o utilizzando `runas`.
   
   `cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
 - Mappare direttamente la condivisione, senza usare una lettera di unità mappata. Alcune applicazioni potrebbero non riconnettersi alla lettera di unità in modo corretto, pertanto l'uso del percorso UNC completo è più affidabile. 
@@ -300,7 +297,7 @@ Per risolvere questo problema, modificare il valore del Registro di sistema **Di
 
 ### <a name="cause"></a>Causa
 
-L'errore AadDsTenantNotFound si verifica quando si prova ad [abilitare l'autenticazione del servizio Azure Active Directory dominio (AAD DS) per file di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable) in un account di archiviazione in cui il [servizio di dominio AAD (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) non viene creato nel tenant di AAD della sottoscrizione associata.  
+L'errore AadDsTenantNotFound si verifica quando si prova ad [abilitare l'autenticazione Azure Active Directory Domain Services (Azure AD DS) in file di Azure](storage-files-identity-auth-active-directory-domain-service-enable.md) in un account di archiviazione in cui il [servizio di dominio AAD (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) non viene creato nel tenant di AAD della sottoscrizione associata.  
 
 ### <a name="solution"></a>Soluzione
 
@@ -320,5 +317,5 @@ Attualmente, è possibile prendere in considerazione la ridistribuzione di AAD D
 - I nomi non possono iniziare con un carattere numerico.
 - I nomi devono avere una lunghezza compreso tra 3 e 63 caratteri.
 
-## <a name="need-help-contact-support"></a>Opzioni per Contattare il supporto tecnico.
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

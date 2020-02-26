@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 02/18/2020
-ms.openlocfilehash: 6e6d4ea6c96949a60677bcf3bf40a53ec3a251c7
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.date: 02/25/2020
+ms.openlocfilehash: 12d457d8d5e57dc4db16d9a191c7795a5f013574
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526859"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605022"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse dell'istanza gestita di database SQL di Azure
 
@@ -74,7 +74,7 @@ Istanza gestita ha due livelli di servizio: [per utilizzo generico](sql-database
 | Numero massimo di file di database per istanza | Fino a 280, a meno che non sia stata raggiunta la dimensione di archiviazione dell'istanza o il limite di [spazio di allocazione di archiviazione su disco Premium](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) | 32.767 file per database, a meno che non sia stato raggiunto il limite delle dimensioni di archiviazione dell'istanza. |
 | Dimensioni massime file di dati | Limitato alle dimensioni di archiviazione delle istanze attualmente disponibili (max 2 TB-8 TB) e [allo spazio di allocazione dell'archiviazione su disco Premium di Azure](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limitato alle dimensioni di archiviazione delle istanze attualmente disponibili (fino a 1 TB-4 TB). |
 | Dimensioni massime file di log | Limitato a 2 TB e alle dimensioni di archiviazione dell'istanza attualmente disponibili. | Limitato a 2 TB e alle dimensioni di archiviazione dell'istanza attualmente disponibili. |
-| Dati/Log di IOPS (approssimativi) | Fino a 30-40 K IOPS per istanza *, 500-7500 per file<br/>\*[aumentare le dimensioni del file per ottenere più IOPS](#file-io-characteristics-in-general-purpose-tier)| 5,5 k-110 K (1375 IOPS/vCore)<br/>Aggiungere altri Vcore per ottenere prestazioni di i/o migliori. |
+| Dati/Log di IOPS (approssimativi) | Fino a 30-40 K IOPS per istanza *, 500-7500 per file<br/>\*[aumentare le dimensioni del file per ottenere più IOPS](#file-io-characteristics-in-general-purpose-tier)| 10 k-200 K (2500 IOPS/vCore)<br/>Aggiungere altri Vcore per ottenere prestazioni di i/o migliori. |
 | Limite velocità effettiva scrittura log (per istanza) | 3 MB/s per ogni vCore<br/>Massimo 22 MB/s | 4 MB/s per vCore<br/>Max 48 MB/s |
 | Dati effettivi (approssimativi) | 100 - 250 MB/s per ogni file<br/>\*[aumentare le dimensioni del file per ottenere prestazioni di i/o migliori](#file-io-characteristics-in-general-purpose-tier) | Non limitato. |
 | Latenza IO di archiviazione (approssimativa) | 5-10 ms | 1-2 ms |
@@ -107,7 +107,7 @@ Esistono anche limiti a livello di istanza, come la velocità effettiva massima 
 
 ## <a name="supported-regions"></a>Aree supportate
 
-È possibile creare istanze gestite solo nelle [aree supportate](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Per creare un'istanza gestita in un'area che non è attualmente supportata, è possibile [inviare una richiesta di supporto tramite il portale di Azure](#obtaining-a-larger-quota-for-sql-managed-instance).
+È possibile creare istanze gestite solo nelle [aree supportate](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Per creare un'istanza gestita in un'area che non è attualmente supportata, è possibile [inviare una richiesta di supporto tramite il portale di Azure](quota-increase-request.md).
 
 ## <a name="supported-subscription-types"></a>Tipi di sottoscrizioni supportati
 
@@ -122,13 +122,13 @@ Istanza gestita supporta attualmente la distribuzione solo sui seguenti tipi di 
 
 ## <a name="regional-resource-limitations"></a>Limiti delle risorse a livello di area
 
-I tipi di sottoscrizioni supportati possono contenere un numero limitato di risorse per area. Istanza gestita prevede due limiti predefiniti per ogni area di Azure, che possono essere aumentati su richiesta mediante la creazione di una [richiesta di supporto speciale nel portale di Azure](#obtaining-a-larger-quota-for-sql-managed-instance), a seconda del tipo di sottoscrizione:
+I tipi di sottoscrizioni supportati possono contenere un numero limitato di risorse per area. Istanza gestita prevede due limiti predefiniti per ogni area di Azure, che possono essere aumentati su richiesta creando una [richiesta di supporto speciale nella portale di Azure](quota-increase-request.md) a seconda di un tipo di sottoscrizione:
 
 - **Limite di subnet**: numero massimo di subnet in cui vengono distribuite le istanze gestite in una singola area.
 - **limite unità vCore**: numero massimo di unità vCore che possono essere distribuite in tutte le istanze di una singola area. Un vCore GP usa un'unità vCore e uno BC vCore accetta 4 unità vCore. Il numero totale di istanze non è limitato a condizione che si trovi all'interno del limite di unità vCore.
 
 > [!Note]
-> Questi limiti sono impostazioni predefinite e non limitazioni tecniche. I limiti possono essere aumentati su richiesta creando una richiesta di [supporto speciale nel portale di Azure](#obtaining-a-larger-quota-for-sql-managed-instance) se sono necessarie più istanze gestite nell'area corrente. In alternativa, è possibile creare nuove istanze gestite in un'altra area di Azure senza inviare richieste di supporto.
+> Questi limiti sono impostazioni predefinite e non limitazioni tecniche. I limiti possono essere aumentati su richiesta creando una richiesta di [supporto speciale nel portale di Azure](quota-increase-request.md) se sono necessarie più istanze gestite nell'area corrente. In alternativa, è possibile creare nuove istanze gestite in un'altra area di Azure senza inviare richieste di supporto.
 
 La tabella seguente illustra i **limiti internazionali predefiniti** per i tipi di sottoscrizione supportati (i limiti predefiniti possono essere estesi usando la richiesta di supporto descritta di seguito):
 
@@ -146,39 +146,9 @@ La tabella seguente illustra i **limiti internazionali predefiniti** per i tipi 
 
 \*\* la subnet più grande e i limiti di vCore sono disponibili nelle aree seguenti: Australia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Europa occidentale, Stati Uniti occidentali 2.
 
-## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Ottenere una quota maggiore per l'istanza gestita di SQL
+## <a name="request-a-quota-increase-for-sql-managed-instance"></a>Richiedere un aumento della quota per l'istanza gestita di SQL
 
-Se sono necessarie più istanze gestite nelle aree correnti, inviare una richiesta di supporto per estendere la quota usando il portale di Azure.
-Per avviare il processo di acquisizione di una quota maggiore:
-
-1. Aprire **Guida e supporto** e fare clic su **Nuova richiesta di supporto**.
-
-   ![Guida e supporto](media/sql-database-managed-instance-resource-limits/help-and-support.png)
-2. Nella scheda Generale per la nuova richiesta di supporto:
-   - Per **Tipo di problema** selezionare **Limiti del servizio e della sottoscrizione (quote)** .
-   - In **Sottoscrizione** selezionare la propria sottoscrizione.
-   - Per **Tipo di quota** selezionare **Istanza gestita di database SQL**.
-   - Per **Piano di supporto** selezionare il piano di supporto in uso.
-
-     ![Tipo di problema: Quota](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
-
-3. Fare clic su **Avanti**.
-4. Nella **scheda problema** relativa alla nuova richiesta di supporto:
-   - Per **Gravità** selezionare il livello di gravità del problema.
-   - In **Dettagli** inserire informazioni aggiuntive relative al problema riscontrato, inclusi i messaggi di errore.
-   - In **Caricamento file** allegare un file con ulteriori informazioni (fino a 4 MB).
-
-     ![Dettagli del problema](media/sql-database-managed-instance-resource-limits/problem-details.png)
-
-     > [!IMPORTANT]
-     > Una richiesta valida deve includere:
-     > - Area in cui è necessario aumentare il limite della sottoscrizione.
-     > - Numero necessario di Vcore, per livello di servizio nelle subnet esistenti dopo l'aumento della quota (se è necessario espandere una delle subnet esistenti.
-     > - Numero necessario di nuove subnet e numero totale di Vcore per ogni livello di servizio all'interno delle nuove subnet, se è necessario distribuire istanze gestite in nuove subnet.
-
-5. Fare clic su **Avanti**.
-6. Nella scheda Informazioni contatto della nuova richiesta di supporto immettere la modalità di contatto preferita (posta elettronica o telefono) e i dettagli di contatto.
-7. Fare clic su **Crea**.
+Se sono necessarie più istanze gestite nelle aree correnti, inviare una richiesta di supporto per estendere la quota usando il portale di Azure. Per altre informazioni, vedere [incremento della quota di richieste per il database SQL di Azure](quota-increase-request.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
